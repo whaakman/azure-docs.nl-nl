@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d19b71542f032111bbd3d9c7f3fe246110377b5d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127583"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497753"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>'Tekst naar spraak' in de spraak-service gebruiken
 
-De spraak-service biedt de functionaliteit van tekst naar spraak via een eenvoudige HTTP-aanvraag. BOEKEN van de tekst die moet worden gesproken naar het juiste eindpunt en de service retourneert een geluidsbestand (`.wav`) spraak die worden gemaakt. Uw toepassing kunt vervolgens deze audio gebruiken, zoals het leuk vinden.
+De spraak-service biedt de functionaliteit van tekst naar spraak via een eenvoudige HTTP-aanvraag. U `POST` de tekst die moet worden gesproken naar het juiste eindpunt en de service retourneert een geluidsbestand (`.wav`) spraak die worden gemaakt. Uw toepassing kunt vervolgens deze audio gebruiken, zoals het leuk vinden.
 
 Aanvraag voor de hoofdtekst van het bericht voor tekst naar spraak mogelijk tekst zonder opmaak (ASCII of UTF8) of een [SSML](speech-synthesis-markup.md) document. Tekst zonder opmaak aanvragen worden met een standaardstem gesproken. In de meeste gevallen die u wilt gebruiken een SSML-instantie. De HTTP-aanvraag moet bevatten een [autorisatie](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 
@@ -40,7 +40,7 @@ Als u wilt een stem opgeven, gebruikt u de `<voice>` [SSML](speech-synthesis-mar
 
 Zie [tekst naar spraak stemmen](supported-languages.md#text-to-speech) voor een lijst van de beschikbare stemmen en hun namen.
 
-## <a name="make-a-request"></a>Een aanvraag indienen
+## <a name="make-a-request"></a>Een aanvraag doen
 
 Een tekst naar spraak HTTP-aanvraag wordt gedaan in de POST-modus met de tekst op die in de hoofdtekst van de aanvraag worden gesproken. De maximale lengte van de hoofdtekst van de HTTP-aanvraag is 1024 tekens. De aanvraag moet de volgende headers hebben: 
 

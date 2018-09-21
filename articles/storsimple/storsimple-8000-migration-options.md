@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818855"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498280"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opties voor het migreren van gegevens uit StorSimple 5000-7000 serie 
 
@@ -75,13 +75,22 @@ A. Ja. Migratie naar andere opslagoplossingen voor via het kopiëren van de host
 
 A. Migreren van 5000 of 7000-serie is een volledig ondersteunde bewerking. Microsoft raadt in feite contact opnemen met ondersteuning, voordat u de migratie start. Migratie wordt momenteel een bewerking voor assistentie. Als u wilt migreren van gegevens uit de StorSimple 5000-7000 serie apparaat [Open een ondersteuningsticket](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="q-how-does-the-cost-compare-for-the-two-listed-migrations-to-azure-hybrid-services"></a>V. Hoe de kosten voor de twee vermelde migraties met Azure hybrid services vergelijken? 
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>V. Wat is het prijsmodel voor zowel de opties voor de migratie?
 
-A. Kosten van de migratie is afhankelijk van welke optie die u kiest. Tijdens de migratie zelf is gratis, als u besluit om te upgraden naar een StorSimple 8000-serie, zullen er de kosten van het apparaat. Op dezelfde manier als u Azure File Sync, kunnen de abonnementskosten voor de service toepassing. In elk geval wordt ook klanten hebben om te betalen lopende opslagkosten. Raadpleeg [prijscalculator van Microsoft voor de respectieve services](https://azure.microsoft.com/pricing/#product-picker) voor een schatting te maken.  
+A. Kosten van de migratie is afhankelijk van welke optie die u kiest. Tijdens de migratie zelf is gratis, als u besluit om te upgraden naar een StorSimple 8000-serie, zullen er de kosten van het apparaat. 
+
+Op dezelfde manier als u Azure File Sync, kunnen de abonnementskosten voor de service toepassing. In elk geval wordt ook klanten hebben om te betalen lopende opslagkosten. Raadpleeg de volgende onderwerpen voor een schatting te maken: 
+- [Prijzen voor StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [AFS-prijzen]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>V.  Hoe lang duurt het om een migratie te voltooien?
 
 A. De tijd om gegevens te migreren, is afhankelijk van de hoeveelheid gegevens en de upgrade-optie geselecteerd. 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>V. Wat is de datum einde van ondersteuning voor StorSimple 8000-serie?
+
+A. De datum einde van ondersteuning voor StorSimple 8000-serie is gepubliceerd [hier](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+
 
 ## <a name="next-steps"></a>Volgende stappen
  - [Gegevens migreren van een StorSimple 5000-7000 serie naar een apparaat 8000-serie](storsimple-8000-migrate-from-5000-7000.md).

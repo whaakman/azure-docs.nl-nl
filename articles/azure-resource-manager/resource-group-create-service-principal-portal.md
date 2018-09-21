@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2f053f6dd98b9f4e97d69e51bce933a003633277
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025290"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497940"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken om een Azure Active Directory-toepassing en service-principal die toegang hebben tot resources te maken
 
@@ -27,7 +27,7 @@ Wanneer u de code die u moet toegang tot of het wijzigen van resources hebt, moe
 Dit artikel leest u hoe u deze stappen uitvoert via de portal. Dit artikel gaat over de toepassing van een één tenant waar de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt u één tenant toepassingen voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
 
 > [!IMPORTANT]
-> In plaats van een service-principal te maken, kunt u overwegen Azure AD Managed Service Identity te gebruiken voor de identiteit van uw toepassing. Azure AD MSI is een openbare preview-functie van Azure Active Directory die het eenvoudiger maakt om een identiteit voor code te maken. Als uw code wordt uitgevoerd op een service met ondersteuning voor Azure AD MSI en toegang heeft tot bronnen met ondersteuning voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie [Managed Service Identity voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie over Azure AD MSI en de services die MSI ondersteunen.
+> In plaats van het maken van een service-principal, kunt u overwegen beheerde identiteiten voor Azure-resources voor de identiteit van uw toepassingen. Als uw code wordt uitgevoerd op een service die ondersteuning biedt voor beheerde identiteiten en toegang tot bronnen die ondersteuning bieden voor Azure Active Directory-verificatie, zijn beheerde identiteiten een betere optie voor u. Zie voor meer informatie over beheerde identiteiten voor een Azure-resources, met inbegrip van welke services momenteel, [wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
@@ -53,7 +53,7 @@ Als u wilt in dit artikel hebt voltooid, moet u voldoende rechten hebt voor een 
 
 ### <a name="check-azure-subscription-permissions"></a>Controleer de machtigingen van de Azure-abonnement
 
-In uw Azure-abonnement, moet uw account beschikt over `Microsoft.Authorization/*/Write` toegang tot een AD-app toewijst aan een rol. Deze toegang wordt verleend via de rol [Eigenaar](../role-based-access-control/built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator). Als uw account is toegewezen aan de **Inzender** rol, u hebt niet voldoende machtigingen. U ontvangt een foutmelding wanneer u probeert de service-principal toewijzen aan een rol.
+In uw Azure-abonnement, moet uw account beschikt over `Microsoft.Authorization/*/Write` toegang tot een AD-app toewijst aan een rol. Deze toegang wordt verleend via de rol [Eigenaar](../role-based-access-control/built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator). Als uw account is toegewezen aan de **Inzender** rol, u hebt geen machtiging voldoende. U ontvangt een foutmelding wanneer u probeert de service-principal toewijzen aan een rol.
 
 Uw om abonnementsmachtigingen te controleren:
 
@@ -71,7 +71,7 @@ Uw om abonnementsmachtigingen te controleren:
 
 ## <a name="create-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing maken
 
-1. Meld u aan bij uw Azure-Account via de [Azure-portal](https://portal.azure.com).
+1. Meld u aan met uw Azure-Account via de [Azure-portal](https://portal.azure.com).
 1. Selecteer **Azure Active Directory**.
 
    ![azure active directory selecteren](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -84,7 +84,7 @@ Uw om abonnementsmachtigingen te controleren:
 
    ![toepassing toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en URL op voor de toepassing. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor de maken een [systeemeigen toepassing](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam en URL op voor de toepassing. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor de maken een [systeemeigen toepassing](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); daarom dat type niet voor een geautomatiseerde toepassing werkt. Na het instellen van de waarden, selecteer **maken**.
 
    ![toepassing een naam geven](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -114,7 +114,7 @@ Wanneer u zich programmatisch aanmeldt, hebt u de id voor uw toepassing en een v
 
    ![sleutel opslaan](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-id op om u aan te melden met de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
+   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Deze waarde niet kopiëren omdat u niet kunnen ophalen van de sleutel later opnieuw. U geeft de sleutelwaarde samen met de toepassings-ID aan te melden als de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
 
    ![opgeslagen sleutel](./media/resource-group-create-service-principal-portal/copy-key.png)
 

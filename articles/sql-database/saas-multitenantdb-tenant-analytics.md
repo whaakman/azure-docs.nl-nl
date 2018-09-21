@@ -1,6 +1,6 @@
 ---
 title: Analytics-query's uitvoeren op Azure SQL-databases | Microsoft Docs
-description: Cross-tenant-analytics query's met behulp van gegevens uit meerdere Azure SQL Database-databases hebt uitgepakt.
+description: Cross-tenant-analytics query's met behulp van gegevens uit meerdere Azure SQL Database-databases in een app met meerdere tenants hebt uitgepakt.
 keywords: zelfstudie SQL
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: anjangsh
-ms.reviewer: billgib, genemi
-ms.openlocfilehash: d5ffc9ade54ea02f34d25e4b6b7a4c0027b7d7b7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: anjangsh; billgib, genemi
+ms.openlocfilehash: 546cf4fc9a1aec23071b4d1cc69ece34e014da49
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733930"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498382"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant-analytics met behulp van de opgehaalde gegevens
-
-In deze zelfstudie doorloopt u een volledige analytics-scenario. Het scenario laat zien hoe analytics bedrijven om slimme beslissingen kan inschakelen. Gegevens die zijn geëxtraheerd uit de shard-database gebruikt, u analytics gebruiken voor inzicht in de tenant-gedrag, met inbegrip van hun gebruik van de Wingtip Tickets SaaS-voorbeeldtoepassing. In dit scenario bestaat uit drie stappen: 
+# <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Cross-tenant-analytics met behulp van de opgehaalde gegevens - app met meerdere tenants
+ 
+In deze zelfstudie doorloopt u een volledige analytics-scenario voor een multitenant-implementatie. Het scenario laat zien hoe analytics bedrijven om slimme beslissingen kan inschakelen. Gegevens die zijn geëxtraheerd uit de shard-database gebruikt, u analytics gebruiken voor inzicht in de tenant-gedrag, met inbegrip van hun gebruik van de Wingtip Tickets SaaS-voorbeeldtoepassing. In dit scenario bestaat uit drie stappen: 
 
 1.  **Gegevens ophalen** van elke tenantdatabase in een archief van de analyse.
 2.  **De opgehaalde gegevens optimaliseren** voor analyseverwerking.
@@ -240,5 +240,6 @@ Gefeliciteerd!
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Aanvullende [zelfstudies voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Elastische taken](sql-database-elastic-jobs-overview.md).
+- [Cross-tenant-analytics met behulp van data - app met één tenant opgehaald](saas-tenancy-tenant-analytics.md) 

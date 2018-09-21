@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247663"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498331"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Het schema in een SaaS-toepassing die gebruikmaakt van shard SQL-databases van meerdere tenants beheren
-
+ 
 In deze zelfstudie onderzoekt de uitdagingen bij het onderhouden van een hele vloot van databases in een Software als een dienst (SaaS)-toepassing. Oplossingen worden voor airconditioningapparatuur van schemawijzigingen in de vloot van databases gedemonstreerd.
 
 Net als elke toepassing, de Wingtip Tickets SaaS-app na verloop van tijd en de wijzigingen in de database is vereist. Wijzigingen kunnen invloed hebben op schema of een verwijzing gegevens of databaseonderhoudstaken toepassen. Met een SaaS-toepassing met behulp van een database per tenant patroon moeten de wijzigingen worden gecoördineerd in een mogelijk enorme reeks tenantdatabases. Bovendien moet u deze wijzigingen opnemen in de database inrichtingsproces om te controleren of dat ze zijn opgenomen in nieuwe databases nadat ze zijn gemaakt.

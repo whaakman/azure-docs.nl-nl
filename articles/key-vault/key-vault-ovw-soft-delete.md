@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: c8bde99e0247871212766a9915b9d07b7f392201
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465585"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498178"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Key Vault-functie voor voorlopig verwijderen
 
@@ -37,9 +37,16 @@ Sleutelkluizen van Azure worden bijgehouden bronnen, die worden beheerd door Azu
 
 ### <a name="soft-delete-behavior"></a>Gedrag van de functie voor voorlopig verwijderen
 
-Met deze functie is de DELETE-bewerking op een key vault of key vault-object een voorlopig verwijderen, effectief met de resources voor een bepaalde bewaartermijn, terwijl het uiterlijk dat het object is verwijderd. De service meer biedt een mechanisme voor het herstellen van het verwijderde object, in feite de verwijdering ongedaan te maken. 
+Met deze functie is de DELETE-bewerking op een key vault of key vault-object een voorlopig verwijderen, daadwerkelijk de resources die voor een bepaalde bewaartermijn (90 dagen), terwijl het uiterlijk dat het object is verwijderd. De service meer biedt een mechanisme voor het herstellen van het verwijderde object, in feite de verwijdering ongedaan te maken. 
 
 Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard ingeschakeld** in deze release. 
+
+### <a name="do-not-purge-flag"></a>De vlag niet leegmaken
+Een gebruiker wil verwijderen van de kluis of het object kluis forceren kunt doen. Dat is als een gebruiker met machtigingen voor het verwijderen van een kluis of een object in de kluis opschonen kunt dwingen, zelfs als de functie voor voorlopig verwijderen voor deze kluis is ingeschakeld. Maar als de gebruiker wil voorkomen dat force wordt verwijderd van de kluis of het object kluis ze kunt--inschakelen opschonen beveiliging vlag waar. Wanneer u een kluis maakt, kunt u de vlag inschakelen op deze manier. De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld. De opdracht uit om dit te doen in Azure CLI 2 is
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
 
 ### <a name="key-vault-recovery"></a>Herstel van de sleutelkluis
 

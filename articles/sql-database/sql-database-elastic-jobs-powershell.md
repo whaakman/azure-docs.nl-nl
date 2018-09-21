@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 6f72e0cbb4476e9ff22bd1a1ead8dbee24a7edf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646122"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498416"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>SQL Database elastische taken met behulp van PowerShell (preview) maken en beheren
 
@@ -213,7 +213,7 @@ Aanbevolen beveiligingsprocedures voor taken voor Elastic Database zijn onder an
 * Referenties zijn de minimaal benodigde bevoegdheden die nodig zijn om uit te voeren van de taak.  Meer informatie kan worden weergegeven in deze [autorisatie en machtigingen](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server-MSDN-artikel.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Een versleutelde referentie voor de taakuitvoering van de voor databases maken
-Een nieuwe versleutelde referentie maken de [ **cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) gevraagd een gebruikersnaam en wachtwoord die kan worden doorgegeven aan de [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Een nieuwe versleutelde referentie maken de [ **cmdlet Get-Credential** ](/powershell/module/microsoft.powershell.security/get-credential) gevraagd een gebruikersnaam en wachtwoord die kan worden doorgegeven aan de [ **cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

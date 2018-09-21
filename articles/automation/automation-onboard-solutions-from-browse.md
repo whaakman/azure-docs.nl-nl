@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c326232e0fc8f5f878241186eac8ae5ed23f0958
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 83a768b82172b8736ea06bfed012309ac92734b7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366757"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497957"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Inschakelen van updatebeheer, wijzigingen bijhouden en inventaris-oplossingen op meerdere virtuele machines
 
@@ -51,9 +51,13 @@ Gebruik de besturingselementen voor filteren om te selecteren van virtuele machi
 
 ![Onboarden voor updatebeheer](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Controleer de keuzes voor de Log analytics-werkruimte en het Automation-account. Een nieuwe werkruimte en een Automation-Account zijn standaard geselecteerd. Als u een bestaande Log Analytics-werkruimte en een Automation-Account hebt u wilt gebruiken, klikt u op **wijzigen** te selecteren uit de **configuratie** pagina. Klik op **Opslaan** als u klaar bent.
+Controleer de keuzes voor de Log analytics-werkruimte en het Automation-account. Een bestaande werkruimte en een Automation-Account zijn standaard geselecteerd. Als u gebruiken een andere Log Analytics-werkruimte en een Automation-Account wilt, klikt u op **aangepaste** te selecteren uit de **aangepaste configuratie** pagina. Wanneer u ervoor een Log Analytics-werkruimte kiest, wordt een controle uitgevoerd om te bepalen als deze is gekoppeld aan een Automation-Account. Als een gekoppelde Automation-Account wordt gevonden, ziet u het volgende scherm. Wanneer u klaar bent, klikt u op **OK**.
 
 ![Selecteer een werkruimte en account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Als de geselecteerde werkruimte is niet gekoppeld aan een Automation-Account, ziet u het volgende scherm. Selecteer een Automation-Account en klik op **OK** wanneer u klaar bent.
+
+![Er is geen werkruimte](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Schakel het selectievakje naast een virtuele machine die u niet wilt inschakelen. Virtuele machines die kan niet worden ingeschakeld, zijn al uitgeschakeld.
 

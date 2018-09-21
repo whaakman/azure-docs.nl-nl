@@ -1,6 +1,6 @@
 ---
 title: Azure media intelligence | Microsoft Docs
-description: Wanneer u Azure Media Services gebruikt, kunt u uw audio en video contnet met AudioAnalyzerPreset en VideoAnalyzerPreset analyseren.
+description: Wanneer u Azure Media Services gebruikt, kunt u uw audio en video contnet met behulp van AudioAnalyzerPreset en VideoAnalyzerPreset kunt analyseren.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,48 +11,48 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331517"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498688"
 ---
 # <a name="media-intelligence"></a>Mediagegevens
 
-Azure Media Services REST v3-API kunt u audio en video-inhoud analyseren. Voor het analyseren van uw inhoud die u maakt een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: **AudioAnalyzerPreset** of **VideoAnalyzerPreset** . 
+Azure Media Services REST v3 API kunt u voor het analyseren van audio en video-inhoud. Voor het analyseren van uw inhoud die u maakt een **transformeren** en het verzenden van een **taak** die gebruikmaakt van een van deze standaardinstellingen: **AudioAnalyzerPreset** of **VideoAnalyzerPreset** . 
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
-**AudioAnalyzerPreset** kunt u meerdere audio insights extraheren uit een audio- of -bestand. De uitvoer bevat een JSON-bestand (met de inzichten) en VTT-bestand voor de tekst van de audio. Deze definitie accepteert een eigenschap die specificeert de taal van het bestand voor invoer in de vorm van een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks. De audio inzichten zijn onder andere:
+**AudioAnalyzerPreset** kunt u meerdere audio inzichten ophalen uit een audio- of -bestand. De uitvoer bevat een JSON-bestand (met de inzichten) en een VTT-bestand voor de audiotranscript. Deze definitie accepteert een eigenschap die Hiermee geeft u de taal van het invoerbestand in de vorm van een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks. De audio inzichten zijn onder andere:
 
-* Audio schrijffouten – de tekst van de gesproken woorden met tijdstempels. Meerdere talen worden ondersteund
-* Spreker indexeren – een toewijzing van de luidsprekers en de bijbehorende gesproken woorden
-* Spraak gevoel analyse – de uitvoer van gevoel analyse wordt uitgevoerd op de audio schrijffouten
-* Trefwoorden: trefwoorden die worden opgehaald uit de audio schrijffouten.
+* Audiotranscriptie – een transcript van de gesproken woorden met tijdstempels. Meerdere talen worden ondersteund
+* Sprekerherkenning indexeren – een toewijzing van de sprekers en de bijbehorende gesproken woorden
+* Sentimentanalyse voor spraak: de uitvoer van sentimentanalyse uitgevoerd op de audiotranscriptie
+* Trefwoorden: trefwoorden die worden opgehaald uit de audiotranscriptie.
 
 ## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** kunt u meerdere audio en video insights extraheren uit een videobestand. De uitvoer bevat een JSON-bestand (met de inzichten), een VTT-bestand voor de tekst van de video en een verzameling van miniatuurweergaven. Deze definitie accepteert ook een [BCP47](https://tools.ietf.org/html/bcp47) type string (de taal van de video) als een eigenschap. De video inzichten omvatten de audio inzichten bovengenoemde en de volgende extra onderdelen:
+**VideoAnalyzerPreset** kunt u meerdere audio en video-inzichten ophalen uit een videobestand. De uitvoer bevat een JSON-bestand (met de inzichten), een VTT-bestand voor de videotranscriptie en een verzameling van miniatuurweergaven. Deze definitie accepteert ook een [BCP47](https://tools.ietf.org/html/bcp47) tekenreeks (die vertegenwoordigt de taal van de video) als een eigenschap. De inzichten in video's zijn onder andere de audio inzichten die hierboven worden vermeld en in de volgende extra items:
 
-* Face volgen – de tijd gedurende welke vlakken aanwezig in de video zijn. Elk vlak heeft een face-id en een bijbehorende verzameling van miniatuurweergaven
-* Visual tekst-de tekst die wordt gedetecteerd via OCR. De tekst is geautoriseerd en ook gebruikt voor het uitpakken van trefwoorden (naast de tekst van de audio)
-* Keyframes: een verzameling van keyframes die worden opgehaald uit de video
-* Visual inhoud toezicht – het gedeelte van de video's die zijn gemarkeerd als volwassene of mooie aard
-* Aantekening – een resultaat van de video's op basis van een vooraf gedefinieerde objectmodel aantekeningen maken
+* Face volgen – de tijd gedurende welke gezichten aanwezig in de video zijn. Elk gezicht heeft een gezichts-id en bijbehorende verzameling van miniatuurweergaven
+* Visual tekst-de tekst die via optische tekenherkenning wordt gedetecteerd. De tekst is het tijd stempel en ook worden gebruikt om op te halen van trefwoorden (naast de audiotranscript)
+* Hoofdframes: een verzameling van hoofdframes die worden opgehaald uit de video
+* Visual inhoudstoezicht – het gedeelte van de video's die zijn gemarkeerd als volwassene of ongepaste in de natuur
+* Aantekening – een resultaat van de video's op basis van een vooraf gedefinieerde objectmodel aantekeningen te maken
 
 ##  <a name="insightsjson-elements"></a>Insights.JSON elementen
 
-De uitvoer bevat een JSON-bestand (insights.json) met de inzichten die zijn gevonden in de video of audio. De json kan de volgende elementen bevatten:
+De uitvoer bevat een JSON-bestand (insights.json) met de inzichten die zijn gevonden in de video of audio. De json, kan de volgende elementen bevatten:
 
-### <a name="transcript"></a>de tekst
+### <a name="transcript"></a>transcript
 
 |Naam|Beschrijving|
 |---|---|
 |id|De regel-ID.|
-|tekst|De tekst zelf.|
-|taal|De taal van de tekst. Bedoeld ter ondersteuning van de tekst waarbij elke regel een andere taal kan hebben.|
-|exemplaren|Een lijst met tijdsbereik waarop deze regel komt. Als de instantie een van de tekst is, wordt er slechts 1 exemplaar.|
+|tekst|Het transcript zelf.|
+|Taal|De transcript-taal. Bedoeld ter ondersteuning van transcript waarbij elke regel een andere taal kan hebben.|
+|instanties|Een lijst met bereiken van tijd waarop deze regel wordt weergegeven. Als de instantie transcript is, is er slechts 1 exemplaar.|
 
 Voorbeeld:
 
@@ -87,11 +87,11 @@ Voorbeeld:
 
 |Naam|Beschrijving|
 |---|---|
-|id|De OCR regel-ID.|
+|id|De OCR-regel-ID.|
 |tekst|De tekst.|
-|Vertrouwen|Het vertrouwen herkenning.|
-|taal|De OCR-taal.|
-|exemplaren|Een lijst met tijdsbereik waar deze OCR komt (de dezelfde OCR kan meerdere keren voorkomen).|
+|vertrouwen|De opname-vertrouwen.|
+|Taal|De OCR-taal.|
+|instanties|Een lijst met tijdsbereik waar deze OCR weergegeven (de dezelfde OCR kan meerdere keren voorkomen).|
 
 ```json
 "ocr": [
@@ -126,69 +126,21 @@ Voorbeeld:
   ],
 ```
 
-### <a name="keywords"></a>trefwoorden
-
-|Naam|Beschrijving|
-|---|---|
-|id|Het sleutelwoord-ID.|
-|tekst|De tekst sleutelwoord.|
-|Vertrouwen|Het sleutelwoord erkenning vertrouwen.|
-|taal|Het sleutelwoord-taal (wanneer vertaald).|
-|exemplaren|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
-### <a name="faces"></a>Bespreekt
+### <a name="faces"></a>gezichten
 
 |Naam|Beschrijving|
 |---|---|
 |id|De face-ID.|
 |naam|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
-|Vertrouwen|Het vertrouwen van face-identificatie.|
-|beschrijving|In geval van een beroemdheden, de beschrijving. |
-|thumbnalId|De id van de miniatuur van die gezicht.|
-|knownPersonId|In geval van een bekende persoon, de interne-ID.|
-|referenceId|In geval van een Bing beroemdheden, de Bing-ID.|
+|vertrouwen|De face id vertrouwen.|
+|description|Een beschrijving van de beroemdheden. |
+|thumbnalId|De ID van de miniatuur van die gezicht.|
+|knownPersonId|Als dit een bekende persoon, in de interne-ID is.|
+|referenceId|Als het een Bing beroemdheden, het Bing-ID.|
 |referenceType|Op dit moment alleen Bing.|
-|titel|In geval van een beroemdheden titel (bijvoorbeeld ' Microsoft CEO').|
-|imageUrl|In geval van een beroemdheden de afbeeldings-url.|
-|exemplaren|Dit zijn exemplaren van waar de face in het bereik van de opgegeven tijd komt. Elk exemplaar heeft ook een thumbnailsId. |
+|titel|Als het een beroemdheden, de titel "(bijvoorbeeld van Microsoft CEO).|
+|imageUrl|Als het een beroemdheden, de afbeeldings-url.|
+|instanties|Dit zijn exemplaren van waar het gezicht wordt weergegeven in de opgegeven periode. Elk exemplaar heeft ook een thumbnailsId. |
 
 ```json
 "faces": [{
@@ -219,14 +171,119 @@ Voorbeeld:
 }]
 ```
 
+### <a name="shots"></a>foto 's
+
+|Naam|Beschrijving|
+|---|---|
+|id|Id van de schermopname.|
+|Hoofdframes|Een lijst met belangrijke frames in beeld (elk heeft een ID en een lijst met instanties tijdsbereik). Belangrijkste frames-exemplaren beschikken over een thumbnailId veld met de miniatuur van het sleutelframes-id.|
+|instanties|Een lijst met tijdsbereiken van deze schermopname (opnamen hebben slechts 1 exemplaar).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>statistieken
+
+|Naam|Beschrijving|
+|---|---|
+|CorrespondenceCount|Het aantal berichten in de video.|
+|WordCount|Het aantal woorden per spreker.|
+|SpeakerNumberOfFragments|De hoeveelheid van de spreker in een video heeft fragmenten.|
+|SpeakerLongestMonolog|Van de spreker langste monolog. Als de spreker silences binnen de monolog is opgenomen. Stilte aan het begin en het einde van de monolog wordt verwijderd.| 
+|SpeakerTalkToListenRatio|De berekening is gebaseerd op de tijd die op van de spreker monolog (zonder de stilte in tussen) gedeeld door de totale tijd van de video. De tijd wordt afgerond op de derde decimaalteken.|
+
+
+### <a name="sentiments"></a>sentimenten
+
+Sentimenten worden samengevoegd door hun sentimentType veld (positieve/neutraal/negatieve). Bijvoorbeeld, 0-0.1, 0.1 0.2.
+
+|Naam|Beschrijving|
+|---|---|
+|id|De id van de gevoelsscore.|
+|averageScore |Het gemiddelde van alle scores van alle exemplaren van dat type sentiment - positieve/neutraal/negatieve|
+|instanties|Een lijst met tijdsbereik waar deze sentiment werd weergegeven.|
+|sentimentType |Het type kan worden 'Positief', 'Neutrale' of 'Negatieve'.|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
+```
+
 ### <a name="labels"></a>labels
 
 |Naam|Beschrijving|
 |---|---|
 |id|De label-ID.|
-|naam|De labelnaam (bijvoorbeeld 'Computer', 'TV').|
-|taal|De taal met de label-naam (wanneer vertaald). BCP 47|
-|exemplaren|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
+|naam|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
+|Taal|De taal met de label-naam (wanneer het wordt omgezet). BCP-47|
+|instanties|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
 
 
 ```json
@@ -278,95 +335,93 @@ Voorbeeld:
   ] 
 ```
 
-### <a name="shots"></a>schermafbeeldingen
+### <a name="keywords"></a>trefwoorden
 
 |Naam|Beschrijving|
 |---|---|
-|id|De schermopname-ID.|
-|keyFrames|Een lijst met keyframes in beeld (elk met een ID en een lijst met instanties tijdsbereik).|
-|exemplaren|Een lijst met tijdsbereiken van deze geschoten (schermafbeeldingen hebben slechts 1 exemplaar).|
+|id|Het sleutelwoord-ID.|
+|tekst|De tekst trefwoord.|
+|vertrouwen|Van het sleutelwoord erkenning vertrouwen.|
+|Taal|Het sleutelwoord-taal (wanneer het wordt omgezet).|
+|instanties|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>Zie
-
-Zie worden samengevoegd door hun sentimentType veld (neutrale-positieve/negatieve). Bijvoorbeeld, 0-0,1 0,1 0,2.
-
-|Naam|Beschrijving|
-|---|---|
-|id|De gevoel-ID.|
-|averageScore |Het gemiddelde van alle scores van alle exemplaren van dat type gevoel - neutrale-positieve/negatieve|
-|exemplaren|Een lijst met tijdsbereik waar deze gevoel komt.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+Het blok visualContentModeration bevat tijdsbereik die Video Indexer hebben mogelijk inhoud voor volwassenen gevonden. Als visualContentModeration leeg is, is er geen inhoud voor volwassenen die is geïdentificeerd.
+
+Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikbaar voor alleen persoonlijke weergave. Gebruikers hebben de optie voor het verzenden van een aanvraag voor een menselijke beoordeling van de inhoud in dit geval kan het kenmerk IsAdult het resultaat van de menselijke beoordeling bevat.
+
+|Naam|Beschrijving|
+|---|---|
+|id|De id van de visual inhoudstoezicht.|
+|adultScore|De erotiekscore (van content moderator).|
+|racyScore|De erotiekscore (van inhoudstoezicht).|
+|instanties|Een lijst met tijdsbereik waar deze visual inhoudstoezicht werd weergegeven.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Analyseren video's met Azure Media Services](analyze-videos-tutorial-with-api.md)
+> [Zelfstudie: Analyseren van video's met Azure Media Services](analyze-videos-tutorial-with-api.md)

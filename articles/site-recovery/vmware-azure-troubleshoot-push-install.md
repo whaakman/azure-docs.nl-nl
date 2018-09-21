@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery probleemoplossing van VMware naar Azure | Microsoft Docs
+title: Problemen oplossen met Mobility-Service-push-installatie mislukte tijdens Replication(VMware to Azure) inschakelen | Microsoft Docs
 description: Mobility service-push-Installatiefouten bij het repliceren van virtuele machines van Azure oplossen.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.author: ramamill
 ms.date: 09/19/2018
-ms.openlocfilehash: 32b579ac680204a909c19e7125711d298b08b26a
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 22c01f2bd9c763eeb681bf2d60e0ccffe1154d85
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365482"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497617"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
