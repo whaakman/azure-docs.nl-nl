@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247877"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35762871"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Een beheerde toepassing publiceren voor intern gebruik
 
@@ -171,7 +171,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Een Azure Active Directory-gebruikersgroep of -toepassing maken
 
-De volgende stap is het selecteren van een gebruikersgroep of toepassing om de resources namens de klant te beheren. Deze gebruikersgroep of toepassing heeft machtigingen voor de beheerde resourcegroep overeenkomstig de toegewezen rol. De rol kan elke ingebouwde rol van op rollen gebaseerd toegangsbeheer (RBAC) zijn, zoals Eigenaar of Inzender. U kunt ook een afzonderlijke gebruiker toestemming geven om de resources te beheren, maar meestal wijst u deze machtiging toe aan een gebruikersgroep. Zie [Een groep maken en leden toevoegen in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) voor instructies voor het maken van een nieuwe Active Directory-gebruikersgroep.
+De volgende stap is het selecteren van een gebruikersgroep of toepassing om de resources namens de klant te beheren. Deze gebruikersgroep of toepassing heeft machtigingen voor de beheerde resourcegroep overeenkomstig de toegewezen rol. De rol kan elke ingebouwde rol van op rollen gebaseerd toegangsbeheer (RBAC) zijn, zoals Eigenaar of Inzender. U kunt ook een afzonderlijke gebruiker toestemming geven om de resources te beheren, maar meestal wijst u deze machtiging toe aan een gebruikersgroep. Zie [Een groep maken en leden toevoegen in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) voor instructies voor het maken van een nieuwe Active Directory-gebruikersgroep.
 
 U hebt de object-id van de gebruikersgroep nodig om de resources te beheren. 
 
@@ -273,7 +273,7 @@ Vervolgens gebruiken we de portal om de beheerde toepassing te implementeren. U 
 
    Wanneer het abonnement is geselecteerd, begint u opnieuw met het maken van de beheerde toepassing voor de servicecatalogus. Deze moet nu worden weergegeven.
 
-1. Geef basisgegevens op die vereist zijn voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op voor de beheerde toepassing. Selecteer **West-centraal VS** als de locatie. Selecteer **Ok** wanneer u gereed bent.
+1. Geef basisgegevens op die vereist zijn voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op voor de beheerde toepassing. Selecteer **US - west-centraal** als de locatie. Selecteer **Ok** wanneer u gereed bent.
 
    ![Parameters voor beheerde toepassing opgeven](./media/publish-service-catalog-app/add-basics.png)
 

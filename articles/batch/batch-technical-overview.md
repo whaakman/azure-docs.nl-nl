@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311988"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621276"
 ---
 # <a name="what-is-azure-batch"></a>Wat is Azure Batch?
 
@@ -61,7 +61,7 @@ Workload-specifieke mogelijkheden van een hoger niveau zijn voor Azure Batch ook
 * Batch ondersteunt grootschalige [rendering-workloads](batch-rendering-service.md) met hulpprogramma's voor rendering inclusief Autodesk Maya, 3ds Max, Arnold en V-Ray. 
 * R-gebruikers kunnen het [doAzureParallel R-pakket](https://github.com/Azure/doAzureParallel) installeren om eenvoudig de uitvoering van R-algoritmen voor Batch-pools uit te schalen.
 
-U kunt ook Batch-taken uitvoeren als onderdeel van een grotere Azure-werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+U kunt ook Batch-taken uitvoeren als onderdeel van een grotere Azure-werkstroom, beheerd door hulpprogramma's zoals [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## <a name="how-it-works"></a>Hoe werkt het?
