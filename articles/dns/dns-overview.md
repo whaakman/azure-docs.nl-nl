@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/7/2018
 ms.author: victorh
-ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174629"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574178"
 ---
 # <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
 Azure DNS is een service voor het hosten van DNS-domeinen die naamomzetting verzorgt met behulp van de Microsoft Azure-infrastructuur. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services.
 
-U kunt Azure DNS niet gebruiken om een ​​domeinnaam te kopen. Tegen een jaarlijkse vergoeding kunt u een domeinnaam kopen met behulp van [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) of een externe domeinnaamregistrar. Uw domeinen kunnen vervolgens worden gehost in Azure DNS voor recordbeheer. Zie [Een domein aan Azure DNS overdragen](dns-domain-delegation.md) voor meer informatie.
+U kunt Azure DNS niet gebruiken om een ​​domeinnaam te kopen. Tegen een jaarlijkse vergoeding kunt u een domeinnaam kopen met behulp van [Azure Web Apps](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) of een externe domeinnaamregistrar. Uw domeinen kunnen vervolgens worden gehost in Azure DNS voor recordbeheer. Zie [Een domein aan Azure DNS overdragen](dns-domain-delegation.md) voor meer informatie.
 
 De volgende functies zijn opgenomen in Azure DNS:
 
@@ -30,11 +30,11 @@ DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS
 
 De Azure DNS-service is gebaseerd op Azure Resource Manager. Dus krijgt u Resource Manager-functies zoals:
 
-* [op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control) om te bepalen wie er toegang heeft tot bepaalde acties voor uw organisatie.
+* [op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) om te bepalen wie er toegang heeft tot bepaalde acties voor uw organisatie.
 
-* [activiteitenlogboeken](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs) om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd, of te gebruiken bij het opsporen van fouten.
+* [activiteitenlogboeken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd, of te gebruiken bij het opsporen van fouten.
 
-* [resourcevergrendeling](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources) om een ​​abonnement, resourcegroep of bron te vergrendelen om te voorkomen dat andere gebruikers in uw organisatie per ongeluk kritieke resources verwijderen of wijzigen.
+* [resourcevergrendeling](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) om een ​​abonnement, resourcegroep of bron te vergrendelen om te voorkomen dat andere gebruikers in uw organisatie per ongeluk kritieke resources verwijderen of wijzigen.
 
 Zie voor meer informatie [DNS-zones en -records beschermen](dns-protect-zones-recordsets.md). 
 

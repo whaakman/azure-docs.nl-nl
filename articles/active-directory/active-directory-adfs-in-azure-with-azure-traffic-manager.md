@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ed0b551faba68c0956be89277348eeee60d759c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26604776"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298214"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
-[AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.
+[AD FS-implementatie in Azure](hybrid/how-to-connect-fed-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.
 
 Met een maximaal beschikbare AD FS-infrastructuur in meerdere regio’s kunt u:
 
@@ -45,7 +45,7 @@ De algemene ontwerpprincipes zijn hetzelfde als de principes die worden vermeld 
 
 ## <a name="steps-to-integrate-azure-traffic-manager"></a>Stappen voor het integreren van Azure Traffic Manager
 ### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>AD FS implementeren in de nieuwe geografische regio
-Volg de stappen en richtlijnen in [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) voor het implementeren van dezelfde topologie in de nieuwe geografische regio.
+Volg de stappen en richtlijnen in [AD FS-implementatie in Azure](hybrid/how-to-connect-fed-azure-adfs.md) voor het implementeren van dezelfde topologie in de nieuwe geografische regio.
 
 ### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>DNS-labels voor openbare IP-adressen van de openbare, internetgerichte load balancers
 Zoals eerder vermeld, kan Azure Traffic Manager alleen verwijzen naar DNS-labels als eindpunt. Daarom is het belangrijk om DNS-labels te maken voor de openbare IP-adressen van de externe load balancers. In de schermafbeelding hieronder ziet u hoe u uw DNS-label kunt configureren voor het openbare IP-adres. 
@@ -97,7 +97,7 @@ Volg de onderstaande stappen om een Traffic Manager-profiel te maken. Zie [Een A
 
 ## <a name="test-the-routing-and-ad-fs-sign-in"></a>De routering en aanmelding bij AD FS testen
 ### <a name="routing-test"></a>Routeringstest
-Een voorbeeld van een eenvoudige routeringstest is het pingen van de DNS-naam van de Federation Service via één computer in elke geografische regio. Afhankelijk van de gekozen routeringsmethode wordt het eindpunt dat wordt gepingd weergegeven in het pingscherm. Als u bijvoorbeeld de routeringsoptie Prestaties hebt geselecteerd, wordt het eindpunt dat het dichtst bij de regio van de client ligt, bereikt. Hieronder ziet u een schermafbeelding van twee pings van twee clientapparaten in verschillende regio’s: één in Oost-Azië en één in het westen van de Verenigde Staten. 
+Een voorbeeld van een eenvoudige routeringstest is het pingen van de DNS-naam van de Federation Service via één computer in elke geografische regio. Afhankelijk van de gekozen routeringsmethode wordt het eindpunt dat wordt gepingd weergegeven in het pingscherm. Als u bijvoorbeeld de routeringsoptie Prestaties hebt geselecteerd, wordt het eindpunt dat het dichtst bij de regio van de client ligt, bereikt. Hieronder ziet u een schermafbeelding van twee pings van twee clientapparaten in verschillende regio’s: één in Azië - oost en één in het US - west. 
 
 ![Routeringstest](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
@@ -116,7 +116,7 @@ De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon
     ![AD FS-test - verificatie geslaagd](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
 ## <a name="related-links"></a>Verwante koppelingen
-* [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md)
+* [AD FS-implementatie in Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) (Verkeersrouteringsmethoden van Traffic Manager)
 

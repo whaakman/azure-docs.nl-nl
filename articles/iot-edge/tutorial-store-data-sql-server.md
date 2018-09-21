@@ -9,12 +9,12 @@ ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 19d2472b526c38880f9241ec448f8a9d4a327f2a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300350"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294183"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: gegevens opslaan aan de rand met SQL Server-databases
 
@@ -228,6 +228,7 @@ In de voorgaande secties hebt u een oplossing met één module gemaakt en er ver
    CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
    CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
+
 2. Sla het .env-bestand op.
 3. Meld u aan bij uw containerregister in Visual Studio Code, zodat u uw installatiekopieën naar uw register kunt pushen. Gebruik dezelfde referenties die u aan het .env-bestand hebt toegevoegd. Voer de volgende opdracht in de geïntegreerde terminal in:
 

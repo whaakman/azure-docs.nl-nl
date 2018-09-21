@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089818"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574127"
 ---
 # <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
@@ -61,8 +61,8 @@ De openbare preview van Azure Firewall heeft de volgende bekende problemen:
 |---------|---------|---------|
 |Interoperabiliteit met NSG's     |Als een netwerkbeveiligingsgroep (NSG) wordt toegepast op het subnet van de firewall, kan het uitgaande internetverbindingen blokkeren, zelfs als de NSG is geconfigureerd voor het toestaan van uitgaande internettoegang. Uitgaande internetverbindingen zijn gemarkeerd als afkomstig van een VirtualNetwork en de bestemming is internet. Voor een NSG is VirtualNetwork to VirtualNetwork standaard ingesteld op *toestaan*, maar niet wanneer het doel internet is.|Voeg om dit probleem op de lossen de volgende inkomende regel toe aan de NSG die is toegepast op het subnet van de firewall:<br><br>Bron: VirtualNetwork-bronpoorten: alle <br><br>Doel: alle doelpoorten: alle <br><br>Protocol: alle toegang: toestaan|
 |Conflict met de JIT-functie (Just-in-Time) van Azure Security Center (ASC)|Als een virtuele machine wordt geopend met behulp van JIT en zich in een subnet bevindt met een door de gebruiker gedefinieerde route die naar Azure Firewall als een standaardgateway verwijst, werkt ASC JIT niet. Dit is het gevolg van asymmetrische routering: er komt een pakket binnen via de openbare IP van de virtuele machine (JIT geopend voor toegang), maar het retourpad gaat via de firewall, die het pakket weigert omdat er geen sessie tot stand is gebracht op de firewall.|Om dit probleem te omzeilen, plaatst u de virtuele JIT-machines op een apart subnet dat geen door de gebruiker gedefinieerde route naar de firewall bevat.|
-|Hub-en-spoke met wereldwijde peering werkt niet|Het hub-en-spoke-model, waar de hub en de firewall zijn geïmplementeerd in een Azure-regio en de spokes zich in een andere Azure-regio bevinden, dat met de hub is verbonden via wereldwijde peering, wordt niet ondersteund.|Zie voor meer informatie [Peering voor het virtuele netwerk maken, wijzigen of verwijderen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken niet voor internetverkeer|Netwerkfilterregels voor niet-TCP/UDP-protocollen werken niet met SNAT naar uw openbare IP-adres. Niet-TCP/UDP-protocollen worden ondersteund tussen spoke-subnetten en VNets.|Azure Firewall maakt gebruik van de standaardversie van Standard Load Balancer, [die momenteel geen ondersteuning biedt voor SNAT voor IP-protocollen](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations). We onderzoeken mogelijkheden om dit scenario in een toekomstige release te ondersteunen.
+|Hub-en-spoke met wereldwijde peering werkt niet|Het hub-en-spoke-model, waar de hub en de firewall zijn geïmplementeerd in een Azure-regio en de spokes zich in een andere Azure-regio bevinden, dat met de hub is verbonden via wereldwijde peering, wordt niet ondersteund.|Zie voor meer informatie [Peering voor het virtuele netwerk maken, wijzigen of verwijderen](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+Netwerkfilterregels voor niet-TCP/UDP-protocollen (bijvoorbeeld ICMP) werken niet voor internetverkeer|Netwerkfilterregels voor niet-TCP/UDP-protocollen werken niet met SNAT naar uw openbare IP-adres. Niet-TCP/UDP-protocollen worden ondersteund tussen spoke-subnetten en VNets.|Azure Firewall maakt gebruik van de standaardversie van Standard Load Balancer, [die momenteel geen ondersteuning biedt voor SNAT voor IP-protocollen](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). We onderzoeken mogelijkheden om dit scenario in een toekomstige release te ondersteunen.
 
 
 

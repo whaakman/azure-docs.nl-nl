@@ -1,6 +1,7 @@
 ---
 title: 'Snelstartgids: de Bing Web Search SDK voor Java gebruiken'
-description: Leer de Bing Web Search SDK voor Java gebruiken.
+titleSuffix: Azure Cognitive Services
+description: Met de Bing Web Search SDK kunt u Bing Web Search eenvoudig integreren in uw Java-toepassing. In deze snelstartgids leert u hoe u een aanvraag verzendt, een JSON-antwoord ontvangt en de resultaten filtert en parseert.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: erhopf
-ms.openlocfilehash: cc7335b9f8b5596edef895ff5a42a1018b06a381
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8db2f6a67f64216276ccdb0b16bbeb48565f6bc6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186724"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127598"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Snelstartgids: de Bing Web Search SDK voor Java gebruiken
 
@@ -26,7 +27,7 @@ Wilt u de code nu zien? De [voorbeelden voor de Bing Web Search SDK voor Java](h
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over het volgende beschikken voordat u verdergaat met deze snelstartgids:
+Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Maven](https://maven.apache.org/download.cgi) of uw favoriete hulpprogramma voor het automatiseren van builds

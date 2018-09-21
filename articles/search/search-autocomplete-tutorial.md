@@ -9,16 +9,16 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989672"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578171"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Zelfstudie: Automatisch aanvullen aan het zoekvak toevoegen met Azure Search
 
-Tijdens deze zelfstudie leert u hoe u met behulp van [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisch aanvullen](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) en [facetten](search-faceted-navigation.md) in de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) en [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) een zeer efficiënt zoekvak kunt bouwen. *Suggesties* biedt aanbevelingen van werkelijke resultaten op basis van wat de gebruiker tot dusverre heeft getypt. *Automatisch aanvullen* is [een nieuwe preview-functie](search-api-preview.md) in Azure Search die termen aanbiedt die afkomstig zijn uit de index, om aan te vullen wat de gebruiker op dat moment typt. Er worden meerdere technieken met elkaar vergeleken die de productiviteit van gebruikers verbeteren, waardoor deze in staat zijn om snel en eenvoudig te vinden waar ze naar op zoek zijn. Om dit te bereiken wordt de geavanceerde functionaliteit van Search rechtstreeks ter beschikking gesteld aan gebruikers terwijl ze typen.
+Tijdens deze zelfstudie leert u hoe u met behulp van [suggesties](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en [facetten](search-faceted-navigation.md) in de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) en [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) een zeer efficiënt zoekvak kunt bouwen. *Suggesties* biedt aanbevelingen van werkelijke resultaten op basis van wat de gebruiker tot dusverre heeft getypt. *Automatisch aanvullen* is [een nieuwe preview-functie](search-api-preview.md) in Azure Search die termen aanbiedt die afkomstig zijn uit de index, om aan te vullen wat de gebruiker op dat moment typt. Er worden meerdere technieken met elkaar vergeleken die de productiviteit van gebruikers verbeteren, waardoor deze in staat zijn om snel en eenvoudig te vinden waar ze naar op zoek zijn. Om dit te bereiken wordt de geavanceerde functionaliteit van Search rechtstreeks ter beschikking gesteld aan gebruikers terwijl ze typen.
 
 In deze zelfstudie wordt u stapsgewijs uitgelegd hoe een ASP.NET MVC-toepassing werkt die gebruikmaakt van C# om de [Azure Search .NET-clientbibliotheken](https://aka.ms/search-sdk) aan te roepen, en van JavaScript gebruikmaakt om de Azure Search REST-API rechtstreeks aan te roepen. De toepassing voor deze zelfstudie richt zich op een index met de [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)-voorbeeldgegevens. U kunt de index gebruiken die eerder al is geconfigureerd in de demoversie van NYC Jobs, of u kunt uw eigen index van gegevens voorzien met behulp van een gegevenslader in de voorbeeldtoepassing NYCJobs. In het voorbeeld worden de [jQuery UI](https://jqueryui.com/autocomplete/) en [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript-bibliotheken gebruikt om een zoekvak te bouwen dat het gebruik van automatisch aanvullen ondersteunt. Door deze onderdelen in combinatie met Azure Search te gebruiken, krijgt u meerdere voorbeelden te zien van hoe u ervoor kunt zorgen dat er voor automatisch aanvullen ondersteuning wordt geboden via aangevulde suggesties.
 
@@ -214,7 +214,7 @@ In deze zelfstudie worden basisstappen gedemonstreerd voor het bouwen van een zo
 Suggesties en automatisch aanvullen in uw zoekervaring integreren.  Bedenk hoe de .Net SDK of de REST-API u direct kan helpen om het potentieel van Azure Search ter beschikking te stellen aan uw gebruikers terwijl ze typen, zodat ze nog productiever worden.
 
 > [!div class="nextstepaction"]
-> [Autocomplete REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [Suggestions REST API ](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Facets index attribute on a Create Index REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index) (Indexattribuut Facetten in een Create Index REST API)
+> [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [Suggestions REST API ](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Facets index attribute on a Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) (Indexattribuut Facetten in een Create Index REST API)
 

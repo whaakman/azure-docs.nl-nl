@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1ef4467862f47a833e0592c94c662170ca2946d8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781446"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578934"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Zoeken naar een nuttige plaats met Azure Maps
 
@@ -27,14 +27,15 @@ Deze zelfstudie laat zien hoe u uw Azure Maps-account en de Route Service SDK ge
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u doorgaat, voert u de stappen in de vorige zelfstudie uit voor het [maken van uw Azure Kaarten-account ](./tutorial-search-location.md#createaccount) en het [ophalen van de abonnementssleutel voor uw account](./tutorial-search-location.md#getkey). 
+Voordat u doorgaat, voert u de stappen in de vorige zelfstudie uit voor het [maken van uw Azure Kaarten-account ](./tutorial-search-location.md#createaccount) en het [ophalen van de abonnementssleutel voor uw account](./tutorial-search-location.md#getkey).
 
 <a id="getcoordinates"></a>
 
-## <a name="create-a-new-map"></a>Een nieuwe kaart maken 
-Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesloten met de Map Control-API. 
+## <a name="create-a-new-map"></a>Een nieuwe kaart maken
 
-1. Maak een nieuw bestand op uw lokale computer en noem dit **MapRoute.html**. 
+Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesloten met de Map Control-API.
+
+1. Maak een nieuw bestand op uw lokale computer en noem dit **MapRoute.html**.
 2. Voeg de volgende HTML-onderdelen toe aan het bestand:
 
     ```HTML
@@ -45,9 +46,9 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
         <style>
             html,
             body {
@@ -86,13 +87,13 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina, ingesl
     ```
     De **atlas.Map** biedt het besturingselement voor een visuele en interactieve webkaart en is een onderdeel van de Azure Map Control API.
 
-4. Sla het bestand op en open het in uw browser. U hebt nu een basiskaart die u verder kunt ontwikkelen. 
+4. Sla het bestand op en open het in uw browser. U hebt nu een basiskaart die u verder kunt ontwikkelen.
 
    ![Basiskaart weergeven](./media/tutorial-route-location/basic-map.png)
 
 ## <a name="set-start-and-end-points"></a>Het begin- en eindpunt instellen
 
-Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestation in Seattle als eindpunt (bestemming). 
+Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestation in Seattle als eindpunt (bestemming).
 
 1. Voeg in hetzelfde *script*-blok van het bestand **MapRoute.html** de volgende JavaScript-code toe voor het maken van het begin- en eindpunt voor de route:
 
@@ -110,7 +111,7 @@ Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestatio
         icon: "pin-blue"
     });
     ```
-    Deze code maakt twee [GeoJSON-objecten](https://en.wikipedia.org/wiki/GeoJSON) die de begin- en eindpunten van de route vertegenwoordigen. 
+    Deze code maakt twee [GeoJSON-objecten](https://en.wikipedia.org/wiki/GeoJSON) die de begin- en eindpunten van de route vertegenwoordigen.
 
 2. Voeg de volgende JavaScript-code toe om de pins voor de begin- en eindpunten aan de kaart toe te voegen:
 
@@ -131,10 +132,10 @@ Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestatio
         textFont: "SegoeUi-Regular",
         textOffset: [0, -20]
     });
-    ``` 
+    ```
     Met **map.setCameraBounds** wordt het kaartvenster aangepast aan de coördinaten van het begin- en eindpunt. De API **map.addPins** voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
 
-7. Sla het bestand **MapRoute.html** op en vernieuw de browser. De kaart is nu gecentreerd op Seattle en u ziet de ronde blauwe speld die het beginpunt aangeeft en de blauwe speld die het eindpunt aangeeft.
+3. Sla het bestand **MapRoute.html** op en vernieuw de browser. De kaart is nu gecentreerd op Seattle en u ziet de ronde blauwe speld die het beginpunt aangeeft en de blauwe speld die het eindpunt aangeeft.
 
    ![Kaart met gemarkeerd begin- en eindpunt weergeven](./media/tutorial-route-location/map-pins.png)
 
@@ -143,7 +144,6 @@ Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestatio
 ## <a name="get-directions"></a>Routebeschrijving ophalen
 
 Deze sectie beschrijft hoe u de routeservice-API van Maps gebruikt om te zoeken naar de route van een bepaald beginpunt naar een bestemming. De routeservice biedt API's om de *snelste*, *kortste*, *zuinigste* of *leukste* route tussen twee locaties te plannen. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. Zie [Routebeschrijvingen ophalen](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) voor meer informatie.
-
 
 1. Voeg eerst een nieuwe laag aan de kaart toe om het routepad, de *linestring*, weer te geven. Voeg de volgende JavaScript-code toe aan het blok *script*.
 
@@ -160,44 +160,44 @@ Deze sectie beschrijft hoe u de routeservice-API van Maps gebruikt om te zoeken 
     });
     ```
 
-2.  Maak een instantie van de client-service door de volgende Javascript-code toe te voegen aan het scriptblok.
+2. Maak een instantie van de client-service door de volgende Javascript-code toe te voegen aan het scriptblok.
     ```JavaScript
-    var client = new atlas.service.Client(subscriptionKey);
+    var client = new atlas.service.Client(MapsAccountKey);
     ```
 
 3. Voeg het volgende blok met code toe om een routequeryreeks te maken.
     ```JavaScript
-    // Construct the route query string 
-        var routeQuery = startPoint.coordinates[1] + 
-            "," + 
-            startPoint.coordinates[0] + 
-            ":" + 
-            destinationPoint.coordinates[1] + 
-            "," + 
-            destinationPoint.coordinates[0];     
+    // Construct the route query string
+    var routeQuery = startPoint.coordinates[1] +
+        "," +
+        startPoint.coordinates[0] +
+        ":" +
+        destinationPoint.coordinates[1] +
+        "," +
+        destinationPoint.coordinates[0];
     ```
 
 4. Om de route op te vragen, voegt u het volgende blok met code toe aan het script. Er wordt dan een query uitgevoerd op de Azure Maps-routeringservice via de methode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections), waarna het antwoord met behulp van [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) wordt geparseerd naar de GeoJSON-indeling. Ten slotte worden alle antwoordregels toegevoegd aan de kaart om de route weer te geven. Zie [Een lijn toevoegen](./map-add-shape.md#addALine) voor meer informatie.
 
     ```JavaScript
     // Execute the query then add the route to the map once a response is received  
-    client.route.getRouteDirections(routeQuery).then(response => { 
-         // Parse the response into GeoJSON 
-         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
- 
-         // Get the first in the array of routes and add it to the map 
-         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
-             name: routeLinesLayerName 
-         }); 
-    }); 
+    client.route.getRouteDirections(routeQuery).then(response => {
+         // Parse the response into GeoJSON
+         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
+
+         // Get the first in the array of routes and add it to the map
+         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+             name: routeLinesLayerName
+         });
+    });
     ```
 
 5. Sla het bestand **MapRoute.html** op en vernieuw de webbrowser. Bij een succesvolle verbinding met de API's van Maps ziet de kaart er ongeveer als volgt uit.
 
     ![Azure Map Control en Route Service](./media/tutorial-route-location/map-route.png)
 
-
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
@@ -205,7 +205,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Adrescoördinaten instellen
 > * Query uitvoeren op routeservice voor routebeschrijving naar nuttige plaats
 
-De volgende zelfstudie laat zien hoe u een routequery maakt met beperkingen zoals de manier van reizen of het type lading, en meerdere routes op dezelfde kaart weergeeft. 
+De volgende zelfstudie laat zien hoe u een routequery maakt met beperkingen zoals de manier van reizen of het type lading, en meerdere routes op dezelfde kaart weergeeft.
 
 > [!div class="nextstepaction"]
 > [Routes vinden voor verschillende manieren van reizen](./tutorial-prioritized-routes.md)

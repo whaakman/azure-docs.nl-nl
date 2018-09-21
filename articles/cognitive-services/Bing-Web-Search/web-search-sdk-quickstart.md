@@ -1,6 +1,7 @@
 ---
 title: 'Snelstartgids: de Bing Web Search SDK voor C# gebruiken'
-description: Leer de Bing Web Search SDK voor C# gebruiken.
+titleSuffix: Azure Cognitive Services
+description: Met de Bing Web Search SDK kunt u Bing Web Search eenvoudig integreren in uw C#-toepassing. In deze snelstartgids leert u hoe u een instantie maakt voor een client, een aanvraag verzendt en het antwoord weergeeft.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: ed958f4a691b878cfa7ff9766a0fb72857cce5db
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cebeab562a54ec68b69eb6422685cc4b596ac223
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186793"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127875"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snelstartgids: de Bing Web Search SDK voor C# gebruiken
 
@@ -26,7 +27,7 @@ Wilt u de code nu zien? De [voorbeelden voor de Bing Web Search SDK voor C#](htt
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over het volgende beschikken voordat u verdergaat met deze snelstartgids:
+Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) of
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
@@ -343,7 +344,7 @@ In dit voorbeeld wordt de parameter `response_filter` gebruikt om zoekresultaten
     ```
 3. Voer de toepassing uit.
 
-### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Gebruik de parameters voor veilig zoeken, aantal antwoorden en de filter voor het promoten van zoekresultaten
+### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Gebruik de parameters voor veilig zoeken, aantal antwoorden en het filter voor het promoten van zoekresultaten
 
 In dit voorbeeld worden de parameters `answer_count`, `promote`, en `safe_search` gebruikt om de zoekresultaten voor 'muziekvideo's' te filteren. De `name` en `URL` voor het eerste resultaat worden weergegeven.
 

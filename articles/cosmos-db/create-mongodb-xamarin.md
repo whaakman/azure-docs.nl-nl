@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 255f23906bc93ce78b28f4f0806d7076a97b0ef2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698686"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574824"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Snelstart: een MongoDB API Xamarin.Forms-web-app ontwikkelen met .NET en Azure Portal
 
@@ -173,7 +173,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 2. Klik op **Alle NuGet-pakketten herstellen**.
 3. Klik met de rechtermuisknop op **TaskList.Android** en selecteer **Instellen als opstartproject**.
 4. Druk op F5 om te beginnen met de foutopsporing van de toepassing.
-5. Als u op iOS wilt werken, wordt uw machine eerst verbonden met een Mac (hier zijn [instructies](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) over hoe u dat kunt doen).
+5. Als u op iOS wilt werken, wordt uw machine eerst verbonden met een Mac (hier zijn [instructies](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) over hoe u dat kunt doen).
 6. Klik met de rechtermuisknop op **TaskList.iOS**-project en selecteer **Instellen als opstartproject**.
 7. Klik op F5 om te beginnen met de foutopsporing van de toepassing.
 

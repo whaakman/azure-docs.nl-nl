@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 6fa0bab5d2b402c85ea3ee70e7356f8c8c989ab9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446779"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576779"
 ---
 # <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Een app met meerdere containers (preview) maken in Web App for Containers
 
-Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstart laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose. Voor Kubernetes en een volledige end-to-end-oplossing met behulp van Azure DB voor MySQL, volgt u de [meerdere containers zelfstudie](tutorial-multi-container-app.md).
+Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. Deze snelstart laat zien hoe u een app met meerdere containers implementeert in Web App for Containers in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) met behulp van een configuratie van Docker Compose. Voor Kubernetes en een volledige end-to-end-oplossing met behulp van Azure DB voor MySQL, volgt u de [meerdere containers zelfstudie](tutorial-multi-container-app.md).
 
 U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 of hoger). 
 

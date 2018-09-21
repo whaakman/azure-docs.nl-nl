@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480880"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575986"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -58,7 +58,7 @@ Voor deze zelfstudie maakt u één VNet met drie subnetten:
 
 ![Netwerkinfrastructuur van zelfstudie](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Deze zelfstudie maakt gebruik van een vereenvoudigde netwerkconfiguratie voor gemakkelijke implementatie. Voor productie-implementaties wordt een [hub-en-spoke-model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) aanbevolen, waarbij de firewall zich in zijn eigen VNet bevindt en workloadservers zich in gekoppelde VNets bevinden in dezelfde regio met één of meer subnetten.
+Deze zelfstudie maakt gebruik van een vereenvoudigde netwerkconfiguratie voor gemakkelijke implementatie. Voor productie-implementaties wordt een [hub-en-spoke-model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) aanbevolen, waarbij de firewall zich in zijn eigen VNet bevindt en workloadservers zich in gekoppelde VNets bevinden in dezelfde regio met één of meer subnetten.
 
 
 

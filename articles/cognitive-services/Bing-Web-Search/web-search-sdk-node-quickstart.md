@@ -1,6 +1,7 @@
 ---
 title: 'Snelstartgids: de Bing Web Search SDK voor Node.js gebruiken'
-description: Leer de Bing Web Search SDK voor Node.js gebruiken.
+titleSuffix: Azure Cognitive Services
+description: Met de Bing Web Search SDK kunt u Bing Web Search eenvoudig integreren in uw Node.js-toepassing. In deze snelstartgids leert u hoe u een instantie maakt voor een client, een aanvraag verzendt en het antwoord weergeeft.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c3003ab4ba40a9d0212e7c94b6dd3bfbc8f0ca2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b27c11a69c7d16f38c2448d380b611940078c501
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186628"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121899"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snelstartgids: de Bing Web Search SDK voor Node.js gebruiken
 
@@ -26,9 +27,9 @@ Wilt u de code nu zien? De [voorbeelden voor de Bing Web Search SDK voor Node.js
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over het volgende beschikken voordat u verdergaat met deze snelstartgids:
+Voordat u verdergaat met deze snelstart moet u beschikken over:
 
-* [Node.js 6](https://nodejs.org/en/download/) of hoger
+* [Node.js 6](https://nodejs.org/en/download/) of later
 * Een abonnementssleutel  
 
 ## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
