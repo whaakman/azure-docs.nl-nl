@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 0bd5382e5ea37f7c3c52d119e9d39fe7e0bfdc7c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 37ad0adf01172fadc6d9845576045a4542bdae19
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058667"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497787"
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure Cloudshell insluiten
 
@@ -27,11 +27,11 @@ Cloud Shell insluiten kan ontwikkelaars en schrijvers van de inhoud rechtstreeks
 
 Knop voor normale grootte
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Open Azure Cloudshell")](https://shell.azure.com)
+[![Reguliere starten](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell openen")](https://shell.azure.com)
 
 Grote grootte knop
 
-[![](https://shell.azure.com/images/launchcloudshell@2x.png "Open Azure Cloudshell")](https://shell.azure.com)
+[![Grote starten](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell openen")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Uitleg
 

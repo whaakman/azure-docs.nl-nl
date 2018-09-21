@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667154"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497923"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database voor MySQL-gegevens in replicatie configureren
 
@@ -158,6 +158,9 @@ De volgende stappen uit voorbereiden en configureren van de MySQL-server die geh
    - master_log_pos: binaire logboekpositie die worden uitgevoerd `show master status`
    - master_ssl_ca: CA-certificaat-context. Als u geen gebruik van SSL, geeft u lege tekenreeks.
        - Het verdient aanbeveling om door te geven van deze parameter in als een variabele. Zie de volgende voorbeelden voor meer informatie.
+
+> [!NOTE]
+> Als de hoofd-server wordt gehost in een Azure VM, moet u instellen 'Toegang tot Azure-services toestaan' op 'Aan' om toe te staan de hoofd- en replica-servers om te communiceren met elkaar. Deze instelling kan worden gewijzigd van de **verbindingsbeveiliging** opties. Raadpleeg [firewallregels beheren met behulp van portal](howto-manage-firewall-using-portal.md) voor meer informatie.
 
    **Voorbeelden**
 

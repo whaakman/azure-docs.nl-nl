@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7d5656d6599e1d8d2a3e85b9d41bcce6490e1511
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124164"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498110"
 ---
 # <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
@@ -59,7 +59,7 @@ De audio wordt verzonden in de hoofdtekst van de HTTP `PUT` aanvragen en moeten 
 
 ### <a name="chunked-transfer"></a>Gesegmenteerde overdracht
 
-Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kunt u Verminder de latentie van de spraakherkenning omdat hierdoor de Speech-service om te beginnen met de verwerking van het audiobestand terwijl deze wordt verzonden. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten; Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
+Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kunt u Verminder de latentie van de spraakherkenning omdat hierdoor de Speech-service om te beginnen met het audiobestand verwerken terwijl deze wordt verzonden. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten; Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
 
 De volgende code ziet u hoe u verzendt audio in segmenten. `request` is een HTTPWebRequest-object dat is verbonden met het juiste REST-eindpunt. `audioFile` is het pad naar een audio-bestand op schijf.
 
@@ -137,7 +137,7 @@ De `RecognitionStatus` veld mag de volgende waarden bevatten.
 | `Error` | De opname-service is een interne fout opgetreden en kan niet worden voortgezet. Probeer het opnieuw, indien mogelijk. |
 
 > [!NOTE]
-> Als de gebruiker alleen grof taalgebruik spreekt, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat retourneren, tenzij de opname-modus is `interactive`. In dit geval de service retourneert een resultaat spraak met een `RecognitionStatus` van `NoMatch`. 
+> Als de audio alleen uit grof taalgebruik bestaat, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat geretourneerd. 
 
 De `detailed` indeling bevat dezelfde velden als de `simple` opmaken, samen met een `NBest` veld. De `NBest` veld is een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke te minste waarschijnlijk. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat. Elke vermelding bevat de volgende velden:
 
@@ -215,8 +215,6 @@ De volgende velden worden in de HTTP-aanvraagheader verzonden.
 |`Authorization`|Een verificatietoken voorafgegaan door het woord `Bearer`. Vereist. Zie [verificatie](#authentication).|
 |`Content-Type`|De invoer inhoudstype: `application/ssml+xml`.|
 |`X-Microsoft-OutputFormat`|De uitvoer audio-indeling. Zie de volgende tabel.|
-|`X-Search-AppId`|Hex-bewerkbare GUID (geen streepjes) die een unieke identificatie van de clienttoepassing. Dit kan zijn dat de store-ID. IT is niet een store-app, kunt u GUID.|
-|`X-Search-ClientId`|Hex-bewerkbare GUID (geen streepjes) die een unieke identificatie van het exemplaar van een toepassing voor elke installatie.|
 |`User-Agent`|De naam van de toepassing. Vereist. moet minder dan 255 tekens bevatten.|
 
 De beschikbare audio uitvoerindelingen (`X-Microsoft-OutputFormat`) een bitrate en een codering.
@@ -230,9 +228,12 @@ De beschikbare audio uitvoerindelingen (`X-Microsoft-OutputFormat`) een bitrate 
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
+> [!NOTE]
+> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. Echter, 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen. 
+
 ### <a name="request-body"></a>Aanvraagtekst
 
-De tekst voor spraaksynthese wordt verzonden als de instantie van een HTTP `POST` aanvraag in tekst zonder opmaak of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling met UTF-8 tekstcodering. Als u wilt een stem dan standaard-stem van de service gebruiken, moet u SSML gebruiken.
+De tekst die moet worden geconverteerd naar spraak wordt verzonden als de instantie van een HTTP `POST` aanvragen in een tekst zonder opmaak (ASCII- of UTF-8) of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling (UTF-8). Tekst zonder opmaak aanvragen gebruiken de standaardstem en de taal van de service. SSML gebruik van een andere stem verzenden.
 
 ### <a name="sample-request"></a>Voorbeeld van een aanvraag
 
@@ -260,10 +261,10 @@ De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
 HTTP-code|Betekenis|Mogelijke oorzaak
 -|-|-|
 200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand.
-400|Ongeldig verzoek|Vereiste headerveld ontbreekt, document SSML van waarde te lang, of is ongeldig.
-401|Niet geautoriseerd|Abonnementssleutel of autorisatie-token is ongeldig in de regio is opgegeven of ongeldig eindpunt.
-403|Verboden|Ontbrekende abonnementssleutel of autorisatie token.
-413|Aanvraagentiteit te groot|De ingevoerde tekst is langer dan 1000 tekens.
+400 |Onjuiste aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
+401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio.
+413|Aanvraagentiteit te groot|De invoer SSML is langer dan 1024 tekens.
+|502|Ongeldige gateway    | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
 
 Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, zoals deze wordt overgedragen en in een buffer of het bestand later afspelen of ander gebruik opgeslagen.
 

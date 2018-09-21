@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/14/2018
-ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734695"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498586"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption 
  In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) voor het beheer van versleutelingssleutels. U kunt [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), of de [Azure-portal](https://portal.azure.com) Azure Disk Encryption te configureren.
@@ -67,7 +67,7 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
     - [Installeren en configureren van Azure PowerShell voor Windows](/powershell/azure/install-azurerm-ps). 
         - PowerShellGet, Azure PowerShell installeren en laden van de AzureRM-module. 
     - [Installeren en configureren van Azure Powershell in macOS en Linux](/powershell/azure/install-azurermps-maclinux).
-        -  PowerShell Core, Azure PowerShell voor .NET Core, installeren en laden van de AzureRM.Netcore-module.
+        -  PowerShell Core, Azure PowerShell voor .NET Core, installeren en laden van de Az-module.
 
 2. Controleer of de geïnstalleerde versies van de AzureRM-module. Indien nodig, [bijwerken van de Azure PowerShell-module](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  De versie van de AzureRM-module moet 6.0.0 of hoger zijn.

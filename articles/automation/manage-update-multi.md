@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541970"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498229"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -127,6 +127,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
+- **Groepen om bij te werken (preview)**: een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie te definiëren. Voor meer informatie over meer Zie [dynamische groepen](automation-update-management.md#using-dynamic-groups)
 - **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
@@ -141,13 +142,15 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
   - Hulpprogramma's
   - Updates
 
-- **Updates uitsluiten**: deze optie selecteert, wordt geopend de **uitsluiten** pagina. Voer de KB-artikelen of pakketnamen om uit te sluiten.
+- **Updates voor opnemen/uitsluiten** -Hiermee opent u de **opnemen/uitsluiten** pagina. Er zijn updates moeten worden opgenomen of uitgesloten op een afzonderlijk tabblad. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior)
 
 - **Schema-instellingen**: U kunt de standaarddatum en -tijd accepteren (30 minuten na de huidige tijd). U kunt ook een andere tijd opgeven.
 
    U kunt bovendien opgeven of de implementatie eenmaal moet worden uitgevoerd of volgens een terugkerend schema. Voor het instellen van een terugkerend schema uit onder **terugkeerpatroon**, selecteer **periodiek**.
 
    ![Dialoogvenster Schema-instellingen](./media/manage-update-multi/update-set-schedule.png)
+
+- **Vooraf scripts + na scripts**: Selecteer de scripts worden uitgevoerd vóór en na de implementatie. Zie voor meer informatie, [beheren vóór en na scripts](pre-post-scripts.md).
 - **Onderhoudsvenster (minuten)**: Geef de periode die u wilt dat de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
 
 - **Opnieuw opstarten besturingselement** -deze instelling bepaalt hoe opnieuw wordt opgestart voor de update-implementatie worden verwerkt.

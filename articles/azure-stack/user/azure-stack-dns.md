@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
-ms.openlocfilehash: acb8b262256031ae8615180e0f55c98cb56b538d
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: df4f6066a4bf03f6b09777f3556c52a237501592
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055308"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497644"
 ---
 # <a name="using-dns-in-azure-stack"></a>Met behulp van DNS in Azure Stack
 
@@ -31,20 +31,20 @@ Azure Stack ondersteunt de volgende functies van de Domain Name System (DNS):
 
 ## <a name="support-for-dns-hostname-resolution"></a>Ondersteuning voor DNS-hostnaamomzetting
 
-U kunt opgeven dat een DNS-domeinnaamlabel voor openbare IP-resources. Maakt gebruik van Azure Stack *domainnamelabel.location*. cloudapp.azurestack.external voor de labelnaam en deze naar het openbare IP-adres in Azure Stack-kaarten beheerde DNS-servers.
+U kunt opgeven dat een DNS-domeinnaamlabel voor openbare IP-resources. Maakt gebruik van Azure Stack **domainnamelabel.location.cloudapp.azurestack.external** voor de labelnaam en maps naar het openbare IP-adres in Azure Stack DNS-servers worden beheerd.
 
-Bijvoorbeeld, als u een openbare IP-resource maakt met **contoso** als een domeinnaamlabel op de lokale Azure Stack-locatie, de [volledig gekwalificeerde domeinnaam](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)  **Contoso.local.cloudapp.azurestack.external** wordt omgezet naar het openbare IP-adres van de resource. U kunt deze FDQN gebruiken voor het maken van een aangepast domein-CNAME-record die naar het openbare IP-adres in Azure Stack verwijst.
+Bijvoorbeeld, als u een openbare IP-resource maakt met **contoso** als een domeinnaamlabel op de lokale Azure Stack-locatie, de [volledig gekwalificeerde domeinnaam (FQDN)](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)  **Contoso.local.cloudapp.azurestack.external** wordt omgezet naar het openbare IP-adres van de resource.   U kunt deze FDQN gebruiken voor het maken van een aangepast domein-CNAME-record die naar het openbare IP-adres in Azure Stack verwijst.
 
-Raadpleeg voor meer informatie over naamomzetting, de [DNS-omzetting](https://docs.microsoft.com/azure/dns/dns-for-azure-services?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) artikel.
+Zie voor meer informatie over naamomzetting, de [DNS-omzetting](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) artikel.
 
 > [!IMPORTANT]
 > Elk domeinnaamlabel dat u maakt moet uniek zijn binnen de Azure Stack-locatie.
 
-De volgende schermafbeeldingen wordt weergegeven de **openbare IP-adres maken** dialoogvenster voor het maken van een openbaar IP-adres met behulp van de portal.
+De volgende schermafbeelding ziet u de **openbare IP-adres maken** dialoogvenster voor het maken van een openbaar IP-adres met behulp van de portal:
 
 ![Openbare IP-adres maken](media/azure-stack-whats-new-dns/image01.png)
 
-**Voorbeeldscenario 's**
+### <a name="example-scenario"></a>Voorbeeldscenario
 
 Hebt u een load balancer voor het verwerken van aanvragen van een web-App. Achter de load is balancer site een website die wordt uitgevoerd op een of meer virtuele machines. U kunt toegang tot de website met load balancing met behulp van een DNS-naam in plaats van een IP-adres.
 
@@ -52,45 +52,43 @@ Hebt u een load balancer voor het verwerken van aanvragen van een web-App. Achte
 
 U kunt maken en beheren van DNS-zones en records in Azure Stack.
 
-Azure Stack biedt een DNS-service, zoals Azure, met behulp van API's die consistent met de Azure DNS-API's zijn.  Door uw domeinen in Azure Stack DNS hosten, kunt u uw DNS-records met dezelfde referenties, API's en hulpprogramma's kunt beheren. U kunt ook gebruik van de dezelfde facturering en ondersteuning als uw andere Azure-services.
+Azure Stack biedt een DNS-service die vergelijkbaar is met Azure, met behulp van API's die consistent met de Azure DNS-API's zijn.  Door uw domeinen in Azure Stack DNS hosten, kunt u uw DNS-records met dezelfde referenties, API's en hulpprogramma's kunt beheren. U kunt ook gebruik van de dezelfde facturering en ondersteuning als uw andere Azure-services.
 
-De Azure Stack-DNS-infrastructuur is compacter dan van Azure. De grootte en locatie van een Azure Stack-implementatie heeft invloed op DNS-scope, schaal en prestaties. Dit betekent ook dat er prestaties, beschikbaarheid, wereldwijde distributie en hoge beschikbaarheid van implementatie tot implementatie variëren kunnen.
+De Azure Stack-DNS-infrastructuur is compacter dan Azure. De grootte en locatie van een Azure Stack-implementatie is van invloed op DNS-scope, schaal en prestaties. Dit betekent ook dat er prestaties, beschikbaarheid, wereldwijde distributie en hoge beschikbaarheid van implementatie tot implementatie variëren kunnen.
 
 ## <a name="comparison-with-azure-dns"></a>Vergelijking met Azure DNS
 
-DNS-server in Azure Stack is vergelijkbaar met de DNS-server in Azure, maar er zijn belangrijke uitzonderingen die u nodig hebt om te begrijpen.
+DNS-server in Azure Stack is vergelijkbaar met de DNS-server in Azure, maar er zijn belangrijke uitzonderingen:
 
-* **Geen biedt ondersteuning voor AAAA-records**
+* **Biedt geen ondersteuning voor AAAA-records**
 
-    Azure Stack biedt geen ondersteuning voor AAAA-records omdat Azure Stack biedt geen ondersteuning voor IPv6-adressen.  Dit is een belangrijk verschil tussen de DNS-server in Azure en Azure Stack.
-* **Het is niet meerdere tenants**
+    Azure Stack biedt geen ondersteuning voor AAAA-records omdat Azure Stack biedt geen ondersteuning voor IPv6-adressen. Dit is een belangrijk verschil tussen de DNS-server in Azure en Azure Stack.
+* **Is niet meerdere tenants**
 
-    De DNS-Service in Azure Stack is niet meerdere tenants. Elke tenant kan niet dezelfde DNS-zone maken. Alleen het eerste abonnement waarmee wordt geprobeerd om de zone te maken is gelukt en mislukt de volgende aanvragen.  Het is een bekend probleem en een belangrijk verschil tussen Azure en Azure Stack DNS. Dit probleem worden opgelost in een toekomstige release.
+    De DNS-Service in Azure Stack is niet meerdere tenants. Elke tenant kan niet dezelfde DNS-zone maken. Alleen het eerste abonnement waarmee wordt geprobeerd om de zone te maken is gelukt en mislukt de volgende aanvragen. Dit is een belangrijk verschil tussen Azure en Azure Stack DNS.
 * **Tags, metagegevens en Etags**
 
     Er zijn kleine verschillen in hoe Azure Stack omgaat met tags, metagegevens, Etags en limieten.
 
 Zie voor meer informatie over Azure DNS, [DNS-zones en records](../../dns/dns-zones-records.md).
 
-### <a name="tags-metadata-and-etags"></a>Tags, metagegevens en Etags
+### <a name="tags"></a>Tags
 
-**Tags**
+Azure Stack DNS ondersteunt het gebruik van Azure Resource Manager-tags op DNS-zone-resources. Het ondersteunt geen tags op DNS-recordsets, hoewel als alternatief kunt 'metagegevens' wordt ondersteund op DNS-recordsets zoals naast uitgelegd.
 
-Azure Stack DNS ondersteunt het gebruik van Azure Resource Manager-tags op DNS-zone-resources. Het ondersteunt geen tags op DNS-recordsets, maar als een alternatief 'metagegevens' wordt ondersteund op DNS-record, zoals wordt beschreven vervolgens ingesteld.
+### <a name="metadata"></a>Metagegevens
 
-**Metadata**
+Als alternatief voor de recordset tags, ondersteunt Azure Stack DNS aantekeningen te maken met behulp van recordsets *metagegevens*. Metagegevens is vergelijkbaar met tags, kunt u de naam / waarde-paren koppelen aan elke recordset. Dit kan bijvoorbeeld nuttig zijn om vast te leggen van het doel van elke recordset zijn. In tegenstelling tot tags, u kunt metagegevens niet gebruiken om te voorzien in een gefilterde weergave van uw Azure-factuur en metagegevens kan niet worden opgegeven in een Azure Resource Manager-beleid.
 
-Als alternatief voor de recordset tags ondersteunt Azure Stack DNS aantekeningen te maken met behulp van 'metagegevens' recordsets. Metagegevens is vergelijkbaar met tags, kunt u de naam / waarde-paren koppelen aan elke recordset. Dit kan bijvoorbeeld nuttig zijn om vast te leggen van het doel van elke recordset zijn. In tegenstelling tot tags, metagegevens kan niet worden gebruikt om te voorzien in een gefilterde weergave van uw Azure-factuur en kan niet worden opgegeven in een Azure Resource Manager-beleid.
-
-**Etags**
+### <a name="etags"></a>Etags
 
 Stel dat twee personen of op twee manieren kunt u proberen te wijzigen van een DNS-record op hetzelfde moment. Welke wins? En de winnaar weten dat ze wijzigingen die zijn gemaakt door iemand anders hebt overschreven?
 
-Azure Stack DNS maakt gebruik van Etags voor het afhandelen van gelijktijdige wijzigingen in de dezelfde resource veilig. Etags worden afzonderlijk van Azure Resource Manager-Tags'. Elke DNS-bronrecords (zone of recordset) heeft een Etag die is gekoppeld. Wanneer een resource wordt opgehaald, wordt ook de ETag die is opgehaald. Wanneer een resource wordt bijgewerkt, kunt u kiezen om door te geven weer de Etag, zodat Azure Stack DNS of controleren kunt de Etag op de server komt overeen met. Omdat elke update voor een resource in de ETag die is opnieuw gegenereerd resulteert, een Etag komt niet overeen geeft aan dat een gelijktijdige wijziging is doorgevoerd. Etags kan ook worden gebruikt bij het maken van een nieuwe resource om ervoor te zorgen dat de resource al bestaat niet.
+Azure Stack DNS maakt gebruik van *Etags* veilig gelijktijdige om wijzigingen te verwerken naar dezelfde resource. Etags zijn verschillend van Azure Resource Manager *Tags*. Elke DNS-bronrecords (zone of recordset) heeft een Etag die is gekoppeld. Wanneer een resource wordt opgehaald, wordt ook de ETag die is opgehaald. Wanneer een resource wordt bijgewerkt, kunt u kiezen om door te geven weer de Etag, zodat Azure Stack DNS of controleren kunt de Etag op de server komt overeen met. Omdat elke update voor een resource in de ETag die is opnieuw gegenereerd resulteert, een Etag komt niet overeen geeft aan dat een gelijktijdige wijziging is doorgevoerd. Etags kan ook worden gebruikt bij het maken van een nieuwe resource om ervoor te zorgen dat de resource al bestaat niet.
 
-PowerShell voor Azure Stack DNS gebruikt standaard Etags voorkomen dat gelijktijdige wijzigingen in zones en-recordsets. De optionele *-overschrijven* switch kan worden gebruikt om te onderdrukken Etag controles, in welk geval een gelijktijdige wijzigingen die zijn opgetreden worden overschreven.
+Azure Stack DNS PowerShell-cmdlets gebruiken Etags standaard, om te voorkomen dat gelijktijdige wijzigingen in zones en -recordsets. De optionele **-overschrijven** switch kan worden gebruikt om te onderdrukken Etag controles, in welk geval een gelijktijdige wijzigingen die zijn opgetreden worden overschreven.
 
-Op het niveau van de REST-API van Azure Stack DNS, zijn Etags opgegeven met behulp van HTTP-headers. Hun gedrag is opgenomen in de volgende tabel:
+Op het niveau van de REST-API van Azure Stack DNS, zijn Etags opgegeven met behulp van HTTP-headers. Hun gedrag wordt in de volgende tabel beschreven:
 
 | Koptekst | Gedrag|
 |--------|---------|

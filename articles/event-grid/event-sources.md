@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144226"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498297"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -58,7 +58,7 @@ Abonneren op aangepaste onderwerpen om te reageren op toepassingsgebeurtenissen.
 | [PowerShell: abonneren op gebeurtenissen voor een aangepast onderwerp](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Voorbeeld van een script dat wordt gemaakt van een abonnement voor een aangepast onderwerp. Verzendt gebeurtenissen naar een WebHook.|
 | [Resource Manager-sjabloon: aangepast onderwerp en WebHook-eindpunt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Een Resource Manager-sjabloon waarmee u een aangepast onderwerp en abonnement op dat aangepaste onderwerp maakt. Verzendt gebeurtenissen naar een WebHook. |
 |
-| [Resource Manager-sjabloon: aangepast onderwerp en het eindpunt van de Event Hubs](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| Een Resource Manager-sjabloon maakt u een abonnement voor een aangepast onderwerp. Verzendt gebeurtenissen naar een Azure Event Hubs. |
+| [Resource Manager-sjabloon: aangepast onderwerp en het eindpunt van de Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Een Resource Manager-sjabloon maakt u een abonnement voor een aangepast onderwerp. Verzendt gebeurtenissen naar een Azure Event Hubs. |
 | [Gebeurtenisschema](event-schema.md) | Velden weergegeven in aangepaste gebeurtenissen. |
 
 ## <a name="event-hubs"></a>Event Hubs
@@ -104,7 +104,7 @@ Abonneren op gebeurtenissen van de resource-groep om te reageren op wijzigingen 
 | [Azure CLI: abonneren op gebeurtenissen voor een resourcegroep en -filter voor een resource](./scripts/event-grid-cli-resource-group-filter.md) | Voorbeeld van een script dat ze zich abonneren op gebeurtenissen voor een resourcegroep en gebeurtenissen voor één resource gefilterd. |
 | [PowerShell: abonneren op gebeurtenissen voor een resourcegroep](./scripts/event-grid-powershell-resource-group.md) | Voorbeeld van een script dat ze zich op gebeurtenissen voor een resourcegroep abonneren. Verzendt gebeurtenissen naar een WebHook. |
 | [PowerShell: abonneren op gebeurtenissen voor een resourcegroep en -filter voor een resource](./scripts/event-grid-powershell-resource-group-filter.md) | Voorbeeld van een script dat ze zich abonneren op gebeurtenissen voor een resourcegroep en gebeurtenissen voor één resource gefilterd. |
-| [Resource Manager-sjabloon: abonnement op ResourceGroup](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Hiermee abonneert u zich op gebeurtenissen voor een resourcegroep. Verzendt gebeurtenissen naar een WebHook. |
+| [Resource Manager-sjabloon: resourceabonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Hiermee abonneert u zich op gebeurtenissen voor een Azure-abonnement of resource-groep. Verzendt gebeurtenissen naar een WebHook. |
 | [Gebeurtenisschema](event-schema-resource-groups.md) | Velden weergegeven van de resource group-gebeurtenissen. |
 
 ## <a name="service-bus"></a>Service Bus
@@ -128,7 +128,7 @@ Abonneren op gebeurtenissen van Blob-opslag om te reageren op blob-gebeurtenisse
 | [QuickStart: maken en routeren van gebeurtenissen van Blob storage met Azure portal](blob-event-quickstart-portal.md) | Laat zien hoe het gebruik van de portal voor het verzenden van gebeurtenissen van blob storage naar een WebHook. |
 | [Azure CLI: abonneren op gebeurtenissen voor een Blob storage-account](./scripts/event-grid-cli-blob.md) | Voorbeeld van een script dat ze zich op gebeurtenissen voor een Blob storage-account abonneren. Wordt de gebeurtenis verzonden naar een WebHook. |
 | [PowerShell: abonneren op gebeurtenissen voor een Blob storage-account](./scripts/event-grid-powershell-blob.md) | Voorbeeld van een script dat ze zich op gebeurtenissen voor een Blob storage-account abonneren. Wordt de gebeurtenis verzonden naar een WebHook. |
-| [Resource Manager-sjabloon: Blob-opslag en een abonnement maken](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Hiermee implementeert u een Azure Blob-opslagaccount en abonneert u zich op gebeurtenissen van die opslagaccount. Verzendt gebeurtenissen naar een WebHook. |
+| [Resource Manager-sjabloon: Blob-opslag en een abonnement maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Hiermee implementeert u een Azure Blob-opslagaccount en abonneert u zich op gebeurtenissen van die opslagaccount. Verzendt gebeurtenissen naar een WebHook. |
 | [Overzicht: reageren op gebeurtenissen van Blob storage](../storage/blobs/storage-blob-event-overview.md) | Overzicht van de integratie van Blob-opslag met Event Grid. |
 | [Gebeurtenisschema](event-schema-blob-storage.md) | Velden weergegeven van gebeurtenissen van Blob Storage. |
 

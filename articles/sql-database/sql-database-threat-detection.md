@@ -1,6 +1,6 @@
 ---
 title: Detectie van bedreigingen - Azure SQL Database | Microsoft Docs
-description: Threat Detection detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de database.
+description: Threat Detection detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de database in een individuele database of elastische pool.
 services: sql-database
 author: rmatchoro
 manager: craigg
@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.subservice: advanced-threat-protection
 ms.custom: security
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 09/19/2018
 ms.author: ronmat
 ms.reviewer: vanto
-ms.openlocfilehash: 1f30d55bea825549453d9c8a3077ad17756e6a6f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ab554707d432f862f9fb9c075eea6cb12419eacd
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714243"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497722"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database Threat Detection
 

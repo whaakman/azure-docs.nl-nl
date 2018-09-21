@@ -1,6 +1,6 @@
 ---
-title: Gegevens verkennen in Azure blob-opslag met Pandas | Microsoft Docs
-description: Klik hier voor meer informatie over het verkennen van gegevens die zijn opgeslagen in Azure blob-container met behulp van Pandas.
+title: Gegevens verkennen in Azure blob-opslag met pandas | Microsoft Docs
+description: Klik hier voor meer informatie over het verkennen van gegevens die zijn opgeslagen in Azure blob-container met behulp van pandas.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054531"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497855"
 ---
-# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Met Pandas gegevens verkennen in Azure Blok-opslag
-Dit document wordt uitgelegd hoe u gegevens die zijn opgeslagen in Azure blob-container met verkennen [Pandas](http://pandas.pydata.org/) Python-pakket.
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Gegevens verkennen in Azure blob-opslag met pandas
+Dit document wordt uitgelegd hoe u gegevens die zijn opgeslagen in Azure blob-container met verkennen [pandas](http://pandas.pydata.org/) Python-pakket.
 
 De volgende **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u hulpprogramma's gebruiken om gegevens te verkennen vanuit verschillende omgevingen voor opslag. Deze taak is een stap in de [Data Science Process](overview.md).
 
@@ -35,8 +35,8 @@ In dit artikel wordt ervan uitgegaan dat u hebt:
 * Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [maken van een Azure Storage-account](../../storage/common/storage-quickstart-create-account.md)
 * Uw gegevens opgeslagen in een Azure blob storage-account. Als u instructies nodig hebt, raadpleegt u [om gegevens te verplaatsen naar en van Azure Storage](../../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>De gegevens in een Pandas DataFrame laden
-Om te verkennen en bewerken van een gegevensset, moet deze eerst worden gedownload van de bron-blob naar een lokaal bestand, die vervolgens kan worden geladen in een Pandas DataFrame. Hier volgen de stappen voor deze procedure:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>De gegevens in een pandas DataFrame laden
+Om te verkennen en bewerken van een gegevensset, moet deze eerst worden gedownload van de bron-blob naar een lokaal bestand, die vervolgens kan worden geladen in een pandas DataFrame. Hier volgen de stappen voor deze procedure:
 
 1. Download de gegevens van Azure-blob met de volgende Python-codevoorbeeld dat met behulp van blob-service. De variabele in de volgende code vervangen door uw eigen specifieke waarden: 
    
@@ -55,15 +55,15 @@ Om te verkennen en bewerken van een gegevensset, moet deze eerst worden gedownlo
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. De gegevens in een Pandas gegevensframe uit het gedownloade bestand gelezen.
+2. De gegevens in een pandas DataFrame uit het gedownloade bestand gelezen.
    
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 U bent nu klaar voor de gegevens verkennen en het genereren van functies voor deze gegevensset.
 
-## <a name="blob-dataexploration"></a>Voorbeelden van gegevens verkennen met behulp van Pandas
-Hier volgen enkele voorbeelden van manieren om met Pandas gegevens te verkennen:
+## <a name="blob-dataexploration"></a>Voorbeelden van gegevens verkennen met behulp van pandas
+Hier volgen enkele voorbeelden van manieren om met pandas gegevens te verkennen:
 
 1. Inspecteer de **aantal rijen en kolommen** 
    

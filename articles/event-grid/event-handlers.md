@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08658c42687626779dea0de7dd724d9431a296da
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617138"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498654"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gebeurtenis-handlers in Azure Event Grid
 
@@ -50,6 +50,7 @@ Eventhubs kunnen fungeren als een bron van gebeurtenis- of gebeurtenis-handler. 
 |Titel  |Beschrijving  |
 |---------|---------|
 | [Snelstartgids: aangepaste gebeurtenissen routeren naar Azure Event Hubs met Azure CLI en Event Grid](custom-event-to-eventhub.md) | Een aangepaste gebeurtenis verzendt naar een event hub voor verwerking door een toepassing. |
+| [Resource Manager-sjabloon: aangepast onderwerp en het eindpunt van de Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Een Resource Manager-sjabloon maakt u een abonnement voor een aangepast onderwerp. Verzendt gebeurtenissen naar een Azure Event Hubs. |
 
 Zie voor meer voorbeelden van Event Hubs als een bron [Event Hubs bron](event-sources.md#event-hubs).
 

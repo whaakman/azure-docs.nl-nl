@@ -1,20 +1,20 @@
 ---
 title: Overzicht van Azure SQL-Database-bronlimieten | Microsoft Docs
-description: Deze pagina beschrijft enkele algemene DTU gebaseerde resourcelimieten voor individuele databases in Azure SQL Database.
+description: Dit artikel bevat een overzicht van de resource van Azure SQL Database beperkt en bevat informatie over wat er gebeurt wanneer deze resourcelimieten zijn bereikt of overschreden.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d070c1d65ea15450589e1b590eaf926c10e749f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: fbb73e46ed3aa41b544e8fea5c6184675140e810
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736186"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498146"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Overzicht van Azure SQL Database-resourcebeperkingen 
 

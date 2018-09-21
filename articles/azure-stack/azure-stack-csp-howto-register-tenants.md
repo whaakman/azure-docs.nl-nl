@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633993"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498569"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Toevoegen van tenant voor gebruik en facturering met Azure Stack
 
@@ -69,9 +69,9 @@ Werk uw registratie met abonnement van de nieuwe klant. Azure-rapporten van de k
 ### <a name="new-azurermresource-powershell-parameters"></a>Nieuwe-AzureRmResource PowerShell-parameters
 | Parameter | Beschrijving |
 | --- | --- | 
-|registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie van de Azure Stack. |
-| customerSubscriptionID | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt in de CSP-aanbieding; Dit betekent via Partner Center in de praktijk. Als een klant meer dan één Azure Active Directory-tenant heeft, kan dit abonnement moet worden gemaakt in de tenant die wordt gebruikt voor aanmelding bij Azure Stack.
-| ResourceGroup | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. 
+|registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie van de Azure Stack.|
+| customerSubscriptionID | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt in de CSP-aanbieding; Dit betekent via Partner Center in de praktijk. Als een klant meer dan één Azure Active Directory-tenant heeft, kan dit abonnement moet worden gemaakt in de tenant die wordt gebruikt voor aanmelding bij Azure Stack. De abonnements-ID van de klant moet kleine letters gebruiken. |
+| ResourceGroup | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
 | registrationName | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. | 
 | Eigenschappen | Hiermee geeft u de eigenschappen voor de resource. Gebruik deze parameter om op te geven van de waarden van eigenschappen die specifiek voor het resourcetype zijn.
 

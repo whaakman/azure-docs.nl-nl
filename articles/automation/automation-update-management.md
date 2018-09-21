@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddc27d9f5124000601a57b4ecd72c3d6021c109f
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542630"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498535"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -35,7 +35,7 @@ Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegev
 
 ![Processtroom voor het beheer van bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, u onboarding moet als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, u onboarding moet als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
 
 Nadat een computer een scan voor naleving van updates voert, verzendt de agent de informatie in bulk naar Azure Log Analytics. Op een Windows-computer, wordt de nalevingsscan standaard elke 12 uur uitgevoerd.
 
@@ -55,6 +55,8 @@ De geplande implementatie wordt gedefinieerd welke doelcomputers de updates word
 Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent uit te voeren van de installatie van vereiste updates.
 
 Op de datum en tijd die is opgegeven in de update-implementatie, uitvoeren de doelcomputers de implementatie parallel. Vóór de installatie wordt een scan uitgevoerd om te controleren of de updates nog steeds vereist. Voor WSUS-clientcomputers, als de updates niet zijn goedgekeurd in WSUS, mislukt de update-implementatie.
+
+Met een apparaat dat is geregistreerd voor updatebeheer in meerdere Log Analytics-werkruimten (multihoming) wordt niet ondersteund.
 
 ## <a name="clients"></a>Clients
 
@@ -190,7 +192,7 @@ Als u wilt een logboekzoekopdracht die informatie over de machine retourneert ui
 
 Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkruimte, kunt u de vereiste updates installeren door het maken van een *update-implementatie*. Een update-implementatie is een geplande installatie van vereiste updates voor een of meer computers. U geeft de datum en tijd voor de implementatie en een computer of groep computers die u wilt opnemen in het bereik van een implementatie. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over computergroepen.
 
- Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Dit probleem omzeilen, de geplande update-implementatie verwijderen en opnieuw maken.
+ Wanneer u in uw update-implementatie computergroepen, wordt het lidmaatschap van slechts één keer geëvalueerd op het moment van schema maken. Wijzigingen aan een groep worden niet weergegeven. Om op te halen om deze [dynamische groepen](#using-dynamic-groups), deze groepen worden omgezet tijdens de implementatie en zijn gedefinieerd door een query.
 
 > [!NOTE]
 > Windows virtuele machines die zijn geïmplementeerd vanuit de Azure Marketplace standaard zijn ingesteld op automatische updates ontvangen van Windows Update-Service. Dit gedrag verandert niet wanneer u deze oplossing toevoegt of Windows virtuele machines aan uw werkruimte toevoegen. Als u geen actief updates beheren met behulp van deze oplossing, wordt het standaardgedrag (automatisch updates wilt toepassen) is van toepassing.
@@ -198,6 +200,23 @@ Nadat updates zijn beoordeeld voor alle Linux- en Windows-computers in uw werkru
 Om te voorkomen dat updates buiten een onderhoudsperiode in Ubuntu worden toegepast, de configuratie van het pakket Unattended-Upgrade automatische updates uitschakelen. Zie voor meer informatie over het configureren van het pakket [onderwerp Automatic Updates in de Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Virtuele machines die zijn gemaakt via de on-demand Red Hat Enterprise Linux (RHEL)-installatiekopieën die beschikbaar in de Azure Marketplace zijn zijn geregistreerd voor toegang tot de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) die geïmplementeerd in Azure. Andere Linux-distributies moet uit de opslagplaats van de distributie van online-bestand aan de hand van de ondersteunde distributiemethoden worden bijgewerkt.
+
+Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** deelvenster wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
+
+| Eigenschap | Beschrijving |
+| --- | --- |
+| Naam |Unieke naam voor het identificeren van de update-implementatie. |
+|Besturingssysteem| Linux of Windows|
+| Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Voor meer informatie over meer Zie [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
+| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
+|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
+|Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Er zijn updates moeten worden opgenomen of uitgesloten op een afzonderlijk tabblad. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior) |
+|Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
+| Scripts die voorafgaan aan en scripts die volgen|Selecteer de scripts worden uitgevoerd vóór en na de implementatie|
+| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde kan niet worden zijn minder dan 30 minuten en niet meer dan 6 uur |
+| Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
+
+Update-implementaties kunnen ook programmatisch worden gemaakt. Zie voor meer informatie over het maken van een Update-implementatie met de REST-API, [configuraties van Software-Update - maken](/rest/api/automation/softwareupdateconfigurations/create). Er is ook een voorbeeldrunbook dat kan worden gebruikt om een wekelijkse Update-implementatie te maken. Zie voor meer informatie over dit runbook, [een wekelijkse update-implementatie voor een of meer virtuele machines in een resourcegroep maken](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-missing-updates"></a>Ontbrekende updates weergeven
 
@@ -209,20 +228,7 @@ Selecteer de **Update Deployments** tabblad om de lijst met bestaande update-imp
 
 ![Overzicht van de resultaten van de update-implementatie](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="create-or-edit-an-update-deployment"></a>Maken of bewerken van een update-implementatie
-
-Voor het maken van een nieuwe update-implementatie selecteert **update-implementatie plannen**. De **nieuwe Update-implementatie** deelvenster wordt geopend. Voer waarden in voor de eigenschappen die worden beschreven in de volgende tabel en klik vervolgens op **maken**:
-
-| Eigenschap | Beschrijving |
-| --- | --- |
-| Naam |Unieke naam voor het identificeren van de update-implementatie. |
-|Besturingssysteem| Linux of Windows|
-| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
-|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u de KB zonder de KB-voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
-|Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
-| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde kan niet worden zijn minder dan 30 minuten en niet meer dan 6 uur |
-| Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
+Als u een update-implementatie van de REST-API, Zie [Software Update-configuratie wordt uitgevoerd](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## <a name="update-classifications"></a>Updateclassificaties
 
@@ -484,11 +490,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Met behulp van dynamische groepen (preview)
+
+Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtuele Azure-machines voor update-implementaties. Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Bij het definiëren van uw query die de volgende items kunnen samen worden gebruikt voor het vullen van de dynamische groep
+
+* Abonnement
+* Resourcegroepen
+* Locaties
+* Tags
+
+![Groepen selecteren](./media/automation-update-management/select-groups.png)
+
+Preview-versie van de resultaten van een dynamische groep, klikt u op de **Preview** knop. In dit voorbeeld worden het lidmaatschap van de op dat moment wordt in dit voorbeeld wij zoeken naar computers met de tag **rol** is gelijk aan **BackendServer**. Als u meer machines hebben deze tag toegevoegd, worden ze voor alle toekomstige implementaties op basis van die groep worden toegevoegd.
+
+![Preview-groepen](./media/automation-update-management/preview-groups.png)
+
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integreren met System Center Configuration Manager
 
 Klanten die in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten hebben geïnvesteerd is ook afhankelijk van de kracht en volwassenheid van Configuration Manager zodat ze de software-updates beheren. Configuration Manager maakt deel uit van de software update management (som)-cyclus.
 
 Zie voor meer informatie over het integreren van de oplossing voor beheer met System Center Configuration Manager, [System Center Configuration Manager integreren met updatebeheer](oms-solution-updatemgmt-sccmintegration.md).
+
+## <a name="inclusion-behavior"></a>Opname-gedrag
+
+Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die zijn ingesteld om te worden opgenomen worden, ongeacht de classificaties die zijn geselecteerd voor de implementatie geïnstalleerd.
+
+Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket dat specifcally uitgesloten heeft, is is het pakket niet geïnstalleerd.
 
 ## <a name="patch-linux-machines"></a>Patch voor Linux-machines
 
@@ -527,3 +554,5 @@ Doorgaan naar de zelfstudie voor informatie over het beheren van updates voor uw
 
 * Gebruik logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Waarschuwingen maken](../log-analytics/log-analytics-alerts.md) als essentiële updates ontbreken van computers worden gedetecteerd of als een computer met automatische updates uitgeschakeld is.
+
+* Zie voor meer informatie over de communicatie met updatebeheer via de REST-API, [configuraties van Software-Update](/rest/api/automation/softwareupdateconfigurations)

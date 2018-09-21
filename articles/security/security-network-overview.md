@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060633"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498501"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
-Azure bevat een robuuste netwerkinfrastructuur ter ondersteuning van uw toepassing en de vereisten voor service-connectiviteit. Verbinding met het netwerk mogelijk is tussen de resources die zich bevinden in Azure, tussen on-premises en wordt gehost op Azure-resources, en naar en van internet en Azure.
+Beveiliging van het netwerk kan worden gedefinieerd als het proces voor het beveiligen van bronnen tegen onbevoegde toegang of aanvallen door besturingselementen toe te passen op netwerkverkeer. Het doel is om ervoor te zorgen dat alleen legitieme verkeer is toegestaan. Azure bevat een robuuste netwerkinfrastructuur ter ondersteuning van uw toepassing en de vereisten voor service-connectiviteit. Verbinding met het netwerk mogelijk is tussen de resources die zich bevinden in Azure, tussen on-premises en wordt gehost op Azure-resources, en naar en van internet en Azure.
 
 In dit artikel vindt u enkele van de opties die Azure in het gebied van beveiliging van het netwerk biedt. U kunt meer informatie over:
 
@@ -77,7 +77,11 @@ Meer informatie:
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC just-in-time-VM-toegang
 
-[Azure security center](../security-center/security-center-just-in-time.md) kunnen de Netwerkbeveiligingsgroepen op VM's beheren en toegang tot de virtuele machine te vergrendelen totdat een gebruiker met de juiste op rollen gebaseerd toegangsbeheer [RBAC](../role-based-access-control/overview.md) machtigingen aanvragen toegang. Wanneer de gebruiker nog niet is maakt geautoriseerde ASC wijzigingen in de nsg's voor toegang tot geselecteerde poorten voor de tijd die is opgegeven. Wanneer het tijd is verlopen worden de nsg's worden teruggezet naar de vorige status beveiligd.
+[Azure security center](../security-center/security-center-intro.md) kunnen de Netwerkbeveiligingsgroepen op VM's beheren en toegang tot de virtuele machine te vergrendelen totdat een gebruiker met de juiste op rollen gebaseerd toegangsbeheer [RBAC](../role-based-access-control/overview.md) machtigingen aanvragen toegang. Wanneer de gebruiker nog niet is maakt geautoriseerde ASC wijzigingen in de nsg's voor toegang tot geselecteerde poorten voor de tijd die is opgegeven. Wanneer het tijd is verlopen worden de nsg's worden teruggezet naar de vorige status beveiligd.
+
+Meer informatie:
+
+* [Azure Security Center Just-in-T](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>Service-eindpunten
 

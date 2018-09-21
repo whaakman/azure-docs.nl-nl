@@ -1,6 +1,6 @@
 ---
 title: Cross-tenant-analytics met behulp van de opgehaalde gegevens uitvoeren | Microsoft Docs
-description: Cross-tenant-analytics query's met behulp van gegevens uit meerdere Azure SQL Database-databases hebt uitgepakt.
+description: Cross-tenant-analytics query's met behulp van gegevens uit meerdere Azure SQL Database-databases in een app met één tenant hebt uitgepakt.
 keywords: zelfstudie sql-database
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: b887572e7c2bdf22c8a6cc8ffa1641e402fd6a58
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a838630e3423ca5ec26893597e2bb2b6e36ede2e
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736424"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498048"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant-analytics met behulp van de opgehaalde gegevens
-
-In deze zelfstudie doorloopt u een volledige analytics-scenario. Het scenario laat zien hoe analytics bedrijven om slimme beslissingen kan inschakelen. Gegevens opgehaald uit elke tenantdatabase gebruikt, u analytics gebruiken om inzicht te krijgen in de tenant gedrag en de toepassing. In dit scenario bestaat uit drie stappen: 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Cross-tenant-analytics met behulp van data - app met één tenant opgehaald
+ 
+In deze zelfstudie doorloopt u een volledige analytics-scenario voor een implementatoin één tenant. Het scenario laat zien hoe analytics bedrijven om slimme beslissingen kan inschakelen. Gegevens opgehaald uit elke tenantdatabase gebruikt, u analytics gebruiken voor inzicht in de tenant-gedrag, met inbegrip van hun gebruik van de Wingtip Tickets SaaS-voorbeeldtoepassing. In dit scenario bestaat uit drie stappen: 
 
 1.  **Pak** gegevens uit elke tenantdatabase en **Load** in een archief van de analyse.
 2.  **De opgehaalde gegevens te transformeren** voor analyseverwerking.
@@ -241,3 +241,4 @@ Gefeliciteerd!
 
 - Aanvullende [zelfstudies voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Elastische taken](sql-database-elastic-jobs-overview.md).
+- [Cross-tenant-analytics met behulp van de opgehaalde gegevens - app met meerdere tenants](saas-multitenantdb-tenant-analytics.md)

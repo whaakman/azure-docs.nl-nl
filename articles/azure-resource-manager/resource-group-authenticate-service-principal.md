@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023321"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498603"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell gebruiken om een service-principal met een certificaat te maken
 
@@ -29,7 +29,7 @@ Wanneer u een app of een script hebt waarvoor toegang tot resources vereist is, 
 * Een certificaat voor verificatie gebruiken bij het uitvoeren van een onbewaakt script.
 
 > [!IMPORTANT]
-> In plaats van een service-principal te maken, kunt u overwegen Azure AD Managed Service Identity te gebruiken voor de identiteit van uw toepassing. Azure AD MSI is een openbare preview-functie van Azure Active Directory die het eenvoudiger maakt om een identiteit voor code te maken. Als uw code wordt uitgevoerd op een service met ondersteuning voor Azure AD MSI en toegang heeft tot bronnen met ondersteuning voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie [Managed Service Identity voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) voor meer informatie over Azure AD MSI en de services die MSI ondersteunen.
+> In plaats van het maken van een service-principal, kunt u overwegen beheerde identiteiten voor Azure-resources voor de identiteit van uw toepassingen. Als uw code wordt uitgevoerd op een service die ondersteuning biedt voor beheerde identiteiten en toegang tot bronnen die ondersteuning bieden voor Azure Active Directory-verificatie, zijn beheerde identiteiten een betere optie voor u. Zie voor meer informatie over beheerde identiteiten voor een Azure-resources, met inbegrip van welke services momenteel, [wat is beheerde identiteiten voor Azure-resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 In dit artikel leest u hoe een service-principal maakt die zichzelf verifieert met een certificaat. Zie [Een Azure-service-principal maken met Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) voor het instellen van een service-principal met een wachtwoord.
 
@@ -207,9 +207,9 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 Bij het maken van een service-principal kunnen de volgende foutmeldingen worden weergegeven:
 
-* **Authentication_Unauthorized** (Verificatie geweigerd) of **No subscription found in the context.** (Geen abonnement gevonden in de context.) - Deze foutmelding wordt weergegeven als uw account niet beschikt over de [vereiste machtigingen](#required-permissions) in Azure Active Directory voor het registreren van een app. Normaal gesproken krijgt u deze foutmelding als alleen gebruikers met beheerdersrechten apps mogen registreren in Azure Active Directory en uw account geen beheerdersrechten heeft. Vraag uw beheerder om u de rol van beheerder toe te wijzen, of in te stellen dat gebruikers apps mogen registreren.
+* **Authentication_Unauthorized** (Verificatie geweigerd) of **No subscription found in the context.** (Geen abonnement gevonden in de context.) -U deze fout wordt weergegeven wanneer u uw account beschikt niet over de [vereiste machtigingen](#required-permissions) in de Azure Active Directory om een app te registreren. Normaal gesproken ziet u deze fout wanneer alleen beheerder gebruikers in uw Azure Active Directory-apps kunnen registreren, en uw account niet een beheerder. Vraag uw beheerder om u de rol van beheerder toe te wijzen, of in te stellen dat gebruikers apps mogen registreren.
 
-* Uw account **beschikt niet over machtigingen om de actie 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}' uit te voeren.** - Deze foutmelding wordt weergegeven als uw account onvoldoende machtigingen heeft om een rol aan een identiteit toe te wijzen. Vraag de abonnementsbeheerder om u toe te voegen aan de rol Administrator voor gebruikerstoegang.
+* Uw account **'heeft geen autorisatie om uit te voeren actie 'Microsoft.Authorization/roleAssignments/write' over scope '/ subscriptions / {guid}'.'**  -U deze fout wordt weergegeven wanneer u uw account beschikt niet over voldoende machtigingen voor een rol toewijzen aan een identiteit. Vraag de abonnementsbeheerder om u toe te voegen aan de rol Administrator voor gebruikerstoegang.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Een Azure-service-principal maken met Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) voor het instellen van een service-principal met een wachtwoord.
