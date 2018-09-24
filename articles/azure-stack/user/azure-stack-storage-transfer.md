@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139464"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46874020"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Gebruik van hulpmiddelen voor het overbrengen van gegevens voor Azure Stack
 
@@ -246,7 +246,7 @@ De Azure-CLI is de opdrachtregelervaring van Azure voor het beheren van Azure-re
 
 Azure CLI is geoptimaliseerd voor het beheren en beheer van Azure-resources vanaf de opdrachtregel en voor het bouwen van automatiseringsscripts die op basis van de Azure Resource Manager werken. Het biedt veel dezelfde functies gevonden in de Azure Stack-portal, met inbegrip van toegang tot uitgebreide gegevens.
 
-Azure Stack gebruikmaken van Azure CLI versie 2.0. Zie voor meer informatie over het installeren en configureren van Azure CLI met Azure Stack [installeren en configureren van Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Zie voor meer informatie over het gebruik van de Azure CLI 2.0 om uit te voeren van verschillende taken die werken met resources in uw Azure Stack-opslagaccount [de CLI2.0 Azure gebruiken met Azure storage](../../storage/storage-azure-cli.md)
+Azure Stack gebruikmaken van Azure CLI versie 2.0 of hoger. Zie voor meer informatie over het installeren en configureren van Azure CLI met Azure Stack [installeren en configureren van Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Zie voor meer informatie over het gebruik van de Azure CLI om uit te voeren van verschillende taken die werken met resources in uw Azure Stack-opslagaccount [de Azure CLI gebruiken met Azure storage](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI-voorbeeldscript voor Azure Stack
 

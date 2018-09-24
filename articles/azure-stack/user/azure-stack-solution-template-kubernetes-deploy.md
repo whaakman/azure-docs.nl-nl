@@ -1,6 +1,6 @@
 ---
-title: Een Kubernetes-Cluster implementeren met Azure Stack | Microsoft Docs
-description: Informatie over het implementeren van een Kubernetes-Cluster in Azure Stack.
+title: Kubernetes op Azure Stack implementeren | Microsoft Docs
+description: Informatie over het implementeren van Kubernetes op Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,28 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: MT
+ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718573"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46876613"
 ---
-# <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Een Kubernetes-cluster implementeren in Azure Stack
+# <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
-> De Engine voor AKS (Azure Kubernetes Service) op Azure Stack is in de beperkte Preview-versie. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
+> Kubernetes in Azure Stack is in preview. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Cluster Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
 
 Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren. De sjabloon is niet hetzelfde beheerd AKS-service die wordt aangeboden in de globale Azure, maar dichter bij de ACS-service.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes en containers
 
-U kunt installeren met behulp van Azure Resource Manager-sjablonen die zijn gegenereerd door de Engine Azure Kubernetes-Services (AKS) in Azure Stack Kubernetes. [Kubernetes](https://kubernetes.io) is een open-source systeem voor het automatiseren van implementatie, schalen en beheren van toepassingen in containers. Een [container](https://www.docker.com/what-container) is opgenomen in een afbeelding, vergelijkbaar met een virtuele machine. In tegenstelling tot een virtuele machine bevat de containerinstallatiekopie alleen de benodigde resources beschikken om uit te voeren van een toepassing, zoals de code, runtime voor het uitvoeren van de code, specifieke bibliotheken en -instellingen.
+U kunt installeren met behulp van Azure Resource Manager-sjablonen die zijn gegenereerd door de ACS-Engine in Azure Stack Kubernetes. [Kubernetes](https://kubernetes.io) is een open-source systeem voor het automatiseren van implementatie, schalen en beheren van toepassingen in containers. Een [container](https://www.docker.com/what-container) is opgenomen in een afbeelding, vergelijkbaar met een virtuele machine. In tegenstelling tot een virtuele machine bevat de containerinstallatiekopie alleen de benodigde resources beschikken om uit te voeren van een toepassing, zoals de code, runtime voor het uitvoeren van de code, specifieke bibliotheken en -instellingen.
 
 U kunt Kubernetes te gebruiken:
 
@@ -59,7 +59,11 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 ## <a name="create-a-service-principal-in-azure-ad"></a>Een service-principal maken in Azure AD
 
 1. Meld u aan de globale [Azure-portal](http://portal.azure.com).
-1. Controleer of u aangemeld met behulp van de Azure AD-tenant die is gekoppeld aan de Azure Stack-exemplaar.
+
+1. Controleer of u aangemeld met behulp van de Azure AD-tenant die is gekoppeld aan de Azure Stack-exemplaar. U kunt de aanmelding schakelen door te klikken op het filterpictogram in de werkbalk van Azure.
+
+    ![Selecteer de AD-tenant](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+
 1. Maak een Azure AD-toepassing.
 
     a. Selecteer **Azure Active Directory** > **+ App-registraties** > **nieuwe toepassing registreren**.
@@ -83,26 +87,25 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
     c. Selecteer **Opslaan**. Houd er rekening mee de belangrijkste tekenreeks maken U moet de sleutel tekenreeks bij het maken van het cluster. De sleutel waarnaar wordt verwezen als de **Clientgeheim Service-Principal**.
 
 
-
 ## <a name="give-the-service-principal-access"></a>De service-principal toegang verlenen
 
 De service-principal toegang geven aan uw abonnement, zodat de principal-resources kunt maken.
 
 1.  Aanmelden bij de [Azure Stack-portal](https://portal.local.azurestack.external/).
 
-1. Selecteer **meer services** > **abonnementen**.
+1. Selecteer **alle services** > **abonnementen**.
 
-1. Selecteer het abonnement dat u hebt gemaakt.
+1. Selecteer het abonnement dat is gemaakt door de operator voor het gebruik van het Kubernetes-Cluster.
 
 1. Selecteer **toegangsbeheer (IAM)** > Selecteer **+ toevoegen**.
 
-1. Selecteer de **eigenaar** rol.
+1. Selecteer de **Inzender** rol.
 
 1. Selecteer de naam van de toepassing gemaakt voor uw service principal. U moet de naam in het zoekvak typt.
 
 1. Klik op **Opslaan**.
 
-## <a name="deploy-a-kubernetes-cluster"></a>Een Kubernetes-Cluster implementeren
+## <a name="deploy-a-kubernetes"></a>Een Kubernetes implementeren
 
 1. Open de [Azure Stack-portal](https://portal.local.azurestack.external).
 
@@ -110,7 +113,7 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
     ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Selecteer **basisbeginselen** in het Kubernetes-Cluster maken.
+1. Selecteer **basisbeginselen** in het maken van Kubernetes.
 
     ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
@@ -145,7 +148,6 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
 1. Voer de **Arm-eindpunt voor de Tenantsleutel**. Dit is de Azure Resource Manager-eindpunt verbinding maken met de resourcegroep voor het Kubernetes-cluster maken. U moet het eindpunt van uw Azure Stack-operators voor een geïntegreerd systeem ophalen. Voor de Azure Stack Development Kit (ASDK), kunt u `https://management.local.azurestack.external`.
 
-1. Voer de **Tenant-ID** voor de tenant. Als u hulp bij het vinden van deze waarde nodig hebt, raadpleegt u [tenant-ID ophalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Verbinding maken met uw cluster
 
@@ -155,6 +157,6 @@ Mogelijk merkt u ook de **Helm** Pakketbeheer nuttig voor het installeren en imp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een Kubernetes-Cluster toevoegen aan de Marketplace (voor de Azure Stack-operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Een Kubernetes (voor de Azure Stack-operator) toevoegen aan de Marketplace](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes op Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
