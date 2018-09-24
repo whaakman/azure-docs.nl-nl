@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958098"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Snelstart: Azure DNS configureren voor naamomzetting met behulp van Azure Portal
 
@@ -24,7 +24,7 @@ In deze snelstart maakt u een testdomein en maakt u vervolgens een adresrecord m
 Het is belangrijk te weten dat de namen en IP-adressen die worden gebruikt in deze snelstart slechts voorbeelden zijn, en niet bedoeld zijn om een werkelijk scenario voor te stellen. Waar van toepassing worden echter ook werkelijke scenario's beschreven.
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 Een DNS-zone bevat de DNS-records voor een bepaald domein. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. De volgende stappen laten zien hoe u dit doet.
@@ -46,7 +46,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
    |**Naam**|contoso.xyz|De naam van de DNS-zone voor dit voorbeeld. U kunt elke gewenste waarde gebruiken voor deze snelstart, zolang deze nog niet is geconfigureerd op de Azure DNS-servers. Een werkelijke waarde zou een domein zijn dat u hebt gekocht via een domeinnaamregistrar.|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin de DNS-zone moet worden gemaakt.|
    |**Resourcegroep**|**Nieuwe maken:** dns-test|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. |
-   |**Locatie**|VS - oost||
+   |**Locatie**|US - oost||
 
 Het maken van de zone kan een paar minuten duren.
 
@@ -65,7 +65,7 @@ Maak nu een nieuwe adresrecord (A-record). A-records worden gebruikt om de naam 
    |**Naam**|www|Naam van de record. Dit is de naam die u wilt gebruiken voor de host die u wilt omzetten in een IP-adres.|
    |**Type**|A| Het type van de te maken DNS-record. A-records worden het meest gebruikt, maar er zijn andere recordtypen voor e-mailservers (MX), IPv6-adressen (AAAA), enzovoort. |
    |**TTL**|1|Time-to-Live van de DNS-aanvraag. Geeft aan hoelang DNS-servers en -clients een antwoord in de cache kunnen opslaan.|
-   |**TTL-eenheid**|uur|Maateenheid van de TTL-waarde.|
+   |**TTL-eenheid**|hours|Maateenheid van de TTL-waarde.|
    |**IP-adres**|10.10.10.10| Dit is het IP-adres waarnaar de A-record wordt omgezet. Dit is slechts een testwaarde voor deze snelstart. Voor een reëel voorbeeld zou u het openbare IP-adres van uw webserver invoeren.|
 
 

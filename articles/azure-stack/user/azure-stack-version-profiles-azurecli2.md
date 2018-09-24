@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295850"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972807"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI 2.0 in Azure Stack
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
 U kunt de stappen in dit artikel om in te stellen van de Azure-opdrachtregelinterface (CLI) voor het beheren van Azure Stack Development Kit resources vanuit Linux, Mac en Windows-clientplatforms.
 
 ## <a name="install-cli"></a>CLI installeren
 
-Aanmelden bij uw ontwikkelwerkstation en CLI installeren. Azure Stack is versie van Azure CLI 2.0 vereist. U kunt die installeren met behulp van de stappen in de [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) artikel. Om te controleren of de installatie geslaagd is, open een terminal of opdrachtprompt en voer de volgende opdracht uit:
+Aanmelden bij uw ontwikkelwerkstation en CLI installeren. Azure Stack is versie 2.0 of hoger van Azure CLI vereist. U kunt die installeren met behulp van de stappen in de [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) artikel. Om te controleren of de installatie geslaagd is, open een terminal of opdrachtprompt en voer de volgende opdracht uit:
 
 ```azurecli
 az --version

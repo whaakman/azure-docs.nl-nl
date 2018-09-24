@@ -11,8 +11,7 @@
 # Aan de slag
 ## [Azure Portal gebruiken](data-lake-store-get-started-portal.md)
 ## [Azure PowerShell gebruiken](data-lake-store-get-started-powershell.md)
-## [Azure CLI 2.0 gebruiken](data-lake-store-get-started-cli-2.0.md)
-
+## [Azure CLI gebruiken](data-lake-store-get-started-cli-2.0.md)
 
 # Procedures
 ## Gegevens laden en verplaatsen

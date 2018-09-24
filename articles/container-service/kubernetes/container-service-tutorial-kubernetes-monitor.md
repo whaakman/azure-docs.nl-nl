@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 17398a9f74e40a7d513912d654fa609d9837d805
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996907"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Een Kubernetes-cluster bewaken met Log Analytics
 
@@ -152,7 +153,7 @@ Zoek in de Log Analytics-portal naar de overzichtstegel **Containers** in het da
 
 Op dezelfde wijze gaat u in Azure Portal naar **Log Analytics** en selecteert u de naam van uw werkruimte. Klik voor de overzichtstegel **Containers** op **Oplossingen** > **Containers**. Klik voor details op de tegel.
 
-Zie de [Azure Log Analytics-documentatie](../../log-analytics/index.yml) voor gedetailleerde hulp bij het uitvoeren van query's en het analyseren van bewakingsgegevens.
+Zie de [Azure Log Analytics-documentatie](../../log-analytics/log-analytics-queries.md) voor gedetailleerde hulp bij het uitvoeren van query's en het analyseren van bewakingsgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 

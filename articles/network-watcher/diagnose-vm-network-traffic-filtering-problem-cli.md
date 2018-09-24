@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180467"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990107"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Snelstart: Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine - Azure CLI
 
@@ -32,11 +32,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstart de Azure CLI versie 2.0.28 of later uitvoeren. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Nadat u de CLI-versie hebt gecontroleerd, voert u `az login` uit om een verbinding met Azure te maken. De CLI-opdrachten in deze snelstart zijn ingedeeld om te worden uitgevoerd in een Bash-shell.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstart de Azure CLI versie 2.0.28 of later uitvoeren. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). Nadat u de CLI-versie hebt gecontroleerd, voert u `az login` uit om een verbinding met Azure te maken. De CLI-opdrachten in deze snelstart zijn ingedeeld om te worden uitgevoerd in een Bash-shell.
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 
-Voordat u een VM kunt maken, maakt u eerst een resourcegroep die de VM bevat. Maak een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
+Voordat u een VM kunt maken, maakt u eerst een resourcegroep die de VM bevat. Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -60,7 +60,7 @@ Als u de netwerkcommunicatie met Network Watcher wilt testen, moet u eerst een n
 
 ### <a name="enable-network-watcher"></a>Netwerk-watcher inschakelen
 
-Als u al een netwerk-watcher hebt ingeschakeld in de regio VS Oost, gaat u verder met [IP-stroomverificatie gebruiken](#use-ip-flow-verify). Gebruik de opdracht [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) om een netwerk-watcher te maken in de regio VS Oost:
+Als u al een netwerk-watcher hebt ingeschakeld in de regio US - oost, gaat u verder met [IP-stroomverificatie gebruiken](#use-ip-flow-verify). Gebruik de opdracht [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) om een netwerk-watcher te maken in de regio VS Oost:
 
 ```azurecli-interactive
 az network watcher configure \

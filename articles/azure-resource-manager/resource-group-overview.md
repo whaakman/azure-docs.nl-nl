@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d04625fe78c423c995460afa29a81d96c6ce9cfb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337970"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969288"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
@@ -183,7 +183,7 @@ Gebruik de volgende PowerShell-cmdlet om alle resources met een tagwaarde op te 
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Of voer de volgende Azure CLI 2.0-opdracht uit:
+Of voer de volgende Azure CLI-opdracht uit:
 
 ```azurecli
 az resource list --tag costCenter=Finance

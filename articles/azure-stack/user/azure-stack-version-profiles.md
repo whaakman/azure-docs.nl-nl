@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: MT
+ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982140"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970291"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Beheren van API-versieprofielen in Azure Stack
 
@@ -79,8 +79,8 @@ Hier vindt u voorbeelden van code kunt u uw oplossing te integreren met de taal 
 
 - **PowerShell**  
 U kunt de **AzureRM.Bootstrapper** module beschikbaar via de PowerShell Gallery om op te halen van de PowerShell-cmdlets die is vereist voor het werken met API-versieprofielen. Zie voor meer informatie, [gebruik API-versieprofielen voor PowerShell](azure-stack-version-profiles-powershell.md).
-- **Azure CLI 2.0**  
-U kunt de configuratie van uw omgeving voor het gebruik van de Azure Stack specifieke API-versie profiel bijwerken. Zie voor meer informatie, [gebruik API-versieprofielen voor Azure CLI 2.0](azure-stack-version-profiles-azurecli2.md).
+- **Azure-CLI**  
+U kunt de configuratie van uw omgeving voor het gebruik van de Azure Stack specifieke API-versie profiel bijwerken. Zie voor meer informatie, [gebruik API-versieprofielen voor Azure CLI](azure-stack-version-profiles-azurecli2.md).
 - **GO**  
 In de GO SDK is een profiel een combinatie van verschillende resourcetypen met verschillende versies van verschillende services. profielen zijn beschikbaar onder de profielen / pad met de versie in de **jjjj-MM-DD** indeling. Zie voor meer informatie, [gebruik API-versieprofielen voor GO](azure-stack-version-profiles-go.md).
 - **Ruby**  

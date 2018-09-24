@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 599302cbf614f800d35a9a8c6a401c9692fc2e39
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ROBOTS: NOINDEX
+ms.openlocfilehash: 29f5c5efb78e85e265b56cba9ba20daa123d334e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268277"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961039"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Zelfstudie: Een aangepast taalmodel maken
 
@@ -26,7 +27,7 @@ In deze zelfstudie leert u het volgende:
 > * De taalgegevensset importeren
 > * Het aangepaste taalmodel maken
 
-Als u nog geen Cognitive Services-account hebt, maakt u een [gratis account](https://cris.ai) aan voordat u begint.
+Als u nog geen Cognitive Services-account hebt, maakt u een [gratis account](https://cris.ai) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -57,8 +58,8 @@ De belangrijkste vereisten voor de taalgegevens worden samengevat in de volgende
 | Aantal utterances per regel | 1 |
 | Maximale bestandsgrootte | 200 MB |
 | Opmerkingen | vermijd tekens meer dan 4 keer te herhalen, bijvoorbeeld 'aaaaa'|
-| Opmerkingen | geen speciale tekens als '\t' of een ander UTF-8-teken boven U + 00A1 in [tabel met Unicode-tekens](http://www.utf8-chartable.de/)|
-| Opmerkingen | URI's wordt ook geweigerd omdat er geen unieke manier is om een URI uit te spreken|
+| Opmerkingen | geen speciale tekens als '\t' of andere UTF-8-teken boven U+00A1 in de [tabel met Unicode-tekens](http://www.utf8-chartable.de/)|
+| Opmerkingen | URI's wordt ook geweigerd, omdat er geen unieke manier is om een URI uit te spreken|
 
 Wanneer de tekst wordt geïmporteerd, wordt de tekst genormaliseerd zodat deze door het systeem kan worden verwerkt. Er zijn echter enkele belangrijke normalisaties die door de gebruiker moeten worden uitgevoerd _voordat_ de gegevens worden geüpload. Zie de [Transcriptierichtlijnen](cognitive-services-custom-speech-transcription-guidelines.md) om te bepalen welke taal geschikt is bij het voorbereiden van uw taalgegevens.
 
@@ -72,21 +73,21 @@ Als u een nieuwe gegevensset wilt importeren, klikt u op de knop 'Import' in de 
 
 ![proberen](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets-import.png)
 
-Wanneer het importeren is voltooid, gaat u terug naar de tabel met taalgegevens. U ziet daar een vermelding die overeenkomt met uw taalgegevensset. U ziet dat er een unieke id (GUID) aan is toegewezen. De gegevens hebben ook een status die overeenkomt met hun huidige toestand. De status is 'Wachten' als deze in de wachtrij staan voor verwerking, 'Verwerken' als deze de validatie doorlopen en 'Voltooid' wanneer de gegevens klaar zijn voor gebruik. Door de gegevensvalidatie wordt een reeks controles uitgevoerd op de tekst in het bestand en enige tekstnormalisering van de gegevens.
+Wanneer het importeren is voltooid, gaat u terug naar de tabel met taalgegevens. U ziet daar een vermelding die overeenkomt met uw taalgegevensset. U ziet dat er een unieke id (GUID) aan is toegewezen. De gegevens hebben ook een status die overeenkomt met hun huidige toestand. De status is 'Waiting' (wachtend) als de gegevens in de wachtrij staan voor verwerking, 'Processing' (wordt verwerkt) als ze de validatie doorlopen en 'Complete' (voltooid) wanneer ze klaar zijn voor gebruik. Door de gegevensvalidatie wordt een reeks controles op de tekst in het bestand en enige tekstnormalisering van de gegevens uitgevoerd.
 
-Wanneer de status 'Voltooid' is, kunt u op 'Rapport weergeven' klikken om het verificatierapport van de taalgegevens te bekijken. Het aantal utterances dat wel en niet door de verificatie zijn gekomen, wordt weergegeven, samen met details over de mislukte utterances. In het onderstaande voorbeeld staan twee voorbeelden waarbij verificatie is mislukt vanwege onjuiste tekens (in deze gegevensset bevat de eerste twee emoticons en de tweede verschillende tekens die niet in de afdrukbare ASCII-tekenset staan).
+Wanneer de status 'Complete' (voltooid) is, kunt u op 'View Report' (rapport bekijken) klikken om het verificatierapport van de taalgegevens te bekijken. Het aantal utterances dat wel en niet door de verificatie zijn gekomen, wordt weergegeven, samen met details over de mislukte utterances. In het onderstaande voorbeeld staan twee voorbeelden waarbij verificatie is mislukt vanwege onjuiste tekens (in deze gegevensset bevat de eerste twee emoticons en de tweede verschillende tekens die niet in de afdrukbare ASCII-tekenset staan).
 
 ![proberen](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets-report.png)
 
-Wanneer de status van de gegevensset taal 'Voltooid' is, kan deze worden gebruikt om een aangepast taalmodel te maken.
+Wanneer de status van de taalgegevensset 'Complete' (voltooid) is, kan deze worden gebruikt om een aangepast taalmodel te maken.
 
 ![proberen](../../../media/cognitive-services/custom-speech-service/custom-speech-language-datasets.png)
 
 ## <a name="create-a-custom-language-model"></a>Een aangepast taalmodel maken
 
-Zodra de gegevens van uw taal gereed zijn, klikt u op 'Taalmodellen' in de vervolgkeuzelijst 'Menu' om het maken van het aangepaste taalmodel te starten. Deze pagina bevat een tabel met de naam 'Taalmodellen' met uw huidige aangepaste taalmodellen. Als u nog geen aangepaste taalmodellen hebt gemaakt, is de tabel leeg. De huidige landinstelling wordt weergegeven in de titel van de tabel. Als u een taalmodel voor een andere taal wilt maken, klikt u op 'Landinstelling wijzigen'. Meer informatie over ondersteunde talen vindt u in de sectie [Landinstelling wijzigen](cognitive-services-custom-speech-change-locale.md). Klik op de koppeling 'Nieuw' onder de titel van de tabel om een nieuw model te maken.
+Zodra de gegevens van uw taal gereed zijn, klikt u op 'Language Models' (taalmodellen) in de vervolgkeuzelijst 'Menu' om het maken van het aangepaste taalmodel te starten. Deze pagina bevat een tabel met de naam 'Language Models' met uw huidige aangepaste taalmodellen. Als u nog geen aangepaste taalmodellen hebt gemaakt, is de tabel leeg. De huidige landinstelling wordt weergegeven in de titel van de tabel. Als u een taalmodel voor een andere taal wilt maken, klikt u op 'Landinstelling wijzigen'. Meer informatie over ondersteunde talen vindt u in de sectie [Landinstelling wijzigen](cognitive-services-custom-speech-change-locale.md). Klik op de koppeling 'Nieuw' onder de titel van de tabel om een nieuw model te maken.
 
-Voer op de pagina 'Taalmodel maken' een 'Naam' en 'Beschrijving' in om relevante informatie over dit model bij te houden, zoals de gegevensset die wordt gebruikt. Selecteer vervolgens het 'Basistaalmodel' in de vervolgkeuzelijst. Dit model is het startpunt voor uw aanpassing. U kunt kiezen uit twee standaardtaalmodellen. De _Microsoft LM voor zoeken en dicteren_ is geschikt is voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. De _Microsoft LM voor conversaties_ is geschikt voor het herkennen van spraak die wordt gesproken in een eigen stijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen.
+Voer op de pagina 'Taalmodel maken' een 'Naam' en 'Beschrijving' in om relevante informatie over dit model bij te houden, zoals de gegevensset die wordt gebruikt. Selecteer vervolgens het 'Base Language Model' (basistaalmodel) in de vervolgkeuzelijst. Dit model is het startpunt voor uw aanpassing. U kunt kiezen uit twee standaardtaalmodellen. De _Microsoft LM voor zoeken en dicteren_ is geschikt is voor spraak gericht op een toepassing, zoals opdrachten, zoekquery's of dicteren. De _Microsoft LM voor conversaties_ is geschikt voor het herkennen van spraak die wordt gesproken in een eigen stijl. Dit type spraak is doorgaans gericht op een andere persoon en vindt plaats in callcenters of vergaderingen.
 
 Nadat u het basistaalmodel hebt opgegeven, selecteert u de taalgegevensset die u wilt gebruiken voor de aanpassing met behulp van de vervolgkeuzelijst 'Taalgegevens'
 
@@ -94,15 +95,15 @@ Nadat u het basistaalmodel hebt opgegeven, selecteert u de taalgegevensset die u
 
 Net als bij het maken van het akoestische model, kunt u het nieuwe model eventueel offline testen wanneer de verwerking is voltooid. Omdat dit een evaluatie van de prestaties van spraak-naar-tekst is, is voor offline testen een akoestische gegevensset vereist.
 
-Als u uw taalmodel offline wilt testen, selecteert u het selectievakje naast 'Offline testen'. Selecteer vervolgens een akoestisch model in de vervolgkeuzelijst. Als u geen aangepaste akoestisch modellen hebt gemaakt, is het akoestische basismodel van Microsoft het enige model in het menu. Als u een eigen LM-basismodel hebt gekozen, moet u hier een conversatie-AM gebruiken. Als u een LM-model voor zoeken en dicteren gebruikt, moet u een LM-model voor zoeken en dicteren selecteren.
+Als u uw taalmodel offline wilt testen, selecteert u het selectievakje naast 'Offline testen'. Selecteer vervolgens een akoestisch model in de vervolgkeuzelijst. Als u geen aangepaste akoestisch modellen hebt gemaakt, zijn de akoestische basismodellen van Microsoft de enige modellen in het menu. Als u een conversatie-LM-basismodel hebt gekozen, moet u hier een conversatie-AM gebruiken. Als u een LM-model voor zoeken en dicteren gebruikt, moet u een AM-model voor zoeken en dicteren selecteren.
 
 Selecteer ten slotte de akoestische gegevensset die u wilt gebruiken voor het uitvoeren van de evaluatie.
 
-Druk op 'Maken' als u klaar bent om met de verwerking te beginnen. U gaat nu terug naar de tabel met taalmodellen. Er is een nieuwe vermelding in de tabel die overeenkomt met dit model. De status komt overeen met de status van het model en doorloopt verschillende statussen, waaronder 'Wachten', 'Verwerken' en 'Voltooid'.
+Druk op 'Maken' als u klaar bent om met de verwerking te beginnen. U gaat nu terug naar de tabel met taalmodellen. Er is een nieuwe vermelding in de tabel die overeenkomt met dit model. De status geeft de toestand aan waarin het model zich bevindt, en doorloopt verschillende statussen, waaronder ‘Waiting’ (wachtend), ‘Processing’ (wordt verwerkt) en ‘Complete’ (voltooid).
 
-Wanneer het model de status 'Voltooid' heeft bereikt, kan het worden geïmplementeerd naar een eindpunt. Als u op 'Resultaat weergeven' klikt, worden de resultaten van het offline testen weergegeven, als dit is uitgevoerd.
+Wanneer het model de status 'Complete' heeft bereikt, kan het worden geïmplementeerd naar een eindpunt. Als u op ‘View Result’ (resultaat bekijken) klikt, worden de resultaten van het offline testen weergegeven, als dit is uitgevoerd.
 
-Als u de 'Naam' of 'Beschrijving' van het model op een bepaald moment wilt wijzigen, kunt u hiervoor de koppeling 'Bewerken' in de juiste rij van de tabel met taalmodellen gebruiken.
+Als u de 'Name' (naam) of 'Description' (omschrijving) van het model op een bepaald moment wilt wijzigen, kunt u hiervoor de koppeling 'Edit' (bewerken) in de juiste rij van de tabel met taalmodellen gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

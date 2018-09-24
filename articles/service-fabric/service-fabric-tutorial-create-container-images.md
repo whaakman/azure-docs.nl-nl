@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616280"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947530"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Zelfstudie: Containerinstallatiekopieën maken in een Service Fabric-cluster in Linux
 
@@ -44,7 +44,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 
 * Er moet een Linux-ontwikkelomgeving zijn ingesteld voor Service Fabric. Volg [deze instructies](service-fabric-get-started-linux.md) voor het instellen van de Linux-omgeving.
-* Voor deze zelfstudie moet u de versie Azure CLI 2.0.4 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+* Voor deze zelfstudie moet u de versie Azure CLI 2.0.4 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren]( /cli/azure/install-azure-cli).
 * Bovendien moet u beschikken over een Azure-abonnement. Kijk [hier](https://azure.microsoft.com/free/) voor meer informatie over een gratis evaluatieversie.
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen

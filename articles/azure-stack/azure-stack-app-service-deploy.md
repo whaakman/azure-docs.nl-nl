@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717502"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995253"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -27,8 +27,8 @@ ms.locfileid: "44717502"
 
 Gebruik de richtlijnen in dit artikel om App Service in Azure Stack te implementeren.
 
->[!IMPORTANT]  
->De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.3 implementeert.
+> [!IMPORTANT]  
+> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.3 implementeert.
 
 U kunt uw gebruikers de mogelijkheid om te maken van web- en API-toepassingen geven. Als u wilt dat gebruikers deze toepassingen maken, moet u naar:
 
