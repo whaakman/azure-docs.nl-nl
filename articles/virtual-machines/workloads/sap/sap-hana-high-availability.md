@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634520"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034634"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 
@@ -68,6 +68,7 @@ Lees eerst de volgende SAP-opmerkingen en documenten:
 * SAP-notitie [1984787] bevat algemene informatie over het SUSE Linux Enterprise Server 12.
 * SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure uitgebreide controle-extensie voor SAP.
 * [SAP-Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) heeft alle van de vereiste SAP-opmerkingen voor Linux.
+* [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure virtuele Machines, planning en implementatie van SAP op Linux] [ planning-guide] handleiding.
 * [Azure Virtual Machines-implementatie voor SAP op Linux] [ deployment-guide] (in dit artikel).
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux] [ dbms-guide] handleiding.
@@ -114,6 +115,10 @@ Volg deze stappen voor het implementeren van de sjabloon:
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
+> [!IMPORTANT]
+> Zorg ervoor dat het besturingssysteem die u selecteert SAP gecertificeerd voor SAP HANA op de specifieke VM-typen die u gebruikt. De lijst met SAP HANA-gecertificeerde VM-typen en OS-versies voor die kunnen worden opgezocht [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Zorg ervoor dat u klikt u op de details van het VM-type weergegeven als u de volledige lijst van SAP HANA ondersteund OS releases voor het specifieke VM-type
+>  
+
 1. Maak een resourcegroep.
 1. Maak een virtueel netwerk.
 1. Maak een beschikbaarheidsset.
@@ -121,12 +126,10 @@ Volg deze stappen voor het implementeren van de sjabloon:
 1. Maak een load balancer (intern).
    - Selecteer het virtuele netwerk in stap 2 hebt gemaakt.
 1. Virtuele machine 1 maken.
-   - Ten minste SLES4SAP 12 SP1. In dit voorbeeld wordt de installatiekopie van het SLES4SAP 12 SP2 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Gebruik van SLES voor SAP 12 SP2 (Premium).
+   - Een installatiekopie SLES4SAP gebruiken in de Azure-galerie die wordt ondersteund voor SAP HANA op het geselecteerde VM-type.
    - Selecteer de beschikbaarheidsset in stap 3 hebt gemaakt.
 1. Maak de virtuele machine 2.
-   - Ten minste SLES4SAP 12 SP1. In dit voorbeeld wordt de installatiekopie van het SLES4SAP 12 SP1 BYOS https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - Gebruik van SLES voor SAP 12 SP2 (Premium).
+   - Een installatiekopie SLES4SAP gebruiken in de Azure-galerie die wordt ondersteund voor SAP HANA op het geselecteerde VM-type.
    - Selecteer de beschikbaarheidsset in stap 3 hebt gemaakt. 
 1. Gegevensschijven toevoegen.
 1. Configureer de load balancer. Maak eerst een front-end-IP-adresgroep:
@@ -676,6 +679,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ### <a name="suse-tests"></a>SUSE-tests
+
+> [!IMPORTANT]
+> Zorg ervoor dat het besturingssysteem die u selecteert SAP gecertificeerd voor SAP HANA op de specifieke VM-typen die u gebruikt. De lijst met SAP HANA-gecertificeerde VM-typen en OS-versies voor die kunnen worden opgezocht [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Zorg ervoor dat u klikt u op de details van het VM-type weergegeven als u de volledige lijst van SAP HANA ondersteund OS releases voor het specifieke VM-type
 
 Voer alle testcases die worden vermeld in de SAP HANA SR prestaties geoptimaliseerd Scenario of SAP HANA SR kosten geoptimaliseerd Scenario guide, afhankelijk van uw situatie. U kunt de handleidingen vinden op de [SLES voor SAP best practices pagina][sles-for-sap-bp].
 
