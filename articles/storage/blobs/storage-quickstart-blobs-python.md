@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: a1994f00715e8b3fb8a207de85ca5e2a1fdc3131
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399152"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974490"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Python
 
@@ -27,7 +27,7 @@ Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) die in deze Quick Start wordt gebruikt, is een Python-basistoepassing.  

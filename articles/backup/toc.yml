@@ -1,237 +1,244 @@
+items:
 - name: Documentatie over Azure Backup
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Azure Backup?
-      href: backup-introduction-to-azure-backup.md
+  - name: Wat is Azure Backup?
+    href: backup-introduction-to-azure-backup.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Back-up maken van een VM - Portal
-      href: quick-backup-vm-portal.md
-    - name: Back-up maken van een VM - PowerShell
-      href: quick-backup-vm-powershell.md
-    - name: Back-up maken van een VM - CLI
-      href: quick-backup-vm-cli.md
+  - name: Back-up maken van een VM - Portal
+    href: quick-backup-vm-portal.md
+  - name: Back-up maken van een VM - PowerShell
+    href: quick-backup-vm-powershell.md
+  - name: Back-up maken van een VM - CLI
+    href: quick-backup-vm-cli.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Back-ups maken van Azure-VM's op grote schaal
-      href: tutorial-backup-vm-at-scale.md
-    - name: Een schijf terugzetten
-      href: tutorial-restore-disk.md
-    - name: Afzonderlijke bestanden terugzetten
-      href: tutorial-restore-files.md
-    - name: Back-up maken van Windows Server
-      href: tutorial-backup-windows-server-to-azure.md
-    - name: Bestanden terugzetten naar Windows Server
-      href: tutorial-backup-restore-files-windows-server.md
+  - name: Back-ups maken van Azure-VM's op grote schaal
+    href: tutorial-backup-vm-at-scale.md
+  - name: Een schijf terugzetten
+    href: tutorial-restore-disk.md
+  - name: Afzonderlijke bestanden terugzetten
+    href: tutorial-restore-files.md
+  - name: Back-up maken van Windows Server
+    href: tutorial-backup-windows-server-to-azure.md
+  - name: Bestanden terugzetten naar Windows Server
+    href: tutorial-backup-restore-files-windows-server.md
 - name: Voorbeelden
   items:
-    - name: Azure PowerShell
-      href: powershell-backup-samples.md
-    - name: Resource Manager-sjablonen
-      href: backup-rm-template-samples.md
+  - name: Azure PowerShell
+    href: powershell-backup-samples.md
+  - name: Resource Manager-sjablonen
+    href: backup-rm-template-samples.md
 - name: Concepten
   items:
-    - name: Veelgestelde vragen
-      items:
-        - name: Veelgestelde vragen over Recovery Services-kluis
-          href: backup-azure-backup-faq.md
-        - name: Veelgestelde vragen over Azure VM-back-ups
-          href: backup-azure-vm-backup-faq.md
-        - name: Veelgestelde vragen over het maken van back-ups van bestandsmappen met behulp van de Azure Backup-agent
-          href: backup-azure-file-folder-backup-faq.md
-        - name: Veelgestelde vragen over automatisch upgraden van back-upkluis
-          href: backup-upgrade-backup-vault.md
-    - name: Op rollen gebaseerd toegangsbeheer
-      href: backup-rbac-rs-vault.md
-    - name: Beveiliging voor hybride back-ups
-      href: backup-azure-security-feature.md
-    - name: Offline back-ups configureren
-      href: backup-azure-backup-import-export.md
-    - name: Offline back-ups voor DPM en Azure Backup Server
-      href: backup-azure-backup-server-import-export-.md
-    - name: Uw tapewisselaar vervangen
-      href: backup-azure-backup-cloud-as-tape.md
+  - name: Veelgestelde vragen
+    items:
+    - name: Veelgestelde vragen over Recovery Services-kluis
+      href: backup-azure-backup-faq.md
+    - name: Veelgestelde vragen over Azure VM-back-ups
+      href: backup-azure-vm-backup-faq.md
+    - name: Veelgestelde vragen over het maken van back-ups van bestandsmappen met behulp van de Azure Backup-agent
+      href: backup-azure-file-folder-backup-faq.md
+    - name: Veelgestelde vragen over automatisch upgraden van back-upkluis
+      href: backup-upgrade-backup-vault.md
+  - name: Op rollen gebaseerd toegangsbeheer
+    href: backup-rbac-rs-vault.md
+  - name: Beveiliging voor hybride back-ups
+    href: backup-azure-security-feature.md
+  - name: Offline back-ups configureren
+    href: backup-azure-backup-import-export.md
+  - name: Offline back-ups voor DPM en Azure Backup Server
+    href: backup-azure-backup-server-import-export-.md
+  - name: Uw tapewisselaar vervangen
+    href: backup-azure-backup-cloud-as-tape.md
 - name: Procedures
   items:
-    - name: Azure Backup-server
+  - name: Azure Backup-server
+    items:
+    - name: Beveiligingsmatrix voor Azure Backup Server
+      href: backup-mabs-protection-matrix.md
+    - name: Installeren of upgraden
       items:
-        - name: Beveiligingsmatrix voor Azure Backup Server
-          href: backup-mabs-protection-matrix.md
-        - name: Installeren of upgraden
-          items:
-            - name: Azure Backup Server installeren
-              href: backup-azure-microsoft-azure-backup.md
-            - name: Opslag toevoegen
-              href: backup-mabs-add-storage.md
-            - name: Upgraden naar v.2
-              href: backup-mabs-upgrade-to-v2.md
-            - name: Installatie zonder toezicht
-              href: backup-mabs-unattended-install.md
-        - name: Workloads beveiligen
-          items:
-            - name: VMware-server
-              href: backup-azure-backup-server-vmware.md
-            - name: Exchange
-              href: backup-azure-exchange-mabs.md
-            - name: SharePoint-farm
-              href: backup-azure-backup-sharepoint-mabs.md
-            - name: SQL Server
-              href: backup-azure-sql-mabs.md
-            - name: Systeemstatus beveiligen en bare metal recovery
-              href: backup-mabs-system-state-and-bmr.md
-        - name: Gegevens herstellen vanaf Azure Backup Server
-          href: backup-azure-alternate-dpm-server.md
-    - name: Azure Backup Server in Azure Stack
+      - name: Azure Backup Server installeren
+        href: backup-azure-microsoft-azure-backup.md
+      - name: Opslag toevoegen
+        href: backup-mabs-add-storage.md
+      - name: Upgraden naar v.2
+        href: backup-mabs-upgrade-to-v2.md
+      - name: Installatie zonder toezicht
+        href: backup-mabs-unattended-install.md
+    - name: Workloads beveiligen
       items:
-        - name: Azure Backup Server installeren
-          href: backup-mabs-install-azure-stack.md
-        - name: Bestanden en toepassingen beveiligen
-          href: backup-mabs-files-applications-azure-stack.md
-        - name: SharePoint-farm beveiligen
-          href: backup-mabs-sharepoint-azure-stack.md
-        - name: SQL Server-database beveiligen
-          href: backup-mabs-sql-azure-stack.md
-    - name: Azure-bestandsshares
+      - name: VMware-server
+        href: backup-azure-backup-server-vmware.md
+      - name: Exchange
+        href: backup-azure-exchange-mabs.md
+      - name: SharePoint-farm
+        href: backup-azure-backup-sharepoint-mabs.md
+      - name: SQL Server
+        href: backup-azure-sql-mabs.md
+      - name: Systeemstatus beveiligen en bare metal recovery
+        href: backup-mabs-system-state-and-bmr.md
+    - name: Gegevens herstellen vanaf Azure Backup Server
+      href: backup-azure-alternate-dpm-server.md
+  - name: Azure Backup Server in Azure Stack
+    items:
+    - name: Azure Backup Server installeren
+      href: backup-mabs-install-azure-stack.md
+    - name: Bestanden en toepassingen beveiligen
+      href: backup-mabs-files-applications-azure-stack.md
+    - name: SharePoint-farm beveiligen
+      href: backup-mabs-sharepoint-azure-stack.md
+    - name: SQL Server-database beveiligen
+      href: backup-mabs-sql-azure-stack.md
+  - name: Azure-bestandsshares
+    items:
+    - name: Een backup maken van Azure-bestandsshares
+      href: backup-azure-files.md
+    - name: Veelgestelde vragen over het maken van backups van Azure-bestandsshares
+      href: backup-azure-files-faq.md
+  - name: Azure-VM's
+    items:
+    - name: De virtuele machine voorbereiden
       items:
-        - name: Een backup maken van Azure-bestandsshares
-          href: backup-azure-files.md
-        - name: Veelgestelde vragen over het maken van backups van Azure-bestandsshares
-          href: backup-azure-files-faq.md
-    - name: Azure-VM's
+      - name: Virtuele machines voorbereiden die zijn geïmplementeerd met Resource Manager
+        href: backup-azure-arm-vms-prepare.md
+      - name: Toepassingsconsistente back-ups van virtuele Linux-machines
+        href: backup-azure-linux-app-consistent.md
+    - name: Uw omgeving plannen
       items:
-        - name: De virtuele machine voorbereiden
-          items:
-            - name: Virtuele machines voorbereiden die zijn geïmplementeerd met Resource Manager
-              href: backup-azure-arm-vms-prepare.md
-            - name: Toepassingsconsistente back-ups van virtuele Linux-machines
-              href: backup-azure-linux-app-consistent.md
-        - name: Uw omgeving plannen
-          items:
-            - name: VM-back-upinfrastructuur plannen
-              href: backup-azure-vms-introduction.md
-        - name: Back-ups maken van virtuele machines
-          items:
-            - name: Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis
-              href: backup-azure-vms-first-look-arm.md
-            - name: Back-ups maken van versleutelde virtuele machines
-              href: backup-azure-vms-encryption.md
-            - name: VM-back-up inschakelen tijdens het maken van een virtuele machine
-              href: backup-during-vm-creation.md
-            - name: Een upgrade uitvoeren naar VM-back-up-stack V2
-              href: backup-upgrade-to-vm-backup-stack-v2.md
-        - name: Virtuele machines beheren en controleren
-          items:
-            - name: Back-ups van virtuele Azure-machines beheren in Azure Portal
-              href: backup-azure-manage-vms.md
-            - name: Waarschuwingen voor virtuele Azure-machines controleren
-              href: backup-azure-monitor-vms.md
-        - name: Gegevens van virtuele machines herstellen
-          items:
-            - name: Bestanden herstellen vanuit back-ups van virtuele Azure-machines
-              href: backup-azure-restore-files-from-vm.md
-            - name: Virtuele machines herstellen in Azure Portal
-              href: backup-azure-arm-restore-vms.md
-            - name: Versleutelde virtuele machines herstellen
-              href: backup-azure-vms-encryption.md
-            - name: Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten
-              href: backup-azure-restore-key-secret.md
+      - name: VM-back-upinfrastructuur plannen
+        href: backup-azure-vms-introduction.md
+    - name: Back-ups maken van virtuele machines
+      items:
+      - name: Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis
+        href: backup-azure-vms-first-look-arm.md
+      - name: Back-ups maken van versleutelde virtuele machines
+        href: backup-azure-vms-encryption.md
+      - name: VM-back-up inschakelen tijdens het maken van een virtuele machine
+        href: backup-during-vm-creation.md
+      - name: Een upgrade uitvoeren naar VM-back-up-stack V2
+        href: backup-upgrade-to-vm-backup-stack-v2.md
+    - name: Virtuele machines beheren en controleren
+      items:
+      - name: Back-ups van virtuele Azure-machines beheren in Azure Portal
+        href: backup-azure-manage-vms.md
+      - name: Waarschuwingen voor virtuele Azure-machines controleren
+        href: backup-azure-monitor-vms.md
+    - name: Gegevens van virtuele machines herstellen
+      items:
+      - name: Bestanden herstellen vanuit back-ups van virtuele Azure-machines
+        href: backup-azure-restore-files-from-vm.md
+      - name: Virtuele machines herstellen in Azure Portal
+        href: backup-azure-arm-restore-vms.md
+      - name: Versleutelde virtuele machines herstellen
+        href: backup-azure-vms-encryption.md
+      - name: Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten
+        href: backup-azure-restore-key-secret.md
+  - name: Azure Backup-rapporten configureren
+    items:
     - name: Azure Backup-rapporten configureren
-      items:
-        - name: Azure Backup-rapporten configureren
-          href: backup-azure-configure-reports.md
-        - name: Gegevensmodel voor Azure Backup-rapporten
-          href: backup-azure-reports-data-model.md
-        - name: Log Analytics-gegevensmodel voor Azure Backup
-          href: backup-azure-log-analytics-data-model.md
-        - name: Inhoudspakket voor centrale rapportage van Azure Backup bijwerken
-          href: backup-azure-central-reporting-updates.md
-    - name: Data Protection Manager
-      items:
-        - name: DPM-workloads voorbereiden in Azure Portal
-          href: backup-azure-dpm-introduction.md
-        - name: DPM gebruiken om back-ups te maken van een Exchange-server
-          href: backup-azure-backup-exchange-server.md
-        - name: Gegevens herstellen naar een andere DPM-server
-          href: backup-azure-alternate-dpm-server.md
-        - name: DPM gebruiken om back-ups van SQL Server-workloads te maken
-          href: backup-azure-backup-sql.md
-        - name: DPM gebruiken om back-ups te maken van een SharePoint-farm
-          href: backup-azure-backup-sharepoint.md
-    - name: Azure PowerShell gebruiken
-      items:
-        - name: Virtuele Azure-machines in Azure Portal
-          href: backup-azure-vms-automation.md
-        - name: DPM in Azure Portal
-          href: backup-dpm-automation.md
-        - name: Windows Server in Azure Portal
-          href: backup-client-automation.md
-    - name: SQL op virtuele Azure-machines
-      items:
-        - name: Een back-up van SQL-database maken in Azure
-          href: backup-azure-sql-database.md
-    - name: Windows Server
-      items:
-        - name: Back-ups maken van Windows Server-bestanden en -mappen
-          href: backup-configure-vault.md
-        - name: Back-ups maken van Windows Server-systeemstatus
-          href: backup-azure-system-state.md
-        - name: Bestanden herstellen van Azure naar Windows Server
-          href: backup-azure-restore-windows-server.md
-        - name: Windows Server-systeemstatus herstellen
-          href: backup-azure-restore-system-state.md
-        - name: Recovery Services-kluizen beheren en controleren
-          href: backup-azure-manage-windows-server.md
-    - name: Recovery Services-kluis
-      items:
-        - name: Overzicht van Recovery Services-kluizen
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Een Backup-kluis upgraden naar een Recovery Services-kluis
-          href: backup-azure-upgrade-backup-to-recovery-services.md
-        - name: Een Recovery Services-kluis verwijderen
-          href: backup-azure-delete-vault.md
-    - name: Problemen oplossen
-      items:
-        - name: Azure VM
-          href: backup-azure-vms-troubleshoot.md
-        - name: Time-out opgetreden bij agent voor Azure Backup of VM-extensie
-          href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-        - name: Back-up maken van bestanden en mappen is langzaam
-          href: backup-azure-troubleshoot-slow-backup-performance-issue.md
-        - name: Azure Backup-server
-          href: backup-azure-mabs-troubleshoot.md
-        - name: System Center DPM
-          href: backup-azure-scdpm-troubleshooting.md
-        - name: Azure Backup-agent
-          href: backup-azure-mars-troubleshoot.md
-        - name: Azure-bestandsshare
-          href: troubleshoot-azure-files.md
-        - name: SQL Server
-          href: backup-sql-server-azure-troubleshoot.md
+      href: backup-azure-configure-reports.md
+    - name: Gegevensmodel voor Azure Backup-rapporten
+      href: backup-azure-reports-data-model.md
+    - name: Log Analytics-gegevensmodel voor Azure Backup
+      href: backup-azure-log-analytics-data-model.md
+    - name: Inhoudspakket voor centrale rapportage van Azure Backup bijwerken
+      href: backup-azure-central-reporting-updates.md
+  - name: Data Protection Manager
+    items:
+    - name: DPM-workloads voorbereiden in Azure Portal
+      href: backup-azure-dpm-introduction.md
+    - name: DPM gebruiken om back-ups te maken van een Exchange-server
+      href: backup-azure-backup-exchange-server.md
+    - name: Gegevens herstellen naar een andere DPM-server
+      href: backup-azure-alternate-dpm-server.md
+    - name: DPM gebruiken om back-ups van SQL Server-workloads te maken
+      href: backup-azure-backup-sql.md
+    - name: DPM gebruiken om back-ups te maken van een SharePoint-farm
+      href: backup-azure-backup-sharepoint.md
+  - name: Azure PowerShell gebruiken
+    items:
+    - name: Virtuele Azure-machines in Azure Portal
+      href: backup-azure-vms-automation.md
+    - name: DPM in Azure Portal
+      href: backup-dpm-automation.md
+    - name: Windows Server in Azure Portal
+      href: backup-client-automation.md
+  - name: SQL op virtuele Azure-machines
+    items:
+    - name: Een back-up van SQL-database maken in Azure
+      href: backup-azure-sql-database.md
+  - name: Windows Server
+    items:
+    - name: Back-ups maken van Windows Server-bestanden en -mappen
+      href: backup-configure-vault.md
+    - name: Back-ups maken van Windows Server-systeemstatus
+      href: backup-azure-system-state.md
+    - name: Bestanden herstellen van Azure naar Windows Server
+      href: backup-azure-restore-windows-server.md
+    - name: Windows Server-systeemstatus herstellen
+      href: backup-azure-restore-system-state.md
+    - name: Recovery Services-kluizen beheren en controleren
+      href: backup-azure-manage-windows-server.md
+  - name: Recovery Services-kluis
+    items:
+    - name: Overzicht van Recovery Services-kluizen
+      href: backup-azure-recovery-services-vault-overview.md
+    - name: Een Backup-kluis upgraden naar een Recovery Services-kluis
+      href: backup-azure-upgrade-backup-to-recovery-services.md
+    - name: Een Recovery Services-kluis verwijderen
+      href: backup-azure-delete-vault.md
+  - name: Problemen oplossen
+    items:
+    - name: Azure VM
+      href: backup-azure-vms-troubleshoot.md
+    - name: Time-out opgetreden bij agent voor Azure Backup of VM-extensie
+      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Back-up maken van bestanden en mappen is langzaam
+      href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+    - name: Azure Backup-server
+      href: backup-azure-mabs-troubleshoot.md
+    - name: System Center DPM
+      href: backup-azure-scdpm-troubleshooting.md
+    - name: Azure Backup-agent
+      href: backup-azure-mars-troubleshoot.md
+    - name: Azure-bestandsshare
+      href: troubleshoot-azure-files.md
+    - name: SQL Server
+      href: backup-sql-server-azure-troubleshoot.md
 - name: Naslaginformatie
   items:
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-    - name: Azure CLI 2.0
-      href: /cli/azure/backup?view=azure-cli-latest
-    - name: PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
-    - name: REST - Back-up
-      href: /rest/api/backup/
-    - name: REST - Recovery Services-kluis
-      href: /rest/api/recoveryservices/
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+  - name: Azure-CLI
+    href: /cli/azure/backup?view=azure-cli-latest
+  - name: PowerShell
+    href: /powershell/module/azurerm.recoveryservices.backup
+  - name: REST - Back-up
+    href: /rest/api/backup/
+  - name: REST - Recovery Services-kluis
+    href: /rest/api/recoveryservices/
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/backup/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/backup/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=backup
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+ms.openlocfilehash: d98a747f8805abdbef529a50c0b2c2d5a17e3106
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972595"

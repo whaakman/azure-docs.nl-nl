@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39513892"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47001947"
 ---
 >[!IMPORTANT]
 >De resources die u hebt gemaakt kunnen worden gebruikt als de vereisten voor andere Azure Machine Learning-zelfstudies en artikelen met procedures. 
@@ -22,9 +22,9 @@ ms.locfileid: "39513892"
 
 Als u wat u hier hebt gemaakt niet meer gaat gebruiken, verwijdert u de resources die u zojuist met deze Quick Start hebt gemaakt, zodat u geen kosten maakt.
 
-1. Selecteer **Resourcegroepen** links in de Azure-portal.  
+1. Selecteer **Resourcegroepen** links in Azure Portal.  
  
-   ![Verwijderen in de Azure-portal](./media/aml-delete-resource-group/delete-resources.png)
+   ![Verwijderen in Azure Portal](./media/aml-delete-resource-group/delete-resources.png)
 
 1. Selecteer de resourcegroep die u eerder hebt gemaakt uit de lijst.
 
@@ -32,4 +32,4 @@ Als u wat u hier hebt gemaakt niet meer gaat gebruiken, verwijdert u de resource
 
 1. Typ de naam van de resourcegroep en selecteer vervolgens **Verwijderen**.
 
-   Als u de fout 'Kan resource pas verwijderen als geneste resources zijn verwijderd', moet u eerst alle geneste resources verwijderen. [Lees dit gedeelte voor probleemoplossing](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) voor meer informatie. 
+   Als u de fout 'Kan resource pas verwijderen als geneste resources zijn verwijderd', moet u eerst alle geneste resources verwijderen. [Lees dit gedeelte voor probleemoplossing](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) voor meer informatie. 

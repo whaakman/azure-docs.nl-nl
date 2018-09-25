@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439897"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971702"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Zelfstudie: Geavanceerde gegevensvoorbereiding (BikeShare-gegevens) met Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (preview) is een geïntegreerde end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
 In deze zelfstudie wordt uitgelegd hoe u Machine Learning (preview) gebruikt om de volgende bewerkingen uit te voeren:
@@ -36,7 +40,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een lokale installatie van Azure Machine Learning Workbench. Volg voor meer informatie de [Quick Start voor installatie](../service/quickstart-installation.md).
+* Een lokale installatie van Azure Machine Learning Workbench. Volg voor meer informatie de [Quick Start voor installatie](quickstart-installation.md).
 * Als u Azure CLI niet hebt geïnstalleerd, volgt u de instructies voor het [installeren van de nieuwste versie van Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Een [HDInsight Spark-cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) dat is gemaakt in Azure.
 * Een Azure Storage-account.
