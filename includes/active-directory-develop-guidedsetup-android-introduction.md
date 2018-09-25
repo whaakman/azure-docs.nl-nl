@@ -15,23 +15,23 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 7e7e9d078bf9339beb2ad5ac53ea858e843242ce
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a1cd25012461ae8bb445dcb1de8fe5be49e04760
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293620"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060584"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Meld u aan gebruikers en de Microsoft Graph aanroepen vanuit een Android-app
 
-In deze zelfstudie leert u hoe u een Android-toepassing bouwen en integreren van Microsoft identity-platform. Deze app wordt specifiek, meld u aan een gebruiker, een toegangstoken voor het aanroepen van de Microsoft Graph API en maken van een algemene aanvraag naar de Microsoft Graph API.  
+In deze zelfstudie leert u hoe u een Android-toepassing bouwen en integreren met Microsoft identity-platform. Deze app wordt specifiek, meld u aan een gebruiker, een toegangstoken voor het aanroepen van de Microsoft Graph API en maken van een algemene aanvraag naar de Microsoft Graph API.  
 
 Wanneer u de handleiding hebt voltooid, wordt uw toepassing accepteert aanmeldingen van persoonlijke Microsoft-accounts (waaronder outlook.com, live.com en anderen) en werk of school-accounts van een bedrijf of organisatie die gebruikmaakt van Azure Active Directory. 
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>De werking van de voorbeeld-app die is gegenereerd door deze handleiding
 ![De werking van dit voorbeeld](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
-De app in dit voorbeeld wordt Meld u aan gebruikers en gegevens ophalen in hun naam.  Deze gegevens kan worden bereikt via een externe API (Microsoft Graph-API in dit geval) die is autorisatie vereist en die ook wordt beveiligd door de Microsoft identity-platform. 
+De app in dit voorbeeld wordt Meld u aan gebruikers en gegevens ophalen in hun naam.  Deze gegevens kan worden bereikt via een externe API (Microsoft Graph-API in dit geval) die is autorisatie vereist en die ook wordt beveiligd door Microsoft identity-platform. 
 
 Meer specifiek, 
 * Uw app wordt gestart, een webpagina aan te melden bij de gebruiker.

@@ -2,7 +2,7 @@
 title: De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren | Microsoft Docs
 description: Informatie over het automatiseren van de replicatie van schemawijzigingen in Azure SQL Data Sync.
 services: sql-database
-ms.date: 06/19/2018
+ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6859784dcb3b3905459e83cfcb7812d7f23ac630
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6e3f1710d342d97312cfd764726904c1d70ce199
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035025"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren
 
@@ -30,7 +30,7 @@ Dit artikel bevat een oplossing voor wijzigingen in het schema automatisch repli
 In dit artikel ALTER TABLE gebruikt als een voorbeeld van een schema wijzigen, maar deze oplossing werkt ook voor andere typen wijzigingen in het schema.
 
 > [!IMPORTANT]
-> Het is raadzaam dat u Lees dit artikel zorgvuldig, met name de secties over [probleemoplossing](#troubleshooting) en [andere overwegingen](#other), voordat u begint met het implementeren van geautomatiseerde schemareplicatie wijzigen in uw omgeving synchroniseren. We raden ook aan dat u leest [gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync](sql-database-sync-data.md). Sommige databasebewerkingen werken mogelijk niet meer de oplossing in dit artikel beschreven. Aanvullende kennis van SQL Server en Transact-SQL kan worden vereist om deze problemen op te.
+> Het is raadzaam dat u Lees dit artikel zorgvuldig, met name de secties over [probleemoplossing](#troubleshoot) en [andere overwegingen](#other), voordat u begint met het implementeren van geautomatiseerde schemareplicatie wijzigen in uw omgeving synchroniseren. We raden ook aan dat u leest [gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync](sql-database-sync-data.md). Sommige databasebewerkingen werken mogelijk niet meer de oplossing in dit artikel beschreven. Aanvullende kennis van SQL Server en Transact-SQL kan worden vereist om deze problemen op te.
 
 ![De replicatie van schemawijzigingen automatiseren](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

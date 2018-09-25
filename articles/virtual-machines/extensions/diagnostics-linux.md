@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: a51e4e61b8d0a9f9a80acc513dbba32c74372f5e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994799"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux Diagnostic-extensie gebruiken om te controleren, logboeken en metrische gegevens
 
@@ -51,10 +51,10 @@ Deze installatie-instructies en een [downloadbare voorbeeldconfiguratie](https:/
 
 De configuratie van de downloadbare is slechts een voorbeeld; deze aan de behoeften van uw eigen behoeften aanpassen.
 
-### <a name="prerequisites"></a>Vereiste onderdelen
+### <a name="prerequisites"></a>Vereisten
 
 * **Azure Linux Agent versie 2.2.0 of hoger**. De meeste Azure VM Linux galerie met installatiekopieën bevatten versie 2.2.7 of hoger. Voer `/usr/sbin/waagent -version` om te controleren welke versie is geïnstalleerd op de virtuele machine. Als de virtuele machine wordt uitgevoerd een oudere versie van de guest-agent, voert u de [deze instructies](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) bij te werken.
-* **Azure CLI**. [Instellen van de Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) omgeving op uw computer.
+* **Azure CLI**. [Instellen van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) omgeving op uw computer.
 * De opdracht wget, als u deze nog niet hebt: uitvoeren `sudo apt-get install wget`.
 * Een bestaande Azure-abonnement en een bestaand opslagaccount in deze gegevens worden opgeslagen.
 * Lijst met ondersteunde Linux-distributies is ingeschakeld https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
@@ -259,7 +259,7 @@ Element | Waarde
 eventVolume | (optioneel) Hiermee bepaalt u het aantal partities in de storage-tabel gemaakt. U moet een van de `"Large"`, `"Medium"`, of `"Small"`. Indien niet opgegeven, wordt de standaardwaarde is `"Medium"`.
 sampleRateInSeconds | (optioneel) Het standaardinterval tussen verzameling van onbewerkte (unaggregated) metrische gegevens. De kleinste ondersteunde samplefrequentie is 15 seconden. Indien niet opgegeven, wordt de standaardwaarde is `15`.
 
-#### <a name="metrics"></a>metrische gegevens
+#### <a name="metrics"></a>metrics
 
 ```json
 "metrics": {

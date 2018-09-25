@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982974"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032526"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -145,7 +145,8 @@ Dit is de service beschermen tegen runbooks die voor onbepaalde tijd worden uitg
 
 Als het runbook geen controlepunten heeft of de taak niet het eerste controlepunt bereikt heeft voordat het wordt ongedaan gemaakt, klikt u vervolgens opnieuw wordt gestart vanaf het begin.
 
-Voor langdurige taken wordt u aangeraden een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior) te gebruiken. Hybrid Runbook Workers worden niet door evenredige verdeling beperkt en kennen geen limiet ten aanzien van de uitvoeringsperiode van een runbook.
+Voor langdurige taken wordt u aangeraden een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior) te gebruiken. Hybrid Runbook Workers worden niet door evenredige verdeling beperkt en kennen geen limiet ten aanzien van de uitvoeringsperiode van een runbook. De andere taak [limieten](../azure-subscription-service-limits.md#automation-limits) gelden voor zowel Azure sandboxes als Hybrid Runbook Workers.
+
 
 Als u een PowerShell Workflow-runbook in Azure, wanneer u een runbook maakt, moet u ervoor zorgen dat de tijd voor het uitvoeren van alle activiteiten tussen twee controlepunten niet meer dan drie uur. U moet mogelijk controlepunten toevoegen aan uw runbook om ervoor te zorgen dat deze niet kan deze drie uur limiet is bereikt of splits lange bewerkingen. Uw runbook kan bijvoorbeeld een reindex uitvoeren op een grote SQL-database. Als deze één bewerking niet voltooid binnen de limiet van evenredige deel, vervolgens de taak is verwijderd en opnieuw opgestart vanaf het begin. In dit geval moet u splitst u de bewerking opnieuw indexeren in meerdere stappen, zoals het indexeren van een tabel op een tijdstip, en voeg vervolgens een controlepunt na elke bewerking zodat de taak kan worden hervat na de laatste bewerking is voltooid.
 

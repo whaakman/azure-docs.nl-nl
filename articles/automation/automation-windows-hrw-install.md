@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294902"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032985"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -49,7 +49,7 @@ Nadat u een runbook worker implementeren, controleren [runbooks uitvoeren op een
 
 Voer de volgende stappen uit voor het automatiseren van de installatie en configuratie van de Windows Hybrid Worker-rol:
 
-1. Download het script New-OnPremiseHybridWorker.ps1 uit de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) rechtstreeks vanaf de computer waarop de Hybrid Runbook Worker-rol of vanaf een andere computer in uw omgeving. Kopieer het script naar de werknemer.
+1. Download het script New-OnPremiseHybridWorker.ps1 uit de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) rechtstreeks vanaf de computer waarop de Hybrid Runbook Worker-rol of vanaf een andere computer in uw omgeving. Kopieer het script naar de werknemer.
 
    Het script New-OnPremiseHybridWorker.ps1 moet de volgende parameters tijdens de uitvoering:
 

@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497753"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964101"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>'Tekst naar spraak' in de spraak-service gebruiken
 
@@ -47,12 +47,12 @@ Een tekst naar spraak HTTP-aanvraag wordt gedaan in de POST-modus met de tekst o
 Koptekst|Waarden|Opmerkingen
 -|-|-
 |`Content-Type` | `application/ssml+xml` | De indeling van de ingevoerde tekst.
-|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | De uitvoer audio-indeling.
+|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`riff-16khz-16bit-mono-pcm`<br>`raw-8khz-8bit-mono-mulaw`<br>`riff-8khz-8bit-mono-mulaw`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | De uitvoer audio-indeling.
 |`User-Agent`   |De naam van de toepassing | De toepassingsnaam is vereist en moet minder dan 255 tekens.
 | `Authorization`   | Het verificatietoken is opgehaald door middel van uw abonnementssleutel voor de service voor beveiligingstokens. Elke token is geldig gedurende tien minuten. Zie [REST-API's: verificatie](rest-apis.md#authentication).
 
 > [!NOTE]
-> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig. 24khz stemmen bieden geen ondersteuning voor `audio-16khz-16kbps-mono-siren` en `riff-16khz-16kbps-mono-siren` uitvoerindelingen. 
+> Als uw geselecteerde spraak- en de indeling van uitvoer hebt verschillende bitsnelheden, de audio nieuw voorbeeld wordt gemaakt zo nodig.
 
 Hieronder ziet u een voorbeeld van een aanvraag.
 
@@ -87,7 +87,8 @@ Als er een fout optreedt, worden de onderstaande statuscodes gebruikt. De hoofdt
 |-|-|-|
 400 |Onjuiste aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
 401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of dat uw abonnement of token geldig is.
-413|Aanvraagentiteit te groot|De invoer SSML is langer dan 1024 tekens.
+413|Aanvraagentiteit te groot|De invoer SSML is te groot of bevat meer dan 3 `<voice>` elementen.
+429|Te veel aanvragen|U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden.
 |502|Ongeldige gateway    | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
 
 Zie voor meer informatie over de tekst naar spraak REST-API, [REST-API's](rest-apis.md#text-to-speech).

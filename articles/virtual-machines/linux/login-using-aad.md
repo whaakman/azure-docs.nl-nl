@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993558"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -59,7 +59,7 @@ De volgende Azure-regio's worden momenteel ondersteund tijdens de Preview-versie
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze zelfstudie vereist dat u de Azure CLI versie 2.0.31 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze zelfstudie vereist dat u de Azure CLI versie 2.0.31 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-a-linux-virtual-machine"></a>Een virtuele Linux-machine maken
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > Als uw AAD-domein en gebruikersnaam aanmeldingsdomein niet overeenkomen, moet u de object-ID van uw gebruikersaccount met de *--toegewezen gebruiker-object-id*, niet alleen de gebruikersnaam voor *--toegewezen gebruiker*. U kunt de object-ID verkrijgen voor uw gebruikersaccount met [az ad gebruikerslijst](/cli/azure/ad/user#az-ad-user-list).
 
-Zie voor meer informatie over het gebruik van RBAC voor het beheren van toegang tot de resources van uw Azure-abonnement met behulp van de [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure-portal](../../role-based-access-control/role-assignments-portal.md), of [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Zie voor meer informatie over het gebruik van RBAC voor het beheren van toegang tot de resources van uw Azure-abonnement met behulp van de [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure-portal](../../role-based-access-control/role-assignments-portal.md), of [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 U kunt ook Azure AD om te vereisen dat multi-factor authentication voor een specifieke gebruiker zich aanmeldt bij de virtuele Linux-machine configureren. Zie voor meer informatie, [aan de slag met Azure multi-factor Authentication in de cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 

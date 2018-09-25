@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding Intelligent Service (LUIS)-apps toevoegen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ec149b0f100ae3e170f39911eafc399f24509dfa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630389"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042445"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 

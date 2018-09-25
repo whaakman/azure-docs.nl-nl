@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 00a0f396160c964144019b4cb8014f8abc34fe7a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 80234610eda264976f3ec20da2a0ef12c73ccba6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035705"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migratie van Contoso: opnieuw ontwerpen van een on-premises-app op een Azure-container en de Azure SQL Database
 
@@ -34,9 +34,9 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 [Artikel 10: Een Linux-app op Azure-Web-Apps en Azure MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar 
 [Artikel 11: Herstructureren TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 Artikel 12: Opnieuw ontwerpen van een app op Azure-Containers en Azure SQL Database | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | In dit artikel
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso databasebeschadiging zijn SmartHotel-app met behulp van een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB... | Beschikbaar    
+[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar 
 
-In dit artikel worden de twee lagen Windows gemigreerd door Contoso. NET SmartHotel360-app die worden uitgevoerd op virtuele VMware-machines naar Azure. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
+In dit artikel worden twee lagen Windows WPF-, XAML forms SmartHotel360-app die worden uitgevoerd op virtuele VMware-machines naar Azure gemigreerd door Contoso. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
@@ -79,10 +79,10 @@ Na het vastmaken omlaag doelstellingen en vereisten, Contoso ontwerpen van een i
     - Contoso maakt gebruik van de lichtgewicht Data Migration Assistant (DMA) om te beoordelen en de on-premises database migreren naar Azure SQL.
     - Contoso kan de bestaande licenties voor gereduceerde tarieven voor een SQL-Database met behulp van Azure Hybrid Benefit voor SQL Server uitwisselen met Software Assurance. Zodoende kan tot 30% te besparen.
     - SQL Database biedt een aantal beveiligingsfuncties, met inbegrip van altijd versleuteld, dynamische gegevensmaskering en beveiliging/bedreigingsdetectie van beveiliging op rijniveau.
-- Voor de laag van de web-app Contoso heeft besloten deze converteren naar de Windows-Container met behulp van Visual Studio.
+- Voor de laag van de web-app Contoso heeft besloten deze converteren naar de Windows-Container met behulp van Azure DevOps-services.
     - Contoso wordt de app met behulp van Azure Service Fabric implementeren en de installatiekopie van de Windows-container ophalen uit de Azure Container Registry (ACR).
     - Een model voor het uitbreiden van de app sentimentanalyse zal worden geïmplementeerd als een andere service in Service Fabric, verbonden met Cosmos DB.  Dit wordt informatie van Tweets lezen en op de app worden weergegeven.
-- Contoso gebruikt voor het implementeren van een DevOps-pijplijn, Azure DevOps-Services voor broncodebeheer (SCM), met Git-opslagplaatsen.  Geautomatiseerde builds en releases wordt gebruikt om code te bouwen en deze implementeren in de Azure Container Registry en Azure Service Fabric.
+- Contoso gebruikt voor het implementeren van een DevOps-pijplijn, Azure DevOps voor broncodebeheer (SCM), met Git-opslagplaatsen.  Geautomatiseerde builds en releases wordt gebruikt om code te bouwen en deze implementeren in de Azure Container Registry en Azure Service Fabric.
 
     ![Scenario-architectuur](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -114,8 +114,9 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Biedt een intelligente, volledig beheerde relationele clouddatabaseservice. | De kosten op basis van functies, doorvoer en grootte. [Meer informatie](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Slaat de installatiekopieën voor alle typen containerimplementaties. | De kosten op basis van functies, opslag en duur van gebruik. [Meer informatie](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Bouwt en beschikbare altijd ingeschakelde, schaalbare en gedistribueerde apps | De kosten op basis van grootte, de locatie en de duur van de rekenknooppunten. [Meer informatie](https://azure.microsoft.com/pricing/details/service-fabric/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Biedt een continue integratie en een pijplijn voor continue implementatie (CI/CD) voor app-ontwikkeling. De pijplijn begint met een Git-opslagplaats voor het beheren van app-code, een build-systeem voor het produceren van pakketten en andere build-artefacten en een versiebeheersysteem wijzigingen in het ontwikkelen, testen en productie-omgevingen implementeren.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Dit is wat Contoso moet worden uitgevoerd in dit scenario:
 
@@ -138,7 +139,7 @@ Hier ziet u hoe Contoso de migratie wordt uitgevoerd:
 > * **Stap 4: Service fabric certificaten beheren**: Contoso stelt u de certificaten voor Azure DevOps-Services toegang tot het cluster.
 > * **Stap 5: Migreren van de database met DMA**: de app-database met de Database Migration Assistant gemigreerd.
 > * **Stap 6: Azure DevOps Services instellen**: Contoso stelt u een nieuw project in Azure DevOps-Services en importeert u de code in de Git-opslagplaats.
-> * **Stap 7: Om de app converteren**: Contoso converteert de app naar een container met Visual Studio en SDK's.
+> * **Stap 7: Om de app converteren**: Contoso converteert de app naar een container met Azure DevOps en SDK's.
 > * **Stap 8: Instellen van de build- en**: Contoso stelt u de build- en release-pijplijnen maken en publiceren van de app naar de ACR en Service Fabric-Cluster.
 > * **Stap 9: De app uit te breiden**: nadat de app openbaar is, Contoso uitgebreid om te profiteren van de mogelijkheden van Azure en het rapport opnieuw publiceert naar Azure met behulp van de pijplijn.
 
@@ -188,11 +189,11 @@ De Azure-container is gemaakt met behulp van de geëxporteerde bestanden van de 
 
 1. Beheerders van Contoso maken een Containerregister in Azure portal.
 
-     ![Containerregister](./media/contoso-migration-rearchitect-container-sql/container-registry1.png)
+     ![Container Registry](./media/contoso-migration-rearchitect-container-sql/container-registry1.png)
 
 2. Ze bieden een naam op voor het register (**contosoacreus2**), en plaats deze in de primaire regio, in de resourcegroep die ze voor hun beschikken over infrastructurele resources gebruiken. Deze toegang inschakelen voor gebruikers van de beheerder en deze instellen als een premium-SKU, zodat ze kunnen gebruikmaken van geo-replicatie.
 
-    ![Containerregister](./media/contoso-migration-rearchitect-container-sql/container-registry2.png)  
+    ![Container Registry](./media/contoso-migration-rearchitect-container-sql/container-registry2.png)  
 
 
 ## <a name="step-3-provision-azure-service-fabric"></a>Stap 3: Richt Azure Service Fabric
@@ -203,7 +204,7 @@ De SmartHotel360-container wordt uitgevoerd in de Azure Service Fabric-Sluster. 
 
      ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric1.png)
 
-2. In **Basic**, ze bieden een unieke naam van de Active Directory voor het cluster en de referenties voor toegang tot de on-premises VM. Ze de resource in de productie-resourcegroep plaatsen (**ContosoRG**) in de primaire regio in de VS-Oost 2.
+2. In **basisbeginselen**, ze bieden een unieke naam van de Active Directory voor het cluster en de referenties voor toegang tot de on-premises VM. Ze de resource in de productie-resourcegroep plaatsen (**ContosoRG**) in de primaire regio in de VS-Oost 2.
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric2.png) 
 
@@ -364,16 +365,13 @@ Beheerders van Contoso is nu migreren van de database.
 Contoso heeft nodig om de infrastructuur voor DevOps en pijplijnen voor de toepassing te bouwen.  U doet dit door beheerders van Contoso een nieuw Azure DevOps-project maken, importeren van hun code bouwen en pipelines vrijgeven.
 
 1.   In de Contoso Azure DevOps-account, ze een nieuw project maken (**ContosoSmartHotelRearchitect**), en selecteer **Git** voor versiebeheer.
-
-    ![Nieuw project](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
+![Nieuw project](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
 
 2. Ze importeren de Git-opslagplaats die op dit moment de app-code bevat. Deel uitmaakt van een [openbare opslagplaats](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) en kunt u deze downloaden.
 
     ![App-code downloaden](./media/contoso-migration-rearchitect-container-sql/vsts2.png)
 
 3. Nadat de code is geïmporteerd, ze verbinding maken met Visual Studio naar de opslagplaats en kloon de code met behulp van Team Explorer.
-
-    ![Verbinding maken met de opslagplaats](./media/contoso-migration-rearchitect-container-sql/vsts3.png)
 
 4. Nadat de opslagplaats hebt gekloond naar de machine voor ontwikkelaars, opent u het oplossingsbestand voor de app. De web-app en wcf-service hebben afzonderlijke-project binnen het bestand.
 
@@ -444,11 +442,11 @@ Beheerders van Contoso is nu configureren voor Azure DevOps-Services voor het ui
 
      ![Fabric- en Docker](./media/contoso-migration-rearchitect-container-sql/pipeline3.png)
     
-4. Ze wijzigen van de installatiekopieën van het label voor het bouwen van de installatiekopie en de taak voor het gebruik van de ingerichte ACR configureren.
+4. Ze actielabel installatiekopieën wijzigen **bouw een installatiekopie**, en de taak voor het gebruik van de ingerichte ACR configureren.
 
      ![Register](./media/contoso-migration-rearchitect-container-sql/pipeline4.png)
 
-5. In de **installatiekopieën pushen** taak, ze de afbeelding om te worden puhed naar de ACR configureren en selecteren om op te nemen van de meest recente code.
+5. In de **installatiekopieën pushen** taak, ze de afbeelding die moet worden gepusht naar de ACR configureren en selecteren om op te nemen van de meest recente code.
 6. In **Triggers**, ze inschakelen van continue integratie en toevoegen van de master-vertakking.
 
     ![Triggers](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
@@ -458,11 +456,11 @@ Beheerders van Contoso is nu configureren voor Azure DevOps-Services voor het ui
 
     ![Release-pijplijn](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)    
 
-9. Ze selecteert de **implementatie van Azure Service Fabric** sjabloon en de naam van de omgeving (**SmartHotelSF**).
+9. Ze selecteert de **implementatie van Azure Service Fabric** sjabloon en de naam van de fase (**SmartHotelSF**).
 
     ![Omgeving](./media/contoso-migration-rearchitect-container-sql/pipeline7.png)
 
-10. Ze bieden de pijplijnnaam van een (**ContosoSmartHotelRearchitect**). Voor de omgeving, klikt de gebruiker op **fase 1, 1 taak** om de Service Fabric-implementatie te configureren.
+10. Ze bieden de pijplijnnaam van een (**ContosoSmartHotel360Rearchitect**). Voor de fase, klikt de gebruiker op **1 taak, 1 taak** om de Service Fabric-implementatie te configureren.
 
     ![Fase en taak](./media/contoso-migration-rearchitect-container-sql/pipeline8.png)
 
@@ -481,7 +479,7 @@ Beheerders van Contoso is nu configureren voor Azure DevOps-Services voor het ui
 
 14. Ze selecteert u het project en build-pijplijn, met behulp van de meest recente versie.
 
-     ![Build](./media/contoso-migration-rearchitect-container-sql/pipeline12.png)
+     ![Ontwikkelen](./media/contoso-migration-rearchitect-container-sql/pipeline12.png)
 
 15. Houd er rekening mee dat de lightning-bolt op het artefact is ingeschakeld.
 
@@ -499,7 +497,7 @@ Beheerders van Contoso is nu configureren voor Azure DevOps-Services voor het ui
 
     ![Publiceren](./media/contoso-migration-rearchitect-container-sql/publish4.png)
 
-19. Voor verbinding met de app, zorgt ze ervoor dat verkeer naar het openbare IP-adres van de Azure load balancer vóór de Service Fabric-knooppunten.
+19. Voor verbinding met de app, rechtstreeks ze verkeer naar het openbare IP-adres van de Azure load balancer vóór de Service Fabric-knooppunten.
 
     ![Publiceren](./media/contoso-migration-rearchitect-container-sql/publish5.png)
 

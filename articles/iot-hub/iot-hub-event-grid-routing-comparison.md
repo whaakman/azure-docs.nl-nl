@@ -8,18 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143790"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978672"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Berichtroutering en Event Grid vergelijken voor IoT-Hub
 
 Azure IoT Hub biedt de mogelijkheid voor het streamen van gegevens van uw verbonden apparaten en gegevens integreren in uw zakelijke toepassingen. IoT Hub biedt twee methoden voor het integreren van IoT-gebeurtenissen in andere Azure-services of -business-toepassingen. Dit artikel worden de twee functies die deze mogelijkheid te bieden, zodat u kunt kiezen welke optie wordt aanbevolen voor uw scenario.
 
-* **IoT Hub-berichtroutering**: deze IoT Hub-functie kunnen gebruikers [apparaat-naar-cloud-berichten routeren](iot-hub-devguide-messages-read-custom.md) naar service-eindpunten, zoals Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen. Regels voor doorsturen bieden de flexibiliteit om uit te voeren op query's gebaseerde routes. Ze maken het ook mogelijk [kritieke waarschuwingen](iot-hub-devguide-messages-d2c.md) die Activeer acties via query's en kan worden gebaseerd op de berichtheaders en hoofdtekst. 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+* **[IoT Hub-berichtroutering](iot-hub-devguide-messages-d2c.md)**: deze IoT Hub-functie kunnen gebruikers voor het routeren van apparaat-naar-cloud-berichten naar de service-eindpunten, zoals Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen. Routering biedt ook een mogelijkheid een query uitvoeren op voor het filteren van de gegevens voordat deze naar de eindpunten. Naast het apparaat telemetriegegevens, kunt u ook verzenden [niet telemetriegebeurtenissen](iot-hub-devguide-messages-d2c.md#non-telemetry-events) die kunnen worden gebruikt voor het activeren van acties. 
 * **Integratie van IoT-Hub met Event Grid**: Azure Event Grid is een volledig beheerde service voor gebeurtenisroutering die gebruikmaakt van een publish-subscribe-model. IoT Hub en Event Grid samenwerken om [IoT Hub-gebeurtenissen integreren met Azure en niet-Azure-services](iot-hub-event-grid.md), in near-real-time. 
 
 ## <a name="similarities-and-differences"></a>Overeenkomsten en verschillen
@@ -32,8 +34,8 @@ Berichtroutering en Event Grid waarschuwing configuratie inschakelt, maar er zij
 | **Gebeurtenistype** | Ja, routering van berichten kan rapporteren dat dubbele wijzigingen en levenscyclusgebeurtenissen voor het apparaat. | Ja, Event Grid kunt rapporteren wanneer apparaten zijn gemaakt, verwijderd, verbonden en IoT Hub is verbroken |
 | **Bestellen** | Ja, ordening van gebeurtenissen wordt bijgehouden.  | Nee, de volgorde van gebeurtenissen is niet noodzakelijkerwijs. | 
 | **Maximale berichtgrootte** | 256 KB, apparaat-naar-cloud | 64 kB |
-| **Filteren** | Uitgebreide filteren via SQL-achtige taal ondersteunt filteren op berichtkoppen en instanties. Zie voor voorbeelden van [IoT Hub-querytaal](iot-hub-devguide-query-language.md). | Filteren op basis van achtervoegsel/voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
-| **Eindpunten** | <ul><li>Event Hubs</li> <li>Storage-blob</li> <li>Service Bus-wachtrij</li> <li>Service Bus-onderwerpen</li></ul><br>Betaalde IoT Hub-SKU's (S1, S2 en S3) zijn beperkt tot 10 aangepaste eindpunten. 100 routes kunnen per IoT Hub worden gemaakt. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Aangepaste onderwerpen</li> <li>De services van derden via WebHooks</li></ul><br>Zie voor de meest recente lijst met eindpunten, [Event Grid-gebeurtenis-handlers](../event-grid/overview.md#event-handlers). |
+| **Filteren** | Geavanceerde filteren in de berichteigenschappen van de toepassing, Systeemeigenschappen bericht, de hoofdtekst van bericht, twin apparaat dubbele tags en device eigenschappen. Zie voor voorbeelden van [bericht routering querysyntaxis](iot-hub-devguide-routing-query-syntax.md). | Filteren op basis van achtervoegsel/voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
+| **Eindpunten** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus-wachtrij</li> <li>Service Bus-onderwerpen</li></ul><br>Betaalde IoT Hub-SKU's (S1, S2 en S3) zijn beperkt tot 10 aangepaste eindpunten. 100 routes kunnen per IoT Hub worden gemaakt. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Aangepaste onderwerpen</li> <li>De services van derden via WebHooks</li></ul><br>Zie voor de meest recente lijst met eindpunten, [Event Grid-gebeurtenis-handlers](../event-grid/overview.md#event-handlers). |
 | **Kosten** | Er is geen aparte toeslag voor het routeren van berichten. Alleen inkomend verkeer van telemetrie naar IoT Hub wordt in rekening gebracht. Bijvoorbeeld, als u een bericht doorgestuurd naar drie verschillende eindpunten hebt, u worden in rekening gebracht voor slechts één bericht. | Er zijn geen kosten van IoT Hub. Event Grid biedt de eerste 100.000 bewerkingen per maand gratis, en vervolgens $0,60 per miljoen bewerkingen hierna. |
 
 Berichtroutering in IoT Hub en Event Grid hebt overeenkomsten te, waarvan sommige in de volgende tabel worden beschreven:
@@ -52,7 +54,7 @@ IoT Hub-berichtroutering en de IoT Hub-integratie met Event Grid verschillende b
 
 * **Wat voor soort gegevens verzendt u naar de eindpunten?**
 
-   Gebruik IoT Hub-berichtroutering wanneer er telemetrische gegevens verzenden naar andere services. Berichtroutering ook kunnen uitvoeren van query's berichtkoppen en de berichttekst. 
+   Gebruik IoT Hub-berichtroutering wanneer er telemetrische gegevens verzenden naar andere services. Berichtroutering ook kunnen toepassings- en eigenschappen van berichten, hoofdtekst van het bericht apparaat apparaatdubbel-tags en apparaatdubbeleigenschappen uitvoeren van query's.
 
    De IoT Hub-integratie met Event Grid werkt met gebeurtenissen die in de IoT Hub-service plaatsvinden. Deze IoT Hub-gebeurtenissen zijn onder andere apparaat gemaakt, verwijderd, verbonden en de verbinding verbroken. 
 
@@ -71,7 +73,6 @@ IoT Hub-berichtroutering en de IoT Hub-integratie met Event Grid verschillende b
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [IoT Hub-berichtroutering](iot-hub-devguide-messages-d2c.md) en de [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md).
-
 * Meer informatie over [Azure Event Grid](../event-grid/overview.md)
-
+* Zie voor meer informatie over het maken van berichtroutes, de [Process IoT Hub apparaat-naar-cloud-berichten met behulp van routes](../iot-hub/tutorial-routing.md) zelfstudie.
 * Probeer uit de Event Grid-integratie door [e-mailmeldingen verzenden over Azure IoT Hub-gebeurtenissen met Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2448b1f799c5253b36a18f108af1ff2de8b6ced3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127428"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039732"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -204,6 +204,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
+* Beheerde schijven - Zie [beperkingen van de virtuele Machines voor beperkingen](#virtual-machines-limitations)
 * Beheerde identiteit - gebruiker toegewezen
 * Media Services
 * Mobile Engagement
@@ -254,7 +255,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
 * Managed Applications
-* Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Microsoft Genomics
 * NetApp
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
@@ -267,22 +267,36 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
 
-Beheerde schijven ondersteunen niet verplaatsen. Deze beperking betekent dat verschillende gerelateerde resources te kunnen niet worden verplaatst. U kunt niet verplaatsen:
+Beheerde schijven worden ondersteund voor de verplaatsing vanaf 24 September 2018. U zult moeten zich registreren voor deze functie inschakelen
 
-* Managed Disks
+#### <a name="powershell"></a>PowerShell
+`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
+#### <a name="cli"></a>CLI
+`az feature register Microsoft.Compute ManagedResourcesMove`
+
+
+Dit betekent dat u kunt ook verplaatsen:
+
 * Virtuele machines met beheerde schijven
-* Afbeeldingen gemaakt met behulp van beheerde schijven
-* Momentopnamen die zijn gemaakt op basis van beheerde schijven
+* Beheerde installatiekopieën
+* Beheerde momentopnamen
 * Beschikbaarheidssets met virtuele machines met beheerde schijven
 
-Hoewel u een beheerde schijf kan niet verplaatst, kunt u een kopie maken en maak vervolgens een nieuwe virtuele machine van de bestaande beheerde schijf. Zie voor meer informatie:
+Hier volgen de beperkingen die nog niet ondersteund
 
-* Beheerde schijven kopiëren in het hetzelfde abonnement of een ander abonnement met [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) of [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Maak een virtuele machine met een bestaande beheerde besturingssysteemschijf met [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) of [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Virtuele Machines met een certificaat dat is opgeslagen in Key Vault kan worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
+* Virtuele Machines met Azure Backup zijn geconfigureerd. Gebruik de volgende tijdelijke oplossing voor deze virtuele Machines verplaatsen
+  * Ga naar de locatie van uw virtuele Machine.
+  * Zoek een resourcegroep met de volgende naamgevingspatroon: "AzureBackupRG_<location of your VM>_1 ' bijvoorbeeld AzureBackupRG_westus2_1
+  * Als in Azure Portal, klikt u vervolgens selectievakje ' verborgen typen weergeven"
+  * Als in PowerShell, gebruikt u de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+  * Als u in de CLI, gebruikt u de `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Zoek nu de resource met type `Microsoft.Compute/restorePointCollections` waarvoor het naamgevingspatroon `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Deze resource verwijderen
+  * Nadat het verwijderen is voltooid, kunt u zich aan uw virtuele Machine verplaatsen
+* Virtual Machine Scale Sets met standaard SKU Load Balancer of een standaard SKU en openbare IP kan niet worden verplaatst.
+* Virtuele machines die zijn gemaakt op basis van Marketplace-resources met een abonnement dat is gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. Inrichting ongedaan maken van de virtuele machine in het huidige abonnement en opnieuw implementeren in het nieuwe abonnement.
 
-Virtuele machines die zijn gemaakt op basis van Marketplace-resources met een abonnement dat is gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. Inrichting ongedaan maken van de virtuele machine in het huidige abonnement en opnieuw implementeren in het nieuwe abonnement.
-
-Virtuele Machines met een certificaat dat is opgeslagen in Key Vault kan worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
 
 ## <a name="virtual-networks-limitations"></a>Beperkingen voor virtuele netwerken
 

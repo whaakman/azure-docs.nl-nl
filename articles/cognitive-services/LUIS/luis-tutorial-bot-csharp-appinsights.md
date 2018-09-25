@@ -1,24 +1,26 @@
 ---
-title: LUIS-gegevens toevoegen aan de Application Insights met behulp van C# | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights-gegevens van LUIS met C#
+titleSuffix: Azure Cognitive Services
 description: Bouw een bot die is geïntegreerd met een LUIS-toepassing en de Application Insights met behulp van C#.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 83ad70e1242af1e01af06206a3a141f455072a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237788"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038949"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>LUIS resultaten naar Application Insights toevoegen uit een web-app-bot
-In deze zelfstudie voegt LUIS antwoord informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
+# <a name="add-luis-results-to-application-insights"></a>LUIS resultaten naar Application Insights toevoegen
+In deze zelfstudie voegt LUIS antwoord informatie [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app. 
+
+De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 
 In deze zelfstudie leert u het volgende:
 
@@ -231,7 +233,7 @@ Application Insights biedt u de power query uitvoeren op gegevens die met de [Ku
     ![Aangepaste analyserapport](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
 
-Meer informatie over de [Kusto-querytaal](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Meer informatie over de [Kusto-querytaal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework

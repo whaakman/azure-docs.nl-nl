@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 75a02e61adf3e5477b9945afc778e867d5d9c88c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190301"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958132"
 ---
 # <a name="deploy-okd-in-azure"></a>OKD in Azure implementeren
 
@@ -99,7 +99,7 @@ Het volgende voorbeeld wordt een parameterbestand met de naam azuredeploy.parame
 
 
 > [!NOTE] 
-> De volgende opdracht gebruikmaken van Azure CLI 2.0.8 of hoger. U kunt controleren of de CLI-versie met de `az --version` opdracht. Zie voor het bijwerken van de CLI-versie, [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> De volgende opdracht vereist Azure CLI.8 of hoger. U kunt controleren of de CLI-versie met de `az --version` opdracht. Zie voor het bijwerken van de CLI-versie, [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Het volgende voorbeeld wordt het cluster OKD en alle gerelateerde resources in een resourcegroep met de naam myResourceGroup, met de implementatienaam van een van myOpenShiftCluster geïmplementeerd. De sjabloon wordt verwezen naar rechtstreeks vanuit de GitHub-opslagplaats met behulp van een lokale parameterbestand met de naam azuredeploy.parameters.json.
 

@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426690"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989291"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhookacties voor waarschuwingsregels
-Wanneer een [waarschuwing is gemaakt in Azure ](monitor-alerts-unified-usage.md), hebt u de optie [configureren met behulp van actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
+Wanneer een [waarschuwing is gemaakt in Azure](alert-log.md), hebt u de optie [configureren met behulp van actiegroepen](monitoring-action-groups.md) een of meer acties uit te voeren.  In dit artikel beschrijft de verschillende webhookacties die beschikbaar zijn en meer informatie over het configureren van de aangepaste JSON-indeling webhook.
 
 
 ## <a name="webhook-actions"></a>Webhookacties
 
-Webhookacties kunnen u een extern proces via één HTTP POST-aanvraag aanroepen.  De service die wordt aangeroepen moet ondersteuning van webhooks en bepalen hoe het maakt gebruik van elke nettolading wordt ontvangen.   Voorbeelden van het gebruik van een webhook in reactie op een waarschuwing verzendt een bericht [Slack](http://slack.com) of het maken van een incident in [PagerDuty](http://pagerduty.com/).  
+Webhookacties kunnen u een extern proces via één HTTP POST-aanvraag aanroepen.  De service die wordt aangeroepen moet ondersteuning van webhooks en bepalen hoe het maakt gebruik van elke nettolading wordt ontvangen.    
 
 Webhookacties vereisen de eigenschappen in de volgende tabel:
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Webhook-URL |De URL van de webhook. |
-| Aangepaste JSON-nettolading |Aangepaste nettolading om te verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Details beschikbaar op [waarschuwingen met behulp van Azure-waarschuwingen beheren ](monitor-alerts-unified-usage.md) |
+| Aangepaste JSON-nettolading |Aangepaste nettolading om te verzenden met de webhook wanneer deze optie is gekozen tijdens het maken van waarschuwingen. Details beschikbaar op [waarschuwingen beheren](alert-log.md) |
 
 > [!NOTE]
-> Webhook-knop naast testen *inclusief aangepaste JSON-payload voor webhook* optie voor melding logboek, dummy-aanroep voor het testen van de webhook-URL wordt geactiveerd. Deze bevat geen actuele gegevens en een vertegenwoordiger van JSON-schema voor Logboekwaarschuwingen gebruikt. 
+> Webhook-knop naast weergave *inclusief aangepaste JSON-payload voor webhook* optie voor melding logboek, webhook voorbeeldnettolading voor aanpassing van de opgegeven worden weergegeven. Deze bevat geen actuele gegevens en een vertegenwoordiger van JSON-schema voor Logboekwaarschuwingen gebruikt. 
 
 Webhooks omvatten een URL en een nettolading opgemaakt in JSON die de gegevens zijn verzonden naar de externe service.  De nettolading bevat standaard de waarden in de volgende tabel: U kunt deze nettolading vervangen door een aangepaste classificatie van uw eigen.  In dat geval kunt u de variabelen in de tabel voor elk van de parameters om op te nemen van de waarde in de aangepaste nettolading.
 
@@ -54,7 +54,7 @@ Webhooks omvatten een URL en een nettolading opgemaakt in JSON die de gegevens z
 | Abonnements-id |#subscriptionid |ID van uw Azure-abonnement gebruikt met Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults doorgegeven parameters, zoals SearchQuery, Search Interval StartTime & zoeken Interval eindtijd in de URL naar Azure-portal voor weergave in de sectie Analytics. Azure portal heeft een limiet van URI-grootte van ongeveer 2000 tekens en wordt geopend als parameterwaarden de genoemde limiet overschrijdt. Gebruikers kunnen handmatig invoeren van details van resultaten weergeven in Analytics-portal of gebruik de [Application Insights Analytics REST-API](https://dev.applicationinsights.io/documentation/Using-the-API) of [Log Analytics REST API](https://dev.loganalytics.io/reference) voor het ophalen van resultaten via een programma 
+> LinkToSearchResults doorgegeven parameters, zoals SearchQuery, Search Interval StartTime & zoeken Interval eindtijd in de URL naar Azure-portal voor weergave in de sectie Analytics. Azure-portal heeft URI hoe groot de limiet van ongeveer 2000 tekens en wordt *niet* koppeling openen in waarschuwingen, opgegeven als parameterwaarden de genoemde limiet overschrijdt. Gebruikers kunnen handmatig invoeren van details van resultaten weergeven in Analytics-portal of gebruik de [Application Insights Analytics REST-API](https://dev.applicationinsights.io/documentation/Using-the-API) of [Log Analytics REST API](https://dev.loganalytics.io/reference) voor het ophalen van resultaten via een programma 
 
 Bijvoorbeeld, kunt u de volgende aangepaste nettolading met één parameter met de naam opgeven *tekst*.  De service die webhook aanroept zou deze parameter wordt verwacht.
 
@@ -198,6 +198,7 @@ Hieronder volgt een voorbeeld-nettolading voor een aangepaste webhookactie voor 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [waarschuwingen voor activiteitenlogboeken in Azure-waarschuwingen ](monitor-alerts-unified-log.md)
+- Inzicht in [managaing waarschuwingen in Azure](alert-log.md)
 - Maken en beheren van [actiegroepen in Azure](monitoring-action-groups.md)
 - Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
 - Meer informatie over [Log Analytics](../log-analytics/log-analytics-overview.md). 

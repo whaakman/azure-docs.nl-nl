@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055483"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999865"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -257,5 +257,26 @@ VNet-peeringverbindingen gaan naar *verbroken* status wanneer een VNet-peeringko
 Nee. Transitieve peering wordt niet ondersteund. U moet het peer-VNetA en c. voor deze om te worden uitgevoerd.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Zijn er bandbreedtebeperkingen voor peering-verbindingen?
-Nee. VNet-peering, lokaal of globaal, legt bandbreedtebeperkingen voor. Bandbreedte is alleen limites door de virtuele machine of compute-resource.
+Nee. VNet-peering, lokaal of globaal, legt bandbreedtebeperkingen voor. Bandbreedte wordt alleen beperkt door de virtuele machine of compute-resource.
 
+## <a name="virtual-network-tap"></a>Virtueel netwerk-TAP
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Welke Azure-regio's zijn beschikbaar voor het virtuele netwerk-TAP?
+Developer preview-versie, de mogelijkheid is beschikbaar in de regio West-Centraal VS. De bewaakte netwerkinterfaces, de bron van virtueel netwerk te TIKKEN en de collector of analytics-oplossing moeten worden geïmplementeerd in dezelfde regio.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Virtual Network TAP ondersteunt filters gebruiken om mogelijkheden van de gespiegelde pakketten?
+Filtermogelijkheden worden niet ondersteund met de preview van virtueel netwerk te TIKKEN. Wanneer een Tik-configuratie wordt toegevoegd aan een netwerkinterface een grondige kopie van alle inkomende en uitgaande verkeer op de netwerkinterface wordt gestreamd naar de bestemming te TIKKEN.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>Kunnen de configuraties met meerdere Tik worden toegevoegd aan een bewaakte netwerkinterface?
+Een bewaakte netwerkinterface kan slechts één tik configuratie hebben. Neem contact op met de afzonderlijke [partneroplossingen](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) voor de mogelijkheid om te streamen van meerdere exemplaren van het verkeer te TIKKEN naar de analytics-hulpprogramma's van uw keuze.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>Kan de dezelfde tikt u op de virtueelnetwerkresource verkeer aggregeren van bewaakte netwerkinterfaces in meer dan één virtueel netwerk
+Ja. Hetzelfde virtuele netwerk te TIKKEN resource kan worden gebruikt voor statistische gespiegelde netwerkverkeer van bewaakte netwerkinterfaces in gekoppelde virtuele netwerken in hetzelfde abonnement of een ander abonnement. De bron van virtueel netwerk te TIKKEN en de doel-load balancers of doel-netwerkinterface moet zich in hetzelfde abonnement. Alle abonnementen moeten zich in dezelfde Azure Active Directory-tenant.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Zijn er prestatie-overwegingen on productieverkeer als ik de configuratie van een virtueel netwerk te TIKKEN op een netwerkinterface inschakelen?
+
+Virtueel netwerk te TIKKEN wordt developer preview. Tijdens de preview is er geen serviceovereenkomst. De mogelijkheid mag niet worden gebruikt voor werkbelastingen voor productie. Wanneer de netwerkinterface van een virtuele machine met een Tik-configuratie is ingeschakeld, worden dezelfde resources op de azure-host toegewezen aan de virtuele machine om de productieverkeer te verzenden wordt gebruikt om de mirroring functie uitvoeren en het verzenden van de gespiegelde pakketten. Selecteer de juiste [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) grootte van de virtuele machine om ervoor te zorgen dat er voldoende bronnen beschikbaar zijn voor de virtuele machine voor het verzenden van productieverkeer van de en de gespiegelde zijn.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Versneld netwerken voor [Linux](create-vm-accelerated-networking-cli.md) of [Windows](create-vm-accelerated-networking-powershell.md) met virtual network TAP ondersteund?
+
+U kunt zich een Tik-configuratie toevoegen aan een netwerkinterface die is gekoppeld aan een virtuele machine die met versneld netwerken is ingeschakeld. Maar de prestaties en de latentie voor de virtuele machine worden beïnvloed door het toevoegen van de configuratie te TIKKEN omdat de offload voor het spiegelen van verkeer wordt momenteel niet ondersteund door Azure accelerated networking.

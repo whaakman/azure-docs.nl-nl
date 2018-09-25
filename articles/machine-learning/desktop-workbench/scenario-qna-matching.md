@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973199"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Q & een overeenkomend met behulp van Azure Machine Learning workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Open afgelopen vragen te beantwoorden, is het moeilijk, en moet vaak handmatige inspanningen van deskundigen (MKB). Om te beperken op basis van de vraag op interne kleine en middelgrote ondernemingen, maken bedrijven vaak lijsten met Frequently Asked Questions (Veelgestelde vragen) als middel om te helpen van gebruikers. In dit voorbeeld worden de verschillende methoden van effectieve machine learning zodat deze overeenkomt met open afgelopen query's naar het reeds bestaande Veelgestelde vragen over vraag/antwoord paren gepresenteerd. In dit voorbeeld ziet u een eenvoudige ontwikkeling-proces voor het bouwen van zo'n oplossing met behulp van de Azure Machine Learning Workbench. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Koppeling naar de galerie met GitHub-opslagplaats
@@ -42,7 +47,7 @@ De belangrijkste stappen vereist voor het leveren van deze oplossing zijn als vo
 De vereisten voor het uitvoeren van dit voorbeeld zijn er als volgt uit:
 
 1. Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
-2. Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](../service/quickstart-installation.md) aan het programma te installeren en een werkruimte maken.
+2. Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](quickstart-installation.md) aan het programma te installeren en een werkruimte maken.
 3. In dit voorbeeld kan worden uitgevoerd op een compute-context. Het wordt echter aanbevolen uit te voeren op een computer meerdere kernen met ten minste 16GB geheugen en 5GB schijfruimte.
 
 ## <a name="create-a-new-workbench-project"></a>Een nieuw workbench-project maken

@@ -15,55 +15,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839141"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995547"
 ---
-# <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in de modus Resource Manager
-Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten die u meestal gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en uw versie van de CLI kan enigszins verschillen opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
+# <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in Resource Manager-modus
+Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten u doorgaans gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door het uitvoeren van de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en de CLI-versie kan enigszins opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Dit artikel laat zien Resource Manager opdrachten in de modus in de Azure CLI, ook wel Azure CLI 1.0 genoemd. Om te werken in het Resource Manager-model, u kunt ook proberen de [Azure CLI 2.0](/cli/azure/install-az-cli2), de volgende generatie meerdere platforms CLI.
->Meer informatie over de [oude en nieuwe Azure CLIs](/cli/azure/old-and-new-clis).
+> Dit artikel bevat Resource Manager modusopdrachten in de Azure CLI, ook wel Azure klassieke CLI genoemd. Als u wilt werken in het Resource Manager-model, kunt u ook proberen de [Azure CLI](/cli/azure/install-az-cli2), onze volgende generatie meerdere platforms CLI.
+>Meer informatie over de [oude en nieuwe Azure-CLI's](/cli/azure/old-and-new-clis).
 >
 
-Aan de slag eerst [Azure CLI installeren](../cli-install-nodejs.md) en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli).
+Aan de slag, eerst [Azure CLI installeren](../cli-install-nodejs.md) en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli).
 
-Typ voor de huidige opdrachtsyntaxis en -opties op de opdrachtregel in de modus Resource Manager `azure help` of help weergeven voor een specifieke opdracht `azure help [command]`. CLI-voorbeelden in de documentatie ook vinden voor het maken en beheren van specifieke Azure-services.
+Voor de huidige opdrachtsyntaxis en opties op de opdrachtregel in Resource Manager-modus, typt u `azure help` of om weer te geven van de help voor een specifieke opdracht `azure help [command]`. Ook vindt u in de documentatie van CLI-voorbeelden voor het maken en beheren van specifieke Azure-services.
 
-Optionele parameters staan tussen vierkante haken (bijvoorbeeld `[parameter]`). Alle andere parameters zijn vereist.
+Optionele parameters worden weergegeven tussen vierkante haken (bijvoorbeeld `[parameter]`). Alle andere parameters zijn vereist.
 
-Naast de optionele parameters opdracht-specifieke ze hier zijn beschreven, zijn er drie optionele parameters die kunnen worden gebruikt om gedetailleerde uitvoer zoals opties voor aanvraag- en statuscodes weer te geven. De `-v` parameter biedt uitgebreide uitvoer en de `-vv` parameter biedt nog meer gedetailleerde uitgebreide uitvoer. De `--json` optie wordt het resultaat in de onbewerkte json-indeling.
+Naast de optionele parameters opdracht-specifieke hier beschreven, zijn er drie optionele parameters die kunnen worden gebruikt om gedetailleerde uitvoer zoals Aanvraagopties en statuscodes weer te geven. De `-v` parameter biedt uitgebreide uitvoer en de `-vv` parameter biedt nog meer gedetailleerde uitgebreide uitvoer. De `--json` optie wordt het resultaat in onbewerkte json-indeling.
 
-## <a name="setting-the-resource-manager-mode"></a>De modus Resource Manager instellen
-Gebruik de volgende opdracht om in te schakelen van opdrachten in de modus Azure CLI Resource Manager.
+## <a name="setting-the-resource-manager-mode"></a>De Resource Manager-beveiligingsmodus instellen
+Gebruik de volgende opdracht om in te schakelen van de opdrachten in de modus Resource Manager van Azure CLI.
 
     azure config mode arm
 
 > [!NOTE]
-> De modus Azure Resource Manager en Azure Service Management-modus van de CLI elkaar wederzijds uit. Dat wil zeggen, kunnen niet resources die zijn gemaakt in de modus voor één worden beheerd vanaf de andere modus.
+> De CLI modus Azure Resource Manager en Azure Service Management-modus zijn sluiten elkaar wederzijds uit. Dat wil zeggen, kunnen niet resources die zijn gemaakt in de modus voor één worden beheerd vanuit de andere modus.
 > 
 > 
 
 ## <a name="azure-account-manage-your-account-information"></a>Azure-account: gegevens over uw account beheren
-De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbinding maken met uw account.
+De gegevens van uw Azure-abonnement wordt gebruikt door het hulpprogramma verbinding maken met uw account.
 
-**Lijst van de geïmporteerde abonnementen**
+**De geïmporteerde abonnementen vermelden**
 
     account list [options]
 
-**Details weergeven over een abonnement op**  
+**Meer informatie over een abonnement weergeven**  
 
     account show [options] [subscriptionNameOrId]
 
-**Instellen van het huidige abonnement**
+**Het huidige abonnement instellen**
 
     account set [options] <subscriptionNameOrId>
 
-**Verwijderen van een abonnement of de omgeving of wis dan alle opgeslagen gegevens van de account en de omgeving**  
+**Een abonnement of een omgeving verwijderen of wissen van alle opgeslagen gegevens van de account en de omgeving**  
 
     account clear [options]
 
@@ -86,7 +86,7 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
     ad group list [options]
     ad group show [options]
 
-**Opdrachten voor het bieden van een active directory-sub groeps- of -info**
+**Opdrachten voor het bieden van een active directory-sub-info groep of een lid**
 
     ad group member list [options] [objectId]
 
@@ -107,24 +107,24 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     availset create [options] <resource-group> <name> <location> [tags]
 
-**Geeft een lijst van de beschikbaarheidssets in de resourcegroep**
+**Geeft een lijst van de beschikbaarheidssets binnen een resourcegroep**
 
     availset list [options] <resource-group>
 
-**Een beschikbaarheidsset binnen een resourcegroep opgehaald**
+**Een beschikbaarheidsset in de resourcegroep opgehaald**
 
     availset show [options] <resource-group> <name>
 
-**Hiermee verwijdert u één beschikbaarheidsset binnen een resourcegroep**
+**Hiermee verwijdert u een beschikbaarheidsset binnen een resourcegroep**
 
     availset delete [options] <resource-group> <name>
 
 ## <a name="azure-config-commands-to-manage-your-local-settings"></a>Azure config: opdrachten voor het beheren van uw lokale instellingen
-**Configuratie-instellingen van lijst met Azure CLI**
+**Lijst met Azure CLI-configuratie-instellingen**
 
     config list [options]
 
-**Een configuratie-instelling niet verwijderen**
+**Een configuratie-instelling verwijderen**
 
     config delete [options] <name>
 
@@ -132,12 +132,12 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     config set <name> <value>
 
-**Hiermee stelt u de Azure CLI-modus werken op een `arm` of `asm`**
+**Hiermee stelt u de Azure CLI-modus werken aan een `arm` of `asm`**
 
     config mode [options] <modename>
 
 
-## <a name="azure-feature-commands-to-manage-account-features"></a>functie van Azure: opdrachten voor het beheren van account-functies
+## <a name="azure-feature-commands-to-manage-account-features"></a>functie van Azure: opdrachten voor het beheren van functies van account
 **Lijst van alle functies die beschikbaar zijn voor uw abonnement**
 
     feature list [options]
@@ -146,16 +146,16 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     feature show [options] <providerName> <featureName>
 
-**Een voorbeeld functie van een resourceprovider geregistreerd**
+**Hiermee wordt een voorbeeld-functie van een resourceprovider geregistreerd**
 
     feature register [options] <providerName> <featureName>
 
 ## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Azure-groep: opdrachten voor het beheren van uw resourcegroepen
-**Maakt een resourcegroep**
+**Hiermee maakt u een resourcegroep**
 
     group create [options] <name> <location>
 
-**Set-codes voor een resourcegroep**
+**Labels aan een resourcegroep instellen**
 
     group set [options] <name> <tags>
 
@@ -171,7 +171,7 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
 
     group show [options] <name>
 
-**Opdrachten voor het beheren van resource groep zich aanmeldt**
+**Opdrachten voor het beheren van de resource-group-Logboeken**
 
     group log show [options] [name]
 
@@ -182,7 +182,7 @@ De informatie van uw Azure-abonnement wordt gebruikt door het hulpprogramma verb
     group deployment show [options] <resource-group> [deployment-name]
     group deployment stop [options] <resource-group> [deployment-name]
 
-**Opdrachten voor het beheren van uw lokale of gallery resource groep-sjabloon**
+**Opdrachten voor het beheren van uw lokale of galerie resourcegroepsjabloon**
 
     group template list [options]
     group template show [options] <name>
@@ -283,15 +283,15 @@ De parameteropties:
 
     hdinsight cluster show [options] <clusterName>
 
-**Opdracht voor een lijst met alle clusters (in een specifieke resourcegroep, indien opgegeven)**
+**Opdracht om een lijst van alle clusters (in een specifieke resourcegroep, indien opgegeven)**
 
     hdinsight cluster list [options]
 
-**Opdracht voor het vergroten of verkleinen van een cluster**
+**Opdracht in het formaat van een cluster**
 
     hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
 
-**Opdracht voor het HTTP-toegang voor een cluster**
+**Opdracht voor het HTTP-toegang inschakelen voor een cluster**
 
     hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
 
@@ -299,7 +299,7 @@ De parameteropties:
 
     hdinsight cluster disable-http-access [options] <clusterName>
 
-**Opdracht voor het RDP-toegang voor een cluster**
+**Opdracht uit om RDP-toegang voor een cluster**
 
     hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
 
@@ -307,13 +307,13 @@ De parameteropties:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>inzicht van Azure: opdrachten gerelateerd aan de bewaking van Insights (gebeurtenissen, waarschuwingsregels, instellingen voor automatisch schalen, metrische gegevens)
-**Bewerkingslogboeken voor een abonnement, een correlationId, een resourcegroep, resource of resourceprovider ophalen**
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights: opdrachten die betrekking hebben op de bewaking van Insights (gebeurtenissen, regels voor waarschuwingen, instellingen voor automatisch schalen, metrische gegevens)
+**Logboeken voor bewerkingen voor een abonnement, een correlationId, een resourcegroep, resourcegroep of resourceprovider ophalen**
 
     insights logs list [options]
 
 ## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Azure-locatie: opdrachten voor het ophalen van de beschikbare locaties voor alle resourcetypen
-**Lijst van de beschikbare locaties**
+**De beschikbare locaties weergeven**
 
     location list [options]
 
@@ -321,7 +321,7 @@ De parameteropties:
 **Opdrachten voor het beheren van virtuele netwerken**
 
     network vnet create [options] <resource-group> <name> <location>
-Hiermee maakt u een virtueel netwerk. In het volgende voorbeeld maken we een virtueel netwerk met de naam newvnet voor resource groep myresourcegroup in de regio VS-West.
+Hiermee maakt u een virtueel netwerk. In het volgende voorbeeld maakt u een virtueel netwerk met de naam newvnet voor resourcegroep myresourcegroup in de regio VS-West.
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -364,7 +364,7 @@ De parameteropties:
 
     network vnet set [options] <resource-group> <name>
 
-De configuratie van een virtueel netwerk in de resourcegroep-updates.
+Werkt een virtuele-netwerkconfiguratie binnen een resourcegroep.
 
     azure network vnet set myresourcegroup newvnet
 
@@ -437,7 +437,7 @@ De parameteropties:
 <BR>
 
     network vnet show [options] <resource-group> <name>
-De opdracht ziet u de eigenschappen van het virtuele netwerk in een resourcegroep.
+De opdracht geeft u de eigenschappen van het virtuele netwerk in een resourcegroep.
 
     azure network vnet show -g myresourcegroup -n newvnet
 
@@ -483,7 +483,7 @@ De parameteropties:
 
     network vnet subnet create [options] <resource-group> <vnet-name> <name>
 
-Voegt een ander subnet toe aan een bestaand virtueel netwerk.
+Hiermee voegt u een ander subnet toe aan een bestaand virtueel netwerk.
 
     azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
 
@@ -516,7 +516,7 @@ De parameteropties:
 
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
-Hiermee stelt u een specifiek virtueel netwerksubnet binnen een resourcegroep.
+Hiermee stelt u een specifieke virtuele-subnet binnen een resourcegroep.
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -534,7 +534,7 @@ Hiermee stelt u een specifiek virtueel netwerksubnet binnen een resourcegroep.
 
     network vnet subnet list [options] <resource-group> <vnet-name>
 
-Een lijst met alle subnetten van een virtueel netwerk voor een specifieke virtuele netwerk binnen een resourcegroep.
+Geeft een lijst van alle de subnetten van virtueel netwerk voor een specifieke virtuele netwerk in een resourcegroep.
 
     azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -598,10 +598,10 @@ De parameteropties:
      -s, --subscription <subscription>      the subscription identifier
      -q, --quiet                            quiet mode, do not ask for delete confirmation
 
-**Opdrachten voor het beheer van netwerktaakverdeling**
+**Opdrachten voor het beheren van load balancers**
 
     network lb create [options] <resource-group> <name> <location>
-Hiermee maakt u een load balancer.
+Hiermee maakt u een load balancer-set.
 
     azure network lb create -g myresourcegroup -n mylb -l westus
 
@@ -631,7 +631,7 @@ De parameteropties:
 <BR>
 
     network lb list [options] <resource-group>
-Bevat Load balancer bronnen binnen een resourcegroep.
+Een lijst met Load balancer-resources binnen een resourcegroep.
 
     azure network lb list myresourcegroup
 
@@ -653,7 +653,7 @@ De parameteropties:
 
     network lb show [options] <resource-group> <name>
 
-Geeft load balancer-gegevens van een specifieke load balancer binnen een resourcegroep
+Hiermee load balancer-gegevens van een specifieke load balancer binnen een resourcegroep
 
     azure network lb show myresourcegroup mylb -v
 
@@ -679,7 +679,7 @@ De parameteropties:
 
     network lb delete [options] <resource-group> <name>
 
-Load balancer-resources verwijderen.
+Load balancer resources verwijderen.
 
     azure network lb delete  myresourcegroup mylb
 
@@ -699,11 +699,11 @@ De parameteropties:
      -q, --quiet                            quiet mode, do not ask for delete confirmation
      -s, --subscription <subscription>      the subscription identifier
 
-**Opdrachten voor het beheren van de tests van een load balancer**
+**Opdrachten voor het beheren van tests van een load balancer**
 
     network lb probe create [options] <resource-group> <lb-name> <name>
 
-Maak de test-configuratie voor de health-status in de load balancer. Houd er rekening mee deze opdracht uit te voeren, de load balancer vereist een frontend-ip-resource (Controleer de opdracht 'azure-netwerk frontend-ip' een IP-adres toewijzen aan de load balancer).
+De configuratie van de test voor de integriteitsstatus van de in de load balancer maken. Houd rekening met deze opdracht uit te voeren, de load balancer vereist een frontend-ip-resource (Raadpleeg de opdracht 'azure-netwerk frontend-ip' een ip-adres toewijzen tot de load balancer).
 
     azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
 
@@ -759,7 +759,7 @@ De parameteropties
 
     network lb probe list [options] <resource-group> <lb-name>
 
-Lijst van de test-eigenschappen voor een load balancer-set.
+Lijst met de eigenschappen van de test voor een load balancer-set.
 
     C:\>azure network lb probe list -g myresourcegroup -l mylb
 
@@ -781,7 +781,7 @@ De parameteropties:
 
 
     network lb probe delete [options] <resource-group> <lb-name> <name>
-Hiermee verwijdert u de gemaakt voor de load balancer-test.
+Hiermee verwijdert u de test die u voor de load balancer.
 
     azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
 
@@ -791,10 +791,10 @@ Hiermee verwijdert u de gemaakt voor de load balancer-test.
     + Updating load balancer "mylb"
     info:    network lb probe delete command OK
 
-**Opdrachten voor het beheren van frontend-IP-configuraties van een load balancer**
+**Opdrachten voor het beheren van frontend-ip-configuraties van een load balancer**
 
     network lb frontend-ip create [options] <resource-group> <lb-name> <name>
-Maakt een frontend-IP-configuratie aan een bestaande load balancer-set.
+Hiermee maakt u een front-end-IP-configuratie aan een bestaande load balancer-set.
 
     azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
 
@@ -822,7 +822,7 @@ Maakt een frontend-IP-configuratie aan een bestaande load balancer-set.
 
     network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-Een bestaande configuratie van een frontend-IP-updates. De onderstaande opdracht voegt een openbaar IP-adres mypubip5 naar een bestaande load balancer frontend-IP-met de naam myfrontendip aangeroepen.
+Werkt een bestaande configuratie van een front-end-IP-adres. De onderstaande opdracht wordt een openbaar IP-adres met de naam mypubip5 aan een bestaande load balancer front-end IP-adres met de naam myfrontendip toegevoegd.
 
     azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 
@@ -872,7 +872,7 @@ De parameteropties:
 
     network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Geeft een lijst van alle frontend IP-resources die zijn geconfigureerd voor de load balancer.
+Geeft een lijst van alle front-end IP-resources die zijn geconfigureerd voor de load balancer.
 
     azure network lb frontend-ip list -g myresourcegroup -l mylb
 
@@ -894,7 +894,7 @@ De parameteropties:
 <BR>
 
     network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
-Hiermee verwijdert u de frontend-IP-object die zijn gekoppeld aan de load balancer
+Hiermee verwijdert u de front-end-IP-object gekoppeld aan de load balancer
 
     network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
     info:    Executing command network lb frontend-ip delete
@@ -913,7 +913,7 @@ De parameteropties:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Opdrachten voor het beheren van back-end-adresgroepen van een load balancer**
+**Opdrachten voor het beheren van back-endadresgroepen van een load balancer**
 
     network lb address-pool create [options] <resource-group> <lb-name> <name>
 
@@ -948,7 +948,7 @@ De parameteropties:
 
     network lb address-pool list [options] <resource-group> <lb-name>
 
-Lijst met back-end IP-adresgroep adresbereik voor een specifieke resourcegroep
+Lijst met back-end-IP-adresgroep adresbereik voor een specifieke resourcegroep
 
     azure network lb address-pool list -g myresourcegroup -l mylb
 
@@ -969,9 +969,9 @@ De parameteropties:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    lb-netwerkadresgroep verwijderen [opties] < resourcegroep >< lb-naam > <name>
+    Network lb address-pool verwijderen [opties] < resource-group >< lb-name > <name>
 
-Hiermee verwijdert u de back-end IP-adresgroep bereik resource uit de load balancer.
+Hiermee verwijdert u de back-end-IP-adresgroep bereik resource uit de load balancer.
 
     azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
 
@@ -992,14 +992,14 @@ De parameteropties:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Opdrachten voor het beheren van load-balancerregels**
+**Opdrachten voor het beheren van load balancer-regels**
 
     network lb rule create [options] <resource-group> <lb-name> <name>
 Load balancer-regels maken.
 
-U kunt een load balancer-regel voor het configureren van de frontend-eindpunt voor de load balancer en het back-end-pool adresbereik voor het ontvangen van het binnenkomende netwerkverkeer maken. Instellingen omvatten ook de poorten voor de frontend-IP-eindpunt en de poorten voor de back-end-pool adresbereik.
+U kunt een load balancer-regel voor het configureren van de frontend-eindpunt voor de load balancer en het back-end-pool adresbereik voor het ontvangen van het binnenkomende netwerkverkeer maken. Instellingen omvatten ook de poorten voor de front-end-IP-eindpunt en de poorten voor de back-end-pool adresbereik.
 
-Het volgende voorbeeld ziet het maken van een regel voor load balancer, het frontend-eindpunt luisteren op poort 80 TCP en load balancing netwerkverkeer voor de back-end-pool adresbereik naar poort 8080 verzenden.
+Het volgende voorbeeld ziet hoe u een load balancer-regel, de frontend-eindpunt dat luistert 80 TCP-poort en het laden van netwerktaakverdeling netwerkverkeer verzenden naar poort 8080 voor de back-end-pool adresbereik maakt.
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
@@ -1027,7 +1027,7 @@ Het volgende voorbeeld ziet het maken van een regel voor load balancer, het fron
 
     network lb rule set [options] <resource-group> <lb-name> <name>
 
-Updates van een bestaande load balancer-regel instellen in een specifieke resourcegroep. In het volgende voorbeeld wordt de regelnaam van mylbrule gewijzigd in mynewlbrule.
+Werkt een bestaande load balancer-regel in een specifieke resourcegroep instellen. In het volgende voorbeeld wordt gewijzigd we de regelnaam van mylbrule in mynewlbrule.
 
     azure network lb rule set -g myresourcegroup -l mylb -n mylbrule -r mynewlbrule -p tcp -f 80 -b 8080 -i 10 -t myfrontendip -o mybackendpool
 
@@ -1072,7 +1072,7 @@ De parameteropties:
 
     network lb rule list [options] <resource-group> <lb-name>
 
-Een lijst met alle taakverdelingsregels zijn geconfigureerd voor een load balancer in een specifieke resourcegroep.
+Een lijst met alle load balancer-regels die zijn geconfigureerd voor een load balancer in een specifieke resourcegroep.
 
     azure network lb rule list -g myresourcegroup -l mylb
 
@@ -1118,9 +1118,9 @@ De parameteropties:
 **Opdrachten voor het beheren van de load balancer inkomende NAT-regels**
 
     network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
-Maakt een binnenkomende NAT-regel voor load balancer.
+Hiermee maakt u een binnenkomende NAT-regel voor load balancer.
 
-In het volgende voorbeeld wordt een NAT-regel van frontend-IP (die is eerder gedefinieerd met de opdracht 'azure-netwerk frontend-ip') gemaakt met een luisterpoort binnenkomende en uitgaande poort die de load balancer wordt gebruikt om het netwerkverkeer te verzenden.
+In het volgende voorbeeld wordt een NAT-regel van frontend-IP (dit is eerder gedefinieerd met de opdracht 'azure-netwerk frontend-ip') gemaakt met een inkomende poort voor luisteren en de uitgaande poort die de load balancer gebruikt om het netwerkverkeer te verzenden.
 
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
@@ -1162,7 +1162,7 @@ De parameteropties:
 <BR>
 
     network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
-Updates van een bestaande binnenkomende nat-regel. In het volgende voorbeeld wordt de inkomende luisterpoort van 80 gewijzigd in 81.
+Een bestaande binnenkomende nat-regel bijgewerkt. In het volgende voorbeeld wordt de binnenkomende poort voor luisteren van 80 gewijzigd in 81.
 
     azure network lb inbound-nat-rule set -g group-1 -l mylb -n myinboundnat -p tcp -f 81 -b 8080 -i myfrontendip
 
@@ -1205,7 +1205,7 @@ De parameteropties:
 
     network lb inbound-nat-rule list [options] <resource-group> <lb-name>
 
-Hier worden alle binnenkomende nat-regels voor de load balancer.
+Geeft een lijst van alle inkomende nat-regels voor load balancer.
 
     azure network lb inbound-nat-rule list -g myresourcegroup -l mylb
 
@@ -1230,7 +1230,7 @@ De parameteropties:
 
     network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
-NAT-regel voor de load balancer in een specifieke resourcegroep verwijderen.
+Hiermee verwijdert u NAT-regel voor de load balancer in een specifieke resourcegroep.
 
     azure network lb inbound-nat-rule delete -g myresourcegroup -l mylb -n myinboundnat
 
@@ -1251,10 +1251,10 @@ De parameteropties:
     -q, --quiet                            quiet mode, do not ask for delete confirmation
     -s, --subscription <subscription>      the subscription identifier
 
-**Opdrachten voor het openbare IP-adressen beheren**
+**Opdrachten voor het beheren van openbare ip-adressen**
 
     network public-ip create [options] <resource-group> <name> <location>
-Maakt een openbaar IP-resource. U de openbare ip-resource maken en koppelen aan een domein.
+Hiermee maakt u een openbaar ip-resource. U het openbare ip-resource maken en koppelen aan een domein.
 
     azure network public-ip create -g myresourcegroup -n mytestpublicip1 -l eastus -d azureclitest -a "Dynamic"
     info:    Executing command network public-ip create
@@ -1294,7 +1294,7 @@ De parameteropties:
 <br>
 
     network public-ip set [options] <resource-group> <name>
-De eigenschappen van een bestaande openbare IP-resource-updates. In het volgende voorbeeld wordt het openbare IP-adres van dynamisch gewijzigd naar statisch.
+Werkt de eigenschappen van een bestaande openbare ip-resource. In het volgende voorbeeld wordt het openbare IP-adres van dynamisch gewijzigd in statisch.
 
     azure network public-ip set -g group-1 -n mytestpublicip1 -d azureclitest -a "Static"
     info:    Executing command network public-ip set
@@ -1354,9 +1354,9 @@ De parameteropties:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    openbaar netwerk-IP-weergeven [opties] < resource-group > <name>
+    Network public-IP-weergeven [opties] < resource-group > <name>
 
-Openbare IP-eigenschappen van een openbaar IP-bron binnen een resourcegroep weergeven
+Hiermee worden eigenschappen van openbaar IP-adres voor een openbaar IP-resource binnen een resourcegroep.
 
     azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1386,7 +1386,7 @@ De parameteropties:
 
     network public-ip delete [options] <resource-group> <name>
 
-Hiermee verwijdert u een openbaar IP-resource.
+Hiermee verwijdert u openbare ip-resource.
 
     azure network public-ip delete -g group-1 -n mypublicipname
     info:    Executing command network public-ip delete
@@ -1409,7 +1409,7 @@ De parameteropties:
 **Opdrachten voor het beheren van netwerkinterfaces**
 
     network nic create [options] <resource-group> <name> <location>
-Maakt een resource netwerkinterface (NIC) die kan worden gebruikt voor load balancers of koppelen aan een virtuele Machine genoemd.
+Hiermee maakt u een resource met de naam netwerkinterface (NIC) die kan worden gebruikt voor load balancers of koppelen aan een virtuele Machine.
 
     azure network nic create -g myresourcegroup -l eastus -n testnic1 --subnet-name subnet-1 --subnet-vnet-name myvnet
 
@@ -1477,7 +1477,7 @@ De parameteropties:
     network nsg show [options] <resource-group> <name>
     network nsg delete [options] <resource-group> <name>
 
-**Opdrachten voor het beheren van netwerk-beveiligingsregels voor groep**
+**Opdrachten voor het beheren van het netwerk regels voor netwerkbeveiligingsgroepen**
 
     network nsg rule create [options] <resource-group> <nsg-name> <name>
     network nsg rule set [options] <resource-group> <nsg-name> <name>
@@ -1504,8 +1504,8 @@ De parameteropties:
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-provider: opdrachten voor het beheren van resource provider registraties
-**Lijst van de momenteel geregistreerde providers in Resource Manager**
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Azure-provider: opdrachten voor het beheren van de resource provider registraties
+**Lijst van geregistreerde providers in Resource Manager**
 
     provider list [options]
 
@@ -1513,20 +1513,20 @@ De parameteropties:
 
     provider show [options] <namespace>
 
-**Registreer provider bij het abonnement**
+**Provider registreren met het abonnement**
 
     provider register [options] <namespace>
 
-**Hef de registratie van provider met het abonnement**
+**Registratie van de provider aan het abonnement**
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resource: opdrachten om uw resources te beheren
-**Maakt een resource in een resourcegroep**
+## <a name="azure-resource-commands-to-manage-your-resources"></a>Azure-resource: opdrachten voor het beheren van uw resources
+**Hiermee maakt u een resource in een resourcegroep**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
 
-**Updates van een resource in een resourcegroep zonder parameters of sjablonen**
+**Een resource in een resourcegroep die u zonder parameters of sjablonen bijgewerkt**
 
     resource set [options] <resource-group> <name> <resource-type> <properties> <api-version>
 
@@ -1534,7 +1534,7 @@ De parameteropties:
 
     resource list [options] [resource-group]
 
-**Een bron binnen een resourcegroep of abonnement opgehaald**
+**Met deze eigenschap wordt één resource binnen een resourcegroep of abonnement**
 
     resource show [options] <resource-group> <name> <resource-type> <api-version>
 
@@ -1542,7 +1542,7 @@ De parameteropties:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-functie: opdrachten voor het beheren van uw Azure-functies
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Azure-rol: opdrachten voor het beheren van uw Azure-rollen
 **Alle beschikbare roldefinities ophalen**
 
     role list [options]
@@ -1551,7 +1551,7 @@ De parameteropties:
 
     role show [options] [name]
 
-**Opdrachten voor het beheren van uw roltoewijzing**
+**Opdrachten voor het beheren van de roltoewijzing**
 
     role assignment create [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
@@ -1566,12 +1566,12 @@ De parameteropties:
     storage account set [options] <name>
     storage account delete [options] <name>
 
-**Opdrachten voor het beheren van uw toegangscodes voor opslag**
+**Opdrachten voor het beheren van uw opslagaccountsleutels**
 
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
 
-**Opdrachten voor het weergeven van de verbindingsreeks voor opslag**
+**Opdrachten om de opslagverbindingsreeks weer te geven**
 
     storage account connectionstring show [options] <name>
 
@@ -1583,11 +1583,11 @@ De parameteropties:
     storage container delete [options] [container]
     storage container set [options] [container]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekeningen van uw Storage-container**
+**Opdrachten voor het beheren van gedeelde toegangshandtekeningen van uw Storage-container**
 
     storage container sas create [options] [container] [permissions] [expiry]
 
-**Opdrachten voor het beheren van opgeslagen-beleid van uw Storage-container**
+**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de Storage-container**
 
     storage container policy create [options] [container] [name]
     storage container policy show [options] [container] [name]
@@ -1603,13 +1603,13 @@ De parameteropties:
     storage blob upload [options] [file] [container] [blob]
     storage blob download [options] [container] [blob] [destination]
 
-**Opdrachten voor het beheren van uw blob kopiëren bewerkingen**
+**Opdrachten voor het beheren van uw blob kopieerbewerkingen**
 
     storage blob copy start [options] [sourceUri] [destContainer]
     storage blob copy show [options] [container] [blob]
     storage blob copy stop [options] [container] [blob] [copyid]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekening van uw Storage-blob**
+**Opdrachten voor het beheren van gedeelde toegang krijgen tot de handtekening van uw Storage-blob**
 
     storage blob sas create [options] [container] [blob] [permissions] [expiry]
 
@@ -1632,18 +1632,18 @@ De parameteropties:
     storage directory create [options] [share] [path]
     storage directory delete [options] [share] [path]
 
-**Opdrachten voor het beheren van uw opslagwachtrijen**
+**Opdrachten voor het beheren van uw Storage-wachtrijen**
 
     storage queue create [options] [queue]
     storage queue list [options] [prefix]
     storage queue show [options] [queue]
     storage queue delete [options] [queue]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekeningen van uw Storage-wachtrij**
+**Opdrachten voor het beheren van gedeelde toegangshandtekeningen van uw Storage-wachtrij**
 
     storage queue sas create [options] [queue] [permissions] [expiry]
 
-**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de wachtrij van uw opslag**
+**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de Storage-wachtrij**
 
     storage queue policy create [options] [queue] [name]
     storage queue policy show [options] [queue] [name]
@@ -1668,11 +1668,11 @@ De parameteropties:
     storage table show [options] [table]
     storage table delete [options] [table]
 
-**Opdrachten voor het beheren van gedeelde toegang tot de handtekeningen van de tabel opslag**
+**Opdrachten voor het beheren van gedeelde toegangshandtekeningen van uw Storage-tabel**
 
     storage table sas create [options] [table] [permissions] [expiry]
 
-**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de tabel opslag**
+**Opdrachten voor het beheren van opgeslagen toegangsbeleid van de Storage-tabel**
 
     storage table policy create [options] [table] [name]
     storage table policy show [options] [table] [name]
@@ -1680,7 +1680,7 @@ De parameteropties:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tag: opdrachten voor het beheren van het resource manager-label
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Azure-tag: opdrachten voor het beheren van uw resource manager-tag
 **Een label toevoegen**
 
     tag create [options] <name> <value>
@@ -1689,15 +1689,15 @@ De parameteropties:
 
     tag delete [options] <name> <value>
 
-**Geeft een lijst van de tag-informatie**
+**Geeft een lijst van de informatie over de assettag**
 
     tag list [options]
 
-**Een label ophalen**
+**Een tag ophalen**
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Azure vm: opdrachten voor het beheren van uw Azure Virtual Machines
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>virtuele machines van Azure: opdrachten voor het beheren van uw Azure Virtual Machines
 **Een virtuele machine maken**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1707,7 +1707,7 @@ De parameteropties:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> Beginnen met CLI versie 0.10, kunt u een korte alias zoals 'UbuntuLTS' of 'Win2012R2Datacenter' opgeven als de `image-urn` voor bepaalde populaire Marketplace-installatiekopieën. Voer `azure help vm quick-create` voor opties. Bovendien vanaf versie 0.10, `azure vm quick-create` premium-opslag wordt standaard gebruikt als deze beschikbaar in de geselecteerde regio is.
+> Beginnen met CLI versie 0.10, kunt u een korte alias, zoals "UbuntuLTS" of "Win2012R2Datacenter" opgeven als de `image-urn` voor enkele populaire Marketplace-installatiekopieën. Voer `azure help vm quick-create` voor opties. Bovendien vanaf versie 0.10, `azure vm quick-create` maakt gebruik van premium storage standaard als deze beschikbaar in de geselecteerde regio is.
 > 
 > 
 
@@ -1715,15 +1715,15 @@ De parameteropties:
 
     vm list [options]
 
-**Ophalen van een virtuele machine binnen een resourcegroep**
+**Een virtuele machine binnen een resourcegroep ophalen**
 
     vm show [options] <resource-group> <name>
 
-**Een virtuele machine in de resourcegroep verwijderen**
+**Een virtuele machine binnen een resourcegroep verwijderen**
 
     vm delete [options] <resource-group> <name>
 
-**Een virtuele machine afsluiten binnen een resourcegroep**
+**Afsluiten van één virtuele machine binnen een resourcegroep**
 
     vm stop [options] <resource-group> <name>
 
@@ -1731,15 +1731,15 @@ De parameteropties:
 
     vm restart [options] <resource-group> <name>
 
-**Start één virtuele machine binnen een resourcegroep**
+**Starten van een virtuele machine binnen een resourcegroep**
 
     vm start [options] <resource-group> <name>
 
-**Een virtuele machine afsluiten binnen een resourcegroep en worden de rekenresources vrijgegeven**
+**Afsluiten van één virtuele machine binnen een resourcegroep en worden de rekenresources vrijgegeven**
 
     vm deallocate [options] <resource-group> <name>
 
-**Lijst met beschikbare virtuele machine grootten**
+**Lijst met beschikbare VM-grootten**
 
     vm sizes [options]
 
@@ -1755,26 +1755,26 @@ De parameteropties:
 
     vm get-instance-view [options] <resource-group> <name>
 
-**Kunt u instellingen voor externe toegang tot het bureaublad of SSH op een virtuele Machine herstellen en in te stellen van het wachtwoord voor het account dat beheerder of sudo-instantie is**
+**Kunt u externe toegang tot het bureaublad of SSH-instellingen op een virtuele Machine opnieuw instellen en het wachtwoord voor het account dat beheerder of sudo-instantie opnieuw instellen**
 
     vm reset-access [options] <resource-group> <name>
 
-**Virtuele machine bijwerken met nieuwe gegevens**
+**VM bijwerken met nieuwe gegevens**
 
     vm set [options] <resource-group> <name>
 
-**Opdrachten voor het beheren van uw virtuele Machine gegevensschijven**
+**Opdrachten voor het beheren van uw virtuele Machine-gegevensschijven**
 
     vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]
     vm disk detach [options] <resource-group> <vm-name> <lun>
     vm disk attach [options] <resource-group> <vm-name> [vhd-url]
 
-**Opdrachten voor het VM-resource-uitbreidingen beheren**
+**Opdrachten voor het beheren van VM-resource-extensies**
 
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
 
-**Opdrachten voor het beheren van uw Docker virtuele Machine**
+**Opdrachten voor het beheren van uw Docker-Machine**
 
     vm docker create [options] <resource-group> <name> <location> <os-type>
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934750"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996346"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux-VM in Azure
 Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een secure shell (SSH)-verbinding. Wanneer er nieuwe voor Linux, of om snel oplossen van problemen met scenario's, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](http://www.xrdp.org)) voor uw Linux-VM met het Resource Manager-implementatiemodel.
@@ -28,7 +28,7 @@ Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdracht
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel gebruikmaken van een bestaande Ubuntu 16.04 LTS-VM in Azure. Als u een virtuele machine maken wilt, gebruikt u een van de volgende methoden:
 
-- De [Azure CLI 2.0](quick-create-cli.md)
+- De [Azure CLI](quick-create-cli.md)
 - [Azure Portal](quick-create-portal.md)
 
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Maak een regel voor Netwerkbeveiligingsgroep voor verkeer van extern bureaublad
 Voor extern bureaublad-verkeer tot uw Linux-VM, een netwerkbeveiligingsgroep kunt groep regel moet worden gemaakt die TCP op poort 3389 uw virtuele machine kan bereiken. Zie voor meer informatie over de regels voor netwerkbeveiligingsgroepen [wat is er een netwerkbeveiligingsgroep?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) U kunt ook [de Azure portal gebruiken voor het maken van een regel voor netwerkbeveiligingsgroep](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Het volgende voorbeeld wordt een netwerkbeveiligingsgroepregel met [az vm open-port](/cli/azure/vm#az-vm-open-port) op poort *3389*. Vanuit de Azure CLI 2.0, open niet de SSH-sessie met uw virtuele machine, de volgende regel voor netwerkbeveiligingsgroep:
+Het volgende voorbeeld wordt een netwerkbeveiligingsgroepregel met [az vm open-port](/cli/azure/vm#az-vm-open-port) op poort *3389*. Vanuit de Azure CLI niet de SSH-sessie met uw virtuele machine, opent u de volgende regel voor netwerkbeveiligingsgroep:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

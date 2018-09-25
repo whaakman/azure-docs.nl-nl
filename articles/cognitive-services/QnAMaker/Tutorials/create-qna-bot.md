@@ -2,22 +2,22 @@
 title: QnA bot met Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: 0c6feb67b273ec30afba89f2d4d9b59a8a9f5acf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.author: tulasim
+ms.openlocfilehash: 74c7bc5c601cd36a8dd2454506745406bc00dac0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731409"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031285"
 ---
-# <a name="create-a-qna-bot-with-azure-bot-service"></a>Een QnA Bot maken met Azure Botservice
-In deze zelfstudie helpt u bij het bouwen van een QnA bot met Azure Bot service in Azure portal.
+# <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>Een QnA Bot maken met Azure Bot Service v3
+In deze zelfstudie helpt u bij het bouwen van een QnA bot met Azure Bot service v3 in Azure portal.
 
 ## <a name="prerequisite"></a>Vereiste
 Voordat u bouwt, volg de stappen in [maken van een kennisdatabase](../How-To/create-knowledge-base.md) een QnA Maker-service maken met vragen en antwoorden.
@@ -33,16 +33,24 @@ De bot reageert op vragen van de knowledge base die u hebt gemaakt, via de QnAMa
 
     ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. In de **Bot Service-blade**, geef de vereiste gegevens op en selecteer **maken**. Hiermee maakt en implementeert de bot-service met QnAMakerDialog naar Azure.
+3. In de **Bot Service-blade**, geef de vereiste gegevens:
 
     - Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net).
     - Selecteer het abonnement, de resourcegroep, de App service-plan en de locatie.
-    - Selecteer de **vraag en antwoord** (Node.js of C#)-sjabloon voor het veld van de sjabloon Bot.
-    - Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
 
-        ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-service-qna-template.PNG)
+4. Zie de instructies voor het maken van een bot QnA met SDK-v4-Zie [QnA v4-bot sjabloon](https://aka.ms/qna-bot-v4). Voor het gebruik van de v3-sjablonen, selecteert u de SDK-versie van **SDK v3** en de taal van de SDK van **C#** of **Node.js**.
 
-4. Bevestig dat de botservice is geïmplementeerd.
+    ![de instellingen van de bot-sdk](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+
+5. Selecteer de **vraag en antwoord** sjabloon voor het veld van de sjabloon Bot, en vervolgens slaat u de sjabloon door het selecteren van **Selecteer**.
+
+    ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+
+6. Controleer uw instellingen en selecteer vervolgens **maken**. Hiermee maakt en implementeert de bot-service met QnAMakerDialog naar Azure.
+
+    ![bot-service selecteren](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+
+7. Bevestig dat de botservice is geïmplementeerd.
 
     - Selecteer **meldingen** (het belpictogram die zich aan de bovenkant van de Azure-portal). De melding wordt gewijzigd van **implementatie is gestart** naar **implementatie is voltooid**.
     - Nadat de melding wordt gewijzigd in **implementatie is voltooid**, selecteer **naar de resource gaan** op waarmee de melding.
@@ -63,7 +71,7 @@ De bot reageert met 'Stel QnAKnowledgebaseId en QnASubscriptionKey in Appinstell
     ![App-instellingen](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
 
 2. Uw knowledge base-ID en host-url voor de eindpuntsleutel ophalen uit het tabblad instellingen van uw knowledge base in https://qnamaker.ai.
-    - Meld u aan bij [QnA Maker](https://qnamaker.ai)
+    - Aanmelden bij [QnA Maker](https://qnamaker.ai)
     - Ga naar uw knowledge base
     - Klik op de **instellingen** tabblad
     - **Publiceren** uw knowledge base, als dit nog niet gedaan

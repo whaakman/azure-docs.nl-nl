@@ -11,20 +11,24 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 0abc5e34d2bfa1cf2a9fc0569831e21ed295891c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983715"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming en samenwerking in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 Dit artikel wordt beschreven hoe u Azure Machine Learning Workbench kunt gebruiken om te stellen projecten voor roaming tussen computers en samenwerken met teamleden. 
 
 Wanneer u een Azure Machine Learning-project met een externe Git-opslagplaats (opslagplaats) koppeling maakt, worden de metagegevens van het project en de momentopnamen worden opgeslagen in de cloud. U kunt de koppeling van de cloud gebruiken voor toegang tot het project vanaf een andere computer (roaming). Ook kunt u samenwerken met teamleden door zodat ze toegang hebben tot het project. 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
-1. De Machine Learning Workbench-app installeren. Zorg ervoor dat u toegang tot een Azure Machine Learning experimenten-account hebt. Zie voor meer informatie de [installatiehandleiding](../service/quickstart-installation.md).
+## <a name="prerequisites"></a>Vereisten
+1. De Machine Learning Workbench-app installeren. Zorg ervoor dat u toegang tot een Azure Machine Learning experimenten-account hebt. Zie voor meer informatie de [installatiehandleiding](quickstart-installation.md).
 
 2. Toegang tot [Azure DevOps](https://www.visualstudio.com) en maak vervolgens een opslagplaats voor uw project te koppelen. Zie voor meer informatie, [met behulp van een Git-opslagplaats met een Machine Learning Workbench-project](using-git-ml-project.md).
 

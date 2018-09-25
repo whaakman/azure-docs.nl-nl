@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951964"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Gedistribueerd afstemmen van hyperparameters met behulp van Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 In dit scenario laat zien hoe u Azure Machine Learning Workbench gebruiken om te schalen om het afstemmen van hyperparameters van machine learning-algoritmen die scikit implementeren-informatie over de API. Laten we zien hoe u kunt configureren en gebruiken van een externe Docker-container en een Spark-cluster als een uitvoering van back-end voor het afstemmen van hyperparameters.
 
@@ -38,7 +43,7 @@ Raster zoeken met behulp van kruisvalidatie kan tijdrovend. Als een algoritme vi
 ## <a name="prerequisites"></a>Vereisten
 
 * Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
-* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snelstartgids installeren en maken](../service/quickstart-installation.md) de Workbench installeren en maken van accounts.
+* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snelstartgids installeren en maken](quickstart-installation.md) de Workbench installeren en maken van accounts.
 * In dit scenario wordt ervan uitgegaan dat u Azure ML Workbench worden uitgevoerd op Windows 10- of Mac OS met Docker-engine lokaal zijn geïnstalleerd. 
 * Inrichten als u wilt het scenario met een externe Docker-container uitvoeren, Ubuntu Data Science Virtual Machine (DSVM) door de [instructies](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Het is raadzaam om met behulp van een virtuele machine met ten minste 8 kerngeheugens en 28 Gb geheugen. D4 exemplaren van virtuele machines hebben deze capaciteit. 
 * Om uit te voeren in dit scenario met een Spark-cluster, kunt u Spark HDInsight-cluster inrichten Volg hiervoor de volgende [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). U wordt aangeraden dat een cluster met de volgende configuratie in de kop- en worker-knooppunten:

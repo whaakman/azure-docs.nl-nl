@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 52b02460d444464211fc74c8982379424abebb5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643818"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965493"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Het gebruik Uitvoeringsgeschiedenis en metrische gegevens van Model in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench biedt ondersteuning voor data science experimenten via de **Run History** en **Model metrische gegevens** functies.
 **Uitvoeringsgeschiedenis** biedt een manier om bij te houden van de uitvoer van uw machine learning-experimenten, en klikt u vervolgens kunt filteren en vergelijking van de resultaten ervan.
@@ -27,8 +32,8 @@ Dit artikel wordt beschreven hoe u effectief gebruik van deze functies om de sne
 
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, moet u naar:
-* [Maak en installeer Azure Machine Learning](../service/quickstart-installation.md)
-- [Een Project maken](../service/quickstart-installation.md)
+* [Maak en installeer Azure Machine Learning](quickstart-installation.md)
+- [Een Project maken](quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>API-overzicht van Azure ML-logboekregistratie
@@ -51,7 +56,7 @@ logger.log("all values", [5, 6, 7])
 Het is eenvoudig te gebruiken van het logboek in uw Azure ML Workbench-projecten en in dit artikel leest u hoe om dit te doen.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Een Project maken in Azure ML Workbench
-Als u nog een project hebt, kunt u een van de [maken en snelstartgids installeren](../service/quickstart-installation.md) van de **projectdashboard**, kunt u openen de **iris_sklearn.py** script () zoals wordt weergegeven.)
+Als u nog een project hebt, kunt u een van de [maken en snelstartgids installeren](quickstart-installation.md) van de **projectdashboard**, kunt u openen de **iris_sklearn.py** script () zoals wordt weergegeven.)
 
 ![toegang tot een script op het tabblad bestanden](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 

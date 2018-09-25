@@ -3,19 +3,19 @@ title: Ondersteunde talen - QnA Maker
 titlesuffix: Azure Cognitive Services
 description: De taal van een kennisdatabase is van invloed op de QnA Maker kunnen automatische extractie van vragen en antwoorden van bronnen, evenals de relevantie van de resultaten die qna Maker in reactie op query's van gebruikers biedt.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: ee04733064ec4e3d131b800fe1f18b27e5127fe8
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: tulasim
+ms.openlocfilehash: f690a620988135fe1347934a2b394021aa0bd334
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45572937"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035994"
 ---
 # <a name="supported-languages"></a>Ondersteunde talen
 
@@ -44,7 +44,7 @@ QnA Maker de taal van de knowledge base met een automatisch gedetecteerd tijdens
 |Ondersteunde talen|
 |-----|
 |Arabisch|
-|Armeens|, 
+|Armeens|,
 Bengaals|
 |Baskisch|
 |Bulgaars|

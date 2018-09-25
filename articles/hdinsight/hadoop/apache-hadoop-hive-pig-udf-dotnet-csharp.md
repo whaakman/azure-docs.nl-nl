@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a214aa51bcd4b7aab7a65cf2989edd9e9dd3dc6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ebc4c918745e273700a0efb54db4408bb702c75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044888"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991365"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C#-door gebruiker gedefinieerde functies gebruiken met Hive en Pig streaming van Hadoop in HDInsight
 
@@ -31,7 +31,7 @@ Beide Hive en Pig gegevens kan worden doorgegeven in externe toepassingen voor v
 
     * Welke IDE u wilt gebruiken. Het is raadzaam [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, of [Visual Studio Code](https://code.visualstudio.com/). De stappen in dit document gebruikt Visual Studio 2017.
 
-* Een manier om het .exe-bestanden uploaden naar het cluster en voer Pig en Hive-taken. We raden het Data Lake Tools voor Visual Studio, Azure PowerShell en Azure CLI. De stappen in dit document Data Lake Tools voor Visual Studio om de bestanden uploaden en een voorbeeld van de Hive-query.
+* Een manier om het .exe-bestanden uploaden naar het cluster en voer Pig en Hive-taken. We raden het Data Lake Tools voor Visual Studio, Azure PowerShell en klassieke Azure-CLI. De stappen in dit document Data Lake Tools voor Visual Studio om de bestanden uploaden en een voorbeeld van de Hive-query.
 
     Hive-query's en Pig-taken, raadpleegt u de volgende documenten voor meer informatie over andere manieren om uit te voeren:
 

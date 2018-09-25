@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060566"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -101,7 +101,7 @@ Klanten kunnen een momentopname van de beheerde schijven en vervolgens de moment
 
 Ja, niet-beheerde en beheerde schijven worden ondersteund. U wordt aangeraden dat u beheerde schijven voor nieuwe workloads gebruiken en uw huidige workloads naar managed disks migreren.
 
-**Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GB verhogen, moet ik betalen voor de volgende schijfgrootte (256 GB)?**
+**Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GiB verhogen, moet ik betalen voor de volgende schijfgrootte (256 GB)?**
 
 Ja.
 
@@ -137,10 +137,10 @@ Nee, wanneer de nieuwe schijf wordt gemaakt op dat moment een volledig zelfstand
 
 Voor beheerde schijven kan niet u deze wijzigen. U mag een niet-beheerde schijf echter wijzigen, zolang het is momenteel niet gekoppeld aan een VHD of de virtuele machine.
 
-## <a name="standard-ssd-disks-preview"></a>Standard SSD-schijven (Preview)
+## <a name="standard-ssd-disks"></a>Standard-SSD-schijven
 
 **Wat zijn Azure Standard-SSD-schijven?**
-Standard-SSD-schijven worden ondersteund door SSD media, geoptimaliseerd als voordelige opslag voor workloads die consistente prestaties op lagere niveaus van IOPS moet standaardschijven. Preview-versie zijn ze beschikbaar in een beperkt aantal regio's met beperkte beheermogelijkheden (beschikbaar via Resource Manager-sjablonen).
+Standard-SSD-schijven worden ondersteund door SSD media, geoptimaliseerd als voordelige opslag voor workloads die consistente prestaties op lagere niveaus van IOPS moet standaardschijven.
 
 <a id="standard-ssds-azure-regions"></a>**Wat zijn de regio's die momenteel worden ondersteund voor Standard-SSD-schijven?**
 Alle Azure-regio's bieden nu ondersteuning voor Standard-SSD-schijven.
@@ -275,7 +275,7 @@ Er is een vaste kosten voor de grootte van elke schijf, dat wordt geleverd met b
 
 **Wat zijn de limieten voor IOPS en doorvoer die ik van de schijfcache verwerken kan?**
 
-De gecombineerde limieten voor cache en lokale SSD van een DS-serie zijn 4000 IOPS per kern en 33 MB per seconde per core. De GS-serie biedt 5000 IOP's per kern en 50 MB per seconde per core.
+De gecombineerde limieten voor cache en lokale SSD van een DS-serie zijn 4000 IOPS per kern en 33 MiB per seconde per core. De GS-serie biedt 5000 IOP's per kern en 50 MiB per seconde per core.
 
 **Wordt de lokale SSD ondersteund voor een VM-schijven beheerd?**
 
@@ -287,38 +287,60 @@ Er is geen nadeel aan het gebruik van TRIM op Azure-schijven in een premium of s
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nieuwe schijfgrootten: beheerde en onbeheerde
 
-**Wat is de grootste schijfgrootte wordt ondersteund voor besturingssysteem en gegevensschijven?**
+**Wat is de grootste beheerde schijfgrootte voor het besturingssysteem en gegevensschijven worden ondersteund?**
 
-Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). Het formaat van de MBR-indeling ondersteunt een schijf tot 2 TB. De maximale grootte die Azure biedt ondersteuning voor een besturingssysteemschijf is 2 TB. Azure biedt ondersteuning voor maximaal 4 TB voor gegevensschijven. 
+Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). De MBR-indeling ondersteunt een schijfgrootte maximaal 2 TiB. De maximale grootte die Azure biedt ondersteuning voor een besturingssysteemschijf is 2 TiB. Azure ondersteunt maximaal 32 TiB voor beheerde gegevensschijven. Beheerde schijf die groter zijn dan 4 TiB zijn beschikbaar als preview. Zie voor meer informatie over deze onze [blogbericht](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**Wat is de maximumgrootte van de niet-beheerde schijf voor het besturingssysteem en gegevensschijven worden ondersteund?**
+
+Het partitietype die Azure biedt ondersteuning voor een besturingssysteemschijf wordt de master bootrecord (MBR). De MBR-indeling ondersteunt een schijfgrootte maximaal 2 TiB. De maximale grootte die Azure biedt ondersteuning voor een niet-beheerde schijf van besturingssysteem is 2 TiB. Azure biedt ondersteuning voor maximaal 4 TiB voor niet-beheerde gegevensschijven.
 
 **Wat is de maximale grootte uit pagina-blob die wordt ondersteund?**
 
-Pagina is-blob de maximumgrootte die ondersteuning biedt voor Azure 8 TB (8.191 GB). De maximale blog paginagrootte wanneer gekoppeld aan een virtuele machine als de gegevens of besturingssysteemschijven is 4 TB (4095 GB).
+Pagina-blob is de maximumgrootte die ondersteuning biedt voor Azure 8 TiB (8.191 GiB). De maximale blog paginagrootte wanneer gekoppeld aan een virtuele machine als de gegevens of besturingssysteemschijven is 4 TiB (4095 GiB).
 
-**Moet ik een nieuwe versie van Azure-hulpprogramma's gebruiken om te maken, koppelen, vergroten of verkleinen en uploaden van schijven die groter zijn dan 1 TB?**
+**Moet ik een nieuwe versie van Azure-hulpprogramma's gebruiken om te maken, koppelen, vergroten of verkleinen en de schijven die groter zijn dan 1 TiB uploaden?**
 
-U hoeft niet te upgraden van uw bestaande Azure-hulpprogramma's maken, koppelen of de grootte van schijven die groter zijn dan 1 TB. Als u wilt uw VHD-bestand van on-premises rechtstreeks naar Azure uploaden als pagina-blobs of niet-beheerde schijf, moet u de nieuwste hulpprogramma's gebruiken:
+U hoeft niet te upgraden van uw bestaande Azure-hulpprogramma's maken, koppelen of de schijven die groter zijn dan 1 TiB vergroten of verkleinen. Als u wilt uw VHD-bestand van on-premises rechtstreeks naar Azure uploaden als pagina-blobs of niet-beheerde schijf, moet u de nieuwste hulpprogramma's die worden vermeld onder gebruiken. We ondersteunen alleen VHD uploads van maximaal 8 TiB.
 
 |Azure-hulpprogramma 's      | Ondersteunde versies                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Versienummer 4.1.0: de release van juni 2017 of hoger|
 |Azure CLI v1     | Versienummer 0.10.13: de release van mei 2017 of hoger|
+|Azure CLI versie 2     | Versienummer 2.0.12: de release van juli 2017 of hoger|
 |AzCopy           | Versienummer 6.1.0: de release van juni 2017 of hoger|
-
-De ondersteuning voor Azure CLI-v2 en Azure Storage Explorer is binnenkort beschikbaar. 
 
 **Worden schijfgrootten P4 en P6 ondersteund voor niet-beheerde schijven of pagina-blobs?**
 
-Nee. P4 (32 GB) en P6 (64 GB)-schijfgrootten worden alleen ondersteund voor beheerde schijven. Ondersteuning voor niet-beheerde schijven en pagina-blobs is binnenkort beschikbaar.
+P4 (32 GiB) en P6 (64 GiB) schijfgrootten worden niet ondersteund als de standaard schijf lagen voor niet-beheerde schijven en pagina-blobs. Moet u expliciet [instellen van de Blob-laag](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) P4 en P6 de schijf die is toegewezen aan deze lagen hebben. Als u een niet-beheerde schijf of pagina-blob met de grootte van de schijf of lengte van de inhoud minder dan 32 GiB of tussen 32 GiB in 64 GiB zonder in te stellen van de Blob-laag implementeert, blijft u komt terecht op P10 met 500 IOPS en 100 MiB/s en de gekoppelde prijscategorie.
 
-**Als mijn bestaande premium beheerde schijf kleiner is dan 64 GB is gemaakt voordat de kleine schijf is ingeschakeld (rond 15 juni 2017), hoe wordt deze gefactureerd?**
+**Als mijn bestaande premium beheerde schijf kleiner is dan 64 GiB is gemaakt voordat de kleine schijf is ingeschakeld (rond 15 juni 2017), hoe wordt deze gefactureerd?**
 
-Bestaande kleine premium-schijven kleiner is dan 64 GB nog steeds gefactureerd volgens de prijscategorie van P10. 
+Bestaande kleine premium-schijven kleiner is dan 64 GiB nog steeds gefactureerd volgens de prijscategorie van P10.
 
-**Hoe kan ik wisselen van de schijf-laag van kleine premium-schijven die kleiner zijn dan 64 GB van P10 P4 of P6?**
+**Hoe kan ik van de schijf-laag van kleine premium-schijven korter zijn dan 64 GiB van P10 P4 of P6 wisselen?**
 
-U kunt een momentopname van de kleine schijven en maak vervolgens een schijf voor het automatisch de prijscategorie overschakelen naar P4 of P6 op basis van de ingerichte grootte. 
+U kunt een momentopname van de kleine schijven en maak vervolgens een schijf voor het automatisch de prijscategorie overschakelen naar P4 of P6 op basis van de ingerichte grootte.
 
+**Kunt u de grootte van bestaande beheerde schijven van grootte minder dan 4 TiB aan nieuwe geïntroduceerde schijfgrootten tot 32 TiB?**
+
+Nieuwe Managed Disk-groottes TiB 8, 16 TiB en 32 TiB zijn momenteel in Preview. Nog niet wordt ondersteund bestaande schijfgrootten naar de nieuwe schijfgrootten vergroten of verkleinen.
+
+**Wat is de grootste schijfgrootten die worden ondersteund door Azure Backup en Azure Site Recovery-service?**
+
+De grootste schijfgrootte wordt ondersteund door Azure Backup en Azure Site Recovery-service is 4 TiB.
+
+**Wat zijn de aanbevolen VM-grootten voor grote schijven (> 4TiB) voor Standard-SSD en standaard harde schijven te bereiken geoptimaliseerd schijf-IOPS en bandbreedte?**
+
+De schijfdoorvoer van Standard-SSD en HDD Standard grote schijfgrootten bereiken (> 4TB) meer dan 500 IOPS en 60 MiB/s, moet u een van de volgende VM-grootten gebruiken om uw prestaties te optimaliseren: B-serie, DSv2-serie, Dsv3-serie, ESv3-serie, Fs-serie Fsv2-serie, M-serie, GS-serie, NCv2-serie, uit de NCv3-serie of Ls-serie VM's.
+
+**Welke regio's zijn groter is dan 4 TiB ondersteund in de grootte van de beheerde schijven?**
+
+Op dit moment in de Preview-versie, worden grootte van de beheerde schijven ondersteund in West VS centraal alleen.
+
+**Ondersteunen we Host opslaan in cache inschakelen op de nieuwere schijfgrootten?**
+
+Dankzij Host opslaan in cache van de alleen-lezen en lezen/schrijven schijfgrootten kleiner is dan 4TiB. Voor schijfgrootten meer dan 4 TiB wordt niet ondersteund als optie dan geen caching. Het is raadzaam om gebruik te maken van in cache opslaan voor kleinere schijfgrootten waar u kunt verwachten boost voor betere prestaties zien met gegevens in de cache opgeslagen met de virtuele machine.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Wat gebeurt er als mijn vraag hier niet wordt beantwoord?
 

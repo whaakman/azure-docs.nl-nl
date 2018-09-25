@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122464"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965526"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
-In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor verzamelt [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
+ 
+In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../azure-monitor/overview.md). Azure Monitor verzamelt [metrische gegevens](../monitoring/monitoring-data-collection.md#metrics) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
 
 ## <a name="batch-metrics"></a>Metrische gegevens voor batch
 
@@ -64,7 +65,8 @@ Het configureren van een waarschuwing voor metrische gegevens in de portal:
 2. Onder **bewaking**, klikt u op **waarschuwingsregels** > **metrische waarschuwing toevoegen**.
 3. Selecteer een metrische waarde, de voorwaarde voor een waarschuwing (zoals wanneer een metrische waarde een bepaalde waarde gedurende een periode overschrijdt) en een of meer meldingen.
 
-U kunt ook een bijna realtime waarschuwingen met de [REST-API](https://docs.microsoft.com/rest/api/monitor/). Zie voor meer informatie, [de nieuwere metrische waarschuwingen voor Azure-services in Azure portal gebruiken](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+U kunt ook een bijna realtime waarschuwingen met de [REST-API](https://docs.microsoft.com/rest/api/monitor/). Zie voor meer informatie, [waarschuwingsoverzicht](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 ## <a name="batch-diagnostics"></a>Diagnostische gegevens van batch
 
 Diagnostische logboeken bevatten gegevens die zijn gegenereerd door Azure-resources die de werking van elke resource beschrijven. Voor Batch, kunt u de volgende logboeken te verzamelen:

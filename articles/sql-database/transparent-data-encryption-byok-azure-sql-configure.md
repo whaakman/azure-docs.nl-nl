@@ -15,15 +15,15 @@ ms.service: sql-database
 ms.tgt_pltfrm: ''
 ms.devlang: azurecli, powershell
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 09/20/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 11e190e1a4d0309bdbdcb7a578fccaf84fabb8e3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 65f9384bb0ceedd6c2bde8ef513040e198ccc4d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543774"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036368"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell en CLI: Transparent Data Encryption met behulp van uw eigen sleutel uit Azure Key Vault inschakelen
 
@@ -35,11 +35,11 @@ Dit artikel helpt bij het gebruik van een sleutel uit Azure Key Vault voor trans
 - [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
 - U moet Azure PowerShell versie 4.2.0 of hoger zijn geïnstalleerd en uitgevoerd. 
 - Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
-   - [PowerShell-instructies uit Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
-   - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [PowerShell-instructies uit Key Vault](../key-vault/key-vault-get-started.md)
+   - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-   - [voorlopig verwijderen](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) 
+   - [voorlopig verwijderen](../key-vault/key-vault-ovw-soft-delete.md)
+   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
    - Er is geen vervaldatum
    - Niet uitgeschakeld
@@ -201,11 +201,11 @@ Controleer het volgende als er een probleem optreedt:
 - [Aanbevolen maar niet vereist] Een hardware security module (HSM) of de lokale sleutel opslaan voor het maken van een lokale kopie van het sleutelmateriaal TDE-beveiliging hebben.
 - Opdrachtregelinterface versie 2.0 of hoger. Zie voor het installeren van de meest recente versie en verbinding maken met uw Azure-abonnement, [installeren en configureren van de Azure platformoverschrijdende opdrachtregelinterface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - Maak een Azure Key Vault en de sleutel moet worden gebruikt voor TDE.
-   - [Beheren van Key Vault met behulp van CLI 2.0](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2)
-   - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Beheren van Key Vault met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
+   - [Instructies voor het gebruik van een hardware security module (HSM) en Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - De key vault moet beschikken over de volgende eigenschap moet worden gebruikt voor TDE:
-   - [voorlopig verwijderen](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli) 
+   - [voorlopig verwijderen](../key-vault/key-vault-ovw-soft-delete.md)
+   - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - De sleutel moet de volgende kenmerken moet worden gebruikt voor TDE hebben:
    - Er is geen vervaldatum
    - Niet uitgeschakeld

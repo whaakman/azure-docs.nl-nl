@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 737cc120877a9d0f06a1f6d209bcf9a233aa7d19
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 39404ff74552b11e982cf5968c0eb131ea642e27
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091306"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979441"
 ---
-# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Verwijderen van een HDInsight-cluster met behulp van uw browser, PowerShell of Azure CLI
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Verwijderen van een HDInsight-cluster met behulp van uw browser, PowerShell of de klassieke Azure-CLI
 
-De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. In dit document leert u hoe u een cluster met behulp van de Azure portal, Azure PowerShell en de Azure CLI 1.0 verwijderen.
+De facturering voor het gebruik van HDInsight-clusters begint zodra er een cluster is gemaakt en stopt als een cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. In dit document leert u hoe u een cluster met behulp van de Azure portal, Azure PowerShell en de klassieke Azure-CLI te verwijderen.
 
 > [!IMPORTANT]
 > Verwijderen van een HDInsight-cluster verwijdert niet de Azure Storage-accounts of Data Lake Store die zijn gekoppeld aan het cluster. U kunt gegevens die zijn opgeslagen in deze services in de toekomst opnieuw gebruiken.
@@ -41,13 +41,12 @@ Gebruik de volgende opdracht om het cluster te verwijderen uit een PowerShell-pr
 
 Vervang **CLUSTERNAME** door de naam van uw HDInsight-cluster.
 
-## <a name="azure-cli-10"></a>Azure CLI 1.0
+## <a name="azure-classic-cli"></a>CLI van Azure Classic
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Gebruik de volgende om het cluster te verwijderen vanaf de opdrachtprompt:
 
     azure hdinsight cluster delete CLUSTERNAME
 
 Vervang **CLUSTERNAME** door de naam van uw HDInsight-cluster.
-
-> [!NOTE]
-> Azure CLI 2.0 biedt geen ondersteuning voor verwijderen HDInsight-clusters op dit moment (23 oktober 2017).

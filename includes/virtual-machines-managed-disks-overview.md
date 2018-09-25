@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b011dd5993e63fe9bce36ec8b8c1b4739dbf704b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 617f60345fb2a349eddb0db697604ba383794591
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060394"
 ---
 # <a name="azure-managed-disks-overview"></a>Overzicht Azure Managed Disks
 
-Azure Managed Disks vereenvoudigt u Schijfbeheer voor Azure IaaS VM's door het beheer van de [opslagaccounts](../articles/storage/common/storage-introduction.md) die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van het type ([Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard-SSD, of [Premium SSD](../articles/virtual-machines/windows/premium-storage.md)) en de grootte van de schijf moet u, en Azure maakt en beheert de schijf voor u.
+Azure Managed Disks vereenvoudigt u Schijfbeheer voor Azure IaaS VM's door het beheer van de [opslagaccounts](../articles/storage/common/storage-introduction.md) die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van het type ([Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard-SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), of [Premium SSD](../articles/virtual-machines/windows/premium-storage.md)) en de grootte van de schijf moet u, en Azure maakt en beheert de schijf voor u.
 
 ## <a name="benefits-of-managed-disks"></a>Voordelen van beheerde schijven
 
@@ -29,7 +29,7 @@ Laten we eens enkele van de voordelen die u toegang met behulp van beheerde schi
 
 Managed Disks verwerken de opslag voor u achter de schermen. Voorheen moest u opslagaccounts voor het opslaan van de schijven (VHD-bestanden) voor uw Azure-VM's maken. Wanneer u omhoog, moest u om ervoor te zorgen dat u extra storage-accounts hebt gemaakt, zodat u niet langer zijn dan de IOPS-limiet voor opslag met een van uw schijven. Met Managed Disks verwerken de opslag, u bent niet langer beperkt door de opslaglimieten voor account (zoals 20.000 IOP's / account). U moet ook niet meer uw aangepaste installatiekopieën (VHD-bestanden) kopiëren naar meerdere opslagaccounts. U kunt deze op een centrale locatie – één opslagaccount per Azure-regio – beheren en gebruiken voor het maken van honderden virtuele machines in een abonnement.
 
-Beheerde schijven kunt u maximaal 50.000 virtuele machine maken **schijven** van een type in een abonnement per regio, wordt die kunt u duizenden maken **VMs** in één abonnement. Deze functie ook verder verhoogt de schaalbaarheid van [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) doordat u maximaal duizend virtuele machines in een schaalset van de virtuele machine met behulp van een Marketplace-installatiekopie maken. 
+Beheerde schijven kunt u maximaal 50.000 virtuele machine maken **schijven** van een type in een abonnement per regio, wordt die kunt u duizenden maken **VMs** in één abonnement. Deze functie ook verder verhoogt de schaalbaarheid van [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) doordat u maximaal duizend virtuele machines in een schaalset van de virtuele machine met behulp van een Marketplace-installatiekopie maken.
 
 ### <a name="better-reliability-for-availability-sets"></a>Betere betrouwbaarheid voor Beschikbaarheidssets
 
@@ -44,11 +44,13 @@ Azure-schijven zijn ontworpen om 99,999% van de tijd beschikbaar te zijn. Geniet
 U kunt [op rollen gebaseerd toegangsbeheer (RBAC)](../articles/role-based-access-control/overview.md) specifieke machtigingen voor een beheerde schijf aan een of meer gebruikers toewijzen. Beheerde schijven toont een aantal bewerkingen, zoals lezen, schrijven (maken/bijwerken), verwijderen en het ophalen van een [handtekening voor gedeelde toegang (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) voor de schijf. U kunt toegang verlenen tot alleen de bewerkingen die iemand nodig heeft om uit te voeren hun taak. Bijvoorbeeld, als u niet dat een persoon in een beheerde schijf kopiëren naar een opslagaccount wilt, kunt u geen toegang naar de export-actie voor de beheerde schijf te verlenen. Op dezelfde manier als u niet dat een persoon in een SAS-URI gebruiken om te kopiëren van een beheerde schijf wilt, kunt u geen toestemming te verlenen die voor de beheerde schijf.
 
 ### <a name="azure-backup-service-support"></a>Ondersteuning van Azure Backup-service
-Gebruik Azure Backup-service met Managed Disks te maken van een back-uptaak met back-ups op basis van tijd eenvoudig herstel van de virtuele machine en voor het bewaren van back-up. Beheerde schijven ondersteunen alleen lokaal redundante opslag (LRS) als de replicatie-optie. Drie kopieën van de gegevens worden bewaard in een enkele regio. Voor regionaal herstel na noodgevallen, u moet back-up van de VM-schijven in een andere regio met [Azure Backup-service](../articles/backup/backup-introduction-to-azure-backup.md) en een GRS-opslagaccount als back-upkluis. Azure Backup biedt momenteel ondersteuning voor alle schijfgrootten, inclusief de schijven van 4TB. U moet [upgrade VM-back-upstack naar V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) voor ondersteuning van 4 TB-schijven. Zie voor meer informatie, [met behulp van Azure Backup-service voor virtuele machines met Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+
+Gebruik Azure Backup-service met Managed Disks te maken van een back-uptaak met back-ups op basis van tijd eenvoudig herstel van de virtuele machine en voor het bewaren van back-up. Beheerde schijven ondersteunen alleen lokaal redundante opslag (LRS) als de replicatie-optie. Drie kopieën van de gegevens worden bewaard in een enkele regio. Voor regionaal herstel na noodgevallen, u moet back-up van de VM-schijven in een andere regio met [Azure Backup-service](../articles/backup/backup-introduction-to-azure-backup.md) en een GRS-opslagaccount als back-upkluis. Azure Backup ondersteunt momenteel de schijfgrootten tot 4 TB-schijven. U moet [upgrade VM-back-upstack naar V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) voor ondersteuning van 4 TB-schijven. Zie voor meer informatie, [met behulp van Azure Backup-service voor virtuele machines met Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
 Wanneer u Managed Disks gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
+
 * Opslagtype
 
 * Schijfgrootte
@@ -61,29 +63,27 @@ Wanneer u Managed Disks gebruikt, zijn de volgende factureringsvoorwaarden van t
 
 We gaan nog eens kijken deze opties.
 
-**Opslagtype:** Managed Disks biedt 3 prestatielagen: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), Standard-SSD (Preview), en [Premium](../articles/virtual-machines/windows/premium-storage.md). De facturering van een beheerde schijf, is afhankelijk van welk type opslag die u hebt geselecteerd voor de schijf.
-
+**Opslagtype:** Managed Disks biedt 3 prestatielagen: [Standard HDD](../articles/virtual-machines/windows/standard-storage.md), [Standard-SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), en [Premium](../articles/virtual-machines/windows/premium-storage.md). De facturering van een beheerde schijf, is afhankelijk van welk type opslag die u hebt geselecteerd voor de schijf.
 
 **Schijfgrootte**: facturering voor beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. Azure wijst de ingerichte grootte (afgerond) naar de dichtstbijzijnde Managed Disks-optie die zijn opgegeven in de onderstaande tabellen. Elke beheerde schijf wordt toegewezen aan een van de ondersteunde ingerichte grootte en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standaard beheerde schijf maken en geef een ingerichte grootte van 200 GB, in rekening gebracht volgens de prijzen van het type S15 schijf.
 
 Hier volgen de schijfgrootten beschikbaar voor een premium-beheerde schijf:
 
-| **Premium beheerde <br>schijftype** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Schijfgrootte        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Premium HDD beheerd <br>schijftype** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
 
 Hier volgen de schijfgrootten beschikbaar voor een standard-SSD beheerde schijven:
 
-| **Standard-SSD beheerd <br>schijftype** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** |
-|------------------|--------|--------|--------|----------------|----------------|----------------| 
-| Schijfgrootte        | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Standard-SSD beheerd <br>schijftype** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Schijfgrootte        | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
 
 Hier volgen de schijfgrootten beschikbaar voor een standaard beheerde schijf van HDD:
 
-| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
-
+| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (TiB) |
 
 **Aantal transacties**: U wordt gefactureerd voor het aantal transacties die u op een standard-beheerde schijven uitvoert.
 
@@ -107,14 +107,14 @@ Zie de volgende bronnen voor meer informatie over het maken van momentopnamen me
 * [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Een kopie maken van een VHD die is opgeslagen als beheerde schijf met behulp van momentopnamen in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
 ## <a name="images"></a>Installatiekopieën
 
 Beheerde schijven bieden ook ondersteuning voor het maken van een beheerde aangepaste installatiekopie. U kunt een installatiekopie maken van uw aangepaste VHD in een opslagaccount of rechtstreeks vanaf een gegeneraliseerde VM voor (sys voorbereid). Dit proces worden vastgelegd in een één installatiekopie van alle schijven die zijn gekoppeld aan een virtuele machine beheerde, met inbegrip van zowel het besturingssysteem en gegevensschijven. Deze beheerde aangepaste installatiekopie kunt maken honderden VM's met behulp van uw aangepaste installatiekopie zonder de noodzaak om te kopiëren of een storage-accounts beheren.
 
 Zie de volgende artikelen voor meer informatie over het maken van installatiekopieën:
+
 * [Hoe u een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Het generaliseren en vastleggen van een virtuele Linux-machine met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
+* [Het generaliseren en vastleggen van een virtuele Linux-machine met de Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>Installatiekopieën met momentopnamen
 
@@ -132,7 +132,6 @@ Er zijn twee typen versleuteling om te bespreken betrekking tot beheerde schijve
 
 [Azure Storage-Serviceversleuteling](../articles/storage/common/storage-service-encryption.md) biedt versleuteling-at-rest en Beveilig uw gegevens om te voldoen aan de beveiligings- en nalevingsverplichtingen van de organisatie. SSE is standaard ingeschakeld voor alle beheerde schijven, momentopnamen en installatiekopieën in alle regio's waar beheerde schijven beschikbaar zijn. Vanaf 10 juni 2017, alle nieuwe beheerde schijven/momentopnamen/images en nieuwe gegevens geschreven naar bestaande beheerde schijven worden automatisch versleuteld in rust met sleutels die worden beheerd door Microsoft standaard. Ga naar de [pagina met veelgestelde vragen voor schijven beheerd](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) voor meer informatie.
 
-
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
 Azure Disk Encryption kunt u voor het versleutelen van het besturingssysteem en gegevensschijven die wordt gebruikt door een virtuele IaaS-Machine. Deze versleuteling omvat beheerde schijven. De stations zijn versleuteld met versleutelingstechnologie van industriestandaard BitLocker voor Windows. De schijven worden versleuteld met behulp van de technologie DM-Crypt voor Linux. Het versleutelingsproces is geïntegreerd met Azure Key Vault kunt u controleren en beheren van de versleutelingssleutels voor de schijf. Zie voor meer informatie, [Azure Disk Encryption voor Windows en Linux IaaS-VM's](../articles/security/azure-security-disk-encryption.md).
@@ -145,7 +144,7 @@ Raadpleeg de volgende artikelen voor meer informatie over Managed Disks.
 
 * [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
-* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Een virtuele Linux-machine maken met behulp van de Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)
 
 * [Een beheerde gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
 

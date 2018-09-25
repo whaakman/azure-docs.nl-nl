@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003828"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998223"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
 De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./monitoring-diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
@@ -113,7 +113,7 @@ Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie b
 | De naam van element | Beschrijving |
 | --- | --- |
 | Autorisatie |De BLOB van RBAC-eigenschappen van de gebeurtenis. Omvat gewoonlijk de "action", 'rol' en 'bereik'-Eigenschappen. |
-| oproepende functie |E-mailadres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
+| Beller |E-mailadres van de gebruiker die de bewerking, UPN-claim of op basis van beschikbaarheid SPN-claim heeft uitgevoerd. |
 | kanalen |Een van de volgende waarden: 'Admin', "Bewerking" |
 | claims |De JWT-token die wordt gebruikt door Active Directory voor het verifiëren van de gebruiker of toepassing voor deze bewerking in Resource Manager. |
 | correlationId |Meestal een GUID in de indeling van de verbindingsreeks. Gebeurtenissen die delen van een correlationId behoren tot dezelfde uber actie. |
@@ -193,6 +193,95 @@ Deze categorie bevat de record van de service health incidenten die hebben plaat
 ```
 Raadpleeg de [health servicemeldingen](./monitoring-service-notifications.md) artikel voor documentatie over de waarden in de eigenschappen.
 
+## <a name="resource-health"></a>Status van resources
+Deze categorie bevat de record van een resource health-gebeurtenissen die hebben plaatsgevonden naar uw Azure-resources. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Virtuele Machine health-status gewijzigd in niet beschikbaar." Resource health-gebeurtenissen kunnen een van de vier health-statussen vertegenwoordigen: beschikbaar is, niet beschikbaar, gedegradeerd en onbekend. Resource health-gebeurtenissen kunnen ook worden gecategoriseerd als Platform die gebruiker geïnitieerd of.
+
+### <a name="sample-event"></a>Voorbeeld van de gebeurtenis
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
+| De naam van element | Beschrijving |
+| --- | --- |
+| kanalen | Altijd 'Admin, bewerking' |
+| correlationId | Een GUID in de indeling van de verbindingsreeks. |
+| description |De beschrijving van de statische tekst van de waarschuwing gebeurtenis. |
+| eventDataId |De unieke id van de waarschuwing gebeurtenis. |
+| category | Altijd "ResourceHealth" |
+| eventTimestamp |Tijdstip waarop de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag die de gebeurtenis overeenkomt. |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: "Critical", "Error", 'Waarschuwing', "Ter informatie" en "Uitgebreide" |
+| operationId |Een GUID die wordt gedeeld tussen de gebeurtenissen die met één bewerking overeenkomen. |
+| operationName |Naam van de bewerking. |
+| resourceGroupName |De naam van de resourcegroep waarin de resource. |
+| resourceProviderName |Altijd 'Microsoft.Resourcehealth/healthevent/action'. |
+| ResourceType | Het type resource dat is beïnvloed door een gebeurtenis met Resource Health. |
+| resourceId | Naam van de resource-ID voor de betrokken resource. |
+| status |De tekenreeks met een beschrijving van de status van de health-gebeurtenis. Waarden zijn: actief, opgelost, wordt uitgevoerd, bijgewerkt. |
+| subStatus | Meestal null voor waarschuwingen. |
+| submissionTimestamp |Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |
+| subscriptionId |Azure-abonnement-id. |
+| properties |Instellen van `<Key, Value>` paren (dat wil zeggen, een woordenlijst) met een beschrijving van de details van de gebeurtenis.|
+| Properties.title | Een beschrijvende tekenreeks die de status van de resource beschrijft. |
+| Properties.details | Een beschrijvende tekenreeks die meer details over de gebeurtenis beschrijft. |
+| properties.currentHealthStatus | De huidige status van de resource. Een van de volgende waarden: 'Beschikbaar', 'Niet beschikbaar', 'Gedegradeerd' en 'Onbekend'. |
+| properties.previousHealthStatus | De vorige status van de resource. Een van de volgende waarden: 'Beschikbaar', 'Niet beschikbaar', 'Gedegradeerd' en 'Onbekend'. |
+| Properties.type | Een beschrijving van het type resource health gebeurtenis. |
+| Properties.cause | Een beschrijving van de oorzaak van de resource health-gebeurtenis. "UserInitiated" en 'PlatformInitiated'. |
+
+
 ## <a name="alert"></a>Waarschuwing
 Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een reeks systemen die Azure hebben een waarschuwingen concept--u kunt een regel voor een definiëren en een melding ontvangen wanneer er voorwaarden overeenkomen met die regel. Telkens wanneer een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering wordt ook gepusht naar deze categorie van het activiteitenlogboek.
 
@@ -260,7 +349,7 @@ Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Beschrijving |
 | --- | --- |
-| oproepende functie | Altijd Microsoft.Insights/alertRules |
+| Beller | Altijd Microsoft.Insights/alertRules |
 | kanalen | Altijd 'Admin, bewerking' |
 | claims | JSON-blob met het type SPN (service principal name) of de resource van de waarschuwings-engine. |
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
@@ -369,7 +458,7 @@ Deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op 
 ### <a name="property-descriptions"></a>Eigenschapbeschrijvingen
 | De naam van element | Beschrijving |
 | --- | --- |
-| oproepende functie | Altijd Microsoft.Insights/autoscaleSettings |
+| Beller | Altijd Microsoft.Insights/autoscaleSettings |
 | kanalen | Altijd 'Admin, bewerking' |
 | claims | JSON-blob met het type SPN (service principal name) of de resource van de engine voor automatisch schalen. |
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |

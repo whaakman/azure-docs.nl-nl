@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576899"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996686"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 ## <a name="introduction"></a>Inleiding
@@ -154,7 +154,7 @@ Het volgende voorbeeld ziet u een aanvraag voor code verlenen token met wachtwoo
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Als u werkt met certificaatreferenties, maak een JSON Web Token (JWT) en meld u (RSA-SHA256) met behulp van de persoonlijke sleutel van de certificaat-referentie van uw toepassing. De claimtypen voor het token worden weergegeven in [JWT-token claims](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). Voor een verwijzing naar de [Active Directory Authentication Library (.NET)-code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) Client Assertion JWT-tokens te ondertekenen.
+Als u werkt met certificaatreferenties, maak een JSON Web Token (JWT) en meld u (RSA-SHA256) met behulp van de persoonlijke sleutel van de certificaat-referentie van uw toepassing. Het bouwen van dit token wordt weergegeven in de [client referentie stroom](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  Voor een verwijzing naar de [Active Directory Authentication Library (.NET)-code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) Client Assertion JWT-tokens te ondertekenen.
 
 Zie de [Open ID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) voor meer informatie over clientverificatie.
 

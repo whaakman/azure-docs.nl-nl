@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 288af0eae50634f44d6af8c787b56112bb3119ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998590"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Geavanceerde aggregaties in Log Analytics-query 's
 
@@ -34,7 +34,7 @@ In dit artikel worden enkele van de meer geavanceerde aggregatieopties beschikba
 ## <a name="generating-lists-and-sets"></a>Lijsten en sets genereren
 U kunt `makelist` pivot gegevens door de volgorde van waarden in een bepaalde kolom. U wilt bijvoorbeeld de meest voorkomende volgorde gebeurtenissen plaatsvinden op uw virtuele machines verkennen. U kunt de gegevens door de volgorde van EventIDs op elke computer in feite draaien. 
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -50,7 +50,7 @@ Event
 
 Het is ook handig voor het maken van een lijst met alleen unieke waarden. Dit heet een _ingesteld_ en kan worden gegenereerd met `makeset`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -67,11 +67,12 @@ Zoals `makelist`, `makeset` ook werkt met gegevens geordend en genereert de matr
 ## <a name="expanding-lists"></a>Lijsten uitvouwen
 De inverse werking van `makelist` of `makeset` is `mvexpand`, die een lijst met waarden voor het scheiden van rijen wordt uitgevouwen. Deze kunt uitbreiden naar een willekeurig aantal dynamische kolommen, JSON- en matrix. U kunt bijvoorbeeld controleren de *Heartbeat* tabel voor oplossingen voor het verzenden van gegevens van computers die in het afgelopen uur geen heartbeat heeft verzonden:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | Computer | Oplossingen | 
 |--------------|----------------------|
 | Computer1 | "beveiliging", "updates", 'voor wijzigingen bijhouden' |
@@ -81,23 +82,28 @@ Heartbeat
 
 Gebruik `mvexpand` om elke waarde in een afzonderlijke rij in plaats van een door komma's gescheiden lijst weer te geven:
 
-Heartbeat | waar TimeGenerated > ago(1h) | Computer-project, splitsen (oplossingen, ',') | mvexpand oplossingen
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1h)
+| project Computer, split(Solutions, ",")
+| mvexpand Solutions
 ```
-| Computer | Solutions | 
+
+| Computer | Oplossingen | 
 |--------------|----------------------|
-| computer1 | "security" |
-| computer1 | "updates" |
-| computer1 | "changeTracking" |
-| computer2 | "security" |
-| computer2 | "updates" |
+| Computer1 | "beveiliging" |
+| Computer1 | "updates" |
+| Computer1 | 'voor wijzigingen bijhouden' |
+| Computer2 | "beveiliging" |
+| Computer2 | "updates" |
 | computer3 | "antiMalware" |
-| computer3 | "changeTracking" |
+| computer3 | 'voor wijzigingen bijhouden' |
 | ... | ... | ... |
-```
+
 
 U kunt vervolgens `makelist` opnieuw aan de groep items samen en deze keer dat de lijst met computers per oplossing weergegeven:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -115,7 +121,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Afhandeling van ontbrekende opslaglocaties
 Een handige toepassing van `mvexpand` hoeft in te vullen standaardwaarden voor ontbrekende opslaglocaties is. Stel bijvoorbeeld dat u zoekt de uptime van een bepaalde machine door het verkennen van de heartbeat. U ook wilt zien van de bron van de heartbeat die zich in de _categorie_ kolom. Normaal gesproken, gebruiken we een eenvoudige instructie als volgt samengevat:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -131,7 +137,7 @@ Heartbeat
 
 In deze resulteert echter de bucket die zijn gekoppeld aan ' 2017-06-06T19:00:00Z ' ontbreekt omdat er geen heartbeat-gegevens voor dat uur. Gebruik de `make-series` functie een standaardwaarde toewijzen aan lege buckets. Hiermee wordt een rij voor elke categorie met twee extra matrix kolommen, één voor waarden en één voor de overeenkomende tijd buckets gegenereerd:
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -143,7 +149,7 @@ Heartbeat
 
 Het derde element van de *count_* matrix 0 is zoals verwacht en er is een overeenkomende tijdstempel van ' 2017-06-06T19:00:00.0000000Z ' in de _TimeGenerated_ matrix. Deze matrix-indeling is moeilijk te lezen is echter. Gebruik `mvexpand` uit te breiden de matrices en dezelfde indeling als die worden gegenereerd door de uitvoer produceren `summarize`:
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -165,7 +171,7 @@ Heartbeat
 Een veelvoorkomend scenario is de namen van bepaalde specifieke entiteiten op basis van een set criteria selecteren en vervolgens een andere gegevensset tot die set met entiteiten filteren. U kunt bijvoorbeeld computers waarvan bekend is dat de ontbrekende updates gevonden en IP-adressen die deze computers te identificeren:
 
 
-```KQL
+```Kusto
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

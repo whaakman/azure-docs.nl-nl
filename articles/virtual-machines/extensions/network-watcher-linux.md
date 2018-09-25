@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781884"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989376"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Network Watcher-Agent-extensie voor virtuele machine voor Linux
 
@@ -87,7 +87,7 @@ De volgende JSON ziet u het schema voor de extensie voor Network Watcher-Agent. 
 
 U kunt Azure VM-extensies met een Azure Resource Manager-sjabloon implementeren. Gebruik het voorgaande json-schema in de sjabloon voor het implementeren van de extensie voor Network Watcher-Agent.
 
-## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0-implementatie
+## <a name="azure-classic-cli-deployment"></a>Klassieke Azure CLI-implementatie
 
 Het volgende voorbeeld wordt de netwerk-Watcher-Agent-VM-extensie geïmplementeerd naar een bestaande virtuele machine geïmplementeerd via het klassieke implementatiemodel:
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0-implementatie
+## <a name="azure-cli-deployment"></a>Azure CLI-implementatie
 
 Het volgende voorbeeld wordt de netwerk-Watcher-Agent-VM-extensie geïmplementeerd naar een bestaande virtuele machine geïmplementeerd via Resource Manager:
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 U kunt gegevens over de status van de extensie van implementaties via Azure portal of Azure CLI kunt ophalen.
 
-Het volgende voorbeeld ziet de implementatiestatus van extensies voor een virtuele machine die geïmplementeerd via het klassieke implementatiemodel met behulp van de Azure CLI 1.0:
+Het volgende voorbeeld ziet de implementatiestatus van extensies voor een virtuele machine die geïmplementeerd via het klassieke implementatiemodel met behulp van de klassieke Azure CLI:
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ Extensie uitvoering uitvoer wordt vastgelegd op bestanden die zijn gevonden in d
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-Het volgende voorbeeld ziet de status van de extensie NetworkWatcherAgentLinux voor een virtuele machine geïmplementeerd via Resource Manager met behulp van de Azure CLI 2.0:
+Het volgende voorbeeld ziet de status van de extensie NetworkWatcherAgentLinux voor een virtuele machine geïmplementeerd via Resource Manager met behulp van de Azure CLI:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

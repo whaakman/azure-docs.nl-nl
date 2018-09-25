@@ -2,21 +2,22 @@
 title: Configureren van verificatie in Azure Active Directory - SQL | Microsoft Docs
 description: Leer hoe u verbinding maken met SQL Database Managed Instance en SQL Data Warehouse met behulp van Azure Active Directory-verificatie - na het configureren van Azure AD.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.openlocfilehash: f04846275fbad1673a00d820e8b44adc402b0242
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: efec5b3d8ac2ec3f757d06e88df65fe5f50aae17
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294200"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064302"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL Database Managed Instance of SQL Data Warehouse
 
@@ -195,10 +196,10 @@ U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API
 U kunt ook een Azure AD-beheerder inrichten door het aanroepen van de volgende CLI-opdrachten:
 | Opdracht | Beschrijving |
 | --- | --- |
-|[AZ sql server ad-beheerder maken](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
-|[AZ sql server ad-beheerder verwijderen](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
-|[lijst met AZ sql server ad-beheerder](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Retourneert informatie over een Azure Active Directory-beheerder die momenteel zijn geconfigureerd voor de Azure SQL-server of Azure SQL Data Warehouse. |
-|[AZ sql server ad-beheerder bijwerken](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |De Active Directory-beheerder voor een Azure SQL-server of Azure SQL Data Warehouse-updates. |
+|[AZ sql server ad-beheerder maken](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Richt een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. (Moet zich in het huidige abonnement.) |
+|[AZ sql server ad-beheerder verwijderen](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Hiermee verwijdert u een Azure Active Directory-beheerder voor Azure SQL-server of Azure SQL Data Warehouse. |
+|[lijst met AZ sql server ad-beheerder](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Retourneert informatie over een Azure Active Directory-beheerder die momenteel zijn geconfigureerd voor de Azure SQL-server of Azure SQL Data Warehouse. |
+|[AZ sql server ad-beheerder bijwerken](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |De Active Directory-beheerder voor een Azure SQL-server of Azure SQL Data Warehouse-updates. |
 
 Zie voor meer informatie over de CLI-opdrachten, [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
@@ -290,7 +291,7 @@ Gebruik deze methode als u bent aangemeld bij Windows met uw Azure Active Direct
 
     ![Selecteer de databasenaam][13]
 
-## <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
+## <a name="active-directory-password-authentication"></a>Active Directory-wachtwoordverificatie
 
 Gebruik deze methode wanneer u verbinding maakt met een Azure AD UPN-naam met behulp van de Azure AD beheerde domein. U kunt deze ook gebruiken voor federatieve accounts geen toegang tot het domein, bijvoorbeeld bij het op afstand werken.
 
@@ -323,7 +324,7 @@ conn.Open();
 
 Het sleutelwoord van de verbindingsreeks ``Integrated Security=True`` wordt niet ondersteund voor het verbinden met Azure SQL Database. Bij het maken van een ODBC-verbinding, moet u spaties verwijderen en het instellen van verificatie met 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
+### <a name="active-directory-password-authentication"></a>Active Directory-wachtwoordverificatie
 
 Voor verbinding met een database met behulp van geïntegreerde verificatie en een Azure AD-identiteit, moet het sleutelwoord verificatie worden ingesteld op Active Directory-wachtwoord. De verbindingsreeks moet gebruiker-ID/gebruikers-id en wachtwoord/PWD trefwoorden en waarden bevatten. De volgende C#-codevoorbeeld maakt gebruik van ADO .NET.
 

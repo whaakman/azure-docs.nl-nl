@@ -2,18 +2,22 @@
 title: Maken en beheren van Azure SQL taken voor Elastic Database met behulp van Transact-SQL (T-SQL) | Microsoft Docs
 description: Scripts uitvoeren voor verschillende databases met agent voor elastische Database-taken met behulp van Transact-SQL (T-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: d524f7756c8dd394d8651839a1f6426c512d6a73
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023525"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056784"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 

@@ -1,6 +1,6 @@
 ---
-title: Beheren van DNS-records in Azure DNS met behulp van de Azure CLI 2.0 | Microsoft Docs
-description: DNS-recordsets en records in Azure DNS beheren bij het hosten van uw domein in Azure DNS. Alle CLI 2.0-opdrachten voor bewerkingen voor recordsets en records.
+title: Beheren van DNS-records in Azure DNS met behulp van de Azure CLI | Microsoft Docs
+description: DNS-recordsets en records in Azure DNS beheren bij het hosten van uw domein in Azure DNS.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -14,23 +14,23 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174386"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963812"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Beheren van DNS-records en recordsets in Azure DNS met behulp van de Azure CLI 2.0
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Beheren van DNS-records en recordsets in Azure DNS met behulp van de Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+> * [Azure-CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-In dit artikel wordt beschreven hoe u voor het beheren van DNS-records voor uw DNS-zone met behulp van de platformoverschrijdende Azure-opdrachtregelinterface (CLI) 2.0, die beschikbaar voor Windows, Mac en Linux is. U kunt ook beheren met uw DNS-records met behulp van [Azure PowerShell](dns-operations-recordsets.md) of de [Azure-portal](dns-operations-recordsets-portal.md).
+In dit artikel wordt beschreven hoe u voor het beheren van DNS-records voor uw DNS-zone met behulp van de platformoverschrijdende Azure CLI, die beschikbaar is voor Windows, Mac en Linux. U kunt ook beheren met uw DNS-records met behulp van [Azure PowerShell](dns-operations-recordsets.md) of de [Azure-portal](dns-operations-recordsets-portal.md).
 
-De voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt [de Azure CLI 2.0, aanmelding, geïnstalleerd en wordt gemaakt van een DNS-zone](dns-operations-dnszones-cli.md).
+De voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt [de Azure CLI, aangemeld, geïnstalleerd en wordt gemaakt van een DNS-zone](dns-operations-dnszones-cli.md).
 
 ## <a name="introduction"></a>Inleiding
 

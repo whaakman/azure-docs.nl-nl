@@ -1,5 +1,5 @@
 ---
-title: Windows Defender Advanced Threat Protection (ATP) met Azure Security Center (openbare preview) | Microsoft Docs
+title: Windows Defender Advanced Threat Protection (ATP) met Azure Security Center | Microsoft Docs
 description: Dit document beschrijft de integratie tussen Azure Security Center en Windows Defender ATP.
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: f2cb4edd469d76f79e4134ca261bac5263bf3ce4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5f604583aeb9a633d34bad633008e0c2ddeb3ef2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296054"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032033"
 ---
-# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center-public-preview"></a>Windows Defender Advanced Threat Protection (ATP) met Azure Security Center (preview-versie)
+# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center"></a>Windows Defender Advanced Threat Protection (ATP) met Azure Security Center
 
 Azure Security Center is het aanbod voor Cloud Workload Protection Platforms (CWPP) uitbreiden door te integreren met [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
 Deze wijziging heeft uitgebreide mogelijkheden voor eindpunt detectie en reactie (EDR). Hiermee kunt u afwijkingen herkennen, detecteren en reageren op geavanceerde aanvallen op de servereindpunten bewaakt door ASC.
@@ -43,7 +43,7 @@ Deze mogelijkheden zijn nu beschikbaar in Azure Security Center:
 
 ![* Afbeelding 1 ziet de volledige afbeelding tijdens onderzoeken met inbegrip van waarschuwingen die zijn gegenereerd door ASC *](media/security-center-wdatp/image1.png)
 
-U kunt de waarschuwing in Azure Security Center onderzoeken:
+U kunt [onderzoeken](security-center-investigation.md) de waarschuwing in Azure Security Center:
 
 ![Onderzoek in afbeelding 2 - Azure Security Center](media/security-center-wdatp/image2.png)
 
@@ -59,7 +59,15 @@ Alleen servers in abonnementen in de Standard-laag
 
 ## <a name="onboarding-instructions"></a>Instructies voor onboarding
 
-- Als u al de servers aan de standaardlaag ASC - er is geen actie vereist, onboarding ASC automatisch onboarding wordt WDATP-servers.
+Als u wilt weergeven als Windows Defender ATP-integratie is ingeschakeld, kunt u Security center > beveiligingsbeleid > abonnementen > Instellingen bewerken
+
+  ![Het beleid weergeven](media/security-center-wdatp/policy-management.png)
+
+Hier ziet u de integraties momenteel ingeschakeld
+
+  ![Ingeschakelde integraties](media/security-center-wdatp/enable-integrations.png)
+
+- Als u al toegevoegd die de servers aan de standaardlaag ASC - er is geen actie vereist, ASC worden automatisch de servers aan WDATP. Dit kan tot 24 uur duren.
 
 - Als u nooit onboarding de ASC (Standard)-servers laag – vrijgeven aan ASC zoals gebruikelijk.
 
@@ -81,7 +89,7 @@ Als u hebt een proxy of firewall die door anonieme verkeer wordt geblokkeerd als
 
 1. Verbinding met een van de Windows Server VM's (2012R2 of 2016) in het abonnement en open een opdrachtpromptvenster
 
-2. Na de prompt, kopiëren en voer de onderstaande opdracht uit. Houd er rekening mee dat het opdrachtpromptvenster automatisch wordt gesloten.
+2. Na de prompt, kopiëren en voer de onderstaande opdracht uit. De opdrachtprompt-venster wordt automatisch gesloten.
 
     **PowerShell.exe - NoExit - ExecutionPolicy Bypass - vensterstijl verborgen (New-Object System.Net.WebClient). DownloadFile ('http://127.0.0.1/1.exe', ' C:\\test-WDATP-test\\invoice.exe "); Start het proces ' C:\\test-WDATP-test\\invoice.exe' **
 
@@ -95,6 +103,6 @@ Als u hebt een proxy of firewall die door anonieme verkeer wordt geblokkeerd als
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
-* [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.
+- [Setting security policies in Azure Security Center](security-center-policies.md) (Beveiligingsbeleid instellen in Azure Security Center): leer hoe u beveiligingsbeleid voor uw Azure-abonnementen en -resourcegroepen configureert.
+- [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md) --Leer hoe aanbevelingen helpen u uw Azure-resources te beveiligen.
+- [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md) --informatie over het bewaken van de status van uw Azure-resources.

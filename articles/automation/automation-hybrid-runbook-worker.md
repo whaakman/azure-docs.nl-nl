@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578681"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034226"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -26,11 +26,11 @@ De volgende afbeelding ziet u deze functionaliteit:
 
 Elke Hybrid Runbook Worker is lid van een Hybrid Runbook Worker-groep die u opgeeft wanneer u de agent installeert. Een groep kan een afzonderlijke agent bevatten, maar u kunt meerdere agents installeren in een groep voor hoge beschikbaarheid.
 
-Wanneer u een runbook op een Hybrid Runbook Worker starten, geeft u de groep die op wordt uitgevoerd. Elke werknemer in de groep pollt de Azure Automation om te zien of alle taken die beschikbaar zijn. Als een taak beschikbaar is, wordt het door de eerste worker is om op te halen van de taak duurt. U kunt een bepaalde worker niet opgeven.
+Wanneer u een runbook op een Hybrid Runbook Worker starten, geeft u de groep die op wordt uitgevoerd. Elke werknemer in de groep pollt de Azure Automation om te zien of alle taken die beschikbaar zijn. Als een taak beschikbaar is, wordt het door de eerste worker is om op te halen van de taak duurt. U kunt een bepaalde worker niet opgeven. De taak [limieten](../azure-subscription-service-limits.md#automation-limits) gelden voor zowel Azure sandboxes als Hybrid Runbook Workers.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Een hybride Runbook Worker installeren
 
-Het proces voor het installeren van een Hybrid Runbook Worker is afhankelijk van het besturingssysteem. De volgende tabel bevat koppelingen naar de methoden die u voor de installatie gebruiken kunt. 
+Het proces voor het installeren van een Hybrid Runbook Worker is afhankelijk van het besturingssysteem. De volgende tabel bevat koppelingen naar de methoden die u voor de installatie gebruiken kunt.
 
 Als u wilt installeren en configureren van een Windows Hybrid Runbook Worker, kunt u twee methoden. Gebruik een Automation-runbook is de aanbevolen methode voor het volledig automatiseren van het configureren van een Windows-computer. De tweede methode is een stapsgewijze procedure voor het handmatig installeren en configureren van de rol te volgen. Voor Linux-machines, moet u een Python-script voor het installeren van de agent op de machine uitvoeren.
 

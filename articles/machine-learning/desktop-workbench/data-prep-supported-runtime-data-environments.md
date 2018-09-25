@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 07b9ac8389a2bf06e0356f65d816d75d49cc0cf5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9168ac1d26432ca3eee5a59b63aa0cec3ae72856
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646430"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989053"
 ---
 # <a name="supported-matrix-for-this-release"></a>Ondersteunde matrix voor deze release 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Wanneer uw code met behulp van Azure Machine Learning-gegevensbronnen of Azure Machine Learning, Data Preparations, aan een van beide een Pandas gegevens worden geladen of Spark dataframe, de volgende combinaties van experiment compute-omgevingen en locaties worden ondersteund:
 
 |     |Lokale bestanden  |Azure Blob Storage  |SQL Server-database ***  |

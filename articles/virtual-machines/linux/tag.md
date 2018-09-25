@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: c26019bad63a904f8ebd1241d2b58923d786e181
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 297d3bc201b4bc9d9db0b0bed7a364769fa72859
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696749"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993048"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Informatie over het taggen van een virtuele Linux-machine in Azure
 Dit artikel beschrijft de verschillende manieren voor het taggen van een virtuele Linux-machine in Azure via het Resource Manager-implementatiemodel. Tags zijn de gebruiker gedefinieerde sleutel/waarde-paren die rechtstreeks op een resource of resourcegroep kunnen worden geplaatst. Azure biedt momenteel ondersteuning voor maximaal 15 tags per resource en resourcegroep. Labels kunnen worden geplaatst op een resource op het moment dat wordt gemaakt of toegevoegd aan een bestaande resource. Houd er rekening mee, tags worden ondersteund voor resources die zijn gemaakt via het Resource Manager-implementatiemodel alleen.
@@ -28,7 +28,8 @@ Dit artikel beschrijft de verschillende manieren voor het taggen van een virtuel
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Met Azure CLI-tagging
-Als u wilt beginnen, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az-login).
+
+Als u wilt beginnen, moet u de meest recente [Azure CLI](/cli/azure/install-azure-cli) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az-login).
 
 U kunt alle eigenschappen weergeven voor een bepaalde virtuele Machine, met inbegrip van de afsluitcodes met de volgende opdracht:
 

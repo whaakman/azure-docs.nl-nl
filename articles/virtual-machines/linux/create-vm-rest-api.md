@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928179"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969390"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Een Linux-machine die gebruikmaakt van SSH-verificatie met de REST-API maken
 
@@ -141,9 +141,9 @@ Een verkorte *201-gemaakt* antwoord van het vorige voorbeeld van de hoofdtekst v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende onderwerpen voor meer informatie over de Azure REST API's of andere beheerprogramma's zoals Azure CLI 2.0 of Azure PowerShell:
+Zie de volgende onderwerpen voor meer informatie over de Azure REST API's of andere beheerprogramma's zoals Azure CLI of Azure PowerShell:
 
 - [Azure Compute-provider REST-API](/rest/api/compute/)
 - [Aan de slag met REST API van Azure](/rest/api/azure/)
-- [Azure CLI 2.0](/cli/azure/)
+- [Azure-CLI](/cli/azure/)
 - [Azure PowerShell-module](/powershell/azure/overview)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 1bd13c35ed49aeaab1a4f4aa94c984dc28f6c111
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d6a98e49df96f2427d37c1d401e8c5207bc2268e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308002"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993813"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Linux virtuele machine naar de nieuwe Azure-knooppunt opnieuw implementeren
 Als u problemen bij het oplossen van problemen SSH te maken krijgt of toegang tot toepassingen op een Linux virtuele machine (VM) in Azure, de virtuele machine opnieuw te implementeren kan helpen. Wanneer u een virtuele machine opnieuw implementeren, wordt de virtuele machine verplaatst naar een nieuw knooppunt in de Azure-infrastructuur en vervolgens wordt gebruikt door deze terug op. Alle configuratie-opties en bijbehorende resources worden bewaard. Dit artikel ziet u hoe u een virtuele machine met behulp van Azure CLI of Azure portal opnieuw implementeren.
@@ -29,12 +29,12 @@ Als u problemen bij het oplossen van problemen SSH te maken krijgt of toegang to
 
 U kunt een virtuele machine met behulp van een van de volgende opties opnieuw implementeren. U moet alleen een optie voor uw virtuele machine opnieuw implementeren kiezen:
 
-- [Azure CLI 2.0](#azure-cli-20)
-- [Azure CLI 1.0](#azure-cli-10)
+- [Azure-CLI](#azure-cli-20)
+- [CLI van Azure classic](#azure-cli-10)
 - [Azure Portal](#using-azure-portal)
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 gebruiken
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en aan te melden bij uw Azure-account met [az login](/cli/azure/reference-index#az_login).
+## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
+Installeer de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aan te melden bij uw Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Opnieuw implementeren van uw virtuele machine met [az vm opnieuw implementeren](/cli/azure/vm#az_vm_redeploy). Het volgende voorbeeld implementeert de virtuele machine met de naam opnieuw *myVM* in de resourcegroep met de naam *myResourceGroup*:
 
@@ -42,8 +42,8 @@ Opnieuw implementeren van uw virtuele machine met [az vm opnieuw implementeren](
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
-## <a name="use-the-azure-cli-10"></a>Gebruik de Azure CLI 1.0
-Installeer de [nieuwste Azure CLI 1.0](../../cli-install-nodejs.md) en meld u aan bij uw Azure-account. Zorg ervoor dat u zich in Resource Manager-modus (`azure config mode arm`).
+## <a name="use-the-azure-classic-cli"></a>Gebruik de klassieke Azure-CLI
+Installeer de [meest recente Azure klassieke CLI](../../cli-install-nodejs.md) en meld u aan bij uw Azure-account. Zorg ervoor dat u zich in Resource Manager-modus (`azure config mode arm`).
 
 Het volgende voorbeeld implementeert de virtuele machine met de naam opnieuw *myVM* in de resourcegroep met de naam *myResourceGroup*:
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 5237be9fd75edc8abf5c5fa043574e8c2deb79e9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 768fd4a715d4c0df154f823d159fd63898c9715b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740710"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981328"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Instellingen van opslagaccount in Azure portal beheren
 
@@ -26,6 +26,14 @@ De **toegangsbeheer** instellingen in de Azure portal biedt een eenvoudige manie
 
 > [!NOTE]
 > Verifiëren van gebruikers of toepassingen die gebruikmaken van Azure AD-referenties biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere middelen van autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. U kunt ook blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw opslagaccount verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid. 
+
+## <a name="tags"></a>Tags
+
+Azure Storage biedt ondersteuning voor Azure Resource Manager-tags voor het ordenen van uw Azure-resources met een aangepaste taxonomie. U kunt tags toepassen op uw storage-accounts, zodat u kunt ze binnen uw abonnement op een logische manier groeperen. 
+
+Voor storage-accounts een tagnaam is beperkt tot 128 tekens en een tagwaarde is beperkt tot 256 tekens.
+
+Zie voor meer informatie, [tags gebruiken om uw Azure-resources te organiseren](../../azure-resource-manager/resource-group-using-tags.md).
 
 ## <a name="access-keys"></a>Toegangssleutels
 

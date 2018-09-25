@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: be46933ee77b261107a6d22d26ba81538f0fd9d1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054181"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -62,16 +62,19 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-H
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja\*|Nee|Ja|Ja\*\*|N/A
-|Windows 8.1|Ja\*|N/A|Ja|Ja\*\*|N/A
-|Windows 8|Ja\*|N/A|Ja|Ja\*\*|N/A
-|Windows 7|Ja\*|N/A|Ja|Ja\*\*|N/A
-|Mac OS X|N/A|N/A|Ja\*\*|Ja\*\*|Ja\*
+|Windows 10|Ja\*|Nee|Ja|Ja\*\*\*|N/A
+|Windows 8.1|Ja\*|N/A|Ja|Ja\*\*\*|N/A
+|Windows 8|Ja\*|N/A|Ja|Ja\*\*\*|N/A
+|Windows 7|Ja\*|N/A|Ja|Ja\*\*\*|N/A
+|Windows Server 2012 R2 of hoger|Ja\*\*|N/A|Ja|Ja\*\*\*|N/A
+|Mac OS X|N/A|N/A|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
 \*Vereist Internet Explorer versie 10 of hoger
 
-\*\*Vereist [aanvullende configuratie](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*Vereist Internet Explorer versie 10 of hoger. Schakel verbeterde beveiligde modus
+
+\*\*\*Vereist [aanvullende configuratie](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Voor Windows 10, wordt de aanbeveling is het gebruik van [Azure AD Join](../active-directory-azureadjoin-overview.md) voor de optimale eenmalige aanmelding met Azure AD.

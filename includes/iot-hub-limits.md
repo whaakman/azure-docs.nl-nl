@@ -20,7 +20,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 | Maximumaantal apparaat-id's<br/> dat in één aanroep wordt geretourneerd |1000 |
 | Maximale bewaartermijn van IoT Hub-berichten voor apparaat-naar-cloud berichten |7 dagen |
 | Maximale grootte van apparaat-naar-cloud berichten |256 kB |
-| Maximale grootte van apparaat-naar-cloud batch |256 kB |
+| Maximale grootte van apparaat-naar-cloud batch |AMQP en http-: 256 KB voor de hele batch <br/>MQTT: 256 KB voor elk bericht |
 | Maximum aantal berichten in apparaat-naar-cloud batch |500 |
 | Maximale grootte van cloud-naar-apparaat bericht |64 kB |
 | Maximale TTL voor cloud-naar-apparaat berichten |2 dagen |

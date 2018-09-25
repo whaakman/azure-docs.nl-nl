@@ -5,36 +5,36 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/19/2018
-ms.openlocfilehash: 7e002a43c774bd1a6df9cfe46207ddebd02284b3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 09/24/2018
+ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104220"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984310"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronisatie van Azure Active Directory-gebruikers met een HDInsight-cluster
 
-[Aan domein gekoppelde HDInsight-clusters](hdinsight-domain-joined-introduction.md) kunt sterke verificatie gebruiken met Azure Active Directory (Azure AD)-gebruikers, evenals gebruiken *op rollen gebaseerd toegangsbeheer* (RBAC)-beleidsregels. Als u gebruikers en groepen aan Azure AD toevoegen, kunt u de gebruikers die toegang nodig tot uw cluster kunt synchroniseren.
+[HDInsight-clusters met Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) kunt sterke verificatie gebruiken met Azure Active Directory (Azure AD)-gebruikers, evenals gebruiken *op rollen gebaseerd toegangsbeheer* (RBAC)-beleidsregels. Als u gebruikers en groepen aan Azure AD toevoegen, kunt u de gebruikers die toegang nodig tot uw cluster kunt synchroniseren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u hebt nog niet gedaan, [maken van een domein gekoppeld HDInsight-cluster](hdinsight-domain-joined-configure.md).
+Als u hebt nog niet gedaan, [een HDInsight-cluster maken met Enterprise-beveiligingspakket](hdinsight-domain-joined-configure.md).
 
 ## <a name="add-new-azure-ad-users"></a>Toevoegen van nieuwe Azure AD-gebruikers
 
 Voor de hosts, opent u de Ambari-Webgebruikersinterface. Elk knooppunt wordt bijgewerkt met nieuwe zonder toezicht upgrade-instellingen.
 
-1. In de [Azure-portal](https://portal.azure.com), Ga naar de Azure AD-map die is gekoppeld aan uw domein gekoppeld cluster.
+1. In de [Azure-portal](https://portal.azure.com), Ga naar de Azure AD-map die is gekoppeld aan uw ESP-cluster.
 
 2. Selecteer **alle gebruikers** in het menu links, selecteer **nieuwe gebruiker**.
 
     ![Deelvenster voor alle gebruikers](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. Voltooi het gebruikersformulier van de nieuwe. Selecteer de groepen die u voor het toewijzen van machtigingen op basis van een cluster hebt gemaakt. In dit voorbeeld maakt u een groep met de naam 'HiveUsers', waarmee u nieuwe gebruikers kunt toewijzen. De [voorbeeld instructies](hdinsight-domain-joined-configure.md) voor het maken van een domein gekoppeld cluster omvatten het toevoegen van twee groepen `HiveUsers` en `AAD DC Administrators`.
+3. Voltooi het gebruikersformulier van de nieuwe. Selecteer de groepen die u voor het toewijzen van machtigingen op basis van een cluster hebt gemaakt. In dit voorbeeld maakt u een groep met de naam 'HiveUsers', waarmee u nieuwe gebruikers kunt toewijzen. De [voorbeeld instructies](hdinsight-domain-joined-configure.md) voor het maken van een cluster ESP omvatten het toevoegen van twee groepen `HiveUsers` en `AAD DC Administrators`.
 
     ![Nieuwe gebruiker-deelvenster](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
@@ -148,6 +148,6 @@ Als de nieuwe gebruiker (of een andere domeingebruiker) zich bij de Ambari aanme
 
 ## <a name="see-also"></a>Zie ook
 
-* [Hive-beleidsregels configureren in aan domein gekoppelde HDInsight](hdinsight-domain-joined-run-hive.md)
-* [Aan domein gekoppelde HDInsight-clusters beheren](hdinsight-domain-joined-manage.md)
+* [Hive-beleidsregels configureren in HDInsight met ESP](hdinsight-domain-joined-run-hive.md)
+* [HDInsight-clusters met ESP beheren](hdinsight-domain-joined-manage.md)
 * [Toestaan dat gebruikers Ambari](hdinsight-authorize-users-to-ambari.md)

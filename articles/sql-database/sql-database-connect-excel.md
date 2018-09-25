@@ -2,20 +2,22 @@
 title: Excel verbinden met de SQL Database | Microsoft Docs
 description: Leer hoe u Microsoft Excel verbindt met Azure SQL Database in de cloud. Gegevens importeren in Excel voor rapportage en gegevens verkenning.
 services: sql-database
-keywords: excel verbinden met sql, gegevens importeren in excel
-author: joseidz
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2017
+author: joseidz
 ms.author: craigg
-ms.openlocfilehash: a87dd484b5931292fafd7f8b28d31f0f7f775a40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/10/2017
+ms.openlocfilehash: 8750552499a5112b1a46b2cb4929c029d5e7e3a0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645664"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063826"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Excel verbinden met een Azure SQL database en een rapport maken
 
@@ -27,16 +29,16 @@ U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016
 
 ## <a name="connect-excel-to-a-sql-database-and-load-data"></a>Excel verbinden met een SQL-database en gegevens laden
 1. Open Excel om het programme te verbinden met SQL Database, en maak een nieuwe werkmap of open een bestaande Excel-werkmap.
-2. Selecteer in de menubalk boven aan de pagina de **gegevens** tabblad **gegevens ophalen**, selecteer van Azure en selecteer vervolgens **van Azure SQL Database**. 
+2. Selecteer in de menubalk boven aan de pagina, de **gegevens** tabblad **gegevens ophalen**, selecteert u uit Azure en selecteer vervolgens **van Azure SQL Database**. 
    
    ![Selecteer gegevensbron: Excel verbinden met SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
    
    De wizard Gegevensverbinding wordt geopend.
-3. In het dialoogvenster **Verbinding maken met databaseserver** typt u de **servernaam** van de SQL Database die u wilt verbinden in het formulier <*servername*>**. database.windows.net**. Bijvoorbeeld: **msftestserver.database.windows.net**. Voer eventueel op de naam van uw database. Selecteer **OK** om de referenties venster te openen. 
+3. In het dialoogvenster **Verbinding maken met databaseserver** typt u de **servernaam** van de SQL Database die u wilt verbinden in het formulier <*servername*>**. database.windows.net**. Bijvoorbeeld, **msftestserver.database.windows.net**. Geef eventueel de naam van uw database. Selecteer **OK** om de referenties-venster te openen. 
 
-   ![Server name.png](media/sql-database-connect-excel/server-name.png)
+   ![Server-name.png](media/sql-database-connect-excel/server-name.png)
 
-1. In de **SQL Server-Database** dialoogvenster, **Database** aan de linkerkant zijde en voert u uw **gebruikersnaam** en **wachtwoord** voor de U verbinding maken wilt met SQL database-server. Selecteer **Connect** openen de **Navigator**. 
+1. In de **SQL Server-Database** in het dialoogvenster, selecteer **Database** aan de linkerkant zijde en voer vervolgens uw **gebruikersnaam** en **wachtwoord** voor de U verbinding maken wilt met SQL database-server. Selecteer **Connect** openen de **Navigator**. 
 
   ![Typ de servernaam en aanmeldingsreferenties in](./media/sql-database-connect-excel/connect-to-server.png)
    
@@ -44,15 +46,15 @@ U hebt ook een kopie van Excel nodig. Dit artikel gebruikt [Microsoft Excel 2016
   > Afhankelijk van uw netwerkomgeving kunt u mogelijk geen verbinding maken of kan de verbinding verbroken worden als de server van de SQL Database geen verkeer van het IP-adres van de client toestaat. Ga naar de [Azure-portal](https://portal.azure.com/), klik op SQL-servers, klik op uw server, klik op firewall onder instellingen en voeg uw client-IP-adres toe. Zie [Firewallinstellingen configureren](sql-database-configure-firewall-settings.md) voor meer informatie.
    
    
-5. In de **Navigator**, selecteer de database die u wilt werken uit de lijst, selecteer de tabellen of weergaven die u wilt werken (We hebben gekozen **vGetAllCategories**), en selecteer vervolgens **Load**voor het verplaatsen van de gegevens van uw Azure SQL-database naar uw excel-werkblad.
+5. In de **Navigator**, selecteer de database die u wilt werken met in de lijst, selecteer de tabellen of weergaven die u wilt werken (We hebben gekozen voor **vGetAllCategories**), en selecteer vervolgens **Load**te verplaatsen van de gegevens van uw SQL Azure-database tot uw excel-werkblad.
    
     ![Selecteer een database en tabel.](./media/sql-database-connect-excel/select-database-and-table.png)
    
 
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importeer de gegevens in Excel en maak een draaigrafiek.
-Nu dat u de verbinding hebt gemaakt, hebben verschillende opties met hoe de gegevens te laden. De volgende stappen wordt bijvoorbeeld een draaigrafiek op basis van de gegevens gevonden in de SQL-Database maken. 
+Nu dat u de verbinding tot stand hebt gebracht, hebt u diverse opties met het laden van de gegevens. De volgende stappen maakt bijvoorbeeld een draaigrafiek op basis van de gegevens in uw SQL-Database gevonden. 
 
-1. Volg de stappen in de vorige sectie, maar deze tijd, in plaats van het selecteren van **Load**, selecteer **laden naar** van de **Load** vervolgkeuzelijst.
+1. Volg de stappen in de vorige sectie, maar deze keer plaats **Load**, selecteer **laden naar** uit de **Load** vervolgkeuzelijst.
 2. Selecteer vervolgens hoe u wilt weergeven van deze gegevens in uw werkmap. We hebben **draaigrafiek** gekozen. U kunt ook kiezen voor **Nieuw werkblad** of **Deze gegevens toevoegen aan een gegevensmodel**. Zie voor meer informatie over gegevensmodellen [Een gegevensmodel maken in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). 
    
     ![De indeling kiezen voor gegevens in Excel](./media/sql-database-connect-excel/import-data.png)
@@ -63,34 +65,34 @@ Nu dat u de verbinding hebt gemaakt, hebben verschillende opties met hoe de gege
     ![Databaserapport configureren.](./media/sql-database-connect-excel/power-pivot-results.png)
 
 > [!TIP]
-> Als u andere Excel-werkmappen en werkbladen voor de database verbinding wilt maken, selecteert u de **gegevens** tabblad en selecteer **recente bronnen** starten de **recente bronnen** in het dialoogvenster. Van daaruit, kiest u de verbinding die u hebt gemaakt in de lijst en klik vervolgens op **Open**.
+> Als u andere Excel-werkmappen en werkbladen voor het verbinden met de database wilt, selecteert u de **gegevens** tabblad, en selecteer **recente bronnen** starten de **recente bronnen** in het dialoogvenster. Van daaruit, kiest u de verbinding die u hebt gemaakt in de lijst en klik vervolgens op **Open**.
 > ![Recente verbindingen](media/sql-database-connect-excel/recent-connections.png)
  
-## <a name="create-a-permanent-connection-using-odc-file"></a>Een permanente verbinding maken met ODC-bestand
-Als u wilt de verbindingsdetails permanent opslaan, kunt u een ODC-bestand maken en deze verbinding maakt een selecteerbare optie binnen de **bestaande verbindingen** in het dialoogvenster. 
+## <a name="create-a-permanent-connection-using-odc-file"></a>Een permanente verbinding maken met behulp .odc-bestand
+Om de verbindingsgegevens permanent opgeslagen, kunt u een ODC-bestand maken en deze verbinding maken als een selecteerbaar-optie in de **bestaande verbindingen** in het dialoogvenster. 
 
-1. Selecteer in de menubalk boven aan de pagina de **gegevens** tabblad en selecteer vervolgens **bestaande verbindingen** starten de **bestaande verbindingen** in het dialoogvenster. 
-    1. Selecteer **bladeren naar meer** openen de **gegevensbron selecteren** in het dialoogvenster.   
-    2. Selecteer de **+NewSqlServerConnection.odc** -bestand en selecteer vervolgens **openen** openen de **Wizard Gegevensverbinding**.
+1. Selecteer in de menubalk boven aan de pagina, de **gegevens** tabblad, en selecteer vervolgens **bestaande verbindingen** starten de **bestaande verbindingen** in het dialoogvenster. 
+    1. Selecteer **laderen naar meer** openen de **gegevensbron selecteren** in het dialoogvenster.   
+    2. Selecteer de **+NewSqlServerConnection.odc** -bestand en selecteer vervolgens **Open** openen de **Wizard Gegevensverbinding**.
 
     ![Nieuwe verbinding](media/sql-database-connect-excel/new-connection.png)
 
-2. In de **Wizard Gegevensverbinding**, typt u de servernaam van uw en de referenties van uw SQL-Database. Selecteer **Volgende**. 
-    1. Selecteer de database met uw gegevens in de vervolgkeuzelijst. 
-    2. Selecteer de tabel of weergave die u geïnteresseerd bent in. We vGetAllCategories hebt gekozen.
+2. In de **Wizard Gegevensverbinding**, typ de servernaam van uw en de referenties van uw SQL-Database. Selecteer **Volgende**. 
+    1. Selecteer de database met uw gegevens uit de vervolgkeuzelijst. 
+    2. Selecteer de tabel of weergave die u geïnteresseerd bent in. We hebben gekozen vGetAllCategories.
     3. Selecteer **Volgende**. 
 
     ![Wizard Gegevensverbinding](media/sql-database-connect-excel/data-connection-wizard.png) 
 
-3. Selecteer de locatie van het bestand, de **bestandsnaam**, en de **beschrijvende naam** in het volgende scherm van de Wizard Gegevensverbinding. U kunt ook het wachtwoord in het bestand opslaan hoewel dit uw gegevens om ongewenste toegang kunt blootstellen. Selecteer **voltooien** als u klaar bent. 
+3. Selecteer de locatie van het bestand, de **bestandsnaam**, en de **beschrijvende naam** in het volgende scherm van de Wizard Gegevensverbinding. U kunt ook het wachtwoord opslaan in het bestand, maar dit aan ongewenste toegang tot gegevens blootstellen kunt. Selecteer **voltooien** als u klaar bent. 
 
     ![Gegevensverbinding opslaan](media/sql-database-connect-excel/save-data-connection.png)
 
-4. Selecteer hoe u wilt uw gegevens importeren. We doen een draaitabel gekozen. U kunt ook de eigenschappen van de verbinding wijzigen door Selecteer **eigenschappen**. Selecteer **OK** als u klaar bent. Als u geen wachtwoord op te slaan de met het bestand hebt gekozen, wordt u gevraagd uw referenties in te voeren. 
+4. Selecteer hoe u uw gegevens te importeren. We hebben gekozen voor een draaitabel doen. U kunt ook de eigenschappen van de verbinding wijzigen door selecteren **eigenschappen**. Selecteer **OK** als u klaar bent. Als u geen om op te slaan van het wachtwoord met het bestand hebt gekozen, wordt klikt u vervolgens u gevraagd uw referenties in te voeren. 
 
     ![Gegevens importeren](media/sql-database-connect-excel/import-data2.png)
 
-5. Controleer of de nieuwe verbinding is opgeslagen door het uitbreiden van de **gegevens** tabblad en het selecteren van **bestaande verbindingen**. 
+5. Controleer of de nieuwe verbinding die is opgeslagen door het uitbreiden van de **gegevens** tabblad en het selecteren van **bestaande verbindingen**. 
 
     ![Bestaande verbinding](media/sql-database-connect-excel/existing-connection.png)
 

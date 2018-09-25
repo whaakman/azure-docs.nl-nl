@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 4b29804690b951083810d4f75b68ff23fca44a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039612"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Snelstartgids: Verzenden container registry-gebeurtenissen naar Event Grid
 
@@ -141,20 +141,20 @@ Als het abonnement is voltooid, moet u uitvoer die vergelijkbaar is met het volg
 
 ## <a name="trigger-registry-events"></a>Trigger register-gebeurtenissen
 
-Nu dat de voorbeeld-app online is en actief is en u bent geabonneerd op uw register met Event Grid, u kunt voor het genereren van bepaalde gebeurtenissen. In deze sectie gebruikt u ACR Build te bouwen en een containerinstallatiekopie naar uw register pushen. ACR Build is een functie van Azure Container Registry waarmee u installatiekopieën in de cloud, compileren zonder de Docker-Engine zijn geïnstalleerd op uw lokale computer.
+Nu dat de voorbeeld-app online is en actief is en u bent geabonneerd op uw register met Event Grid, u kunt voor het genereren van bepaalde gebeurtenissen. In deze sectie kunt u taken van de ACR gebruiken om te bouwen en een containerinstallatiekopie naar uw register pushen. Taken van de ACR is een functie van Azure Container Registry waarmee u installatiekopieën in de cloud, compileren zonder de Docker-Engine zijn geïnstalleerd op uw lokale computer.
 
 ### <a name="build-and-push-image"></a>Opbouwen en pushen van installatiekopie
 
-Voer de volgende Azure CLI-opdracht voor het bouwen van een containerinstallatiekopie van de inhoud van een GitHub-opslagplaats. Standaard ACR Build nieuwe versies automatisch een correct gemaakte installatiekopie naar het register, genereert de `ImagePushed` gebeurtenis.
+Voer de volgende Azure CLI-opdracht voor het bouwen van een containerinstallatiekopie van de inhoud van een GitHub-opslagplaats. Standaard ACR taken nieuwe versies automatisch een correct gemaakte installatiekopie naar het register, genereert de `ImagePushed` gebeurtenis.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-U ziet de uitvoer is vergelijkbaar met het volgende terwijl ACR Build bouwt en vervolgens pushes uw installatiekopie. De volgende voorbeelduitvoer zijn afgekapt als beknopt alternatief.
+U ziet de uitvoer is vergelijkbaar met het volgende terwijl ACR taken bouwt en vervolgens pushes uw installatiekopie. De volgende voorbeelduitvoer zijn afgekapt als beknopt alternatief.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +227,10 @@ U kunt de Azure Container Registry gebeurtenis bericht schemaverwijzing vinden i
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een containerregister geïmplementeerd, een installatiekopie gebouwd met ACR Build, verwijderd en van uw register gebeurtenissen uit Event Grid met een voorbeeldtoepassing heeft verbruikt. Vervolgens gaan naar de ACR Build-zelfstudie voor meer informatie over het bouwen van containerinstallatiekopieën in de cloud, inclusief geautomatiseerde builds op updates van basisinstallatiekopieën:
+In deze snelstartgids hebt u geïmplementeerd een containerregister, een afbeelding met ACR taken gebouwd, verwijderd en van uw register gebeurtenissen uit Event Grid met een voorbeeldtoepassing heeft verbruikt. Vervolgens gaan naar de taken van de ACR-zelfstudie voor meer informatie over het bouwen van containerinstallatiekopieën in de cloud, inclusief geautomatiseerde builds op updates van basisinstallatiekopieën:
 
 > [!div class="nextstepaction"]
-> [Installatiekopieën in de cloud te compileren met ACR Build](container-registry-tutorial-quick-build.md)
+> [In de cloud met ACR taken installatiekopieën compileren](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

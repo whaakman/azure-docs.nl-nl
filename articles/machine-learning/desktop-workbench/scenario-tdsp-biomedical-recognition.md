@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058136"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973759"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Herkenning biomedische entiteit met behulp van Team Data Science Process (TDSP)-sjabloon
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Uitpakken van de entiteit is een subtaak van informatie-extractie (ook wel bekend als [herkenning van Named-entiteit (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), entiteit logische groepen te verdelen en de entiteits-id). Het doel van dit Praktijkscenario is te laten zien hoe u Azure Machine Learning Workbench gebruiken bij het oplossen van een complexe taak van natuurlijke taal verwerken (NLP) zoals entiteiten extraheren uit ongestructureerde tekst:
 
@@ -95,7 +100,7 @@ Hieronder ziet u de koppeling naar de openbare GitHub-opslagplaats van de real-w
 ## <a name="prerequisites"></a>Vereisten 
 
 * Een Azure [abonnement](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. Zie [installatiehandleiding](../service/quickstart-installation.md). De Azure Machine Learning Workbench kunt op dit moment worden geïnstalleerd op alleen de volgende besturingssystemen: 
+* Azure Machine Learning Workbench. Zie [installatiehandleiding](quickstart-installation.md). De Azure Machine Learning Workbench kunt op dit moment worden geïnstalleerd op alleen de volgende besturingssystemen: 
     * Windows 10 of Windows Server 2016
     * macOS Sierra (of nieuwer)
 
@@ -118,7 +123,7 @@ De vereiste afhankelijkheden zijn gedefinieerd in het bestand aml_config/conda_d
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Algemene instructies voor Azure Machine Learning (AML) workbench
 * [Overzicht](../service/overview-what-is-azure-ml.md)
-* [Installatie](../service/quickstart-installation.md)
+* [Installatie](quickstart-installation.md)
 * [TDSP gebruiken](how-to-use-tdsp-in-azure-ml.md)
 * [Hoe u bestanden lezen en schrijven](how-to-read-write-files.md)
 * [Jupyter-Notebooks gebruiken](how-to-use-jupyter-notebooks.md)

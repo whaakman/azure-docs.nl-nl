@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984438"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056536"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -289,7 +289,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
 - <!-- 2368581 - IS. ASDK --> Azure Stack-operators, als u een waarschuwing voor een beperkte hoeveelheid geheugen ontvangt en virtuele machines van tenants niet te implementeren met een *fout bij het maken van infrastructuur-VM*, is het mogelijk dat de Azure Stack-stempel heeft te weinig geheugen beschikbaar. Gebruik de [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) naar het beste informatie over de beschikbare capaciteit voor uw workloads.
 
-- <!-- TBD - IS. ASDK --> Bij het uitvoeren van de cmdlet Test-AzureStack op het eindpunt van de bevoegdheden (PEP), wordt de test een waarschuwing/mislukt-bericht voor de VM ERCS gegenereerd. U kunt echter ook doorgaan met de ASDK.
+- <!-- TBD - IS. ASDK --> Bij het uitvoeren van de **Test AzureStack** cmdlet het bevoegde eindpunt (PEP), de **prestaties van Azure Stack-infrastructuur rol instanties** test een bericht van de waarschuwing wordt gegenereerd voor de VM ERCS. U kunt veilig negeren van het bericht waarschuwen en echter ook doorgaan met de ASDK.
 
 #### <a name="compute"></a>Compute
 - <!-- 2494144 - IS, ASDK --> Bij het selecteren van een VM-grootte voor de implementatie van een virtuele machine, sommige F-serie VM-grootten zijn niet zichtbaar als onderdeel van de grootte selector bij het maken van een virtuele machine. De volgende VM-grootten worden niet weergegeven in de kiezer: *F8s_v2*, *F16s_v2*, *F32s_v2*, en *F64s_v2*.  

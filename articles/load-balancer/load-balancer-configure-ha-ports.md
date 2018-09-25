@@ -1,6 +1,6 @@
 ---
-title: Hoge beschikbaarheid poorten configureren voor Azure Load Balancer | Microsoft Docs
-description: Informatie over het gebruik van hoge beschikbaarheid van poorten voor interne verkeer op alle poorten voor taakverdeling
+title: Configureren van poorten voor hoge beschikbaarheid voor Azure Load Balancer | Microsoft Docs
+description: Informatie over het gebruik van poorten voor hoge beschikbaarheid voor intern verkeer op alle poorten voor taakverdeling
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 117e73c35bb66578976ef990e61eea606e2e8e36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9661722c5d35e4336d5e42374a1444cf50734fba
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736878"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998335"
 ---
-# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Hoge beschikbaarheid poorten configureren voor een interne load balancer
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Poorten voor hoge beschikbaarheid configureren voor een interne load balancer
 
-Dit artikel bevat een voorbeeld van een implementatie met hoge beschikbaarheid poorten op een interne load balancer. Zie de bijbehorende provider websites voor meer informatie over specifieke configuraties voor virtuele apparaten (NVAs).
+Dit artikel bevat een voorbeeld van een implementatie van poorten voor hoge beschikbaarheid op een interne load balancer. Zie voor meer informatie over specifieke configuraties voor virtuele netwerkapparaten (NVA's), de bijbehorende provider-websites.
 
 >[!NOTE]
->Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. Dit artikel wordt standaard Load Balancer. Zie voor meer informatie over Basic Load Balancer [overzicht van de Load Balancer](load-balancer-overview.md).
+>Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. Dit artikel worden besproken Standard Load Balancer. Zie voor meer informatie over de Basic Load Balancer [overzicht van Load Balancer](load-balancer-overview.md).
 
-De afbeelding ziet de volgende configuratie van de voorbeeld-implementatie in dit artikel wordt beschreven:
+De afbeelding ziet u de volgende configuratie van de voorbeeld-implementatie in dit artikel beschreven:
 
-- De NVAs worden geïmplementeerd in de groep back-end van een interne load balancer achter de configuratie voor hoge beschikbaarheid van poorten. 
-- De gebruiker gedefinieerde route (UDR) toegepast op de DMZ subnetroutes al het verkeer op de NVAs door het maken van de volgende hop als de interne load balancer virtueel IP-adres. 
-- De interne load balancer wordt het verkeer naar een van de actieve NVAs volgens de load balancer-algoritme.
-- De NVA het verkeer wordt verwerkt en stuurt het naar de oorspronkelijke doelhost in het back-end-subnet.
-- Het retourtype pad kan dezelfde route duren als een bijbehorende UDR is geconfigureerd in het back-end-subnet. 
+- De NVA's worden geïmplementeerd in de groep back-end van een interne load balancer achter de configuratie van de poorten voor hoge beschikbaarheid. 
+- De gebruiker gedefinieerde route (UDR) toegepast op de routes DMZ-subnet al het verkeer naar de NVA's door de volgende hop als de interne load balancer virtueel IP-adres. 
+- De interne load balancer verdeelt het verkeer naar een van de actieve NVA's op basis van de load balancer-algoritme.
+- De NVA verwerkt het verkeer en deze doorstuurt naar het oorspronkelijke doel in het back-end-subnet.
+- Het geretourneerde pad kan dezelfde route overnemen als een bijbehorende UDR is geconfigureerd in de back-end-subnet. 
 
-![Hoge beschikbaarheid poorten Voorbeeldimplementatie](./media/load-balancer-configure-ha-ports/haports.png)
+![Voorbeeld van een implementatie poorten voor hoge beschikbaarheid](./media/load-balancer-configure-ha-ports/haports.png)
 
 
 
 ## <a name="configure-high-availability-ports"></a>Poorten voor hoge beschikbaarheid configureren
 
-Hoge beschikbaarheid als poorten wilt configureren, instellen van een interne load balancer met de NVAs in de groep back-end. Een overeenkomende health test taakverdelingsconfiguratie instellen voor het detecteren van NVA status en de regel voor load balancer met hoge beschikbaarheid van poorten. De algemene load balancer-gerelateerde configuratie wordt beschreven in [aan de slag](load-balancer-get-started-ilb-arm-portal.md). In dit artikel ziet u de configuratie voor hoge beschikbaarheid van poorten.
+Voor het configureren van poorten voor hoge beschikbaarheid, instellen van een interne load balancer met de NVA's in de back-endpool. Instellen van een bijbehorende load balancer health test-configuratie voor het detecteren van NVA-status en de load balancer-regel met de poorten voor hoge beschikbaarheid. De algemene load balancer-gerelateerde configuratie wordt beschreven in [aan de slag](load-balancer-get-started-ilb-arm-portal.md). In dit artikel ziet u de configuratie van de poorten voor hoge beschikbaarheid.
 
-De configuratie in wezen omvat het instellen van de front-endpoort en de waarde van de back-end-poort naar **0**. Stel de protocolwaarde op **alle**. Dit artikel wordt beschreven hoe u hoge beschikbaarheid om poorten te configureren met behulp van de Azure-portal, PowerShell en Azure CLI 2.0.
+De configuratie in feite omvat het instellen van de front-endpoort en de waarde van de back-end-poort naar **0**. Stel de protocolwaarde op **alle**. In dit artikel wordt beschreven hoe u poorten voor hoge beschikbaarheid configureren met behulp van de Azure portal, PowerShell en Azure CLI.
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Een load balancer-regel van hoge beschikbaarheid poorten configureren met de Azure-portal
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Een load balancer-regel van poorten voor hoge beschikbaarheid configureren met de Azure-portal
 
-Hoge beschikbaarheid als poorten wilt configureren met behulp van de Azure-portal, selecteer de **HA poorten** selectievakje. Wanneer u selecteert, wordt de bijbehorende poort en protocol configuration automatisch ingevuld. 
+Voor het configureren van poorten voor hoge beschikbaarheid met behulp van Azure portal, selecteert u de **HA-poorten in** selectievakje. Als u selecteert, worden de gerelateerde configuratie voor poort en protocol wordt automatisch gevuld. 
 
-![Configuratie voor hoge beschikbaarheid poorten via de Azure-portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Configuratie van de poorten voor hoge beschikbaarheid via Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 
-### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Een hoge beschikbaarheid poorten taakverdeling regel via de Resource Manager-sjabloon configureren
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Regel voor een load-balancing van poorten voor hoge beschikbaarheid via het Resource Manager-sjabloon configureren
 
-U kunt de hoge beschikbaarheid poorten configureren met behulp van de 2017-08-01-API-versie voor Microsoft.Network/loadBalancers in de Load Balancer-resource. De volgende JSON-fragment ziet u de wijzigingen in de load balancer-configuratie voor hoge beschikbaarheid poorten via de REST-API:
+U kunt poorten voor hoge beschikbaarheid configureren met behulp van de API-versie 2017-08-01 voor Microsoft.Network/loadBalancers in de Load Balancer-resource. De volgende JSON-fragment ziet u de wijzigingen in de load balancer-configuratie voor de poorten voor hoge beschikbaarheid via de REST-API:
 
 ```json
     {
@@ -87,17 +87,17 @@ U kunt de hoge beschikbaarheid poorten configureren met behulp van de 2017-08-01
     }
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Een load balancer-regel van hoge beschikbaarheid poorten configureren met PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Een load balancer-regel van poorten voor hoge beschikbaarheid configureren met PowerShell
 
-Gebruik de volgende opdracht voor het maken van de load balancer-regel van poorten voor hoge beschikbaarheid bij het maken van de interne load balancer met PowerShell:
+Gebruik de volgende opdracht op de poorten voor hoge beschikbaarheid load balancer-regel maken terwijl u de interne load balancer met PowerShell maken:
 
 ```powershell
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Een load balancer-regel van hoge beschikbaarheid poorten configureren met Azure CLI 2.0
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Een load balancer-regel van poorten voor hoge beschikbaarheid configureren met Azure CLI
 
-In stap 4 van [maken van een interne load balancer-set](load-balancer-get-started-ilb-arm-cli.md), gebruik de volgende opdracht voor het maken van de load balancer-regel van hoge beschikbaarheid poorten:
+In stap 4 van [maken van een interne load balancer-set](load-balancer-get-started-ilb-arm-cli.md), gebruik de volgende opdracht om te maken van de poorten voor hoge beschikbaarheid load balancer-regel:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -105,4 +105,4 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over [hoge beschikbaarheid poorten](load-balancer-ha-ports-overview.md).
+Meer informatie over [poorten voor hoge beschikbaarheid](load-balancer-ha-ports-overview.md).

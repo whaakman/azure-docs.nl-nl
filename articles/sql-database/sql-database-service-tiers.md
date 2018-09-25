@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database modellen kopen | Microsoft Docs
-description: Meer informatie over het aanschaffen van model voor Azure SQL Database.
+description: Meer informatie over de aankoopmodel van modellen die zijn beschikbare databases in de Azure SQL Database-service.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -9,18 +9,21 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 651f80c8b8f4bc5f8aa8cf117e3208f4126e964c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737094"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961073"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database-modellen en -bronnen aanschaffen 
 
 Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften: 
- - [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) biedt twee aankopen modellen voor berekening, opslag en i/o-resources: een op DTU gebaseerde aankoopmodel en een [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). 
+ - [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) biedt twee aankopen modellen voor berekening, opslag en i/o-resources: een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Binnen deze aankoopmodel kunt u kiezen [enkelvoudige databases](sql-database-single-databases-manage.md) of [elastische pools](sql-database-elastic-pool.md).
  - [Beheerde exemplaren](sql-database-managed-instance.md) in enige aanbieding van Azure SQL Database de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> [Zeer grootschalige databases (preview)](sql-database-hyperscale.md) zijn alleen beschikbaar in het op vCore gebaseerde aankoopmodel voor individuele databases met een logische server of in een beheerd exemplaar. 
 
 De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contrast.
 
@@ -34,17 +37,12 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 
 ## <a name="vcore-based-purchasing-model"></a>op vCore gebaseerde aankoopmodel 
 
-Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, klanten kunnen kiezen uit [algemeen](sql-database-high-availability.md#standardgeneral-purpose-availability) en [bedrijfskritiek](sql-database-high-availability.md#premiumbusiness-critical-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [instanties die worden beheerd](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). 
+Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#standardgeneral-purpose-availability) en [bedrijfskritiek](sql-database-high-availability.md#premiumbusiness-critical-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [ beheerde exemplaren](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). Voor individuele databases, u kunt ook de [grootschalige (preview)](sql-database-hyperscale.md) servicelaag.
 
 Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresources kiest, overeenkomt met de on-premises prestaties en optimaliseren van de prijs. In het op vCore gebaseerde aankoopmodel betalen klanten voor:
-- COMPUTE (servicelaag + aantal vCores en de hoeveelheid geheugen en de generatie van de hardware) *
+- COMPUTE (servicelaag + aantal vCores en de hoeveelheid geheugen en de generatie van de hardware)
 - Type en de hoeveelheid opslag van gegevens en logboekbestanden 
-- Aantal IOs ** - van toepassing op [logische servers](sql-database-logical-servers.md) alleen
-- Back-upopslag (RA-GRS) ** 
-
-\* In de eerste openbare preview-versie, de Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors voor 2,4 GHz.
-
-\*\* Tijdens de preview zijn zeven dagen van de back-ups en IOs gratis.
+- Back-upopslag (RA-GRS) 
 
 > [!IMPORTANT]
 > Reken-, IOs-, gegevens en opslaan van Logboeken worden in rekening gebracht per database of elastische pool. Back-ups opslag wordt in rekening gebracht per elke database. Raadpleeg voor meer informatie van Managed Instance kosten [Azure SQL Database Managed Instance](sql-database-managed-instance.md).

@@ -3,18 +3,18 @@ title: Toepassingsdashboard voor LUIS-apps | Microsoft Docs
 description: Meer informatie over het dashboard, een gevisualiseerde rapportagetool in te voeren die u kunt uw apps in één oogopslag controleren.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224497"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031982"
 ---
 # <a name="application-dashboard"></a>Toepassingsdashboard
 Het app-dashboard kunt u uw app in één oogopslag controleren. De **Dashboard** wordt weergegeven wanneer u een app openen door te klikken op de naam van de toepassing op **mijn Apps** pagina selecteert **Dashboard** uit boven in het venster. 

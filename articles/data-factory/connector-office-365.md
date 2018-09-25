@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 3783bc6ccda7a559e749a84005f20d860ab56755
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a077c7d154235205126d77e5523c0acd96e70ad5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031608"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
@@ -46,7 +46,6 @@ Als u wilt gegevens uit Office 365 kopiëren naar Azure, moet u de volgende vere
     - Tenant-ID.  Zie voor instructies [tenant-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Toepassings-ID en de toepassing de sleutel.  Zie voor instructies [Get-ID en -verificatie Toepassingssleutel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - De identiteit van de gebruiker die de aanvraag voor de toegang tot gegevens als eigenaar van de Azure AD-webtoepassing brengen zullen toevoegen (van de Azure AD-webtoepassing > Instellingen > eigenaren > eigenaar toevoegen).
-- _(Aanbevolen)_  [Voor Azure toewijzen](../azure-policy/assign-policy-definition.md) voor versleuteling van gegevens naar uw gegevensarchieven. Informatie over de naleving van beleid worden als onderdeel van de gegevensaanvraag naar de goedkeurders gegevens weergegeven. Nadat u de toewijzing van configuratiebeleid wordt gemaakt, voor elke activiteit kopiëren die wordt uitgevoerd, controleert ADF Zorg ervoor dat de beleidstoewijzing wordt afgedwongen. Raadpleeg [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) voor een volledige lijst van ondersteunde beleidsregels.
 
 ## <a name="approving-new-data-access-requests"></a>Toegang aanvragen goedkeuren van nieuwe gegevens
 
@@ -54,9 +53,23 @@ Als dit de eerste keer dat u gegevens voor deze context aanvraagt (een combinati
 
 Raadpleeg [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) op hoe de fiatteur kan goedkeuren de gegevens toegang tot aanvraag en Raadpleeg [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) voor een uitleg over de algehele integratie met Privileged Access Management, waaronder over het instellen van de gegevens groep voor toegang tot goedkeurder.
 
+## <a name="policy-validation"></a>Validatie van het gebruikersbeleid
+
+Als ADF is gemaakt als onderdeel van een beheerde app en Azure-beleid-toewijzingen worden aangebracht in resources binnen de resourcegroep voor beheer, wordt klikt u vervolgens voor elke activiteit kopiëren die wordt uitgevoerd, ADF gecontroleerd om ervoor te zorgen dat de toewijzingen van beleid worden afgedwongen. Raadpleeg [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) voor een lijst van ondersteunde beleidsregels.
+
 ## <a name="getting-started"></a>Aan de slag
 
-U kunt een pijplijn maken met copy activity in .NET SDK, Python-SDK, Azure PowerShell, REST-API of Azure Resource Manager-sjabloon. Zie [zelfstudie Kopieeractiviteit](quickstart-create-data-factory-dot-net.md) voor stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit.
+>[!TIP]
+>Zie voor een overzicht van het gebruik van Office 365-connector, [laden van gegevens uit Office 365](load-office-365-data.md) artikel.
+
+U kunt een pijplijn maken met de kopieeractiviteit met behulp van een van de volgende hulpprogramma's of de SDK's. Selecteer een koppeling naar een zelfstudie met stapsgewijze instructies voor het maken van een pijplijn met een kopieeractiviteit. 
+
+- [Azure Portal](quickstart-create-data-factory-portal.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Python SDK](quickstart-create-data-factory-python.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager-sjabloon](quickstart-create-data-factory-resource-manager-template.md). 
 
 De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek voor Office 365-connector.
 

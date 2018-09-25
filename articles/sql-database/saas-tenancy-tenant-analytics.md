@@ -1,22 +1,23 @@
 ---
 title: Cross-tenant-analytics met behulp van de opgehaalde gegevens uitvoeren | Microsoft Docs
 description: Cross-tenant-analytics query's met behulp van gegevens uit meerdere Azure SQL Database-databases in een app met één tenant hebt uitgepakt.
-keywords: zelfstudie sql-database
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: a838630e3423ca5ec26893597e2bb2b6e36ede2e
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: dc912ded6f879d14689a267c7ee63245c11c0bd0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498048"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054945"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Cross-tenant-analytics met behulp van data - app met één tenant opgehaald
  

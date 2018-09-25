@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579904"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983681"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiveren van diagnostische logboeken in Azure
 
@@ -81,7 +81,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |Nee |Booleaanse waarde waarmee wordt aangegeven of een bewaarbeleid zijn ingeschakeld voor deze resource. |
 | RetentionInDays |Nee |Het aantal dagen waarvoor gebeurtenissen moeten worden bewaard tussen 1 en 2147483647. De logboeken worden voor onbepaalde tijd opgeslagen door de waarde nul. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Diagnostische logboeken archiveren via de Azure CLI 2.0
+## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Diagnostische logboeken archiveren via de Azure CLI
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

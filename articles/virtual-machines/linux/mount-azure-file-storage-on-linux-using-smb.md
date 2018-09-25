@@ -1,6 +1,6 @@
 ---
-title: Koppelpunt Azure File storage in virtuele Linux-machines met SMB | Microsoft Docs
-description: Het koppelen van Azure File storage op Linux VM's met behulp van SMB met de Azure CLI
+title: Azure File storage koppelen op virtuele Linux-machines met behulp van SMB | Microsoft Docs
+description: Hoe u Azure File storage koppelen in Linux-VM's met behulp van SMB met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
@@ -14,23 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 2019324030b2e4c469d0b9ba937fb40a9d0675f1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099708"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982202"
 ---
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Koppelpunt Azure File storage in virtuele Linux-machines met SMB
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure File storage koppelen op virtuele Linux-machines met behulp van SMB
 
+In dit artikel ziet u hoe u de Azure File storage-service op een Linux-VM met behulp van een SMB-koppelen met de Azure CLI. Azure File storage biedt bestandsshares in de cloud met behulp van de SMB-protocol. 
 
-In dit artikel leest u hoe de Azure File storage-service gebruiken op een Linux-VM met een SMB-koppelen met de Azure CLI. Azure File storage biedt bestandsshares in de cloud met behulp van het standaard SMB-protocol. 
+File storage biedt bestandsshares in de cloud die gebruikmaken van de SMB-protocol. U kunt een bestandsshare koppelen vanuit elk besturingssysteem dat ondersteuning biedt voor SMB 3.0. Als u een SMB-koppelen in Linux gebruikt, krijgt u eenvoudig back-ups naar een robuuste, permanente archiveren opslaglocatie die wordt ondersteund door een SLA.
 
-File storage biedt bestandsshares in de cloud die het standaard SMB-protocol gebruiken. U kunt een bestandsshare koppelen vanuit elk besturingssysteem dat ondersteuning biedt voor SMB 3.0. Als u een SMB-koppelen op Linux gebruikt, krijgt u eenvoudig back-ups naar een robuuste, permanente archiveren opslaglocatie die wordt ondersteund door een SLA.
+Bestanden van een virtuele machine verplaatsen naar een SMB-koppeling die wordt gehost op File storage is een uitstekende manier om op te sporen Logboeken. De dezelfde SMB-share kan lokaal worden gekoppeld aan uw Mac, Linux of Windows-werkstation. SMB is de beste oplossing voor het streamen van Linux of toepassingslogboeken in realtime, omdat het SMB-protocol voor het afhandelen van dergelijke rechten zware logboekregistratie niet is ingebouwd. Een speciale, geïntegreerde logboekregistratie laag hulpprogramma zoals Fluentd zou een betere keuze dan SMB zijn voor het verzamelen van Linux- en uitvoer logboekregistratie-toepassing.
 
-Verplaatsen van bestanden van een virtuele machine naar een SMB-koppelpunt die wordt gehost op File storage is een uitstekende manier om de logboeken voor foutopsporing. De dezelfde SMB-share worden gekoppeld, lokaal naar uw Mac, Linux of Windows-werkstation. SMB is de beste oplossing voor het streamen van Linux of toepassingslogboeken in real-time, omdat het SMB-protocol niet is gebouwd voor het afhandelen van deze rechten zware logboekregistratie. Een speciale, uniforme logboekregistratie laag hulpprogramma zoals Fluentd zou een betere keuze dan SMB zijn voor het verzamelen van Linux- en uitvoer logboekregistratie toepassing.
-
-Deze handleiding is vereist dat u de Azure CLI versie 2.0.4 uitvoert of hoger. Voer **az --version** uit om de versie op te vragen. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
+Deze handleiding is vereist dat u de Azure CLI versie 2.0.4 gebruikt of hoger. Voer **az --version** uit om de versie op te vragen. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
@@ -43,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Maak een nieuw opslagaccount binnen de resourcegroep die u hebt gemaakt, met [az storage-account maken](/cli/azure/storage/account#create). In dit voorbeeld maakt u een opslagaccount met de naam *mySTORAGEACCT<random number>*  en plaatst u de naam van het storage-account in de variabele **STORAGEACCT**. Namen van opslagaccounts moeten uniek zijn, met behulp van `$RANDOM` een cijfer toegevoegd aan het einde uniek te maken.
+Maak een nieuw opslagaccount, binnen de resourcegroep die u hebt gemaakt, met behulp van [az storage-account maken](/cli/azure/storage/account#create). Dit voorbeeld maakt u een opslagaccount met de naam *mySTORAGEACCT<random number>*  en plaatst u de naam van dat opslagaccount in de variabele **STORAGEACCT**. Namen van opslagaccounts moeten uniek zijn, met behulp van `$RANDOM` enkele toegevoegd aan het einde uniek te maken.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -56,9 +55,9 @@ STORAGEACCT=$(az storage account create \
 
 ## <a name="get-the-storage-key"></a>De opslagsleutel ophalen
 
-Wanneer u een opslagaccount maakt, worden de sleutels in paren worden gemaakt zodat ze kunnen worden gedraaid zonder onderbreking van de service. Wanneer u naar de tweede sleutel in het paar overschakelt, maakt u een nieuw sleutelpaar. Nieuwe toegangscodes voor opslag worden altijd gemaakt in paren, zodat u altijd ten minste één niet-gebruikte opslagaccountsleutel gereed om te activeren.
+Wanneer u een opslagaccount maakt, worden de accountsleutels in paren gemaakt zodat ze zonder enige serviceonderbreking kunnen worden gedraaid. Wanneer u naar de tweede sleutel in het paar overschakelt, maakt u een nieuw sleutelpaar. Nieuwe storage-accountsleutels worden altijd aangemaakt in paren, zodat u altijd ten minste één niet-gebruikte opslagaccountsleutel gereed om te maken.
 
-De opslagaccountsleutels met weergeven [lijst met opslagaccounts die sleutels az](/cli/azure/storage/account/keys#list). In dit voorbeeld Slaat de waarde van sleutel 1 in de **STORAGEKEY** variabele.
+Weergeven met behulp van sleutels voor de opslagaccount [az storage account sleutels lijst](/cli/azure/storage/account/keys#list). In dit voorbeeld wordt de waarde van sleutel 1 in de **STORAGEKEY** variabele.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,11 +68,11 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Een bestandsshare maken
 
-Maak het bestand opslag delen met [az storage-share maken](/cli/azure/storage/share#create). 
+Maak het bestand met de opslag delen met [az storage share maken](/cli/azure/storage/share#create). 
 
-De namen van bestandsshares moeten worden alle kleine letters, cijfers en afbreekstreepjes één maar mag niet beginnen met een afbreekstreepje. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
+De namen van shares moeten worden alle kleine letters, cijfers en afbreekstreepjes maar mag niet beginnen met een afbreekstreepje. Zie [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de naamgeving van bestandsshares en bestanden.
 
-In dit voorbeeld maakt u een share met de naam *mijnshare* met een target 10 GiB. 
+Dit voorbeeld maakt u een share met de naam *myshare* met een quotum van 10 GiB. 
 
 ```bash
 az storage share create --name myshare \
@@ -84,18 +83,18 @@ az storage share create --name myshare \
 
 ## <a name="create-a-mount-point"></a>Maken van een koppelpunt
 
-De Azure-bestandsshare koppelen op de Linux-computer, moet u om ervoor te zorgen dat u hebt de **cifs utils** pakket is geïnstalleerd. Zie voor installatie-instructies [Installeer het pakket cifs-utils voor uw Linux-distributie](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
+Voor het koppelen van de Azure-bestandsshare op uw Linux-computer, moet u ervoor dat u hebt de **cifs-utils** pakket is geïnstalleerd. Zie voor installatie-instructies [Installeer het pakket cifs-utils voor uw Linux-distributie](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
-Azure Files maakt gebruik van SMB-protocol communiceert via TCP-poort 445.  Als u problemen bij het koppelen van uw Azure-bestandsshare ondervindt, zorg er dan voor dat uw firewall niet wordt geblokkeerd door TCP-poort 445.
+Azure Files maakt gebruik van SMB-protocol, dat communiceert via TCP-poort 445.  Als u problemen bij het koppelen van uw Azure-bestandsshare ondervindt, zorg er dan voor dat uw firewall TCP-poort 445 niet blokkeert.
 
 
 ```bash
 mkdir -p /mnt/MyAzureFileShare
 ```
 
-## <a name="mount-the-share"></a>De share koppelen
+## <a name="mount-the-share"></a>De bestandsshare koppelen
 
-Koppel de Azure-bestandsshare naar een lokale map. 
+Koppel de Azure-bestandsshare naar de lokale map. 
 
 ```bash
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
@@ -105,16 +104,16 @@ sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFile
 
 ## <a name="persist-the-mount"></a>De koppeling behouden
 
-Wanneer u de Linux-VM opnieuw opstart, wordt tijdens het afsluiten van de gekoppelde SMB-share ontkoppeld. Als u wilt opnieuw koppelen van de SMB-share op opstarten, moet u een regel toegevoegd aan de /etc/fstab Linux. Linux gebruikt het fstab-bestand voor een lijst met de bestandssystemen die nodig is om te koppelen tijdens het opstarten. Het toevoegen van de SMB-share zorgt ervoor dat de File storage-share een permanent gekoppelde bestandssysteem voor de Linux-VM. De File storage SMB-share toe te voegen aan een nieuwe virtuele machine is mogelijk wanneer u cloud-init gebruiken.
+Wanneer u de Linux-VM opnieuw opstarten, is de gekoppelde SMB-share is ontkoppeld tijdens het afsluiten. Als u wilt koppelen bij het opstarten van de SMB-share, moet u een regel toegevoegd aan de Linux-/ etc/fstab. Linux maakt gebruik van het fstab-bestand om de bestandssystemen die nodig is om te koppelen tijdens het opstarten weer te geven. Toevoegen van de SMB-share, zorgt u ervoor dat de File storage-share een permanent gekoppelde bestandssysteem voor de Linux-VM is. De SMB-share van File storage toe te voegen aan een nieuwe virtuele machine is mogelijk wanneer u cloud-init gebruiken.
 
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
-Voor een betere beveiliging in productieomgevingen moet u uw referenties buiten fstab opslaan.
+Voor een betere beveiliging in een productieomgeving, moet u uw referenties buiten fstab opslaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van](using-cloud-init.md)
+- [Cloud-init gebruiken voor het aanpassen van een Linux-VM tijdens het maken van](using-cloud-init.md)
 - [Een schijf toevoegen aan een virtuele Linux-machine](add-disk.md)
-- [Versleutelen van schijven op een Linux-VM met behulp van de Azure CLI](encrypt-disks.md)
+- [Schijven op een Linux-VM versleutelen met behulp van de Azure CLI](encrypt-disks.md)
 

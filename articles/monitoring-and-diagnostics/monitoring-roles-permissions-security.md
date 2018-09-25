@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248458"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977856"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
 Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
@@ -171,6 +171,24 @@ Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst ee
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
    New-AzureRmRoleDefinition -Role $role 
    ```
+
+## <a name="monitoring-within-a-secured-virtual-network"></a>Bewaking in een beveiligde Virtueelnetwerk
+
+Azure Monitor moet toegang hebben tot uw Azure-resources voor de services die u inschakelt. Als u bewaken van uw Azure-resources wilt terwijl nog steeds beveiligen tegen toegang tot Internet, kunt u de volgende instellingen inschakelen.
+
+### <a name="secured-storage-accounts"></a>Beveiligde Storage-Accounts 
+
+Door gegevens te controleren is vaak geschreven naar een opslagaccount. Het is raadzaam om ervoor te zorgen dat de gegevens die zijn gekopieerd naar een Opslagaccount kan niet worden geopend door onbevoegde gebruikers. Voor extra beveiliging kunt u toegang tot het netwerk toe te staan dat uw geautoriseerde resources en de vertrouwde Microsoft-services toegang tot een opslagaccount vergrendelen door het beperken van een storage-account voor het gebruik van 'geselecteerde netwerken'.
+![Dialoogvenster van de instellingen voor Azure Storage](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor worden beschouwd als een van deze 'vertrouwde Microsoft-services' als u toestaat dat vertrouwde Microsoft-services voor toegang tot uw beveiligde opslag, Azure monitor hebben toegang tot uw beveiligde Storage-Account; inschakelen Diagnostische logboeken van Azure Monitor, activiteitenlogboek en metrische gegevens schrijven naar uw Storage-Account in deze beveiligde omstandigheden. Hiermee schakelt u ook Log Analytics om te lezen logboeken van beveiligde opslag.   
+
+Zie voor meer informatie, [Network security en Azure Storage](../storage/common/storage-network-security.md)
+ 
+### <a name="secured-virtual-networks-with-service-endpoints"></a>Beveiligde virtuele netwerken met Service-eindpunten 
+
+Virtuele netwerken (VNets) kunnen u beperken het verkeer om toe te staan alleen het opgegeven verkeer om te communiceren met uw Azure-resources. U kunt de Service-eindpunten om uit te breiden van uw VNet om op te nemen van Azure Monitor; opgeven Hiermee schakelt u de resources conitinue voor het veilig verzenden van logboekregistratie en metrische gegevens naar Azure Monitor van virtuele netwerken.  
+
+Zie voor meer informatie, [Virtual Network-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over RBAC en machtigingen in Resource Manager](../role-based-access-control/overview.md)

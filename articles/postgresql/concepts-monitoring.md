@@ -1,26 +1,25 @@
 ---
-title: Bewaking in Azure Database for PostgreSQL
-description: Dit artikel beschrijft de metrische gegevens voor bewaking en waarschuwingen voor Azure Database voor PostgreSQL, met inbegrip van CPU, opslag en verbinding statistieken.
+title: Controleren en afstemmen in Azure Database for PostgreSQL
+description: Dit artikel wordt beschreven voor bewaking en afstemming van functies in Azure Database voor PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 17b12514e32ad8d1548d834d72e0f7564fe78143
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985776"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982661"
 ---
-# <a name="monitoring-in-azure-database-for-postgresql"></a>Bewaking in Azure Database for PostgreSQL
-Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende metrische gegevens geven inzicht in het gedrag van de resources voor het ondersteunen van de PostgreSQL-server. 
+# <a name="monitor-and-tune"></a>Controleren en afstemmen
+Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. 
 
 ## <a name="metrics"></a>Metrische gegevens
-Alle metrische gegevens van Azure hebben een frequentie van één minuut en elke metrische waarde biedt 30 dagen van de geschiedenis. U kunt waarschuwingen configureren op de metrische gegevens. Zie voor stapsgewijze instructies [over het instellen van waarschuwingen](howto-alert-on-metric.md). Andere taken omvatten het instellen van geautomatiseerde acties, het uitvoeren van geavanceerde analyses en het archiveren van geschiedenis. Zie voor meer informatie de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database voor PostgreSQL biedt verschillende metrische gegevens geven inzicht in het gedrag van de resources voor het ondersteunen van de PostgreSQL-server. Alle gegevens wordt verzonden met een frequentie van één minuut en maximaal 30 dagen van de geschiedenis heeft. U kunt waarschuwingen configureren op de metrische gegevens. Zie voor stapsgewijze instructies [over het instellen van waarschuwingen](howto-alert-on-metric.md). Andere taken omvatten het instellen van geautomatiseerde acties, het uitvoeren van geavanceerde analyses en het archiveren van geschiedenis. Zie voor meer informatie de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Overzicht van metrische gegevens
 Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
@@ -41,6 +40,14 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 |network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
 
+## <a name="query-store"></a>Query Store
+[Query Store](concepts-query-store.md) is een openbare preview-functie die boekrecords bijhoudt query prestaties gedurende een bepaalde tijd met inbegrip van runtime-statistieken opvragen en wacht gebeurtenissen. De functie zich blijft voordoen querygegevens over de runtimeprestaties in een systeemdatabase met de naam **azure_sys** onder het query_store-schema. U kunt de verzameling en opslag van gegevens via verschillende configuratie-knoppen beheren.
+
+## <a name="query-performance-insight"></a>Inzicht in queryprestaties
+[Query Performance Insight](concepts-query-performance-insight.md) werkt in combinatie met Query Store te bieden van visualisaties die toegankelijk is vanaf de Azure-portal. Deze diagrammen kunnen u belangrijke query's identificeren die prestaties. Query Performance Insight is in openbare preview en is toegankelijk in de **ondersteuning en probleemoplossing** sectie van uw Azure Database for PostgreSQL-server portal-pagina.
+
+## <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
+De [aanbevelingen voor prestaties](concepts-performance-recommendations.md) functie identificeert mogelijkheden voor verbetering van de prestaties van de werkbelastingen. De openbare preview-versie van de aanbevelingen voor prestaties beschikt u over aanbevelingen voor het maken van nieuwe indexen die u de mogelijkheid hebt voor het verbeteren van de prestaties van uw workloads. Om te produceren indexaanbevelingen, wordt de functie rekening gehouden met verschillende kenmerken van de database, met inbegrip van het schema en de werkbelasting, zoals gerapporteerd door de Query Store. Na de implementatie van elke aanbeveling prestaties, moeten klanten prestaties voor het evalueren van de impact van deze wijzigingen testen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [over het instellen van waarschuwingen](howto-alert-on-metric.md) voor hulp bij het maken van een waarschuwing voor metrische gegevens.

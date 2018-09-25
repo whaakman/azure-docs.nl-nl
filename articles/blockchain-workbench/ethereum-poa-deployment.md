@@ -1,5 +1,5 @@
 ---
-title: Ethereum Proof-of-Authority Consortium
+title: Ethereum Proof-of-Authority Consortium - Azure
 description: De oplossing Etherereum Proof-of-Authority Consortium gebruiken om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk
 services: azure-blockchain
 keywords: ''
@@ -10,15 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: fcb35f23be384b3625e4e17e5dc2285b7eeb341a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b594a9b1cf6ab0ab2c4c57b35ee79218b65f80b6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530816"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039034"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
+## <a name="overview"></a>Overzicht
 [Deze oplossing](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is ontworpen om eenvoudiger te implementeren, configureren en beheren van een consortium voor meerdere leden Proof-of-authority Ethereum-netwerk met minimale kennis van Azure en Ethereum.
 
 Met een aantal van de invoer van gebruikers en een implementatie met één klik via de Azure-portal inrichten elk lid van een netwerk-footprint, met behulp van Microsoft Azure Compute, netwerken en opslagservices over de hele wereld. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing validator knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen Ethereum-transacties.
@@ -74,8 +75,6 @@ Vaak is lid van een consortium wilt deelnemen aan netwerk governance maar niet w
 
 5.  **Consortium lid** hun persoonlijke sleutel gebruikt voor het ondertekenen van een aanvraag accepteren van de knooppunten validator **Operator** om deel te nemen namens hen is geïmplementeerd
 
-![Breng uw eigen operator](./media/ethereum-poa-deployment-guide/bring-you-own-operator.png)
-
 ### <a name="azure-monitor"></a>Azure Monitor
 
 Deze oplossing wordt geleverd met Azure Monitor voor het bijhouden van statistieken van knooppunt en het netwerk. Voor ontwikkelaars van toepassingen biedt dit inzicht in de onderliggende blockchain om bij te houden blok genereren van statistieken. Netwerkoperators kunnen Azure Monitor gebruiken om snel te detecteren en te voorkomen dat netwerkstoringen via waarop Logboeken en statistieken van de infrastructuur. Zie [-Service controleren](#service-monitoring) voor meer informatie.
@@ -90,7 +89,7 @@ Deze oplossing kunt implementeren één of meerdere regio's op basis van meerder
 
 De implementatie van elke consortium lid bevat:
 
--   Virtuele M Scale Sets (VMSS) voor het uitvoeren van de validators PoA
+-   Virtuele Machines voor het uitvoeren van de validators PoA
 
 -   Azure Load Balancer voor het distribueren van RPC-peering en Governance DApp aanvragen
 
@@ -128,9 +127,10 @@ We maken gebruik van Docker-containers voor betrouwbaarheid en modulariteit moge
 
     -   Web-interface voor interactie met Governance-opdrachten
 
-## <a name="governance-dapp"></a>Governance DApp
+## <a name="how-to-guides"></a>Handleidingen
+### <a name="governance-dapp"></a>Governance DApp
 
-Is de kern van proof-of-authority gedecentraliseerde governance. De governance DApp is een reeks vooraf geïmplementeerde slimme contracten en een webtoepassing die worden gebruikt om te bepalen van de instanties in het netwerk.
+Is de kern van proof-of-authority gedecentraliseerde governance. De governance DApp een set is vooraf geïmplementeerd [slimme contracten](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) en een webtoepassing die worden gebruikt om te bepalen van de instanties in het netwerk.
 Instanties zijn verdeeld in beheerder-id's en validatie van knooppunten.
 Beheerders hebben de mogelijkheid om te delegeren consensus deelname aan een set Validator knooppunten. Beheerders kunnen stemmen andere beheerders in of buiten het netwerk.
 
@@ -142,7 +142,41 @@ Beheerders hebben de mogelijkheid om te delegeren consensus deelname aan een set
 
 -   **De wijzigingsgeschiedenis van controleerbare -** elke wijziging is geregistreerd op de blockchain transparantie en controleerbaarheid te geven.
 
-## <a name="how-to-guides"></a>Handleidingen
+#### <a name="getting-started-with-governance"></a>Aan de slag met governance
+Als u elk soort transacties via de DApp Governance, moet u gebruikmaken van een Ethereum-wallet.  De eenvoudigste manier is om te gebruiken, zoals een in de browser wallet [MetaMask](https://metamask.io), maar omdat dit slimme contracten geïmplementeerd op het netwerk u ook het gebruik van het contract Governance kan automatiseren.
+
+Na de installatie van MetaMask, gaat u naar de DApp Governance in de browser.  U vindt de URL in de implementatie bevestigingse-mail of via Azure portal in de uitvoer van de implementatie.  Als u een in de browser wallet geïnstalleerd geen hebt u niet mogelijk om uit te voeren handelingen; u hebt nog steeds wel kunnen lezen van de status van de beheerder.  
+
+#### <a name="becoming-an-admin"></a>Een beheerder uw account
+Als u het eerste lid dat op het netwerk geïmplementeerd, wordt klikt u vervolgens u automatisch een beheerder en uw pariteit knooppunten worden vermeld als Systeemstatuscontrolepunten.  Als u bent lid wordt van het netwerk, moet u ophalen uw stem aangegeven dat een beheerder met een meerderheid (groter dan 50%) van de bestaande-beheerder heeft ingesteld.  Als u ervoor kiest niet te worden van een beheerder en vervolgens uw knooppunten wordt nog steeds synchroniseren en valideren van de blockchain; Deze wordt echter niet opgenomen in het maakproces blokkeren. Voor het starten van de stemmende proces om te worden van een beheerder, klikt u op __Nominate__ en geef uw Ethereum-adres en de alias.
+
+![Nomineer](./media/ethereum-poa-deployment-guide/governance-dapp-nominate.png)
+
+#### <a name="candidates"></a>Kandidaten
+Selecteren van de __kandidaten__ tabblad ziet u de huidige reeks candidate beheerders.  Wanneer een kandidaat een stem meerderheid van de huidige beheerders is bereikt, ophalen de uiteindelijke gepromoot naar een beheerder.  Selecteer de rij om te stemmen op een kandidaat, en klik op 'Stem ' aan de bovenkant.  Als u van op een stem gedachten, kunt u de uiteindelijke selecteren en klikt u op 'Rescind stem'.
+
+![Kandidaten](./media/ethereum-poa-deployment-guide/governance-dapp-candidates.png)
+
+
+#### <a name="admins"></a>Beheerders
+De __beheerders__ tabblad wordt de huidige reeks beheerders weergeven en bieden u de mogelijkheid om te stemmen op basis van.  Wanneer een beheerder meer verliest dan 50% ondersteuning, wordt ze verwijderd als een beheerder zijn van het netwerk.  Validatie van knooppunten die eigendom zijn van deze beheerder wordt validator status verloren en transactie-knooppunten in het netwerk.  Een beheerder kan worden verwijderd voor een willekeurig aantal redenen; het is echter aan het consortium om van tevoren een beleid akkoord te gaan.
+
+![Beheerders](./media/ethereum-poa-deployment-guide/governance-dapp-admins.png)
+
+#### <a name="validators"></a>Systeemstatuscontrolepunten
+Selecteren van de __Validators__ tabblad in het menu links wordt de huidige geïmplementeerde pariteit knooppunten voor dit exemplaar en de huidige status (knooppunttype) worden weergegeven.  Houd er rekening mee dat elk lid van de consortium een andere set validators in deze lijst, hebben omdat deze weergave de huidige geïmplementeerde consortium lid vertegenwoordigt.  Als dit een zojuist geïmplementeerde exemplaar en uw validators nog niet hebt toegevoegd, worden weergegeven de optie voor 'Validators toevoegen'.  Als u deze wordt automatisch een regionaal verdeeld set pariteit knooppunten kiezen en wijst deze toe aan uw verzameling validator.  Als u meer knooppunten dan de toegestane capaciteit hebt geïmplementeerd, worden de resterende knooppunten transactie knooppunten in het netwerk.
+
+Het adres van elke validator wordt automatisch toegewezen de [identiteitsarchief](#identity-store) in Azure.  Als een knooppunt uitvalt, af het te zien de identiteit, zodat een ander knooppunt in uw implementatie moet de plaatsvinden.  Dit zorgt ervoor dat uw deelname consensus maximaal beschikbaar is.
+
+![Systeemstatuscontrolepunten](./media/ethereum-poa-deployment-guide/governance-dapp-validators.png)
+
+#### <a name="consortium-name"></a>De naam van de Consortium
+Een beheerder kan de naam van de Consortium, weergegeven aan de bovenkant van de pagina bijgewerkt.  Selecteer het tandwielpictogram in de linkerbovenhoek om bij te werken van de naam van de Consortium.
+
+#### <a name="account-menu"></a>Menu Account
+Is uw Ethereum-accountalias en identicon in de rechterbovenhoek.  Als u een beheerder bent, hebt u de mogelijkheid uw alias bij te werken.
+
+![Account](./media/ethereum-poa-deployment-guide/governance-dapp-account.png)
 
 ### <a name="deploy-ethereum-proof-of-authority"></a>Ethereum Proof-of-Authority implementeren
 
@@ -160,7 +194,7 @@ Hier volgt een voorbeeld van een implementatie van meerdere partijen-stroom:
 
 6.  *Lid A* en *lid B* beide stem *lid C* als beheerder
 
-Dit proces vereist een Azure-abonnement dat u kunt ondersteuning voor de implementatie van meerdere schaalsets voor virtuele machines en beheerde schijven. Indien nodig, [maken van een gratis Azure-account](https://azure.microsoft.com/free/) om te beginnen.
+Dit proces vereist een Azure-abonnement dat u kunt ondersteuning voor de implementatie van meerdere virtuele machines en beheerde schijven. Indien nodig, [maken van een gratis Azure-account](https://azure.microsoft.com/free/) om te beginnen.
 
 Nadat een abonnement is beveiligd, gaat u naar Azure portal. Selecteer '+', Marketplace ('Zie alle'), en zoek naar Ethereum PoA Consortium.
 
@@ -172,7 +206,7 @@ Onder **basisbeginselen**, waarden opgeven voor standard parameters voor elke im
 
 Hier volgt een gedetailleerde beschrijving van elke parameter:
 
-Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden    
+Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
 ---|---|---|---
 Maak een nieuwe netwerk- of toevoegen aan bestaande netwerk?|Een nieuw netwerk maken of lid van een bestaande consortium network|Nieuwe Join bestaande maken|Create New
 E-mailadres (optioneel)|U ontvangt een e-mailmelding wanneer uw implementatie is voltooid met informatie over uw implementatie.|Geldig e-mailadres|N.v.t.
@@ -203,7 +237,7 @@ Hier volgt een gedetailleerde beschrijving van elke parameter:
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![implementatie regio's](./media/ethereum-poa-deployment-guide/deployment-regions.png)
 
-#### <a name="network-size-and-performance"></a>Netwerkgrootte en prestaties 
+#### <a name="network-size-and-performance"></a>Netwerkgrootte en prestaties
 
 Geef vervolgens invoer voor de grootte van het netwerk consortium, zoals aantal en de grootte van de validatiefunctie knooppunten onder 'netwerkgrootte en prestaties'.
 De mogelijke grootte van de blockchain worden bepaald door de grootte van de validatie van knooppunt. Dit kan worden gewijzigd na de implementatie.
@@ -213,8 +247,20 @@ Hier volgt een gedetailleerde beschrijving van elke parameter:
   Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
   ---|---|---|---
   Het aantal knooppunten met gelijke validator|Het aantal knooppunten validator om in te richten als onderdeel van het netwerk|2-15|2
-  Validatie van knooppunt-opslagprestaties|Het type beheerde schijf een back-up elk van de validatie van geïmplementeerde knooppunten.|Standard- of Premium|Standard
+  Validatie van knooppunt-opslagprestaties|Het type beheerde schijf een back-up elk van de validatie van geïmplementeerde knooppunten.|Standard-SSD- of Premium|Standard-SSD
   De grootte van de virtuele machine knooppunt Validator|De grootte van de virtuele machine wordt gebruikt voor validatie van knooppunten.|Standard A Standard D, Standard D-v2, Standard F-serie, Standard DS en Standard FS|Standard D1 v2
+
+[Prijsinformatie voor opslag](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+[Prijsinformatie voor virtuele Machine](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+
+Houd er rekening mee dat virtuele Machine en Storage-laag invloed op de prestaties van het netwerk.  U wordt aangeraden de volgende SKU's op basis van de gewenste kostenefficiënt:
+
+  Virtuele Machine SKU|Storage-laag|Prijs|Doorvoer|Latentie
+  ---|---|---|---|---
+  F1|Standard-SSD|Laag|Laag|Hoog
+  D2_v3|Standard-SSD|gemiddeld|gemiddeld|gemiddeld
+  F16s|Premium SSD|Hoog|Hoog|Laag
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![netwerk grootte en prestaties](./media/ethereum-poa-deployment-guide/network-size-and-performance.png)
 
@@ -231,21 +277,23 @@ Netwerk-id|De netwerk-ID voor het consortium Ethereum-netwerk worden geïmplemen
 Ethereum-mailadres van beheerder|Het adres Ethereum die wordt gebruikt voor uw deelname aan PoA governance.  We adviseren MetaMask gebruiken voor het genereren van een Ethereum-adres.|42 alfanumerieke tekens beginnen met 0 x|N.v.t.
 Geavanceerde opties|Geavanceerde opties voor Ethereum-instellingen|In- of uitschakelen|Uitschakelen
 Openbaar IP-adres (geavanceerde opties = inschakelen)|Het netwerk achter een VNet-Gateway implementeert en peering toegang verwijderd. Als deze optie is geselecteerd, moeten alle leden van een VNet-Gateway voor de verbinding gebruiken om compatibel te zijn.|Openbaar IP-adres privé VNet|Openbare IP
+Limiet voor Gas blokkeren (geavanceerde opties = inschakelen)|De eerste blok gas limiet van het netwerk|Een numerieke waarde|50,000,00
+Verzegelen Blokkeringsperiode (sec)|De frequentie waarmee leeg blokken worden gemaakt wanneer er geen transacties in het netwerk zijn. Een hogere frequentie hebben sneller definitieve karakter maar hogere opslagkosten.|Een numerieke waarde|15
 Transactie machtiging Contract (geavanceerde opties = inschakelen)|Bytecode voor de transactie-rollen-contract. Hiermee beperkt u de slimme contract implementatie en uitvoering aan een lijst met permissioned van Ethereum-accounts.|Contract bytecode|N.v.t.
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![ethereum-instellingen](./media/ethereum-poa-deployment-guide/ethereum-settings.png)
 
-#### <a name="azure-monitor"></a>Azure Monitor
+#### <a name="monitoring"></a>Bewaking
 
-De blade Azure Monitor kunt u een Azure Monitor-resource voor het netwerk configureren. Azure Monitor worden verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen.
+De blade controle kunt u een Log Analytics-resource voor het netwerk configureren. De monitoring agent worden verzameld en surface nuttig metrische gegevens en logboeken van uw netwerk, biedt de mogelijkheid om snel te controleren de netwerkstatus of foutopsporing problemen.
 
   Parameternaam|Beschrijving|Toegestane waarden|Standaardwaarden
   ---|---|---|---
-Bewaking|Optie voor het inschakelen van Azure Monitor|In- of uitschakelen|Inschakelen
-Verbinding maken met bestaande Log Analytics|Een nieuw exemplaar van de Log Analytics maken als onderdeel van Azure Monitor of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
-Azure Monitor Location(Connect to Existing Azure Monitor = Create new)|De regio waarin de nieuwe Azure Monitor worden geïmplementeerd|Alle regio's van Azure Monitor|N.v.t.
-Bestaande Log Analytics-werkruimte-Id (verbinding maken met bestaande Azure Monitor = bestaande Join)|Werkruimte-ID van de bestaande Log Analytics-instantie||N.v.t.
-Bestaande Log Analytics-primaire sleutel (verbinding maken met bestaande Azure Monitor = bestaande Join)|De primaire sleutel gebruikt voor verbinding met de bestaande instantie van Azure Monitor||N.v.t.
+Bewaking|Optie voor het inschakelen van bewaking|In- of uitschakelen|Inschakelen
+Verbinding maken met bestaande Log Analytics|Maak een nieuw exemplaar van de Log Analytics of Word lid van een bestaand exemplaar|Maak een nieuwe of bestaande koppelen|Nieuwe maken
+Locatie controleren (verbinding maken met bestaande Log Analytics maken nieuwe =)|De regio waarin het nieuwe exemplaar van de Log Analytics worden geïmplementeerd|Alle regio's voor Log Analytics|N.v.t.
+Bestaande Log Analytics-werkruimte-Id (verbinding maken met bestaande Log Analytics = bestaande Join)|Werkruimte-ID van de bestaande Log Analytics-instantie||N.v.t.
+Primaire sleutel van bestaande Log Analytics (verbinding maken met bestaande Log Analytics = bestaande Join)|De primaire sleutel gebruikt voor verbinding met de bestaande Log Analytics-instantie||N.v.t.
 
 
 Een voorbeeldimplementatie wordt hieronder weergegeven: ![met azure monitor](./media/ethereum-poa-deployment-guide/azure-monitor.png)
@@ -258,7 +306,7 @@ Wettelijke informatie en privacy voorwaarden bekijken en klik op 'Inkoop' om te 
 
 #### <a name="post-deployment"></a>Na de implementatie
 
-##### <a name="deployment-output"></a>Implementatie-uitvoer 
+##### <a name="deployment-output"></a>Implementatie-uitvoer
 
 Als de implementatie is voltooid, kunt u zult toegang kunnen krijgen tot de benodigde parameters via de bevestigingse-mail of via de Azure-portal. In deze parameters vindt u het:
 
@@ -270,9 +318,9 @@ Als de implementatie is voltooid, kunt u zult toegang kunnen krijgen tot de beno
 
 -   Gegevens-URL
 
--   VNet-Gateway Resource-Id (optioneel)
+-   VNet-Gateway Resource-ID (optioneel)
 
-##### <a name="confirmation-email"></a>Bevestigingse-mail 
+##### <a name="confirmation-email"></a>Bevestigingse-mail
 
 Als u een e-mailadres opgeven ([basisbeginselen sectie](#basics)), een e-mailbericht naar het e-mailadres met de informatie over de implementatie-uitvoer worden verzonden.
 
@@ -293,21 +341,9 @@ Zodra de implementatie is voltooid en alle resources zijn ingericht moet u mogel
 ### <a name="growing-the-consortium"></a>Het consortium groeiende
 
 Als u wilt uw consortium wilt uitbreiden, moet u eerst het fysieke netwerk te verbinden.
-Deze eerste stap is met behulp van de implementatie op basis van een openbaar IP-adres naadloze. Als achter een VPN-verbinding implementeert, Zie de sectie [verbinding te maken van de VNet-Gateway](#connecting-vnet-gateways) om uit te voeren van de netwerkverbinding als onderdeel van [stap 2](#step-2-new-admin-deployment).
+Deze eerste stap is met behulp van de implementatie op basis van een openbaar IP-adres naadloze. Als achter een VPN-verbinding implementeert, Zie de sectie [verbinding te maken van de VNet-Gateway](#connecting-vnet-gateways) om uit te voeren van de netwerkverbinding als onderdeel van de implementatie van het nieuwe lid.  Nadat uw implementatie gebruikt de [Governance DApp](#governance-dapp) om te worden van een netwerk-beheerder.
 
-#### <a name="step-1-add-the-new-admin"></a>Stap 1: De nieuwe beheerder toevoegen
-
-1.  Verzamelen van de beheerder van de nieuwe openbare Ethereum-adres.
-
-2.  Navigeer naar de DApp Governance en een nieuwe beheerder met het Ethereum-adres en een juiste alias maken
-
-3.  Kennis van de bestaande leden van de nieuwe aanvraag zodat ze stemmen kunnen naar deze nieuwe beheerder toevoegen
-
-4.  Zodra de stem de 51% bereikt, wordt het lid toegevoegd als beheerder
-
-![beheerder toevoegen](./media/ethereum-poa-deployment-guide/adding-admin.png)
-
-#### <a name="step-2-new-admin-deployment"></a>Stap 2: Nieuwe beheerder implementatie
+#### <a name="new-member-deployment"></a>Nieuwe implementatie van het lid
 
 1.  De volgende informatie delen met het gekoppelde lid. Deze informatie kan worden gevonden in uw e-mail na de implementatie of in de uitvoer van de portal-implementatiescenario.
 
@@ -315,7 +351,7 @@ Deze eerste stap is met behulp van de implementatie op basis van een openbaar IP
 
     -  Het aantal knooppunten dat u hebt geïmplementeerd
 
-    -  VNet-Gateway Resource-Id (als u VPN)
+    -  VNet-Gateway Resource-ID (als u VPN)
 
 2.  Het lid van de implementatie moet gebruiken de [dezelfde oplossing](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) bij het implementeren van hun aanwezigheid netwerk met de volgende waarmee u rekening moet houden:
 
@@ -329,29 +365,13 @@ Deze eerste stap is met behulp van de implementatie op basis van een openbaar IP
 
     -  Als de rest van het netwerk zich achter een VPN-verbinding, selecteert u *privé VNet* onder de sectie Geavanceerd
 
-#### <a name="step-3-delegate-validators"></a>Stap 3: Gemachtigde systeemstatuscontrolepunten
-
-De nieuwe beheerder moet de validators om deel te nemen in hun naam te autoriseren. Dit kan niet automatisch worden uitgevoerd omdat hun sleutels Hiermee bepaalt u alleen het lid.\*
-
-_\*Het eerste lid knooppunten in het netwerk kunnen automatisch worden toegevoegd omdat we vooraf van de validatie van knooppunten in het blok genesis op het netwerk compileren kunt._
-
-De nieuwe beheerder moet de volgende stappen uitvoeren:
-
-1.  Open de Governance DApp geïmplementeerd als onderdeel van *hun* implementatie
-
-2.  Ga naar het tabblad Systeemstatuscontrolepunten
-
-3.  Selecteert u elk van de validators die zijn geïmplementeerd en klik op **toevoegen**
-
-![validators toevoegen](./media/ethereum-poa-deployment-guide/adding-validators.png)
-
 #### <a name="connecting-vnet-gateways"></a>VNet-gateways verbinden
 
-In het geval van een particulier netwerk, worden de verschillende leden zijn verbonden via VNet-gateway-verbindingen. Voordat een lid kunt deelnemen aan het netwerk en transactie-verkeer ziet, moet een bestaand lid een definitieve configuratie uitvoeren op de VPN-gateway om de verbinding te accepteren. Dit betekent dat de Ethereum-knooppunten van het gekoppelde lid niet wordt uitgevoerd totdat het een verbinding tot stand is gebracht. Het verdient aanbeveling om te maken van redundante netwerkverbindingen (mesh) in het consortium te verminderen de kans op een single point of failure.
+U kunt deze stap overslaan als u hebt geïmplementeerd met de standaardinstellingen van het openbare IP-adres. In het geval van een particulier netwerk, worden de verschillende leden zijn verbonden via VNet-gateway-verbindingen. Voordat een lid kunt deelnemen aan het netwerk en transactie-verkeer ziet, moet een bestaand lid een definitieve configuratie uitvoeren op de VPN-gateway om de verbinding te accepteren. Dit betekent dat de Ethereum-knooppunten van het gekoppelde lid niet wordt uitgevoerd totdat het een verbinding tot stand is gebracht. Het verdient aanbeveling om te maken van redundante netwerkverbindingen (mesh) in het consortium te verminderen de kans op een single point of failure.
 
-Nadat het nieuwe lid heeft geïmplementeerd, moet het lid van de bestaande de bidirectionele verbinding voltooien door het instellen van een VNet-gateway-verbinding met het nieuwe lid. Als u wilt deze bestaand lid bereiken nodig:
+Nadat het nieuwe lid heeft geïmplementeerd, moet het lid van de bestaande de bidirectionele verbinding voltooien door het instellen van een VNet-gateway-verbinding met het nieuwe lid. Om dit te bereiken, moeten de bestaande lid:
 
-1.  De VNet-gateway ResourceId van het lid dat verbinding maakt (Zie de uitvoer van de implementatie)
+1.  De VNet-gateway ResourceID van het lid dat verbinding maakt (Zie de uitvoer van de implementatie)
 
 2.  De sleutel gedeelde verbinding
 
@@ -359,7 +379,7 @@ Het lid van de bestaande moet het volgende PowerShell-script voor het voltooien 
 
 ![cloudshell](./media/ethereum-poa-deployment-guide/cloud-shell.png)
 
-```bash
+```Powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -425,19 +445,19 @@ ParityLog_CL
 | where Computer == "vl-devn3lgdm-reg1000001"
 | project RawData, TimeGenerated
 | where RawData matches regex PeerCountRegex
-| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int)) 
+| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int))
 | summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
 ```
 
 ### <a name="ssh-access"></a>SSH-toegang
 
-Uit veiligheidsoverwegingen, de toegang tot de SSH-poort is standaard niet toegestaan door een regel voor de beveiliging. Voor toegang tot de virtuele-machineschaalset exemplaren in de PoA-netwerk instellen, moet u deze regel voor het wijzigen \"toestaan\"
+Uit veiligheidsoverwegingen, de toegang tot de SSH-poort is standaard niet toegestaan door een regel voor de beveiliging. Voor toegang tot de virtuele machine-exemplaren in het netwerk PoA, moet u deze regel voor het wijzigen \"toestaan\"
 
 1.  Start in de sectie overzicht van de geïmplementeerde resourcegroep vanuit Azure portal.
 
     ![SSH overzicht](./media/ethereum-poa-deployment-guide/ssh-overview.png)
 
-2.  Selecteer de Netwerkbeveiligingsgroep
+2.  De Netwerkbeveiligingsgroep voor de regio van de virtuele machine die u voor toegang tot uw selecteren
 
     ![SSH nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
 
@@ -452,7 +472,7 @@ Uit veiligheidsoverwegingen, de toegang tot de SSH-poort is standaard niet toege
 5.  Klik op \"opslaan\" (wijzigingen duurt een paar minuten om toe te passen)
 
 U kunt nu op afstand verbinding maken met de virtuele machines voor de validatie van knooppunten via SSH met uw beheerder opgegeven gebruikersnaam en het wachtwoord/SSH-sleutel.
-De SSH-opdracht uit te voeren om toegang tot het eerste knooppunt van de validator wordt vermeld in de sjabloon implementatie output-parameter als ' SSH\_aan\_eerste\_VL\_knooppunt\_Regio1 ' (voor de Voorbeeldimplementatie: ssh - p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). Verhogen om door te gaan naar de knooppunten van extra transactielogboeken, het poortnummer dat door een (bijvoorbeeld het eerste knooppunt van de transactie is op poort 4000).
+De SSH-opdracht uit te voeren om toegang tot het eerste knooppunt van de validator wordt vermeld in de sjabloon implementatie output-parameter als ' SSH\_aan\_eerste\_VL\_knooppunt\_Regio1 ' (voor de Voorbeeldimplementatie: ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). Verhogen om door te gaan naar de knooppunten van extra transactielogboeken, het poortnummer dat door een (bijvoorbeeld het eerste knooppunt van de transactie is op poort 4000).
 
 Als u meer dan één regio geïmplementeerd, wijzigt u de bovenstaande opdracht aan de DNS-naam of IP-adres van de load balancer in die regio. Als u zoekt de DNS-naam of IP-adres van de andere regio's, vinden de resource met de naamconventie \* \* \* \* \*- lbpip reg\#, en bekijk de DNS-naam en het IP-eigenschappen.
 
@@ -474,7 +494,7 @@ Zoek en selecteer \"Traffic Manager-profiel\" na het klikken op de \"een resourc
 
 ![zoekt u azure traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-search.png)
 
-Geef het profiel een unieke naam en selecteer de resourcegroep die is gemaakt tijdens de implementatie PoA.
+Geef het profiel een unieke naam en selecteer de resourcegroep die is gemaakt tijdens de implementatie PoA. Klik op de knop 'Maken' om te implementeren.
 
 ![traffic manager maken](./media/ethereum-poa-deployment-guide/traffic-manager-create.png)
 
@@ -482,13 +502,13 @@ Zodra deze is geïmplementeerd, selecteert u het exemplaar in de resourcegroep. 
 
 ![Ga naar traffic manager DNS](./media/ethereum-poa-deployment-guide/traffic-manager-dns.png)
 
-Selecteer het tabblad eindpunten en klik op de knop toevoegen. Wijzig het doelbrontype naar openbare IP-adres. Selecteer vervolgens het openbare IP-adres van de eerste regio\'s load balancer.
+Selecteer het tabblad eindpunten en klik op de knop toevoegen. Geef het eindpunt een unieke naam. Wijzigen van het doelbrontype naar openbare IP-adres. Selecteer vervolgens het openbare IP-adres van de eerste regio\'s load balancer.
 
 ![Routering traffic manager](./media/ethereum-poa-deployment-guide/traffic-manager-routing.png)
 
 Herhalen voor elke regio in de geïmplementeerde netwerk. Zodra de eindpunten zijn de \"ingeschakeld\" status, ze automatisch worden geladen en de regio met gelijke taakverdeling op de DNS-naam van traffic manager. U kunt nu deze DNS-naam in plaats van de \[CONSORTIUM\_gegevens\_URL\] parameter in de overige stappen van het document.
 
-## <a name="data-api"></a>Gegevens-API
+### <a name="data-api"></a>Gegevens-API
 
 Elk lid van de consortium als host fungeert voor de benodigde gegevens voor andere gebruikers verbinding maken met het netwerk. Het lid van de bestaande biedt de [CONSORTIUM_DATA_URL] voorafgaand aan de implementatie van het lid. Na de implementatie, worden lid van een lid te worden gegevens opgehaald uit de JSON-interface op het eindpunt van de volgende:
 
@@ -497,102 +517,102 @@ Elk lid van de consortium als host fungeert voor de benodigde gegevens voor ande
 Het antwoord bevat informatie die nuttig is voor het toevoegen van leden (Genesis blokkeren, validatie ingesteld contract ABI, bootnodes) en de informatie is nuttig voor het lid van de bestaande (validator adressen). U wordt aangeraden gebruik van deze standaardisatie om uit te breiden het consortium voor cloudproviders. Deze API retourneert een JSON-indeling-antwoord met de volgende structuur:
 ```json
 {
-  "$id": "", 
-  "type": "object", 
-  "definitions": {}, 
-  "$schema": "http://json-schema.org/draft-07/schema#", 
+  "$id": "",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
     "majorVersion": {
-      "$id": "/properties/majorVersion", 
-      "type": "integer", 
-      "title": "This schema’s major version", 
-      "default": 0, 
+      "$id": "/properties/majorVersion",
+      "type": "integer",
+      "title": "This schema’s major version",
+      "default": 0,
       "examples": [
         0
       ]
-    }, 
+    },
     "minorVersion": {
-      "$id": "/properties/minorVersion", 
-      "type": "integer", 
-      "title": "This schema’s minor version", 
-      "default": 0, 
+      "$id": "/properties/minorVersion",
+      "type": "integer",
+      "title": "This schema’s minor version",
+      "default": 0,
       "examples": [
         0
       ]
-    }, 
+    },
     "bootnodes": {
-      "$id": "/properties/bootnodes", 
-      "type": "array", 
+      "$id": "/properties/bootnodes",
+      "type": "array",
       "items": {
-        "$id": "/properties/bootnodes/items", 
-        "type": "string", 
-        "title": "This member’s bootnodes", 
-        "default": "", 
+        "$id": "/properties/bootnodes/items",
+        "type": "string",
+        "title": "This member’s bootnodes",
+        "default": "",
         "examples": [
-          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300", 
+          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300",
           "enode://2d8474289af0bb38e3600a7a481734b2ab19d4eaf719f698fe885fb239f5d33faf217a860b170e2763b67c2f18d91c41272de37ac67386f80d1de57a3d58ddf2@10.1.17.4:30300"
         ]
       }
-    }, 
+    },
     "valSetContract": {
-      "$id": "/properties/valSetContract", 
-      "type": "string", 
-      "title": "The ValidatorSet Contract Source", 
-      "default": "", 
+      "$id": "/properties/valSetContract",
+      "type": "string",
+      "title": "The ValidatorSet Contract Source",
+      "default": "",
       "examples": [
         "pragma solidity 0.4.21;\n\nimport \"./SafeMath.sol\";\nimport \"./Utils.sol\";\n\ncontract ValidatorSet …"
       ]
-    }, 
+    },
     "adminContract": {
-      "$id": "/properties/adminContract", 
-      "type": "string", 
-      "title": "The AdminSet Contract Source", 
-      "default": "", 
+      "$id": "/properties/adminContract",
+      "type": "string",
+      "title": "The AdminSet Contract Source",
+      "default": "",
       "examples": [
         "pragma solidity 0.4.21;\nimport \"./SafeMath.sol\";\nimport \"./SimpleValidatorSet.sol\";\nimport \"./Admin.sol\";\n\ncontract AdminValidatorSet is SimpleValidatorSet { …"
       ]
-    }, 
+    },
     "adminContractABI": {
-      "$id": "/properties/adminContractABI", 
-      "type": "string", 
-      "title": "The Admin Contract ABI", 
-      "default": "", 
+      "$id": "/properties/adminContractABI",
+      "type": "string",
+      "title": "The Admin Contract ABI",
+      "default": "",
       "examples": [
         "[{\"constant\":false,\"inputs\":[{\"name\":\"proposedAdminAddress\",\"type\":\"address\"},…"
       ]
-    }, 
+    },
     "paritySpec": {
-      "$id": "/properties/paritySpec", 
-      "type": "string", 
-      "title": "The Parity client spec file", 
-      "default": "", 
+      "$id": "/properties/paritySpec",
+      "type": "string",
+      "title": "The Parity client spec file",
+      "default": "",
       "examples": [
         "\n{\n \"name\": \"PoA\",\n \"engine\": {\n \"authorityRound\": {\n \"params\": {\n \"stepDuration\": \"2\",\n \"validators\" : {\n \"safeContract\": \"0x0000000000000000000000000000000000000006\"\n },\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\"\n }\n }\n },\n \"params\": {\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\",\n \"wasmActivationTransition\": \"0x0\"\n },\n \"genesis\": {\n \"seal\": {\n \"authorityRound\": {\n \"step\": \"0x0\",\n \"signature\": \"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"\n }\n },\n \"difficulty\": \"0x20000\",\n \"gasLimit\": \"0x2FAF080\"\n },\n \"accounts\": {\n \"0x0000000000000000000000000000000000000001\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ecrecover\", \"pricing\": { \"linear\": { \"base\": 3000, \"word\": 0 } } } },\n \"0x0000000000000000000000000000000000000002\": { \"balance\": \"1\", \"builtin\": { \"name\": \"sha256\", \"pricing\": { \"linear\": { \"base\": 60, \"word\": 12 } } } },\n \"0x0000000000000000000000000000000000000003\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ripemd160\", \"pricing\": { \"linear\": { \"base\": 600, \"word\": 120 } } } },\n \"0x0000000000000000000000000000000000000004\": { \"balance\": \"1\", \"builtin\": { \"name\": \"identity\", \"pricing\": { \"linear\": { \"base\": 15, \"word\": 3 } } } },\n \"0x0000000000000000000000000000000000000006\": { \"balance\": \"0\", \"constructor\" : \"…\" }\n }\n}"
       ]
-    }, 
+    },
     "errorMessage": {
-      "$id": "/properties/errorMessage", 
-      "type": "string", 
-      "title": "Error message", 
-      "default": "", 
+      "$id": "/properties/errorMessage",
+      "type": "string",
+      "title": "Error message",
+      "default": "",
       "examples": [
         ""
       ]
-    }, 
+    },
     "addressList": {
-      "$id": "/properties/addressList", 
-      "type": "object", 
+      "$id": "/properties/addressList",
+      "type": "object",
       "properties": {
         "addresses": {
-          "$id": "/properties/addressList/properties/addresses", 
-          "type": "array", 
+          "$id": "/properties/addressList/properties/addresses",
+          "type": "array",
           "items": {
-            "$id": "/properties/addressList/properties/addresses/items", 
-            "type": "string", 
-            "title": "This member’s validator addresses", 
-            "default": "", 
+            "$id": "/properties/addressList/properties/addresses/items",
+            "type": "string",
+            "title": "This member’s validator addresses",
+            "default": "",
             "examples": [
-              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f", 
+              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f",
               "0x009ce13a7b2532cbd89b2d28cecd75f7cc8c0727"
             ]
           }
@@ -603,7 +623,7 @@ Het antwoord bevat informatie die nuttig is voor het toevoegen van leden (Genesi
 }
 
 ```
-## <a name="development"></a>Ontwikkeling
+## <a name="tutorials"></a>Zelfstudies
 
 ### <a name="programmatically-interacting-with-a-smart-contract"></a>Via een programma interactie met een slimme contract
 
@@ -619,7 +639,7 @@ pragma solidity ^0.4.11;
 contract postBox {
     string message;
     function postMsg(string text) public {
-        message = text; 
+        message = text;
     }
     function getMsg() public view returns (string) {
         return message;
@@ -655,23 +675,23 @@ var account = wallet.generate();
 var accountAddress = account.getAddressString()
 var privateKey = account.getPrivateKey();
 
- // TODO Replace with your RPC endpoint
- var web3 = new Web3(new Web3.providers.HttpProvider(
+// TODO Replace with your RPC endpoint
+var web3 = new Web3(new Web3.providers.HttpProvider(
     "http://testzvdky-dns-reg1.eastus.cloudapp.azure.com:8545"));
- 
+
 // Get the current nonce of the account
- web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
+web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
    var data = web3.eth.contract(abi).at(address).postMsg.getData("Hello World");
    var rawTx = {
      nonce: nonce,
-     gasPrice: '0x00', 
+     gasPrice: '0x00',
      gasLimit: '0x2FAF080',
-     to: address, 
-     value: '0x00', 
+     to: address,
+     value: '0x00',
      data: data
    }
    var tx = new ethereumjs(rawTx);
-   
+
    tx.sign(privateKey);
 
    var raw = '0x' + tx.serialize().toString('hex');
@@ -682,7 +702,47 @@ var privateKey = account.getPrivateKey();
  });
 ```
 
-### <a name="debug-a-smart-contract-truffle-develop"></a>Fouten opsporen in een smart-contract (Truffle ontwikkelen)
+### <a name="deploy-smart-contract-with-truffle"></a>Slimme servicecontract met Truffle implementeren
+
+-   Vereiste bibliotheken installeren
+
+```javascript
+npm init
+
+npm install truffle-hdwallet-provider --save
+```
+-   Truffle.js, voeg de volgende code om uw account MetaMask ontgrendelen en het knooppunt PoA configureren als invoer door te geven van het symbool woordgroep (MetaMask / instellingen / Seed woorden weergeven)
+
+```javascript
+var HDWalletProvider = require("truffle-hdwallet-provider");
+
+var rpc_endpoint = "XXXXXX";
+var mnemonic = "twelve words you can find in metamask/settings/reveal seed words";
+
+module.exports = {
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*" // Match any network id
+    },
+    poa: {
+      provider: new HDWalletProvider(mnemonic, rpc_endpoint),
+      network_id: 3,
+      gasPrice : 0
+    }
+  }
+};
+
+```
+
+-   Implementeren naar PoA netwerk
+
+```javascript
+$ truffle migrate --network poa
+```
+
+### <a name="debug-smart-contract-with-truffle"></a>Fouten opsporen in slimme servicecontract met Truffle
 
 Truffle heeft een lokale ontwikkelen-netwerk dat beschikbaar is voor het opsporen van fouten in slimme contract. U vindt de volledige zelfstudie [hier](http://truffleframework.com/tutorials/debugging-a-smart-contract).
 
@@ -694,28 +754,46 @@ Ondersteuning voor WebAssembly is al ingeschakeld voor u op de zojuist geïmplem
 
 -   Zelfstudie van pariteit Tech- <https://github.com/paritytech/pwasm-tutorial>
 
-## <a name="faq"></a>Veelgestelde vragen
+## <a name="reference"></a>Referentie
 
-### <a name="i-notice-a-bunch-of-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Ik zie een groot aantal transacties in het netwerk dat ik komen\'t verzenden. Waar deze vandaan?
+### <a name="faq"></a>Veelgestelde vragen
 
-Het is onveilig voor het ontgrendelen van het [persoonlijke API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Bot-accounts luisteren voor niet-vergrendelde Ethereum-accounts en verwijderen uit de bestaande fondsen proberen. De bot wordt ervan uitgegaan dat deze accounts real-ether bevatten en proberen om het saldo siphon als eerste. Schakel de persoonlijke API op het netwerk niet. Vooraf zich in plaats daarvan de transacties handmatig met behulp van een portefeuille zoals MetaMask of via een programma zoals wordt beschreven in de sectie via een programma interactie met een slimme Contract.
+#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Ik zie dat er veel transacties in het netwerk zijn die ik komen\'t verzenden. Waar deze vandaan?
 
-### <a name="how-to-ssh-onto-a-vm"></a>Hoe kunt u SSH naar een virtuele machine?
+Het is onveilig voor het ontgrendelen van het [persoonlijke API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Bots luisteren voor niet-vergrendelde Ethereum-accounts en verwijderen uit de bestaande fondsen proberen. De bot wordt ervan uitgegaan dat deze accounts real-ether bevatten en proberen om het saldo siphon als eerste. Schakel de persoonlijke API op het netwerk niet. Vooraf zich in plaats daarvan de transacties handmatig met behulp van een portefeuille zoals MetaMask of via een programma zoals wordt beschreven in de sectie [via een programma interactie met een slimme Contract](#programmatically-interacting-with-a-smart-contract).
 
-We vergrendelen de SSH-poort voor opmaaktalen wordt om beveiligingsredenen. Ga als volgt [deze handleiding voor het inschakelen van de SSH-poort](#_Accessing_Nodes_via).
+#### <a name="how-to-ssh-onto-a-vm"></a>Hoe kunt u SSH naar een virtuele machine?
 
-### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Hoe stel ik een audit lid of de transactie-knooppunten
+De SSH-poort is niet beschikbaar voor opmaaktalen wordt om beveiligingsredenen. Ga als volgt [deze handleiding voor het inschakelen van de SSH-poort](#ssh-access).
+
+#### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Hoe stel ik een audit lid of de transactie-knooppunten
 
 Transactie-knooppunten zijn een set van pariteit-clients die zijn gekoppeld aan het netwerk, maar niet deelnemen aan consensus. Deze knooppunten kunnen indienen Ethereum-transacties en de contractstatus van de slimme lezen nog steeds worden gebruikt.
-Dit werkt ook als een mechanisme voor het ontwikkelen van controleerbaarheid naar toezichthouders van het netwerk. Voor het bereiken van dit gewoon volgt u stap 2 van het Consortium groeit.
+Dit werkt ook als mechanisme voor het bieden van controleerbaarheid aan niet-authority consortium leden in het netwerk. Voor het bereiken van dit gewoon volgt u stap 2 van het Consortium groeit.
 
-### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Waarom zijn MetaMask transacties veel tijd nodig?
+#### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Waarom zijn MetaMask transacties veel tijd nodig?
 
 Om ervoor te zorgen voor transacties in de juiste volgorde worden ontvangen, wordt elke transactie Ethereum geleverd met een ophogende nonce. Als u een account hebt gebruikt in MetaMask op een ander netwerk, moet u de nonce waarde. Klik op het Instellingenpictogram (3-balken), instellingen, Account opnieuw instellen. De transactiegeschiedenis worden gewist en u kunt nu de transactie opnieuw.
 
-### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Openbaar IP-adres implementaties compatibel zijn met het privénetwerk implementaties?
+#### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>Heb ik nodig om op te geven gas kosten in MetaMask?
+
+Ether dienen niet een doel in proof-of-authority consortium. Er is daarom niet nodig om op te geven gas kosten bij het indienen van transacties in MetaMask.
+
+#### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>Wat moet ik doen als mijn implementatie is mislukt vanwege een fout voor het inrichten van OMS in Azure?
+
+Bewaking is een optionele functie. In sommige gevallen waar uw implementatie vanwege de modeldatabase groter om in te richten is resource van Azure Monitor mislukt kunt u opnieuw implementeren zonder Azure Monitor.
+
+#### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Openbare IP-implementaties compatibel zijn met het particuliere netwerkimplementaties?
 
 Nee, voor peering moeten communicatie in twee richtingen, zodat het hele netwerk lid van openbare of privécloud zijn moet.
+
+#### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Wat is de verwachte transactie-doorvoer van Proof-of-Authority?
+
+De transactiedoorvoer is sterk afhankelijk van de typen van transacties en de netwerktopologie.  Met behulp van eenvoudige transacties, hebben we een gemiddelde van 400 transacties per seconde benchmarked met een netwerk in meerdere regio's.
+
+#### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Hoe ik abonneren op slimme contract gebeurtenissen?
+
+Ethereum Proof-of-Authority biedt nu ondersteuning voor web-sockets.  Controleer de implementatie van e-mailadres of de implementatie van de uitvoer naar de web socket-URL en de poort niet vinden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

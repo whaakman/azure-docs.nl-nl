@@ -10,39 +10,30 @@ ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 6e15a2c940778427c953bd0a3d469ef55f7e3187
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632055"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980267"
 ---
-# <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Hoe: uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Wat is de Azure AD-toepassingsgalerie?
 
-Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseerde. De [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/) is in de Azure Marketplace appstore, waar alle toepassingsconnectoren voor eenmalige aanmelding en inrichten van gebruikers worden gepubliceerd. Klanten die gebruikmaken van Azure AD als id-provider vinden de verschillende SaaS-toepassing connectors gepubliceerd hier. IT-beheerders connectors toevoegen vanuit de app-galerie, en vervolgens configureren en gebruiken van de connectors voor eenmalige aanmelding en de inrichting. Azure AD ondersteunt alle belangrijke federation-protocollen voor eenmalige aanmelding, met inbegrip van SAML 2.0, OpenID Connect, OAuth en WS-Federation.
-
-## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Wat zijn de voordelen van de aanbieding van een toepassing in de galerie?
-
-*  Klanten vinden de best mogelijke eenmalige aanmelding ervaring.
-
-*  Configuratie van de toepassing is eenvoudig en minimale.
-
-*  Uw toepassing zoekt een snelle zoekactie in de galerie.
-
-*  Gratis, Basic en Premium, Azure AD-klanten kunnen worden gebruikt door deze integratie.
-
-*  Wederzijdse klanten krijgen een stapsgewijze configuratie-zelfstudie.
-
-*  Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
+- Klanten vinden de best mogelijke eenmalige aanmelding ervaring.
+- Configuratie van de toepassing is eenvoudig en minimale.
+- Uw toepassing zoekt een snelle zoekactie in de galerie.
+- Gratis, Basic en Premium, Azure AD-klanten kunnen worden gebruikt door deze integratie.
+- Wederzijdse klanten krijgen een stapsgewijze configuratie-zelfstudie.
+- Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -52,9 +43,9 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseer
 
 - Voor SAML 2.0/WS-Federation moet uw toepassing de mogelijkheid de SAML/WS-Federation SSO integreren in de modus SP of id-provider. Zorg ervoor dat deze correct werkt voordat de aanvraag is ingediend.
 
-- Voor eenmalige aanmelding het wachtwoord, zorg ervoor dat uw toepassing ondersteuning biedt voor formulierverificatie zodat wachtwoordkluis kan worden gedaan om op te halen van eenmalige aanmelding werken zoals verwacht.
+- SSO-wachtwoord, zorg ervoor dat uw toepassing ondersteuning biedt voor formulierverificatie zodat wachtwoordkluis kan worden gedaan om op te halen van eenmalige aanmelding werken zoals verwacht.
 
-- Voor aanvragen automatisch gebruikers inrichten moet toepassing worden weergegeven in de galerie met één functie aanmelding ingeschakeld met behulp van een van de federation-protocol die hierboven worden beschreven. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
+- Voor automatische inrichting van gebruikers aanvragen voor moet toepassing worden vermeld in de galerie met één functie aanmelding ingeschakeld met behulp van een van de federation-protocol die hierboven worden beschreven. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
 
 ## <a name="submit-the-request-in-the-portal"></a>Dien de aanvraag in de portal
 
@@ -79,14 +70,13 @@ Ons team controleert de details en hebt die u toegang dienovereenkomstig. Zodra 
 
 ## <a name="implementing-sso-using-federation-protocol"></a>Eenmalige aanmelding met behulp van de federation-protocol implementeren
 
-Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD te implementeren en akkoord gaat met Azure AD-toepassing galerie voorwaarden en bepalingen. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie van [hier](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
+Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD te implementeren en akkoord gaat met Azure AD-toepassing galerie voorwaarden en bepalingen. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie van [hier](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-*   **OpenID Connect**: als u wilt uw toepassing integreren met Azure AD met behulp van het Open ID Connect-protocol, volgt u de [ontwikkelaars instructies](authentication-scenarios.md).
+- **OpenID Connect**: als u wilt uw toepassing integreren met Azure AD met behulp van het Open ID Connect-protocol, volgt u de [ontwikkelaars instructies](authentication-scenarios.md).
 
     ![Tijdlijn van de OpenID Connect-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/openid.png)
 
     * Als u wilt uw toepassing toevoegen aan lijst in de galerie met OpenID Connect, selecteer **OpenID Connect en OAuth 2.0** zoals hierboven.
-
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 *   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
@@ -94,7 +84,6 @@ Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de vol
     ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
 
     * Als u wilt dat uw toepassing toevoegen aan lijst in de galerie met **SAML 2.0** of **WS-Federation**, selecteer **SAMl 2.0/WS-Federation** zoals hierboven.
-
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Eenmalige aanmelding met wachtwoord eenmalige aanmelding implementeren
@@ -104,21 +93,18 @@ Maak een webtoepassing met een HTML-aanmeldingspagina configureren [wachtwoord g
 ![Tijdlijn van de aanbieding wachtwoord SSO-toepassing in de galerie](./media/howto-app-gallery-listing/passwordsso.png)
 
 * Als u wilt uw toepassing toevoegen aan lijst in de galerie met behulp van wachtwoord SSO, selecteer **wachtwoord SSO** zoals hierboven.
-
 * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="updateremove-existing-listing"></a>Bestaande aanbieding bijwerken/verwijderen
 
 Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie van Azure AD-app, moet u eerst dien de aanvraag in de [Portal voor App-netwerk](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Als u een Office 365-account hebt, kunt u die zich aanmeldt bij deze portal gebruiken. Als dat niet het geval is, moet u uw Microsoft-account (zoals Outlook of Hotmail) gebruikt om te melden.
 
-* Selecteer relevante optie uit de onderstaande afbeelding
+- Selecteer de gewenste optie, zoals wordt weergegeven in de volgende afbeelding:
 
     ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/updateorremove.png)
 
     * Als u een bestaande toepassing bijwerken wilt, selecteert u **bijwerken van bestaande toepassing aanbieding**.
-
-    * Als u verwijderen van een bestaande toepassing in de Azure AD-galerie wilt, selecteert u **bestaande toepassing aanbieding verwijderen**
-
+    * Als u verwijderen van een bestaande toepassing in de Azure AD-galerie wilt, selecteert u **verwijderen van de bestaande toepassing aanbieding**.
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 ## <a name="timelines"></a>Tijdlijnen

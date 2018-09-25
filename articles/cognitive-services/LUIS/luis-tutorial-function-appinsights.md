@@ -1,24 +1,26 @@
 ---
-title: LUIS-gegevens toevoegen aan de Application Insights met behulp van Node.js | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights-gegevens van LUIS met C#
+titleSuffix: Azure Cognitive Services
 description: Bouw een bot die is geïntegreerd met een LUIS-toepassing en de Application Insights met behulp van Node.js.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236836"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037997"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>LUIS resultaten naar Application Insights toevoegen uit een web-app-bot
+# <a name="add-luis-results-to-application-insights"></a>LUIS resultaten naar Application Insights toevoegen
 In deze zelfstudie voegt LUIS-aanvraag en respons informatie aan [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetrie-gegevensopslag. Zodra u deze gegevens hebt, kunt u deze met de Kusto-taal of Power BI te analyseren, samenvoegen, opvragen en te rapporteren intenties en entiteiten van de utterance in realtime. Met deze analyse kunt u bepalen of u moet toevoegen of bewerken van de intenties en entiteiten van uw LUIS-app.
+
+De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 
 In deze zelfstudie leert u het volgende:
 
@@ -151,7 +153,7 @@ Application Insights biedt u de power query uitvoeren op gegevens die met de [Ku
     ![Belangrijkste doel van Analytics](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-Meer informatie over de [Kusto-querytaal](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Meer informatie over de [Kusto-querytaal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) of [de gegevens exporteren naar Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

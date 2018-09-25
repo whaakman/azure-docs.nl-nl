@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966542"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Veelgestelde vragen over verbonden Factory-oplossingsversnellers
 
@@ -111,7 +111,7 @@ De simulatie zelf registreert de volgende apparaten:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Met behulp van de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) of [de IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) hulpprogramma, kunt u controleren welke apparaten zijn geregistreerd bij de IoT-hub die van uw oplossing gebruikmaakt. Apparaat als explorer wilt gebruiken, moet u de verbindingsreeks voor de IoT-hub in uw implementatie. Voor het gebruik van de IoT-extensie voor Azure CLI 2.0, moet u de naam van uw IoT-Hub.
+Met behulp van de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) of [de IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension) hulpprogramma, kunt u controleren welke apparaten zijn geregistreerd bij de IoT-hub die van uw oplossing gebruikmaakt. Apparaat als explorer wilt gebruiken, moet u de verbindingsreeks voor de IoT-hub in uw implementatie. Voor het gebruik van de IoT-extensie voor Azure CLI, moet u de naam van uw IoT-Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hoe vind ik logboekgegevens uit de onderdelen van de simulatie?
 

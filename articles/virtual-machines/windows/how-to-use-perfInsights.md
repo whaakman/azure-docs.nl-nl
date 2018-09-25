@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 405c85c24ca3a956a3d75733c5dd13a6f12de46a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668118"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042411"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights gebruiken
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is een hulpprogramma voor zelfhulp diagnostische gegevens die u verzamelt en analyseert de diagnostische gegevens en biedt een rapport voor het oplossen van problemen met prestaties van Windows-virtuele machine in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als een zelfstandig hulpprogramma, of rechtstreeks vanuit de portal door te installeren [Azure prestaties diagnostische VM-extensie](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) is een hulpprogramma voor zelfhulp diagnostische gegevens verzamelt, analyseert de diagnostische gegevens en biedt een rapport voor het oplossen van problemen met prestaties van Windows-virtuele machine in Azure. PerfInsights kan worden uitgevoerd op virtuele machines als een zelfstandig hulpprogramma, rechtstreeks vanuit de portal met behulp van [Prestatiediagnoses voor Azure virtual machines](performance-diagnostics.md), of door het installeren van [Azure prestaties diagnostische VM-extensie ](performance-diagnostics-vm-extension.md).
 
 Als u problemen met de prestaties met virtuele machines, ondervindt voordat u contact opnemen met ondersteuning, moet u dit hulpprogramma uitvoeren.
 

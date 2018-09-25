@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b816d94c8d85ad7d28dfc76072627423a30f6704
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a4c389d063bb63f2fa2293d54236f99d7035e0e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293809"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060522"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>De Microsoft Graph-API aanroepen vanuit een toepassing met JavaScript één pagina (SPA)
 
@@ -47,6 +47,7 @@ Deze handleiding worden de volgende bibliotheek gebruikt:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library voor JavaScript-Preview|
 
 > [!NOTE]
-> *msal.js* doelen de *Azure Active Directory v2-eindpunt* -waarmee privé, school- als accounts aanmelden en tokens verkrijgen. De *Azure Active Directory v2-eindpunt* heeft [enkele beperkingen](..\articles\active-directory\develop\active-directory-v2-limitations.md). Als u alleen geïnteresseerd in school als accounts, gebruikt u *adal.js* en de *V1-eindpunt*. Om te begrijpen van de verschillen tussen de v1 en v2-eindpunten lezen de [vergelijking van v1-v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
+> *msal.js* doelen de *Azure Active Directory v2-eindpunt* -waarmee privé, school- als accounts aanmelden en tokens verkrijgen. De *Azure Active Directory v2-eindpunt* heeft [enkele beperkingen](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> Om te begrijpen van de verschillen tussen de v1 en v2-eindpunten lezen de [vergelijking van v1-v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

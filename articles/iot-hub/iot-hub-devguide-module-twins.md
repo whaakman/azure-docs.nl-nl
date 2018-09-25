@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039374"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Begrijpen en gebruiken van moduledubbels in IoT Hub
 
@@ -250,7 +250,7 @@ Labels en gewenste eigenschappen, gerapporteerde eigenschappen zijn JSON-objecte
     }
     ```
 
-* Alle tekenreekswaarden mag maximaal 4 KB lang.
+* Alle tekenreekswaarden kunnen maximaal 512 bytes lang zijn.
 
 ## <a name="module-twin-size"></a>Omvang van integratiemodule twin
 IoT Hub dwingt een beperking van de grootte van 8KB op elk van de respectieve totale waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.

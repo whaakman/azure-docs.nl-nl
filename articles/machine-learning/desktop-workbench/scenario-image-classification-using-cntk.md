@@ -12,14 +12,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: a8c258a9bc8e006d5bbae4b7bbb61c7ef6e95412
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605943"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995088"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Afbeeldingsclassificatie met behulp van Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Afbeelding classificatie methoden kunnen worden gebruikt voor het oplossen van een groot aantal Computer Vision-problemen.
 Deze omvatten het ontwikkelen van modellen die antwoorden op vragen zoals: *Is een aanwezig zijn in de installatiekopie van het OBJECT?* waar OBJECT kan bijvoorbeeld worden *hond*, *auto*, of  *Verzend*. Of complexere vragen zoals: *welke klasse van ogen ziekten ernst is evinced door retinal scan van de patiënt?*.
@@ -51,7 +56,7 @@ Hoewel eerdere ervaring met machine learning en CNTK niet vereist is, is het han
 De vereisten voor het uitvoeren van dit voorbeeld zijn er als volgt uit:
 
 1. Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
-2. De [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](../service/quickstart-installation.md) aan het programma te installeren en een werkruimte maken.  
+2. De [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](quickstart-installation.md) aan het programma te installeren en een werkruimte maken.  
 3. Een Windows-machine. Windows-besturingssysteem is nodig omdat de Workbench alleen Windows en MacOS, terwijl de Microsoft Cognitive Toolkit ondersteunt (die we gebruiken als deep learning-bibliotheek) biedt alleen ondersteuning voor Windows en Linux.
 4. Een GPU die toegewezen is niet vereist voor het uitvoeren van de training SVM in deel 1, maar dit is nodig voor het verfijnen van de DNN in deel 2 beschreven. Als u niet over een sterke GPU, wilt trainen op meerdere GPU's of geen een Windows-machine hebt, klikt u vervolgens kunt u overwegen van Azure Deep Learning Virtual Machine met Windows-besturingssysteem. Zie [hier](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) voor een 1-klikken-Implementatiehandleiding. Zodra geïmplementeerd, verbinding maken met de virtuele machine via een verbinding met extern bureaublad, er Workbench installeren en de code lokaal uitvoeren van de virtuele machine.
 5. Verschillende Python-bibliotheken zoals OpenCV moeten worden geïnstalleerd. Klik op *Open Command Prompt* uit de *bestand* menu in de Workbench en de volgende opdrachten voor het installeren van deze afhankelijkheden:  

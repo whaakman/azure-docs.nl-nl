@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd8a9e651c3b2369ae29be966ba4c9cbe0ae579b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697361"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972909"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Meerdere IP-adressen toewijzen aan virtuele machines met de Azure CLI
 
@@ -34,7 +34,7 @@ In dit artikel wordt uitgelegd hoe u een virtuele machine (VM) maken via het Azu
 
 De volgende stappen wordt uitgelegd hoe u een voorbeeld van de virtuele machine maken met meerdere IP-adressen, zoals beschreven in het scenario. Variabelewaarden wijzigen in ' ' en de typen van het IP-adres, zoals vereist voor uw implementatie. 
 
-1. Installeer de [Azure CLI 2.0](/cli/azure/install-az-cli2) als u dit nog niet geïnstalleerd.
+1. Installeer de [Azure CLI](/cli/azure/install-azure-cli) als u dit nog niet geïnstalleerd.
 2. De openbare en persoonlijke sleutelpaar voor een SSH voor virtuele Linux-machines maken via de stappen in de [maken van de openbare en persoonlijke sleutelpaar voor een SSH voor virtuele Linux-machines](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. Uit een opdrachtshell, meld u aan met de opdracht `az login` en selecteer het abonnement dat u gebruikt.
 4. De virtuele machine maken door het uitvoeren van het script dat op een Linux- of Mac-computer volgt. Het script maakt een resourcegroep, een virtueel netwerk (VNet), één NIC met drie IP-configuraties en een virtuele machine met de twee NIC's die zijn gekoppeld aan deze. De NIC, een openbaar IP-adres, een virtueel netwerk en een VM-resources moeten al bestaan in dezelfde locatie en abonnement. Hoewel de resources niet allemaal hebben bestaan in dezelfde resourcegroep bevinden, in het volgende script doen ze.
@@ -157,7 +157,7 @@ az vm create \
 
 Naast het maken van een virtuele machine met een NIC met 3 IP-configuraties, maakt u het script:
 
-- Een enkele premium beheerde schijf standaard, maar er zijn andere opties voor het schijftype dat u kunt maken. Lees de [een Linux VM maken met de Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel voor meer informatie.
+- Een enkele premium beheerde schijf standaard, maar er zijn andere opties voor het schijftype dat u kunt maken. Lees de [maken van een Linux-VM met de Azure CLI](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel voor meer informatie.
 - Een virtueel netwerk met één subnet en twee openbare IP-adressen. U kunt ook gebruiken *bestaande* virtueel netwerk, subnet, NIC of openbare IP-adres-resources. Voor meer informatie over het gebruik van bestaande netwerkbronnen in plaats van het maken van aanvullende resources, voer `az vm create -h`.
 
 Openbare IP-adressen hebben nominale kosten in rekening. Lees voor meer informatie over prijzen voor IP-adres, de [prijzen van IP-adressen](https://azure.microsoft.com/pricing/details/ip-addresses) pagina. Er is een limiet aan het aantal openbare IP-adressen die kunnen worden gebruikt in een abonnement. Lees voor meer informatie over de limieten het artikel [Azure-limieten](../azure-subscription-service-limits.md#networking-limits).
@@ -170,7 +170,7 @@ De privé IP-adressen toevoegen aan het besturingssysteem van de virtuele machin
 
 U kunt extra persoonlijke en openbare IP-adressen toevoegen aan een bestaande Azure-netwerk-interface via de stappen die volgen. De voorbeelden zijn gebaseerd op de [scenario](#Scenario) in dit artikel beschreven.
 
-1. Open een opdrachtshell en voltooi de resterende stappen in deze sectie in één sessie. Als u nog geen Azure-CLI is geïnstalleerd en geconfigureerd hebt, voer de stappen in de [installatie van Azure CLI 2.0](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel en meld u aan bij uw Azure-account met de `az-login` opdracht.
+1. Open een opdrachtshell en voltooi de resterende stappen in deze sectie in één sessie. Als u nog geen Azure-CLI is geïnstalleerd en geconfigureerd hebt, voer de stappen in de [Azure CLI-installatie](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel en meld u aan bij uw Azure-account met de `az-login` opdracht.
 
 2. Volg de stappen in een van de volgende secties, op basis van uw vereisten:
 

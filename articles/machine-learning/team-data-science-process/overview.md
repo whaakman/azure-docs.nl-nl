@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303775"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996448"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 
@@ -89,10 +89,10 @@ De mapstructuur kan worden gekloond van [Github](https://github.com/Azure/Azure-
 
 TDSP bevat aanbevelingen voor het beheren van gedeelde analyse- en opslaginfrastructuur, zoals:
 
-- cloud-bestandssystemen voor het opslaan van gegevenssets, 
+- cloud-bestandssystemen voor het opslaan van gegevenssets 
 - databases
 - de clusters (Hadoop- of Apache Spark) big data 
-- machine learning-services. 
+- machine learning-service 
 
 De analyse- en opslaginfrastructuur kan zich in de cloud of on-premises. Dit is waar de onbewerkte gegevens en verwerkte gegevenssets worden opgeslagen. Deze infrastructuur kunt reproduceerbare analyse. Ook voorkomt u dubbele, wat tot inconsistenties en onnodige infrastructuurkosten leiden kan. Hulpprogramma's worden aan de gedeelde resources inrichten, traceren en zorgen dat elk teamlid veilig verbinding maken met deze resources verstrekt. Het is ook een goede gewoonte om het project leden maken van een consistente compute-omgeving. Andere teamleden kunnen vervolgens worden gerepliceerd en experimenten valideren.
 

@@ -1,6 +1,6 @@
 ---
-title: Gebruik van een Linux-VM met de Azure CLI 2.0 probleemoplossing | Microsoft Docs
-description: Informatie over het oplossen van problemen met Linux-VM door verbinding te maken van de besturingssysteemschijf aan een virtuele machine met behulp van de Azure CLI 2.0 voor herstel
+title: Gebruik van een virtuele machine met de Azure CLI voor het oplossen van problemen voor Linux | Microsoft Docs
+description: Informatie over het oplossen van problemen met Linux-VM door verbinding te maken van de besturingssysteemschijf aan een virtuele machine met de Azure CLI voor herstel
 services: virtual-machines-linux
 documentationCenter: ''
 authors: cynthn
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7f15e0b63b5f3635bba44184fc057231213a7e0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931392"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990872"
 ---
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI 2.0 voor herstel
-Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure CLI 2.0. 
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Een Linux-VM oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met de Azure CLI voor herstel
 
+Als uw Linux-machine (VM) een fout opstart- of schijffout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` dat voorkomt dat de virtuele machine wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de virtuele harde schijf met een andere Linux-VM op eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine opnieuw te maken met de Azure CLI. 
 
 ## <a name="recovery-process-overview"></a>Overzicht van het herstelproces
+
 Het probleemoplossingsproces is als volgt:
 
 1. Verwijder de virtuele machine problemen worden aangetroffen, de virtuele harde schijven te houden.
@@ -35,7 +36,7 @@ Het probleemoplossingsproces is als volgt:
 
 Voor de virtuele machine die gebruikmaakt van beheerde schijf, Zie [een beheerde schijf-VM oplossen door het koppelen van een nieuwe schijf met besturingssysteem](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-Als u deze stappen voor probleemoplossing, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Als u deze stappen voor probleemoplossing, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u namen van parameters vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten `myResourceGroup`, `mystorageaccount`, en `myVM`.
 

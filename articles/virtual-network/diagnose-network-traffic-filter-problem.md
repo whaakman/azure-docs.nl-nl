@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364009"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984225"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Een probleem VM-netwerk-verkeersfilter vaststellen
 
@@ -111,7 +111,7 @@ In de uitvoer van de vorige naam van de netwerk-interface is *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Vaststellen met behulp van Azure CLI
 
-Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In dit artikel gebruikmaken van Azure CLI versie 2.0.32 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` en meld u aan bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions).
+Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In dit artikel gebruikmaken van Azure CLI versie 2.0.32 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` en meld u aan bij Azure met een account met de [benodigde machtigingen](virtual-network-network-interface.md#permissions).
 
 De effectieve beveiligingsregels ophalen voor een netwerkinterface met [az network nic list-effectief-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). Het volgende voorbeeld wordt de effectieve beveiligingsregels voor een netwerkinterface met de naam *myVMVMNic* die zich in een resourcegroep met de naam *myResourceGroup*:
 

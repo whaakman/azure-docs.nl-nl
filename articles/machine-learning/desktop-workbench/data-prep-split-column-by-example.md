@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646342"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953732"
 ---
 # <a name="split-column-by-example-transformation"></a>Kolom splitsen per voorbeeld transformatie
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 De inhoud van een kolom in duidelijke grenzen splitst deze transformatie predictively zonder invoer van de gebruiker. De Split-algoritme selecteert de grenzen na het analyseren van de inhoud van de kolom. Deze grenzen kunnen worden gedefinieerd door
 * Een vaste scheidingsteken
 * Meerdere, willekeurige scheidingstekens worden weergegeven in het bijzonder contexten, of,
@@ -182,4 +187,4 @@ In het volgende voorbeeld willen we de waarden te scheiden van de eenheden. Opni
 
 ## <a name="technical-notes"></a>Opmerkingen bij de technische
 
-De functie Split-transformatie is gebaseerd op de **voorspellende Program Synthesis** techniek. In deze techniek, zijn de programma's voor transformatie op basis van de ingevoerde gegevens automatisch geleerd. De programma's zijn gemaakt in een domein-specifieke taal. De DSL is gebaseerd op de velden die in het bijzonder reguliere expressie contexten optreden en scheidingstekens. Meer informatie over deze technologie kan worden gevonden een [recente publicatie van dit onderwerp](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+De functie Split-transformatie is gebaseerd op de **voorspellende Program Synthesis** techniek. In deze techniek, zijn de programma's voor transformatie op basis van de ingevoerde gegevens automatisch geleerd. De programma's zijn gemaakt in een domein-specifieke taal. De DSL is gebaseerd op de velden die in het bijzonder reguliere expressie contexten optreden en scheidingstekens. Meer informatie over deze technologie kan worden gevonden een [recente publicatie van dit onderwerp](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

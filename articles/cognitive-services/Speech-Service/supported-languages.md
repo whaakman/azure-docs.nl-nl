@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a4307ee0ff210dafee5afe51bd9cb90db9be22e5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d28c67b1c7039f6e139a897196d88464b3bcf977
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295425"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064336"
 ---
 # <a name="supported-languages-for-speech-service"></a>Ondersteunde talen voor spraak-service
 
@@ -22,29 +22,41 @@ Andere talen worden ondersteund voor verschillende functies voor spraak-service.
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
-De Microsoft-spraakherkenning API ondersteunt de volgende talen. 
+De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende niveaus van aanpassingen zijn beschikbaar voor elke taal.  
 
-  Code | Taal | Akoestische aanpassing | Aanpassing van taal | Uitspraak van aanpassing
+  Code | Taal | [Akoestische aanpassing](how-to-customize-acoustic-models.md) | [Aanpassing van taal](how-to-customize-language-model.md) | [Uitspraak van aanpassing](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-bijvoorbeeld | Arabisch (Egypte), moderne standard | Nee | Ja | Nee
- IT-IT | Italiaans (Italië) | Nee | Ja | Nee 
- de-DE | Duits (Duitsland) | Nee | Ja | Ja
- fr-FR | Frans (Frankrijk) | Nee | Ja | Nee
+ CA-ES | Catalaans | Nee | Nee | Nee
+ da-DK | Deens (Denemarken) | Nee | Nee | Nee
+ de-DE | Duits (Duitsland) | Ja | Ja | Nee
+ en-AU | Engels (Australië) | Ja | Ja | Ja
+ NL-CA | Engels (Canada) | Ja | Ja | Ja
+ en-GB | Engels (Verenigd Koninkrijk) | Ja | Ja | Ja
+ NL-IN | English (India) | Nee | Ja | Ja
+ NL-NZ | Engels (Nieuw-Zeeland) | Ja | Ja | Ja  
  nl-NL | Engels (Verenigde Staten) | Ja | Ja | Ja
- en-GB | Engels (Brits) | Nee | Ja | Nee
- NL-CA | Engels (Canada) | Nee | Ja | Nee
- en-AU | Engels (Australië) | Nee | Ja | Nee
- es-ES | Spaans (Spanje) | Nee | Ja | Nee
- NL-NL | Nederlands (Nederland) | Nee | Ja | Nee
- pt-PT | Portoguese (Portogal) | Nee | Ja | Nee
- tr-TR | Turks (Turkije) | Nee | Ja | Nee
- pt-BR | Portugees (Brazilië) | Nee | Ja | Nee
- ru-RU | Russisch (Rusland) | Nee | Ja | Nee
- zh-CN | Chinees (Mandarijn, vereenvoudigd) | Nee | Ja | Nee
- zh-HK | Chinees (Mandarijn, traditionele) | Nee | Ja | Nee
- zh-TW | Chinees (Taiwan Mandarijn) | Nee | Ja | Nee
+ es-ES | Spaans (Spanje) | Ja | Ja | Nee
+ es-MX | Spaans (Mexico) | Ja | Ja | Nee 
+ fi-FI | Fins (Finland) | Nee | Nee | Nee 
+ fr-CA | Frans (Canada) | Ja | Ja | Nee 
+ fr-FR | Frans (Frankrijk) | Ja | Ja | Nee
+ hi-IN | Hindi (India) | Nee | Ja | Nee 
+ IT-IT | Italiaans (Italië) | Ja | Ja | Nee
  ja-JP | Japans (Japan) | Nee | Ja | Nee
  ko-KR | Koreaans (Korea) | Nee | Ja | Nee
+ nb-NO | Noors (Bokmål) (Noorwegen) | Nee | Nee | Nee 
+ NL-NL | Nederlands (Nederland) | Nee | Ja | Nee
+ pl-PL | Pools (Polen) | Nee | Nee | Nee
+ pt-BR | Portugees (Brazilië) | Nee | Ja | Nee
+ pt-PT | Portugees (Portugal) | Nee | Ja | Nee
+ ru-RU | Russisch (Rusland) | Nee | Ja | Nee
+ SV-SE | Zweeds (Zweden) | Nee | Nee | Nee 
+ zh-CN | Chinees (Mandarijn, vereenvoudigd) | Ja | Ja | Nee
+ zh-HK | Chinees (Mandarijn, traditionele) | Nee | Ja | Nee
+ zh-TW | Chinees (Taiwan Mandarijn) | Nee | Ja | Nee
+ e-e | Thai (Thailand) | Nee | Nee | Nee
+
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
@@ -52,11 +64,12 @@ De spraak-API voor synthese biedt de volgende stemmen, die ondersteuning biedt v
 
 Landinstelling | Taal | Geslacht | De toewijzing van service
 -------|----------|---------|--------------------
-ar bijvoorbeeld * | Arabisch (Egypte) | Vrouw | "Microsoft Server spraak tekst en spraak spraak (ar-bijvoorbeeld Hoda)"
+ar-bijvoorbeeld\* | Arabisch (Egypte) | Vrouw | "Microsoft Server spraak tekst en spraak spraak (ar-bijvoorbeeld Hoda)"
 ar-SA | Arabisch (Saoedi-Arabië) | Man | "Microsoft Server spraak tekst en spraak, spraak (ar-SA, Naayf)"
 bg-BG | Bulgaars | Man | "Microsoft Server tekst naar spraak stem (bg-BG, Ivan)"
 CA-ES | Catalaans | Vrouw | "Microsoft Server tekst naar spraak stem (ca-ES, HerenaRUS)"
 cs-CZ | Tsjechisch | Man | "Microsoft Server spraak tekst en spraak spraak (cs-CZ, Jakub)"
+cs-CZ | Tsjechisch | Man | "Microsoft Server spraak tekst en spraak spraak (cs-CZ, Vit)"
 da-DK | Deens | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (da-DK, HelleRUS)"
 de-AT | Duits (Oostenrijk) | Man | "Microsoft Server spraak tekst en spraak, spraak (de-AT, Michael)"
 de CH | Duits (Zwitserland) | Man | "Microsoft Server spraak tekst en spraak, spraak (de-h, Karsten)"
@@ -72,6 +85,7 @@ en-GB | English (UK) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak 
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-GB, HazelRUS)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (en-GB, George, Apollo)"
 NL-Internet Explorer | Engels (Ierland) |Man | "Microsoft Server spraak tekst en spraak, spraak (en Internet Explorer, Jan)"
+NL-Internet Explorer | Engels (Ierland) |Man | "Microsoft Server spraak tekst en spraak, spraak (en Internet Explorer, Shaun)"
 NL-IN | English (India) | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Heera, Apollo)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, PriyaRUS)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Ravi, Apollo)"
@@ -116,13 +130,14 @@ ro-RO | Roemeens | Man | "Microsoft Server spraak tekst en spraak, spraak (ro-RO
 ru-RU |Russisch| Vrouw | "Microsoft Server tekst naar spraak stem (ru-RU, Irina, Apollo)"
 | | |Man | "Microsoft Server tekst naar spraak stem (ru-RU, Pavel, Apollo)"
 | | |Vrouw | "Microsoft Server tekst naar spraak stem (ru-RU, EkaterinaRUS)"
-sk-SK | Slowaaks | Man | "Microsoft Server tekst naar spraak stem (sk-SK, Filip)"
-sl-SI | Sloveens | Man | "Microsoft Server tekst naar spraak stem (sl-SI, Lado)"
-SV-SE | Zweeds | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (sv-SE, HedvigRUS)"
-TA-IN | Tamil (India) | Man | "Microsoft Server spraak tekst en spraak, spraak (ta-IN, Valluvar)"
-e-e | Thais | Man | "Microsoft Server tekst naar spraak stem (th-TH, Pattara)"
-tr-TR |Turks | Vrouw | "Microsoft Server tekst naar spraak stem (tr-TR, SedaRUS)"
-vi-VN | Vietnamees | Man | "Microsoft Server-stem tekst naar spraak (vi-VN, een)"
+sk-SK | Slowaaks|Man | "Microsoft Server tekst naar spraak stem (sk-SK, Filip)"
+sl-SI | Sloveens|Man | "Microsoft Server tekst naar spraak stem (sl-SI, Lado)"
+SV-SE | Zweeds|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (sv-SE, HedvigRUS)"
+TA-IN | Tamil (India) |Man | "Microsoft Server spraak tekst en spraak, spraak (ta-IN, Valluvar)"
+te-IN | Telugu (India) |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (te-IN, Chitra)"
+e-e | Thais|Man | "Microsoft Server tekst naar spraak stem (th-TH, Pattara)"
+tr-TR |Turks| Vrouw | "Microsoft Server tekst naar spraak stem (tr-TR, SedaRUS)"
+vi-VN | Vietnamees|Man | "Microsoft Server-stem tekst naar spraak (vi-VN, een)"
 zh-CN | Chinees (vasteland)|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, HuihuiRUS)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Yaoyao, Apollo)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Kangkang, Apollo)"

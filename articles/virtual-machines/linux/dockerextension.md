@@ -1,6 +1,6 @@
 ---
 title: Gebruik de Azure Docker VM-extensie | Microsoft Docs
-description: Informatie over het gebruik van de Docker VM-extensie snel en veilig implementeren van een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en Azure CLI 2.0
+description: Informatie over het gebruik van de Docker VM-extensie snel en veilig implementeren van een Docker-omgeving in Azure met behulp van Resource Manager-sjablonen en Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981294"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Een Docker-omgeving maken in Azure met behulp van de Docker VM-extensie
-Docker is een populaire containerbeheer en beeldbewerking platform waarmee u snel werken met containers in Linux. In Azure zijn er verschillende manieren waarop u kunt Docker implementeren op basis van uw behoeften. In dit artikel richt zich op het gebruik van de Docker VM-extensie en Azure Resource Manager-sjablonen met de Azure CLI 2.0. 
+
+Docker is een populaire containerbeheer en beeldbewerking platform waarmee u snel werken met containers in Linux. In Azure zijn er verschillende manieren waarop u kunt Docker implementeren op basis van uw behoeften. In dit artikel richt zich op het gebruik van de Docker VM-extensie en Azure Resource Manager-sjablonen met de Azure CLI. 
 
 > [!WARNING]
 > De Azure Docker VM-extensie voor Linux is afgeschaft en wordt in November 2018 beëindigd.
@@ -38,7 +39,7 @@ Zie de volgende artikelen voor meer informatie over de verschillende implementat
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implementeren van een sjabloon met de Azure Docker VM-extensie
-We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. U kunt hier de sjabloon weergeven: [eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+We gaan een bestaande quickstart-sjabloon gebruiken om een Ubuntu-VM die gebruikmaakt van de Azure Docker VM-extensie installeren en configureren van de Docker-host te maken. U kunt hier de sjabloon weergeven: [eenvoudige implementatie van een Ubuntu-VM met Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). U moet de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Maak eerst een resourcegroep met [az group create](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 

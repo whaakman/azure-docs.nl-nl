@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9a2eb8ab4e3ee65e97de578c825bf106aee1b829
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480337"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040598"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Een dynamische groep maken en de status controleren
 
@@ -29,7 +29,7 @@ Dit artikel wordt uitgelegd hoe u een regel in de Azure-portal voor dynamisch li
 
 ## <a name="to-create-a-group-membership-rule"></a>Een regel voor groepslidmaatschap maken
 
-1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder of een beheerder van gebruikersaccounts.
+1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat in de rol globale beheerder, Intune-servicebeheerder of beheerder van gebruikersaccounts in de tenant.
 2. Selecteer **groepen**.
 3. Selecteer **alle groepen**, en selecteer **nieuwe groep**.
 

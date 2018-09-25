@@ -1,6 +1,6 @@
 ---
-title: Azure Hot, Cool en Archive Storage voor blobs | Microsoft Docs
-description: Dynamische, statische en archiefopslag voor Azure Storage-accounts.
+title: Premium, hot, cool en archive storage voor blobs - Azure Storage
+description: Premium, hot, cool en archive storage voor Azure storage-accounts.
 services: storage
 author: kuhussai
 ms.service: storage
@@ -8,28 +8,64 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 66c47a97eee6759eb963db43d5c573fb6612bde6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735915"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997825"
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische, statische en archiefopslaglaag
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob-opslag: Premium (preview), dynamische, statische en archiefopslaglaag
 
 ## <a name="overview"></a>Overzicht
 
-Azure Storage biedt drie opslaglagen voor de opslag van blob-objecten, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en die gedurende minimaal dertig dagen worden opgeslagen. De Azure **Archive Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die zelden worden geraadpleegd en die gedurende ten minste 180 dagen worden opgeslagen met flexibele latentievereisten (orde van grootte uur). De Archive Storage-laag is slechts beschikbaar op blob-niveau en niet op opslagaccountniveau. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten (in vergelijking met gegevens in de Hot Storage-laag) aanvaardbaar vanwege de veel lagere opslagkosten. Archiefopslag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten. Alleen de dynamische-opslaglaag en statische-opslaglaag (niet archief) kunnen worden ingesteld op het accountniveau. De lagen kunnen alle drie op het objectniveau worden ingesteld.
+Azure storage biedt verschillende opslaglagen waarmee u kunt voor het opslaan van gegevens voor Blob-object in de meest kostenefficiënte manier. De beschikbare categorieën zijn onder andere:
 
-Het aantal gegevens dat is opgeslagen in de cloud, groeit vandaag de dag exponentieel. Voor een effectief beheer van de kosten voor uw groeiende opslagbehoeften is het vanwege kostenoptimalisatie een goed idee om de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
+- **Premium storage (voorbeeld)** biedt krachtige hardware voor gegevens die regelmatig worden geopend.
+ 
+- **Hot storage**: is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. 
+
+- **Cool storage** is geoptimaliseerd voor het opslaan van gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen.
+ 
+- **Archiefopslag** is geoptimaliseerd voor het opslaan van gegevens die zelden worden geopend en die gedurende ten minste 180 dagen met flexibele latentievereisten (orde van grootte uur) worden opgeslagen.
+
+De volgende overwegingen vergezeld gaan van de verschillende opslaglagen:
+
+- De Archive Storage-laag is slechts beschikbaar op blob-niveau en niet op opslagaccountniveau.
+ 
+- Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten (in vergelijking met gegevens in de Hot Storage-laag) aanvaardbaar vanwege de veel lagere opslagkosten.
+
+- Archiefopslag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten.
+ 
+- Alleen de dynamische-opslaglaag en statische-opslaglaag (niet archief) kunnen worden ingesteld op het accountniveau.
+ 
+- Alle lagen kunnen worden ingesteld op het objectniveau.
+
+Gegevens die zijn opgeslagen in de cloud, groeit exponentieel. Voor een effectief beheer van de kosten voor uw groeiende opslagbehoeften is het vanwege kostenoptimalisatie een goed idee om de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
 
 Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens een andere opslaglaag te maken die is geoptimaliseerd voor een specifiek toegangspatroon. Door middel van de lagen Hot, Cool en Archive Storage wordt in Azure Blob Storage voorzien in deze behoefte aan gedifferentieerde opslaglagen met afzonderlijke prijsmodellen.
 
 ## <a name="storage-accounts-that-support-tiering"></a>Storage-accounts die ondersteuning bieden voor opslaglagen
 
-U kunt uw objectopslaggegevens alleen in dynamische, statische en archiefopslaglagen opslaan voor Blob Storage of General Purpose v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts met één muisklik converteren naar GPv2-accounts in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie voor meer informatie, [overzicht van Azure storage-account](../common/storage-account-overview.md).
+U kunt uw objectopslaggegevens alleen in dynamische, statische en archiefopslaglagen opslaan voor Blob Storage of General Purpose v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts met één muisklik converteren naar GPv2-accounts in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
 
 Blob Storage- en GPv2-accounts maken het kenmerk **Toegangslaag** beschikbaar op het accountniveau waarmee u de standaard opslaglaag als dynamisch of statisch kunt opgeven voor elke blob in het opslagaccount die niet beschikt over de opslaglaag die is ingesteld op het objectniveau. Voor objecten met de op objectniveau ingestelde opslaglaag is het accountniveau niet van toepassing. De Archive-laag kan alleen worden toegepast op objectniveau. U kunt op elk gewenst moment schakelen tussen deze opslaglagen.
+
+## <a name="premium-access-tier"></a>Premium-laag voor access
+
+Beschikbaar in preview is een Premium-toegangslaag waardoor gegevens beschikbaar zijn via krachtige hardware vaak worden gebruikt. Gegevens die zijn opgeslagen in deze laag is opgeslagen op SSD-schijven die zijn geoptimaliseerd voor lagere latentie, een hogere transactionele tarieven met traditionele harde schijven vergeleken. De laag Premium is beschikbaar via de blok-Blob opslagaccounttype alleen.
+
+Deze laag is ideaal voor workloads waarvoor snelle en consistente reactietijden. Gegevens die betrekking heeft op eindgebruikers, zoals interactieve videobewerking, statische webinhoud, online transacties en dergelijke zijn een goede kandidaten zijn voor de laag Premium. Deze laag is geschikt voor werkbelastingen die veel kleine transacties, zoals het vastleggen van telemetriegegevens, berichten en gegevenstransformatie van uitvoeren.
+
+Voor het gebruik van deze laag, een nieuw blok-Blob storage-account en begin met het maken van containers en blobs met de [REST API voor Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+Tijdens de Preview-versie, de Premium-laag voor access:
+
+- Is beschikbaar als lokaal redundante opslag (LRS)
+- Is alleen beschikbaar in de volgende regio's: VS Oost 2, VS-centraal en VS-West
+- Biedt geen ondersteuning voor automatisch in lagen en beheer van de gegevenslevenscyclus
+
+Zie voor meer informatie over het registreren voor de preview van Premium access tier [Maak kennis met blobopslag van Azure Premium](http://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Hot Storage-toegangslaag
 
@@ -73,6 +109,8 @@ Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde a
 
 > [!NOTE]
 > Archiefopslag en laaginstelling op blobniveau ondersteunen alleen blok-blobs. U kunt evenmin de laag wijzigen van een blok-blob die momentopnamen bevat.
+
+Gegevens die zijn opgeslagen in de laag Premium kan niet in tiers worden verdeeld als u wilt warm, koud of archief met behulp van [Blob-laag instellen](/rest/api/storageservices/set-blob-tier) of met behulp van Azure Blob Storage-levenscyclusbeheer. Om gegevens te verplaatsen, moet u synchroon kopiëren blobs uit de Premium-toegang voor het gebruik van ' hot ' de [blok plaatsen van URL API](/rest/api/storageservices/put-block-from-url) of een versie van AzCopy die ondersteuning biedt voor deze API. De *blok plaatsen van URL* API synchroon worden gegevens gekopieerd op de server, wat betekent dat de aanroep is voltooid maar één keer alle de gegevens van de oorspronkelijke serverlocatie wordt verplaatst naar de doellocatie.
 
 ### <a name="blob-lifecycle-management"></a>Beheer van de BLOB-levenscyclus
 BLOB Storage lifecycle management (Preview) biedt een uitgebreide, op basis van regels beleid dat u gebruiken kunt voor de overgang van uw gegevens naar de beste toegangslaag en verloopt gegevens aan het einde van de levenscyclus. Zie [beheren van de levenscyclus van de Azure Blob-opslag](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) voor meer informatie.  
@@ -153,7 +191,7 @@ Alle opslagaccounts gebruik van een prijsmodel voor Blob-opslag op basis van de 
 
 Wij raden u aan GPv2 te gebruiken in plaats van Blob Storage-accounts voor opslaglagen. GPv2-accounts ondersteunen alle functies die Blob Storage-accounts ondersteunen, plus nog veel meer. Prijzen van Blob Storage en GPv2 zijn bijna identiek, maar sommige nieuwe functies en prijsverlagingen zijn alleen beschikbaar bij GPv2-accounts. GPv1-accounts bieden geen ondersteuning voor opslaglagen.
 
-De prijsstructuur tussen GPv1- en GPv2-accounts is verschillend en klanten moeten beide zorgvuldig evalueren alvorens te besluiten GPv2-accounts te gebruiken. U kunt een bestaand Blob Storage- of GPv1-account eenvoudig met één muisklik omzetten naar GPv2. Zie voor meer informatie, [overzicht van Azure storage-account](../common/storage-account-overview.md).
+De prijsstructuur tussen GPv1- en GPv2-accounts is verschillend en klanten moeten beide zorgvuldig evalueren alvorens te besluiten GPv2-accounts te gebruiken. U kunt een bestaand Blob Storage- of GPv1-account eenvoudig met één muisklik omzetten naar GPv2. Zie [Overzicht van Azure-opslagaccount](../common/storage-account-overview.md) voor meer informatie.
 
 **Kan ik objecten opslaan in alle drie de opslaglagen (dynamisch, statisch en archief) in hetzelfde account?**
 

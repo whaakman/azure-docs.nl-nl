@@ -9,31 +9,28 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: ced4b6846d291bfbb718c3346ea588ca9e961d07
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 889a5a40409238462ee81d3bbd51ac6b77d28173
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947481"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Het doel-Azure Functions runtime-versies
 
 Een functie-app wordt uitgevoerd op een specifieke versie van de Azure Functions-runtime. Er zijn twee primaire versies: [1.x en 2.x](functions-versions.md). In dit artikel wordt uitgelegd hoe u een functie-app configureren in Azure uit te voeren op de versie die u kiest. Zie voor meer informatie over het configureren van een lokale ontwikkelingsomgeving voor een specifieke versie [Code en test Azure Functions lokaal](functions-run-local.md).
 
->[!IMPORTANT]   
-> Azure Functions-runtime 2.0 is in preview en momenteel niet alle functies van Azure Functions worden ondersteund. Zie voor meer informatie, [overzicht van de versies van de Azure Functions runtime](functions-versions.md).
-
 ## <a name="automatic-and-manual-version-updates"></a>Automatische en handmatige versie-updates
 
 Functions kunt u richten op een specifieke versie van de runtime met behulp van de `FUNCTIONS_EXTENSION_VERSION` toepassingsinstelling in een functie-app. De functie-app wordt opgeslagen op de opgegeven primaire versie totdat u zelf kiezen om te verplaatsen naar een nieuwe versie.
 
-Als u alleen de primaire versie (~ 1"voor 1.x) of"bètaversie"voor 2.x opgeeft, wordt de functie-app automatisch bijgewerkt naar de nieuwe secundaire versies van de runtime wanneer deze beschikbaar worden. Nieuwe secundaire versies kunnen niet tot belangrijke wijzigingen. Als u een secundaire versie (bijvoorbeeld ' 1.0.11360') opgeeft, wordt de functie-app op die versie bewaard totdat u deze expliciet wijzigt. 
+Als u alleen de primaire versie ("~ 2" voor 2.x of '~ 1' voor 1.x) opgeeft, wordt de functie-app automatisch bijgewerkt naar de nieuwe secundaire versies van de runtime wanneer deze beschikbaar worden. Nieuwe secundaire versies kunnen niet tot belangrijke wijzigingen. Als u een secundaire versie (bijvoorbeeld ' 2.0.12345') opgeeft, wordt de functie-app op die versie bewaard totdat u deze expliciet wijzigt. 
 
 Wanneer een nieuwe versie openbaar beschikbaar is, geeft u een opdrachtprompt in de portal de kans op omhoog verplaatsen naar deze versie. Nadat u hebt verplaatst naar een nieuwe versie, kunt u altijd gebruiken de `FUNCTIONS_EXTENSION_VERSION` toepassingsinstelling om weer te verplaatsen naar een eerdere versie.
 
 Een wijziging in de runtimeversie zorgt ervoor dat een functie-app te starten.
 
-De waarden die u kunt instellen in de `FUNCTIONS_EXTENSION_VERSION` app-instelling voor het inschakelen van automatische updates is momenteel '~ 1' voor de runtime 1.x en "bètaversie" voor 2.x.
+De waarden die u kunt instellen in de `FUNCTIONS_EXTENSION_VERSION` app-instelling voor het inschakelen van automatische updates zijn momenteel '~ 1' voor de runtime 1.x en "~ 2" voor 2.x.
 
 ## <a name="view-the-current-runtime-version"></a>De huidige runtimeversie weergeven
 
@@ -55,7 +52,7 @@ Wanneer u een versie dan de huidige primaire versie of versie 2.0 moet, stelt de
 
     ![Instellingen voor functie-app selecteren](./media/functions-versions/add-update-app-setting1a.png)
 
-2. In de **toepassingsinstellingen** tabblad, vinden de `FUNCTIONS_EXTENSION_VERSION` instellen en wijzig de waarde in een geldige versie van de runtime 1.x of `beta` voor versie 2.0. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld, ~ 1') gebruiken. 
+2. In de **toepassingsinstellingen** tabblad, vinden de `FUNCTIONS_EXTENSION_VERSION` instellen en wijzig de waarde in een geldige versie van de runtime 1.x of `~2` voor versie 2.0. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld, ~ 1') gebruiken. 
 
     ![De functie-app instellen](./media/functions-versions/add-update-app-setting2.png)
 
@@ -70,7 +67,7 @@ az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
-In deze code, Vervang `<function_app>` met de naam van uw functie-app. Vervang ook `<my_resource_group>` met de naam van de resourcegroep voor uw functie-app. Vervang `<version>` met een geldige versie van de runtime 1.x of `beta` voor versie 2.0. 
+In deze code, Vervang `<function_app>` met de naam van uw functie-app. Vervang ook `<my_resource_group>` met de naam van de resourcegroep voor uw functie-app. Vervang `<version>` met een geldige versie van de runtime 1.x of `~2` voor versie 2.x. 
 
 U kunt uitvoeren met deze opdracht uit de [Azure Cloud Shell](../cloud-shell/overview.md) door te kiezen **uitproberen** in het vorige codevoorbeeld. U kunt ook de [lokaal Azure CLI](/cli/azure/install-azure-cli) aan deze opdracht wordt uitgevoerd na het uitvoeren van [az login](/cli/azure/reference-index#az-login) aan te melden.
 

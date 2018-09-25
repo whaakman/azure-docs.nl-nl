@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542834"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955240"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tijd van de gegevens opnemen in Log Analytics
-Azure Log Analytics is een service voor grootschalige die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor gegevens beschikbaar in Log Analytics nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
+Azure Log Analytics is een service voor grote schaal in Azure Monitor die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor gegevens beschikbaar in Log Analytics nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
 
 ## <a name="typical-latency"></a>Normale latentie
 Latentie verwijst naar de tijd waarop gegevens worden gemaakt op het bewaakte systeem en de tijd die wordt geleverd beschikbaar om te analyseren in Log Analytics. De typische latentie voor het opnemen van gegevens in Log Analytics is tussen 2 en 5 minuten. De specifieke latentie voor een bepaalde gegevens varieert, afhankelijk van diverse factoren die hieronder wordt uitgelegd.
 
-## <a name="sla-for-log-analytics"></a>SLA voor Log Analytics
-De [Log Analytics Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) is een binding juridische overeenkomst waarmee wordt gedefinieerd wanneer Microsoft klanten restituties wanneer de service niet voldoet aan de doelen. Dit is niet gebaseerd op de normale prestaties van het systeem, maar het ergste geval-accounts voor mogelijke catastrofale situaties.
 
 ## <a name="factors-affecting-latency"></a>Factoren die invloed hebben op latentie
 De totale opname-tijd voor een bepaalde set gegevens kan worden onderverdeeld in de volgende algemene gebieden ingedeeld. 

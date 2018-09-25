@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35916337"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992199"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>De topologie van een Azure-netwerk weergeven
 
@@ -52,7 +52,7 @@ De resources die worden weergegeven in het diagram vormen een subset van de netw
 
 U kunt de opdrachten in de volgende stappen uitvoeren:
 - In de Azure Cloud Shell, door te selecteren **uitproberen** aan de bovenkant van elke opdracht. De Azure Cloud Shell is een gratis interactieve shell die algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account heeft.
-- Door het uitvoeren van de CLI van de computer. Als u de CLI vanaf uw computer uitvoert, de stappen in dit artikel Azure CLI versie 2.0.31 vereisen of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
+- Door het uitvoeren van de CLI van de computer. Als u de CLI vanaf uw computer uitvoert, de stappen in dit artikel Azure CLI versie 2.0.31 vereisen of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 Het account dat u gebruikt ze beschikken over de benodigde [machtigingen](required-rbac-permissions.md).
 

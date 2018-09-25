@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c952882a0a12e288eaf4f5f1074a9a2e876a21d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986231"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kolommen combineren per voorbeeld transformatie
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Deze transformatie kan de gebruiker een nieuwe kolom toevoegen door een combinatie van waarden uit meerdere kolommen. Gebruiker kan een waarde opgeven of vindt u voorbeelden van gecombineerde waarden om uit te voeren van deze transformatie. Wanneer de gebruiker ziet u voorbeelden van combinatie, de transformatie wordt afgehandeld door hetzelfde **door voorbeeld** -engine die wordt gebruikt in de **kolom afleiden per voorbeeld** transformeren.
 
 ## <a name="how-to-perform-this-transformation"></a>Het uitvoeren van deze transformatie
@@ -52,7 +57,7 @@ Een gebruiker kunt bewerken van een bestaande **kolom combineren door voorbeeld*
 
 Een door komma's gevolgd door een spatie als scheidingsteken in dit voorbeeld wordt gebruikt om te combineren de *straat*, *plaats*, *status*, en *ZIP* kolommen.
 
-|Straatnaam|Plaats|Status|POSTCODE|Kolom|
+|Adres|Plaats|Status|POSTCODE|Kolom|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th manier|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th manier|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|

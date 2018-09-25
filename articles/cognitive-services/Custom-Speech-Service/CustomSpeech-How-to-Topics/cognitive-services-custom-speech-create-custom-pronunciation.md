@@ -1,6 +1,6 @@
 ---
-title: Gebruik aangepaste uitspraak met aangepaste spraak-Service op Azure | Microsoft Docs
-description: Informatie over het maken van een taalmodel met de aangepaste spraak-Service in cognitieve Services.
+title: Gebruik aangepaste uitspraak met Custom Speech Service op Azure | Microsoft Docs
+description: Informatie over het maken van een taalmodel met de Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,17 +9,18 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999372"
 ---
 # <a name="enable-custom-pronunciation"></a>Aangepaste uitspraak inschakelen
-Aangepaste uitspraak kan gebruikers de fonetische formulier en de weergave van een woord of term definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of acroniemen. Alles wat u nodig hebt is een uitspraak-bestand (een eenvoudige .txt-bestand).
+Aangepaste uitspraak kan gebruikers de fonetische formulier en de weergave van een woord of een term definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig is een uitspraak van bestand (een eenvoudige txt-bestand).
 
-Hier ziet u hoe het werkt. U kunt meerdere aangepaste uitspraak posten invoeren in een enkel txt-bestand. De structuur is als volgt:
+Hier ziet u hoe het werkt. U kunt verschillende aangepaste uitspraak van vermeldingen invoeren in een enkele txt-bestand. De structuur is als volgt:
 
 ```
 Display form <Tab> Spoken form <Newline>
@@ -29,38 +30,38 @@ Display form <Tab> Spoken form <Newline>
 
 | Formulier weergeven | Gesproken formulier |
 |----------|-------|
-| C3PO | Zie drie pea o |
+| C3PO | Zie drie oor o |
 | L8R | laat zijn |
 | CNTK | Zie n thee k|
 
-## <a name="requirements-for-the-spoken-form"></a>Vereisten voor de gesproken vorm
-Het formulier gesproken moet een kleine letter, die kan worden afgedwongen tijdens het importeren. Bovendien moet u controles in de gegevensimport opgeven. Er is geen tabblad in de vorm gesproken of het weergaveformulier toegestaan. Er kan echter, meer verboden tekens in het formulier weergeven (bijvoorbeeld ~ en ^).
+## <a name="requirements-for-the-spoken-form"></a>Vereisten voor het gesproken formulier
+Het formulier gesproken moet een kleine letter, die kan worden afgedwongen tijdens het importeren. Bovendien moet u controles in de gegevensimport opgeven. Er is geen tabblad in de gesproken formulier of het formulier weergeven is toegestaan. Er kan echter, meer verboden tekens in het formulier weergeven (bijvoorbeeld, ~ en ^).
 
-Elke .txt-bestand kan verschillende vermeldingen hebben. Bijvoorbeeld, Zie de volgende schermafbeelding:
+Elke txt-bestand kan verschillende vermeldingen hebben. Zie bijvoorbeeld de volgende schermafbeelding:
 
-![Schermopname van Kladblok met meerdere vermeldingen voor acroniem uitspraak](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
+![Schermafbeelding van Kladblok met meerdere vermeldingen voor acroniem uitspraak van](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
 
-Het gesproken formulier is de fonetische volgorde van het formulier weergeven. Het letters, woorden of lettergrepen bestaat. Er is momenteel geen verdere richtlijnen of verzameling standaarden kunt u het formulier gesproken formuleren. 
+Het formulier gesproken is de fonetische opeenvolging van het formulier weergeven. Deze bestaat uit letters, woorden of lettergrepen. Op dit moment is er geen verdere richtlijnen of reeks standaarden om u te helpen u bij het formuleren van de gesproken vorm. 
 
-## <a name="supported-pronunciation-characters"></a>Ondersteunde uitspraak tekens
-Aangepaste uitspraak wordt momenteel ondersteund voor Engels (en-US) en Duits (nl-nl). De tekenset die kan worden gebruikt om de gesproken vorm van een term (in het bestand aangepaste uitspraak) express wordt weergegeven in de volgende tabel: 
+## <a name="supported-pronunciation-characters"></a>Ondersteunde uitspraak van tekens
+Aangepaste uitspraak wordt momenteel ondersteund voor Engels (en-US) en Duits (nl-nl). De tekenset die kan worden gebruikt om de gesproken vorm van een term die (in het bestand aangepaste uitspraak) wordt weergegeven in de volgende tabel: 
 
 | Taal | Tekens |
 |---------- |----------|
-| Engels (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Duits (nl-nl) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Engels (en-US) | a, b, c, d, e, f, g, h, i, "j", k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Duits (nl-nl) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, "j", k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
->[OPMERKING] Formulier van een term weergeven (in een bestand uitspraak) moet dezelfde manier worden geschreven in een taal aanpassing-gegevensset.
+>[OPMERKING] Weergaveformulier van een term die (in een bestand uitspraak) moet dezelfde manier worden geschreven in een gegevensset voor aanpassing van taal.
 
 ## <a name="requirements-for-the-display-form"></a>Vereisten voor het formulier weergeven
-Een formulier weergeven mag alleen een aangepaste woord, term, acroniem of samengestelde woorden die de bestaande woorden combineren. U kunt ook alternatieve uitspraak voor veelvoorkomende woorden invoeren. 
+Een weergaveformulier mag alleen een aangepast woord, term, acroniem of samengestelde woorden die een combinatie van bestaande woorden. U kunt ook alternatieve uitspraak voor veelvoorkomende woorden invoeren. 
 
 >[!NOTE]
-We raden niet reformulate veelvoorkomende woorden of wijzigen van het formulier gesproken met deze functie. Is het beter om uit te voeren van de decoder om te zien als sommige ongebruikelijke woorden (zoals afkortingen technische woorden en vreemde woorden) niet correct worden gedecodeerd. Als ze zijn, kunt u deze naar het bestand aangepaste uitspraak toevoegen. In het Model taal alleen en altijd gebruikt u het formulier weergeven van een woord. 
+We raden niet met behulp van deze functie te reformulate veelvoorkomende woorden of te wijzigen van de gesproken vorm. Is het beter om uit te voeren van de decoder om te zien als een ongebruikelijke woorden (zoals afkortingen, technische woorden en woorden in vreemde talen) niet correct worden ontsleuteld. Als ze zijn, kunt u ze aan het aangepaste uitspraak van bestand toevoegen. In het taalmodel, altijd en alleen gebruikt u de vorm van de weergave van een woord. 
 
 ## <a name="requirements-for-the-file-size"></a>Vereisten voor de bestandsgrootte
-De grootte van het txt-bestand met de vermeldingen voor uitspraak is beperkt tot 1 MB. Normaal gesproken hoeft u niet voor het uploaden van grote hoeveelheden gegevens via dit bestand. De meeste aangepaste uitspraakbestanden zijn waarschijnlijk slechts enkele kB groot. De codering van het txt-bestand voor alle landinstellingen moet UTF-8 stuklijst. Voor de Engelstalige landinstelling is ook ANSI acceptabel.
+De grootte van de txt-bestand met de vermeldingen voor de uitspraak is beperkt tot 1 MB. Normaal gesproken hoeft u niet voor het uploaden van grote hoeveelheden gegevens via dit bestand. De meeste aangepaste uitspraak van bestanden zijn waarschijnlijk slechts een paar kB groot. De codering van de txt-bestand voor alle landinstellingen moet UTF-8 stuklijst. Voor de Engelse landinstelling is ook ANSI acceptabel.
 
 ## <a name="next-steps"></a>Volgende stappen
-* De nauwkeurigheid van de verbeteren door het maken van uw [aangepaste akoestisch model](cognitive-services-custom-speech-create-acoustic-model.md).
-* [Maak een aangepaste spraak naar tekst eindpunt](cognitive-services-custom-speech-create-endpoint.md), dat u uit een app kunt gebruiken.
+* De nauwkeurigheid van de verbeteren door het maken van uw [aangepast akoestisch model](cognitive-services-custom-speech-create-acoustic-model.md).
+* [Maak een aangepaste spraak-naar-tekst-eindpunt](cognitive-services-custom-speech-create-endpoint.md), die u kunt gebruiken vanuit een app.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997468"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configureer persoonlijke IP-adressen voor een virtuele machine met de Azure CLI
 
@@ -42,13 +42,13 @@ Dit artikel is van toepassing op het Resource Manager-implementatiemodel. U kunt
 
 Het maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet van een VNet met de naam *TestVNet* met een statisch privé IP-adres van *192.168.1.101*, voltooid de volgende stappen uit:
 
-1. Als u dit nog niet hebt nog, installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login). 
+1. Als u dit nog niet hebt nog, installeren en configureren van de meest recente [Azure CLI](/cli/azure/install-azure-cli) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 2. Maak een openbaar IP-adres voor de virtuele machine met de [az network public-ip maken](/cli/azure/network/public-ip#az_network_public_ip_create) opdracht. De lijst die na de uitvoer wordt weergegeven, beschrijft de gebruikte parameters.
 
     > [!NOTE]
     > U wilt of moet het gebruik van verschillende waarden voor uw argumenten in deze en de daaropvolgende stappen, afhankelijk van uw omgeving.
-   
+
     ```azurecli
     az network public-ip create \
     --name TestPIP \
@@ -58,7 +58,7 @@ Het maken van een virtuele machine met de naam *DNS01* in de *FrontEnd* subnet v
     ```
 
     Verwachte uitvoer:
-   
+
    ```json
    {
         "publicIp": {

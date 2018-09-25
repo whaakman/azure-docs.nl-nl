@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958251"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Richtlijnen voor ontwikkelaars voor voorwaardelijke toegang van Azure Active Directory
 
@@ -40,14 +39,14 @@ Kennis van [één](quickstart-v1-integrate-apps-with-azure-ad.md) en [multitenan
 
 ### <a name="app-types-impacted"></a>Beïnvloed App-typen
 
-In de meest voorkomende gevallen voor voorwaardelijke toegang niet verandert het gedrag van een app of vereist wijzigingen van de ontwikkelaar. Wanneer een app op de achtergrond of indirect vraagt om een token voor een service, vereist een app alleen in bepaalde gevallen wijzigingen in de code voor het afhandelen van voorwaardelijke toegang 'uitdagingen'. Kan het zijn net zo eenvoudig als het uitvoeren van een aanvraag voor interactief aanmelden. 
+In de meest voorkomende gevallen voor voorwaardelijke toegang niet verandert het gedrag van een app of vereist wijzigingen van de ontwikkelaar. Wanneer een app op de achtergrond of indirect vraagt om een token voor een service, vereist een app alleen in bepaalde gevallen wijzigingen in de code voor het afhandelen van voorwaardelijke toegang 'uitdagingen'. Kan het zijn net zo eenvoudig als het uitvoeren van een aanvraag voor interactief aanmelden.
 
-Met name vereisen de volgende scenario's code voor het verwerken van voorwaardelijke toegang 'uitdagingen': 
+Met name vereisen de volgende scenario's code voor het verwerken van voorwaardelijke toegang 'uitdagingen':
 
 * Apps die toegang tot Microsoft Graph
 * Apps uitvoeren van de stroom op-andere gebruikers-of
 * Apps die toegang tot meerdere services/resources
-* Apps met één pagina met behulp van ADAL.js
+* Apps van één pagina met behulp van ADAL.js
 * Web Apps aanroepen van een resource
 
 Voorwaardelijk beleid kunnen worden toegepast op de app, maar kunnen ook worden toegepast op een web-API uw app wordt geopend. Zie voor meer informatie over het configureren van beleid voor voorwaardelijke toegang, [Quick Start: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](../conditional-access/app-based-mfa.md).
@@ -87,7 +86,7 @@ De volgende informatie is alleen van toepassing in deze scenario's voor voorwaar
 * Apps die toegang tot Microsoft Graph
 * Apps uitvoeren van de stroom op-andere gebruikers-of
 * Apps die toegang tot meerdere services/resources
-* Apps met één pagina met behulp van ADAL.js
+* Apps van één pagina met behulp van ADAL.js
 
 De volgende secties worden besproken algemene scenario's die, hoe complexer. De belangrijkste operationele principe is voorwaardelijke toegang beleidsregels worden geëvalueerd op het moment dat het token is aangevraagd voor de service een beleid voor voorwaardelijke toegang toegepast heeft, tenzij het wordt benaderd via Microsoft Graph.
 
@@ -147,7 +146,7 @@ Voor codevoorbeelden die laten hoe u zien voor het afhandelen van de claims-uitd
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App uitvoeren van de stroom op-andere gebruikers-of
 
-In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Op zijn beurt deze service biedt [de stroom 'op-andere gebruikers-of'](authentication-scenarios.md#application-types-and-scenarios) om aan te roepen een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
+In dit scenario doorlopen we het geval waarin een systeemeigen app een webservice /-API-aanroepen. Op zijn beurt biedt deze service [hij 'op-andere gebruikers-of' stroom voor het aanroepen van een downstream-service. In ons geval we ons beleid voor voorwaardelijke toegang hebt toegepast op de downstream-service (Web API 2) en worden met behulp van een systeemeigen app in plaats van een server/daemon-app. 
 
 ![Uitvoeren van het diagram van de stroom op-andere gebruikers-of App](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -190,7 +189,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Als de app van de ADAL-bibliotheek gebruikmaakt, een fout opgetreden bij het verkrijgen van het token wordt altijd opnieuw uitgevoerd interactief. Wanneer deze interactieve aanvraag optreedt, heeft de gebruiker de mogelijkheid om te voldoen aan de voorwaardelijke toegang. Dit is van toepassing, tenzij de aanvraag is een `AcquireTokenSilentAsync` of `PromptBehavior.Never` in dat geval de app nodig heeft om uit te voeren een interactieve ```AcquireToken``` aanvraag voor het gebruik end geven de mogelijkheid om te voldoen aan het beleid. 
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario: Één pagina App (SPA) met behulp van ADAL.js
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scenario:-App met één pagina (SPA) met behulp van ADAL.js
 
 In dit scenario helpen wij bij het geval wanneer we een app met één pagina (SPA) hebben, met behulp van ADAL.js om aan te roepen een voorwaardelijke toegang tot beveiligde web-API. Dit is een eenvoudige architectuur, maar sommige aspecten die worden gehouden moeten bij het ontwikkelen van voorwaardelijke toegang heeft.
 

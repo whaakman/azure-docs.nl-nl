@@ -3,7 +3,6 @@ title: Machine learning-overzichtskaart - Azure | Microsoft Docs
 description: Een afdrukbaar machine learning-overzichtskaart helpt u bij de juiste algoritme voor uw voorspellende model kiezen in Azure Machine Learning Studio.
 keywords: overzichtskaart algoritmen, referentiemateriaal voor, machine learning-algoritme
 services: machine-learning
-documentationcenter: ''
 author: pakalra
 ms.author: pakalra
 manager: cgronlun
@@ -11,51 +10,39 @@ editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: b080a739aa73e3c8ef95c7db9a6358d942e94bba
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 56fadde5694dbd298c812db258105e03b7d23d45
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238383"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996737"
 ---
-# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Overzichtskaart voor Machine Learning-algoritme voor Microsoft Azure Machine Learning Studio
-De **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helpt u bij het kiezen van het juiste algoritme voor een predictive analytics-model.
+# <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-overzichtskaart voor Azure Machine Learning Studio
+
+De **Azure Machine Learning Algorithm Cheat Sheet** helpt u bij het kiezen van het juiste algoritme voor een predictive analytics-model.
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) heeft een grote bibliotheek met algoritmen van de ***regressie***, ***classificatie***, ***clustering***, en  ***detectie van afwijkingen*** families. Elk is erop gericht om een ander type machine learning-probleem.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: Machine learning-overzichtskaart algoritmen
-**Het referentiemateriaal voor hier downloaden: [Machine Learning Algorithm Cheat blad (11 x 17.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
-![Overzichtskaart voor machine Learning-algoritme: meer informatie over het kiezen van een Machine Learning-algoritme.][cheat-sheet]
+**Het referentiemateriaal voor hier downloaden: [Machine Learning Algorithm Cheat blad (11 x 17.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+
+![Machine learning-overzichtskaart: meer informatie over het kiezen van een Machine Learning-algoritme.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-Downloaden en afdrukken van het Machine Learning-algoritme referentiemateriaal blad in a3-grootte voor het houden bij de hand en hulp bij het kiezen van een algoritme.
+Downloaden en afdrukken van het Machine Learning Studio-algoritme referentiemateriaal blad in a3-grootte voor het houden bij de hand en hulp bij het kiezen van een algoritme.
 
 > [!NOTE]
-> Zie het artikel [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md) voor een gedetailleerde gids voor het gebruik van deze overzichtskaart.
-> 
-> 
+> Zie voor meer informatie over het gebruik van deze overzichtskaart voor het kiezen van het juiste algoritme, plus een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen en hoe ze worden gebruikt, [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
 
-## <a name="more-help-with-algorithms"></a>Meer hulp bij algoritmen
-* Zie voor meer informatie over het gebruik van deze overzichtskaart voor het kiezen van het juiste algoritme, plus een uitgebreidere bespreking van de verschillende soorten machine learning-algoritmen en hoe ze worden gebruikt, [algoritmen kiezen voor Microsoft Azure Machine Learning](algorithm-choice.md).
-* Zie voor een downloadbare infographic die worden beschreven van algoritmen en voorbeelden, [downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).
-* Zie voor een lijst op categorie van alle de machine learning-algoritmen in Machine Learning Studio, [Initialize Model] [ initialize-model] in de algoritme voor Machine Learning Studio en de Module Help.
-* Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio, [alfabetische lijst van Machine Learning Studio-modules] [ a-z-list] in de Module Help en algoritme voor Machine Learning Studio.
-* Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-## <a name="notes-and-terminology-definitions-for-the-machine-learning-algorithm-cheat-sheet"></a>Notities en termen die voor de machine learning-algoritme Cheatsheet
+## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notities en termen die voor het algoritme voor Machine Learning Studio Cheatsheet
 
 * De aangeboden in deze overzichtskaart suggesties zijn bij benadering regels van de miniatuur. Sommige kunt worden verbogen en sommige flagrantly kunt worden geschonden. Dit is bedoeld om een beginpunt voorstellen. Wees niet bang voor het uitvoeren van een man competitie tussen verschillende algoritmen voor uw gegevens. Er is gewoon geen vervanging voor informatie over de beginselen van elk algoritme en inzicht in het systeem dat uw gegevens gegenereerd.
 
-* Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.cortanaintelligence.com/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [vergelijken ROC classificaties: Letter erkenning](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Elke machine learning-algoritme heeft een eigen stijl of *inductieve vertekening*. Verschillende algoritmen is wellicht beter voor een specifiek probleem, en één algoritme mogelijk beter geschikt dan andere. Maar het is niet altijd mogelijk tevoren weten wat het meest geschikt is. In dergelijke gevallen worden verschillende algoritmes samen weergegeven in het referentiemateriaal voor. Een geschikte strategie zou worden omgezet naar één algoritme, en als de resultaten nog niet voldoende zijn, probeer de andere. Hier volgt een voorbeeld van de [Azure AI Gallery](http://gallery.azure.ai/) van een experiment dat probeert verschillende algoritmes op basis van dezelfde gegevens en vergelijkt de resultaten: [vergelijken ROC classificaties: Letter erkenning](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Er zijn drie hoofdcategorieën van machine learning: **onder supervisie learning**, **leren zonder supervisie**, en **bekrachtigingen**.
 
@@ -75,15 +62,20 @@ Downloaden en afdrukken van het Machine Learning-algoritme referentiemateriaal b
 
 * Neurale netwerken kunnen worden gebruikt met categorische variabelen met het maken van een **dummy-variabele** voor elke categorie instellen op 1 in gevallen waar de categorie van toepassing is, 0 indien dit niet het geval.
 
+## <a name="next-steps"></a>Volgende stappen
 
-<!-- This is how you can embed a link in an image in HTML. Don't know how to do this in markdown.
-<a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
-<img src="C:\Users\garye\azure-docs-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
-</a>
--->
+* Zie voor een downloadbare infographic die worden beschreven van algoritmen en voorbeelden, [downloadbare Infographic: Machine learning-basisbeginselen met algoritmevoorbeelden](basics-infographic-with-algorithm-examples.md).
+
+* Zie voor een lijst op categorie van alle de machine learning-algoritmen in Machine Learning Studio, [Initialize Model] [ initialize-model] in de algoritme voor Machine Learning Studio en de Module Help.
+
+* Zie voor een volledige alfabetische lijst van algoritmen en modules in Machine Learning Studio, [alfabetische lijst van Machine Learning Studio-modules] [ a-z-list] in de Module Help en algoritme voor Machine Learning Studio.
+
+* Zie [Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio](studio-overview-diagram.md) als u een diagram wilt downloaden en afdrukken met een overzicht van de mogelijkheden van Machine Learning Studio.
+
+[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass

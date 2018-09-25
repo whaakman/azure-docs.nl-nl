@@ -2,20 +2,22 @@
 title: Overzicht van de ontwikkeling van toepassingen voor SQL Database | Microsoft Docs
 description: Kom meer te weten over beschikbare verbindingsbibliotheken en aanbevolen procedures voor toepassingen die verbinding maken met SQL Database.
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.reviewer: genemi
+manager: craigg
+ms.date: 06/20/2018
+ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056870"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063588"
 ---
 # <a name="sql-database-application-development-overview"></a>Overzicht van SQL Database-toepassing voor ontwikkelaars
 In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database.
@@ -36,9 +38,9 @@ U kunt gebruikmaken van open-source hulpprogramma's zoals [cheetah](https://gith
 Azure SQL Database beheert de beschikbare resources voor een database met behulp van op twee manieren: Resources governance en het afdwingen van limieten. Zie voor meer informatie:
 
 - [Op basis van DTU-model resourcelimieten - individuele Database](sql-database-dtu-resource-limits-single-databases.md)
-- [Limieten in de resource op basis van DTU-model - elastische Pools](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limieten in de resource op basis van DTU-model - elastische pools](sql-database-dtu-resource-limits-elastic-pools.md)
 - [op vCore gebaseerde resourcelimieten - individuele Databases](sql-database-vcore-resource-limits-single-databases.md)
-- [op vCore gebaseerde resourcelimieten - elastische Pools](sql-database-vcore-resource-limits-elastic-pools.md)
+- [op vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Beveiliging
 Azure SQL Database biedt resources voor het beperken van toegang, het beveiligen van gegevens en het bewaken van activiteiten in een SQL Database.

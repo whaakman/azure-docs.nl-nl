@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036987"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -69,7 +69,7 @@ Kortstondige poorten van de load balancer openbare IP-adres frontend worden gebr
 
 SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie. Zijn in feite een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
 
-Wanneer [meerdere (openbare) IP-adressen zijn gekoppeld aan de Load Balancer Basic](load-balancer-multivip-overview.md), of een van deze openbare IP-adressen zijn een [kandidaat voor uitgaande stromen](#multivipsnat), en een is geselecteerd.  
+Wanneer [meerdere openbare IP-adressen zijn gekoppeld aan de Load Balancer Basic](load-balancer-multivip-overview.md), of een van deze openbare IP-adressen zijn een [kandidaat voor uitgaande stromen](#multivipsnat), en een willekeurig is geselecteerd.  
 
 Voor het controleren van de status van uitgaande verbindingen met Load Balancer Basic, kunt u [Log Analytics voor Load Balancer](load-balancer-monitor-log.md) en [waarschuwen gebeurtenislogboeken](load-balancer-monitor-log.md#alert-event-log) om te controleren op SNAT poort uitputting van berichten.
 

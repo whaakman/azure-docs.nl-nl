@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 688ed311906754ee390b9a6ccd0ac430f42e8387
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7ee1dc7a3e3ae6bff6f2084d7290a37dc999dec7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125405"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040208"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -28,7 +28,7 @@ Een paar regels code invoegen in uw toepassing om erachter te komen wat gebruike
 > `TrackMetric()` is niet langer de voorkeursmethode voor het verzenden van aangepaste metrische gegevens voor uw .NET-toepassingen. In [versie 2,60 Bèta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) van de Application Insights SDK voor .NET een nieuwe methode [ `TelemetryClient.GetMetric()` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) werd geïntroduceerd. Vanaf de Application Insights .NET SDK [versie 2.72](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) deze functionaliteit maakt nu deel uit van de stabiele versie.
 
 ## <a name="api-summary"></a>API-overzicht
-De core API uniform wordt voor alle platformen, naast enkele variaties zoals `GetMetric`(C# alleen).
+De core API uniform wordt voor alle platformen, naast enkele variaties zoals `GetMetric`(alleen voor .NET).
 
 | Methode | Gebruikt voor |
 | --- | --- |
@@ -52,7 +52,7 @@ Als u nog een verwijzing op Application Insights-SDK hebt:
   * [Java-project](app-insights-java-get-started.md)
   * [Node.js-project](app-insights-nodejs.md)
   * [JavaScript in elke webpagina](app-insights-javascript.md) 
-* Neem in uw apparaat- of webservercode het volgende op:
+* In de apparaat- of servercode, zijn onder andere:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -135,9 +135,6 @@ Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de eigenschap it
 
 ### <a name="examples"></a>Voorbeelden:
 
-Hieronder volgt slechts een fragment van voorbeelden van een grotere set van zelfstudies onze ontwikkelaars samengesteld. Het volledige bestand met de extra voorbeelden is in onze [.NET GitHub-opslagplaats](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/Test/Microsoft.ApplicationInsights.Test/Shared/Metrics/MetricsExamples.cs
-).
-
 *C#*
 
 ```csharp
@@ -171,39 +168,6 @@ namespace User.Namespace.Example01
             // To mark this difference, we use a pattern that is similar, but different from the established TrackXxx(..) pattern that sends telemetry right away:
 
             client.GetMetric("CowsSold").TrackValue(42);
-
-            // *** MEASUREMENTS AND ACCUMULATORS ***
-
-            // We support different kinds of aggregation types. For now, we include two: Measurements and Accumulators.
-            // Measurements aggregate tracked values and reduce them to {Count, Sum, Min, Max, StdDev} of all values tracked during each minute. 
-            // They are particularly useful if you are measuring something like the number of items sold, the completion time of an operation, or similar.
-
-            // Accumulators are also sent to the cloud each minute.
-            // But rather than aggregating values across a time period, they aggregate values across their entire life time (or until you reset them).
-            // They are particularly useful when you are counting the number of items in a data structure.
-
-            // By default, metrics are aggregated as Measurements. Here is how you can define a metric to be aggregated as an Accumulator instead:
-
-            // Using the Microsoft.ApplicationInsights.Metrics.Extensions package:
-            // Metric itemsInDatastructure = client.GetMetric("ItemsInDatastructure", MetricConfigurations.Common.Accumulator());
-
-            // Using a private implementation:
-            Metric itemsInDatastructure = client.GetMetric(
-                    "ItemsInDatastructure",
-                    new Microsoft.ApplicationInsights.Metrics.MetricConfiguration(
-                            1000,
-                            100,
-                            new Microsoft.ApplicationInsights.Metrics.TestUtility.MetricSeriesConfigurationForTestingAccumulatorBehavior()));
-
-            int itemsAdded = AddItemsToDataStructure();
-            itemsInDatastructure.TrackValue(itemsAdded);
-            int itemsRemoved = AddItemsToDataStructure();
-            itemsInDatastructure.TrackValue(-itemsRemoved);
-
-            // Here is how you can reset an accumulator:
-            ResetDataStructure();
-
-            itemsInDatastructure.GetAllSeries()[0].Value.ResetAggregation();
 
             // *** MULTI-DIMENSIONAL METRICS ***
 
@@ -259,6 +223,9 @@ namespace User.Namespace.Example01
 ```
 
 ## <a name="trackmetric"></a>TrackMetric
+
+> [!NOTE]
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is afgeschaft in de .NET SDK. Metrische gegevens moet altijd vooraf worden samengevoegd in een bepaalde periode voordat het wordt verzonden. Gebruik een van de overloads GetMetric(..) ophalen van een metrische object voor toegang tot SDK vooraf aggregatie mogelijkheden. Als u uw eigen logica vooraf aggregatie implementeert, kunt u de Track (ITelemetry metricTelemetry)-methode voor het verzenden van de resulterende statistische functies. Als uw toepassing een afzonderlijke Telemetrisch item verzenden bij elke zonder aggregatie in de tijd vereist, hebt u waarschijnlijk een use-case voor telemetrie van gebeurtenissen; Zie TelemetryClient.TrackEvent (Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
 
 Application Insights kunnen metrische gegevens die niet zijn gekoppeld aan bepaalde gebeurtenissen van grafiek. Bijvoorbeeld, kan u de lengte van een wachtrij met regelmatige tussenpozen controleren. De afzonderlijke metingen zijn minder interessant zijn dan de variaties en trends met metrische gegevens, en dus statistische kolomdiagrammen zijn nuttig.
 

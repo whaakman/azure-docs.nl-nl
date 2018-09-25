@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Patronen gebruiken voor het verhogen van intentie en entiteit voorspelling terwijl er minder voorbeeld uitingen. Het patroon wordt geboden via een sjabloon utterance-voorbeeld, waarin u de syntaxis voor het identificeren van entiteiten en ignorable tekst bevat.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634724"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040700"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie: 3. Algemene utterance indelingen toevoegen
+# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie: 3. Algemene vormen voor uitingen toevoegen
 
 In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en entiteit voorspelling terwijl er minder voorbeeld uitingen. Het patroon wordt geboden via een sjabloon utterance-voorbeeld, waarin u de syntaxis voor het identificeren van entiteiten en ignorable tekst bevat. Een patroon is een combinatie van de expressie die overeenkomen met en machine learning.  Het voorbeeld van een sjabloon utterance, samen met de intentie uitingen geven LUIS een beter beeld van welke uitingen past het doel. 
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 085df618eb6d3eb78e42261d1b324c3a2374877b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036198"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>naslaginformatie over host.JSON voor Azure Functions
 
@@ -442,6 +442,12 @@ Configuratie-instellingen voor logboeken die u met behulp van maakt een `TraceWr
 |---------|---------|---------| 
 |consoleLevel|informatie|Het traceringsniveau bepaald voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
 |fileLoggingMode|debugOnly|Het traceringsniveau bepaald voor logboekregistratie. Opties zijn `never`, `always`, `debugOnly`.| 
+
+## <a name="version"></a>versie
+
+*Versie 2.x*
+
+De tekenreeks voor de `"version": "2.0"` is vereist voor een functie-app die gericht is op de v2-runtime.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

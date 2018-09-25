@@ -13,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4245cd4cf1f67007ced190e15d95929d854e303a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591329"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992742"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 en OpenID Connect
+
 Het v2.0-eindpunt kunt u Azure AD gebruiken voor identity-as-a-service met standaardprotocollen, OpenID Connect en OAuth 2.0. Terwijl de service compatibel met de standaarden is, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen. De informatie hier is handig als u ervoor kiest uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen of gebruik een 3e partij open source-bibliotheek, in plaats van met een van onze [open source-bibliotheken](reference-v2-libraries.md).
 
 > [!NOTE]
 > Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
->
->
 
 ## <a name="the-basics"></a>De basisbeginselen
+
 In bijna alle OAuth en OpenID Connect-stromen zijn er vier partijen die betrokken zijn bij de uitwisseling van:
 
 ![OAuth 2.0-rollen](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -52,6 +52,7 @@ Elke app die gebruikmaakt van het v2.0-eindpunt moet worden geregistreerd bij [a
 Zie [Een app registreren](quickstart-v2-register-an-app.md) voor meer informatie.
 
 ## <a name="endpoints"></a>Eindpunten
+
 Zodra geregistreerd, wordt de status van de app communiceert met Azure AD door verzoeken te sturen naar het v2.0-eindpunt:
 
 ```
@@ -71,15 +72,17 @@ Waar de `{tenant}` kan duren voordat een van de vier verschillende waarden:
 Kies een bepaalde app-type hieronder voor meer informatie over het communiceren met deze eindpunten.
 
 ## <a name="tokens"></a>Tokens
+
 De implementatie v2.0 van OAuth 2.0 en OpenID Connect maken intensief gebruik van bearer-tokens, met inbegrip van weergegeven als JWTs bearer-tokens. Een bearer-token is een lichtgewicht beveiligingstoken die de "bearer" toegang tot een beveiligde bron verleent. In dit opzicht is de 'bearer' een partij die het token kan opleveren. Hoewel een partij moet eerst worden geverifieerd met Azure AD voor het ontvangen van het bearer-token, als de vereiste stappen zijn niet in gebruik voor het beveiligen van de token in overdracht en opslag, kan worden onderschept en die worden gebruikt door een onbedoelde partij. Hoewel sommige beveiligingstokens een ingebouwd mechanisme hebben voor zo wordt voorkomen dat onbevoegden gebruik ervan, wordt bearer-tokens geen dit mechanisme en moeten worden overgebracht in een beveiligd kanaal, zoals transport layer security (HTTPS). Als een bearer-token wordt verzonden in de wissen, kan een man-in de middelste aanval worden gebruikt door een schadelijke partij de token ophalen en deze gebruiken voor een niet-geautoriseerde toegang tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer op te slaan of bearer-tokens voor later gebruik opslaan in cache. Altijd voor zorgen dat uw app worden verzonden en bearer-tokens worden opgeslagen op een veilige manier. Zie voor meer beveiligingsoverwegingen op bearer-tokens, [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
 
 Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt is beschikbaar in [het v2.0-eindpunt-tokenverwijzing](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocollen
+
 Als u klaar om te zien van bepaalde voorbeeld-aanvragen bent, aan de slag met een van de onderstaande zelfstudies. Elke regel komt overeen met een bepaalde verificatiescenario. Als u hulp bij het vaststellen van de juiste stroom voor u nodig hebt, bekijk dan [de typen apps die u met het v2.0 maken kunt](v2-app-types.md).
 
-* [Bouw mobiele en systeemeigen toepassing met OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Bouw Web-Apps met Open ID Connect](v2-protocols-oidc.md)
-* [Bouw Apps met één pagina met het OAuth 2.0-impliciete stroom](v2-oauth2-implicit-grant-flow.md)
-* [Build-Daemons of processen op de Server met de referenties voor OAuth 2.0-Client Flow](v2-oauth2-client-creds-grant-flow.md)
-* [Tokens ophalen in een Web-API met de OAuth 2.0 namens-stroom](v2-oauth2-on-behalf-of-flow.md)
+* [Mobiele en systeemeigen toepassing met OAuth 2.0 bouwen](v2-oauth2-auth-code-flow.md)
+* [Bouw WebApps met Open ID Connect](v2-protocols-oidc.md)
+* [Apps van één pagina met het OAuth 2.0 impliciete stroom bouwen](v2-oauth2-implicit-grant-flow.md)
+* [Daemons of processen op de server met het OAuth 2.0-Client referenties stromen bouwen](v2-oauth2-client-creds-grant-flow.md)
+* [Tokens ophalen in een web-API met de OAuth 2.0-namens-stroom](v2-oauth2-on-behalf-of-flow.md)

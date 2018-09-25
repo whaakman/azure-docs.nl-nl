@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9b0c58fdbfb0d55b3b8998f4edfc1222b9a3d4aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603376"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988594"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Werken met datum-/ tijdwaarden in Log Analytics-query 's
 
@@ -49,33 +49,33 @@ Timespans worden uitgedrukt als een decimaal getal gevolgd door een tijdeenheid:
 
 Datum/tijd kunnen worden gemaakt met het gebruik van een tekenreeks met de `todatetime` operator. Bijvoorbeeld, als u wilt controleren van de virtuele machine heartbeats verzonden in een specifiek tijdsbestek, kunt u het gebruik van de [tussen operator](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) dit is handig om op te geven van een tijdsbereik...
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Een ander gebruikelijk scenario is een datum/tijd om deze te vergelijken. Bijvoorbeeld, als u wilt zien alle heartbeats in de afgelopen twee minuten, kunt u de `now` operator samen met een TimeSpan-waarde die aangeeft van twee minuten:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 Een snelkoppeling is ook beschikbaar voor deze functie:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 Hoewel de kortste en meest leesbare methode wordt gebruikt de `ago` operator:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Stel in plaats van de begin- en -tijd, te weten dat de begintijd en de duur. U kunt Herschrijf de query als volgt:
 
-```KQL
+```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -86,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>Tijdseenheden converteren
 Kan het nuttig zijn om een datum/tijd of de periode in een tijdeenheid dan de standaardwaarde. Bijvoorbeeld: Stel dat u bij het controleren van foutgebeurtenissen van de laatste 30 minuten en moet een berekende kolom die laat zien hoe lang gelden de gebeurtenis heeft plaatsgevonden:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -95,7 +95,7 @@ Event
 
 U ziet de _timeAgo_ kolom bevat waarden, zoals: '00:09:31.5118992', wat betekent dat ze zijn opgemaakt als hh:mm:ss.fffffff. Als u wilt opmaken van deze waarden naar de _numver_ minuten sinds de begintijd, te delen die waarde door 'minuut':
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -109,7 +109,7 @@ Een andere zeer gangbaar scenario is de noodzaak om statistische gegevens gedure
 
 Gebruik de volgende query uit om het aantal gebeurtenissen die hebben plaatsgevonden om de 5 minuten gedurende de afgelopen half uur:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -127,7 +127,7 @@ Dit resulteert in de volgende tabel:
 
 Een andere manier om te maken van de buckets van resultaten, is met functies, zoals `startofday`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -147,7 +147,7 @@ Dit resulteert in de volgende resultaten:
 ## <a name="time-zones"></a>Tijdzones
 Omdat alle datum-/ tijdwaarden worden uitgedrukt in UTC, is het vaak nuttig om te converteren naar de lokale tijdzone. Deze berekening bijvoorbeeld gebruiken om te converteren van UTC naar PST tijden:
 
-```KQL
+```Kusto
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```

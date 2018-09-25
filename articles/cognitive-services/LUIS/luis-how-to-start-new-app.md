@@ -3,18 +3,18 @@ title: Een nieuwe app maken met LUIS
 description: Maken en beheren van uw toepassingen op de webpagina van de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: efea082ac6f2f0ac2aef491a4f5f3f0c7e1652cc
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634922"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031251"
 ---
 # <a name="create-an-app"></a>Een app maken
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).

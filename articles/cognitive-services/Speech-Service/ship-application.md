@@ -1,5 +1,5 @@
 ---
-title: Azure Cognitive Services, Cognitive Services Speech-API van de SDK-documentatie - zelfstudies, API-verwijzing
+title: Azure Cognitive Services, Cognitive Services Speech SDK-API-documentatie - zelfstudies, API-verwijzing
 description: Meer informatie over het maken en ontwikkelen van apps met de Cognitive Services spraak-SDK
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b920b7bcb86d94b2948ed0a9bf783cee1282b33f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41988473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041072"
 ---
-# <a name="shipping-an-application"></a>Verzending van een toepassing
+# <a name="ship-an-application"></a>Verzenden van een toepassing
 
-Bekijk de [spraak SDK licentie](license.md), evenals de [kennisgevingen van derden software](third-party-notices.md) tijdens het distribueren van de Cognitive Services Speech SDK. Bekijk ook de [privacyverklaring van Microsoft](https://aka.ms/csspeech/privacy).
+Bekijk de [spraak SDK licentie](license.md), evenals de [software van derden kennisgevingen](third-party-notices.md) wanneer u de Azure Cognitive Services Speech SDK distribueert. Bekijk ook de [privacyverklaring van Microsoft](https://aka.ms/csspeech/privacy).
 
 Afhankelijk van het platform, er verschillende afhankelijkheden bestaan voor het uitvoeren van uw toepassing.
 
@@ -31,9 +31,9 @@ De Cognitive Services Speech SDK vereist de [Microsoft Visual C++ Redistributabl
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Als uw toepassing van beheerde code gebruikmaakt, de `.NET Framework 4.6.1` of hoger is vereist op de doelcomputer.
+Als uw toepassing gebruikmaakt van beheerde code, de `.NET Framework 4.6.1` of hoger is vereist op de doelcomputer.
 
-De Media Foundation-bibliotheken moeten worden geïnstalleerd voor de invoer van de microfoon. Deze bibliotheken maken deel uit van Windows 10 en Windows Server 2016. Het is mogelijk het gebruik van de spraak-SDK zonder deze bibliotheken, zolang de microfoon wordt niet gebruikt als de audio-invoerapparaat.
+De Media Foundation-bibliotheken moeten worden geïnstalleerd voor de invoer van de microfoon. Deze bibliotheken maken deel uit van Windows 10 en Windows Server 2016. Het is mogelijk het gebruik van de spraak-SDK zonder deze bibliotheken, zolang een microfoon niet wordt gebruikt als de audio-invoerapparaat.
 
 De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map als uw toepassing. Op deze manier uw toepassing hebben rechtstreeks toegang tot de bibliotheken. Zorg ervoor dat u selecteert de juiste versie (Win32/x64) die overeenkomt met uw toepassing.
 
@@ -45,8 +45,8 @@ De vereiste spraak SDK-bestanden kunnen worden geïmplementeerd in dezelfde map 
 
 ## <a name="linux"></a>Linux
 
-Voor een systeemeigen toepassing die u nodig hebt voor het verzenden van de spraak-SDK-bibliotheek, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Zorg ervoor dat u de versie (x86, x64) selecteert die overeenkomt met uw toepassing. Afhankelijk van de Linux-versie moet u mogelijk ook om op te nemen van de volgende afhankelijkheden:
+Voor een systeemeigen toepassing, moet u voor het verzenden van de spraak-SDK-bibliotheek, `libMicrosoft.CognitiveServices.Speech.core.so`.
+Zorg ervoor dat u selecteert u de versie (x86, x64) die overeenkomt met uw toepassing. Afhankelijk van de Linux-versie moet u ook mogelijk om op te nemen van de volgende afhankelijkheden:
 
 * De gedeelde bibliotheken van de GNU C-bibliotheek (met inbegrip van de bibliotheek POSIX Threads Programming `libpthreads`)
 * De OpenSSL-bibliotheek (`libssl.so.1.0.0`)

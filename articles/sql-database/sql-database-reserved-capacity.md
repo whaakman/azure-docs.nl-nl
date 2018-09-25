@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 59ec4b109c01a027ce440d3f7749d69af3351571
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295487"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037708"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -28,7 +28,7 @@ U kunt Azure SQL Database gereserveerde capaciteit kopen de [Azure-portal](https
 - Voor Enterprise-abonnementen, aankopen in de Azure-reservering moeten zijn ingeschakeld in de [EA-portal](https://ea.azure.com).
 -  Programma Cloud Solution Provider (CSP), kunnen alleen de agents beheerder of de verkoop agents SQL-Database gereserveerde capaciteit kopen.
 
-De informatie over hoe betalen per gebruik en enterprise-klanten worden kosten in rekening gebracht voor de aankoop van de reservering wordt beschreven in [Veelgestelde vragen over](#frequently-asked-questions).
+Zie de informatie over hoe betalen per gebruik en enterprise-klanten worden kosten in rekening gebracht voor reservering, aankopen [over Azure-reservering gebruik voor uw Enterprise-inschrijving](../billing/billing-understand-reserved-instance-usage-ea.md) en [inzicht in Azure-reservering Gebruik voor uw abonnement op gebruiksbasis](../billing/billing-understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Bepaal de juiste SQL-grootte voor aankoop
 

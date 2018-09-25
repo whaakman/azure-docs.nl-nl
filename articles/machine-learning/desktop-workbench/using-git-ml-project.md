@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 58ab1d77218595344c899dff654ba5b7a5bfb0d8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16c102641321117f4776d761aba6c2148d15f1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296633"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995637"
 ---
 # <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Een Git-repo gebruiken met een Machine Learning Workbench-project
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Meer informatie over hoe Azure Machine Learning Workbench maakt gebruik van Git voor versiebeheer, en zorg ervoor dat reproduceerbaarheid in uw gegevenswetenschapexperiment. Leer hoe u uw project koppelen aan een cloud Git-opslagplaats (opslagplaats).
 
 Machine Learning Workbench is ontworpen voor Git-integratie. Wanneer u een nieuw project maakt, is de projectmap automatisch 'Git geïnitialiseerd' als een lokale Git-opslagplaats. Een tweede, verborgen lokale Git-repo ook is gemaakt, klikt u met een vertakking met de naam AzureMLHistory /\<project GUID\>. De vertakking houdt, is het bijhouden van wijzigingen in de map voor elke uitvoering van project. 
@@ -42,7 +47,7 @@ Voltooi de stappen die worden beschreven in de volgende secties om te beginnen m
 > Op dit moment ondersteunt Azure Machine Learning Git-opslagplaatsen alleen op Azure DevOps-organisaties.
 
 ## <a name="step-1-create-a-machine-learning-experimentation-account"></a>Step 1. Een Machine Learning experimenten-account maken
-Een Machine Learning experimenten-account maken en de app Azure Machine Learning Workbench te installeren. Zie voor meer informatie, [installeren en maken van de snelstartgids](../service/quickstart-installation.md).
+Een Machine Learning experimenten-account maken en de app Azure Machine Learning Workbench te installeren. Zie voor meer informatie, [installeren en maken van de snelstartgids](quickstart-installation.md).
 
 ## <a name="step-2-create-an-azure-devops-project-or-use-an-existing-project"></a>Stap 2. Een Azure DevOps-project maken of gebruik een bestaand project
 In de [Azure-portal](https://portal.azure.com/), een nieuw project maken:
@@ -149,7 +154,7 @@ $ git push origin master
 
 U kunt nu veilig het project terugzetten naar een eerdere momentopname door het voltooien van stap 5. U kunt altijd terugkeren naar de commit die u zojuist hebt gemaakt op de master-vertakking.
 
-## <a name="authentication"></a>Authenticatie
+## <a name="authentication"></a>Verificatie
 Als u afhankelijk zijn van alleen de functies van de uitvoeringsgeschiedenis in Machine Learning voor het projectmomentopnamen worden gemaakt en deze terugzetten, moet u geen zorgen te hoeven maken over Git-opslagplaats verificatie. Verificatie wordt verwerkt door de laag van Machine Learning experimenten-service.
 
 Als u uw eigen Git-hulpprogramma's gebruiken voor het beheren van versiebeheer, moet u verificatie op basis van de externe Git-opslagplaats in Azure DevOps afhandelt. In Machine Learning, is de externe Git-opslagplaats toegevoegd aan de lokale opslagplaats als een externe Git met behulp van het HTTPS-protocol. Dit betekent dat wanneer u naar de externe Git-opdrachten (zoals push of pull), moet u uw gebruikersnaam en wachtwoord of een persoonlijk toegangstoken opgeven. Volg de instructies in voor het maken van een persoonlijk toegangstoken in een Azure DevOps Git-opslagplaats, [gebruiken een persoonlijk toegangstoken om te verifiëren](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).

@@ -1,6 +1,6 @@
 ---
-title: Importeren en exporteren van een domein zone-bestand naar Azure DNS met behulp van Azure CLI 2.0 | Microsoft Docs
-description: Meer informatie over het importeren en exporteren van een DNS-zonebestand naar Azure DNS met behulp van Azure CLI 2.0
+title: Importeren en exporteren van een domein zone-bestand naar Azure DNS met behulp van Azure CLI | Microsoft Docs
+description: Meer informatie over het importeren en exporteren van een DNS-zonebestand naar Azure DNS met behulp van Azure CLI
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7578d078b147b5c4bf42f5343d3fdfdf6f0bc42e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171602"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956350"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 2.0 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importeren en exporteren van een DNS-zone-bestand met de Azure CLI 
 
-In dit artikel leert u hoe u om te importeren en exporteren van DNS-zonebestanden voor Azure DNS met behulp van de Azure CLI 2.0.
+In dit artikel leert u hoe u om te importeren en exporteren van DNS-zonebestanden voor Azure DNS met behulp van de Azure CLI.
 
 ## <a name="introduction-to-dns-zone-migration"></a>Inleiding tot de DNS-zone migreren
 
@@ -30,7 +30,7 @@ Een DNS-zonebestand is een tekstbestand met details van elke record van de Domai
 
 Azure DNS ondersteunt importeren en exporteren van zone-bestanden met behulp van de Azure-opdrachtregelinterface (CLI). Importeren is **niet** die momenteel worden ondersteund via Azure PowerShell of Azure portal.
 
-De Azure CLI 2.0 is een platformoverschrijdende opdrachtregelprogramma dat wordt gebruikt voor het beheren van Azure-services. Het is beschikbaar voor Windows, Mac en Linux-platforms van de [pagina Azure downloads](https://azure.microsoft.com/downloads/). Ondersteuning voor meerdere platforms is belangrijk voor het importeren en exporteren van zonebestanden, omdat de meest voorkomende naam server-software, [BINDEN](https://www.isc.org/downloads/bind/), meestal op Linux wordt uitgevoerd.
+De Azure-CLI is een platformoverschrijdende opdrachtregelprogramma dat wordt gebruikt voor het beheren van Azure-services. Het is beschikbaar voor Windows, Mac en Linux-platforms van de [pagina Azure downloads](https://azure.microsoft.com/downloads/). Ondersteuning voor meerdere platforms is belangrijk voor het importeren en exporteren van zonebestanden, omdat de meest voorkomende naam server-software, [BINDEN](https://www.isc.org/downloads/bind/), meestal op Linux wordt uitgevoerd.
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Uw bestaande DNS-zonebestand verkrijgen

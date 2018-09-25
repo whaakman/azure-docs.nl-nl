@@ -1,6 +1,6 @@
 ---
-title: Het formaat van een Linux-VM met de Azure CLI 2.0 | Microsoft Docs
-description: Het opschalen of terugschroeven virtuele Linux-machine, door het wijzigen van de VM-grootte.
+title: Het formaat van een Linux-VM met de Azure CLI | Microsoft Docs
+description: Informatie over het vergroten of verkleinen van een virtuele Linux-machine, door het veranderen van de VM-grootte.
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
@@ -16,35 +16,35 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 900c45713541825ea36fe0b2d8684863b8138507
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 0b8802c91ceb59d391dc27a71da905de9c15a1dc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936639"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993222"
 ---
-# <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Een virtuele Linux-machine met CLI 2.0 vergroten of verkleinen
+# <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Formaat van een virtuele Linux-machine met behulp van Azure CLI 
 
-Nadat u een virtuele machine (VM) inricht, u kunt de virtuele machine omhoog of omlaag schalen door het wijzigen van de [VM-grootte][vm-sizes]. In sommige gevallen moet u eerst de VM ongedaan. U moet de VM ongedaan gemaakt als de gewenste grootte is niet beschikbaar op het cluster hardware die als host voor de virtuele machine fungeert. Dit artikel wordt uitgelegd hoe u dit moet een Linux-VM met de Azure CLI 2.0. 
+Nadat u een virtuele machine (VM) inricht, u kunt de virtuele machine omhoog of omlaag schalen door het veranderen van de [VM-grootte][vm-sizes]. In sommige gevallen moet u eerst de virtuele machine toewijzing. U moet de toewijzing van de virtuele machine als de gewenste grootte is niet beschikbaar op de hardware-cluster die als host voor de virtuele machine fungeert. Dit artikel wordt uitgelegd hoe u dit moet een Linux-VM met de Azure CLI. 
 
-## <a name="resize-a-vm"></a>De grootte van een VM wijzigen
-Als u een virtuele machine, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
+## <a name="resize-a-vm"></a>De grootte van een virtuele machine wijzigen
+Als u wilt het formaat van een virtuele machine, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
-1. De lijst met beschikbare grootten voor virtuele machine weergeven op de hardware-cluster waarop de virtuele machine wordt gehost met [az vm-vm-formaat-opties voor](/cli/azure/vm#az_vm_list_vm_resize_options). Het volgende voorbeeld worden VM-grootten voor de virtuele machine met de naam `myVM` in de resourcegroep `myResourceGroup` regio:
+1. De lijst met beschikbare VM-grootten weergeven op de hardware-cluster waar de virtuele machine wordt gehost met [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options). Het volgende voorbeeld worden de VM-grootten voor de virtuele machine met de naam `myVM` in de resourcegroep `myResourceGroup` regio:
    
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
 
-2. Als de gewenste VM-grootte wordt weergegeven, de grootte van de virtuele machine met [az vm vergroten of verkleinen](/cli/azure/vm#az_vm_resize). Hiermee het volgende voorbeeld wordt ingesteld voor de virtuele machine met de naam `myVM` naar de `Standard_DS3_v2` grootte:
+2. Als de gewenste VM-grootte wordt weergegeven, de grootte van de virtuele machine met [az vm-grootte](/cli/azure/vm#az_vm_resize). Het volgende voorbeeld wordt de grootte de virtuele machine met de naam `myVM` naar de `Standard_DS3_v2` grootte:
    
     ```azurecli
     az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
     ```
    
-    De virtuele machine opnieuw is opgestart tijdens dit proces. Na het opnieuw opstarten, worden uw bestaande OS en de gegevensschijven toegewezen. Alles op de tijdelijke schijf gaat verloren.
+    De virtuele machine opnieuw wordt opgestart tijdens dit proces. Na het opnieuw opstarten, worden uw bestaande besturingssysteem en gegevensschijven toegewezen. Alles op de tijdelijke schijf wordt verwijderd.
 
-3. Als de gewenste VM-grootte niet wordt weergegeven, moet u eerst de virtuele machine met de toewijzing [az vm ongedaan](/cli/azure/vm#az_vm_deallocate). Dit proces kan de virtuele machine vervolgens worden aangepast aan de grootte die beschikbaar is dat de regio ondersteunt en vervolgens worden gestart. De volgende stappen ongedaan gemaakt, vergroten of verkleinen en start vervolgens de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
+3. Als de gewenste VM-grootte niet wordt vermeld, moet u eerst de virtuele machine met de toewijzing [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Dit proces kunt de virtuele machine vervolgens worden aangepast voor elke grootte beschikbaar aan dat de regio ondersteunt en klikt u vervolgens aan de slag. De volgende stappen uit toewijzing ongedaan maken, vergroten of verkleinen en start vervolgens de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`:
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -53,10 +53,10 @@ Als u een virtuele machine, moet u de meest recente [Azure CLI 2.0](/cli/azure/i
     ```
    
    > [!WARNING]
-   > Toewijzing van de virtuele machine ook versies van dynamische IP-adressen toegewezen aan de virtuele machine. Het besturingssysteem en de gegevensschijven worden niet getroffen.
+   > De toewijzing van de virtuele machine ongedaan maken versies een dynamische IP-adressen toegewezen aan de virtuele machine ook. Het besturingssysteem en gegevensschijven worden niet beïnvloed.
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor extra schaalbaarheid, meerdere exemplaren van de VM uitvoeren en uitbreiden. Zie voor meer informatie [automatisch schalen van Linux-machines in een virtuele-Machineschaalset][scale-set]. 
+Voor extra schaalbaarheid, uitvoeren van meerdere VM-exemplaren en de schaal vergroten. Zie voor meer informatie, [Linux-machines automatisch schalen in een virtuele-Machineschaalset][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

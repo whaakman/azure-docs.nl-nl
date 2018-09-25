@@ -12,40 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c312658750c1e9ef024a837ccc16e5cd5be8a5ef
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35914268"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038014"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Een nieuw account voor Azure Stack-tenant in Azure Active Directory toevoegen
+
 Na [implementeren van de Azure Stack Development Kit](azure-stack-run-powershell-script.md), moet u een gebruikersaccount van de tenant zodat u kunt de tenantportal verkennen en testen van uw aanbiedingen en plannen. U kunt een tenantaccount door maken [met behulp van de Azure-portal](#create-an-azure-stack-tenant-account-using-the-azure-portal) of door [met behulp van PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Een Azure Stack-tenant-account maken met de Azure-portal
+
 Hebt u een Azure-abonnement het gebruik van Azure portal.
 
 1. Aanmelden bij [Azure](https://portal.azure.com).
-2. Klik in de linker navigatiebalk van Microsoft Azure, op **Active Directory**.
-3. In de adreslijst, klikt u op de map die u wilt gebruiken voor Azure Stack of een nieuwe maken.
-4. Klik op deze directorypagina **gebruikers**.
-5. Klik op **Gebruiker toevoegen**.
-6. In de **gebruiker toevoegen** wizard, in de **Type gebruiker** Kies **nieuwe gebruiker in uw organisatie**.
-7. In de **gebruikersnaam** typt u een naam voor de gebruiker.
-8. In de **@** Kies de juiste vermelding.
-9. Klik op de pijl Volgende.
-10. In de **gebruikersprofiel** pagina van de wizard, typ een **voornaam**, **achternaam**, en **weergavenaam**.
-11. In de **rol** Kies **gebruiker**.
-12. Klik op de pijl Volgende.
-13. Op de **tijdelijk wachtwoord** pagina, klikt u op **maken**.
-14. Kopieer de **nieuw wachtwoord**.
-15. Meld u aan Microsoft Azure met het nieuwe account. Wijzig het wachtwoord wanneer hierom wordt gevraagd.
-16. Aanmelden bij `https://portal.local.azurestack.external` met het nieuwe account om te zien van de tenantportal.
+2. Selecteer in de linker navigatiebalk **Active Directory** en Ga naar de map die u wilt gebruiken voor Azure Stack, of een nieuwe maken.
+3. Selecteer **Azure Active Directory** > **gebruikers** > **nieuwe gebruiker**.
+
+    ![Gebruikers - pagina voor alle gebruikers met de nieuwe gebruiker is gemarkeerd](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+
+4. Op de **gebruiker** pagina, de vereiste gegevens invullen.
+
+    ![Nieuwe gebruiker, met gebruikersgegevens op de pagina gebruiker toevoegen](media/azure-stack-add-new-user-aad/new-user-user.png)
+
+    - **Naam (vereist).** De eerste en laatste naam van de nieuwe gebruiker. Bijvoorbeeld, Mary Parker.
+    - **Gebruikersnaam (vereist).** De gebruikersnaam van de nieuwe gebruiker. Bijvoorbeeld mary@contoso.com.
+        Het domeingedeelte van de gebruikersnaam moet een van beide de aanvankelijke standaarddomeinnaam, gebruiken <_uwdomeinnaam_>. onmicrosoft.com of een aangepaste domeinnaam, bijvoorbeeld contoso.com. Zie voor meer informatie over het maken van een aangepaste domeinnaam [een aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+    - **Profiel.** U kunt desgewenst meer informatie over de gebruiker toevoegen. U kunt ook gebruikersgegevens op een later tijdstip toevoegen. Zie voor meer informatie over het toevoegen van gebruikersgegevens [toevoegen of wijzigen van de informatie uit gebruikersprofielen](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    - **Directory-rol.**  Kies **gebruiker**.
+
+5. Controleer **wachtwoord weergeven** en kopieert u de automatisch gegenereerde wachtwoord opgegeven in de **wachtwoord** vak. U hebt dit wachtwoord voor het initiële aanmeldingsproces.
+
+6. Selecteer **Maken**.
+
+    De gebruiker is gemaakt en toegevoegd aan uw Azure AD-tenant.
+
+7. Aanmelden bij Microsoft Azure-portal met het nieuwe account. Wijzig het wachtwoord wanneer hierom wordt gevraagd.
+8. Aanmelden bij `https://portal.local.azurestack.external` met het nieuwe account om te zien van de tenantportal.
 
 ## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>Maak een Azure Stack-tenant-account met behulp van PowerShell
+
 Als u geen Azure-abonnement hebt, kunt u de Azure-portal niet gebruiken om toe te voegen een tenant-gebruikersaccount. In dit geval kunt u de Azure Active Directory-Module voor Windows PowerShell in plaats daarvan.
 
 > [!NOTE]

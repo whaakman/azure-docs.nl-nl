@@ -2,20 +2,22 @@
 title: Automatisch afstemmen e-mailmeldingen gebruiksaanwijzing - Azure SQL Database | Microsoft Docs
 description: E-mailmeldingen voor Azure SQL Database automatisch query afstemmen inschakelen.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 546a21c4be13fdd0d06e29253d73c6b67cb8c91c
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498467"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064098"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-mailmeldingen voor automatisch afstemmen
 
@@ -205,12 +207,12 @@ De volgende stap is het toevoegen van drie taken (create, get-uitvoer en verzend
 1. Actie voor het uitvoeren van PowerShell-script voor het ophalen van de aanbevelingen voor afstemming maken
 - Selecteer "**+ nieuwe stap**', gevolgd door'**een actie toevoegen**' in het deelvenster van de stroom terugkeerpatroon
 - In het veld Zoektype "**automation**'en selecteer'**Azure Automation-taak maken**' in de zoekresultaten
-- In het deelvenster van de taak maken door de taakeigenschappen te configureren. Voor deze configuratie, moet u de details van uw Azure-abonnement-ID, resourcegroep en het Automation-Account **eerder opgenomen** op de **Automation-Account deelvenster**. Zie voor meer informatie over de opties die beschikbaar zijn in deze sectie, [Azure Automation - taak maken](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- In het deelvenster van de taak maken door de taakeigenschappen te configureren. Voor deze configuratie, moet u de details van uw Azure-abonnement-ID, resourcegroep en het Automation-Account **eerder opgenomen** op de **Automation-Account deelvenster**. Zie voor meer informatie over de opties die beschikbaar zijn in deze sectie, [Azure Automation - taak maken](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Voltooi het maken van deze actie door te klikken op '**stroom opslaan**"
 
 2. Actie voor het ophalen van uitvoer van de uitgevoerde PowerShell-script maken
 - Selecteer "**+ nieuwe stap**', gevolgd door'**een actie toevoegen**' in het deelvenster van de stroom terugkeerpatroon
-- In het zoekvak ingediend type "**automation**'en selecteer'**Azure Automation: Get-taakuitvoer**' in de zoekresultaten. Zie voor meer informatie over de opties die beschikbaar zijn in deze sectie, [Azure Automation: Get-taakuitvoer](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- In het zoekvak ingediend type "**automation**'en selecteer'**Azure Automation: Get-taakuitvoer**' in de zoekresultaten. Zie voor meer informatie over de opties die beschikbaar zijn in deze sectie, [Azure Automation: Get-taakuitvoer](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Vullen velden vereist (vergelijkbaar met het maken van de vorige taak): het vullen van uw Azure-abonnement-ID, resourcegroep, en het Automation-Account (zoals opgegeven in het deelvenster met Automation-Account)
 - Klik in het veld '**taak-ID**' voor de '**dynamische inhoud**"menu wordt weergegeven. In dit menu, selecteer de optie '**taak-ID**'.
 - Voltooi het maken van deze actie door te klikken op '**stroom opslaan**"

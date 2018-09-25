@@ -1,6 +1,6 @@
 ---
-title: Cloud-init gebruiken om te werken en pakketten installeren op een Linux-VM op Azure | Microsoft Docs
-description: Het gebruik van cloud-init om bij te werken en pakketten worden geïnstalleerd op een Linux-VM tijdens het maken van met de Azure CLI 2.0
+title: Cloud-init gebruiken om te werken en -pakketten installeren op een Linux-VM in Azure | Microsoft Docs
+description: Hoe u cloud-init gebruiken om te werken en pakketten worden geïnstalleerd in een Linux-VM tijdens het maken van met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 84fab18d4e1f385f8770db52b18ac85151f48afd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186151"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988050"
 ---
-# <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Cloud-init gebruiken om te werken en pakketten installeren op een Linux-VM in Azure
-Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) om bij te werken van pakketten op een Linux virtuele machine (VM) of virtuele-machineschaalset ingesteld (VMSS) bij het inrichten van de tijd in Azure. Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init-overzicht](using-cloud-init.md)
+# <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Cloud-init gebruiken om te werken en te installeren pakketten in een Linux-VM in Azure
+In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) om bij te werken van pakketten op een Linux virtuele machine (VM) of virtuele-machineschaalset ingesteld (VMSS) bij het inrichten van de tijd in Azure. Deze cloud-init-scripts uitvoeren op de eerste keer opstarten nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)
 
 ## <a name="update-a-vm-with-cloud-init"></a>Bijwerken van een virtuele machine met cloud-init
-Om veiligheidsredenen wilt u mogelijk een VM voor het toepassen van de meest recente updates op de eerste keer opstarten configureren. Als u cloud-init voor verschillende Linux-distributies werkt, is niet nodig om op te geven `apt` of `yum` voor de package manager. In plaats daarvan u definiëren `package_upgrade` en laat het cloud-init-proces bepalen van het juiste mechanisme voor het distro in gebruik. Deze werkstroom kunt u de dezelfde cloud init-scripts gebruiken via distributies.
+Uit veiligheidsoverwegingen kunt u een virtuele machine om toe te passen van de meest recente updates op de eerste keer opstarten configureren. Als u cloud-init werkt met verschillende Linux-distributies, is het niet nodig om op te geven `apt` of `yum` voor de package manager. In plaats daarvan, definieert u `package_upgrade` en laat het cloud-init-proces bepalen van het juiste mechanisme voor de distro die in gebruik. Deze werkstroom kunt u de dezelfde cloud-init-scripts gebruiken voor distributies.
 
-Om het upgradeproces in actie zien, kunt u een bestand maken in uw huidige shell met de naam *cloud_init_upgrade.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt elke editor die u wilt gebruiken. Voer `sensible-editor cloud_init_upgrade.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  
+Als u wilt het upgradeproces in actie zien, maakt u een bestand in uw huidige shell met de naam *cloud_init_upgrade.txt* en plak de volgende configuratie. In dit voorbeeld maakt u het bestand in de Cloud Shell niet op uw lokale computer. U kunt elke editor die u wilt gebruiken. Voer `sensible-editor cloud_init_upgrade.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Zorg ervoor dat het hele cloud-init-bestand correct is gekopieerd, met name de eerste regel.  
 
 ```yaml
 #cloud-config
@@ -36,7 +36,7 @@ packages:
 - httpd
 ```
 
-Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -53,19 +53,19 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-SSH kunt uitvoeren naar het openbare IP-adres van uw virtuele machine wordt weergegeven in de uitvoer van de voorgaande opdracht. Voer uw eigen **publicIpAddress** als volgt:
+SSH naar het openbare IP-adres van uw virtuele machine wordt weergegeven in de uitvoer van de voorgaande opdracht. Voer uw eigen **publicIpAddress** als volgt:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-De pakket-beheerprogramma en controleren op updates uitvoeren.
+Het pakket met beheerprogramma en controleren op updates uitgevoerd.
 
 ```bash
 sudo yum update
 ```
 
-Omdat cloud init gecontroleerd en updates geïnstalleerd op opstarten, moet er geen aanvullende updates worden toegepast.  U ziet het updateproces kan controleren, aantal gewijzigde pakketten, evenals de installatie van `httpd` door het uitvoeren van `yum history` en bekijk de uitvoer ziet er als hieronder.
+Cloud-init gecontroleerd en updates worden geïnstalleerd bij het opstarten, mogen er geen aanvullende updates worden toegepast.  U ziet het updateproces, aantal gewijzigde pakketten, evenals de installatie van `httpd` door uit te voeren `yum history` en controleer de uitvoer die vergelijkbaar is met de onderstaande.
 
 ```bash
 Loaded plugins: fastestmirror, langpacks
@@ -77,9 +77,9 @@ ID     | Command line             | Date and time    | Action(s)      | Altered
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer cloud-init voorbeelden van wijzigingen in de configuratie, de volgende:
+Voor extra cloud-init-voorbeelden van wijzigingen in de configuratie, Zie de volgende:
  
-- [Een extra Linux-gebruiker toevoegen aan een virtuele machine](cloudinit-add-user.md)
-- [Voer een Pakketbeheer voor het bijwerken van bestaande pakketten op de eerste keer opstarten](cloudinit-update-vm.md)
-- [Wijzigen van de lokale hostnaam VM](cloudinit-update-vm-hostname.md) 
-- [Installeren van een toepassingspakket, het bijwerken van de configuratiebestanden en het invoeren van sleutels](tutorial-automate-vm-deployment.md)
+- [Een aanvullende Linux-gebruiker toevoegen aan een virtuele machine](cloudinit-add-user.md)
+- [Uitvoeren van een pakketbeheerder voor het bijwerken van bestaande pakketten bij de eerste keer opstarten](cloudinit-update-vm.md)
+- [Wijzigen van de lokale VM-hostnaam](cloudinit-update-vm-hostname.md) 
+- [Het installatiepakket voor een toepassing, het bijwerken van configuratiebestanden en het invoeren van sleutels](tutorial-automate-vm-deployment.md)

@@ -9,14 +9,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991960"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>De Azure Machine Learning experimenten-Service configureren
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Overzicht
 Azure Machine Learning experimenten-Service-account en werkruimte project zijn Azure-Resources. Als zodanig, kunnen ze worden geïmplementeerd met behulp van Resources Manager-sjablonen. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
@@ -158,4 +161,4 @@ Er zijn drie waarden die u kunt wijzigen.
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Maak en installeer Azure Machine Learning](../service/quickstart-installation.md)
+* [Maak en installeer Azure Machine Learning](quickstart-installation.md)

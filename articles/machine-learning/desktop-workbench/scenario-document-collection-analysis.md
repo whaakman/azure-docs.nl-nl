@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861709"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947214"
 ---
 # <a name="document-collection-analysis"></a>Documentverzamelingen
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 In dit scenario ziet u hoe u een overzicht maken en analyseren van een grote verzameling van documenten, met inbegrip van technieken zoals woordgroep learning onderwerp modelleren en onderwerp model analyse met behulp van Azure ML Workbench. Azure Machine Learning Workbench biedt voor eenvoudig schalen voor zeer grote documentverzameling, en biedt mechanismen voor het trainen en modellen in tal van compute-context, variërend van de lokale compute op virtuele Machines voor Datatechnologie met Spark-Cluster af te stemmen. Eenvoudige ontwikkeling wordt geboden via Jupyter-notebooks in Azure Machine Learning Workbench.
 
@@ -60,7 +65,7 @@ De machine learning technieken /-algoritmen die in dit scenario zijn onder ander
 
 De vereisten voor het uitvoeren van dit voorbeeld zijn er als volgt uit:
 
-* Zorg ervoor dat u correct hebt geïnstalleerd [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) door de [installeren en maken van de snelstartgids](../service/quickstart-installation.md).
+* Zorg ervoor dat u correct hebt geïnstalleerd [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) door de [installeren en maken van de snelstartgids](quickstart-installation.md).
 
 * In dit voorbeeld kan worden uitgevoerd op een compute-context. Het wordt echter aanbevolen uit te voeren op een computer meerdere kernen met ten minste 16GB geheugen en 5GB schijfruimte.
 

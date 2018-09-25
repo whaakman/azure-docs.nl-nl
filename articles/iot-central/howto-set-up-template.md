@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735645"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034266"
 ---
 # <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
@@ -74,6 +74,9 @@ U kunt bijvoorbeeld een nieuwe meting van de temperatuur-telemetrie toevoegen:
 
 Nadat u hebt geselecteerd **gedaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen. Een operator ziet de visualisatie van de temperatuurgegevens die het verzamelen van het apparaat.
 
+> [!NOTE]
+  Het gegevenstype van de meting telemetrie is dubbel.
+
 ### <a name="create-an-event-measurement"></a>Een gebeurtenis meting maken
 Selecteer om een nieuwe meting van de gebeurtenis toe **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **gebeurtenis** als de meting, te typen en de details op de **gebeurtenis maken** formulier.
 
@@ -91,6 +94,8 @@ Als u wilt meer informatie over de gebeurtenis weergeven, selecteert u het picto
 
 ![Details voor de gebeurtenis "Ventilator Motor Error"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  Het gegevenstype van de meting van de gebeurtenis is een tekenreeks.
 
 ### <a name="create-a-state-measurement"></a>Maken van een meting staat
 Selecteren om toe te voegen een nieuwe meting van de status, **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **status** als de meting, te typen en de details op de **maken status** formulier.
@@ -106,6 +111,9 @@ Nadat u hebt geselecteerd **gedaan**, wordt de **ventilator modus** meting van d
 ![Status meting grafiek](./media/howto-set-up-template/statemeasurementschart.png)
 
 Als het apparaat te veel gegevenspunten in een kleine duur verzendt, is de meting van de status wordt weergegeven met een ander visueel element, zoals wordt weergegeven in de volgende schermafbeelding. Als u op de grafiek klikt, worden alle gegevenspunten binnen deze periode worden in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor het weergeven van de meting in de grafiek getekend verfijnen.
+
+> [!NOTE]
+  Het gegevenstype van de meting van de status is een tekenreeks.
 
 ## <a name="settings"></a>Instellingen
 

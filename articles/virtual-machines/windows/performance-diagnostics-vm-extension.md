@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4663da6d28d62230ced937cdb5e597a1236c7f99
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 0482a882b2dea47752eb38eadbaaa72e36ae2eae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258941"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031965"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
 Azure Diagnostics VM-extensie voor prestaties kunt u diagnostische prestatiegegevens verzamelen van Windows-VM's. De extensie voert analyse en biedt een rapport van de bevindingen en aanbevelingen om u te identificeren en oplossen van problemen met prestaties op de virtuele machine. Deze extensie wordt geïnstalleerd voor een hulpprogramma voor probleemoplossing met de naam [PerfInsights](http://aka.ms/perfinsights).
+
+> [!NOTE]
+    > Als u uitvoeren van diagnostische gegevens op de virtuele machine vanuit Azure portal voor niet-klassieke VM's wilt, is het aanbevolen gebruik van de nieuwe ervaring. Zie voor meer informatie, [Prestatiediagnoses voor virtuele machines van Azure](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Vereisten
 

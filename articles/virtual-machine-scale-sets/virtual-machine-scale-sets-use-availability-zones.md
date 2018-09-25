@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055114"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949669"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van Beschikbaarheidszones
 
@@ -65,7 +65,7 @@ Wanneer u een schaalset maken in een enkele zone, u bepaalt welke zone alle deze
 Als u wilt gebruiken voor Beschikbaarheidszones, moet uw schaalset worden gemaakt in een [ondersteunde Azure-regio](../availability-zones/az-overview.md#regions-that-support-availability-zones). U kunt een schaalset die gebruikmaakt van Beschikbaarheidszones met een van de volgende manieren maken:
 
 - [Azure Portal](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure-CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-sjablonen](#use-azure-resource-manager-templates)
 
@@ -77,7 +77,7 @@ Het proces voor het maken van een schaalset die gebruikmaakt van een Beschikbaar
 
 De schaalset en ondersteunende resources, zoals de Azure load balancer en het openbare IP-adressen worden gemaakt in de één zone die u opgeeft.
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 gebruiken
+## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
 
 Het proces voor het maken van een schaalset die gebruikmaakt van een Beschikbaarheidszone is hetzelfde als beschreven in de [aan de slag artikel](quick-create-cli.md). Als u wilt gebruiken voor Beschikbaarheidszones, moet u de schaalset in een ondersteunde Azure-regio maken.
 

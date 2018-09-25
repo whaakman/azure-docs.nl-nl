@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 2be65ba185ebc1ad8bde0cdf33f264351301d45a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051402"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033424"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
 
@@ -261,7 +261,7 @@ Client-side-versleuteling van gegevens uit een Azure SQL Database is alleen besc
 | **Opslag en Databases**        |                    |                    |                    |                    |                    |
 | Schijf (IaaS)                      | -                  | Ja, RSA 2048-bits  | Ja               | -                  |
 | SQL Server (IaaS)                | Ja                | Ja, RSA 2048-bits  | Ja                | Ja                |
-| Azure SQL-Database (PaaS)        | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |
+| Azure SQL (Database/Data Warehouse) | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |
 | Azure-opslag (blok-/ pagina-Blobs) | Ja                | Ja, RSA 2048-bits  | -                  | Ja                |
 | Azure Storage (bestanden)            | Ja                | Ja, RSA 2048-bits  | -                  | -                  |
 | Azure Storage (tabellen, wachtrijen)   | Ja                | -                  | -                  | Ja                |

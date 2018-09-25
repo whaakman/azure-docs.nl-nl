@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Overzicht van relevante app intenties en entiteiten en maak vervolgens uw toepassing plannen in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 971d5ed47c5778315e2b7c75997c945e8489b1ce
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a7e137c864d216b6b936181c3482358bd10f175a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052238"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037266"
 ---
 # <a name="plan-your-luis-app"></a>Uw LUIS-app plannen
 

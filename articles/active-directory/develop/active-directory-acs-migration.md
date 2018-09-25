@@ -1,6 +1,6 @@
 ---
 title: Migreren van de service Azure Access Control | Microsoft Docs
-description: Opties voor het verplaatsen van apps en services van de Azure Access Control-service
+description: Meer informatie over de opties voor het verplaatsen van apps en services van de Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055291"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036538"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Migreren vanuit de Azure Access Control-service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Hoe: migreren vanuit de Azure Access Control-service
 
 Microsoft Azure Access Control Service (ACS), een service van Azure Active Directory (Azure AD), wordt op 7 November 2018 beëindigd. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel beschrijft de aanbevelingen voor huidige klanten, als u van plan bent uw gebruik van Access Control afschaffen. Als u toegangsbeheer op dit moment niet gebruikt, moet u geen enkele actie ondernemen.
 
@@ -37,7 +37,7 @@ Gebruiksvoorbeelden voor toegangsbeheer kunnen worden onderverdeeld in drie hoof
 - Verificatie toevoegen voor webtoepassingen, zowel aangepaste als voorverpakte (zoals SharePoint). Met behulp van toegangsbeheer 'passieve' verificatie webtoepassingen aanmelden met een Microsoft-account (voorheen Live ID) en accounts van Google, Facebook, Yahoo, Azure AD kunnen ondersteunen en Active Directory Federation Services (AD FS).
 - Aangepaste web-services beveiligen met behulp van tokens die zijn uitgegeven door Access Control. Met behulp van 'active'-verificatie, webservices ervoor zorgen dat ze alleen toegang tot bekende clients die zijn geverifieerd met toegangsbeheer toestaan.
 
-Elk van deze use cases en hun aanbevolen migratie strategieën worden beschreven in de volgende secties. 
+Elk van deze use cases en hun aanbevolen migratie strategieën worden beschreven in de volgende secties.
 
 > [!WARNING]
 > Aanzienlijke codewijzigingen zijn in de meeste gevallen vereist voor het migreren van bestaande apps en services naar nieuwere technologieën. Het is raadzaam dat u direct beginnen met het plannen en uitvoeren van de migratie om te voorkomen dat alle mogelijke storingen of downtime.
@@ -61,6 +61,51 @@ Alle communicatie met de STS en beheerbewerkingen moeten worden uitgevoerd op de
 De uitzondering hierop is al het verkeer naar `https://accounts.accesscontrol.windows.net`. Verkeer naar deze URL wordt al verwerkt door een andere service en **is niet** beïnvloed door de afschaffing van de Access Control. 
 
 Zie voor meer informatie over toegangsbeheer [Access Control Service 2.0 (gearchiveerde)](https://msdn.microsoft.com/library/hh147631.aspx).
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Ontdek welke van uw apps wordt beïnvloed
+
+Volg de stappen in deze sectie om erachter te komen welke van uw apps zullen worden beïnvloed door ACS buiten gebruik stellen.
+
+### <a name="download-and-install-acs-powershell"></a>Downloaden en installeren van ACS-PowerShell
+
+1. Ga naar de PowerShell Gallery en download [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. De module installeren door te voeren
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Haal een lijst van alle mogelijke opdrachten door te voeren
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    Hulp op een specifieke opdracht uitvoeren:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    waar `[Command-Name]` is de naam van de ACS-opdracht.
+
+### <a name="list-your-acs-namespaces"></a>Lijst van de ACS-naamruimten
+
+1. Verbinding maken met ACS met behulp van de **Connect AcsAccount** cmdlet.
+  
+    U moet mogelijk uitvoeren `Set-ExecutionPolicy -ExecutionPolicy Bypass` voordat u opdrachten kunt uitvoeren en de beheerder van deze abonnementen worden om de opdrachten uit te voeren.
+
+1. Lijst van uw beschikbare Azure-abonnementen met behulp van de **Get-AcsSubscription** cmdlet.
+1. Lijst met uw ACS-naamruimten op met de **Get-AcsNamespace** cmdlet.
+
+### <a name="check-which-applications-will-be-impacted"></a>Controleren welke toepassingen worden beïnvloed
+
+1. Gebruik van de naamruimte van de vorige stap en Ga naar `https://<namespace>.accesscontrol.windows.net`
+
+    Bijvoorbeeld, als een van de naamruimten contoso-test is, gaat u naar `https://contoso-test.accesscontrol.windows.net`
+
+1. Onder **vertrouwensrelaties**, selecteer **Relying party toepassingen** om te zien van de lijst met apps die zullen worden beïnvloed door ACS buiten gebruik stellen.
+1. Herhaal stappen 1 en 2 voor alle andere ACS namespace(s) die u hebt.
 
 ## <a name="retirement-schedule"></a>De planning buiten gebruik stellen
 

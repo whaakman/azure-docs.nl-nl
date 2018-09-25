@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581329"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990498"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Gebruiksrechtovereenkomst en privacyverklaring voor geregistreerde Azure Active Directory-apps
 
@@ -54,12 +54,14 @@ Voorbeelden: `https://myapp.com/terms-of-service` en `https://myapp.com/privacy-
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Koppelingen toe te voegen met de gebruiksvoorwaarden en privacyverklaring
 
 Als de gebruiksrechtovereenkomst en privacyverklaring klaar bent, kunt u koppelingen toevoegen aan deze documenten in uw app met behulp van een van de volgende methoden:
+
 * [Via de Azure-portal](#registered-in-azure-portal)
 * [In de Portal voor Toepassingsregistratie of Dev Center](#registered-in-app-reg-portal)
 * [Met behulp van de app van JSON-object](#app-object-json)
 * [Met behulp van de bètaversie van MSGraph REST-API](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Als u uw app geregistreerd in Azure portal
+
 Volg deze stappen als u uw app geregistreerd in Azure portal.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Volg deze stappen als u uw app geregistreerd in Azure portal.
 4. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
 5. Sla uw wijzigingen op.
 
-![App sectie met eigenschappen met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![App sectie met eigenschappen met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Als u uw app geregistreerd in de Portal voor Appregistratie
+
 Volg deze stappen als u uw app in de Portal voor Toepassingsregistratie of Dev Center hebt geregistreerd.
 
 1. Aanmelden bij de [Portal voor Appregistratie](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Volg deze stappen als u uw app in de Portal voor Toepassingsregistratie of Dev C
 3. Vul de **voorwaarden van de URL van de Service** en **URL van privacyverklaring van** velden.
 4. Sla uw wijzigingen op.
 
-![App profielsectie met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![App profielsectie met de voorwaarden van de service en privacy statement-URL 's](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Met behulp van de app van JSON-object
+
 Als u liever de JSON-object van de app rechtstreeks te wijzigen, kunt u de manifest-editor in Azure portal of de Portal voor Appregistratie gebruiken om op te nemen van koppelingen met de gebruiksvoorwaarden en privacyverklaring van uw app.
 
 ```json
@@ -91,6 +95,7 @@ Als u liever de JSON-object van de app rechtstreeks te wijzigen, kunt u de manif
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>Met behulp van de bètaversie van MSGraph REST-API
+
 Om bij te werken via een programma al uw apps, kunt u de bètaversie van MSGraph REST-API om bij te werken van al uw apps zodanig dat koppelingen naar de servicevoorwaarden en privacyverklaring instructie documenten.
 
 ```

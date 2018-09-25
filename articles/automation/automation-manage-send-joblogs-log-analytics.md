@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215030"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035467"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taakstromen van Automation doorsturen naar Log Analytics
-Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. Taaklogboeken en taakstromen zijn zichtbaar in de Azure portal of met PowerShell, voor afzonderlijke taken en deze kunt u eenvoudige onderzoek uitvoeren. Met Log Analytics kunt u nu:
+
+Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analytics-werkruimte. Dit proces wordt geen gebruikgemaakt van het koppelen van de werkruimte en is volledig onafhankelijk. Taaklogboeken en taakstromen zijn zichtbaar in de Azure portal of met PowerShell, voor afzonderlijke taken en deze kunt u eenvoudige onderzoek uitvoeren. Met Log Analytics kunt u nu:
 
 * Krijg inzicht in uw Automation-taken.
 * De trigger is een e-mailadres of de waarschuwing op basis van uw runbook job status (voor bijvoorbeeld mislukte of onderbroken).
@@ -26,12 +27,12 @@ Automation kunt runbook en taakstromen van een taak verzenden naar uw Log Analyt
 * Visualiseer uw Taakgeschiedenis na verloop van tijd.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Vereisten en overwegingen voor implementatie
+
 Als u wilt beginnen met het verzenden van uw Automation-logboeken naar Log Analytics, hebt u het volgende nodig:
 
 * De November 2016 of hoger van de release [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 * Een Log Analytics-werkruimte. Zie voor meer informatie, [aan de slag met Log Analytics](../log-analytics/log-analytics-get-started.md). 
 * De ResourceId voor uw Azure Automation-account.
-
 
 Zoek de ResourceId voor uw Azure Automation-account:
 
@@ -159,7 +160,18 @@ Ten slotte kunt u voor het visualiseren van uw Taakgeschiedenis na verloop van t
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Log Analytics historische taak Statusgrafiek](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## <a name="remove-diagnostic-settings"></a>Diagnostische instellingen verwijderen
+
+Als u wilt verwijderen van de diagnostische instelling van het Automation-Account, voer de volgende opdrachten:
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## <a name="summary"></a>Samenvatting
+
 Uw Automation-taak de status en stream-gegevens verzenden naar Log Analytics, krijgt u inzicht in de status van uw Automation-taken op:
 + Instellen van waarschuwingen om u te waarschuwen wanneer er een probleem.
 + Met behulp van aangepaste weergaven en zoekopdrachten naar uw runbookresultaten te visualiseren, gerelateerde de status van de runbook-taak en andere KPI's of metrische gegevens.  

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
 ms.custom: hdinsightactive
-ms.openlocfilehash: db460c6ebe934fa9ca9b6b42d517f39acbecf0c9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 54e5a5b72627dc9cd2d842ccb24d10e2f9ab9dce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105310"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957173"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Mono op HDInsight installeren of bijwerken
 
@@ -44,7 +44,7 @@ __Vereisten voor__:
 
 ## <a name="to-use-the-script"></a>Het gebruik van het script
 
-Zie voor meer informatie over het gebruik van dit script met HDInsight, de [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. U kunt het script via de Azure-portal, Azure PowerShell of Azure CLI gebruiken.
+Zie voor meer informatie over het gebruik van dit script met HDInsight, de [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. U kunt het script via de Azure-portal, Azure PowerShell of de klassieke Azure-CLI gebruiken.
 
 Tijdens het script actie document te volgen, gebruikt u de volgende URI:
 

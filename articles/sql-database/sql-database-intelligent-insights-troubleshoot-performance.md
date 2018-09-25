@@ -8,50 +8,50 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
-ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b6e619f75ebf6ee58f3c259b665cd38c3546d2ff
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733178"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040632"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
-Deze pagina bevat informatie over Azure SQL Database-prestatieproblemen die worden gedetecteerd door de [Intelligent Insights](sql-database-intelligent-insights.md) database prestaties-diagnoselogboek. Deze logboekbestanden met diagnostische gegevens kan worden verzonden naar [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapporten mogelijkheden.
+Deze pagina bevat informatie over Azure SQL Database en prestatieproblemen Managed Instance gedetecteerd via de [Intelligent Insights](sql-database-intelligent-insights.md) database prestaties-diagnoselogboek. De telemetrie diagnostisch logboek kan worden gestreamd naar [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste waarschuwingen van DevOps en rapportagemogelijkheden.
 
 > [!NOTE]
-> Zie voor een snelle SQL Database performance gids voor probleemoplossing via Intelligent Insights, de [aanbevolen oplossingen stroom](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) stroomdiagram in dit document.
+> Zie voor een snelle prestaties van SQL Database problemen oplossen met behulp van intelligente inzichten met, de [aanbevolen oplossingen stroom](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) stroomdiagram in dit document.
 >
 
 ## <a name="detectable-database-performance-patterns"></a>Detecteerbare patronen voor prestaties
 
-Intelligent Insights detecteert automatisch prestatieproblemen met SQL-Database op basis van wachttijden van query-uitvoering, fouten of time-outs. Deze vervolgens weergeeft de van de gedetecteerde prestatiepatronen in het logboek met diagnostische gegevens. Detecteerbare prestatiepatronen worden samengevat in de volgende tabel:
+Intelligent Insights detecteert automatisch prestatieproblemen met SQL Database en de Managed Instance-databases op basis van wachttijden van query-uitvoering, fouten of time-outs. Het levert van gedetecteerde prestatiepatronen in het logboek met diagnostische gegevens. Detecteerbare prestatiepatronen worden samengevat in de onderstaande tabel.
 
-| Detecteerbare prestatiepatronen | Details van output |
-| :------------------- | ------------------- |
-| [Bronlimieten bereikt](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Verbruik van beschikbare resources (dtu's), werkthreads database of database-aanmeldingssessies die beschikbaar is op de bewaakte abonnement heeft limieten, bereikt waardoor prestatieproblemen met de SQL-Database. |
-| [Toename van de werkbelasting](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload toe- of doorlopende opeenstapeling van werkbelasting op de database is gedetecteerd, waardoor prestatieproblemen met de SQL-Database. |
-| [Geheugendruk](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Werknemers die aangevraagd geheugen verleent moeten wachten voor geheugentoewijzingen statistisch aanzienlijke hoeveelheden tijd. Of een hogere opeenstapeling van de werknemers die aangevraagd geheugen verleent bestaat, die van invloed op prestaties van SQL Database. |
-| [Vergrendelen](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Vergrendelen van overmatige database is gedetecteerd, die van invloed op prestaties van SQL Database. |
-| [Verbeterde MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | De maximale graad van parallelle uitvoering optie (MAXDOP) is gewijzigd en is van invloed op de efficiëntie van de uitvoering van query. |
-| [Pagelatch conflicten](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Pagelatch conflicten is gedetecteerd, die van invloed op prestaties van SQL Database. Meerdere threads willen gelijktijdig toegang tot de dezelfde in-memory-gegevens-buffer pagina's. Dit resulteert in betere wachttijden, die van invloed op prestaties van SQL Database. |
-| [Ontbrekende Index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Een probleem met de ontbrekende index is gedetecteerd, die van invloed op prestaties van SQL Database. |
-| [Nieuwe Query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Een nieuwe query is gedetecteerd, die van invloed op prestaties van SQL-Database. |
-| [Ongebruikelijke wacht statistiek](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Ongebruikelijke database wachttijden zijn gedetecteerd, die van invloed op prestaties van SQL Database. |
-| [TempDB conflicten](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Meerdere threads probeert te krijgen tot de dezelfde tempDB-resources, waardoor een knelpunt dat betrekking heeft op de prestaties van SQL Database. |
-| [Elastische pool-DTU tekort](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Een gebrek aan beschikbare edtu's in de elastische pool is van invloed op prestaties van SQL Database. |
-| [Regressie plannen](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Een nieuw abonnement of een wijziging in de werkbelasting van een bestaand plan is gedetecteerd, wordt die van invloed op prestaties van SQL Database. |
-| [Het wijzigen van de database Scoped Configuration](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Een configuratiewijziging in de database is van invloed op prestaties van SQL Database. |
-| [Trage Client](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Een trage toepassingsclient die niet kan gebruiken voor uitvoer van de SQL-Database snel genoeg is gedetecteerd, die van invloed op prestaties van SQL Database. |
-| [Downgrade van laag-prijzen](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Een prijscategorie laag downgrade actie verlaagd beschikbare resources die van invloed op prestaties van SQL Database. |
+| Detecteerbare prestatiepatronen | Beschrijving voor Azure SQL Database en elastische pools | Beschrijving voor de databases in het beheerde exemplaar |
+| :------------------- | ------------------- | ------------------- |
+| [Bronlimieten bereikt](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Verbruik van beschikbare resources (dtu's), werkthreads database of database-aanmeldingssessies die beschikbaar is op de bewaakte abonnement heeft limieten bereikt. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Verbruik van CPU-resources bereikt beheerd exemplaar limieten. Dit is die betrekking hebben op de prestaties van de database. |
+| [Toename van de werkbelasting](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload toe- of doorlopende opeenstapeling van werkbelasting op de database is gedetecteerd. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Toename van de werkbelasting is gedetecteerd. Dit is die betrekking hebben op de prestaties van de database. |
+| [Geheugendruk](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Werknemers die aangevraagd geheugen verleent moeten wachten voor geheugentoewijzingen statistisch aanzienlijke hoeveelheden tijd. Of een hogere opeenstapeling van de werknemers die aangevraagd geheugen verleent bestaat. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Werknemers die zijn aangevraagd geheugen verleent wachten geheugentoewijzingen voor een statistisch aanzienlijke hoeveelheid tijd. Dit is die betrekking hebben op de prestaties van de database. |
+| [Vergrendelen](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Vergrendelen van overmatige database gedetecteerd die betrekking hebben op de prestaties van de SQL-Database. | Vergrendelen van overmatige database gedetecteerd die betrekking hebben op de prestaties van de database. |
+| [Verbeterde MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | De maximale graad van parallelle uitvoering optie (MAXDOP) is gewijzigd die betrekking hebben op de efficiëntie van de uitvoering van query. Dit is die betrekking hebben op de prestaties van de SQL-Database. | De maximale graad van parallelle uitvoering optie (MAXDOP) is gewijzigd die betrekking hebben op de efficiëntie van de uitvoering van query. Dit is die betrekking hebben op de prestaties van de database. |
+| [Pagelatch conflicten](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Meerdere threads probeert gelijktijdig te krijgen tot de dezelfde in-memory-gegevens buffer's leidt tot verbeterde wachttijden en pagelatch conflicten veroorzaakt. Dit is die betrekking hebben op de prestaties van de SQL-database. | Meerdere threads probeert gelijktijdig te krijgen tot de dezelfde in-memory-gegevens buffer's leidt tot verbeterde wachttijden en pagelatch conflicten veroorzaakt. Dit is die betrekking hebben op de prestaties van de database. |
+| [Ontbrekende Index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Ontbrekende index is gedetecteerd die betrekking hebben op de prestaties van de SQL-database. | Ontbrekende index is gedetecteerd die betrekking hebben op de prestaties van de database. |
+| [Nieuwe Query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Nieuwe query gedetecteerd die betrekking hebben op de algehele prestaties van de SQL-Database. | Nieuwe query gedetecteerd die betrekking hebben op de algehele prestaties van de database. |
+| [Ongebruikelijke wacht statistiek](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Ongebruikelijke database wachttijden zijn gedetecteerd die betrekking hebben op de prestaties van de SQL-database. | Ongebruikelijke database wachttijden zijn gedetecteerd die betrekking hebben op de prestaties van de database. |
+| [TempDB conflicten](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Meerdere threads probeert te krijgen tot de dezelfde TempDB-resource een knelpunt veroorzaakt. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Meerdere threads probeert te krijgen tot de dezelfde TempDB-resource een knelpunt veroorzaakt. Dit is die betrekking hebben op de prestaties van de database. |
+| [Elastische Pool-DTU-tekort](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Gebrek aan beschikbare edtu's in de elastische pool is die betrekking hebben op prestaties van SQL Database. | Niet beschikbaar voor Managed Instance aangezien hierbij vCore-model. |
+| [Regressie plannen](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Nieuw plan of een wijziging in de werkbelasting van een bestaand plan is gedetecteerd. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Nieuw plan of een wijziging in de werkbelasting van een bestaand plan is gedetecteerd. Dit is die betrekking hebben op de prestaties van de database. |
+| [Het wijzigen van de database Scoped Configuration](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Wijziging in de configuratie op de SQL-Database is gedetecteerd die betrekking hebben op de prestaties van de database. | Wijziging in de configuratie van de database is gedetecteerd die betrekking hebben op de prestaties van de database. |
+| [Trage Client](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Trage toepassingsclient is niet snel genoeg uitvoer van de database gebruiken. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Trage toepassingsclient is niet snel genoeg uitvoer van de database gebruiken. Dit is die betrekking hebben op de prestaties van de database. |
+| [Downgrade van laag-prijzen](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Beschikbare resources prijzen laag downgrade actie worden verlaagd. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Beschikbare resources prijzen laag downgrade actie worden verlaagd. Dit is die betrekking hebben op de prestaties van de database. |
 
 > [!TIP]
 > Inschakelen om met SQL Database continu de prestaties te optimaliseren, [Azure SQL Database automatisch afstemmen](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Deze unieke functie van SQL Database ingebouwde intelligentie continu bewaakt uw SQL-database, automatisch afgestemd indexen en past query uitvoering plan correcties.
 >
 
-De volgende sectie wordt de eerder vermelde detecteerbare prestatiepatronen in meer detail beschreven.
+De volgende sectie wordt beschreven detecteerbare prestatiepatronen in meer detail.
 
 ## <a name="reaching-resource-limits"></a>Bronlimieten bereikt
 
@@ -59,11 +59,11 @@ De volgende sectie wordt de eerder vermelde detecteerbare prestatiepatronen in m
 
 Dit patroon detecteerbare prestaties combineert prestatieproblemen die gerelateerd zijn aan de beschikbare resourcelimieten, werknemer-limieten en sessielimieten is bereikt. Nadat u dit probleem wordt gedetecteerd, wordt een beschrijvingsveld van de logboekbestanden met diagnostische gegevens geeft aan of het prestatieprobleem gerelateerd is aan de resource, werknemer of sessielimieten.
 
-Resources voor SQL Database worden gewoonlijk aangeduid als [DTU-bronnen](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Ze bestaan uit een samengestelde meting van CPU- en i/o-resources voor (gegevens en transactielogboeken logboek-IO). Het patroon van de resourcelimieten bereiken wanneer gedetecteerd wordt herkend prestatievermindering query wordt veroorzaakt door een van de gemeten resourcelimieten wordt bereikt.
+Resources voor SQL Database meestal worden aangeduid [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) of [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) resources. Het patroon van de resourcelimieten bereiken wanneer gedetecteerd wordt herkend prestatievermindering query wordt veroorzaakt door een van de gemeten resourcelimieten wordt bereikt.
 
 De sessie limieten resource geeft aan dat het aantal beschikbare gelijktijdige aanmeldingen bij de SQL-database. Dit patroon prestaties wordt herkend als toepassingen die zijn verbonden met de SQL-databases hebt bereikt van het aantal beschikbare gelijktijdige aanmeldingen bij de database. Als toepassingen proberen te gebruiken meer sessies dan beschikbaar zijn op een database, wordt de prestaties van query's beïnvloed.
 
-Werknemer limieten bereiken is een specifieke aanvraag resourcebeperkingen bereikt omdat beschikbare werkrollen worden niet meegeteld in het DTU-gebruik. Werknemer beperkingen met betrekking tot een database wordt bereikt, kan de opkomst van wachttijden van resource-specifieke, wat tot prestatievermindering query leidt veroorzaken.
+Werknemer limieten bereiken is een specifieke aanvraag resourcebeperkingen bereikt omdat beschikbare werkrollen worden niet meegeteld in het gebruik van DTU of vCore. Werknemer beperkingen met betrekking tot een database wordt bereikt, kan de opkomst van wachttijden van resource-specifieke, wat tot prestatievermindering query leidt veroorzaken.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
@@ -229,7 +229,7 @@ De logboekbestanden met diagnostische gegevens levert tempDB conflicten details.
 
 Zie voor meer informatie, [Inleiding tot tabellen geoptimaliseerd voor geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## <a name="elastic-pool-dtu-shortage"></a>Elastische pool-DTU tekort
+## <a name="elastic-pool-dtu-shortage"></a>Elastische Pool-DTU-tekort
 
 ### <a name="what-is-happening"></a>Wat gebeurt er
 
@@ -283,7 +283,7 @@ Wijzigingen in de database-scoped configuratie kunnen worden ingesteld voor elke
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-De uitvoer databasebereik configuratiewijzigingen die onlangs zijn aangebracht waardoor prestatievermindering in vergelijking met het gedrag van het vorige zeven dagen werkbelasting-diagnoselogboek. U kunt de configuratiewijzigingen in de vorige waarden herstellen. U kunt ook waarde door waarde afstemmen totdat de gewenste compute-grootte is bereikt. U kunt database-scope-configuratiewaarden kopiëren uit een database vergelijkbaar met voldoende prestaties. Als u niet om op te lossen van de prestaties, terugkeren naar de standaardwaarden van de standaard-SQL-Database en proberen te starten vanaf deze basislijn aanpassen.
+De uitvoer databasebereik configuratiewijzigingen die onlangs zijn aangebracht waardoor prestatievermindering in vergelijking met het gedrag van het vorige zeven dagen werkbelasting-diagnoselogboek. U kunt de configuratiewijzigingen in de vorige waarden herstellen. U kunt ook waarde door waarde afstemmen totdat het gewenste prestatieniveau is bereikt. U kunt database-scope-configuratiewaarden kopiëren uit een database vergelijkbaar met voldoende prestaties. Als u niet om op te lossen van de prestaties, terugkeren naar de standaardwaarden van de standaard-SQL-Database en proberen te starten vanaf deze basislijn aanpassen.
 
 Zie voor meer informatie over het optimaliseren van binnen het bereik van database-configuratie en T-SQL-syntaxis voor het wijzigen van de configuratie [Alter database scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

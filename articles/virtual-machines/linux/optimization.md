@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 10e39a205950d50794169e9bedaa65f480f1e9b5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35756036"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977567"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdrachtregel of vanuit de portal. Deze zelfstudie leert u hoe u om te controleren of u dit hebt ingesteld om de prestaties van de Microsoft Azure-platform te optimaliseren. In dit onderwerp wordt gebruikgemaakt van een Ubuntu-Server-VM, maar u kunt ook maken gebruik van Linux virtuele machine [uw eigen installatiekopieën als sjablonen](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp wordt ervan uitgegaan dat u al een werkende Azure-abonnement hebt ([registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)) en een virtuele machine al in uw Azure-abonnement hebt ingericht. Zorg ervoor dat u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az login](/cli/azure/reference-index#az_login) voordat u [maken van een virtuele machine](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In dit onderwerp wordt ervan uitgegaan dat u al een werkende Azure-abonnement hebt ([registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)) en een virtuele machine al in uw Azure-abonnement hebt ingericht. Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az login](/cli/azure/reference-index#az_login) voordat u [maken van een virtuele machine](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure Besturingssysteemschijf
 Als u een Linux-VM in Azure maakt, heeft twee schijven zijn gekoppeld. **/ dev/sda** is van de besturingssysteemschijf **/dev/sdb** is de tijdelijke schijf.  Gebruik niet de belangrijkste OS-schijf (**/dev/sda**) voor alles wat met uitzondering van het besturingssysteem die is geoptimaliseerd voor snelle VM boot-tijd en biedt geen goede prestaties voor uw workloads. U wilt een of meer schijven aansluiten op uw virtuele machine om op te halen permanente en geoptimaliseerd voor opslag voor uw gegevens. 
@@ -42,7 +42,7 @@ Om te kunnen de hoogste IOps op waar de cache-instellingen zijn ingesteld op Pre
 * Als u **XFS**, uitschakelen hindernissen bij met de optie koppelpunt `nobarrier` (Gebruik de optie voor het inschakelen van barrières `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Aandachtspunten voor gebruikersaccounts van niet-beheerde opslag
-De standaardactie wanneer u een virtuele machine met de Azure CLI 2.0 maken is het gebruik van Azure Managed Disks.  Deze schijven worden verwerkt door het Azure-platform en vereisen geen geen voorbereiding of locatie op te slaan.  Niet-beheerde schijven vereisen een storage-account en hebben enkele aanvullende prestatie-overwegingen.  Zie voor meer informatie over beheerde schijven [overzicht Azure Managed Disks](../windows/managed-disks-overview.md).  De volgende sectie bevat een overzicht van prestatie-overwegingen wanneer u het niet-beheerde schijven gebruikt.  Nogmaals, de standaardinstelling en aanbevolen oplossing is het gebruik van beheerde schijven.
+De standaardactie wanneer u een virtuele machine met de Azure CLI maken is het gebruik van Azure Managed Disks.  Deze schijven worden verwerkt door het Azure-platform en vereisen geen geen voorbereiding of locatie op te slaan.  Niet-beheerde schijven vereisen een storage-account en hebben enkele aanvullende prestatie-overwegingen.  Zie voor meer informatie over beheerde schijven [overzicht Azure Managed Disks](../windows/managed-disks-overview.md).  De volgende sectie bevat een overzicht van prestatie-overwegingen wanneer u het niet-beheerde schijven gebruikt.  Nogmaals, de standaardinstelling en aanbevolen oplossing is het gebruik van beheerde schijven.
 
 Als u een virtuele machine met niet-beheerde schijven maken, zorg er dan voor dat u schijven koppelen van storage-accounts die zich bevinden in dezelfde regio als uw virtuele machine om te controleren dicht en minimale netwerklatentie.  Elke Standard-opslagaccount heeft maximaal 20 k IOP's en een capaciteit van de grootte van 500 TB.  Deze limiet werkt op ongeveer 40 intensief gebruikte schijven, waaronder zowel schijf met het besturingssysteem en eventuele gegevensschijven die u maakt. Er is geen maximale IOps-limiet voor Premium Storage-accounts, maar er is een limiet van 32 TB. 
 

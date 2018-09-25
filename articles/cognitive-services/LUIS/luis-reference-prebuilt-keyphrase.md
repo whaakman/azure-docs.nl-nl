@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: In dit artikel bevat keyphrase vooraf gedefinieerde entiteitgegevens in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: diberry
-ms.openlocfilehash: 904f327dfe20e3d0864cbf355fd10237659879ee
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 4141c5aea93b308a7149b91001fbf1c88d629d79
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238597"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037980"
 ---
 # <a name="keyphrase-entity"></a>keyPhrase-entiteit
 keyPhrase haalt u een verscheidenheid aan sleuteltermen uit een utterance. U hoeft niet te voorbeeld utterances met keyPhrase naar de toepassing toevoegen. keyPhrase entiteit wordt ondersteund in [veel culturen](luis-supported-languages.md#languages-supported) als onderdeel van de [tekstanalyse](../text-analytics/overview.md) functies. 

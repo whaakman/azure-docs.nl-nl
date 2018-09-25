@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4f1e6e7e61cdfd72251120f3c03df7a689aecafe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997451"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Een integratieruntime in Azure Data Factory controleren  
 **Integratieruntime** is de rekeninfrastructuur die door Azure Data Factory wordt gebruikt voor verschillende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Er zijn drie typen integration runtime die worden aangeboden door Data Factory:
@@ -168,10 +168,10 @@ Azure-SSIS integratieruntime is een volledig beheerd cluster van Azure virtuele 
 | NodeSize | De grootte van elk knooppunt van uw Azure-SSIS integratieruntime. |
 | NodeCount | Het aantal knooppunten in uw Azure-SSIS integratieruntime. |
 | MaxParallelExecutionsPerNode | Het aantal parallelle uitvoeringen per knooppunt in uw Azure-SSIS integratieruntime. |
-| CatalogServerEndpoint | Het eindpunt van uw bestaande Azure SQL Database-/ MI (Preview)-server host SSISDB. |
-| CatalogAdminUserName | De beheerdersgebruikersnaam van uw bestaande Azure SQL Database-/ MI (Preview)-server. Data Factory-service gebruikt deze informatie voor het voorbereiden en SSISDB beheren namens. |
-| CatalogAdminPassword | Het beheerderswachtwoord van uw bestaande Azure SQL Database-/ MI (Preview)-server. |
-| CatalogPricingTier | De prijscategorie voor de SSISDB wordt gehost door uw bestaande Azure SQL Database-server.  Niet van toepassing op Azure SQL Managed Instance (Preview) voor het hosten van SSISDB. |
+| CatalogServerEndpoint | Het eindpunt van uw bestaande Azure SQL Database/MI-server host SSISDB. |
+| CatalogAdminUserName | De beheerdersgebruikersnaam van uw bestaande Azure SQL Database/MI-server. Data Factory-service gebruikt deze informatie voor het voorbereiden en SSISDB beheren namens. |
+| CatalogAdminPassword | Het beheerderswachtwoord van uw bestaande Azure SQL Database/MI-server. |
+| CatalogPricingTier | De prijscategorie voor de SSISDB wordt gehost door uw bestaande Azure SQL Database-server.  Niet van toepassing op Azure SQL Database Managed Instance SSISDB wordt gehost. |
 | VNetId | Het virtuele netwerk resource-ID voor uw Azure-SSIS integratieruntime om toe te voegen. |
 | Subnet | De naam van het subnet voor uw Azure-SSIS integratieruntime om toe te voegen. |
 | Id | De resource-ID van uw Azure-SSIS integratieruntime. |
@@ -223,7 +223,7 @@ Zie de volgende artikelen voor meer informatie over Azure-SSIS integratieruntime
 
 - [Azure-SSIS Integratieruntime](concepts-integration-runtime.md#azure-ssis-integration-runtime). In dit artikel bevat algemene informatie over integratieruntimes in het algemeen met inbegrip van de Azure-SSIS-IR. 
 - [Zelfstudie: SSIS-pakketten implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md). Dit artikel biedt stapsgewijze instructies voor het maken van een Azure-SSIS IR en maakt gebruik van een Azure SQL database voor het hosten van de SSIS-catalogus. 
-- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). Dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Managed Instance (preview) en het toevoegen van de IR aan een virtueel netwerk. 
+- [Procedure: Een Azure SSIS Integration Runtime maken](create-azure-ssis-integration-runtime.md). In dit artikel gaat verder in op de zelfstudie en bevat instructies over het gebruik van Azure SQL Database Managed Instance en toevoegen van de IR aan een virtueel netwerk. 
 - [Een Azure-SSIS IR beheren](manage-azure-ssis-integration-runtime.md). In dit artikel leest u hoe u een Azure-SSIS IR stopt, start of verwijdert. Er wordt ook uitgelegd hoe u een Azure-SSIS IR kunt uitschalen door meer knooppunten toe te voegen aan de IR. 
 - [Een Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk](join-azure-ssis-integration-runtime-virtual-network.md). Dit artikel bevat algemene informatie over het toevoegen van een Azure-SSIS IR aan een virtueel netwerk van Azure. Het bevat ook stappen voor het gebruik van Azure portal het virtuele netwerk zodanig configureren dat de Azure-SSIS IR kunt deelnemen aan het virtuele netwerk. 
 

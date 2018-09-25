@@ -2,21 +2,22 @@
 title: Verificatie met Azure Active Directory - Azure SQL (overzicht) | Microsoft Docs
 description: Meer informatie over het gebruik van Azure Active Directory voor verificatie met SQL Database Managed Instance en SQL Data Warehouse
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/13/2018
+author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.openlocfilehash: 460e0dac81ef6c1452f83e53c813a93de849b9b2
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: c11ba5fd88beeeb9b895abb1ee258c3109c40807
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35916470"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064064"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL Database Managed Instance of SQL Data Warehouse
 Azure Active Directory-verificatie is een mechanisme van verbinding maken met Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). 

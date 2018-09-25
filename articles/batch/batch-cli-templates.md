@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 08/02/2018
 ms.author: danlep
-ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493430"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964289"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI sjablonen en -bestandsoverdracht gebruiken
 
@@ -284,7 +284,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 Groep van toepassingen en -taak met sjablonen kunt bestanden die zijn opgeslagen in de bestandsgroepen worden opgegeven voor het kopiëren naar de pool- of uitschakelen knooppunten in de pool naar een groep. Bijvoorbeeld, in de taak sjabloon eerder hebt opgegeven, de bestandsgroep *ffmpeg-invoer* is opgegeven voor de factory taak als de locatie van de video bronbestanden gekopieerd naar het knooppunt waar deze wordt omgezet. De bestandsgroep *ffmpeg-uitvoer* is de locatie waar de uitvoerbestanden transcoderen worden gekopieerd van het knooppunt elke taak uit te voeren.
 
-## <a name="summary"></a>Overzicht
+## <a name="summary"></a>Samenvatting
 
 Ondersteuning voor het overbrengen sjabloon en de bestandsnaam op dit moment alleen voor de Azure CLI zijn toegevoegd. Het doel is om uit te breiden de doelgroep die u kunt Batch gebruiken om gebruikers die niet nodig hebben voor het ontwikkelen van code met behulp van de Batch-API's, zoals het wetenschappers en IT-gebruikers. Zonder te coderen, kunnen gebruikers met kennis van Azure, Batch en de toepassingen die moeten worden uitgevoerd door Batch sjablonen voor het maken van toepassingen en -taak maken. Gebruikers zonder uitgebreide kennis van de Batch- en de toepassingen en de sjabloonparameters kunnen de sjablonen gebruiken.
 

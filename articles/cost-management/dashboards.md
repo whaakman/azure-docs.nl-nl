@@ -1,21 +1,21 @@
 ---
-title: Belangrijke metrische gegevens weergeven in Azure Cost Management dashboards | Microsoft Docs
-description: Dit artikel wordt beschreven hoe belangrijke metrische gegevens weergeven met dashboards in Azure Cost Management.
+title: Belangrijke metrische gegevens met Cloudyn-dashboards weergeven in Azure | Microsoft Docs
+description: Dit artikel wordt beschreven hoe belangrijke metrische gegevens weergeven met dashboards in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4f51598dd2b026f1c3a4b0d763b1547a44eedc7b
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643772"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999691"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Kosten van metrische gegevens met dashboards weergeven-sleutel
 
@@ -34,7 +34,7 @@ Dashboard versies verschillen Management (MSP), Enterprise en Premium Cloudyn-ge
 
 Beschikbaarheid van het dashboard is afhankelijk van het type van cloud serviceprovider-account dat wordt gebruikt bij het weergeven van dashboards. Het type informatie beschikbaar is en die worden verzameld door Cloudyn is van invloed op rapporten in dashboards. Bijvoorbeeld, als u een AWS-account hebt weergegeven vervolgens niet de S3-tracering in-dashboard. Op dezelfde manier als u Azure Resource Manager-toegang tot Cloudyn niet inschakelt weergegeven vervolgens niet elke Azure-specifieke informatie in de dashboardwidgets optimaliseren.
 
-U kunt een van de vooraf gemaakte dashboards gebruiken of u kunt uw eigen dashboard met aangepaste rapporten maken. Als u niet bekend met Cloudyn-rapporten bent, Zie [met Cost Management rapporten](use-reports.md).
+U kunt een van de vooraf gemaakte dashboards gebruiken of u kunt uw eigen dashboard met aangepaste rapporten maken. Als u niet bekend met Cloudyn-rapporten bent, Zie [rapporten van Cloudyn gebruik](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Een aangepast dashboard maken
 
@@ -297,4 +297,4 @@ Deze widget markeert de beste toewijzing van elastische rekeneenheden tussen Ama
 - Klik op de widget om het rapport exemplaren Type toewijzing te openen.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Lees de [met Cost Management rapporten](use-reports.md) artikel voor meer informatie over rapporten.
+- Lees de [rapporten van Cloudyn gebruik](use-reports.md) artikel voor meer informatie over rapporten.

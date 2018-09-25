@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033988"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Toegang beheren met RBAC en Azure Portal
 
@@ -207,7 +207,7 @@ Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [e
 
 1. In de **rol** vervolgkeuzelijst, selecteer een rol, zoals **Management groep Inzender**.
 
-    Zie voor informatie over de ondersteunde bewerkingen op beheergroepen voor verschillende rollen, [organiseren van uw resources met Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Zie voor informatie over de ondersteunde bewerkingen op beheergroepen voor verschillende rollen, [organiseren van uw resources met Azure-beheergroepen](../governance/management-groups/index.md#management-group-access).
 
 1. Selecteer in de lijst **Selecteren** een gebruiker, groep of toepassing. Als u de beveiligings-principal niet in de lijst ziet staan, kunt u tekst typen in het vak **Selecteren** om te zoeken naar weergavenamen, e-mailadressen en object-id's.
 

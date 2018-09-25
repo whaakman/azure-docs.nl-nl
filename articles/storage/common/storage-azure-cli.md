@@ -1,6 +1,6 @@
 ---
-title: De Azure CLI 2.0 gebruiken met Azure Storage | Microsoft Docs
-description: Informatie over het gebruik van de Azure-opdrachtregelinterface (Azure CLI) 2.0 met Azure Storage maken en storage-accounts beheren en werken met Azure-blobs en -bestanden. De Azure CLI 2.0 is een hulpprogramma voor meerdere platforms die zijn geschreven in Python.
+title: De Azure CLI gebruiken met Azure Storage | Microsoft Docs
+description: Informatie over het gebruik van de Azure-opdrachtregelinterface (Azure CLI) met Azure Storage te maken en beheren van storage-accounts en werken met Azure-blobs en bestanden.
 services: storage
 author: roygara
 ms.service: storage
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 10b0d475113e5fcd413c7e62f88dcd434fc72a52
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732768"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984371"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>De Azure CLI 2.0 gebruiken met Azure Storage
+# <a name="using-the-azure-cli-with-azure-storage"></a>De Azure CLI gebruiken met Azure Storage
 
-De open-source, platformoverschrijdende Azure CLI 2.0 biedt een reeks opdrachten voor het werken met het Azure-platform. Het biedt veel van dezelfde functionaliteit gevonden in de [Azure-portal](https://portal.azure.com), met inbegrip van toegang tot uitgebreide gegevens.
+De open-source, platformoverschrijdende Azure-CLI biedt een reeks opdrachten voor het werken met het Azure-platform. Het biedt veel van dezelfde functionaliteit gevonden in de [Azure-portal](https://portal.azure.com), met inbegrip van toegang tot uitgebreide gegevens.
 
-In deze handleiding, laten we zien u hoe u de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) verschillende taken werken met resources in uw Azure Storage-account uit te voeren. U wordt aangeraden dat u downloaden en installeren of naar de nieuwste versie van de CLI 2.0 upgraden voordat u deze handleiding.
+In deze handleiding, laten we zien u hoe u de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) verschillende taken werken met resources in uw Azure Storage-account uit te voeren. U wordt aangeraden dat u downloaden en installeren of naar de nieuwste versie van de CLI upgraden voordat u deze handleiding.
 
 De voorbeelden in deze handleiding wordt ervan uitgegaan dat het gebruik van de Bash-shell op Ubuntu, maar andere platforms op dezelfde manier moeten uitvoeren. 
 
@@ -33,9 +33,9 @@ Deze handleiding wordt ervan uitgegaan dat u inzicht in de basisbeginselen van A
 * **Azure-account**: als u nog een Azure-abonnement hebt [maken van een gratis Azure-account](https://azure.microsoft.com/free/).
 * **Opslagaccount**: zie [Een opslagaccount maken](storage-quickstart-create-account.md) in [Over Azure-opslagaccounts](storage-create-storage-account.md).
 
-### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 installeren
+### <a name="install-the-azure-cli"></a>Azure-CLI installeren
 
-Download en installeer de Azure CLI 2.0 door de instructies die worden beschreven in [Azure CLI 2.0 installeren](/cli/azure/install-az-cli2).
+Download en installeer de Azure CLI door de instructies die worden beschreven in [Azure CLI installeren](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Als u problemen ondervindt met de installatie, bekijk de [installatieproblemen oplossen](/cli/azure/install-az-cli2#installation-troubleshooting) gedeelte van het artikel en de [installeren probleemoplossing](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) handleiding op GitHub.
@@ -96,9 +96,9 @@ Als u wilt werken met de resources in uw Azure-abonnement, u moet eerst aanmelde
   * Dit werkt niet met Microsoft-accounts of accounts met meervoudige verificatie.
 * **Meld u aan met een service-principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Voorbeeld van Azure CLI 2.0 een script
+## <a name="azure-cli-sample-script"></a>Azure CLI-voorbeeldscript
 
-Vervolgens gaat we een kleine shellscript in dat problemen met een paar eenvoudige Azure CLI 2.0-opdrachten om te communiceren met Azure Storage-resources gebruiken. Het script eerst maakt u een nieuwe container in uw opslagaccount, vervolgens wordt een bestaand bestand (als een blob) op die container geüpload. Deze worden vervolgens alle blobs in de container en ten slotte wordt het bestand gedownload naar een bestemming op uw lokale computer die u opgeeft.
+Vervolgens gaat we een kleine shellscript in dat problemen met een paar eenvoudige Azure CLI-opdrachten voor interactie met Azure Storage-resources gebruiken. Het script eerst maakt u een nieuwe container in uw opslagaccount, vervolgens wordt een bestaand bestand (als een blob) op die container geüpload. Deze worden vervolgens alle blobs in de container en ten slotte wordt het bestand gedownload naar een bestemming op uw lokale computer die u opgeeft.
 
 ```bash
 #!/bin/bash
@@ -519,8 +519,8 @@ Voorbeeld van uitvoer
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Hier volgen enkele aanvullende resources voor meer informatie over het werken met de Azure CLI 2.0.
+Hier volgen enkele aanvullende resources voor meer informatie over het werken met de Azure CLI. 
 
-* [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0-opdrachtenreferentie](/cli/azure)
-* [Azure CLI 2.0 op GitHub](https://github.com/Azure/azure-cli)
+* [Aan de slag met Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Overzicht van Azure CLI-opdrachten](/cli/azure)
+* [Azure CLI op GitHub](https://github.com/Azure/azure-cli)

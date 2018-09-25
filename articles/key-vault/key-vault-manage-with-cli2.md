@@ -1,6 +1,6 @@
 ---
 title: Beheren van Azure Key Vault met CLI | Microsoft Docs
-description: In dit artikel gebruiken voor het automatiseren van algemene taken in Key Vault met behulp van de CLI 2.0
+description: In dit artikel gebruiken voor het automatiseren van algemene taken in Key Vault met behulp van de Azure CLI
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00d79462fcaad785820e3879079414c88c958a89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961481"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>Beheren van Key Vault met behulp van CLI 2.0
+# <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
-In dit artikel wordt uitgelegd hoe u aan de slag met Azure Key Vault met behulp van de Azure CLI 2.0. U ziet informatie op:
+In dit artikel wordt uitgelegd hoe u aan de slag met Azure Key Vault met behulp van de Azure CLI.  U ziet informatie op:
 
-- Vereiste onderdelen
 - Over het maken van een geharde container (een kluis) in Azure
 - Een sleutel, het geheim of het certificaat toe te voegen aan de sleutelkluis
 - Een toepassing registreren bij Azure Active Directory
@@ -45,12 +44,12 @@ Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen v
 Zie voor een overzicht van Azure Key Vault, [wat is Azure Key Vault?](key-vault-whatis.md)
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voor het gebruik van de Azure CLI-opdrachten in dit artikel, hebt u de volgende items:
 
 * Een abonnement op Microsoft Azure Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefabonnement](https://azure.microsoft.com/pricing/free-trial).
-* Opdrachtregelinterface versie 2.0 of hoger. Zie voor het installeren van de meest recente versie [installeren en configureren van de Azure platformoverschrijdende opdrachtregelinterface 2.0](/cli/azure/install-azure-cli).
+* Azure-opdrachtregelinterface versie 2.0 of hoger. Zie voor het installeren van de meest recente versie [Azure CLI installeren](/cli/azure/install-azure-cli).
 * Een toepassing die wordt geconfigureerd voor het gebruik van de sleutel of het wachtwoord die u in dit artikel maakt. Er is een voorbeeldtoepassing beschikbaar in het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=45343). Zie het ingesloten Leesmij-bestand voor instructies.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Hulp met Azure platformoverschrijdende opdrachtregelinterface
@@ -67,7 +66,7 @@ az account set -h
 U kunt ook de volgende artikelen om vertrouwd te raken met Azure Resource Manager in Azure platformoverschrijdende opdrachtregelinterface lezen:
 
 * [Azure CLI installeren](/cli/azure/install-azure-cli)
-* [Aan de slag met Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)
+* [Aan de slag met Azure CLI](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Over het maken van een geharde container (een kluis) in Azure
 
@@ -200,7 +199,7 @@ Toepassingen die gebruikmaken van een sleutelkluis moeten een token van Azure Ac
 
 De toepassing moet beide waarden aan Azure Active Directory verstrekken om een token te verkrijgen. Hoe een toepassing is geconfigureerd voor een token verkrijgen afhankelijk van de toepassing. In de [Key Vault-voorbeeldtoepassing](https://www.microsoft.com/download/details.aspx?id=45343) moet de eigenaar van de toepassing deze waarden instellen in het bestand app.config.
 
-Voor gedetailleerde stappen voor het registreren van een toepassing met Azure Active Directory moet u de artikelen met de titel controleren [toepassingen integreren met Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [portal gebruiken om te maken van een Azure-Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), en [een Azure service-principal maken met Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+Voor gedetailleerde stappen voor het registreren van een toepassing met Azure Active Directory moet u de artikelen met de titel controleren [toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [portal gebruiken om te maken van een Azure-Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md), en [een Azure-service-principal maken met de Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Het registreren van een toepassing in Azure Active Directory:
 

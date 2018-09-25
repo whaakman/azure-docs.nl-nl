@@ -1,9 +1,9 @@
 ---
-title: Snelstartgids voor Azure AD Graph API | Microsoft Docs
-description: De Azure Active Directory Graph API biedt programmatische toegang tot Azure AD via REST-API OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op mapgegevens en -objecten.
+title: Het gebruik van de Azure AD Graph API
+description: De Graph-API van Azure Active Directory (Azure AD) biedt programmatische toegang tot Azure AD via REST-API OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op mapgegevens en -objecten.
 services: active-directory
 documentationcenter: n/a
-author: mtillman
+author: CelesteDG
 manager: mtillman
 editor: ''
 tags: ''
@@ -11,28 +11,29 @@ ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2018
-ms.author: mtillman
+ms.date: 09/24/2018
+ms.author: celested
+ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 3298b39fc92f6e5867900ed151149ff936e2733c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 7b7f2133634a91b828d7e978c9041b12873fa3a1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492626"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997213"
 ---
-# <a name="quickstart-for-the-azure-ad-graph-api"></a>Snelstartgids voor Azure AD Graph API
-De Graph-API van Azure Active Directory (AD) biedt programmatische toegang tot Azure AD via REST-API OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op mapgegevens en -objecten. Bijvoorbeeld, kunt u Azure AD Graph API om een nieuwe gebruiker maken, weergeven of bijwerken van eigenschappen van de gebruiker, wijzigt het wachtwoord van gebruiker, Controleer het groepslidmaatschap van voor toegang op basis van rollen, uitschakelen of verwijderen van de gebruiker. Zie voor meer informatie over Azure AD Graph API-functies en scenario's application [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) en [vereisten voor Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx). 
+# <a name="how-to-use-the-azure-ad-graph-api"></a>Hoe: de Azure AD Graph API gebruiken
+
+De Graph-API van Azure Active Directory (Azure AD) biedt programmatische toegang tot Azure AD via REST-API OData-eindpunten. Toepassingen kunnen Azure AD Graph API gebruiken om uit te voeren maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen op mapgegevens en -objecten. Bijvoorbeeld, kunt u Azure AD Graph API om een nieuwe gebruiker maken, weergeven of bijwerken van eigenschappen van de gebruiker, wijzigt het wachtwoord van gebruiker, Controleer het groepslidmaatschap van voor toegang op basis van rollen, uitschakelen of verwijderen van de gebruiker. Zie voor meer informatie over Azure AD Graph API-functies en scenario's application [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) en [vereisten voor Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx).
 
 > [!IMPORTANT]
 > Wij raden u ten zeerste aan om [Microsoft Graph](https://developer.microsoft.com/graph) te gebruiken in plaats van Azure AD Graph API om toegang te krijgen tot Azure Active Directory-resources. We richten ons momenteel op ontwikkelingen in Microsoft Graph. Voor Azure AD Graph API zijn geen verdere verbeteringen gepland. Er is maar een beperkt aantal scenario's waarvoor Azure AD Graph API nog steeds geschikt is. Zie het blogbericht [Mogelijk Graph of Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in het Office-ontwikkelaarscentrum voor meer informatie.
-> 
-> 
 
 ## <a name="how-to-construct-a-graph-api-url"></a>Het maken van een Graph API-URL
+
 In Graph-API voor toegang tot directory-gegevens en objecten (met andere woorden, resources of entiteiten) op basis waarvan u wilt uitvoeren van CRUD-bewerkingen, kunt u URL's op basis van de OData (Open Data)-Protocol gebruiken. De URL's die worden gebruikt in de Graph API bestaat uit vier hoofdonderdelen: basis, tenant-id, resourcepad en opties voor queryreeksen-service: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Het voorbeeld nemen van de volgende URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
 * **Service-hoofdmap**: In Azure AD Graph API, is de hoofdmap van de service altijd https://graph.windows.net.
@@ -41,12 +42,15 @@ In Graph-API voor toegang tot directory-gegevens en objecten (met andere woorden
 * **Queryparameters**: een vraagteken (?) worden gescheiden van de resource-padsectie van het gedeelte van de parameters van de query. De queryparameter 'api-versie' is vereist op alle aanvragen in Azure AD Graph API. Azure AD Graph API ondersteunt ook de volgende OData-queryopties: **$filter**, **$orderby**, **$expand**, **$top**, en **$format**. De volgende opties voor query's worden momenteel niet ondersteund: **$count**, **$inlinecount**, en **$skip**. Zie voor meer informatie, [ondersteunde query's, Filters en opties voor het wisselbestand in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## <a name="graph-api-versions"></a>Graph-API-versies
+
 U geeft de versie voor een Graph API-aanvraag in de queryparameter 'api-versie'. Voor versie 1.5 of hoger, die u gebruikt de versiewaarde van een numerieke; API-version = 1.6. Voor eerdere versies die u gebruikt een tekenreeks met datum die in overeenstemming is met de indeling JJJJ-MM-DD; bijvoorbeeld, api-version = 2013-11-08. Voor preview-functies, gebruikt u de tekenreeks "bètaversie"; bijvoorbeeld, api-version = beta. Zie voor meer informatie over de verschillen tussen de Graph API-versies [Azure AD Graph API-versiebeheer](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
 ## <a name="graph-api-metadata"></a>Graph-API-metagegevens
+
 Resultaat van het bestand met Azure AD Graph API-metagegevens, voegt u het segment "$metadata" na de tenant-id in het voorbeeld-URL voor, retourneert de volgende URL metagegevens voor een bedrijf demo: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. U kunt deze URL invoeren in de adresbalk van een webbrowser om te zien van de metagegevens. Het document met CSDL metagegevens geretourneerd beschrijving van de entiteiten en complexe typen, hun eigenschappen, en de functies en acties die worden weergegeven door de versie van de Graph-API die u hebt aangevraagd. De api-versie-parameter wordt weggelaten, retourneert metagegevens voor de meest recente versie.
 
 ## <a name="common-queries"></a>Algemene query 's
+
 [Azure AD Graph API algemene query's](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) een lijst met algemene query's die kunnen worden gebruikt met de Azure AD Graph, met inbegrip van query's die kunnen worden gebruikt voor toegang tot op het hoogste niveau van resources in uw directory en bewerkingen uit te voeren in uw directory-query's.
 
 Bijvoorbeeld, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` retourneert bedrijfsgegevens voor directory contoso.com.
@@ -75,6 +79,7 @@ Houd rekening met de volgende functies en beperkingen van de Azure AD Graph Expl
 * Geen ondersteuning voor het weergeven of een miniatuur foto uploaden.
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Met behulp van Fiddler in de map schrijven
+
 Voor de toepassing van deze QuickStart, kunt u het foutopsporingsprogramma Fiddler Web oefenen met het uitvoeren van bewerkingen op uw Azure AD-directory schrijven. U kunt bijvoorbeeld verkrijgen en uploaden van een gebruiker profielfoto (dit is niet mogelijk is met Azure AD Graph Explorer). Zie voor meer informatie en voor het installeren van Fiddler [ http://www.telerik.com/fiddler ](http://www.telerik.com/fiddler).
 
 In het onderstaande voorbeeld gebruikt u Fiddler Web foutopsporingsprogramma 'MyTestGroup' van een nieuwe beveiligingsgroep maken in uw Azure AD-directory.
@@ -89,8 +94,7 @@ In het onderstaande voorbeeld gebruikt u Fiddler Web foutopsporingsprogramma 'My
    
    > [!NOTE]
    > U moet {mytenantdomain} vervangen door de domeinnaam van uw eigen Azure AD-directory.
-   > 
-   > 
+
 4. In het veld direct onder het keuzemenu boeken, typt u de volgende HTTP-header:
    
     ```
@@ -101,8 +105,7 @@ In het onderstaande voorbeeld gebruikt u Fiddler Web foutopsporingsprogramma 'My
    
    > [!NOTE]
    > Vervang uw &lt;uw toegangstoken&gt; met het toegangstoken voor uw Azure AD-directory.
-   > 
-   > 
+
 5. In de **aanvraagtekst** veld, typt u de volgende JSON:
    
     ```
@@ -119,6 +122,6 @@ In het onderstaande voorbeeld gebruikt u Fiddler Web foutopsporingsprogramma 'My
 Zie voor meer informatie over Azure AD-entiteiten en typen die beschikbaar worden gesteld door Graph en informatie over de bewerkingen die kunnen worden uitgevoerd op deze met Graph [Azure AD Graph REST API-naslaginformatie](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Meer informatie over de [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * Meer informatie over [Azure AD Graph API-Machtigingsbereiken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
-

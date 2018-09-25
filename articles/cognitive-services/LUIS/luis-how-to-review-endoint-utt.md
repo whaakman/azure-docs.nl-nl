@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: De functie baanbrekende van LUIS is het concept van actief leren. Zodra uw LUIS eindpunt-query's heeft, verbetert actief leren de kwaliteit van de resultaten door uitingen selecteert dat u niet zeker weet. Als u deze uitingen label, trainen en publiceren, en vervolgens LUIS uitingen nauwkeuriger identificeert.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 3ec791d534fb73a9d88f2dcdb81e445d6c26ab69
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057354"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030792"
 ---
 # <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7e6a897ed0606d8844f66e318b93449d7790e2be
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717298"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963423"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen met Azure VM-schaalset wordt ingesteld
 Een schaalset voor virtuele machine van Azure kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing wordt uitgevoerd. Dit gedrag van automatische en flexibele vermindert de overhead voor het bewaken en optimaliseren van de prestaties van uw toepassing. U maakt regels die de aanvaardbare prestaties voor een positieve gebruikerservaring bepalen. Wanneer de gedefinieerde drempelwaarden wordt voldaan, maatregelen regels voor automatisch schalen om aan te passen van de capaciteit van uw schaalset. U kunt ook gebeurtenissen automatisch te vergroten of verkleinen, de capaciteit van uw schaalset op tijden vaste plannen. Dit artikel bevat een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties voor automatisch schalen kan uitvoeren.
@@ -42,7 +42,7 @@ Regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische ge
 
 - [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure-CLI](tutorial-autoscale-cli.md)
 - [Azure-sjabloon](tutorial-autoscale-template.md)
 
 Voor het maken van regels voor automatisch schalen die gebruikmaken van meer gedetailleerde metrische gegevens voor prestaties, kunt u [installeren en configureren van de Azure diagnostics-extensie](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) op VM-instanties, of [configureren van uw toepassing gebruik App Insights](#application-level-metrics-with-app-insights).
@@ -139,7 +139,7 @@ De volgende voorbeelden zijn scenario's die van het gebruik van regels voor auto
 U kunt regels voor automatisch schalen die gebruikmaken van hostgebaseerde metrische gegevens met een van de volgende hulpprogramma's maken:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure-CLI](tutorial-autoscale-cli.md)
 - [Azure-sjabloon](tutorial-autoscale-template.md)
 
 In dit overzicht beschreven hoe u regels voor automatisch schalen voor horizontaal schalen en vergroten of verkleinen van de *getal* van VM-exemplaren in uw schaal ingesteld. U kunt ook verticaal schalen om te vergroten of verkleinen van het VM-exemplaar *grootte*. Zie voor meer informatie, [verticaal automatisch schalen met Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).

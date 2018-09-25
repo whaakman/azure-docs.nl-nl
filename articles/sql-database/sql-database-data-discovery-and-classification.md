@@ -2,20 +2,22 @@
 title: Gegevens uit een Azure SQL Database-detectie en -classificatie | Microsoft Docs
 description: Gegevens uit een Azure SQL Database-detectie en -classificatie
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543959"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064173"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
 Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mogelijkheden van ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
@@ -115,9 +117,9 @@ T-SQL kunt u kolomclassificaties toevoegen/verwijderen, evenals alle classificat
 > [!NOTE]
 > Bij het gebruik van T-SQL voor het beheren van labels, is er geen validatie die labels toegevoegd aan een kolom in de organisatie information protection-beleid (de set van labels die worden weergegeven in de portal aanbevelingen) bestaan. Het is daarvoor aan u kunt dit controleren.
 
-* De indeling van een of meer kolommen toevoegen/bijwerken: [GEVOELIGHEIDSCLASSIFICATIE toevoegen](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* De classificatie uit een of meer kolommen verwijderen: [GEVOELIGHEIDSCLASSIFICATIE niet verwijderen](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Alle classificaties weergeven op de database: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* De indeling van een of meer kolommen toevoegen/bijwerken: [GEVOELIGHEIDSCLASSIFICATIE toevoegen](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* De classificatie uit een of meer kolommen verwijderen: [GEVOELIGHEIDSCLASSIFICATIE niet verwijderen](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Alle classificaties weergeven op de database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 U kunt ook REST-API's gebruiken voor het programmatisch beheren van classificaties. De gepubliceerde REST-API's ondersteunen de volgende bewerkingen:
 * [Maken of bijwerken](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Hiermee maken of bijwerken van het gevoeligheidslabel van de van een bepaalde kolom

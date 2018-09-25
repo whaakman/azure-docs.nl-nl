@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643921"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946853"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Tijdreeks prognoses
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 Time series-prognoses, is de taak van het voorspellen van toekomstige waarden in een op tijd geordende opeenvolgende reeks van metingen. Er is een veelvoorkomend probleem en toepassingen in veel bedrijfstakken. Detailhandel bedrijven moeten bijvoorbeeld voorspellen van toekomstige productverkoop, zodat ze hun toeleveringsketens om te voldoen aan de vraag effectief kunnen indelen. Pakket levering bedrijven moeten op dezelfde manier, maak een schatting van de vraag naar hun services, zodat ze kunnen werknemers vereisten en bezorgingsroutes tevoren plannen. In veel gevallen kunnen de financiële risico's van onjuiste prognoses aanzienlijk zijn. Prognose is daarom vaak een kritieke zakelijke-activiteit.
@@ -57,7 +62,7 @@ In dit scenario worden de constructie van een machine learning-oplossing voor vr
 ## <a name="prerequisites"></a>Vereisten
 
 - Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
-- Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](../service/quickstart-installation.md) aan het programma te installeren en een werkruimte maken.
+- Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](quickstart-installation.md) aan het programma te installeren en een werkruimte maken.
 - In dit voorbeeld wordt ervan uitgegaan dat u Azure ML Workbench worden uitgevoerd op Windows 10 met [Docker-engine](https://www.docker.com/) lokaal zijn geïnstalleerd. Als u Mac OS, zijn de instructies grotendeels hetzelfde.
 - Azure Machine Learning Operationalization geïnstalleerd met een lokale implementatie-omgeving instellen en een Modelbeheer-account gemaakt zoals beschreven in deze [handleiding](./model-management-configuration.md).
 - In dit voorbeeld vereist dat u de Pandas-installatie naar versie 0.20.3 bijwerken of hoger en matplotlib installeren. Klik op *Open Command Prompt* uit de *bestand* menu in de Workbench en de volgende opdrachten voor het installeren van deze afhankelijkheden:

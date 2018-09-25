@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e7a4dd57c7da3350e610b5f005aa59ea9d51dd56
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607785"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Zelfstudie: Azure Active Directory-integratie met Rackspace SSO
 
@@ -49,12 +49,14 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
+
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Rackspace SSO uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-rackspace-sso-from-the-gallery"></a>Rackspace SSO uit de galerie toe te voegen
+
 Voor het configureren van de integratie van Rackspace SSO in Azure AD, moet u Rackspace SSO uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Rackspace SSO uit de galerie, moet u de volgende stappen uitvoeren:**
@@ -66,7 +68,7 @@ Voor het configureren van de integratie van Rackspace SSO in Azure AD, moet u Ra
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
+
 3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
@@ -100,7 +102,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
+
     ![In het dialoogvenster voor eenmalige aanmelding](./media/rackspacesso-tutorial/tutorial_rackspacesso_samlbase.png)
 
 3. Op de **Rackspace SSO-domein en URL's** sectie, voert u de volgende stappen uit:
@@ -111,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png)
 
 5. Klik op **opslaan** knop.
 
@@ -150,16 +152,16 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
     c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
- 
+
 ### <a name="create-a-rackspace-sso-test-user"></a>Maak een testgebruiker Rackspace SSO
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Rackspace SSO. Werken met [Rackspace SSO-ondersteuningsteam](https://support.rackspace.com/) om toe te voegen de gebruikers in het Rackspace SSO-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie, werkt u met [Rackspace SSO-ondersteuningsteam](https://support.rackspace.com/) moet worden vrijgegeven uw account in het Rackspace SSO-platform.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Rackspace SSO.
 
-![De de gebruikersrol toewijzen][200] 
+![De de gebruikersrol toewijzen][200]
 
 **Als u wilt toewijzen Britta Simon aan Rackspace SSO, moet u de volgende stappen uitvoeren:**
 
@@ -184,7 +186,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
 7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
+
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
@@ -196,8 +198,6 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-
-
 
 <!--Image references-->
 
@@ -212,4 +212,3 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 [201]: ./media/rackspacesso-tutorial/tutorial_general_201.png
 [202]: ./media/rackspacesso-tutorial/tutorial_general_202.png
 [203]: ./media/rackspacesso-tutorial/tutorial_general_203.png
-

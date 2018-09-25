@@ -11,14 +11,19 @@ ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: eb788f56825166ccaa376d32b07371db0588edc8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35907203"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967605"
 ---
 # <a name="aerial-image-classification"></a>Afbeeldingsclassificatie van
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 In dit voorbeeld ziet u hoe u Azure Machine Learning Workbench gebruiken voor de coördinatie van gedistribueerde trainings- en uitoefening van modellen voor classificatie van afbeeldingen. We twee methoden gebruiken voor training: (i) verfijnen een deep neural network met een [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU-cluster, en (ii) de [Microsoft Machine Learning voor Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) pakket naar parametriseer afbeeldingen met behulp van CNTK modellen dat en om te trainen met behulp van de afgeleide functies classificaties. We vervolgens de getrainde modellen in parallelle wijze toepassen op grote afbeelding sets in de cloud met een [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) cluster, zodat we de snelheid van training en uitoefening schalen door toe te voegen of te verwijderen van worker-knooppunten.
 
@@ -61,7 +66,7 @@ De volgende instructies leiden u door het proces van het instellen van de uitvoe
        - Als u minder cores beschikbaar hebt, kunt u de sjabloon van de HDInsight-cluster als u wilt verkleinen het aantal werknemers die zijn ingericht mag wijzigen. Instructies voor deze weergegeven onder de sectie 'De HDInsight Spark-cluster maken'.
     - In dit voorbeeld maakt u een Batch AI Training-cluster met twee NC6 (1 GPU, 6 vCPU) virtuele machines. Zorg ervoor dat uw account voldoende beschikbare cores in de regio VS-Oost aan de hand van de 'Gebruik + quota' tabblad voor uw abonnement in Azure portal.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - Ga als volgt de [snelstartgids installeren en maken](../service/quickstart-installation.md) Azure Machine Learning Workbench installeren en experimenten en Modelbeheer-Accounts maken.
+    - Ga als volgt de [snelstartgids installeren en maken](../desktop-workbench/quickstart-installation.md) Azure Machine Learning Workbench installeren en experimenten en Modelbeheer-Accounts maken.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK en Azure CLI
     - Voer de volgende secties in het [Batch AI recepten Leesmij](https://github.com/Azure/BatchAI/tree/master/recipes):
         - 'Vereisten'

@@ -5,21 +5,16 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: ''
-ms.date: 07/18/2018
+ms.date: 09/21/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
-ms.openlocfilehash: 2d542827ba0c8dab7c4f5ef9fa67e7ebe99988f9
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 973343a298acc7eec06960149bfb5c8c3896ec17
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159362"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995940"
 ---
-# <a name="virtual-wan-faq-preview"></a>Virtuele WAN-Veelgestelde vragen (Preview)
-
-> [!IMPORTANT]
-> Azure virtuele WAN is momenteel een beheerde preview-versie. Voor het gebruik van virtuele WAN, dient u [registreren in de Preview-versie](virtual-wan-about.md).
->
-> Deze openbare preview-versie wordt aangeboden zonder service level agreement en wordt niet aanbevolen voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="virtual-wan-faq"></a>Virtuele WAN-Veelgestelde vragen
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: yeki
-ms.openlocfilehash: 6b20ef98e008d9c5d984ba29eed894b1c5ec8c09
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 935b3ff0fe03984b02dc2e1137f48e53b06ce0c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995105"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Schaalset voor virtuele Azure-machine automatische besturingssysteemupgrades
 
@@ -199,7 +199,7 @@ az policy assignment create --display-name "Enforce automatic OS upgrades with a
 ```
 
 ## <a name="configure-auto-updates"></a>Automatische updates configureren
-Voor het configureren van automatische upgrades, zorg ervoor dat de *automaticosupgrade uit* eigenschap is ingesteld op *waar* instellen in het modeldefinitie. U kunt deze eigenschap configureren met Azure PowerShell of Azure CLI 2.0.
+Voor het configureren van automatische upgrades, zorg ervoor dat de *automaticosupgrade uit* eigenschap is ingesteld op *waar* instellen in het modeldefinitie. U kunt deze eigenschap configureren met Azure PowerShell of Azure CLI.
 
 ### <a name="powershell"></a>PowerShell
 Het volgende voorbeeld maakt gebruik van Azure PowerShell (4.4.1 of later) om te configureren van automatische upgrades voor de schaalset met de naam *myVMSS* in de resourcegroep met de naam *myResourceGroup*:
@@ -223,7 +223,7 @@ az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.Aut
 
 
 ## <a name="check-the-status-of-an-automatic-os-upgrade"></a>Controleer de status van een automatische upgrade van besturingssysteem
-U kunt de status van de meest recente bijwerken van het besturingssysteem uitgevoerd op uw schaalset met Azure PowerShell, Azure CLI 2.0 of de REST API's te controleren.
+U kunt de status van de meest recente bijwerken van het besturingssysteem uitgevoerd op uw schaalset met Azure PowerShell, Azure CLI of de REST API's te controleren.
 
 ### <a name="powershell"></a>PowerShell
 In volgende voorbeeld maakt gebruik van Azure PowerShell (4.4.1 of later) om te controleren of de status van de schaalset met de naam *myVMSS* in de resourcegroep met de naam *myResourceGroup*:
@@ -232,7 +232,8 @@ In volgende voorbeeld maakt gebruik van Azure PowerShell (4.4.1 of later) om te 
 Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
 ```
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure-CLI
+
 Het volgende voorbeeld wordt de Azure CLI (2.0.20 of later) om te controleren of de status van de schaalset met de naam *myVMSS* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446721"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056519"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Met behulp van leeftijdsbeperking in Azure AD B2C
 
 >[!IMPORTANT]
->Deze functie is in de beperkte Preview-versie.  Raadpleeg onze [serviceblog](https://blogs.msdn.microsoft.com/azureadb2c/) voor meer informatie over het gebruik van dit wordt beschikbaar, of neem contact op met AADB2CFeedback@microsoft.com.  Gebruik dit niet voor productie-mappen, met behulp van deze nieuwe functies kan leiden tot verlies van gegevens en mogelijk onverwachte wijzigingen in werking totdat we gaan naar algemene beschikbaarheid.  
+>Deze functie is in de beperkte Preview-versie.  Raadpleeg onze [serviceblog](https://blogs.msdn.microsoft.com/azureadb2c/) voor meer informatie over het gebruik van dit wordt beschikbaar, of neem contact op met AADB2CPreview@microsoft.com.  Gebruik dit niet voor productie-mappen, met behulp van deze nieuwe functies kan leiden tot verlies van gegevens en mogelijk onverwachte wijzigingen in werking totdat we gaan naar algemene beschikbaarheid.  
 >
 
 ##<a name="age-gating"></a>Leeftijdsbeperking
@@ -56,13 +56,3 @@ Gebruikersstromen kunt u een aanmelding maximaal, meld u aan of beide, kunt u mi
 Gebruikersstromen kunt u een aanmelding maximaal, meld u aan of beide, kunt u minderjarigen zonder toestemming van de toepassing blokkeren.  Er zijn twee opties voor het verwerken van geblokkeerde gebruikers in Azure AD B2C:
 * Verzenden van een JSON terug naar de toepassing: deze optie stuurt een antwoord terug naar de toepassing die een minderjarige is geblokkeerd.
 * Een foutpagina - weergeven die de gebruiker een pagina die wordt gemeld dat ze geen toegang de toepassing tot worden weergegeven
-
-##<a name="known-issues"></a>Bekende problemen
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Indeling voor het antwoord als een minderjarige wordt geblokkeerd.
-Het antwoord op dit moment is niet juist gevormd, wordt deze bug verholpen in een volgende update.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Verwijderen van specifieke kenmerken die tijdens de installatie zijn toegevoegd, kunt u uw directory kan niet worden gebruikt met leeftijd beperken.
-In de instellingen voor leeftijdsbeperking, die u hebt geconfigureerd uw directory via een optie in uw `Properties`.  Als u een verwijdert `legalCountry` of `dateOfBirth` via Graph, uw directory niet meer kunt gebruiken leeftijdsbeperking en deze eigenschappen kunnen niet opnieuw worden gemaakt.
-
-###<a name="list-of-countries-is-incomplete"></a>Lijst met landen is onvolledig
-Op dit moment de lijst met landen voor legalCountry onvolledig is, zullen we de rest van de landen in een volgende update toevoegen.

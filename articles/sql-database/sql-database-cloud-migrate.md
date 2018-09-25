@@ -3,23 +3,26 @@ title: Migratie van de SQL Server-database naar Azure SQL Database | Microsoft D
 description: Lees meer over SQL Server-databasemigratie naar Azure SQL Database in de cloud.
 keywords: databasemigratie, sql server-databasemigratie, hulpprogramma's voor databasemigratie, database migreren, sql-database migreren
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 88b46fbda3bd459d5ec66b5c9d6eb443e8d275ed
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 65258622c006cc384df24898c18b154b4c523a7f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735289"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064285"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server-databasemigratie naar Azure SQL Database
 
-In dit artikel leert u over de primaire methoden voor het migreren van een SQL Server 2005 of latere database naar een enkele of gegroepeerde database in Azure SQL Database. Zie voor meer informatie over het migreren naar een beheerd exemplaar [migreren naar SQL Server-exemplaar naar Azure SQL Database Managed Instance (preview)](sql-database-managed-instance-migrate.md). 
+In dit artikel leert u over de primaire methoden voor het migreren van een SQL Server 2005 of latere database naar een enkele of gegroepeerde database in Azure SQL Database. Zie voor meer informatie over het migreren naar een beheerd exemplaar [migreren naar SQL Server-exemplaar naar Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migreren naar een individuele database of een gegroepeerde-database
 Er zijn twee primaire methoden voor het migreren van een SQL Server 2005 of latere database naar een enkele of gegroepeerde database in Azure SQL Database. De eerste methode is eenvoudiger, maar leidt wel tot enige uitvaltijd tijdens de migratie. In bepaalde gevallen kan deze uitvaltijd aanzienlijk zijn. De tweede methode is complexer, maar veroorzaakt tijdens de migratie veel minder uitvaltijd.

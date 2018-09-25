@@ -2,20 +2,22 @@
 title: Aan de slag met Azure SQL database auditing | Microsoft Docs
 description: Gebruik Azure SQL database auditing voor het bijhouden van databasegebeurtenissen in een logboek.
 services: sql-database
-author: giladmit
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
 ms.reviewer: vanto
-ms.openlocfilehash: 935baf791d9244f2fa4f5be9c02d4778244754de
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: dd1672c0cdae243bf6ff19efa22df66239611b44
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543743"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064167"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Met Azure SQL database auditing houdt databasegebeurtenissen en geschreven naar een auditlogboek in uw Azure storage-account. Ook controle:
@@ -98,10 +100,25 @@ Het volgende gedeelte bevat de configuratie van de controle met Azure portal.
 11. Nadat u de controle-instellingen hebt geconfigureerd, kunt u de nieuwe functie voor de detectie van bedreigingen inschakelen en configureren van e-mailberichten voor het ontvangen van beveiligingswaarschuwingen. Wanneer u detectie van bedreigingen, ontvangt u proactieve waarschuwingen voor afwijkende activiteiten die op potentiële beveiligingsrisico's duiden kunnen. Zie voor meer informatie, [aan de slag met detectie van bedreigingen](sql-database-threat-detection-get-started.md). 
 
 ## <a id="subheading-3"></a>Analyseren van controlelogboeken en -rapporten
+Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
+- Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle** pagina, klikt u op **auditlogboeken weergeven**.
+
+    ![Auditlogboeken weergeven](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+
+- Vervolgens te klikken op **openen in OMS** aan de bovenkant van de **controlerecords** pagina te openen de weergave van de logboeken in Log Analytics, waar u het tijdsbereik en de zoekopdracht kunt aanpassen.
+
+    ![Open in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+
+- U kunt ook u kunt ook toegang tot de auditlogboeken van Log Analytics-blade. Open uw Log Analytics-werkruimte en klik vervolgens onder **algemene** sectie, klikt u op **logboeken**. U kunt beginnen met een eenvoudige query, zoals: search *"SQLSecurityAuditEvents"* om weer te geven van de audit-Logboeken.
+    Hier kunt u ook kunt gebruiken [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en OMS Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-log-search.md).
+
+Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:
+- Als u wilt controleren Logboeken gegevens uit Event Hub gebruiken, moet u voor het instellen van een stroom gebeurtenissen gebruiken en te schrijven naar een doel. Zie voor meer informatie, [documentatie over Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+
 Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschillende methoden die u gebruiken kunt om de logboeken weer te geven:
 - Auditlogboeken worden samengevoegd in het account dat u hebt gekozen tijdens de installatie. U kunt de logboeken voor controle verkennen met behulp van een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/). In Azure storage controleren logboeken worden opgeslagen als een verzameling van blob-bestanden in een container met de naam **sqldbauditlogs**. Zie voor meer informatie over de hiërarchie van de map storage naamgevingsregels en logboekindeling, de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle en detectie van bedreigingen** pagina, klikt u op **auditlogboeken weergeven**.
+- Gebruik de [Azure-portal](https://portal.azure.com).  Open de betreffende database. Aan de bovenkant van de database **controle** pagina, klikt u op **auditlogboeken weergeven**.
 
     ![Navigatievenster][7]
 
@@ -137,16 +154,6 @@ Als u auditlogboeken schrijven naar een Azure storage-account, zijn er verschill
 
      * Gebruik de [uitgebreide gebeurtenissen-lezer](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C#-bibliotheek.
      * [Uitgebreide gebeurtenissen querybestanden](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) met behulp van PowerShell.
-
-Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
-- Voor auditlogboeken in Log Analytics, opent u uw Log Analytics-werkruimte en klik vervolgens onder **zoeken in Logboeken en analyseren**, klikt u op **logboeken bekijken**. In de weergave zoeken in Logboeken, kunt u beginnen door te klikken op **alle verzamelde gegevens**.  
-
-    ![OMS voor zoeken in Logboeken](./media/sql-database-auditing-get-started/oms_log_search.png)
-
-   Hier kunt u [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van gemakkelijk miljoenen records voor al uw workloads en servers. Zie voor meer nuttige informatie over opdrachten en OMS Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-log-search.md).
-
-Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:
-- Als u wilt controleren Logboeken gegevens uit Event Hub gebruiken, moet u voor het instellen van een stroom gebeurtenissen gebruiken en te schrijven naar een doel. Zie voor meer informatie, [documentatie over Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 
 ## <a id="subheading-5"></a>Procedures voor productie
 <!--The description in this section refers to preceding screen captures.-->
@@ -210,16 +217,16 @@ Zie voor een voorbeeldscript [controle en detectie van bedreigingen met behulp v
 
 **REST-API - controlefunctie voor blobs**:
 
-* [Maken of bijwerken van de Database Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
-* [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
-* [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
-* [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
+* [Maken of bijwerken van de Database Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Maken of bijwerken van de Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Database-Blob controlebeleid ophalen](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+* [Ophalen van Server Blob controlebeleid](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Uitgebreide beleid met waar component ondersteuning voor aanvullende filters:
-* [Maken of bijwerken van de Database *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-* [Maken of bijwerken van de Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-* [Database ophalen *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
-* [Ophalen van Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
+* [Maken of bijwerken van de Database *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Maken of bijwerken van de Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Database ophalen *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Ophalen van Server *uitgebreid* controlebeleid voor Blob](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

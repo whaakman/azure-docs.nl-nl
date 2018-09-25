@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: bb0efe83cb18f25317911361de79378298e591b7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3d909e8aa7785fddd6d40e94ac1fbf2c8ab2b8d0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717608"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040877"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Logische servers en individuele databases in Azure SQL Database maken en beheren 
 
@@ -90,25 +90,25 @@ Maken en beheren van Azure SQL-server, databases en firewalls met [Azure CLI](/c
 
 | Cmdlet | Beschrijving |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Hiermee maakt u een database|
-|[AZ sql db list](/cli/azure/sql/db#az_sql_db_list)|Geeft een lijst van alle databases en datawarehouses in een server of alle databases in een elastische pool|
-|[AZ sql db-edities](/cli/azure/sql/db#az_sql_db_list_editions)|Een lijst met beschikbare service doelstellingen en opslagbeperkingen|
-|[AZ sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Retourneert database het gebruik van|
-|[AZ sql db show](/cli/azure/sql/db#az_sql_db_show)|Een database of het datawarehouse opgehaald|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Een database-updates|
-|[AZ sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Hiermee verwijdert u een database|
-|[az group create](/cli/azure/group#az_group_create)|Hiermee maakt u een resourcegroep|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Hiermee maakt u een server|
-|[lijst met AZ sql server](/cli/azure/sql/server#az_sql_server_list)|Een lijst met servers|
-|[AZ sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Retourneert het gebruik van server|
-|[AZ sql server show](/cli/azure/sql/server#az_sql_server_show)|Een server opgehaald|
-|[AZ sql server-update](/cli/azure/sql/server#az_sql_server_update)|Een server worden bijgewerkt|
-|[AZ sql server verwijderen](/cli/azure/sql/server#az_sql_server_delete)|Hiermee verwijdert u een server|
-|[AZ sql server firewall-regel maken](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Hiermee maakt u een serverfirewallregel|
-|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Geeft een lijst van de firewall-regels op een server|
-|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Geeft de details van een firewall-regel|
-|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Een firewallregel bijgewerkt|
-|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Hiermee verwijdert u een firewall-regel|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Hiermee maakt u een database|
+|[AZ sql db list](/cli/azure/sql/db#az-sql-db-list)|Geeft een lijst van alle databases en datawarehouses in een server of alle databases in een elastische pool|
+|[AZ sql db-edities](/cli/azure/sql/db#az-sql-db-list-editions)|Een lijst met beschikbare service doelstellingen en opslagbeperkingen|
+|[AZ sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Retourneert database het gebruik van|
+|[AZ sql db show](/cli/azure/sql/db#az-sql-db-show)|Een database of het datawarehouse opgehaald|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Een database-updates|
+|[AZ sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Hiermee verwijdert u een database|
+|[az group create](/cli/azure/group#az-group-create)|Hiermee maakt u een resourcegroep|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Hiermee maakt u een server|
+|[lijst met AZ sql server](/cli/azure/sql/server#az-sql-server-list)|Een lijst met servers|
+|[AZ sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Retourneert het gebruik van server|
+|[AZ sql server show](/cli/azure/sql/server#az-sql-server-show)|Een server opgehaald|
+|[AZ sql server-update](/cli/azure/sql/server#az-sql-server-update)|Een server worden bijgewerkt|
+|[AZ sql server verwijderen](/cli/azure/sql/server#az-sql-server-delete)|Hiermee verwijdert u een server|
+|[AZ sql server firewall-regel maken](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Hiermee maakt u een serverfirewallregel|
+|[AZ sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Geeft een lijst van de firewall-regels op een server|
+|[AZ sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Geeft de details van een firewall-regel|
+|[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Een firewallregel bijgewerkt|
+|[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Hiermee verwijdert u een firewall-regel|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Logische servers en databases beheren
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7ba278a244327e717c114177cd8878cd00dfd7b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497906"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038764"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
@@ -123,8 +123,8 @@ Hier volgen de uitdrukkingen zoeken die u kunt gebruiken:
 | Voorbeeldquery | Effect |
 | --- | --- |
 | `apple` |Alle gebeurtenissen niet vinden in het tijdsbereik waarvan de velden het woord 'apple bevatten' |
-| `apple AND banana` <br/>`apple banana` |Zoeken naar gebeurtenissen die beide woorden bevatten. Gebruik kapitaal 'en', niet 'en'. |
-| `apple OR banana` |Gebeurtenissen die een woord bevatten vinden. Gebruik 'Of', niet 'of'.<br/>Verkorte vorm. |
+| `apple AND banana` <br/>`apple banana` |Zoeken naar gebeurtenissen die beide woorden bevatten. Gebruik kapitaal 'en', niet 'en'. <br/>Verkorte vorm. |
+| `apple OR banana` |Gebeurtenissen die een woord bevatten vinden. Gebruik 'Of', niet 'of'. |
 | `apple NOT banana` |Zoeken naar gebeurtenissen die niet door de andere, maar één woord bevatten. |
 
 ## <a name="sampling"></a>Steekproeven

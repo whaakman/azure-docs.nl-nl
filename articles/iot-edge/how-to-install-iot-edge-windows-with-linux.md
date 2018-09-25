@@ -9,14 +9,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125405"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031115"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Azure IoT Edge-runtime installeren op Windows gebruiken met Linux-containers
+# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>De Azure IoT Edge-runtime installeren op Windows gebruiken met Linux-containers
 
 De Azure IoT Edge-runtime is wat een apparaat verandert in een IoT Edge-apparaat. De runtime kan worden geïmplementeerd op apparaten als klein is als een Raspberry Pi of even groot zijn als een industrie-server. Wanneer een apparaat is geconfigureerd met de IoT Edge-runtime, kun u bedrijfslogica toe vanuit de cloud implementeren. 
 
@@ -107,6 +107,10 @@ En lijst met modules met:
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>Tips en suggesties
+
+Als het netwerk een proxyserver heeft, volgt u de stappen in [uw IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md) te installeren en starten van de IoT Edge-runtime.
 
 ## <a name="next-steps"></a>Volgende stappen
 

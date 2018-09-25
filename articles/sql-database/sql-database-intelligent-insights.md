@@ -1,6 +1,6 @@
 ---
 title: Databasegebruik controleren met Intelligent Insights - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database Intelligent inzicht maakt gebruik van ingebouwde intelligentie continu Databasegebruik via kunstmatige intelligence bewaken en verstoren gebeurtenissen die leiden slechte prestaties tot detecteren.
+description: Azure SQL Database Intelligent Insights maakt gebruik van ingebouwde intelligentie om continu te controleren van het Databasegebruik via kunstmatige intelligentie en detecteert verstorende gebeurtenissen die leiden slechte prestaties tot.
 services: sql-database
 author: danimir
 manager: craigg
@@ -8,170 +8,176 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
-ms.openlocfilehash: a911ed9777e1a63e1fc1776fb6a8c1ab98bc6820
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fe7e89f9b716bbc3269a912c3e8ac456a6340c36
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647500"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032016"
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
-Azure SQL Database Intelligent inzicht laat u weten wat er gebeurt met de databaseprestaties van uw.
+Azure SQL Database Intelligent Insights laat u weten wat er gebeurt met de prestaties van uw SQL-Database en de Managed Instance-database.
 
-Ingebouwde intelligentie Intelligent Insights gebruikt voor het voortdurend controleren van het Databasegebruik via kunstmatige intelligence en verstoren gebeurtenissen die leiden slechte prestaties tot detecteren. Zodra er gedetecteerd, wordt een gedetailleerde analyse uitgevoerd die een logboek diagnostische gegevens met een intelligente beoordeling van het probleem genereert. Deze evaluatie bestaat uit een analyse van de hoofdmap oorzaak van het prestatieprobleem database en, indien mogelijk, aanbevelingen voor verbeterde prestaties. 
+Intelligent Insights maakt gebruik van ingebouwde intelligentie om continu te controleren van het Databasegebruik via kunstmatige intelligentie en detecteert verstorende gebeurtenissen die leiden slechte prestaties tot. Wanneer wordt gedetecteerd, wordt een gedetailleerde analyse uitgevoerd waarmee een logboekbestanden met diagnostische gegevens met een intelligente evaluatie van het probleem worden gegenereerd. Deze evaluatie bestaat uit een analyses van hoofdoorzaken van het prestatieprobleem database en, indien mogelijk, aanbevelingen voor verbeterde prestaties. 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>Wat kan Intelligent Insights voor u doen?
 
-Intelligent Insights is een unieke mogelijkheid van Azure ingebouwde intelligentie die bepaalde de volgende waarde biedt:
+Intelligent Insights is een unieke mogelijkheid van ingebouwde intelligentie van Azure waarmee u de volgende waarde:
 
 - Proactieve controle
-- Op maat gemaakte inzichten
-- Vroegtijdig van verslechtering van de database-prestaties
-- Hoofdoorzaak analyse van problemen gedetecteerd
+- Op maat gemaakte prestatie-inzichten
+- Vroegtijdig van prestatievermindering database
+- Hoofdoorzaak analyse van de gedetecteerde problemen
 - Aanbevelingen voor verbetering van prestaties
-- Mogelijkheid op honderden of duizenden databases uitbreiden
-- Positieve invloed op de DevOps-resources en de totale eigendomskosten
+- De schaal vergroten mogelijkheid op honderden of duizenden databases
+- Positief effect op de DevOps-resources en de totale eigendomskosten
 
 ## <a name="how-does-intelligent-insights-work"></a>Hoe werkt Intelligent Insights?
 
-Intelligent Insights analyseert de prestaties van de SQL-Database door te vergelijken met de werkbelasting van het afgelopen uur van de database met de afgelopen zeven dagen basislijn werkbelasting. Database-werkbelasting bestaat van query's bepaald dat de belangrijkste voor de databaseprestaties van de, zoals de meest herhaalde en de grootste query's. Omdat elke database uniek op basis van de structuur, gegevens, gebruik en toepassing, is elke basislijn werkbelasting die wordt gegenereerd specifieke en uniek is voor een afzonderlijke instantie. Intelligent Insights, onafhankelijk van de basislijn werkbelasting ook absolute operationele drempelwaarden controleert en problemen met buitensporige wachttijden, kritieke uitzonderingen en problemen met query parameteriseringen invloed kunnen hebben op prestaties detecteert.
+Intelligent Insights analyseert de prestaties van de database door het vergelijken van de werkbelasting van het afgelopen uur van de database met de werkbelasting van de afgelopen zeven dagen basislijn. Database-workload van query's blijkt dat de belangrijkste op de databaseprestaties, zoals de grootste en meest herhaalde query's bestaat. Omdat elke database uniek op basis van de structuur, gegevens, gebruik en toepassingen is, is de basislijn van elke werkbelasting die wordt gegenereerd specifieke en uniek is voor een afzonderlijk exemplaar. Intelligent Insights, onafhankelijk van de basislijn werkbelasting ook absolute operationele drempelwaarden bewaakt en detecteert problemen met overmatige wachttijden, kritieke uitzonderingen en problemen met query-parameteriseringen invloed kunnen hebben op prestaties.
 
-Nadat een verslechtering van prestatieprobleem is gedetecteerd door meerdere waargenomen metrische gegevens met behulp van de kunstmatige intelligence, wordt analyse uitgevoerd. Een logboek met diagnostische gegevens wordt gegenereerd met een intelligente inzicht in wat er met uw database gebeurt. Intelligent Insights kunt gemakkelijk het prestatieprobleem database van de eerste weergave tot resolutie bijhouden. Elk probleem wordt bijgehouden gedurende de levensduur van het oorspronkelijke probleem detectie en verificatie van de prestaties verbeteren met de voltooiing ervan gedetecteerd. Updates worden uitgegeven in het logboek voor diagnostische gegevens om de 15 minuten. 
+Nadat een prestatieprobleem degradatie is gedetecteerd door meerdere waargenomen metrische gegevens met behulp van kunstmatige intelligentie, wordt analyse uitgevoerd. Een logboek met diagnostische gegevens wordt gegenereerd met een intelligente inzicht in wat met uw database gebeurt er. Intelligent Insights kunt u eenvoudig is het prestatieprobleem database bijhouden van de eerste weergave totdat het probleem zou moeten. Elke gedetecteerde probleem wordt bijgehouden gedurende de levensduur van de eerste probleem detectie en verificatie van de prestaties verbeteren voor de voltooiing. Updates zijn beschikbaar in de logboekbestanden met diagnostische gegevens om de 15 minuten. 
 
-![Database prestaties analysis werkstroom](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
+![Database prestaties analysis-werkstroom](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
-De metrische gegevens gebruikt om te meten en Detecteer prestatieproblemen met de database zijn gebaseerd op de duur van de query, time-out voor aanvragen, overmatige wachttijden en foutieve aanvragen. Zie voor meer informatie over metrische gegevens de [detectie metrische gegevens](sql-database-intelligent-insights.md#detection-metrics) gedeelte van dit document.
+De metrische gegevens die worden gebruikt om te meten en detecteren van prestatieproblemen met de database zijn gebaseerd op de queryduur van de, time-out voor aanvragen, overmatige wachttijden en aanvragen met fouten. Zie voor meer informatie over metrische gegevens over de [detectie van metrische gegevens](sql-database-intelligent-insights.md#detection-metrics) sectie van dit document.
 
-Geïdentificeerd SQL-Database prestaties degradations worden vastgelegd in het logboek voor diagnostische gegevens met intelligent vermeldingen die bestaan uit de volgende eigenschappen:
+Geïdentificeerd SQL Database performance degradations worden vastgelegd in de logboekbestanden met diagnostische gegevens met intelligente vermeldingen die bestaan uit de volgende eigenschappen:
 
 | Eigenschap             | Details              |
 | :------------------- | ------------------- |
-| Database-informatie | De metagegevens over een database op waarop een beter inzicht is gedetecteerd, zoals een resource-URI. |
-| Waargenomen tijdsbereik | Begin- en tijd voor de periode van de gedetecteerde inzicht. |
-| Betrokken metrische gegevens | Metrische gegevens, waardoor een beter inzicht moeten worden gegenereerd: <ul><li>Query duur verhogen [seconden].</li><li>Overmatige wachten [seconden].</li><li>Time-out voor aanvragen [percentage].</li><li>Fout bij out aanvragen [percentage].</li></ul>|
-| Waarde van de impact | Waarde van een metriek gemeten. |
-| Betrokken query's en foutcodes | Query-hash of foutcode. Deze kunnen worden gebruikt voor het eenvoudig correleert met de betreffende query's. Metrische gegevens die bestaan uit verhoging van de duur van de query, wachttijd, time-out aantallen of foutcodes zijn beschikbaar. |
-| Detecties | De detectie is tijdens de tijd van een gebeurtenis op de database wordt geïdentificeerd. Er zijn 15 detectie patronen. Zie voor meer informatie [oplossen van prestatieproblemen met de database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Hoofdoorzaakanalyses | Hoofdoorzaak analyse van het probleem dat is aangetroffen in een leesbare indeling. Sommige insights bevatten mogelijk een prestaties verbetering aanbeveling waar mogelijk. |
+| database-informatie | De metagegevens van een database waarvoor een inzicht is gedetecteerd, zoals een resource-URI. |
+| Waargenomen tijdsbereik | Begin- en -tijd voor de periode van de gedetecteerde inzicht. |
+| Beïnvloede metrische gegevens | Metrische gegevens een inzicht moet worden gegenereerd, waardoor: <ul><li>Query duur verhogen [seconden].</li><li>Overmatige wachten [seconden].</li><li>Time-out aanvragen [percentage].</li><li>Met fouten-out aanvragen [percentage].</li></ul>|
+| Waarde van de impact | Waarde van een metrische waarde gemeten. |
+| Betrokken query's en foutcodes | Query uitvoeren op hash of foutcode. Deze kunnen worden gebruikt om eenvoudig correleert met betrokken query's. Metrische gegevens die bestaan uit de toename van de duur van de query, wachttijd, time-out tellingen of foutcodes worden geleverd. |
+| Detecties | De detectie is geïdentificeerd in de database tijdens het ophalen van een gebeurtenis. Er zijn 15 detectie patronen. Zie voor meer informatie, [oplossen van prestatieproblemen met de database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
+| Hoofdoorzaakanalyses | Hoofdoorzaak analyse van het probleem dat is geïdentificeerd in een leesbare indeling. Sommige insights bevat mogelijk een verbetering van prestaties aanbeveling waar mogelijk. |
 |||
 
-Prestatieproblemen die zijn vastgelegd in het logboek voor diagnostische gegevens zijn gemarkeerd met een van de drie statussen van de levenscyclus van een probleem: 'Active', 'Controleren' en 'Voltooid'. Na een prestaties probleem wordt gedetecteerd en als lang deze heeft vastgesteld dat als aanwezig ingebouwde intelligentie SQL-Database, het probleem is gemarkeerd als 'Actief'. Als het probleem wordt beschouwd als verholpen, wordt gecontroleerd en wordt de status van het probleem wordt gewijzigd in 'Controleren'. Nadat de SQL-Database ingebouwde intelligentie beschouwt het probleem is opgelost, wordt de status van probleem gemarkeerd als 'Voltooid'.
-
-## <a name="use-intelligent-insights"></a>Intelligent Insights gebruiken
-
-Intelligent Insights is een intelligente prestatielogboek diagnostische gegevens. Kunnen worden geïntegreerd met andere producten voor consumptie en dergelijke specifieke toepassingen zijn Azure Log Analytics, Azure Event Hubs en Azure-opslag, of een producten van derden. 
-
-Intelligent Insights samen met Azure Log Analytics wordt meestal gebruikt om de inzichten via een webbrowser en mogelijk een van de eenvoudigste manieren om het eerste begin met het gebruik van het product weer te geven. Intelligent Insights samen met Azure Event Hubs wordt doorgaans gebruikt voor het configureren van aangepaste bewaking en waarschuwingen van scenario's. Intelligent insights samen met de Azure-opslag wordt doorgaans gebruikt voor de ontwikkeling van aangepaste toepassingen, zoals bijvoorbeeld aangepaste rapporten, of misschien gegevensarchivering en ophalen.
-
-Integratie van Intelligent Insights met andere Azure-logboekanalyse-producten, Azure Event Hub, Azure storage of producten van derden voor consumptie wordt uitgevoerd via de eerste inschakelen Intelligent Insights logging (logboekregistratie SQLInsights) en vervolgens configureren Intelligent Insights meld gegevens kunnen worden gestreamd naar een van deze producten. Zie voor meer informatie over het Intelligent Insights logboekregistratie inschakelen en configureren van logboekgegevens kunnen worden gestreamd naar een consumerende product [Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens](sql-database-metrics-diag-logging.md). 
-
-Zie voor een praktische overzicht over het gebruik van Intelligent Insights met Azure Log Analytics en typische gebruiksscenario's de ingesloten video:
+Zie de ingesloten video voor een praktische overzicht over het gebruik van Intelligent Insights met Azure SQL Analytics en voor typische gebruiksscenario's:
 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights wat in detecteren en het oplossen van prestatieproblemen met de SQL-Database. Als u wilt gebruiken Intelligent Insights oplossen van problemen met prestaties van de SQL-Database, Zie [Azure SQL Database oplossen van prestatieproblemen met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights schijnt in detecteren en oplossen van prestatieproblemen met de SQL-Database. Als u wilt gebruiken Intelligent Insights voor het oplossen van prestatieproblemen met de database SQL-Database en de Managed Instance, Zie [prestatieproblemen oplossen Azure SQL Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-## <a name="set-up-intelligent-insights-with-log-analytics"></a>Intelligent Insights met logboekanalyse instellen 
+## <a name="configure-intelligent-insights"></a>Intelligent Insights configureren
 
-Meld u Analytics-oplossing reporting biedt en waarschuwingen mogelijkheden boven op de Intelligent inzichten diagnostische gegevens vastleggen.
+Uitvoer van het Intelligent Insights is een slimme prestatielogboek met diagnostische gegevens. Dit logboek kan worden gebruikt op verschillende manieren - via deze gaat streamen naar Azure SQL Analytics, Azure Event Hubs en Azure-opslag, of een product van derden. 
 
-Om intelligente Insights met Log Analytics, configureren Intelligent Insights logboekgegevens worden gestreamd naar Log Analytics, raadpleeg dan [Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens](sql-database-metrics-diag-logging.md). 
+* Gebruik het product met [Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) om inzicht te krijgen via de gebruikersinterface van de Azure Portal weer te geven. Dit is de geïntegreerde Azure-oplossing en de meest voorkomende manier om inzichten weer te geven.
+* Gebruik het product met Azure Event Hubs voor het ontwikkelen van aangepaste bewaking en waarschuwingen van scenario 's
+* Gebruik het product met Azure storage voor aangepaste ontwikkeling van toepassingen, zoals zijn bijvoorbeeld aangepaste rapportagegegevens, langdurige archivering enzovoort.
 
-Het volgende voorbeeld ziet een rapport Intelligent inzichten in Azure SQL Analytics:
+Integratie van Intelligent Insights met andere producten van Azure SQL Analytics, Azure Event Hub, Azure storage of producten van derden voor verbruik wordt uitgevoerd via de eerste inschakelen Intelligent Insights logboekregistratie (de "SQLInsights"-logboek) in de diagnose de instellingenblade van een database en vervolgens configureren Intelligent Insights Registreer om te worden gestreamd naar een van deze producten.
+
+Zie voor meer informatie over hoe u intelligente inzichten logboekregistratie inschakelen en configureren van logboekgegevens kunnen worden gestreamd naar een verbruikende product [Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens](sql-database-metrics-diag-logging.md). 
+
+### <a name="set-up-with-azure-sql-analytics"></a>Met Azure SQL Analytics instellen 
+
+Azure SQL Analytics-oplossing biedt een grafische gebruikersinterface, rapportage- en waarschuwingsfuncties op de prestaties van de database, samen met het Intelligent Insights-diagnoselogboek gegevens.
+
+> [!TIP]
+> Snel aan de slag: de eenvoudigste manier om op te halen uit het begin te beginnen met het gebruik van Intelligent Insights is om deze te gebruiken, samen met Azure SQL Analytics een grafische gebruikersinterface voor prestatieproblemen met de database biedt. Azure SQL Analytics-oplossing toevoegen vanuit de marketplace, een werkruimte in deze oplossing maken en vervolgens voor elke database die u wilt inschakelen, Intelligent Insights configureren streaming van logboek 'SQLInsights' in de blade van de instellingen voor diagnostische gegevens over van een database naar de werkruimte van Azure SQL Analytics.
+>
+
+Vooraf vereiste is Azure SQL Analytics toegevoegd aan uw Azure portal-dashboard van de marketplace en bekijken om te maken van een werkruimte [Azure SQL Analytics configureren](../log-analytics/log-analytics-azure-sql.md#configuration) 
+
+Configureren voor het gebruik van Intelligent Insights met Azure SQL Analytics, Intelligent Insights-logboekgegevens kunnen worden gestreamd naar Azure SQL Analytics-werkruimte die u hebt gemaakt in de vorige stap, Zie [Azure SQL Database-metrische en diagnostische gegevens logboekregistratie](sql-database-metrics-diag-logging.md). 
+
+Het volgende voorbeeld ziet u dat een Intelligent Insights weergegeven via de Azure SQL Analytics:
 
 ![Intelligent Insights-rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
-Nadat het logboek van de diagnostische gegevens Intelligent Insights is geconfigureerd voor het SQL-Analytics van stroomgegevens, kunt u [bewaken van de SQL-database met behulp van SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+### <a name="set-up-with-event-hubs"></a>Met Event Hubs instellen
 
-## <a name="set-up-intelligent-insights-with-event-hubs"></a>Intelligent Insights met Event Hubs instellen
+Configureren voor het gebruik van Intelligent Insights met Event Hubs, Intelligent Insights-logboekgegevens te worden gestreamd naar Event Hubs, raadpleegt u [Stream Azure diagnostics-logboeken naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 
-Om intelligente Insights met Event Hubs, configureren Intelligent Insights logboekgegevens worden gestreamd naar Event Hubs, raadpleeg dan [stroom Azure diagnostics logboeken naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+Zie voor het gebruik van Event Hubs voor het instellen van aangepaste bewaking en waarschuwingen, [wat te doen met metrische gegevens en diagnostische logboeken in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
-Voor het gebruik van Event Hubs om aangepaste bewaking en waarschuwingen in te stellen, Zie [wat te doen met metrische gegevens en diagnostische gegevens geregistreerd in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+### <a name="set-up-with-azure-storage"></a>Met Azure Storage instellen
 
-## <a name="set-up-intelligent-insights-with-storage"></a>Intelligent Insights met opslag instellen
+Configureren voor het gebruik van Intelligent Insights met opslag, Intelligent Insights-logboekgegevens te worden gestreamd naar opslag, raadpleegt u [Stream naar Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
 
-Om intelligente Insights met opslag, configureren Intelligent Insights logboekgegevens worden gestreamd naar opslag, raadpleeg dan [Stream in Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+### <a name="custom-integrations-of-intelligent-insights-log"></a>Aangepaste integraties van Intelligent Insights-logboek
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Aangepaste integraties van Intelligent Insights-logboek
-
-Zie voor het gebruik van Intelligent Insights met hulpprogramma's van derden of aangepaste waarschuwingen en controle van de ontwikkeling, [gebruik de prestatiecontrole Intelligent Insights database Meld](sql-database-intelligent-insights-use-diagnostics-log.md).
+Zie voor het gebruik van Intelligent Insights met hulpprogramma's van derden, of voor aangepaste waarschuwingen en bewaking van ontwikkeling, [gebruik het diagnoselogboek voor Intelligent Insights database prestaties](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Detectie van metrische gegevens
 
-Metrische gegevens die worden gebruikt voor detectie van modellen die Intelligent Insights genereren zijn gebaseerd op de bewaking:
+Metrische gegevens die worden gebruikt voor detectie van modellen die intelligente inzichten genereren, zijn afhankelijk van de bewaking:
 
-- duur van de query
+- Queryduur
 - Time-out voor aanvragen
 - Overmatige wachttijd
-- Fout bij aanvragen
+- Met fouten aanvragen
 
-Query duur en time-aanvragen worden gebruikt als primaire modellen in het opsporen van problemen met databaseprestaties werkbelasting. Deze worden gebruikt omdat ze rechtstreeks meten wat er gebeurt met de werkbelasting. Om te detecteren van alle mogelijke gevallen van de prestaties van de werkbelasting van de degradatie, overmatige wachttijd en fouten aanvragen worden gebruikt als extra modellen voor wijzen op problemen die invloed hebben op de prestaties van de workload.
+Duur en time-out queryaanvragen worden gebruikt als primaire modellen bij het detecteren van problemen met prestaties van de database-workload. Ze worden gebruikt omdat ze rechtstreeks meten wat er gebeurt met de werkbelasting. Voor het detecteren van alle mogelijke gevallen van de prestaties van de werkbelasting van de degradatie, overmatige wachttijd en aanvragen met fouten-out als aanvullende modellen worden gebruikt om aan te geven van de problemen die invloed hebben op de prestaties van de werkbelastingen.
 
-Het systeem wordt automatisch wijzigingen in de werkbelasting en wijzigingen in het aantal queryaanvragen voor de database naar dynamisch bepalen drempelwaarden voor prestaties normaal en out gewone database.
+Het systeem automatisch rekening gehouden met wijzigingen in de werkbelasting en wijzigingen in het aantal queryaanvragen dynamisch gemaakt met de database om te bepalen prestatiedrempels normaal en out gewone database.
 
-Alle van de metrische gegevens in verschillende relaties via een wetenschappelijke afgeleide gegevensmodel dat elke prestatieprobleem gedetecteerd ingedeeld als samen worden beschouwd. Informatie geboden via een intelligente inzicht omvat:
+Alle van de metrische gegevens in verschillende relaties via een wetenschappelijk afgeleide gegevensmodel dat elk prestatieprobleem gedetecteerd ingedeeld als één geheel worden beschouwd. Informatie die u via een slimme inzichten bevat:
 
-* Details van het prestatieprobleem gedetecteerd. 
-* Een hoofdoorzaak analyse van het gedetecteerde probleem. 
-* Aanbevelingen voor het verbeteren van de prestaties van de bewaakte SQL-database, waar mogelijk.
+* De details van het prestatieprobleem gedetecteerd. 
+* Een hoofdoorzaakanalyses van het probleem gedetecteerd. 
+* Aanbevelingen voor het verbeteren van de prestaties van de gecontroleerde SQL-database, waar mogelijk.
 
-## <a name="query-duration"></a>duur van de query
+## <a name="query-duration"></a>Queryduur
 
-De query duur verslechtering van model analyseert afzonderlijke query's en detecteert dat de toename in de tijd die nodig zijn om te compileren en uitvoeren van een query vergeleken met de basislijn van prestaties.
+Het querymodel voor duur verslechtering van de afzonderlijke query's analyseert en detecteert de toename in de tijd die nodig zijn om te compileren en uitvoeren van een query in vergelijking met de basislijn van prestaties.
 
-Als de ingebouwde intelligentie SQL-Database een aanzienlijke toename in query compileren of query-uitvoering die van invloed op prestaties van de werkbelasting detecteert, deze query's worden gemarkeerd als duur van de query vermindering van prestatieproblemen. 
+Als SQL Database ingebouwde intelligentie een aanzienlijke toename in query compileren of query-uitvoering die van invloed op prestaties van de werkbelastingen detecteert, deze query's worden gemarkeerd als queryduur prestaties afnemen. 
 
-Het logboek van de diagnostische gegevens Intelligent Insights levert de query-hash van de query slechtere prestaties. De hash van de query geeft aan of de prestaties achteruitgaan is gerelateerd aan query compileren of uitvoeringstijd toename, die de opgegeven tijdsduur voor query verhoogd.
+Het Intelligent Insights-diagnoselogboek voert de queryhash van de query in de prestaties worden verminderd. De queryhash geeft aan of de prestaties achteruitgaan is gerelateerd is aan de query te compileren of uitvoeringstijd voeren, wat verhoogd query duur.
 
 ## <a name="timeout-requests"></a>Time-out voor aanvragen
 
-De time-out voor aanvragen verslechtering van model analyseert afzonderlijke query's en een toename in time-outs op het niveau van de query kan worden uitgevoerd en de algehele aanvraag time-outs op databaseniveau vergeleken met de basislijnperiode prestaties detecteert.
+Het model van time-out voor aanvragen verslechtering van de afzonderlijke query's analyseert en detecteert dat er een toename in time-outs op het niveau van de query kan worden uitgevoerd en de totale time-outs aanvraag op het databaseniveau van de ten opzichte van de prestaties van basislijn-periode.
 
-Sommige van de query's mogelijk time-out zelfs voordat ze de uitvoeringsfase bereiken. De wijze van afgebroken werknemers versus aanvragen SQL-Database ingebouwde intelligentie meet en analyseert alle query's die de database of ze naar de uitvoeringsfase hebben gekregen of niet is bereikt. 
+Sommige van de query's mogelijk time-out voordat ze zich bij de fase worden uitgevoerd. Via de middelen van afgebroken werknemers versus aanvragen, SQL Database ingebouwde intelligentie meet en analyseren van alle query's die de database is bereikt of ze naar de uitvoeringsfase of niet is. 
 
-Nadat u het aantal time-outs voor uitgevoerde query's of het aantal afgebroken aanvraag werknemers de drempelwaarde voor het systeem beheerd overschrijdt, wordt een logboek met diagnostische gegevens ingevuld met intelligent insights.
+Nadat het aantal time-outs voor uitgevoerde query's of het aantal werknemers afgebroken aanvraag de drempelwaarde voor het systeem beheerd overschrijdt, wordt een logboek met diagnostische gegevens wordt gevuld met intelligente inzichten.
 
-De inzichten die zijn gegenereerd bevatten het aantal aanvragen van de time-out en het aantal query's is een time-out. Indicatie van de prestaties achteruitgaan is gerelateerd aan time-out toename in het stadium uitvoering of het algemene databaseniveau is opgegeven. Wanneer de toename van time-outs dient te worden beschouwd voor de databaseprestaties van de, worden deze query's gemarkeerd als time-out verslechtering van prestatieproblemen. 
+De inzichten die zijn gegenereerd, bevat het aantal aanvragen is een time-out en het aantal query's is een time-out. Indicatie van de prestaties achteruitgaan is gerelateerd aan de toename van de time-out in de fase worden uitgevoerd of het databaseniveau van de algemene wordt aangeboden. Wanneer de toename in-time-outs wordt geacht aanzienlijke op de databaseprestaties van de, worden deze query's worden gemarkeerd als time-out prestaties afnemen. 
 
 ## <a name="excessive-wait-times"></a>Overmatige wachttijden
 
-Het model van de tijd overmatige wacht bewaakt afzonderlijke databasequery's. Deze detecteert query ongewoon hoge wachttijd statistieken die het systeem beheerde absoluut drempels gepasseerd. De volgende query overmatige wachttijd metrische gegevens die worden waargenomen door met de nieuwe SQL Server-functie, wacht u statistieken voor Query Store (sys.query_store_wait_stats):
+Het model van de tijd overmatige wacht bewaakt afzonderlijke databasequery's. Wachtstatistieken voor ongewoon hoge query die het systeem beheerd absolute drempelwaarden gepasseerd wordt gedetecteerd. De volgende query overmatige wachttijd metrische gegevens zijn waargenomen met behulp van de nieuwe SQL Server-functie, wacht u statistieken voor Query Store (sys.query_store_wait_stats):
 
-- Limieten voor bereikt
-- Bereikt limieten elastische groep
+- Bronlimieten bereikt
+- Bereikt limieten voor elastische Pools-resource
 - Uitzonderlijk groot aantal worker- of -sessie threads
 - Overmatige database vergrendelen
 - Geheugendruk
-- Andere wait-statistieken
+- Andere Wachtstatistieken
 
-Limieten voor bereikt of limieten elastische pool geven aan dat het verbruik van de beschikbare bronnen op een abonnement of in de elastische groep absoluut drempels gepasseerd. Deze statistieken geven prestatievermindering werkbelasting. Een uitzonderlijk groot aantal worker- of -sessie threads geeft aan een voorwaarde waarin het aantal werkthreads of sessies die zijn gestart absoluut drempels overschreden. Deze statistieken geven prestatievermindering werkbelasting.
+Bereikt resourcebeperkingen of limieten voor elastische Pools resource geven aan dat verbruik van de beschikbare bronnen op een abonnement of in de elastische pool absolute drempelwaarden overschreden. Deze statistieken geven prestatievermindering werkbelasting. Een uitzonderlijk groot aantal worker- of -sessie threads geeft aan dat een voorwaarde waarin het aantal werkthreads of sessies die zijn gestart absolute drempelwaarden overschreden. Deze statistieken geven prestatievermindering werkbelasting.
 
-Vergrendelen van overmatige database geeft aan een voorwaarde waarin het aantal vergrendelingen voor een database absolute drempelwaarden heeft overschreden. Deze stat geeft aan dat een verslechtering van de prestaties werkbelasting. Geheugen druk is een voorwaarde waarin het aantal threads aanvragen geheugen verleent overschreden een absolute drempelwaarde. Deze stat geeft aan dat een verslechtering van de prestaties werkbelasting.
+Vergrendelen van overmatige database geeft aan dat een voorwaarde waarin het aantal vergrendelingen op een database absolute drempelwaarden heeft overschreden. Deze stat geeft aan dat een verslechtering van de werkbelasting van prestaties. Geheugen druk is een voorwaarde waarin het aantal threads die aanvragen van geheugen verleent overschreden een absolute drempelwaarde. Deze stat geeft aan dat een verslechtering van de werkbelasting van prestaties.
 
-De detectie van andere wacht statistieken geeft aan een voorwaarde waarin diverse metrische gegevens die zijn gemeten via de Query Store wacht statistieken een absolute drempelwaarde overschreden. Deze statistieken geven prestatievermindering werkbelasting.
+Andere statistieken wacht detectie geeft aan een voorwaarde waarin diverse metrische gegevens die zijn gemeten via de Query Store wacht statistieken een absolute drempelwaarde overschreden. Deze statistieken geven prestatievermindering werkbelasting.
 
-Nadat overmatige wachttijden worden gedetecteerd, afhankelijk van de gegevens beschikbaar zijn, de Intelligent Insights diagnostische gegevens meldt u zich de hashes uitvoer van de query's die gevolgen hebben voor en betrokken slechtere prestaties, details van de metrische gegevens die ertoe leiden dat query's moet worden gewacht in uitvoering, en gemeten wachttijd.
+Nadat overmatige wachttijden worden gedetecteerd, afhankelijk van de gegevens die beschikbaar is, de intelligente Insights-diagnoselogboek hashes uitvoer van de query's die gevolgen hebben voor en betrokken verminderde prestaties, details van de metrische gegevens die ervoor zorgen query's dat moet worden gewacht in uitvoering, en gemeten wachttijd.
 
-## <a name="errored-requests"></a>Fout bij aanvragen
+## <a name="errored-requests"></a>Aanvragen met fouten
 
-Het foutieve aanvragen verslechtering van model monitors afzonderlijke query's en een toename in het aantal query's dat foutieve uit met de basislijnperiode vergeleken detecteert. Dit model bewaakt ook kritieke uitzonderingen die gepasseerd absolute drempelwaarden die worden beheerd door de ingebouwde intelligentie SQL-Database. Het systeem beschouwt automatisch het aantal queryaanvragen voor de database en de accounts voor werkbelasting wijzigingen in de gecontroleerde periode.
+Het model met de aanvragen met fouten-verslechtering van de monitors afzonderlijke query's en een toename in het aantal query's die met fouten af in vergelijking met de basislijnperiode detecteert. Dit model controleert ook kritieke uitzonderingen die gepasseerd absolute drempelwaarden die worden beheerd door de ingebouwde intelligentie SQL-Database. Het systeem automatisch rekening gehouden met het aantal queryaanvragen aangebracht in de database en de accounts voor elke workload wordt gewijzigd in de gecontroleerde periode.
 
-Wanneer de gemeten toename in foutieve aanvragen ten opzichte van het totale aantal aanvragen dient te worden beschouwd voor de prestaties van de werkbelasting, worden de betreffende query's gemarkeerd als foutieve aanvragen verslechtering van prestatieproblemen.
+Wanneer de gemeten toename van aanvragen met fouten ten opzichte van het totale aantal aanvragen wordt geacht aanzienlijke werkbelasting prestaties zijn, worden betrokken query's worden gemarkeerd als aanvragen met fouten prestaties afnemen.
 
-Het logboek Intelligent Insights levert het aantal foutieve aanvragen. Hiermee wordt aangegeven of de prestaties achteruitgaan is gerelateerd aan een toename van foutieve aanvragen of een bewaakte kritieke uitzondering drempelwaarde en gemeten tijd van de prestaties achteruitgaan overschrijden. 
+Het logboek Intelligent Insights levert het aantal aanvragen met fouten. Hiermee wordt aangegeven of de prestaties achteruitgaan is gerelateerd aan een toename van aanvragen met fouten of overschrijden van een bewaakte kritieke uitzondering drempelwaarde en gemeten tijd van de prestatievermindering. 
 
-Als een van de bewaakte kritieke uitzonderingen cross de absolute drempelwaarden beheerd door het systeem, wordt een intelligente inzicht met details voor kritieke uitzondering gegenereerd.
+Als een van de bewaakte kritieke uitzonderingen cross-de absolute drempelwaarden die worden beheerd door het systeem, kan een slimme inzichten met details van kritieke uitzondering wordt gegenereerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [oplossen van prestatieproblemen SQL-Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-* Gebruik de [Intelligent Insights SQL-Database diagnostics prestatielogboek](sql-database-intelligent-insights-use-diagnostics-log.md).
-* Meer informatie over hoe [SQL-Database controleren met behulp van SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
-* Meer informatie over hoe [verzamelen en gebruiken van de logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+* Meer informatie over het [oplossen van prestatieproblemen met de SQL-Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+* Gebruik de [diagnoselogboek voor Intelligent Insights SQL Database performance](sql-database-intelligent-insights-use-diagnostics-log.md).
+* Meer informatie over het [SQL-Database bewaken met behulp van SQL-analyse](../log-analytics/log-analytics-azure-sql.md).
+* Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 

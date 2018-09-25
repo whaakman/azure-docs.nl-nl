@@ -1,6 +1,6 @@
 ---
 title: Aanbevolen beveiligingsprocedures voor Azure-database | Microsoft Docs
-description: In dit artikel biedt een set met aanbevolen procedures voor beveiliging van de Azure-database.
+description: Dit artikel bevat een set van aanbevolen procedures voor beveiliging van de Azure-database.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -12,161 +12,173 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 81acf90f0d600c0c3dafa2a4ccd2f8564fd18c9a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040090"
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
+De beveiliging is een belangrijkste aandachtspunt voor het beheren van databases en het is altijd een prioriteit voor [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Uw databases kunnen nauw worden beveiligd om te voldoen aan meest regelgevingsbehoeften of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS Level 1. Een huidige lijst van nalevingscertificeringen voor beveiliging is beschikbaar op de [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van wettelijke eisen die plaatsen.
 
-Beveiliging is een bovenste probleem bij het beheren van databases en is altijd een prioriteit voor Azure SQL Database. Uw databases nauw kunnen worden beveiligd om te voldoen aan de meest regelgevende of beveiligingsvereisten, zoals HIPAA, ISO 27001/27002 en PCI DSS-niveau 1, onder andere. Een huidige lijst van naleving veiligheidscertificaten is beschikbaar op de [Microsoft Trust Center site](http://azure.microsoft.com/support/trust-center/services/). U kunt ook uw databases in specifieke Azure-datacenters op basis van de regelgeving plaatsen.
+In dit artikel wordt besproken hoe een verzameling van aanbevolen beveiligingsprocedures voor Azure-database. Deze aanbevolen procedures zijn afgeleid van onze ervaring met beveiliging van de Azure database en de ervaringen van klanten zoals zelf.
 
-In dit artikel bespreken we een verzameling aanbevolen beveiligingsprocedures voor Azure-database. Deze aanbevolen procedures zijn afgeleid van onze ervaring met beveiliging van de Azure-database en de ervaringen van klanten, zoals zelf.
+Voor elke best practice wordt we het volgende uitgelegd:
 
-Voor elke beste kunnen worden uitgelegd:
+-   Wat de beste manier is
+-   Waarom u deze wilt inschakelen, die best practices
+-   Wat kan het resultaat zijn als u een failover naar de aanbevolen procedure inschakelen
+-   Hoe u meer informatie kunt krijgen om in te schakelen van de aanbevolen procedure
 
--   Wat de beste handelswijze is
--   Waarom u wilt dat het beste inschakelen
--   Wat zijn het resultaat als u niet de aanbevolen procedure inschakelen
--   Hoe u kunt informatie over het inschakelen van de aanbevolen procedure
-
-In dit artikel Azure Security Best Practices is gebaseerd op een advies consensus- en mogelijkheden van Azure-platform en functie wordt ingesteld als deze bestaan in de tijd die in dit artikel is geschreven. Adviezen en technologieën op den duur veranderen en dit artikel wordt regelmatig gecontroleerd op basis van deze wijzigingen worden bijgewerkt.
-
-Azure-database aanbevolen beveiligingsprocedures besproken in dit artikel zijn onder andere:
-
--   Firewall-regels gebruiken om te beperken van toegang tot de database
--   Database-verificatie inschakelen
--   Uw gegevens beschermen met versleuteling
--   De gegevens onderweg te beschermen
--   Databasecontrole inschakelen
--   Detectie van dreigingen database inschakelen
-
+In dit artikel aanbevolen procedures voor beveiliging op Azure-Database is gebaseerd op een consensus advies en mogelijkheden van Azure-platform en functie wordt ingesteld als deze bestaan op het moment dat dit artikel is geschreven. Adviezen en -technologieën na verloop van tijd worden gewijzigd en regelmatig op basis van deze wijzigingen in dit artikel wordt bijgewerkt.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Firewall-regels gebruiken om te beperken van toegang tot de database
+Microsoft Azure SQL Database is een relationele databaseservice voor Azure en andere toepassingen op basis van internet. Om toegang te beveiligen, beheert SQL Database de toegang met:
 
-Microsoft Azure SQL Database levert een relationele-databaseservice voor Azure en andere op internet gebaseerde toepassingen. Beveiliging van toegang tot beheert SQL-Database de toegang met firewallregels beperkende connectiviteit door het IP-adres, zodat gebruikers hun identiteit bewijzen verificatiemechanismen en autorisatiemechanismen gebruikers bepaalde acties en gegevens te beperken. Firewalls verhinderen alle toegang met de databaseserver tot u opgeven welke computers over machtigingen beschikken. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
+- Firewall-regels die de connectiviteit door IP-adres beperken.
+- Verificatiemechanismen die vereisen dat gebruikers hun identiteit kunnen aantonen.
+- Autorisatiemechanismen die gebruikers tot bepaalde gegevens en acties beperken.
+
+Totdat u opgeeft welke computers zijn gemachtigd, verhinderen firewalls alle toegang tot uw database-server. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
+
+De volgende afbeelding ziet u waar u de firewall van een server in SQL-Database instellen:
 
 ![Firewall-regels](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
-De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Zorg voor toegang tot een SQL Database vanaf uw computer ervoor dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Als u niet nodig is voor andere toepassingen, binnenkomende verbindingen blokkeren op TCP-poort 1433 met behulp van firewallregels.
+De Azure SQL Database-service is alleen beschikbaar via TCP-poort 1433. Voor toegang tot een SQL-database van uw computer, moet u ervoor zorgen dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Blokkeer binnenkomende verbindingen op TCP-poort 1433 met behulp van firewallregels, als u geen deze verbindingen nodig voor andere toepassingen hebt.
 
-Als onderdeel van het verbindingsproces worden verbindingen van virtuele Azure-machines omgeleid naar een ander IP-adres en poort, die uniek zijn voor elke werkrol. Het poortnummer ligt in het bereik van 11000 tot 11999. Zie voor meer informatie over de TCP-poorten, [poorten buiten 1433 voor ADO.NET 4.5 en SQL Database2](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12).
+Als onderdeel van het verbindingsproces worden verbindingen van virtuele Azure-machines omgeleid naar een IP-adres en poort op die uniek zijn voor elke werkrol. Het poortnummer ligt in het bereik van 11000 tot 11999. Zie voor meer informatie over TCP-poorten, [poorten boven 1433 voor ADO.NET 4.5](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
+
+Zie [SQL Database-firewallregels](../sql-database/sql-database-firewall-configure.md) voor meer informatie over de firewallregels in SQL Database.
 
 > [!Note]
-> Zie [SQL Database-firewallregels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor meer informatie over de firewallregels in SQL Database.
+> Naast de IP-regels beheert de firewall virtual network-regels. Virtual network-regels zijn gebaseerd op virtual network-service-eindpunten. Regels voor virtueel netwerk is mogelijk beter aan IP-regels in sommige gevallen. Zie voor meer informatie, [service-eindpunten voor virtuele netwerken en regels voor Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="enable-database-authentication"></a>Database-verificatie inschakelen
-SQL Database ondersteunt twee typen verificatie, SQL-verificatie en Azure Active Directory-verificatie (verificatie met Azure AD).
+SQL Database ondersteunt twee typen verificatie, SQL Server-verificatie en Azure AD-verificatie.
 
-**SQL-verificatie** wordt aanbevolen in de volgende gevallen:
+### <a name="sql-server-authentication"></a>*SQL Server-verificatie*
 
--   Kunt u SQL Azure ter ondersteuning van omgevingen met gemengde besturingssystemen, waarbij niet alle gebruikers worden geverifieerd door een Windows-domein.
--   Hiermee kunt u SQL Azure ter ondersteuning van oudere toepassingen en toepassingen die worden geleverd door derden waarvoor SQL Server-verificatie.
--   Hiermee kunnen gebruikers verbinding maken via een onbekende of niet-vertrouwde domeinen. Een toepassing waarin klanten tot stand gebrachte verbinding met maken toegewezen bijvoorbeeld SQL Server-aanmeldingen voor het ontvangen van de status van hun orders.
--   Hiermee kunt u SQL Azure ter ondersteuning van webtoepassingen waar gebruikers hun eigen identiteiten maken.
--   Softwareontwikkelaars hun toepassingen distribueren met behulp van de hiërarchie van een complexe machtiging op basis van bekende, vooraf gedefinieerde SQL Server-aanmeldingen.
+Voordelen zijn:
 
-> [!Note]
-> SQL Server-verificatie niet Kerberos veiligheidsprotocol echter niet gebruiken.
+- Hierdoor kan SQL-Database voor de ondersteuning van omgevingen met verschillende besturingssystemen, waarbij alle gebruikers niet worden geverifieerd door een Windows-domein.
+- Hiermee kunt u SQL-Database om oudere toepassingen en partner opgegeven toepassingen waarvoor SQL Server-verificatie te ondersteunen.
+- Hiermee kunnen gebruikers verbinding maken vanaf onbekende of niet-vertrouwde domeinen. Een voorbeeld is een toepassing waar klanten tot stand gebrachte verbinding maken met SQL Server-aanmeldingen toegewezen voor het ontvangen van de status van hun orders.
+- Kan SQL-Database voor de ondersteuning van webtoepassingen, waar gebruikers hun eigen identiteiten maken.
+- Hiermee kunt u software-ontwikkelaars hun toepassingen distribueren met behulp van een complexe machtiging hiërarchie op basis van bekende, vooraf gedefinieerde SQL Server-aanmelding.
 
-Als u **SQL-verificatie** moet:
+> [!NOTE]
+> SQL Server-verificatie niet het Kerberos-beveiliging-protocol gebruiken.
+>
+>
 
--   De sterke referenties beheren zelf.
--   Beveiligen van de referenties in de verbindingstekenreeks.
--   De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie [hoe: verbinding maken met SQL Server met behulp van SQL-verificatie in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+Als u SQL Server-verificatie gebruikt, moet u:
 
-**Azure Active Directory-verificatie** is een mechanisme van verbinding maken met Microsoft Azure SQL Database en [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) met behulp van identiteiten in Azure Active Directory (Azure AD). Azure AD-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt er één plaats is voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn onder andere:
+- De sterke referenties beheren zelf.
+- De referenties in de connection string worden beveiligd.
+- De referenties die zijn doorgegeven via het netwerk van de webserver naar de database (potentieel) beveiligen. Zie voor meer informatie, [hoe: verbinding maken met SQL Server met behulp van SQL-verificatie in ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
 
--   Het biedt een alternatief voor SQL Server-verificatie.
--   Houdt de komst van gebruikersidentiteiten voor databaseservers.
--   Kan wachtwoord draaien op één plaats.
--   Klanten kunnen met behulp van externe (AAD) groepen databasemachtigingen beheren.
--   Deze kunt wachtwoorden moet opslaan voorkomen door het inschakelen van geïntegreerde Windows-verificatie en andere soorten authenticatie wordt ondersteund door Azure Active Directory.
--   Ingesloten databasegebruikers Azure AD-verificatie gebruikt voor het verifiëren van identiteiten op databaseniveau.
--   Azure AD biedt ondersteuning voor verificatie op basis van tokens voor toepassingen die verbinding maken met SQL-Database.
--   Azure AD-verificatie ondersteunt AD FS (domeinfederatie) of systeemeigen gebruikerswachtwoord verificatie voor een lokale Azure Active Directory zonder Domeinsynchronisatie.
--   Azure AD ondersteunt verbindingen van SQL Server Management Studio die gebruikmaken van Universal verificatie van Active Directory, waaronder de multi-factor Authentication (MFA). MFA sterke verificatie met een bereik van eenvoudige verificatie-opties bevat: telefoonoproep, tekstbericht, smartcards en pincode of mobiele app-melding. Zie voor meer informatie [SSMS ondersteuning voor Azure AD MFA met SQL-Database en SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication).
+### <a name="azure-active-directory-ad-authentication"></a>*Verificatie met Azure Active Directory (AD)*
+Azure AD-verificatie is een mechanisme van verbinding maken met Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure AD. Met Azure AD-verificatie, kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie kunt beheren. Centrale ID-beheer biedt één plek voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen.
 
-De configuratiestappen omvat de volgende procedures om te configureren en gebruiken van Azure Active Directory-verificatie.
+> [!NOTE]
+> We raden het gebruik van Azure AD-verificatie via het gebruik van SQL Server-verificatie.
+>
+>
 
--   Maken en Azure AD te vullen.
--   Optioneel: Koppelen of wijzig de active directory die momenteel is gekoppeld aan uw Azure-abonnement.
--   Een Azure Active Directory-beheerder voor Azure SQL-server maken of [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-- De clientcomputers configureren.
--   Ingesloten databasegebruikers maken in de database die is toegewezen aan Azure AD-identiteiten.
--   Verbinding maken met de database met behulp van Azure AD-identiteiten.
+Voordelen zijn:
 
-U vindt gedetailleerde informatie over [hier](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
+- Het biedt een alternatief voor SQL Server-verificatie.
+- Dit helpt bij het tegengaan van de verspreiding van gebruikers-id's in de database-servers.
+- Hiermee kunt de wisseling van het wachtwoord op één plek.
+- Klanten kunnen machtigingen voor database beheren met behulp van de groepen extern (Azure AD).
+- Deze kunt wachtwoorden moet opslaan elimineren door in te schakelen van geïntegreerde Windows-verificatie en andere vormen van authenticatie wordt ondersteund door Azure Active Directory.
+- Ingesloten databasegebruikers wordt gebruikt om identiteiten op databaseniveau te verifiëren.
+- De service ondersteunt verificatie op basis van tokens voor toepassingen die verbinding met SQL-Database maken.
+- Het ondersteunt AD FS (domein Federatie) of systeemeigen gebruikerswachtwoord verificatie voor een lokaal exemplaar van Azure Active Directory zonder synchronisatie van domein.
+- Azure AD ondersteunt verbindingen van SQL Server Management Studio die gebruikmaken van Active Directory Universal-verificatie, waaronder multi-factor Authentication. Multi-factor Authentication biedt sterke verificatie met een scala aan opties voor verificatie: telefoonoproep, SMS-bericht, smartcards en PINCODE of mobiele app-meldingen. Zie voor meer informatie, [SSMS-ondersteuning voor Azure AD multi-factor Authentication met SQL Database en SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
-## <a name="protect-your-data-using-encryption"></a>Uw gegevens beschermen met versleuteling
+De configuratiestappen zijn onder andere de volgende procedures om te configureren en gebruiken van Azure AD-verificatie:
 
-[Azure SQL Database transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/dn948096.aspx) helpt beschermen tegen de dreiging van schadelijke activiteiten door te voeren realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogbestanden in rust zonder vereist wijzigingen in de toepassing. TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel.
+- Maken en vullen van Azure AD.
+- Optioneel: Koppelen of wijzigt u de Active Directory-exemplaar dat momenteel is gekoppeld aan uw Azure-abonnement.
+- Een Azure Active Directory-beheerder voor Azure SQL Database maken of [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+- Uw clientcomputers configureren.
+- Maak ingesloten databasegebruikers in de database die is toegewezen aan Azure AD-identiteiten.
+- Verbinding maken met uw database met behulp van Azure AD-identiteiten.
 
-Zelfs als de volledige opslag wordt gecodeerd, is het erg belangrijk voor het versleutelen van uw database zelf ook. Dit is een implementatie van de verdediging in de diepte benadering voor gegevensbescherming. Als u van Azure SQL Database gebruikmaakt en bescherming van gevoelige gegevens zoals creditcard of burgerservicenummers wilt, kunt u databases met FIPS 140-2-gevalideerde 256 bits AES-versleuteling dat voldoet aan de vereisten van veel industrienormen (bijv, HIPAA, PCI) te versleutelen.
+U kunt gedetailleerde informatie vinden in [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database Managed Instance of SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-Het is belangrijk te begrijpen of bestanden betrekking heeft op [uitbreiding (BPE) van de buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) worden niet versleuteld wanneer een database worden versleuteld met TDE. Moet u versleuteling op bestandsniveau hulpprogramma's zoals [BitLocker](https://technet.microsoft.com/library/cc732774) of de [Encrypting File System (EFS)](https://technet.microsoft.com/library/cc700811.aspx) gerelateerde bestanden voor de BPE.
+## <a name="protect-your-data-by-using-encryption"></a>Uw gegevens beschermen met behulp van versleuteling
+[Transparent data encryption voor Azure SQL-Database](https://msdn.microsoft.com/library/dn948096.aspx) beschermt gegevens op schijf en worden beschermd tegen onbevoegde toegang tot de hardware. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. Transparante gegevensversleuteling versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel.
 
-Sinds een geautoriseerde gebruiker zoals een beveiligingsbeheerder of een databasebeheerder toegang tot de gegevens zelfs als de database is versleuteld met TDE, moet u ook Volg de onderstaande aanbevelingen:
+Zelfs als de volledige opslag wordt gecodeerd, is het belangrijk dat u ook het versleutelen van de database zelf. Dit is een implementatie van de verdediging in de diepte aanpak voor gegevensbeveiliging. Als u van Azure SQL Database gebruikmaakt en gevoelige gegevens (zoals een creditcard of sociaal-fiscale nummers bevatten) wilt beveiligen, kunt u databases met FIPS 140-2 gevalideerde 256-bits AES-versleuteling versleutelen. Deze versleuteling voldoet aan de vereisten van veel industrienormen (bijvoorbeeld, HIPAA en PCI).
 
--   Schakel SQL-verificatie op databaseniveau.
--   Gebruik Azure AD-verificatie met [RBAC-rollen](https://docs.microsoft.com/azure/role-based-access-control/overview).
--   Gebruikers en toepassingen moeten afzonderlijke accounts voor verificatie gebruiken. Deze manier kunt u de machtigingen voor gebruikers en toepassingen beperken en de risico's van schadelijke activiteiten te verminderen.
--   Beveiliging van de database op gebruikersniveau implementeren met behulp van de vaste databaserollen (zoals db_datareader of db_datawriter), of u kunt aangepaste rollen voor uw toepassing expliciete machtigen om objecten in de geselecteerde database maken.
+Bestanden met betrekking tot [extensie (BPE) van de buffer](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) worden niet versleuteld wanneer u een database met behulp van transparante gegevensversleuteling versleutelen. U moet system-versleuteling op bestandsniveau hulpprogramma's zoals [BitLocker](https://technet.microsoft.com/library/cc732774) of de [Encrypting File System (EFS)]() voor BPE-gerelateerde bestanden.
+
+Omdat een geautoriseerde gebruiker, zoals een beveiligingsbeheerder of databasebeheerder van een toegang hebben tot de gegevens, zelfs als de database is versleuteld met transparante gegevensversleuteling, moet u ook deze aanbevelingen volgen:
+
+- SQL Server-verificatie op databaseniveau inschakelen.
+- Gebruik Azure AD-verificatie met behulp van [RBAC-rollen](../role-based-access-control/overview.md).
+- Zorg ervoor dat gebruikers en toepassingen afzonderlijke accounts gebruiken om te verifiëren. Op deze manier kunt u de machtigingen verleend aan gebruikers en toepassingen beperken en het risico op schadelijke activiteiten worden verminderd.
+- Op databaseniveau beveiliging implementeren met behulp van de vaste databaserollen (zoals db_datareader of db_datawriter). Of u kunt aangepaste functies voor uw toepassing naar expliciete machtigingen verlenen voor objecten in de geselecteerde database maken.
 
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
 
--   [Versleuteling op celniveau](https://msdn.microsoft.com/library/ms179331.aspx) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
--   Versleuteling gebruikt met altijd versleuteld: [altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx) kunnen clients voor het versleutelen van gevoelige gegevens binnen clienttoepassingen en nooit onthullen de versleutelingssleutels voor de Database-Engine (SQL-Database of SQL Server). Als gevolg hiervan altijd versleuteld biedt een scheiding tussen degenen die eigenaar zijn van de gegevens (en het kunnen bekijken) en degenen die de gegevens te beheren (maar moet hebben geen toegang).
--   Met behulp van beveiliging: beveiliging op rijniveau kunt klanten toegang tot de rijen in een databasetabel op basis van de kenmerken van de gebruiker (bijv, groep lidmaatschap of -uitvoering context) van een query uit te voeren. Zie [Beveiliging op rijniveau](https://msdn.microsoft.com/library/dn765131) voor meer informatie.
+- [Versleuteling op celniveau](https://msdn.microsoft.com/library/ms179331.aspx) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
+- [Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx), waardoor clients voor het versleutelen van gevoelige gegevens binnen clienttoepassingen en nooit onthullen de versleutelingssleutels voor de Database-Engine (SQL-Database of SQL Server). Als gevolg hiervan Always Encrypted biedt een scheiding tussen personen die eigenaar zijn van de gegevens (en het kunnen bekijken) en degenen die de gegevens beheren (maar geen toegang mogen hebben).
+- [Beveiliging op rijniveau](https://msdn.microsoft.com/library/dn765131), waardoor klanten voor het beheren van toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query wordt uitgevoerd. (Voorbeeld van de kenmerken zijn groep lidmaatschap en uitvoering van context).
 
-## <a name="protect-data-in-transit"></a>De gegevens onderweg te beschermen
-Beveiligen van gegevens die onderweg moet essentieel onderdeel van uw strategie voor gegevensbescherming. Omdat de gegevens wordt heen en weer worden verplaatst vanaf verschillende locaties, is de algemene aanbeveling dat u altijd SSL/TLS-protocollen gebruiken voor het uitwisselen van gegevens op verschillende locaties. In sommige gevallen wilt u mogelijk het hele communicatiekanaal tussen uw on-premises en cloud isoleren infrastructuur met behulp van een virtueel particulier netwerk (VPN).
+Organisaties die van versleuteling op databaseniveau niet gebruikmaken mogelijk gevoeliger voor aanvallen die de gegevens in SQL-databases.
 
-Gegevens verplaatsen tussen uw on-premises infrastructuur en Azure, moet u passende beveiligingsmaatregelen zoals HTTPS- of VPN.
-
-Voor organisaties die nodig zijn om de toegang van meerdere werkstations die zich on-premises naar Azure te beveiligen, gebruikt u [Azure site-naar-site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-site-to-site-create).
-
-Voor organisaties die nodig zijn voor het beveiligen van toegang van afzonderlijke werkstations die zich on-premises of buiten het bedrijf naar Azure, kunt u overwegen [punt-naar-Site VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-point-to-site-create).
-
-Grotere gegevenssets kan worden verplaatst via een speciale snelle WAN-verbinding, zoals [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Als u kiest voor ExpressRoute, kunt u ook de gegevens op het niveau van de toepassing met behulp van coderen [SSL/TLS](https://support.microsoft.com/kb/257591) of andere protocollen voor extra beveiliging.
-
-Als u met Azure Storage via de Azure-Portal communiceert, worden alle transacties plaatsvinden via HTTPS. [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS kan ook worden gebruikt om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
-
-Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx) en sessiehijacking. Deze aanvallen kunnen worden de eerste stap bij het toegang krijgen tot vertrouwelijke gegevens.
-
-Voor meer informatie over Azure VPN-optie door te lezen van het artikel [Planning en ontwerp voor VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
+U kunt meer informatie over transparent data encryption voor SQL-Database lezen van het artikel [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="enable-database-auditing"></a>Databasecontrole inschakelen
-Controle van een exemplaar van SQL Server Database Engine of een individuele database omvat het vastleggen van gebeurtenissen die op de Database-Engine plaatsvinden en bij te houden. SQL Server audit maakt u server audits die server audit specificaties voor niveau gebeurtenissen van de server en database audit specificaties voor database niveau gebeurtenissen kunnen bevatten. Controlegebeurtenissen kunnen worden geschreven naar de gebeurtenislogboeken of bestanden controleren.
+Controle van een exemplaar van SQL Server Database Engine of een afzonderlijke database omvat het bijhouden van en het vastleggen van gebeurtenissen. Voor SQL Server, kunt u controles die de specificaties voor gebeurtenissen op serverniveau en specificaties voor gebeurtenissen op databaseniveau bevat maken. Gecontroleerde gebeurtenissen kunnen worden geschreven naar de logboeken van de gebeurtenis of om te controleren van bestanden.
 
-Er zijn verschillende niveaus van controle voor SQL Server, afhankelijk van de overheid of standaarden vereisten voor uw installatie. SQL Server Audit biedt de hulpprogramma's en processen die u hebben moet tot inschakelen, opslaan en audits op verschillende server en database-objecten weergeven.
+Er zijn verschillende niveaus van controle-instellingen voor SQL Server, afhankelijk van de overheid of standaarden vereisten voor uw installatie. Controle van SQL Server biedt hulpprogramma's en processen voor het inschakelen, opslaan en weergeven van controles op verschillende-server en database-objecten.
 
-[Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) houdt database gebeurtenissen en schrijft deze naar een auditlogboek Meld u bij uw Azure Storage-account.
+[Met Azure SQL Database auditing](../sql-database/sql-database-auditing.md) databasegebeurtenissen bijgehouden en geschreven naar een auditlogboek in uw Azure storage-account.
 
-Dankzij controles kunt u zorgen voor naleving van wet- en regelgeving, krijgt u inzicht in de activiteit in uw database en in de afwijkingen en discrepanties die kunnen wijzen op problemen voor het bedrijf of vermoedelijke schendingen van de beveiliging.
+Controles, kunt u de naleving van regelgeving, inzicht in de databaseactiviteiten en vinden discrepanties en afwijkingen die op zakelijke belangen of beveiligingsovertredingen wijzen kunnen. Controle vergemakkelijkt de naleving van standaarden voor compliance, maar biedt geen garantie voor naleving.
 
-Controle kunt en voldoen aan de nalevingsstandaards vereenvoudigt maar niet garanderen dat.
+Zie voor meer informatie over het controleren van de database en het inschakelen ervan, [aan de slag met SQL database auditing](../sql-database/sql-database-auditing.md).
 
-Lees het artikel voor meer informatie over het controleren van de database en hoe deze in te schakelen, [inschakelen van controle en detectie van bedreigingen op SQL-servers in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
+## <a name="enable-database-threat-detection"></a>Detectie van bedreigingen van database inschakelen
+Beveiliging tegen bedreigingen gaat na detectie. Database threat protection bevat:
 
-## <a name="enable-database-threat-detection"></a>Detectie van dreigingen database inschakelen
-Detectie van dreigingen SQL kunt u om te detecteren en op mogelijke bedreigingen reageert wanneer deze zich voordoen doordat beveiligingswaarschuwingen op vreemde activiteiten worden gedetecteerd. U ontvangt een waarschuwing bij verdachte databaseactiviteiten, mogelijke beveiligingsproblemen en SQL-injectieaanvallen, evenals database afwijkende toegangspatronen. Detectie van dreigingen SQL waarschuwingen Geef details op van de verdachte activiteit en actie voor het onderzoeken en het risico dat het beste.
+- Detecteren en classificeren van uw meest gevoelige gegevens, zodat u uw gegevens kunt beveiligen.
+- Implementeren van veilige configuraties in uw database, zodat u uw database kunt beveiligen.
+- Detecteren en reageren op potentiële dreigingen wanneer deze zich voordoen, zodat u snel kunt reageren en herstellen.
 
-SQL-injectie is bijvoorbeeld een van de algemene Web application beveiligingsproblemen op het Internet worden gebruikt voor aanvallen op gegevensgestuurde toepassingen. Aanvallers te profiteren van de toepassing zwakke plekken in het injecteren schadelijke SQL-instructies in de toepassing invoervelden, schendingen veroorzaken of wijzigen van gegevens in de database.
+**Beste**: detecteren, classificeren en labelen van de gevoelige gegevens in uw databases.   
+**Details**: classificeren van de gegevens in uw SQL-database door in te schakelen [gegevensdetectie en classificatie](../sql-database/sql-database-data-discovery-and-classification.md) in Azure SQL Database. U kunt toegang tot uw gevoelige gegevens in het Azure-dashboard te controleren of rapporten te downloaden.
 
-Voor meer informatie over het instellen van de detectie van dreigingen voor uw database in de Azure portal zien [SQL Database met detectie van dreigingen](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+**Beste**: databaseproblemen bijhouden, zodat u proactief de beveiliging van uw database kunt verbeteren.   
+**Details**: Gebruik de Azure SQL Database [evaluatie van beveiligingsproblemen](../sql-database/sql-vulnerability-assessment.md) -service, die naar potentiële databaseproblemen zoekt. De service maakt gebruik van een kennisdatabase met regels die een vlag beveiligingsproblemen en afwijkingen van aanbevolen procedures, zoals onjuiste configuraties, overmatige machtigingen en niet-beveiligde gevoelige gegevens weergeven.
 
-Bovendien detectie van dreigingen SQL waarschuwingen met integreert [Azure Security Center](https://azure.microsoft.com/services/security-center/). U wordt van harte uitgenodigd deze gedurende 60 dagen gratis te proberen.
+De regels worden op basis van best practices van Microsoft en u richten op de beveiligingsproblemen die de grootste risico's voor uw database en de bijbehorende waardevolle gegevens. Deze omvatten zowel problemen op databaseniveau en serverniveau beveiligingsproblemen, zoals server firewall-instellingen en machtigingen op serverniveau. Deze regels vertegenwoordigen veel van de vereisten van regelgevende instanties om te voldoen aan de standaarden voor compliance.
 
-Lees het artikel voor meer informatie over de detectie van dreigingen Database en hoe deze in te schakelen, [inschakelen van controle en detectie van bedreigingen op SQL-servers in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-servers).
+**Beste**: detectie van bedreigingen inschakelen.  
+**Details**: Azure SQL-Database inschakelen [detectie van bedreigingen](../sql-database/sql-database-threat-detection.md) om op te halen van beveiligingswaarschuwingen en aanbevelingen voor het onderzoeken en bedreigingen te verhelpen. U ontvang waarschuwingen over verdachte databaseactiviteiten, potentiële kwetsbaarheden, SQL-injectieaanvallen en afwijkende patronen voor toegang en query's uitvoeren.
 
-## <a name="conclusion"></a>Conclusie
-Azure-Database is een databaseplatform robuuste met een volledige reeks beveiligingsfuncties die voldoen aan veel organisatie- en regelgeving nalevingsvereisten. U kunt gegevens beschermen door de fysieke toegang tot uw gegevens beheren en het gebruik van een groot aantal opties voor beveiliging van gegevens op het file-, kolom- of rijniveau met transparante gegevensversleuteling, -Celcodering of beveiliging. Altijd kan versleutelde ook bewerkingen op de versleutelde gegevens, het proces van toepassingsupdates vereenvoudigen. Op zijn beurt biedt toegang tot de controlelogboeken van de activiteit van de SQL-Database u de informatie die u nodig hebt, zodat u weet hoe en wanneer gegevens worden geopend.
+[Advanced Threat Protection](../sql-database/sql-advanced-threat-protection.md) is een geïntegreerde pakket voor geavanceerde mogelijkheden voor de beveiliging van SQL. Het bevat de eerder genoemde services: gegevensdetectie en classificatie, evaluatie van beveiligingsproblemen en detectie van bedreigingen. Het biedt één locatie voor het inschakelen en beheren van deze mogelijkheden.
+
+Deze mogelijkheden inschakelen, kunt u:
+
+- Aan de privacystandaarden en wettelijke vereisten.
+- Toegang tot uw databases beheren en beperken van de beveiliging.
+- Bewaken van een dynamische database-omgeving waarin wijzigingen moeilijk zijn te volgen.
+- Detecteren en reageren op mogelijke bedreigingen.
+
+Threat Detection integreert ook waarschuwingen met Azure Security Center voor een centraal overzicht van de beveiligingsstatus van al uw Azure-resources.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor meer informatie over firewallregels, [Firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
-- Zie [Aanmeldingen beheren](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) voor meer informatie over gebruikers en aanmeldingen.
-- Zie voor een zelfstudie [beveiligen van uw Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
+Zie [Azure-beveiliging aanbevolen procedures en patronen](security-best-practices-and-patterns.md) voor meer best practices voor beveiliging moeten worden gebruikt wanneer bent u het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.
+
+De volgende resources zijn beschikbaar, voor meer algemene informatie over Azure-beveiliging en gerelateerde Microsoft-services:
+* [Azure-Team Beveiligingsblog](https://blogs.msdn.microsoft.com/azuresecurity/) - voor up-to-date informatie over het laatste nieuws over Azure-beveiliging
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - hier Microsoft beveiligingsproblemen, met inbegrip van problemen met Azure, kunnen u ook via e-mail secure@microsoft.com

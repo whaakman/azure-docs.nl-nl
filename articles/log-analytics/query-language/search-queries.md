@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2ccef960378190f10e64318f91039871657a1a46
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603750"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992266"
 ---
 # <a name="search-queries-in-log-analytics"></a>Zoekquery's in Log Analytics
 
@@ -36,7 +36,7 @@ Query's op basis van een tabel begin met het bereik van de query en daarom meest
 ## <a name="search-a-term"></a>Een term zoeken
 De **zoeken** opdracht wordt doorgaans gebruikt om te zoeken naar een specifieke term. In het volgende voorbeeld worden alle kolommen in alle tabellen worden gescand op de term "error":
 
-```KQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -46,13 +46,13 @@ Terwijl ze eenvoudig te gebruiken, wordt buiten het bereik vallen query's zoals 
 ### <a name="table-scoping"></a>Tabel scoping
 Als u wilt een zoekterm in een specifieke tabel toevoegen `in (table-name)` direct na de **zoeken** operator:
 
-```KQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 of in meerdere tabellen:
-```KQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -60,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Tabel en kolom scoping
 Standaard **zoeken** evalueren alle kolommen in de gegevensset. Als u wilt zoeken naar alleen een specifieke kolom, gebruik de volgende syntaxis:
 
-```KQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -71,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Hoofdlettergevoeligheid
 Term zoeken is standaard niet-hoofdlettergevoelig, dus resultaten zoals "DNS", "dns" of "Dns" zoeken "dns" kan opleveren. Als u de zoekopdracht hoofdlettergevoelig, gebruikt u de `kind` optie:
 
-```KQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -80,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 De **zoeken** opdracht ondersteunt jokertekens, aan het begin, einde of het midden van een term.
 
 Om te zoeken naar termen die met 'win' beginnen:
-```KQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 Om te zoeken naar termen die eindigen op '.com':
-```KQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 Om te zoeken naar termen die 'www' bevatten:
-```KQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 Om te zoeken naar termen die begint met "corp" en eindigt op '.com', zoals "corp.mydomain.com" "
 
-```KQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -112,21 +112,21 @@ U kunt ook opvragen alles in een tabel met alleen een jokerteken: `search in (Ev
 ## <a name="add-and--or-to-search-queries"></a>Voeg *en* / *of* om te zoeken naar query's
 Gebruik **en** om te zoeken naar records die meerdere termen bevatten:
 
-```KQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Gebruik **of** om op te halen records met ten minste één van de voorwaarden:
 
-```KQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Als u meerdere zoekvoorwaarden hebt, kunt u ze kunt combineren in dezelfde query met behulp van haakjes:
 
-```KQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -136,7 +136,7 @@ De resultaten van dit voorbeeld zou de records die de term "error" bevatten en o
 ## <a name="pipe-search-queries"></a>Doorgeven van zoekquery 's
 Net als bij een andere opdracht **zoeken** kan worden doorgesluisd, zodat de zoekresultaten kunnen worden gefilterd, gesorteerd en samengevoegd. Bijvoorbeeld, om het aantal *gebeurtenis* records met 'win':
 
-```KQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -146,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie meer zelfstudies over het [Log Analytics query language-site](https://docs.loganalytics.io)
+- Zie meer zelfstudies over het [Log Analytics query language site](https://aka.ms/LogAnalyticsLanguage).

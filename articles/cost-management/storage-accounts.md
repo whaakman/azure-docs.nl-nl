@@ -1,27 +1,27 @@
 ---
-title: Storage-accounts configureren voor Azure Cost Management | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u Azure storage-accounts en buckets voor AWS-opslag voor Azure Cost Management configureren.
+title: Storage-accounts configureren voor Cloudyn in Azure | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Azure storage-accounts en AWS opslag buckets voor Cloudyn configureren.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 829995d40a73dc181a28a467e4d16fef0bdeb454
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990651"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Storage-accounts configureren voor kostenbeheer
+# <a name="configure-storage-accounts-for-cloudyn"></a>Storage-accounts voor Cloudyn configureren
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-U kunt Cost Management rapporten opslaan in de Cloudyn-portal, Azure storage of buckets voor AWS-opslag. Uw rapporten opslaan in de Cloudyn-portal is gratis. Echter, uw rapporten opslaan in uw cloudserviceprovider opslag is optioneel en worden extra kosten in rekening gebracht. Dit artikel helpt u bij het configureren van Azure storage-accounts en Amazon Web Services (AWS) opslag buckets voor het opslaan van uw rapporten.
+U kunt de Cloudyn-rapporten opslaan in de Cloudyn-portal, Azure storage of buckets voor AWS-opslag. Uw rapporten opslaan in de Cloudyn-portal is gratis. Echter, uw rapporten opslaan in uw cloudserviceprovider opslag is optioneel en worden extra kosten in rekening gebracht. Dit artikel helpt u bij het configureren van Azure storage-accounts en Amazon Web Services (AWS) opslag buckets voor het opslaan van uw rapporten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Als u een AWS geen bucket simple storage-service (S3), moet u er een maken. Zie 
 
 ## <a name="configure-your-azure-storage-account"></a>Uw Azure storage-account configureren
 
-Configureert u is Azure storage voor gebruik door Cost Management vrij eenvoudig. Verzamelen van gegevens over de storage-account en kopieer deze in de Cloudyn-portal.
+Configureert u is Azure storage voor gebruik door Cloudyn vrij eenvoudig. Verzamelen van gegevens over de storage-account en kopieer deze in de Cloudyn-portal.
 
 1. Meld u aan bij Azure Portal op http://portal.azure.com.
 2. Klik op **alle Services**, selecteer **opslagaccounts**, blader naar het opslagaccount dat u wilt gebruiken, en selecteer vervolgens het account.
@@ -163,4 +163,4 @@ U kunt nu rapporten opslaan naar Azure storage. Klik in een rapport op **acties*
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Beoordeling [Understanding management kostenrapportages](understanding-cost-reports.md) voor meer informatie over de basisstructuur en functies van cost management rapporten.
+- Beoordeling [inzicht in Cloudyn-rapporten](understanding-cost-reports.md) voor meer informatie over de basisstructuur en functies van Cloudyn-rapporten.

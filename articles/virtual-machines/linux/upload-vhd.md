@@ -1,6 +1,6 @@
 ---
-title: Uploaden of kopiëren van een aangepaste Linux-VM met Azure CLI 2.0 | Microsoft Docs
-description: Uploaden of kopiëren van een aangepaste virtuele machine met behulp van de Resource Manager-implementatiemodel en Azure CLI 2.0
+title: Uploaden of kopiëren van een aangepaste Linux-VM met Azure CLI | Microsoft Docs
+description: Uploaden of kopiëren van een aangepaste virtuele machine met behulp van de Resource Manager-implementatiemodel en Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 3fb6957cf6af5c09a355b61c7c2440a929d1b837
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957428"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Een Linux-VM maken van een aangepaste schijf met de Azure CLI 2.0
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Een Linux-VM maken van een aangepaste schijf met de Azure CLI
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,7 +57,7 @@ Als u wilt de volgende stappen hebt voltooid, hebt u het volgende nodig:
 > 
 
 
-* Zorg ervoor dat u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+* Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *mystorageaccount*, en *mydisks*.
 

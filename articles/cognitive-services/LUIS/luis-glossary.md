@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: De verklarende woordenlijst verklaart de termen die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a66eb42ac03b96757a0363c9dd442adc5ca75023
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4e14c666401d5e494d924889a8bba957be232c12
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634356"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036827"
 ---
 # <a name="glossary"></a>Woordenlijst
 De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
