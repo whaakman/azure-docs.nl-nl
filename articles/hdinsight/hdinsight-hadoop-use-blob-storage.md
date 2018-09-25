@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091432"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967843"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure-opslag gebruiken met Azure HDInsight-clusters
 
@@ -133,11 +133,11 @@ Als u [Azure PowerShell hebt geïnstalleerd en geconfigureerd][powershell-instal
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-cli"></a>Azure CLI gebruiken
+### <a name="use-azure-classic-cli"></a>Azure klassieke CLI gebruiken
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Als u [de Azure CLI hebt geïnstalleerd en geconfigureerd](../cli-install-nodejs.md), kan de volgende opdracht worden gebruikt om een opslagaccount en container te maken.
+Als u hebt [installeren en configureren van de klassieke Azure-CLI](../cli-install-nodejs.md), de volgende opdracht naar een opslagaccount en container kan worden gebruikt.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -264,24 +264,24 @@ $clusterName = <HDInsightClusterName>
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### <a name="use-azure-cli"></a>Azure CLI gebruiken
+### <a name="use-azure-classic-cli"></a>Azure klassieke CLI gebruiken
 Gebruik de volgende opdracht voor een lijst met blob-gerelateerde opdrachten:
 
     azure storage blob
 
-**Voorbeeld van het gebruik van Azure CLI om een bestand te uploaden**
+**Voorbeeld van het gebruik van de klassieke Azure-CLI om een bestand te uploaden**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Voorbeeld van het gebruik van Azure CLI om een bestand te downloaden**
+**Voorbeeld van het gebruik van de klassieke Azure-CLI om een bestand te downloaden**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Voorbeeld van het gebruik van Azure CLI om een bestand te verwijderen**
+**Voorbeeld van het gebruik van de klassieke Azure-CLI om een bestand te verwijderen**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Voorbeeld van het gebruik van Azure CLI om een lijst met bestanden weer te geven**
+**Voorbeeld van het gebruik van de klassieke Azure-CLI voor bestanden weergeven**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

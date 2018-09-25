@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: d42839bb744d3ed09feb482d09946ccee2f691e7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 39444b20dfefd947abb2f2bc00a9945398996dd0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297397"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040530"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migratie van Contoso: herstructureren van een on-premises-app met een Azure-Web-App en Azure SQL-database
 
@@ -57,7 +57,7 @@ Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor deze migrati
 **App** | De app in Azure blijft als kritiek omdat het is vandaag.<br/><br/> Deze moet dezelfde prestatiemogelijkheden hebben als op dit moment in VMWare.<br/><br/> Het team wil niet investeren in de app. Voorlopig wordt beheerders gewoon de app veilig naar de cloud verplaatsen.<br/><br/> Het team wilt stoppen met het ondersteunen van Windows Server 2008 R2, waarop de app op dit moment wordt uitgevoerd.<br/><br/> Het team wil ook afstappen van SQL Server 2008 R2 naar een moderne PaaS-Database-platform, de noodzaak voor het beheer te minimaliseren.<br/><br/> Contoso wilt gebruikmaken van de investeringen in SQL Server-licenties en Software Assurance waar mogelijk.<br/><br/> Contoso wil verder beperken van de één storingspunt is op de weblaag.
 **Beperkingen** | De app bestaat uit een ASP.NET-app en een WCF-service die wordt uitgevoerd op dezelfde VM. Ze willen dit verdeeld over twee web-apps met behulp van Azure App Service. 
 **Azure** | Contoso wil overstappen van de app naar Azure, maar niet wilt uitvoeren op virtuele machines. Contoso wil gebruikmaken van Azure PaaS-services voor zowel de web- en gegevenslagen. 
-**DevOps** | Contoso wil verplaatsen naar een model voor DevOps, met behulp van Visual Studio Team Services (VSTS) voor hun builds en pipelines vrijgeven.
+**DevOps** | Contoso wil verplaatsen naar een model voor DevOps, met behulp van Azure DevOps voor hun builds en pipelines vrijgeven.
 
 ## <a name="solution-design"></a>Het ontwerp van oplossing
 
@@ -80,7 +80,7 @@ Na het vastmaken omlaag doelstellingen en vereisten, Contoso ontwerpen van een i
     - Met Software Assurance, kan Contoso uitwisselen van bestaande licenties voor gereduceerde tarieven voor een SQL-Database met behulp van Azure Hybrid Benefit voor SQL Server. Zodoende kan tot 30% te besparen.
     - SQL Database biedt een aantal beveiligingsfuncties, met inbegrip van altijd versleuteld, dynamische gegevensmaskering en beveiliging/bedreigingsdetectie van beveiliging op rijniveau.
 - Contoso heeft voor de laag van de web-app besloten om het gebruik van Azure App Service. Met deze PaaS-service kunnen die de app met een paar configuratiewijzigingen implementeren. Contoso wordt Visual Studio gebruiken om de wijziging te maken en implementeren van twee web-apps. Één voor de website, en één voor de WCF-service.
-- Contoso heeft om te voldoen aan vereisten voor een DevOps-pijplijn, geselecteerd VSTS gebruiken. Ze gaat VSTS voor Source Code Management (SCM) implementeren met Git-opslagplaatsen. Geautomatiseerde builds en release wordt gebruikt om de code te bouwen en deze implementeren in de Azure-Web-Apps.
+- Contoso heeft om te voldoen aan vereisten voor een DevOps-pijplijn, geselecteerd voor het gebruik van de Azure DevOps voor Source Code Management (SCM) met Git-opslagplaatsen. Geautomatiseerde builds en release wordt gebruikt om de code te bouwen en deze implementeren in de Azure-Web-Apps.
   
 ### <a name="solution-review"></a>Beoordelingen van oplossing
 Contoso evalueert het voorgestelde ontwerp door het samenstellen van een lijst met voor- en nadelen.
@@ -109,8 +109,9 @@ Contoso evalueert het voorgestelde ontwerp door het samenstellen van een lijst m
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA Contoso gebruikt om te beoordelen en detecteert compatibiliteitsproblemen die mogelijk van invloed zijn op de databasefunctionaliteit in Azure. DMA de functiepariteit tussen SQL-bronnen en doelen beoordeelt en wordt aanbevolen verbeteringen in de prestaties en betrouwbaarheid. | Het is een gratis hulpprogramma dat kan worden gedownload.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Een intelligente, beheerde volledig relationele clouddatabaseservice. | De kosten op basis van functies, doorvoer en grootte. [Meer informatie](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure App Services - Web-Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Maken van krachtige cloud-apps met behulp van een volledig beheerd platform | De kosten op basis van de duur van de grootte, locatie en het gebruik. [Meer informatie](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Biedt een continue integratie en een pijplijn voor continue implementatie (CI/CD) voor app-ontwikkeling. De pijplijn begint met een Git-opslagplaats voor het beheren van app-code, een build-systeem voor het produceren van pakketten en andere build-artefacten en een versiebeheersysteem wijzigingen in het ontwikkelen, testen en productie-omgevingen implementeren. 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Hier volgt een Contoso-behoeften om uit te voeren in dit scenario:
 
@@ -128,9 +129,9 @@ Hier ziet u hoe Contoso de migratie wordt uitgevoerd:
 > * **Stap 1: Een exemplaar van SQL Database in Azure inrichten**: Contoso richt een SQL-exemplaar in Azure. Nadat de app-website is gemigreerd naar Azure, wordt de web-app van de WCF-service verwijzen naar dit exemplaar.
 > * **Stap 2: Migreren van de database met DMA**: Contoso worden gemigreerd van de app-database met de Database Migration Assistant.
 > * **Stap 3: Inrichten Web-Apps**: Contoso bepalingen de twee web-apps.
-> * **Stap 4: VSTS instellen**: Contoso maakt een nieuwe VSTS-project en de invoer van de Git-opslagplaats.
+> * **Stap 4: Instellen van Azure DevOps**: Contoso maakt een nieuwe Azure DevOps-project en de invoer van de Git-opslagplaats.
 > * **Stap 5: Configureren van verbindingsreeksen**: Contoso verbindingsreeksen zo geconfigureerd dat de web-laag web-app, de web-app van de WCF-service en het SQL-exemplaar kunnen communiceren.
-> * **Stap 6: Build instellen en release-pijplijnen in VSTS**: als laatste stap, Contoso stelt build en versie pijplijnen om de app te maken en ze in twee afzonderlijke Azure Web Apps implementeert.
+> * **Stap 6: Build instellen en pipelines vrijgeven**: als laatste stap, Contoso stelt build en versie pijplijnen om de app te maken en ze in twee afzonderlijke Azure Web Apps implementeert.
 
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>Stap 1: Een Azure SQL-Database inrichten
@@ -236,26 +237,26 @@ Met de database hebt gemigreerd, Contoso-beheerders kunnen nu inrichten de twee 
 4. Als ze klaar bent, worden ze, blader naar het adres van de apps om te controleren of dat ze hebt gemaakt.
 
 
-## <a name="step-4-set-up-vsts"></a>Stap 4: VSTS instellen
+## <a name="step-4-set-up-azure-devops"></a>Stap 4: Azure DevOps instellen
 
 
-Contoso heeft nodig om de infrastructuur voor DevOps en pijplijnen voor de toepassing te bouwen.  U doet dit door beheerders van Contoso een nieuwe VSTS-project maken, importeren van de code, en vervolgens ingesteld build en pipelines vrijgeven.
+Contoso heeft nodig om de infrastructuur voor DevOps en pijplijnen voor de toepassing te bouwen.  U doet dit door beheerders van Contoso een nieuw DevOps-project maken, importeren van de code, en vervolgens ingesteld build en pipelines vrijgeven.
 
-1.   In het Contoso VSTS-account, ze een nieuw project maken (**ContosoSmartHotelRefactor**), en selecteer **Git** voor versiebeheer.
+1.   In de Contoso Azure DevOps-account, ze een nieuw project maken (**ContosoSmartHotelRefactor**), en selecteer **Git** voor versiebeheer.
 
     ![Nieuw project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
-
 2. Ze importeren de Git-opslagplaats die op dit moment de app-code bevat. Deel uitmaakt van een [openbare opslagplaats](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) en kunt u deze downloaden.
 
     ![App-code downloaden](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
-
+    
 3. Nadat de code is geïmporteerd, ze verbinding maken met Visual Studio naar de opslagplaats en kloon de code met behulp van Team Explorer.
 
-    ![Verbinding maken met de opslagplaats](./media/contoso-migration-refactor-web-app-sql/vsts3.png)
+    ![Verbinding maken met project](./media/contoso-migration-refactor-web-app-sql/devops1.png)
 
 4. Nadat de opslagplaats hebt gekloond naar de machine voor ontwikkelaars, opent u het oplossingsbestand voor de app. De web-app en wcf-service hebben afzonderlijke-project binnen het bestand.
 
     ![Oplossingsbestand](./media/contoso-migration-refactor-web-app-sql/vsts4.png)
+    
 
 ## <a name="step-5-configure-connection-strings"></a>Stap 5:-Verbindingsreeksen configureren
 
@@ -277,15 +278,15 @@ Beheerders van Contoso moet ervoor zorgen dat de web-apps en de database kan all
 5. Nadat de wijzigingen in de code zijn, moeten beheerders de wijzigingen wilt doorvoeren. Team Explorer in Visual Studio, gebruiken ze commmit en synchroniseren.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-vsts"></a>Stap 6: Build instellen en release-pijplijnen in VSTS
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Stap 6: Build instellen en release-pijplijnen in Azure DevOps
 
-Beheerders van Contoso nu configureren VSTS voor het uitvoeren van build en release proces actie de DevOps-praktijken.
+Beheerders van Contoso is nu configureren voor Azure DevOps voor het uitvoeren van build en release proces.
 
-1. Klik in VSTS, ze op **bouwen en uitbrengen** > **nieuwe pijplijn**.
+1. Klik in Azure DevOps, ze op **bouwen en uitbrengen** > **nieuwe pijplijn**.
 
     ![Nieuwe pijplijn](./media/contoso-migration-refactor-web-app-sql/pipeline1.png)
 
-2. Ze selecteren **VSTS Git** en de relevante opslagplaats.
+2. Ze selecteren **Azure opslagplaatsen Git** en de relevante opslagplaats.
 
     ![De opslagplaats en GIT](./media/contoso-migration-refactor-web-app-sql/pipeline2.png)
 
@@ -293,15 +294,15 @@ Beheerders van Contoso nu configureren VSTS voor het uitvoeren van build en rele
 
      ![ASP.NET-sjabloon](./media/contoso-migration-refactor-web-app-sql/pipeline3.png)
     
-4. Ze geven de ContosoSmartHotelRefactor-ASP.NET-CI-naam voor de build en klikt u op **opslaan en in de wachtrij**.
+4. De naam van de **ContosoSmartHotelRefactor-ASP.NET-CI** wordt gebruikt voor de build. Ze klikt u op **opslaan en in de wachtrij**.
 
      ![Opslaan en wachtrij](./media/contoso-migration-refactor-web-app-sql/pipeline4.png)
 
-5. Dit begint hun eerste build. Ze klikt u op het build-nummer om te bekijken van het proces. Nadat deze voltooid, kunnen zij de feedback proces zien.
+5. Dit begint de eerste build. Ze klikt u op het build-nummer om te bekijken van het proces. Nadat deze voltooid kunnen ze weergeven van de feedback verwerken en op **artefacten** om de resultaten van de build te controleren.
 
-    ![Feedback](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
+    ![Beoordelen](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
-6. Nadat een geslaagde bouwen, klikt u vervolgens de build openen en klikt u op deze klikt u op **artefacten**. Deze map bevat de resultaten van de build
+6. De map **neerzetten** de resultaten van de build bevat.
 
     - De twee zip-bestanden worden de pakketten die de apps bevatten.
     - Deze bestanden worden gebruikt in de release-pijplijn voor implementatie naar Azure Web Apps
@@ -316,11 +317,11 @@ Beheerders van Contoso nu configureren VSTS voor het uitvoeren van build en rele
 
     ![Azure App Service-sjabloon](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
 
-9. Naam van de release-pijplijn **ContosoSmartHotelRefactor**, en geef de naam van de WCF-web-app (SHWCF-EUS2) voor de omgevingsnaam van de.
+9. Naam van de release-pijplijn **ContosoSmartHotel360Refactor**, en geef de naam van de WCF-web-app (SHWCF-EUS2) voor de **fase** naam.
 
     ![Omgeving](./media/contoso-migration-refactor-web-app-sql/pipeline9.png)
 
-10. Klik in de omgeving, ze op **fase 1, 1 taak** om de implementatie van de WCF-service te configureren.
+10. Klik onder de fasen die ze op **1 taak, 1 taak** om de implementatie van de WCF-service te configureren.
 
     ![Implementeren van WCF](./media/contoso-migration-refactor-web-app-sql/pipeline10.png)
 
@@ -328,19 +329,19 @@ Beheerders van Contoso nu configureren VSTS voor het uitvoeren van build en rele
 
      ![Selecteer appservice](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
 
-12. In **artefacten**, selecteren ze **+ toevoegen van een artefact**, en selecteer om te bouwen met de **ContosoSmarthotelRefactor-ASP.NET-CI** pijplijn.
+12. Op de pijplijn > **artefacten**, selecteren ze **+ toevoegen van een artefact**, en selecteer om te bouwen met de **ContosoSmarthotel360Refactor** pijplijn.
 
-     ![Build](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
+     ![Ontwikkelen](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
 
 15. Ze klikt u op de korte-bolt in het artefact is ingeschakeld. om de trigger voor continue implementatie inschakelen.
 
      ![Bliksemsnelle bolt](./media/contoso-migration-refactor-web-app-sql/pipeline13.png)
 
-16. Bovendien, houd er rekening mee dat de trigger voor continue implementatie moet worden ingesteld op **ingeschakeld**.
+16. De trigger voor continue implementatie moet worden ingesteld op **ingeschakeld**.
 
    ![Continue implementatie ingeschakeld](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
-17. Klik nu ze op naar **Azure App Service implementeren**.
+17. Nu, ze terug verplaatsen naar een taak met de fase 1, ik taken, en klik op **Azure App Service implementeren**.
 
     ![Appservice implementeren](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
@@ -348,7 +349,7 @@ Beheerders van Contoso nu configureren VSTS voor het uitvoeren van build en rele
 
     ![Opslaan van WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
-19. Ze klikt u op **pijplijn** >**+ toevoegen**om toe te voegen in een omgeving **SHWEB EUS2**, een andere Azure App Service-implementatie te selecteren.
+19. Ze klikt u op **pijplijn** > **fasen** **+ toevoegen**om toe te voegen in een omgeving **SHWEB EUS2**. Ze selecteert u een andere Azure App Service-implementatie.
 
     ![Omgeving toevoegen](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
@@ -368,7 +369,7 @@ Beheerders van Contoso nu configureren VSTS voor het uitvoeren van build en rele
 
     ![Pijplijn opslaan](./media/contoso-migration-refactor-web-app-sql/pipeline21.png)
 
-24. Contoso-beheerders kunnen volgt u de build en pijplijnproces van VSTS release. Nadat de build is voltooid, wordt de versie wordt gestart.
+24. Beheerders van Contoso kunt volgt u de build en release pijplijnproces van Azure DevOps. Nadat de build is voltooid, wordt de versie wordt gestart.
 
     ![Bouwen en uitbrengen van app](./media/contoso-migration-refactor-web-app-sql/pipeline22.png)
 

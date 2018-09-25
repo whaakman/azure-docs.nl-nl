@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715826"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981647"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verifiëren met Azure Container Registry uit Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Wanneer u Azure Container Registry (ACR) met Azure Kubernetes Service (AKS), moe
 
 ## <a name="grant-aks-access-to-acr"></a>GRANT AKS toegang naar ACR
 
-Wanneer u een AKS-cluster maakt, maakt Azure ook een service principal voor de ondersteuning van cluster ervan met andere Azure-resources. U kunt deze automatisch gegenereerde service-principal gebruiken voor verificatie met een ACR-register. Om dit te doen, moet u een Azure AD maken [roltoewijzing](../role-based-access-control/overview.md#role-assignment) die van het cluster-service-principal toegang naar het containerregister verleent.
+Wanneer u een AKS-cluster maakt, maakt Azure ook een service principal voor de ondersteuning van cluster ervan met andere Azure-resources. U kunt deze automatisch gegenereerde service-principal gebruiken voor verificatie met een ACR-register. Om dit te doen, moet u een Azure AD maken [roltoewijzing](../role-based-access-control/overview.md#role-assignments) die van het cluster-service-principal toegang naar het containerregister verleent.
 
 Gebruik het volgende script aan het AKS gegenereerde service principal toegang verlenen tot een Azure container registry. Wijzig de `AKS_*` en `ACR_*` variabelen voor uw omgeving voordat u het script is uitgevoerd.
 

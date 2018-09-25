@@ -3,19 +3,19 @@ title: Metagegevens met GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker kunt u metagegevens in de vorm van sleutel/waarde-paren, toevoegen aan uw vraag/antwoord-sets. Deze informatie kan worden gebruikt voor het filteren van resultaten voor query's van gebruikers en voor het opslaan van aanvullende informatie die kan worden gebruikt in follow-up conversaties.
 services: cognitive-services
-author: pchoudhari
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: pchoudh
-ms.openlocfilehash: d715707217803355aea35eece0a9963b0a213c65
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.author: tulasim88
+ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031081"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Met behulp van metagegevens en de GenerateAnswer-API
 

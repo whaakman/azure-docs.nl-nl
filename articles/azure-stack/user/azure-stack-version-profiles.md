@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970291"
+ms.locfileid: "47034365"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Beheren van API-versieprofielen in Azure Stack
 
@@ -86,7 +86,7 @@ In de GO SDK is een profiel een combinatie van verschillende resourcetypen met v
 - **Ruby**  
 De Ruby-SDK voor Azure Stack Resource Manager biedt hulpprogramma's waarmee u kunt bouwen en beheren van uw infrastructuur. Resourceproviders in de SDK zijn Reken-, virtuele netwerken, en met de Ruby-taal. Zie voor meer informatie, [gebruik API-versieprofielen met Ruby](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- De Python-SDK biedt ondersteuning voor API-versieprofielen om u te richten op verschillende platforms, zoals Azure Stack en globale Azure. U kunt de API-profielen in het maken van oplossingen voor een hybride cloud. Zie voor meer informatie, [gebruik API-versieprofielen met Python](azure-stack-version-profiles-python.md)
+De Python-SDK biedt ondersteuning voor API-versieprofielen om u te richten op verschillende platforms, zoals Azure Stack en globale Azure. U kunt de API-profielen in het maken van oplossingen voor een hybride cloud. Zie voor meer informatie, [gebruik API-versieprofielen met Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

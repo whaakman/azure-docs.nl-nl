@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296734"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972552"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
+1. [De Azure CLI installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
 2. De status van de standaardregel voor de storage-account weergeven.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
+1. [De Azure CLI installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
 2. Lijst met Virtual Network-regels
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
+1. [De Azure CLI installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
 2. Lijst met IP-netwerkregels
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ Als de uitzondering 'Vertrouwde Microsoft Services' is ingeschakeld, worden de v
 |Azure Event Grid|Microsoft.EventGrid|Blob-opslag gebeurtenis publiceren inschakelen.  [Meer informatie](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Gegevens met Event Hubs Capture archiveren.  [Meer informatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure-netwerken|Microsoft.Networking|Store en netwerk-verkeerslogboeken te analyseren.  [Meer informatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure Monitor|Microsoft.Insights| Kan het schrijven van gegevens naar een beveiligde storaage-account te controleren [meer](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Toegang tot gegevens van Storage analytics
 In sommige gevallen is de toegang tot diagnostische logboeken en metrische gegevens lezen vereist van buiten de grens van het netwerk.  Uitzonderingen aan de netwerkregels kunnen worden verleend waarmee leestoegang tot Storage account logboekbestanden, metrische gegevens over tabellen, of beide. [Meer informatie over het werken met opslaganalyse.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
+1. [De Azure CLI installeren](/cli/azure/install-azure-cli) en [aanmelding](/cli/azure/authenticate-azure-cli).
 2. De uitzonderingen voor de storage-account-netwerkregels worden weergegeven.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bcfa7996b301ea5ff26464315b16a08e054ba60
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 71a2409f91927b7584aef629109a6da363857f62
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356746"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036640"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Maken van een controller voor binnenkomend verkeer met een statisch openbaar IP-adres in Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 Nu implementeren de *nginx-inkomend* grafiek met Helm. Voeg de `--set controller.service.loadBalancerIP` parameter, en geef uw eigen openbare IP-adres in de vorige stap hebt gemaakt.
 
 > [!TIP]
-> Het volgende voorbeeld installeert de controller voor binnenkomend verkeer in de `kube-system` naamruimte. Indien gewenst, kunt u een andere naamruimte voor uw eigen omgeving. Als uw AKS-cluster niet RBAC ingeschakeld is, voegt u toe `--set rbac.create=false` voor de opdrachten.
+> De volgende voorbeelden installeert u de controller voor binnenkomend verkeer en de certificaten in de `kube-system` naamruimte. Indien gewenst, kunt u een andere naamruimte voor uw eigen omgeving. Ook als uw AKS-cluster niet ingeschakeld RBAC is, toe te voegen `--set rbac.create=false` voor de opdrachten.
 
 ```console
 helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
@@ -99,16 +99,20 @@ De NGINX-controller voor binnenkomend verkeer biedt ondersteuning voor TLS-beëi
 > [!NOTE]
 > In dit artikel wordt de `staging` omgeving voor laten we versleutelen. Gebruik in productie-implementaties, `letsencrypt-prod` en `https://acme-v02.api.letsencrypt.org/directory` in de resourcedefinities en bij het installeren van de Helm-diagram.
 
-Als u wilt de certificaat-manager-domeincontroller installeren in een cluster RBAC is ingeschakeld, gebruikt u de volgende `helm install` opdracht:
+Als u wilt de certificaat-manager-domeincontroller installeren in een cluster RBAC is ingeschakeld, gebruikt u de volgende `helm install` opdracht. Het opnieuw, indien gewenst, wijzigt `--namespace` op iets anders dan *kube-systeem*:
 
 ```console
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install stable/cert-manager \
+  --namespace kube-system \
+  --set ingressShim.defaultIssuerName=letsencrypt-staging \
+  --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 Als uw cluster niet RBAC ingeschakeld is, gebruikt u in plaats daarvan de volgende opdracht uit:
 
 ```console
 helm install stable/cert-manager \
+  --namespace kube-system \
   --set ingressShim.defaultIssuerName=letsencrypt-staging \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
   --set rbac.create=false \

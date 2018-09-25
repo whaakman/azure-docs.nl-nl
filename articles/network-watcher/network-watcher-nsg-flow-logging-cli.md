@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e603ef749dbe66eda1c235b62c5155c4af6dc9db
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955143"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Network Security Group Flow logboeken configureren met Azure CLI
 
@@ -31,9 +31,7 @@ ms.locfileid: "42054655"
 
 Stroomlogboeken van Netwerkbeveiligingsgroep zijn een functie van Network Watcher waarmee u informatie wilt weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep. Deze logboeken van de stroom zijn geschreven in json-indeling en weergeven van binnenkomende en uitgaande stromen op basis van per regel, de NIC die de stroom is van toepassing op, 5-tuple-informatie over de stroom (bron-/ doel-IP-adres, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
 
-In dit artikel wordt onze CLI van de volgende generatie voor het implementatiemodel resource management, Azure CLI 2.0 die beschikbaar is voor Windows, Mac en Linux.
-
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="register-insights-provider"></a>Insights-provider registreren
 

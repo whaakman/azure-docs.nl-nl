@@ -1,6 +1,6 @@
 ---
-title: Uploaden van een aangepaste Linux-schijf met de Azure CLI 2.0 | Microsoft Docs
-description: Maken en uploaden van een virtuele harde schijf (VHD) naar Azure met behulp van het Resource Manager-implementatiemodel en Azure CLI 2.0
+title: Uploaden van een aangepaste Linux-schijf met de Azure CLI | Microsoft Docs
+description: Maken en uploaden van een virtuele harde schijf (VHD) naar Azure met behulp van het Resource Manager-implementatiemodel en Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,22 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 4b05c4c7db1e1c1953af2466d2c6a277baa07082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737342"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966500"
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Uploaden en een Linux-VM maken van een aangepaste schijf met de Azure CLI 2.0
-In dit artikel wordt beschreven hoe u een virtuele harde schijf (VHD) uploaden naar Azure storage-account met de Azure CLI 2.0 en Linux-VM's maken van deze aangepaste schijf. Deze functie kunt u installeren en configureren van een Linux-distributie voor uw vereisten en vervolgens die VHD gebruiken om snel virtuele Azure-machines (VM's).
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Uploaden en een Linux-VM maken van een aangepaste schijf met de Azure CLI
+
+In dit artikel wordt beschreven hoe u een virtuele harde schijf (VHD) uploaden naar Azure storage-account met de Azure CLI en Linux-VM's maken van deze aangepaste schijf. Deze functie kunt u installeren en configureren van een Linux-distributie voor uw vereisten en vervolgens die VHD gebruiken om snel virtuele Azure-machines (VM's).
 
 In dit onderwerp wordt gebruikgemaakt van storage-accounts voor de laatste virtuele harde schijven, maar u kunt ook deze stappen met [beheerde schijven](upload-vhd.md). 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie gegevens snel de base-opdrachten voor een VHD uploaden naar Azure. Meer gedetailleerde informatie en -context voor elke stap u de rest van het document vindt, [Hier beginnen](#requirements).
 
-Zorg ervoor dat u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen `myResourceGroup`, `mystorageaccount`, en `mydisks`.
 
@@ -96,7 +97,7 @@ Als u wilt de volgende stappen hebt voltooid, hebt u het volgende nodig:
   * Een storage-account en een container voor het opslaan van uw aangepaste schijf en de gemaakte virtuele machines maken
   * Nadat u alle virtuele machines hebt gemaakt, kunt u veilig de schijf verwijderen
 
-Zorg ervoor dat u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen `myResourceGroup`, `mystorageaccount`, en `mydisks`.
 

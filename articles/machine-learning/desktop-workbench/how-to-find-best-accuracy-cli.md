@@ -11,12 +11,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: d2fe951a97b18c95e647b45d799843a982100367
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35914932"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953239"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Zoeken wordt uitgevoerd met de beste nauwkeurigheid en de kortste duur
 Opgegeven meerdere wordt uitgevoerd, is een use-case uitgevoerd met de hoogste nauwkeurigheid vinden. Eén aanpak is het gebruik van de opdrachtregelinterface (CLI) met een [JMESPath](http://jmespath.org/) query. Zie voor meer informatie over het gebruik van JMESPath in de Azure CLI [gebruiken JMESPath-query's met Azure CLI](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). In het volgende voorbeeld worden vier wordt uitgevoerd door de waarden van de nauwkeurigheid van 0, 0,98 1 en 1 gemaakt. Wordt uitgevoerd als ze zich in het bereik worden gefilterd `[MaxAccuracy-Threshold, MaxAccuracy]` waar `Threshold = .03`.

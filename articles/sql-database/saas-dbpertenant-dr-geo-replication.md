@@ -1,21 +1,23 @@
 ---
 title: Herstel na noodgevallen voor SaaS-apps met behulp van Geo-replicatie van Azure SQL Database | Microsoft Docs
 description: Meer informatie over het gebruik van geo-replica's van de Azure SQL Database om te herstellen van een multitenant SaaS-app na een storing
-keywords: zelfstudie sql-database
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: 1af13857bdde06b70cb8d01db8d9668cc6ce99e6
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
+ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983964"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056332"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van de database geo-replicatie
 

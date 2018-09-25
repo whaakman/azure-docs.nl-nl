@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591932"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971447"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 en de OpenID Connect-protocol
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parameter | Beschrijving |
 | --- | --- |
-| id_token |De ID-token dat de app worden aangevraagd. U kunt de `id_token` parameter om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. Zie voor meer informatie over ID-tokens en de inhoud ervan, de [v2.0-eindpunt tokens verwijzing](v2-id-and-access-tokens.md). |
+| id_token |De ID-token dat de app worden aangevraagd. U kunt de `id_token` parameter om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. Zie voor meer informatie over ID-tokens en de inhoud ervan, de [ `id_tokens` verwijzing](id-tokens.md). |
 | state |Als een `state` parameter is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of dat de provincie-waarden in de aanvraag en respons identiek zijn. |
 
 ### <a name="error-response"></a>Foutbericht
@@ -175,20 +175,18 @@ De volgende tabel worden foutcodes beschreven die kunnen worden geretourneerd in
 
 ## <a name="validate-the-id-token"></a>De ID-token te valideren
 
-Ontvangen van een ID-token is niet voldoende om de gebruiker te verifiëren. U moet ook de ID-token handtekening valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
+Alleen een id_token ontvangen is niet voldoende om te verifiëren van de gebruiker. u moet de handtekening van het id_token valideren en controleer of de claims in het token per vereisten van uw app. Maakt gebruik van het v2.0-eindpunt [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) en cryptografie met openbare sleutels voor het ondertekenen van tokens en controleren of ze geldig zijn.
 
-U kunt kiezen voor het valideren van de ID-token in clientcode, maar een normaal worden bij het verzenden van de ID-token dat naar een back-endserver en er de validatie uit te voeren. Nadat u de handtekening van de ID-token hebt gevalideerd, moet u controleren of een paar claims. Voor meer informatie, met inbegrip van informatie over [valideren van tokens](v2-id-and-access-tokens.md#validating-tokens) en [belangrijke informatie over de rollover van ondertekeningssleutel gebruiken](v2-id-and-access-tokens.md#validating-tokens), Zie de [v2.0 tokens verwijzing](v2-id-and-access-tokens.md). U wordt aangeraden met behulp van een bibliotheek voor het parseren en valideren van tokens. Er is ten minste één van deze bibliotheken beschikbaar voor de meeste talen en platforms.
+U kunt kiezen om te valideren de `id_token` in client-code, maar een gebruikelijk is voor het verzenden van de `id_token` naar een back-endserver en er de validatie uit te voeren. Nadat u de handtekening van het id_token hebt gevalideerd, zijn er enkele claims u moet om te controleren. Zie de [ `id_token` verwijzing](id-tokens.md) voor meer informatie, met inbegrip van [valideren van Tokens](id-tokens.md#validating-idtokens) en [belangrijke informatie over de ondertekening van sleutelrollover](active-directory-signing-key-rollover.md). Het is raadzaam om gebruik van een bibliotheek voor het parseren en valideren van tokens: Er is ten minste één beschikbaar voor de meeste talen en platforms.
 <!--TODO: Improve the information on this-->
 
-Ook is het verstandig om extra claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
+U kunt ook om aanvullende claims, afhankelijk van uw scenario te valideren. Sommige algemene validaties zijn onder andere:
 
-* Zorg ervoor dat de gebruiker of de organisatie heeft aangemeld voor de app.
-* Zorg ervoor dat de gebruiker is vereist verificatie of machtigingen.
-* Zorg ervoor dat een bepaalde sterkte van verificatie heeft plaatsgevonden, zoals meervoudige verificatie.
+* Ervoor te zorgen dat de gebruiker/organisatie is geregistreerd voor de app.
+* Ervoor te zorgen dat de gebruiker heeft juiste autorisatie/bevoegdheden
+* Ervoor te zorgen dat een bepaalde sterkte van de verificatie is opgetreden, zoals meervoudige verificatie.
 
-Zie voor meer informatie over de claims in een ID-token, de [v2.0-eindpunt tokens verwijzing](v2-id-and-access-tokens.md).
-
-Nadat u de ID-token hebt gevalideerd, kunt u een sessie begint met de gebruiker. Gebruik de claims in het ID-token voor informatie over de gebruiker in uw app. U kunt deze informatie gebruiken voor het weergeven, records en autorisaties.
+Nadat u hebt de id_token volledig gevalideerd, kunt u beginnen met een sessie met de gebruiker en de claims in de id_token gebruiken om informatie over de gebruiker in uw app te verkrijgen. Deze informatie kan worden gebruikt voor het weergeven, records, persoonlijke instellingen, enzovoort.
 
 ## <a name="send-a-sign-out-request"></a>Verzenden van een aanvragen voor afmelden
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parameter | Beschrijving |
 | --- | --- |
-| id_token |De ID-token dat de app worden aangevraagd. U kunt de ID-token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. U vindt meer informatie over ID-tokens en hun inhoud in de [v2.0-eindpunt tokens verwijzing](v2-id-and-access-tokens.md). |
+| id_token |De ID-token dat de app worden aangevraagd. U kunt de ID-token gebruiken om te controleren of de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. U vindt meer informatie over ID-tokens en hun inhoud in de [ `id_tokens` verwijzing](id-tokens.md). |
 | Code |De autorisatiecode die de app heeft aangevraagd. De app kan de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource. Er is een autorisatiecode zeer eenvoudige. Normaal gesproken verloopt een autorisatiecode over ongeveer tien minuten. |
 | state |Als een parameter state is opgenomen in de aanvraag, dezelfde waarde moet worden weergegeven in het antwoord. De app moet controleren of dat de provincie-waarden in de aanvraag en respons identiek zijn. |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Zie voor een beschrijving van de mogelijke foutcodes en aanbevolen clientantwoorden [foutcodes voor endpoint-verificatiefouten](#error-codes-for-authorization-endpoint-errors).
 
-Wanneer u een autorisatiecode en een ID-token hebt, kunt u de gebruiker zich aanmelden en toegangstokens verkrijgen namens hen. De gebruiker in ondertekenen, moet u de ID-token valideren [precies zoals wordt beschreven](#validate-the-id-token). Toegangstokens, volg de stappen in [OAuth-protocoldocumentatie voor](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Wanneer u een autorisatiecode en een ID-token hebt, kunt u de gebruiker zich aanmelden en toegangstokens verkrijgen namens hen. De gebruiker in ondertekenen, moet u de ID-token valideren [precies zoals wordt beschreven](id-tokens.md#validating-idtokens). Toegangstokens, volg de stappen in [OAuth code flow-documentatie](v2-oauth2-auth-code-flow.md#request-an-access-token).

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3e2648bc019612835baa172210984d8fc1c6d801
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304069"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950162"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -347,3 +347,11 @@ Uw bestaande circuit blijft de voorvoegsels adverteren voor Office 365 en Dynami
 * Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd vóór 1 augustus 2017 hebben alle service-voorvoegsels geadverteerd via Microsoft-peering, zelfs als routefilters zijn niet gedefinieerd.
 
 * Microsoft-peering van ExpressRoute-circuits die zijn geconfigureerd op of na 1 augustus 2017 hebben geen voorvoegsels geadverteerd totdat een routefilter is gekoppeld aan het circuit. Standaard ziet u geen voorvoegsels.
+
+## <a name="globalreach"></a>ExpressRoute Direct (Preview)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Wereldwijd bereik (Preview)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

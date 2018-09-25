@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: feb35336681376f6f4bd262418146d931f3d1e83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b74696be433b00a5afb3416295b6317975aa6873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294880"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967656"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Verificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory
 
@@ -35,7 +35,7 @@ De volgende tabel ziet u hoe eindgebruikers en service-naar-service-verificatiem
 * De lege cellen geven aan dat de verificatieoptie niet wordt ondersteund.
 
 
-|Gebruik deze optie voor verificatie met...                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
+|Gebruik deze optie voor verificatie met...                   |.NET         |Java     |PowerShell |Azure-CLI | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |Eindgebruikers (zonder MFA **)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(afgeschaft)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Eindgebruikers (met MFA)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |

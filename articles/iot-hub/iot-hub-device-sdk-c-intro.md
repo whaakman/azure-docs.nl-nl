@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: db9c22acfba0f6f1781348b36a1d253a515cc063
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346658"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977263"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -71,7 +71,7 @@ Er zijn verschillende open-source-hulpprogramma's voor het beheren van uw IoT-hu
 
 * Een Windows-toepassing met de naam [apparatenverkenner](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 * Een platformoverschrijdende Visual Studio Code-extensie met de naam [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
-* Een Python-CLI-hulpprogramma voor meerdere platforms met de naam [de IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* Een Python platformoverschrijdende CLI met de naam [de IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 Deze zelfstudie wordt gebruikgemaakt van de grafische *apparatenverkenner* hulpprogramma. U kunt de *Azure IoT Toolkit-extensie voor VS Code* als u in VS Code ontwikkelt. U kunt ook de *de IoT-extensie voor Azure CLI 2.0* hulpprogramma als u liever een CLI-hulpprogramma te gebruiken.
 

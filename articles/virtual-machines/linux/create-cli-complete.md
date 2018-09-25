@@ -1,6 +1,6 @@
 ---
-title: Een Linux-omgeving maken met de Azure CLI 2.0 | Microsoft Docs
-description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbaar IP-adres en een netwerkbeveiligingsgroep, allemaal vanaf de grond met behulp van de Azure CLI 2.0.
+title: Een Linux-omgeving maken met de Azure CLI | Microsoft Docs
+description: Opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbaar IP-adres en een netwerkbeveiligingsgroep, allemaal vanaf de grond met behulp van de Azure CLI maken.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: c566c747d393dbfa3225faf6f8ad78fa8abfa3ac
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e618bce78a3a3ce080b6c24cc34a27c2f5fb39e9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929702"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977550"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige Linux-machine maken met de Azure CLI
 Als u wilt snel een virtuele machine (VM) maken in Azure, kunt u een enkele Azure CLI-opdracht die gebruikmaakt van standaardwaarden om alle vereiste ondersteunende resources te maken. Resources, zoals een virtueel netwerk, openbare IP-adres en regels voor netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources vooraf maken en vervolgens uw virtuele machines toevoegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.
 
-Zorg ervoor dat u de meest recente hebt geïnstalleerd [Azure CLI 2.0](/cli/azure/install-az-cli2) en wordt in een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente hebt geïnstalleerd [Azure CLI](/cli/azure/install-az-cli2) en wordt in een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
 

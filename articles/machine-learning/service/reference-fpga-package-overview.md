@@ -1,21 +1,26 @@
 ---
 title: FPGA-pakket voor hardwareversnelling voor Azure Machine Learning
 description: Meer informatie over de python-pakketten beschikbaar voor gebruikers van Azure Machine Learning.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4f23e8987a3abd9cdace85b0a3dc52ca464245df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058146"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995428"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning-hardwareversnelling-pakket
+
+>[!Note]
+>**In dit artikel is afgeschaft.** Dit pakket FPGA is afgeschaft. Ondersteuning voor deze functionaliteit is toegevoegd aan de Azure ML-SDK. Ondersteuning voor dit pakket wordt stapsgewijs beëindigd. [Weergeven van de ondersteuningstijdlijn](overview-what-happened-to-workbench.md#timeline). Meer informatie over bijgewerkt [FPGA-ondersteuning](concept-accelerate-with-fpgas.md).
 
 Het pakket hardwareversnelling van Azure Machine Learning is een Python-pip installeerbare-extensie voor Azure Machine Learning waarmee gegevenswetenschappers en AI-ontwikkelaars kunnen snel:
 
@@ -29,7 +34,7 @@ Het pakket hardwareversnelling van Azure Machine Learning is een Python-pip inst
 
 1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-1. U moet een Azure Machine Learning Modelbeheer-account maken. Zie voor meer informatie over het maken van het account de [installatie van Azure Machine Learning-Quickstart en Workbench](../service/quickstart-installation.md) document. 
+1. U moet een Azure Machine Learning Modelbeheer-account maken. Zie voor meer informatie over het maken van het account de [installatie van Azure Machine Learning-Quickstart en Workbench](../desktop-workbench/quickstart-installation.md) document. 
 
 1. Het pakket moet worden geïnstalleerd. 
 

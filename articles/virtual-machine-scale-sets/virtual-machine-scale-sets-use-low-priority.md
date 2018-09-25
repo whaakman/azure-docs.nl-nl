@@ -1,6 +1,6 @@
 ---
-title: Maken van een Azure-schaalset met lage prioriteit VMs (Preview) | Microsoft Docs
-description: Informatie over het maken van virtuele Azure-machine-schaalsets die gebruikmaken van prioriteit Laag virtuele machines op te slaan op kosten
+title: Maken van een Azure-machineschaalset die gebruikmaakt van VM's met lage prioriteit (Preview) | Microsoft Docs
+description: Informatie over het maken van virtuele Azure-machine-schaalsets met virtuele machines met lage prioriteit om op te slaan op de kosten van
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mmccrory
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894894"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953868"
 ---
-# <a name="low-priority-vms-on-scale-sets-preview"></a>Prioriteit Laag VM's op schaalsets (preview)
+# <a name="low-priority-vms-on-scale-sets-preview"></a>Virtuele machines met lage prioriteit op schaalsets (preview)
 
-Met behulp van de prioriteit Laag VM's op schaalsets, kunt u om te profiteren van onze unutilized capaciteit op een aanzienlijke kostenbesparingen inhouden. Op elk gewenst moment als de capaciteit terug in Azure nodig heeft, wordt de Azure-infrastructuur onbeschikbaar prioriteit Laag virtuele machines te maken. Daarom zijn prioriteit Laag VM's ideaal voor workloads die onderbrekingen zoals taken, ontwikkelen en testen omgevingen en grote compute-workloads voor batchverwerking kunnen verwerken.
+Met behulp van virtuele machines met lage prioriteit op schaalsets, kunt u profiteren van onze unutilized capaciteit op een aanzienlijke kostenbesparingen. Op elk gewenst moment in de tijd wanneer de capaciteit terug in Azure nodig heeft, wordt de Azure-infrastructuur onbeschikbaar maken VM's met lage prioriteit. Virtuele machines met lage prioriteit zijn daarom ideaal voor workloads die onderbrekingen, zoals batchverwerking, taken, dev/test-omgevingen en grote rekenworkloads kunnen worden verwerkt.
 
-De hoeveelheid beschikbare unutilized capaciteit kan variëren, afhankelijk van de grootte, regio en tijd van de dag. Bij het implementeren van virtuele machines prioriteit laag op schaal wordt ingesteld, wordt Azure de virtuele machines toewijzen als capaciteit er beschikbaar is, maar er geen SLA voor deze virtuele machines is. Een lage prioriteit scale set wordt geïmplementeerd in een enkel foutdomein en biedt dat wordt gegarandeerd dat er geen hoge beschikbaarheid.
+De hoeveelheid beschikbare unutilized capaciteit kan variëren op basis van grootte, regio en tijd van de dag. Bij het implementeren van VM's met lage prioriteit op schaal wordt ingesteld, wordt Azure de virtuele machines toewijzen als er capaciteit beschikbaar, maar er geen SLA voor deze virtuele machines is. Een schaalset met lage prioriteit wordt geïmplementeerd in een enkele foutdomein en biedt dat geen hoge beschikbaarheid garandeert.
 
-## <a name="eviction-policy"></a>Beleid verwijderen
+## <a name="eviction-policy"></a>Verwijderingsbeleid
 
-Bij het maken van prioriteit Laag-schaalsets, kunt u de taakverwijdering-beleid instellen op *Deallocate* (standaard) of *verwijderen*. 
+Bij het maken van schaalsets met lage prioriteit, kunt u het verwijderingsbeleid instellen op *toewijzing ongedaan maken* (standaard) of *verwijderen*. 
 
-De *Deallocate* beleid uw verwijderde virtuele machines verplaatst naar de status gestopt ongedaan zodat u verwijderde exemplaren opnieuw implementeren. Er is echter geen garantie dat de toewijzing slaagt. De toewijzing ongedaan is gemaakt virtuele machines wordt in mindering gebracht op uw scale set exemplaar quotum en wordt u gefactureerd voor uw onderliggende schijven. 
+De *toewijzing ongedaan maken* beleid voor de verwijderde virtuele machines verplaatst naar de status stopped-deallocated hebben zodat u kunt verwijderde exemplaren implementeren. Er is echter geen garantie dat de toewijzing is wel mogelijk. De toewijzing ongedaan gemaakt virtuele machines wordt in mindering uw quotum scale set-exemplaar en u wordt gefactureerd voor de onderliggende schijven. 
 
-Als u uw virtuele machines in de schaal van uw prioriteit laag ingesteld om te worden verwijderd wilt als ze zijn verwijderd, stelt u het beleid voor verwijdering op *verwijderen*. Het beleid voor taakverwijdering ingesteld om te verwijderen, kunt u nieuwe virtuele machines maken door het verhogen van de eigenschap scale set exemplaar count. De verwijderde virtuele machines worden verwijderd samen met hun onderliggende schijven en daarom niet brengt voor de opslag. U kunt ook de functie voor automatisch schalen van schaalsets gebruiken om automatisch te compenseren voor verwijderde virtuele machines, er is echter geen garantie dat de toewijzing slaagt. Het verdient aanbeveling om dat u de functie voor automatisch schalen op prioriteit Laag schaalsets alleen gebruiken bij het instellen van het beleid verwijderen om te voorkomen dat de kosten van uw schijven en roept de quotalimieten voor verwijderen. 
+Als u uw VM's in uw schaalset met lage prioriteit worden verwijderd wilt als ze zijn verwijderd, kunt u het verwijderingsbeleid instellen op *verwijderen*. Met het verwijderingsbeleid instellen om te verwijderen, kunt u nieuwe virtuele machines maken door het verhogen van de schaal-eigenschap voor count set-exemplaar. De verwijderde virtuele machines worden verwijderd, samen met hun onderliggende schijven, en daarom u wordt niet in rekening gebracht voor de opslag. U kunt ook de functie voor automatisch schalen van schaalsets gebruiken om automatisch te compenseren voor de verwijderde virtuele machines, maar er is geen garantie dat de toewijzing is wel mogelijk. Het verdient aanbeveling om dat u de functie voor automatisch schalen op schaalsets met lage prioriteit alleen gebruiken bij het instellen van het verwijderingsbeleid verwijderen om te voorkomen dat de kosten van uw schijven en de quotumlimiet hebt bereikt. 
 
 > [!NOTE]
-> Tijdens de preview, is het mogelijk om in te stellen van uw beleid voor taakverwijdering met behulp van de [Azure-portal](#use-the-azure-portal) en [Azure Resource Manager-sjablonen](#use-azure-resource-manager-templates). 
+> Tijdens de preview, kunt u zich aan het verwijderingsbeleid instellen met behulp van de [Azure-portal](#use-the-azure-portal) en [Azure Resource Manager-sjablonen](#use-azure-resource-manager-templates). 
 
-## <a name="deploying-low-priority-vms-on-scale-sets"></a>Hiermee stelt u prioriteit Laag VMs op schaal implementeren
+## <a name="deploying-low-priority-vms-on-scale-sets"></a>Hiermee stelt u het implementeren van virtuele machines met lage prioriteit op schaal
 
-Als u wilt implementeren lage prioriteit VM's op schaalsets, kunt u instellen de nieuwe *prioriteit* markering *laag*. Alle virtuele machines in de schaalset worden ingesteld op prioriteit laag. Voor het maken van een schaal prioriteit Laag virtuele machines in te stellen, moet u een van de volgende methoden gebruiken:
+Als u wilt implementeren met lage prioriteit VM's op schaalsets, kunt u instellen de nieuwe *prioriteit* markering *laag*. Alle virtuele machines in uw schaalset worden ingesteld op prioriteit laag. Voor het maken van een schaalset met virtuele machines met lage prioriteit, moet u een van de volgende methoden gebruiken:
 - [Azure Portal](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure-CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-sjablonen](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Azure Portal gebruiken
 
-Het proces voor het maken van een scale-set met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-portal.md). Wanneer u een schaalset implementeert, kunt u kiezen om in te stellen de vlag prioriteit Laag en het beleid voor verwijdering: ![een schaal ingesteld met lage prioriteit virtuele machines maken](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+Het proces voor het maken van een schaalset die gebruikmaakt van virtuele machines met lage prioriteit is hetzelfde als beschreven in de [aan de slag artikel](quick-create-portal.md). Wanneer u een schaalset implementeert, kunt u kiezen om in te stellen de vlag met lage prioriteit en het verwijderingsbeleid: ![maken van een schaalset met virtuele machines met lage prioriteit](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
-## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
+## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
 
-Het proces voor het maken van een schaal ingesteld met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-cli.md). Alleen toe te voegen de '--prioriteit '-parameter voor de cli aanroepen en stel deze in op *laag* zoals weergegeven in het voorbeeld hieronder:
+Het proces voor het maken van een schaalset met virtuele machines met lage prioriteit is hetzelfde als beschreven in de [aan de slag artikel](quick-create-cli.md). Alleen toe te voegen de '--prioriteit ' parameter voor de cli aanroepen en stel deze in op *laag* zoals wordt weergegeven in het voorbeeld hieronder:
 
 ```azurecli
 az vmss create \
@@ -68,8 +68,8 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 
-Het proces voor het maken van een schaal ingesteld met lage prioriteit virtuele machines is hetzelfde als is beschreven in de [artikel aan de slag](quick-create-powershell.md).
-Alleen toe te voegen de '-prioriteit '-parameter voor de [nieuw AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) en wordt ingesteld op *laag* zoals weergegeven in het voorbeeld hieronder:
+Het proces voor het maken van een schaalset met virtuele machines met lage prioriteit is hetzelfde als beschreven in de [aan de slag artikel](quick-create-powershell.md).
+Alleen toe te voegen de '-prioriteit ' parameter voor de [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) en stel deze in op *laag* zoals wordt weergegeven in het voorbeeld hieronder:
 
 ```powershell
 $vmssConfig = New-AzureRmVmssConfig `
@@ -80,13 +80,13 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Priority "Low"
 ```
 
-## <a name="use-azure-resource-manager-templates"></a>Gebruik Azure Resource Manager-sjablonen
+## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen gebruiken
 
-Het proces voor het maken van een scale-set met lage prioriteit VM's is hetzelfde als in het artikel voor ophalen gestart voor gedetailleerde [Linux](quick-create-template-linux.md) of [Windows](quick-create-template-windows.md). Toevoegen van de prioriteitseigenschap '' op de *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource typt u in uw sjabloon en geef *laag* als de waarde. Zorg ervoor dat u *2018-03-01* API-versie of hoger. 
+Het proces voor het maken van een schaalset die gebruikmaakt van virtuele machines met lage prioriteit is hetzelfde als in de aan de slag-artikel voor gedetailleerde [Linux](quick-create-template-linux.md) of [Windows](quick-create-template-windows.md). Voeg de eigenschap 'priority' aan de *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* resource Typ in de sjabloon en geef *laag* als de waarde. Zorg ervoor dat u *2018-03-01* API-versie of hoger. 
 
-De parameter 'evictionPolicy' toevoegen om de verwijdering instellen om te verwijderen, en stel op *verwijderen*.
+De parameter 'evictionPolicy' toevoegen om in te stellen het verwijderingsbeleid te verwijderen, en stel deze in op *verwijderen*.
 
-Het volgende voorbeeld wordt een Linux-prioriteit Laag scale set met de naam *myScaleSet* in *West-Centraal VS*, welke *verwijderen* de VM's in de schaal instelt op verwijderen:
+Het volgende voorbeeld wordt een Linux met lage prioriteit schaalset met de naam *myScaleSet* in *West-Centraal VS*, welke *verwijderen* de virtuele machines in de schaalset op verwijdering:
 
 ```json
 {
@@ -128,22 +128,22 @@ Het volgende voorbeeld wordt een Linux-prioriteit Laag scale set met de naam *my
 ```
 ## <a name="faq"></a>Veelgestelde vragen
 
-### <a name="can-i-convert-existing-scale-sets-to-low-priority-scale-sets"></a>Kan ik bestaande schaalsets converteren naar schaalsets met lage prioriteit
+### <a name="can-i-convert-existing-scale-sets-to-low-priority-scale-sets"></a>Kan ik bestaande schaalsets converteren naar de met lage prioriteit schaalsets?
 Nee, als u de vlag met lage prioriteit wordt alleen ondersteund tijdens het maken.
 
-### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>Kan ik een schaal ingesteld met zowel reguliere VM's en VMs met lage prioriteit maken?
-Nee, kan een schaalset niet meer dan één prioriteit type ondersteunen.
+### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>Kan ik een schaalset met zowel normale VM's en virtuele machines met lage prioriteit maken?
+Nee, kan een schaalset niet meer dan één type van prioriteit ondersteunen.
 
-### <a name="how-is-quota-managed-for-low-priority-vms"></a>Hoe worden de quota voor virtuele machines prioriteit Laag beheerd?
-Prioriteit Laag VM's en reguliere VMs delen dezelfde groep quotum. 
+### <a name="how-is-quota-managed-for-low-priority-vms"></a>Hoe wordt het quotum voor virtuele machines met lage prioriteit beheerd?
+Reguliere virtuele machines en virtuele machines met lage prioriteit delen dezelfde groep quotum. 
 
-### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>Kan ik automatisch schalen met lage prioriteit schaalsets gebruiken?
-Ja, kunt u regels voor automatisch schalen instellen op uw schaalset met lage prioriteit. Als uw VM's zijn verwijderd, proberen automatisch schalen voor het maken van nieuwe virtuele machines voor lage prioriteit. Denk eraan dat u deze capaciteit echter niet worden gegarandeerd. 
+### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>Kan ik automatisch schalen met schaalsets met lage prioriteit gebruiken?
+Ja, kunt u regels voor automatisch schalen instellen op uw schaalset met lage prioriteit. Als uw virtuele machines zijn verwijderd, worden voor automatisch schalen kunt proberen te maken van nieuwe VM's met lage prioriteit. Denk eraan dat u deze capaciteit echter niet worden gegarandeerd. 
 
-### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>Automatisch schalen werkt met beide beleidsregels taakverwijdering (toewijzing ongedaan maken en verwijderen)?
-Het is raadzaam dat u uw beleid verwijderen om te verwijderen wanneer ze met automatisch schalen instellen. Dit is omdat de toewijzing ongedaan is gemaakt exemplaren op basis van het aantal capaciteit op de schaalaanpassingsset worden geteld. Wanneer u automatisch schalen, bereikt u waarschijnlijk de exemplaren van uw doel snel omdat de toewijzing ongedaan is gemaakt, verwijderde exemplaren. 
+### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>Automatisch schalen werkt met beide beleidsregels voor taakverwijdering (toewijzing ongedaan maken en verwijderen)?
+Het is raadzaam dat u het verwijderingsbeleid verwijderen bij het gebruik van automatisch schalen instellen. Dit is omdat de toewijzing ongedaan gemaakt exemplaren op basis van het aantal capaciteit op de schaalset worden geteld. Wanneer automatisch schalen gebruik, bereikt u waarschijnlijk uw doel-exemplaren snel omdat de toewijzing ongedaan wordt gemaakt, verwijderde exemplaren. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een schaal ingesteld met lage prioriteit VM's hebt gemaakt, proberen implementeren onze [automatisch schalen sjabloon met lage prioriteit](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
+Nu u een schaalset met virtuele machines met lage prioriteit hebt gemaakt, kunt u proberen implementeren onze [automatisch schalen sjabloon gebruiken met lage prioriteit](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
-Bekijk de [virtuele-machineschaalset pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) voor prijsinformatie.
+Bekijk de [virtuele-machineschaalset pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) voor prijsgegevens.

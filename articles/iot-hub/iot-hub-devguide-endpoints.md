@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6b4ee3425f6a490f33f998cab4f33734b23df22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125773"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982100"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - IoT-Hub-eindpunten
 
@@ -61,7 +61,7 @@ Alle IoT Hub-eindpunten gebruiken de [TLS] [ lnk-tls] -protocol en er is geen ei
 
 ## <a name="custom-endpoints"></a>Aangepaste eindpunten
 
-U kunt bestaande Azure-services in uw abonnement koppelen aan uw IoT-hub om te fungeren als eindpunten voor het routeren van berichten. Deze eindpunten fungeren als een service-eindpunten en worden gebruikt als sink voor berichtroutes. Apparaten kunnen niet rechtstreeks naar de extra eindpunten worden geschreven. Zie voor meer informatie over berichtroutes, de vermelding van de handleiding voor ontwikkelaars op [verzenden en ontvangen van berichten met IoT hub][lnk-devguide-messaging].
+U kunt bestaande Azure-services in uw abonnement koppelen aan uw IoT-hub om te fungeren als eindpunten voor het routeren van berichten. Deze eindpunten fungeren als een service-eindpunten en worden gebruikt als sink voor berichtroutes. Apparaten kunnen niet rechtstreeks naar de extra eindpunten worden geschreven. Meer informatie over [berichtroutering](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IoT Hub ondersteunt momenteel de volgende Azure-services als extra eindpunten:
 
@@ -70,32 +70,7 @@ IoT Hub ondersteunt momenteel de volgende Azure-services als extra eindpunten:
 * Service Bus-wachtrijen
 * Service Bus-onderwerpen
 
-IoT Hub moet schrijftoegang tot deze service-eindpunten voor de routering van berichten om te werken. Als u uw eindpunten via Azure portal configureert, worden de benodigde machtigingen voor u toegevoegd. Zorg ervoor dat u uw services ter ondersteuning van de verwachte doorvoer configureren. Wanneer u uw IoT-oplossing voor het eerst configureert, moet u mogelijk uw extra eindpunten bewaken en breng de gewenste wijzigingen voor de werkelijke belasting.
-
-Als een bericht komt overeen met meerdere routes die allemaal verwijzen naar hetzelfde eindpunt, biedt IoT Hub bericht slechts één keer naar dit eindpunt. U hoeft daarom niet voor het configureren van Ontdubbeling op uw Service Bus-wachtrij of onderwerp. In gepartitioneerde wachtrijen garandeert partitie affiniteit berichtvolgorde.
-
 Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota en beperkingen][lnk-devguide-quotas].
-
-### <a name="when-using-azure-storage-containers"></a>Bij het gebruik van Azure Storage-containers
-
-IoT Hub worden alleen ondersteund bij het schrijven van gegevens naar Azure Storage-containers als blobs in de [Apache Avro](http://avro.apache.org/) indeling. IoT Hub berichten batches en schrijft gegevens naar een blob wanneer:
-
-* De batch een bepaalde grootte heeft bereikt.
-* Of een bepaalde hoeveelheid tijd is verstreken.
-
-IoT Hub worden geschreven naar een lege blob als er zijn geen gegevens om te schrijven.
-
-IoT Hub wordt standaard op de volgende naamconventie voor bestand:
-
-```
-{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
-```
-
-U kunt ongeacht bestand naamgevingsconventie die u wilt, maar u moet alle vermelde tokens gebruiken.
-
-### <a name="when-using-service-bus-queues-and-topics"></a>Wanneer u Service Bus-wachtrijen en onderwerpen
-
-Service Bus-wachtrijen en onderwerpen die worden gebruikt als IoT Hub-eindpunten mag geen **sessies** of **detectie van dubbele** ingeschakeld. Als een van deze opties zijn ingeschakeld, het eindpunt wordt weergegeven als **onbereikbaar** in Azure portal.
 
 ## <a name="field-gateways"></a>Veldgateways
 

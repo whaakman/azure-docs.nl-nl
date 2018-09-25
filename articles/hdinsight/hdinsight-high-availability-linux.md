@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953580"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Beschikbaarheid en betrouwbaarheid van Hadoop-clusters in HDInsight
 
@@ -208,13 +208,13 @@ Selecteer de service die u wilt weergeven van Logboeken voor (bijvoorbeeld, YARN
 
 De grootte van een knooppunt kan alleen worden geselecteerd tijdens het maken van clusters. U vindt een lijst van de verschillende VM-grootten beschikbaar voor HDInsight op de [HDInsight pagina met prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell][azure-powershell], en de [Azure CLI][azure-cli]:
+Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De volgende informatie bevat richtlijnen voor het opgeven van de grootte met behulp van de [Azure-portal][preview-portal], [Azure PowerShell][azure-powershell], en de [Azure klassieke CLI][azure-cli]:
 
 * **Azure-portal**: wanneer u een cluster maakt, kunt u de grootte van de knooppunten die worden gebruikt door het cluster instellen:
 
     ![Afbeelding van de wizard cluster maken met de selectie van clusterknooppunt grootte](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: bij het gebruik van de `azure hdinsight cluster create` opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headNodeSize`, `--workerNodeSize`, en `--zookeeperNodeSize` parameters.
+* **Azure CLI voor klassieke**: bij het gebruik van de `azure hdinsight cluster create` opdracht, kunt u de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten instellen met behulp van de `--headNodeSize`, `--workerNodeSize`, en `--zookeeperNodeSize` parameters.
 
 * **Azure PowerShell**: bij het gebruik van de `New-AzureRmHDInsightCluster` cmdlet, u kunt de grootte van de hoofd-, werknemer- en ZooKeeper-knooppunten kunt instellen met behulp van de `-HeadNodeVMSize`, `-WorkerNodeSize`, en `-ZookeeperNodeSize` parameters.
 
@@ -223,7 +223,7 @@ Wanneer u een cluster maakt, kunt u de grootte van de knooppunten opgeven. De vo
 Gebruik de volgende koppelingen voor meer informatie over zaken die worden vermeld in dit document.
 
 * [Naslaginformatie over de Ambari-REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [De Azure CLI installeren en configureren](../cli-install-nodejs.md)
+* [De klassieke Azure-CLI installeren en configureren](../cli-install-nodejs.md)
 * [Azure PowerShell installeren en configureren ](/powershell/azure/overview)
 * [HDInsight met behulp van Ambari beheren](hdinsight-hadoop-manage-ambari.md)
 * [HDInsight op basis van Linux-clusters inrichten](hdinsight-hadoop-provision-linux-clusters.md)

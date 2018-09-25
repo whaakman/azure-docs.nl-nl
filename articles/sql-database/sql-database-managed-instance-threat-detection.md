@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: ronmat
 ms.reviewer: vanto
-ms.openlocfilehash: af93a1c0f1e132b04d3bf5c5511f5db1f29ba30c
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 28676d0e027b73281fcb9874669aa6447ec622ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498637"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964255"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Azure SQL Database Managed Instance detectie van bedreigingen
 
-SQL Threat Detection detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke aangeeft probeert te openen of misbruik te maken van databases in een Azure SQL Database Managed Instance (preview).
+SQL Threat Detection detecteert afwijkende activiteiten die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases in een Azure SQL Database Managed Instance aangeeft.
 
 ## <a name="overview"></a>Overzicht
 

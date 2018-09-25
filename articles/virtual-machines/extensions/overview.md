@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c54bcc1239c2d8b8a88d5e30b06f8856b73b47ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412597"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960682"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Virtuele machine van Azure-extensies en functies
 Extensies voor Azure-machines (VM) zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure Virtual machines bieden, kunt u de bestaande installatiekopieën gebruiken en ze vervolgens aanpassen als onderdeel van uw implementaties aan u buiten het bedrijf van aangepaste installatiekopie samenstellen.
@@ -41,7 +41,7 @@ Extensies zijn gekoppeld aan een nieuwe VM-implementatie. Bijvoorbeeld, kunnen z
 U kunt beschikbare uitbreidingen bekijken in de VM-blade in de Portal, onder extensies, dit is slechts een klein bedrag voor de volledige lijst, kunt u de CLI-hulpprogramma's gebruiken, Zie [VM-extensies voor Linux detecteren](features-linux.md) en [ Detectie van VM-extensies voor Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Hoe kan ik een extensie installeren?
-Azure VM-extensies kunnen worden beheerd met behulp van de Azure CLI 2.0, Azure PowerShell, Azure Resource Manager-sjablonen en Azure portal. Als u wilt proberen een uitbreiding, kunt u gaat u naar de Azure portal, selecteer de aangepaste Scriptextensie, vervolgens doorgeven in een opdracht / script en voert de extensies.
+Azure VM-extensies kunnen worden beheerd met behulp van de Azure CLI, Azure PowerShell, Azure Resource Manager-sjablonen en Azure portal. Als u wilt proberen een uitbreiding, kunt u gaat u naar de Azure portal, selecteer de aangepaste Scriptextensie, vervolgens doorgeven in een opdracht / script en voert de extensies.
 
 Als u dezelfde extensie die u hebt toegevoegd in de portal via de CLI of Resource Manager-sjabloon wilt, ziet u andere extensies documentatie, zoals [Windows Custom Script Extension](custom-script-windows.md) en [Linux Custom Script Extension](custom-script-linux.md).
 

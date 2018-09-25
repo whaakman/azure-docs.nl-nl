@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 08fcb244ada319dccf62c134a0155dd117e79184
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412296"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977029"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy gebruiken voor het beperken van de installatie van de extensies op virtuele Linux-machines
 
 Als u voorkomen dat het gebruik of de installatie van bepaalde uitbreidingen op uw virtuele Linux-machines wilt, kunt u een Azure-beleid met behulp van de CLI te beperken van extensies voor virtuele machines binnen een resourcegroep maken. 
 
-In deze zelfstudie maakt gebruik van de CLI vanuit de Azure Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u de Azure CLI lokaal uitvoert wilt, moet u versie 2.0.26 installeren of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+In deze zelfstudie maakt gebruik van de CLI vanuit de Azure Cloud Shell, die voortdurend wordt bijgewerkt naar de nieuwste versie. Als u de Azure CLI lokaal uitvoert wilt, moet u versie 2.0.26 installeren of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
 
 ## <a name="create-a-rules-file"></a>Maak een regelbestand
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) biedt vooraf gemaakte domeinen die zijn vooraf gedefinieerde sets intenties en entiteiten die voor domeinen samenwerken of algemene categorieën van clienttoepassingen. De vooraf gemaakte domeinen vooraf is getraind en gereed zijn voor u om toe te voegen aan uw LUIS-app.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053720"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037368"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Vooraf gemaakte domeinen in LUIS-apps gebruiken  
 
@@ -26,7 +26,7 @@ Ga de **vooraf gemaakte domeinen** tabblad om te bekijken van de andere vooraf g
 > [!TIP]
 > U vindt een volledige lijst van de vooraf gemaakte domeinen in de [vooraf gemaakte domeinen verwijzing](./luis-reference-prebuilt-domains.md).
 
-![Vooraf gedefinieerde domein toevoegen](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
+![Vooraf gemaakt domein toevoegen](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 
 ## <a name="add-a-prebuilt-domain"></a>Een vooraf gedefinieerd domein toevoegen

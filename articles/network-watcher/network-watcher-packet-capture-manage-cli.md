@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 70ec0f1acc54aae7de5f815d62a876ce3d033193
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090483"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966887"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Pakketopname beheren met Azure Network Watcher met de Azure CLI
 
@@ -31,9 +31,7 @@ ms.locfileid: "39090483"
 
 Network Watcher packet-capture kunt u capture-sessies voor het volgen van verkeer van en naar een virtuele machine maken. Filters zijn beschikbaar voor de opnamesessie om te controleren of dat u alleen het verkeer die u wilt vastleggen. Pakketopname helpt bij het opsporen van afwijkingen netwerk reactief en proactief. Andere toepassingen zijn onder andere de netwerkstatistieken, het verkrijgen van informatie over het netwerk indringers, fouten opsporen in client-servercommunicatie en nog veel meer verzamelen. Door vereenvoudigt deze mogelijkheid voor het extern activeren pakketopnamen, de belasting van het uitvoeren van een pakketopname handmatig en op de gewenste computer, wat kostbare tijd bespaart.
 
-In dit artikel wordt onze CLI van de volgende generatie voor het implementatiemodel resource management, Azure CLI 2.0 die beschikbaar is voor Windows, Mac en Linux.
-
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](/cli/azure/install-azure-cli).
 
 In dit artikel doorloopt u de verschillende beheertaken die momenteel beschikbaar voor de pakketopname zijn.
 

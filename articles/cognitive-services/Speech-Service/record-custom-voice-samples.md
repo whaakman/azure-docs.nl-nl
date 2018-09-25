@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 31bfe954a58d232408fd66a1f98911e079824fb0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3e9907450680d6984a644b43014ba90b1a9d987e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715207"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991926"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -106,10 +106,10 @@ Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn ve
 |Tekstbron|Beschrijving|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|Over 1100 zinnen hebt geselecteerd in out-van-copyright werkt specifiek voor gebruik in spraak synthese projecten. Een uitstekend uitgangspunt.|
-|Werkt niet meer<br>onder het auteursrecht|Normaal gesproken werkt gepubliceerd voordat 1923. Voor Engels, [Project Gutenberg](https://www.gutenberg.org/) biedt tienduizenden dergelijke werken. Kunt u zich kunt richten op nieuwere werkt, omdat de taal die dichter bij moderne Engels.|
+|Werkt niet meer<br>onder het auteursrecht|Doorgaans werkt gepubliceerd voordat 1923. Voor Engels, [Project Gutenberg](https://www.gutenberg.org/) biedt tienduizenden dergelijke werken. Kunt u zich kunt richten op nieuwere werkt als de taal die dichter bij moderne Engels.|
 |Government&nbsp;werkt|Werkt die zijn gemaakt door de Amerikaanse overheid zijn niet onder het auteursrecht vallen in de Verenigde Staten, hoewel de overheid kan claim copyright in andere landen.|
 |Openbare domein|Werkt voor welke copyright expliciet is afgewezen of die is toegewezen aan het openbare domein. (Het niet mogelijk om af te wijken copyright volledig in sommige rechtsgebieden.)|
-|Permissively licentie werkt|Werkt onder een licentie, zoals Creative Commons of de GNU gratis documentatie-licentie (GFDL) worden gedistribueerd. Wikipedia maakt gebruik van de GFDL. Aantal licenties echter mogelijk leggen beperkingen op de prestaties van de gelicentieerde inhoud die mogelijk van invloed zijn op het maken van een model voor aangepaste spraak, dus Lees de licentie zorgvuldig.|
+|Permissively licentie werkt|Werkt onder een licentie is gedistribueerd, zoals Creative Commons of de GNU gratis documentatie-licentie (GFDL). Wikipedia maakt gebruik van de GFDL. Aantal licenties echter kunnen leggen beperkingen op de prestaties van de gelicentieerde inhoud die mogelijk van invloed op het maken van een model voor aangepaste spraak, dus Lees de licentie zorgvuldig.|
 
 ## <a name="recording-your-script"></a>Het script op te nemen
 
@@ -150,7 +150,7 @@ Hier wordt de meeste van het bereik (hoogte) wordt gebruikt, maar de hoogste pie
 
 Neem rechtstreeks op de computer met behulp van een goede audio-interface of een USB-poort, afhankelijk van de mic u gebruikt. Voor de analoog, behoudt u de audio keten eenvoudige: mic, preamp, audio-interface, computer. U kunt beide licentiëren [Avid Pro Tools](http://www.avid.com/en/pro-tools) en [Adobe Audition](https://www.adobe.com/products/audition.html) maandelijkse tegen een redelijke prijs. Als uw budget zeer krachtige is, probeert u het gratis [Audacity](https://www.audacityteam.org/).
 
-Registreren bij 44,1-KHz 16-bits mono (CD kwaliteit) of hoger. De huidige status van de techniek is 48-KHz 24-bits, als uw apparatuur wordt ondersteund. U wordt verkleinen uw audio naar een 16-KHz 16-bits voordat u deze bij de portal voor aangepaste spraak indient. Het loont nog steeds, hebben een hoge kwaliteit oorspronkelijke op te nemen in het geval dat wijzigingen nodig zijn.
+Vastleggen met een 44,1 kHz 16-bits mono (kwaliteit CD) of hoger. Huidige status-of-the-art is 48 kHz 24-bits, als uw apparatuur wordt ondersteund. U wordt down-sampling van uw audio tot 16 kHz 16-bits voordat u deze bij de portal voor aangepaste spraak indient. Het loont nog steeds, hebben een hoge kwaliteit oorspronkelijke op te nemen in het geval van wijzigingen nodig zijn.
 
 In het ideale geval hebben verschillende mensen in de rollen van director, engineering en talent vervullen. Probeer niet om dit te doen alle zelf. In een knijpen door één persoon kan worden zowel de directeur en de engineer.
 
@@ -198,7 +198,7 @@ Reguliere einden nemen en bieden een drank om te helpen uw stem talent zijn of h
 
 ### <a name="after-the-session"></a>Na de sessie
 
-Moderne opname studios uitgevoerd op computers. Aan het einde van de sessie ontvangt u een of meer audio-bestanden, niet een tape. Deze bestanden wordt waarschijnlijk WAV of AIFF-indeling in het CD-kwaliteit (44,1 KHz 16-bits) of hoger. 48 kHz 24-bits is gemeenschappelijk en wenselijk is. Hogere sampling-frequenties, zoals 96 KHz zijn doorgaans niet nodig.
+Moderne opname studios uitgevoerd op computers. Aan het einde van de sessie ontvangt u een of meer audio-bestanden, niet een tape. Deze bestanden wordt waarschijnlijk WAV of AIFF-indeling in het CD-kwaliteit (44,1 kHz 16-bits) of hoger. 48 kHz 24-bits is gemeenschappelijk en wenselijk is. Hogere sampling-frequenties, zoals 96 kHz zijn doorgaans niet nodig.
 
 De aangepaste spraak-portal moet elke opgegeven utterance zich in een eigen bestand. Elke audiobestand geleverd door de studio bevat meerdere uitingen. De primaire na productie-taak is dus het opsplitsen van de opnamen en bereid ze voor het indienen van. De opname-engineer mogelijk markeringen in het bestand geplaatst (of een lijst met afzonderlijke hints opgegeven) om aan te geven waarbij elke utterance wordt gestart.
 
@@ -208,7 +208,7 @@ Laat u slechts circa 0,2 seconden stilte aan het begin en einde van elke clip, m
 
 Luister naar elk bestand zorgvuldig. U kunt in dit stadium bewerken van kleine ongewenste geluiden die u hebt gemist tijdens het opnemen, zoals een lichte lip smack voordat u een regel, maar zorg ervoor dat u niet te verwijderen van alle werkelijke spraak. Als u een bestand niet kan oplossen, verwijdert u het uit uw gegevensset en houd er rekening mee dat u hebt gedaan.
 
-Elk bestand converteren naar 16-bits en de snelheid waarmee een voorbeeld van 16 KHz voordat u deze opslaat en als u de chatter studio vastgelegd de tweede kanaal verwijderen. Elk bestand opslaan in WAV-indeling en de naam van de bestanden door het aantal utterance van uw script.
+Elk bestand converteren naar 16-bits en de snelheid waarmee een voorbeeld van 16 kHz voordat u opslaat en, als u de chatter studio hebt genoteerd, verwijdert u het tweede kanaal. Elk bestand opslaan in WAV-indeling, voor het benoemen van de bestanden met het nummer utterance van uw script.
 
 Maak ten slotte de *transcript* die wordt gekoppeld aan elk WAV-bestand met een versie van de bijbehorende utterance tekst. [Het maken van aangepaste spraakstijlen](how-to-customize-voice-font.md) bevat details van de vereiste indeling. U kunt de tekst rechtstreeks vanuit uw script kopiëren. Maak vervolgens een Zip-bestand van de WAV-bestanden en de tekstversie.
 

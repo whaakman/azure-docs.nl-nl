@@ -13,14 +13,17 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07f8a31244acca48a0bbae8ad26b0c5b509f0c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35645765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959577"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning-Model Management Account API-naslaginformatie
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Zie voor meer informatie over het instellen van de implementatieomgeving [Modelbeheer-account instellen](deployment-setup-configuration.md).
 
@@ -34,7 +37,7 @@ Azure Machine Learning-Model Management Account API implementeert de volgende be
 U kunt deze installatiekopie gebruiken om te maken van een webservice lokaal of op een externe Azure Container Service-cluster of een andere Docker-ondersteunde omgeving van uw keuze.
 
 ## <a name="prerequisites"></a>Vereisten
-Zorg ervoor dat u hebt doorlopen tot de installatiestappen uit in de [installeren en maken van de snelstartgids](../service/quickstart-installation.md) document.
+Zorg ervoor dat u hebt doorlopen tot de installatiestappen uit in de [installeren en maken van de snelstartgids](quickstart-installation.md) document.
 
 De onderstaande onderdelen vereist voordat u doorgaat:
 1. Model voor het inrichten van beheer
@@ -248,7 +251,7 @@ Hiermee maakt u een afbeelding als een Docker-installatiekopie in Azure Containe
 | accountName | pad | De naam van het Modelbeheer-account. | Ja | tekenreeks |
 | API-versie | query | De versie van de Microsoft.Machine.Learning resourceprovider API beschikbaar te maken. | Ja | tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Het moet er ongeveer als "Bearer XXXXXX." | Ja | tekenreeks |
-| imageRequest | hoofdtekst | De nettolading die wordt gebruikt om een installatiekopie te maken. | Ja | [ImageRequest](#imagerequest) |
+| imageRequest | hoofdtekst | De nettolading die wordt gebruikt om een installatiekopie te maken. | Ja | [imageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Headers | Schema |

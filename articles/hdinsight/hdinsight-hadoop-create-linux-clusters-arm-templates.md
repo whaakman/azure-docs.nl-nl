@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961311"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Hadoop-clusters in HDInsight maken met behulp van Resource Manager-sjablonen
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ In dit artikel leert u verschillende manieren om Azure HDInsight-clusters met be
 Als u wilt de instructies in dit artikel hebt u het volgende nodig:
 
 * Een [Azure-abonnement](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell en/of Azure CLI.
+* Azure PowerShell en/of Azure klassieke CLI.
 
 ### <a name="resource-manager-templates"></a>Resource Manager-sjablonen
 Resource Manager-sjabloon kunt gemakkelijk maken van de volgende resoruces voor uw toepassing in een enkele, gecoördineerde bewerking:
@@ -49,7 +49,7 @@ Resource Manager kunt u een Resource Manager-sjabloon exporteren uit bestaande r
 
 - Azure-portal: Zie [een Azure Resource Manager-sjabloon exporteren uit bestaande resources](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Zie [exporteren van Azure Resource Manager-sjablonen met PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI: Zie [exporteren van Azure Resource Manager-sjablonen met Azure CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Klassieke Azure CLI: Zie [exporteren van Azure Resource Manager-sjablonen met klassieke Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Implementeren met behulp van de portal
@@ -60,9 +60,9 @@ U kunt een Resource Manager-sjabloon met behulp van de Azure portal implementere
 
 U kunt implementeren met behulp van Azure PowerShell Resource Manager-sjabloon. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) en [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>Implementeren met behulp van CLI
+## <a name="deploy-using-azure-cli"></a>Implementeren met behulp van Azure CLI
 
-U kunt een Resource Manager-sjabloon met behulp van Azure CLI implementeren. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) en [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+U kunt een Resource Manager-sjabloon met behulp van klassieke CLI implementeren. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) en [persoonlijke Resource Manager-sjabloon implementeren met SAS-token en Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Implementeren met behulp van de REST-API
 U kunt een Resource Manager-sjabloon met behulp van REST-API implementeren. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: ab085d6a5cb38c46cf46a51da6d294732e2fd879
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979365"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060668"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure-VM-schijven
 
@@ -25,7 +25,7 @@ In dit artikel richt zich op het gebruik van standard-SSD en HDD-schijven. Zie v
 
 Er zijn twee manieren om te maken van standard-schijven voor virtuele Azure-machines:
 
-**Niet-beheerde schijven**: dit type schijf is de oorspronkelijke methode waarbij u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan elke Azure-VM-grootte, met inbegrip van de virtuele machines die voornamelijk gebruikmaken van Premium-opslag, zoals de DSv2 en GS-serie. Azure VM's ondersteunen meerdere standaardschijven, zodat tot 256 TB opslagruimte per virtuele machine koppelen.
+**Niet-beheerde schijven**: dit type schijf is de oorspronkelijke methode waarbij u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan elke Azure-VM-grootte, met inbegrip van de virtuele machines die voornamelijk gebruikmaken van Premium-opslag, zoals de DSv2 en GS-serie. Azure VM's ondersteunen verschillende standaardschijven koppelen zodat maximaal 256 gaat dit opslagruimte per virtuele machine. Als u de grootte van de preview-schijven gebruikt, kunt u maximaal ongeveer 2 gaat dit opslagruimte per virtuele machine hebben. 
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): deze functie wordt de storage-accounts die voor u gebruikt voor de VM-schijven beheerd. U geeft het type (Premium-SSD-, Standard-SSD- of Standard HDD) en de grootte van de schijf die u nodig hebt en Azure maakt en beheert de schijf voor u. U hoeft te bekommeren plaatsen van de schijven voor meerdere opslagaccounts om ervoor te zorgen, u binnen de grenzen van de schaalbaarheid voor de storage-accounts blijven--Azure regelt die voor u.
 
@@ -36,15 +36,15 @@ Als u wilt aan de slag met Azure Standard-opslag, gaat u naar [voor gratis aan d
 Zie een van de volgende artikelen voor informatie over het maken van een virtuele machine met Managed Disks.
 
 * [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Een virtuele Linux-machine maken met behulp van de Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>Standard-opslag-functies 
+## <a name="standard-storage-features"></a>Standard-opslag-functies
 
 Laten we eens enkele van de functies van Standard-opslag. Zie voor meer informatie, [Inleiding tot Azure Storage](../articles/storage/common/storage-introduction.md).
 
 **Standard-opslag**: Azure Standard-opslag biedt ondersteuning voor Azure Disks, Azure-Blobs, Azure Files, Azure-tabellen en wachtrijen van Azure. Voor het gebruik van Standard Storage-services, beginnen met [maken van een Azure Storage-account](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Standard-SSD-schijven:** Standard-SSD-schijven bieden meer betrouwbare prestaties dan standaard harde schijven, en zijn momenteel beschikbaar in preview. Zie voor meer informatie over beschikbaarheid in regio's van de Standard-SSD-schijven, [beschikbaarheid in regio's van de Standard-SSD-schijven (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standard-SSD-schijven:** Standard-SSD-schijven bieden meer betrouwbare prestaties dan standaard harde schijven en op dit moment beschikbaar zijn. Zie voor meer informatie over beschikbaarheid in regio's van de Standard-SSD-schijven, [beschikbaarheid in regio's van de Standard-SSD-schijven](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Standaardschijven HDD:** standaard harde schijven kunnen worden gekoppeld aan alle Azure-VM's, inclusief grootte-serie VM's met Premium Storage gebruikt, zoals de DSv2 en GS-serie. Een diskette standaard harde schijven kan alleen worden gekoppeld aan een virtuele machine. U kunt echter een of meer van deze schijven koppelen aan een virtuele machine, tot het maximum aantal op schijf aantal gedefinieerd voor deze VM-grootte. In de volgende sectie op Standard Storage Scalability and Performance Targets, wordt de specificaties in meer detail beschreven.
 
@@ -81,11 +81,11 @@ In tegenstelling tot Premium-schijven, zijn de i/o-bewerkingen per seconde (IOPS
 
 | **VM-laag**            | **Basic-laag virtuele machine** | **Standard-laag virtuele machine** |
 |------------------------|-------------------|----------------------|
-| Disk maximale grootte          | 4095 GB           | 4095 GB              |
-| Max 8 KB IOPS per schijf | Maximaal 300         | Maximaal 500            |
-| Maximale Bandwidth per schijf | Maximaal 60 MB/s     | Maximaal 60 MB/s        |
+| Disk maximale grootte          | 32.767 giB           | 32.767 giB        |
+| Max 8 KB IOPS per schijf | Maximaal 2000         | Maximaal 2000        |
+| Maximale Bandwidth per schijf | Maximaal 500 MB/s     | Maximaal 500 MB/s      |
 
-Als uw workload schijfondersteuning met hoge prestaties en lage latentie, moet u overwegen Premium-opslag. Als u wilt weten meer voordelen van Premium-opslag, gaat u naar [High-Performance Premium Storage en Azure VM-schijven](../articles/virtual-machines/windows/premium-storage.md). 
+Als uw workload schijfondersteuning met hoge prestaties en lage latentie, moet u overwegen Premium-opslag. Als u wilt weten meer voordelen van Premium-opslag, gaat u naar [High-Performance Premium Storage en Azure VM-schijven](../articles/virtual-machines/windows/premium-storage.md).
 
 ## <a name="snapshots-and-copy-blob"></a>Momentopnamen en kopiëren van de blob
 
@@ -121,9 +121,9 @@ Wanneer u de Standard-opslag, zijn de volgende factureringsvoorwaarden van toepa
 
 **Beheerde schijven:** facturering voor standaard beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. Azure wijst de ingerichte grootte (afgerond) naar de dichtstbijzijnde Managed Disks-optie die zijn opgegeven in de onderstaande tabellen. Elke beheerde schijf wordt toegewezen aan een van de ondersteunde ingerichte grootte en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standaard beheerde schijf maken en een ingerichte grootte van 200 GiB opgeven, in rekening gebracht volgens de prijzen van het type S15 schijf.
 
-| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4.095 giB (4 TiB) | 8192 giB (8 TiB) | 16,385 giB (16 TiB) | 32.767 giB (32 TiB) |
 
 
 **Momentopnamen**: momentopnamen van schijven die standaard worden in rekening gebracht voor de extra capaciteit gebruikt door de momentopnamen. Zie voor meer informatie over momentopnamen [het maken van een momentopname van een Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
@@ -138,7 +138,7 @@ Zie voor gedetailleerde informatie over prijzen voor Standard-opslag, virtuele M
 * [Prijzen voor Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Prijzen van Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## <a name="azure-backup-service-support"></a>Ondersteuning van Azure Backup-service 
+## <a name="azure-backup-service-support"></a>Ondersteuning van Azure Backup-service
 
 Virtuele machines met niet-beheerde schijven kunnen worden reservekopie maken met Azure Backup. [Meer informatie](../articles/backup/backup-azure-vms-first-look-arm.md).
 
@@ -154,4 +154,4 @@ U kunt ook de Azure Backup-service met Managed Disks gebruiken om te maken van e
 
 * [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Een virtuele Linux-machine maken met behulp van de Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)

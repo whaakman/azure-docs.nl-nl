@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964698"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 In dit artikel bevat informatie over hoe data scientists Azure Machine Learning Workbench kunnen gebruiken voor het ontwikkelen van oplossingen waarvoor het gebruik van big data. U kunt starten vanuit een voorbeeld van een grote gegevensset, doorlopen van de gegevens voor te bereiden, feature-engineering en machine learning en vervolgens het proces voor de hele grote gegevensset kunnen worden uitgebreid. 
 
@@ -49,11 +52,11 @@ In dit scenario, u zich richten op werkbelasting voorspelling voor elke machine 
 De vereisten voor het uitvoeren van dit voorbeeld zijn er als volgt uit:
 
 * Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
-* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Het programma te installeren en een werkruimte maken, Zie de [Quick Start-installatiehandleiding](../service/quickstart-installation.md). Als u meerdere abonnementen hebt, kunt u [het gewenste abonnement om te worden van het huidige actieve abonnement instellen](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Het programma te installeren en een werkruimte maken, Zie de [Quick Start-installatiehandleiding](quickstart-installation.md). Als u meerdere abonnementen hebt, kunt u [het gewenste abonnement om te worden van het huidige actieve abonnement instellen](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (de instructies in dit voorbeeld zijn in het algemeen hetzelfde voor macOS-systemen).
 * Een Data Science Virtual Machine (DSVM) voor Linux (Ubuntu), bij voorkeur in de regio VS-Oost waar de gegevens zoekt. U kunt een Ubuntu-DSVM inrichten door [deze instructies](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). U kunt ook zien [in deze Quick Start](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Het is raadzaam om met behulp van een virtuele machine met ten minste 8 kerngeheugens en 32 GB aan geheugen. 
 
-Ga als volgt de [instructie](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) om in te schakelen zonder wachtwoord sudoer toegang op de virtuele machine voor AML-Workbench.  U kunt gebruiken [SSH-sleutel gebaseerde verificatie voor het maken en gebruiken van de virtuele machine in de Workbench AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de gegevens van de DSVM voor de latere fasen:
+Ga als volgt de [instructie](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) om in te schakelen zonder wachtwoord sudoer toegang op de virtuele machine voor AML-Workbench.  U kunt gebruiken [SSH-sleutel gebaseerde verificatie voor het maken en gebruiken van de virtuele machine in de Workbench AML](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de gegevens van de DSVM voor de latere fasen:
 
  Veldnaam| Waarde |  
  |------------|------|

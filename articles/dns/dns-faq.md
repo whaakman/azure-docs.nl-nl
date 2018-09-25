@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 747b2e2499a9bafcf7a7b03bc2ce144828c55c75
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 66e04e7f0b272f19788e79805ef06d11e2eda572
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172497"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948023"
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -26,9 +26,9 @@ ms.locfileid: "39172497"
 
 ### <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
-De Domain Name System of DNS is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een website of -service naar het IP-adres. Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met behulp van Microsoft Azure-infrastructuur biedt. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services.
+De Domain Name System of DNS is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een website of -service naar het IP-adres. Azure DNS is een service voor het hosten van DNS-domeinen die naamomzetting verzorgt met behulp van de Microsoft Azure-infrastructuur. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services.
 
-DNS-domeinen in Azure DNS worden gehost op de wereldwijde netwerk van Azure met DNS-naamservers. Dit maakt gebruik van Anycast-netwerken zodat elke DNS-query wordt beantwoord door de dichtstbijzijnde beschikbare DNS-server. Azure DNS biedt zowel snelle prestaties en hoge beschikbaarheid voor uw domein.
+DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS-naamservers. Dit maakt gebruik van Anycast-netwerken zodat elke DNS-query wordt beantwoord door de dichtstbijzijnde beschikbare DNS-server. Azure DNS biedt zowel snelle prestaties en hoge beschikbaarheid voor uw domein.
 
 De Azure DNS-service is gebaseerd op Azure Resource Manager. Zo profiteert het bedrijf van Resource Manager-functies, zoals op rollen gebaseerd toegangsbeheer, logboeken voor controle en resource vergrendelen. Uw domeinen en -records kunnen worden beheerd via de Azure portal, Azure PowerShell-cmdlets en de platformoverschrijdende Azure CLI. Toepassingen waarbij automatisch DNS-beheer kunnen integreren met de service via de REST-API en SDK's.
 
@@ -63,6 +63,10 @@ U moet de domeinnaam aanschaffen als u wilt uw DNS-zone een koppeling naar de gl
 
 ## <a name="azure-dns-features"></a>Azure DNS-functies
 
+### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Zijn er beperkingen bij het gebruik van de aliasrecords voor een domein naam apex met Traffic Manager?
+
+Ja. Met Traffic Manager, moet u statische openbare IP-adressen gebruiken. Configureer de **Extern eindpunt** doel met behulp van een statisch IP-adres. 
+
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Azure DNS biedt ondersteuning voor routering of eindpunt failover van verkeer op basis van DNS?
 
 Routering en het eindpunt failover van verkeer op basis van DNS worden geleverd door Azure Traffic Manager. Azure Traffic Manager is een afzonderlijke Azure-service die kan worden gebruikt samen met Azure DNS. Zie voor meer informatie de [overzicht Traffic Manager](../traffic-manager/traffic-manager-overview.md).
@@ -71,7 +75,7 @@ Azure DNS ondersteunt alleen het hosten van 'statische' DNS-domeinen, waarbij el
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Azure DNS biedt ondersteuning voor registratie van domeinnamen?
 
-Nee. Azure DNS ondersteunt momenteel geen domeinnamen aanschaffen. Als u aanschaffen wilt, moet u het gebruik van een externe domeinnaamregistrar. De registrar kosten doorgaans jaarlijks een klein rekening. De domeinen kunnen vervolgens worden gehost in Azure DNS voor het beheren van DNS-records. Zie [een domein delegeren naar Azure DNS](dns-domain-delegation.md) voor meer informatie.
+Nee. Azure DNS ondersteunt momenteel geen domeinnamen aanschaffen. Als u aanschaffen wilt, moet u het gebruik van een externe domeinnaamregistrar. De registrar kosten doorgaans jaarlijks een klein rekening. De domeinen kunnen vervolgens worden gehost in Azure DNS voor het beheren van DNS-records. Zie [Een domein aan Azure DNS overdragen](dns-domain-delegation.md) voor meer informatie.
 
 Domein kopen is een functie in Azure achterstand wordt bijgehouden. Kunt u de site voor gebruikersfeedback van naar [registreren van het ondersteuningsteam van het voor deze functie](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
@@ -93,13 +97,41 @@ Nee. URL-omleiding services zijn niet daadwerkelijk een DNS-service - ze werken 
 
 URL-omleiding functie wordt bijgehouden in Azure DNS achterstand. Kunt u de site voor gebruikersfeedback van naar [registreren van het ondersteuningsteam van het voor deze functie](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
-### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Azure DNS biedt ondersteuning voor uitgebreide ASCII-codering (8-bits) instellen voor TXT-Recordset?
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset"></a>Azure DNS biedt ondersteuning voor uitgebreide ASCII-codering (8-bits) instellen voor TXT-Recordset?
 
 Ja. Azure DNS ondersteunt de uitgebreide ASCII-tekencodering set voor Recordsets, TXT, als u de nieuwste versie van de Azure REST API's, SDK's, PowerShell en CLI (versies ouder dan 10-01-2017 of SDK 2.1 kan geen ondersteuning voor de uitgebreide ASCII-verzameling). Bijvoorbeeld, als de gebruiker een tekenreeks als de waarde voor een TXT-record biedt heeft met de uitgebreide ASCII-teken \128 (bijvoorbeeld: "abcd\128efgh"), Azure DNS gebruikt de bytewaarde van dit teken (dit is 128) in de interne weergave. Op het moment van DNS-omzetting wordt ook deze bytewaarde geretourneerd in het antwoord. Let ook op dat "abc" en "\097\098\099" uitwisselbaar zijn wat betreft resolutie is. 
 
 We volgen [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone bestand master indeling escape regels voor TXT-records. Bijvoorbeeld, ' \' nu eigenlijk verlaat u alles per de RFC. Als u 'A\B' als de TXT-recordwaarde opgeeft, worden weergegeven en kunt oplossen door als alleen "AB". Als u wilt dat echt de TXT-record 'A\B' op het probleem zou moeten hebben, moet u als escape voor de '\" opnieuw, Internet Explorer Geef als ' A\\B '. 
 
-Houd er rekening mee dat deze ondersteuning momenteel niet beschikbaar voor TXT-records gemaakt op basis van de Azure-Portal is. 
+Deze ondersteuning is momenteel niet beschikbaar voor TXT-records gemaakt op basis van de Azure-portal. 
+
+## <a name="alias-records"></a>Aliasrecords
+
+### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Wat zijn enkele scenario's waarbij aliasrecords nuttig zijn?
+Zie de scenario's in sectie [Azure overzicht DNS-aliassen records](dns-alias.md).
+
+### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Welke typen worden ondersteund voor alias recordsets?
+Alias recordsets worden ondersteund voor de volgende recordtypen in Azure DNS-zone: A, AAAA en CNAME. 
+
+### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Welke bronnen worden ondersteund als de doelen voor recordsets alias?
+- **Wijs een openbaar IP-resource van een DNS-server A/AAAA-Recordset**. U kunt een A/AAAA-recordset maken en kunt u een recordset van de alias om te verwijzen naar een openbare IP-resource.
+- **Verwijzen naar een Traffic Manager-profiel van een AAAA-DNS A/CNAME-Recordset**. Naast de mogelijkheid om te verwijzen naar de CNAME van een Traffic Manager-profiel (bijvoorbeeld: contoso.trafficmanager.net) van een DNS CNAME-recordset, u kunt nu ook verwijzen naar een Traffic Manager-profiel met externe eindpunten, van een A of AAAA-recordset in uw DNS zone.
+- **Verwijzen naar een andere DNS-recordset binnen dezelfde zone**. Aliasrecords kunnen verwijzen naar aan de andere recordsets van hetzelfde type. U kunt bijvoorbeeld een DNS CNAME-recordset een alias aan een andere CNAME-recordset van hetzelfde type zijn. Dit is handig als u wilt dat aantal recordsets aliassen en sommige als niet-aliassen worden in termen van gedrag.
+
+### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Kan ik maken en de alias records uit de Azure-portal bijwerken?
+Ja. Aliasrecords kunnen worden gemaakt of worden beheerd in de Azure portal naast de Azure REST API's, Azure PowerShell, CLI en SDK's.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Aliasrecords zorgt u voor dat mijn DNS-recordset wordt verwijderd wanneer het onderliggende openbare IP-adres wordt verwijderd?
+Ja. Dit is in feite een van de belangrijkste mogelijkheden van de aliasrecords. Ze helpen u mogelijke storingen te voorkomen dat eindgebruikers van uw toepassing.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Alias records zorgt u voor dat mijn DNS-recordset wordt bijgewerkt naar de juiste IP-adres wanneer de onderliggende openbare IP-adres verandert?
+Ja. Zoals in de vorige vraag, dit is een van de belangrijkste mogelijkheden van de aliasrecords en vermijdt u mogelijke storingen of beveiligingsrisico voor uw toepassing.
+
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-an-a-or-aaaa-records-to-point-to-traffic-manager"></a>Zijn er beperkingen wanneer u de alias-record voor een A of AAAA-records om te verwijzen naar Traffic Manager?
+Ja. Als u wilt verwijzen naar een Traffic Manager-profiel als een alias van een A of AAAA-recordset, moet u dat het Traffic Manager-profiel maakt alleen gebruik van externe eindpunten. Wanneer u de externe eindpunten in Traffic Manager maakt, zorg ervoor dat u de werkelijke IP-adressen van de eindpunten opgeven.
+
+### <a name="is-there-an-additional-charge-for-using-alias-records"></a>Is er een extra kosten in rekening gebracht voor het gebruik van de aliasrecords?
+Aliasrecords zijn een kwalificatie op een geldige DNS-recordset en er is geen aanvullende facturering voor aliasrecords.
 
 ## <a name="using-azure-dns"></a>Met behulp van Azure DNS
 
@@ -179,7 +211,7 @@ Nee. Private Zones worden gebruikt in combinatie met virtuele netwerken en laat 
 Ja. Klanten kunnen maximaal 10 Resolution virtual networks koppelen aan een enkele privézone.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Een virtueel netwerk dat bij een ander abonnement hoort kan worden toegevoegd als een virtuele resolutienetwerk aan een Privézone? 
-Ja, zolang de gebruiker heeft de bewerking schrijfmachtiging op zowel de virtuele netwerken als de privé-DNS-zone. Houd er rekening mee dat de machtiging schrijven kan worden toegewezen aan meerdere RBAC-rollen. De klassieke netwerk Inzender RBAC-rol heeft bijvoorbeeld schrijfmachtigingen voor de virtuele netwerken. Zie voor meer informatie over RBAC-rollen [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md)
+Ja, zolang de gebruiker heeft de bewerking schrijfmachtiging op zowel de virtuele netwerken als de privé-DNS-zone. De machtiging schrijven kan worden toegewezen aan meerdere RBAC-rollen. De klassieke netwerk Inzender RBAC-rol heeft bijvoorbeeld schrijfmachtigingen voor de virtuele netwerken. Zie voor meer informatie over RBAC-rollen [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>De DNS-records automatisch worden geregistreerd virtuele machine in een privé-zone worden automatisch verwijderd wanneer de virtuele machines worden verwijderd door de klant?
 Ja. Als u een virtuele machine binnen een virtueel netwerk voor inschrijving verwijdert, wordt de DNS-records die zijn geregistreerd in de zone omdat deze een virtueel netwerk van de registratie wordt automatisch verwijderd. 
@@ -190,21 +222,21 @@ Nee. Op dit moment zijn de virtuele machine DNS-records die automatisch worden g
 ### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Wat gebeurt er als u nu probeert een nieuwe DNS-record handmatig maken in een privé-zone met de dezelfde hostnaam als een bestaande virtuele-machine (automatisch worden geregistreerd) in een virtueel netwerk registratie? 
 Als u probeert een nieuwe DNS-record handmatig maken in een privé-zone met de dezelfde hostnaam als een bestaande virtuele-machine (automatisch worden geregistreerd) in een virtueel netwerk van de registratie, kunnen we de nieuwe DNS-record te overschrijven de automatisch worden geregistreerd record van de virtuele machine. Bovendien, als u vervolgens probeert naar deze DNS-record handmatig worden gemaakt van de zone verwijdert, de verwijdering is wel mogelijk en de automatische registratie opnieuw wordt uitgevoerd (de DNS-record worden opnieuw gemaakt automatisch in de zone) zo lang als de virtuele machine nog steeds bestaat en een privé-IP heeft gekoppeld. 
 
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone--would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>Wat gebeurt er wanneer we een virtueel netwerk van de registratie van een privézone ontkoppelen? Zou u de records automatisch worden geregistreerd virtuele machine van het virtuele netwerk verwijderd uit de zone ook?
+### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>Wat gebeurt er wanneer we een virtueel netwerk van de registratie van een privézone ontkoppelen? Zou u de records automatisch worden geregistreerd virtuele machine van het virtuele netwerk verwijderd uit de zone ook?
 Ja. Als u een virtueel netwerk (update de DNS-zone te verwijderen van het bijbehorende Registration virtual network) van registratie van een privézone ontkoppelt, worden alle records die automatisch worden geregistreerd virtuele machine in Azure verwijderen uit de zone. 
 
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone--do-we-have-to-manually-update-the-private-zone-to-un-link-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Wat gebeurt er wanneer we een inschrijving (of het probleem zou moeten) virtueel netwerk dat is gekoppeld aan een privézone verwijderen? Hebben we de privézone handmatig bijwerken naar het virtuele netwerk van virtuele netwerk bevinden als een registratie (of het probleem zou moeten) ongedaan maken-koppeling van de zone?
+### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Wat gebeurt er wanneer we een inschrijving (of het probleem zou moeten) virtueel netwerk dat is gekoppeld aan een privézone verwijderen? Hebben we de privézone als u wilt ontkoppelen van het virtuele netwerk bevinden als een registratie (of het probleem zou moeten) virtuele netwerk van de zone handmatig bijwerken?
 Ja. Wanneer u een virtueel netwerk inschrijving (of het probleem zou moeten) verwijderen zonder het ontkoppelen van een private zone eerst, Azure kunt de verwijderingsbewerking te voltooien, maar het virtuele netwerk is niet automatisch niet-gekoppelde afkomstig van uw privé-zone indien van toepassing. U moet het virtuele netwerk van de persoonlijke zone handmatig verwijderen van de koppeling. Daarom is het raadzaam eerst ontkoppelen van het virtuele netwerk van uw persoonlijke zone voordat deze worden verwijderd.
 
 ### <a name="would-dns-resolution-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>DNS-omzetting met behulp van de FQDN-naam (internal.cloudapp.net) nog steeds werken, zelfs wanneer een Privézone wilt (bijvoorbeeld: contoso.local) is gekoppeld aan een virtueel netwerk? 
-Ja. Functie voor Privézones is geen vervanging voor de standaard-DNS-oplossingen met behulp van de zone Azure verschafte internal.cloudapp.net en wordt aangeboden als een aanvullende mogelijkheden of uitbreiding. Voor beide gevallen (of op Azure verschafte internal.cloudapp.net of op uw eigen Privézone relying) adviseren u om de FQDN-naam van de zone die u wilt oplossen op basis van gebruik. 
+Ja. Functie voor Privézones is geen vervanging voor de standaard-DNS-oplossingen met behulp van de zone Azure verschafte internal.cloudapp.net en wordt aangeboden als een aanvullende mogelijkheden of uitbreiding. Voor beide gevallen (of op Azure verschafte internal.cloudapp.net of op uw eigen Privézone relying), wordt aangeraden de FQDN-naam van de zone die u wilt oplossen op basis van gebruik. 
 
 ### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Zou het DNS-achtervoegsel op virtuele machines in een gekoppeld virtueel netwerk worden gewijzigd met die van de privé-Zone? 
 Nee. Op dit moment is het DNS-achtervoegsel op de virtuele machines in het gekoppelde virtuele netwerk als het standaard-Azure verschafte achtervoegsel blijft ("*. internal.cloudapp.net '). U kunt dit DNS-achtervoegsel echter handmatig wijzigen op uw virtuele machines met die van de privézone. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Zijn er beperkingen voor Privézones tijdens deze previewperiode?
 Ja. Tijdens de openbare Preview bestaat de volgende beperkingen:
-* 1 registration virtual networks per Privézone
+* Een registratie van virtuele netwerken per Privézone
 * Resolutie van maximaal 10 virtuele netwerken per Privézone
 * Een bepaald virtueel netwerk kan alleen worden gekoppeld aan een Privézone als een Registration virtual network
 * Een bepaald virtueel netwerk kan worden gekoppeld aan maximaal 10 Privézones als een virtuele resolutienetwerk

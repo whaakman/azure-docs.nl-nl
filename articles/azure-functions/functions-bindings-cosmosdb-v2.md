@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB-bindingen voor Functions 2.x (Preview)
+title: Azure Cosmos DB-bindingen voor Functions 2.x
 description: Over het gebruik van Azure Cosmos DB-triggers en bindingen in Azure Functions.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953469"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x (Preview)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versie 1 - Algemene beschikbaarheid](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093427"
 Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindingen in Azure Functions 2.x. Azure Functions ondersteunt activeren, invoeren en uitvoerbindingen voor Azure Cosmos DB.
 
 > [!NOTE]
-> In dit artikel is bedoeld voor [Azure Functions versie 2.x](functions-versions.md), deze bevindt zich in Preview.  Voor informatie over het gebruik van deze bindingen in functies 1.x, Zie [Azure Cosmos DB-bindingen voor Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> In dit artikel is bedoeld voor [Azure Functions versie 2.x](functions-versions.md).  Voor informatie over het gebruik van deze bindingen in functies 1.x, Zie [Azure Cosmos DB-bindingen voor Azure Functions 1.x](functions-bindings-cosmosdb.md).
 >
 > Deze binding heette oorspronkelijk DocumentDB. In functies versie zijn 2.x, de trigger, bindingen en pakket alle benoemde Cosmos DB.
 

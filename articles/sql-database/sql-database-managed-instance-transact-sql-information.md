@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 73e046c153af5c69ab343a90d1f9027b84b4deb1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: c23fbf0af7d1a15b0efee8af123150feb42c708e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966885"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server 
 
-Azure SQL Database Managed Instance (preview) biedt extra compatibiliteit met on-premises SQL Server Database Engine. De meeste van de Database-Engine van SQL Server-functies worden ondersteund in het beheerde exemplaar. Omdat er nog steeds enkele verschillen in de syntaxis en het gedrag, wordt in dit artikel bevat een overzicht van en worden deze verschillen uitgelegd.
+Azure SQL Database Managed Instance biedt extra compatibiliteit met on-premises SQL Server Database Engine. De meeste van de Database-Engine van SQL Server-functies worden ondersteund in het beheerde exemplaar. Omdat er nog steeds enkele verschillen in de syntaxis en het gedrag, wordt in dit artikel bevat een overzicht van en worden deze verschillen uitgelegd.
  - [T-SQL-verschillen en niet-ondersteunde functies](#Differences)
  - [Functies waarvoor verschillend gedrag in het beheerde exemplaar](#Changes)
  - [Tijdelijke beperkingen en bekende problemen](#Issues)
@@ -360,7 +360,7 @@ Zie voor meer informatie over de Restore-instructies [herstellen instructies](ht
 - Gebeurtenislogboek wordt niet ondersteund. 
  
 De volgende functies worden momenteel niet ondersteund, maar in de toekomst worden ingeschakeld:  
-- Proxy's
+- Proxy 's
 - Plannen van taken op niet-actieve CPU 
 - Agent in-/ uitschakelen
 - Waarschuwingen
@@ -415,15 +415,58 @@ Zorg ervoor dat u voorloopspaties verwijderen `?` van de SAS-sleutel gegenereerd
 
 SQL Server Management Studio en SQL Server Data Tools mogelijk enkele problemen bij het openen van Managed Instance. Alle hulpprogramma's problemen verholpen voordat deze algemeen beschikbaar.
 
-### <a name="incorrect-database-names"></a>Onjuiste databasenamen
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Onjuiste databasenamen in bepaalde weergaven, logboeken en berichten
 
-Beheerd exemplaar kan guid-waarde in plaats van de naam van database tijdens het terugzetten of in bepaalde foutberichten weergeven. Deze problemen worden gecorrigeerd voordat deze algemeen beschikbaar.
+Verschillende systeemweergaven, prestatiemeteritems, foutberichten, XEvents en fouten in logboekvermeldingen weergegeven GUID database-id's in plaats van de werkelijke databasenamen. Vertrouw niet op deze GUID-id's omdat ze zou worden vervangen door de werkelijke databasenamen in de toekomst.
 
 ### <a name="database-mail-profile"></a>Database-e-mailprofiel
 Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile`. Dit is een tijdelijke beperking die wordt binnenkort verwijderd.
+
+### <a name="error-logs-are-not-persisted"></a>Foutenlogboeken zijn niet-persistente
+Foutenlogboeken die beschikbaar in het beheerde exemplaar zijn niet permanent en de grootte is niet opgenomen in de limiet voor maximale opslag. Foutenlogboeken mogelijk in het geval van failover automatisch worden gewist.
+
+### <a name="error-logs-are-verbose"></a>Foutenlogboeken zijn uitgebreide
+Beheerd exemplaar plaatst uitgebreide informatie in de foutenlogboeken en veel van deze zijn niet relevant. De hoeveelheid gegevens in foutenlogboeken wordt in de toekomst worden verlaagd.
+
+**Tijdelijke oplossing**: gebruik een aangepaste procedure voor het lezen van foutenlogboeken die bepaalde niet-relevante items filter-out. Zie voor meer informatie, [Azure SQL database Managed Instance-sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Transactiebereik op twee databases binnen dezelfde instantie wordt niet ondersteund
+`TransactionScope` klasse in .net werkt niet als de twee query's worden verzonden naar de twee databases binnen hetzelfde exemplaar onder de dezelfde transactie:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Hoewel deze code met gegevens in dezelfde instantie werkt vereist het MSDTC.
+
+**Tijdelijke oplossing**: Gebruik [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) andere database gebruiken in de verbindingscontext in plaats van twee verbindingen.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR-modules en gekoppelde servers enige tijd kunnen niet verwijzen naar een lokaal IP-adres
+De IP-adres van het lokale exemplaar kunnen niet worden omgezet in CLR-modules geplaatst in de Managed Instance en gekoppelde servers/gedistribueerde query's die verwijzen naar huidige instantie enige tijd opnieuw uit. Dit is een tijdelijke fout.
+
+**Tijdelijke oplossing**: context-verbindingen indien mogelijk in CLR-module gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over Managed Instance [wat is een beheerd exemplaar?](sql-database-managed-instance.md)
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).
-- Zie voor een zelfstudie wordt uitgelegd hoe u een nieuwe Managed Instance maakt u [het maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
+- Zie voor een snelstart u voor het maken van een nieuwe Managed Instance, [het maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).

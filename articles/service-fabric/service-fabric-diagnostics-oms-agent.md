@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b97a32e2e859a5bb370873bfbdc5c6b4dffa1ac1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237839"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993847"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met Log Analytics
 
@@ -30,7 +30,7 @@ In dit artikel bevat informatie over de stappen voor het toevoegen van de Log An
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Toevoegen van de agent-extensie via Azure CLI
 
-De beste manier om de Log Analytics-Agent toevoegen aan uw cluster is via de virtuele-machineschaalset API's die beschikbaar zijn met de Azure CLI ingesteld. Als u Azure CLI instellen van nog niet hebt, Ga naar Azure portal en maak een [Cloud Shell](../cloud-shell/overview.md) -exemplaar of [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+De beste manier om de Log Analytics-Agent toevoegen aan uw cluster is via de virtuele-machineschaalset API's die beschikbaar zijn met de Azure CLI ingesteld. Als u Azure CLI instellen van nog niet hebt, Ga naar Azure portal en maak een [Cloud Shell](../cloud-shell/overview.md) -exemplaar of [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Zodra uw Cloud Shell is aangevraagd, zorg er dan voor dat u werkt in hetzelfde abonnement als uw resource. Schakel deze optie met `az account show` en zorg ervoor dat de waarde "naam" komt overeen met die van het abonnement van uw cluster.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110569"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983137"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Aangepaste Hadoop-toepassingen installeren op Azure HDInsight
 
@@ -66,7 +66,7 @@ De bestanden die nodig zijn voor het implementeren van deze toepassing (Hue):
     Met deze knop opent u een Resource Manager-sjabloon in de Azure Portal.  De Resource Manager-sjabloon bevindt zich in [ https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json ](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Zie [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: een HDInsight-toepassing installeren) voor informatie over het schrijven van deze Resource Manager-sjabloon.
 2. Volg de instructies om het cluster te maken en Hue te installeren. Zie [Op Linux gebaseerde Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over het maken van HDInsight-clusters.
 
-Naast de Azure Portal kunt u ook [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) en [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli) gebruiken om Resource Manager-sjablonen aan te roepen.
+Naast de Azure portal kunt u ook kunt gebruiken [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) en [klassieke Azure-CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) het aanroepen van Resource Manager-sjablonen.
 
 ## <a name="validate-the-installation"></a>De installatie valideren
 Controleer de status van de toepassing in de Azure Portal om de installatie van de toepassing te valideren. Daarnaast kunt u ook valideren of alle HTTP-eindpunten zijn gegenereerd zoals verwacht. Bovendien kunt u de webpagina valideren (indien aanwezig):
@@ -117,8 +117,8 @@ In de portal kunt u ook het cluster verwijderen, evenals de resourcegroep die de
 ### <a name="use-azure-powershell"></a>Azure PowerShell gebruiken
 Met behulp van Azure PowerShell kunt u het cluster of de resourcegroep verwijderen. Zie [Clusters verwijderen met behulp van Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-cli"></a>Azure CLI gebruiken
-Met behulp van Azure CLI kunt u het cluster of de resourcegroep verwijderen. Zie [Clusters verwijderen met behulp van Azure CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-classic-cli"></a>Azure klassieke CLI gebruiken
+Met klassieke Azure-CLI, kunt u verwijderen van het cluster of de resourcegroep verwijderen. Zie [clusters verwijderen met behulp van de klassieke Azure-CLI](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (MSDN: een HDInsight-toepassing installeren): informatie over het ontwikkelen van Resource Manager-sjablonen voor het implementeren van HDInsight-toepassingen.

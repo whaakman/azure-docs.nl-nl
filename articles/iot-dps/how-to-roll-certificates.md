@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054866"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976751"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Het verwijderen van certificaten voor x.509-apparaten
 
@@ -41,7 +41,7 @@ Certificaten op een apparaat moeten altijd worden opgeslagen op een veilige plaa
 
 Als u uw certificaten van een derde partij hebt ontvangen, moet u bekijken hoe ze hun certificaten implementeren. Het proces kan worden opgenomen in de overeenkomst met hen of is mogelijk een afzonderlijke service die ze bieden. 
 
-Als u uw eigen certificaten voor apparaten beheert, hebt u uw eigen pijplijn voor het bijwerken van certificaten maken. Zorg ervoor dat beide certificaten oude en nieuwe leaf hebben dezelfde algemene naam (CN). Doordat de dezelfde algemene naam, het apparaat kan opnieuw inrichten zelf zonder dat er een dubbele registratierecord gemaakt.
+Als u uw eigen certificaten voor apparaten beheert, hebt u uw eigen pijplijn voor het bijwerken van certificaten maken. Zorg ervoor dat beide certificaten oude en nieuwe leaf hebben dezelfde algemene naam (CN). Doordat de dezelfde algemene naam, het apparaat kan opnieuw inrichten zelf zonder dat er een dubbele registratierecord gemaakt. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Het certificaat te rollen in de IoT-hub
@@ -78,10 +78,13 @@ Als u bent certificaten rolling in reactie op een schending van de beveiliging, 
 
     ![Afzonderlijke registraties beheren](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Zodra het certificaat waarmee is geknoeid is verwijderd uit de inrichtingsservice, gaat u naar uw IoT-hub en verwijderen van de registratie van het apparaat dat is gekoppeld aan het certificaat waarmee is geknoeid.     
+3. Zodra het certificaat waarmee is geknoeid is verwijderd uit de inrichtingsservice, kan het certificaat nog steeds op het apparaat verbinding met de IoT-hub maken, zolang de apparaatregistratie van een voor het bestaat er worden gebruikt. Hiermee kunt u op twee manieren oplossen: 
+
+    De eerste manier zou worden handmatig navigeren naar uw IoT-hub en de registratie van het apparaat dat is gekoppeld aan het certificaat waarmee is geknoeid onmiddellijk te verwijderen. Klik wanneer het apparaat wordt opnieuw met een bijgewerkt certificaat ingericht, kunt u een nieuwe device Registration service wordt gemaakt.     
 
     ![IoT hub device Registration service verwijderen](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    De tweede manier zou worden opnieuw inrichten van het apparaat naar de dezelfde IoT-hub met ondersteuning voor beëindiging. Deze methode kan worden gebruikt ter vervanging van het certificaat voor de device Registration service op de IoT-hub. Zie voor meer informatie, [hoe u apparaten opnieuw inrichten](how-to-reprovision.md).
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>Afzonderlijke inschrijvingen en de vervaldatum van certificaat
 
@@ -118,9 +121,14 @@ Voor het bijwerken van de groepsinschrijving van een in reactie op een schending
 
     ![De nieuwe basis-CA-certificaat selecteren](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Zodra het waarmee is geknoeid certificaat is verwijderd uit de inrichtingsservice, gaat u naar de gekoppelde IoT-hub met de registratie van het apparaat waarmee is geknoeid en verwijderen van de rapporten die zijn gekoppeld aan het certificaat waarmee is geknoeid.
+6. Zodra het certificaat waarmee is geknoeid is verwijderd uit de inrichtingsservice, kan het certificaat nog steeds worden gebruikt op het apparaat verbinding met de IoT-hub maken, zolang het apparaatregistraties voor bestaat. Hiermee kunt u op twee manieren oplossen: 
+
+    De eerste manier zou worden handmatig navigeren naar uw IoT-hub en de registratie van het apparaat dat is gekoppeld aan het certificaat waarmee is geknoeid onmiddellijk te verwijderen. Wanneer uw apparaten opnieuw worden ingericht met bijgewerkte certificaten, wordt vervolgens een nieuwe device Registration service gemaakt voor elk criterium.     
 
     ![IoT hub device Registration service verwijderen](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    De tweede manier zou zijn met ondersteuning voor beëindiging opnieuw inrichten van uw apparaten op dezelfde IoT hub. Deze methode kan worden gebruikt ter vervanging van certificaten voor het apparaatregistraties op de IoT-hub. Zie voor meer informatie, [hoe u apparaten opnieuw inrichten](how-to-reprovision.md).
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Verdachte tussenliggende certificaten bijwerken
@@ -134,9 +142,13 @@ Voor het bijwerken van de groepsinschrijving van een in reactie op een schending
     ![Afzonderlijke registraties beheren](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. Zodra het waarmee is geknoeid certificaat is verwijderd uit de inrichtingsservice, gaat u naar de gekoppelde IoT-hub met de device Registration service en verwijder de registratie is gekoppeld aan het certificaat waarmee is geknoeid.
+3. Zodra het certificaat waarmee is geknoeid is verwijderd uit de inrichtingsservice, kan het certificaat nog steeds worden gebruikt op het apparaat verbinding met de IoT-hub maken, zolang het apparaatregistraties voor bestaat. Hiermee kunt u op twee manieren oplossen: 
+
+    De eerste manier zou worden handmatig navigeren naar uw IoT-hub en de registratie van het apparaat dat is gekoppeld aan het certificaat waarmee is geknoeid onmiddellijk te verwijderen. Wanneer uw apparaten opnieuw worden ingericht met bijgewerkte certificaten, wordt vervolgens een nieuwe device Registration service gemaakt voor elk criterium.     
 
     ![IoT hub device Registration service verwijderen](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    De tweede manier zou zijn met ondersteuning voor beëindiging opnieuw inrichten van uw apparaten op dezelfde IoT hub. Deze methode kan worden gebruikt ter vervanging van certificaten voor het apparaatregistraties op de IoT-hub. Zie voor meer informatie, [hoe u apparaten opnieuw inrichten](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Registreren van groepen en het certificaat verloopt

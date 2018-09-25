@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 0b22e51814f79b00257433a7e601349ad25cd2b7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997502"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -29,7 +29,7 @@ Veel van de stappen in dit document met de volgende hulpprogramma's, die mogelij
 
 * [cURL](https://curl.haxx.se/) : wordt gebruikt om te communiceren met services op basis van het web
 * [jq](https://stedolan.github.io/jq/) : wordt gebruikt voor het parseren van JSON-documenten
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) : wordt gebruikt voor het extern beheren van Azure-services
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : wordt gebruikt voor het extern beheren van Azure-services
 
 ## <a name="users"></a>Gebruikers
 
@@ -55,7 +55,7 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
 
 ## <a name="remote-access-to-services"></a>Externe toegang tot services
 
-* **Ambari (web)** -https://&lt;clustername >. azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername >. azurehdinsight.net
 
     Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord en klikt u vervolgens Meld u aan bij de Ambari.
 
@@ -66,14 +66,14 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     >
     > Als u de volledige functionaliteit van de Ambari-Webgebruikersinterface, gebruikt u een SSH-tunnel voor proxy-webverkeer met het hoofdknooppunt van het cluster. Zie [SSH-Tunneling gebruiken voor toegang tot de Ambari-Webgebruikersinterface, ResourceManager JobHistory, NameNode, Oozie en andere webgebruikersinterfaces](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;clustername >.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord.
     >
     > Verificatie is als tekst zonder opmaak - gebruik altijd HTTPS om ervoor te zorgen dat de verbinding beveiligd is.
 
-* **WebHCat (Templeton)** -https://&lt;clustername >.azurehdinsight.net/templeton
+* **WebHCat (Templeton)** - https://&lt;clustername >.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Verifiëren met behulp van de cluster-gebruiker met beheerdersrechten en het wachtwoord.
@@ -176,7 +176,7 @@ Er zijn een verschillende manieren toegang krijgen tot gegevens die zich buiten 
 
 Als u __Azure Storage__, Zie de volgende koppelingen voor manieren waarop u toegang hebt tot uw gegevens:
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface-opdrachten voor het werken met Azure. Na het installeren, gebruiken de `az storage` opdracht voor hulp bij het gebruik van opslag, of `az storage blob` voor blob-specifieke opdrachten.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface-opdrachten voor het werken met Azure. Na het installeren, gebruiken de `az storage` opdracht voor hulp bij het gebruik van opslag, of `az storage blob` voor blob-specifieke opdrachten.
 * [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): een python-script voor het werken met blobs in Azure Storage.
 * Verschillende SDK's:
 
@@ -192,7 +192,7 @@ Als u __Azure Data Lake Store__, Zie de volgende koppelingen voor manieren waaro
 
 * [Webbrowser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Azure-CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST-API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools voor Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

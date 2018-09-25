@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c26aeb1d29c3b2c8b5b43d1a1face818295e9d2f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 169d421ddccf33ac239b69ab78ca7dca0f0b8261
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122079"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958410"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informatie over de Cognitive Services Speech-SDK
 
@@ -35,7 +35,7 @@ Bij Windows wordt de volgende talen ondersteund:
   De SDK kan worden geïnstalleerd in Visual Studio met behulp van NuGet; Zoek `Microsoft.CognitiveServices.Speech`.
 
 * Java: Kunt u verwijzen naar en de nieuwste versie van onze spraak SDK Maven-pakket, die ondersteuning biedt voor Windows x64 alleen gebruiken.
-  Voeg in uw Maven-project `https://csspeechstorage.blob.core.windows.net/maven/` als aanvullende opslagplaats en verwijzing `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` als een afhankelijkheid. 
+  Voeg in uw Maven-project `https://csspeechstorage.blob.core.windows.net/maven/` als aanvullende opslagplaats en verwijzing `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0` als een afhankelijkheid. 
 
 ### <a name="linux"></a>Linux
 
@@ -53,11 +53,11 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   Als u wilt verwijzen naar de SDK, toevoegen de volgende pakketverwijzing in uw project:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.0" />
   ```
 
 * Java: Kunt u verwijzen naar en gebruik de nieuwste versie van onze spraak SDK Maven-pakket.
-  Voeg in uw Maven-project `https://csspeechstorage.blob.core.windows.net/maven/` als aanvullende opslagplaats en verwijzing `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` als een afhankelijkheid. 
+  Voeg in uw Maven-project `https://csspeechstorage.blob.core.windows.net/maven/` als aanvullende opslagplaats en verwijzing `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0` als een afhankelijkheid. 
 
 * C++: download de SDK als een [tar-clientinstallatiepakket](https://aka.ms/csspeech/linuxbinary) en pak de bestanden op in een map van uw keuze. De volgende tabel bevat de SDK-mapstructuur.
 
@@ -74,7 +74,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ### <a name="android"></a>Android
 
 De Java-SDK voor Android wordt geleverd als een [AAR (Android-bibliotheek)](https://developer.android.com/studio/projects/android-library), waaronder de vereiste bibliotheken, evenals de vereiste Android-machtigingen voor het gebruik ervan.
-Deze wordt gehost in een Maven-opslagplaats op `https://csspeechstorage.blob.core.windows.net/maven/` als pakket `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
+Deze wordt gehost in een Maven-opslagplaats op `https://csspeechstorage.blob.core.windows.net/maven/` als pakket `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`.
 Als u wilt gebruiken voor het pakket van uw Android Studio-project de volgende wijzigingen aanbrengen:
 
 * In de project-niveau `build.gradle` bestand, voeg de volgende in de `repository` sectie:
@@ -86,7 +86,7 @@ Als u wilt gebruiken voor het pakket van uw Android Studio-project de volgende w
 * In de module-niveau `build.gradle` bestand, voeg de volgende in de `dependencies` sectie:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.0'
   ```
 
 De Java-SDK is ook deel uit van de [spraak Devices SDK](speech-devices-sdk.md).

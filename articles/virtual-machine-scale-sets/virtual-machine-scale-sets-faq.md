@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715060"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949703"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
@@ -49,7 +49,7 @@ Krijg antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure
 
 **V:** Hoe maak ik een schaalset met behulp van een aangepaste installatiekopie?
 
-**A:** Maken en vastleggen van een VM-installatiekopie en vervolgens gebruiken die als bron voor uw schaalset. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI 2.0](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A:** Maken en vastleggen van een VM-installatiekopie en vervolgens gebruiken die als bron voor uw schaalset. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **V:** Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke virtuele machines worden er dan verwijderd?
 
@@ -129,7 +129,7 @@ U kunt een prestatiemeteritem VM als de metrische gegevens om in te stellen van 
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hoe stel ik automatisch schalen in een virtuele-machineschaalset met behulp van PowerShell
 
-Als u wilt instellen voor automatisch schalen op een virtuele-machineschaalset met behulp van PowerShell, Zie [automatisch schalen van een virtuele-machineschaalset](tutorial-autoscale-powershell.md). U kunt ook configureren voor automatisch schalen met de [Azure CLI 2.0](tutorial-autoscale-cli.md) en [Azure-sjablonen](tutorial-autoscale-template.md)
+Als u wilt instellen voor automatisch schalen op een virtuele-machineschaalset met behulp van PowerShell, Zie [automatisch schalen van een virtuele-machineschaalset](tutorial-autoscale-powershell.md). U kunt ook configureren voor automatisch schalen met de [Azure CLI](tutorial-autoscale-cli.md) en [Azure-sjablonen](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Als ik gestopt heb (toewijzing opgeheven) een virtuele machine is die virtuele machine als onderdeel van een bewerking voor automatisch schalen is gestart?

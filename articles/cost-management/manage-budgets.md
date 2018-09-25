@@ -1,31 +1,33 @@
 ---
-title: Budgetten in Azure Cost Management beheren | Microsoft Docs
-description: Dit artikel helpt u bij het maken en beheren van budgetten in Cost Management.
+title: Cloudyn budgetten in Azure beheren | Microsoft Docs
+description: Dit artikel helpt u bij het maken en beheren van budgetten in Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963426"
 ---
 # <a name="manage-budgets"></a>Budgetten beheren
 
-Opzetten van budgetten en budget gebaseerde waarschuwingen helpen bij het verbeteren van uw cloud-governance en aansprakelijkheid. Dit artikel helpt u snel maken van budgetten en beginnen met het ze in Cost Management beheren.
+Opzetten van budgetten en budget gebaseerde waarschuwingen helpen bij het verbeteren van uw cloud-governance en aansprakelijkheid. Dit artikel helpt u snel budgetten maken en te beginnen met beheer van deze in Cloudyn.
 
 Wanneer u een Enterprise- of MSP-account hebt, kunt u uw hiërarchische kostenstructuur entiteit maandelijkse budget quota toewijzen aan verschillende bedrijfseenheden, afdelingen of een andere kostenentiteit. Wanneer u een Premium-account hebt, kunt u de functionaliteit voor het beheer van budget, dit vervolgens op uw uitgaven volledige in de cloud toegepast wordt. Alle budgetten worden handmatig toegewezen.
 
 Op basis van toegewezen budgetten, kunt u drempelwaarde voor waarschuwingen op basis van uw budget dat wordt gebruikt voor het percentage instellen en definiëren van de ernst van elke drempelwaarde.
 
 De rapporten met het toegewezen budget budget. Gebruikers kunnen bekijken als hun uitgaven boven, onder of ervoor met hun gebruik na verloop van tijd is. Wanneer u selecteert **velden weergeven/verbergen** aan de bovenkant van een budgetrapport, kunt u kosten, budget, totale kosten of totaal budget weergeven.
+
+Kostenbeheer van Azure biedt vergelijkbare functionaliteit aan Cloudyn. Kostenbeheer van Azure is een systeemeigen Azure cost management-oplossing. Het helpt u kosten analyseren, maken en budgetten beheren, gegevens, exporteren en bekijken en reageren op optimalisatie aanbevelingen om geld te besparen. Zie voor meer informatie over budgetten in Cost Management [maken en beheren van budgetten](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Budgetten maken
 
@@ -83,5 +85,5 @@ In de kosten voor Visual Studio. Op tijd rapport budget, klikt u op **acties** e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u dit nog niet hebt al de eerste zelfstudie voor Cost Management voltooid, leest u via [gebruik en kosten bekijken](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
-- Meer informatie over de [rapporten die beschikbaar zijn in Cost Management](use-reports.md).
+- Als u dit nog niet hebt al de eerste zelfstudie voltooid voor Cloudyn, lezen via [gebruik en kosten bekijken](tutorial-review-usage.md).
+- Meer informatie over de [rapporten die beschikbaar zijn in Cloudyn](use-reports.md).

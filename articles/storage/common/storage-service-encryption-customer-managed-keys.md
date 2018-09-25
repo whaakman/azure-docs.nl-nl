@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781561"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981862"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
 Microsoft Azure is belangrijk dat u kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen goed. Een manier die het opslagplatform van Azure beschermt uw gegevens is via versleuteling SSE (Storage Service), die uw gegevens worden versleuteld bij het schrijven van deze naar de opslag en ontsleutelt de gegevens bij het ophalen van het. De versleuteling en ontsleuteling is automatische, transparant en maakt gebruik van 256-bits [AES-versleuteling](https://wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
@@ -31,7 +31,7 @@ Waarom uw eigen sleutels maken? Aangepaste sleutels biedt u meer flexibiliteit, 
 Als u wilt gebruiken door de klant beheerde sleutels met SSE, kunt u een nieuwe sleutelkluis maken en sleutel of u een bestaande sleutelkluis en de sleutel kunt gebruiken. Het opslagaccount en de key vault moeten zich in dezelfde regio, maar ze kunnen zich in verschillende abonnementen. 
 
 ### <a name="step-1-create-a-storage-account"></a>Stap 1: Een storage-account maken
-Maak eerst een storage-account als u er nog geen hebt. Zie voor meer informatie, [maken van een nieuw opslagaccount](storage-quickstart-create-account.md).
+Maak eerst een storage-account als u er nog geen hebt. Zie voor meer informatie, [een opslagaccount maken](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Stap 2: Serverversleuteling inschakelen voor de Blob-en bestand
 Als u wilt met behulp van de klant beheerde sleutels SSE inschakelt, moeten twee belangrijke functies voor gegevensbeveiliging, voorlopig verwijderen en niet verwijderen, ook worden ingeschakeld in Azure Key Vault. Deze instellingen ervoor dat de sleutels kunnen niet per ongeluk of opzettelijk verwijderde. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren of ransomware-aanvallen.

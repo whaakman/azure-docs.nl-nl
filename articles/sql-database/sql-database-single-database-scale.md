@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 61b9a6f3c629992e7cb2a8a64b66f63b11045eb8
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5bc03b8fe8ea64d85154198b8009592f45805a7e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733794"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031846"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Schalen van één database-resources in Azure SQL Database
 
@@ -23,7 +23,7 @@ In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikba
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>op vCore gebaseerde aankoopmodel: opslaggrootte wijzigen
 
 - Opslag kan worden ingericht tot de maximale grootte is bereikt met behulp van de stappen van 1 GB. De minimale configureerbare gegevensopslag is 5GB 
-- Opslag voor een individuele database kan worden bevoorraad door vergroten of verkleinen van de maximale grootte met behulp van de [Azure-portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?r#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), de [Azure CLI](/cli/azure/sql/db#az_sql_db_update), of de [REST-API](/rest/api/sql/databases/update).
+- Opslag voor een individuele database kan worden bevoorraad door vergroten of verkleinen van de maximale grootte met behulp van de [Azure-portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?r#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](/rest/api/sql/databases/update).
 - SQL-Database wijst automatisch 30% van de extra opslag voor de logboekbestanden en 32GB per vCore voor TempDB, maar niet meer dan 384GB. TempDB bevindt zich op een gekoppelde SSD in alle service-lagen.
 - De prijs van opslag voor een individuele database is de som van de gegevens opslag- en logboekbestanden opslag bedragen vermenigvuldigd met de prijs per eenheid opslag van de servicelaag. De kosten van TempDB is opgenomen in de vCore-prijs. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -32,7 +32,7 @@ In dit artikel wordt beschreven hoe u de reken- en opslagresources die beschikba
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>op vCore gebaseerde aankoopmodel: rekenresources wijzigen
 
-Wanneer u hebt gekozen het aantal vCores, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-database-scale.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az_sql_db_update), of de [REST-API](/rest/api/sql/databases/update). 
+Wanneer u hebt gekozen het aantal vCores, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van het feitelijke gebruik met behulp van de [Azure-portal](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](/rest/api/sql/databases/update). 
 
 Wijzigen van de service tier en/of grootte van een database maakt u een replica van de oorspronkelijke database op de nieuwe compute-grootte en vervolgens de verbindingen overgeschakeld naar de replica. Er gaan geen gegevens verloren tijdens dit proces, maar tijdens het korte moment waarop we overschakelen naar de replica, worden verbindingen met de database uitgeschakeld, zodat sommige actieve transacties kunnen worden teruggedraaid. De tijdsduur voor de switch-meer dan varieert, maar is doorgaans onder 4 seconden is minder dan 30 seconden 99% van de tijd. Als er veel transacties actief zijn op het moment dat de verbindingen zijn uitgeschakeld, wordt de tijdsduur voor de switch-meer dan mogelijk ook langer. 
 
@@ -49,8 +49,8 @@ De duur van het volledige proces voor omhoog schalen is afhankelijk van de groot
 
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>DTU gebaseerde aankoopmodel: opslaggrootte wijzigen
 
-- De prijs voor DTU voor een individuele database bevat een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [individuele database: opslaggrootte en compute-grootten](#single-database-storage-sizes-and-performance-levels).
-- Extra opslag voor een individuele database kan worden ingericht door de maximale grootte van de Azure Portal gebruikt, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az_sql_db_update), of de [ REST-API](/rest/api/sql/databases/update).
+- De prijs voor DTU voor een individuele database bevat een bepaalde hoeveelheid opslagruimte zonder extra kosten. Extra opslagruimte bovenop de inbegrepen hoeveelheid worden ingezet er gelden aanvullende kosten tot de maximale grootte is bereikt in stappen van 250 GB tot 1 TB, en klik vervolgens in stappen van 256 GB dan 1 TB. Zie voor de hoeveelheid inbegrepen opslag en limieten voor de maximale berichtgrootte [individuele database: opslaggrootte en compute-grootten](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Extra opslag voor een individuele database kan worden ingericht door de maximale grootte van de Azure Portal gebruikt, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [ REST-API](/rest/api/sql/databases/update).
 - De prijs voor extra opslagruimte voor een individuele database is de hoeveelheid extra opslagruimte vermenigvuldigd met de prijs voor extra opslagruimte per eenheid van de servicelaag. Zie voor meer informatie over de prijs van extra opslagruimte [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -58,7 +58,7 @@ De duur van het volledige proces voor omhoog schalen is afhankelijk van de groot
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>DTU gebaseerde aankoopmodel: wijziging compute-resources (dtu's)
 
-Wanneer u hebt gekozen een servicelaag, rekencapaciteit en hoeveelheid opslagruimte, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van werkelijke ervaring met Azure portal, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az_sql_db_update), of de [REST-API](/rest/api/sql/databases/update). 
+Wanneer u hebt gekozen een servicelaag, rekencapaciteit en hoeveelheid opslagruimte, u kunt een individuele database omhoog of omlaag schalen dynamisch op basis van werkelijke ervaring met Azure portal, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), wordt de [Azure CLI](/cli/azure/sql/db#az-sql-db-update), of de [REST-API](/rest/api/sql/databases/update). 
 
 De volgende video ziet u dynamisch wijzigen van de service-laag en het berekenen van de grootte verhogen beschikbaar dtu's voor één database.
 

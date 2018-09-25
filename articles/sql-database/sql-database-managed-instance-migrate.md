@@ -9,28 +9,28 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 09/20/2018
 ms.author: bonova
-ms.openlocfilehash: cf3f7e131b177634318a6114b4f1efefcb9a9cec
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5aad6060691c796906232d9625ff00b748616a77
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985657"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038985"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
-In dit artikel hebt u meer informatie over de methoden voor het migreren van een SQL Server 2005 of latere versie exemplaar [Azure SQL Database Managed Instance](sql-database-managed-instance.md) (preview).
+In dit artikel hebt u meer informatie over de methoden voor het migreren van een SQL Server 2005 of latere versie exemplaar [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
 Op hoog niveau, is het proces van de database-migratie ziet eruit zoals:
 
 ![Migratieproces](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Beoordeling van compatibiliteit met Managed Instance](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [App-connectiviteit kiezen](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [Implementeren naar een optimaal grootte beheerd exemplaar](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [Kies migratiemethode en migreren](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [Toepassingen bewaken](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Beoordeling van compatibiliteit met Managed Instance](#assess-managed-instance-compatibility)
+- [App-connectiviteit kiezen](sql-database-managed-instance-connect-app.md)
+- [Implementeren naar een optimaal grootte beheerd exemplaar](#deploy-to-an-optimally-sized-managed-instance)
+- [Kies migratiemethode en migreren](#select-migration-method-and-migrate)
+- [Toepassingen bewaken](#monitor-applications)
 
 > [!NOTE]
 > Zie voor het migreren van een individuele database in een individuele database of elastische pool, [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
@@ -41,7 +41,7 @@ Bepaal eerst of Managed Instance compatibel met de vereisten voor de database va
 
 Gebruik [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) voor het detecteren van potentieel compatibiliteit die invloed hebben op database-functionaliteit op Azure SQL Database. DMA biedt nog geen ondersteuning voor beheerd exemplaar als doel van de migratie, maar het wordt aanbevolen om analyse uitvoeren op Azure SQL-Database en zorgvuldig lijst gerapporteerde functiepariteit en compatibiliteitsproblemen op basis van de productdocumentatie. Zie [Azure SQL Database-functies](sql-database-features.md) om te controleren of er zijn enkele gerapporteerde belemmeringen dat niet blockers in het beheerde exemplaar, omdat de meeste van de blokkering problemen te voorkomen dat een migratie naar Azure SQL Database zijn verwijderd met beheerde Het exemplaar. Voor het exemplaar, functies, zoals query's die databaseoverschrijdend, transacties tussen databases binnen dezelfde instantie, gekoppelde server met andere SQL bronnen, CLR, globale tijdelijke tabellen, exemplaar niveau weergaven, Service Broker en dergelijke zijn beschikbaar in beheerde instanties. 
 
-Als er enkele blokkerende problemen die niet worden verwijderd in Azure SQL Managed Instance gerapporteerd zijn, moet u mogelijk rekening houden met een andere optie, zoals [SQL Server op virtuele Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Hier volgen enkele voorbeelden:
+Als er enkele blokkerende problemen die niet worden verwijderd in Azure SQL Database Managed Instance gerapporteerd zijn, moet u mogelijk rekening houden met een andere optie, zoals [SQL Server op virtuele Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Hier volgen enkele voorbeelden:
 
 - Als u directe toegang tot voor het besturingssysteem of het bestandssysteem, bijvoorbeeld voor installatie van derden of aangepaste agents op dezelfde virtuele machine met SQL Server vereist.
 - Als u strikte afhankelijk zijn van functies die nog steeds niet worden ondersteund, zoals FileStream / bestandstabel, PolyBase en cross-instance-transacties.
@@ -81,7 +81,7 @@ Beheerd exemplaar biedt ondersteuning voor de volgende database migratieopties (
 
 De [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatie-opties op de openbare Preview opgenomen Azure SQL Database Managed Instance en SQL Server in een Azure Virtual machines. DMS is de aanbevolen methode van de migratie voor workloads van uw onderneming. 
 
-Als u SQL Server Integration Services (SSIS) op uw SQL Server on-premises, DMS biedt nog geen ondersteuning voor migratie SSIS-catalogus (SSISDB) die SSIS-pakketten opslaat, maar u kunt Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) inrichten die wordt een nieuwe SSISDB maken in Azure SQL Database- / MI en vervolgens u kunt uw pakketten te implementeren, Zie [Azure-SSIS IR maken in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Als u SQL Server Integration Services (SSIS) op uw SQL Server on-premises, DMS biedt nog geen ondersteuning voor migratie SSIS-catalogus (SSISDB) die SSIS-pakketten opslaat, maar u kunt Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) inrichten die wordt een nieuwe SSISDB maken in Azure SQL Database- / MI en vervolgens u kunt uw pakketten te implementeren, Zie [Azure-SSIS IR maken in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Zie voor meer informatie over dit scenario en configuratiestappen voor DMS [Migrate uw on-premises database naar Managed Instance met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -103,7 +103,7 @@ De volgende tabel vindt u meer informatie over de methoden die u kunt gebruiken,
 |Herstellen van Azure-opslag naar beheerd exemplaar|[HERSTELLEN van URL met SAS-REFERENTIES](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - Wanneer een database die is beveiligd met [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md) (TDE) wordt gemigreerd naar een met Azure SQL Database beheerd exemplaar met behulp van de optie voor systeemeigen herstel, moet het corresponderende certificaat van de on-premises of IaaS SQL-server worden gemigreerd voordat de database wordt hersteld. Zie voor gedetailleerde stappen [cert TDE migreren naar Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Wanneer een database die is beveiligd door migreren [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) naar Azure SQL Database Managed Instance met behulp van systeemeigen hersteloptie, het corresponderende certificaat uit het on-premises of IaaS SQL Server moet worden gemigreerd voordat u het terugzetten van de database. Zie voor gedetailleerde stappen [cert TDE migreren naar Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Herstellen van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in de basispagina of msdb-databases), wordt aangeraden deze scripts en T-SQL-scripts uitvoeren op de doel-exemplaar.
 
 Zie voor een snelstart van het back-up van een database herstellen naar een beheerd exemplaar met behulp van een SAS-referentie [herstellen vanuit back-up naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md).

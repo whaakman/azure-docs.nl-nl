@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e9e47214ffed94f45a1a44a19234484f13ba452e
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 984185febf770ae10a021d129b0ef6c43da4d0f1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632191"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032764"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Een Azure AD-identiteit gebruiken voor toegang tot Azure Storage met CLI of PowerShell (Preview)
 
@@ -56,35 +56,45 @@ De omgevingsvariabele die is gekoppeld aan de `--auth-mode` parameter `AZURE_STO
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Aanroepen van de PowerShell-opdrachten met een Azure AD-identiteit
 
+Azure PowerShell ondersteunt aanmelden met een Azure AD-identiteit met een van de volgende preview-modules alleen: 
+
+- 4.4.0-Preview 
+- 4.4.1-Preview 
+
 Azure PowerShell gebruiken voor het aanmelden met een Azure AD-identiteit:
 
-1. Zorg ervoor dat u de nieuwste versie van PowerShellGet geïnstalleerd hebt. Voer de volgende opdracht voor het installeren van de meest recente:
+1. Verwijder eerdere installaties van Azure PowerShell:
+
+    - Verwijderen van eerdere installaties van Azure PowerShell uit met behulp van Windows de **Apps en functies** bij **instellingen**.
+    - Verwijder alle **Azure*** modules van `%Program Files%\WindowsPowerShell\Modules`.
+
+1. Zorg ervoor dat u de nieuwste versie van PowerShellGet geïnstalleerd hebt. Open een Windows PowerShell-venster en voer de volgende opdracht voor het installeren van de meest recente versie:
  
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+1. Sluit en Open de PowerShell-venster na de installatie van PowerShellGet. 
 
-2. Verwijder eerdere installaties van Azure PowerShell.
-3. AzureRM installeren:
+1. AzureRM installeren:
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-4. De preview-module installeren:
+1. Een van de preview-modules te installeren:
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview" 
+    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
     ```
+1. Sluit en Open de PowerShell-venster.
+1. Roep de [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet voor het maken van een context en zijn de `-UseConnectedAccount` parameter. 
+1. Voor het aanroepen van een cmdlet uit met een Azure AD-identiteit, moet u de zojuist gemaakte context doorgeven aan de cmdlet.
 
-5. Roep de [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet voor het maken van een context en zijn de `-UseConnectedAccount` parameter. 
-6. Voor het aanroepen van een cmdlet uit met een Azure AD-identiteit, moet u de context doorgeven aan de cmdlet.
-
-Het volgende voorbeeld ziet u hoe u de blobs in een container van Azure PowerShell met behulp van een Azure AD-identiteit: 
+Het volgende voorbeeld ziet hoe u de blobs in een container van Azure PowerShell met behulp van een Azure AD-identiteit. Zorg ervoor dat de namen van de tijdelijke aanduiding voor account- en container vervangen door uw eigen waarden: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -UseConnectedAccount 
-Get-AzureStorageBlob -Container $sample-container -Context $ctx 
+$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzureStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

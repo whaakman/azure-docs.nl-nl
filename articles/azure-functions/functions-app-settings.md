@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4e40a731530e9423c7be6f2e2449aad970bb327c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734938"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040241"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
 App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen zijn in omgevingsvariabelen. In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
 
-[! INCLUSIEF [functie app-instellingen] (.. /.. /includes/Functions-App-Settings.MD]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Er zijn andere globale configuratie-opties in de [host.json](functions-host-json.md) bestand en klik in de [local.settings.json](functions-run-local.md#local-settings-file) bestand.
 
@@ -40,6 +40,9 @@ Optionele tekenreeks opslagaccountverbinding voor het opslaan van Logboeken en w
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
+
+> [!TIP]
+> Voor prestaties en ervaring verdient het APPINSIGHTS_INSTRUMENTATIONKEY en App Insights gebruiken voor bewaking in plaats van AzureWebJobsDashboard
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ Geldige waarden zijn 'readwrite' en 'alleen-lezen'.
 
 ## <a name="functionsextensionversion"></a>FUNCTIES\_EXTENSIE\_VERSIE
 
-De versie van de Azure Functions-runtime voor gebruik in deze functie-app. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld, ~ 1') gebruiken. Wanneer er nieuwe versies van dezelfde primaire versie beschikbaar zijn, worden ze automatisch geïnstalleerd in de functie-app. Als u wilt de app vastmaken aan een specifieke versie, gebruik het volledige versienummer (bijvoorbeeld ' 1.0.12345'). Standaardwaarde is '~ 1'.
+De versie van de Azure Functions-runtime voor gebruik in deze functie-app. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld ' ~ 2') gebruiken. Wanneer er nieuwe versies van dezelfde primaire versie beschikbaar zijn, worden ze automatisch geïnstalleerd in de functie-app. Als u wilt de app vastmaken aan een specifieke versie, gebruik het volledige versienummer (bijvoorbeeld ' 2.0.12345'). De standaardwaarde is '~ 2'.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|FUNCTIES\_EXTENSIE\_VERSIE|~1|
+|FUNCTIES\_EXTENSIE\_VERSIE|~ 2|
+
+## <a name="functionsworkerruntime"></a>FUNCTIES\_WORKER\_RUNTIME
+
+De werknemer language runtime worden geladen in de functie-app.  Dit komt overeen met de taal die wordt gebruikt in uw toepassing (bijvoorbeeld ' dotnet'). Voor functies in meerdere talen moet u deze publiceren naar meerdere apps, elk met een overeenkomende waarde van de worker-runtime.  Geldige waarden zijn `dotnet`, `node`, en `java`.
+
+|Sleutel|Voorbeeldwaarde|
+|---|------------|
+|FUNCTIES\_WORKER\_RUNTIME|DotNet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,19 +149,19 @@ Voor verbruiksabonnementen alleen. Het pad naar de functie-app-code en configura
 Het maximum aantal exemplaren die de functie-app naar uitschalen kunt. Standaard is geen limiet.
 
 > [!NOTE]
-> Deze instelling is voor een preview-functie.
+> Deze instelling is een preview-functie- en alleen betrouwbare indien ingesteld op een waarde < = 5
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT|10|
+|WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT|5|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION
 
-De standaardwaarde is '6.5.0'.
+De standaardwaarde is '8.11.1'.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION|8.11.1|
 
 ## <a name="websiterunfrompackage"></a>WEBSITE\_UITVOEREN\_FROM\_PAKKET
 

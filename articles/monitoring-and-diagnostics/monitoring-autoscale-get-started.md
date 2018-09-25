@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e96e3abc05353aa3ea134b7d11256a29fe64c300
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448965"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989223"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Aan de slag met automatisch schalen in Azure
 Dit artikel wordt beschreven hoe u uw instellingen voor automatisch schalen voor uw resource in de Microsoft Azure portal kunt instellen.
 
-Automatisch schalen van Azure Monitor geldt alleen voor schaalsets voor virtuele machines, cloudservices, Azure App Service-plannen en App Service-omgevingen. 
+Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Detecteren van de instellingen voor automatisch schalen in uw abonnement
 U kunt alle resources die voor automatisch schalen van toepassing in Azure Monitor is kan detecteren. Gebruik de volgende stappen uit voor stapsgewijze instructies:
@@ -47,8 +47,8 @@ Laten we nu Ga via een eenvoudige stapsgewijze te maken van uw eerste instelling
 1. Geef een naam op voor de schaalinstelling van de en klik vervolgens op **toevoegen van een regel**. U ziet de schaalopties regel die als een context deelvenster aan de rechterkant geopend. Hiermee wordt de optie voor het schalen van uw aantal instanties met 1 als het CPU-percentage van de resource groter is dan 70 procent standaard ingesteld. Laat de standaardwaarden en klik op **toevoegen**.
   ![Schaalinstelling voor een web-app maken][6]
 1. U hebt nu uw eerste schaalregel. Houd er rekening mee dat de UX raadt aan om aanbevolen procedures en aangegeven dat 'het wordt aanbevolen dat ten minste één schaal in regel." Dit doet u als volgt:
-  
-    a. Klik op **toevoegen van een regel**. 
+
+    a. Klik op **toevoegen van een regel**.
 
     b. Stel **Operator** naar **minder dan**.
 
@@ -62,7 +62,7 @@ Laten we nu Ga via een eenvoudige stapsgewijze te maken van uw eerste instelling
 
 Gefeliciteerd! U hebt nu uw eerste schaalinstelling voor automatisch schalen die uw web-app op basis van CPU-gebruik is gemaakt.
 
-> [!NOTE] 
+> [!NOTE]
 > Dezelfde stappen zijn van toepassing op aan de slag met een virtuele-machineschaalset of rol van de service in de cloud.
 
 ## <a name="other-considerations"></a>Andere overwegingen
@@ -105,8 +105,8 @@ Er is mogelijk dat u de instelling van uw huidige schalen uitschakelen en handma
 Klik op de **automatisch schalen uitschakelen** bovenaan op de knop.
 ![Automatisch schalen uitschakelen][13]
 
-> [!NOTE] 
-> Deze optie wordt uitgeschakeld voor uw configuratie. Maar kunt je nu weer toe nadat u de functie voor automatisch schalen opnieuw inschakelen. 
+> [!NOTE]
+> Deze optie wordt uitgeschakeld voor uw configuratie. Maar kunt je nu weer toe nadat u de functie voor automatisch schalen opnieuw inschakelen.
 
 U kunt nu het aantal exemplaren dat u schalen wilt naar handmatig instellen.
 
@@ -133,4 +133,3 @@ U kunt altijd terugkeren naar de functie voor automatisch schalen door te klikke
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

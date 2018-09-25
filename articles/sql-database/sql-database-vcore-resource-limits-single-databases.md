@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 46789f5f3449baead12133522997936c8a992d3b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732937"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964766"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -84,7 +84,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Geheugen (GB)|7|14|28|56|112|168|
-|Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
+|Ondersteuning voor Columnstore|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP-opslag (GB)|1|2|4|8|20|36|
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
@@ -122,8 +122,52 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
+### <a name="hyperscale-service-tier-preview"></a>Zeer grootschalige servicelaag (preview)
+
+#### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+|Prestatieniveau|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|H/W genereren|4|4|4|4|4|4|
+|vCores|1|2|4|8|16|24|
+|Geheugen (GB)|7|14|28|56|112|168|
+|Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
+|In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
+|Maximumgrootte van gegevens (TB)|100 |100 |100 |100 |100 |100 |
+|Maximale logboekgrootte (TB)|1 |1 |1 |1 |1 |1 |
+|TempDB-grootte (GB)|32|64|128|256|384|384|
+|Doel-IOPS (van 64 KB)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
+|I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
+|Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Aantal replica's|2|2|2|2|2|2|
+|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
+|Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
+|Back-upopslag opgenomen|7|7|7|7|7|7|
+|||
+### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+|Prestatieniveau|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|H/W genereren|5|5|5|5|5|5|5|5|
+|vCores|2|4|8|16|24|32|40|80|
+|Geheugen (GB)|11|22|44|88|132|176|220|440|
+|Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
+|Maximumgrootte van gegevens (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Maximale logboekgrootte (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB-grootte (GB)|64|128|256|384|384|384|384|384|
+|Doel-IOPS (van 64 KB)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
+|I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
+|Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Aantal replica's|2|2|2|2|2|2|2|2|
+|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|Opgenomen back-upopslag (limiet voor Preview-versie)|7|7|7|7|7|7|7|7|
+|||
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
-- Zie [overzicht van Azure SQL Database-resourcebeperkingen](sql-database-resource-limits.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).

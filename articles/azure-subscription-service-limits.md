@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: a24fc56bf455fbc487cb6f93e06678d52e5b1c0b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c67cc5cb13e2c1112c4752660c82c3ab18360b00
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295754"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056621"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -71,6 +71,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Firewall van Azure](#azure-firewall-limits)
+* [Voordeur](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -88,6 +89,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Scheduler](#scheduler-limits)
 * [Zoeken](#search-limits)
 * [Service Bus](#service-bus-limits)
+* [SignalR-Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -156,6 +158,9 @@ De volgende tabel worden de functies en limieten van de Basic, Standard en Premi
 
 #### <a name="azure-firewall-limits"></a>Limieten voor Azure Firewall
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
+#### <a name="azure-front-door-service-limits"></a>Azure voordeur Servicelimieten
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
 ### <a name="storage-limits"></a>Maximale opslag
 <!--like # storage accts -->
@@ -232,9 +237,6 @@ Zie voor Azure Database for MySQL-limieten, [beperkingen in Azure Database voor 
 
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 Zie voor Azure Database for PostgreSQL-limieten, [beperkingen in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
-
-### <a name="mobile-engagement-limits"></a>Mobile Engagement-limieten
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>Limieten voor zoeken
 Prijscategorieën bepalen de capaciteit en de grenzen van uw search-service. Lagen zijn onder andere:
@@ -315,6 +317,9 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 
 ### <a name="backup-limits"></a>Limieten voor back-up
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>Limieten voor SignalR-Service
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>Site Recovery-limieten
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

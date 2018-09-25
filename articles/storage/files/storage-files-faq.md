@@ -4,15 +4,15 @@ description: Vind antwoorden op veelgestelde vragen over Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 07/19/2018
+ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949839"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -196,44 +196,97 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 **Kan ik de opslagsynchronisatieservice en/of de storage-account verplaatsen naar een andere resourcegroep of abonnement?**  
    Ja, de opslagsynchronisatieservice en/of de storage-account kan worden verplaatst naar een andere resourcegroep of abonnement. Als het opslagaccount is verplaatst, moet u de hybride File Sync-Service toegang geven tot het opslagaccount (Zie [Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+* <a id="afs-ntfs-acls"></a>
+**Behoudt Azure File Sync directory/bestandsniveau NTFS ACL's samen met de gegevens die zijn opgeslagen in Azure Files?**
+
+    NTFS ACL's uitgevoerd vanuit on-premises bestand servers door Azure File Sync als metagegevens zijn opgeslagen. Azure Files biedt geen ondersteuning voor verificatie met Azure AD-referenties voor toegang tot bestandsshares die worden beheerd door de Azure File Sync-service.
+    
 ## <a name="security-authentication-and-access-control"></a>Beveiliging, verificatie en toegangsbeheer
 * <a id="ad-support"></a>
 **Active Directory gebaseerde verificatie en toegangsbeheer die worden ondersteund door Azure Files is?**  
-    Azure Files biedt twee manieren voor het beheren van toegangsbeheer:
+    
+    Ja, op basis van identiteit verificatie en toegangsbeheer met Azure Active Directory (Azure AD) biedt ondersteuning voor Azure Files (Preview). Azure AD-verificatie via SMB voor Azure Files maakt gebruik van Azure Active Directory Domain Services om in te schakelen domein-VM's voor toegang tot shares, mappen en bestanden met behulp van Azure AD-referenties. Zie voor meer informatie, [overzicht van Azure Active Directory-verificatie voor Azure Files (Preview) via SMB](storage-files-active-directory-overview.md). 
+
+    Azure Files biedt twee extra manieren voor het beheren van toegangsbeheer:
 
     - U kunt handtekeningen voor gedeelde toegang (SAS) gebruiken voor het genereren van tokens met specifieke machtigingen, en die geldig zijn voor een opgegeven tijdsinterval. Bijvoorbeeld, kunt u een token genereren met alleen-lezen toegang tot een specifiek bestand met een vervaldatum 10 minuten. Iedereen die het token beschikt terwijl het token geldig is heeft alleen-lezen toegang tot dat bestand voor de 10 minuten. Handtekening voor gedeelde toegangssleutels worden momenteel ondersteund alleen via de REST API of clientbibliotheken. U moet de Azure-bestandsshare koppelen via SMB met behulp van de sleutels voor het opslagaccount.
 
     - Azure File Sync blijven behouden en gerepliceerd van alle discretionaire ACL's, of DACL's (of op basis van Active Directory of lokaal) naar alle servereindpunten die deze wordt gesynchroniseerd met. Omdat Windows Server al met Active Directory verifiëren kan, Azure File Sync is een effectieve optie stop-hiaat tot en met volledige ondersteuning voor verificatie op basis van Active Directory en ACL-ondersteuning ontvangen.
 
-    Op dit moment biedt Azure Files geen ondersteuning voor Active Directory rechtstreeks.
+* <a id="ad-support-regions"></a>
+**Is de Preview-versie van Azure AD via SMB voor Azure Files beschikbaar in alle Azure-regio's?**
+
+    De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS-West 2, Zuid-centraal VS, VS-Oost, VS-Oost 2, VS-midden, Noord-centraal VS, VS-Oost, Australië, West-Europa, Noord-Europa.
+
+* <a id="ad-support-on-premises"></a>
+**Azure AD-verificatie via SMB voor Azure Files (Preview) biedt ondersteuning voor verificatie met behulp van Azure AD vanaf on-premises machines?**
+
+    Nee, Azure Files ondersteunt geen verificatie met Azure AD vanaf on-premises machines in de preview-versie.
+
+* <a id="ad-support-devices"></a>
+**Wordt Azure AD-verificatie via SMB voor Azure Files (Preview) ondersteuning voor SMB-toegang met behulp van Azure AD-referenties van de apparaten lid zijn van of geregistreerd bij Azure AD?**
+
+    Nee, dit scenario wordt niet ondersteund.
+
+* <a id="ad-support-rest-apis"></a>
+**Zijn er REST-API's ter ondersteuning van Get/Set/kopiëren map/bestand NTFS ACL's?**
+
+    De preview-versie geen ondersteuning voor REST-API's voor het ophalen, instellen of NTFS ACL's voor mappen of bestanden kopiëren.
+
+* <a id="ad-vm-subscription"></a>
+**Kan ik toegang krijgen tot Azure Files met Azure AD-referenties van een virtuele machine met een ander abonnement?**
+
+    Als het abonnement waarin de bestandsshare is geïmplementeerd, gekoppeld aan dezelfde Azure AD-tenant als de Azure AD Domain Services-deploymnet waarop de virtuele machine is het domein is, wordt u hebben vervolgens toegang tot Azure Files met dezelfde Azure AD-referenties. De beperking niet van het abonnement wordt opgelegd, maar op de bijbehorende Azure AD-tenant.    
+    
+* <a id="ad-support-subscription"></a>
+**Kan ik inschakelen Azure AD-verificatie via SMB voor Azure Files met een Azure AD-tenant die verschilt van de primaire tenant die aan de bestandsshare is dat is gekoppeld aan?**
+
+    Nee, Azure Files ondersteunt alleen Azure AD-integratie met een Azure AD-tenant die zich in hetzelfde abonnement als de bestandsshare bevinden. Slechts één abonnement kan worden gekoppeld aan een Azure AD-tenant.
+
+* <a id="ad-linux-vms"></a>
+**Azure AD-verificatie via SMB voor Azure Files (Preview) biedt ondersteuning voor Linux-VM's?**
+
+    Nee, verificatie van virtuele Linux-machines wordt niet ondersteund in de preview-versie.
+
+* <a id="ad-aad-smb-afs"></a>
+**Kan ik Azure AD-verificatie gebruiken voor SMB-mogelijkheden op bestandsshares die worden beheerd door Azure File Sync?**
+
+    Azure Files ondersteunt Nee, geen NTFS ACL's op bestandsshares die worden beheerd door Azure File Sync te behouden. Het bestand ACL's die worden uitgevoerd vanaf on-premises bestandsservers zijn opgeslagen door Azure File Sync. Een NTFS-ACL's standaard geconfigureerd voor de Azure-bestanden worden overschreven door de Azure File Sync-service. Azure Files biedt bovendien geen ondersteuning voor verificatie met Azure AD-referenties voor toegang tot bestandsshares die worden beheerd door de Azure File Sync-service.
 
 * <a id="encryption-at-rest"></a>
 **Hoe kan ik ervoor zorgen dat mijn Azure-bestandsshare in rust worden versleuteld?**  
+
     Azure Storage-Serviceversleuteling wordt momenteel wordt standaard ingeschakeld in alle regio's. Voor deze regio's moet u niet alle acties ondernemen voor het inschakelen van versleuteling. Zie voor andere regio's, [serverzijde versleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Hoe kan ik toegang bieden tot een specifiek bestand via een webbrowser?**  
+
     U kunt handtekeningen voor gedeelde toegang gebruiken voor het genereren van tokens met specifieke machtigingen, en die geldig zijn voor een opgegeven tijdsinterval. U kunt bijvoorbeeld een token met alleen-lezen toegang tot een specifiek bestand, gedurende een bepaalde periode genereren. Iedereen die de URL heeft toegang tot het bestand rechtstreeks via elke webbrowser terwijl het token geldig is. U kunt eenvoudig een gedeelde toegangssleutel voor de handtekening van een gebruikersinterface zoals Opslagverkenner genereren.
 
 * <a id="file-level-permissions"></a>
 **Is het mogelijk om op te geven alleen-lezen of alleen-schrijven machtigingen voor mappen in de share?**  
+
     Als u de bestandsshare koppelt via SMB, hebt u geen mapniveau controle over machtigingen. Als u een shared access signature maken met behulp van de REST-API of clientbibliotheken, kunt u echter alleen-lezen of alleen-schrijven machtigingen opgeven voor mappen in de share.
 
 * <a id="ip-restrictions"></a>
 **Kan ik het IP-beperkingen voor een Azure-bestandsshare implementeren?**  
+
     Ja. Toegang tot uw Azure-bestandsshare kan worden beperkt op het niveau van de storage-account. Zie voor meer informatie, [configureren van Azure Storage-Firewalls en virtuele netwerken](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="data-compliance-policies"></a>
 **Welke gegevens nalevingsbeleid biedt ondersteuning voor Azure Files?**  
+
    Azure Files wordt uitgevoerd boven op de dezelfde opslagarchitectuur die wordt gebruikt in andere storage-services in Azure Storage. Azure Files is van toepassing de dezelfde nalevingsbeleid voor gegevens die worden gebruikt in andere Azure storage-services. Voor meer informatie over de naleving van Azure Storage-gegevens, kunt u verwijzen naar [compliance-aanbiedingen voor Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings), en Ga naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Toegang tot on-premises
 * <a id="expressroute-not-required"></a>
 **Heb ik Azure ExpressRoute gebruiken voor het verbinding maken met Azure Files of voor het gebruik van Azure File Sync on-premises?**  
+
     Nee. ExpressRoute is niet vereist voor toegang tot een Azure-bestandsshare. Als u wilt koppelen wordt een Azure-bestandsshare rechtstreeks on-premises alle die vereist is dat poort 445 (TCP uitgaand) openen voor toegang tot internet (dit is de poort die SMB gebruikt om te communiceren). Als u Azure File Sync, dat u nodig hebt, is poort 443 (TCP uitgaand) voor HTTPS-toegang (geen SMB vereist). Echter, u *kunt* ExpressRoute gebruiken met een van deze toegangsopties.
 
 * <a id="mount-locally"></a>
 **Hoe kan ik een Azure-bestandsshare koppelen op mijn lokale computer?**  
+
     U kunt de bestandsshare koppelt via het SMB-protocol als poort 445 (TCP uitgaand) geopend is en de client het SMB 3.0-protocol ondersteunt (bijvoorbeeld, als u Windows 10 of Windows Server 2016). Als poort 445 wordt geblokkeerd door het beleid van uw organisatie of door uw Internetprovider, kunt u Azure File Sync kunt gebruiken voor toegang tot uw Azure-bestandsshare.
 
 ## <a name="backup"></a>Backup
@@ -242,6 +295,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Momentopnamen van shares
+
 ### <a name="share-snapshots-general"></a>Momentopnamen van bestandsshares: Algemeen
 * <a id="what-are-snaphots"></a>
 **Wat zijn de momentopnamen van bestandsshares?**  
@@ -262,10 +316,14 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="snapshot-limits"></a>
 **Zijn er beperkingen met betrekking tot het aantal momentopnamen van bestandsshares die kan ik gebruiken?**  
     Ja. Azure Files kunnen maximaal 200 momentopnamen bewaren. Momentopnamen van shares meetellen niet voor het quotum voor de bestandsshare, zodat er geen limiet per share voor de totale ruimte die wordt gebruikt door alle momentopnamen van shares. Opslagaccountlimieten nog steeds van toepassing. Na 200 momentopnamen, moet u oudere momentopnamen voor het maken van nieuwe momentopnamen van shares verwijderen.
+
 * <a id="snapshot-cost"></a>
-**Hoeveel deelt momentopname kosten?**  
+**Hoeveel u momentopnamen kosten mag delen?**  
     Standard transactie- en standard-opslagkosten wordt toegepast op de momentopname. Momentopnamen van zijn incrementele van aard. De base momentopname is de bestandsshare zelf. De volgende momentopnamen worden incrementele en worden alleen de verschillen van de vorige momentopname opgeslagen. Dit betekent dat de wijzigingen die in de factuur is zichtbaar minimale als uw werkbelastingsverloop minimaal is. Zie [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/files/) voor standaard Azure-bestanden die informatie over prijzen. Vandaag de manier om te kijken naar de grootte die worden gebruikt door een momentopname van bestandsshare is door het vergelijken van de capaciteit worden gefactureerd met capaciteit gebruikt. We werken op hulpprogramma's voor het verbeteren van de rapportage.
 
+* <a id="ntfs-acls-snaphsots"></a>
+**NTFS ACL's op mappen en bestanden persistent in momentopnamen van shares?**
+    NTFS ACL's op mappen en bestanden zijn opgeslagen in de momentopnamen van shares.
 
 ### <a name="create-share-snapshots"></a>Momentopnamen van shares maken
 * <a id="file-snaphsots"></a>
@@ -285,7 +343,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 ### <a name="manage-share-snapshots"></a>Momentopnamen van shares beheren
 * <a id="browse-snapshots-linux"></a>
 **Kan ik mijn momentopnamen in Linux bladeren?**  
-    U kunt Azure CLI 2.0 gebruiken om te maken, weergeven, bladeren en terugzetten van momentopnamen in Linux.
+    U kunt Azure CLI gebruiken om te maken, weergeven, bladeren en terugzetten van momentopnamen in Linux.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
 **Kan ik de momentopnamen van shares kopiëren naar een ander opslagaccount?**  

@@ -1,69 +1,69 @@
 ---
-title: Video's voor Azure kosten Management trainingen | Microsoft Docs
-description: De training video's voor het beheer van Azure kosten doorlopen ophalen gestart en het gebruik ervan.
+title: Video's over training voor Cloudyn in Azure | Microsoft Docs
+description: De trainingsvideo's voor Cloudyn helpt u bij het ophalen, gestart en de functies ervan gebruiken.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 197eac4b6904bbbf55e7233e113e64e3af528b3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fb20661ddf8a92ac0f5ba4141c28111b117c85a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163330"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972212"
 ---
-# <a name="cost-management-training-videos"></a>Kosten Management trainingen video 's
+# <a name="cloudyn-training-videos"></a>Cloudyn trainingsvideo 's
 
-De volgende video's bieden demonstraties om aan de slag met kostenbeheer doorlopen en het gebruik ervan. Kostenbeheer ondersteunt meerdere cloud kosten bijhouden en optimalisatie, inclusief Microsoft Azure, Amazon Web Services en Google Cloud Platform.
+De volgende video's bieden demonstraties om u te helpen u bij aan de slag met Cloudyn en de functies ervan gebruiken. Cloudyn biedt ondersteuning voor het bijhouden van meerdere cloud-kosten en optimalisatie, waaronder Microsoft Azure, Amazon Web Services en Google Cloud Platform.
 
-[Inleiding tot Azure kosten Management](https://youtu.be/NWIRny6Wpsk)
+[Inleiding tot Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
 
-[Analyse van uw cloud factureringsgegevens versus tijd met Azure kosten Management](https://youtu.be/7LsVPHglM0g)
+[Analyse van uw factureringsgegevens voor de cloud versus tijd met Cloudyn](https://youtu.be/7LsVPHglM0g)
 
 >[!VIDEO https://www.youtube.com/embed/7LsVPHglM0g]
 
-[Gebruikers toevoegen aan Azure kosten Management](https://youtu.be/Nzn7GLahx30)
+[Gebruikers toevoegen aan Cloudyn](https://youtu.be/Nzn7GLahx30)
 
 >[!VIDEO https://www.youtube.com/embed/Nzn7GLahx30?ecver=1]
 
-[Een entiteitenhiërarchie kosten maken in Azure kosten Management](https://youtu.be/dAd9G7u0FmU)
+[Creating a Cost Entity Hierarchy in Cloudyn](https://youtu.be/dAd9G7u0FmU)
 
 >[!VIDEO https://www.youtube.com/embed/dAd9G7u0FmU?ecver=1]
 
-[VM-grootte in Azure kosten Management optimaliseren](https://youtu.be/1xaZBNmV704)
+[VM-grootte in Cloudyn optimaliseren](https://youtu.be/1xaZBNmV704)
 
 >[!VIDEO https://www.youtube.com/embed/1xaZBNmV704?ecver=1]
 
-[Het definiëren van een Model kosten toewijzing in Azure kosten Management](https://youtu.be/FJzof_agKHY)
+[Het definiëren van een Model voor kostentoewijzing in Cloudyn](https://youtu.be/FJzof_agKHY)
 
 >[!VIDEO https://www.youtube.com/embed/FJzof_agKHY?ecver=1]
 
-[Aangepaste kosten definiëren in Azure kosten Management](https://youtu.be/3HcgkGPQjXE)
+[Het definiëren van aangepaste kosten in rekening gebracht in Cloudyn](https://youtu.be/3HcgkGPQjXE)
 
 >[!VIDEO https://www.youtube.com/embed/3HcgkGPQjXE?ecver=1]
 
-[Zoek uw EA inschrijving-ID en API-sleutel voor gebruik in Azure kosten Management](https://youtu.be/u_phLs_udig)
+[Het zoeken Your EA Enrollment ID en API-sleutel voor gebruik in Cloudyn](https://youtu.be/u_phLs_udig)
 
 >[!VIDEO https://www.youtube.com/embed/u_phLs_udig?ecver=1]
 
-[Uw Directory-GUID en tarief-ID vinden voor gebruik in Azure kosten Management](https://youtu.be/PaRjnyaNGMI)
+[Uw Directory-GUID en tarief-ID zoeken voor gebruik in Cloudyn](https://youtu.be/PaRjnyaNGMI)
 
 >[!VIDEO https://www.youtube.com/embed/PaRjnyaNGMI?ecver=1]
 
-[Toewijzen van Accounts en -abonnementen aan de kosten van entiteiten in Azure kosten Management](https://youtu.be/d9uTWSdoQYo)
+[Toewijzen van Accounts en abonnementen aan de kosten van entiteiten in Cloudyn](https://youtu.be/d9uTWSdoQYo)
 
 >[!VIDEO https://www.youtube.com/embed/d9uTWSdoQYo?ecver=1]
 
-[Verbinding maken in Azure Resource Manager met Azure kosten Management](https://youtu.be/oCIwvfBB6kk)
+[Connecting to Azure Resource Manager met Cloudyn](https://youtu.be/oCIwvfBB6kk)
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-[Uw cloud facturering gegevens analyseren met Azure kosten Management](https://youtu.be/G0pvI3iLH-Y)
+[Analyse van uw cloud-factureringsgegevens aan Cloudyn](https://youtu.be/G0pvI3iLH-Y)
 
 >[!VIDEO https://www.youtube.com/embed/G0pvI3iLH-Y?ecver=1]

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248163"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983109"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
@@ -45,7 +45,7 @@ Hier volgen enkele dingen die u met Logboeken met diagnostische gegevens doen ku
 U kunt een opslagaccount of Event Hubs-naamruimte die zich niet in hetzelfde abonnement bevinden als het abonnement dat Logboeken verzendt. De gebruiker die de instelling configureert, moet de juiste RBAC-toegang tot beide abonnementen hebben.
 
 > [!NOTE]
->  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
+>  U kan momenteel niet archiveren stroomlogboeken netwerk aan een storage-account die achter een beveiligd virtueel netwerk.
 
 > [!WARNING]
 > De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combinere
 
 U configureren momenteel diagnostische instellingen van tenant met behulp van Azure PowerShell niet.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Inschakelen van verzamelen van diagnostische logboeken van de resource via Azure CLI 2.0
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Inschakelen van verzamelen van diagnostische logboeken van de resource via de Azure CLI
 
-Om het verzamelen van diagnostische logboeken van de resource via de Azure CLI 2.0 mogelijk, gebruikt u de [az monitor diagnostic-settings maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
+Als u wilt verzamelen van diagnostische logboeken van de resource via de Azure CLI inschakelen, gebruikt u de [az monitor diagnostic-settings maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
 
 Opslag van logboeken met diagnostische gegevens in een Storage-Account inschakelen:
 

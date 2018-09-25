@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047022"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950708"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Problemen met een traag of niet werkend HDInsight-cluster oplossen
 
@@ -57,12 +57,13 @@ De Azure-portal kan deze informatie leveren:
 
 ![HDInsight-Azure portal informatie](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-U kunt ook de Azure CLI gebruiken:
+U kunt ook de klassieke Azure-CLI gebruiken:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Een andere optie is met behulp van PowerShell. Zie voor meer informatie, [beheren van Hadoop-clusters in HDInsight met Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Vergelijk de clusterversie met de meest recente versie van HDInsight. Elke HDIns
 
 #### <a name="restart-your-cluster-services"></a>Uw clusterservices opnieuw starten
 
-Als u vertragingen in het cluster ondervindt, kunt u overwegen uw services via de Ambari-UI of de Azure CLI opnieuw te starten. Tijdelijke fouten mogelijk last van het cluster en het opnieuw starten is de snelste manier om uw omgeving stabiel en mogelijk verbeterde prestaties.
+Als u vertragingen in het cluster ondervindt, kunt u overwegen uw services via de Ambari-UI of de klassieke Azure-CLI opnieuw te starten. Tijdelijke fouten mogelijk last van het cluster en het opnieuw starten is de snelste manier om uw omgeving stabiel en mogelijk verbeterde prestaties.
 
 ## <a name="step-3-view-your-clusters-health"></a>Stap 3: De status van uw cluster weergeven
 

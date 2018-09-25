@@ -1,82 +1,78 @@
 ---
-title: Hoge beschikbaarheid en betrouwbaarheid
-description: Hoge beschikbaarheid en betrouwbaarheid
+title: Hoge beschikbaarheid en betrouwbaarheid - Azure Scheduler
+description: Meer informatie over hoge beschikbaarheid en betrouwbaarheid in Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
-ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866091"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947921"
 ---
-# <a name="scheduler-high-availability-and-reliability"></a>Hoge beschikbaarheid en betrouwbaarheid
-## <a name="azure-scheduler-high-availability"></a>Hoge beschikbaarheid met Azure Scheduler
-Als een Azure-platform-service core Azure Scheduler is maximaal beschikbaar en functionaliteit voor zowel geografisch redundante service-implementatie en geo-landinstelling taak replicatie.
+# <a name="high-availability-and-reliability-for-azure-scheduler"></a>Hoge beschikbaarheid en betrouwbaarheid voor Azure Scheduler
+
+> [!IMPORTANT]
+> [Met Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, is buiten gebruik gesteld. Voor het plannen van taken, [Azure Logic Apps in plaats daarvan probeert](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Azure Scheduler biedt [hoge beschikbaarheid](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) en betrouwbaarheid voor uw taken. Zie voor meer informatie, [SLA voor Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+
+## <a name="high-availability"></a>Hoge beschikbaarheid
+
+Azure Scheduler is [maximaal beschikbaar] en maakt gebruik van zowel geografisch redundante service-implementatie en geo-regionale taak replicatie.
 
 ### <a name="geo-redundant-service-deployment"></a>Geografisch redundante service-implementatie
-Azure Scheduler is beschikbaar via de gebruikersinterface in bijna elke geografische regio die deel uitmaakt van Azure vandaag. De lijst met regio's die beschikbaar is in Azure Scheduler is [hier vermeld](https://azure.microsoft.com/regions/#services). Als een datacentrum in een gehoste regio niet beschikbaar wordt weergegeven, zijn de failover-mogelijkheden van Azure Scheduler zodat de service beschikbaar vanuit een ander datacenter is.
 
-### <a name="geo-regional-job-replication"></a>Geo-landinstelling taak replicatie
-Is niet alleen de Azure Scheduler front-end beschikbaar voor de management-aanvragen, maar uw eigen baan is ook geo-replicatie. Wanneer er een storing in een regio, wordt Azure Scheduler failover wordt uitgevoerd en zorgt ervoor dat de taak wordt uitgevoerd vanaf een ander datacenter in gekoppelde geografische regio.
+Azure Scheduler is beschikbaar in de Azure-portal voor bijna [elke geografische regio die tegenwoordig wordt ondersteund door Azure](https://azure.microsoft.com/global-infrastructure/regions/#services). Dus als een Azure-datacenter in een gehoste regio niet beschikbaar is, kunt u nog steeds gebruiken Azure Scheduler omdat failover-functionaliteit van de service Scheduler beschikbaar is via een ander datacenter.
 
-Bijvoorbeeld, als u een taak hebt gemaakt in Zuid-centraal VS, repliceert Azure Scheduler automatisch deze taak in Noordelijk Centraal, VS. Wanneer er een fout in Zuid-centraal VS, Azure Scheduler zorgt ervoor dat de taak wordt uitgevoerd vanaf Noordelijk Centraal, VS. 
+### <a name="geo-regional-job-replication"></a>Geo-regionale taak replicatie
 
-![][1]
+Uw eigen taken in Azure Scheduler worden gerepliceerd tussen Azure-regio's. Dus als één regio een storing heeft, Azure Scheduler voert een failover en zorgt ervoor dat de taak wordt uitgevoerd vanaf een ander datacenter in de gekoppelde geografische regio.
 
-Azure Scheduler als gevolg hiervan zorgt ervoor dat uw gegevens binnen dezelfde breder geografische regio in geval van een Azure storing blijft. Als gevolg hiervan moet u de taak voor het toevoegen van hoge beschikbaarheid dubbele – Azure Scheduler automatisch biedt mogelijkheden voor hoge beschikbaarheid voor uw taken.
+Bijvoorbeeld, als u een taak in Zuid-centraal VS maken, repliceert Azure Scheduler automatisch deze taak in Noord-centraal VS. Als er een fout doet zich voor in Zuid-centraal VS, wordt de taak in Azure Scheduler uitgevoerd in Noord-centraal VS. 
 
-## <a name="azure-scheduler-reliability"></a>Azure Scheduler-betrouwbaarheid
-Azure Scheduler wordt gegarandeerd dat een eigen hoge beschikbaarheid en gaat een andere benadering naar taken gebruiker gemaakt. De taak kan bijvoorbeeld een HTTP-eindpunt is niet beschikbaar aanroepen. Azure Scheduler probeert niettemin niet goed worden uitgevoerd uw taak, doordat u alternatieve opties om te gaan met de fout. Azure Scheduler wordt dit op twee manieren:
+![Geo-regionale taak replicatie](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
-### <a name="configurable-retry-policy-via-retrypolicy"></a>Configureerbare beleid voor opnieuw proberen via "retryPolicy"
-Azure Scheduler kunt u een beleid voor opnieuw proberen te configureren. Standaard, als een taak mislukt, probeert Scheduler de taak opnieuw vier keer, met een interval van 30 seconden. U kunt dit beleid voor opnieuw proberen om te worden agressievere (bijvoorbeeld tien keer met een interval van 30 seconden) opnieuw configureren of lossere (bijvoorbeeld twee keer per dag intervallen.)
+Azure Scheduler maakt ook dat uw gegevens binnen dezelfde, maar naar een grotere geografische regio, blijft het geval een softwarestoring in Azure. U hebt dus geen kopie van uw taken als u wilt dat alleen hoge beschikbaarheid. Azure Scheduler zorgt automatisch voor hoge beschikbaarheid voor uw taken.
 
-Als een voorbeeld van wanneer Hiermee kunt kunt u een taak die eenmaal per week wordt uitgevoerd en roept een HTTP-eindpunt maken. Als het HTTP-eindpunt is niet actief voor een paar uur wanneer de taak wordt uitgevoerd is, u mogelijk niet wilt wachten één meer week voor de taak opnieuw uit te voeren omdat zelfs het standaardbeleid voor opnieuw proberen mislukken. In dergelijke gevallen kunt u het beleid standaardproces voor nieuwe pogingen om opnieuw te proberen om de drie uur (bijvoorbeeld) opnieuw configureren in plaats van elke 30 seconden.
+## <a name="reliability"></a>Betrouwbaarheid
 
-Raadpleeg voor meer informatie over het configureren van een beleid voor opnieuw proberen, [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+Azure Scheduler garandeert een eigen hoge beschikbaarheid maar een andere benadering kost aan projecten die door de gebruiker zijn gemaakt. Stel bijvoorbeeld dat uw taak roept een HTTP-eindpunt dat is niet beschikbaar. Azure Scheduler wil nog steeds uw taak is uitgevoerd door te geven u alternatieve manieren voor het afhandelen van fouten: 
 
-### <a name="alternate-endpoint-configurability-via-erroraction"></a>Alternatieve eindpunt configuratiemogelijkheden via "errorAction"
-Als het doel-eindpunt voor uw Azure Scheduler-taak niet bereikbaar blijft, schakelt Azure Scheduler terug naar het andere eindpunt voor foutafhandeling nadat u het beleid voor opnieuw proberen. Als een alternatieve eindpunt voor foutafhandeling is geconfigureerd, wordt het door Azure Scheduler aanroept. Uw eigen taken zijn met een alternatieve eindpunt maximaal beschikbaar met betrekking tot de fout.
+* Instellen van beleid voor opnieuw proberen.
+* Alternatieve eindpunten instellen.
 
-Azure Scheduler volgt een voorbeeld: in het onderstaande diagram het beleid voor opnieuw proberen voor een webservice Den Haag bereikt. Nadat de nieuwe pogingen mislukken, wordt gecontroleerd of er een alternatief is. Vervolgens gaat het verder en wordt gestart die aanvragen indienen bij de alternatieve met de dezelfde beleid voor opnieuw proberen.
+<a name="retry-policies"></a>
 
-![][2]
+### <a name="retry-policies"></a>Beleid voor opnieuw proberen
 
-Houd er rekening mee dat de dezelfde beleid voor opnieuw proberen voor zowel de oorspronkelijke actie en de alternatieve fout geldt. Het is ook mogelijk om de alternatieve foutbewerking actietype afwijken van de belangrijkste actie action-type. Bijvoorbeeld, terwijl de belangrijkste actie wordt een HTTP-eindpunt kan worden aangeroepen, de actie bij fout in plaats daarvan mogelijk een opslagwachtrij-, service bus-wachtrij- of service bus-onderwerpactie die foutregistratie biedt.
+Azure Scheduler kunt u beleid voor opnieuw proberen instellen. Als een taak, klikt u vervolgens standaard mislukt pogingen Scheduler de taak vier keer intervallen van 30 seconden. Kunt u dit beleid voor opnieuw proberen uitgebreider toe, zoals 10 keer intervallen van 30 seconden of minder agressief, zoals twee keer op dagelijks interval.
 
-Raadpleeg voor meer informatie over het configureren van een eindpunt alternate, [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Stel bijvoorbeeld dat u maakt een wekelijkse taak die een HTTP-eindpunt aanroept. Als de HTTP-eindpunt niet beschikbaar is voor een paar uur, wanneer de taak wordt uitgevoerd, wilt u mogelijk niet wachten nog een week voor de taak opnieuw, uit te voeren die wordt uitgevoerd omdat het standaardbeleid voor opnieuw proberen in dit geval werkt niet. Dus als u wilt wijzigen van het standaardproces voor nieuwe pogingen-beleid, zodat nieuwe pogingen is gebeurd, bijvoorbeeld elke drie uur in plaats van elke 30 seconden. 
+
+Zie voor meer informatie over het instellen van een beleid voor opnieuw proberen, [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+
+### <a name="alternate-endpoints"></a>Alternatieve eindpunten
+
+Als uw Azure Scheduler-taak aanroept die een eindpunt dat is niet bereikbaar is, zelfs nadat u het beleid voor opnieuw proberen, Scheduler gebruikgemaakt van een alternatieve eindpunt dat dergelijke fouten kan worden verwerkt. Dus als u dit eindpunt hebt ingesteld, roept Scheduler dat eindpunt, waardoor uw eigen taken maximaal beschikbaar is wanneer er fouten optreden.
+
+In dit diagram ziet u bijvoorbeeld Scheduler volgt hoe het beleid voor opnieuw proberen bij het aanroepen van een webservice in New York. Als de nieuwe pogingen is mislukt, controleert u Scheduler een eindpunt alternate. Als het eindpunt bestaat, start Scheduler verzenden van aanvragen naar het eindpunt alternate. De hetzelfde beleid voor opnieuw proberen is van toepassing op zowel de oorspronkelijke actie en de alternatieve actie.
+
+![Scheduler-gedrag met beleid voor opnieuw proberen en eindpunt alternate](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
+
+Het actietype voor de alternatieve actie kan afwijken van de oorspronkelijke actie. Bijvoorbeeld, hoewel de oorspronkelijke actie een HTTP-eindpunt aanroept, kan de alternatieve actie fouten vastleggen met behulp van een Storage-wachtrij, een Service Bus-wachtrij of een Service Bus-onderwerpactie.
+
+Zie voor meer informatie over het instellen van een eindpunt alternate, [errorAction](scheduler-concepts-terms.md#error-action).
 
 ## <a name="see-also"></a>Zie ook
- [Wat is Scheduler?](scheduler-intro.md)
 
- [Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie](scheduler-concepts-terms.md)
-
- [Aan de slag met behulp van Scheduler in Azure Portal](scheduler-get-started-portal.md)
-
- [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
-
- [Complexe schema's en geavanceerde terugkeerpatronen bouwen met Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Naslaginformatie over REST API van Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)
-
- [Azure Scheduler-limieten, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
-
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+* [Wat is Azure Scheduler?](scheduler-intro.md)
+* [Concepten en terminologie entiteitenhiërarchie](scheduler-concepts-terms.md)
+* [Complexe schema's en geavanceerde terugkeerpatronen bouwen](scheduler-advanced-complexity.md)
+* [Limieten, quota, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)

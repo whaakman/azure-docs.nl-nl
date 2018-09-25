@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8bd5ddab4553807f59b7afdf32fbfc1703e3d75
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578240"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949522"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business één op virtuele Machines van Azure
 Dit document biedt richtlijnen voor het implementeren van SAP Business One on Azure Virtual Machines. De documentatie is geen vervanging voor documentatie voor de installatie van bedrijf voor SAP. De documentatie zijn voor algemene richtlijnen voor de planning en implementatie voor de Azure-infrastructuur voor het uitvoeren van een zakelijke toepassingen op.
@@ -39,7 +39,7 @@ Voor het gebruik van deze handleiding, moet u basiskennis hebt van de volgende A
 - [Azure virtuele machines op Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure-netwerken en virtuele netwerken beheren met PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Azure-netwerken en virtuele netwerken met CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Azure-schijven beheren met de Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Azure-schijven beheren met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Zelfs als u geïnteresseerd in bedrijven een bent alleen het document [Azure Virtual Machines planning en implementatie van SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) mag een goede bron van informatie.
 

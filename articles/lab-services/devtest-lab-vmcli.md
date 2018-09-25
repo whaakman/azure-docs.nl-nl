@@ -1,6 +1,6 @@
 ---
 title: Maken en beheren van virtuele machines in DevTest Labs met Azure CLI | Microsoft Docs
-description: Informatie over het gebruik van Azure DevTest Labs maken en beheren van virtuele machines met Azure CLI 2.0
+description: Informatie over het gebruik van Azure DevTest Labs maken en beheren van virtuele machines met Azure CLI
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ccf9b08856fcc652e3ad4b2b31587d43d7ef9cca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434676"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995944"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Maken en beheren van virtuele machines met DevTest Labs met de Azure CLI
 In deze quick start begeleidt u bij het maken, starten, verbinding te maken, bijwerken en opschonen van een ontwikkelcomputer in uw testomgeving. 
@@ -27,7 +27,7 @@ Voordat u begint:
 
 * Als u een lab niet is gemaakt, instructies hiervoor vindt [hier](devtest-lab-create-lab.md).
 
-* [CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). Als u wilt starten, az login voor het maken van een verbinding met Azure worden uitgevoerd. 
+* [De Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). Als u wilt starten, az login voor het maken van een verbinding met Azure worden uitgevoerd. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Maken en controleer of de virtuele machine 
 Een virtuele machine maken vanuit een marketplace-installatiekopie met ssh verificatie.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1b9a8e4a8706dea43e33331cd196fbe2ad877a3a
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ff0514a3432ed74baa6df2574157066daff895bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605552"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961260"
 ---
 # <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Werken met JSON en gegevensstructuren in Log Analytics-query 's
 
@@ -40,7 +40,7 @@ Gebruik `extractjson` voor toegang tot een specifieke JSON-element in een bekend
 
 Gebruik haakjes voor indexen en punten als scheidingsteken tussen elementen:
 
-```KQL
+```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report
 | extend status = extractjson("$.hosts[0].status", hosts_report)
@@ -48,7 +48,7 @@ print hosts_report
 
 Dit is hetzelfde resultaat met behulp van alleen de vierkante haken notatie:
 
-```KQL
+```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report 
 | extend status = extractjson("$['hosts'][0]['status']", hosts_report)
@@ -56,7 +56,7 @@ print hosts_report
 
 Als er slechts één element, kunt u alleen de puntnotatie:
 
-```KQL
+```Kusto
 let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
 print hosts_report 
 | extend status = hosts_report.status
@@ -68,7 +68,7 @@ print hosts_report
 ### <a name="parsejson"></a>parsejson
 Voor toegang tot meerdere elementen in uw json-structuur, is het eenvoudiger om deze te openen als een dynamische-object. Gebruik `parsejson` tekst gegevens naar een dynamische-object. Na de conversie naar een dynamisch type, kunnen extra functies worden gebruikt om de gegevens te analyseren.
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend status0=hosts_object.hosts[0].status, rate1=hosts_object.hosts[1].rate
@@ -79,7 +79,7 @@ print hosts_object
 ### <a name="arraylength"></a>arraylength
 Gebruik `arraylength` telt het aantal elementen in een matrix:
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend hosts_num=arraylength(hosts_object.hosts)
@@ -88,7 +88,7 @@ print hosts_object
 ### <a name="mvexpand"></a>mvexpand
 Gebruik `mvexpand` om de eigenschappen van een object in afzonderlijke rijen.
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | mvexpand hosts_object.hosts[0]
@@ -99,7 +99,7 @@ print hosts_object
 ### <a name="buildschema"></a>buildschema
 Gebruik `buildschema` om op te halen van het schema dat alle waarden van een object admits:
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)
@@ -123,7 +123,7 @@ Deze uitvoer worden de namen van de velden van het object en de overeenkomende g
 
 Geneste objecten mogelijk verschillende schema's, zoals in het volgende voorbeeld:
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"status":"stopped", "rate":"3", "range":100}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)

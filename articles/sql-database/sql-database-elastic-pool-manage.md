@@ -7,16 +7,16 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ab37a714635b716a80bd869cffd2d5a37d76aff0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721497"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040360"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Elastische pools in Azure SQL Database maken en beheren
 
@@ -70,12 +70,12 @@ Maken en beheren van elastische pools voor SQL Database met de [Azure CLI](/cli/
 
 | Cmdlet | Beschrijving |
 | --- | --- |
-|[AZ sql elastic-pool maken](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Hiermee maakt u een elastische pool.|
-|[AZ sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Retourneert een lijst van elastische pools in een server.|
-|[AZ sql elastic-pool list-databases](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Retourneert een lijst met databases in een elastische pool.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Ook bevat beschikbare groep DTU-instellingen, de maximale opslag, en per database-instellingen. Om te reduceren uitgebreidheid, extra opslaglimieten en per database instellingen standaard zijn verborgen.|
-|[AZ sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Een elastische pool-updates.|
-|[AZ sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Hiermee verwijdert u de elastische pool.|
+|[AZ sql elastic-pool maken](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Hiermee maakt u een elastische pool.|
+|[AZ sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Retourneert een lijst van elastische pools in een server.|
+|[AZ sql elastic-pool list-databases](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Retourneert een lijst met databases in een elastische pool.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Ook bevat beschikbare groep DTU-instellingen, de maximale opslag, en per database-instellingen. Om te reduceren uitgebreidheid, extra opslaglimieten en per database instellingen standaard zijn verborgen.|
+|[AZ sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Een elastische pool-updates.|
+|[AZ sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Hiermee verwijdert u de elastische pool.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Databases in pools beheren
 

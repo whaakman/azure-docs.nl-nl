@@ -1,6 +1,6 @@
 ---
-title: Problemen oplossen met Azure Virtual Network Gateway en verbindingen - Azure CLI 2.0 | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u de Azure Network Watcher voor het oplossen van Azure CLI 2.0
+title: Problemen oplossen met Azure Virtual Network Gateway en verbindingen - Azure CLI | Microsoft Docs
+description: Deze pagina wordt uitgelegd hoe u de Azure Network Watcher voor het oplossen van Azure CLI
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5f843b42a108968e2fbefacddcd22f331a04691e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091098"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970988"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Problemen oplossen met de Gateway van virtueel netwerk en verbindingen met behulp van Azure Network Watcher Azure CLI 2.0
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Problemen oplossen met de Gateway van virtueel netwerk en verbindingen met behulp van Azure Network Watcher Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -31,9 +31,7 @@ ms.locfileid: "39091098"
 
 Network Watcher biedt veel mogelijkheden met betrekking tot het begrijpen van de netwerkresources van uw in Azure. Een van deze mogelijkheden is resource-oplossen van problemen. Het oplossen van resource kan worden aangeroepen via de portal, PowerShell, CLI of REST-API. Indien aangeroepen, wordt Network Watcher inspecteert de status van de Gateway van een virtueel netwerk of een verbinding en retourneert de bevindingen.
 
-In dit artikel wordt onze CLI van de volgende generatie voor het implementatiemodel resource management, Azure CLI 2.0 die beschikbaar is voor Windows, Mac en Linux.
-
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7d37a60ad3ae3bea8490006bdd35dc47d728b88e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bdf4c7527e2c0056b2de2321fbae280e9008cb1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990668"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Extra opslagaccounts toevoegen aan HDInsight
 
@@ -58,7 +58,7 @@ __Vereisten voor__:
 
 ## <a name="to-use-the-script"></a>Het gebruik van het script
 
-Met dit script kan worden gebruikt vanuit de Azure-portal, Azure PowerShell of Azure CLI 1.0. Zie voor meer informatie de [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
+Met dit script kan worden gebruikt vanuit de Azure-portal, Azure PowerShell of de klassieke Azure-CLI. Zie voor meer informatie de [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
 
 > [!IMPORTANT]
 > Wanneer u de stappen in het document aanpassen, gebruikt u de volgende informatie om toe te passen met dit script:
@@ -71,7 +71,7 @@ Met dit script kan worden gebruikt vanuit de Azure-portal, Azure PowerShell of A
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Storage-accounts niet weergegeven in Azure portal of hulpprogramma 's
 
-Wanneer u het HDInsight-cluster in Azure portal bekijkt, selecteert de __Opslagaccounts__ item onder __eigenschappen__ storage-accounts die zijn toegevoegd via deze scriptactie niet wordt weergegeven. Azure PowerShell en Azure CLI weergeven niet het extra opslagaccount de.
+Wanneer u het HDInsight-cluster in Azure portal bekijkt, selecteert de __Opslagaccounts__ item onder __eigenschappen__ storage-accounts die zijn toegevoegd via deze scriptactie niet wordt weergegeven. Azure PowerShell en klassieke Azure-CLI weergeven niet het extra opslagaccount de.
 
 De opslaginformatie wordt niet weergegeven omdat het script alleen het core-site.xml-configuratie van het cluster wijzigt. Deze informatie wordt niet gebruikt bij het ophalen van de clustergegevens met behulp van Azure management API's.
 

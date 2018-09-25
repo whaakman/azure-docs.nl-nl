@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 25773124fcd479489f5d2d544cc5b6e3b11e325a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301137"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979433"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeer uw toepassing op virtuele-machineschaalsets
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor exemplaren in een schaalset instellen of installatiescripts op bestaande VM-exemplaren automatisch wordt uitgevoerd. U leert ook hoe u voor het beheren van toepassingen of updates van het besturingssysteem in een schaalset.
@@ -31,14 +31,14 @@ Wanneer u een van de Azure-platform-installatiekopieën te maken van de exemplar
 
 Om te beperken het beheer van de configuratie en de tijd voor het inrichten van een virtuele machine, kunt u een aangepaste VM-installatiekopie die klaar zijn voor het uitvoeren van uw toepassing als een exemplaar is ingericht in de schaalset. Voor meer informatie over het maken en gebruiken van een aangepaste VM-installatiekopie met een schaal, raadpleegt u de volgende zelfstudies:
 
-- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure-CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Een app installeren met de aangepaste Scriptextensie
 Met de aangepaste scriptextensie kunnen scripts worden gedownload en uitgevoerd op virtuele machines in Azure. Deze uitbreiding is handig voor post-implementatieconfiguraties, software-installaties of andere configuratie-/beheertaken. Scripts kunnen worden gedownload uit Azure Storage of GitHub, of worden geleverd in Azure Portal tijdens de uitvoering van extensies. Voor meer informatie over het maken en gebruiken van een aangepaste VM-installatiekopie met een schaal, raadpleegt u de volgende zelfstudies:
 
-- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure-CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager-sjabloon](tutorial-install-apps-template.md)
 

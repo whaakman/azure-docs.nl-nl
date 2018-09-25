@@ -1,10 +1,9 @@
-
 Zie [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Informatie over schijven en VHD's voor virtuele machines) voor meer informatie over schijven.
 
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Een lege schijf koppelen
-1. Open Azure CLI 1.0 en [maak verbinding met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+1. Open Azure CLI voor klassieke en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
 2. Voer `azure vm disk attach-new` in om een nieuwe schijf te maken en te koppelen, zoals wordt weergegeven in het volgende voorbeeld. Vervang *myVM* met de naam van uw virtuele Linux-machine en geef de grootte van de schijf op in GB. In dit voorbeeld is dat *100 GB*:
 
     ```azurecli
@@ -37,7 +36,7 @@ Zie [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/lin
 ## <a name="attach-an-existing-disk"></a>Een bestaande schijf koppelen
 Als u een bestaande schijf wilt koppelen, dient u een .vhd beschikbaar te hebben in een opslagaccount.
 
-1. Open Azure CLI 1.0 en [maak verbinding met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+1. Open Azure CLI voor klassieke en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
 2. Controleer of de VHD die u wilt toevoegen al is geüpload naar uw Azure-abonnement:
    
     ```azurecli

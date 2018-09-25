@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: dfbdc9e3091255267afe6c60363b7f93c4623e02
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0eab96d85aa9cc8bea8d30c5a36c8489b8ea652e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054298"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974167"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Inleiding tot FreeBSD op Azure
 Dit artikel bevat een overzicht van het uitvoeren van FreeBSD virtuele machines in Azure.
@@ -45,8 +45,8 @@ Een FreeBSD virtuele machine implementeert, is een eenvoudig proces met een inst
 - [FreeBSD 10.4 op Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
 - [FreeBSD 11.1 op Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Een FreeBSD virtuele machine via de Azure CLI 2.0 op FreeBSD maken
-U moet eerst installeren [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) al de volgende opdracht op een machine FreeBSD.
+### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Een FreeBSD virtuele machine via Azure CLI op FreeBSD maken
+U moet eerst installeren [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) al de volgende opdracht op een machine FreeBSD.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash

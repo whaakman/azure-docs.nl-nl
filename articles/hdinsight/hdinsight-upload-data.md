@@ -1,6 +1,6 @@
 ---
 title: Upload gegevens voor Hadoop-taken in HDInsight
-description: Meer informatie over het uploaden en toegang tot gegevens voor Hadoop-taken in HDInsight met behulp van de Azure CLI, Azure Storage Explorer, Azure PowerShell, de Hadoop-opdrachtregels of Sqoop.
+description: Meer informatie over het uploaden en toegang tot gegevens voor Hadoop-taken in HDInsight met behulp van de klassieke Azure CLI, Azure Storage Explorer, Azure PowerShell, de Hadoop-opdrachtregels of Sqoop.
 keywords: etl-hadoop, ophalen van gegevens in hadoop, hadoop-gegevens voor laden
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051821"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985976"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Upload gegevens voor Hadoop-taken in HDInsight
 
@@ -38,22 +38,22 @@ Microsoft biedt de volgende hulpprogramma's om te werken met Azure Storage:
 
 | Hulpprogramma | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure-opdrachtregelinterface][azurecli] |✔ |✔ |✔ |
+| [CLI van Azure Classic][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop-opdracht](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Terwijl de Azure CLI, Azure PowerShell en AzCopy kunnen alle van buiten Azure worden gebruikt, is de Hadoop-opdracht alleen beschikbaar op het HDInsight-cluster. En de opdracht kan alleen gegevens uit het lokale bestandssysteem in Azure Storage te laden.
+> Hoewel de klassieke Azure-CLI, Azure PowerShell en AzCopy kunnen alle van buiten Azure worden gebruikt, is de Hadoop-opdracht alleen beschikbaar op het HDInsight-cluster. En de opdracht kan alleen gegevens uit het lokale bestandssysteem in Azure Storage te laden.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-De Azure-CLI is een hulpprogramma voor meerdere platforms waarmee u voor het beheren van Azure-services. Gebruik de volgende stappen uit om gegevens te uploaden naar Azure Storage:
+#### <a id="xplatcli"></a>CLI van Azure Classic
+De klassieke Azure-CLI is een hulpprogramma voor meerdere platforms waarmee u voor het beheren van Azure-services. Gebruik de volgende stappen uit om gegevens te uploaden naar Azure Storage:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Installeren en configureren van de Azure CLI voor Mac, Linux en Windows](../cli-install-nodejs.md).
+1. [Installeren en configureren van de klassieke Azure-CLI voor Mac, Linux en Windows](../cli-install-nodejs.md).
 2. Open een opdrachtprompt, bash of andere shell en gebruik de volgende informatie om te verifiëren bij uw Azure-abonnement.
 
     ```cli

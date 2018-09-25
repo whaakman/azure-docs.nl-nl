@@ -1,6 +1,6 @@
 ---
-title: Aan domein gekoppelde Azure HDInsight-architectuur
-description: Meer informatie over het plannen van aan domein gekoppelde HDInsight.
+title: Azure HDInsight-architectuur met Enterprise-beveiligingspakket
+description: Leer hoe u HDInsight-beveiliging met Enterprise-beveiligingspakket van plan bent.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
@@ -8,15 +8,15 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 09/24/2018
+ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998918"
 ---
-# <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Azure Hadoop-clusters in aan domein gekoppelde HDInsight plannen
+# <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
 De standard-Azure HDInsight-cluster is een cluster met één gebruiker. Het is geschikt voor de meeste bedrijven met kleinere toepassingsteams die workloads met veel gegevens. Elke gebruiker kan een specifieke cluster op aanvraag maken en vernietigen zodra deze niet meer nodig. 
 
@@ -29,7 +29,7 @@ De virtuele machines (VM's) in HDInsight zijn van een domein is toegevoegd aan h
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight integreren met Active Directory
 
-Open source Hadoop is afhankelijk van Kerberos voor verificatie en beveiliging. HDInsight-clusterknooppunten zijn daarom domein zijn toegevoegd aan een domein dat wordt beheerd door Azure AD DS. Kerberos-beveiliging is geconfigureerd voor het Hadoop-componenten op het cluster. 
+Open source Hadoop is afhankelijk van Kerberos voor verificatie en beveiliging. Daarom zijn HDInsight-clusterknooppunten met Enterprise Security Package (ESP) gekoppeld aan een domein dat wordt beheerd door Azure AD DS. Kerberos-beveiliging is geconfigureerd voor het Hadoop-componenten op het cluster. 
 
 Voor elk onderdeel Hadoop is een service-principal automatisch gemaakt. Een principal bijbehorende machine wordt ook gemaakt voor elke machine die gekoppeld aan het domein. Voor het opslaan van deze service en beveiligings-principals van de computer, moet u een organisatie-eenheid (OE) opgeven in de domeincontroller (Azure AD DS), waar deze beveiligings-principals zijn geplaatst. 
 
@@ -45,7 +45,7 @@ Om samen te vatten, moet u voor het instellen van een omgeving met:
 
 De volgende schermafbeelding ziet u een organisatie-eenheid hebt gemaakt in contoso.com. Ook ziet u enkele van de service-principals en machine-principals.
 
-![Organisatie-eenheid voor aan domein gekoppelde HDInsight-clusters](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![Organisatie-eenheid voor HDInsight-clusters met ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Instellen van de verschillende domeincontrollers
 HDInsight ondersteunt momenteel alleen Azure AD DS als de primaire domeincontroller die het cluster voor communicatie van Kerberos gebruikt. Maar andere complexe Active Directory-instellingen zijn mogelijk, zolang dergelijke installatie leidt tot het inschakelen van Azure AD DS voor HDInsight-toegang.
@@ -55,7 +55,7 @@ HDInsight ondersteunt momenteel alleen Azure AD DS als de primaire domeincontrol
 
 Gebruikers, groepen en wachtwoorden worden gesynchroniseerd vanuit de Azure Active Directory (Azure AD). De synchronisatie in één richting van uw Azure AD-instantie met Azure AD DS kan gebruikers zich aanmelden bij het cluster met behulp van de zakelijke referenties. 
 
-Zie voor meer informatie, [configureren aan domein gekoppelde HDInsight-clusters met behulp van Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
+Zie voor meer informatie, [configureren HDInsight-clusters met behulp van Azure AD DS ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>On-premises Active Directory of Active Directory op virtuele IaaS-machines
 
@@ -63,9 +63,10 @@ Als u een on-premises Active Directory-exemplaar of meer complexe Active Directo
 
 Omdat Kerberos is afhankelijk van wachtwoord-hashes, moet u [wachtwoordhashsynchronisatie op Azure AD DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Als u Federatie met Active Directory Federation Services (AD FS), kunt u eventueel instellen van synchronisatie van wachtwoordhashes als een back-up als uw AD FS-infrastructuur is mislukt. Zie voor meer informatie, [synchronisatie van wachtwoordhashes met Azure AD Connect-synchronisatie inschakelen](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
-Met behulp van on-premises Active Directory of Active Directory op IaaS-VM's alleen zonder Azure AD en Azure AD DS, is geen ondersteunde configuratie voor aan domein gekoppelde HDInsight-clusters.
+Met on-premises Active Directory of Active Directory op IaaS-VM's alleen, zonder dat u Azure AD en Azure AD DS, is geen ondersteunde configuratie voor HDInsight-clusters met ESP.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Aan domein gekoppelde HDInsight-clusters configureren](apache-domain-joined-configure-using-azure-adds.md)
-* [Hive-beleidsregels voor aan domein gekoppelde HDInsight-clusters configureren](apache-domain-joined-run-hive.md)
-* [Aan domein gekoppelde HDInsight-clusters beheren](apache-domain-joined-manage.md) 
+
+* [HDInsight-clusters configureren met ESP](apache-domain-joined-configure-using-azure-adds.md)
+* [Hive-beleidsregels voor HDInsight-clusters configureren met ESP](apache-domain-joined-run-hive.md)
+* [HDInsight-clusters met ESP beheren](apache-domain-joined-manage.md) 

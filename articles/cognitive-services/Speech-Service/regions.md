@@ -6,14 +6,14 @@ author: mahilleb-msft
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: d2c40935504f6c2d477eae1830e58bf782d28b11
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8485caeff3a7c96ed8f7403befac0026fae16e90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366197"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987557"
 ---
 # <a name="regions-of-the-speech-service"></a>Regio's van de spraak-service
 
@@ -29,8 +29,7 @@ Zie [REST-API's](rest-apis.md) voor meer informatie.
 
 ## <a name="speech-sdk"></a>Speech-SDK
 
-In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks.
-Een voorbeeld is als een parameter voor [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) in de spraak-SDK voor C#.
+In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bijvoorbeeld, als een parameter voor `SpeechConfig.FromSubscription` in de spraak-SDK voor C#).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Regio's voor spraakherkenning en vertaling
 

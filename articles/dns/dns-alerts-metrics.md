@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 17541cdc0fd017cf762c4af55e0a6be25dead9f1
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: de29c24556522abeaff8d942edc027c7444c3ed3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965011"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS-metrische gegevens en waarschuwingen
 Azure DNS is een hostingservice voor DNS-domeinen die naamomzetting met de Microsoft Azure-infrastructuur biedt. Dit artikel wordt beschreven voor metrische gegevens en waarschuwingen voor de Azure DNS-service.
 
 ## <a name="azure-dns-metrics"></a>Metrische gegevens van Azure DNS
 
-Azure DNS biedt metrische gegevens voor klanten in te schakelen voor het bewaken van specifieke aspecten van hun DNS-labels die worden gehost in de service. Bovendien met Azure DNS-statistieken, kunt u configureren en waarschuwingen op basis van de voorwaarden die van belang zijn ontvangen. De metrische gegevens worden geleverd via de [Azure Monitor service](../monitoring-and-diagnostics/index.yml). Azure DNS biedt de volgende metrische gegevens via Azure Monitor voor uw DNS-zones:
+Azure DNS biedt metrische gegevens voor klanten in te schakelen voor het bewaken van specifieke aspecten van hun DNS-labels die worden gehost in de service. Bovendien met Azure DNS-statistieken, kunt u configureren en waarschuwingen op basis van de voorwaarden die van belang zijn ontvangen. De metrische gegevens worden geleverd via de [Azure Monitor service](../azure-monitor/index.yml). Azure DNS biedt de volgende metrische gegevens via Azure Monitor voor uw DNS-zones:
 
 -   QueryVolume
 -   RecordSetCount

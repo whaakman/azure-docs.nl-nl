@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure Containers bewaking | Microsoft Docs
-description: Dit artikel bevat een overzicht van de verschillende methoden die beschikbaar zijn in Azure voor het bewaken van Containers in Azure sneller inzicht in een clusters status en beschikbaarheid.
+title: Overzicht Azure Containers bewaken | Microsoft Docs
+description: Dit artikel bevat een overzicht van de verschillende methoden die beschikbaar zijn in Azure om Containers in Azure om te zien een clusters status en beschikbaarheid te bewaken.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 0d511c1f6dfd482e5754741da15b2852ee77c11e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: db85f85011154dcc7adfa9d569e9015a9c5c33ca
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33207524"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055042"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Overzicht van de bewaking van Containers in Azure
-Met Azure, kunt u effectief bewaken en beheren van uw werkbelastingen op Azure containers met Kubernetes of Docker geïmplementeerd. Het is belangrijk om te begrijpen hoe containers met meerdere microservice-toepassingen om te kunnen leveren een betrouwbare service op grote schaal en uw plan bewaking uitvoert. Dit artikel bevat een kort overzicht van het beheer en bewakingsmogelijkheden in Azure om u te helpen u elke begrijpen en die van toepassing zijn op basis van uw vereisten.
+Met Azure, kunt u effectief bewaken en beheren van uw workloads op Azure met Kubernetes of Docker-containers geïmplementeerd. Het is belangrijk om te begrijpen hoe containers met meerdere microservice-toepassingen worden uitgevoerd om te kunnen leveren van een betrouwbare service op schaal en de controle-ondersteuningsabonnement. In dit artikel geeft een kort overzicht van het beheer en de bewakingsmogelijkheden in Azure om te begrijpen en die geschikt zijn gebaseerd op uw vereisten.
 
-Met behulp van [Azure controleprogramma container status](monitoring-container-health.md), kunt u de prestaties en de status van de infrastructuur van uw Linux-container in één oogopslag bekijken en snel problemen onderzoeken. De telemetrie is opgeslagen in een werkruimte voor logboekanalyse en geïntegreerd in de Azure portal, waar u kunt verkennen filteren en segment cumulatieve gegevens met dashboards om te controleren op de belasting, prestaties en status.  
+Met behulp van [Azure Monitor voor containers](monitoring-container-insights-overview.md), kunt u de prestaties en status van de infrastructuur voor uw Linux-container in een oogopslag bekijken en snel problemen onderzoeken. De telemetrie wordt opgeslagen in een Log Analytics-werkruimte en geïntegreerd in Azure portal, waar u bekijken kunt, filteren en segment cumulatieve gegevens met dashboards te laden, prestaties en status in de gaten houden.  
 
-Voor containers die worden uitgevoerd buiten de gehoste service voor Azure Kubernetes, de logboekanalyse [oplossing voor Windows en Docker-Container](../log-analytics/log-analytics-containers.md) kunt u weergeven en beheren van uw Windows- en Docker-container-hosts. U kunt vanuit de werkruimte voor logboekanalyse inventarisgegevens, prestaties en gebeurtenissen van de knooppunten en containers weergeven in de omgeving. Vindt u gedetailleerde controle-informatie met opdrachten gebruikt met containers en containers oplossen door weer te geven en gecentraliseerd logboeken zoeken zonder te hoeven voor externe toegang tot Windows- of Docker-hosts.
+Voor containers die worden uitgevoerd buiten de gehoste service voor Azure Kubernetes, de Log Analytics [oplossing voor Windows- en Docker-Container](../log-analytics/log-analytics-containers.md) kunt u weergeven en beheren van uw Windows- en Docker-container-hosts. Van uw Log Analytics-werkruimte, kunt u inventarisgegevens, prestaties en gebeurtenissen van knooppunten en de containers weergeven in de omgeving. Vindt u gedetailleerde controle-informatie met opdrachten die worden gebruikt met containers en u kunt containers oplossen weer te geven en gecentraliseerde logboeken zoeken zonder dat u hoeft voor externe toegang tot Docker of Windows-hosts.
 
-Als u wilt bereiken holistische of end-to-end bewaking van de toepassing, moet eventuele afhankelijkheden of er een Azure is of on-premises resource, worden gecontroleerd met Azure-Monitor of logboekanalyse.  De toepassingslaag moet worden opgenomen om te kunnen toevoegen van een extra laag voor de health-awareness, zowel op het platform en toepassing niveau met behulp van Application Insights zijn. Op het niveau van het platform is Application Insights-SDK's voor [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), en [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Voor microservice-toepassingen is ondersteuning voor [Java](../application-insights/app-insights-java-get-started.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), [.Net](../application-insights/app-insights-asp-net.md), [.Net Core](../application-insights/app-insights-asp-net-core.md), evenals een aantal andere [talen/frameworks](../application-insights/app-insights-platforms.md). 
+Als u wilt bereiken holistische of end-to-end bewaking van de toepassing, moet een afhankelijkheid of er een Azure is of on-premises resource, worden gecontroleerd met Azure Monitor of Log Analytics.  Niveau van de toepassing moet worden opgenomen om toe te voegen een extra laag van health-status, zowel op het niveau van het platform en de toepassing met behulp van Application Insights. Op het niveau van het platform, zijn er Application Insights-SDK's voor [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), en [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Voor microservice-toepassingen, er is ondersteuning voor [Java](../application-insights/app-insights-java-get-started.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), [.Net](../application-insights/app-insights-asp-net.md), [.Net Core](../application-insights/app-insights-asp-net-core.md), evenals een aantal andere [talen/frameworks](../application-insights/app-insights-platforms.md). 
 
-Anders problemen gaat niet geïdentificeerd die kan invloed hebben op de beschikbaarheid van de toepassing en serviceniveaudoelen niet voldaan aan.  
+Anders problemen gaat niet-geïdentificeerde die mogelijk invloed op de beschikbaarheid van de toepassing en serviceniveaudoelen niet voldaan aan.  

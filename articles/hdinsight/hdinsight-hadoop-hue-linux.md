@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: jasonh
-ms.openlocfilehash: 7e8f4900143372f9030e157cfd71dd7d84eabd80
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: db2c4281f23685c00e63058a5cfd8caaf663b0fb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093838"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948737"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installeren en Hue gebruiken op HDInsight Hadoop-clusters
 
@@ -48,7 +48,7 @@ Hue installeren op een Linux gebaseerde HDInsight-cluster met het script is besc
 Deze sectie vindt u instructies over het gebruik van het script bij het inrichten van het cluster met behulp van de Azure-portal.
 
 > [!NOTE]
-> Azure PowerShell, de Azure CLI, de HDInsight .NET SDK of Azure Resource Manager-sjablonen kunnen ook worden gebruikt om toe te passen van scriptacties. U kunt ook scriptacties toepassen op clusters al wordt uitgevoerd. Zie voor meer informatie, [aanpassen HDInsight-clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
+> Azure PowerShell, de klassieke Azure-CLI, de HDInsight .NET SDK of Azure Resource Manager-sjablonen kunnen ook worden gebruikt om toe te passen van scriptacties. U kunt ook scriptacties toepassen op clusters al wordt uitgevoerd. Zie voor meer informatie, [aanpassen HDInsight-clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
 >
 >
 

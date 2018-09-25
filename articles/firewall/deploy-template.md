@@ -8,24 +8,20 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991331"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Firewall van Azure met behulp van een sjabloon implementeren
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+Deze sjabloon maakt een firewall en een test-netwerkomgeving. Het netwerk heeft een VNet, met drie subnetten: *AzureFirewallSubnet*, *ServersSubnet*, en een *JumpboxSubnet*. Het ServersSubnet en het JumpboxSubnet hebben elk één Windows Server met twee kernen.
 
-De voorbeelden in de Firewall van Azure-artikelen wordt ervan uitgegaan dat u al de openbare preview van Azure-Firewall hebt ingeschakeld. Zie voor meer informatie, [inschakelen van de openbare preview van Azure-Firewall](public-preview.md).
+De firewall bevindt zich in het AzureFirewallSubnet en is geconfigureerd met een toepassingsregelverzameling met één regel die toegang geeft tot www.microsoft.com.
 
-Deze sjabloon maakt een firewall en een test-netwerkomgeving. Het netwerk heeft een VNet, met drie subnetten: *AzureFirewallSubnet*, *ServersSubnet*, en een *JumpboxSubnet*. De ServersSubnet en JumpboxSubnet hebben een 2-core Windows Server erin.
-
-De firewall is in de AzureFirewallSubnet en is geconfigureerd met een regelverzameling toepassing met een enkele regel waarmee toegang tot www.microsoft.com.
-
-Een gebruiker gedefinieerde route wordt gemaakt die het netwerkverkeer van de ServersSubnet via de firewall waar de firewall-regels worden toegepast.
+Er wordt een gebruikergedefinieerde route gemaakt die het netwerkverkeer vanuit het ServersSubnet door de firewall leidt, waar de firewallregels worden toegepast.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -48,5 +44,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Vervolgens kunt u de Firewall van Azure-logboeken bewaken:
 
-- [Zelfstudie: Monitor Azure Firewall-logboeken](./tutorial-diagnostics.md)
+- [Zelfstudie: Azure Firewall-logboeken bewaken](./tutorial-diagnostics.md)
 

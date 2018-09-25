@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
-ms.openlocfilehash: d62fa14ea24a9b62e793ef7022a761897984df32
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a8f0c95acf872431fe7538acbd4ff1023c1496c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "25990619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961226"
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Lokale gateway netwerkinstellingen wijzigen met de Azure CLI
+# <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Lokale instellingen netwerkgateway wijzigen met behulp van de Azure CLI
 
-Soms worden de instellingen voor uw lokale netwerkgateway adresvoorvoegsel of IP-adres Gateway gewijzigd. In dit artikel leest u hoe uw lokale netwerk gateway-instellingen te wijzigen. Ook kunt u deze instellingen met een andere methode door een andere optie te selecteren in de volgende lijst:
+Soms worden de instellingen voor uw lokale netwerkgateway het adresvoorvoegsel of de Gateway-IP-adres gewijzigd. Dit artikel ziet u hoe u uw instellingen van uw lokale netwerkgateway wijzigen. U kunt ook wijzigen van deze instellingen met een andere methode door een andere optie te selecteren in de volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -35,7 +35,7 @@ Soms worden de instellingen voor uw lokale netwerkgateway adresvoorvoegsel of IP
 
 ## <a name="before"></a>Voordat u begint
 
-Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) voor meer informatie over het installeren van de CLI-opdrachten.
+Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie voor meer informatie over het installeren van de CLI-opdrachten [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -43,11 +43,11 @@ Installeer de nieuwste versie van de CLI-opdrachten (2.0 of hoger). Zie [Azure C
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-## <a name="gwip"></a>Het IP-adres wijzigen
+## <a name="gwip"></a>IP-adres van de gateway wijzigen
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt de gatewayverbinding controleren. Zie [een gatewayverbinding controleren](vpn-gateway-verify-connection-resource-manager.md).
+U kunt de gatewayverbinding controleren. Zie [een gatewayverbinding verifiëren](vpn-gateway-verify-connection-resource-manager.md).
 

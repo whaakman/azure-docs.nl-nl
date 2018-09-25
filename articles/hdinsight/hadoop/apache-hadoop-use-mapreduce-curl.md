@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: f497184b05432d6e32883bb3470f7e4da5fe550f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9941f442ad546155f58967fb3414eb2e7b7c3647
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047182"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973708"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>MapReduce-taken uitvoeren met Hadoop op HDInsight met behulp van REST
 
@@ -141,7 +141,7 @@ Leer hoe u de WebHCat REST-API gebruiken om uit te voeren van MapReduce-taken op
 
 6. Wanneer de status van de taak is gewijzigd in `SUCCEEDED`, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die wordt doorgegeven aan de query bevat de locatie van het uitvoerbestand. In dit voorbeeld is de locatie `/example/curl`. Dit adres slaat de uitvoer van de taak in de standaardopslag clusters op `/example/curl`.
 
-U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het werken met blobs uit de Azure CLI de [met behulp van de Azure CLI 2.0 met Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het werken met blobs uit de Azure CLI de [met de Azure CLI met Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Volgende stappen
 

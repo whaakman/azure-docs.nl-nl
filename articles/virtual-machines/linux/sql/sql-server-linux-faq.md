@@ -1,6 +1,6 @@
 ---
-title: SQL Server op Linux Azure Virtual Machines Veelgestelde vragen | Microsoft Docs
-description: In dit artikel vindt u antwoorden op veelgestelde vragen over het uitvoeren van SQL Server op Azure Virtual machines van Linux.
+title: SQL Server op Linux Azure Virtual Machines Veelgestelde vragen over | Microsoft Docs
+description: In dit artikel vindt u antwoorden op veelgestelde vragen over het uitvoeren van SQL Server op Linux Azure Virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rothja
@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190860"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039952"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Veelgestelde vragen over SQL Server op Linux Azure Virtual Machines
 
@@ -28,84 +28,84 @@ ms.locfileid: "30190860"
 In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoeren [SQL Server op Linux Azure Virtual Machines](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Dit artikel is gericht op problemen die specifiek zijn voor SQL Server op virtuele Linux-machines. Als u SQL Server op VM's van Windows uitvoert, ziet de [Veelgestelde vragen over Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> In dit artikel is gericht op problemen die specifiek zijn voor SQL Server op virtuele Linux-machines. Als u SQL Server op virtuele machines van Windows uitvoert, ziet de [Veelgestelde vragen over Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a id="images"></a> Installatiekopieën
 
-1. **Welke SQL Server-virtuele machine afbeeldingen zijn beschikbaar?**
+1. **Welke galerie met installatiekopieën van SQL Server virtuele machines zijn beschikbaar?**
 
-   Azure onderhoudt installatiekopieën van virtuele machines voor alle ondersteunde belangrijke releases van SQL Server op alle edities voor Linux- en Windows. Zie voor meer informatie, de volledige lijst met [Linux VM-installatiekopieën](sql-server-linux-virtual-machines-overview.md#create) en [Windows VM-installatiekopieën](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   Azure heeft installatiekopieën van virtuele machines voor alle ondersteunde primaire versies van SQL Server op alle edities voor zowel Windows als Linux. Zie voor meer informatie, de volledige lijst van [Linux VM-installatiekopieën](sql-server-linux-virtual-machines-overview.md#create) en [Windows VM-installatiekopieën](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
-1. **Worden de bestaande SQL Server-virtuele machine afbeeldingen bijgewerkt?**
+1. **Zijn bestaande galerie met installatiekopieën van de SQL Server-machines bijgewerkt?**
 
-   Elke twee maanden SQL Server-installatiekopieën in de galerie met virtuele machine worden bijgewerkt met de meest recente Linux en Windows-updates. Dit omvat de meest recente updates voor Linux-installatiekopieën. Dit omvat alle updates die zijn gemarkeerd als belangrijk in Windows Update, met inbegrip van belangrijke updates voor SQL Server-beveiliging en servicepacks voor Windows-installatiekopieën. Cumulatieve updates voor SQL Server zijn voor Linux en Windows verwerkt. Voor Linux, cumulatieve updates voor SQL Server ook opgenomen in het vernieuwen. Maar Windows VM's worden op dit moment niet bijgewerkt met SQL Server of Windows Server cumulatieve updates.
+   Elke twee maanden, SQL Server-installatiekopieën in de galerie met virtuele machines worden bijgewerkt met het nieuwste Linux en Windows-updates. Dit omvat de meest recente updates voor Linux-installatiekopieën. Dit omvat alle updates die zijn gemarkeerd als urgent in Windows Update, met inbegrip van belangrijke updates voor SQL Server-beveiliging en servicepacks voor Windows-installatiekopieën. Cumulatieve updates voor SQL Server worden verwerkt voor Linux en Windows. Voor Linux, zijn de cumulatieve updates voor SQL Server ook opgenomen in het vernieuwen. Maar Windows VM's worden op dit moment niet bijgewerkt met cumulatieve updates voor SQL Server of Windows Server.
 
-1. **Wat betrekking pakketten van de SQL Server zijn geïnstalleerd?**
+1. **Wat betrekking SQL Server-pakketten worden ook geïnstalleerd?**
 
-   Zie voor de SQL Server-pakketten die worden standaard geïnstalleerd op SQL Server-VM's Linux [geïnstalleerde pakketten](sql-server-linux-virtual-machines-overview.md#packages).
+   Zie voor de SQL Server-pakketten die zijn geïnstalleerd op SQL Server Linux-VM's standaard [installatiepakketten](sql-server-linux-virtual-machines-overview.md#packages).
 
-1. **Kunnen SQL Server-installatiekopieën voor virtuele machine ophalen verwijderd uit de galerie?**
+1. **Kunnen SQL Server-installatiekopieën voor virtuele machines verwijderd uit de galerie?**
 
-   Ja. Azure onderhoudt slechts één afbeelding per primaire versie en editie. Bijvoorbeeld wanneer een nieuw servicepack van SQL Server wordt uitgebracht, voegt Azure een nieuwe installatiekopie naar de galerie voor die servicepack. De SQL Server-afbeelding voor de voorafgaande servicepack wordt onmiddellijk verwijderd uit de Azure-portal. Het is echter nog steeds beschikbaar voor het inrichten van PowerShell voor de volgende drie maanden. Een installatiekopie met de vorige versie van service pack is niet meer beschikbaar na drie maanden. Dit beleid verwijderd is ook van toepassing als een SQL Server-versie niet ondersteund wordt wanneer het einde van de levenscyclus is bereikt.
+   Ja. Azure heeft slechts één afbeelding per primaire versie en editie. Bijvoorbeeld, wanneer een nieuw servicepack van SQL Server wordt uitgebracht, voegt Azure een nieuwe installatiekopie naar de galerie voor die servicepack. De SQL Server-installatiekopie voor de voorafgaande servicepack wordt onmiddellijk verwijderd uit de Azure-portal. Het is echter nog steeds beschikbaar voor het inrichten van PowerShell voor de komende drie maanden. De vorige installatiekopie met service pack is niet meer beschikbaar na drie maanden. Dit verwijderingsbeleid is ook van toepassing als een SQL Server-versie niet ondersteund wordt wanneer het einde van de levenscyclus is bereikt.
 
-## <a name="creation"></a>Het maken van
+## <a name="creation"></a>Het maken
 
-1. **Hoe maak ik een virtuele machine Linux Azure met SQL Server**
+1. **Hoe maak ik een Linux Azure-machine met SQL Server?**
 
-   De gemakkelijke oplossing is het maken van een virtuele Linux-Machine met SQL Server. Zie voor een zelfstudie over het aanmelden voor Azure en een SQL-VM maken vanuit de portal, [een SQL-Server voor Linux-machine inrichten in de Azure-portal](provision-sql-server-linux-virtual-machine.md). U hebt ook de optie van het handmatig installeren van SQL Server op een virtuele machine met ofwel een vrijelijk gelicentieerde versie (Developer of Express) of door een lokale licentie opnieuw te gebruiken. Als u uw eigen licentie zetten, hebt u [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility).
+   De eenvoudigste oplossing is het maken van een virtuele Linux-Machine met SQL Server. Zie voor een zelfstudie over het aanmelden voor Azure en het maken van een SQL-VM vanuit de portal, [een virtuele SQL Server-machine inrichten in Azure portal](provision-sql-server-linux-virtual-machine.md). U hebt ook de optie van het handmatig installeren van SQL Server op een virtuele machine met ofwel een vrij gelicentieerde versie (ontwikkelaar of Express) of door een on-premises licentie opnieuw te gebruiken. Als u uw eigen licentie meenemen, hebt u [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility).
 
-1. **Waarom niet kan ik inrichten met een RHEL of SLES SQL Server-VM met een Azure-abonnement een bestedingslimiet heeft?**
+1. **Waarom kan niet kan ik een RHEL of SLES SQL Server-VM inrichten met een Azure-abonnement met een bestedingslimiet?**
 
-   De virtuele machines RHEL en SLES vereisen een abonnement met geen uitgavenlimiet en een geverifieerde betalingsmethode (meestal een creditcard) dat is gekoppeld aan het abonnement. Als u een RHEL of SLES VM zonder te verwijderen van de bestedingslimiet inricht, uw abonnement wordt uitgeschakeld en alle virtuele machines/services is gestopt. Als u uitvoeren in deze toestand is, het abonnement opnieuw inschakelen [de bestedingslimiet verwijderen](https://account.windowsazure.com/subscriptions). Uw resterende tegoed voor de huidige factureringscyclus worden hersteld, maar een aanvulling RHEL of SLES VM-installatiekopie op basis van uw creditcard gaan als u wilt opnieuw te starten en doorgaan met het.
+   Virtuele machines met RHEL- en SLES vereist een abonnement zonder uitgavelimiet en een geverifieerde betalingsmethode (meestal een creditcard) die zijn gekoppeld aan het abonnement. Als u een RHEL of SLES VM inricht zonder de bestedingslimiet verwijderd, wordt uw abonnement wordt uitgeschakeld en alle virtuele machines/services is gestopt. Als u in deze staat uitvoert, het abonnement opnieuw inschakelen [de bestedingslimiet verwijderen](https://account.windowsazure.com/subscriptions). Uw resterende tegoed voor de huidige factureringscyclus wordt hersteld, maar een RHEL of SLES VM-installatiekopie toeslag gaat via uw creditcard betaald als u wilt opnieuw te starten en te blijven.
 
 ## <a name="licensing"></a>Licentieverlening
 
 1. **Hoe kan ik mijn gelicentieerd exemplaar van SQL Server installeren op een Azure VM?**
 
-   Maak eerst een virtuele Linux OS alleen-lezen-machine. Voer vervolgens de [SQL Server-installatiestappen](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) voor uw Linux-distributie. Tenzij u een van de vrijelijk gelicentieerde versies van SQL Server installeert, moet u ook een SQL Server-licentie hebben en [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   Maak eerst een Linux OS-alleen virtuele machine. Voer vervolgens de [stappen van de SQL Server-installatie](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) voor uw Linux-distributie. Tenzij u een van de gratis licentie-edities van SQL Server installeert, moet u ook een SQL Server-licentie hebben en [License Mobility through Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. **Zijn er installatiekopieën van virtuele machines van Linux Bring-Your-eigenaar-License (BYOL) voor SQL Server?**
+1. **Zijn er Bring-Your-Own-License (BYOL) Linux-installatiekopieën voor virtuele machines voor SQL Server?**
 
-   Op dit moment is zijn er geen afbeeldingen van de virtuele machine BYOL Linux voor SQL Server. U kunt echter handmatig SQL Server installeren op een virtuele machine alleen Linux zoals beschreven in de vorige vragen.
+   Op dit moment zijn er geen BYOL Linux-installatiekopieën voor virtuele machines voor SQL Server. U kunt echter handmatig SQL Server installeren op een alleen-Linux-VM zoals beschreven in de vorige vragen.
 
-1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie als deze is gemaakt van een van de installatiekopieën betalen naar gebruik galerie wijzigen?**
+1. **Kan ik een virtuele machine voor het gebruik van mijn eigen SQL Server-licentie, als deze is gemaakt op basis van een van de galerie met betalen per gebruik-installatiekopieën wijzigen?**
 
-   Nee. U kan niet overschakelen van betalen per seconde voor het gebruik van uw eigen licentie-licentieverlening. U moet maken van een nieuwe Linux VM, SQL Server installeren en uw gegevens migreren. Zie de vorige vragen voor meer informatie over uw eigen licentie te brengen.
+   Nee. U kunt niet overstappen van het betalen-per-seconde voor het gebruik van uw eigen licentie-licentieverlening. U moet een nieuwe Linux-VM maken, installatie van SQL Server en Migreer uw gegevens. Zie de vorige vraag voor meer informatie over uw eigen licentie brengen.
 
 ## <a name="administration"></a>Beheer
 
-1. **Kan ik een SQL-Server voor Linux virtuele machine met SQL Server Management Studio (SSMS) beheren?**
+1. **Kan ik een virtuele machine voor Linux SQL Server met SQL Server Management Studio (SSMS) beheren?**
 
-   Ja, maar SSMS is momenteel een alleen-Windows-hulpprogramma. U moet extern verbinding maakt vanaf een Windows-machine voor het gebruik van SSMS met VM's Linux SQL Server. Lokaal op Linux, de nieuwe [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) hulpprogramma veel administratieve taken kunt uitvoeren. Zie het volgende voorbeeld van een hulpprogramma voor het beheer van meerdere platforms database door [SQL Server Operations Studio (preview)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Ja, maar SSMS is momenteel een alleen-Windows-hulpprogramma. U moet op afstand verbinding maken vanaf een Windows-machine SSMS gebruiken met Linux SQL Server-VM's. Lokaal op Linux, de nieuwe [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) hulpprogramma veel beheertaken kan uitvoeren. Zie voor een database van de platformoverschrijdende hulpprogramma, [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Kan ik SQL Server volledig verwijderen van een SQL-VM?**
+1. **Kan ik SQL Server geheel verwijderen uit een SQL-VM?**
 
-   Ja, maar blijft u in rekening gebracht voor de SQL-VM zoals beschreven in [richtlijnen voor Azure VM's van SQL Server-prijzen](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Als u SQL Server niet meer nodig hebt, kunt u een nieuwe virtuele machine implementeren en migreren van gegevens en toepassingen naar de nieuwe virtuele machine. Vervolgens kunt u de virtuele machine van SQL Server verwijderen.
+   Ja, maar blijft u kosten in rekening gebracht voor uw SQL-VM wordt beschreven in [prijsinformatie voor SQL Server Azure VMs](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Als u SQL Server niet meer nodig hebt, kunt u een nieuwe virtuele machine implementeren en migreren van de gegevens en toepassingen naar de nieuwe virtuele machine. Vervolgens kunt u de SQL Server-machine.
 
-## <a name="updating-and-patching"></a>Bijwerken en patchen
+## <a name="updating-and-patching"></a>Updates en patches
 
-1. **Hoe voer ik een upgrade naar een nieuwe versie /-editie van SQL Server in een Azure VM?**
+1. **Hoe voer ik een upgrade naar een nieuwe versie/editie van SQL Server in een Azure VM?**
 
-   Er is momenteel geen in-place upgrade voor SQL Server wordt uitgevoerd in een Azure VM. Een nieuwe virtuele machine van Azure maken met de gewenste SQL Server-versie /-editie, en vervolgens migreren uw databases naar de nieuwe server met [standaardgegevens migratie technieken](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   Er is momenteel geen in-place upgrade voor SQL Server in een Azure-VM wordt uitgevoerd. Een nieuwe Azure-machine maken met de gewenste versie/editie van SQL Server en migreer de databases naar de nieuwe server met [standaard gegevensmigratietechnieken](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Algemeen
 
-1. **Worden oplossingen voor hoge beschikbaarheid van SQL Server op Azure Virtual machines ondersteund?**
+1. **Ondersteunt hoge beschikbaarheid van SQL Server-oplossingen op Azure Virtual machines?**
 
-   Momenteel niet. Altijd op beschikbaarheidsgroepen en Failover Clustering moet een oplossing voor clustering in Linux, zoals pacemaker heeft. De ondersteunde Linux-distributies voor SQL Server bieden geen ondersteuning voor hun invoegtoepassingen hoge beschikbaarheid in de Cloud.
+   Momenteel niet. Always On Availability Groups en Failover Clustering beide moet u een oplossing clusters in Linux, zoals Pacemaker nodig hebt. De ondersteunde Linux-distributies voor SQL Server bieden geen ondersteuning voor hun invoegtoepassingen voor hoge beschikbaarheid in de Cloud.
 
 ## <a name="resources"></a>Resources
 
 **Virtuele Linux-machines**:
 
 * [Overzicht van SQL Server op een virtuele Linux-machine](sql-server-linux-virtual-machines-overview.md)
-* [Een SQL Server virtuele Linux-machine inrichten](provision-sql-server-linux-virtual-machine.md)
-* [SQL Server op Linux-documentatie](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Een SQL Server Linux-VM inrichten](provision-sql-server-linux-virtual-machine.md)
+* [Documentatie voor SQL Server op Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
-**Windows VMs**:
+**Windows-VM's**:
 
 * [Overzicht van SQL Server op een Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [Inrichten van een SQL Server Windows VM](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [FAQ (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
+* [Een SQL Server Windows VM inrichten](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+* [Veelgestelde vragen over (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

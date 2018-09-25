@@ -12,48 +12,68 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125113"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960325"
 ---
-# <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Bereiken, machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
+# <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 
-Apps die met Azure Active Directory (Azure AD integreren) gaat u als volgt een autorisatiemodel waarmee gebruikers controle over hoe een app toegang heeft tot hun gegevens. Het v2.0-implementatie van de autorisatiemodel is bijgewerkt en verandert hoe een app moet communiceren met Azure AD. In dit artikel bevat informatie over de basisconcepten van dit autorisatiemodel, met inbegrip van bereiken, machtigingen en toestemming.
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Toepassingen die zijn geïntegreerd met Microsoft identity-platform gaat u als volgt een autorisatiemodel waarmee gebruikers en beheerders controle over hoe gegevens kunnen worden geopend. De implementatie van de autorisatiemodel is bijgewerkt op het v2.0-eindpunt en verandert hoe een app moet communiceren met de Microsoft identity-platform. In dit artikel bevat informatie over de basisconcepten van dit autorisatiemodel, met inbegrip van bereiken, machtigingen en toestemming.
 
 > [!NOTE]
-> Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Om te bepalen of het v2.0-eindpunt moet worden gebruikt, lees meer over [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Het v2.0-eindpunt biedt geen ondersteuning voor alle scenario's en onderdelen. Om te bepalen of het v2.0-eindpunt moet worden gebruikt, lees meer over [v2.0 beperkingen](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Scopes en -machtigingen
 
-Azure AD worden de [OAuth 2.0](active-directory-v2-protocols.md) (authorization protocol). OAuth 2.0 is een methode waarmee een app van derden toegang web gehoste bronnen namens een gebruiker tot. Een web-hosted-resource die kan worden geïntegreerd met Azure AD heeft een resource-id of *URI toepassings-ID*. Bijvoorbeeld, van Microsoft web hosting resources onder andere:
+De Microsoft identity platform implementeert de [OAuth 2.0](active-directory-v2-protocols.md) (authorization protocol). OAuth 2.0 is een methode waarmee een app van derden toegang web gehoste bronnen namens een gebruiker tot. Een web-hosted-resource die kan worden geïntegreerd met het Microsoft identity-platform is een resource-id of *URI toepassings-ID*. Bijvoorbeeld, van Microsoft web hosting resources onder andere:
 
-* De Office 365 Unified Mail API: `https://outlook.office.com`
-* De Azure AD Graph-API: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
+* API voor Office 365-e-Mail: `https://outlook.office.com`
+* Azure AD Graph: `https://graph.windows.net`
 
-Hetzelfde geldt voor alle externe resources die zijn geïntegreerd met Azure AD. Een van deze resources kunnen ook een reeks machtigingen die kunnen worden gebruikt om de functionaliteit van die resource onderverdelen in kleinere chunks definiëren. Een voorbeeld: [Microsoft Graph](https://graph.microsoft.io) bevat de gedefinieerde machtigingen voor het uitvoeren van de volgende taken, onder andere:
+> [!NOTE]
+> Het is raadzaam dat u Microsoft Graph in plaats van Azure AD Graph, Office 365-e-Mail-API, enzovoort gebruiken.
+
+Hetzelfde geldt voor alle resources van derden die zijn geïntegreerd met het Microsoft identity-platform. Een van deze resources kunnen ook een reeks machtigingen die kunnen worden gebruikt om de functionaliteit van die resource onderverdelen in kleinere chunks definiëren. Een voorbeeld: [Microsoft Graph](https://graph.microsoft.com) bevat de gedefinieerde machtigingen voor het uitvoeren van de volgende taken, onder andere:
 
 * Lezen van een gebruiker agenda
 * Schrijven naar de agenda van een gebruiker
 * E-mail met een gebruiker als afzender verzenden
 
-De resource heeft met het definiëren van deze typen machtigingen, uiterst gedetailleerde controle over de gegevens en hoe de gegevens zichtbaar wordt gemaakt. Een app van derden kunt u deze machtigingen aanvragen van een appgebruiker. De app-gebruiker moet de machtigingen goedkeuren voordat de app namens de gebruiker kan fungeren. Door logische groepen te verdelen van de resource-functionaliteit in kleinere machtigingensets, kunnen apps van derden worden gebouwd om aan te vragen van alleen de specifieke machtigingen die ze nodig hebben om uit te voeren hun functie. App-gebruikers kunnen weet precies hoe een app gebruikt de gegevens en ze kunnen worden meer vertrouwen dat de app niet wordt gedragen met kwade bedoelingen.
+De resource heeft met het definiëren van deze typen machtigingen, uiterst gedetailleerde controle over de gegevens en hoe de functionaliteit van de API wordt weergegeven. Een app van derden kan deze machtigingen aanvragen van gebruikers en beheerders die de aanvraag voor de app moet goedkeuren kunnen krijgen tot gegevens of handelen namens een gebruiker. Door logische groepen te verdelen van de resource-functionaliteit in kleinere machtigingensets, kunnen apps van derden worden gebouwd om aan te vragen van alleen de specifieke machtigingen die ze nodig hebben om uit te voeren hun functie. Gebruikers en beheerders weet precies welke gegevens de app toegang heeft tot, en deze kunnen mogelijk meer vertrouwen dat deze is niet aan de hand met kwade bedoelingen. Ontwikkelaars moeten altijd ontmoeten door het concept van minimale bevoegdheden, alleen de machtigingen die ze nodig hebben voor hun toepassingen goed te laten wordt gevraagd.
 
-In Azure AD OAuth, deze typen machtigingen worden genoemd *scopes*. Ze ook worden aangeduid als *oAuth2Permissions*. Een scope wordt weergegeven in Azure AD als een string-waarde. U doorgaat met de Microsoft Graph-voorbeeld, is de waarde voor het bereik voor elke machtiging:
+In OAuth, deze typen machtigingen worden genoemd *scopes*. Worden ze ook vaak gewoon aangeduid als *machtigingen*. Een machtiging wordt weergegeven in het Microsoft identity-platform als een string-waarde. U doorgaat met de Microsoft Graph-voorbeeld, is de tekenreekswaarde voor elke machtiging:
 
 * Lezen van de agenda van een gebruiker met behulp van `Calendars.Read`
 * Schrijven naar de agenda van een gebruiker met behulp van `Calendars.ReadWrite`
 * E-mail verzenden als een gebruiker met behulp van `Mail.Send`
 
-Een app kunt u deze machtigingen aanvragen door te geven van de bereiken in aanvragen naar het v2.0-eindpunt.
+Een app-aanvragen meestal deze machtigingen door de bereiken op te geven in aanvragen voor het v2.0 eindpunt voor autorisatie. Bepaalde machtigingen hoge bevoegdheden kunnen echter alleen worden verleend via goedgekeurd door een beheerder en over het algemeen aangevraagd/verleend met behulp de [administrator toestemming eindpunt](v2-permissions-and-consent.md#admin-restricted-scopes). Lees verder voor meer informatie.
+
+## <a name="permission-types"></a>Machtigingstypen
+
+Microsoft identity-platform ondersteunt twee typen machtigingen: **overgedragen machtigingen** en **Toepassingsmachtigingen**.
+
+- **Gedelegeerde machtigingen** worden gebruikt door apps waarvoor een aangemelde gebruiker aanwezig zijn. Voor deze apps of de gebruiker of beheerder hiermee akkoord gaat met de machtigingen die de app-aanvragen en de app is overgedragen machtiging om te fungeren als de gebruiker is aangemeld bij het maken van aanroepen naar de doelresource. Sommige gedelegeerde machtigingen kunnen worden gegeven door gebruikers zonder beheerdersrechten, maar sommige machtigingen hogere bevoegdheden vereisen [administrator toestemming](v2-permissions-and-consent.md#admin-restricted-scopes).  
+
+- **Toepassingsmachtigingen** worden gebruikt door apps die worden uitgevoerd zonder een aangemelde gebruiker aanwezig zijn, bijvoorbeeld: apps die worden uitgevoerd als Achtergrondservices of daemons.  Machtigingen van de toepassing mag alleen bestaan uit [ingestemd door een beheerder](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+
+_Effectieve machtigingen_ zijn de machtigingen die uw app heeft bij aanvragen voor de doelresource. Het is belangrijk om te begrijpen van het verschil tussen de gedelegeerde machtigingen van de toepassing die uw app is verleend en de effectieve machtigingen bij het maken van aanroepen naar de doelresource.
+
+- Voor gedelegeerde machtigingen, het _effectieve machtigingen_ van uw app is het laagst mogelijke snijpunt van de gedelegeerde machtigingen die de app heeft gekregen (via toestemming) en de bevoegdheden van de momenteel aangemelde gebruiker. Uw app kan nooit meer machtigingen hebben dan de aangemelde gebruiker. De machtigingen van de aangemelde gebruiker kunnen in organisaties worden bepaald door beleid of door lidmaatschap in een of meer beheerdersrollen. Zie voor meer informatie over beheerdersrollen [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+  Bijvoorbeeld, wordt ervan uitgegaan dat uw app heeft gekregen de _User.ReadWrite.All_ overgedragen machtiging. Deze machtiging verleent uw app in feite machtigingen om het profiel van elke gebruiker in een organisatie te lezen en bij te werken. Als de aangemelde gebruiker een globale beheerder is, kan uw app het profiel van elke gebruiker in de organisatie bijwerken. Als de aangemelde gebruiker echter geen beheerdersrol heeft, zal uw app alleen het profiel van de aangemelde gebruiker kunnen bijwerken. De app kan geen profielen van andere gebruikers in de organisatie bijwerken omdat de gebruiker namens welke de app machtigingen heeft om te handelen niet over deze rechten beschikt.
+  
+- Voor de machtigingen van de toepassing, de _effectieve machtigingen_ van uw app is het niveau van bevoegdheden impliciet door de machtiging Volledig. Bijvoorbeeld, een app met de _User.ReadWrite.All_ machtiging van de toepassing kan het profiel van elke gebruiker in de organisatie bijwerken. 
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect-scopes
 
@@ -69,7 +89,7 @@ De `email` bereik kan worden gebruikt met de `openid` bereik en voor eventuele a
 
 ### <a name="profile"></a>profiel
 
-De `profile` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Deze geeft de apptoegang tot een aanzienlijke hoeveelheid informatie over de gebruiker. Deze toegang heeft tot informatie bevat, maar is niet beperkt tot, van de gebruiker de voornaam, achternaam, gewenste gebruikersnaam en object-ID. Zie voor een volledige lijst van het profiel claims die beschikbaar zijn in de parameter id_tokens voor een specifieke gebruiker, de [v2.0 tokens verwijzing](v2-id-and-access-tokens.md).
+De `profile` bereik kan worden gebruikt met de `openid` bereik en voor eventuele andere. Deze geeft de apptoegang tot een aanzienlijke hoeveelheid informatie over de gebruiker. Deze toegang heeft tot informatie bevat, maar is niet beperkt tot, van de gebruiker de voornaam, achternaam, gewenste gebruikersnaam en object-ID. Zie voor een volledige lijst van het profiel claims die beschikbaar zijn in de parameter id_tokens voor een specifieke gebruiker, de [ `id_tokens` verwijzing](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
@@ -78,19 +98,6 @@ De [ `offline_access` bereik](http://openid.net/specs/openid-connect-core-1_0.ht
 Als uw app geen heeft aangevraagd de `offline_access` bereik, het ontvangt geen vernieuwingstokens. Dit betekent dat wanneer u een autorisatiecode in inwisselt de [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols.md), ontvangt u alleen een toegangstoken van de `/token` eindpunt. Het toegangstoken is ongeldig voor een korte periode. Het toegangstoken is verlopen meestal binnen een uur. Op dat punt, uw app nodig heeft om te leiden van de gebruiker terug naar de `/authorize` eindpunt naar een nieuwe autorisatiecode ophalen. Tijdens deze omleiding, afhankelijk van het type app, moet de gebruiker mogelijk hun referenties opnieuw invoeren of opnieuw instemmen met machtigingen.
 
 Zie voor meer informatie over het vernieuwen van tokens gebruiken de [protocolnaslaginformatie voor v2.0](active-directory-v2-protocols.md).
-
-## <a name="accessing-v10-resources"></a>Toegang tot bronnen v1.0
-v2.0-toepassingen kunnen aanvragen van tokens en toestemming voor v1.0 toepassingen (zoals de Power BI-API `https://analysis.windows.net/powerbi/api` of Sharepoint-API `https://{tenant}.sharepoint.com`).  Om dit te doen, kunt u verwijzen naar de app-URI en scope-tekenreeks in de `scope` parameter.  Bijvoorbeeld, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` zou aanvragen de Power BI `View all Datasets` machtiging voor uw toepassing. 
-
-Voor het aanvragen van meerdere machtigingen toevoegen de volledige URI met een spatie of `+`, bijvoorbeeld `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Deze beide vraagt de `View all Datasets` en `View all Reports` machtigingen.  Houd er rekening mee dat net als bij alle Azure AD-bereiken en machtigingen, toepassingen alleen een aanvraag voor één resource tegelijkertijd indienen kunnen - zodat de aanvraag `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, die zowel de Power BI-aanvragen `View all Datasets` machtigingen en de Skype voor bedrijven `Initiate conversations` machtiging geweigerd vanwege waarin machtiging wordt gevraagd op twee verschillende bronnen.  
-
-### <a name="v10-resources-and-tenancy"></a>V1.0 resources en tenants
-De v1.0 en v2.0 Azure AD-protocollen maken gebruik van een `{tenant}` parameter ingesloten in de URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Wanneer het v2.0-eindpunt wordt gebruikt voor toegang tot een organisatie-resource v1.0 de `common` en `consumers` tenants kunnen niet worden gebruikt, aangezien deze resources alleen toegankelijk zijn met de organisatie (Azure AD zijn) accounts.  Dus bij het openen van deze resources, alleen de GUID van de tenant of `organizations` kan worden gebruikt als de `{tenant}` parameter.  
-
-Als een toepassing probeert te krijgen tot een organisatie v1.0-resource met een onjuiste tenant, een die vergelijkbaar is met de volgende fout geretourneerd. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
 
 ## <a name="requesting-individual-user-consent"></a>Aanvragen van toestemming van de afzonderlijke gebruiker
 
@@ -108,40 +115,51 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-De `scope` parameter is een door spaties gescheiden lijst met scopes die van de app aanvragen. Elk bereik wordt aangegeven door de waarde voor het bereik van de resource-id (de URI toepassings-ID) toe te voegen. In het voorbeeld aanvraag moet de app toestemming voor het lezen van de gebruiker agenda en e-mail verzenden als de gebruiker.
+De `scope` parameter is een door spaties gescheiden lijst van gedelegeerde machtigingen die de app is aangevraagd. Elke machtiging die wordt aangegeven door de waarde van de machtiging van de resource-id (de URI toepassings-ID) toe te voegen. In het voorbeeld aanvraag moet de app toestemming voor het lezen van de gebruiker agenda en e-mail verzenden als de gebruiker.
 
-Nadat de gebruiker de referenties invoert, wordt het v2.0-eindpunt voor een overeenkomende record van gecontroleerd *toestemming van de gebruiker*. Als de gebruiker heeft niet ingestemd met een van de aangevraagde machtigingen in het verleden, het v2.0-eindpunt wordt u gevraagd de gebruiker om de vereiste machtigingen te verlenen.
+Nadat de gebruiker de referenties invoert, wordt het v2.0-eindpunt voor een overeenkomende record van gecontroleerd *toestemming van de gebruiker*. Als de gebruiker heeft niet ingestemd met een van de aangevraagde machtigingen in het verleden, noch heeft een beheerder ingestemd met deze machtigingen namens de hele organisatie, het v2.0-eindpunt wordt de gebruiker gevraagd om de vereiste machtigingen te verlenen.
 
 ![Toestemming voor Work-account](./media/v2-permissions-and-consent/work_account_consent.png)
 
-Wanneer de gebruiker de machtiging goedkeurt, wordt de toestemming zodat de gebruiker beschikt niet over opnieuw accepteren op latere accountaanmelding geregistreerd.
+Wanneer de gebruiker de machtiging-aanvraag goedkeurt, toestemming is geregistreerd en de gebruiker beschikt niet over accepteren opnieuw op de volgende aanmeldingen voor de toepassing.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Aanvragen van toestemming voor een hele tenant
 
-Vaak, wanneer een organisatie een licentie of abonnement voor een toepassing koopt, wil de organisatie de toepassing voor de werknemers volledig heeft ingericht. Een beheerder kan toestemming voor de toepassing namens een werknemer verlenen als onderdeel van dit proces. Als de beheerder toestemming voor de gehele tenant verleent, weergegeven niet van de organisatie werknemers een instemmingspagina voor de toepassing.
+Vaak, wanneer een organisatie een licentie of abonnement voor een toepassing koopt, wil de organisatie proactief instellen van de toepassing voor gebruik door alle leden van de organisatie. Een beheerder kan toestemming voor de toepassing namens een gebruiker in de tenant verlenen als onderdeel van dit proces. Als de beheerder toestemming voor de gehele tenant verleent, weergegeven niet van de organisatie gebruikers een pagina toestemming voor de toepassing.
 
-Uw app kan het eindpunt beheerder toestemming gebruiken voor het aanvragen van toestemming voor alle gebruikers in een tenant.
+Uw app kan het eindpunt beheerder toestemming gebruiken voor het aanvragen van toestemming voor gedelegeerde machtigingen voor alle gebruikers in een tenant.
 
-## <a name="admin-restricted-scopes"></a>Beheer de toegang is beperkt bereiken
+Toepassingen moeten ook het eindpunt beheerder toestemming gebruiken om aan te vragen van de machtigingen van de toepassing.
 
-Sommige machtigingen hoge bevoegdheden in het Microsoft-ecosysteem kunnen worden ingesteld op *administrator beperkt*. Voorbeelden van dit soort bereiken zijn de volgende machtigingen:
+## <a name="admin-restricted-permissions"></a>Beheerder beperkte machtigingen
 
-* Een organisatie-mapgegevens lezen met behulp van `Directory.Read`
-* Gegevens schrijven naar de map van een organisatie met behulp van `Directory.ReadWrite`
-* Beveiligingsgroepen in de adreslijst van een organisatie met behulp van lezen `Groups.Read.All`
+Sommige machtigingen hoge bevoegdheden in het Microsoft-ecosysteem kunnen worden ingesteld op *administrator beperkt*. Voorbeelden van dit soort machtigingen omvatten het volgende:
+
+* Het volledige profiel van alle gebruikers lezen met behulp van `User.Read.All`
+* Gegevens schrijven naar de map van een organisatie met behulp van `Directory.ReadWrite.All`
+* Alle groepen in de adreslijst van een organisatie met behulp van lezen `Groups.Read.All`
 
 Hoewel een consument-gebruiker kan een App toegang tot dit soort gegevens verlenen, worden organisatie-gebruikers worden uitgesloten van het verlenen van toegang tot de dezelfde set van gevoelige bedrijfsgegevens. Als uw toepassing worden aangevraagd toegang op een van deze machtigingen van een organisatie-gebruiker, ontvangt de gebruiker een foutmelding krijgen dat ze niet gemachtigd zijn om in te stemmen op uw app machtigingen.
 
 Als uw app nodig heeft voor toegang tot beperkte beheerder bereiken voor bedrijven, moet u aanvragen ze rechtstreeks vanuit de bedrijfsbeheerder van een, ook met behulp van het eindpunt beheerder toestemming, hieronder wordt beschreven.
 
-Wanneer een beheerder deze machtigingen via het eindpunt beheerder toestemming verleent, wordt toestemming verleend voor alle gebruikers in de tenant.
+Als de toepassing aanvraagt hoge bevoegdheid overgedragen machtigingen en een beheerder deze machtigingen via het eindpunt beheerder toestemming verleent, wordt toestemming verleend voor alle gebruikers in de tenant.
+
+Als de toepassing machtigingen van de toepassing aanvraagt en een beheerder verleent dat deze machtigingen via de beheerder toestemming eindpunt, wordt deze machtiging niet gedaan namens een specifieke gebruiker. In plaats daarvan de clienttoepassing krijgt de machtigingen *rechtstreeks*. Deze typen machtigingen zijn doorgaans alleen gebruikt door daemon servies en andere niet-interactieve toepassingen die worden uitgevoerd op de achtergrond.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Met behulp van het eindpunt beheerder toestemming
 
-Als u deze stappen hebt uitgevoerd, kan uw app machtigingen voor alle gebruikers in een tenant, met inbegrip van de beheerder beperkte bereiken kunt verzamelen. Zie voor een codevoorbeeld van waarmee de stappen de [administrator beperkt scopes voorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Wanneer de beheerder van een bedrijf maakt gebruik van uw toepassing en wordt omgeleid naar het geautoriseerde eindpunt, wordt de Microsoft identity-platform detecteren van de gebruikersrol en vraag deze als ze zouden graag om in te stemmen namens de gehele tenant voor de machtigingen die u hebt aangevraagd. Er is echter ook een exclusieve beheerdersverbinding toestemming-eindpunt die u gebruiken kunt als u proactief aanvragen wilt dat een beheerder machtiging namens de gehele tenant verleent. Met behulp van dit eindpunt is ook nodig voor het aanvragen van de machtigingen van de toepassing (dit kan niet worden aangevraagd met behulp van het geautoriseerde eindpunt).
+
+Als u deze stappen hebt uitgevoerd, kan uw app machtigingen voor alle gebruikers in een tenant, met inbegrip van de beheerder beperkte bereiken kunt aanvragen. Dit is een bewerking met hoge bevoegdheden en moet alleen worden uitgevoerd als die nodig zijn voor uw scenario.
+
+Zie voor een codevoorbeeld van waarmee de stappen de [administrator beperkt scopes voorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen in de portal voor app-registratie van aanvragen
 
+De toestemming van een beheerder een bereikparameter niet accepteert, zodat de machtigingen worden aangevraagd moet statisch zijn gedefinieerd in de registratie van de toepassing. In het algemeen is het aanbevolen procedure om ervoor te zorgen dat de machtigingen die statisch zijn gedefinieerd voor een bepaalde toepassing een hoofdverzameling van de machtigingen dat deze wordt aangevraagd dynamisch/incrementeel zijn.
+
+De lijst met machtigingen die zijn statisch aangevraagd voor een toepassing configureren: 
 1. Ga naar uw toepassing in de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of [maken van een app](quickstart-v2-register-an-app.md) als u dat nog niet gedaan hebt.
 2. Zoek de **machtigingen voor Microsoft Graph** sectie en voeg vervolgens de machtigingen die uw app nodig heeft.
 3. **Sla** de app-registratie.
@@ -233,3 +251,7 @@ Content-Type: application/json
 U kunt het resulterende toegangstoken gebruiken in HTTP-aanvragen naar de resource. Deze geeft op betrouwbare wijze u aan de resource dat uw app de juiste machtigingen voor het uitvoeren van een specifieke taak heeft. 
 
 Zie voor meer informatie over het OAuth 2.0-protocol en toegangstokens verkrijgen, de [protocolnaslaginformatie voor v2.0-eindpunt](active-directory-v2-protocols.md).
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+Als u of gebruikers van uw toepassing onverwachte fouten tijdens de toestemming ziet, Raadpleeg dit artikel voor stappen voor probleemoplossing: [onverwachte fout bij het uitvoeren van toestemming voor een toepassing](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

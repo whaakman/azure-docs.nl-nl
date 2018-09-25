@@ -1,6 +1,6 @@
 ---
 title: Voorbeelden om snel aan de slag met Azure Monitor CLI
-description: Voorbeeld-CLI 2.0-opdrachten voor Azure Monitor-functies. Azure Monitor is een Microsoft Azure-service zodat u kunt het verzenden van meldingen van waarschuwingen, aanroepen van web-URL's op basis van waarden van geconfigureerde telemetriegegevens, en voor automatisch schalen, Cloudservices, virtuele Machines en Web-Apps.
+description: Voorbeeld van CLI-opdrachten voor Azure Monitor-functies. Azure Monitor is een Microsoft Azure-service zodat u kunt het verzenden van meldingen van waarschuwingen, aanroepen van web-URL's op basis van waarden van geconfigureerde telemetriegegevens, en voor automatisch schalen, Cloudservices, virtuele Machines en Web-Apps.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1728511402d48904fa968790f790314fdf57767c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213204"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961515"
 ---
-# <a name="azure-monitor-cli-20-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor CLI 2.0
+# <a name="azure-monitor-cli-quick-start-samples"></a>Voorbeelden om snel aan de slag met Azure Monitor CLI
 Dit artikel laat u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot de functies van Azure Monitor. Azure Monitor kunt u om de Cloudservices voor automatisch schalen, virtuele Machines en Web-Apps te verzenden van meldingen van waarschuwingen of aanroepen van web-URL's op basis van waarden van de geconfigureerde telemetrische gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u de Azure CLI nog niet hebt geïnstalleerd, volgt u de instructies voor het [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring opdoen in uw browser. Zie een volledige verwijzing van alle beschikbare opdrachten in de [naslaginformatie over de CLI van Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Als u de Azure CLI nog niet hebt geïnstalleerd, volgt u de instructies voor het [Azure CLI installeren](/cli/azure/install-azure-cli). U kunt ook [Azure Cloud Shell](/azure/cloud-shell) uit te voeren van de CLI als een interactieve ervaring opdoen in uw browser. Zie een volledige verwijzing van alle beschikbare beschikbare opdrachten in de [naslaginformatie over de CLI van Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 De eerste stap is het aanmelden bij uw Azure-account.

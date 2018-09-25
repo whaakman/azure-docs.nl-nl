@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965448"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -39,7 +39,7 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 
 2. **ValidationURL handshake (handmatige handshake)**: In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt te kunnen zijn voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via een programma reageert met de code voor validatie. Daarom kan beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement met behulp van SDK/hulpprogramma's die gebruikmaken van deze nieuwe API-versie (2018-05-01-preview), EventGrid verzendt maakt een `validationUrl` eigenschap (naast de `validationCode` eigenschap) als onderdeel van de gegevens van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De validatie van de opgegeven URL is alleen voor ongeveer 10 minuten geldig. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. U moet het maken van het gebeurtenisabonnement opnieuw proberen te voordat u de handmatige validatie opnieuw uit.
 
-Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor [AZ CLI 2.0](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API gebruikt, zorg er dan voor dat u `api-version=2018-05-01-preview` gebruikt.
+Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor de [Azure CLI](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API gebruikt, zorg er dan voor dat u `api-version=2018-05-01-preview` gebruikt.
 
 ### <a name="validation-details"></a>Validatiedetails
 

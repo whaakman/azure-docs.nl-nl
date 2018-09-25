@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c2dd2208cf910456fa8f94ca739b7ef8875d475
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: df32ed7a6d3bc0c9e349f576f5f48832bf9906dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356751"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041918"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Verkeerde set gebruikers worden ingericht tot een toepassing met Azure AD-galerie
 
@@ -109,7 +109,7 @@ Als het inrichten is geconfigureerd en wordt al uitgevoerd voor een app, moeten 
 >
 >
 
-Als u groepen inrichten is ingeschakeld, worden de kenmerktoewijzingen om te controleren of dat het juiste veld wordt gebruikt voor de "overeenkomende ID" Lees. Dit kan de naam of e-mailbericht alias, zoals de groep en de bijbehorende leden niet worden ingericht als de overeenkomende eigenschap leeg of niet is ingevuld voor een groep in Azure AD.
+Als u groepen inrichten is ingeschakeld, worden de kenmerktoewijzingen om te controleren of dat het juiste veld wordt gebruikt voor de "overeenkomende ID" Lees. Deze overeenkomende ID is de naam of e-mailalias van weergave. De groep en de bijbehorende leden zijn niet ingericht als de overeenkomende eigenschap leeg of niet ingevuld voor een groep in Azure AD is.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory)

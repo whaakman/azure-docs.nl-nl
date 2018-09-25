@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055674"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995368"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informatie over Azure IoT Edge-modules
 
@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Offline-mogelijkheden
 
-Azure IoT Edge biedt ondersteuning voor offline-bewerkingen op uw IoT Edge-apparaten. Deze mogelijkheden zijn beperkt voor nu en aanvullende scenario's worden ontwikkeld. 
+Azure IoT Edge biedt ondersteuning voor offline-bewerkingen op uw IoT Edge-apparaten. Deze mogelijkheden zijn beperkt voor nu. 
 
 IoT Edge-modules zijn offline gedurende langere perioden, zolang de volgende vereisten wordt voldaan: 
 
@@ -75,6 +75,8 @@ IoT Edge-modules zijn offline gedurende langere perioden, zolang de volgende ver
 * **Modules hoeft te verifiëren bij de IoT Edge hub wanneer u offline bent**. Modules kunnen alleen worden geverifieerd met het Edge-hubs die u een actieve verbinding met een IoT-hub hebt. Modules moeten zich opnieuw verifiëren als ze opnieuw om welke reden dan ook gestart zijn. Modules kunnen nog steeds berichten verzenden naar de Edge hub nadat de SAS-token is verlopen. Wanneer verbinding wordt hervat, wordt de Edge hub een nieuw token aanvragen van de module en wordt deze gevalideerd met de IoT-hub. Als dit lukt, verzendt de Edge hub de module berichten die wordt opgeslagen, zelfs de berichten die zijn verzonden terwijl van de module-token is verlopen. 
 * **De module die de berichten verzonden offline nog steeds functioneel is wanneer verbinding wordt hervat**. Na het opnieuw verbinding maakt met IoT Hub, moet de Edge hub voor het valideren van een nieuwe module-token (als de voorgaande build is verlopen) voordat de module-berichten kunnen worden doorgestuurd. Als de module niet beschikbaar is, voor een nieuw token, wordt de Edge hub kan niet reageren op opgeslagen berichten van de module. 
 * **De Edge hub schijfruimte voor het opslaan van de berichten heeft**. Berichten worden standaard opgeslagen in de Edge hub-container-bestandssysteem. Er is een configuratieoptie om op te geven van een gekoppeld volume voor het opslaan van de berichten in plaats daarvan. In beide gevallen moet er ruimte die beschikbaar is voor het opslaan van de berichten voor uitgestelde levering aan IoT-Hub.  
+
+Aanvullende offline-mogelijkheden zijn beschikbaar in openbare preview. Zie voor meer informatie, [begrijpen uitgebreid offline-mogelijkheden voor IoT Edge-apparaten, modules en onderliggende apparaten](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Volgende stappen
  - [De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen][lnk-runtime]

@@ -9,45 +9,43 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504964"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967588"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Bing Custom Search-eindpunt (Python) aanroepen
 
-Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Python om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt. 
+In deze Quick Start laat zien hoe zoekresultaten aanvragen bij uw exemplaar voor aangepast zoeken voor het aanroepen van het eindpunt van de Bing Custom Search met behulp van Python. 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
+
 U hebt het volgende nodig om deze quickstart te voltooien:
 
-- Een exemplaar voor aangepast zoeken. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
+- Een exemplaar voor aangepast zoeken van kant-en-klare. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
+- [Python](https://www.python.org/) geïnstalleerd.
+- De abonnementssleutel van een. Krijgt u een abonnementssleutel wanneer u activeert de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), of kunt u een betaald abonnement-sleutel in uw Azure-dashboard (Zie [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
--  [Python](https://www.python.org/) geïnstalleerd.
-
-- Een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is voldoende voor deze Quick Start. Moet u de toegangssleutel die is opgegeven wanneer u uw gratis proefversie activeren, of u de sleutel van een betaald abonnement van uw Azure-dashboard kunt. 
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-Volg deze stappen voor het aanroepen van de Bing Custom Search-eindpunt:
+Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
 
-1. Maak een map voor uw code.
-
-2. Navigeer naar de map die u zojuist hebt gemaakt van een administrator-opdrachtprompt of terminal.
-
-3. Installeer de **aanvragen** python-module:
-
+1. Maak een map voor uw code.  
+  
+2. Navigeer naar de map die u zojuist hebt gemaakt van een administrator-opdrachtprompt of terminal.  
+  
+3. Installeer de **aanvragen** python-module:  
+  
     <pre>
     pip install pipenv
     pipenv install requests
-    </pre>
-    
-7. Maak het bestand BingCustomSearch.py en kopieer de volgende code toe.
-
-8. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** door uw sleutel en -configuratie-ID (Zie stap 1).
-
+    </pre>  
+      
+4. Maak een bestand met de naam BingCustomSearch.py in de map die u hebt gemaakt en kopieer de volgende code naar het. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** met uw subscriptioin sleutel en configuratie-ID.  
+  
     ``` Python
     import json
     import requests
@@ -59,8 +57,10 @@ Volg deze stappen voor het aanroepen van de Bing Custom Search-eindpunt:
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```
-9. Voer de code met de volgende opdracht uit.
+    ```  
+  
+7. Voer de code met de volgende opdracht uit.  
+  
     ```
     python BingCustomSearch.py
     ```

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577817"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056818"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -63,7 +63,7 @@ Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake
 ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan worden gebruikt als uitvoer voor gegevens die relationele of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in een Azure SQL Database.  Het tabelschema moet exact overeenkomen met de velden en de typen hiervan wordt de uitvoer van uw taak. Een [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan ook worden opgegeven als uitvoer via de uitvoeroptie SQL-Database. De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan worden gebruikt als uitvoer voor gegevens die relationele of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in een Azure SQL Database.  Het tabelschema moet exact overeenkomen met de velden en de typen hiervan wordt de uitvoer van uw taak. Een [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan ook worden opgegeven als uitvoer via de uitvoeroptie SQL-Database. Raadpleeg voor meer informatie over manieren om te schrijven-doorvoer te verbeteren, de [Stream Analytics met Azure SQL-database als uitvoer](stream-analytics-sql-output-perf.md) artikel. De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
 
 | Naam van eigenschap | Beschrijving |
 | --- | --- |
@@ -297,7 +297,7 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Uitvoertype | Ondersteuning voor partitioneren | Partitiesleutel  | Aantal uitvoer schrijvers | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het patroon voor het voorvoegsel van pad. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
-| Azure SQL Database | Nee | Geen | Niet van toepassing. | 
+| Azure SQL Database | Ja | Op basis van de component PARTITION BY in de query | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
 | Azure Blob Storage | Ja | Gebruik {date} en {time} tokens van de gebeurtenis velden in het pad-patroon. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. Als onderdeel van de [preview](https://aka.ms/ASAPreview), blob-uitvoer kan worden gepartitioneerd op een kenmerk met één aangepaste gebeurtenis {fieldname} of {datum/tijd:\<aanduiding >}. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.</br> Als uitvoer van de uitvoer Event Hub-partitiesleutel is even uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde van het aantal Event Hub-partities. Elke schrijver maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. </br> Wanneer de uitvoer Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. EventHubClient maakt gebruik van elke schrijver [SendBatchAsync klasse](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. | 

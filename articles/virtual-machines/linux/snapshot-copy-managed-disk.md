@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007002"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974388"
 ---
 # <a name="create-a-snapshot"></a>Een momentopname maken 
 
@@ -26,7 +26,7 @@ Een momentopname van een besturingssysteem of de gegevensschijf voor back-up of 
 
 ## <a name="use-azure-cli"></a>Azure CLI gebruiken 
 
-Het volgende voorbeeld is het vereist dat u [Cloud Shell](https://shell.azure.com/bash) of Azure CLI 2.0 is geïnstalleerd. Voer **az --version** uit om de versie op te vragen. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). 
+Het volgende voorbeeld is het vereist dat u [Cloud Shell](https://shell.azure.com/bash) of Azure CLI is geïnstalleerd.
 
 De volgende stappen laten zien hoe u kunt een momentopname met de **maken van een momentopname van de az** opdracht met de **--bronschijf** parameter. Het volgende voorbeeld wordt ervan uitgegaan dat er een virtuele machine met de naam *myVM* in de *myResourceGroup* resourcegroep.
 

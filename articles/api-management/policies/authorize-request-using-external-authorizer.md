@@ -1,6 +1,6 @@
 ---
-title: 'Azure API management-beleid steekproef: machtig aanvraag met behulp van externe authorizer | Microsoft Docs'
-description: Azure API management-beleid - ziet u hoe autoriseren-aanvragen via externe authorizer encapsulating van een aangepaste of verouderde verificatie/autorisatie-logica.
+title: Azure API management-beleid voorbeeld - aanvraag met behulp van externe authorizer autoriseren | Microsoft Docs
+description: Azure API management-beleid-voorbeeld - laat zien hoe aanvragen via externe authorizer encapsulating van een aangepaste en verouderde verificatie/autorisatie-logica te autoriseren.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 7d172a40f2aad65b595026fc656634060a1f7193
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 70f43a058cfd3818dae1ccfa4b222a7d0d740aee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284869"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979400"
 ---
-# <a name="authorize-requests-using-external-authorizer"></a>-Aanvragen via externe authorizer autoriseren
+# <a name="authorize-requests-using-external-authorizer"></a>Toestaan van aanvragen met behulp van externe authorizer
 
-Dit artikel ziet een Azure API management-beleid-voorbeeldtoepassing die u laat hoe u API-toegang beveiligen zien met behulp van een externe authorizer encapsulating aangepaste verificatie/autorisatie logica. Volg de stappen in wilt instellen of bewerken van een beleid code, [instellen of bewerken van een beleid](../set-edit-policies.md). Zie voor andere voorbeelden [beleid voorbeelden](../policy-samples.md).
+In dit artikel wordt een Azure API management-beleid voorbeeld die laat hoe u API-toegang beveiligen zien met behulp van een externe authorizer encapsulating aangepaste verificatie/autorisatie logica. Als u wilt instellen of bewerken van een beleid voor code, volg de stappen [instellen of bewerken van een beleid](../set-edit-policies.md). Zie voor meer voorbeelden [beleid voorbeelden](../policy-samples.md).
 
 ## <a name="policy"></a>Beleid
 
-Plak de code in de **inkomende** blok.
+Plak de code in de **inkomende** blokkeren.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Authorize requests using external authorizer.policy.xml)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over APIM beleid:
+Meer informatie over de APIM-beleid:
 
-+ [Beperkingen toegangsbeleid](../api-management-access-restriction-policies.md)
++ [Toegangsbeleid voor beperkingen](../api-management-access-restriction-policies.md)
 + [Voorbeelden van beleid](../policy-samples.md)

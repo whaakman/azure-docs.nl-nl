@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde bronnen voor nieuwere metrische waarschuwingen van Azure Monitor
-description: Referentie voor de ondersteuning voor metrische gegevens en logboeken voor nieuwere Azure bijna realtime metrische waarschuwingen.
+title: Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
+description: Referentie voor de ondersteuning voor metrische gegevens en logboeken voor metrische waarschuwingen in Azure Monitor
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579086"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966784"
 ---
-# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Ondersteunde bronnen voor nieuwere metrische waarschuwingen van Azure Monitor
-Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-unified-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](insights-alerts-portal.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset. 
+# <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ondersteunde resources voor metrische waarschuwingen in Azure Monitor
 
-U kunt ook nieuwere metrische waarschuwingen voor populaire Log Analytics-logboeken geëxtraheerd als metrische gegevens als onderdeel van de metrische gegevens van Logboeken (Preview)  
+Azure Monitor nu ondersteunt een [nieuwe metrische Waarschuwingstype](monitoring-overview-unified-alerts.md) die heeft aanzienlijke voordelen boven de oudere [klassieke metrische waarschuwingen](insights-alerts-portal.md). Metrische gegevens zijn beschikbaar voor [lange lijst met Azure-services](monitoring-supported-metrics.md). De nieuwere waarschuwingen ondersteunen slechts een subset (groeiende) van de resourcetypen. In dit artikel geeft een lijst van deze subset.
+
+U kunt ook nieuwere metrische waarschuwingen voor populaire Log Analytics-Logboeken als metrische gegevens als onderdeel van de metrische gegevens van de logboeken hebt uitgepakt 
 - [Prestatiemeteritems](../log-analytics/log-analytics-data-sources-performance-counters.md) voor Windows en Linux-machines
 - [Heartbeat-records voor de status van Agent](../operations-management-suite/oms-solution-agenthealth.md)
 - [Updatebeheer](../operations-management-suite/oms-solution-update-management.md) records
@@ -28,7 +29,7 @@ U kunt ook nieuwere metrische waarschuwingen voor populaire Log Analytics-logboe
 > Specifieke metrische gegevens en/of de dimensie wordt alleen weergegeven als de gegevens voor deze in de gekozen periode bestaat. Deze metrische gegevens zijn beschikbaar voor klanten met Azure Log Analytics-werkruimten in VS-Oost, West-Centraal VS en West-Europa. Metrische gegevens van Log Analytics is momenteel in openbare preview-versie en kan worden gewijzigd.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-ondersteuning
-U kunt op dit moment nieuwere metrische waarschuwingen maken alleen in de Azure-portal [REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en de Azure-opdrachtregelinterface (Azure CLI 2.0) is binnenkort beschikbaar.
+U kunt op dit moment nieuwere metrische waarschuwingen maken alleen in de Azure-portal [REST-API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en Azure CLI versie 2.0 en hoger is binnenkort beschikbaar.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies ondersteund
 Nieuwere metrische waarschuwingen ondersteunt waarschuwingen voor metrische gegevens die gebruikmaken van dimensies. U kunt dimensies gebruiken voor het filteren van uw metrische gegevens naar het juiste niveau. Alle ondersteunde metrische gegevens, samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
@@ -66,7 +67,9 @@ Dit is de volledige lijst met Azure monitor metrische bronnen die worden onderst
 |Microsoft.Storage/storageAccounts/services     |     Ja    | [BLOB-Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Bestandsservices](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Services in de wachtrij](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) en [tabel Services](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/A       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | Ja | [App Service-plannen](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (Preview) | Ja|[Log Analytics-werkruimten](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | Ja | [App Services](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) en [functies](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | Ja | [App Service-sleuven](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics-werkruimten](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

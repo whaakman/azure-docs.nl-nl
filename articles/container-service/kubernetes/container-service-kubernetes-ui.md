@@ -1,6 +1,6 @@
 ---
-title: Cluster met een webgebruikersinterface Azure Kubernetes beheren
-description: Met behulp van de webgebruikersinterface Kubernetes in Azure Container Service
+title: Beheren Azure Kubernetes-cluster met web-UI
+description: Met behulp van de Kubernetes-Webinterface in Azure Container Service
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -9,14 +9,14 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998522"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Met behulp van de webgebruikersinterface Kubernetes met Azure Container Service
+# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Met Azure Container Service met behulp van de Kubernetes-Webinterface
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
@@ -24,17 +24,17 @@ ms.locfileid: "32163245"
 In dit scenario wordt ervan uitgegaan dat u hebt [gemaakt van een Kubernetes-cluster met behulp van Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
-Ook wordt ervan uitgegaan dat u de Azure CLI 2.0 hebt en `kubectl` hulpprogramma's geïnstalleerd.
+Ook wordt ervan uitgegaan dat u de Azure CLI hebt en `kubectl` hulpprogramma's zijn geïnstalleerd.
 
-U kunt testen, hebt u de `az` hulpprogramma is geïnstalleerd door te voeren:
+U kunt testen als u hebt de `az` hulpprogramma is geïnstalleerd door uit te voeren:
 
 ```console
 $ az --version
 ```
 
-Als u hebt de `az` hulpprogramma is geïnstalleerd, er zijn instructies [hier](https://github.com/azure/azure-cli#installation).
+Als u geen de `az` hulpprogramma is geïnstalleerd, worden er instructies [hier](https://github.com/azure/azure-cli#installation).
 
-U kunt testen, hebt u de `kubectl` hulpprogramma is geïnstalleerd door te voeren:
+U kunt testen als u hebt de `kubectl` hulpprogramma is geïnstalleerd door uit te voeren:
 
 ```console
 $ kubectl version
@@ -48,83 +48,83 @@ $ az acs kubernetes install-cli
 
 ## <a name="overview"></a>Overzicht
 
-### <a name="connect-to-the-web-ui"></a>Verbinding maken met de webgebruikersinterface
-U kunt de webgebruikersinterface Kubernetes starten door te voeren:
+### <a name="connect-to-the-web-ui"></a>Verbinding maken met de web-UI
+U kunt de Kubernetes-Webinterface starten door te voeren:
 
 ```console
 $ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
-Dit moet een webbrowser die is geconfigureerd om te communiceren met een beveiligde proxy uw lokale computer verbinden met de webgebruikersinterface Kubernetes openen.
+Dit moet een webbrowser die is geconfigureerd om te communiceren met een veilige proxy verbinding te maken van uw lokale computer met de Kubernetes-Webinterface openen.
 
-### <a name="create-and-expose-a-service"></a>Maken en weergeven van een service
-1. Klik in het Kubernetes web UI op **maken** knop in het bovenste rechtervenster.
+### <a name="create-and-expose-a-service"></a>Maken en een service zichtbaar maken
+1. Klik in het Kubernetes-Webinterface op **maken** knop in het bovenste venster.
 
     ![Kubernetes maken gebruikersinterface](./media/container-service-kubernetes-ui/create.png)
 
-    Een dialoogvenster weergegeven waarin u kunt starten maken van de toepassing.
+    Een dialoogvenster weergegeven waarin u kunt gaan maken van uw toepassing.
 
-2. Geef deze de naam `hello-nginx`. Gebruik de [ `nginx` container in Docker](https://hub.docker.com/_/nginx/) en drie replica's van deze webservice implementeren.
+2. Geef deze de naam `hello-nginx`. Gebruik de [ `nginx` -container vanuit Docker](https://hub.docker.com/_/nginx/) en drie replica's van deze webservice implementeren.
 
-    ![Dialoogvenster maken Kubernetes schil](./media/container-service-kubernetes-ui/nginx.png)
+    ![Kubernetes-schil maken dialoogvenster](./media/container-service-kubernetes-ui/nginx.png)
 
 3. Onder **Service**, selecteer **externe** en voert u poort 80.
 
-    Deze instelling taakverdelingen verkeer naar de drie replica's.
+    Deze instelling worden de taken van verkeer naar de drie replica's.
 
-    ![Dialoogvenster maken Kubernetes Service](./media/container-service-kubernetes-ui/service.png)
+    ![Dialoogvenster maken Kubernetes-Service](./media/container-service-kubernetes-ui/service.png)
 
-4. Klik op **implementeren** voor het implementeren van deze containers en -services.
+4. Klik op **implementeren** om deze containers en services te implementeren.
 
     ![Kubernetes implementeren](./media/container-service-kubernetes-ui/deploy.png)
 
 ### <a name="view-your-containers"></a>Uw containers weergeven
-Nadat u op **implementeren**, ziet u de gebruikersinterface een weergave van uw service omdat het wordt geïmplementeerd:
+Nadat u op **implementeren**, de gebruikersinterface ziet u een overzicht van uw service, zoals het wordt geïmplementeerd:
 
-![Kubernetes Status](./media/container-service-kubernetes-ui/status.png)
+![Kubernetes-Status](./media/container-service-kubernetes-ui/status.png)
 
-U kunt de status van elk object Kubernetes in de cirkel onder aan de linkerkant van de gebruikersinterface zien **gehele product**. Als het een gedeeltelijk volledige cirkel, klikt u vervolgens implementeert het object nog steeds. Wanneer een object volledig is geïmplementeerd, wordt een groen vinkje weergegeven:
+U kunt de status van elk object Kubernetes in de cirkel onder aan de linkerkant van de gebruikersinterface ziet **schillen**. Als het een gedeeltelijk volledige cirkel, klikt u vervolgens het object is nog steeds de implementatie. Wanneer een object is volledig is geïmplementeerd, wordt een groen vinkje weergegeven:
 
 ![Kubernetes geïmplementeerd](./media/container-service-kubernetes-ui/deployed.png)
 
-Zodra u alles wordt uitgevoerd, klikt u op een van uw gehele product voor informatie over de webservice.
+Als alles wordt uitgevoerd, klikt u op een van uw schillen voor informatie over de actieve webservice.
 
-![Kubernetes gehele product](./media/container-service-kubernetes-ui/pods.png)
+![Kubernetes-schillen](./media/container-service-kubernetes-ui/pods.png)
 
-In de **gehele product** weergave ziet u informatie over de containers in schil, evenals de CPU en geheugen resources gebruikt door deze containers:
+In de **schillen** weergeven, kunt u informatie over de containers in de schil, evenals de CPU en geheugen resources die worden gebruikt door deze containers zien:
 
-![Kubernetes Resources](./media/container-service-kubernetes-ui/resources.png)
+![Kubernetes-Resources](./media/container-service-kubernetes-ui/resources.png)
 
-Als u de resources niet ziet, moet u wellicht wacht een paar minuten voordat de bewakingsgegevens worden doorgegeven.
+Als u de resources niet ziet, moet u mogelijk Wacht een paar minuten voor de gegevens worden doorgegeven.
 
-Klik op een overzicht van de logboeken voor de container **logboeken bekijken**.
+Voor de logboeken voor de container, klikt u op **logboeken bekijken**.
 
-![Kubernetes Logboeken](./media/container-service-kubernetes-ui/logs.png)
+![Kubernetes-Logboeken](./media/container-service-kubernetes-ui/logs.png)
 
-### <a name="viewing-your-service"></a>Uw service weergeven
-De UI Kubernetes gecreëerd naast uw containers wordt uitgevoerd, een externe `Service` die voorziet in een load balancer om verkeer naar de containers in uw cluster.
+### <a name="viewing-your-service"></a>Uw service bekijken
+Naast het uitvoeren van uw containers, de UI van Kubernetes een externe heeft gemaakt `Service` die een load balancer om verkeer naar de containers in uw cluster inricht.
 
-Klik in het navigatiedeelvenster links op **Services** om weer te geven van alle services (er moet slechts één).
+Klik in het linkernavigatiedeelvenster op **Services** om alle services (er moet slechts één) weer te geven.
 
-![Kubernetes Services](./media/container-service-kubernetes-ui/service-deployed.png)
+![Kubernetes-Services](./media/container-service-kubernetes-ui/service-deployed.png)
 
-In deze weergave ziet u een extern eindpunt (IP-adres) dat is toegewezen aan uw service.
-Als u op dat IP-adres, ziet u het Nginx-container die achter de load balancer.
+In deze weergave ziet u een extern eindpunt (IP-adres) die is toegewezen aan uw service.
+Als u dat IP-adres klikt, ziet u de Nginx-container die achter de load balancer.
 
 ![nginx weergeven](./media/container-service-kubernetes-ui/nginx-page.png)
 
 ### <a name="resizing-your-service"></a>Uw service vergroten of verkleinen
-U kunt niet alleen uw objecten in de gebruikersinterface weergeven, bewerken en de objecten Kubernetes API bijwerken.
+U kunt niet alleen de objecten in de gebruikersinterface weergeven, bewerken en bijwerken van de Kubernetes API-objecten.
 
-Klik eerst **implementaties** in het navigatiedeelvenster links om te zien van de implementatie voor uw service.
+Klik eerst op **implementaties** in het navigatiedeelvenster links om te zien van de implementatie voor uw service.
 
-Wanneer u zich in die weergave, klikt u op de replicaset en klik vervolgens op **bewerken** in de bovenste navigatiebalk:
+Wanneer u in die weergave bent, klikt u op de replicaset en klik vervolgens op **bewerken** in de bovenste navigatiebalk:
 
 ![Kubernetes bewerken](./media/container-service-kubernetes-ui/edit.png)
 
-Bewerk de `spec.replicas` veld `2`, en klik op **Update**.
+Bewerk de `spec.replicas` veld `2`, en klikt u op **Update**.
 
-Dit zorgt ervoor dat het aantal replica's op twee door een van uw gehele product te verwijderen.
+Dit zorgt ervoor dat het aantal replica's op twee door het verwijderen van een van uw schillen verwijderen.
 
  
 

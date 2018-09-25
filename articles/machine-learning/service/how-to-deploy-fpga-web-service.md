@@ -1,6 +1,6 @@
 ---
-title: Het implementeren van een model als een webservice op een FPGA met Azure Machine Learning
-description: Informatie over het implementeren van een webservice met een uitgevoerd op een FPGA met Azure Machine Learning-model.
+title: Een model implementeren als een webservice op een FPGA met Azure Machine Learning
+description: Leer hoe u een webservice implementeren met een model uitvoeren op een FPGA met Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,166 +8,212 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/07/2018
-ms.openlocfilehash: f3237980a1ad1969b5cf8d42d547ddf96608dd97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 09/24/2018
+ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789395"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971481"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model als een webservice op een FPGA met Azure Machine Learning implementeren
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning
 
-In dit document, leert u hoe uw werkstation-omgeving instellen en implementeren van een model als een webservice op [programmeerbare gate matrices (FPGA) veld](concept-accelerate-with-fpgas.md). De webservice gebruikt Project Brainwave voor het uitvoeren van het model op FPGA.
+U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md).  Met behulp van FPGA's biedt zeer lage latentie inferentietaken, zelfs met een enkele batchgrootte.   
 
-Met behulp van FPGAs biedt zeer lage latentie inferencing, zelfs met een enkele batchgrootte.
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="create-an-azure-machine-learning-model-management-account"></a>Een Azure Machine Learning-Model Management-account maken
+- Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-1. Ga naar de pagina voor het Model-Management-Account maken op de [Azure Portal](https://aka.ms/aml-create-mma).
+- Een Azure Machine Learning-werkruimte en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
+ 
+  - Uw werkruimte moet zich in de *VS-Oost 2* regio.
 
-2. In de portal maken van een Model-Management-Account in de **VS-Oost 2** regio.
+  - Installeer de contrib extra's:
 
-   ![Afbeelding van het scherm Model Management-Account maken](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+    ```shell
+    pip install --upgrade azureml-sdk[contrib]
+    ```  
 
-3. Geef een naam op voor uw Account Model-Management, kies een abonnement en een resourcegroep kiezen.
+## <a name="create-and-deploy-your-model"></a>Uw model maakt en implementeert
+Een pijplijn maken voor de invoer parametriseer-installatiekopie met behulp van ResNet 50 op een FPGA voorverwerken, en voer vervolgens de functies via een classifer getraind op de ImageNet-gegevensset.
 
-   >[!IMPORTANT]
-   >Voor de locatie, moet u kiezen **VS-Oost 2** als regio.  Er zijn geen andere regio's zijn momenteel beschikbaar.
+Volg de instructies voor:
 
-4. Kies een prijscategorie (S1 voldoende is, maar ook werken S2 en S3).  De laag DevTest wordt niet ondersteund.  
-
-5. Klik op **Selecteer** om te bevestigen dat de prijscategorie.
-
-6. Klik op **maken** aan de linkerkant op het ML-Model.
-
-## <a name="get-model-management-account-information"></a>Model Management accountgegevens ophalen
-
-Voor informatie over uw Model Management Account (MMA), klikt u op de __Model-Account van beheerserver__ in de Azure portal.
-
-Kopieer de waarden van de volgende items:
-
-+ Model Management accountnaam (in op de linkerbovenhoek)
-+ Resourcegroepnaam
-+ Abonnements-id
-+ Locatie (gebruik ' eastus2')
-
-![Model Management accountgegevens](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
-
-## <a name="set-up-your-machine"></a>Instellen van uw computer
-
-Als u uw werkstation voor FPGA implementatie instelt, volg deze stappen:
-
-1. Download en installeer de nieuwste versie van [Git](https://git-scm.com/downloads).
-
-2. Installeer [Anaconda (Python 3.6)](https://conda.io/miniconda.html).
-
-3. Gebruik de volgende opdracht vanaf een opdrachtprompt Git voor het downloaden van de Anaconda-omgeving:
-
-    ```
-    git clone https://aka.ms/aml-real-time-ai
-    ```
-
-4. Voor het maken van de omgeving, opent u een **Anaconda Prompt** (niet een Azure Machine Learning Workbench vragen) en voer de volgende opdracht:
-
-    > [!IMPORTANT]
-    > De `environment.yml` bestand bevindt zich in de git-opslagplaats die u in de vorige stap hebt gekloond. Wijzig het pad naar behoefte om te verwijzen naar het bestand op uw werkstation.
-
-    ```
-    conda env create -f environment.yml
-    ```
-
-5. Gebruik de volgende opdracht voor het activeren van de omgeving:
-
-    ```
-    conda activate amlrealtimeai
-    ```
-
-6. Gebruik de volgende opdracht voor het starten van de Jupyter-Notebook-server:
-
-    ```
-    jupyter notebook
-    ```
-
-    De uitvoer van deze opdracht is vergelijkbaar met de volgende tekst:
-
-    ```text
-    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
-        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
-    ```
-
-    > [!TIP]
-    > U krijgt een ander token telkens wanneer die u de opdracht uitvoert.
-
-    Als uw browser niet automatisch naar de Jupyter-notebook wordt geopend, gebruikt u de HTTP-URL die is geretourneerd door de vorige opdracht om de pagina te openen.
-
-    ![Afbeelding van de webpagina Jupyter-Notebook](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
-
-## <a name="deploy-your-model"></a>Implementeer uw model
-
-Open in de Jupyter-Notebook de `00_QuickStart.ipynb` notebook uit de `notebooks/resnet50` directory. Volg de instructies in de notebook naar:
-
-* Definieer de service
+* De pijplijn model definiëren
 * Het model implementeren
-* Het geïmplementeerde model gebruiken
-* Er zijn geïmplementeerde services verwijderen
+* De geïmplementeerde model gebruiken
+* Geïmplementeerde services verwijderen
 
 > [!IMPORTANT]
-> Om te optimaliseren latentie en doorvoer, moet uw werkstation in dezelfde Azure-regio als het eindpunt.  Op dit moment worden de API's gemaakt in de Oost ons Azure-regio.
+> Voor het optimaliseren van latentie en doorvoer, moet uw client zich in dezelfde Azure-regio als het eindpunt.  Op dit moment worden de API's gemaakt in de oostelijke VS Azure-regio.
 
-## <a name="ssltls-and-authentication"></a>SSL/TLS- en verificatie
+### <a name="get-the-notebook"></a>De notebook ophalen
 
-Azure Machine Learning biedt ondersteuning voor SSL en verificatie op basis van sleutels. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken.
+Deze zelfstudie is beschikbaar als een Jupyter-notebook voor uw gemak. Een van deze methoden gebruiken om uit te voeren de `project-brainwave/project-brainwave-quickstart.ipynb` laptop:
 
-> [!NOTE]
-> De stappen in deze sectie zijn alleen van toepassing op Azure Machine Learning Hardware versnelde-modellen. Zie voor standaardservices Azure Machine Learning de [het instellen van SSL op Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) document.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+### <a name="preprocess-image"></a>Afbeelding voorverwerken
+De eerste fase van de pijplijn is met de voorverwerking van de installatiekopieën.
+
+```python
+import os
+import tensorflow as tf
+
+# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+import azureml.contrib.brainwave.models.utils as utils
+in_images = tf.placeholder(tf.string)
+image_tensors = utils.preprocess_array(in_images)
+print(image_tensors.shape)
+```
+### <a name="add-featurizer"></a>Featurizer toevoegen
+Initialiseren van het model en een TensorFlow-controlepunt van de quantized versie van ResNet50 moet worden gebruikt als een featurizer downloaden.
+
+```python
+from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+model_path = os.path.expanduser('~/models')
+model = QuantizedResnet50(model_path, is_frozen = True)
+feature_tensor = model.import_graph_def(image_tensors)
+print(model.version)
+print(feature_tensor.name)
+print(feature_tensor.shape)
+```
+
+### <a name="add-classifier"></a>Classificatie toevoegen
+Deze classificatie is getraind op de ImageNet-gegevensset.
+
+```python
+classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+```
+
+### <a name="create-service-definition"></a>De servicedefinitie van de maken
+Nu dat u gedefinieerd, hebt de voorverwerking van de installatiekopie, featurizer en classificatie die wordt uitgevoerd op de service, kunt u de servicedefinitie van een kunt maken. De servicedefinitie van de is een set bestanden die zijn gegenereerd op basis van het model dat is geïmplementeerd naar de FPGA-service. Definitie van de service bestaat uit een pijplijn. De pijplijn is een reeks fasen die in volgorde worden uitgevoerd.  TensorFlow-fasen, Keras-fasen en BrainWave fasen worden ondersteund.  De fasen worden uitgevoerd in volgorde van de service, met de uitvoer van de invoer van elke fase in de volgende fase.
+
+Maken van een fase TensorFlow, een sessie met de grafiek (in dit geval standaard grafiek wordt gebruikt) en de invoer en uitvoer tensors naar deze fase.  Deze informatie wordt gebruikt om op te slaan van de grafiek, zodat deze kan worden uitgevoerd op de service.
+
+```python
+from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+
+save_path = os.path.expanduser('~/models/save')
+model_def_path = os.path.join(save_path, 'service_def.zip')
+
+model_def = ModelDefinition()
+with tf.Session() as sess:
+    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
+    model_def.pipeline.append(BrainWaveStage(sess, model))
+    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.save(model_def_path)
+    print(model_def_path)
+```
+
+### <a name="deploy-model"></a>Model implementeren
+Een service maken vanuit definitie van de service.  Uw werkruimte moet zich in de locatie VS-Oost 2.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+
+from azureml.core.model import Model
+model_name = "resnet-50-rtai"
+registered_model = Model.register(ws, model_def_path, model_name)
+
+from azureml.core.webservice import Webservice
+from azureml.exceptions import WebserviceException
+from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
+service_name = "imagenet-infer"
+service = None
+try:
+    service = Webservice(ws, service_name)
+except WebserviceException:
+    image_config = BrainwaveImage.image_configuration()
+    deployment_config = BrainwaveWebservice.deploy_configuration()
+    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
+    service.wait_for_deployment(true)
+```
+
+### <a name="test-the-service"></a>De service testen
+Een afbeelding verzenden naar de API en testen van het antwoord, een toewijzing van de uitvoer klasse-ID aan de naam van de klasse ImageNet toevoegen.
+
+```python
+import requests
+classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+```
+
+Uw service aanroepen en de naam van het bestand 'uw image.jpg' hieronder vervangen door een installatiekopie vanaf uw computer. 
+
+```python
+with open('your-image.jpg') as f:
+    results = service.run(f)
+# map results [class_id] => [confidence]
+results = enumerate(results)
+# sort results by confidence
+sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
+# print top 5 results
+for top in sorted_results[:5]:
+    print(classes_entries[top[0]], 'confidence:', top[1])
+``` 
+
+### <a name="clean-up-service"></a>Opschonen van de service
+De service verwijderen.
+
+```python
+service.delete()
+    
+registered_model.delete()
+```
+
+## <a name="secure-fpga-web-services"></a>Beveiligde FPGA-webservices
+
+Azure Machine Learning-modellen die worden uitgevoerd op FPGA's bieden ondersteuning voor SSL en verificatie op basis van een sleutel. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken.
 
 > [!IMPORTANT]
-> Verificatie is alleen ingeschakeld voor services die u hebt opgegeven een SSL-certificaat en de sleutel. 
+> Verificatie is alleen ingeschakeld voor services die een SSL-certificaat en de sleutel hebt opgegeven. 
 >
-> Als u SSL niet inschakelt, kunnen alle gebruikers op internet aanroepen naar de service is mogelijk.
+> Als u SSL niet inschakelt, kunnen elke gebruiker op het internet voor aanroepen naar de service wordt mogelijk.
 >
-> Als u SSL inschakelen en verificatiesleutel vereist is bij het openen van de service.
+> Als u SSL inschakelt en de verificatiesleutel vereist is bij het openen van de service.
 
-SSL versleutelt de gegevens die worden verzonden tussen de client en de service. Het wordt ook gebruikt door de client de identiteit van de server.
+SSL versleutelt de gegevens die tussen de client en de service worden verzonden. Het wordt ook gebruikt door de client om te controleren of de identiteit van de server.
 
-U kunt een service implementeren met SSL is ingeschakeld, of een reeds geïmplementeerde service zodat deze bijwerken. De stappen zijn hetzelfde:
+U kunt een service implementeren met SSL is ingeschakeld of bijwerken van een reeds geïmplementeerde service als u wilt inschakelen. De stappen zijn hetzelfde:
 
-1. Verkrijgen van een domeinnaam.
+1. De naam van een domein aan te schaffen.
 
-2. Een SSL-certificaat verkrijgen.
+2. Een SSL-certificaat aan te schaffen.
 
 3. Implementeren of bijwerken van de service met SSL is ingeschakeld.
 
-4. Werk uw DNS om te verwijzen naar de service.
+4. Hiermee werkt u uw DNS-server om te verwijzen naar de service.
 
-### <a name="acquire-a-domain-name"></a>Verkrijgen van een domeinnaam
+### <a name="acquire-a-domain-name"></a>De naam van een domein verkrijgen
 
-Als u een domeinnaam geen al eigenaar, u kunt kopen bij een __domeinnaamregistrar__. Tussen registrars, verschilt het proces als de kosten. De registrar ook biedt u hulpprogramma's voor het beheren van de domeinnaam. Deze hulpprogramma's worden gebruikt voor het toewijzen van een volledig gekwalificeerde domeinnaam (zoals www.contoso.com) het IP-adres dat uw service wordt gehost op.
+Als u een domeinnaam niet al hebt kan, kunt u kopen van een __domeinnaamregistrar__. Tussen registrars, verschilt het proces als de kosten. De registrar biedt u ook met hulpprogramma's voor het beheren van de domeinnaam. Deze hulpprogramma's worden gebruikt om een volledig gekwalificeerde domeinnaam (zoals www.contoso.com) toewijzen aan de IP-adres dat uw service wordt gehost op.
 
 ### <a name="acquire-an-ssl-certificate"></a>Een SSL-certificaat verkrijgen
 
-Er zijn veel manieren om een SSL-certificaat te verkrijgen. De meest voorkomende is om te kopen bij een __certificeringsinstantie__ (CA). Ongeacht waar u het certificaat hebt verkregen, moet u de volgende bestanden:
+Er zijn veel manieren om op te halen van een SSL-certificaat. De meest voorkomende reden is het kopen van een __certificeringsinstantie__ (CA). Ongeacht waar u het certificaat hebt verkregen, moet u de volgende bestanden:
 
-* Een __certificaat__. Het certificaat moet de volledige certificaatketen bevatten en moet het PEM-gecodeerd zijn.
-* Een __sleutel__. De sleutel moet PEM-codering.
+* Een __certificaat__. Het certificaat moet de volledige certificaatketen bevatten en moet PEM gecodeerd.
+* Een __sleutel__. De sleutel moet PEM gecodeerd.
 
 > [!TIP]
-> Als de certificeringsinstantie niet het certificaat en de sleutel als PEM-gecodeerde bestanden verstrekken, kunt u een hulpprogramma zoals [OpenSSL](https://www.openssl.org/) de indeling wijzigen.
+> Als de certificeringsinstantie kan niet het certificaat en sleutel als PEM-gecodeerde bestanden opgeeft, kunt u een hulpprogramma zoals [OpenSSL](https://www.openssl.org/) om de opmaak te wijzigen.
 
 > [!IMPORTANT]
-> Zelfondertekende certificaten moeten alleen worden gebruikt voor ontwikkeling. Ze moeten niet worden gebruikt in productie.
+> Zelfondertekende certificaten moeten worden gebruikt alleen voor ontwikkeling. Ze moeten niet worden gebruikt in de productieomgeving.
 >
-> Als u een zelfondertekend certificaat gebruikt, raadpleegt u de [gebruikmaakt van de services met zelfondertekende certificaten](#self-signed) sectie voor meer specifieke informatie.
+> Als u een zelfondertekend certificaat gebruikt, raadpleegt u de [gebruikmaakt van de services met zelfondertekende certificaten](#self-signed) sectie voor specifieke instructies.
 
 > [!WARNING]
-> Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het adres dat u wilt gebruiken voor de service opgeven. Bijvoorbeeld: www.contoso.com. Het adres dat is geautoriseerd in het certificaat en het adres dat wordt gebruikt door de clients worden vergeleken bij het valideren van de identiteit van de service.
+> Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het adres dat u van plan bent te gebruiken voor de service opgeven. Bijvoorbeeld: www.contoso.com. Adres van de tijdstempel in het certificaat en het adres dat wordt gebruikt door de clients worden vergeleken bij het valideren van de identiteit van de service.
 >
-> Als de adressen niet overeenkomen, ontvangt de clients een foutmelding. 
+> Als de adressen niet overeenkomen, ontvangt de clients een fout. 
 
-### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Implementeren of bijwerken van de service met SSL is ingeschakeld
+### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Implementeren of bijwerken van de service met SSL ingeschakeld
 
-Voor het implementeren van de service met SSL is ingeschakeld, stel de `ssl_enabled` -parameter voor `True`. Stel de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand. Het volgende voorbeeld ziet u een service implementeren met SSL is ingeschakeld:
+Voor het implementeren van de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand. Het volgende voorbeeld ziet u een service implementeren met SSL is ingeschakeld:
 
 ```python
 from amlrealtimeai import DeploymentClient
@@ -191,21 +237,21 @@ with open('cert.pem','r') as cert_file:
 
 Het antwoord van de `create_service` bewerking bevat het IP-adres van de service. Het IP-adres wordt gebruikt bij het toewijzen van de DNS-naam naar het IP-adres van de service.
 
-Het antwoord bevat ook een __primaire sleutel__ en __secundaire sleutel__ die worden gebruikt voor het verbruik van de service.
+Het antwoord bevat ook een __primaire sleutel__ en __secundaire sleutel__ die worden gebruikt voor het gebruik van de service.
 
-### <a name="update-your-dns-to-point-to-the-service"></a>Uw DNS om te verwijzen naar de service bijwerken
+### <a name="update-your-dns-to-point-to-the-service"></a>Werkt u uw DNS om te verwijzen naar de service
 
-Gebruik de hulpprogramma's van uw domeinnaamregistrar bijwerken van de DNS-record voor de domeinnaam. De record moet verwijzen naar het IP-adres van de service.
-
-> [!NOTE]
-> Afhankelijk van de registrar, en de tijd te live (TTL) is geconfigureerd voor de domeinnaam, dit kan enkele minuten tot enkele uren duren voordat clients de domeinnaam kunnen oplossen.
-
-### <a name="consuming-authenticated-services"></a>Geverifieerde services gebruiken
-
-De volgende voorbeelden laten zien hoe u een geverifieerde service met behulp van Python en C# gebruiken:
+Gebruik de hulpprogramma's van uw domeinnaamregistrar om bij te werken van de DNS-record voor uw domeinnaam. De record moet verwijzen naar het IP-adres van de service.
 
 > [!NOTE]
-> Vervang `authkey` met de primaire of secundaire sleutel geretourneerd bij het maken van de service.
+> Afhankelijk van de registrar, en de tijd naar live (TTL) die is geconfigureerd voor de domeinnaam, duurt het enkele minuten tot enkele uren voordat clients de domeinnaam kunnen omzetten.
+
+### <a name="consume-authenticated-services"></a>Geverifieerde services gebruiken
+
+De volgende voorbeelden ziet u hoe u gebruik van een geverifieerde service met behulp van Python en C#:
+
+> [!NOTE]
+> Vervang `authkey` geretourneerd met de primaire of secundaire sleutel bij het maken van de service.
 
 ```python
 from amlrealtimeai import PredictionClient
@@ -224,9 +270,9 @@ using (var content = File.OpenRead(image))
     }
 ```
 
-Andere clients gRPC kunnen aanvragen verifiëren door een autorisatie-header. Het algemeen de aanpak is het maken van een `ChannelCredentials` object die combineert `SslCredentials` met `CallCredentials`. Dit is toegevoegd aan de autorisatie-header van de aanvraag. Zie voor meer informatie over het implementeren van ondersteuning voor uw specifieke headers [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
+Andere clients gRPC kunnen aanvragen verifiëren door in te stellen van een autorisatie-header. De algemene aanpak is het maken van een `ChannelCredentials` -object dat combineert `SslCredentials` met `CallCredentials`. Dit wordt toegevoegd aan de autorisatie-header van de aanvraag. Zie voor meer informatie over het implementeren van ondersteuning voor uw specifieke headers [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
 
-De volgende voorbeelden laten zien hoe u het instellen van de header in C# en gaat u naar:
+De volgende voorbeelden ziet u hoe het instellen van de koptekst in C# en gaat u naar:
 
 ```csharp
 creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
@@ -267,7 +313,7 @@ Er zijn twee manieren om te zorgen dat de client om te verifiëren met een serve
 
 * Bij het maken van een `SslCredentials` object, de inhoud van het certificaatbestand doorgeven aan de constructor.
 
-Met behulp van beide methoden zorgt ervoor dat de gRPC het certificaat te gebruiken als het certificaat van de hoofdmap.
+Met behulp van een van beide methoden zorgt ervoor dat de gRPC gebruik van het certificaat als het basiscertificaat.
 
 > [!IMPORTANT]
-> gRPC accepteert geen niet-vertrouwde certificaten. Met behulp van een niet-vertrouwd certificaat mislukt met een `Unavailable` statuscode. De details van de fout bevatten `Connection Failed`.
+> gRPC accepteert geen niet-vertrouwde certificaten. Met behulp van een niet-vertrouwd certificaat mislukken met een `Unavailable` statuscode. De details van de fout bevatten `Connection Failed`.

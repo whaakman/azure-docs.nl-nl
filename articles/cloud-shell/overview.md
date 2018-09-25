@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 639eff5806ef84c526ae8d0d0ed55ca790bdac08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 67624e7ad21e6c3526b3ca47ff4b8e2df3b6ae54
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498025"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962253"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure Cloudshell
 Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -48,7 +48,7 @@ Linux-gebruikers kunt Bash in Cloud Shell, terwijl gebruikers van Windows PowerS
 ![PowerShell in Cloudshell (Preview)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Geverifieerde en geconfigureerde Azure werkstation
-Cloudshell wordt beheerd door Microsoft, zodat deze wordt geleverd met populaire opdrachtregelprogramma's en ondersteuning voor talen. Cloudshell wordt ook veilig automatisch geverifieerd voor directe toegang tot uw resources via de Azure CLI 2.0 of Azure PowerShell-cmdlets.
+Cloudshell wordt beheerd door Microsoft, zodat deze wordt geleverd met populaire opdrachtregelprogramma's en ondersteuning voor talen. Cloudshell wordt ook veilig automatisch geverifieerd voor directe toegang tot uw resources via de Azure CLI of Azure PowerShell-cmdlets.
 
 Bekijk alle [lijst met hulpprogramma's zijn geïnstalleerd in de Cloud Shell.](features.md#tools)
 
@@ -61,7 +61,7 @@ Cloudshell biedt een geïntegreerde grafische teksteditor op basis van de open-s
 Cloudshell is een flexibele hulpprogramma dat kan worden gebruikt vanuit:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 2.0 'Nu uitproberen'-documentatie](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI 'Nu uitproberen'-documentatie](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

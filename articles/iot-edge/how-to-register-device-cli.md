@@ -1,6 +1,6 @@
 ---
 title: Registreer een nieuwe Azure IoT Edge-apparaat (CLI) | Microsoft Docs
-description: De IoT-extensie voor Azure CLI 2.0 gebruiken om een nieuwe IoT Edge-apparaat te registreren
+description: De IoT-extensie voor Azure CLI gebruiken om een nieuwe IoT Edge-apparaat te registreren
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998029"
 ---
-# <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Een nieuw Azure IoT Edge-apparaat registreren bij Azure CLI 2.0
+# <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Een nieuw Azure IoT Edge-apparaat registreren bij Azure CLI
 
 Voordat u uw IoT-apparaten met Azure IoT Edge gebruiken kunt, moet u hen registreert bij uw IoT-hub. Wanneer u een apparaat hebt geregistreerd, ontvangt u een verbindingsreeks die kan worden gebruikt voor het instellen van uw apparaat voor Edge-werkbelastingen. 
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is een open-source, cross-platform opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT Edge. Hiermee kunt u voor het beheren van Azure IoT Hub-resources, device provisioning service-exemplaren en gekoppelde hubs buiten het vak. De nieuwe IoT-extensie voorziet Azure CLI 2.0 van extra functies zoals Apparaatbeheer en alle functionaliteit van IoT Edge.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is een open-source, cross-platform opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT Edge. Hiermee kunt u voor het beheren van Azure IoT Hub-resources, device provisioning service-exemplaren en gekoppelde hubs buiten het vak. Azure CLI verrijkt de nieuwe IoT-extensie met functies zoals Apparaatbeheer en de volledige functionaliteit van IoT Edge.
 
-In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-apparaat met behulp van Azure CLI 2.0.
+In dit artikel bevat informatie over het registreren van een nieuwe IoT Edge-apparaat met behulp van Azure CLI.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een [IoT-hub](../iot-hub/iot-hub-create-using-cli.md) in uw Azure-abonnement. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. 
-* De [IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. 
+* De [IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Maken van een apparaat
 
@@ -67,4 +67,4 @@ De apparaat-id-parameter is hoofdlettergevoelig. Kopieer niet de aanhalingsteken
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [modules implementeert op een apparaat met Azure CLI 2.0](how-to-deploy-modules-cli.md)
+Meer informatie over het [modules implementeert op een apparaat met Azure CLI](how-to-deploy-modules-cli.md)

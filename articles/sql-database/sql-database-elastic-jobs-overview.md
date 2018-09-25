@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 3fc9ab0505fda84464ead01b4937756707993cf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 21cd1b171f25d5abdaa89f631ac5bab8e4a351af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968867"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Uitgeschaalde clouddatabases beheren
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Taken voor elastic Database** is een klant gehost Azure Cloud Service waarmee de uitvoering van de ad-hoc en geplande administratieve taken die worden aangeroepen **taken**. Met taken, u kunt eenvoudig en betrouwbaar grote groepen van Azure SQL-Databases beheren door het uitvoeren van Transact-SQL-scripts beheerbewerkingen wilt uitvoeren. 
+**Taken voor elastic Database** is een klant gehost Azure Cloud Service waarmee de uitvoering van de ad-hoc en geplande administratieve taken die worden aangeroepen **taken**. Met taken, u kunt eenvoudig en betrouwbaar grote groepen van Azure SQL-databases beheren door het uitvoeren van Transact-SQL-scripts beheerbewerkingen wilt uitvoeren. 
 
 Voor het beheren van uitgeschaalde shard-databases, de **taken voor Elastic Database** functie (preview) kunt u op betrouwbare wijze een Transact-SQL (T-SQL)-script uitvoeren voor een groep databases, met inbegrip van:
 
@@ -33,7 +33,7 @@ Voor het beheren van uitgeschaalde shard-databases, de **taken voor Elastic Data
 * [Installeer de onderdelen van de taak Elastic Database](sql-database-elastic-jobs-service-installation.md). 
 * [Aan de slag met taken voor Elastic Database](sql-database-elastic-jobs-getting-started.md).
 * [Maken en beheren van taken met behulp van PowerShell](sql-database-elastic-jobs-powershell.md).
-* [Maken en beheren van schaal van Azure SQL-Databases](sql-database-elastic-jobs-getting-started.md)
+* [Maken en beheren van schaal van Azure SQL-databases](sql-database-elastic-jobs-getting-started.md)
 
 
 
@@ -46,11 +46,11 @@ Eenvoudig doen schemawijzigingen, beheren van referenties, bijwerken van verwijz
 
 **Rapporten**
 
-Cumulatieve gegevens uit een verzameling van Azure SQL-Databases in een doeltabel met één.
+Verzamel gegevens uit een verzameling Azure SQL-databases in één doeltabel.
 
 **Overhead verminderen**
 
-Normaal gesproken moet u elke database apart verbinden om Transact-SQL-instructies of andere beheertaken te kunnen uitvoeren. Een taak handelt het aanmelden bij elke database in de doelgroep af. U ook definiëren, onderhouden en blijven Transact-SQL-scripts worden uitgevoerd voor een groep van Azure SQL-Databases.
+Normaal gesproken moet u elke database apart verbinden om Transact-SQL-instructies of andere beheertaken te kunnen uitvoeren. Een taak handelt het aanmelden bij elke database in de doelgroep af. U definieert, onderhoudt en handhaaft Transact-SQL-scripts die in een groep van Azure SQL-databases moeten worden uitgevoerd.
 
 **Accounting**
 
@@ -58,7 +58,7 @@ Taken uitvoeren van het script en de status van de uitvoering voor elke database
 
 **Flexibiliteit**
 
-Definieer aangepaste groepen van Azure SQL-Databases en schema's voor het uitvoeren van een taak definiëren.
+Definieer aangepaste groepen van Azure SQL-databases en definieer schema's voor het uitvoeren van een taak.
 
 > [!NOTE]
 > Alleen een beperkte set functies voor elastische pools voor SQL Azure beperkt is in de Azure-portal beschikbaar. Gebruik de PowerShell-APIs voor toegang tot de volledige set van huidige functionaliteit.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 5e4d96df7d6a43418aad92fdf6509a5ca7ec623a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4eaf615de712715d35021aa2ba9eba4141d41e51
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952491"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
 
@@ -22,7 +22,7 @@ Nu hebt u meerdere opties bij het bepalen hoe en waar u uw toepassing wordt geho
  
 U kunt kiezen voor het hosten van de toepassing in de cloud met Azure App Service of een aantal van de Azure-netwerk (VNet) geïntegreerd opties, zoals Azure App Service-omgeving, virtuele Machine, virtuele-Machineschaalset opgehaald. U kunt ook hybride cloud-benadering en uw toepassingen on-premises houden. 
  
-De keuze die u hebt gemaakt, kunt u deze naar een beheerd exemplaar (preview).  
+De keuze die u hebt gemaakt, kunt u deze naar een beheerd exemplaar.  
 
 ![hoge beschikbaarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Verbinding maken met een toepassing in hetzelfde VNet 
@@ -136,7 +136,7 @@ De volgende minimale versies van de hulpprogramma's en stuurprogramma's worden a
 |JDBC-stuurprogramma    | 6.4.0 |
 |Node.js-stuurprogramma | 2.1.1 |
 |OLEDB-stuurprogramma   | 18.0.2.0 |
-|SSMS   | 17.8.1 of [hoger](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 of [hoger](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

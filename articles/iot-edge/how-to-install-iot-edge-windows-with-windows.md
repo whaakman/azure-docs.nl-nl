@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2eebc96b14ee0f06b3bd88ea565dfe9372aba1ff
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128415"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037811"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Azure IoT Edge-runtime installeren op Windows voor gebruik met Windows-containers
 
@@ -109,6 +109,10 @@ En lijst met modules met:
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>Tips en suggesties
+
+Als het netwerk een proxyserver heeft, volgt u de stappen in [uw IoT Edge-apparaat om te communiceren via een proxyserver configureren](how-to-configure-proxy-support.md) te installeren en starten van de IoT Edge-runtime.
 
 ## <a name="next-steps"></a>Volgende stappen
 

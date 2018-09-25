@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950831"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service gratis uitproberen
 
@@ -36,7 +36,7 @@ Om u te registreren voor een gratis proefversie van 30 dagen:
 
    ![Tabblad voor spraak-Services](media/index/try-speech-api-free-trial1.png)
    
-1. Onder **spraakservices <sup>PREVIEW</sup>**, selecteer de **API-sleutel ophalen** knop.
+1. Onder **spraakservices**, selecteer de **API-sleutel ophalen** knop.
 
    ![API-sleutel](media/index/try-speech-api-free-trial2.png)
 
@@ -75,11 +75,11 @@ Een bron van de spraak-service (gratis of betaalde laag) toevoegen aan uw Azure-
 
 1. In de **nieuw** venster, zoekt u **spraak**.
 
-1. Selecteer in de lijst met zoekresultaten **spraak (preview)**.
+1. Selecteer in de lijst met zoekresultaten **spraak**.
 
-    ![Selecteer spraak (preview)](media/index/try-speech-api-create-speech2.png)
+    ![Selecteer spraak](media/index/try-speech-api-create-speech2.png)
 
-1. Onder **spraak (preview)**, klikt u op de **maken** knop.
+1. Onder **spraak**, selecteer de **maken** knop.
 
     ![Selecteer de knop maken](media/index/try-speech-api-create-speech3.png)
 

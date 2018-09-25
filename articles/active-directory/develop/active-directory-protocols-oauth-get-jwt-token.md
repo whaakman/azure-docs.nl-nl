@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579000"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981794"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Aanvragen van een toegangstoken toegang tot web-API's en toepassingen beveiligd door Azure Active Directory met behulp van OAuth 2.0
 
@@ -59,7 +59,7 @@ De volgende headers zijn vereist:
 | redirect_uri  | vereist              | Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. Gebruik niet in een systeemeigen app omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server.  Client-geheimen moet URL gecodeerd voordat het wordt verzonden.                                                                                 |
 | code_verifier | optioneel              | De dezelfde code_verifier die is gebruikt voor het verkrijgen van de authorization_code. Vereist als PKCE is gebruikt in de autorisatieaanvraag voor het verlenen van code. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
-## <a name="handle-the-response"></a>Het antwoord verwerkt
+## <a name="handle-the-response"></a>Het antwoord verwerken
 
 Een geslaagde respons van de token bevat een JWT-token en wordt er als volgt uitzien:
 
@@ -75,12 +75,12 @@ Een geslaagde respons van de token bevat een JWT-token en wordt er als volgt uit
 ```
 | Parameter     | Beschrijving                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | Het aangevraagde toegangstoken. De app kan dit token gebruikt voor verificatie bij de beveiligde resource, zoals een web-API.                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | De aangevraagde [toegangstoken](access-tokens.md). De app kan dit token gebruikt voor verificatie bij de beveiligde resource, zoals een web-API.                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | Hoe lang het toegangstoken is ongeldig (in seconden).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | De bereiken die de access_token is geldig voor.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | Een vernieuwingstoken OAuth 2.0. De app kan dit token gebruiken als u meer toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen. Refresh_tokens worden lange levensduur hebben en kan worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. Voor meer informatie raadpleegt u de [v2.0 tokenverwijzing](v2-id-and-access-tokens.md). <br> **Opmerking:** alleen opgegeven als `offline_access` bereik is aangevraagd.                                               |
-| id_token      | Een niet-ondertekende JSON Web Token (JWT). De app kan worden gedecodeerd de segmenten van dit token informatie opvragen over de gebruiker die zijn aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze moet niet gebruiken voor autorisatie of grenzen voor netwerkbeveiliging. Zie voor meer informatie over id_tokens, de [v2.0-eindpunt tokenverwijzing](v2-id-and-access-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
+| refresh_token | Een vernieuwingstoken OAuth 2.0. De app kan dit token gebruiken als u meer toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen. Refresh_tokens worden lange levensduur hebben en kan worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. Voor meer informatie raadpleegt u de [v2.0 code verlenen verwijzing](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Opmerking:** alleen opgegeven als `offline_access` bereik is aangevraagd.                                               |
+| id_token      | Een niet-ondertekende JSON Web Token (JWT). De app kan worden gedecodeerd de segmenten van dit token informatie opvragen over de gebruiker die zijn aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze moet niet gebruiken voor autorisatie of grenzen voor netwerkbeveiliging. Zie voor meer informatie over id_tokens, de [ `id_token reference` ](id-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
 
 
 

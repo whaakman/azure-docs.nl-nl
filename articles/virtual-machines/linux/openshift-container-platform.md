@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 48b6287fef673c5f335531b6f230993969fc9e1c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186911"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996329"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>OpenShift Containerplatform in Azure implementeren
 
@@ -139,7 +139,7 @@ Vervang de items tussen vierkante haken met uw specifieke gegevens.
 ### <a name="deploy-by-using-azure-cli"></a>Implementeren met behulp van Azure CLI
 
 > [!NOTE] 
-> De volgende opdracht gebruikmaken van Azure CLI 2.0.8 of hoger. U kunt controleren of de CLI-versie met de `az --version` opdracht. Zie voor het bijwerken van de CLI-versie, [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> De volgende opdracht vereist Azure CLI.8 of hoger. U kunt controleren of de CLI-versie met de `az --version` opdracht. Zie voor het bijwerken van de CLI-versie, [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 Het volgende voorbeeld wordt het cluster OpenShift en alle gerelateerde resources in een resourcegroep met de naam myResourceGroup, met de implementatienaam van een van myOpenShiftCluster geïmplementeerd. De sjabloon wordt verwezen naar rechtstreeks vanuit de GitHub-opslagplaats en een lokale parameters bestand met de naam van bestand azuredeploy.parameters.json wordt gebruikt.
 

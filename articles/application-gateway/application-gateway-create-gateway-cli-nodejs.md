@@ -1,6 +1,6 @@
 ---
-title: Een Azure Application Gateway maken - Azure CLI 1.0 | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI 1.0 in Resource Manager
+title: Een Azure Application Gateway - Azure klassieke CLI maken | Microsoft Docs
+description: Informatie over het maken van een toepassingsgateway met behulp van de klassieke Azure CLI in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644296"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974422"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Een toepassingsgateway maken met behulp van de Azure CLI
 
@@ -29,8 +29,8 @@ ms.locfileid: "35644296"
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager-sjabloon](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [CLI van Azure classic](application-gateway-create-gateway-cli.md)
+> * [Azure-CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Application Gateway is een load balancer in laag 7. De gateway biedt optie
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Voorwaarde: Installeer de Azure CLI
 
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](../xplat-cli-install.md) en u moet [Meld u aan bij Azure](/cli/azure/authenticate-azure-cli). 
+Als u wilt de stappen in dit artikel uitvoert, moet u [Azure CLI installeren](../xplat-cli-install.md) en u moet [Meld u aan bij Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Als u een Azure-account niet hebt, moet u een. U kunt zich [hier aanmelden voor een gratis proefversie](../active-directory/fundamentals/sign-up-organization.md).

@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954378"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Over het beheren van DNS-Zones in Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [CLI van Azure classic](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure-CLI](dns-operations-dnszones-cli.md)
 
 Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van de Azure-portal. U kunt ook beheren met uw DNS-zones met behulp van de platformoverschrijdende [Azure CLI](dns-operations-dnszones-cli.md) of de Azure [PowerShell](dns-operations-dnszones.md).
 
@@ -44,7 +44,7 @@ Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van de Azure-portal. U 
    |**Naam**|contoso.com|De naam van de DNS-zone|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin de DNS-zone moet worden gemaakt.|
    |**Resourcegroep**|**Nieuwe maken:** contosoDNSRG|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. Lees het overzichtsartikel over [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) voor meer informatie over resourcegroepen.|
-   |**Locatie**|VS - west||
+   |**Locatie**|US - west||
 
 > [!NOTE]
 > De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.

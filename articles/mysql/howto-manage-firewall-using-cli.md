@@ -10,18 +10,18 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e6bb06d8ae46afbb946754113e1d81a90e3ddc57
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423688"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956647"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Maken en beheren van Azure Database voor MySQL-firewallregels met behulp van de Azure CLI
 Firewallregels op serverniveau kunnen beheerders toegang tot een Azure Database voor MySQL-Server beheren vanaf een specifiek IP-adres of een bereik van IP-adressen. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor MySQL-firewalls, [Azure Database for MySQL server firewall-regels](./concepts-firewall-rules.md)
 
 ## <a name="prerequisites"></a>Vereisten
-* [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Installeer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Een [Azure Database for MySQL-server en database](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Firewall-regel opdrachten:

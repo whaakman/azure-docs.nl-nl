@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: De entiteit pattern.any gebruiken om gegevens te extraheren uit uitingen waar de uitingen goed opgemaakte is en waar het einde van de gegevens kan eenvoudig kan worden verward met de resterende woorden van de utterance.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628978"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031354"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Zelfstudie: 5. Vrije-gegevens ophalen
+# <a name="tutorial-5-extract-free-form-data"></a>Zelfstudie: 5. Vrije vorm-gegevens herkennen
 
 In deze zelfstudie, gebruikt u de entiteit pattern.any om gegevens te extraheren uit uitingen waar de uitingen zich goed opgemaakte en waar het einde van de gegevens kan eenvoudig kan worden verward met de resterende woorden van de utterance. 
 

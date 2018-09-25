@@ -1,6 +1,6 @@
 ---
-title: Openen van poorten op een Linux-VM met Azure CLI 2.0 | Microsoft Docs
-description: Leer hoe u een poort openen / maken van een eindpunt voor uw Linux-VM met behulp van het Azure resource manager-implementatiemodel en Azure CLI 2.0
+title: Openen van poorten op een Linux-VM met Azure CLI | Microsoft Docs
+description: Leer hoe u een poort openen / maken van een eindpunt voor uw Linux-VM met behulp van het Azure resource manager-implementatiemodel en Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4244520fa30fece53e1d01e50044cfeca496066c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928886"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973334"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Poorten en eindpunten openen voor een Linux-VM met de Azure CLI
-U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een Netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt. We gebruiken een algemeen voorbeeld van webverkeer op poort 80. In dit artikel wordt beschreven hoe u een poort openen voor een virtuele machine met de Azure CLI 2.0. 
 
-Het maken van een Netwerkbeveiligingsgroep en regels moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een Netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt. We gebruiken een algemeen voorbeeld van webverkeer op poort 80. In dit artikel wordt beschreven hoe u een poort openen voor een virtuele machine met de Azure CLI. 
+
+
+Het maken van een Netwerkbeveiligingsgroep en regels moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myNetworkSecurityGroup*, en *myVnet*.
 

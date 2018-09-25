@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: 311fd39792274ef01b1b03fdf8252eb7ac93c922
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060570"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978848"
 ---
 # <a name="derive-column-by-example-transformation"></a>Kolom afleiden per voorbeeld transformatie
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 De **kolom afleiden per voorbeeld** transformatie kan gebruikers een afleiding van een of meer bestaande kolommen met behulp van de gebruiker opgegeven voorbeelden van het afgeleide resultaat maken. De afgeleide kan elke combinatie van de ondersteunde tekenreeks, de datum en het aantal transformaties zijn. 
 

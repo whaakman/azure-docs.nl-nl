@@ -4,20 +4,31 @@ description: Opmerkingen bij de release - wat is gewijzigd in de meest recente v
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 5862b119ceee4ace0d51691851dc53a9729ac68e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963080"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: release 2018-September
+
+**Nieuwe functies**
+
+* Ondersteuning voor Objective-C in iOS. Bekijk onze [Objective-C-Snelstartgids voor iOS](quickstart-objectivec-ios.md).
+* Ondersteuning voor JavaScript in browser. Bekijk onze [JavaScript-snelstartgids](quickstart-js-browser.md).
+
+**Belangrijke wijzigingen**
+
+* Met deze release zijn een aantal belangrijke wijzigingen worden geïntroduceerd.
+  Controleer of [deze pagina](https://aka.ms/csspeech/breakingchanges_1_0_0) voor meer informatie.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: augustus 2018-release
 

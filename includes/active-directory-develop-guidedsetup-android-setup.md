@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 2e23a15a6bff81f0b48b703e516de8a1a1820972
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02b36d8f8c8c9be2532b440bd9858766e8b524ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293730"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060471"
 ---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
@@ -47,7 +47,7 @@ Wilt u dit voorbeeld van Android Studio-project in plaats daarvan downloaden? [E
 <!--start-collapse-->
 ### <a name="about-this-package"></a>Over dit pakket
 
-Het pakket in de bovenstaande code installeert Microsoft Authentication Library. MSAL verwerkt alle token bewerkingen zoals ophalen, caching, vernieuwen en verwijderen.  De tokens zijn nodig voor toegang tot de API's beveiligd door de Microsoft identity-platform.
+Het pakket in de bovenstaande code installeert Microsoft Authentication Library. MSAL verwerkt alle token bewerkingen zoals ophalen, caching, vernieuwen en verwijderen.  De tokens zijn nodig voor toegang tot de API's beveiligd door Microsoft identity-platform.
 <!--end-collapse-->
 
 ## <a name="create-the-apps-ui"></a>Maken van de app-gebruikersinterface

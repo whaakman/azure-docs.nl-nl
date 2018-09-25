@@ -1,6 +1,6 @@
 ---
-title: Beheren van DNS-zones in Azure DNS - Azure CLI 2.0 | Microsoft Docs
-description: U kunt DNS-zones met behulp van Azure CLI 2.0 kunt beheren. In dit artikel laat zien hoe bijwerken, verwijderen en het maken van DNS-zones in Azure DNS.
+title: Beheren van DNS-zones in Azure DNS - Azure CLI | Microsoft Docs
+description: U kunt DNS-zones met behulp van Azure CLI kunt beheren. In dit artikel laat zien hoe bijwerken, verwijderen en het maken van DNS-zones in Azure DNS.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: c81d8add7ae37e03a98da0ad86deaa1d9d7ec8e0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172616"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949958"
 ---
-# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Over het beheren van DNS-Zones in Azure DNS met behulp van de Azure CLI 2.0
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Over het beheren van DNS-Zones in Azure DNS met behulp van de Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [Azure-CLI](dns-operations-dnszones-cli.md)
 
 
 Deze handleiding wordt beschreven hoe u uw DNS-zones beheren met behulp van de platformoverschrijdende Azure CLI, die beschikbaar is voor Windows, Mac en Linux. U kunt ook beheren met uw DNS-zones met behulp van [Azure PowerShell](dns-operations-dnszones.md) of de Azure-portal.
 
-Deze handleiding behandelt specifiek de openbare DNS-zones. Zie voor meer informatie over het gebruik van Azure CLI voor het beheren van Privézones in Azure DNS [aan de slag met Azure DNS Private Zones met behulp van Azure CLI 2.0](private-dns-getstarted-cli.md).
+Deze handleiding behandelt specifiek de openbare DNS-zones. Zie voor meer informatie over het gebruik van Azure CLI voor het beheren van Privézones in Azure DNS [aan de slag met Azure DNS Private Zones met behulp van Azure CLI](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Inleiding
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## <a name="set-up-azure-cli-20-for-azure-dns"></a>Azure CLI 2.0 instellen voor Azure DNS
+## <a name="set-up-azure-cli-for-azure-dns"></a>Set up Azure CLI for Azure DNS (Azure CLI instellen voor Azure DNS)
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
@@ -44,7 +44,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installeer de nieuwste versie van de Azure CLI 2.0, beschikbaar voor Windows, Linux of MAC. Ga naar [Azure-CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-az-cli2) voor meer informatie.
+* Installeer de nieuwste versie van de Azure CLI. Deze is beschikbaar voor Windows, Linux en MAC. Lees [Azure-CLI installeren](https://docs.microsoft.com/cli/azure/install-az-cli2) voor meer informatie.
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Ondersteuning vragen
 
-Alle CLI 2.0-opdrachten met betrekking tot Azure DNS beginnen met `az network dns`. Help-informatie is beschikbaar voor elke opdracht met behulp van de `--help` optie (kort formulier `-h`).  Bijvoorbeeld:
+Alle Azure-CLI-opdrachten met betrekking tot Azure DNS beginnen met `az network dns`. Help-informatie is beschikbaar voor elke opdracht met behulp van de `--help` optie (kort formulier `-h`).  Bijvoorbeeld:
 
 ```azurecli
 az network dns --help

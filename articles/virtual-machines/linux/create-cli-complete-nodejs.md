@@ -1,6 +1,6 @@
 ---
-title: Een volledige Linux-omgeving maken met de Azure CLI 1.0 | Microsoft Docs
-description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbaar IP-adres en een netwerkbeveiligingsgroep, allemaal vanaf de grond met behulp van de Azure CLI 1.0.
+title: Een volledige Linux-omgeving maken met de klassieke Azure-CLI | Microsoft Docs
+description: Opslag, een Linux-VM, een virtueel netwerk en subnet, een load balancer, een NIC, een openbaar IP-adres en een netwerkbeveiligingsgroep, allemaal vanaf de grond met behulp van de klassieke Azure-CLI maken.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952797"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Een volledige Linux-omgeving maken met de Azure CLI 1.0
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Een volledige Linux-omgeving maken met de klassieke Azure-CLI
 In dit artikel maken we een eenvoudig netwerk met een load balancer en een combinatie van VM's die nuttig voor de ontwikkeling en eenvoudig computing zijn. We helpen bij de opdracht door de opdracht uit, totdat u twee werkdagen, beveiligde virtuele Linux-machines waarmee u verbinding hebt van een willekeurige plaats op het Internet maken kan. Vervolgens kunt u op verplaatsen naar meer complexe netwerken en omgevingen.
 
 Gaandeweg u meer informatie over de afhankelijkheidshiërarchie van dat het implementatiemodel van Resource Manager u kunt, en over hoeveel inschakelen. Nadat u hoe het systeem is gemaakt ziet, kunt u opnieuw bouwen deze veel sneller met behulp van [Azure Resource Manager-sjablonen](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ook nadat u meer wilt hoe de onderdelen van uw omgeving bij elkaar passen weten, aanzienlijk het maken van sjablonen voor het automatiseren van deze eenvoudiger.
@@ -33,20 +33,20 @@ De omgeving bevat:
 * Een load balancer met een taakverdelingsregel op poort 80.
 * (NSG) regels voor netwerkbeveiligingsgroepen op uw VM te beveiligen tegen ongewenste verkeer.
 
-Als u wilt deze aangepaste omgeving maken, moet u de meest recente [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Resource Manager-modus (`azure config mode arm`). U moet ook een hulpprogramma voor het parseren JSON. In dit voorbeeld wordt [jq](https://stedolan.github.io/jq/).
+Als u wilt deze aangepaste omgeving maken, moet u de meest recente [klassieke Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in Resource Manager-modus (`azure config mode arm`). U moet ook een hulpprogramma voor het parseren JSON. In dit voorbeeld wordt [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
 U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- [Azure CLI 1.0](#quick-commands) : onze CLI voor het klassieke en resource Manager-implementatiemodel (dit artikel)
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+- [Azure CLI voor klassieke](#quick-commands) : onze CLI voor het klassieke en resource Manager-implementatiemodel (dit artikel)
+- [Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) : onze CLI de volgende generatie voor het resource Manager-implementatiemodel
 
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie gegevens snel de base-opdrachten voor het uploaden van een virtuele machine naar Azure. Meer gedetailleerde informatie en -context voor elke stap vindt u in de rest van het document, te beginnen [hier](#detailed-walkthrough).
 
-Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en met behulp van Resource Manager-modus:
+Zorg ervoor dat u hebt [de klassieke Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en met behulp van Resource Manager-modus:
 
 ```azurecli
 azure config mode arm
@@ -270,7 +270,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Gedetailleerd overzicht
 De gedetailleerde stappen die volgen wordt uitgelegd wat elke opdracht doet tijdens het ontwikkelen van uw omgeving. Deze begrippen zijn nuttig wanneer u uw eigen aangepaste omgevingen voor ontwikkeling of productie bouwen.
 
-Zorg ervoor dat u hebt [de Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en met behulp van Resource Manager-modus:
+Zorg ervoor dat u hebt [de klassieke Azure-CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) aangemeld en met behulp van Resource Manager-modus:
 
 ```azurecli
 azure config mode arm

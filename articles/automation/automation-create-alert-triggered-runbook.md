@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0df08eaa2de27dbcc1ea93db1e040d81d071bf80
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126000"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965276"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Gebruik van een waarschuwing voor het activeren van een Azure Automation-runbook
 
-U kunt [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) om te controleren op basisniveau metrische gegevens en logboeken voor de meeste services in Azure. U kunt Azure Automation-runbooks aanroepen met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) of met behulp van klassieke waarschuwingen voor het automatiseren van taken op basis van waarschuwingen. Dit artikel leest u hoe configureren en uitvoeren van een runbook met behulp van waarschuwingen.
+U kunt [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) om te controleren op basisniveau metrische gegevens en logboeken voor de meeste services in Azure. U kunt Azure Automation-runbooks aanroepen met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) of met behulp van klassieke waarschuwingen voor het automatiseren van taken op basis van waarschuwingen. Dit artikel leest u hoe configureren en uitvoeren van een runbook met behulp van waarschuwingen.
 
 ## <a name="alert-types"></a>Waarschuwingstypen
 
@@ -32,8 +32,8 @@ Wanneer een waarschuwing een runbook aanroept, wordt de werkelijke aanroep een H
 |Waarschuwing  |Beschrijving|De nettolading van schema  |
 |---------|---------|---------|
 |[Klassieke metrische waarschuwing](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Verzendt een melding wanneer elke meetwaarde platform-niveau voldoet aan een bepaalde voorwaarde. Bijvoorbeeld, wanneer de waarde voor **CPU-percentage** op een virtuele machine is groter dan **90** voor de afgelopen vijf minuten.| [Metrische alert payload-klasseschema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[Waarschuwing voor activiteitenlogboek](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Een melding wordt verzonden wanneer een nieuwe gebeurtenis in het Azure-activiteitenlogboek voldoet aan bepaalde voorwaarden. Bijvoorbeeld, wanneer een `Delete VM` bewerking wordt uitgevoerd **myProductionResourceGroup** of wanneer een nieuwe Azure Service Health-gebeurtenis met een **Active** status wordt weergegeven.| [Activiteit log alert payload schema](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
-|[Bijna realtime metrische waarschuwing](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Verzendt een melding sneller dan metrische waarschuwingen wanneer een of meer platform-niveau metrische gegevens voldoen aan opgegeven voorwaarden. Bijvoorbeeld, wanneer de waarde voor **CPU-percentage** op een virtuele machine is groter dan **90**, en de waarde voor **netwerk In** groter is dan **500 MB** gedurende de afgelopen 5 minuten.| [Bijna realtime metrische alert payload schema](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Waarschuwing voor activiteitenlogboek](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Een melding wordt verzonden wanneer een nieuwe gebeurtenis in het Azure-activiteitenlogboek voldoet aan bepaalde voorwaarden. Bijvoorbeeld, wanneer een `Delete VM` bewerking wordt uitgevoerd **myProductionResourceGroup** of wanneer een nieuwe Azure Service Health-gebeurtenis met een **Active** status wordt weergegeven.| [Activiteit log alert payload schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)        |
+|[Bijna realtime metrische waarschuwing](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Verzendt een melding sneller dan metrische waarschuwingen wanneer een of meer platform-niveau metrische gegevens voldoen aan opgegeven voorwaarden. Bijvoorbeeld, wanneer de waarde voor **CPU-percentage** op een virtuele machine is groter dan **90**, en de waarde voor **netwerk In** groter is dan **500 MB** gedurende de afgelopen 5 minuten.| [Bijna realtime metrische alert payload schema](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 Omdat de gegevens die wordt geleverd door elk type waarschuwing anders is, wordt elk type waarschuwing wordt anders afgehandeld. In de volgende sectie leert u hoe een runbook voor het afhandelen van verschillende typen waarschuwingen te maken.
 

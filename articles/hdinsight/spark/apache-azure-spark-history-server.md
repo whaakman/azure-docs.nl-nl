@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 65617aa87ec8f28b13951f1a2196eb2ccedf5c85
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729753"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042360"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Server van de geschiedenis van uitgebreide Spark gebruiken om te fouten opsporen en diagnosticeren van Spark-toepassingen
 
@@ -52,7 +52,7 @@ Selecteer de taak-ID en klik vervolgens op **gegevens** op het menu aan de gegev
 
 + Alle rijen door te klikken op de knop kopiëren **kopie**.
 
-    ![Gegevens kopiëren](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Het kopiëren van gegevens](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
 
 + Alle gegevens opslaan als CSV-bestand door te klikken op de knop **csv**.
 
@@ -297,7 +297,7 @@ Als u upgraden met hotfix wilt, gebruikt u het onderstaande script spark-enhance
 
 **Voorbeeld**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
 
 **De bash-bestand vanuit Azure-portal te gebruiken**
 

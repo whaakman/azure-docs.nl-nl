@@ -1,18 +1,43 @@
-**Standard beheerde schijven van virtuele machines**
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 09/24/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: dcd94cbd7963c13bd739b1b004fe5ac506d3ea9d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006472"
+---
+**HDD's van Standard beheerde virtuele machine**
 
-| Standard-schijftype  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | 
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Schijfgrootte           | 32 GB            | 64 GB            | 128 GB           | 256 GB | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOP's per schijf       | 500              | 500              | 500              | 500 | 500              | 500              | 500             | 500              | 
-| Doorvoer per schijf | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec | 60 MB/sec|
+| Standard-schijftype  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60              | S70              | S80              |
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Schijfgrootte in GiB          | 32             | 64             | 128            | 256  | 512            | 1,024    | 2048     | 4.095    | 8.192     | 16.384     | 32.767     |
+| IOP's per schijf       | Maximaal 500              | Maximaal 500              | Maximaal 500              | Maximaal 500 | Maximaal 500              | Maximaal 500              | Maximaal 500             | Maximaal 500              | Maximaal 1.300              | Maximaal 2000              | Maximaal 2000              |
+| Doorvoer per schijf | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec | Maximaal 60 MiB/sec| Maximaal 300 MiB/sec | Maximaal 500 MiB/sec | Maximaal 500 MiB/sec |
+
+**Standaard beheerde virtuele machine SSD 's**
+
+| Type van de Standard-SSD-schijf  | E10               | E15               | E20             | E30 | E40              | E50              | E60              | E70              | E80              |
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Schijfgrootte in GiB           | 128             | 256             | 512            | 1,024  | 2048            | 4.095     | 8.192     | 16.384     | 32.767    |
+| IOP's per schijf       | Maximaal 500              | Maximaal 500              | Maximaal 500              | Maximaal 500 | Maximaal 500              | Maximaal 500              | Maximaal 500             | Maximaal 500              | Maximaal 1.300              | Maximaal 2000              | Maximaal 2000              |
+| Doorvoer per schijf | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde | Maximaal 60 MB per seconde| Maximaal 300 MiB/sec |  Maximaal 500 MiB/sec | Maximaal 500 MiB/sec |
 
 **Premium beheerde schijven van virtuele machines: limieten per schijf**
 
-| Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 32 GB | 64 GB | 128 GB| 256 GB |512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOP's per schijf       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
-| Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde  | 100 MB per seconde | 125MB per seconde | 150 MB/sec | 200 MB per seconde | 250 MB/sec | 250 MB/sec |
+| Schijftype Premium  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60              | P70              | P80              |
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Schijfgrootte in GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2048     | 4.095    | 8.192     | 16.384     | 32.767     |
+| IOP's per schijf       | Maximaal kunnen 120 | Tot 240              | Maximaal 500              | Maximaal 1100 | Maximaal 2300              | Maximaal 5.000              | Maximaal 7.500             | Maximaal 7.500              | Maximaal 12.500              | Maximaal 15.000              | Maximaal 20.000              |
+| Doorvoer per schijf | Maximaal 25 MiB/sec | Maximaal 50 MiB/sec | Maximaal 100 MiB/sec | Maximaal 125 MiB/sec | Maximaal 150 MiB/sec | Maximaal 200 MiB/sec | Maximaal 250 MiB/sec | Maximaal 250 MiB/sec| Maximaal 480 MiB/sec | Maximaal 750 MiB/sec | Maximaal 750 MiB/sec |
 
 **Premium beheerde schijven van virtuele machines: limieten per VM**
 

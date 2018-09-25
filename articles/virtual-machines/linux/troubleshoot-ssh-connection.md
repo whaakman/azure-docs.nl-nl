@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b170a675482f69f8188894f8503703c235497503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932684"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982610"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd oplossen
 Er zijn verschillende redenen dat er Secure Shell (SSH)-fouten, SSH-verbindingsfouten optreden of SSH wordt geweigerd wanneer u probeert verbinding maken met een Linux virtuele machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt Azure portal, Azure CLI of VM-extensie voor toegang voor Linux gebruiken om problemen op te lossen problemen met de verbinding.
@@ -50,7 +50,7 @@ Doorgaan met lezen voor meer gedetailleerde stappen voor probleemoplossing en ui
 U kunt opnieuw instellen van referenties of SSH-configuratie met behulp van een van de volgende methoden:
 
 * [Azure-portal](#use-the-azure-portal) - handig is als u wilt snel opnieuw instellen van de SSH-configuratie of de SSH-sleutel en u de Azure-hulpprogramma's geïnstalleerd hoeft.
-* [Azure CLI 2.0](#use-the-azure-cli-20) : als u zich al op de opdrachtregel snel opnieuw instellen van de SSH-configuratie of de referenties. U kunt ook de [Azure CLI 1.0](#use-the-azure-cli-10)
+* [Azure CLI](#use-the-azure-cli-20) : als u zich al op de opdrachtregel snel opnieuw instellen van de SSH-configuratie of de referenties. U kunt ook de [Azure klassieke CLI](#use-the-azure-cli-10)
 * [Azure VMAccessForLinux-extensie](#use-the-vmaccess-extension) - maken en json-definitie-bestanden als u de referenties van de SSH-configuratie of de gebruiker opnieuw wilt gebruiken.
 
 Probeer opnieuw verbinding te maken met uw virtuele machine na elke stap. Als u nog steeds geen verbinding maken, probeert u de volgende stap.
@@ -78,8 +78,8 @@ Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-f
 
 Gebruik van Network Watcher van [van volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of van een virtuele machine. U kunt ook effectieve routes om te zien van alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie, [effectieve routes gebruiken om op te lossen VM verkeersstroom](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 gebruiken
-Als u niet hebt gedaan, installeert u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+## <a name="use-the-azure-cli"></a>Azure CLI gebruiken
+Als u niet hebt gedaan, installeert u de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Als u hebt gemaakt en een aangepaste installatiekopie van het Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../extensions/agent-windows.md) versie 2.0.5 of hoger is geïnstalleerd. Deze extensie voor toegang is al voor virtuele machines die zijn gemaakt met behulp van de galerie met installatiekopieën, geïnstalleerd en geconfigureerd voor u.
 
@@ -149,8 +149,8 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
     --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
-## <a name="use-the-azure-cli-10"></a>Gebruik de Azure CLI 1.0
-Als u dat nog niet gedaan hebt, [de Azure CLI 1.0 installeren en verbinding maken met uw Azure-abonnement](../../cli-install-nodejs.md). Zorg ervoor dat u van Resource Manager-modus als volgt gebruikmaakt:
+## <a name="use-the-azure-classic-cli"></a>Gebruik de klassieke Azure-CLI
+Als u dat nog niet gedaan hebt, [de klassieke Azure-CLI installeren en verbinding maken met uw Azure-abonnement](../../cli-install-nodejs.md). Zorg ervoor dat u van Resource Manager-modus als volgt gebruikmaakt:
 
 ```azurecli
 azure config mode arm
@@ -192,14 +192,14 @@ Als u wilt starten op een virtuele machine met behulp van de Azure portal, selec
 
 ![Start opnieuw op een virtuele machine in Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>CLI van Azure classic
 Het volgende voorbeeld wordt opnieuw opgestart van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure-CLI
 Het volgende voorbeeld wordt [az vm restart](/cli/azure/vm#az_vm_restart) opnieuw opstarten van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
 
 ```azurecli
@@ -220,14 +220,14 @@ Als u wilt implementeren op een virtuele machine met behulp van de Azure portal,
 
 ![Een virtuele machine in Azure portal opnieuw implementeren](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>CLI van Azure classic
 Het volgende voorbeeld implementeert de virtuele machine met de naam opnieuw `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure-CLI
 Het volgende voorbeeld van het gebruik [az vm opnieuw implementeren](/cli/azure/vm#az_vm_redeploy) opnieuw implementeren van de virtuele machine met de naam `myVM` in de resourcegroep met de naam `myResourceGroup`. Gebruik uw eigen waarden als volgt:
 
 ```azurecli

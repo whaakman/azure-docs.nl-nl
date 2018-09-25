@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094923"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980284"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM voor aanmelden 
 
@@ -30,7 +30,7 @@ Dit artikel bevat voorbeelden van PowerShell en CLI-script voor aanmelding bij g
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Als u van plan bent de Azure PowerShell of Azure CLI-voorbeelden in dit artikel gebruiken, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) of [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Als u van plan bent de Azure PowerShell of Azure CLI-voorbeelden in dit artikel gebruiken, moet u Installeer de nieuwste versie van [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) of [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Alle voorbeeld van een script in dit artikel wordt ervan uitgegaan dat de client voor de opdrachtregel wordt uitgevoerd op een VM met beheerde identiteiten voor Azure-resources ingeschakeld. Gebruik de virtuele machine 'Connect'-functie in Azure portal, op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van beheerde identiteiten voor Azure-resources op een virtuele machine [configureren beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md), of een van de variant (met behulp van PowerShell, CLI, een sjabloon of een Azure-artikelen SDK). 

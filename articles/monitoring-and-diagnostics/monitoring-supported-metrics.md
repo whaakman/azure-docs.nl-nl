@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b7e18d943bea179cb6163d7f91a0761311ecf38e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985240"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962944"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure Monitor
 Azure Monitor biedt verschillende manieren om te communiceren met metrische gegevens, zoals ze in het portaal grafieken, toegang hebben tot deze via de REST-API of uitvoeren van deze query's met behulp van PowerShell of CLI. Hieronder vindt u een volledige lijst van alle metrische gegevens op dit moment met metrische gegevens van Azure Monitor-pijplijn. Andere metrische gegevens is mogelijk beschikbaar in de portal of met verouderde API's. Deze lijst hieronder bevat alleen beschikbaar via de pijplijn voor het metrische gegevens van Azure Monitor samengevoegde metrische gegevens. Query's uitvoeren voor en toegang tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -520,6 +520,24 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |WriteRequests|Aanvragen schrijven|Count|Totaal|Telling van gegevens schrijven aanvragen naar het account.|Er zijn geen dimensies|
 |ReadRequests|Aanvragen lezen|Count|Totaal|Telling van gegevens gelezen aanvragen voor het account.|Er zijn geen dimensies|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|cpu_percent|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Er zijn geen dimensies|
+|memory_percent|Percentage geheugen|Procent|Gemiddeld|Percentage geheugen|Er zijn geen dimensies|
+|io_consumption_percent|I/o-percentage|Procent|Gemiddeld|I/o-percentage|Er zijn geen dimensies|
+|storage_percent|Percentage van de opslag|Procent|Gemiddeld|Percentage van de opslag|Er zijn geen dimensies|
+|storage_used|Gebruikte opslag|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
+|storage_limit|Limiet voor opslag|Bytes|Gemiddeld|Limiet voor opslag|Er zijn geen dimensies|
+|serverlog_storage_percent|Server Log opslag procent|Procent|Gemiddeld|Server Log opslag procent|Er zijn geen dimensies|
+|serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|Gemiddeld|Server logboekopslag gebruikt|Er zijn geen dimensies|
+|serverlog_storage_limit|Limiet voor opslag van server-logboek|Bytes|Gemiddeld|Limiet voor opslag van server-logboek|Er zijn geen dimensies|
+|active_connections|Actieve verbindingen|Count|Gemiddeld|Actieve verbindingen|Er zijn geen dimensies|
+|connections_failed|Mislukte verbindingen|Count|Totaal|Mislukte verbindingen|Er zijn geen dimensies|
+|network_bytes_egress|Netwerk uit|Bytes|Totaal|Uitgaand netwerkverkeer voor actieve verbindingen|Er zijn geen dimensies|
+|network_bytes_ingress|Netwerk in|Bytes|Totaal|Netwerk In voor de actieve verbindingen|Er zijn geen dimensies|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
@@ -748,6 +766,41 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ObservedCapacity|Waargenomen capaciteit|Count|Gemiddeld|De capaciteit die is gerapporteerd aan automatisch schalen wanneer dit is uitgevoerd.|Er zijn geen dimensies|
 |ScaleActionsInitiated|Schaalacties geactiveerd|Count|Totaal|De richting van de schaalbewerking.|ScaleDirection|
 
+## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+(Preview-versie)
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|availabilityResults/duur|Testduur|MilliSeconds|Gemiddeld|Testduur|availabilityResult/name, availabilityResult /-locatie, availabilityResult/geslaagd|
+|billingMeters/telemetryCount|Gegevenspuntaantal|Count|Totaal|Het aantal gegevenspunten die worden verzonden naar deze Application Insights-resource. Deze metrische gegevens worden verwerkt met een latentie van maximaal twee uur.|Facturering/telemetryItemType, facturering/telemetryItemSource|
+|billingMeters/telemetrySize|Gegevenspuntvolume|Bytes|Totaal|De hoeveelheid gegevens die naar deze Application Insights-resource verzonden. Deze metrische gegevens worden verwerkt met een latentie van maximaal twee uur.|Facturering/telemetryItemType, facturering/telemetryItemSource|
+|browserTimings/networkDuration|Netwerkverbindingstijd voor laden van pagina|MilliSeconds|Gemiddeld|Tijd tussen gebruikersaanvraag en netwerkverbinding gebruikersverbinding. Omvat de DNS-zoekopdracht en transportverbinding verbinding.|Er zijn geen dimensies|
+|browserTimings/processingDuration|Verwerkingstijd client|MilliSeconds|Gemiddeld|Tijd tussen ontvangst van de laatste byte van een document totdat de DOM wordt geladen. Asynchrone aanvragen kunnen nog worden verwerkt.|Er zijn geen dimensies|
+|browserTimings/receiveDuration|Reactietijd voor ontvangen|MilliSeconds|Gemiddeld|Tijd tussen de eerste en de laatste byte of tot verbreking van de verbinding.|Er zijn geen dimensies|
+|browserTimings/sendDuration|Verzoektijd voor verzenden|MilliSeconds|Gemiddeld|Tijd tussen netwerkverbinding en ontvangst van eerste byte.|Er zijn geen dimensies|
+|browserTimings/totalDuration|Laadtijd van browserpagina|MilliSeconds|Gemiddeld|Tijd vanaf gebruikersaanvraag totdat DOM, opmaakmodellen, scripts en afbeeldingen zijn geladen.|Er zijn geen dimensies|
+|afhankelijkheden/aantal|Afhankelijkheidsaanroepen|Count|Count|Aantal aanroepen van de toepassing naar externe bronnen.|afhankelijkheidstype /, afhankelijkheid/performanceBucket, afhankelijkheid/succes, bewerking/synthetische, cloud/roleInstance, cloud/roleName|
+|afhankelijkheden/duur|Duur van afhankelijkheid|MilliSeconds|Gemiddeld|Duur van de aanroepen van de toepassing naar externe bronnen.|afhankelijkheidstype /, afhankelijkheid/performanceBucket, afhankelijkheid/succes, bewerking/synthetische, cloud/roleInstance, cloud/roleName|
+|/ afhankelijkheden zijn mislukt|Afhankelijkheidsfouten|Count|Count|Aantal mislukte afhankelijkheidsaanroepen van de toepassing naar externe resources.|afhankelijkheidstype /, afhankelijkheid/performanceBucket, bewerking/synthetische, cloud/roleInstance, cloud/roleName|
+|Paginaweergaven/aantal|Paginaweergaven|Count|Count|Aantal paginaweergaven.|bewerking/synthetische|
+|Paginaweergaven/duur|Laadtijd voor paginaweergave|MilliSeconds|Gemiddeld|Laadtijd voor paginaweergave|bewerking/synthetische|
+|performanceCounters/requestExecutionTime|Uitvoeringstijd van de HTTP-aanvraag|MilliSeconds|Gemiddeld|Uitvoeringstijd van de meest recente aanvraag.|cloud/roleInstance|
+|performanceCounters/requestsInQueue|HTTP-aanvragen in de toepassingswachtrij|Count|Gemiddeld|Lengte van de rij met toepassingsaanvragen.|cloud/roleInstance|
+|performanceCounters/requestsPerSecond|HTTP-aanvraagsnelheid|CountPerSecond|Gemiddeld|Snelheid per seconde van alle aanvragen aan de toepassing vanaf ASP.NET.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|Aantal uitzonderingen|CountPerSecond|Gemiddeld|Het aantal verwerkte en onverwerkte uitzonderingen dat is gerapporteerd aan Windows, inclusief .NET-uitzonderingen en onbeheerde uitzonderingen die zijn geconverteerd naar .NET-uitzonderingen.|cloud/roleInstance|
+|performanceCounters/processIOBytesPerSecond|I/O-snelheid voor proces|BytesPerSecond|Gemiddeld|Totaal aantal per seconde gelezen en naar bestanden, netwerk en apparaten geschreven bytes.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|CPU voor proces|Procent|Gemiddeld|Het percentage verstreken tijd dat alle threads de processor hebben gebruikt voor het uitvoeren van instructies. Dit kan variëren van 0 tot 100. Deze metrische waarde geeft de prestaties van het w3wp-proces alleen.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Processortijd|Procent|Gemiddeld|Het tijdspercentage dat de processor spendeert aan niet-inactieve threads.|cloud/roleInstance|
+|performanceCounters/memoryAvailableBytes|Beschikbaar geheugen|Bytes|Gemiddeld|Fysiek geheugen dat direct beschikbaar is voor toewijzing aan een proces of voor systeemgebruik.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|Proceseigen bytes|Bytes|Gemiddeld|Geheugen exclusief toegewezen aan de processen van de gecontroleerde toepassing.|cloud/roleInstance|
+|aanvragen/duur|Serverreactietijd|MilliSeconds|Gemiddeld|Tijd tussen de ontvangst van een HTTP-aanvraag en het voltooien van het verzenden van de reactie.|aanvraag/performanceBucket, aanvraag/resultCode, bewerking/synthetische, cloud/roleInstance, aanvraag-geslaagd, cloud/roleName|
+|aanvragen/aantal|Serveraanvragen|Count|Count|Aantal voltooide HTTP-aanvragen.|aanvraag/performanceBucket, aanvraag/resultCode, bewerking/synthetische, cloud/roleInstance, aanvraag-geslaagd, cloud/roleName|
+|mislukte aanvragen /|Mislukte aanvragen|Count|Count|Aantal van de HTTP-aanvragen gemarkeerd als mislukt. In de meeste gevallen zijn dit aanvragen met een responscode > = 400 en niet gelijk aan 401.|aanvraag/performanceBucket, aanvraag/resultCode, bewerking/synthetische, cloud/roleInstance, cloud/roleName|
+|uitzonderingen/aantal|Uitzonderingen|Count|Totaal|Gecombineerd aantal niet-onderschepte uitzonderingen.|cloud/roleName, cloud/roleInstance, client /-type|
+|uitzonderingen/de browser|Browseruitzonderingen|Count|Totaal|Aantal niet-onderschepte uitzonderingen in de browser.|Er zijn geen dimensies|
+|uitzonderingen of de server|Serveruitzonderingen|Count|Totaal|Aantal niet-onderschepte uitzonderingen in de servertoepassing.|cloud/roleName, cloud/roleInstance|
+|traceringen/aantal|Aantal traces|Count|Totaal|Aantal traceerdocumenten|tracering/severityLevel, bewerking/synthetische, cloud/roleName, cloud/roleInstance|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
@@ -755,6 +808,20 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ServiceApiHit|Totaalaantal treffers service-API|Count|Count|Totaalaantal treffers voor service-API|ActivityType, ActivityName|
 |ServiceApiLatency|Algemene latentie service-API|Milliseconden|Gemiddeld|Algemene latentie van service-API-aanvragen|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Totaalaantal resultaten service-API|Count|Count|Totaalaantal resultaten voor service-API|ActivityType, ActivityName, StatusCode|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|ClusterDataCapacityFactor|Cache-gebruik|Procent|Gemiddeld|Het gebruiksniveau van binnen het bereik van het cluster|Er zijn geen dimensies|
+|QueryDuration|Queryduur van de|Milliseconden|Gemiddeld|Query's de duur in seconden|QueryStatus|
+|IngestionsLoadFactor|Opname-gebruik|Procent|Gemiddeld|Verhouding van de sleuven gebruikte opname in het cluster|Er zijn geen dimensies|
+|IsEngineAnsweringQuery|Actief houden|Count|Gemiddeld|Controle geeft aan dat de cluster-respondes op query 's|Er zijn geen dimensies|
+|IngestCommandOriginalSizeInMb|Opname-Volume (In MB)|Count|Totaal|Totale hoeveelheid opgenomen gegevens aan het cluster (in MB)|Er zijn geen dimensies|
+|EventAgeSeconds|Opnamelatentie (In seconden)|Seconden|Gemiddeld|Opname-tijd van de bron (bijvoorbeeld bericht is in de Event hub) aan het cluster in seconden|Er zijn geen dimensies|
+|EventRecievedFromEventHub|Gebeurtenissen die worden verwerkt (voor Eventhubs)|Count|Totaal|Aantal gebeurtenissen dat door het cluster worden verwerkt wanneer het opnemen van Event Hub|Er zijn geen dimensies|
+|IngestionResult|Opname-resultaat|Count|Count|Aantal opname-bewerkingen|IngestionResultDetails|
+|EngineCPU|CPU|Procent|Gemiddeld|Het gebruiksniveau van CPU|Er zijn geen dimensies|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -963,6 +1030,19 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |ProbesFailedPercent|% Tests is mislukt|Procent|Gemiddeld|% van de bewakingstests verbinding is mislukt|Er zijn geen dimensies|
 |AverageRoundtripMs|Gem. Retourtijd (ms)|MilliSeconds|Gemiddeld|Gemiddelde netwerk retourtijd (ms) voor connectiviteit bewakingstests verzonden tussen bron en bestemming|Er zijn geen dimensies|
 
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|RequestCount|Aantal aanvragen|Count|Totaal|Het aantal aanvragen van clients geleverd door de proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestSize|Aanvraaggrootte|Bytes|Totaal|Het aantal bytes dat is verzonden op aanvragen van clients naar de proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|ResponseSize|Antwoordgrootte|Bytes|Totaal|Het aantal bytes dat als de antwoorden van proxy HTTP/S naar clients worden verzonden|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendRequestCount|Aantal back-end-aanvragen|Count|Totaal|Het aantal aanvragen dat is verzonden van de proxy HTTP/S back-ends|HttpStatus, HttpStatusGroup, back-end|
+|BackendRequestLatency|Latentie van aanvraag van de back-end|MilliSeconds|Gemiddeld|De tijd berekend op basis van wanneer de aanvraag is verzonden door de proxy HTTP/S naar de back-end totdat de proxy HTTP/S de laatste byte van de reactie van de back-end ontvangen|Back-end|
+|TotalLatency|Totale latentie|MilliSeconds|Gemiddeld|De tijd berekend op basis van wanneer de clientaanvraag is ontvangen door de proxy HTTP/S totdat de client de laatste byte van de reactie van de proxy HTTP/S bevestigd|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendHealthPercentage|Percentage van de back-Endstatus|Procent|Gemiddeld|Het percentage van geslaagde statusrapporten tests van de proxy HTTP/S back-ends|Back-end, hosts met de status|
+|WebApplicationFirewallRequestCount|Aantal Web Application Firewall-aanvragen|Count|Totaal|Het aantal aanvragen van clients verwerkt door de Web Application Firewall|PolicyName, RuleName, actie|
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
@@ -1031,72 +1111,80 @@ Azure Monitor biedt verschillende manieren om te communiceren met metrische gege
 |Incoming.all.failedrequests|Alle binnenkomende mislukte aanvragen|Count|Totaal|Totaal aantal binnenkomende mislukte aanvragen voor een Notification Hub|Er zijn geen dimensies|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
-(Preview-versie)
 
 |Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-Average_ percentage beschikbare Inodes|Percentage vrije Inodes|Count|Gemiddeld|Average_ percentage beschikbare Inodes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ % vrije ruimte|Percentage vrije ruimte|Count|Gemiddeld|Average_ % vrije ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage gebruikte Inodes|Percentage gebruikte Inodes|Count|Gemiddeld|Average_ percentage gebruikte Inodes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage gebruikte ruimte|Percentage gebruikte ruimte|Count|Gemiddeld|Average_ percentage gebruikte ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Disk gelezen Bytes per seconde|Bytes gelezen op schijf/sec|Count|Gemiddeld|Average_Disk gelezen Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Disk Reads/sec|Schijf lezen per seconde|Count|Gemiddeld|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Disk Schijfoverdrachten per seconde|Schijfoverdrachten per seconde|Count|Gemiddeld|Average_Disk Schijfoverdrachten per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Disk geschreven Bytes per seconde|Bytes geschreven naar schijf/sec|Count|Gemiddeld|Average_Disk geschreven Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Disk schrijfbewerkingen per seconde|Schijf schrijven per seconde|Count|Gemiddeld|Average_Disk schrijfbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Free Megabytes|Beschikbare Megabytes|Count|Gemiddeld|Average_Free Megabytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Logical schijf Bytes per seconde|Logische schijf Bytes per seconde|Count|Gemiddeld|Average_Logical schijf Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage beschikbaar geheugen|Percentage beschikbaar geheugen|Count|Gemiddeld|Average_ percentage beschikbaar geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Percentage beschikbare wisselruimte Average_|Percentage beschikbare wisselruimte|Count|Gemiddeld|Percentage beschikbare wisselruimte Average_|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage gebruikt geheugen|Percentage gebruikt geheugen|Count|Gemiddeld|Average_ percentage gebruikt geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage gebruikte wisselruimte|Percentage gebruikte wisselruimte|Count|Gemiddeld|Average_ percentage gebruikte wisselruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Available megabytes (MB) geheugen|Beschikbaar geheugen in megabytes|Count|Gemiddeld|Average_Available megabytes (MB) geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Available megabytes voor wisselen|Beschikbare megabytes voor wisselen|Count|Gemiddeld|Average_Available megabytes voor wisselen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Page leesbewerkingen per seconde|Paginaleesbewerkingen per seconde|Count|Gemiddeld|Average_Page leesbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Page schrijfbewerkingen per seconde|Paginaschrijfbewerkingen per seconde|Count|Gemiddeld|Average_Page schrijfbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Pages/sec|Pagina's per seconde|Count|Gemiddeld|Average_Pages/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Used megabytes voor wisselen ruimte|Beschikbaar geheugen in megabytes|Count|Gemiddeld|Average_Used megabytes voor wisselen ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Used geheugen in megabytes|Beschikbare megabytes voor wisselen|Count|Gemiddeld|Average_Used geheugen in megabytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total Bytes verzonden|Totaal aantal verzonden Bytes|Count|Gemiddeld|Average_Total Bytes verzonden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total Bytes ontvangen|Totaal aantal ontvangen Bytes|Count|Gemiddeld|Average_Total Bytes ontvangen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total Bytes|Totaal aantal bytes|Count|Gemiddeld|Average_Total Bytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total pakketten verzonden|Totaal aantal verzonden pakketten|Count|Gemiddeld|Average_Total pakketten verzonden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total pakketten ontvangen|Totaal aantal ontvangen pakketten|Count|Gemiddeld|Average_Total pakketten ontvangen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total Rx-fouten|Totaal aantal Rx-fouten|Count|Gemiddeld|Average_Total Rx-fouten|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total Tx-fouten|Totaal aantal Tx-fouten|Count|Gemiddeld|Average_Total Tx-fouten|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Total conflicten|Totaal aantal conflicten|Count|Gemiddeld|Average_Total conflicten|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Avg. Schijf sec/lezen|Gem. Schijf sec/lezen|Count|Gemiddeld|Average_Avg. Schijf sec/lezen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Avg. Schijfoverdrachten per seconde|Gem. Schijfoverdrachten per seconde|Count|Gemiddeld|Average_Avg. Schijfoverdrachten per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Avg. Schijf sec/schrijven|Gem. Schijf sec/schrijven|Count|Gemiddeld|Average_Avg. Schijf sec/schrijven|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Physical schijf Bytes per seconde|Fysieke schijf Bytes per seconde|Count|Gemiddeld|Average_Physical schijf Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Tijd in beschermde modus Average_Pct|PCT gemachtigde tijd|Count|Gemiddeld|Tijd in beschermde modus Average_Pct|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Tijd in gebruikersmodus van Average_Pct|PCT in gebruikersmodus|Count|Gemiddeld|Tijd in gebruikersmodus van Average_Pct|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Used geheugen kB|Gebruikt geheugen kB|Count|Gemiddeld|Average_Used geheugen kB|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Virtual gedeeld geheugen|Virtuele gedeeld geheugen|Count|Gemiddeld|Average_Virtual gedeeld geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage DPC-tijd|Percentage DPC-tijd|Count|Gemiddeld|Average_ percentage DPC-tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ % niet-actieve tijd|% Niet-actieve tijd|Count|Gemiddeld|Average_ % niet-actieve tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage Interrupt-tijd|Percentage interrupt-tijd|Count|Gemiddeld|Average_ percentage Interrupt-tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ % i/o-wachttijd|Percentage wachttijd I/O|Count|Gemiddeld|Average_ % i/o-wachttijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Tijd in Nice Average_|Percentage tijd in nice|Count|Gemiddeld|Tijd in Nice Average_|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ % gemachtigde tijd|% Gemachtigde tijd|Count|Gemiddeld|Average_ % gemachtigde tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ % processortijd|% Processortijd|Count|Gemiddeld|Average_ % processortijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage tijd in gebruikersmodus|Percentage tijd in gebruikersmodus|Count|Gemiddeld|Average_ percentage tijd in gebruikersmodus|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Free fysiek geheugen|Vrij fysiek geheugen|Count|Gemiddeld|Average_Free fysiek geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Free ruimte in Wisselgeheugenbestanden|Vrije ruimte in Wisselgeheugenbestanden|Count|Gemiddeld|Average_Free ruimte in Wisselgeheugenbestanden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Free virtueel geheugen|Vrij virtueel geheugen|Count|Gemiddeld|Average_Free virtueel geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Processes|Processen|Count|Gemiddeld|Average_Processes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Size opgeslagen In Pagineringbestanden|Grootte opgeslagen In Pagineringbestanden|Count|Gemiddeld|Average_Size opgeslagen In Pagineringbestanden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Uptime|Actieve tijdsduur|Count|Gemiddeld|Average_Uptime|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Users|Gebruikers|Count|Gemiddeld|Average_Users|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Current wachtrijlengte voor schijf|Huidige wachtrijlengte voor schijf|Count|Gemiddeld|Average_Current wachtrijlengte voor schijf|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Available megabytes (MB)|Beschikbare megabytes (MB)|Count|Gemiddeld|Average_Available megabytes (MB)|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_ percentage toegewezen Bytes In gebruik|% Toegewezen Bytes In gebruik|Count|Gemiddeld|Average_ percentage toegewezen Bytes In gebruik|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Bytes ontvangen per seconde|Ontvangen bytes per seconde|Count|Gemiddeld|Average_Bytes ontvangen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Bytes verzonden per seconde|Verzonden bytes per seconde|Count|Gemiddeld|Average_Bytes verzonden per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Average_Bytes in totaal/sec|Totaal aantal bytes per seconde|Count|Gemiddeld|Average_Bytes in totaal/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
-Heartbeat|Heartbeat|Count|Gemiddeld|Heartbeat|Computer, OSType, versie, SourceComputerId|
-Update|Update|Count|Gemiddeld|Update|Computer, Product, classificatie, UpdateState, optioneel, goedgekeurde|
-Gebeurtenis|Gebeurtenis|Count|Gemiddeld|Gebeurtenis|Bron, EventLog, Computer, Culture, EventLevel, EventLevelName, gebeurtenis-id|
+|Average_ percentage beschikbare Inodes|Percentage vrije Inodes|Count|Gemiddeld|Average_ percentage beschikbare Inodes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % vrije ruimte|Percentage vrije ruimte|Count|Gemiddeld|Average_ % vrije ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage gebruikte Inodes|Percentage gebruikte Inodes|Count|Gemiddeld|Average_ percentage gebruikte Inodes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage gebruikte ruimte|Percentage gebruikte ruimte|Count|Gemiddeld|Average_ percentage gebruikte ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk gelezen Bytes per seconde|Bytes gelezen op schijf/sec|Count|Gemiddeld|Average_Disk gelezen Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk Reads/sec|Schijf lezen per seconde|Count|Gemiddeld|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk Schijfoverdrachten per seconde|Schijfoverdrachten per seconde|Count|Gemiddeld|Average_Disk Schijfoverdrachten per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk geschreven Bytes per seconde|Bytes geschreven naar schijf/sec|Count|Gemiddeld|Average_Disk geschreven Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk schrijfbewerkingen per seconde|Schijf schrijven per seconde|Count|Gemiddeld|Average_Disk schrijfbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Free Megabytes|Beschikbare Megabytes|Count|Gemiddeld|Average_Free Megabytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Logical schijf Bytes per seconde|Logische schijf Bytes per seconde|Count|Gemiddeld|Average_Logical schijf Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage beschikbaar geheugen|Percentage beschikbaar geheugen|Count|Gemiddeld|Average_ percentage beschikbaar geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Percentage beschikbare wisselruimte Average_|Percentage beschikbare wisselruimte|Count|Gemiddeld|Percentage beschikbare wisselruimte Average_|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage gebruikt geheugen|Percentage gebruikt geheugen|Count|Gemiddeld|Average_ percentage gebruikt geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage gebruikte wisselruimte|Percentage gebruikte wisselruimte|Count|Gemiddeld|Average_ percentage gebruikte wisselruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Available megabytes (MB) geheugen|Beschikbaar geheugen in megabytes|Count|Gemiddeld|Average_Available megabytes (MB) geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Available megabytes voor wisselen|Beschikbare megabytes voor wisselen|Count|Gemiddeld|Average_Available megabytes voor wisselen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Page leesbewerkingen per seconde|Paginaleesbewerkingen per seconde|Count|Gemiddeld|Average_Page leesbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Page schrijfbewerkingen per seconde|Paginaschrijfbewerkingen per seconde|Count|Gemiddeld|Average_Page schrijfbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Pages/sec|Pagina's per seconde|Count|Gemiddeld|Average_Pages/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Used megabytes voor wisselen ruimte|Gebruikte wisselruimte in megabytes|Count|Gemiddeld|Average_Used megabytes voor wisselen ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Used geheugen in megabytes|Gebruikt geheugen in megabytes|Count|Gemiddeld|Average_Used geheugen in megabytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total Bytes verzonden|Totaal aantal verzonden Bytes|Count|Gemiddeld|Average_Total Bytes verzonden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total Bytes ontvangen|Totaal aantal ontvangen Bytes|Count|Gemiddeld|Average_Total Bytes ontvangen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total Bytes|Totaal aantal bytes|Count|Gemiddeld|Average_Total Bytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total pakketten verzonden|Totaal aantal verzonden pakketten|Count|Gemiddeld|Average_Total pakketten verzonden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total pakketten ontvangen|Totaal aantal ontvangen pakketten|Count|Gemiddeld|Average_Total pakketten ontvangen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total Rx-fouten|Totaal aantal Rx-fouten|Count|Gemiddeld|Average_Total Rx-fouten|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total Tx-fouten|Totaal aantal Tx-fouten|Count|Gemiddeld|Average_Total Tx-fouten|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Total conflicten|Totaal aantal conflicten|Count|Gemiddeld|Average_Total conflicten|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Avg. Schijf sec/lezen|Gem. Schijf sec/lezen|Count|Gemiddeld|Average_Avg. Schijf sec/lezen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Avg. Schijfoverdrachten per seconde|Gem. Schijfoverdrachten per seconde|Count|Gemiddeld|Average_Avg. Schijfoverdrachten per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Avg. Schijf sec/schrijven|Gem. Schijf sec/schrijven|Count|Gemiddeld|Average_Avg. Schijf sec/schrijven|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Physical schijf Bytes per seconde|Fysieke schijf Bytes per seconde|Count|Gemiddeld|Average_Physical schijf Bytes per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Tijd in beschermde modus Average_Pct|PCT gemachtigde tijd|Count|Gemiddeld|Tijd in beschermde modus Average_Pct|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Tijd in gebruikersmodus van Average_Pct|PCT in gebruikersmodus|Count|Gemiddeld|Tijd in gebruikersmodus van Average_Pct|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Used geheugen kB|Gebruikt geheugen kB|Count|Gemiddeld|Average_Used geheugen kB|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Virtual gedeeld geheugen|Virtuele gedeeld geheugen|Count|Gemiddeld|Average_Virtual gedeeld geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage DPC-tijd|Percentage DPC-tijd|Count|Gemiddeld|Average_ percentage DPC-tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % niet-actieve tijd|% Niet-actieve tijd|Count|Gemiddeld|Average_ % niet-actieve tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage Interrupt-tijd|Percentage interrupt-tijd|Count|Gemiddeld|Average_ percentage Interrupt-tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % i/o-wachttijd|Percentage wachttijd I/O|Count|Gemiddeld|Average_ % i/o-wachttijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Tijd in Nice Average_|Percentage tijd in nice|Count|Gemiddeld|Tijd in Nice Average_|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % gemachtigde tijd|% Gemachtigde tijd|Count|Gemiddeld|Average_ % gemachtigde tijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % processortijd|% Processortijd|Count|Gemiddeld|Average_ % processortijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage tijd in gebruikersmodus|Percentage tijd in gebruikersmodus|Count|Gemiddeld|Average_ percentage tijd in gebruikersmodus|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Free fysiek geheugen|Vrij fysiek geheugen|Count|Gemiddeld|Average_Free fysiek geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Free ruimte in Wisselgeheugenbestanden|Vrije ruimte in Wisselgeheugenbestanden|Count|Gemiddeld|Average_Free ruimte in Wisselgeheugenbestanden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Free virtueel geheugen|Vrij virtueel geheugen|Count|Gemiddeld|Average_Free virtueel geheugen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Processes|Processen|Count|Gemiddeld|Average_Processes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Size opgeslagen In Pagineringbestanden|Grootte opgeslagen In Pagineringbestanden|Count|Gemiddeld|Average_Size opgeslagen In Pagineringbestanden|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Uptime|Actieve tijdsduur|Count|Gemiddeld|Average_Uptime|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Users|Gebruikers|Count|Gemiddeld|Average_Users|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Avg. Schijf sec/lezen|Gem. Schijf sec/lezen|Count|Gemiddeld|Average_Avg. Schijf sec/lezen|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Avg. Schijf sec/schrijven|Gem. Schijf sec/schrijven|Count|Gemiddeld|Average_Avg. Schijf sec/schrijven|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Current wachtrijlengte voor schijf|Huidige wachtrijlengte voor schijf|Count|Gemiddeld|Average_Current wachtrijlengte voor schijf|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk Reads/sec|Schijf lezen per seconde|Count|Gemiddeld|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk Schijfoverdrachten per seconde|Schijfoverdrachten per seconde|Count|Gemiddeld|Average_Disk Schijfoverdrachten per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Disk schrijfbewerkingen per seconde|Schijf schrijven per seconde|Count|Gemiddeld|Average_Disk schrijfbewerkingen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Free Megabytes|Beschikbare Megabytes|Count|Gemiddeld|Average_Free Megabytes|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % vrije ruimte|Percentage vrije ruimte|Count|Gemiddeld|Average_ % vrije ruimte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Available megabytes (MB)|Beschikbare megabytes (MB)|Count|Gemiddeld|Average_Available megabytes (MB)|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ percentage toegewezen Bytes In gebruik|% Toegewezen Bytes In gebruik|Count|Gemiddeld|Average_ percentage toegewezen Bytes In gebruik|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Bytes ontvangen per seconde|Ontvangen bytes per seconde|Count|Gemiddeld|Average_Bytes ontvangen per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Bytes verzonden per seconde|Verzonden bytes per seconde|Count|Gemiddeld|Average_Bytes verzonden per seconde|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Bytes in totaal/sec|Totaal aantal bytes per seconde|Count|Gemiddeld|Average_Bytes in totaal/sec|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_ % processortijd|% Processortijd|Count|Gemiddeld|Average_ % processortijd|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Average_Processor-wachtrijlengte|Lengte van de processorwachtrij|Count|Gemiddeld|Average_Processor-wachtrijlengte|Computer, ObjectName, InstanceName, itempad, SourceSystem|
+|Heartbeat|Heartbeat|Count|Totaal|Heartbeat|Computer, OSType, versie, SourceComputerId|
+|Update|Update|Count|Gemiddeld|Update|Computer, Product, classificatie, UpdateState, optioneel, goedgekeurde|
+|Gebeurtenis|Gebeurtenis|Count|Gemiddeld|Gebeurtenis|Bron, EventLog, Computer, Culture, EventLevel, EventLevelName, gebeurtenis-id|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
@@ -1205,6 +1293,18 @@ Gebeurtenis|Gebeurtenis|Count|Gemiddeld|Gebeurtenis|Bron, EventLog, Computer, Cu
 |eDTU_used|eDTU gebruikt|Count|Gemiddeld|eDTU gebruikt|Er zijn geen dimensies|
 |storage_used|Gebruikte opslag|Bytes|Gemiddeld|Gebruikte opslag|Er zijn geen dimensies|
 |xtp_storage_percent|Percentage van in-Memory OLTP-opslag|Procent|Gemiddeld|Percentage van in-Memory OLTP-opslag|Er zijn geen dimensies|
+
+## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
+
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Aggregatietype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|virtual_core_count|Aantal virtuele kernen|Count|Gemiddeld|Aantal virtuele kernen|Er zijn geen dimensies|
+|avg_cpu_percent|Gemiddelde CPU-percentage|Procent|Gemiddeld|Gemiddelde CPU-percentage|Er zijn geen dimensies|
+|reserved_storage_mb|Gereserveerde opslagruimte|Count|Gemiddeld|Gereserveerde opslagruimte|Er zijn geen dimensies|
+|storage_space_used_mb|Opslagruimte die wordt gebruikt|Count|Gemiddeld|Opslagruimte die wordt gebruikt|Er zijn geen dimensies|
+|io_requests|Aantal i/o-aanvragen|Count|Gemiddeld|Aantal i/o-aanvragen|Er zijn geen dimensies|
+|io_bytes_read|I/o-bytes lezen|Bytes|Gemiddeld|I/o-bytes lezen|Er zijn geen dimensies|
+|io_bytes_written|I/o-bytes geschreven|Bytes|Gemiddeld|I/o-bytes geschreven|Er zijn geen dimensies|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

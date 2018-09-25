@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161302"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032073"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snelstartgids: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
@@ -93,6 +93,11 @@ Azure VM-typen die zijn gecertificeerd door SAP voor SAP NetWeaver of de toepass
 >SAP-Linux-Azure-integratie wordt alleen ondersteund op Azure Resource Manager en niet het klassieke implementatiemodel. 
 
 ## <a name="manual-installation-of-sap-hana"></a>Handmatige installatie van SAP HANA
+
+> [!IMPORTANT]
+> Zorg ervoor dat het besturingssysteem die u selecteert SAP gecertificeerd voor SAP HANA op de specifieke VM-typen die u gebruikt. De lijst met SAP HANA-gecertificeerde VM-typen en OS-versies voor die kunnen worden opgezocht [SAP HANA gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Zorg ervoor dat u klikt u op de details van het VM-type weergegeven als u de volledige lijst van SAP HANA ondersteunde OS releases voor het specifieke VM-type. Houd er rekening mee dat in het voorbeeld in dit document hebben we een SLES-OS-versie die niet wordt ondersteund door SAP voor SAP HANA op virtuele machines uit de M-serie gebruikt.
+>
+
 Deze handleiding wordt beschreven hoe u handmatig installeren van SAP HANA op Azure Virtual machines in twee verschillende manieren:
 
 * Met behulp van SAP Software inrichting Manager (SWPM) als onderdeel van een gedistribueerde installatie van de NetWeaver in de stap "database-exemplaar installeren"

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498705"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064423"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
@@ -45,9 +45,9 @@ Wanneer u een Web-App hebt geïmplementeerd, ongeacht als u de App Insights-SDK 
 
     ![App-instelling voor Profiler][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Profiler inschakelen voor Azure-rekenresources (preview)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Profiler inschakelen voor Azure compute-resources
 
-Zie voor meer informatie, de [preview-versie van Profiler voor Azure-rekenresources](https://go.microsoft.com/fwlink/?linkid=848155).
+Zie voor meer informatie, de [versie van de Profiler voor Azure-rekenresources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Profiler-gegevens weergeven
 

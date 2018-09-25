@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930236"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983885"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Een virtuele Linux-machine maken met Azure Resource Manager-sjablonen
-In dit artikel wordt beschreven hoe u snel een Linux virtuele machine (VM) implementeren met Azure Resource Manager-sjablonen en Azure CLI. 
 
+In dit artikel wordt beschreven hoe u snel een Linux virtuele machine (VM) implementeren met Azure Resource Manager-sjablonen en Azure CLI. U kunt ook deze stappen uitvoeren met de [Azure klassieke CLI](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+In dit artikel wordt beschreven hoe u snel een Linux virtuele machine (VM) implementeren met Azure Resource Manager-sjablonen en Azure CLI. 
 
 ## <a name="templates-overview"></a>Overzicht van sjablonen
 Azure Resource Manager-sjablonen zijn JSON-bestanden die u de infrastructuur en configuratie van uw Azure-oplossing definieert. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Zie voor meer informatie over de indeling van de sjabloon en hoe u deze samenstelt, [uw eerste Azure Resource Manager-sjabloon maken](../../azure-resource-manager/resource-manager-create-first-template.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 966af342937a36adc5932a7a4c92ee127723b4a0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295730"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034974"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>De Remote Monitoring solution accelerator lokaal implementeren
 
@@ -39,58 +39,47 @@ Voor het voltooien van de lokale implementatie, moet u de volgende hulpprogramma
 
 De bewaking op afstand source code GitHub-opslagplaats bevat de Docker-configuratiebestanden die u wilt downloaden, configureren en uitvoeren van de Docker-installatiekopieën die de microservices bevatten. Om te klonen en maken van een lokale versie van de opslagplaats, uw opdrachtregelomgeving gebruiken om te navigeren naar een geschikte map op uw lokale computer en voert vervolgens een van de volgende opdrachten:
 
-Voer het volgende voor het installeren van de Java-implementaties van de microservices:
+Voor het downloaden van de meest recente versie van de Java-microservices-implementaties, voert u de volgende uit:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
+cd azure-iot-pcs-remote-monitoring-java
+git submodule foreach git pull origin master
 ```
 
-Voer het volgende voor het installeren van de .net-implementaties van de microservices:
+Voor het downloaden van de meest recente versie van de .NET-microservice-implementaties, voert u de volgende uit:
 
 ```cmd\sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+cd azure-iot-pcs-remote-monitoring-dotnet
+git submodule foreach git pull origin master
 ```
 
 > [!NOTE]
-> Deze opdrachten downloaden de broncode voor alle microservices. Hoewel u niet de broncode voor het uitvoeren van de microservices in Docker nodig hebt, is de broncode is handig als u later wilt wijzigen van de oplossingsversnellers en uw wijzigingen lokaal testen.
+> Deze opdrachten download de broncode voor de microservices naast de scripts die u kunt de microservices lokaal uitvoeren. Hoewel u niet de broncode voor het uitvoeren van de microservices in Docker nodig hebt, is de broncode is handig als u later wilt wijzigen van de oplossingsversnellers en uw wijzigingen lokaal testen.
 
 ## <a name="deploy-the-azure-services"></a>De Azure-services implementeren
 
-Hoewel dit artikel u hoe u de microservices lokaal uitvoert leest, worden ze vertrouwen op Azure-services die worden uitgevoerd in de cloud. U kunt deze Azure-services implementeren [handmatig via de Azure-portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), of het opgegeven script. Het volgende scriptvoorbeelden wordt ervan uitgegaan dat u de .NET-opslagplaats op een Windows-machine. Als u in een andere omgeving werkt, aanpassen op de juiste wijze de paden, bestandsextensies en padscheidingstekens. De bijgeleverde scripts gebruiken:
+Hoewel dit artikel u hoe u de microservices lokaal uitvoert leest, worden ze vertrouwen op Azure-services die worden uitgevoerd in de cloud. U kunt deze Azure-services implementeren [handmatig via de Azure-portal](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), of het opgegeven script. Het volgende scriptvoorbeelden wordt ervan uitgegaan dat u de .NET-opslagplaats op een Windows-machine. Als u in een andere omgeving werkt, aanpassen op de juiste wijze de paden, bestandsextensies en padscheidingstekens. De bijgeleverde scripts te gebruiken:
 
 ### <a name="create-new-azure-resources"></a>Nieuwe Azure-resources maken
 
-Als u de vereiste Azure-resources nog niet hebt gemaakt, volgt u deze stappen:
+Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen:
 
 1. In de opdrachtregel-omgeving, gaat u naar de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** map in de gekloonde kopie van de opslagplaats.
 
-2. Voer de **start.cmd** script en volg de aanwijzingen. Het script vraagt u om de volgende informatie:
+2. Voer de **start.cmd** script en volg de aanwijzingen. Het script vraagt u zich aanmeldt bij uw Azure-account en het script nogmaals starten. Het script vraagt u vervolgens de volgende informatie:
     * De naam van een oplossing.
     * Het te gebruiken Azure-abonnement.
     * De locatie van het Azure-datacenter te gebruiken.
 
     Het script wordt de resourcegroep gemaakt in Azure met de naam van uw oplossing. Deze resourcegroep bevat de Azure-resources die maakt gebruik van de solution accelerator.
 
-3. In de opdrachtregel-omgeving, gaat u naar de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** map in de gekloonde kopie van de opslagplaats.
-
-4. Voer de **set-env-uri.cmd** script.
-
-5. Bijwerken van uw git-submodules om ervoor te zorgen dat u hebt de nieuwste versies: `cd <repo-name>` en voer de volgende opdracht `git submodule foreach git pull origin master`
-
-> [!NOTE]
-> Als u azure-iot-pcs-remote-monitoring-dotnet opslagplaats hebt gekloond, is de scriptmap bestaat onder services submodule (map). Met dit script mogelijk beheerdersbevoegdheden of sudo-machtigingen als wordt geprobeerd te installeren de [pc's-cli](https://github.com/Azure/pcs-cli).
+3. Wanneer het script is voltooid, wordt een lijst met omgevingsvariabelen weergegeven. Volg de instructies voor het opslaan van deze variabelen aan de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** bestand.
 
 ### <a name="use-existing-azure-resources"></a>Bestaande Azure-bronnen
 
-Als u de vereiste Azure-resources al hebt gemaakt en u alleen maar hoeft deze kunnen worden bijgewerkt, voert u alleen **één** van de volgende:
-
-* Stel de omgevingsvariabelen wereldwijd op uw computer.
-* **VS Code:** de omgevingsvariabelen worden ingesteld in de configuratie starten door het bewerken van de **launch.json** bestand.
-* **Visual Studio:** toe te voegen aan de omgevingsvariabelen voor de WebService-project van de microservices instellen **eigenschappen > fouten opsporen > omgevingsvariabelen**.
-
-Werk tot slot de git-submodules om ervoor te zorgen dat u hebt de nieuwste versies: `cd <repo-name>` en voer de volgende opdracht `git submodule foreach git pull origin master`.
-
-Hoewel het niet wordt aangeraden, kunnen ook omgevingsvariabelen worden ingesteld in appsettings.ini-bestand aanwezig is in de map WebService voor elk van de microservices.
+Als u al hebt gemaakt de vereiste Azure-resources bewerken met de variabele definities van de omgeving in de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** bestand met de vereiste waarden. De **.env** bestand bevat gedetailleerde informatie over waar u kunt de vereiste waarden vinden.
 
 ## <a name="run-the-microservices-in-docker"></a>Uitvoeren van de microservices in Docker
 

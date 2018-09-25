@@ -1,6 +1,6 @@
 ---
-title: Aangepaste Service spraak meters en quota's in Azure | Microsoft Docs
-description: Informatie over meters en quota's van aangepaste spraak-Service op Azure.
+title: Aangepaste Spraakservice meters en quota's voor Azure | Microsoft Docs
+description: Informatie over meters en quota's van Custom Speech Service op Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,44 +9,45 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: d2225dec818c600febfad2f9ebc42594f6ac09ac
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0ddd6274051fed5de86a88270a0dcc2e8288d885
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344437"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974524"
 ---
-# <a name="custom-speech-service-meters-and-quotas"></a>Aangepaste Service spraak meters en quota 's
+# <a name="custom-speech-service-meters-and-quotas"></a>Aangepaste Spraakservice meters en quota
 
-Met aangepaste spraak Cloudservice, kunt u spraak modellen voor spraak-naar-tekst schrijffouten aanpassen.
+Met cloud-gebaseerde Custom Speech Service, kunt u spraakmodellen voor transcriptie van spraak naar tekst aanpassen.
 
-Om te beginnen met de Service voor aangepaste spraak, gaat u naar de [aangepaste spraak-serviceportal](https://cris.ai).
+Om te beginnen met behulp van de Custom Speech Service gaat u naar de [Custom Speech Service portal](https://cris.ai).
 
-Prijzen voor de huidige meters, gaat u naar de [cognitieve Services prijzen voor aangepaste spraak Service](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) pagina.
+Prijzen voor de huidige meters, Ga naar de [prijzen voor Cognitive Services voor Custom Speech Service](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) pagina.
 
 ## <a name="tiers-explained"></a>Lagen uitgelegd
-Voor het testen en alleen prototype voorstellen we gebruiken de laag gratis F0. Voor productiesystemen stellen we gebruiken de laag S2. U kunt met behulp van de laag S2 uw implementatie aan het aantal schaaleenheden (SUs) die uw scenario vereist schalen.
+Voor het testen en prototype alleen stellen we de gratis laag van F0 gebruiken. Voor productiesystemen stellen we de S2-laag gebruiken. U kunt uw implementatie om het aantal schaaleenheden (su's) die uw scenario moet schalen met behulp van de S2-laag.
 
 > [!NOTE]
-> U *kan niet* migreren tussen de F0-laag en de S2 laag.
+> U *kan geen* migreren tussen de F0-laag en de S2-laag.
 >
 
 ## <a name="meters-explained"></a>Meters uitgelegd
 
 ### <a name="scale-out"></a>Opwaarts schalen
-Scale-Out is een nieuwe functie die we met het nieuwe prijsmodel uitgebracht. U kunt het aantal gelijktijdige aanvragen op dat kan worden verwerkt door het model beheren met behulp van een Scale-Out.
+Uitschalen is een nieuwe functie die we hebben uitgebracht met het nieuwe prijsmodel. Met behulp van uitschalen, kunt u bepalen het aantal gelijktijdige aanvragen waarmee uw model kan worden verwerkt.
 
-U kunt gelijktijdige aanvragen instellen met behulp van de meting SU in de **Model implementatie maken** weergeven. Zie voor meer informatie [Maak een aangepaste spraak naar tekst eindpunt](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md). Afhankelijk van de hoeveelheid verkeer die u voorzien in het model gebruiken, kunt u een geschikt aantal SUs. 
+U kunt gelijktijdige aanvragen instellen met behulp van de meting SU in de **Modelimplementatie maken** weergeven. Zie voor meer informatie, [maken van een aangepaste spraak-naar-tekst-eindpunt](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md). Afhankelijk van de hoeveelheid netwerkverkeer die u voorzien in het model verbruikt, kunt u een geschikt aantal su's. 
 
 > [!NOTE]
-> Elke schaaleenheid garandeert 5 gelijktijdige aanvragen. U kunt kopen 1 of meer SUs, naar gelang van toepassing. Omdat het aantal SUs in stappen van 1 stijgt, moet het aantal gelijktijdige aanvragen zijn gegarandeerd worden verhoogd met intervallen van 5.
+> Elke schaaleenheid garandeert 5 gelijktijdige aanvragen. 1 of meer SUs, waar nodig, kunt u kopen. Omdat het aantal su's in stappen van 1 stijgt, wordt het aantal gelijktijdige aanvragen worden gegarandeerd te verhogen in stappen van 5.
 >
 
-### <a name="log-management"></a>Log-beheer
-U kunt ervoor kiezen om uitschakelen audio traceringen voor een geïmplementeerde model een extra kosten. Aangepaste spraak-Service wordt niet geregistreerd de audio aanvragen of de transcripties van dit model.
+### <a name="log-management"></a>Logboekbeheer
+U kunt kiezen uit de audio traceringen voor een geïmplementeerde model een extra kosten te schakelen. Met Custom Speech Service worden geen logboekgebeurtenissen de audio aanvragen of de Transcripten van dit model.
 
 ## <a name="next-steps"></a>Volgende stappen
-Ga voor meer informatie over het gebruik van de aangepaste spraak-Service naar de [aangepaste spraak-serviceportal](https://cris.ai).
+Voor meer informatie over het gebruik van de Custom Speech Service gaat u naar de [Custom Speech Service portal](https://cris.ai).
 
 * [Aan de slag](cognitive-services-custom-speech-get-started.md)
 * [Veelgestelde vragen](cognitive-services-custom-speech-faq.md)

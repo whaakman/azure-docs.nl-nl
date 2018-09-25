@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989869"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van een VM-installatiekopie voor de Azure Marketplace
 In dit artikel **stap 2**, helpt u bij het voorbereiden van de virtuele harde schijven (VHD's) dat u op Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces verschilt, afhankelijk van of u een SKU op basis van Linux of Windows is gebaseerd. In dit artikel bevat informatie over beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [van accountaanmaking en registratie][link-acct-creation].
@@ -189,9 +189,9 @@ Voor meer informatie over VM-installatiekopieën, controleert u de volgende blog
 * [Hoe u PowerShell van VM-installatiekopie naar](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Over VM-installatiekopieën in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Instellen van de benodigde hulpprogramma's, PowerShell en Azure CLI
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>De benodigde hulpprogramma's, PowerShell en Azure klassieke CLI instellen
 * [Het instellen van PowerShell](/powershell/azure/overview)
-* [Het instellen van Azure CLI](../cli-install-nodejs.md)
+* [Het instellen van Azure classic CLI](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 de VM-installatiekopie van een gebruiker maken
 #### <a name="capture-vm"></a>Virtuele machine vastleggen
@@ -427,11 +427,13 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Micr
 
 11. Herhaal deze stappen voor elke VHD in de SKU.
 
-**Azure CLI (aanbevolen voor niet-Windows & continue integratie)**
+**Azure klassieke CLI (aanbevolen voor niet-Windows & continue integratie)**
 
-Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azure CLI
+Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azure classic CLI
 
-1.  Downloaden van Microsoft Azure CLI uit [hier](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). U vindt hier ook koppelingen naar de andere **[Windows](http://aka.ms/webpi-azure-cli)** en  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+
+1.  Downloaden van de klassieke Azure CLI uit [hier](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). U vindt hier ook koppelingen naar de andere **[Windows](http://aka.ms/webpi-azure-cli)** en  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Zodra de App is gedownload, geïnstalleerd.
 
@@ -447,9 +449,9 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azur
 
     b. **`<Storage Account Key>`**: Geef de sleutel van uw opslagaccount
 
-    c. **`<Permission Start Date>`**: Als u wilt beveiligen voor UTC-tijd, de dag vóór de huidige datum te selecteren. Bijvoorbeeld, als de huidige datum 26 oktober 2016 is waarde dan 25-10-2016. Als u Azure CLI 2.0 (az-opdracht), geeft u zowel de datum en tijd in de begin- en einddatums, bijvoorbeeld: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: Als u wilt beveiligen voor UTC-tijd, de dag vóór de huidige datum te selecteren. Bijvoorbeeld, als de huidige datum 26 oktober 2016 is waarde dan 25-10-2016. Als u Azure CLI versie 2.0 of hoger gebruikt, geeft u zowel de datum en tijd in de begin- en einddatums, bijvoorbeeld: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: Selecteer een datum die ten minste drie weken na de **begindatum**. De waarde moet **02-11-2016**. Als u Azure CLI 2.0 (az-opdracht), geeft u zowel de datum en tijd in de begin- en einddatums, bijvoorbeeld: 11-02-2016T00:00:00Z.
+    d. **`<Permission End Date>`**: Selecteer een datum die ten minste drie weken na de **begindatum**. De waarde moet **02-11-2016**. Als u Azure CLI versie 2.0 of hoger gebruikt, geeft u zowel de datum en tijd in de begin- en einddatums, bijvoorbeeld: 11-02-2016T00:00:00Z.
 
     Hieronder volgt de voorbeeldcode na het bijwerken van de juiste parameters
 
@@ -520,7 +522,7 @@ Nadat u uw aanbieding en SKU hebt gemaakt, moet u de details van de afbeelding d
 |Fout bij het kopiëren van afbeeldingen: "sp = rl" niet in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven|De SAS-Url met de machtigingen die zijn ingesteld als "Lezen" en "lijst bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Fout bij het kopiëren van afbeeldingen - SAS-url hebt spaties in vhd-naam|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url zonder spaties bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Fout bij het kopiëren van afbeeldingen: fout van de SAS-Url-autorisatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege Autorisatiefout downloaden|De SAS-Url opnieuw genereren|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van installatiekopieën – SAS-Url "st" en "se" parameters nog geen datum / tijd-specificatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege onjuiste SAS-Url voor downloaden |SAS-Url Start- en einddatum parameters ("st", 'se') zijn vereist om volledige datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk aan het optreden van dit scenario met behulp van Azure CLI 2.0 (az-opdracht). Zorg dat de volledige datum / tijd-specificatie en opnieuw genereren van de SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van installatiekopieën – SAS-Url "st" en "se" parameters nog geen datum / tijd-specificatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege onjuiste SAS-Url voor downloaden |SAS-Url Start- en einddatum parameters ("st", 'se') zijn vereist om volledige datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk aan het optreden van dit scenario met behulp van Azure CLI versie 2.0 of hoger. Zorg dat de volledige datum / tijd-specificatie en opnieuw genereren van de SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Volgende stap
 Als u klaar bent met de SKU-details, kunt u verder gaan naar de [Azure Marketplace-handleiding voor marketing content][link-pushstaging]. In deze stap van het publicatieproces, bieden u de marketinginhoud, prijzen en andere informatie die nodig is voor **stap 3: uw virtuele machine testen aanbieden in fasering**, waarin u verschillende use-casescenario's testen voordat u implementeert de aanbieding voor Azure Marketplace voor openbare zichtbaarheid en inkoop.  

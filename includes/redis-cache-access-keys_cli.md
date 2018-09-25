@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 0289604cce7f956406d65743d5b058ec92111724
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0ae24deca1cce14a475c59046be71b3b17ca5505
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957682"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Hostnaam, poorten en toegangssleutels ophalen via Azure CLI
-Als u de hostnaam en poorten met Azure CLI 2.0 wilt ophalen, kunt u [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) oproepen. Als u de sleutels wilt ophalen, kunt u [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) oproepen. Het volgende script roept deze twee opdrachten aan en echoot de hostnaam, poorten en sleutels naar de console.
+
+Om op te halen van de hostnaam en poorten met de Azure CLI kunt u bellen [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show), en op te halen van de sleutels die u kunt aanroepen [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). Het volgende script roept deze twee opdrachten aan en echoot de hostnaam, poorten en sleutels naar de console.
 
 ```azurecli
 #/bin/bash
@@ -38,4 +39,4 @@ echo "Primary Key:" ${keys[0]}
 echo "Secondary Key:" ${keys[1]}
 ```
 
-Zie [Get the hostname, ports, and keys for Azure Redis Cache](../articles/redis-cache/scripts/cache-keys-ports.md) (De hostnaam, poorten en sleutels voor Azure Redis Cache ophalen) voor meer informatie over dit script. Zie [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Azure CLI 2.0 installeren) en [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) (Aan de slag met Azure CLI 2.0) voor meer informatie over Azure CLI 2.0.
+Zie [Get the hostname, ports, and keys for Azure Redis Cache](../articles/redis-cache/scripts/cache-keys-ports.md) (De hostnaam, poorten en sleutels voor Azure Redis Cache ophalen) voor meer informatie over dit script. Zie voor meer informatie over Azure-CLI [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) en [aan de slag met Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

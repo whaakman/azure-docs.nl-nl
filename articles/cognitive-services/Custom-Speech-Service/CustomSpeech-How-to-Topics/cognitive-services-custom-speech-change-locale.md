@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde landinstellingen en talen in aangepaste spraak-Service op Azure | Microsoft Docs
-description: Overzicht van ondersteunde talen van aangepaste spraak Service in cognitieve Services.
+title: Ondersteunde landinstellingen en talen in de Custom Speech Service op Azure | Microsoft Docs
+description: Overzicht van ondersteunde talen van Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,26 +9,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: c378fd951f9cd04884f44fbec5accb5d9a886bfe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344415"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987523"
 ---
-# <a name="supported-locales-in-custom-speech-service"></a>Ondersteunde landinstellingen in aangepaste spraak Service
-De aangepaste spraak-Service ondersteunt momenteel aanpassing van modellen in de volgende landinstellingen:
+# <a name="supported-locales-in-custom-speech-service"></a>Ondersteunde landinstellingen in de Custom Speech Service
+De Custom Speech Service ondersteunt momenteel aanpassing van modellen in de volgende landinstellingen:
 
 | Modeltype | Taalondersteuning |
 |----|-----|
-| Akoestisch modellen | Amerikaans-Engels (en-US) |
-| Taal modellen | Amerikaans-Engels (en-US), Chinees (zh-CN) |
+| Akoestische modellen | Amerikaans-Engels (en-US) |
+| Taalmodellen | Amerikaans-Engels (en-US), Chinees (zh-CN) |
 
-Hoewel akoestisch Model aanpassing wordt alleen ondersteund in Amerikaans Engels, wordt Chinees akoestisch gegevens importeren voor de doeleinden van offline testen van aangepaste modellen voor Chinees taal ondersteund.
+Hoewel aanpassingen akoestisch Model wordt alleen ondersteund in Amerikaans Engels, wordt Chinees om akoestische gegevens importeren ondersteund voor het uitvoeren van de offline testen van aangepaste Taalmodellen Chinees.
 
-De juiste landinstellingen moet worden geselecteerd voordat verholpen. De huidige landinstelling wordt aangegeven in de titel van de tabel op alle gegevens, model en pagina's voor implementatie. De landinstellingen, klikt u op de knop 'Wijzigen landinstelling' onder de titel van de tabel. Dit gaat u naar een bevestigingspagina landinstelling. Klik op 'OK' om terug te keren naar de tabel.
+De juiste landinstelling moet worden geselecteerd voordat er actie wordt ondernomen. De huidige landinstelling wordt aangegeven in de tabeltitel op alle gegevens-, model- en implementatiepagina's. De landinstellingen, klikt u op de knop 'Landinstellingen wijzigen' onder de titel van de tabel. Dit gaat u naar een bevestigingspagina landinstelling. Klik op ‘OK’ om terug te keren naar de tabel.
 
 U moet volgen met de volgende stappen
-* Meer informatie over [het maken van een aangepaste akoestisch model](cognitive-services-custom-speech-create-acoustic-model.md) voor het verbeteren van de nauwkeurigheid van de
-* Meer informatie over [het maken van een aangepaste taalmodel](cognitive-services-custom-speech-create-language-model.md) voor het verbeteren van de snelheid waarmee u erkenning
-* Ga als volgt de [schrijffouten richtlijnen](cognitive-services-custom-speech-transcription-guidelines.md) voor het voorbereiden van uw gegevens
+* Informatie over [over het maken van een aangepast akoestisch model](cognitive-services-custom-speech-create-acoustic-model.md) voor het verbeteren van de nauwkeurigheid van de
+* Informatie over [over het maken van een aangepast taalmodel](cognitive-services-custom-speech-create-language-model.md) voor het verbeteren van de snelheid van de spraakherkenning
+* Ga als volgt de [transcriptie richtlijnen](cognitive-services-custom-speech-transcription-guidelines.md) voor het voorbereiden van uw gegevens

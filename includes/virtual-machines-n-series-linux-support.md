@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935750"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042874"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Ondersteunde distributies en stuurprogramma 's
 
@@ -26,11 +26,11 @@ NVIDIA CUDA-stuurprogramma's voor NC, NCv2, NCv3 en ND-serie VM's (optioneel voo
 
 | Distributie | Stuurprogramma |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 of 7.4<br/><br/> 7.4 HPC op basis van centOS 7.3 of 7,4, op basis van CentOS | NVIDIA CUDA 9.1, stuurprogramma-vertakking R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 of 7.4<br/><br/> 7.4 HPC op basis van centOS 7.3 of 7,4, op basis van CentOS | NVIDIA CUDA 10.0, stuurprogramma-vertakking R410 |
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID-stuurprogramma 's
 
-Microsoft herdistribueert u installatieprogramma's van NVIDIA GRID-stuurprogramma voor NV-serie VM's gebruikt als virtuele werkstations of voor virtuele toepassingen. Alleen deze GRID-stuurprogramma's installeren op Azure NV Virtual machines, alleen op de distributies die worden vermeld in de volgende tabel. Deze stuurprogramma's bevatten de licentieverlening voor GRID virtuele GPU-Software in Azure.
+Microsoft herdistribueert u installatieprogramma's van NVIDIA GRID-stuurprogramma voor NV en NVv2-serie VM's gebruikt als virtuele werkstations of voor virtuele toepassingen. Alleen deze GRID-stuurprogramma's installeren op Azure NV Virtual machines, alleen op de distributies die worden vermeld in de volgende tabel. Deze stuurprogramma's bevatten de licentieverlening voor GRID virtuele GPU-Software in Azure.
 
 | Distributie | Stuurprogramma |
 | --- | -- |

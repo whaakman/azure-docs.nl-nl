@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b86749f8a2e68dd5bae11ae440db4d6524e3a91
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 63a7602deee402bed056937c8465fd87c8256cd8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713762"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962842"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snelle stappen: maken en gebruiken van een openbare en persoonlijke SSH-sleutelpaar voor virtuele Linux-machines in Azure
 
@@ -45,7 +45,7 @@ De volgende opdracht maakt u een SSH-sleutelpaar, met behulp van RSA-versleuteli
 ssh-keygen -t rsa -b 2048
 ```
 
-Als u de [Azure CLI 2.0](/cli/azure) te maken van uw virtuele machine met de [az vm maken](/cli/azure/vm#az-vm-create) opdracht, u kunt eventueel genereren met SSH openbare en persoonlijke sleutelbestanden met behulp van de `--generate-ssh-keys` optie. De belangrijkste bestanden worden opgeslagen in de map ~/.ssh, tenzij anders aangegeven met de `--ssh-dest-key-path` optie. De `--generate-ssh-keys` optie overschrijft geen bestaande sleutelbestanden, in plaats daarvan een fout geretourneerd. In de volgende opdracht, vervangt u *VMname* en *RGname* door uw eigen waarden:
+Als u de [Azure CLI](/cli/azure) te maken van uw virtuele machine met de [az vm maken](/cli/azure/vm#az-vm-create) opdracht, u kunt eventueel genereren met SSH openbare en persoonlijke sleutelbestanden met behulp van de `--generate-ssh-keys` optie. De belangrijkste bestanden worden opgeslagen in de map ~/.ssh, tenzij anders aangegeven met de `--ssh-dest-key-path` optie. De `--generate-ssh-keys` optie overschrijft geen bestaande sleutelbestanden, in plaats daarvan een fout geretourneerd. In de volgende opdracht, vervangt u *VMname* en *RGname* door uw eigen waarden:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --generate-ssh-keys 

@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504512"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989665"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Systeemeigen client-apps om te communiceren met de proxy-toepassingen inschakelen
 
@@ -30,7 +30,7 @@ Application Proxy biedt ondersteuning voor systeemeigen client-apps door waarin 
 
 ![Relatie tussen de eindgebruikers, Azure Active Directory en gepubliceerde toepassingen](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Gebruik Azure AD Authentication Library, die zorgt voor verificatie en biedt ondersteuning voor omgevingen met veel client, systeemeigen toepassingen te publiceren. Toepassingsproxy past de [systeemeigen toepassing voor de Web-API-scenario](../develop/authentication-scenarios.md#native-application-to-web-api). 
+Gebruik Azure AD Authentication Library, die zorgt voor verificatie en biedt ondersteuning voor omgevingen met veel client, systeemeigen toepassingen te publiceren. Toepassingsproxy past de [systeemeigen toepassing voor de Web-API-scenario](../develop/native-app.md). 
 
 In dit artikel begeleidt u bij de vier stappen voor het publiceren van een systeemeigen toepassing met Application Proxy en de Azure AD-Verificatiebibliotheek. 
 
@@ -96,6 +96,6 @@ Zodra de ADAL wordt bewerkt met deze parameters, moeten uw gebruikers kunnen ver
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de stroom van de systeemeigen toepassing [systeemeigen toepassing voor de web-API](../develop/authentication-scenarios.md#native-application-to-web-api)
+Zie voor meer informatie over de stroom van de systeemeigen toepassing [systeemeigen toepassing voor de web-API](../develop/native-app.md)
 
 Meer informatie over het instellen van [eenmalige aanmelding voor de toepassingsproxy](application-proxy-single-sign-on.md)

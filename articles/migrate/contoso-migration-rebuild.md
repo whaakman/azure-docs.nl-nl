@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 58ea0859af42f7614e69d1693bbd9f8e3a17ccb8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300542"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042479"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: opnieuw opbouwen van een on-premises app naar Azure
 
@@ -55,7 +55,7 @@ Het Contoso-cloud-team heeft vastgemaakt omlaag app-vereisten voor de migratie. 
  - De app al dan niet mogen IaaS-componenten gebruiken. Alles wat moet worden gemaakt voor het gebruik van PaaS of serverloze services.
  - De app-builds moeten worden uitgevoerd in de cloudservices en containers moeten zich bevinden in een persoonlijke bedrijfsbrede containerregister in de cloud.
  - De API-service die wordt gebruikt voor huisdier foto's moet nauwkeurige en betrouwbare in de praktijk omdat beslissingen door de app moeten worden uitgevoerd in hun hotels. Alle huisdier verleende toegang te blijven op de hotels is toegestaan.
- - Om te voldoen aan vereisten voor een DevOps-pijplijn, maakt Contoso gebruik van Visual Studio Team Services (VSTS) voor Source Code Management (SCM), met Git-opslagplaatsen.  Geautomatiseerde builds en releases wordt gebruikt om code te bouwen en deze implementeren in de Azure-Web-Apps, Azure Functions en AKS.
+ - Om te voldoen aan vereisten voor een DevOps-pijplijn, maakt Contoso gebruik van Azure DevOps voor Source Code Management (SCM), met Git-opslagplaatsen.  Geautomatiseerde builds en releases wordt gebruikt om code te bouwen en deze implementeren in de Azure-Web-Apps, Azure Functions en AKS.
  - Andere CI/CD-pijplijnen zijn nodig voor microservices in de back-end, en voor de website op de front-end.
  - De back endservices hebben een verschillende versie van de front-end web-app-cyclus.  Om te voldoen aan deze vereiste, zullen ze twee verschillende DevOps-pijplijnen te implementeren.
  - Contoso management goedkeuring nodig is voor alle website-front-end-implementatie en het CI/CD-pijplijn moet dit opgeven.
@@ -81,7 +81,7 @@ Na het vastmaken omlaag doelstellingen en vereisten, Contoso ontwerpen van een i
 - De functie huisdier foto maakt gebruik van Cognitive Services-Vision-API en cosmos DB.
 - De back-end van de site is gebouwd met behulp van microservices. Deze wordt geïmplementeerd op containers die worden beheerd in de Azure Kubernetes service (AKS).
 - Containers worden gebouwd met behulp van Azure DevOps, en gepusht naar Azure Container Registry (ACR).
-- Op dit moment wordt de Web-app en functie-code met Visual Studio handmatig implementeren door Contoso.
+- Voorlopig gaat Contoso handmatig de Web-app en functie-code met Visual Studio implementeren
 - Microservices worden geïmplementeerd met behulp van een PowerShell-script waarmee Kubernetes opdrachtregelprogramma's wordt aangeroepen.
 
     ![Scenario-architectuur](./media/contoso-migration-rebuild/architecture.png) 
@@ -117,7 +117,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Slaat de installatiekopieën voor alle typen containerimplementaties. | De kosten op basis van functies, opslag en duur van gebruik. [Meer informatie](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure App Service](https://azure.microsoft.com/services/app-service/containers/) | Bouw, implementeer en schaal geavanceerde web-apps, mobiele apps en API-apps die op elk platform kunnen worden uitgevoerd. | Voor App Service-abonnementen worden de kosten per seconde in rekening gebracht. [Meer informatie](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Dit is wat Contoso nodig heeft voor dit scenario:
 
@@ -150,7 +150,7 @@ Beheerders van Contoso implementatie een script voor het maken van de beheerde K
 - De instructies voor deze sectie de **SmartHotel360-Azure-back-end** opslagplaats.
 - De **SmartHotel360-Azure-back-end** GitHub-opslagplaats bevat alle van de software voor dit onderdeel van de implementatie.
 
-### <a name="prerequisites"></a>Vereiste onderdelen
+### <a name="prerequisites"></a>Vereisten
 
 1. Voordat ze, Contoso-beheerders ervoor te zorgen dat alle prerequisitie software geïnstalleerd op de dev-machine dat wordt gebruikt voor de implementatie.
 2. Ze kloon de opslagplaats die lokaal op de dev-machine met behulp van Git: **git-kloon https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
@@ -224,15 +224,15 @@ Contoso een Azure DevOps-project maakt en configureert u een CI-bouwen voor het 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. Ze importeren de GitHub-opslagplaats.
+3. Ze importeren de [GitHub-opslagplaats](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. In **Build and Release**, ze een nieuwe pijplijn maken met Azure-opslagplaatsen Git als een bron, vanuit de geïmporteerde **smarthotel** opslagplaats. 
+4. In **pijplijnen**, klikt de gebruiker op **bouwen**, en maakt u een nieuwe pijplijn met behulp van Azure-opslagplaatsen Git als een bron, vanuit de opslagplaats. 
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
-6. Ze selecteren om te beginnen met een lege pijplijn.
+6. Ze selecteren om te beginnen met een leeg project.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
@@ -252,7 +252,7 @@ Contoso een Azure DevOps-project maakt en configureert u een CI-bouwen voor het 
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. Deze geeft u het pad van de **borderel compose.yaml** bestand, in de **src** map van de opslagplaats. Ze selecteren voor het bouwen van installatiekopieën van de service en de meest recente code bevatten. Wanneer de actie is gewijzigd in **maken van installatiekopieën van de service**, de naam van het Azure DevOps-taak wordt gewijzigd in **automatisch met het bouwen van services**
+9. Deze geeft u het pad van de **docker-compose.yaml** bestand, in de **src** map van de opslagplaats. Ze selecteren op het maken van installatiekopieën van de service en de meest recente code opnemen. Wanneer de actie is gewijzigd in **maken van installatiekopieën van de service**, de naam van het Azure DevOps-taak wordt gewijzigd in **automatisch met het bouwen van services**
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
@@ -303,7 +303,7 @@ Nu, Contoso-beheerders het volgende doen:
 
 - Implementeer de NGINX-ingangscontroller om toe te staan van inkomend verkeer naar de services.
 - Implementeert de microservices naar het AKS-cluster.
-- Als eerste stap bijwerken ze de verbindingstekenreeksen naar de microservices met VSTS. Ze configureert u een nieuwe VSTS Release-pijplijn voor het implementeren van de microservices.
+- Als eerste stap bijwerken ze de verbindingstekenreeksen naar de microservices met behulp van Azure DevOps. Ze configureert u een nieuwe versie van Azure DevOps-pijplijn voor het implementeren van de microservices.
 - De instructies in deze sectie de [SmartHotel360-Azure-back-end](https://github.com/Microsoft/SmartHotel360-Azure-backend) opslagplaats.
 - Houd er rekening mee dat sommige van de configuratie-instellingen (bijvoorbeeld Active Directory B2C) worden niet behandeld in dit artikel. Lees meer informatie over deze instellingen in de opslagplaats.
 
@@ -313,17 +313,14 @@ Ze maken de pijplijn:
 
     ![DB-verbindingen](./media/contoso-migration-rebuild/back-pipe1.png)
 
-2. Deze VSTS opent, en in de SmartHotel360-project in **Releases**, klikt de gebruiker op **+ nieuwe pijplijn**.
+2. Deze Azure DevOps opent, en in de SmartHotel360-project in **Releases**, klikt de gebruiker op **+ nieuwe pijplijn**.
 
     ![Nieuwe pijplijn](./media/contoso-migration-rebuild/back-pipe2.png)
 
 3. Ze klikt u op **leeg taak** starten van de pijplijn zonder een sjabloon.
+4. Ze bieden de namen van de fase en de pijplijn.
 
-    ![Lege taak](./media/contoso-migration-rebuild/back-pipe3.png)
-
-4. Beschikt over de namen van de omgeving en de pijplijn.
-
-      ![Omgevingsnaam](./media/contoso-migration-rebuild/back-pipe4.png)
+      ![Fasenaam](./media/contoso-migration-rebuild/back-pipe4.png)
 
       ![Naam pijplijn](./media/contoso-migration-rebuild/back-pipe5.png)
 
@@ -339,7 +336,7 @@ Ze maken de pijplijn:
 
     ![Taakkoppeling](./media/contoso-migration-rebuild/back-pipe8.png)
 
-8. Ze toevoegen een nieuwe Auzre PowerShell-taak zodat ze een PowerShell-script in een Azure-omgeving uitvoeren kunnen.
+8. Ze toevoegen een nieuwe Azure PowerShell-taak zodat ze een PowerShell-script in een Azure-omgeving uitvoeren kunnen.
 
     ![PowerShell in Azure](./media/contoso-migration-rebuild/back-pipe9.png)
 
@@ -455,7 +452,7 @@ Beheerders van Contoso inrichten in Azure portal, de functie-App.
 
 2. Ze bieden een app-naam (**smarthotelpetchecker**). Ze de app plaatsen in de resourcegroep van de productie **ContosoRG**. Ze de hosting plaats ingesteld op **Verbruiksabonnement**, en plaatst u de app in de regio VS-Oost 2. Een nieuw opslagaccount is gemaakt, samen met een exemplaar van de Application Insights voor bewaking.
 
-    ![Instellingen voor functie-apps](./media/contoso-migration-rebuild/function-app2.png)
+    ![Instellingen voor functie-app](./media/contoso-migration-rebuild/function-app2.png)
 
 
 3. Nadat de app is geïmplementeerd, worden ze, blader naar het adres van de app om te controleren of dat deze correct is gemaakt.
@@ -465,18 +462,18 @@ Beheerders van Contoso inrichten in Azure portal, de functie-App.
 
 Contoso-beheerders maken twee verschillende projecten voor de front-end-site. 
 
-1. In VSTS, maken ze een project **SmartHotelFrontend**.
+1. In Azure DevOps, maken ze een project **SmartHotelFrontend**.
 
     ![Front-end-project](./media/contoso-migration-rebuild/function-app1.png)
 
 2. Ze importeren de [SmartHotel360 front-end](https://github.com/Microsoft/SmartHotel360-public-web.git) Git-opslagplaats naar het nieuwe project.
-3. Voor de functie-App maken van een ander VSTS-project (SmartHotelPetChecker) en importeer het [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git-opslagplaats in dit project.
+3. Voor de functie-App maken van een andere Azure DevOps-project (SmartHotelPetChecker) en importeer het [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git-opslagplaats in dit project.
 
 ### <a name="configure-the-web-app"></a>De Web-App configureren
 
 Nu configureren beheerders van Contoso de Web-App voor het gebruik van Contoso-resources.
 
-1. Ze verbinding maken met de VSTS-project en kloon de opslagplaats lokaal naar de dev-machine.
+1. Ze verbinding maken met het Azure DevOps-project en kloon de opslagplaats lokaal naar de dev-machine.
 2. Ze open de map om weer te geven van alle bestanden in de opslagplaats in Visual Studio.
 
     ![Bestanden van de opslagplaats](./media/contoso-migration-rebuild/configure-webapp1.png)
@@ -513,52 +510,45 @@ Nu configureren beheerders van Contoso de Web-App voor het gebruik van Contoso-r
 Contoso-beheerders kunnen nu de website publiceren.
 
 
-1. Ze VSTS, openen en klik in de **SmartHotelFrontend** project in **van Builds en Releases**, klikt de gebruiker op **+ nieuwe pijplijn**.
-2. Ze selecteren **VSTS Git** als een bron.
-
-    ![Nieuwe pijplijn](./media/contoso-migration-rebuild/vsts-publishfront1.png)
-
+1. Ze Azure DevOps, open en klik in de **SmartHotelFrontend** project in **van Builds en Releases**, klikt de gebruiker op **+ nieuwe pijplijn**.
+2. Ze selecteren **Azure DevOps Git** als een bron.
 3. Ze selecteert de **ASP.NET Core** sjabloon.
 4. Ze controleren van de pijplijn en controleer of **webprojecten publiceren** en **gepubliceerd projecten Zip** zijn geselecteerd.
 
     ![De instellingen voor pijplijn](./media/contoso-migration-rebuild/vsts-publishfront2.png)
 
-5. In **Triggers**, ze inschakelen van continue integratie en toevoegen van de master-vertakking. Dit zorgt ervoor dat elke tim de oplossing nieuwe code is doorgevoerd in de master-vertakking is, de build-pijplijn wordt gestart.
+5. In **Triggers**, ze inschakelen van continue integratie en toevoegen van de master-vertakking. Dit zorgt ervoor dat telkens wanneer die de oplossing nieuwe code is doorgevoerd in de master-vertakking is, de build-pijplijn wordt gestart.
 
     ![Continue integratie](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
 6. Ze klikt u op **opslaan en in de wachtrij** een build te starten.
 7. Nadat de build is voltooid, ze configureren van een release-pijplijn met de **Azure App Service-implementatie**.
-8. Ze bieden een omgevingsnaam **fasering**.
+8. Ze bieden een fasenaam **fasering**.
 
-    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront4.png)
+    ![Naam van de omgeving](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
 9. Ze een artefact toevoegen en selecteer de build die ze zojuist hebt geconfigureerd.
 
      ![Artefact toevoegen](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
-6. Ze klikt u op het bliksempictogram bolt op de artifcat en continue implementatie inschakelen.
+10. Ze klikt u op het bliksempictogram bolt op het artefact en continue implementatie inschakelen.
 
-    ![Continue implementatie](./media/contoso-migration-rebuild/vsts-publishfront6.png)
-
-7. In **omgeving**, klikt de gebruiker op **fase 1, 1 taak** onder **fasering**.
-8. Na het selecteren van het abonnement en de appnaam, die ze openen de **Azure App Service implementeren** taak. De implementatie is geconfigureerd voor het gebruik van de **staging** implementatiesite. U maakt automatisch code voor controle en goedkeuring in deze sleuf.
+    ![Doorlopende implementatie](./media/contoso-migration-rebuild/vsts-publishfront6.png)
+11. In **omgeving**, klikt de gebruiker op **1 taak, 1 taak** onder **fasering**.
+12. Na het selecteren van het abonnement en de appnaam, die ze openen de **Azure App Service implementeren** taak. De implementatie is geconfigureerd voor het gebruik van de **staging** implementatiesite. U maakt automatisch code voor controle en goedkeuring in deze sleuf.
 
      ![Sleuf](./media/contoso-migration-rebuild/vsts-publishfront7.png)
 
-9. In de **nieuwe release-pijplijn**, het toevoegen van een nieuwe omgeving.
+13. In de **pijplijn**, het toevoegen van een nieuwe fase.
 
     ![Nieuwe omgeving](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-10. Ze selecteren **Azure App Service-implementatie met de sleuf**, en de naam van de omgeving **Prod**.
+14. Ze selecteren **Azure App Service-implementatie met de sleuf**, en de naam van de omgeving **Prod**.
+15. Ze klikt u op **1 en 2 taken**, en selecteer het abonnement, de naam van app service, en de **staging** sleuf.
 
-    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront9.png)
+    ![Naam van de omgeving](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
-11. Ze klikt u op **fase 1, 2 taken**, en selecteer het abonnement, de naam van app service, en **staging** sleuf.
-
-    ![Omgevingsnaam](./media/contoso-migration-rebuild/vsts-publishfront10.png)
-
-12. Ze verwijderen de **Azure App Service implementeren in sleuf** vanuit de pipeline. Het is er tijdens de vorige stappen geplaatst.
+16. Ze verwijderen de **Azure App Service implementeren in sleuf** vanuit de pipeline. Het is er tijdens de vorige stappen geplaatst.
 
     ![Verwijderen uit de pijplijn](./media/contoso-migration-rebuild/vsts-publishfront11.png)
 
@@ -571,8 +561,8 @@ Contoso-beheerders kunnen nu de website publiceren.
     ![Na de implementatie goedkeuring](./media/contoso-migration-rebuild/vsts-publishfront13.png)
 
 15. In de Build-pijplijn, ze handmatig een vliegende start een build. Dit activeert de nieuwe release-pijplijn, die de site in de staging-site implementeert. Voor Contoso, de URL voor de sleuf is **https://smarthotelcontoso-staging.azurewebsites.net/**.
-16. Nadat de build is voltooid en de versie worden geïmplementeerd op de site, VSTS e-mailberichten de lead ontwikkelen voor goedkeuring.
-17. De lead dev klikken **weergeven goedkeuring**, en kunnen goedkeuren of afwijzen van de aanvraag in het VSTS-portal.
+16. Nadat de build is voltooid en de versie worden geïmplementeerd op de site, e-mails de lead ontwikkelen voor het goedkeuren van met Azure DevOps.
+17. De lead dev klikken **weergeven goedkeuring**, en kunnen goedkeuren of afwijzen van de aanvraag in de portal voor Azure DevOps.
 
     ![Goedkeuringse-mail](./media/contoso-migration-rebuild/vsts-publishfront14.png)
 
@@ -591,21 +581,21 @@ Contoso-beheerders kunnen nu de website publiceren.
 
 Beheerders van Contoso implementeren de app als volgt.
 
-1. Ze kloon de opslagplaats lokaal naar de dev-machine door verbinding te maken aan het VSTS-project.
+1. Ze kloon de opslagplaats lokaal naar de dev-machine door verbinding te maken met het Azure DevOps-project.
 2. Ze open de map om weer te geven van alle bestanden in de opslagplaats in Visual Studio.
 3. Ze opent de **src/PetCheckerFunction/local.settings.json** bestand en het toevoegen van de app-instellingen voor opslag, de Cosmos-database en de Computer Vision-API.
 
     ![De functie implementeren](./media/contoso-migration-rebuild/function5.png)
 
-4. Ze doorvoeren van de code en deze terug naar VSTS, pushen hun wijzigingen synchroniseren.
-5. Ze een nieuwe Build-pijplijn toevoegen en selecteer **VSTS Git** voor de bron.
+4. Ze doorvoeren van de code en deze synchroniseren met Azure DevOps, hun wijzigingen pushen terug.
+5. Ze een nieuwe Build-pijplijn toevoegen en selecteer **Azure DevOps Git** voor de bron.
 6. Ze selecteert de **ASP.NET Core (.NET Framework)** sjabloon.
 7. Ze accepteer de standaardwaarden voor de sjabloon.
 8. In **Triggers**, selecteert u vervolgens aan **inschakelen van continue integratie**, en klikt u op **opslaan en in de wachtrij** een build te starten.
 9. Nadat de build is voltooid, ze een Release-pijplijn bouwen toe te voegen de **Azure App Service-implementatie met de sleuf**.
-10. Naam van de omgeving **Prod**, en selecteer het abonnement. Ze stelt de **App-type** naar **functie Azië en Stille Oceaan**, en de naam van de app service als **smarthotelpetchecker**.
+10. Naam van de omgeving **Prod**, en selecteer het abonnement. Ze stelt de **App-type** naar **functie-App**, en de naam van de app service als **smarthotelpetchecker**.
 
-    ![Functie-app](./media/contoso-migration-rebuild/petchecker2.png)
+    ![Function App](./media/contoso-migration-rebuild/petchecker2.png)
 
 11. Het toevoegen van een artefact **bouwen**.
 

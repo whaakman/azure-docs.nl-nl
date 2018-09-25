@@ -1,78 +1,184 @@
 ---
-title: Overzicht van klassieke waarschuwingen in Microsoft Azure en Azure Monitor
-description: Waarschuwingen kunnen u metrische gegevens voor Azure-resources, gebeurtenissen en logboeken controleren en een melding wanneer een bepaalde voorwaarde wordt voldaan.
+title: Overzicht van waarschuwingen en meldingen bewaking in Azure
+description: Overzicht van waarschuwingen in Azure. Waarschuwingen, klassieke waarschuwingen, de interface van de waarschuwingen.
 author: rboucher
-services: azure-monitor
+services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: a0abcbdaa7e998413efb717be6e0addc5607ec5c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960631"
 ---
-# <a name="what-are-classic-alerts-in-microsoft-azure"></a>Wat zijn klassieke waarschuwingen in Microsoft Azure?
+# <a name="overview-of-alerts-in-microsoft-azure"></a>Overzicht van waarschuwingen in Microsoft Azure 
 
-> [!NOTE]
-> In dit artikel wordt beschreven hoe u oudere, klassieke metrische waarschuwingen maken. Azure Monitor nu ondersteunt [nieuwere, near-real time metrische waarschuwingen en een nieuwe ervaring voor waarschuwingen](monitoring-overview-unified-alerts.md). 
->
-
-Met behulp van waarschuwingen, voorwaarden kunt configureren voor gegevens en ontvang een melding als de voorwaarden die overeenkomen met de meest recente gegevens.
+Dit artikel wordt beschreven welke waarschuwingen zijn, hun voordelen, en hoe u aan de slag met behulp van deze.  
 
 
-## <a name="alerts-on-azure-monitor-data"></a>Waarschuwingen van Azure Monitor-gegevens
-Er zijn twee soorten klassieke waarschuwingen beschikbaar: metrische waarschuwingen en waarschuwingen voor activiteitenlogboeken.
+## <a name="what-are-alerts-in-microsoft-azure"></a>Wat zijn meldingen in Microsoft Azure?
+Waarschuwingen waarschuwen u proactief te wanneer belangrijke voorwaarden vindt u in uw bewakingsgegevens. Hiermee kunt u identificeren en oplossen van problemen voordat de gebruikers van uw systeem ziet u deze. 
 
-* **Klassieke metrische waarschuwingen**: deze waarschuwing wordt geactiveerd wanneer de waarde van een opgegeven metrische gegevens van een drempel die u toewijst overschrijden. De waarschuwing genereert een melding wanneer de it de 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan). Het genereert een waarschuwing ook wanneer deze "opgelost wordt" (als de drempelwaarde wordt overschreden, opnieuw en niet meer aan de voorwaarde wordt voldaan). 
+Dit artikel worden de waarschuwingen uniforme in Azure Monitor, nu met Log Analytics en Application Insights. De [waarschuwing ervaring](monitoring-overview-alerts.md)Waarschuwingstypen worden genoemd **klassieke waarschuwingen**. U kunt deze oudere werkwijze en oudere Waarschuwingstype weergeven door te klikken op **klassieke waarschuwingen weergeven** aan de bovenkant van de pagina van de waarschuwing. 
 
-* **Waarschuwingen voor klassieke activiteitenlogboeken**: deze waarschuwing voor streaming wordt geactiveerd wanneer het activiteitenlogboek wordt gegenereerd dat overeenkomt met de criteria die u hebt toegewezen filteren. Deze waarschuwingen hebben slechts één status, 'geactiveerd', omdat de waarschuwings-engine de filtercriteria wordt gewoon van toepassing op een nieuwe gebeurtenis. Deze waarschuwingen kunnen u gewaarschuwd wanneer er een nieuw Health Service-incident plaatsvindt of wanneer een gebruiker of toepassing een bewerking uitvoert in uw abonnement, zoals ' virtuele machine verwijderen."
 
-Voor het ontvangen van diagnostische logboekgegevens beschikbaar die is beschikbaar via Azure Monitor, de gegevens in Log Analytics (voorheen Operations Management Suite) route en gebruik van de waarschuwing voor een Log Analytics-query. Meld u nu maakt gebruik van Analytics de [nieuwe waarschuwingen methode](monitoring-overview-unified-alerts.md). 
+## <a name="overview"></a>Overzicht
 
-Het volgende diagram geeft een overzicht van bronnen van de gegevens in Azure Monitor en stelt hoe u kunt waarschuwingen uit deze gegevens.
+In het onderstaande diagram geeft de algemene voorwaarden en de stroom van waarschuwingen. 
 
-![Waarschuwingen uitgelegd](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
+![De Waarschuwingsstroom](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
-## <a name="taxonomy-of-azure-monitor-alerts-classic"></a>Taxonomie van Azure Monitor-waarschuwingen (klassiek)
-Azure maakt gebruik van de volgende termen om te beschrijven van klassieke waarschuwingen en de bijbehorende functies:
-* **Waarschuwing**: de definitie van de criteria (een of meer regels of voorwaarden) die wordt geactiveerd wanneer voldaan.
-* **Actieve**: de status die wordt uitgevoerd wanneer de criteria die is gedefinieerd in een klassieke waarschuwing wordt voldaan.
-* **Opgelost**: de status die wordt uitgevoerd wanneer de criteria die is gedefinieerd in een klassieke waarschuwing niet meer na het eerder zijn voldaan wordt voldaan.
-* **Melding**: de actie die moet worden uitgevoerd op basis van wanneer een klassieke waarschuwing geactiveerd wordt.
-* **Actie**: de specifieke aanroep die wordt verzonden naar de ontvanger van een melding (bijvoorbeeld een e-mailbericht of een bericht naar een webhook-URL). Meldingen kunnen meestal meerdere acties activeren.
+Regels voor waarschuwingen worden gescheiden van waarschuwingen en de actie die moet worden uitgevoerd wanneer een waarschuwing wordt geactiveerd. 
 
-## <a name="how-do-i-receive-notifications-from-an-azure-monitor-classic-alert"></a>Hoe ontvang ik meldingen vanuit een klassieke waarschuwing voor Azure Monitor?
-Waarschuwingen van andere services van Azure gebruikt in het verleden, hun eigen methoden voor ingebouwde meldingen. 
+- **Waarschuwingsregel** -de waarschuwing regel bevat het doel en de criteria voor waarschuwingen. De waarschuwingsregel kan zich in een ingeschakeld of uitgeschakeld. Waarschuwingen alleen wordt geactiveerd wanneer dit is ingeschakeld. De belangrijkste kenmerken van een waarschuwingsregels zijn:
+    - **Doelresource** -doel mag een Azure-resource. Doelresource definieert het bereik en de signalen die beschikbaar zijn voor waarschuwingen. Voorbeeld van doelen: een virtuele machine, een storage-account, een virtuele-machineschaalset, een Log Analytics-werkruimte of een Application Insights-resource. Voor bepaalde resources (bijvoorbeeld virtuele Machines), u kunt meerdere resources opgeven als het doel van een waarschuwingsregel.
+    - **Signaal** - worden gegenereerd door de doelresource-signalen en van verschillende typen kunnen zijn. Metrische gegevens, activiteit logboek, Application Insights en Log.
+    - **Criteria** - Criteria is een combinatie van signaal en logica toegepast op een doelbron. Voorbeelden: 
+         - Percentage CPU > 70%
+         - Serverreactietijd > 4 ms 
+         - Resultaattelling van een logboek query > 100
+- **Naam melding** – een specifieke naam voor de waarschuwingsregel die door de gebruiker
+- **Beschrijving van waarschuwing** – een beschrijving op voor de waarschuwingsregel die door de gebruiker
+- **Ernst** : de ernst van de waarschuwing als de criteria die zijn opgegeven in de waarschuwingsregel wordt voldaan. Ernst kan variëren van 0 tot en met 4.
+- **Actie** - een specifieke actie wordt ondernomen wanneer de waarschuwing wordt geactiveerd. Zie voor meer informatie, Actiegroepen.
 
-Nu Azure Monitor biedt herbruikbare melding groepering met de naam *actiegroepen*. Actiegroepen opgeven een set van ontvangers voor een melding. Wanneer een waarschuwing is geactiveerd die verwijst naar de actiegroep, ontvangen alle ontvangers waarmee de melding. Deze functionaliteit kunt u een groepering van ontvangers (bijvoorbeeld in de lijst op de aanroep engineer) gebruiken voor veel waarschuwingen objecten. Actiegroepen ondersteuning voor melding via verschillende methoden. Deze methoden kunnen plaatsen in een webhook-URL, verzenden van e-mailberichten, SMS-berichten en een aantal andere acties opnemen. Zie voor meer informatie, [maken en beheren van actiegroepen in Azure portal](monitoring-action-groups.md). 
+## <a name="what-you-can-alert-on"></a>Wat u kunt waarschuwingen op
 
-Oudere klassieke activiteitenlogboekalarmen actiegroepen gebruiken.
+U kunt waarschuwing bij Logboeken en metrische gegevens, zoals beschreven in [bewaking gegevensbronnen](monitoring-data-sources.md). Deze omvatten, maar zijn niet beperkt tot:
+- Metrische waarden
+- Meld u zoekquery 's
+- Gebeurtenissen in het activiteitenlogboek
+- Status van de onderliggende Azure-platform
+- Tests voor de website van beschikbaarheid
 
-Echter niet de oudere metrische waarschuwingen actiegroepen gebruiken. In plaats daarvan kunt u de volgende acties: 
-* E-mailmeldingen verzenden naar de service-beheerder, CO-beheerders, of naar extra e-mailadressen die u opgeeft.
-* Een webhook, waarmee u start automation extra acties kunt aanroepen.
 
-Webhooks inschakelen automatisering en herstel, bijvoorbeeld met behulp van de volgende services:
-- Azure Automation Runbook
-- Azure Functions
-- Logische App van Azure
-- Een service van derden
+
+## <a name="manage-alerts"></a>Waarschuwingen beheren
+U kunt de status van een waarschuwing om op te geven waar deze zich in het proces van het probleem zou moeten instellen. Als de criteria die zijn opgegeven in de waarschuwingsregel wordt voldaan, een waarschuwing wordt gemaakt of geactiveerd, heeft de status van *nieuw*. U kunt de status wijzigen wanneer u erkent dat een waarschuwing en wanneer u deze sluiten. Alle wijzigingen worden opgeslagen in de geschiedenis van de waarschuwing.
+
+De volgende statussen worden ondersteund.
+
+| Status | Beschrijving |
+|:---|:---|
+| Nieuw | Het probleem alleen is gedetecteerd en nog niet zijn beoordeeld. |
+| Bevestigd | Een beheerder heeft gecontroleerd van de waarschuwing en werken op deze gestart. |
+| Gesloten | Het probleem is opgelost. Nadat een waarschuwing is gesloten, kunt u deze opnieuw openen door deze te wijzigen naar een andere status. |
+
+De status van een waarschuwing is anders dan de bewakingsvoorwaarde. Waarschuwing status wordt ingesteld door de gebruiker en onafhankelijk van de bewakingsvoorwaarde is. Wanneer de onderliggende voorwaarde voor de geactiveerde waarschuwing wordt gewist, is de voorwaarde van de monitor voor de waarschuwing ingesteld op opgelost. Hoewel het systeem kan de bewakingsvoorwaarde opgelost, toestand van de melding niet worden gewijzigd totdat de gebruiker deze wijzigt. Informatie over [het wijzigen van de status van uw waarschuwingen en slimme groepen](https://aka.ms/managing-alert-smart-group-states).
+
+## <a name="smart-groups"></a>Slimme groepen 
+Slimme groepen zijn beschikbaar als preview. 
+
+Slimme groepen worden aggregaties van waarschuwingen op basis van machine learning-algoritmen die kunnen helpen waarschuwingsruis te verminderen en hulpmiddel bij probleemoplossing. [Meer informatie over slimme groepen](https://aka.ms/smart-groups) en [over het beheren van uw slimme groepen](https://aka.ms/managing-smart-groups).
+
+
+## <a name="alerts-experience"></a>Ervaring voor waarschuwingen 
+De standaardpagina van de waarschuwingen bevat een samenvatting van waarschuwingen die zijn gemaakt binnen een bepaalde periode. Het totaal aantal waarschuwingen voor alle incidenten met ernst met kolommen die de id van het totale aantal waarschuwingen in elke status voor alle incidenten met ernst wordt weergegeven. Selecteer een van de ernstcategorieën openen de [alle waarschuwingen](#all-alerts-page) pagina gefilterd op basis van die ernst.
+
+Het niet weergeven of oudere bijhouden [klassieke waarschuwingen](#classic-alerts). U kunt abonnementen wijzigen of filteren van parameters voor het bijwerken van de pagina. 
+
+![Pagina met waarschuwingen](media/monitoring-overview-alerts/alerts-page.png)
+
+U kunt deze weergave filteren op waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
+
+| Kolom | Beschrijving |
+|:---|:---|
+| Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
+| Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
+| Tijdsbereik | Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. |
+
+Selecteer de volgende waarden aan de bovenkant van de pagina met waarschuwingen om een andere pagina te openen.
+
+| Waarde | Beschrijving |
+|:---|:---|
+| Totaal aantal waarschuwingen | Het totale aantal waarschuwingen dat voldoet aan de geselecteerde criteria. Selecteer deze waarde in de weergave alle waarschuwingen openen met geen filter. |
+| Slimme groepen | Het totale aantal slimme groepen die zijn gemaakt op basis van de waarschuwingen die overeenkomen met de geselecteerde criteria. Selecteer deze waarde aan de groepslijst met slimme openen in de weergave alle waarschuwingen.
+| Totaal aantal waarschuwingsregels | Het totale aantal regels voor waarschuwingen in het geselecteerde abonnement en resourcegroep. Selecteer deze waarde om de weergave van de regels gefilterd op het geselecteerde abonnement en resourcegroep te openen.
+
+
+## <a name="manage-alert-rules"></a>Waarschuwingsregels beheren
+Klik op **Waarschuwingsregels beheren** om weer te geven de **regels** pagina. **Regels** is één plek voor het beheren van alle regels voor waarschuwingen voor uw Azure-abonnementen. Het geeft een lijst van alle regels voor waarschuwingen en kan worden gesorteerd op basis van de doelresources, resourcegroepen, regelnaam of status. Regels voor waarschuwingen kunnen ook worden bewerkt, ingeschakeld of uitgeschakeld op deze pagina.  
+
+ ![waarschuwingen-regels](./media/monitoring-overview-alerts/alerts-preview-rules.png)
+
+
+## <a name="create-an-alert-rule"></a>Een waarschuwingsregel maken
+Waarschuwingen kunnen worden geschreven in een consistente manier, ongeacht de bewakingsservice of type signaal. Alle waarschuwingen geactiveerd en gerelateerde details zijn beschikbaar in één pagina.
+ 
+U kunt een nieuwe waarschuwingsregel maken met de volgende drie stappen:
+1. Kies de _doel_ voor de waarschuwing.
+1. Selecteer de _signaal_ uit de beschikbare signalen voor het doel.
+1. Geef de _logische_ moet worden toegepast op gegevens uit het signaal.
+ 
+Deze vereenvoudigde ontwerpproces moet langer u weten wat de bron controleren of vergelijken met seintjes die worden ondersteund voor het selecteren van een Azure-resource. De lijst met beschikbare signalen is automatisch gefilterd op basis van de doelresource die u hebt geselecteerd en die u begeleidt bij het definiëren van de logica van de waarschuwingsregel.
+
+U kunt meer informatie over het maken van regels voor waarschuwingen in [maken, weergeven en beheren van waarschuwingen via Azure Monitor](monitor-alerts-unified-usage.md).
+
+Waarschuwingen zijn beschikbaar voor de verschillende Azure-services controleren. Zie voor informatie over hoe en wanneer het gebruik van elk van deze services [bewaking van Azure-toepassingen en bronnen](./monitoring-overview.md). De volgende tabel bevat een overzicht van de typen regels voor waarschuwingen die beschikbaar in Azure zijn. Het bevat ook wat er wordt momenteel ondersteund in welke waarschuwingen ervaring.
+
+Voorheen moest Azure Monitor, Application Insights, Log Analytics en status van de Service mogelijkheden voor afzonderlijke waarschuwingen. Overwerk, Azure, is verbeterd en combinatie van de gebruikersinterface en de verschillende methoden van waarschuwingen. Dankzij deze consolidatie is nog steeds in behandeling. Als gevolg hiervan, zijn er nog enkele waarschuwingen mogelijkheden niet nog in het nieuwe waarschuwingensysteem.  
+
+| **Bron van de monitor** | **Signaaltype**  | **Beschrijving** | 
+|-------------|----------------|-------------|
+| Servicestatus | Activiteitenlogboek  | Wordt niet ondersteund. Zie [waarschuwingen voor activiteitenlogboek maken voor servicemeldingen](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Application Insights | Webtests voor beschikbaarheid | Wordt niet ondersteund. Zie [webtestwaarschuwingen](../application-insights/app-insights-monitor-web-app-availability.md). Beschikbaar voor elke website die geïnstrumenteerd om gegevens te verzenden naar Application Insights. Een melding ontvangen wanneer de beschikbaarheid of reactiesnelheid van een website lager dan de verwachtingen is. |
+
+
+## <a name="all-alerts-page"></a>Pagina met alle waarschuwingen 
+Klik op het totaal aantal waarschuwingen om te zien van de pagina met alle waarschuwingen. Hier vindt u een lijst van waarschuwingen die zijn gemaakt binnen de geselecteerde periode. U kunt een lijst van de afzonderlijke waarschuwingen of een lijst met de slimme groepen zijn met de waarschuwingen weergeven. Selecteer de banner boven aan de pagina om te schakelen tussen weergaven.
+
+![Pagina met alle waarschuwingen](media/monitoring-overview-alerts/all-alerts-page.png)
+
+U kunt de weergave filteren op de volgende waarden selecteren in het vervolgkeuzemenu's aan de bovenkant van de pagina.
+
+| Kolom | Beschrijving |
+|:---|:---|
+| Abonnement | Selecteer maximaal vijf Azure-abonnementen. Alleen waarschuwingen in de geselecteerde abonnementen zijn opgenomen in de weergave. |
+| Resourcegroep | Selecteer één resourcegroep bestaan. Alleen waarschuwingen met doelen in de geselecteerde resourcegroep zijn opgenomen in de weergave. |
+| Resourcetype | Selecteer een of meer resourcetypen. Alleen waarschuwingen met doelen van het geselecteerde type worden opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcegroep is opgegeven. |
+| Resource | Selecteer een resource. Alleen waarschuwingen met die bron als doel zijn opgenomen in de weergave. Deze kolom is alleen beschikbaar nadat u een resourcetype is opgegeven. |
+| Severity | Selecteer de ernst van een waarschuwing of selecteer *alle* om op te nemen van waarschuwingen van alle ernstcategorieën. |
+| Bewakingsvoorwaarde | Selecteer een controleconditie *alle* om op te nemen van waarschuwingen van voorwaarden. |
+| Waarschuwingsstatus | Selecteer een waarschuwingsstatus *alle* om op te nemen van waarschuwingen van de volgende statussen. |
+| Service bewaken | Selecteer een service of selecteer *alle* om op te nemen alle services. Alleen de waarschuwingen die zijn gemaakt door regels die gebruikmaken van service als een doel zijn opgenomen. |
+| Tijdsbereik | Alleen waarschuwingen geactiveerd in het geselecteerde tijdvenster zijn opgenomen in de weergave. Ondersteunde waarden zijn het afgelopen uur, de afgelopen 24 uur, de afgelopen 7 dagen en de afgelopen 30 dagen. |
+
+Selecteer **kolommen** aan de bovenkant van de pagina om te selecteren welke kolommen om weer te geven. 
+
+## <a name="alert-detail-page"></a>De detailpagina van waarschuwing
+De detailpagina van de waarschuwing wordt weergegeven wanneer u een waarschuwing selecteert. Het biedt details van de waarschuwing en kunt u de status te veranderen.
+
+![Waarschuwingsdetails](media/monitoring-overview-alerts/alert-detail2.png)
+
+De detailpagina van de waarschuwing bevat de volgende secties.
+
+| Sectie | Beschrijving |
+|:---|:---|
+| Essentials | Geeft de eigenschappen en andere belangrijke informatie over de waarschuwing. |
+| Geschiedenis | Geeft een lijst van elke actie op die door de waarschuwing en eventuele wijzigingen in de waarschuwing. Dit is momenteel beperkt tot de status verandert. |
+| Slimme groep | Informatie over de slimme groep de waarschuwing is opgenomen in. De *aantal waarschuwingen* verwijst naar het aantal waarschuwingen die zijn opgenomen in de slimme groep. Dit omvat de andere waarschuwingen in dezelfde groep slimme die zijn gemaakt in de afgelopen 30 dagen.  Dit is, ongeacht het tijdfilter in de pagina van de lijst met waarschuwingen. Selecteer een waarschuwing om de details weer te geven. |
+| Meer informatie | Geeft meer contextuele informatie voor de waarschuwing, die doorgaans specifiek is voor het type bron waarmee de waarschuwing is gemaakt. |
+
+
+## <a name="classic-alerts"></a>Klassieke waarschuwingen 
+
+De metrische gegevens en activiteitenlogboeken logboek van Azure Monitor mogelijkheid juni 2018 waarschuwingen heet 'Waarschuwingen (klassiek)'. 
+
+Zie voor meer informatie [klassieke waarschuwingen](./monitoring-overview-alerts-classic.md)
+
 
 ## <a name="next-steps"></a>Volgende stappen
-Informatie ophalen over de regels voor waarschuwingen en hoe u ze configureren met behulp van de volgende documentatie:
 
-* Meer informatie over [metrische gegevens](monitoring-overview-metrics.md)
-* Configureer [klassieke metrische waarschuwingen met behulp van Azure portal](insights-alerts-portal.md)
-* Configureer [klassieke metrische waarschuwingen met behulp van PowerShell](insights-alerts-powershell.md)
-* Configureer [klassieke metrische waarschuwingen met behulp van de Azure CLI](insights-alerts-command-line-interface.md)
-* Configureer [klassieke metrische waarschuwingen met behulp van de Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Meer informatie over [activiteitenlogboeken](monitoring-overview-activity-logs.md)
-* Configureer [waarschuwingen voor activiteitenlogboeken met behulp van Azure portal](monitoring-activity-log-alerts.md)
-* Configureer [waarschuwingen voor activiteitenlogboeken met behulp van Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Controleer de [activiteit log waarschuwing webhook-schema](monitoring-activity-log-alerts-webhook.md)
-* Meer informatie over [actiegroepen](monitoring-action-groups.md)
-* Configureer [nieuwere waarschuwingen](monitor-alerts-unified-usage.md)
+- [Meer informatie over slimme groepen](https://aka.ms/smart-groups)
+- [Meer informatie over actiegroepen](monitoring-action-groups.md)
+- [Uw waarschuwing exemplaren in Azure beheren](https://aka.ms/managing-alert-instances)
+- [Slimme groepen beheren](https://aka.ms/managing-smart-groups)
+
+
+
+
+

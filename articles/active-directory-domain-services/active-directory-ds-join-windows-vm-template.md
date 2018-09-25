@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950791"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Een Windows Server virtuele machine toevoegen aan een beheerd domein met behulp van Resource Manager-sjabloon
 Dit artikel ziet u hoe u een Windows Server-machine koppelen aan een beheerd domein van Azure AD Domain Services met behulp van Resource Manager-sjablonen.
@@ -39,7 +39,7 @@ Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 ## <a name="install-and-configure-required-tools"></a>Installeren en configureren van vereiste hulpprogramma 's
 U kunt een van de volgende opties gebruiken om uit te voeren van de stappen in dit document:
 * **Azure PowerShell**: [installeren en configureren](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure platformoverschrijdende opdrachtregelinterface**: [installeren en configureren](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure CLI**: [installeren en configureren](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Optie 1: Inrichten van een nieuwe Windows Server-VM en koppel deze aan een beheerd domein

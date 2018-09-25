@@ -1,29 +1,31 @@
 ---
-title: Kostenbeheerrapporten gebruiken in Azure Cost Management | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u verschillende kostenbeheerrapporten gebruiken in de Cloudyn-portal.
+title: Cloudyn-rapporten gebruiken in Azure | Microsoft Docs
+description: Dit artikel wordt beschreven hoe u verschillende rapporten in de Cloudyn-portal.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908271"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976781"
 ---
-# <a name="use-cost-management-reports"></a>Kostenbeheerrapporten gebruiken
+# <a name="use-cloudyn-reports"></a>Rapporten van Cloudyn gebruiken
 
-Dit artikel wordt beschreven voor het doel van de rapporten voor het beheer van kosten die zijn opgenomen in de Cloudyn-portal. Ook wordt beschreven hoe u de rapporten effectief kunt gebruiken. De meeste rapporten zijn intuïtief en een uniform uiterlijk hebben. De meeste van de acties die u in één rapport doen kunt, kunt u ook doen in andere rapporten. Zie voor een overzicht over het gebruik van rapporten voor kosten, over het aanpassen en opslaan of plannen van rapporten, waaronder [Understanding kostenrapportages](understanding-cost-reports.md).
+Dit artikel wordt beschreven voor het doel van de Cloudyn-rapporten die zijn opgenomen in de Cloudyn-portal. Ook wordt beschreven hoe u de rapporten effectief kunt gebruiken. De meeste rapporten zijn intuïtief en een uniform uiterlijk hebben. De meeste van de acties die u in één rapport doen kunt, kunt u ook doen in andere rapporten. Zie voor een overzicht over het gebruik van Cloudyn-rapporten, waaronder over het aanpassen en opslaan of plannen van rapporten, [Understanding kostenrapportages](understanding-cost-reports.md).
+
+Kostenbeheer van Azure biedt vergelijkbare functionaliteit aan Cloudyn. Kostenbeheer van Azure is een systeemeigen Azure cost management-oplossing. Het helpt u kosten analyseren, maken en budgetten beheren, gegevens, exporteren en bekijken en reageren op optimalisatie aanbevelingen om geld te besparen. Zie voor meer informatie, [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Rapporttypen
 
-Er zijn drie typen kostenbeheerrapporten:
+Er zijn drie typen van Cloudyn-rapporten:
 
 - Te veel tijd rapporten. Bijvoorbeeld, het rapport Cost Over Time. Te veel tijd rapporten weergeven van een tijdreeks van gegevens tijdens een interval van de geselecteerde met een resolutie van vooraf gedefinieerde en een wekelijkse resolutie weergeven voor de laatste twee maanden. U kunt groeperen en filteren om in te zoomen op verschillende gegevenspunten.
   - Te veel tijd rapporten kunt u trends weergeven en pieken en afwijkingen te detecteren.
@@ -49,7 +51,7 @@ _Kosten van analysis_ rapporten facturering gegevens van uw cloud-providers word
 
 Sommige _analysis kosten_ rapporten niet kosten groeperen op resourcetags. En factureringsgegevens op basis van een tag wordt alleen weergegeven in rapporten nadat u bij het toewijzen van kosten door het maken van een kosten model met [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Kostentoewijzing_ rapporten zijn beschikbaar nadat u hebt gemaakt een kosten model met [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Kostenbeheer verwerkt kosten en factureringsgegevens en _komt overeen met_ de gegevens in de gebruiks- en tag gegevens van uw accounts in de cloud. Kostenbeheer vereist zodat deze overeenkomt met de gegevens, toegang tot uw gegevens over het gebruik. Hebt u accounts die referenties ontbreken, ze zijn gelabeld als _niet-gecategoriseerde resources_.
+_Kostentoewijzing_ rapporten zijn beschikbaar nadat u hebt gemaakt een kosten model met [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn kosten-facturering en -gegevens worden verwerkt en _komt overeen met_ de gegevens in de gebruiks- en tag gegevens van uw accounts in de cloud. Cloudyn vereist zodat deze overeenkomt met de gegevens, toegang tot uw gegevens over het gebruik. Hebt u accounts die referenties ontbreken, ze zijn gelabeld als _niet-gecategoriseerde resources_.
 
 ## <a name="dashboards"></a>Dashboards
 
@@ -57,7 +59,7 @@ Dashboards in Cloudy bieden een weergave op hoog niveau van rapporten. Dashboard
 
 ## <a name="budget-information-in-reports"></a>Budgetgegevens in rapporten
 
-Veel kosten budget informatie voor beheer van rapporten weergeven nadat u deze handmatig hebt gemaakt. Rapporten weergegeven niet zodanig budgetgegevens wanneer u een budget gemaakt. Zie voor meer informatie, [Budget instellingen](#budget-settings).
+Veel Cloudyn-rapporten weergeven budgetgegevens nadat u deze handmatig hebt gemaakt. Rapporten weergegeven niet zodanig budgetgegevens wanneer u een budget gemaakt. Zie voor meer informatie, [Budget instellingen](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapporten en reporting-functies
 
@@ -81,7 +83,7 @@ Het rapport Cost Analysis is een berekening van de showback en chargeback, op ba
 
 De beleidsregels die zijn ingesteld [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) worden gebruikt in de kostenanalyse rapport en de resultaten worden vervolgens gecombineerd met gegevens uit de onbewerkte gegevens van de cloudleverancier van uw.
 
-Hoe wordt dit rapport berekend? De Cost Management-service zorgt ervoor dat toewijzing behoudt de integriteit van elke gekoppelde account door toe te passen _affiniteit account_. Affiniteit zorgt ervoor dat een account die geen gebruik maakt van een specifieke service beschikt niet over de kosten van deze service is toegewezen. De kosten voor dat account in dat account blijven en niet worden berekend door de beleidsregels voor brontoewijzing. Bijvoorbeeld, wellicht u vijf gekoppelde accounts. Als er slechts drie hiervan storage-services gebruiken, klikt u vervolgens de kosten voor storage-services alleen toegewezen voor de labels in de drie accounts.
+Hoe wordt dit rapport berekend? De Cloudyn-service zorgt ervoor dat toewijzing behoudt de integriteit van elke gekoppelde account door toe te passen _affiniteit account_. Affiniteit zorgt ervoor dat een account die geen gebruik maakt van een specifieke service beschikt niet over de kosten van deze service is toegewezen. De kosten voor dat account in dat account blijven en niet worden berekend door de beleidsregels voor brontoewijzing. Bijvoorbeeld, wellicht u vijf gekoppelde accounts. Als er slechts drie hiervan storage-services gebruiken, klikt u vervolgens de kosten voor storage-services alleen toegewezen voor de labels in de drie accounts.
 
 Het rapport Cost Analysis te gebruiken:
 
@@ -147,7 +149,7 @@ Deze reeks afgeschreven kosten rapporten linearisatie bevat niet-gebruik op basi
 - Kopen van gereserveerde instanties kosten
 - Sommige items voor de Azure Marketplace
 
-In het bestand facturering eenmalige kosten worden gekenmerkt wanneer het verbruik beginnen en eindigen datums (tijdstempel) gelijk zijn aan waarden hebben. De kosten-Management-service herkent deze vervolgens zoals eenmalige kosten die worden afgeschreven. Andere services op basis van gebruik met on-demand-gebruikskosten worden niet afgeschreven.
+In het bestand facturering eenmalige kosten worden gekenmerkt wanneer het verbruik beginnen en eindigen datums (tijdstempel) gelijk zijn aan waarden hebben. De Cloudyn-service herkent deze vervolgens zoals eenmalige kosten die worden afgeschreven. Andere services op basis van gebruik met on-demand-gebruikskosten worden niet afgeschreven.
 
 Afgeschreven Kostenrapporten zijn onder andere:
 
@@ -158,9 +160,9 @@ Afgeschreven Kostenrapporten zijn onder andere:
 
 Het rapport Cost Analysis biedt inzicht in uw cloud-gebruik en uitgaven gedurende een geselecteerde periode. De beleidsregels die zijn ingesteld de [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) worden gebruikt in het rapport Cost Analysis.
 
-Hoe wordt dit rapport berekend in Cost Management?
+Hoe wordt dit rapport in Cloudyn berekend?
 
-Kostenbeheer garandeert dat toewijzing van de integriteit van elke gekoppelde account door toe te passen behouden _affiniteit account_. Affiniteit zorgt ervoor dat een account die geen gebruik maakt van een specifieke service ook de kosten van deze service is toegewezen aan deze beschikt niet over. De kosten voor dat account in dat account blijven en niet worden berekend door de beleidsregels voor brontoewijzing. Bijvoorbeeld, wellicht u vijf gekoppelde accounts. Als er slechts drie hiervan storage-services gebruiken, klikt u vervolgens de kosten voor storage-services alleen toegewezen voor de labels in de drie accounts.
+Cloudyn zorgt ervoor dat toewijzing van de integriteit van elke gekoppelde account door toe te passen behouden _affiniteit account_. Affiniteit zorgt ervoor dat een account die geen gebruik maakt van een specifieke service ook de kosten van deze service is toegewezen aan deze beschikt niet over. De kosten voor dat account in dat account blijven en niet worden berekend door de beleidsregels voor brontoewijzing. Bijvoorbeeld, wellicht u vijf gekoppelde accounts. Als er slechts drie hiervan storage-services gebruiken, klikt u vervolgens de kosten voor storage-services alleen toegewezen voor de labels in de drie accounts.
 
 Het rapport Cost Analysis te gebruiken:
 
@@ -206,7 +208,7 @@ Aangepaste kosten worden in Kostenrapporten weergegeven. Open het rapport Actual
 
 U Cost Allocation 360 gebruiken om aangepaste cost allocation modellen als u wilt kosten toewijzen aan verbruikte cloudresources te maken. Veel rapporten weergegeven gegevens uit aangepaste kostenmodellen die u hebt gemaakt met aangepaste kostenmodellen. En sommige rapporten worden alleen informatie weergegeven nadat u een aangepaste kostenmodel met kostentoewijzing hebt gemaakt.
 
-Zie voor meer informatie over het maken van aangepaste kostenmodellen [zelfstudie: kosten beheren met behulp van Azure Cost Management](tutorial-manage-costs.md).
+Zie voor meer informatie over het maken van aangepaste kostenmodellen [zelfstudie: kosten beheren met behulp van Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Rapport budget gedurende een periode
 
@@ -248,11 +250,11 @@ Wanneer dit is voltooid, wordt uw budget in Cost Analysis rapporten en in de vs 
 
 ### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer-rapport
 
-De Azure Resource Explorer-rapport bevat een bulk-lijst van alle Azure-resources beschikbaar zijn in Cost Management. Als u wilt effectief gebruikt u het rapport, moeten metrische gegevens die zijn ingeschakeld op uw Azure-accounts hebt uitgebreid. Uitgebreide metrische gegevens geven Cost Management toegang tot uw Azure VM's. Zie voor meer informatie, [toevoegen metrische gegevens voor virtuele machines van Azure uitgebreid](azure-vm-extended-metrics.md).
+De Azure Resource Explorer-rapport bevat een bulk-lijst van alle Azure-resources beschikbaar zijn in Cloudyn. Als u wilt effectief gebruikt u het rapport, moeten metrische gegevens die zijn ingeschakeld op uw Azure-accounts hebt uitgebreid. Uitgebreide metrische gegevens geven Cloudyn toegang tot uw Azure VM's. Zie voor meer informatie, [toevoegen metrische gegevens voor virtuele machines van Azure uitgebreid](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Rapport van Azure-Resources gedurende een periode
 
-Azure-Resources gedurende een periode dit rapport bevat een overzicht van alle resources die worden uitgevoerd gedurende een bepaalde periode. Als u wilt effectief gebruikt u het rapport, moeten metrische gegevens die zijn ingeschakeld op uw Azure-accounts hebt uitgebreid. Uitgebreide metrische gegevens geven Cost Management toegang tot uw Azure VM's. Zie voor meer informatie, [toevoegen metrische gegevens voor virtuele machines van Azure uitgebreid](azure-vm-extended-metrics.md).
+Azure-Resources gedurende een periode dit rapport bevat een overzicht van alle resources die worden uitgevoerd gedurende een bepaalde periode. Als u wilt effectief gebruikt u het rapport, moeten metrische gegevens die zijn ingeschakeld op uw Azure-accounts hebt uitgebreid. Uitgebreide metrische gegevens geven Cloudyn toegang tot uw Azure VM's. Zie voor meer informatie, [toevoegen metrische gegevens voor virtuele machines van Azure uitgebreid](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Verkenner-instantierapport
 
@@ -355,7 +357,7 @@ Drie betalingsopties voor gereserveerde instanties, die alle vooraf zijn:
 - Geen kosten vooraf - bieden in waarmee de kosten van gereserveerde instantie wordt betaald in termijnen van maandelijkse in de loop van de gereserveerde instantie, de laagste korting
 - Gedeeltelijk kosten vooraf, in welke ¼ - ½ van de prijs, vooraf betaalde en de rest in maandelijkse supplementen, met een korting van lager, sluit maar, aan het tarief voor alle vooraf
 
-Kostenbeheer evalueert de uptime van elke computer voor de afgelopen 30 dagen. Kostenbeheer raadt het kopen van gereserveerde instanties wanneer deze kosteneffectiever om uit te voeren van de machine met een gereserveerde instantie op het niveau van de huidige actieve tijdsduur.
+Cloudyn evalueert de uptime van elke computer voor de afgelopen 30 dagen. Cloudyn raadt het kopen van gereserveerde instanties wanneer deze kosteneffectiever om uit te voeren van de machine met een gereserveerde instantie op het niveau van de huidige actieve tijdsduur.
 
 Dit rapport bevat de reden voor de aanbevelingen voor de meeste besparen ten opzichte van het jaar. De aanbevelingen voorgesteld vervangen van on-demand instanties met gereserveerde instanties. U kunt gereserveerde instanties kopen rechtstreeks vanuit het rapport.
 
@@ -363,9 +365,9 @@ Elk tabblad wordt geopend als een volledig rapport. Belangrijkste secties in tab
 
 - **EC2 RI Purchase Impact** -in deze sectie biedt een simulatie van het verschil tussen on-demand versus gereserveerde instanties. Klik op **inzoomen**om het volledige EC2 RI Purchase Impact rapport met de filters die al op de aanbeveling is gedefinieerd. Dit rapport bevat de impact van aanschaf van alle potentiële RI-aankopen. U kunt de verwachte gemiddelde uptime om te zien van de mogelijke opslaan bij de aankoop van gereserveerde EC2-instanties kunt aanpassen.
 
-- **Opslaan van analyse** -deze sectie bevat de potentiële besparingen als gevolg en de maand de besparingen zijn actualized wanneer aanbevelingen bij Cost Management. De daadwerkelijke besparingen en het percentage opgeslagen zijn in rood gemarkeerd.
+- **Opslaan van analyse** -deze sectie bevat de potentiële besparingen als gevolg en de maand de besparingen zijn actualized bij Cloudyn aanbevelingen. De daadwerkelijke besparingen en het percentage opgeslagen zijn in rood gemarkeerd.
 
-- **EC2 RI Type vergelijking** -in deze sectie ligt de nadruk op het rendement op investering opleveren belangrijke functies van Cost Management van aanbevolen implementatie, met inbegrip van alle relevante opties. De resultaten in dit rapport wordt ervan uitgegaan dat de machine wordt uitgevoerd op 100% uptime. Klik op **inzoomen** om het gedetailleerde rapport te openen.
+- **EC2 RI Type vergelijking** -in deze sectie ligt de nadruk op het rendement op investering opleveren belangrijke functies van aanbevolen implementatie van Cloudyn, met inbegrip van alle relevante opties. De resultaten in dit rapport wordt ervan uitgegaan dat de machine wordt uitgevoerd op 100% uptime. Klik op **inzoomen** om het gedetailleerde rapport te openen.
 
 - **Instanties gedurende een periode** -deze sectie vindt u een overzicht van alle exemplaren die zijn gekoppeld aan de aanbeveling, OnDemand, gereserveerde instanties en positie. Klik op **inzoomen** om het gedetailleerde rapport te openen.
 - **Break-even punten** -deze sectie vindt u een tabel met alle de mogelijke aanbevolen implementaties en het rendement op investering opleveren en de maand wanneer het rendement op investering opleveren optreedt. Klik op **inzoomen** om het gedetailleerde rapport te openen.
@@ -394,7 +396,7 @@ Extern bureaublad-services RI Buying Recommendations rapport raadt u aan bij het
 Elk tabblad wordt geopend als een volledig rapport. Belangrijkste secties in tabbladen zijn onder andere:
 
 - **Extern bureaublad-services RI Purchase Impact** -in deze sectie biedt een simulatie van het verschil tussen de on-demand versus gereserveerde instanties. Klik op **inzoomen** om te zien van het volledige rapport van de extern bureaublad-services RI Purchase Impact met de filters die al op de aanbeveling is gedefinieerd. Dit rapport kunt u het effect van aanschaf van alle potentiële RI-aankopen.  U kunt aanpassen van de verwachte gemiddelde uptime en het potentieel opslaan door het kopen van gereserveerde instanties bekijkt.
-- **Opslaan van analyse** : deze sectie bevat de potentiële besparingen als gevolg en de maand de besparingen zijn actualized wanneer aanbevelingen bij Cost Management. De daadwerkelijke besparingen en het percentage opgeslagen zijn in rood gemarkeerd.
+- **Opslaan van analyse** : deze sectie bevat de potentiële besparingen als gevolg en de maand de besparingen zijn actualized bij Cloudyn aanbevelingen. De daadwerkelijke besparingen en het percentage opgeslagen zijn in rood gemarkeerd.
 
 - **Extern bureaublad-services RI Type vergelijking** -in deze sectie ligt de nadruk op het rendement op investering opleveren belangrijke functies van de aanbevolen implementatie, met inbegrip van alle relevante opties. De resultaten in dit rapport wordt ervan uitgegaan dat de machine wordt uitgevoerd op 100% uptime. Klik op **inzoomen** om het gedetailleerde rapport voor de geselecteerde computer te openen.
 - **Instanties gedurende een periode** : deze sectie vindt u een overzicht van alle exemplaren die zijn gekoppeld aan de aanbeveling, OnDemand, gereserveerde instanties en positie. Klik op **inzoomen** om het gedetailleerde rapport te openen.
@@ -417,7 +419,7 @@ U kunt de lijst met de exemplaar-id's die worden aanbevolen voor krimpen vanuit 
 
 Houd rekening met het volgende downsizing-voorbeeld:
 
-U hebt zes exemplaren van m3.xlarge die worden uitgevoerd. Cost Management analyse laat zien dat vijf hiervan minder CPU-gebruik hebben. U kunt verkleinen alvorens ze te.
+U hebt zes exemplaren van m3.xlarge die worden uitgevoerd. Analyse van Cloudyn laat zien dat vijf hiervan minder CPU-gebruik hebben. U kunt verkleinen alvorens ze te.
 
 In de Impact kosten, wordt de impact van de kosten berekend. In dit voorbeeld wordt ziet door het uitbreiden van het regelitem, u dat de huidige prijs voor één m3.xlarge exemplaar (Linux/Unix) kosten $0.266 per uur en één m3.large exemplaar (Linux/Unix) kosten $0.133 per uur. Dus, is de jaarlijkse kosten $11,651 voor vijf m3.xlarge-exemplaren die worden uitgevoerd op 100% gebruik. De jaarlijkse kosten is $5,825 voor vijf m3.large-exemplaren die worden uitgevoerd op 100% gebruik. De potentiële besparingen zijn $5,825.
 
@@ -425,7 +427,7 @@ Klik om te bekijken van de redenen voor goedkope schaaloplossingen + om uit te b
 
 - De **aanbeveling reden** sectie vindt u de huidige implementatie en het aantal exemplaren aangeraden te krimpen.
 - De **Impact van de kosten** sectie vindt u de berekening die wordt gebruikt om te bepalen, potentiële besparingen.
-- De **jaarlijkse besparingen** sectie vindt u de jaarlijkse besparingen als verkleinen alvorens te per aanbeveling van Cost Management.
+- De **jaarlijkse besparingen** sectie vindt u de jaarlijkse besparingen als verkleinen alvorens te per aanbeveling van Cloudyn.
 
 ### <a name="all-sizing-recommendations-report"></a>Alle Sizing Recommendations-rapport
 
@@ -483,11 +485,11 @@ Metrische gegevens voor een specifiek exemplaar na verloop van tijd weergeven:
 
 ### <a name="rds-sizing-recommendations-report"></a>Extern bureaublad-services Sizing Recommendations-rapport
 
-Het rapport extern bureaublad-services Sizing Recommendations biedt extern bureaublad-services formaat aanbevelingen voor het optimaliseren van uw cloudgebruik. Het biedt een lijst met weinig gebruikte instanties die kandidaten om te krimpen. Aanbevelingen voor het beheer van kosten zijn gebaseerd op de gegevens van het gebruik en de prestaties van de afgelopen 30 dagen. Aanbevelingen per accountnaam, regio, Type exemplaar en de Status, kunt u filteren.
+Het rapport extern bureaublad-services Sizing Recommendations biedt extern bureaublad-services formaat aanbevelingen voor het optimaliseren van uw cloudgebruik. Het biedt een lijst met weinig gebruikte instanties die kandidaten om te krimpen. Cloudyn aanbevelingen zijn gebaseerd op de gegevens van het gebruik en de prestaties van de afgelopen 30 dagen. Aanbevelingen per accountnaam, regio, Type exemplaar en de Status, kunt u filteren.
 
 ### <a name="sizing-threshold-manager-report"></a>Grootte drempelwaarde Manager-rapport
 
-Cost Management ingebouwde formaat aanbevelingen worden berekend met behulp van een complexe algoritme voor nauwkeurige schaling suggesties. U kunt de drempelwaarden voor downsizing aanbevelingen aanpassen.
+Cloudyn van ingebouwde formaat aanbevelingen worden berekend met behulp van een complexe algoritme voor nauwkeurige schaling suggesties. U kunt de drempelwaarden voor downsizing aanbevelingen aanpassen.
 
 Handmatig aanpassen drempelwaarde formaat aanbevelingen:
 

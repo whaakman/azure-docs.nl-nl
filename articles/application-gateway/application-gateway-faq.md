@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022913"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986673"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -360,6 +360,12 @@ Auditlogboeken zijn beschikbaar voor Application Gateway. Klik in de portal op *
 **Q. Kan ik waarschuwingen kunt instellen met Application Gateway?**
 
 Ja, Application Gateway biedt ondersteuning voor waarschuwingen, meldingen zijn geconfigureerd als uitgeschakeld metrische gegevens. Application Gateway momenteel heeft een metrische waarde van "doorvoer', wat kan worden geconfigureerd op waarschuwing. Voor meer informatie over waarschuwingen, gaat u naar [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**Q. Hoe ik verkeer statistische gegevens analyseren voor Application Gateway?**
+
+U kunt bekijken en analyseren van toegang tot logboeken via een aantal methoden, zoals Azure Log Analytics, Excel, Power BI enzovoort.
+
+We hebben ook een Resource Manager-sjabloon die wordt geïnstalleerd en wordt uitgevoerd de populaire gepubliceerd [GoAccess](https://goaccess.io/) analyzer aanmelden voor Application Gateway toegang tot logboeken. GoAccess biedt waardevolle HTTP-verkeer-statistieken, zoals het unieke bezoekers, bestanden aangevraagd, Hosts, besturingssystemen, Browsers, HTTP-statuscodes en nog veel meer. Zie voor meer informatie de [Leesmij-bestand in de map met het Resource Manager-sjablonen in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **Q. Back-endstatus onbekende status, wat kan worden veroorzaakt door deze status retourneert?**
 

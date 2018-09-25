@@ -1,24 +1,25 @@
 ---
-title: LUIS integreren met een bot met behulp van de Bot Builder-SDK voor Node.js in Azure | Microsoft Docs
+title: LUIS-Bot met Node.js - Web-app-Bot - Botframework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Bouw een bot die is geïntegreerd met een LUIS-toepassing met behulp van Bot Framework.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224072"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042326"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>LUIS integreren met een bot met behulp van de Bot Builder-SDK voor Node.js
+# <a name="luis-bot-in-nodejs"></a>LUIS-bot in Node.js
 
-In deze zelfstudie begeleidt u bij het bouwen van een bot met de [Bot Framework] [ BotFramework] die geïntegreerd met een LUIS-app.
+Met behulp van Node.js, een chatbot bouwen geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. De bot is gebouwd met Bot Framework 3.x en de Azure-Web-app-bot.
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -26,7 +27,7 @@ Voordat u de bot maakt, volg de stappen in [maken van een app](./luis-get-starte
 
 De bot reageert op intents van het domein HomeAutomation die zich in de LUIS-app. Voor elk van deze intents biedt de LUIS-app een doel dat is toegewezen aan deze. De bot biedt een dialoogvenster die verantwoordelijk is voor het doel dat LUIS detecteert.
 
-| Doel | Voorbeeld utterance | Bot-functionaliteit |
+| Intentie | Voorbeeld utterance | Bot-functionaliteit |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Schakel in het licht. | De bot roept de `TurnOnDialog` wanneer de `HomeAutomation.TurnOn` wordt gedetecteerd. Dit dialoogvenster is waar u een IoT-service om te schakelen op een apparaat en de gebruiker die het apparaat is ingeschakeld zien wilt aanroepen. |
 | HomeAutomation.TurnOff | De verlichting slaapkamers uitschakelen. | De bot roept de `TurnOffDialog` wanneer de `HomeAutomation.TurnOff` wordt gedetecteerd. Dit dialoogvenster wanneer u een IoT-service waarmee een apparaat uitschakelen en de gebruiker die het apparaat is uitgeschakeld vertellen wilt aanroepen. |
@@ -45,7 +46,10 @@ De bot reageert op intents van het domein HomeAutomation die zich in de LUIS-app
 3. In de **Bot Service** blade, geef de vereiste gegevens op en selecteer **maken**. Hiermee maakt en implementeert de botservice en LUIS-app in Azure. Als u wilt gebruiken [spraak voorbereiden](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), Bekijk [regio vereisten](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) voordat het maken van uw bot. 
     * Stel **appnaam** op de naam van uw bot. De naam wordt gebruikt als het subdomein wanneer uw bot wordt geïmplementeerd naar de cloud (bijvoorbeeld mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selecteer het abonnement [resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan en [locatie](https://azure.microsoft.com/regions/).
-    * Selecteer de **Language understanding (Node.js)** sjabloon voor de **Bot sjabloon** veld.
+    * Voor **Bot sjabloon**selecteert:
+        * **SDK-v3**
+        * **Node.js**
+        * **Taalbegrip**
     * Selecteer de **LUIS-App locatie**. Dit is het ontwerpen van [regio] [ LUIS] in de app is gemaakt.
     * Selecteer het selectievakje bevestiging voor de juridische kennisgeving. De voorwaarden van de juridische kennisgeving staan hieronder het selectievakje in.
 

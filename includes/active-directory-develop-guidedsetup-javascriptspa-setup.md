@@ -15,20 +15,20 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: cc5272ed133f4fa5c99eb3b3a397ac2c53b93b7c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3274e5929985b2a78c5b463622be6cdbd7320d79
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46473828"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060531"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Instellen van uw webserver of project
 
 > Voorkeur voor het downloaden van dit voorbeeldproject in plaats daarvan?
-> - [Het Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> - [Download de projectbestanden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) voor een lokale webserver, zoals knooppunt
 >
 > of
-> - [Download de projectbestanden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) voor een lokale webserver, zoals knooppunt
+> - [Het Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 >
 > En ga vervolgens verder met de [configuratiestap](#register-your-application) configureren in het codevoorbeeld voordat deze wordt uitgevoerd.
 
@@ -39,58 +39,41 @@ Instructies in deze handleiding zijn gebaseerd op Node.js en Visual Studio 2017,
 
 ## <a name="create-your-project"></a>Uw project maken
 
-> ### <a name="option-1-visual-studio"></a>Optie 1: Visual Studio
-> Als u met behulp van Visual Studio en een nieuw project maakt, volgt u de stappen hieronder om een nieuwe Visual Studio-oplossing maken:
-> 1.    In Visual Studio:  `File` > `New` > `Project`
-> 2.    Onder `Visual C#\Web`, selecteer `ASP.NET Web Application (.NET Framework)`
-> 3.    Geef uw toepassing en klikt u op *OK*
-> 4.    Onder `New ASP.NET Web Application`, selecteer `Empty`
-
-<p/><!-- -->
-
-> ### <a name="option-2-node-other-web-servers"></a>Optie 2: Knooppunt / andere webservers
+> ### <a name="option-1-node-other-web-servers"></a>Optie 1: Knooppunt / andere webservers
 > Zorg ervoor dat u hebt geïnstalleerd [Node.js](https://nodejs.org/en/download/), volg de onderstaande stappen:
 > - Maak een map voor het hosten van uw toepassing.
 
+<p/><!-- -->
+
+> ### <a name="option-2-visual-studio"></a>Optie 2: Visual Studio
+> Als u met behulp van Visual Studio en een nieuw project maakt, volgt u de stappen hieronder om een nieuwe Visual Studio-oplossing maken:
+> 1.    In Visual Studio: **bestand > Nieuw > Project**
+> 2.    Onder **Visual C# \Web**, selecteer **ASP.NET-webtoepassing (.NET Framework)**
+> 3.    Voer een naam voor uw toepassing en selecteer **OK**
+> 4.    Onder **nieuwe ASP.NET-webtoepassing**, selecteer **leeg zijn**
+
 
 ## <a name="create-your-single-page-applications-ui"></a>Maken van de gebruikersinterface van uw toepassing met één pagina
-1.  Maak een *index.html* -bestand voor uw JavaScript beveiligd-WACHTWOORDVERIFICATIE. Als u van Visual Studio gebruikmaakt, selecteer het project (project-basismap), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `HTML page` en noem het index.html
+1.  Maak een `index.html` -bestand voor uw JavaScript beveiligd-WACHTWOORDVERIFICATIE. Als u van Visual Studio gebruikmaakt, selecteer het project (project-basismap), klik met de rechtermuisknop en selecteer: **toevoegen > Nieuw Item > HTML-pagina** en noem het index.html.
+
 2.  Voeg de volgende code naar uw pagina:
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- bootstrap reference used for styling the page -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <title>JavaScript SPA Guided Setup</title>
+        <title>Quickstart for MSAL JS</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
-<body style="margin: 40px">
-    <button id="callGraphButton" type="button" class="btn btn-primary" onclick="callGraphApi()">Call Microsoft Graph API</button>
-    <div id="errorMessage" class="text-danger"></div>
-    <div class="hidden">
-        <h3>Graph API Call Response</h3>
-        <pre class="well" id="graphResponse"></pre>
-    </div>
-    <div class="hidden">
-        <h3>Access Token</h3>
-        <pre class="well" id="accessToken"></pre>
-    </div>
-    <div class="hidden">
-        <h3>ID Token Claims</h3>
-        <pre class="well" id="userInfo"></pre>
-    </div>
-    <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
-
-    <!-- This app uses cdn to reference msal.js (recommended).
-         You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
-
-    <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
-
-    <script type="text/javascript" src="msalconfig.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+<body>
+        <h2>Welcome to MSAL.js Quickstart</h2><br/>
+        <h4 id="WelcomeMessage"></h4>
+        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+        <pre id="json"></pre>
+        <script>
+            //JS code
+        </script>
 </body>
 </html>
-````
+```

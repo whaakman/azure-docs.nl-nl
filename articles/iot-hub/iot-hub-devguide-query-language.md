@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: f6959e0fec77ff046e4db86bad30502259775a49
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022836"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952474"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
 IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betrekking tot [apparaatdubbels] [ lnk-twins] en [taken][lnk-jobs], en [berichtroutering][lnk-devguide-messaging-routes]. In dit artikel geeft:
 
 * Een inleiding tot de belangrijkste functies van de IoT Hub-querytaal en
-* De gedetailleerde beschrijving van de taal.
+* De gedetailleerde beschrijving van de taal. Zie voor meer informatie over de querytaal voor het routeren van berichten, [query's in berichtroutering](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -305,126 +305,6 @@ Op dit moment een query uitgevoerd op **devices.jobs** bieden geen ondersteuning
 * De voorwaarden die naar de apparaatdubbel naast taakeigenschappen verwijzen (Zie de vorige sectie).
 * Uitvoeren van de aggregaties, zoals het aantal, gemiddelde, groeperen op.
 
-## <a name="device-to-cloud-message-routes-query-expressions"></a>Apparaat-naar-cloud berichtroutes query-expressies
-
-Met behulp van [apparaat-naar-cloud-routes][lnk-devguide-messaging-routes], kunt u IoT-Hub voor het verzenden van apparaat-naar-cloud-berichten naar verschillende eindpunten configureren. Verzenden is gebaseerd op expressies geëvalueerd op basis van afzonderlijke berichten.
-
-De route [voorwaarde] [ lnk-query-expressions] maakt gebruik van de syntaxis van de IoT Hub query omdat voorwaarden in query's met dubbele en taak, maar slechts een subset van de functies die beschikbaar zijn. Route voorwaarden worden geëvalueerd op de berichtheaders en hoofdtekst. Uw routering query-expressie is mogelijk alleen berichtkoppen, alleen de berichttekst, of beide bericht-headers en hoofdtekst. IoT Hub wordt ervan uitgegaan dat een specifieke schema voor de headers en hoofdtekst van het bericht om te routeren van berichten en de volgende secties wordt beschreven wat is vereist voor IoT Hub voor het routeren van goed.
-
-### <a name="routing-on-message-headers"></a>Routering op berichtkoppen
-
-IoT Hub wordt ervan uitgegaan dat de volgende JSON-weergave van berichtkoppen voor het routeren van berichten:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-Systeemeigenschappen bericht worden voorafgegaan door de `'$'` symbool.
-Eigenschappen van de gebruiker zijn altijd toegankelijk met hun naam. Als de naam van een eigenschap met een systeemeigenschap overeenkomt (zoals `$contentType`), de eigenschap wordt opgehaald met de `$contentType` expressie.
-U kunt altijd toegang tot de eigenschap van het systeem met behulp van haakjes `{}`: bijvoorbeeld, kunt u de expressie `{$contentType}` voor toegang tot de systeemeigenschap `contentType`. Eigenschapnamen ophalen altijd de bijbehorende systeemeigenschap.
-
-Houd er rekening mee dat de namen van eigenschappen zijn niet hoofdlettergevoelig.
-
-> [!NOTE]
-> Eigenschappen van alle berichten zijn tekenreeksen. Eigenschappen, zoals beschreven in de [ontwikkelaarshandleiding][lnk-devguide-messaging-format], zijn momenteel niet beschikbaar voor gebruik in query's.
->
-
-Als u bijvoorbeeld een `messageType` eigenschap, kunt u voor het routeren van alle telemetrie naar één eindpunt en alle meldingen naar een ander eindpunt. U kunt de volgende expressie om te routeren van de telemetrie schrijven:
-
-```sql
-messageType = 'telemetry'
-```
-
-En de volgende expressie voor het routeren van de waarschuwingsberichten:
-
-```sql
-messageType = 'alert'
-```
-
-Booleaanse expressies en functies worden ook ondersteund. Deze functie kunt u onderscheid maken tussen de ernst op, bijvoorbeeld:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Raadpleeg de [expressie en voorwaarden] [ lnk-query-expressions] sectie voor een volledige lijst van ondersteunde operators en -functies.
-
-### <a name="routing-on-message-bodies"></a>Routering op de berichttekst
-
-IoT Hub kunnen alleen worden gerouteerd op basis van de hoofdtekst van bericht inhoud als hoofdtekst van het bericht correct is gevormd JSON gecodeerd in UTF-8-, UTF-16- of UTF-32. Instellen van het type inhoud van het bericht `application/json`. Stel de inhoud coderen naar een van de ondersteunde UTF-coderingen in de berichtkoppen. Als een van de headers is niet opgegeven, probeert IoT-Hub niet evalueren van een query-expressie met betrekking tot de instantie voor het bericht. Als uw bericht is niet een JSON-bericht of als het bericht het inhoudstype en inhoudscodering niet is opgegeven, kunt u nog steeds berichtroutering gebruiken voor het routeren van het bericht op basis van de berichtkoppen.
-
-Het volgende voorbeeld laat zien hoe een bericht maken met een juist opgemaakte en gecodeerde JSON-hoofdtekst:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-U kunt `$body` in de query-expressie voor het routeren van het bericht. U kunt de verwijzing naar een eenvoudige hoofdtekst, hoofdtekst van de verwijzing naar een matrix of meerdere hoofdtekst verwijzingen gebruiken in de query-expressie. Uw query-expressie kunt ook een verwijzing hoofdtekst met een verwijzing naar een bericht-header combineren. De volgende zijn bijvoorbeeld alle geldige query-expressies:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## <a name="basics-of-an-iot-hub-query"></a>Basisprincipes van een IoT Hub-query
 Elke IoT Hub query bestaat van selecteren en van de EU, met optionele waar en GROUP BY-componenten. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaatdubbels. De component FROM geeft aan dat de documentenverzameling om te worden herhaald op (**apparaten** of **devices.jobs**). Het filter in de component WHERE wordt vervolgens toegepast. Met aggregaties, worden de resultaten van deze stap zijn gegroepeerd zoals opgegeven in de component GROUP BY. Voor elke groep een rij wordt gegenereerd zoals opgegeven in de component SELECT.
 
@@ -614,8 +494,7 @@ Meer informatie over het uitvoeren van query's in uw apps met behulp van [Azure 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

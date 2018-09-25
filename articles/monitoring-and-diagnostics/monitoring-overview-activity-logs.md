@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918478"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948954"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Abonnement-activiteit controleren met de Azure-activiteitenlogboek
 
@@ -43,11 +43,12 @@ Bekijk de volgende video Maak kennis met het activiteitenlogboek.
 Het activiteitenlogboek bevat verschillende categorieën van gegevens. Voor volledige informatie over de schema's van deze categorieën [Raadpleeg dit artikel](monitoring-activity-log-schema.md). Deze omvatten:
 * **Administratieve** -deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie bewerkingen uitgevoerd via Resource Manager. Voorbeelden van de typen gebeurtenissen u in deze categorie ziet zijn 'virtuele machine maken' en 'netwerkbeveiligingsgroep verwijderen' elke actie op die door een gebruiker of een toepassing met behulp van Resource Manager is gemodelleerd als een bewerking op een bepaald resourcetype. Als het bewerkingstype schrijven, verwijderen of actie is, worden de records van de begin- en het slagen of mislukken van deze bewerking worden opgenomen in de beheercategorie. De beheercategorie omvat ook eventuele wijzigingen in de op rollen gebaseerd toegangsbeheer in een abonnement.
 * **Servicestatus** -deze categorie bevat de record van de service health incidenten die hebben plaatsgevonden in Azure. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "SQL Azure in VS-Oost ondervindt uitvaltijd." Service health-gebeurtenissen worden geleverd in vijf soorten: actie vereist, telefonische herstel, Incident, onderhoud, informatie of beveiliging, en wordt alleen weergegeven als u een resource in het abonnement dat wordt beïnvloed door de gebeurtenis.
+* **Resource Health** -deze categorie bevat de record van een resource health-gebeurtenissen die hebben plaatsgevonden naar uw Azure-resources. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Virtuele Machine health-status gewijzigd in niet beschikbaar." Resource health-gebeurtenissen kunnen een van de vier health-statussen vertegenwoordigen: beschikbaar is, niet beschikbaar, gedegradeerd en onbekend. Resource health-gebeurtenissen kunnen ook worden gecategoriseerd als Platform die gebruiker geïnitieerd of.
 * **Waarschuwing** -deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "CPU-percentage op myVM is meer dan 80 voor de afgelopen vijf minuten." Een reeks systemen die Azure hebben een waarschuwingen concept--u kunt een regel voor een definiëren en een melding ontvangen wanneer er voorwaarden overeenkomen met die regel. Telkens wanneer een ondersteunde Azure Waarschuwingstype 'wordt geactiveerd,' of de voorwaarden wordt voldaan voor het genereren van een melding, een record van de activering wordt ook gepusht naar deze categorie van het activiteitenlogboek.
 * **Automatisch schalen** -deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op de werking van de engine voor automatisch schalen op basis van alle instellingen voor automatisch schalen die u hebt gedefinieerd in uw abonnement. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "Schalen via automatisch schalen van de actie is mislukt". Automatisch schalen gebruik, u kunt automatisch omhoog of omlaag schalen op basis van tijd van de dag en/of load (metrische) gegevens met behulp van een instelling voor automatisch schalen van het aantal exemplaren in een ondersteunde resourcetype. Wanneer de voorwaarden wordt voldaan aan omhoog of omlaag schalen, de begin- en geslaagde of mislukte gebeurtenissen worden opgenomen in deze categorie.
 * **Aanbeveling** -deze categorie bevat aanbevelingsgebeurtenissen die van Azure Advisor.
 * **Beveiliging** -deze categorie bevat de record van alle waarschuwingen die worden gegenereerd door Azure Security Center. Een voorbeeld van het type gebeurtenis u in deze categorie ziet is "verdacht bestand met dubbele extensie uitgevoerd."
-* **Beleid en de resourcestatus** -deze categorieën bevatten niet alle gebeurtenissen; deze zijn gereserveerd voor toekomstig gebruik.
+* **Beleid** -deze categorie bevat niet alle gebeurtenissen; dit is gereserveerd voor toekomstig gebruik. 
 
 ## <a name="event-schema-per-category"></a>Gebeurtenisschema per categorie
 [Zie dit artikel voor informatie over de gebeurtenisschema in het activiteitenlogboek per categorie.](monitoring-activity-log-schema.md)
@@ -106,7 +107,7 @@ U kunt een storage-account of event hub-naamruimte die zich niet in hetzelfde ab
 >  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
 
 > [!WARNING]
-> De indeling van de logboekgegevens in de storage-account wordt gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling.](./monitor-diagnostic-logs-append-blobs.md) 
+> De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -151,14 +152,14 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | serviceBusRuleId |Nee |Service Bus-regel-ID voor de Service Bus-naamruimte hebt gemaakt in eventhubs hebben. Een tekenreeks zijn met deze indeling is: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locatie |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen in activiteitenlogboeken. |
 | RetentionInDays |Ja |Het aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Category |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
+| Categorie |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en actie. |
 
 #### <a name="remove-a-log-profile"></a>Een logboekprofiel verwijderen
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Logboekprofielen met behulp van de Azure CLI 2.0 configureren
+### <a name="configure-log-profiles-using-the-azure-cli"></a>Logboekprofielen met de Azure CLI configureren
 
 #### <a name="get-existing-log-profile"></a>Bestaand logboekprofiel ophalen
 

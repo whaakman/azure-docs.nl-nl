@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 395080409b06ef868b28550a21dc177e9dd28a05
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580525"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033920"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Wat te doen in het geval van een Azure Storage-storing
 Bij Microsoft werken we er hard om ervoor te zorgen dat onze services altijd beschikbaar zijn. Soms zorgt ervoor dat meer dan onze invloed ons op een manier die niet-geplande storingen in een of meer regio's veroorzaken. Voor hulp bij het verwerken van deze zelden, bieden we de informatie te volgen op hoog niveau voor Azure Storage-services.
@@ -43,18 +43,16 @@ Als u ervoor hebt gekozen [geo-redundante opslag met leestoegang (RA-GRS)](stora
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Wat u kunt verwachten als een opslag-failover is uitgevoerd
 Als u ervoor hebt gekozen [geografisch redundante opslag (GRS)](storage-redundancy-grs.md) of [geo-redundante opslag met leestoegang (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (aanbevolen), Azure Storage blijven uw gegevens duurzaam in twee regio's (primaire en secundaire). In beide regio's houdt de Azure Storage voortdurend meerdere replica's van uw gegevens.
 
-Wanneer een regionaal noodgeval is van invloed op de primaire regio, zullen we eerst proberen te herstellen van de service in die regio biedt de best mogelijke combinatie van RTO en RPO. Afhankelijk van de aard van de na noodgevallen en de effecten, in sommige zeldzame gevallen we niet mogelijk om terug te zetten van de primaire regio. Op dat moment gaat een geo-failover uitvoeren. Regio-overschrijdende gegevensreplicatie is een asynchroon proces dat betrekking heeft op een vertraging, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gaan. U kunt een query de ['Laatste synchronisatietijd' van uw opslagaccount](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) voor meer informatie over de replicatiestatus.
+Wanneer een regionaal noodgeval is van invloed op de primaire regio, zullen we eerst proberen te herstellen van de service in die regio biedt de best mogelijke combinatie van RTO en RPO. Afhankelijk van de aard van de na noodgevallen en de effecten, in sommige zeldzame gevallen we niet mogelijk om terug te zetten van de primaire regio. Op dat moment gaat een geo-failover uitvoeren. Regio-overschrijdende gegevensreplicatie is een asynchroon proces dat betrekking heeft op een vertraging, zodat het mogelijk dat de wijzigingen die nog niet is gerepliceerd naar de secundaire regio mogelijk verloren gaan.
 
 Een aantal punten met betrekking tot de opslagervaring voor geo-failover:
 
 * Opslag-geo-failover wordt alleen geactiveerd door het team van Azure Storage: Er is geen klant-actie vereist. De failover wordt geactiveerd wanneer het Azure Storage-team heeft alle opties van het herstellen van gegevens in dezelfde regio, waarmee u de best mogelijke combinatie van RTO en RPO uitgeput.
 * Uw bestaande storage service-eindpunten voor blobs, tabellen, wachtrijen en bestanden blijven hetzelfde na de failover; de Microsoft geleverde DNS-vermelding moet worden bijgewerkt als u wilt overschakelen van de primaire regio naar de secundaire regio. Microsoft zal deze update automatisch als onderdeel van de geo-failover-proces uitvoeren.
 * Voorafgaand aan en tijdens de geo-failover, geen toegang voor schrijven naar uw opslagaccount vanwege de impact van de na noodgevallen, maar u kunt nog wel lezen vanaf de secundaire server als uw storage-account is geconfigureerd als RA-GRS.
-* Wanneer de geo-failover is voltooid en de DNS-wijzigingen doorgevoerd, worden lees- en schrijftoegang tot uw storage-account wordt hervat; Dit verwijst naar wat gebruikt om te worden van het secundaire eindpunt. 
-* Houd er rekening mee dat u schrijftoegang hebt als u GRS of RA-GRS is geconfigureerd voor het opslagaccount. 
-* U kunt een query ['Laatste Geo Failover Time' van uw opslagaccount](https://msdn.microsoft.com/library/azure/ee460802.aspx) voor meer informatie.
+* Wanneer de geo-failover is voltooid en de DNS-wijzigingen doorgegeven, worden lees- en schrijftoegang tot uw storage-account hersteld als u GRS of RA-GRS. Het eindpunt dat eerder het secundaire eindpunt is wordt uw primaire eindpunt. 
+* U kunt de status van de primaire locatie en de query het laatst geo-failover voor uw opslagaccount controleren. Zie voor meer informatie, [Storage-Accounts: eigenschappen](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
 * Na de failover, uw storage-account wordt volledig functioneren, maar in een 'slechter' status, zoals deze wordt gehost in een zelfstandige regio met geen geo-replicatie mogelijk. Om dit risico te beperken, we herstellen de oorspronkelijke primaire regio en voert u een geo-failback voor het herstellen van de oorspronkelijke staat. Als de oorspronkelijke primaire regio niet kan worden hersteld, wordt er een andere secundaire regio toewijzen.
-  Voor meer informatie over de infrastructuur van Azure Storage geo-replicatie, Raadpleeg het artikel op de blog van het Storage-team over [redundantieopties en RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Aanbevolen procedures voor het beveiligen van uw gegevens
 Er zijn enkele aanbevolen benaderingen voor het back-up van de gegevens van uw opslag op gezette tijden.

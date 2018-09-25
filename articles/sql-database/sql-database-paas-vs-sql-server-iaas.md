@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 57e83376747b9a3e2d30dec37d4a378a167580e5
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 66ed36ea3d7b38166b9214e36289e32119659856
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733107"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965452"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 
@@ -24,17 +24,15 @@ In Azure, hebt u uw SQL Server-workloads die worden uitgevoerd in een gehoste in
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): een SQL database-engine, op basis van de Enterprise-editie van SQL Server, die is geoptimaliseerd voor het ontwikkelen van moderne toepassingen. Azure SQL Database biedt verschillende implementatieopties:
   - U kunt een individuele database te implementeren een [logische server](sql-database-logical-servers.md).
   - U kunt implementeren in een [elastische pool](sql-database-elastic-pool.md) op een [logische server](sql-database-logical-servers.md) delen van resources en kosten te verlagen. 
+  - U kunt implementeren op een [Azure SQL Database beheerde instanties](sql-database-managed-instance.md). 
+      
+   In de volgende afbeelding worden deze implementatieopties weergegeven:
 
-      > [!NOTE]
-      > Een Azure SQL Database met één en gepoolde databases biedt de meeste functies van SQL Server-database-scoped van.
+     ![implementatieopties](./media/sql-database-technical-overview/deployment-options.png) 
 
-      In de volgende afbeelding worden deze implementatieopties weergegeven:
+     > [!NOTE]
+     > In alle drie versies voegt Azure SQL Database extra functies die niet beschikbaar in SQL Server, zoals ingebouwde intelligentie en het beheer zijn. Een logische server met één en gepoolde databases biedt de meeste functies van SQL Server-database-scoped van. Met Azure SQL Database Managed Instance biedt Azure SQL Database gedeelde bronnen voor databases en extra functies exemplaar binnen het bereik. Azure SQL Database Managed Instance biedt ondersteuning voor migratie van de database met minimale of geen wijzigingen van de database. 
 
-      ![implementatieopties](./media/sql-database-technical-overview/deployment-options.png) 
-  - U kunt implementeren op een [Azure SQL Database Managed Instances (preview)](sql-database-managed-instance.md). 
-
-      > [!NOTE]
-      > Met beide versies voegt extra functies die niet beschikbaar in SQL Server, zoals ingebouwde intelligentie en het beheer zijn met Azure SQL Database toe. Met de eerste versie, met Azure SQL Database Managed Instance, biedt Azure SQL Database gedeelde bronnen voor databases en extra functies exemplaar binnen het bereik. Azure SQL Database Managed Instance biedt ondersteuning voor migratie van de database met minimale of geen wijzigingen van de database.
 - [SQL Server op Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server geïnstalleerd en wordt gehost in de cloud op Windows Server of Linux-machines (VM's) die worden uitgevoerd op Azure, ook wel bekend als een infrastructure-as-a-service (IaaS). SQL Server op virtuele machines van Azure is een goede optie voor het migreren van on-premises SQL Server-databases en toepassingen zonder een wijziging van de database. Alle recente versies en edities van SQL Server zijn beschikbaar voor installatie in een IaaS-machine. Het belangrijkste verschil tussen de SQL-Database is dat SQL Server-VM's volledige controle over de database-engine kunnen. U kunt kiezen wanneer onderhoud/patching wordt gestart, het herstelmodel in simple of bulksgewijs geregistreerde om in te schakelen sneller laden minder aan te melden, onderbreken of starten van engine wanneer dat nodig is, wijzigen en u de SQL Server database engine volledig kunt aanpassen. Met deze extra controle wordt geleverd met toegevoegde verantwoordelijkheid voor het beheren van de virtuele machines.
 
 Informatie over hoe elke optie voor implementatie in het Microsoft-gegevensplatform past en hulp bij het die overeenkomt met de juiste optie voor uw zakelijke vereisten. Of u nu kostenbesparingen of minimaal beheer het belangrijkst vindt, met dit artikel kunt u beslissen welke benadering de bedrijfsvereisten levert die u het belangrijkst vindt.
@@ -74,7 +72,7 @@ De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL 
 | **Ideaal voor:** |Nieuwe cloud zijn ontworpen toepassingen die u wilt gebruikmaken van de nieuwste stabiele SQL Server-functies andhave tijdsbeperkingen in ontwikkeling en marketing. | Nieuwe toepassingen of bestaande on-premises toepassingen die u wilt gebruiken voor de nieuwste stabiele SQL Server-functies en die worden gemigreerd naar de cloud met minimale wijzigingen worden aangebracht.  | Bestaande toepassingen die snelle migratie naar de cloud met minimale wijzigingen worden aangebracht of geen wijzigingen vereist. Snelle ontwikkelings- en testscenario's als u geen on-premises SQL Server-hardware wilt kopen die niet bestemd is voor productie. |
 |  | Teams die ingebouwde hoge beschikbaarheid, herstel na noodgevallen en upgrademogelijkheden van de database nodig hebben. | Hetzelfde als de SQL-Database. | Teams die kunnen configureren, fijn afstemmen, aanpassen en beheren van hoge beschikbaarheid, herstel na noodgevallen en patchen voor SQL Server. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. | |
 |  | Teams die het onderliggende besturingssysteem en configuratie-instellingen niet willen beheren. | Hetzelfde als de SQL-Database. | U hebt een aangepaste omgeving met volledige beheerdersrechten nodig. | |
-|  | Databases van maximaal 4 TB of grotere databases die kunnen worden [horizontaal of verticaal zijn gepartitioneerd](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) met een opschaalpatroon. | Hetzelfde als de SQL-Database. | SQL Server-exemplaren met maximaal 64 TB aan opslag. Het exemplaar kan zoveel databases ondersteunen als nodig is. |
+|  | Databases van maximaal 100 TB. | Hetzelfde als de SQL-Database. | SQL Server-exemplaren met maximaal 64 TB aan opslag. Het exemplaar kan zoveel databases ondersteunen als nodig is. |
 | **Compatibiliteit** | Biedt ondersteuning voor de meeste on-premises op databaseniveau mogelijkheden. | Ondersteunt bijna alle on-premises mogelijkheden op exemplaarniveau en op databaseniveau. | Biedt ondersteuning voor alle on-premises mogelijkheden. |
 | **Bronnen:** | U wilt geen IT-resources voor configuratie en beheer van de onderliggende infrastructuur implementeren, maar u wilt zich richten op de toepassingslaag. | Hetzelfde als de SQL-Database. | U hebt een aantal IT-resources voor configuratie en beheer. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. |
 | **Totale eigendomskosten:** | Elimineert hardwarekosten en verlaagt administratieve kosten. | Hetzelfde als de SQL-Database. | Elimineert hardwarekosten. |
@@ -138,20 +136,6 @@ Voor **SQL Server die wordt uitgevoerd op Azure Virtual Machines**, biedt Micros
 **SQL Database Managed Instance** vereenvoudigt de migratie van bestaande toepassingen naar Azure SQL Database, zodat u kunt een gemigreerde database toepassingen in Azure snel de markt brengen.
 
 **Met SQL Server op Azure Virtual machines** is ideaal als uw bestaande of nieuwe toepassingen grote databases is vereist of toegang tot alle functies in SQL Server of Windows/Linux, en u wilt voorkomen dat op de tijd en kosten van het ophalen van nieuwe on-premises hardware. Het is ook geschikt wanneer u wilt voor het migreren van bestaande on-premises toepassingen en databases naar Azure als-is - in gevallen waarin Azure SQL Database Managed Instance niet geschikt is. Omdat u de presentatie-, toepassings- en gegevenslagen niet hoeft te wijzigen, bespaart u tijd en geld op het opnieuw vormgeven van uw architectuur. In plaats daarvan kunt u zich richten op het migreren van uw oplossingen naar Azure en het uitvoeren van prestatieoptimalisatie die mogelijk wordt vereist door het Azure-platform. Zie voor meer informatie [Best practices prestaties for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
-
-## <a name="summary"></a>Samenvatting
-In dit artikel werden SQL Database en SQL Server op Azure Virtual Machines (VM's) verkend en algemene zakelijke motivators besproken die invloed kunnen hebben op uw beslissing. Hier volgt een samenvatting met enkele suggesties:
-
-Kies voor een **Azure SQL Database** als:
-
-* U ontwikkelt nieuwe cloudgebaseerde toepassingen om te profiteren van de kostenbesparingen en optimalisatie van de prestaties die cloudservices bieden. Deze aanpak biedt de voordelen van een volledig beheerde cloudservice, helpt de implementatietijd te verlagen en kan zorgen voor kostenoptimalisatie op de lange termijn.
-* U wilt dat Microsoft algemene managementbewerkingen uitvoert op uw databases en vereist betere beschikbaarheids-SLA's voor databases.
-* U wilt migreren van een bestaande toepassing as-is naar Azure SQL Database Managed Instance en te profiteren van extra pariteit met SQL Server en/of geavanceerde beveiliging en netwerken. Managed Instance is een goede keuze voor zowel nieuwe als bestaande toepassingen.
-
-Kies voor **SQL Server op Azure VM's** als:
-
-* U beschikt over bestaande on-premises-toepassingen die u wilt migreren of uitbreiden naar de cloud, of als u wilt maken van bedrijfstoepassingen die groter zijn dan 4 TB. Deze aanpak geeft u het voordeel van het gebruik van de SQL Server-versie en editie van uw keuze, grote databasecapaciteit, volledig beheer over SQL Server en Windows/Linux, en beveiligt u tunneling naar on-premises. Deze aanpak minimaliseert de kosten voor ontwikkeling en wijzigingen van bestaande toepassingen.
-* U hebt bestaande IT-resources en kunt eigenaar zijn van patchen, back-ups en hoge beschikbaarheid van databases. Houd er rekening mee dat sommige geautomatiseerde functies deze bewerkingen aanzienlijk kunnen vereenvoudigen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

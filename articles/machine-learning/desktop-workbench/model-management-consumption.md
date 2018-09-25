@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972633"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950618"
 ---
 # <a name="consuming-web-services"></a>Webservices gebruiken
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Wanneer u een model als een realtime webservice implementeert, kunt u gegevens verzenden en voorspellingen ophalen uit een verscheidenheid aan platforms en toepassingen. De realtime webservice wordt aangegeven dat een REST-API voor het ophalen van voorspellingen. U kunt gegevens verzenden naar de webservice in de indeling één of meerdere rijen aan een of meer voorspellingen op een tijdstip.
 
 Met de [Azure Machine Learning-webservice](model-management-service-deploy.md), een externe toepassing communiceert synchroon met een Voorspellend model dat door HTTP POST-aanroep naar de service-URL. Als u een webservice aanroepen, moet de clienttoepassing om op te geven van de API-sleutel die wordt gemaakt wanneer u een voorspelling te implementeren en de gegevens van aanvragen in de hoofdtekst van de POST-aanvraag geplaatst.

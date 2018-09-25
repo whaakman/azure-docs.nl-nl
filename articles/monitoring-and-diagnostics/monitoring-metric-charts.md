@@ -8,96 +8,66 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264085"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978414"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Monitor voor Azure Metrics Explorer
+# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
-Deze procedures voor beschrijving van de volgende generatie Azure Monitor metrische gegevens voor grafieken ervaring die momenteel is in de openbare preview. De nieuwe ervaring biedt ondersteuning voor rendering grafieken voor multidimensionale metrische gegevens en basismetrieken waarvoor geen dimensies. Diagrammen die overlay metrische gegevens van verschillende brontypen, meerdere resourcegroepen en abonnementen kunnen worden uitgezet. De grafieken multidimensionale metrische gegevens kunnen worden aangepast door dimensiefilters zijn toegepast, evenals een groepering. Een grafiek, met inbegrip van aangepaste grafieken kan worden vastgemaakt aan dashboards.
+Deze procedures voor beschrijving van de volgende generatie Azure Monitor Metrics voor grafieken-ervaring die momenteel in openbare preview. De nieuwe ervaring biedt ondersteuning voor rendering grafieken voor zowel multidimensionale metrische gegevens en eenvoudige metrische gegevens met er zijn geen dimensies. U kunt diagrammen die overlay metrische gegevens van andere resourcetypen, meerdere resourcegroepen en abonnementen. De grafieken met multi-dimensionale metrische gegevens kunnen worden aangepast door dimensiefilters zijn toegepast, evenals groeperen. Een grafiek, met inbegrip van aangepaste grafieken kan worden vastgemaakt aan dashboards.
 
-Als u naar informatie over de oude ervaring die uitsluitend basismetrieken waarvoor geen dimensies zoekt ondersteunt, Zie de sectie het gebruiksrecht heeft 'Toegang tot metrische gegevens via de portal' de [overzicht van metrische gegevens van Microsoft Azure handleiding](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Als u naar informatie over de oude ervaring die alleen ondersteuning biedt voor eenvoudige metrische gegevens met er zijn geen dimensies zoekt,. Zie de sectie 'Toegang tot metrische gegevens via de portal' de [overzicht van de metrische gegevens van de Microsoft Azure handleiding](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ## <a name="what-is-azure-monitor-metrics-explorer"></a>Wat is Azure Monitor Metrics Explorer?
 
-Azure Metrics Explorer van de Monitor is een onderdeel van de Microsoft Azure-portal die kan tekenen van grafieken, visueel correleren van trends en pieken onderzoeken en daalt in de metrische waarden. Metrics Explorer is een essentiële startpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur gehost in Azure of door bewaken van de Azure-services wordt gecontroleerd. 
+Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal die u kunt grafieken te tekenen, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics Explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services. 
 
-## <a name="what-are-metrics-in-azure"></a>Wat zijn de metrische gegevens in Azure?
+## <a name="what-are-metrics-in-azure"></a>Wat zijn metrische gegevens in Azure?
 
-Metrische gegevens in Microsoft Azure zijn de reeks meetwaarden en aantallen die worden verzameld en opgeslagen gedurende een bepaalde periode. Er zijn standaard (of 'platform') metrische gegevens en aangepaste metrische gegevens. De metrische gegevens die standaard worden aan u geleverd door het Azure-platform zelf. Standaard metrische gegevens weerspiegelen de statistieken van de status en informatie over het gebruik van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Aangepaste metrische gegevens worden opgeslagen in de Application Insights-resources samen met andere specifieke metrische gegevens voor een toepassing.
+Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen die worden verzameld en opgeslagen na verloop van tijd. Er zijn metrische gegevens voor standard (of 'platform') en aangepaste metrische gegevens. De standaard metrische gegevens worden aan u vertrekt door de Azure-platform zelf. Standaard metrische gegevens weer de status en gebruik statistische gegevens van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Aangepaste metrische gegevens worden opgeslagen in de Application Insights-resources samen met andere specifieke metrische gegevens voor een toepassing.
 
-## <a name="what-are-multi-dimensional-metrics"></a>Wat zijn multidimensionale metrische gegevens?
 
-Veel van de Azure resources nu tonen multidimensionale metrische gegevens. Deze metrische gegevens bijhouden meerdere reeksen met waarden voor een of veel benoemde dimensies. Een metriek 'beschikbare schijfruimte' kan bijvoorbeeld een dimensie met de naam 'Schijf' met waarden 'C:', 'D:', waardoor de beschikbare schijfruimte op alle stations of voor elke schijf afzonderlijk weer zou hebben. 
 
-Het volgende voorbeeld ziet u twee gegevenssets voor een hypothetische metriek 'Netwerkdoorvoer' genoemd. De eerste gegevensset heeft geen dimensies. De tweede gegevensset ziet u de waarden met twee dimensies, 'IP-adres' en 'Richting':
-
-### <a name="network-throughput"></a>Netwerkdoorvoer
-(Deze metriek heeft geen dimensies)
-
- |Timestamp        | Metrische waarde | 
-   | ------------- |:-------------| 
-   | 8/9/2017 8:14 | 1,331.8 kbps | 
-   | 8/9/2017 8:15 | 1,141.4 kbps |
-   | 8/9/2017 8:16 | 1,110.2 kbps |
-
-Met deze metriek niet-dimensionale kunt alleen een eenvoudige vraag antwoord, zoals 'Wat is mijn netwerkdoorvoer op een bepaald moment?'
-
-### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Netwerkdoorvoer + twee dimensies (IP '-' en 'Richting')
-
-| Timestamp          | Dimensie '-IP | Dimensie 'Richting' | Metrische waarde| 
-   | ------------- |:-----------------|:------------------- |:-----------|  
-   | 8/9/2017 8:14 | IP = "192.168.5.2" | Richting = "Verzenden"    | 646.5 kbps |
-   | 8/9/2017 8:14 | IP = "192.168.5.2" | Richting = 'Ontvangen' | 420.1 kbps |
-   | 8/9/2017 8:14 | IP = "10.24.2.15"  | Richting = "Verzenden"    | 150,0 kbps | 
-   | 8/9/2017 8:14 | IP = "10.24.2.15"  | Richting = 'Ontvangen' | Met 115,2 kbps |
-   | 8/9/2017 8:15 | IP = "192.168.5.2" | Richting = "Verzenden"    | 515.2 kbps |
-   | 8/9/2017 8:15 | IP = "192.168.5.2" | Richting = 'Ontvangen' | 371.1 kbps |
-   | 8/9/2017 8:15 | IP = "10.24.2.15"  | Richting = "Verzenden"    | 155.0 kbps |
-   | 8/9/2017 8:15 | IP = "10.24.2.15"  | Richting = 'Ontvangen' | 100.1 kbps |
-
-Met deze metriek kan beantwoorden vragen zoals 'Wat is de doorvoer van het netwerk voor elk IP-adres?' en "hoeveel gegevens zijn verzonden en ontvangen?" Multidimensionale metrische gegevens uitvoeren vergeleken met niet-dimensionale metrische gegevens van aanvullende analytische en diagnostische waarde. 
-
-## <a name="how-do-i-create-a-new-chart"></a>Hoe maak ik een nieuwe grafiek
+## <a name="how-do-i-create-a-new-chart"></a>Hoe kan ik een nieuwe grafiek maken?
 
    > [!NOTE]
-   > Sommige van de functies van de ervaring van de oude metrische gegevens nog niet beschikbaar in de nieuwe Metrics Explorer. Terwijl de nieuwe ervaring preview wordt, kunt u doorgaan met de oude (niet-dimensionale) metrische gegevens weergave van Azure-Monitor. 
+   > Enkele van de functies van de oude ervaring voor metrische gegevens nog niet beschikbaar in de nieuwe Metrics Explorer. Terwijl de nieuwe ervaring in preview is, kunt u doorgaan met behulp van de oude (niet-dimensionale) weergave voor metrische gegevens van Azure Monitor. 
 
-1. De Azure portal openen
-2. Navigeer naar de nieuwe **Monitor** tabblad en selecteer vervolgens **metrische gegevens (preview)**.
+1. De Azure-portal openen
+2. Navigeer naar de nieuwe **Monitor** tabblad, en selecteer vervolgens **metrische gegevens (preview)**.
 
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/001.png)
+   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0001.png)
 
-3. De **metrische selector** automatisch voor u geopend worden. Kies een bron in de lijst om de bijbehorende metrische gegevens weer te geven. Alleen bronnen met metrische gegevens worden weergegeven in de lijst.
+3. De **metrische selector** automatisch worden geopend voor u. Kies een resource in de lijst om de bijbehorende metrische gegevens weer te geven. Alleen bronnen met metrische gegevens worden weergegeven in de lijst.
 
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/002.png)
-
-   > [!NOTE]
-   >Als u meer dan één Azure-abonnement hebt,-Filter in Metrics Explorer worden uit de resources in alle abonnementen die zijn geselecteerd in de Portal-instellingen > door de lijst met abonnementen. Als u wilt wijzigen, klikt u op de Portal tandwielpictogram Instellingenpictogram boven op het scherm en selecteer welke abonnementen u wilt gebruiken.
-
-4. Voor bepaalde typen resources (dat wil zeggen Storage-Accounts en virtuele Machines), voordat u een metriek selecteert moet u een **Sub Service**. Elke sub-service heeft een eigen set van metrische gegevens die relevant zijn voor deze service sub alleen en niet voor andere sub-services.
-
-   Elke Azure-opslag heeft bijvoorbeeld metrische gegevens voor subservices 'Blobs', 'Files', 'Wachtrijen' en 'Tabellen', alle onderdelen van het opslagaccount zijn. De metriek ' aantal wachtrij bericht ' is echter natuurlijk van toepassing op de subservice 'Wachtrij' en niet op een andere opslag account subservices.
-
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/003.png)
-
-5. Selecteer een waarde in de lijst. Als u een gedeeltelijke naam van de metrische gegevens die u wilt, kunt u begint te typen in een gefilterde lijst met beschikbare metrische gegevens te zien:
-
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/004.png)
-
-6. Na het selecteren van een metriek wordt de grafiek weergeven met de standaard aggregatie voor de geselecteerde waarde. Op dit moment hoeft u alleen op weg van de **metrische gegevens selector** om deze te sluiten. U kunt eventueel ook de grafiek overschakelen naar een andere aggregatie. Voor bepaalde maatstaven voor kunt aggregatie overschakelen u kiezen welke waarde u wilt zien op de grafiek. U kunt bijvoorbeeld schakelen tussen de gemiddelde, minimale en maximale waarden. 
-
-7. Door te klikken op het pictogram metriek toevoegen ![metrische pictogram](./media/monitoring-metric-charts/icon001.png) en stap 3-6 herhalende kunt u meer metrische gegevens kunt toevoegen in hetzelfde diagram.
+   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
-   > Wilt u waarschijnlijk geen metrische gegevens met verschillende eenheden (dat wil zeggen 'milliseconden' en 'kilobytes') of met aanmerkelijk verschilde scale hebben op één grafiek. Overweeg in plaats daarvan het gebruik van meerdere grafieken. Klik op de knop grafiek toevoegen voor het maken van meerdere grafieken in Metrics Explorer.
+   >Als u meer dan één Azure-abonnement hebt, Metrics Explorer worden de resources in alle abonnementen die zijn geselecteerd in de Portal-instellingen -> Filter door de abonnementenlijst met. Als u wilt wijzigen, klikt u op het tandwielpictogram voor instellingen van Portal boven op het scherm en selecteer welke abonnementen die u wilt gebruiken.
+
+4. Voor sommige typen resources (dat wil zeggen Storage-Accounts en virtuele Machines), voordat u selecteert een metrische waarde moet u een **Namespace**. Elke naamruimte heeft een eigen set metrische gegevens die relevant zijn voor alleen deze naamruimte, en niet voor andere naamruimten.
+
+   Elke Azure-Storage heeft bijvoorbeeld metrische gegevens voor subservices 'Blobs', 'Files', 'Wachtrijen' en 'Tabellen', alle onderdelen van het storage-account zijn. De metriek "aantal Wachtrijberichten" is echter op een natuurlijke manier van toepassing op de subservice 'Wachtrij' en niet op een andere opslag account subservices.
+
+   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0003.png)
+
+5. Selecteer een metrische waarde in de lijst. Als u een gedeeltelijke naam van de metrische gegevens die u wilt weten, kunt u beginnen te typen in een gefilterde lijst met beschikbare metrische gegevens zien:
+
+   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0004.png)
+
+6. Na het selecteren van een metrische waarde, worden de grafiek weergegeven met de standaardaggregatie voor de geselecteerde metrische gegevens. Op dit punt hoeft u alleen op weg van de **metrische gegevens selector** om deze te sluiten. U kunt eventueel ook de grafiek overschakelen naar een andere aggregatie. Voor sommige metrische gegevens kunt schakelen tussen aggregatie u kiezen welke waarde u wilt zien op de grafiek. U kunt bijvoorbeeld schakelen tussen de gemiddelde, minimale en maximale waarden. 
+
+7. Door te klikken op het pictogram metrische gegevens toevoegen ![pictogram van metrische gegevens](./media/monitoring-metric-charts/icon001.png) en stap 3-6 herhalende kunt u meer metrische gegevens in dezelfde grafiek toevoegen.
+
+   > [!NOTE]
+   > Normaal gesproken u niet metrische gegevens met verschillende eenheden (dat wil zeggen "milliseconden" en 'kilobytes') of met aanmerkelijk verschillende schalen in een grafiek hebt. In plaats daarvan kunt u overwegen meerdere diagrammen. Klik op de knop grafiek toevoegen aan meerdere diagrammen maken in Metrics Explorer.
 
 ## <a name="how-do-i-apply-filters-to-the-charts"></a>Hoe ik filters toepassen op de grafieken?
 
-U kunt filters toepassen op de grafieken die metrische gegevens met dimensies weergeven. Bijvoorbeeld, als de metriek 'transactieaantal' een dimensie heeft, 'Reactietype', waarmee wordt aangegeven of het antwoord van transacties is geslaagd of mislukt vervolgens filteren op deze dimensie zou tekenen een regel grafiek voor alleen geslaagde (of alleen mislukte) transacties. 
+U kunt filters toepassen op de grafieken met metrische gegevens met dimensies. Bijvoorbeeld, als de metriek "Aantal transacties" een dimensie heeft, "reactietype', waarmee wordt aangegeven of het antwoord van transacties is geslaagd of mislukt vervolgens filteren op deze dimensie wilt tekenen regel in een grafiek voor alleen geslaagde (of alleen mislukt) transacties. 
 
 ### <a name="to-add-a-filter"></a>Een filter toevoegen:
 
@@ -105,52 +75,52 @@ U kunt filters toepassen op de grafieken die metrische gegevens met dimensies we
 
 2. Selecteer welke dimensie (eigenschap) die u wilt filteren
 
-   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/006.png)
+   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0006.png)
 
-3. Selecteer welke dimensiewaarden die u opnemen wilt, wanneer het uitzetten van de grafiek (in dit voorbeeld ziet de geslaagde opslagtransacties uitgefilterd):
+3. Selecteer welke dimensiewaarden die u opnemen wilt, wanneer het uitzetten van de grafiek (dit voorbeeld wordt gefilterd op de opslagaccount-transacties):
 
-   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/007.png)
+   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0007.png)
 
-4. Na het selecteren van de filterwaarden, klikt u op weg van de Selector Filter te sluiten. Nu de grafiek wordt weergegeven hoeveel opslagtransacties is mislukt:
+4. Na het selecteren van de filterwaarden, klikt u op weg van de Selector Filter om deze te sluiten. Het diagram toont nu het aantal opslagtransacties zijn mislukt:
 
-   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/008.png)
+   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0008.png)
 
-5. U kunt de stappen 1-4 tot meerdere filters toepassen op de dezelfde grafieken herhalen.
+5. U kunt de stappen 1-4 meerdere filters toepassen op de dezelfde grafieken herhalen.
 
-## <a name="how-do-i-segment-a-chart"></a>Hoe ik een grafiek segmenteren?
+## <a name="how-do-i-segment-a-chart"></a>Hoe ik een grafiek segment?
 
-U kunt een metriek gesplitst in dimensie visualiseren hoe verschillende segmenten van de metrische gegevens vergelijken ten opzichte van elkaar en identificeren van de afgelegen segmenten van een dimensie. 
+U kunt een metrische waarde splitsen op dimensie om te visualiseren hoe verschillende segmenten van de metrische gegevens vergelijken ten opzichte van elkaar en identificeren van de afgelegen segmenten van een dimensie. 
 
 ### <a name="to-segment-a-chart"></a>Een grafiek in segmenten:
 
-1. Klik op het pictogram groepering toevoegen  ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/icon003.png) boven het diagram.
+1. Klik op het pictogram groepering toevoegen  ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/icon003.png) boven de grafiek.
  
    > [!NOTE]
-   > U kunt meerdere filters, maar slechts één groepering hebben op één grafiek.
+   > U kunt meerdere filters, maar slechts één groepering op één grafiek hebben.
 
-2. Kies een dimensie die u wilt segmenteren van uw grafiek: 
+2. Kies een dimensie waarop u wilt indelen van de grafiek: 
 
-   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/010.png)
+   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0010.png)
 
-   De grafiek toont nu nu meerdere regels, één voor elk segment van dimensie:
+   Het diagram toont nu nu meerdere regels, één voor elk segment van dimensie:
 
-   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/012.png)
+   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0012.png)
 
 3. Klikt u op weg van de **groepering Selector** om deze te sluiten.
 
    > [!NOTE]
-   > Filteren en groeperen op dezelfde dimensie gebruiken voor het verbergen van de segmenten die zijn niet relevant voor uw scenario en grafieken gemakkelijker te lezen.
+   > Gebruik zowel filteren en groeperen op dezelfde dimensie verborgen segmenten die zijn niet relevant voor uw scenario en grafieken gemakkelijker te lezen.
 
 ## <a name="how-do-i-pin-charts-to-dashboards"></a>Hoe ik grafieken aan dashboards vastmaken?
 
-Mogelijk wilt u na het configureren van de grafieken toe te voegen aan de dashboards zodat u kunt opnieuw mogelijk in de context van andere bewaking telemetrie bekijken of met uw team delen. 
+Na het configureren van de grafieken, kunt u deze toevoegen aan de dashboards, zodat u kunt opnieuw mogelijk in de context van andere bewaking telemetrie bekijken of met uw team delen. 
 
-Een geconfigureerde grafiek aan een dashboard vastmaken:
+Voor een geconfigureerde grafiek vastmaken aan een dashboard:
 
-Na het configureren van de grafiek, klikt u op de **grafiek acties** menu van rechts bovenste hoek van de grafiek en klik op **vastmaken aan dashboard**.
+Na het configureren van de grafiek, klik op de **grafiek acties** menu in de rechter hoek van de grafiek belangrijkste, en klikt u op **vastmaken aan dashboard**.
 
-   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/013.png)
+   ![de installatiekopie van de metrische gegevens](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-  Lees [maken van aangepaste dashboards van de KPI](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) voor meer informatie over de aanbevolen procedures voor het maken van bruikbare dashboards met metrische gegevens.
+  Lezen [het maken van aangepaste KPI-dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) voor meer informatie over de aanbevolen procedures voor het maken van bruikbare dashboards met metrische gegevens.

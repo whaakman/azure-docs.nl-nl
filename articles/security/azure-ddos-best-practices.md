@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 09411ad3f0a27ba4d6d36342f9e298e177a021d8
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324934"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986845"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Best practices en referentiearchitecturen
 
@@ -126,7 +126,7 @@ De service Azure DDoS Protection Basic helpt klanten te beschermen en te voorkom
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection telemetrie, bewaking en waarschuwingen
 
-DDoS Protection standaard wordt aangegeven dat uitgebreide telemetrie via [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) voor de duur van een DDoS-aanval. U kunt waarschuwingen voor het gebruik van de Azure Monitor-metrische gegevens die gebruikmaakt van DDoS-beveiliging configureren. U kunt logboekregistratie met Splunk (Azure Event Hubs), Azure Log Analytics en Azure Storage integreren voor geavanceerde analyse via de Azure Monitor Diagnostics-interface.
+DDoS Protection standaard wordt aangegeven dat uitgebreide telemetrie via [Azure Monitor](../azure-monitor/overview.md) voor de duur van een DDoS-aanval. U kunt waarschuwingen voor het gebruik van de Azure Monitor-metrische gegevens die gebruikmaakt van DDoS-beveiliging configureren. U kunt logboekregistratie met Splunk (Azure Event Hubs), Azure Log Analytics en Azure Storage integreren voor geavanceerde analyse via de Azure Monitor Diagnostics-interface.
 
 ##### <a name="ddos-mitigation-policies"></a>Beleid voor DDoS-risicobeperking
 

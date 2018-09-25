@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Referentie voor de vooraf gemaakte domeinen vooraf gemaakte verzamelingen van intenties en entiteiten van Language Understanding Intelligent Services (LUIS zijn).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238893"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040037"
 ---
 # <a name="prebuilt-domain-reference"></a>Vooraf gemaakte domeinverwijzing
 Deze referentie bevat informatie over de [vooraf gemaakte domeinen](luis-how-to-use-prebuilt-domains.md), die zijn vooraf gemaakte verzamelingen van intenties en entiteiten die LUIS biedt.
@@ -180,7 +180,7 @@ Het domein van de gebeurtenissen biedt intenties en entiteiten die betrekking he
 | Adres | Locatie van de gebeurtenis of het adres. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
 | Naam | De naam van een gebeurtenis.|Shakespeare in het strand|
 | PlaceName| De naam van de gebeurtenis-locatie.|Louvre<br/>Opera House<br/>Gewijzigd in Broadway|
-| PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Cafe<br/>Theater<br/>Bibliotheek|
+| PlaceType | Het type van de locatie van de gebeurtenis worden ondergebracht in.|Café<br/>Theater<br/>Bibliotheek|
 | Type | Het type van een gebeurtenis.|Concert<br/>Sport-game|
 
 ## <a name="fitness"></a>Geschiktheid 
@@ -197,7 +197,7 @@ Het domein geschiktheid biedt intenties en entiteiten met betrekking tot het bij
 ### <a name="entities"></a>Entiteiten
 | Naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| ActivityType | Het type van de activiteit om bij te houden. |Voer<br/>Overzicht<br/>Zwemmen<br/>Cyclus |
+| ActivityType | Het type van de activiteit om bij te houden. |Voer<br/>Lopen<br/>Zwemmen<br/>Cyclus |
 | Voedsel | Een type food om bij te houden in een app geschiktheid. |Bananen<br/>Zalmkleurig<br/>Door te schudden eiwitten|
 | MealType| Het type maaltijd om bij te houden in een status- of geschiktheid app.|Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
 | Meting| Een type van de metingen voor tijd, afstand of het gewicht voor gebruik in een app geschiktheid of status.|Kilometer zijn verwijderd<br/>Mijl<br/>Minuten<br/>Kg|
@@ -217,7 +217,7 @@ Het domein Gaming biedt intenties en entiteiten met betrekking tot het beheren v
 ### <a name="entities"></a>Entiteiten
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
-| Contact| De naam van een contactpersoon in een spel gebruiken.|Carola<br/>Jim|
+| Contactpersoon| De naam van een contactpersoon in een spel gebruiken.|Carola<br/>Jim|
 
 
 ## <a name="homeautomation"></a>HomeAutomation 
@@ -234,7 +234,7 @@ Het domein HomeAutomation biedt intenties en entiteiten die betrekking hebben op
 | De naam van de entiteit | Beschrijving | Voorbeelden |
 | ---------------- |-----------------------|----|
 | Apparaat | Een type apparaat dat kan worden ingeschakeld in- of uitschakelen.|koffie maker<br/>Thermostaat<br/>licht|
-| Bewerking | De status van het apparaat.|vergrendelen<br/>openen<br/>op<br/>uit|
+| Bewerking | De status van het apparaat.|vergrendelen<br/>open<br/>op<br/>uit|
 | Ruimte | De locatie of het apparaat zich in de ruimte.|Woonkamer<br/>slaapkamers<br/>keuken|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -430,13 +430,13 @@ restart|
 | Lucht | De omgeving van een centrale locatie.|kind-vriendelijk<br/>illegaal restaurant<br/>sportief|
 | Cuisine | De cuisine van een centrale locatie. |Middellandse<br/>Italiaans<br/>Indiase|
 | DestinationAddress| Een nieuwe locatie of het adres.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName| De naam van een doel dat is een bedrijf, restaurant, openbare voordelen of instelling.|centrale park<br/>safeway<br/>walmart|
+| DestinationPlaceName| De naam van een doel dat is een bedrijf, restaurant, openbare voordelen of instelling.|centrale park<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | Het type van een doel dat is een lokale bedrijven, restaurant, openbare voordelen of instelling. |Restaurant<br/>Opera<br/>bioscoopvertoningen|
 | Afstand | De afstand op een plaats.|15 mijl<br/>5 mijl<br/>10 mijl opslaan|
 | MealType | Het type maaltijd zoals ontbijt of lunch. |Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
 | OpenStatus | Geeft aan of een plaats open of gesloten is.|Open<br/>Gesloten<br/>openen|
 | PlaceName | De naam van een centrale locatie.|Cheesecake Factory|
-| PlaceType | Het type van een centrale locatie.|Cafe<br/>Theater<br/>Bibliotheek|
+| PlaceType | Het type van een centrale locatie.|Café<br/>Theater<br/>Bibliotheek|
 | PreferredRoute | De voorkeursroute is opgegeven door de gebruiker. | 101 <br/>202 <br/>Route 401|
 | Product | Het product die worden aangeboden door een centrale locatie. | Kleding<br/>ASR digitale camera 's<br/>Nieuwe aquarium | 
 | PublicTransportationRoute | De naam van de route voor openbaar vervoer die naar de gebruiker zoekt. | Noordoosten bandbreedte train<br/>Bus route 3 X |
@@ -494,7 +494,7 @@ Table for 3 in Palo Alto at 7
 | Cuisine | Een type eten, cuisine of cuisine nationaliteit. |Chinees<br/>Italiaans<br/>Mexicaanse|
 | MealType | Een maaltijd-type dat is gekoppeld aan een reservering.|Ontbijt<br/>Diner<br/>Lunchpauze<br/>Supper|
 | PlaceName | De naam van een lokale bedrijven, restaurant, openbare voordelen of instelling.|IHOP<br/>Cheesecake Factory<br/>Louvre|
-| PlaceType | Het type van een lokale bedrijven, restaurant, openbare voordelen of instelling.|restaurant<br/>Opera<br/>bioscoopvertoningen|
+| PlaceType | Het type van een lokale bedrijven, restaurant, openbare voordelen of instelling.|Restaurant<br/>Opera<br/>bioscoopvertoningen|
 | Classificatie | De classificatie van een plaats of een restaurant.|5 sterren<br/>3 sterren<br/>4 sterren|
 
 ## <a name="taxi"></a>Over taxi 's 

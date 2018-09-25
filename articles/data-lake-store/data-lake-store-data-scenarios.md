@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: c492709ca3da0f9f3ab4b1457be34dd5d6fc7b35
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 64c7985508ed7f03b32340cbb2c78de61242f7e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391232"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984276"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Met behulp van Azure Data Lake Storage Gen1 voor big data-vereisten
 
@@ -40,7 +40,7 @@ Dit staat voor kleinere gegevenssets die worden gebruikt voor het maken van een 
 
 | Gegevensbron | Met behulp van opnemen |
 | --- | --- |
-| Lokale computer |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Lokale computer |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure-CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Met behulp van Data Lake Tools voor Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage-Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp die worden uitgevoerd op HDInsight-cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Gestreamde gegevens
@@ -61,7 +61,7 @@ U kunt ook brongegevens van relationele databases. Relationele databases verzame
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Logboekgegevens voor web server (uploaden met behulp van aangepaste toepassingen)
 Dit type gegevensset wordt specifiek genoemd, omdat het analyseren van logboekgegevens van web server is een gebruikelijk voor big data-toepassingen en grote hoeveelheden logboekbestanden worden geüpload naar Data Lake Storage Gen1 vereist. U kunt een van de volgende hulpprogramma's gebruiken om te schrijven van uw eigen scripts of toepassingen voor het uploaden van dergelijke gegevens.
 
-* [Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure-CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Storage Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
@@ -81,7 +81,7 @@ Grote hoeveelheden gegevens kunnen worden opgeslagen in bestaande Hadoop-cluster
 | Methode | Details | Voordelen | Overwegingen |
 | --- | --- | --- | --- |
 | Azure Data Factory (ADF) gebruiken om te kopiëren van gegevens rechtstreeks vanuit de Hadoop-clusters op Azure Data Lake Storage Gen1 |[ADF ondersteuning biedt voor HDFS als een gegevensbron](../data-factory/connector-hdfs.md) |ADF biedt out-of-the-box-ondersteuning voor HDFS en eersteklas end-to-end-beheer en bewaking |Data Management Gateway worden on-premises geïmplementeerd of in de IaaS-cluster is vereist |
-| Gegevens exporteren uit Hadoop als bestanden. Kopieer de bestanden naar Azure Data Lake Storage Gen1 met behulp van de juiste mechanisme. |U kunt bestanden voor het gebruik van Azure Data Lake Storage Gen1 kopiëren: <ul><li>[Azure PowerShell voor Windows-besturingssysteem](data-lake-store-get-started-powershell.md)</li><li>[Azure platformoverschrijdende CLI 2.0 voor niet - Windows OS](data-lake-store-get-started-cli-2.0.md)</li><li>Aangepaste app met behulp van een Data Lake Storage Gen1 SDK</li></ul> |Snel aan de slag. Aangepaste uploads kunt doen |WebTest met meerdere stappen proces dat bestaat uit meerdere technologieën. Beheer en controle neemt toe en wordt een uitdaging zijn na verloop van tijd vanwege de aangepaste aard van de hulpprogramma 's |
+| Gegevens exporteren uit Hadoop als bestanden. Kopieer de bestanden naar Azure Data Lake Storage Gen1 met behulp van de juiste mechanisme. |U kunt bestanden voor het gebruik van Azure Data Lake Storage Gen1 kopiëren: <ul><li>[Azure PowerShell voor Windows-besturingssysteem](data-lake-store-get-started-powershell.md)</li><li>[Azure-CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Aangepaste app met behulp van een Data Lake Storage Gen1 SDK</li></ul> |Snel aan de slag. Aangepaste uploads kunt doen |WebTest met meerdere stappen proces dat bestaat uit meerdere technologieën. Beheer en controle neemt toe en wordt een uitdaging zijn na verloop van tijd vanwege de aangepaste aard van de hulpprogramma 's |
 | Distcp gebruiken om gegevens te kopiëren uit Hadoop met Azure Storage. Gegevens kopiëren van Azure-opslag naar Data Lake Storage Gen1 met geschikt mechanisme. |U kunt gegevens kopiëren van Azure Storage voor het gebruik van Data Lake Storage Gen1: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy hulpprogramma](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp die worden uitgevoerd op HDInsight-clusters](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |U kunt de open-source hulpprogramma's gebruiken. |WebTest met meerdere stappen proces dat bestaat uit meerdere technologieën |
 
 ### <a name="really-large-datasets"></a>Grote gegevenssets
@@ -121,7 +121,7 @@ In dergelijke gevallen kunt u een van de volgende opties gebruiken:
 
 U kunt ook de volgende methoden gebruiken om te schrijven van uw eigen script/toepassing om te downloaden van gegevens van Data Lake Storage Gen1.
 
-* [Azure platformoverschrijdende CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure-CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Storage Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)
 

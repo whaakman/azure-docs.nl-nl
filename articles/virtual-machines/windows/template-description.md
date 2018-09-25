@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987693"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuele machines in een Azure Resource Manager-sjabloon
 
@@ -164,7 +164,7 @@ Gebruik deze mogelijkheden voor het ophalen van de meest recente API-versies:
 
 - REST-API - [alle resourceproviders vermelden](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Parameters en variabelen
 
@@ -442,7 +442,7 @@ U ziet de status van de geïnstalleerde uitbreidingen van de instellingen van de
 
 ![Status van de extensie ophalen](./media/template-description/virtual-machines-show-extensions.png)
 
-U kunt ook informatie over extensies ophalen met behulp van de **Get-AzureRmVMExtension** PowerShell-opdracht, de **vm-extensie get** Azure CLI 2.0-opdracht, of de **extensiegegevensophalen** REST-API.
+U kunt ook informatie over extensies ophalen met behulp van de **Get-AzureRmVMExtension** PowerShell-opdracht, de **vm-extensie get** Azure CLI-opdracht, of de **extensie informatie**REST-API.
 
 ## <a name="deployments"></a>Implementaties
 

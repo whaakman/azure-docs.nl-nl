@@ -1,6 +1,6 @@
 ---
 title: Schijven op een Linux-VM in Azure versleutelen | Microsoft Docs
-description: Versleutelen van virtuele schijven op een Linux-VM voor verbeterde beveiliging met behulp van de Azure CLI 2.0
+description: Versleutelen van virtuele schijven op een Linux-VM voor verbeterde beveiliging met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981226"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Versleutelen van een virtuele Linux-machine in Azure
-Voor uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. VM's zijn versleuteld met behulp van cryptografische sleutels die worden beveiligd in een Azure Key Vault. U bepaalt deze cryptografische sleutels en het gebruik ervan kunt controleren. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. 
+
+Voor uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. VM's zijn versleuteld met behulp van cryptografische sleutels die worden beveiligd in een Azure Key Vault. U bepaalt deze cryptografische sleutels en het gebruik ervan kunt controleren. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel is vereist dat u de Azure CLI versie 2.0.30 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel is vereist dat u de Azure CLI versie 2.0.30 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="overview-of-disk-encryption"></a>Overzicht van schijfversleuteling
 Virtuele schijven op Linux-VM's zijn versleuteld met behulp van rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Er zijn geen kosten voor het versleutelen van virtuele schijven in Azure. Cryptografische sleutels worden opgeslagen in Azure Key Vault met behulp van software-beveiliging, of u kunt importeren of genereer uw sleutels in Hardware Security Modules (HSM's) gecertificeerd voor FIPS 140-2 level 2 standaarden. U behoudt de controle van deze cryptografische sleutels en het gebruik ervan kunt controleren. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven die zijn gekoppeld aan uw virtuele machine. Een Azure Active Directory service-principal biedt een veilige mechanisme voor het uitgeven van deze cryptografische sleutels als VM's worden aangestuurd in of uit.

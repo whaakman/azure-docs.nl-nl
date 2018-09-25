@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: LUIS bevat een set met vooraf gemaakte entiteiten voor het herkennen van algemene typen gegevens, zoals datums, tijden, getallen, metingen en valuta. Ondersteuning voor vooraf gedefinieerde entiteit is afhankelijk van de cultuur van uw LUIS-app.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: f62c078a023d9ee7ca535cb5e02623df7a568e8a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052870"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041554"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Vooraf gemaakte entiteiten voor het herkennen van veelvoorkomende gegevenstypen
 

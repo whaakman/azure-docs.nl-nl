@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e63345c0265d52fdd80fe4542efb7f13324926cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989615"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Het maken van grafieken en diagrammen van Log Analytics-query 's
 
@@ -34,7 +34,7 @@ Dit artikel beschrijft de verschillende visualisaties in Azure Log Analytics om 
 ## <a name="charting-the-results"></a>De resultaten voor grafieken
 Aan de hand van het aantal computers per besturingssysteem, in het afgelopen uur gelden starten:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -52,7 +52,7 @@ Als u een beter beeld, selecteer **grafiek**, en kies de **Pie** optie voor het 
 ## <a name="timecharts"></a>Timecharts
 De gemiddelde, het 50e en 95th percentielen van de processortijd in bins van 1 uur weergeven. De query genereert meerdere reeksen en vervolgens kunt u selecteren welke reeks om weer te geven in de grafiek:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -67,7 +67,7 @@ Selecteer de **regel** weergaveoptie grafiek:
 
 Een referentielijn kunt u eenvoudig bepalen of de metrische gegevens een bepaalde drempelwaarde wordt overschreden. Een regel toevoegen aan een grafiek, breiden de gegevensset met een constante kolom:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -80,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Meerdere dimensies
 Meerdere expressies in de `by` -component van `summarize` meerdere rijen in de resultaten, één voor elke combinatie van waarden maken.
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

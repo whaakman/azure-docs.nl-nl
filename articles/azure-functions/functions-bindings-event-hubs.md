@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: ef7eae503eaf8194b287b9f080d8f635d9b3a485
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2c78e1d39227153dd65f145512fab4769b09e5c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094779"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966554"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -129,14 +129,15 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie registreert de hoofdtekst van de event hub-trigger.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -145,7 +146,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -203,14 +204,15 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie registreert de hoofdtekst van de event hub-trigger.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -219,7 +221,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -235,14 +237,15 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie leest [gebeurtenis metagegevens](#trigger---event-metadata) en registreert het bericht.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -251,7 +254,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -269,14 +272,14 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* -bestand, zoals wordt weergegeven in de volgende voorbeelden. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `many` in de *function.json* -bestand, zoals wordt weergegeven in de volgende voorbeelden. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -286,7 +289,7 @@ Voor het ontvangen van gebeurtenissen in een batch stelt `cardinality` naar `man
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -426,13 +429,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie een bericht wordt geschreven naar een event hub.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -441,7 +444,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -476,13 +479,13 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie een bericht wordt geschreven naar een event hub.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -491,7 +494,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -510,13 +513,13 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie een bericht wordt geschreven naar een event hub.
 
-De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 1.x en de tweede waarde is voor functies 2.x. 
+De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.json* bestand. Het eerste voorbeeld is voor functies 2.x, en de tweede waarde is voor functies 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -525,7 +528,7 @@ De volgende voorbeelden ziet u gegevens van Event Hubs-binding in de *function.j
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }

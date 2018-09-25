@@ -1,6 +1,6 @@
 ---
 title: Cloud-init gebruiken voor een wisselbestand configureren op een Linux-VM | Microsoft Docs
-description: Hoe u cloud-init gebruiken voor het configureren van een wisselbestand in een Linux-VM tijdens het maken van met de Azure CLI 2.0
+description: Hoe u cloud-init gebruiken voor het configureren van een wisselbestand in een Linux-VM tijdens het maken van met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: d58795182e432ef75604e4db18d05e8d2231e215
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35755815"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946303"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Cloud-init gebruiken voor een wisselbestand configureren op een Linux VM
 In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) voor het configureren van het wisselbestand op verschillende Linux-distributies. Het wisselbestand is door de Linux Agent (WALA) op basis van welke distributies een vereist traditioneel geconfigureerd.  Dit document wordt een overzicht van het proces voor het bouwen van het wisselbestand op de vraag tijdens inrichtingstijd cloud-init gebruiken.  Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)

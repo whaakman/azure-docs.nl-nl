@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 57b72ded77484dc1c8ca4c62811b62e171365db4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423454"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978451"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en serverlogboeken openen met behulp van Azure CLI
 U kunt de Azure Database for MySQL-serverlogboeken downloaden met behulp van Azure CLI, het Azure-opdrachtregelprogramma.
@@ -23,7 +23,7 @@ U kunt de Azure Database for MySQL-serverlogboeken downloaden met behulp van Azu
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 - [Azure Database voor MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
-- De [Azure CLI 2.0](/cli/azure/install-azure-cli) of Azure Cloud Shell in de browser
+- De [Azure CLI](/cli/azure/install-azure-cli) of Azure Cloud Shell in de browser
 
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Logboekregistratie voor Azure Database voor MySQL configureren
 U kunt de server voor toegang tot het MySQL-logboek voor langzame query's door de volgende stappen configureren:

@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343726"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041952"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap waarmee de beveiliging van uw account door waardoor het moeilijker is voor anderen in breken. Als u dit artikel leest, hebt u waarschijnlijk een e-mailbericht van uw werk- of schoolaccount-beheerder over multi-factor Authentication. Of misschien heeft geprobeerd aan te melden bij en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **u niet aanmelden totdat het proces van automatische inschrijving is voltooid**.
@@ -47,6 +47,9 @@ De eerste vraag in het inschrijvingsproces is hoe u moet er contact met u wilt. 
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Een mobiele app gebruiken als de primaire contactmethode
 Met deze methode is vereist dat u een verificator-app op uw telefoon of tablet installeren. De stappen in dit artikel zijn gebaseerd op de Microsoft Authenticator-app die beschikbaar is voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>U hebt geen gebruik van de Microsoft Authenticator-app. Als u al een andere verificator-app gebruikt, kunt u blijven gebruiken.
 
 1. Selecteer **mobiele app** uit de vervolgkeuzelijst.
 2. Selecteer een **meldingen ontvangen voor verificatie** of **verificatiecode gebruiken**en selecteer vervolgens **instellen**.

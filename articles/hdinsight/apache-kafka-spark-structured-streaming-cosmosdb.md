@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: jasonh
-ms.openlocfilehash: c18234e50711b2496b793263ca8d314f16347cbe
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8f0a16320091f8b2efa98ee96a63801e841c082e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107792"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971311"
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Gebruik Spark Structured Streaming met Kafka en Azure Cosmos DB
 
@@ -104,7 +104,7 @@ Hoewel u een Azure-netwerk, Kafka, maken kunt en Spark-clusters handmatig, is he
 
 Het project dat wordt gebruikt in dit document worden gegevens opgeslagen in Cosmos DB. Voordat u de code uitvoert, moet u eerst maken een _database_ en _verzameling_ in uw Cosmos DB-exemplaar. U moet ook de document-eindpunt ophalen en de _sleutel_ gebruikt voor het verifiëren van aanvragen voor Cosmos DB. 
 
-Een manier om te doen dit is het gebruik van de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Het volgende script maakt u een database met de naam `kafkadata` en een verzameling met de naam `kafkacollection`. Vervolgens wordt de primaire sleutel.
+Een manier om te doen dit is het gebruik van de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Het volgende script maakt u een database met de naam `kafkadata` en een verzameling met de naam `kafkacollection`. Vervolgens wordt de primaire sleutel.
 
 ```azurecli
 #!/bin/bash

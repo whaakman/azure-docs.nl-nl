@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904217"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956792"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
@@ -35,7 +35,7 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 - Als u nog een Azure-account hebt, kunt u zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
 - Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. In deze zelfstudie vereist de Azure PowerShell-moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
 
@@ -164,7 +164,7 @@ U kunt het subnet, maar niet het virtuele netwerk, dat een netwerkinterface word
 U kunt alleen een netwerkinterface toevoegen of verwijderen van een netwerkinterface van een toepassingsbeveiligingsgroep met behulp van de portal als de netwerkinterface is gekoppeld aan een virtuele machine. U kunt PowerShell of Azure CLI om toe te voegen een netwerkinterface om te gebruiken of een netwerkinterface verwijderen uit de beveiligingsgroep van een toepassing, of de netwerkinterface is gekoppeld aan een virtuele machine of niet. Meer informatie over [toepassingsbeveiligingsgroepen](security-overview.md#application-security-groups) en hoe u [Maak een toepassingsbeveiligingsgroep](manage-network-security-group.md#create-an-application-security-group).
 
 1. In de *resources, services en documenten zoeken* vak aan de bovenkant van de portal, te beginnen met het typen van de naam van een virtuele machine waarvoor een netwerkinterface die u wilt toevoegen aan of verwijderen uit een toepassingsbeveiligingsgroep. Wanneer de naam van uw virtuele machine wordt weergegeven in de lijst met zoekresultaten, selecteert u deze.
-2. Onder **instellingen**, selecteer **netwerken**.  Selecteer **configureren van de beveiligingsgroepen voor toepassing**, selecteert u de toepassing-beveiligingsgroepen die u wilt toevoegen van de netwerkinterface op of hef de selectie van de toepassing-beveiligingsgroepen die u wilt verwijderen van de netwerkinterface van en selecteer vervolgens **opslaan**. Alleen de netwerkinterfaces die zijn opgenomen in hetzelfde virtuele netwerk kunnen worden toegevoegd aan de dezelfde toepassingsbeveiligingsgroep. De toepassingsbeveiligingsgroep moet zich in dezelfde locatie als de netwerkinterface.
+2. Selecteer onder **INSTELLINGEN** de optie **Netwerken**.  Selecteer **configureren van de beveiligingsgroepen voor toepassing**, selecteert u de toepassing-beveiligingsgroepen die u wilt toevoegen van de netwerkinterface op of hef de selectie van de toepassing-beveiligingsgroepen die u wilt verwijderen van de netwerkinterface van en selecteer vervolgens **opslaan**. Alleen de netwerkinterfaces die zijn opgenomen in hetzelfde virtuele netwerk kunnen worden toegevoegd aan de dezelfde toepassingsbeveiligingsgroep. De toepassingsbeveiligingsgroep moet zich in dezelfde locatie als de netwerkinterface.
 
 **Opdrachten**
 

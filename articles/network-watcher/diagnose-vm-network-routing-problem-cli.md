@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 15fb39a74047bdeffed0076501f0129eb00de4e8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b881e51bfac25b83a828ad1f44fcd6d7da1c791
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443320"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948042"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Een virtuele machine netwerk routeringsprobleem vaststellen - Azure CLI
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel moet u de Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Nadat u de CLI-versie hebt gecontroleerd, voert u `az login` uit om een verbinding met Azure te maken. De CLI-opdrachten in dit artikel worden opgemaakt als u wilt uitvoeren in een Bash-shell.
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel moet u de Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). Nadat u de CLI-versie hebt gecontroleerd, voert u `az login` uit om een verbinding met Azure te maken. De CLI-opdrachten in dit artikel worden opgemaakt als u wilt uitvoeren in een Bash-shell.
 
 ## <a name="create-a-vm"></a>Een virtuele machine maken
 

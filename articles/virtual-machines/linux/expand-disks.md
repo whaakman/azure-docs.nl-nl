@@ -1,6 +1,6 @@
 ---
 title: Vouw de virtuele harde schijven op een Linux-VM in Azure | Microsoft Docs
-description: Meer informatie over het uitbreiden van virtuele harde schijven op een Linux-VM met de Azure CLI 2.0
+description: Meer informatie over het uitbreiden van virtuele harde schijven op een Linux-VM met de Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421185"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974541"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Over het uitbreiden van virtuele harde schijven op een Linux-VM met de Azure CLI
-De standaardgrootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux-machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) voor voor extra opslagruimte nodig, maar u kunt ook meer aan een bestaande gegevensschijf uitbreiden. Dit artikel wordt uitgelegd hoe u beheerde schijven worden uitgebreid voor een Linux-VM met de Azure CLI 2.0. 
+
+De standaardgrootte van de virtuele harde schijf voor het besturingssysteem (OS) is doorgaans 30 GB op een Linux-machine (VM) in Azure. U kunt [gegevensschijven toevoegen](add-disk.md) voor voor extra opslagruimte nodig, maar u kunt ook meer aan een bestaande gegevensschijf uitbreiden. Dit artikel wordt uitgelegd hoe u beheerde schijven worden uitgebreid voor een Linux-VM met de Azure CLI. 
 
 > [!WARNING]
 > Zorg ervoor dat altijd dat u maakt u een back-up van uw gegevens voordat u de schijf uitvoert de grootte van bewerkingen. Zie voor meer informatie, [maakt u een Back-up van virtuele Linux-machines in Azure](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Azure beheerde schijf uitbreiden
-Zorg ervoor dat u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+Zorg ervoor dat u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Dit artikel gebruikmaken van een bestaande virtuele machine in Azure met ten minste één gegevensschijf die is gekoppeld en voorbereid. Als u nog geen een virtuele machine die u kunt gebruiken, raadpleegt u [maken en een virtuele machine met gegevensschijven voorbereiden](tutorial-manage-disks.md#create-and-attach-disks).
 

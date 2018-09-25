@@ -1,26 +1,26 @@
 ---
-title: Hive-beleidsregels configureren in aan domein gekoppelde HDInsight - Azure
-description: Informatie over het configureren van Apache Ranger-beleidsregels voor Hive in een domein Azure HDInsight-service.
+title: Hive-beleidsregels configureren in HDInsight met Enterprise-beveiligingspakket - Azure
+description: Informatie over het configureren van Apache Ranger-beleidsregels voor Hive in een Azure HDInsight-service met Enterprise-beveiligingspakket.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.openlocfilehash: 55abb5331da24c3914075c21579e5082853b3c1f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: bdad0bac0d320b641359df4093ae10c9505b7de2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042077"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993422"
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Hive-beleidsregels configureren in aan domein gekoppelde HDInsight
+# <a name="configure-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Hive-beleidsregels configureren in HDInsight met Enterprise-beveiligingspakket
 Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit artikel maakt u twee Ranger-beleidsregels om toegang tot de hivesampletable te beperken. De hivesampletable wordt geleverd met HDInsight-clusters. Nadat u de beleidsregels hebt geconfigureerd, gebruikt u Excel en het ODBC-stuurprogramma om verbinding te maken met Hive-tabellen in HDInsight.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een HDInsight-cluster dat is gekoppeld aan een domein. Zie [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren).
+* Een HDInsight-cluster met Enterprise-beveiligingspakket. Zie [configureren HDInsight-clusters met ESP](apache-domain-joined-configure.md).
 * Een werkstation met Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, een zelfstandige versie van Excel 2013 of Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Verbinding maken met de beheerinterface van Apache Ranger
@@ -34,15 +34,15 @@ Hier leert u hoe u Apache Ranger-beleidsregels voor Hive configureert. In dit ar
    >
 2. Meld u aan met de gebruikersnaam en het wachtwoord van het clusterbeheerdomein:
 
-    ![Ranger-startpagina van HDInsight dat is gekoppeld aan een domein](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    ![HDInsight ESP Ranger-startpagina](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
     Op dit moment werkt Ranger alleen met Yarn en Hive.
 
 ## <a name="create-domain-users"></a>Domeingebruikers maken
-Zie [een Domain-joined HDInsight-cluster maken](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster), voor informatie over het maken van hiveruser1 en hiveuser2. U gebruikt de twee gebruikersaccounts in deze zelfstudie.
+Zie [een HDInsight-cluster maken met ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), voor informatie over het maken van hiveruser1 en hiveuser2. U gebruikt de twee gebruikersaccounts in deze zelfstudie.
 
 ## <a name="create-ranger-policies"></a>Ranger-beleidsregels maken
-In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesampletable. U geeft de machtiging SELECT op voor verschillende sets kolommen. Beide gebruikers zijn gemaakt met behulp van [een Domain-joined HDInsight-cluster maken](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). In de volgende sectie test u de twee beleidsregels in Excel.
+In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesampletable. U geeft de machtiging SELECT op voor verschillende sets kolommen. Beide gebruikers zijn gemaakt met behulp van [een HDInsight-cluster maken met ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). In de volgende sectie test u de twee beleidsregels in Excel.
 
 **Ranger-beleidsregels maken**
 
@@ -57,7 +57,7 @@ In deze sectie maakt u twee Ranger-beleidsregels voor toegang tot de hivesamplet
    * Gebruiker selecteren: hiveuser1
    * Machtigingen: SELECT
 
-     ![Ranger Hive-beleidsregels van HDInsight dat is gekoppeld aan een domein configureren](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![HDInsight ESP Ranger Hive-beleid configureren](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]
      > Als een domeingebruiker niet is ingevuld in Gebruiker selecteren, wacht u even, zodat Ranger met AAD kan synchroniseren.
@@ -85,7 +85,7 @@ De instructies vindt u in [Hive ODBC-gegevensbron maken](../hadoop/apache-hadoop
  | Type Hive-server | Selecteer **Hive Server 2** |
  | Mechanisme | Selecteer **Azure HDInsight Service** |
  | HTTP-pad | Laat dit leeg. |
- | Gebruikersnaam | Voer hiveuser1@contoso158.onmicrosoft.com. Werk de domeinnaam als het afwijkt. |
+ | Gebruikersnaam | Voer hiveuser1@contoso158.onmicrosoft.com in. Werk de domeinnaam als het afwijkt. |
  | Wachtwoord | Voer het wachtwoord van hiveuser1 in. |
 
 Zorg ervoor dat u op **Test** klikt voordat u de gegevensbron opslaat.
@@ -131,9 +131,9 @@ Als u wilt de tweede beleidsregel (read-hivesampletable-devicemake) testen, die 
     Wanneer dit is voltooid, worden er twee kolommen met geïmporteerde gegevens weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Aan een domein gekoppelde HDInsight-clusters configureren) om een HDInsight-cluster te configureren dat is gekoppeld aan een domein.
-* Zie voor het beheren van een Domain-joined HDInsight-cluster, [beheren Domain-joined HDInsight clusters](apache-domain-joined-manage.md).
-* Zie voor het uitvoeren van Hive-query's met behulp van SSH in aan domein gekoppelde HDInsight-clusters, [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Zie voor een HDInsight-cluster configureren met Enterprise-beveiligingspakket, [configureren HDInsight-clusters met ESP](apache-domain-joined-configure.md).
+* Zie voor het beheren van een HDInsight-cluster met ESP [beheren HDInsight-clusters met ESP](apache-domain-joined-manage.md).
+* Zie voor het uitvoeren van Hive-query's met behulp van SSH op HDInsight-clusters met ESP [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Zie [Connect to Hive on Azure HDInsight using the Hive JDBC driver](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md) (Verbinding maken met Hive op Azure HDInsight met het Hive JDBC-stuurprogramma) om Hive te verbinden met behulp van Hive JDBC.
 * Zie [Connect Excel to Hadoop with the Microsoft Hive ODBC drive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md) (Excel verbinden met Hadoop met het Microsoft Hive ODBC-station) om Excel te verbinden met Hadoop met behulp van Hive ODBC.
 * Zie [Connect Excel to Hadoop by using Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md) (Excel verbinden met Hadoop via Power Query) om Excel te verbinden met Hadoop met behulp van Power Query.

@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: cd6cf2e94b032408fd6c3b298294d84837e102a6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966381"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Deze handleiding wordt uitgelegd hoe een systeemeigen Universal Windows Platform (UWP)-toepassing kan aanvragen van een toegangstoken en roep vervolgens Microsoft Graph API. De handleiding geldt ook voor andere API's waarvoor toegangstokens van het Azure Active Directory v2-eindpunt.
 

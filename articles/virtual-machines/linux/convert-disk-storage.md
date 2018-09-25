@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8bd5a6012ef13d4cd63d4e5e63b510e55e75ab63
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666774"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987268"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure managed disks-opslag van standard naar premium, en vice versa
 
 Managed Disks biedt drie opties voor opslag: [Premium SSD](../windows/premium-storage.md), standaard SSD(Preview) en [Standard HDD](../windows/standard-storage.md). Hiermee kunt u gemakkelijk schakelen tussen de opties met minimale downtime op basis van uw prestatiebehoeften. Dit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de schijftypen.
 
-In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure CLI. Als u wilt installeren of upgraden, raadpleegt [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure CLI. Als u wilt installeren of upgraden, raadpleegt [Azure CLI installeren](/cli/azure/install-azure-cli.md). 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

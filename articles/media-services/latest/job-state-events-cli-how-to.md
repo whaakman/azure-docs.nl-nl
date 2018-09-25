@@ -4,19 +4,19 @@ description: Gebruik Azure Event Grid abonneren op de statuswijzigingsgebeurteni
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/20/2018
 ms.author: juliako
-ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e7268a066acf41c454de0c66aa21603199d85a60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724062"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034838"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Azure Media Services-gebeurtenissen routeren naar een aangepaste web-eindpunt met behulp van CLI
 
@@ -26,17 +26,14 @@ Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis
 
 Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeurtenissen naar een eindpunt zijn verzonden.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="prerequisites"></a>Vereisten
 
-Meld u aan bij [Azure Portal](http://portal.azure.com) en start **CloudShell** om CLI-opdrachten uitvoeren, zoals wordt beschreven in de volgende stappen.
+- Een actief Azure-abonnement hebben.
+- [Een Media Services-account maken](create-account-cli-how-to.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+    Zorg ervoor dat u vergeet niet de waarden die u voor de naam van de resourcegroep en de naam van de Media Services-account gebruikt.
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u wilt installeren of upgraden, Zie [Azure CLI installeren](/cli/azure/install-azure-cli). 
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-Zorg ervoor dat u vergeet niet de waarden die u voor Opslagnaam van de Media Services-accountnaam, en de resourcenaam van de gebruikt.
+- Installeer de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). In dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. U kunt ook de [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="enable-event-grid-resource-provider"></a>Event Grid-resourceprovicer inschakelen
 
@@ -132,7 +129,7 @@ Druk op **opslaan en uitvoeren** aan de bovenkant van het venster.
 
 U zich abonneert op een artikel Event Grid zien welke gebeurtenissen u wilt bijhouden. Het volgende voorbeeld is geabonneerd op de Media Services-account u gemaakt en hoe de URL van de Azure-functie webhook die u hebt gemaakt als het eindpunt voor de gebeurtenismelding. 
 
-Vervang `<event_subscription_name>` met een unieke naam voor het gebeurtenisabonnement. Gebruik voor `<resource_group_name>` en `<ams_account_name>` de waarden die u eerder hebt gemaakt.  Voor de `<endpoint_URL>` uw eindpunt-URL plakken. Verwijder *& clientID = standaard* van de URL. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. 
+Vervang `<event_subscription_name>` met een unieke naam voor het gebeurtenisabonnement. Voor `<resource_group_name>` en `<ams_account_name>`, gebruikt u de waarden die u hebt gebruikt bij het maken van het Media Services-account. Voor de `<endpoint_URL>` uw eindpunt-URL plakken. Verwijder *& clientID = standaard* van de URL. Door een eindpunt op te geven wanneer u zich abonneert, wordt via Event Grid de routering van gebeurtenissen naar dit eindpunt verwerkt. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -145,7 +142,9 @@ az eventgrid event-subscription create \
 
 De waarde van de Media Services-account resource id ziet er ongeveer als volgt uit:
 
-/Subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
+/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
 
 ## <a name="test-the-events"></a>Testen van de gebeurtenissen
 
@@ -153,7 +152,7 @@ Een coderingstaak wordt uitgevoerd. Bijvoorbeeld, zoals is beschreven in de [Str
 
 U hebt de gebeurtenis geactiveerd, en de gebeurtenis is via Event Grid verzonden naar het eindpunt dat u hebt geconfigureerd toen u zich abonneerde. Blader naar de webhook die u eerder hebt gemaakt. Klik op **Monitor** en **vernieuwen**. U ziet de taakstatus verandert gebeurtenissen: 'In de wachtrij', 'Gepland', "Verwerking", "Voltooid", "Error", "Geannuleerd", "Annuleren".  Zie voor meer informatie, [Media Services-gebeurtenisschema](media-services-event-schemas.md).
 
-Bijvoorbeeld:
+Het volgende voorbeeld ziet u het schema van de gebeurtenis JobStateChange:
 
 ```json
 [{
@@ -172,16 +171,6 @@ Bijvoorbeeld:
 ```
 
 ![Test-gebeurtenissen](./media/job-state-events-cli-how-to/test_events.png)
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Als u verder wilt werken met dit opslagaccount en dit gebeurtenisabonnement, moet u de resources die u hebt gemaakt in dit artikel niet opschonen. Als u niet verder wilt werken, gebruikt u de volgende opdracht om de resources te verwijderen die u in dit artikel hebt gemaakt.
-
-Vervang `<resource_group_name>` door de resourcegroep die u eerder hebt gemaakt.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
-```
 
 ## <a name="next-steps"></a>Volgende stappen
 

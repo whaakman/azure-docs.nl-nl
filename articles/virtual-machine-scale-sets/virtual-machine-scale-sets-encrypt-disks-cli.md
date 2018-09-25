@@ -1,6 +1,6 @@
 ---
 title: Schijven voor schaalsets met Azure CLI Azure versleutelen | Microsoft Docs
-description: Informatie over het gebruik van de Azure CLI 2.0 voor het versleutelen van VM-instanties en de gekoppelde schijven in een Linux VM-schaalset
+description: Informatie over het gebruik van de Azure CLI voor het versleutelen van VM-instanties en de gekoppelde schijven in een Linux VM-schaalset
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fecf7e121b1c0404f1ec67d46cc88008250b9d68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704552"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981056"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Versleutelen van OS- en gekoppelde gegevensschijven in een virtuele-machineschaalset met de Azure CLI 2.0 (Preview)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Versleutelen van OS- en gekoppelde gegevensschijven in een virtuele-machineschaalset met de Azure CLI (Preview)
 
 Als u wilt beschermen en beveiligen van data-at-rest met behulp van de bedrijfstak versleutelingstechnologie, ondersteuning virtuele-machineschaalsets voor Azure Disk Encryption (ADE). Versleuteling kan worden ingeschakeld voor Linux en Windows virtuele machine schaalsets. Zie voor meer informatie, [Azure Disk Encryption voor Linux en Windows](../security/azure-security-disk-encryption.md).
 
@@ -38,7 +38,7 @@ Scale set VM terugzetten van een installatiekopie en upgrade-bewerkingen worden 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze zelfstudie vereist dat u de Azure CLI versie 2.0.31 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, deze zelfstudie vereist dat u de Azure CLI versie 2.0.31 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="register-for-disk-encryption-preview"></a>Registreren voor de preview van schijf-versleuteling
 
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel gebruikt u de Azure CLI 2.0 voor het versleutelen van een virtuele-machineschaalset. U kunt ook [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) of sjablonen voor [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) of [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+In dit artikel gebruikt u de Azure CLI voor het versleutelen van een virtuele-machineschaalset. U kunt ook [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) of sjablonen voor [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) of [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 Een voorbeeld van de end-to-end-batch-bestand voor schijfversleuteling van Linux scale set gegevens vindt [hier](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). In dit voorbeeld wordt een resourcegroep, het Linux-schaalset gemaakt, koppelt u een schijf van 5 GB aan gegevens en versleutelt de virtuele-machineschaalset.

@@ -1,9 +1,10 @@
 ---
-title: Vehicle health voorspellen en die zorg draagt gewoonten - Azure | Microsoft Docs
-description: De mogelijkheden van Cortana Intelligence gebruiken om inzicht in real-time en voorspeld op vehicle status en verkeer te krijgen gewoonten.
+title: Voorspellen voertuigstatus en stimuleren gewoonten - Azure | Microsoft Docs
+description: De mogelijkheden van Cortana Intelligence gebruiken om te krijgen van realtime en voorspellende inzichten op en winkelgedrag.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
@@ -14,43 +15,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: fc8dfbbfc40db33f19d2b183546ed9c6df0159fa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836399"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985364"
 ---
-# <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle telemetrie Analytics-oplossing playbook
-Dit menu is gekoppeld aan de hoofdstukken in deze playbook: 
+# <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle Telemetry Analytics-oplossing playbook
+Dit bevat menukoppelingen naar de hoofdstukken in deze playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Overzicht
-Super computers worden buiten de testomgeving hebt verplaatst en nu in garages. Deze worden nu in geavanceerde auto's met allerlei sensoren wordt geplaatst. Deze sensoren bieden ze de mogelijkheid te volgen en controleren van miljoenen gebeurtenissen per seconde. De meeste van deze voertuigen wordt door 2020 verbonden met Internet. Toegang te krijgen tot deze schat van gegevens biedt meer veiligheid, betrouwbaarheid, en dus beter groot optreden. Microsoft is dit een situatie met Cortana Intelligence aan het einde.
+Super computers buiten de testomgeving hebt verplaatst, maar staan geparkeerd in garages. Deze worden nu in uw auto's met allerlei sensoren wordt geplaatst. Dit soort sensoren geven ze de mogelijkheid om te volgen en controleren van miljoenen gebeurtenissen per seconde. 2020, zullen de meeste van deze voertuigen zijn verbonden met Internet. Toegang te krijgen tot deze grote hoeveelheid gegevens biedt meer veiligheid, betrouwbaarheid, en dus een betere aangedreven ervaring. Microsoft biedt deze droom werkelijkheid met Cortana Intelligence.
 
-Cortana Intelligence is een volledig beheerde big data en geavanceerde analyses suite kunt u uw gegevens transformeren naar intelligent actie. De sjabloon Cortana Intelligence Vehicle telemetrie Analytics-oplossing wordt gedemonstreerd hoe auto dealerbedrijven, auto fabrikanten en ondernemingen kunnen verkrijgen realtime zijn en gewoonten voorspellende insights op de drager gezondheid en groot.
+Cortana Intelligence is een volledig beheerde big data en geavanceerde analyses waarmee u gebruiken kunt voor uw gegevens omzetten in slimme acties. Cortana Intelligence Vehicle Telemetry Analytics sjabloon van de oplossing toont aan hoe autodealers, autofabrikanten en verzekeringsmaatschappijen kunnen verkrijgen van realtime en voorspellende inzichten en rijgewoonten.
 
-De oplossing is geïmplementeerd als een [lambda architectuur patroon](https://en.wikipedia.org/wiki/Lambda_architecture), waarin de volledige potentiële van de Cortana Intelligence-platform voor realtime en batchverwerking.
+De oplossing wordt geïmplementeerd als een [lambda-architectuurpatroon](https://en.wikipedia.org/wiki/Lambda_architecture), geeft het volledige potentieel van de Cortana Intelligence-platform voor real-time en batch-verwerking.
 
 ## <a name="architecture"></a>Architectuur
-De architectuur Vehicle telemetrie Analytics-oplossing wordt weergegeven in dit diagram:
+De architectuur Vehicle Telemetry Analytics-oplossing wordt weergegeven in dit diagram:
 
-![Architectuurdiagram van de oplossing](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
+![Diagram voor oplossingsarchitectuur](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-Deze oplossing omvat de volgende onderdelen van de Cortana Intelligence en gepresenteerd hun integratie:
+Deze oplossing omvat de volgende onderdelen van de Cortana Intelligence en brengt de integratie:
 
-* **Azure Event Hubs** miljoenen vehicle telemetrische gebeurtenissen opgenomen in Azure.
-* **Azure Stream Analytics** biedt realtime-inzichten op vehicle health en dat de gegevens zich blijft voordoen in langdurige opslag voor uitgebreidere batch analyses.
-* **Azure Machine Learning** afwijkingen gedetecteerd in realtime en batchverwerking wordt gebruikt om voorspellende insights.
-* **Azure HDInsight** gegevens op schaal worden omgezet.
-* **Azure Data Factory** verwerkt orchestration, planning, bronbeheer en bewaking van de pipeline batch verwerkt.
-* **Power BI** biedt deze oplossing een uitgebreide dashboard voor realtime-gegevens en visualisaties predictive analytics.
+* **Azure Event Hubs** neemt miljoenen voertuigtelemetriegebeurtenissen in Azure.
+* **Azure Stream Analytics** biedt in realtime inzichten in voertuigstatus en bewaart die gegevens in langdurige opslag voor rijkere batchanalyse.
+* **Azure Machine Learning** afwijkingen in realtime gedetecteerd en gebruikt voor batchverwerking voorspellende statistieken aanleveren.
+* **Azure HDInsight** gegevens op schaal worden getransformeerd.
+* **Azure Data Factory** indeling, planning, resourcebeheer en controle van de batchverwerkingspijplijn worden verwerkt.
+* **Power BI** biedt deze oplossing een uitgebreid dashboard toegevoegd voor gegevens in realtime en voorspellende analyses visualisaties.
 
-Deze oplossing gebruikt twee verschillende gegevensbronnen: 
+Deze oplossing toegang heeft tot twee verschillende gegevensbronnen: 
 
-* **Vehicle signalen en diagnostische gegevens in de simulatie**: een vehicle telematica simulator verzendt de diagnostische gegevens en signalen die overeenkomen met de status van de drager en het aangedreven patroon op een bepaald tijdstip. 
-* **Vehicle catalogus**: deze gegevensset verwijzing VIN cijfers toegewezen aan modellen.
+* **Gesimuleerde vehicle signalen en diagnostische gegevens**: een vehicle telematicssimulator verzendt de diagnostische gegevens en signalen die overeenkomen met de status van het voertuig en het sparen patroon op een bepaald tijdstip. 
+* **Vehicle catalogus**: deze referentiegegevensset VIN getallen toegewezen aan modellen.
 

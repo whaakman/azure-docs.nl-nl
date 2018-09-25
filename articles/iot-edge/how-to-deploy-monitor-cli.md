@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998505"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementeren en bewaken van IoT Edge-modules op schaal met behulp van de Azure CLI
 
@@ -24,20 +24,20 @@ Azure IoT Edge kunt u analytics verplaatsen naar de rand en biedt een cloudinter
 
 U kunt afzonderlijke apparaten beheren en implementeren van modules op deze één voor één. Echter, als u wilt om apparaten op grote schaal te wijzigen, kunt u een **automatische implementatie van IoT Edge**, die deel uitmaakt van automatische Apparaatbeheer in IoT Hub. Implementaties zijn dynamische processen waarmee u kunt meerdere modules in één keer implementeren op meerdere apparaten, de status en integriteit van de modules volgen en wijzig indien nodig. 
 
-In dit artikel leert u hoe u Azure CLI 2.0 en de IoT-extensie instelt. Vervolgens leert u hoe u modules naar een set met IoT Edge-apparaten implementeren en de voortgang bekijken met behulp van de beschikbare CLI-opdrachten.
+In dit artikel hebt instellen u Azure CLI en de IoT-extensie. Vervolgens leert u hoe u modules naar een set met IoT Edge-apparaten implementeren en de voortgang bekijken met behulp van de beschikbare CLI-opdrachten.
 
 ## <a name="cli-prerequisites"></a>CLI-vereisten
 
 * Een [IoT-hub](../iot-hub/iot-hub-create-using-cli.md) in uw Azure-abonnement. 
 * [IoT Edge-apparaten](how-to-register-device-cli.md) met IoT Edge-runtime geïnstalleerd.
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. 
-* De [IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. 
+* De [IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Een manifest van de implementatie configureren
 
 Het manifest voor een implementatie is een JSON-document waarin wordt beschreven welke modules te implementeren, hoe gegevens stromen tussen de modules, en de gewenste eigenschappen van de moduledubbels. Zie voor meer informatie over hoe implementatie werk manifesten en hoe ze worden gemaakt, [te begrijpen hoe IoT Edge-modules kunnen worden gebruikt, geconfigureerd en opnieuw gebruikt](module-composition.md).
 
-Sla het manifest van implementatie lokaal als een txt-bestand voor het implementeren van modules met behulp van Azure CLI 2.0. Wanneer u de opdracht uit om de configuratie van toepassing op het apparaat uitvoert, wordt u het pad in de volgende sectie. 
+Sla het manifest van implementatie lokaal als een txt-bestand voor het implementeren van modules met behulp van Azure CLI. Wanneer u de opdracht uit om de configuratie van toepassing op het apparaat uitvoert, wordt u het pad in de volgende sectie. 
 
 Hier volgt een manifest eenvoudige implementatie met één module als een voorbeeld:
 

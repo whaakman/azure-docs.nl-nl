@@ -5,37 +5,35 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 8/13/2018
+ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a63a12658bd0a4b4d018d51824af9814691a3cbf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183333"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47020469"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
-Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die uw Azure Virtual Network-resources beschermt. Het is een volledig stateful firewall-as-a-service met de ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. U kunt beleid voor toepassings- en netwerkconnectiviteit centraal maken, afdwingen en registreren voor abonnementen en virtuele netwerken. Firewall van Azure is momenteel in openbare preview.
+Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die uw Azure Virtual Network-resources beschermt. Het is een volledig stateful firewall-as-a-service met de ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. U kunt beleid voor toepassings- en netwerkconnectiviteit centraal maken, afdwingen en registreren voor abonnementen en virtuele netwerken.
 
-### <a name="which-capabilities-are-supported-in-the-azure-firewall-public-preview-release"></a>Welke mogelijkheden worden ondersteund in de openbare preview-versie van Azure-Firewall?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Welke mogelijkheden worden ondersteund in de Firewall van Azure?  
 
 * Stateful firewall als een service
 * Ingebouwde hoge beschikbaarheid met onbeperkte cloudschaalbaarheid
-* Filteren op FQDN 
+* Filteren op FQDN
+* FQDN-tags
 * Regels voor het filteren van netwerkverkeer
 * Ondersteuning voor uitgaande SNAT
-* De mogelijkheid voor het centraal maken, afdwingen en meld u beleid van toepassing en netwerk connectiviteit voor Azure-abonnementen en virtuele netwerken
-* Volledige integratie met Azure Monitor voor logboekregistratie en analyse 
-
-### <a name="how-can-i-join-the-azure-firewall-public-preview"></a>Hoe kan ik deelnemen aan de openbare Preview van Azure-Firewall?
-
-Firewall van Azure is momenteel een beheerde preview-versie die u kunt deelnemen aan met behulp van de Register-AzureRmProviderFeature PowerShell-opdracht. Met deze opdracht wordt uitgelegd in de documentatie van de Firewall van Azure preview-versie.
+* Ondersteuning voor inkomende DNAT
+* Centraal maken, afdwingen en meld u beleid van toepassing en netwerk connectiviteit tussen Azure-abonnementen en VNETs
+* Volledig geïntegreerd met Azure Monitor voor registratie en analyses 
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>Wat zijn de prijzen voor de Firewall van Azure?
 
-Firewall van Azure heeft een vaste en variabele kosten. De prijzen zijn als volgt en meer met 50% korting op tijdens de openbare preview.
+Firewall van Azure heeft een vaste prijs + variabele kosten:
 
 * Vaste kosten: $1.25/firewall/hour
 * Variabel tarief: $ 0,03/GB verwerkt door de firewall (inkomend of uitgaand verkeer)
@@ -59,7 +57,7 @@ Er zijn twee soorten regelverzamelingen:
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Biedt Azure Firewall ondersteuning voor binnenkomend verkeer filteren?
 
-Openbare preview van Azure Firewall ondersteunt alleen uitgaande filteren. Binnenkomende beveiliging voor niet-HTTP/S-protocollen (bijvoorbeeld RDP, SSH of FTP) is voorlopig gepland voor Azure-Firewall algemene beschikbaarheid.  
+Firewall van Azure biedt ondersteuning voor binnenkomend en uitgaand filteren. Binnenkomende beveiliging is voor niet-HTTP/S-protocollen. Bijvoorbeeld RDP, SSH en FTP-protocollen.
  
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Welke services logboekregistratie en analyse worden ondersteund door de Firewall van Azure?
 
@@ -110,3 +108,11 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 * Een exemplaar van Azure-Firewall die wordt uitgevoerd in een centrale virtueel netwerk heeft virtuele netwerkpeering beperkingen, met een maximum van 50 virtuele spoke-netwerken.  
 * Firewall van Azure werkt niet met wereldwijde peering, dus u moet ten minste één firewall implementatie per regio hebben.
 * Firewall van Azure biedt ondersteuning voor 10 k toepassing regels en 10 k-netwerkregels.
+
+### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Firewall van Azure kunnen in een hub-netwerk doorsturen en filteren van netwerkverkeer tussen twee virtuele spoke-netwerken?
+
+Ja, kunt u Azure-Firewall in een hub-netwerk te routeren en filteren verkeer tussen twee spoke virtueel netwerk. Subnetten in elk van de virtuele spoke-netwerken beschikken over UDR die verwijst naar de Firewall van Azure als een standaard-gateway voor dit scenario goed te laten werken.
+
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Kan Azure Firewall doorsturen en filteren van netwerkverkeer tussen subnetten in hetzelfde virtuele netwerk?
+
+Verkeer tussen subnetten in hetzelfde virtuele netwerk of in een rechtstreeks gekoppeld virtueel netwerk wordt rechtstreeks doorgestuurd, zelfs als de UDR verwijst naar de Firewall van Azure als de standaard-gateway. De aanbevolen methode voor de segmentering van het interne netwerk is het gebruik van Netwerkbeveiligingsgroepen. Voor het subnet naar subnet verkeer verzenden naar de firewall in dit scenario, moet de UDR het doel netwerk subnetvoorvoegsel expliciet op beide subnetten bevatten.

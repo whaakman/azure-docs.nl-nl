@@ -11,14 +11,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a68e7cfe2966592861f3fb58c99327c5849a6004
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6b5a45bfcfc02c6b313e868fb3ba037ce3ba48c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721594"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967571"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindingen voor Azure Functions 
+
+> [!NOTE]
+> Azure Mobile Apps-bindingen zijn alleen beschikbaar voor Azure Functions 1.x. Ze worden niet ondersteund in Azure Functions 2.x.
 
 Dit artikel wordt uitgelegd hoe u werkt met [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindingen in Azure Functions. Azure Functions ondersteunt invoer- en uitvoerbindingen voor Mobile Apps.
 
@@ -31,12 +34,6 @@ De Mobile Apps-bindingen kunnen u lezen en bijwerken van gegevenstabellen in mob
 Mobile Apps-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-pakket versie 1.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
-
-Mobile Apps-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub-opslagplaats.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>Invoer
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445208"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996839"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Toegangsrechten voor een globale beheerder in Azure Active Directory
 
@@ -37,7 +37,9 @@ Deze uitbreiding van bevoegdheden moet tijdelijke en alleen uitgevoerd wanneer d
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Toegangsrechten voor een globale beheerder met behulp van de Azure portal
+## <a name="azure-portal"></a>Azure Portal
+
+Volg deze stappen om de toegangsrechten voor een globale beheerder met behulp van de Azure portal.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) of de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com).
 
@@ -59,7 +61,9 @@ Deze uitbreiding van bevoegdheden moet tijdelijke en alleen uitgevoerd wanneer d
 
 1. De taken die u wilt maken op de uitgebreide toegangsrechten uitvoeren. Wanneer u klaar bent, stelt u de switch terug naar **Nee**.
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Lijst met roltoewijzing bij het root-bereik (/) met behulp van PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>Lijst met roltoewijzing bij het root-bereik (/)
 
 Om de toewijzing van de rol Administrator voor gebruikerstoegang voor een gebruiker bij het bereik van de hoofdmap weer te geven (`/`), gebruikt u de [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) opdracht.
 
@@ -79,7 +83,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>Verwijderen van een roltoewijzing bij het root-bereik (/) met behulp van PowerShell
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Een roltoewijzing bij het root-bereik (/) verwijderen
 
 Verwijderen van een roltoewijzing Administrator voor gebruikerstoegang voor een gebruiker bij het root-bereik (`/`), gebruikt u de [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) opdracht.
 
@@ -88,7 +92,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Toegangsrechten voor een globale beheerder met behulp van de REST-API
+## <a name="rest-api"></a>REST-API
+
+### <a name="elevate-access-for-a-global-administrator"></a>Toegangsrechten voor een globale beheerder
 
 Gebruik de volgende eenvoudige stappen aan de toegangsrechten voor een globale beheerder met behulp van de REST-API.
 
@@ -117,7 +123,7 @@ Gebruik de volgende eenvoudige stappen aan de toegangsrechten voor een globale b
 
 1. Verwijder de bevoegdheden van de beheerder van gebruikerstoegang totdat ze weer nodig zijn.
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>Lijst van roltoewijzingen weergegeven bij het root-bereik (/) met behulp van de REST-API
+### <a name="list-role-assignments-at-the-root-scope-"></a>Lijst met roltoewijzingen weergegeven bij de scope van de hoofdmap (/)
 
 U kunt vindt u al de roltoewijzingen voor een gebruiker bij het root-bereik (`/`).
 
@@ -127,7 +133,17 @@ U kunt vindt u al de roltoewijzingen voor een gebruiker bij het root-bereik (`/`
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>Verwijderen van toegang met verhoogde bevoegdheid met behulp van de REST-API
+### <a name="list-deny-assignments-at-the-root-scope-"></a>Lijst met toewijzingen voor de scope hoofdmap (/) weigeren
+
+U kunt alle toewijzingen van de weigeren voor een gebruiker bij het bereik van de hoofdmap van een lijst (`/`).
+
+- Roep GET denyAssignments waar `{objectIdOfUser}` is de object-ID van de gebruiker waarvan de weigeren toewijzingen die u wilt ophalen.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>Toegang met verhoogde bevoegdheid verwijderen
 
 Als u aanroept `elevateAccess`, u een roltoewijzing voor uzelf maken, dus deze bevoegdheden intrekken moet u de toewijzing verwijderen.
 

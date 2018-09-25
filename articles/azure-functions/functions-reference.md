@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125368"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980301"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 In Azure Functions delen specifieke functies een paar core technische concepten en -onderdelen, ongeacht de taal of binding die u gebruikt. Voordat u verder met het leren werken met gegevens die specifiek zijn voor een bepaalde taal of binding, moet u lezen in dit overzicht wordt gegeven die van toepassing op alle hiervan.
@@ -55,12 +55,15 @@ De `bindings` eigenschap is waar u configureert zowel triggers en bindingen. Elk
 | `name` |tekenreeks |De naam die wordt gebruikt voor de gebonden gegevens in de functie. Voor C# is dit de naam van een argument; voor JavaScript is de sleutel in een sleutel/waarde-lijst. |
 
 ## <a name="function-app"></a>Function App
-Een functie-app bestaat uit een of meer afzonderlijke functies die samen worden beheerd door Azure App Service. Alle van de functies in een functie-app delen de dezelfde prijsschema, continue implementatie- en runtime-versie. Functies die zijn geschreven in meerdere talen kunnen alle dezelfde functie-app delen. Een functie-app beschouwen als een manier om te organiseren en gezamenlijk beheren van uw functies. 
+Een functie-app biedt een context voor uitvoering in Azure waarin uw functies worden uitgevoerd. Een functie-app bestaat uit een of meer afzonderlijke functies die samen worden beheerd door Azure App Service. Alle van de functies in een functie-app delen de dezelfde prijsschema, continue implementatie- en runtime-versie. Een functie-app beschouwen als een manier om te organiseren en gezamenlijk beheren van uw functies. 
 
-## <a name="runtime-script-host-and-web-host"></a>Runtime (scripthost en web-host)
-De runtime of scripthost, is de onderliggende host voor de WebJobs SDK die luistert naar gebeurtenissen, verzamelt en verzendt gegevens, en uiteindelijk uw code wordt uitgevoerd. 
+> [!NOTE]
+> Beginnen met [versie 2.x](functions-versions.md) van de Azure Functions-runtime, alle functies in een functie-app in dezelfde taal moeten worden gemaakt.
 
-Om te kunnen HTTP-triggers, is er ook een webhost die is ontworpen om te blijven in het zicht van de scripthost in productiescenario's. Twee hosts die beëindigen helpt om te isoleren van de scripthost uit het voorste deel verkeer die worden beheerd door de web-host.
+## <a name="runtime"></a>Runtime
+De Azure Functions-runtime of scripthost, is de onderliggende host die luistert naar gebeurtenissen, verzamelt en verzendt gegevens, en uiteindelijk uw code wordt uitgevoerd. Deze dezelfde host wordt gebruikt door de WebJobs SDK.
+
+Er is ook een webhost die verantwoordelijk is voor aanvragen van de HTTP-trigger voor de runtime. Twee hosts die beëindigen helpt om te isoleren van de runtime uit het voorste deel verkeer die worden beheerd door de web-host.
 
 ## <a name="folder-structure"></a>mapstructuur
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
@@ -75,21 +78,12 @@ De functie-editor die is ingebouwd in de Azure-portal kunt u werken de *function
 
 Functie-apps zijn gebouwd op App Service, waardoor alle de [implementatie-opties die beschikbaar zijn om de standaard web-apps](../app-service/app-service-deploy-local-git.md) zijn ook beschikbaar voor functie-apps. Hier volgen enkele methoden die u gebruiken kunt om te uploaden of bijwerken van de functie app-bestanden. 
 
-#### <a name="to-use-app-service-editor"></a>App Service-Editor gebruiken
-1. Klik in de Azure Functions-portal op **platformfuncties**.
-2. In de **ONTWIKKELTOOLS** sectie, klikt u op **App Service-Editor**.   
-   Nadat de App Service-Editor wordt geladen, ziet u de *host.json* bestands- en functie mappen onder *wwwroot*. 
-5. Open bestanden bewerken, of slepen en neerzetten van de ontwikkelcomputer om bestanden te uploaden.
-
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Om de functie-app SCM (Kudu) eindpunt te gebruiken
-1. Navigeer naar: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Klik op **Foutopsporingsconsole > CMD**.
-3. Navigeer naar `D:\home\site\wwwroot\` om bij te werken *host.json* of `D:\home\site\wwwroot\<function_name>` van een functie-bestanden bij te werken.
-4. Slepen en neerzetten een bestand dat u wilt uploaden naar de juiste map in het raster bestand. Er zijn twee gebieden in het bestand raster waar u een bestand kunt neerzetten. Voor *.zip* bestanden, er wordt een vak weergegeven met het label "Sleep hier om te uploaden en pak deze uit." Voor andere bestandstypen verwijderen in het raster bestand, maar buiten het vak 'unzip'.
+#### <a name="use-local-tools-and-publishing"></a>Gebruik lokale hulpprogramma's en publiceren
+Functie-apps kunnen worden gemaakt en gepubliceerd met verschillende hulpprogramma's, waaronder [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), en de [Azure Functions Core Tools](./functions-develop-local.md). Zie voor meer informatie, [Code en test Azure Functions lokaal](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>Continue implementatie gebruiken
+#### <a name="continuous-deployment"></a>Doorlopende implementatie
 Volg de instructies in het onderwerp [continue implementatie voor Azure Functions](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Parallelle uitvoering
@@ -97,7 +91,7 @@ Als er meerdere activerende gebeurtenissen optreedt sneller dan een single-threa
 
 ## <a name="functions-runtime-versioning"></a>Functions runtime versiebeheer
 
-U kunt configureren dat de versie van de Functions-runtime via de `FUNCTIONS_EXTENSION_VERSION` app-instelling. Bijvoorbeeld, de waarde '~ 1' geeft aan dat de functie-App wordt gebruik 1 als de primaire versie. Functie-Apps zijn bijgewerkt naar de nieuwe secundaire versie zodra ze worden vrijgegeven. Zie voor meer informatie, inclusief het weergeven van de exacte versie van uw functie-app [hoe gericht op versies van Azure Functions-runtime](set-runtime-version.md).
+U kunt configureren dat de versie van de Functions-runtime via de `FUNCTIONS_EXTENSION_VERSION` app-instelling. De waarde '~ 2' geeft bijvoorbeeld aan dat uw functie-App als de primaire versie 2.x gebruikt. Functie-Apps zijn bijgewerkt naar de nieuwe secundaire versie zodra ze worden vrijgegeven. Zie voor meer informatie, inclusief het weergeven van de exacte versie van uw functie-app [hoe gericht op versies van Azure Functions-runtime](set-runtime-version.md).
 
 ## <a name="repositories"></a>Opslagplaatsen
 De code voor Azure Functions is open-source en opgeslagen in de GitHub-opslagplaatsen:

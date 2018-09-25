@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578348"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996550"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
-**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
+**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>U kunt doen met diagnostische logboeken en Event Hubs
 Hier volgen een paar manieren waarop u de streaming-mogelijkheden voor diagnostische logboeken kunt gebruiken:
@@ -91,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 Regel-ID voor de Event Hub-autorisatie is een tekenreeks zijn met deze indeling: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, bijvoorbeeld `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. U selecteren de naam van een specifieke event hub met PowerShell op dit moment niet.
 
-### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
+### <a name="via-azure-cli"></a>Via Azure CLI
 
-Om in te schakelen streaming via de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), kunt u de [az monitor diagnostic-settings maken](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) opdracht.
+Om in te schakelen streaming via de [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), kunt u de [az monitor diagnostic-settings maken](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) opdracht.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

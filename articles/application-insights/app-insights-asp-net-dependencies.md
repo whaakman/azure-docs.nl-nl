@@ -1,5 +1,5 @@
 ---
-title: Afhankelijkheid bijhouden in Azure Application Insights | Microsoft Docs
+title: Afhankelijkheid bijhouden van het Azure Application Insights | Microsoft Docs
 description: Analyseer het gebruik, de beschikbaarheid en de prestaties van uw on-premises webtoepassing of Microsoft Azure-webtoepassing met Application Insights.
 services: application-insights
 documentationcenter: .net
@@ -13,143 +13,143 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999686"
 ---
-# <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: afhankelijkheid bijhouden
-Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Dit is doorgaans een service die is aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) maatregelen hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
+# <a name="set-up-application-insights-dependency-tracking"></a>Instellen van Application Insights: afhankelijkheid bijhouden
+Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Het is doorgaans een service die wordt aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) meet hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
 
 ![voorbeeldgrafieken](./media/app-insights-asp-net-dependencies/10-intro.png)
 
-De afhankelijkheidsmonitor voor out-of-the-box rapporten momenteel aanroepen naar deze typen afhankelijkheden:
+Met de afhankelijkheidsmonitor met out-of-the-box rapporten momenteel aanroepen naar deze typen afhankelijkheden:
 
 * Server
   * SQL-databases
-  * ASP.NET-webtoepassingen en WCF-services die gebruikmaken van bindingen op basis van HTTP
+  * ASP.NET-web- en WCF-services die gebruikmaken van op basis van HTTP-bindingen
   * Lokale of externe HTTP-aanroepen
-  * Azure DB Cosmos, tabel, blob-opslag en wachtrij
+  * Azure Cosmos DB, tabel, blob-opslag en wachtrij
 * Webpagina's
   * AJAX-aanroepen
 
-Bewaking werkt met [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) rond geselecteerde methoden. Prestatieoverhead is minimaal.
+Controle werkt met behulp van [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) rond geselecteerde methoden. Prestatieoverhead is minimaal.
 
-U kunt ook uw eigen SDK-aanroepen voor het bewaken van andere afhankelijkheden, zowel op de client en server-code schrijven met behulp van de [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+U kunt ook uw eigen SDK-aanroepen voor het bewaken van andere afhankelijkheden, zowel in de client en server-code schrijven met behulp van de [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
-## <a name="set-up-dependency-monitoring"></a>Bewaking van afhankelijkheid ingesteld
-Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Application Insights-SDK](app-insights-asp-net.md). Als u alle gegevens, installeert u de desbetreffende agent voor de hostserver.
+## <a name="set-up-dependency-monitoring"></a>Instellen van de afhankelijkheidsbewaking
+Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Application Insights-SDK](app-insights-asp-net.md). Als u de volledige gegevens, de juiste agent voor de host-server te installeren.
 
 | Platform | Installeren |
 | --- | --- |
-| IIS-Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md) of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
-| Azure Web App |In het Configuratiescherm voor web-app [de Application Insights-blade geopend in het Configuratiescherm van de web-app](app-insights-azure-web-apps.md) en kies installeren als u wordt gevraagd. |
+| IIS-Server |Een van beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md) of [Toepassingsupgrade naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
+| Azure Web App |In het Configuratiescherm van web-app [opent u de Application Insights-blade in het Configuratiescherm van uw web-app](app-insights-azure-web-apps.md) en kies installeren als u hierom wordt gevraagd. |
 | Azure-Cloudservice |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Waar vind ik afhankelijkheidsgegevens
-* [De toepassingstoewijzing](#application-map) visualiseren van afhankelijkheden tussen uw app en de aangrenzende onderdelen.
-* [Prestaties, browser en fout blades](#performance-and-blades) server afhankelijkheidsgegevens worden weergegeven.
-* [Blade browsers](#ajax-calls) AJAX-aanroepen vanuit de browsers van uw gebruikers bevat.
-* [Klik door vanuit traag of mislukte aanvragen](#diagnose-slow-requests) aanroepen om te controleren van de afhankelijkheid.
+* [Overzicht van de toepassing](#application-map) worden gevisualiseerd met afhankelijkheden tussen uw app en door in aangrenzende onderdelen.
+* [Prestaties, browser en de fout blades](#performance-and-blades) server afhankelijkheidsgegevens weergeven.
+* [Blade browsers](#ajax-calls) AJAX-aanroepen van de browsers van uw gebruikers bevat.
+* [Doorklikken traag of mislukte aanvragen](#diagnose-slow-requests) aanroept om te controleren van de afhankelijkheid.
 * [Analytics](#analytics) kan worden gebruikt om gegevens van de afhankelijkheid opvragen.
 
 ## <a name="application-map"></a>Toepassingskaart
-De toepassingstoewijzing fungeert als een visuele hulpmiddel voor het detecteren van afhankelijkheden tussen de onderdelen van uw toepassing. Deze wordt automatisch gegenereerd vanuit de telemetrie van uw app. Dit voorbeeld toont AJAX-aanroepen vanuit de browser-scripts en het aanroepen van de REST van de server-app voor twee externe services.
+Overzicht van de toepassing fungeert als een visuele hulpmiddelen voor het detecteren van afhankelijkheden tussen de onderdelen van uw toepassing. Er wordt automatisch gegenereerd van de telemetrie van uw app. Dit voorbeeld toont AJAX-aanroepen vanuit de browser-scripts en REST-aanroepen van de serverapp met twee externe services.
 
 ![Toepassingskaart](./media/app-insights-asp-net-dependencies/08.png)
 
 * **Navigeer in de vakken** relevante afhankelijkheid en andere grafieken.
-* **De kaart vastmaken** naar de [dashboard](app-insights-dashboards.md), wordt waar deze volledig functioneel.
+* **De kaart vastmaken** naar de [dashboard](app-insights-dashboards.md), waar deze is volledig functioneel.
 
 [Meer informatie](app-insights-app-map.md).
 
-## <a name="performance-and-failure-blades"></a>Prestatie- en blades
-De blade performance toont de duur van afhankelijkheidsaanroepen die door de server-app. Er is een overzichtstabel en een tabel gesegmenteerd op aanroep.
+## <a name="performance-and-failure-blades"></a>Prestaties en fout-blades
+De blade prestaties wordt de duur van afhankelijkheidsaanroepen van de serverapp. Er is een grafiek met samenvattingen en een tabel gesegmenteerd op aanroep.
 
 ![Afhankelijkheid van de prestatiegrafieken-blade](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
 
-Klik in de samenvatting grafieken of de tabelitems om te zoeken onbewerkte instanties van deze aanroepen.
+Klik in de samenvatting grafieken of de tabelitems om te zoeken naar onbewerkte instanties van deze aanroepen.
 
 ![Afhankelijkheid aanroep exemplaren](./media/app-insights-asp-net-dependencies/dependency-call-instance.png)
 
-**Foutaantallen** worden weergegeven op de **fouten** blade. Een mislukte is een retourcode die zich niet in het bereik 200-399, of een onbekend.
+**Aantal fouten** worden weergegeven op de **fouten** blade. Een fout is een retourcode die zich niet in het bereik 200-399, of onbekend.
 
 > [!NOTE]
-> **100% fouten?** -Dit wordt waarschijnlijk geeft aan dat u alleen afhankelijkheidsgegevens van gedeeltelijke krijgt. U moet [instellen van de bewaking van afhankelijkheid geschikt is voor uw platform](#set-up-dependency-monitoring).
+> **100% fouten?** -Dit geeft waarschijnlijk aan dat u alleen gedeeltelijke afhankelijkheidsgegevens ontvangt. U moet [instellen van de controle van toepassingsafhankelijkheden geschikt is voor uw platform](#set-up-dependency-monitoring).
 >
 >
 
 ## <a name="ajax-calls"></a>AJAX-aanroepen
-De blade Browsers toont de duur en mislukt de frequentie van AJAX-aanroepen vanuit [JavaScript in uw webpagina's](app-insights-javascript.md). Deze worden weergegeven als afhankelijkheden.
+De blade Browsers toont de duur en mislukt de frequentie van AJAX-aanroepen van [JavaScript in uw webpagina's](app-insights-javascript.md). Ze worden weergegeven als afhankelijkheden.
 
 ## <a name="diagnosis"></a> Diagnose van trage aanvragen
-Elke gebeurtenis van de aanvraag is gekoppeld aan het aanroepen van afhankelijkheden, uitzonderingen en andere gebeurtenissen die worden bijgehouden, terwijl de aanvraag is verwerkt door uw app. Dus als bepaalde aanvragen onjuist uitvoert, kunt u vinden of deze is als gevolg van trage reacties van een afhankelijkheid.
+Elke aanvraaggebeurtenis is gekoppeld aan het aanroepen van afhankelijkheden, uitzonderingen en andere gebeurtenissen die worden bijgehouden, terwijl uw app de aanvraag wordt verwerkt. Dus als een ongeldige bepaalde aanvragen uitvoert, u vinden kunt of dit is vanwege de trage reacties van een afhankelijkheid.
 
-We gaan een voorbeeld van die doorlopen.
+We nemen een voorbeeld van die.
 
 ### <a name="tracing-from-requests-to-dependencies"></a>Tracering van aanvragen naar afhankelijkheden
-Open de blade Performance en bekijk het raster van aanvragen:
+Open de blade Performance en kijken naar het raster van aanvragen:
 
 ![Lijst met aanvragen met gemiddelden en tellingen](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
-De bovenste een duurt zeer lang. Laten we zien als we vindt waarbij de tijd is besteed.
+De bovenste een duurt zeer lang. Laten we zien als we vindt waar de tijd is besteed.
 
-Klik op die rij om afzonderlijke aanvraag gebeurtenissen te bekijken:
+Klik op die rij om afzonderlijke aanvraaggebeurtenissen te bekijken:
 
-![Lijst van instanties van de aanvraag](./media/app-insights-asp-net-dependencies/03-instances.png)
+![Lijst met instanties van de aanvraag](./media/app-insights-asp-net-dependencies/03-instances.png)
 
-Klik op een willekeurig exemplaar langlopende om verdere inspecteren en schuif omlaag naar de externe afhankelijkheidsaanroepen die betrekking hebben op deze aanvraag:
+Klik op een willekeurig exemplaar langlopende verder inspecteren en bladert u omlaag naar de externe afhankelijkheidsaanroepen die betrekking hebben op deze aanvraag:
 
-![Vinden van aanroepen naar externe afhankelijkheden, het identificeren van ongebruikelijke duur](./media/app-insights-asp-net-dependencies/04-dependencies.png)
+![Aanroepen naar externe afhankelijkheden zoeken, identificeren ongebruikelijke duur](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
-Het lijkt erop dat de meeste van de tijd van onderhoud van deze aanvraag is die is doorgebracht in een aanroep van een lokale service.
+Deze ziet eruit als de meeste van de tijd van onderhoud van die deze aanvraag is besteed in een aanroep naar een lokale service.
 
-Selecteer die rij voor meer informatie:
+Selecteer de rij voor meer informatie:
 
-![Deze externe afhankelijkheid voor het identificeren van de stackpad doorklikken](./media/app-insights-asp-net-dependencies/05-detail.png)
+![Klik op die externe afhankelijkheid voor het identificeren van het overmatig](./media/app-insights-asp-net-dependencies/05-detail.png)
 
-Lijkt erop dat dit is waar het probleem is. We het probleem hebt nauwkeurige, dus nu we zojuist hebt om erachter te komen waarom die aanroep te lang duurt.
+Het lijkt dit is waar het probleem zich bevindt. We hebben het probleem kunt, dus nu we gewoon wilt weten waarom die aanroep zo lang duurt.
 
-### <a name="request-timeline"></a>Aanvraag tijdlijn
-Er is geen afhankelijkheidsaanroep die is een bijzonder lange in andere gevallen. Maar door het overschakelen naar de tijdlijnweergave, kunnen we zien waar de vertraging is opgetreden bij het verwerken van onze interne:
+### <a name="request-timeline"></a>Tijdlijn van de aanvraag
+Er is geen afhankelijkheidsaanroep die erg lang in andere gevallen. Maar door over te schakelen naar de tijdlijnweergave, kunnen we zien waar de vertraging is opgetreden in onze interne verwerking:
 
-![Vinden van aanroepen naar externe afhankelijkheden, het identificeren van ongebruikelijke duur](./media/app-insights-asp-net-dependencies/04-1.png)
+![Aanroepen naar externe afhankelijkheden zoeken, identificeren ongebruikelijke duur](./media/app-insights-asp-net-dependencies/04-1.png)
 
-Er lijkt een wijd nadat de eerste afhankelijkheid aangeroepen, zodat we onze code om te zien waarom moet kijken.
+Er lijkt te zijn van een wijd na het aanroepen van de eerste afhankelijkheid, zodat we onze code om te zien waarom moeten kijken.
 
-### <a name="profile-your-live-site"></a>Profiel van uw live site
+### <a name="profile-your-live-site"></a>Profileren van uw live site
 
-Er is geen idee waar de tijd gaat? De [Application Insights profiler](app-insights-profiler.md) traceringen HTTP-aanroepen naar uw live site en ziet u welke functies in uw code het langst heeft geduurd.
+Er is geen idee waar de tijd komt? De [Application Insights profiler](app-insights-profiler.md) traceringen HTTP-aanroepen naar de live site en ziet u welke functies in uw code heeft de meeste tijd.
 
 ## <a name="failed-requests"></a>Mislukte aanvragen
-Mislukte aanvragen kunnen ook zijn gekoppeld aan de mislukte aanroepen naar afhankelijkheden. We kunnen opnieuw in en klik in voor het opsporen van het probleem.
+Mislukte aanvragen kunnen ook zijn gekoppeld aan de mislukte aanroepen van afhankelijkheden. Nogmaals, kunnen we doorklikken voor het opsporen van het probleem.
 
-![Klik op de grafiek mislukte aanvragen](./media/app-insights-asp-net-dependencies/06-fail.png)
+![Klik op de grafiek van mislukte aanvragen](./media/app-insights-asp-net-dependencies/06-fail.png)
 
-Klik verder naar een exemplaar van een mislukte aanvraag en bekijk de bijbehorende gebeurtenissen.
+Klik door naar een exemplaar van een mislukte aanvragen en de bijbehorende gebeurtenissen bekijken.
 
-![Klik op een aanvraag met het type, het exemplaar voor ophalen naar een andere weergave van hetzelfde exemplaar, klikt u erop om details van uitzondering.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
+![Klik op een aanvraag met het type en het exemplaar naar een andere weergave van hetzelfde exemplaar, klikt u erop om details van uitzondering.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analyse
-U kunt volgen afhankelijkheden in de [querytaal van logboekanalyse](https://docs.loganalytics.io/). Hier volgen enkele voorbeelden.
+U kunt volgen afhankelijkheden in de [querytaal van Log Analytics](https://aka.ms/LogAnalyticsLanguage). Hier volgen enkele voorbeelden.
 
-* Alle mislukte afhankelijkheidsaanroepen vinden:
+* Alle mislukte afhankelijkheidsaanroepen zoeken:
 
 ```
 
     dependencies | where success != "True" | take 10
 ```
 
-* AJAX-aanroepen vinden:
+* AJAX-aanroepen zoeken:
 
 ```
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
-* Afhankelijkheidsaanroepen verband met aanvragen zoeken:
+* Afhankelijkheidsaanroepen die zijn gekoppeld aan aanvragen zoeken:
 
 ```
 
@@ -172,12 +172,12 @@ U kunt volgen afhankelijkheden in de [querytaal van logboekanalyse](https://docs
 
 
 
-## <a name="custom-dependency-tracking"></a>Bijhouden van aangepaste afhankelijkheid
-De standaard afhankelijkheid bijhouden module detecteert automatisch de externe afhankelijkheden, zoals databases en REST-API's. Maar u kunt een aantal extra onderdelen op dezelfde manier worden behandeld.
+## <a name="custom-dependency-tracking"></a>Aangepaste bijhouden van afhankelijkheid
+De standaard afhankelijkheid bijhouden module detecteert automatisch externe afhankelijkheden, zoals databases en REST-API's. Maar wilt u mogelijk enkele aanvullende onderdelen moeten op dezelfde manier worden behandeld.
 
-Kunt u code schrijven waarmee afhankelijkheidsinformatie, worden verzonden met behulp van dezelfde [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) dat wordt gebruikt door de standard-modules.
+U kunt code schrijven die afhankelijkheidsinformatie, verzendt met behulp van dezelfde [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) die wordt gebruikt door de standard-modules.
 
-Als u uw code met een assembly die u zelf niet schrijven maken, kan u bijvoorbeeld alle aanroepen, om erachter te komen welke bijdrage hiervan in uw reactietijden tijd. Als u deze gegevens weergegeven in de afhankelijkheidsgrafiek in Application Insights, verzenden met behulp van `TrackDependency`.
+Als u uw code met een assembly die u niet zelf schrijft maken, kunt u bijvoorbeeld alle aanroepen naar deze, om erachter te komen wat de bijdrage van voor uw reactietijden wordt tijd. Als u wilt dat deze gegevens worden weergegeven in de afhankelijkheidsgrafiek in Application Insights, verzenden met behulp van `TrackDependency`.
 
 ```csharp
 
@@ -196,19 +196,19 @@ Als u uw code met een assembly die u zelf niet schrijven maken, kan u bijvoorbee
             }
 ```
 
-Als u de standaard afhankelijkheid bijhouden module uitschakelen wilt, verwijdert u de verwijzing naar DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Als u uitschakelen in de module voor het bijhouden van standard afhankelijkheid wilt, verwijder de verwijzing naar DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-*Afhankelijkheid geslaagd vlag altijd toont waar of ONWAAR.*
+*Afhankelijkheid succes vlag altijd wordt weergegeven waar of ONWAAR.*
 
 *SQL-query is niet volledig worden weergegeven.*
 
-Raadpleeg de onderstaande tabel en zorgen dat u hebt ervoor gekozen de juiste configuratie bewaking van afhankelijkheid voor uw toepassing wilt inschakelen.
+Raadpleeg de onderstaande tabel en zorgen dat u hebt ervoor gekozen de juiste configuratie van afhankelijkheidsbewaking van voor uw toepassing wilt inschakelen.
 
 | Platform | Installeren |
 | --- | --- |
-| IIS-Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md). Of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
-| Azure Web App |In het Configuratiescherm voor web-app [de Application Insights-blade geopend in het Configuratiescherm van de web-app](app-insights-azure-web-apps.md) en kies installeren als u wordt gevraagd. |
+| IIS-Server |Een van beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md). Of [Toepassingsupgrade naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
+| Azure Web App |In het Configuratiescherm van web-app [opent u de Application Insights-blade in het Configuratiescherm van uw web-app](app-insights-azure-web-apps.md) en kies installeren als u hierom wordt gevraagd. |
 | Azure-Cloudservice |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Video

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593040"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974779"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout bij het afhandelen van aanbevolen procedures voor Azure Active Directory Authentication Library (ADAL) clients
 
@@ -51,7 +51,7 @@ Er is een set van fouten die zijn gegenereerd door het besturingssysteem, die mo
 
 Primair, er zijn twee mogelijke situaties AcquireTokenSilent fouten:
 
-| Case | Beschrijving |
+| Aanvraag | Beschrijving |
 |------|-------------|
 | **Geval 1**: fout is omgezet met een interactieve aanmelding | Voor fouten worden veroorzaakt door een gebrek aan geldige-tokens, is een interactieve aanvraag nodig. Opzoeken van de cache en een ongeldig of verlopen vernieuwingstoken moet met name een AcquireToken-aanroep op te lossen.<br><br>In dergelijke gevallen moet de eindgebruiker gevraagd aan te melden. De toepassing kunt kiezen om een interactieve aanvraag doen onmiddellijk na de interactie met eindgebruikers (zoals te maken met een knop aanmelden) of later. De keuze is afhankelijk van het gewenste gedrag van de toepassing.<br><br>Zie de code in de volgende sectie voor dit specifieke geval en de fouten die diagnosticeren.|
 | **Geval 2**: fout is niet omgezet met een interactieve aanmelding | Voor het netwerk en tijdelijke/tijdelijke fouten, of andere fouten, uitvoeren van een interactieve AcquireToken-aanvraag heeft het probleem verhelpen niet. Onnodige interactieve aanmeldingsprompts kunnen ook frustrerend kan zijn voor eindgebruikers. ADAL probeert automatisch een enkele nieuwe pogingen voor de meeste fouten op AcquireTokenSilent fouten.<br><br>De clienttoepassing kan ook op een later tijdstip opnieuw proberen, maar wanneer en hoe u dit doen, is afhankelijk van de werking van de toepassing en de gewenste eindgebruikerservaring. De toepassing kan bijvoorbeeld een AcquireTokenSilent opnieuw proberen na een paar minuten, of als reactie op bepaalde actie door eindgebruikers. Een directe nieuwe poging zal leiden tot de toepassing wordt beperkt, en moet niet worden uitgevoerd.<br><br>Een volgende poging is mislukt met de dezelfde fout betekent niet dat de client een interactieve-aanvraag met behulp van AcquireToken, moet doen als de fout niet wordt opgelost.<br><br>Zie de code in de volgende sectie voor dit specifieke geval en de fouten die diagnosticeren. |
@@ -367,7 +367,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Foutgevallen en stappen: toepassingen met één pagina (adal.js)
 
-Als u een toepassing met één pagina met behulp van adal.js met AcquireToken bouwt, is de code voor foutafhandeling is vergelijkbaar met die van de aanroep van een typische op de achtergrond. In het bijzonder in adal.js, AcquireToken nooit meer wordt weergegeven een gebruikersinterface. 
+Als u een toepassing met één-pagina met behulp van adal.js met AcquireToken bouwt, is de code voor foutafhandeling is vergelijkbaar met die van de aanroep van een typische op de achtergrond. In het bijzonder in adal.js, AcquireToken nooit meer wordt weergegeven een gebruikersinterface. 
 
 Een mislukte AcquireToken heeft de volgende gevallen:
 

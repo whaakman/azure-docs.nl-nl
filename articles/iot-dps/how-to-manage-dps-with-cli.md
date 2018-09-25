@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 70ce30bdc5a12aec198a2bb1b78c9bdfa8a18882
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057200"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992861"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Over het gebruik van Azure CLI en de IoT-extensie voor het beheren van de IoT Hub Device Provisioning Service
 
@@ -29,7 +29,7 @@ In deze zelfstudie maakt stappen u eerst de om Azure CLI en de IoT-extensie in t
 
 [Python 2.7x of Python 3.x](https://www.python.org/downloads/) is vereist.
 
-### <a name="step-2---install-azure-cli"></a>Stap 2: Azure CLI installeren
+### <a name="step-2---install-the-azure-cli"></a>Stap 2: de Azure CLI installeren
 
 Ga als volgt de [installatie-instructie](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az –version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren.
 

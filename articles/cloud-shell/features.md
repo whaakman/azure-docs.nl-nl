@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 1321645d97e7f6ff2faed1e61ddb608afcb7b413
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054035"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998760"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
 
@@ -31,7 +31,7 @@ Azure Cloud Shell wordt uitgevoerd op `Ubuntu 16.04 LTS`.
 
 ### <a name="secure-automatic-authentication"></a>Automatische verificatie beveiligen
 
-Cloudshell veilig en automatisch toegang tot het worden geverifieerd voor de Azure CLI 2.0 en Azure PowerShell.
+Cloudshell veilig en automatisch toegang tot het worden geverifieerd voor de Azure CLI en Azure PowerShell.
 
 ### <a name="home-persistence-across-sessions"></a>$Home persistentie in verschillende sessies
 
@@ -60,7 +60,7 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 |Categorie   |Naam   |
 |---|---|
 |Hulpprogramma's voor Linux            |Bash<br> zsh<br> Sh<br> tmux<br> graven<br>               |
-|Azure-hulpprogramma 's            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) en [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Azure-hulpprogramma 's            |[Azure CLI](https://github.com/Azure/azure-cli) en [Azure klassieke CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Teksteditors           |VIM<br> nano<br> emacs       |
 |Broncodebeheer         |git                    |
 |Hulpprogramma's bouwen            |Maken<br> Maven<br> npm<br> PIP         |
@@ -82,5 +82,5 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 ## <a name="next-steps"></a>Volgende stappen
 [Bash in Cloud Shell-snelstartgids](quickstart.md) <br>
 [PowerShell in de Snelstartgids voor Cloud Shell (Preview)](quickstart-powershell.md) <br>
-[Meer informatie over Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Meer informatie over Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Meer informatie over Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

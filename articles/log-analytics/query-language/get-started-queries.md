@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982973"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Aan de slag met query's in Log Analytics
 
@@ -50,7 +50,7 @@ Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of de *zoeken* o
 ### <a name="table-based-queries"></a>Query's op basis van een tabel
 Azure Log Analytics ziet u de gegevens in tabellen, elk bestaat uit meerdere kolommen. Alle tabellen en kolommen worden weergegeven in het deelvenster schema in de Analytics-portal. Identificeert een tabel die u geïnteresseerd bent en klikt u vervolgens Kijk eens een deel van de gegevens:
 
-```KQL
+```Kusto
 SecurityEvent
 | take 10
 ```
@@ -66,7 +66,7 @@ We kunnen de query daadwerkelijk uitvoeren zelfs zonder toe te voegen `| take 10
 ### <a name="search-queries"></a>Zoekquery 's
 Zoekquery's zijn minder gestructureerde en doorgaans meer geschikt is voor het zoeken van records die een specifieke waarde in een van de kolommen bevatten:
 
-```KQL
+```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -79,7 +79,7 @@ Deze query zoekt naar de *SecurityEvent* tabel voor records die de zin 'Cryptogr
 ## <a name="sort-and-top"></a>Sorteren en top
 Terwijl **nemen** is handig om een paar records, de resultaten zijn geselecteerd en wordt weergegeven in willekeurige volgorde. Als u een geordende weergeven, kunt u **sorteren** door de gewenste kolom:
 
-```
+```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
@@ -88,7 +88,7 @@ Die al te veel resultaten kan worden geretourneerd en kan ook enige tijd duren. 
 
 De beste manier om op te halen, alleen de meest recente 10 records is met **boven**, die de hele tabel aan de serverzijde sorteert en retourneert vervolgens de bovenste records:
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -103,7 +103,7 @@ Filters, zoals aangegeven door de naam, filteren de gegevens door een specifieke
 
 U kunt een filter toevoegen aan een query met de **waar** operator gevolgd door een of meer voorwaarden. De volgende query retourneert bijvoorbeeld alleen *SecurityEvent* records waarin _niveau_ gelijk is aan _8_:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8
 ```
@@ -119,14 +119,14 @@ Bij het schrijven van de filtervoorwaarden, kunt u de volgende expressies:
 
 Als u wilt filteren op meerdere voorwaarden, kunt u ofwel **en**:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 of meerdere overbrengen **waar** elementen een na de andere:
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -146,7 +146,7 @@ De tijdkiezer is in de linkerbovenhoek waarmee wordt aangegeven dat we query's a
 ### <a name="time-filter-in-query"></a>Tijdfilter in query
 U kunt ook uw eigen tijdsbereik definiëren door een time-filter toe te voegen aan de query. Het is raadzaam te plaatsen van het tijdfilter direct na de naam van de tabel: 
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -158,7 +158,7 @@ In het bovenstaande tijdfilter `ago(30m)` "30 minuten geleden" betekent, zodat d
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project en uitbreiden: Selecteer en kolommen berekenen
 Gebruik **project** om specifieke kolommen om op te nemen in de resultaten te selecteren:
 
-```KQL
+```Kusto
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -175,7 +175,7 @@ U kunt ook **project** namen van kolommen wijzigen en nieuwe te definiëren. Pro
 * Maak een nieuwe kolom met de naam *EventCode*. De **substring()** functie wordt gebruikt om op te halen van alleen de eerste vier tekens van het veld activiteit.
 
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -183,7 +183,7 @@ SecurityEvent
 
 **uitbreiden** houdt u alle oorspronkelijke kolommen in de resultatenset en nieuwe zijn in definieert. De volgende query gebruikt **uitbreiden** om toe te voegen een *lokale tijd* kolom, die een gelokaliseerde TimeGenerated-waarde bevat.
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -193,7 +193,7 @@ SecurityEvent
 Gebruik **samenvatten** identificeren groepen records, op basis van een of meer kolommen en aggregaties op hen van toepassing. De meest voorkomende gebruik os **samenvatten** is *aantal*, die het aantal resultaten retourneert in elke groep.
 
 De volgende query controleert alle *voor prestaties* records van het afgelopen uur, gegroepeerd door *ObjectName*, en de records in elke groep telt: 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -201,7 +201,7 @@ Perf
 
 Soms is het handig om groepen te definiëren voor meerdere dimensies. Elke unieke combinatie van deze waarden worden gedefinieerd voor een afzonderlijke groep:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -209,7 +209,7 @@ Perf
 
 Er is een ander algemeen gebruik wiskundige of statistische berekeningen uitvoeren op elke groep. Bijvoorbeeld, het volgende wordt het gemiddelde wordt berekend *CounterValue* voor elke computer:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -217,7 +217,7 @@ Perf
 
 De resultaten van deze query zijn helaas geen betekenis heeft, omdat we verschillende prestatiemeters vermengd. Om dit meer af te stemmen, moeten we de gemiddelde afzonderlijk voor elke combinatie van berekenen *CounterName* en *Computer*:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -228,7 +228,7 @@ Resultaten groeperen kan ook worden gebaseerd op een time-kolom, of een andere c
 
 Voor het maken van groepen op basis van doorlopende waarden, het is raadzaam om het bereik in beheerbare eenheden met behulp van **bin**. De volgende query worden geanalyseerd *Perf* records die het meten van beschikbaar geheugen (*beschikbare megabytes (MB)*) op een specifieke computer. Het berekenen van de gemiddelde waarde voor elke periode als 1 uur, in de afgelopen 2 dagen:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

@@ -1,66 +1,73 @@
 ---
 title: Prijzen en facturering - Azure Logic Apps | Microsoft Docs
-description: Meer informatie over prijzen en facturering werking voor Azure Logic Apps
+description: Ontdek hoe prijzen en facturering voor Azure Logic Apps werkt
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
-ms.openlocfilehash: e1702de42be8510412a6479b594a198a84d15ae2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974303"
 ---
-# <a name="logic-apps-pricing-model"></a>Prijsmodel voor logische apps
+# <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
-U kunt maken en uitvoeren van geautomatiseerde schaalbare integratie werkstromen in de cloud met Azure Logic Apps. Hier volgen de details over de werking facturering en prijzen voor Logic Apps. 
+U kunt maken en uitvoeren van werkstromen voor geautomatiseerde, schaalbare gegevensintegratie in de cloud met Azure Logic Apps. Hier vindt u de informatie over hoe facturering en prijzen voor Logic Apps werken. 
+
+<a name="consumption-pricing"></a>
 
 ## <a name="consumption-pricing-model"></a>Prijsmodel voor verbruik
 
-U betaalt alleen voor wat u gebruikt met gemaakte logische apps. Nieuwe logische apps gebruiken een verbruik plan en prijsmodel, wat betekent dat alle actie-uitvoeringen die worden uitgevoerd door een logische app-exemplaar zijn gemeten. Elke stap in de definitie van een logische app is een actie, waaronder triggers, stroom controlestappen aanroepen naar ingebouwde bewerkingen en aanroepen naar connectors. Zie voor meer informatie [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
+U betaalt alleen voor wat u gebruikt voor nieuwe logische apps die u maakt met behulp van de openbare of 'global' Logic Apps-service. Deze logische apps gebruiken een planning op basis van gebruik en het prijsmodel, wat betekent dat alle uitvoeringsacties uitgevoerd door een logische app, worden gemeten. Elke stap in de definitie van een logische app is een actie, waaronder triggers, besturingselement stromingsstappen aanroepen naar ingebouwde acties en connectors-aanroepen. Zie voor meer informatie, [Logic Apps-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="fixed-pricing"></a>
+
+## <a name="fixed-pricing-model"></a>Vaste prijsmodel
+
+> [!NOTE]
+> De integratieserviceomgeving is in *privépreview*. Om te vragen tot, [maken van uw aanvraag voor deelname aan hier](https://aka.ms/iseprivatepreview).
+
+Voor nieuwe logic-apps die u met maakt een [ *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), Logic Apps-exemplaar dat toegewezen resources gebruikt die een particulier is geïsoleerd, betaalt u een vaste maandelijkse prijs voor ingebouwde acties en ISE etiket standaardconnectors. Uw ISE bevat een Enterprise-connector zonder kosten, terwijl andere Enterprise-connectors worden in rekening gebracht op basis van de Enterprise-verbruik prijs. Zie voor meer informatie, [Logic Apps-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Triggers
 
-Triggers zijn speciale handelingen voor het maken van een logische app-exemplaar als een bepaalde gebeurtenis gebeurt. Triggers fungeren op verschillende manieren die van invloed zijn op hoe de logische app datalimiet geldt.
+Triggers zijn speciale acties die een exemplaar van de logische app maken wanneer een bepaalde gebeurtenis plaatsvindt. Triggers fungeren op verschillende manieren die invloed hebben op hoe de logische app wordt gemeten.
 
-* **Polling-trigger** – deze trigger controleert voortdurend een eindpunt voor berichten die voldoen aan de criteria voor het maken van een logische app-exemplaar en de werkstroom wordt gestart. Elke aanvraag polling telt als een uitvoering en is datalimiet, zelfs wanneer er geen logic app-exemplaar wordt gemaakt. Als het polling-interval opgeven, stelt u de trigger via de Logic App-ontwerper.
+* **Polling-trigger** – deze trigger controleert voortdurend een eindpunt voor berichten die voldoen aan de criteria voor het exemplaar van een logische app maken en starten van de werkstroom. Elke aanvraag polling telt als een uitvoering en wordt gemeten, zelfs als er geen logische app-exemplaar is gemaakt. Als u wilt opgeven voor het pollinginterval, instellen van de trigger via de ontwerper van logische App.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook trigger** – deze trigger wordt gewacht op een client een aanvraag te verzenden naar een specifieke eindpunt. Elke aanvraag verzonden naar het eindpunt van de webhook telt als de uitvoering van een actie. De aanvraag en HTTP-Webhook trigger zijn bijvoorbeeld beide webhook-triggers.
+* **Webhook-trigger** – deze trigger moet wachten voor een client een aanvraag te verzenden naar een bepaald eindpunt. Elke aanvraag verzonden naar de webhook-eindpunt telt als een actie kan worden uitgevoerd. De aanvraag- en HTTP-Webhook-trigger zijn bijvoorbeeld beide webhook-triggers.
 
-* **Terugkeerpatroon trigger** – deze trigger maakt een logische app-exemplaar op basis van het terugkeerpatroon die u hebt ingesteld in de trigger. U kunt bijvoorbeeld van een terugkeerpatroon trigger die wordt uitgevoerd om de drie dagen of op een meer complexe planning instellen.
+* **Trigger met terugkeerpatroon** – deze trigger maakt een logische app-exemplaar op basis van het terugkeerpatroon die u hebt ingesteld in de trigger. U kunt bijvoorbeeld een trigger met terugkeerpatroon die elke drie dagen wordt uitgevoerd of op een meer complexe planning instellen.
 
-Trigger uitvoeringen vindt u in het overzichtsvenster van uw logische app in de sectie Geschiedenis van de Trigger.
+Uitvoeringen door een trigger vindt u in het overzichtsvenster van uw logische app in de sectie Geschiedenis van de Trigger.
 
 ## <a name="actions"></a>Acties
 
-Ingebouwde acties, zoals de acties die aanroepen HTTP-, Azure Functions of API Management en ook bepalen stroom stap worden gemeten als systeemeigen acties die hun respectieve typen hebben. Acties die aanroepen [connectors](https://docs.microsoft.com/connectors) hebben van het type 'ApiConnection'. Deze connectors zijn geclassificeerd als standard of enterprise-connectors, die zijn gebaseerd op hun respectieve [prijzen][pricing]. 
+Ingebouwde acties, zoals de acties die HTTP-, Azure Functions of API Management en bepalen ook stromingsstappen worden gemeten als systeemeigen acties waarvoor hun respectieve typen. Acties die aanroepen [connectors](https://docs.microsoft.com/connectors) hebben van het type 'ApiConnection'. Deze connectors zijn geclassificeerd als standard of enterprise-connectors, die worden gemeten op basis van hun respectieve [prijzen][pricing]. 
 
-Alle correct zijn en succes uitgevoerde acties worden geteld en datalimiet als actie-uitvoeringen. Acties die zijn overgeslagen, omdat hangt voorwaarden of acties die niet worden uitgevoerd, omdat de logische app beëindigd voordat de voltooid, tellen niet echter als actie-uitvoeringen. Uitgeschakelde logische apps kunnen geen exemplaar maken van nieuwe exemplaren, zodat ze niet in rekening gebracht als ze zijn uitgeschakeld.
+Alle correct en zonder succes uitgevoerd acties zijn geteld en als actie-uitvoeringen gemeten. Acties die zijn overgeslagen, omdat het nog niet vervulde voorwaarden of acties die niet worden uitgevoerd, omdat de logische app wordt beëindigd voordat de voltooid, wordt echter niet gerekend als actie-uitvoeringen. Uitgeschakelde logic apps kunnen geen exemplaar maken van nieuwe exemplaren, zodat ze niet in rekening gebracht als ze zijn uitgeschakeld.
 
 > [!NOTE]
-> Nadat u een logische app uitschakelt, kunnen worden actieve instanties even duren voordat ze volledig is gestopt.
+> Nadat u een logische app uitschakelen, kunnen alle exemplaren die momenteel wordt uitgevoerd even voordat ze volledig is gestopt.
 
-Acties die worden uitgevoerd in lussen worden per elke cyclus in de lus meegeteld. Bijvoorbeeld de één actie in een lus 'voor elk' waarmee een lijst met 10 items worden verwerkt door het aantal items in lijst (10) vermenigvuldigen met het aantal acties in de lus (1) plus één voor het starten van de lus wordt geteld. Bijvoorbeeld, dus wordt de berekening (10 * 1) + 1, wat tot 11 actie uitvoeringen leidt.
+Acties die worden uitgevoerd binnen lussen worden geteld per elke cyclus in de lus. Bijvoorbeeld, de één actie in een lus 'voor elke' die een lijst met 10 items verwerkt door het aantal items in lijst (10) vermenigvuldigen met het aantal acties op de hoogte (1) plus één voor het starten van de lus wordt geteld. In dit voorbeeld de berekening is dus (10 * 1) + 1, wat tot 11 actie-uitvoeringen leidt.
 
-## <a name="integration-account-usage"></a>Gebruik van het Account integratie
+## <a name="integration-account-usage"></a>Gebruik van integratie van het Account
 
-Gebruik op basis van verbruik bevat een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B/EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies in Logic Apps zonder extra kosten. U kunt er één account zijn integratie per regio en store tot specifieke [getallen van artefacten](../logic-apps/logic-apps-limits-and-config.md), zoals EDI-handelspartners en overeenkomsten, kaarten, schema's, assembly's, certificaten en configuraties van de batch.
+Gebruik op basis van gebruik bevat een [integratieaccount](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B/EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies in Logic Apps zonder extra kosten. U kunt een integratieaccount per regio en store tot specifieke hebben [aantallen artefacten](../logic-apps/logic-apps-limits-and-config.md), zoals EDI-handelspartners en -overeenkomsten, kaarten, schema's, assembly's, certificaten en batchconfiguraties.
 
-Logic Apps biedt ook de basis en standaard integratieaccounts met ondersteunde SLA van Logic Apps. U kunt basisintegratie accounts gebruiken wanneer u wilt gebruiken alleen bericht verwerken, of fungeren als een klein bedrijfspartner die een trading partner relatie met een grotere business-entiteit heeft. Standaard integratieaccounts complexere B2B relaties ondersteuning en verhoog het aantal entiteiten die u kunt beheren. Zie voor meer informatie [Azure-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
+Logic Apps biedt ook basic en standard-integratieaccounts met ondersteunde SLA van logische Apps. U kunt de basic-integratieaccounts kunt gebruiken als u wilt gebruiken alleen bericht verwerken, of fungeren als een kleine zakelijke partner die een trading partner relatie heeft met een grotere bedrijfsentiteit. Standard-integratieaccounts ondersteunen complexere B2B-relaties en verhoog het aantal entiteiten die u kunt beheren. Zie voor meer informatie, [Azure-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Volgende stappen
 

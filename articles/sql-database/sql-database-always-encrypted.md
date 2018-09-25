@@ -3,19 +3,22 @@ title: 'Altijd versleuteld: Azure SQL Database - Windows-certificaatarchief | Mi
 description: In dit artikel wordt beschreven hoe u voor het beveiligen van gevoelige gegevens in een SQL-database waarvoor versleuteling van de database met behulp van Wizard altijd versleuteld in SQL Server Management Studio (SSMS). Deze ook wordt beschreven hoe u uw versleutelingssleutels opslaan in het Windows-certificaatarchief.
 keywords: versleutelen van gegevens, sql-versleuteling, versleuteling van de database, gevoelige gegevens, altijd versleuteld
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: c6656a1ef5e52782461d9b9e7106ff81eb3983ee
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviwer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4c9b2099308bc6a239a72fe2ebe559cdfa2fd3a1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544044"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064217"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Bescherming van gevoelige gegevens in SQL-Database en uw versleutelingssleutels opslaan in het Windows-certificaatarchief
 

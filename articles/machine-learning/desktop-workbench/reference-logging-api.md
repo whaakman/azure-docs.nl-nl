@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646242"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958217"
 ---
 # <a name="logging-api-reference"></a>Logboekregistratie van API-verwijzing
 
-Azure ML-bibliotheek voor logboekregistratie kunt het programma om te verzenden van metrische gegevens en bestanden die worden bijgehouden door de geschiedenisservice voor latere analyse. Op dit moment een paar eenvoudige typen van metrische gegevens en bestanden worden ondersteund, en de set met ondersteunde typen zal toenemen met toekomstige versies van het Python-pakket.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Azure ML-bibliotheek voor logboekregistratie kunt het programma om te verzenden van metrische gegevens en bestanden die worden bijgehouden door de geschiedenisservice voor latere analyse. 
 
 ## <a name="uploading-metrics"></a>Metrische gegevens uploaden
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971906"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Configureren en controleren van IoT-apparaten op schaal met behulp van de Azure CLI
 
@@ -34,8 +34,8 @@ Automatische inrichting configuraties werk door een set dubbele apparaten bijwer
 ## <a name="cli-prerequisites"></a>CLI-vereisten
 
 * Een [IoT-hub](../iot-hub/iot-hub-create-using-cli.md) in uw Azure-abonnement. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. 
-* De [IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az –-version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. 
+* De [IoT-extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Apparaatdubbels implementeren om apparaten te configureren
 
@@ -56,7 +56,7 @@ Voordat u een configuratie maken kunt, moet u opgeven welke apparaten die u wilt
 
 ## <a name="define-the-target-content-and-metrics"></a>De inhoud van de doel- en metrische gegevens definiëren
 
-De doel-inhoud en metrische query's zijn opgegeven als JSON-documenten die worden beschreven van het apparaat twin gewenste eigenschappen die moeten worden ingesteld en gerapporteerde eigenschappen die moeten worden gemeten.  Sla de inhoud van de doel- en metrische gegevens lokaal als txt-bestanden voor het maken van een automatische apparaatconfiguratie met behulp van Azure CLI 2.0. U gebruikt de bestandspaden in een volgende sectie van de volgende wanneer u de opdracht uit om de configuratie van toepassing op het apparaat uitvoert. 
+De doel-inhoud en metrische query's zijn opgegeven als JSON-documenten die worden beschreven van het apparaat twin gewenste eigenschappen die moeten worden ingesteld en gerapporteerde eigenschappen die moeten worden gemeten.  Sla de inhoud van de doel- en metrische gegevens lokaal als txt-bestanden voor het maken van een automatische apparaatconfiguratie met behulp van Azure CLI. U gebruikt de bestandspaden in een volgende sectie voor het volgende wanneer u de opdracht uit om de configuratie van toepassing op het apparaat uitvoert. 
 
 Hier volgt een voorbeeld van basic target-inhoud:
 

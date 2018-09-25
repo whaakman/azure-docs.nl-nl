@@ -3,8 +3,8 @@ title: Certificeringsinstanties toegestaan voor het inschakelen van de aangepast
 description: Als u uw eigen certificaat gebruikt voor het inschakelen van HTTPS op een aangepast domein, moet u een toegestane certificeringsinstantie (CA) gebruiken om deze te maken.
 services: cdn
 documentationcenter: ''
-author: KumudD
-manager: jeconnoc
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: kumud
+ms.date: 09/17/2018
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 28d6d24266c11b1295c57c8ec46c2bd5ec690b28
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005914"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969498"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Certificeringsinstanties toegestaan voor het inschakelen van de aangepaste HTTPS voor Azure CDN
 
@@ -33,6 +33,10 @@ Voor een aangepaste domein in Azure Content Delivery Network (CDN) op een **Azur
 De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 
 - AddTrust externe CA-basiscertificaat
+- AlphaSSL basis-CA
+- AAM Infra CA 01
+- AAM Infra CA 02
+- Ameroot
 - Azië en Stille Oceaan basis-CA
 - Azië en Stille Oceaan basiscertificeringsinstantie 2013
 - Azië en Stille Oceaan basiscertificeringsinstantie 2014
@@ -47,16 +51,25 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - DigiCert globale basis-CA
 - DigiCert hoge zekerheid CA-3
 - DigiCert hoge zekerheid VW basis-CA
+- DigiCert SHA2 uitgebreide validatie Server CA
 - DigiCert SHA2 hoge zekerheid Server CA
 - DigiCert SHA2 beveiligde Server CA
+- Zomertijd basis-CA X3
+- D vertrouwde basis-CA van klasse 3 2 2009
+- Versleuteling overal DV TLS CA
+- Entrust basiscertificeringsinstantie
+- Basis-CA - G2 Entrust
+- Certificeringsinstantie (CA) Entrust.NET (2048)
 - Globale CA GeoTrust
 - Certificeringsinstantie (CA) GeoTrust primaire
 - Primaire GeoTrust certificeringsinstantie - G2
+- Geotrust RSA CA 2018
 - GlobalSign
 - Uitgebreide validatie van CA - SHA256 - G2 GlobalSign
 - Validatie van de organisatie GlobalSign CA - G2
 - GlobalSign basis-CA
 - Go Daddy-basiscertificeringsinstantie - G2
+- Go Daddy beveiligde certificeringsinstantie - G2
 - Microsoft Authenticode (TM) basis-CA
 - Microsoft Exchange-Services CA 2015
 - Microsoft interne zakelijke basis
@@ -78,6 +91,7 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - MSIT CA Z2
 - MSIT CA voor ondernemingen 1
 - MSIT CA voor ondernemingen 3
+- RapidSSL RSA CA 2018
 - Basis-instantie
 - Symantec-klasse 3 VW SSL CA - G3
 - Symantec-klasse 3 beveiligde Server CA - G4
@@ -85,7 +99,9 @@ De volgende CA's zijn toegestaan bij het maken van uw eigen certificaat:
 - Primaire Thawte basis-CA
 - Primaire Thawte basis-CA - G2
 - Primaire Thawte basis-CA - G3
+- Thawte RSA CA 2018
 - Thawte Timestamping CA
+- TrustAsia TLS RSA CA
 - UTN-USERFirst-Object
 - VeriSign klasse 3 uitgebreide validatie SSL CA
 - VeriSign klasse 3 uitgebreide validatie SSL SGC CA

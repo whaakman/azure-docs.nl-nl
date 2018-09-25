@@ -5,11 +5,12 @@ Als u Azure CLI nog niet hebt geïnstalleerd en gekoppeld aan uw abonnement, raa
 ## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
 U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
-- Azure CLI 1.0: onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel (dit artikel)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel
+- Klassieke Azure CLI: onze CLI voor het klassieke en resource Manager-implementatiemodel (dit artikel)
+- [Azure CLI](../articles/virtual-machines/linux/cli-manage.md) : onze CLI de volgende generatie voor het resource Manager-implementatiemodel
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Basisopdrachten van Azure Resource Manager in Azure CLI
-In dit artikel worden de basisopdrachten behandeld die u kunt gebruiken met Azure CLI wilt voor het beheren en manipuleren van uw resources (voornamelijk VM's) in uw Azure-abonnement.  Voor meer informatie over specifieke opdrachtregelparameters en -opties kunt u de online Help van de opdrachtregelinterface raadplegen door `azure <command> <subcommand> --help` of `azure help <command> <subcommand>` te typen.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Azure Resource Manager-basisopdrachten in Azure klassieke CLI
+
+In dit artikel bevat informatie over eenvoudige opdrachten die u wilt gebruiken met Azure CLI voor klassieke om te beheren en manipuleren van uw resources (voornamelijk VM's) in uw Azure-abonnement.  Voor meer informatie over specifieke opdrachtregelparameters en -opties kunt u de online Help van de opdrachtregelinterface raadplegen door `azure <command> <subcommand> --help` of `azure help <command> <subcommand>` te typen.
 
 > [!NOTE]
 > Deze voorbeelden bevatten geen sjabloonbewerkingen die over het algemeen worden aanbevolen voor VM-implementaties in Resource Manager. Meer informatie vindt u in [Use the Azure CLI to manage Azure resources and resource groups](../articles/xplat-cli-azure-resource-manager.md) (Azure CLI gebruiken voor het beheren van Azure-resources en resourcegroepen) en [Een virtuele Linux-machine maken met behulp van een Azure Resource Manager-sjabloon](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

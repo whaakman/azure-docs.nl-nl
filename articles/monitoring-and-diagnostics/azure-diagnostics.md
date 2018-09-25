@@ -6,21 +6,21 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ef1422db799db6d635ad9f03908e3a34f312e408
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089890"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974235"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
-De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](monitoring-overview.md). 
+De Azure Diagnostics-extensie is een agent in Azure waarmee u het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens gebruiken uit een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure-Cloudservice (klassiek) Web- en werkrollen, virtuele Machines, Virtual Machine Scale sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van de bewaking in Azure](monitoring-overview.md).
 
 ## <a name="linux-agent"></a>Linux-Agent
-Een [Linux-versie van de extensie](../virtual-machines/linux/diagnostic-extension.md) is beschikbaar voor virtuele Machines waarop Linux wordt uitgevoerd. De statistieken die worden verzameld en het gedrag verschillen van de Windows-versie. 
+Een [Linux-versie van de extensie](../virtual-machines/linux/diagnostic-extension.md) is beschikbaar voor virtuele Machines waarop Linux wordt uitgevoerd. De statistieken die worden verzameld en het gedrag verschillen van de Windows-versie.
 
 ## <a name="data-you-can-collect"></a>Gegevens die u kunt verzamelen
 De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
@@ -37,13 +37,20 @@ De Azure Diagnostics-extensie kan de volgende typen gegevens verzamelen:
 | Aangepaste foutenlogboeken |Logboeken die zijn gemaakt door uw toepassing of service |
 | Logboeken met diagnostische Azure-infrastructuur |Informatie over diagnostische gegevens zelf |
 
-(1) uitvoeren als u een lijst van ETW-providers, `c:\Windows\System32\logman.exe query providers` in een consolevenster weergegeven op de computer die u wilt verzamelen van gegevens uit. 
+(1) uitvoeren als u een lijst van ETW-providers, `c:\Windows\System32\logman.exe query providers` in een consolevenster weergegeven op de computer die u wilt verzamelen van gegevens uit.
 
 ## <a name="data-storage"></a>Gegevensopslag
-De extensie slaat de gegevens op in een [Azure Storage-account](azure-diagnostics-storage.md) die u opgeeft. 
+De extensie slaat de gegevens op in een [Azure Storage-account](azure-diagnostics-storage.md) die u opgeeft.
 
-U kunt ook verzenden naar [Application Insights](../application-insights/app-insights-cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services. 
+U kunt ook verzenden naar [Application Insights](../application-insights/app-insights-cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), die vervolgens kunt u deze verzenden naar het controleren van niet-Azure-services.
 
+### <a name="azure-monitor"></a>Azure Monitor
+U hebt ook de keuze van uw gegevens te verzenden naar Azure Monitor. Deze sink is op dit moment alleen van toepassing op prestatiemeteritems. Hiermee kunt u prestatiemeteritems verzamelde verzenden op de virtuele machine, VMSS, of in de cloud service naar Azure Monitor als aangepaste metrische gegevens. Biedt ondersteuning voor de Azure Monitor-sink:
+* Bij het ophalen van alle prestatiemeteritems verzonden naar Azure Monitor via de [Azure Monitor metrics API's.](https://docs.microsoft.com/rest/api/monitor/)
+* Waarschuwingen voor alle prestatiemeteritems verzonden naar Azure Monitor via de nieuwe [ervaring voor waarschuwingen van geïntegreerde](monitoring-overview-unified-alerts.md) in Azure Monitor
+* Wildcard-operator als de dimensie 'Instantie' op uw metrische gegevens in de prestatiemeteritems te behandelen.  Bijvoorbeeld als u hebt verzameld de ' logische schijf (\*) / DiskWrites per seconde "teller die u kunt filteren en splitsen op de dimensie 'Instantie' diagram of de waarschuwing op de schijf schrijven per seconde voor elke logische schijf op de virtuele machine (C:, D:, enz.)
+
+Voor meer informatie over het configureren van deze sink, Raadpleeg de [documentatie voor Azure diagnostics-schema.](azure-diagnostics-schema-1dot3-and-later.md)
 
 ## <a name="versioning-and-configuration-schema"></a>Versiebeheer en configuratie-schema
 Zie [versiegeschiedenis van Azure Diagnostics en het Schema](azure-diagnostics-versioning-history.md).

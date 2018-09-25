@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644072"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947938"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Met Azure Machine Learning voor gebruikersverloop
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Gemiddeld, is het vijf keer goedkoper dan de kosten van het werven van nieuwe labels te houden van bestaande klanten. Als gevolg hiervan vinden marketingmanagers dan vaak zichzelf probeert te schatten van de kans op klantverloop en zoeken van de nodige maatregelen om het verloop te minimaliseren.
 
@@ -61,7 +66,7 @@ In deze oplossing gebruiken we een voorbeeld van een concreet het bouwen van een
 
 * Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar)
 
-* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](../service/quickstart-installation.md) aan het programma te installeren en een werkruimte maken
+* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) volgende de [snel starten-installatiehandleiding](quickstart-installation.md) aan het programma te installeren en een werkruimte maken
 
 * Voor uitoefening is het raadzaam hebt u Docker-engine zijn geïnstalleerd en lokaal worden uitgevoerd. Zo niet, u kunt de cluster-optie gebruiken maar houd er rekening mee dat het uitvoeren van een Azure Container Service (ACS) kostbaar zijn.
 

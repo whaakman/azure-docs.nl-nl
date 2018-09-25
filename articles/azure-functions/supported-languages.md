@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: b735f93b2d7ad093ef752fd5f26be729a1157b37
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090673"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957309"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Ondersteunde talen in Azure Functions
 
@@ -31,23 +31,23 @@ Er zijn drie niveaus van ondersteuning:
 
 ## <a name="languages-in-runtime-1x-and-2x"></a>Talen in runtime 1.x en 2.x
 
-[Twee versies van de Azure Functions-runtime](functions-versions.md) beschikbaar zijn. De runtime 1.x is algemene beschikbaarheid. Het is de enige runtime die is goedgekeurd voor productie-Apps. De runtime 2.x is momenteel in preview, zodat de talen die ondersteund in preview zijn. De volgende tabel ziet u welke talen worden ondersteund in elke runtimeversie.
+[Twee versies van de Azure Functions-runtime](functions-versions.md) beschikbaar zijn. De volgende tabel ziet u welke talen worden ondersteund in elke runtimeversie.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ### <a name="experimental-languages"></a>Experimentele talen
 
-De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen. Bijvoorbeeld: Python is traag, omdat de Functions-runtime wordt uitgevoerd *python.exe* bij elke functieaanroep. En hoewel Python HTTP-bindingen ondersteunt, heeft geen toegang tot het request-object.
+De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen. Bijvoorbeeld, 1.x Python is traag, omdat de Functions-runtime wordt uitgevoerd *python.exe* bij elke functieaanroep. En hoewel Python HTTP-bindingen ondersteunt, heeft geen toegang tot het request-object.
 
-Experimentele ondersteuning voor PowerShell is beperkt tot versie 5.1, omdat dat is wat wordt standaard geïnstalleerd op de virtuele machines op welke functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
+Experimentele ondersteuning voor PowerShell in 1.x is beperkt tot versie 5.1, omdat dat is wat wordt standaard geïnstalleerd op de virtuele machines op welke functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-Als u wilt een van de talen die alleen beschikbaar in 1.x zijn te gebruiken, blijven maken van de runtime 1.x. Maar experimentele talen niet worden gebruikt voor alles wat u afhankelijk zijn, omdat er geen officiële ondersteuning voor hen is. U kunt aanvragen kunnen hierbij helpen door [GitHub-problemen maken](https://github.com/Azure/azure-webjobs-sdk-script/issues), maar kwesties mogen niet worden geopend voor problemen met experimentele talen. 
+Gebruik geen experimentele talen voor alles wat u afhankelijk zijn, omdat er geen officiële ondersteuning voor hen is. Kwesties moeten niet worden geopend voor problemen met experimentele talen. 
 
 De runtime versie 2.x biedt geen ondersteuning voor experimentele talen. Ondersteuning voor nieuwe talen wordt toegevoegd wanneer de taal kan worden ondersteund in de productieomgeving. 
 
 ### <a name="language-extensibility"></a>Taal-uitbreidbaarheid
 
-De runtime 2.x is ontworpen om u te bieden [taal uitbreidbaarheid](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Model is tussen de eerste talen gebaseerd zijn op deze uitbreidbaarheid Java, die zich in de Preview-versie in 2.x.
+De runtime 2.x is ontworpen om u te bieden [taal uitbreidbaarheid](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). De talen van de JavaScript en Java in de runtime 2.x zijn gebouwd met deze uitbreidbaarheid.
 
 ## <a name="next-steps"></a>Volgende stappen
 

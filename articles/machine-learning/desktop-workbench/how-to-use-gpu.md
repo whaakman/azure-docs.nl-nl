@@ -11,18 +11,22 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157987"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974354"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Over het gebruik van GPU in Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Grafische verwerking Unit (GPU) wordt veel gebruikt voor het verwerken van rekenintensief zijn taken die doorgaans kunnen ontstaan bij het trainen van bepaalde deep neural network-modellen. Met behulp van GPU's, kunt u de trainingstijd van de modellen aanzienlijk verkorten. In dit document leert u hoe het configureren van Azure ML Workbench gebruiken [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) uitgerust met GPU's als doel voor uitvoering. 
 
 ## <a name="prerequisites"></a>Vereisten
-- Als u wilt in deze gebruiksaanwijzing kunt doorlopen, moet u eerst [Azure ML Workbench installeren](../service/quickstart-installation.md).
+- Als u wilt in deze gebruiksaanwijzing kunt doorlopen, moet u eerst [Azure ML Workbench installeren](quickstart-installation.md).
 - U moet toegang hebben tot computers die zijn voorzien van NVidia GPU's.
     - Rechtstreeks op de lokale computer (Windows of Mac OS) kunt u uw scripts uitvoeren met GPU's.
     - U kunt ook scripts uitvoeren in een Docker-container op een Linux-machine met GPU's...

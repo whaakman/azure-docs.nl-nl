@@ -1,6 +1,6 @@
 ---
-title: Oproep-eindpunt met cognitieve Java - Bing aangepaste zoekactie - Microsoft-Services
-description: Deze snelstartgids laat zien hoe zoekresultaten aanvragen van uw aangepaste zoekactie-exemplaar met behulp van Java aanroepen van het eindpunt van de aangepaste Bing-zoekactie.
+title: Eindpunt aanroepen met behulp van Java - Bing Custom Search - Microsoft Cognitive Services
+description: Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Java om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,34 +9,34 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345860"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951811"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Aanroep Bing aangepaste zoekactie eindpunt (Java)
+# <a name="call-bing-custom-search-endpoint-java"></a>Aanroep van Bing Custom Search-eindpunt (Java)
 
-Deze snelstartgids laat zien hoe zoekresultaten aanvragen van uw aangepaste zoekactie-exemplaar met behulp van Java aanroepen van het eindpunt van de aangepaste Bing-zoekactie. 
+In deze Quick Start laat zien hoe zoekresultaten aanvragen bij uw exemplaar voor aangepast zoeken voor het aanroepen van het eindpunt van de Bing Custom Search met behulp van Java. 
 
 ## <a name="prerequisites"></a>Vereisten
+
 U hebt het volgende nodig om deze quickstart te voltooien:
-- Een exemplaar van de aangepaste zoekactie. Zie [maken van uw eerste exemplaar van Bing aangepaste zoekactie](quick-start.md).
 
+- Een exemplaar voor aangepast zoeken van kant-en-klare. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
 - [Java](https://www.java.com) geïnstalleerd.
-
-- Een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+- De abonnementssleutel van een. Krijgt u een abonnementssleutel wanneer u activeert de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), of kunt u een betaald abonnement-sleutel in uw Azure-dashboard (Zie [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
+Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
 
-1. Een pakket met behulp van uw Java-IDE keuze maken.
-2. Het bestand CustomSrchJava.java maken en kopieer de volgende code toe.
-3. Vervang **uw ABONNEMENTSSLEUTEL** en **uw-aangepaste-CONFIG-ID** met uw sleutel en configuratie-ID.
-
-    ``` Java
+1. Met behulp van uw Java-IDE naar keuze, maak een pakket.  
+  
+2. Maak een bestand met de naam CustomSrchJava.java in het pakket en kopieer de volgende code naar het. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** met uw abonnementssleutel en de configuratie-ID.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +58,9 @@ Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +96,15 @@ Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -130,11 +130,11 @@ Volg deze stappen voor het aanroepen van het eindpunt Bing aangepaste zoeken:
         }
     
     }
-    
-    ```
-4. Voer het programma.
+    ```  
+  
+4. Voer het programma uit.
     
 ## <a name="next-steps"></a>Volgende stappen
-- [Configureer uw gehoste UI-mogelijkheden](./hosted-ui.md)
+- [Configureren van uw gehoste gebruikersinterface-ervaring](./hosted-ui.md)
 - [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
 - [Pagina webpagina 's](./page-webpages.md)

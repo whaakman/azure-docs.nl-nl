@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c047555c30481f34b607197f71483197bc64620c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643667"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961464"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning-Model gegevens verzameling API-naslaginformatie
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Gegevensverzameling van model kunt u om modelinvoer en voorspellingen op basis van een machine learning-webservice te archiveren. Zie de [model gegevens verzameling gebruiksaanwijzing](how-to-use-model-data-collection.md) wilt weten hoe u voor het installeren van `azureml.datacollector` op uw Windows- en Linux-computer.
 

@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 42b157a63b76474f6c9482da75072878fe9291e0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b91b906db1307343a50ffc3be07d562091f2e335
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465993"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978780"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
-Dit document is bedoeld om specifieke informatie van de Azure Log Analytics ter aanvulling van de gegevens op te geven [Azure Trust Center](../security/security-microsoft-trust-center.md).  
+Dit document is bedoeld voor specifieke informatie voor Log Analytics, dat een functie van Azure Monitor om te voorzien in de gegevens is op [Azure Trust Center](../security/security-microsoft-trust-center.md).  
 
 In dit artikel wordt uitgelegd hoe data wordt verzameld, verwerkt en beveiligd door Log Analytics. Agents kunt u verbinding maken met de webservice, System Center Operations Manager gebruiken voor het verzamelen van operationele gegevens of gegevens ophalen uit Azure diagnostics voor gebruik door Log Analytics. 
 

@@ -1,6 +1,6 @@
 ---
-title: Verbindingen met de Azure-netwerk-Watcher - PowerShell oplossen | Microsoft Docs
-description: Informatie over het gebruik van de verbinding problemen met de mogelijkheid van netwerk-Watcher van Azure met behulp van PowerShell.
+title: Problemen oplossen met verbindingen met Azure Network Watcher - PowerShell | Microsoft Docs
+description: Meer informatie over het gebruik van de verbinding oplossen van de mogelijkheden van Azure Network Watcher met behulp van PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 7e8c04fd2284a3a00d4847f39fd34982a543cc29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aac23f616cb9d7c3fb29e516cfa2daa47c00e8e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989257"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Verbindingen met de netwerk-Watcher van Azure met behulp van PowerShell oplossen
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Problemen oplossen met verbindingen met Azure Network Watcher met behulp van PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure-CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST-API](network-watcher-connectivity-rest.md)
 
-Informatie over het gebruik van verbinding oplossen om te controleren of een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt kan worden gemaakt.
+Informatie over het gebruik van de verbinding oplossen om te controleren of een rechtstreekse TCP-verbinding van een virtuele machine naar een bepaald eindpunt kan worden gemaakt.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-* Een exemplaar van netwerk-Watcher in de regio die u wilt een verbinding oplossen.
-* Virtuele machines verbindingen met oplossen.
+* Een exemplaar van Network Watcher in de regio die u wilt oplossen, een verbinding.
+* Virtuele machines, problemen oplossen met verbindingen met.
 
 > [!IMPORTANT]
-> Het oplossen van de verbinding vereist dat de virtuele machine die u wilt van oplossen de `AzureNetworkWatcherExtension` VM-extensie is geïnstalleerd. Voor het installeren van de extensie op een Windows-virtuele machine gaat u naar [extensie voor het virtuele machine voor Windows Azure-netwerk-Watcher Agent](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en voor Linux-VM naar [Azure-netwerk-Watcher Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). De extensie is niet vereist op de doeleindpunt.
+> Probleemoplossing voor verbindingen vereist dat de virtuele machine bij het oplossen van problemen met van heeft de `AzureNetworkWatcherExtension` VM-extensie is geïnstalleerd. Ga voor het installeren van de extensie op een Windows-VM naar [Azure Network Watcher-Agent de extensie van de virtuele machine voor Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en voor Linux-VM naar [Azure Network Watcher-Agent de extensie van de virtuele machine voor Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). De extensie is niet vereist op het eindpunt van de bestemming.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controleer de verbinding met een virtuele machine
 
-In dit voorbeeld controleert een verbinding met een doel-virtuele machine via poort 80. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+In dit voorbeeld wordt een verbinding met een virtuele doelmachine gecontroleerd via poort 80. In dit voorbeeld vereist dat u Network Watcher is ingeschakeld in de regio met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -62,7 +62,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Antwoord
 
-Het antwoord van de volgende is van het vorige voorbeeld.  In dit antwoord de `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests mislukte verzonden. De verbinding is mislukt bij het virtuele apparaat als gevolg van een gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, is geconfigureerd voor het blokkeren van inkomend verkeer op poort 80. Deze informatie kan worden gebruikt om te onderzoeken verbindingsproblemen.
+Het volgende antwoord is uit het vorige voorbeeld.  In dit antwoord de `ConnectionStatus` is **onbereikbaar**. U kunt zien dat alle tests mislukte verzonden. De verbinding is mislukt op het virtuele apparaat vanwege een gebruiker geconfigureerde `NetworkSecurityRule` met de naam **UserRule_Port80**, is geconfigureerd voor het blokkeren van verkeer dat binnenkomt op poort 80. Deze informatie kan worden gebruikt voor het onderzoeken van problemen met verbindingen.
 
 ```
 ConnectionStatus : Unreachable
@@ -133,9 +133,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="validate-routing-issues"></a>Problemen met routing valideren
+## <a name="validate-routing-issues"></a>Problemen met routering valideren
 
-In dit voorbeeld controleert de connectiviteit tussen een virtuele machine en een extern eindpunt. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+In dit voorbeeld controleert de verbinding tussen een virtuele machine en een externe eindpunt. In dit voorbeeld vereist dat u Network Watcher is ingeschakeld in de regio met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -154,7 +154,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Antwoord
 
-In het volgende voorbeeld wordt de `ConnectionStatus` wordt weergegeven als **onbereikbaar**. In de `Hops` details, kunt u zien onder `Issues` dat het verkeer is geblokkeerd vanwege een `UserDefinedRoute`. 
+In het volgende voorbeeld wordt de `ConnectionStatus` wordt weergegeven als **onbereikbaar**. In de `Hops` details, kunt u zien onder `Issues` die het verkeer geblokkeerd vanwege een `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -199,7 +199,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Latentie van de website controleren
 
-Het volgende voorbeeld wordt de verbinding met een website. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+Het volgende voorbeeld wordt de verbinding met een website. In dit voorbeeld vereist dat u Network Watcher is ingeschakeld in de regio met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -219,7 +219,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Antwoord
 
-In het volgende antwoord ziet u de `ConnectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
+In het volgende antwoord, ziet u de `ConnectionStatus` wordt weergegeven als **bereikbaar**. Als een verbinding geslaagd is, zijn latentie waarden opgegeven.
 
 ```
 ConnectionStatus : Reachable
@@ -250,9 +250,9 @@ Hops             : [
                    ]
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Controleer de verbinding met een opslag-eindpunt
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Controleer de verbinding met een opslageindpunt
 
-Het volgende voorbeeld wordt de verbinding tussen een virtuele machine en een blog van storage-account. In dit voorbeeld vereist dat u netwerk-Watcher ingeschakeld in het gebied met de bron-VM.  
+Het volgende voorbeeld wordt de verbinding van een virtuele machine met een BLOB-opslagaccount. In dit voorbeeld vereist dat u Network Watcher is ingeschakeld in de regio met de bron-VM.  
 
 ### <a name="example"></a>Voorbeeld
 
@@ -272,7 +272,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Antwoord
 
-De volgende json is de voorbeeld-reactie van de vorige cmdlet wordt uitgevoerd. Als het doel bereikbaar is is, de `ConnectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt de details met betrekking tot het aantal hops is vereist voor het bereiken van de storage-blob en latentie.
+De volgende json is de voorbeeld-reactie van de vorige cmdlet uit te voeren. Als het doel bereikbaar is, is de `ConnectionStatus` eigenschap wordt weergegeven als **bereikbaar**.  U vindt de details met betrekking tot het aantal hops is vereist om de storage-blob en de latentie te bereiken.
 
 ```json
 ConnectionStatus : Reachable
@@ -305,6 +305,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine in via [controleren IP-stroom controleren](diagnose-vm-network-traffic-filtering-problem.md).
+Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine door naar de pagina [controleren IP-stroom controleren](diagnose-vm-network-traffic-filtering-problem.md).
 
-Zie als verkeer wordt geblokkeerd en mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die zijn gedefinieerd.
+Zie als verkeer wordt geblokkeerd en het mag geen [Netwerkbeveiligingsgroepen beheren](../virtual-network/manage-network-security-group.md) voor het opsporen van de groep en beveiliging netwerkbeveiligingsregels die zijn gedefinieerd.

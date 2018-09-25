@@ -13,147 +13,147 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8161fda80b5fa498f9321371c9ad2c8a2d97441a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296397"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962416"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
-Nadat u hebt [Application Insights instellen op uw project](app-insights-overview.md), telemetriegegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource voor uw project in de [Azure-portal](https://portal.azure.com).
+Nadat u hebt [Application Insights instellen voor uw project](app-insights-overview.md), telemetrische gegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource van uw project in de [Azure-portal](https://portal.azure.com).
 
-## <a name="find-your-telemetry"></a>Uw telemetrie vinden
+## <a name="find-your-telemetry"></a>Uw telemetrie zoeken
 Aanmelden bij de [Azure-portal](https://portal.azure.com) en navigeer naar de Application Insights-resource die u hebt gemaakt voor uw app.
 
 ![Klik op Bladeren en selecteer Application Insights en vervolgens uw app.](./media/app-insights-dashboards/00-start.png)
 
-Overzichtsblade (pagina) voor uw app bevat een overzicht van de belangrijkste metrische diagnostische gegevens van uw app en is een gateway naar de andere functies van de portal.
+De overzichtsblade (pagina) voor uw app bevat een overzicht van de belangrijkste metrische diagnostische gegevens van uw app en is een gateway aan de andere functies van de portal.
 
-![Belangrijke routes naar uw telemetrie weergeven](./media/app-insights-dashboards/010-oview.png)
+![Primaire routes naar uw telemetrie weergeven](./media/app-insights-dashboards/010-oview.png)
 
-U kunt een van de grafieken en rasters aanpassen en aan een dashboard vastmaken. Op die manier u kunt overbrengen samen de belangrijkste telemetrie van andere apps op een centrale dashboard.
+U kunt een van de grafieken en rasters aanpassen en vastmaken aan een dashboard. Op die manier, verzamelt u de belangrijkste telemetrie vanuit andere apps in een centraal dashboard.
 
 ## <a name="dashboards"></a>Dashboards
-Het eerste wat u ziet nadat u zich aanmeldt bij de [Microsoft Azure-portal](https://portal.azure.com) wordt een dashboard. Hier kunt u overbrengen samen de diagrammen die zeer belangrijk voor u over alle Azure-resources zijn, met inbegrip van telemetrie van [Azure Application Insights](app-insights-overview.md).
+Het eerste wat u ziet nadat u zich aanmeldt bij de [Microsoft Azure portal](https://portal.azure.com) is van een dashboard. Hier verzamelt u de grafieken die het belangrijkst voor u voor al uw Azure-resources zijn, waaronder telemetrie van [Azure Application Insights](app-insights-overview.md).
 
-![Een aangepaste dashboard.](./media/app-insights-dashboards/31.png)
+![Een aangepast dashboard.](./media/app-insights-dashboards/31.png)
 
-1. **Navigeer naar de specifieke resources** zoals uw app in Application Insights: de linkerbalk gebruiken.
-2. **Keer terug naar de huidige dashboard**, of schakel over naar andere recente weergaven: Gebruik de vervolgkeuzelijst linksboven.
+1. **Zoeken naar specifieke hulpmiddelen** , zoals uw app in Application Insights: de linkerbalk gebruiken.
+2. **Ga terug naar het huidige dashboard**, of schakel over naar andere recente weergaven: Gebruik de vervolgkeuzelijst bovenaan links.
 3. **Overschakelen van dashboards**: Gebruik de vervolgkeuzelijst op de titel van het dashboard
-4. **Maken, bewerken en dashboards delen** op de werkbalk van het dashboard.
-5. **Het dashboard bewerken**: Beweeg de muisaanwijzer over een tegel en vervolgens met de bovenste balk verplaatsen, aanpassen of verwijderen.
+4. **Maken, bewerken en delen van dashboards** in de werkbalk van het dashboard.
+5. **Het dashboard bewerken**: Beweeg de muisaanwijzer over een tegel en vervolgens de bovenste balk te verplaatsen, aanpassen of verwijderen.
 
 ## <a name="add-to-a-dashboard"></a>Toevoegen aan een dashboard
-Wanneer u een blade of een set van grafieken die interessants kijkt, kunt u een kopie van het naar het dashboard vastmaken. U ziet het volgende keer dat u terugkeert.
+Als u geïnteresseerd bent in een blade of een set met grafieken die interessants is, kunt u een kopie van het aan het dashboard kunt vastmaken. U ziet het volgende keer dat u er retourneren.
 
-![Beweeg de muisaanwijzer over het om een grafiek, en klik op '...' in de header.](./media/app-insights-dashboards/33.png)
+![Beweeg de muisaanwijzer over het om een grafiek vast, en klik vervolgens op '...' in de header.](./media/app-insights-dashboards/33.png)
 
 1. Grafiek vastmaken aan dashboard. Een kopie van de grafiek wordt weergegeven op het dashboard.
-2. De hele blade naar het dashboard vastmaken - deze wordt weergegeven op het dashboard als tegel die u kunt doorklikken.
+2. De hele blade naar het dashboard vastmaken - deze wordt weergegeven op het dashboard als een tegel die u kunt doorklikken.
 3. Klik op de linkerbovenhoek om terug te keren naar het huidige dashboard. Vervolgens kunt u de vervolgkeuzelijst om terug te keren naar de huidige weergave.
 
-U ziet dat de grafieken worden gegroepeerd in tegels: een tegel kan meer dan één grafiek bevatten. U vastmaken de hele tegel aan het dashboard.
+U ziet dat de grafieken worden gegroepeerd in tegels: een tegel kan meer dan één grafiek bevatten. U de hele tegel vastmaken aan het dashboard.
 
-De grafiek worden automatisch vernieuwd met een frequentie die afhankelijk zijn van de grafiek tijdsbereik:
+De grafiek worden automatisch vernieuwd met een frequentie die afhankelijk zijn van het tijdsbereik van de grafiek:
 
-* Tijd tot een uur liggen: vernieuwen om de 5 minuten
+* Maximaal 1 uur tijdsbereik: vernieuwen om de 5 minuten
 * Bereik 1-24 uur tijd: vernieuwen om de 15 minuten
 * Tijdsbereik hierboven 24 uur: (tijdsbereik) / 60.
 
-### <a name="pin-any-query-in-analytics"></a>Een query in Analytics vastmaken
-U kunt ook [Analytics vastmaken](app-insights-analytics-using.md#pin-to-dashboard) grafieken naar een [gedeelde](#share-dashboards-with-your-team) dashboard. Hiermee kunt u diagrammen van elke willekeurige query naast de standaard metrische gegevens toevoegen. 
+### <a name="pin-any-query-in-analytics"></a>Elke query vastmaken in Analytics
+U kunt ook [vastmaken Analytics](../log-analytics/query-language/get-started-analytics-portal.md) grafieken aan een [gedeelde](#share-dashboards-with-your-team) dashboard. Hiermee kunt u diagrammen van elke willekeurige query naast de standaard metrische gegevens toevoegen. 
 
-Resultaten automatisch opnieuw elk uur berekend. Klik op het pictogram Vernieuwen op de grafiek worden onmiddellijk berekend. (Browser vernieuwen wordt niet opnieuw worden berekend.)
+Resultaten worden elk uur automatisch herberekend. Klik op het pictogram Vernieuwen op de grafiek om te berekenen onmiddellijk. (Browser vernieuwen niet berekenen.)
 
 ## <a name="adjust-a-tile-on-the-dashboard"></a>Een tegel op het dashboard aanpassen
-Zodra een tegel op het dashboard, kunt u het kunt aanpassen.
+Zodra een tegel op het dashboard is, kunt u deze kunt aanpassen.
 
-![Beweeg de muisaanwijzer over een grafiek om deze te bewerken.](./media/app-insights-dashboards/36.png)
+![Beweeg de muisaanwijzer over een grafiek om te bewerken.](./media/app-insights-dashboards/36.png)
 
 1. Een grafiek toevoegen aan de tegel.
-2. Stel de metriek, groeperen op dimensie en stijl (tabel, grafiek) van een grafiek.
-3. Sleep over het diagram om in te zoomen; Klik op de knop ongedaan maken om in te stellen de timespan; Filtereigenschappen voor de grafieken worden ingesteld op de tegel.
+2. Stel de metrische gegevens, groeperen op dimensie en stijl (tabel-, grafiek) van een grafiek.
+3. Sleep in het diagram om in te zoomen; Klik op de knop ongedaan maken als u wilt herstellen van de timespan; Filtereigenschappen voor de grafieken worden ingesteld op de tegel.
 4. Titel van de tegel instellen.
 
-Tegels die zijn vastgemaakt vanuit metrische explorer blades hebben opties voor het bewerken van meer dan tegels die zijn vastgemaakt vanuit een overzichtsblade.
+Tegels die zijn vastgemaakt vanuit metric explorer blades zijn opties voor het bewerken van meer dan de tegels die zijn vastgemaakt vanuit een overzichtsblade.
 
-De oorspronkelijke tegel die u hebt vastgemaakt wordt niet beïnvloed door uw wijzigingen.
+De oorspronkelijke tegel die u hebt vastgemaakt, wordt niet beïnvloed door uw bewerkingen.
 
 ## <a name="switch-between-dashboards"></a>Schakelen tussen dashboards
-U kunt meer dan één dashboard opslaan en tussen deze twee schakelt. Wanneer u een grafiek of blade vastmaken, zijn ze toegevoegd aan het huidige dashboard.
+U kunt meer dan één dashboard opslaan en tussen deze twee schakelt. Wanneer u een grafiek of een blade vastmaakt, moeten ze worden toegevoegd aan het huidige dashboard.
 
-![Schakelen tussen dashboards, klik op Dashboard en een opgeslagen dashboard selecteren. Als u wilt maken en opslaan van een nieuw dashboard, klikt u op Nieuw. Als u wilt wijzigen, klikt u op bewerken.](./media/app-insights-dashboards/32.png)
+![Schakelen tussen dashboards en klikt u op Dashboard opgeslagen dashboard selecteren. Als u wilt maken en opslaan van een nieuw dashboard, klikt u op Nieuw. Als u wilt wijzigen, klikt u op bewerken.](./media/app-insights-dashboards/32.png)
 
-U wellicht bijvoorbeeld één dashboard voor het volledige scherm wordt weergegeven in de ruimte van het team en een voor algemene ontwikkeling.
+U kunt bijvoorbeeld hebben één dashboard voor het weergeven van volledig scherm in de Teamkamer en een voor algemene ontwikkeling.
 
 Op het dashboard, een blade wordt weergegeven als een tegel: Klik hierop om naar de blade te gaan. Een grafiek repliceert de grafiek in de oorspronkelijke locatie.
 
-![Klik op een tegel om de blade vertegenwoordigt te openen](./media/app-insights-dashboards/35.png)
+![Klik op een tegel om de blade staat te openen](./media/app-insights-dashboards/35.png)
 
 ## <a name="share-dashboards"></a>Dashboards delen
-Wanneer u een dashboard hebt gemaakt, kunt u het delen met andere gebruikers.
+Wanneer u een dashboard hebt gemaakt, kunt u deze delen met andere gebruikers.
 
 ![Klik in de header dashboard delen](./media/app-insights-dashboards/41.png)
 
-Meer informatie over [functies en toegangsbeheer](app-insights-resources-roles-access-control.md).
+Meer informatie over [rollen en toegangsbeheer](app-insights-resources-roles-access-control.md).
 
-## <a name="create-dashboards-programmatically"></a>Programmatisch dashboards maken
+## <a name="create-dashboards-programmatically"></a>Dashboards via een programma maken
 U kunt automatiseren dashboard maken met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) en een eenvoudige JSON-editor.
 
 ## <a name="app-navigation"></a>App-navigatie
 De overzichtsblade is de gateway naar meer informatie over uw app.
 
-* **Een grafiek of tegel** : klik op een tegel of grafiek voor meer details over wat Hiermee wordt weergegeven.
+* **Een grafiek of tegel** : klik op een willekeurige tegel of grafiek om meer details over wat er wordt weergegeven.
 
-### <a name="overview-blade-buttons"></a>Overzicht blade knoppen
-![Overzicht blade bovenste navigatiebalk](./media/app-insights-dashboards/app-overview-top-nav.png)
+### <a name="overview-blade-buttons"></a>Overzicht van blade knoppen
+![Overzicht van blade bovenste navigatiebalk](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Metrics Explorer** ](app-insights-metrics-explorer.md) -grafieken van de prestaties en gebruik te maken.
-* [**Search** ](app-insights-diagnostic-search.md) - specifieke exemplaren van gebeurtenissen, zoals aanvragen, uitzonderingen, te onderzoeken of meld u traceringen.
+* [**Metrics Explorer** ](app-insights-metrics-explorer.md) -maken van uw eigen diagrammen van prestaties en het gebruik.
+* [**Search** ](app-insights-diagnostic-search.md) - onderzoek specifieke exemplaren van gebeurtenissen, zoals aanvragen, uitzonderingen, of logtraceringen.
 * [**Analytics** ](app-insights-analytics.md) -krachtige query's over uw telemetrie.
-* **Tijdsbereik** -het bereik dat wordt weergegeven in de grafieken op de blade aanpassen.
-* **Verwijder** -verwijderen van de Application Insights-resource voor deze app. U moet ook Verwijder de Application Insights-pakketten van uw app-code of bewerk de [instrumentatiesleutel](app-insights-create-new-resource.md#copy-the-instrumentation-key) in uw app telemetrie aan een andere Application Insights-resource wordt omgeleid.
+* **Tijdsbereik** -aanpassen van het bereik dat door de grafieken op de blade weergegeven.
+* **Verwijder** -de Application Insights-resource voor deze app verwijderen. U moet ook de Application Insights-pakketten verwijderen uit de app-code, of bewerken de [instrumentatiesleutel](app-insights-create-new-resource.md#copy-the-instrumentation-key) in uw app om telemetrie naar een andere Application Insights-resource te regelen.
 
-### <a name="essentials-tab"></a>Tabblad met essentiële gegevens
-* [Instrumentatiesleutel](app-insights-create-new-resource.md#copy-the-instrumentation-key) -deze app resource identificeert.
+### <a name="essentials-tab"></a>Tabblad met essentiële
+* [Instrumentatiesleutel](app-insights-create-new-resource.md#copy-the-instrumentation-key) -geeft de bron van deze app.
 
 ### <a name="app-navigation-bar"></a>App-navigatiebalk
 ![Linkernavigatiebalk](./media/app-insights-dashboards/app-left-nav-bar.png)
 
-* **Overzicht** -terug naar de blade app overzicht.
-* **Activiteitenlogboek** -waarschuwingen en Azure Beheergebeurtenissen.
-* [**Toegangsbeheer** ](app-insights-resources-roles-access-control.md) -toegang geven tot teamleden en anderen.
-* [**Labels** ](../azure-resource-manager/resource-group-using-tags.md) -codes gebruiken om de groep van uw app met anderen.
+* **Overzicht** -gaat u terug naar de blade app-overzicht.
+* **Activiteitenlogboek** -waarschuwingen en gebeurtenissen van Azure met beheerdersrechten.
+* [**Toegangsbeheer** ](app-insights-resources-roles-access-control.md) -toegang bieden voor leden van een team en anderen.
+* [**Tags** ](../azure-resource-manager/resource-group-using-tags.md) -tags gebruiken voor het groeperen van uw app met anderen.
 
 ONDERZOEKEN
 
-* [**De toepassingstoewijzing** ](app-insights-app-map.md) -Active kaart en geeft de onderdelen van uw toepassing die is afgeleid van afhankelijkheidsinformatie.
-* [**Detectie van smartcard** ](app-insights-proactive-diagnostics.md) -recente prestatiewaarschuwingen weergeven.
-* [**Livestream** ](app-insights-live-stream.md) : een vaste set nuttig bij het implementeren van een nieuwe build handomdraai maatstaven of foutopsporing.
-* [**Beschikbaarheid / Webtests** ](app-insights-monitor-web-app-availability.md) -reguliere aanvragen verzenden naar uw web-app rond de world.*
-* [**Fouten, prestaties** ](app-insights-web-monitor-performance.md) -uitzonderingen, uitvalpercentage en responstijden voor aanvragen voor uw app en voor het aanvragen van uw app [afhankelijkheden](app-insights-asp-net-dependencies.md).
-* [**Prestaties** ](app-insights-web-monitor-performance.md) -reactietijd, reactietijden afhankelijkheid.
-* [Servers](app-insights-web-monitor-performance.md) -prestatiemeteritems. Beschikbaar als u [Status Monitor installeren](app-insights-monitor-performance-live-website-now.md).
-* **Browser** -pagina-weergave en AJAX-prestaties. Beschikbaar als u [instrumenteren uw webpagina's](app-insights-javascript.md).
-* **Gebruik** -weergave, gebruiker en sessie aantallen pagina. Beschikbaar als u [instrumenteren uw webpagina's](app-insights-javascript.md).
+* [**Overzicht van de toepassing** ](app-insights-app-map.md) -actieve toewijzing van de onderdelen van uw toepassing, die is afgeleid van afhankelijkheidsinformatie.
+* [**Slimme detectie** ](app-insights-proactive-diagnostics.md) -recente waarschuwingen bekijken.
+* [**Live Stream** ](app-insights-live-stream.md) : een vaste set van vrijwel directe metrische gegevens, handig bij het implementeren van een nieuwe build of foutopsporing.
+* [**Beschikbaarheid / Webtests** ](app-insights-monitor-web-app-availability.md) -reguliere aanvragen verzenden naar uw web-app uit om de world.*
+* [**Fouten, prestaties** ](app-insights-web-monitor-performance.md) -uitzonderingen, foutpercentages en reactietijden voor aanvragen voor uw app en voor verzoeken van uw app naar [afhankelijkheden](app-insights-asp-net-dependencies.md).
+* [**Prestaties** ](app-insights-web-monitor-performance.md) -reactietijd, de reactietijden van afhankelijkheden.
+* [Servers](app-insights-web-monitor-performance.md) -prestatiemeteritems. Beschikbaar als u [Installeer Status Monitor](app-insights-monitor-performance-live-website-now.md).
+* **Browser** -weergave en prestaties van AJAX-pagina. Beschikbaar als u [instrumenteer uw webpagina's](app-insights-javascript.md).
+* **Gebruik** -pagina weergeven, gebruikers,- en sessieaantallen. Beschikbaar als u [instrumenteer uw webpagina's](app-insights-javascript.md).
 
 CONFIGUREREN
 
 * **Aan de slag** -inline-zelfstudie.
-* **Eigenschappen** -instrumentatiesleutel, abonnement en de resource-id.
-* [Waarschuwingen](app-insights-alerts.md) -metrische configuratie van de waarschuwing.
-* [Continue export](app-insights-export-telemetry.md) -exporteren van telemetrie naar Azure-opslag configureren.
-* [Prestaties testen](app-insights-monitor-web-app-availability.md#performance-tests) -een synthetische werklast op uw website instellen.
-* [Quotum en prijzen](app-insights-pricing.md) en [opname steekproeven](app-insights-sampling.md).
-* **API-toegang** -maken [release aantekeningen](app-insights-annotations.md) en voor de Data Access-API.
-* [**Werkitems** ](app-insights-diagnostic-search.md#create-work-item) -verbinding maken met een werk traceringssysteem zodat u fouten tijdens de inspectie van telemetrie kunt maken.
+* **Eigenschappen van** -instrumentatiesleutel, abonnement en resource-id.
+* [Waarschuwingen](app-insights-alerts.md) -configuratie van de metrische waarschuwing.
+* [Continue export](app-insights-export-telemetry.md) -exporteren van telemetrie naar Azure storage configureren.
+* [Prestatietesten](app-insights-monitor-web-app-availability.md#performance-tests) -instellen van een synthetische werklast op uw website.
+* [Quotum en prijzen](app-insights-pricing.md) en [opnamesteekproeven](app-insights-sampling.md).
+* **API-toegang** -maken [release-aantekeningen](app-insights-annotations.md) en voor de Data Access-API.
+* [**Werkitems** ](app-insights-diagnostic-search.md#create-work-item) -verbinding maken met een werk volgsysteem zodat u fouten maken kunt tijdens de inspectie van telemetrie.
 
 INSTELLINGEN
 
 * [**Hiermee vergrendelt u** ](../azure-resource-manager/resource-group-lock-resources.md) -Azure-resources vergrendelen
-* [**Automatiseringsscript** ](app-insights-powershell.md) -exporteren van een definitie van de Azure-resource, zodat u deze als sjabloon gebruiken kunt voor het maken van nieuwe resources.
+* [**Automatiseringsscript** ](app-insights-powershell.md) -exporteren van een definitie van de Azure-resource, zodat u deze als sjabloon gebruiken kunt om nieuwe resources te maken.
 
 
 ## <a name="video"></a>Video
@@ -164,6 +164,6 @@ INSTELLINGEN
 
 |  |  |
 | --- | --- |
-| [Metrics explorer](app-insights-metrics-explorer.md)<br/>Metrische gegevens filteren en segment |![Voorbeeld van de zoekopdracht](./media/app-insights-dashboards/64.png) |
-| [Diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)<br/>Zoeken en gebeurtenissen, gerelateerde gebeurtenissen controleren en maken van fouten |![Voorbeeld van de zoekopdracht](./media/app-insights-dashboards/61.png) |
-| [Analytische gegevens](app-insights-analytics.md)<br/>Krachtige querytaal |![Voorbeeld van de zoekopdracht](./media/app-insights-dashboards/63.png) |
+| [Metrics explorer](app-insights-metrics-explorer.md)<br/>Metrische gegevens filteren en te segmenteren |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/64.png) |
+| [Diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md)<br/>Zoeken en gebeurtenissen, gerelateerde gebeurtenissen controleren en maken van bugs |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/61.png) |
+| [Analytische gegevens](app-insights-analytics.md)<br/>Krachtige querytaal |![Een voorbeeld van zoekopdracht](./media/app-insights-dashboards/63.png) |

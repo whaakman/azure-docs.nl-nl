@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605576"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981369"
 ---
 # <a name="batch-transcription"></a>Batchtranscriptie
 
@@ -100,7 +100,7 @@ Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestan
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
@@ -169,7 +169,7 @@ Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestan
 ```
 
 > [!NOTE]
-> In de bovenstaande code wordt de abonnementssleutel is van de Speech(Preview)-resource die u in Azure portal maakt. Sleutels die zijn verkregen van de resource Custom Speech Service werken niet.
+> In de bovenstaande code wordt de abonnementssleutel is van de spraak-resource die u in Azure portal maakt. Sleutels die zijn verkregen van de resource Custom Speech Service werken niet.
 
 U ziet de asynchrone instellingen voor het plaatsen van audio en transcriptie status ontvangen. De client die gemaakt is een .NET-Http-client. Er is een `PostTranscriptions` methode voor het verzenden van de details van de audio-bestand en een `GetTranscriptions` methode om de resultaten te ontvangen. `PostTranscriptions` retourneert een ingang en `GetTranscriptions` gebruikt deze ingang voor het maken van een greep om op te halen van de status van de transcriptie.
 

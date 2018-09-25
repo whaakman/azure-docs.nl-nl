@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525464"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954548"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Hoe u een apparaat bij Azure IoT Hub Device Provisioning Service disenroll
 
@@ -34,9 +34,12 @@ Zwarte tijdelijk het apparaat door de vermelding voor apparaatinschrijving uit t
 2. Selecteer de inrichtingsservice die u wilt uw apparaat bij zwarte in de lijst met resources.
 3. Selecteer in uw provisioning-service, **registraties beheren**, en selecteer vervolgens de **afzonderlijke inschrijvingen** tabblad.
 4. Selecteer de vermelding voor apparaatinschrijving voor het apparaat dat u wilt blokkeringslijst. 
-5. Schuif naar beneden en selecteer **uitschakelen** op de **vermelding inschakelen** schakelen en selecteer vervolgens **opslaan**.  
 
-   [![Afzonderlijke inschrijvingsvermelding in de portal uitschakelen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Selecteer de afzonderlijke registratie](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Ga naar de onderkant op de pagina en selecteer **uitschakelen** voor de **vermelding inschakelen** schakelen en selecteer vervolgens **opslaan**.  
+
+   ![Afzonderlijke inschrijvingsvermelding in de portal uitschakelen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Aan de blokkeringslijst het apparaat permanent te verwijderen van de vermelding voor apparaatinschrijving:
 
@@ -47,7 +50,8 @@ Aan de blokkeringslijst het apparaat permanent te verwijderen van de vermelding 
 5. Selecteer **verwijderen** aan de bovenkant van het venster en selecteer vervolgens **Ja** om te bevestigen dat u wilt verwijderen van de inschrijving. 
 
    ![Afzonderlijke inschrijvingsvermelding in de portal verwijderen](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Nadat u de procedure hebt voltooid, ziet u de vermelding is verwijderd uit de lijst met afzonderlijke inschrijvingen.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Een x.509-tussenliggend of CA-basiscertificaat met behulp van een registratiegroep zit blokkeringslijst
@@ -91,14 +95,18 @@ Blokkeringslijst een afzonderlijk apparaat in een registratiegroep zit, de volge
 1. Aanmelden bij de Azure portal en selecteer **alle resources** in het menu links.
 2. Selecteer de provisioning-service die de registratiegroep voor het apparaat dat u wilt zwarte bevat uit de lijst met resources.
 3. Selecteer in uw provisioning-service, **registraties beheren**, en selecteer vervolgens de **afzonderlijke inschrijvingen** tabblad.
-4. Selecteer de **toevoegen** bovenaan op de knop. 
-5. Selecteer **X.509** als het attestation-mechanisme voor het apparaat en upload het apparaatcertificaat. Dit is de ondertekende Eindentiteit-certificaat op het apparaat geïnstalleerd. Het apparaat gebruikt deze voor het genereren van certificaten voor clientverificatie.
-6. Voor **IoT Hub apparaat-ID**, geef de ID voor het apparaat. 
-7. Selecteer **uitschakelen** op de **vermelding inschakelen** schakelen en selecteer vervolgens **opslaan**. 
+4. Selecteer de **afzonderlijke registratie toevoegen** bovenaan op de knop. 
+5. Op de **inschrijving toevoegen** weergeeft, schakelt **X.509** als de attestation **mechanisme** voor het apparaat.
+
+    Upload het apparaatcertificaat en voert u de apparaat-ID van het apparaat moet worden op de blokkeringslijst. Voor het certificaat ondertekend Eindentiteit certificaat geïnstalleerd op het apparaat te gebruiken. Het apparaat gebruikt het ondertekende Eindentiteit-certificaat voor verificatie.
+
+    ![Apparaateigenschappen voor het apparaat niet-toegestane instellen](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Ga naar de onderkant van de **inschrijving toevoegen** pagina en selecteer **uitschakelen** op de **vermelding inschakelen** schakelen en selecteer vervolgens **opslaan**. 
 
     [![Gebruik afzonderlijke inschrijvingsvermelding om uit te schakelen apparaat van de groepsinschrijving, in de portal uitgeschakeld](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Wanneer u uw inschrijving is gemaakt, ziet u het apparaat worden weergegeven op de **afzonderlijke inschrijvingen** tabblad.
+Wanneer u uw inschrijving is gemaakt, ziet u de registratie van uw uitgeschakelde apparaat weergegeven op de **afzonderlijke inschrijvingen** tabblad. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

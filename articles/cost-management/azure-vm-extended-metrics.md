@@ -5,33 +5,33 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b7e4665dc3579f357ce1e28bf34be35c931736bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9c09f473f5d8b399c4fb1b1ad449c783c797f4dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643935"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968506"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
-Cost Management maakt gebruik van Azure metrische gegevens van uw Azure-VM's om u gedetailleerde informatie over hun resources weer te geven. Metrische gegevens, prestatiemeteritems, ook met de naam wordt gebruikt door Cost Management om rapporten te genereren. Echter Cost Management wordt niet automatisch verzamelen van alle Azure metrische gegevens van Gast-VM's, moet u metrische gegevens verzameling inschakelen. Dit artikel helpt u bij het inschakelen en configureren van aanvullende metrische gegevens voor uw Azure VM's.
+Cloudyn maakt gebruik van Azure metrische gegevens van uw Azure-VM's om u gedetailleerde informatie over hun resources weer te geven. Metrische gegevens, prestatiemeteritems, ook met de naam wordt gebruikt door Cloudyn om rapporten te genereren. Echter Cloudyn wordt niet automatisch verzamelen van alle Azure metrische gegevens van Gast-VM's, moet u metrische gegevens verzameling inschakelen. Dit artikel helpt u bij het inschakelen en configureren van aanvullende metrische gegevens voor uw Azure VM's.
 
 Nadat u het verzamelen van metrische gegevens inschakelt, kunt u het volgende doen:
 
 - Op de hoogte wanneer uw virtuele machines hun geheugen, schijf en CPU-limieten zijn bereikt.
 - Detecteer trends in gebruik en afwijkingen.
 - Uw kosten te beheren door de grootte op basis van gebruik.
-- Get kosten-effectieve formaat aanbevelingen van de optimalisatie van Cost Management.
+- Get kosten-effectieve formaat aanbevelingen van de optimalisatie van Cloudyn.
 
 Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines bewaken. De metrische gegevens van virtuele Azure-machine komen overeen met _[Host] Percentage CPU_ en _[Gast] geheugenpercentage_.
 
 > [!NOTE]
-> Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Kostenbeheer is niet compatibel met de Log Analytics VM-extensie.
+> Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Cloudyn is niet compatibel met de Log Analytics VM-extensie.
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Controleer of metrische gegevens zijn ingeschakeld op virtuele machines
 
@@ -68,7 +68,7 @@ Zorg ervoor dat u selecteert wanneer u nieuwe virtuele machines maakt, **diagnos
 
 ## <a name="resource-manager-credentials"></a>Resource Manager-referenties
 
-Nadat u uitgebreide metrische gegevens inschakelt, zorg ervoor dat Cost Management toegang tot heeft uw [Resource Manager-referenties](activate-subs-accounts.md). Uw referenties zijn vereist voor het beheren van de kosten voor het verzamelen en prestatiegegevens weergegeven voor uw VM's. Ze worden ook gebruikt om te maken van kosten optimalisatie aanbevelingen. Kostenbeheer moet ten minste drie dagen van de prestatiegegevens van een exemplaar om te bepalen of een kandidaat voor een aanbeveling downsizing.
+Nadat u uitgebreide metrische gegevens inschakelt, zorg ervoor dat Cloudyn toegang tot heeft uw [Resource Manager-referenties](activate-subs-accounts.md). Uw referenties zijn vereist voor Cloudyn te verzamelen en weergeven van prestatiegegevens voor uw VM's. Ze worden ook gebruikt om te maken van kosten optimalisatie aanbevelingen. Cloudyn moet ten minste drie dagen van de prestatiegegevens van een exemplaar om te bepalen of een kandidaat voor een aanbeveling downsizing.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>De metrische gegevens van een virtuele machine met een script inschakelen
 

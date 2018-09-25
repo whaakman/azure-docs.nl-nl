@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60abe46670353121ad308f8926a7ee178c76e74e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782342"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951658"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>DSVM- en HDI Spark-cluster zijn compute-doelen maken
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 U kunt eenvoudig omhoog of schaal uit uw machine learning-experiment door toe te voegen extra compute-doelen, zoals Ubuntu gebaseerde DSVM (Data Science Virtual Machine) en Apache Spark voor Azure HDInsight-cluster. In dit artikel wordt beschreven hoe u de stappen voor het maken van deze compute-doelen in Azure. Raadpleeg voor meer informatie over Azure ML compute-doelen [overzicht van Azure Machine Learning experimenten-service](experimentation-service-configuration.md).
 

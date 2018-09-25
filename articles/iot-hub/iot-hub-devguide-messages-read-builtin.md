@@ -1,6 +1,6 @@
 ---
 title: Informatie over de ingebouwde Azure IoT Hub-eindpunt | Microsoft Docs
-description: Handleiding voor ontwikkelaars - wordt beschreven hoe u van de ingebouwde, Event Hub-compatibele eindpunt toread apparaat-naar-cloud-berichten.
+description: Handleiding voor ontwikkelaars - wordt beschreven hoe u van de ingebouwde, Event Hub-compatibele eindpunt om apparaat-naar-cloud-berichten te lezen.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055012"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984038"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Apparaat-naar-cloud-berichten lezen van het geïntegreerde eindpunt
 
@@ -26,7 +26,7 @@ Standaard berichten worden doorgestuurd naar het eindpunt van de ingebouwde serv
 
 IoT Hub ook kunt u voor het beheren van consumentengroepen van de ingebouwde apparaat-naar-cloud eindpunt ontvangen.
 
-Standaard worden alle berichten die niet expliciet overeenkomen met een regel voor het doorsturen van bericht naar het eindpunt van de ingebouwde geschreven. Als u deze alternatieve route uitschakelt, worden de berichten die niet expliciet overeen met alle regels voor berichtroutering verwijderd.
+Als u [berichtroutering](iot-hub-devguide-messages-d2c.md) en de [alternatieve route](iot-hub-devguide-messages-d2c.md#fallback-route) is ingeschakeld, worden alle berichten die niet overeenkomen met een query op een route geschreven naar het ingebouwde eindpunt. Als u deze alternatieve route uitschakelt, worden de berichten die niet overeenkomen met elke query verwijderd.
 
 U kunt de bewaartijd wijzigen via een programma met behulp van de [IoT-Hub resourceprovider REST-API's][lnk-resource-provider-apis], of met de [Azure-portal] [ lnk-management-portal].
 
@@ -39,9 +39,8 @@ Wanneer u gebruikt de [Azure Service Bus-SDK voor .NET] [ lnk-servicebus-sdk] of
 Wanneer u SDK's (of productintegraties) gebruikt die zich niet bewust van IoT Hub, moet u een Event Hub-compatibele eindpunt en een Event Hub-compatibele naam ophalen:
 
 1. Aanmelden bij de [Azure-portal] [ lnk-management-portal] en navigeer naar uw IoT-hub.
-1. Klik op **Eindpunten**.
-1. In de **ingebouwde eindpunten** sectie, klikt u op **gebeurtenissen**. 
-1. Een pagina met eigenschappen wordt geopend, waarin de volgende waarden: **Event Hub-compatibele eindpunt**, **Event Hub-compatibele naam**, **partities**,  **Bewaartijd**, en **consumentengroepen**.
+1. Klik op **ingebouwde eindpunten**.
+1. De **gebeurtenissen** sectie bevat de volgende waarden: **Event Hub-compatibele eindpunt**, **Event Hub-compatibele naam**, **partities**, **Bewaartijd**, en **consumentengroepen**.
 
     ![Apparaat-naar-cloudinstellingen][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ De SDK's en integraties gebruikt die u kunt gebruiken met Event Hub-compatibele 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over IoT Hub-eindpunten, [IoT Hub-eindpunten][lnk-endpoints].
-
-De [snelstartgidsen] [ lnk-get-started] ziet u hoe u apparaat-naar-cloud-berichten worden verzonden vanuit gesimuleerde apparaten en de berichten lezen van het ingebouwde eindpunt. Zie voor meer informatie de [Process IoT Hub apparaat-naar-cloud-berichten met behulp van routes] [ lnk-d2c-tutorial] zelfstudie.
-
-Als u wilt voor het routeren van uw apparaat-naar-cloud-berichten met aangepaste eindpunten, Zie [berichtroutes en aangepaste eindpunten gebruiken voor apparaat-naar-cloud-berichten][lnk-custom].
+* Zie voor meer informatie over IoT Hub-eindpunten, [IoT Hub-eindpunten][lnk-endpoints].
+* De [snelstartgidsen] [ lnk-get-started] ziet u hoe u apparaat-naar-cloud-berichten worden verzonden vanuit gesimuleerde apparaten en de berichten lezen van het ingebouwde eindpunt. Zie voor meer informatie de [Process IoT Hub apparaat-naar-cloud-berichten met behulp van routes] [ lnk-d2c-tutorial] zelfstudie.
+* Als u wilt voor het routeren van uw apparaat-naar-cloud-berichten met aangepaste eindpunten, Zie [berichtroutes en aangepaste eindpunten gebruiken voor apparaat-naar-cloud-berichten][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

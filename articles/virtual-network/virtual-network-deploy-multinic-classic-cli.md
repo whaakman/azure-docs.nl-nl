@@ -1,6 +1,6 @@
 ---
-title: Een virtuele machine (klassiek) maken met meerdere NIC's - Azure CLI 1.0 | Microsoft Docs
-description: Informatie over het maken van een virtuele machine (klassiek) met meerdere NIC's met behulp van de Azure-opdrachtregelinterface (CLI) 1.0.
+title: Een virtuele machine (klassiek) met meerdere NIC's - Azure klassieke CLI maken | Microsoft Docs
+description: Informatie over het maken van een virtuele machine (klassiek) met meerdere NIC's met behulp van de Azure classic-opdrachtregelinterface (CLI).
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953357"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Een virtuele machine (klassiek) maken met meerdere NIC's met behulp van de Azure CLI 1.0
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Een virtuele machine (klassiek) maken met meerdere NIC's met de klassieke Azure-CLI
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 

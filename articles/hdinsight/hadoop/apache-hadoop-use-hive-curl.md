@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: d8816965fb1ab870d7bd93cd1ace45c4e6e57de6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a9dd45a8d5ebf506899c733107ff2fd01b08a2c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040910"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964527"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Hive-query's uitvoeren met Hadoop in HDInsight met behulp van REST
 
@@ -171,7 +171,7 @@ Dit document maakt ook gebruik van Windows PowerShell en [Jq](http://stedolan.gi
 
 6. Zodra de status van de taak is gewijzigd in **geslaagd**, kunt u de resultaten van de taak ophalen uit Azure Blob-opslag. De `statusdir` parameter die is doorgegeven met de query bevat de locatie van het uitvoerbestand; in dit geval `/example/rest`. Dit adres slaat de uitvoer in de `example/curl` map in de standaardopslag voor clusters.
 
-    U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het gebruik van de Azure CLI met Azure Storage de [gebruik Azure CLI 2.0 met Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
+    U kunt de lijst en deze bestanden downloaden met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Zie voor meer informatie over het gebruik van de Azure CLI met Azure Storage de [Azure CLI gebruiken met Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Volgende stappen
 

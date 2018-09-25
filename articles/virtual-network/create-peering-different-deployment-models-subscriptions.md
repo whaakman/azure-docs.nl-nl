@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 4883791a32a65746a72afb63755ecf608dc840d9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503822"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971719"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Maak een virtueel-netwerkpeering - verschillende implementatiemodellen en -abonnementen
 
@@ -97,18 +97,17 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 
 ## <a name="cli"></a>Maken van de peering - Azure CLI
 
-In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met voor beide abonnementen toegangsmachtigingen gebruikt, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor de logboekregistratie van Azure kunt benutten en de regels van het script waarmee gebruiker roltoewijzingen verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u om UserA en UserB gebruikt. 
+In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement. Als u een account met voor beide abonnementen toegangsmachtigingen gebruikt, kunt u hetzelfde account gebruiken voor alle stappen, slaat u de stappen voor de logboekregistratie van Azure kunt benutten en de regels van het script waarmee gebruiker roltoewijzingen verwijderen. Vervang UserA@azure.com en UserB@azure.com in alle van de volgende scripts met de gebruikersnamen die u om UserA en UserB gebruikt. De volgende stappen met behulp van de klassieke Azure CLI en Azure CLI. U kunt de stappen van de Azure Cloud Shell, door alleen de **uitproberen** knop in een van de volgende stappen uit of door het installeren van de [klassieke CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en de opdrachten uitvoert op uw lokale computer.
 
-1. [Installeer](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure CLI 1.0 naar het virtuele netwerk (klassiek) maken.
-2. Open een CLI-sessie en meld u aan bij Azure als het gebruik van de gebruiker b de `azure login` opdracht. Het account dat u zich aan met moet de vereiste machtigingen om het maken van een virtueel netwerk-peering hebben. Zie voor een lijst van machtigingen, [machtigingen voor peering](virtual-network-manage-peering.md#permissions).
-3. De CLI uitvoert in Service Management-modus door op te geven de `azure config mode asm` opdracht.
-4. Voer de volgende opdracht om te maken van het virtuele netwerk (klassiek):
- 
+1. Als de Cloud Shell gebruikt, gaat u naar stap 2, omdat de Cloud Shell automatisch aangemeld bij Azure. Open een opdrachtsessie en meld u aan voor het gebruik van Azure de `azure login` opdracht.
+2. De klassieke CLI uitvoert in Service Management-modus door op te geven de `azure config mode asm` opdracht.
+3. Voer de volgende klassieke CLI-opdracht voor het maken van het virtuele netwerk (klassiek):
+
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. De resterende stappen moeten worden uitgevoerd met behulp van een bash-shell met de Azure CLI 2.0.4 of hoger [geïnstalleerd](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), of met behulp van de Azure Cloud Shell. De Azure Cloud Shell is een gratis Bash-shell die u rechtstreeks in Azure Portal kunt uitvoeren. In deze shell is de Azure CLI vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Klik op de **uitproberen** knop in de scripts die volgen, een Cloud-Shell die u in uw Azure-account vastlegt te openen. Opties voor het uitvoeren van bash-scripts CLI op een Windows-client, Zie [Azure CLI installeren op Windows](/cli/azure/install-azure-cli-windows). 
-6. Kopieer het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-Id>` met uw abonnements-ID. Als u uw abonnements-Id niet weet, voert u de `az account show` opdracht. De waarde voor **id** is in de uitvoer van uw abonnements-id. Het gewijzigde script kopiëren, plak deze in uw CLI 2.0-sessie en druk vervolgens op `Enter`. 
+4. De resterende stappen moeten worden uitgevoerd met behulp van een bash-shell met de Azure CLI (niet in de klassieke CLI).
+5. Kopieer het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-Id>` met uw abonnements-ID. Als u uw abonnements-Id niet weet, voert u de `az account show` opdracht. De waarde voor **id** is in de uitvoer van uw abonnements-id. Het gewijzigde script kopiëren, plak deze in uw CLI-sessie en druk vervolgens op `Enter`.
 
     ```azurecli-interactive
     az role assignment create \
@@ -118,8 +117,8 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
     ```
 
     Wanneer u het virtuele netwerk (klassiek) in stap 4 hebt gemaakt, Azure gemaakt met het virtuele netwerk in de *standaard-netwerk* resourcegroep.
-7. Meld u aan gebruiker b buiten Azure en zich aanmelden als gebruiker a in de CLI 2.0.
-8. Maak een resourcegroep en een virtueel netwerk (Resource Manager). Het volgende script kopiëren, plak deze in uw CLI-sessie en druk vervolgens op `Enter`. 
+6. Meld u aan gebruiker b buiten Azure en zich aanmelden als gebruiker a in de CLI.
+7. Maak een resourcegroep en een virtueel netwerk (Resource Manager). Het volgende script kopiëren, plak deze in uw CLI-sessie en druk vervolgens op `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash
@@ -153,7 +152,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
       --scope $vNetAId
     ```
 
-9. Maak een virtueel netwerk voor peering tussen de twee virtuele netwerken die zijn gemaakt via de verschillende implementatiemodellen. Kopieer het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-id>` met uw abonnements-id. Als u uw abonnements-Id niet weet, voert u de `az account show` opdracht. De waarde voor **id** is in de uitvoer van uw abonnements-id. Azure hebt gemaakt voor het virtuele netwerk (klassiek) die u hebt gemaakt in stap 4 in een resourcegroep met de naam *standaard-netwerk*. Plak het gewijzigde script in de CLI-sessie en druk vervolgens op `Enter`.
+8. Maak een virtueel netwerk voor peering tussen de twee virtuele netwerken die zijn gemaakt via de verschillende implementatiemodellen. Kopieer het volgende script naar een teksteditor op uw PC. Vervang `<SubscriptionB-id>` met uw abonnements-id. Als u uw abonnements-Id niet weet, voert u de `az account show` opdracht. De waarde voor **id** is in de uitvoer van uw abonnements-id. Azure hebt gemaakt voor het virtuele netwerk (klassiek) die u hebt gemaakt in stap 4 in een resourcegroep met de naam *standaard-netwerk*. Plak het gewijzigde script in de CLI-sessie en druk vervolgens op `Enter`.
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -165,7 +164,7 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
       --allow-vnet-access
     ```
 
-10. Nadat het script wordt uitgevoerd, Controleer u de peering voor het virtuele netwerk (Resource Manager). Kopieer het volgende script en plak deze in de CLI-sessie:
+9. Nadat het script wordt uitgevoerd, Controleer u de peering voor het virtuele netwerk (Resource Manager). Kopieer het volgende script en plak deze in de CLI-sessie:
 
     ```azurecli-interactive
     az network vnet peering list \
@@ -177,8 +176,8 @@ In deze zelfstudie maakt gebruik van verschillende accounts voor elk abonnement.
 
     Alle Azure-resources die u in beide virtuele netwerken maakt zijn nu kan communiceren met elkaar via hun IP-adressen. Als u standaard Azure-naamomzetting voor virtuele netwerken, zijn niet de resources in de virtuele netwerken kunnen omzetten van namen voor de virtuele netwerken. Als u omzetten van namen tussen virtuele netwerken wilt in een peering, moet u uw eigen DNS-server maken. Meer informatie over het instellen van [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-11. **Optionele**: hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
-12. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
+10. **Optionele**: hoewel het maken van virtuele machines wordt niet behandeld in deze zelfstudie, kunt u een virtuele machine maken in elk virtueel netwerk en verbinding maken van een virtuele machine met de andere, te valideren.
+11. **Optionele**: voor het verwijderen van de resources die u in deze zelfstudie maakt, voert u de stappen in [resources verwijderen](#delete-cli) in dit artikel.
 
 ## <a name="powershell"></a>Maken van de peering - PowerShell
 
@@ -284,45 +283,45 @@ Wanneer u deze zelfstudie hebt voltooid, is het raadzaam om de resources die u i
 
 ### <a name="delete-cli"></a>Azure CLI
 
-1. Meld u aan bij Azure met behulp van de CLI 2.0 verwijderen van het virtuele netwerk (Resource Manager) met de volgende opdracht uit:
+1. Meld u aan bij Azure met behulp van de CLI te verwijderen van het virtuele netwerk (Resource Manager) met de volgende opdracht uit:
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroupA --yes
-    ```
+   ```azurecli-interactive
+   az group delete --name myResourceGroupA --yes
+   ```
 
-2. Meld u aan bij Azure met behulp van de Azure CLI 1.0 wilt verwijderen van het virtuele netwerk (klassiek) met de volgende opdrachten:
+2. Aanmelden bij Azure met behulp van de klassieke CLI te verwijderen van het virtuele netwerk (klassiek) met de volgende opdrachten:
 
-    ```azurecli
-    azure config mode asm 
+   ```azurecli-interactive
+   azure config mode asm
 
-    azure network vnet delete --vnet myVnetB --quiet
-    ```
+   azure network vnet delete --vnet myVnetB --quiet
+   ```
 
 ### <a name="delete-powershell"></a>PowerShell
 
 1. Voer op de PowerShell-opdrachtprompt de volgende opdracht voor het verwijderen van het virtuele netwerk (Resource Manager):
 
-    ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
-    ```
+   ```powershell
+   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   ```
 
 2. Als u wilt verwijderen van het virtuele netwerk (klassiek) met PowerShell, wijzigt u een bestaand configuratiebestand van het netwerk. Meer informatie over het [exporteren en importeren van netwerk-configuratiebestanden bijwerken](virtual-networks-using-network-configuration-file.md). Verwijder de volgende VirtualNetworkSite-element voor het virtuele netwerk in deze zelfstudie gebruikt:
 
-    ```xml
-    <VirtualNetworkSite name="myVnetB" Location="East US">
-      <AddressSpace>
-        <AddressPrefix>10.1.0.0/16</AddressPrefix>
-      </AddressSpace>
-      <Subnets>
-        <Subnet name="default">
-          <AddressPrefix>10.1.0.0/24</AddressPrefix>
-        </Subnet>
-      </Subnets>
-    </VirtualNetworkSite>
-    ```
+   ```xml
+   <VirtualNetworkSite name="myVnetB" Location="East US">
+     <AddressSpace>
+       <AddressPrefix>10.1.0.0/16</AddressPrefix>
+     </AddressSpace>
+     <Subnets>
+       <Subnet name="default">
+         <AddressPrefix>10.1.0.0/24</AddressPrefix>
+       </Subnet>
+     </Subnets>
+   </VirtualNetworkSite>
+   ```
 
-    > [!WARNING]
-    > Een gewijzigde netwerkconfiguratiebestand importeren kan leiden tot wijzigingen in bestaande virtuele netwerken (klassiek) in uw abonnement. Zorg ervoor dat u alleen het vorige virtuele netwerk verwijderen en u niet wijzigen of verwijderen van alle andere bestaande virtuele netwerken van uw abonnement. 
+   > [!WARNING]
+   > Een gewijzigde netwerkconfiguratiebestand importeren kan leiden tot wijzigingen in bestaande virtuele netwerken (klassiek) in uw abonnement. Zorg ervoor dat u alleen het vorige virtuele netwerk verwijderen en u niet wijzigen of verwijderen van alle andere bestaande virtuele netwerken van uw abonnement. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

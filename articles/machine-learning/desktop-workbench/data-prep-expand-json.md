@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dbda4b7b6d82e8cf1e89dc78ce82efbac08b9933
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0a5cbca114b220686d656f93edb00a199e3cbeeb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646397"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989818"
 ---
 # <a name="expand-json-transformation"></a>Vouw de JSON-transformatie
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 De **Vouw JSON** transformatie kan gebruikers om uit te breiden van een bestaande kolom die geldige JSON-tekst in meerdere kolommen bevat.
 
 ## <a name="how-to-perform-this-transformation"></a>Het uitvoeren van deze transformatie
@@ -33,7 +38,7 @@ Nieuwe kolommen worden toegevoegd naast de bronkolom. Deze kolommen bevatten eig
 
 ## <a name="examples"></a>Voorbeelden
 
-De bron-columnn *klant* is uitgevouwen in twee kolommen *Customer.Name* en *Customer.Phone*.
+De bronkolom *klant* is uitgevouwen in twee kolommen *Customer.Name* en *Customer.Phone*.
 
 | Klant                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|

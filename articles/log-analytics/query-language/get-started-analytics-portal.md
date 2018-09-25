@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2c35d71d127903a67dce2280b2d0ab335079b480
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604464"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978196"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Aan de slag met Log Analytics in Azure portal
 
@@ -47,7 +47,7 @@ De pagina Log Analytics is een web-hulpprogramma gebruikt om te schrijven en uit
 ## <a name="basic-queries"></a>Eenvoudige query 's
 Query's kunnen worden gebruikt om te zoeken naar termen, trends te identificeren, patronen analyseren en veel andere inzichten op basis van uw gegevens te kunnen bieden. Beginnen met een eenvoudige query uitvoert:
 
-```KQL
+```Kusto
 Event | search "error"
 ```
 
@@ -57,7 +57,7 @@ Query's kunnen beginnen met ofwel een tabelnaam wordt opgegeven of een **zoeken*
 
 Een andere manier om te schrijven die dezelfde query zou zijn:
 
-```KQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -81,7 +81,7 @@ Gegevens zijn onderverdeeld in elke tabel in kolommen met verschillende gegevens
 ## <a name="filter-the-results"></a>De resultaten te filteren
 Beginnen met het ophalen van alles wat de _gebeurtenis_ tabel.
 
-```KQL
+```Kusto
 Event
 ```
 
@@ -135,7 +135,7 @@ Als de query bevat expliciet een filter voor _TimeGenerated_, het tijdstip datum
 ## <a name="charts"></a>Grafieken
 Naast het retourneren van resultaten in een tabel, kunnen de queryresultaten worden weergegeven in de visuele opmaak. Gebruik de volgende query uit als een voorbeeld:
 
-```KQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

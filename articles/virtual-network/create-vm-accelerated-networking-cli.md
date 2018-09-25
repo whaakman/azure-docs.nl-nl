@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5863160632e544ca542debcf74971e90ea452939
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716669"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990957"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een Linux-machine maken met versnelde netwerken
 
@@ -75,7 +75,7 @@ Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met ver
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login). In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVm*.
+Installeer de meest recente [Azure CLI](/cli/azure/install-azure-cli) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login). In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld van de parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVm*.
 
 Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
 

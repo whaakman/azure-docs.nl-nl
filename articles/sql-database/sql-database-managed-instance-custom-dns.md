@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 09/23/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949482"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Een aangepaste DNS configureren voor Azure SQL Database Managed Instance
 
-Een Azure SQL Database Managed Instance (preview) moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Er zijn enkele scenario's (dat wil zeggen gekoppelde servers naar andere SQL-exemplaren in uw omgeving cloud of hybride) waarvoor persoonlijke hostnamen worden omgezet in het beheerde exemplaar. In dit geval moet u een aangepaste DNS-server in Azure configureren. Omdat het beheerde exemplaar van de dezelfde DNS-server voor de interne werking gebruikt, moet de DNS-configuratie van het virtuele netwerk compatibel zijn met Managed Instance. 
+Een Azure SQL Database Managed Instance moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Er zijn enkele scenario's (dat wil zeggen gekoppelde servers naar andere SQL-exemplaren in uw omgeving cloud of hybride) waarvoor persoonlijke hostnamen worden omgezet in het beheerde exemplaar. In dit geval moet u een aangepaste DNS-server in Azure configureren. Omdat het beheerde exemplaar van de dezelfde DNS-server voor de interne werking gebruikt, moet de DNS-configuratie van het virtuele netwerk compatibel zijn met Managed Instance. 
 
 Als u wilt maken van een aangepaste DNS-configuratie is compatibel met het beheerde exemplaar, moet u: 
 - Aangepaste DNS-server configureren zodat deze kunnen openbare domeinnamen omzetten 

@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: dc3b0993350b25d7ee965e2db6a9db7373a92e45
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b3770187033ef30982c38d8892c5b014b5dcb7c6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950978"
 ---
 # <a name="speech-sdk-reference"></a>Naslaginformatie over de SDK van spraak
 
@@ -24,6 +24,6 @@ De spraak Software Development Kit (SDK) biedt uw toepassingen toegang tot de fu
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [De spraak-service gratis uitproberen](get-started.md)
+* [Probeer de Speech-service gratis uit](get-started.md)
 * [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
 * [Zie voor het herkennen van gesproken tekst in C#](quickstart-csharp-dotnet-windows.md)

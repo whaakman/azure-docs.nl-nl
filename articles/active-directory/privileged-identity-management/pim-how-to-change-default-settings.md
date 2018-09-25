@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665431"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038989"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Azure AD directory rolinstellingen in PIM configureren
 
@@ -63,24 +63,23 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
 * Gebruikers met Microsoft-account voor hun e-mailadressen (meestal @outlook.com, maar niet altijd) kan niet registreren voor Azure MFA. Als u rollen toewijzen aan gebruikers met een Microsoft-account wilt, moet u permanente beheerders toepast of MFA uitschakelen voor die rol.
 * U kunt MFA niet uitschakelen voor maximaal bevoorrechte rollen voor Azure AD en Office 365. Dit is een functie veiligheid omdat deze rollen moeten zorgvuldig worden beveiligd:  
   
-  * Toepassingsbeheerder
-  * Application Proxy server-beheerder
-  * Factureringsbeheerder  
-  * Beheerder voor naleving  
+  * Factureringsbeheerder
+  * Beheerder van de cloudtoepassing
+  * Compliancebeheerder
+  * Voorwaardelijke toegang beheerder
   * CRM-servicebeheerder
-  * Toegangsfiatteur voor klanten-LockBox
-  * Schrijver van de Directory  
-  * Exchange-beheerder  
+  * Toegangsfiatteur voor Klanten-lockbox
+  * Adreslijstschrijvers
+  * Exchange-beheerder
   * Globale beheerder
+  * Information Protection-beheerder
   * Intune-servicebeheerder
-  * Postvakbeheerder  
-  * Laag1-ondersteuning voor partner  
-  * Laag2-ondersteuning voor partner  
+  * Servicebeheerder van Power BI
   * Beheerder met bevoorrechte rol
-  * Beveiligingsbeheerder  
-  * SharePoint-beheerder  
-  * Skype voor Bedrijven-beheerder  
-  * Beheerder van gebruikersaccounts  
+  * Beveiligingsbeheerder
+  * SharePoint Service-beheerder
+  * Skype voor Bedrijven-beheerder
+  * Gebruikerbeheerder
 
 Zie voor meer informatie, [multi-factor authentication (MFA) en PIM](pim-how-to-require-mfa.md).
 

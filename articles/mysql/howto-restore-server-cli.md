@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f4253d4259d66b0c5746ef61cfc3cf4f4f2caad3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448900"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978371"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure Database voor MySQL met behulp van de Azure CLI
 
@@ -31,7 +31,7 @@ Voor deze handleiding, hebt u het volgende nodig:
  
 
 > [!IMPORTANT]
-> In deze gebruiksaanwijzing vereist het gebruik van Azure CLI versie 2.0 of hoger. Als u wilt controleren welke versie, bij de Azure CLI-opdrachtprompt, voer `az --version`. Als u wilt installeren of upgraden, Zie [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+> In deze gebruiksaanwijzing vereist het gebruik van Azure CLI versie 2.0 of hoger. Als u wilt controleren welke versie, bij de Azure CLI-opdrachtprompt, voer `az --version`. Als u wilt installeren of upgraden, Zie [Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Configuratie van de back-up
 

@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908236"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971498"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Opslaan van wijzigingen en werken met grote bestanden
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Met de Azure Machine Learning experimenten-service, kunt u een verscheidenheid aan uitvoeringsdoelen configureren. Sommige doelen zijn lokale computer, zoals een lokale computer of een Docker-container op een lokale computer. Andere resources zijn externe, zoals een Docker-container op een externe computer of een HDInsight-cluster. Zie voor meer informatie, [overzicht van Azure Machine Learning experimenten-service kan worden uitgevoerd](experimentation-service-configuration.md). 
 
 Voordat u op een doel uitvoeren kunt, moet u de projectmap kopiëren naar de compute-doel. U moet doen dus zelfs met een lokale uitvoering die gebruikmaakt van een lokale tijdelijke map voor dit doel. 
@@ -48,6 +52,9 @@ De algemene scenario's zijn:
 * Een model trainen
 * Het maken van een gegevensset
 * Een grafiek getekend als een installatiekopiebestand als onderdeel van de uitvoering van uw model-training 
+
+>[!Note]
+> Maximale grootte van bijgehouden bestand in map voor uitvoer na een uitvoering is 512 MB. Dit betekent dat als het script wordt een bestand groter is dan 512 MB in de map voor uitvoer geproduceerd, deze is niet verzameld er. 
 
 Bovendien wilt u de uitvoer van wordt uitgevoerd, selecteer een uitvoerbestand (zoals een model) die is gemaakt door een eerdere uitvoeren, en vervolgens worden gebruikt voor een latere taak (zoals scoren) met elkaar vergelijken.
 

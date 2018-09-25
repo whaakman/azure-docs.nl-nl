@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6ac697fa12b56840e5dc361500f81e2b7e2ce11a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604481"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950247"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Werken met tekenreeksen in Log Analytics-query 's
 
@@ -38,13 +38,13 @@ Elk teken in een tekenreeks heeft een indexnummer op basis van de locatie. Het e
 ## <a name="strings-and-escaping-them"></a>Tekenreeksen en aanhalingstekens ze
 Tekenreekswaarden zijn verpakt met ofwel met enkele of dubbele aanhalingstekens. Backslash (\) wordt gebruikt voor het escape-tekens op het teken, zoals \t voor tabblad \n voor nieuwe regel, volgen en \" het aanhalingsteken zelf.
 
-```KQL
+```Kusto
 print "this is a 'string' literal in double \" quotes"
 ```
 
 Om te voorkomen dat "\\" toevoegen die fungeert als een escape-teken, ' @ ' als voorvoegsel van de tekenreeks:
 
-```KQL
+```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -108,7 +108,7 @@ Het aantal keren dat de zoekreeks kan worden gekoppeld in de container. Eenvoudi
 
 #### <a name="plain-string-matches"></a>Eenvoudige tekenreeks komt overeen met
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -118,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>Komt overeen met reguliere expressie
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -131,7 +131,7 @@ Hiermee haalt u een overeenkomst is met een reguliere expressie uit een bepaalde
 
 ### <a name="syntax"></a>Syntaxis
 
-```KQL
+```Kusto
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -149,7 +149,7 @@ Als er geen overeenkomst, of het typeconversie is mislukt, null te retourneren.
 ### <a name="examples"></a>Voorbeelden
 
 Het volgende voorbeeld haalt de laatste achttal werd van *computerip uit* uit een heartbeat-record:
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -157,7 +157,7 @@ Heartbeat
 ```
 
 Het volgende voorbeeld haalt de laatste achttal werd, cast deze naar een *echte* Typ (getal) en de volgende IP-waarde wordt berekend
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -167,7 +167,7 @@ Heartbeat
 ```
 
 In het volgende voorbeeld wordt de tekenreeks *Trace* wordt gezocht naar een definitie van 'Duur'. De overeenkomst is geconverteerd naar *echte* en vermenigvuldigd met een constante (1 s) *die duur naar het type timespan cast*.
-```KQL
+```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -181,14 +181,14 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ### <a name="syntax"></a>Syntaxis
 
-```
+```Kusto
 isempty(value)
 isnotempty(value)
 ```
 
 ### <a name="examples"></a>Voorbeelden
 
-```KQL
+```Kusto
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -213,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>Voorbeelden
 
-```KQL
+```Kusto
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -253,7 +253,7 @@ De tekst na het vervangen van alle resultaten van de reguliere expressie met eva
 
 ### <a name="examples"></a>Voorbeelden
 
-```KQL
+```Kusto
 SecurityEvent
 | take 1
 | project Activity 
@@ -284,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>Voorbeelden
 
-```KQL
+```Kusto
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -303,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>Voorbeelden
-```KQL
+```Kusto
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -318,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>Voorbeelden
-```KQL
+```Kusto
 print strlen("hello")   // result: 5
 ```
 
@@ -339,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length` -Een optionele parameter waarmee kan worden gebruikt om op te geven van de vereiste lengte van de geretourneerde subtekenreeks.
 
 ### <a name="examples"></a>Voorbeelden
-```KQL
+```Kusto
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -358,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>Voorbeelden
-```KQL
+```Kusto
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 7937b94f6e34223702f1654c94884d6881b62955
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 266d08d3fd4f573827ea35962d4b24f71d69c4a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43129858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043928"
 ---
 Regio| Spraak-naar-teksteindpunt
 -|-
@@ -18,5 +18,5 @@ Azië - oost| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conv
 Europa - noord| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> U moet toevoegen aan de gewenste taal in de URI om te voorkomen dat een 401 HTTP-fout. Dus voor en-US de juiste URI is: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+> U moet toevoegen aan de gewenste taal in de URI om te voorkomen dat een 401 HTTP-fout. Dus voor en-US, de juiste URI is https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US.
 

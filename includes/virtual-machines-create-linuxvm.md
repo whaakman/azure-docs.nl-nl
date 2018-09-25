@@ -1,5 +1,5 @@
 
-1. Meld u aan bij uw Azure-abonnement met behulp van de stappen in [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli) (Verbinding maken met Azure via de Azure CLI 1.0).
+1. Aanmelden bij uw Azure-abonnement met behulp van de stappen [verbinding maken met Azure via de klassieke Azure-CLI](/cli/azure/authenticate-azure-cli).
 
 2. Zorg er als volgt voor dat u zich in de klassieke implementatiemodus bevindt:
 
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees voor meer informatie over deze Azure CLI 1.0-opdrachten voor virtuele machines [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (De Azure CLI 1.0 gebruiken met de API voor klassieke implementatie).
+Lees voor meer informatie over deze Azure klassieke CLI virtuele machine-opdrachten voor het [met behulp van de klassieke Azure CLI met de klassieke implementatie API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

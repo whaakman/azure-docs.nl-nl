@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734755"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978536"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
 
@@ -70,7 +70,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 | Eigenschap | Waarde |
 |----------|-------|
 | Locatie | US - west |
-| VNET-naam | &lt;ClusterNamePrevix >-vnet1 |
+| VNet-naam | &lt;ClusterNamePrevix >-vnet1 |
 | Adresruimtevoorvoegsel | 10.1.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.1.0.0/24 |
@@ -87,7 +87,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 | Eigenschap | Waarde |
 |----------|-------|
 | Locatie | US - oost |
-| VNET-naam | &lt;ClusterNamePrevix >-vnet2 |
+| VNet-naam | &lt;ClusterNamePrevix >-vnet2 |
 | Adresruimtevoorvoegsel | 10.2.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.2.0.0/24 |
@@ -277,7 +277,7 @@ Maakt een **contactpersonen** tabel en voeg enkele gegeven in de tabel, volg de 
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
-De volgende stappen wordt beschreven hoe u het script van de actie script aanroepen vanuit de Azure-portal. Zie voor meer informatie over het uitvoeren van een scriptactie met behulp van Azure PowerShell en de Azure-opdrachtregelprogramma (Azure CLI) [aanpassen HDInsight-clusters met behulp van scriptacties](../hdinsight-hadoop-customize-cluster-linux.md).
+De volgende stappen wordt beschreven hoe u het script van de actie script aanroepen vanuit de Azure-portal. Zie voor meer informatie over het uitvoeren van een scriptactie met behulp van Azure PowerShell en de klassieke Azure-CLI [aanpassen HDInsight-clusters met behulp van scriptacties](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **HBase-replicatie vanuit Azure portal in te schakelen**
 

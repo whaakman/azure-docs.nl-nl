@@ -1,6 +1,6 @@
 ---
-title: Met behulp van de opdrachtregel-Azure HDInsight Hadoop-clusters maken
-description: Informatie over het maken van HDInsight-clusters met behulp van de platformoverschrijdende Azure CLI 1.0.
+title: Met behulp van de Azure CLI voor klassiek - Azure HDInsight Hadoop-clusters maken
+description: Leer hoe u HDInsight-clusters met behulp van de platformoverschrijdende CLI van Azure classic maken.
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -9,23 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 523c2a85929d8474c283055a8ae38d489cbd4b12
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090971"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992810"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Maken van HDInsight-clusters met behulp van de Azure CLI
+# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Maken van HDInsight-clusters met behulp van de klassieke Azure-CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-De stappen in dit document overzicht maken van een HDInsight 3.5-cluster met behulp van de Azure CLI 1.0.
+De stappen in dit document overzicht maken van een HDInsight 3.5-cluster met behulp van de klassieke Azure-CLI.
 
-> [!IMPORTANT]
-> In dit onderwerp wordt beschreven hoe u de Azure CLI 1.0 gebruiken om een HDInsight-cluster te maken. Deze versie van de CLI is verouderd en ondersteuning voor het maken van HDInsight-clusters niet is toegevoegd aan Azure CLI 2.0.
->
-> U kunt ook Azure PowerShell gebruiken op HDInsight-clusters maken en beheren. Zie voor meer informatie de [maken van HDInsight-clusters met behulp van Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) document.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,14 +30,11 @@ De stappen in dit document overzicht maken van een HDInsight 3.5-cluster met beh
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. De stappen in dit document zijn laatste getest met Azure CLI versie 0.10.14.
-
-    > [!IMPORTANT]
-    > Azure CLI 1.0 is afgeschaft en ondersteuning voor het maken van HDInsight-clusters niet is toegevoegd aan Azure CLI 2.0.
+* **Azure CLI voor klassieke**. De stappen in dit document zijn laatste getest met de klassieke Azure-CLI versie 0.10.14.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
 
-Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](/cli/azure/authenticate-azure-cli) en maak verbinding met uw abonnement met behulp van de methode **login**.
+Volg de stappen beschreven in [verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface](/cli/azure/authenticate-azure-cli) en maak verbinding met uw abonnement met de **aanmelding** methode.
 
 ## <a name="create-a-cluster"></a>Een cluster maken
 
@@ -50,7 +44,7 @@ De volgende stappen moeten worden uitgevoerd vanaf de opdrachtregel, zoals Power
 
         azure login
 
-    U wordt gevraagd uw naam en wachtwoord opgeven. Als u meerdere Azure-abonnementen hebt, gebruikt u `azure account set <subscriptionname>` om in te stellen van het abonnement die gebruikmaken van de Azure CLI-opdrachten.
+    U wordt gevraagd uw naam en wachtwoord opgeven. Als u meerdere Azure-abonnementen hebt, gebruikt u `azure account set <subscriptionname>` om in te stellen van het abonnement dat de klassieke CLI-opdrachten gebruiken.
 
 2. Schakel over naar modus Azure Resource Manager met de volgende opdracht:
 
@@ -124,7 +118,7 @@ Zie [Vereisten voor toegangsbeheer](hdinsight-administer-use-portal-linux.md#cre
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een HDInsight-cluster met behulp van de Azure CLI hebt gemaakt, gebruikt u de volgende voor informatie over het werken met uw cluster:
+Nu dat u een HDInsight-cluster met behulp van de klassieke CLI hebt gemaakt, gebruikt u de volgende voor informatie over het werken met uw cluster:
 
 ### <a name="hadoop-clusters"></a>Hadoop-clusters
 

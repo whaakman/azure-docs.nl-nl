@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: willzhan;juliako
-ms.openlocfilehash: 3a33c4b157ded3162919494d27488285e52fdd3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531098"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952120"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Ontwerp van een multi-DRM-beveiliging van inhoud-systeem met toegangsbeheer 
 
@@ -303,9 +303,9 @@ Wat gebeurt er als de rollover van ondertekeningssleutel gebeurt nadat genereert
 Omdat een sleutel kan op elk moment worden vernieuwd, is meer dan één geldige openbare sleutel altijd beschikbaar zijn in het document met federatieve metagegevens. Levering van Media Services-licentie kunt u elk van de sleutels die zijn opgegeven in het document. Omdat één sleutel kan snel worden geïmplementeerd, mogelijk een andere de vervanging ervan en enzovoorts bedekt.
 
 ### <a name="where-is-the-access-token"></a>Waar is het toegangstoken?
-Als u kijken hoe een web-app roept een API-app onder [toepassings-id met OAuth 2.0-clientreferenties](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), de verificatie-stroom is als volgt:
+Als u kijken hoe een web-app roept een API-app onder [toepassings-id met OAuth 2.0-clientreferenties](../../active-directory/develop/web-api.md), de verificatie-stroom is als volgt:
 
-* Een gebruiker zich aanmeldt bij Azure AD in de web-App. Zie voor meer informatie, [webbrowser webtoepassing](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* Een gebruiker zich aanmeldt bij Azure AD in de web-App. Zie voor meer informatie, [webbrowser webtoepassing](../../active-directory/develop/web-app.md).
 * Het Azure AD-autorisatie-eindpunt leidt de gebruikersagent terug naar de clienttoepassing met een autorisatiecode. De gebruikersagent retourneert de autorisatiecode op de clienttoepassing omleidings-URI.
 * De web-App moet een toegangstoken verkrijgen, zodat het kan worden geverifieerd bij de web-API en opvragen van de gewenste resource. Het maakt een aanvraag voor het eindpunt van de Azure AD-token en voorziet in de referentie, client-ID en de web-API-toepassing-ID-URI. Deze geeft de autorisatiecode om te bewijzen dat de gebruiker heeft ingestemd.
 * Azure AD verifieert de toepassing en retourneert een JWT-toegangstoken dat wordt gebruikt voor de web-API aanroepen.

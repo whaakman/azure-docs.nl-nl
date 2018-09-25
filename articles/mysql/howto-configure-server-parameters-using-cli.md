@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 07/18/2018
-ms.openlocfilehash: 61fee0771d6847a0ec56de656057409bbcdcba16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b45975bc019da2859da87a40e46970d849312e38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433739"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957054"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Parameters voor serverconfiguratie aanpassen met behulp van Azure CLI
 U kunt lijst, weergeven en bijwerken van parameters voor de configuratie voor een Azure Database for MySQL-server met behulp van Azure CLI, het Azure-opdrachtregelprogramma. Een subset van de engine-configuratie wordt weergegeven op het niveau van de server en kan worden gewijzigd. 
@@ -23,7 +23,7 @@ U kunt lijst, weergeven en bijwerken van parameters voor de configuratie voor ee
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 - [Een Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) opdrachtregelprogramma of gebruik de Azure Cloud Shell in de browser.
+- [Azure CLI](/cli/azure/install-azure-cli) opdrachtregelprogramma of gebruik de Azure Cloud Shell in de browser.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Lijst met parameters voor serverconfiguratie voor Azure Database voor MySQL-server
 Als u alle parameters van kan worden gewijzigd in een server en de bijbehorende waarden, voer de [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) opdracht.

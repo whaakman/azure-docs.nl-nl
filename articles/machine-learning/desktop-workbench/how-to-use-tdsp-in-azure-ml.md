@@ -8,7 +8,6 @@ ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058748"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970920"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Projecten structureren met de sjabloon voor Team Data Science Process
 
-Dit document bevat instructies voor het maken van data science-projecten in Azure Machine Learning met sjablonen voor Team Data Science Process (TDSP). Deze sjablonen helpen aan projecten voor samenwerking en reproduceerbaarheid structuur. 
+Dit document bevat instructies voor het maken van data science-projecten in een eerdere versie van Azure Machine Learning met behulp van sjablonen voor Team Data Science Process (TDSP). Deze sjablonen helpen aan projecten voor samenwerking en reproduceerbaarheid structuur. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 De TDSP is een flexibele, iteratieve, data science-proces voor het uitvoeren van en het leveren van geavanceerde analyseoplossingen. Het is ontworpen voor het verbeteren van de samenwerking en efficiëntie van data-scienceteams in enterprise-organisaties. Deze biedt ondersteuning voor deze doelstellingen met vier belangrijke onderdelen:
@@ -52,7 +53,7 @@ Bekijk de volgende items *voordat* u een nieuw project maken:
 * Bekijk de TDSP Machine Learning [sjabloon](https://aka.ms/tdspamlgithubrepo).
 * De inhoud (met uitzondering van de wat is al aanwezig in de map 'docs') moet kleiner zijn dan 25 MB in grootte. Zie de opmerking die volgt op deze lijst.
 * Het voorbeeld\_gegevensmap is uitsluitend bedoeld voor kleine gegevensbestanden (minder dan 5 MB) waarmee u kunt testen van uw code of beginnen met vroege ontwikkelen.
-* Opslaan van bestanden, zoals Word en PowerPoint-bestanden, kunt de aanzienlijk verhogen voor de grootte van de map 'docs'. We adviseren dat u een gezamenlijke Wiki [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), of een andere gezamenlijke bron voor het opslaan van deze bestanden.
+* Opslaan van bestanden, zoals Word en PowerPoint-bestanden, kunt de aanzienlijk verhogen voor de grootte van de map 'docs'. We adviseren dat u een gezamenlijke Wiki [SharePoint](https://products.office.com/sharepoint/collaboration), of een andere gezamenlijke bron voor het opslaan van deze bestanden.
 * Lees voor informatie over het verwerken van grote bestanden en de uitvoer in Machine Learning, [persistent maken van wijzigingen en het werken met grote bestanden](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

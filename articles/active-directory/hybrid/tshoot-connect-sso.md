@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315264"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055897"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
 
@@ -36,7 +36,7 @@ In dit artikel helpt u bij het oplossen van problemen informatie over veelvoorko
 - Als een gebruiker deel van te veel groepen in Active Directory uitmaakt, Kerberos-ticket van de gebruiker waarschijnlijk zal zijn te groot om te verwerken en dit zorgt voor naadloze eenmalige aanmelding mislukken. Azure AD-HTTPS-aanvragen kunnen headers met een maximale grootte van 50 KB; hebben Kerberos-tickets moeten kleiner zijn dan deze limiet voor andere Azure AD-artefacten (meestal 2-5 KB), zoals cookies. Onze aanbeveling is het verminderen van groepslidmaatschappen van gebruiker en probeer het opnieuw.
 - Als u 30 of meer Active Directory-forests synchroniseren bent, kunt u naadloze eenmalige aanmelding via Azure AD Connect niet inschakelen. Als tijdelijke oplossing, kunt u [handmatig in te schakelen](#manual-reset-of-the-feature) de functie op uw tenant.
 - Toevoegen van de URL van de Azure AD-service (https://autologon.microsoftazuread-sso.com) aan de zone Vertrouwde websites in plaats van de lokale intranetzone *wordt voorkomen dat gebruikers zich*.
-- Uitschakelen van het gebruik van de **RC4_HMAC_MD5** naadloze eenmalige aanmelding, versleutelingstype voor Kerberos in uw Active Directory-instellingen worden verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie > Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid Beveiligingsopties - -> > ' Netwerkbeveiliging: voor Kerberos toegestane versleutelingstypen configureren '** is "ingeschakeld".
+- Naadloze eenmalige aanmelding gebruikt de **RC4_HMAC_MD5** versleutelingstype voor Kerberos. Uitschakelen van het gebruik van de **RC4_HMAC_MD5** versleutelingstype in uw Active Directory-instellingen, naadloze eenmalige aanmelding worden verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie > Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid Beveiligingsopties - -> > ' Netwerkbeveiliging: voor Kerberos toegestane versleutelingstypen configureren '** is **ingeschakeld**. Bovendien naadloze eenmalige aanmelding kan geen andere versleutelingstypen gebruiken, dus zorg ervoor dat ze zijn **uitgeschakeld**.
 
 ## <a name="check-status-of-feature"></a>Controleer de status van de functie
 

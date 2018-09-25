@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951777"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met CLI
 
@@ -23,11 +23,11 @@ Functie voor voorlopig verwijderen van Azure Key Vault de maakt het herstellen v
 - Ondersteuning voor het herstelbare verwijderen van een key vault
 - Ondersteuning voor verwijdering van de herstelbare objecten van de sleutelkluis. sleutels, geheimen, en certificaten
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
-- Azure CLI 2.0 - als u deze instelling voor uw omgeving hebt, Zie [Key Vault beheren met behulp van CLI 2.0](key-vault-manage-with-cli2.md).
+- Azure CLI - als u geen dit instellen voor uw omgeving, Zie [Key Vault beheren met behulp van Azure CLI](key-vault-manage-with-cli2.md).
 
-Zie voor Key Vault specifieke naslaginformatie voor CLI, [referentie Azure CLI 2.0 Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
+Zie voor Key Vault specifieke naslaginformatie voor CLI, [Sleutelkluis voor Azure CLI-verwijzing](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
@@ -37,7 +37,7 @@ Key Vault-bewerkingen worden afzonderlijk beheerd via machtigingen voor op rolle
 |:--|:--|:--|
 |Lijst|Een lijst met verwijderde sleutelkluizen.|Microsoft.KeyVault/deletedVaults/read|
 |Herstellen|Hiermee herstelt u een verwijderde key vault.|Microsoft.KeyVault/vaults/write|
-|Leegmaken|Een verwijderde key vault en alle bijbehorende inhoud verwijderd permanent.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|Opschonen|Een verwijderde key vault en alle bijbehorende inhoud verwijderd permanent.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
 Zie voor meer informatie over de machtigingen en access control [uw key vault beveiligen](key-vault-secure-your-key-vault.md).
 

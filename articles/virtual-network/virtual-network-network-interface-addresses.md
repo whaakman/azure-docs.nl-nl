@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7fe4fdbf6c6b3cbbd6d01ef5309699c3d3991d53
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003811"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975295"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
 
@@ -35,7 +35,7 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
 - Als u nog een Azure-account hebt, kunt u zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
 - Als u PowerShell-opdrachten gebruikt om taken in dit artikel te voltooien, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Voor deze zelfstudie is moduleversie 5.7.0 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor taken in dit artikel uit te voeren, hetzij de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI van de computer. In deze zelfstudie gebruikmaken van Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. Als u de Azure CLI lokaal uitvoert, moet u ook om uit te voeren `az login` voor het maken van een verbinding met Azure.
 
 Het account dat u zich aanmelden bij of verbinding maken met Azure, moet worden toegewezen aan de [Inzender voor netwerken](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [netwerk interface-machtigingen](virtual-network-network-interface.md#permissions).
 
@@ -92,7 +92,7 @@ U kunt verwijderen [persoonlijke](#private) en [openbare](#public) IP-adressen u
 1. In het vak met de tekst *zoeken naar resources* aan de bovenkant van de Azure-portal, typt u *netwerkinterfaces*. Wanneer **netwerkinterfaces** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de netwerkinterface die u wilt verwijderen van IP-adressen uit de lijst.
 3. Onder **instellingen**, selecteer **IP-configuraties**.
-4. Selecteer met de rechtermuisknop een [secundaire](#secondary) IP-configuratie (u kunt niet verwijderen de [primaire](#primary) configuration) die u wilt verwijderen, selecteert u **verwijderen**en selecteer vervolgens ** Ja**, om de verwijdering te bevestigen. Als de configuratie had een openbare IP-adresresource zijn gekoppeld, wordt de resource is ontkoppeld van de IP-configuratie, maar de resource is niet verwijderd.
+4. Selecteer met de rechtermuisknop een [secundaire](#secondary) IP-configuratie (u kunt niet verwijderen de [primaire](#primary) configuration) die u wilt verwijderen, selecteert u **verwijderen**en selecteer vervolgens  **Ja**, om de verwijdering te bevestigen. Als de configuratie had een openbare IP-adresresource zijn gekoppeld, wordt de resource is ontkoppeld van de IP-configuratie, maar de resource is niet verwijderd.
 
 **Opdrachten**
 
@@ -188,7 +188,7 @@ Elke netwerkinterface moet een hebben [primaire](#primary) IP-configuratie met e
 U kunt toewijzen nul of één privé [IPv6](#ipv6) adres aan een secundaire IP-configuratie van een netwerkinterface. De netwerkinterface kan niet alle bestaande secundaire IP-configuraties hebben. U kunt geen een IP-configuratie toevoegen met een IPv6-adres met behulp van de portal. Gebruik PowerShell of CLI om toe te voegen een IP-configuratie met een privé-IPv6-adres aan een bestaande netwerkinterface. De netwerkinterface kan niet worden gekoppeld aan een bestaande virtuele machine.
 
 > [!NOTE]
-> Hoewel u een netwerkinterface met een IPv6-adres met behulp van de portal maken kunt, kan u een bestaande netwerkinterface toevoegen aan een nieuwe of bestaande virtuele machine, met behulp van de portal is. PowerShell of Azure CLI 2.0 gebruiken voor het maken van een netwerkinterface met een privé-IPv6-adres en de netwerkinterface koppelen bij het maken van een virtuele machine. U kunt een netwerkinterface niet koppelen met een persoonlijke IPv6-adres is toegewezen aan een bestaande virtuele machine. U kunt een privé-IPv6-adres niet toevoegen aan een IP-configuratie voor netwerkinterface is gekoppeld aan een virtuele machine met behulp van hulpprogramma's (portal, CLI of PowerShell).
+> Hoewel u een netwerkinterface met een IPv6-adres met behulp van de portal maken kunt, kan u een bestaande netwerkinterface toevoegen aan een nieuwe of bestaande virtuele machine, met behulp van de portal is. PowerShell of Azure CLI gebruiken voor het maken van een netwerkinterface met een privé-IPv6-adres en de netwerkinterface koppelen bij het maken van een virtuele machine. U kunt een netwerkinterface niet koppelen met een persoonlijke IPv6-adres is toegewezen aan een bestaande virtuele machine. U kunt een privé-IPv6-adres niet toevoegen aan een IP-configuratie voor netwerkinterface is gekoppeld aan een virtuele machine met behulp van hulpprogramma's (portal, CLI of PowerShell).
 
 U kunt een openbaar IPv6-adres kan niet toewijzen aan een primaire of secundaire IP-configuratie.
 

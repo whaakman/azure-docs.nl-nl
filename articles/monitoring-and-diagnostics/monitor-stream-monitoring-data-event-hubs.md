@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954837"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -76,7 +76,7 @@ Azure-resources verzenden twee soorten gegevens te controleren:
 Beide typen gegevens worden verzonden naar een event hub met behulp van de diagnostische instelling van een resource. [Deze handleiding volgt](./monitoring-stream-diagnostic-logs-to-event-hubs.md) voor het instellen van de diagnostische instelling van een resource op een bepaalde resource. Een resource diagnostische instelling voor elke bron van waaruit u wenst te verzamelen van logboeken instellen.
 
 > [!TIP]
-> U kunt Azure Policy gebruiken om ervoor te zorgen dat elke resource binnen een bepaald bereik altijd is ingesteld met een diagnostische instelling [met behulp van het DeployIfNotExists-effect in de beleidsregel](../azure-policy/policy-definition.md#policy-rule). Vandaag wordt DeployIfNotExists alleen ondersteund op de ingebouwde beleidsregels.
+> U kunt Azure Policy gebruiken om ervoor te zorgen dat elke resource binnen een bepaald bereik altijd is ingesteld met een diagnostische instelling [met behulp van het DeployIfNotExists-effect in de beleidsregel](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="guest-os-data"></a>Gast-OS-gegevens
 

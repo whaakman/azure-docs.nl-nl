@@ -1,6 +1,6 @@
 ---
 title: Toegang opnieuw instellen met een Azure Linux-VM | Microsoft Docs
-description: Over het beheren van gebruikers met beheerdersrechten en op virtuele Linux-machines met behulp van de VMAccess-extensie en de Azure CLI 2.0-toegang opnieuw instellen
+description: Over het beheren van gebruikers met beheerdersrechten en op virtuele Linux-machines met behulp van de VMAccess-extensie en de Azure CLI-toegang opnieuw instellen
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415069"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998624"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI 2.0
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI
 ## <a name="overview"></a>Overzicht
 De schijf op uw Linux-VM worden fouten weergegeven. U loopt de toepassing het root-wachtwoord opnieuw instellen voor uw Linux-VM of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in de dagen van het datacenter, moet u zou er station en open vervolgens de KVM om op te halen op de serverconsole. De Azure VMAccess-extensie beschouwen als die KVM-switch waarmee u toegang tot de console voor het opnieuw instellen van toegang tot Linux of schijf niveau onderhoud uit te voeren.
 
@@ -47,10 +47,10 @@ De extensie voor VM-toegang kan voor deze Linux-distributies worden uitgevoerd:
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Manieren waarop u met de VMAccess-extensie
 Er zijn twee manieren waarop u de VMAccess-extensie op uw Linux-VM's gebruiken kunt:
 
-* Gebruik de Azure CLI 2.0 en de vereiste parameters.
+* Gebruik de Azure CLI en de vereiste parameters.
 * [Gebruik van onbewerkte JSON-bestanden die de VMAccess-extensie verwerken](#use-json-files-and-the-vmaccess-extension) en vervolgens actie ondernemen op.
 
-De volgende voorbeelden gebruiken [az vm gebruiker](/cli/azure/vm/user) opdrachten. Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+De volgende voorbeelden gebruiken [az vm gebruiker](/cli/azure/vm/user) opdrachten. Als u wilt deze stappen uitvoert, moet u de meest recente [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>SSH-sleutel bijwerken
 Het volgende voorbeeld wordt de SSH-sleutel voor de gebruiker bijgewerkt `azureuser` op de virtuele machine met de naam `myVM`:

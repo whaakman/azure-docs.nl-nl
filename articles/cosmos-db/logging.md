@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857096"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963386"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB-diagnostische logboeken
 
@@ -29,9 +29,9 @@ De volgende afbeelding ziet u de verschillende soorten logboeken in Azure die be
 
 ![Verschillende soorten logboeken in Azure](./media/logging/azurelogging.png)
 
-In de afbeelding, de **Rekenresources** vertegenwoordigen de Azure-resources waarvoor u toegang hebt tot het Gastbesturingssysteem van Microsoft. Bijvoorbeeld: Azure Virtual Machines, virtuele machine schaalsets, Azure Container Service en enzovoort, worden beschouwd als compute-resources. COMPUTE-resources activiteitenlogboeken, diagnostische logboeken en toepassingslogboeken te genereren. Raadpleeg voor meer informatie, de [Azure Monitoring: Rekenresources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) artikel.
+In de afbeelding, de **Rekenresources** vertegenwoordigen de Azure-resources waarvoor u toegang hebt tot het Gastbesturingssysteem van Microsoft. Bijvoorbeeld: Azure Virtual Machines, virtuele machine schaalsets, Azure Container Service en enzovoort, worden beschouwd als compute-resources. COMPUTE-resources activiteitenlogboeken, diagnostische logboeken en toepassingslogboeken te genereren. Raadpleeg voor meer informatie, de [bronnen van bewakingsgegevens in Azure](../monitoring/monitoring-data-sources.md#) artikel.
 
-De **Non-rekenresources** zijn resources in die u kunt geen toegang tot het onderliggende besturingssysteem en werk rechtstreeks met de resource. Bijvoorbeeld, Network Security Groups, Logic Apps, enzovoort. Azure Cosmos DB is een niet-compute-resource. U kunt de logboeken voor niet-compute-resources in het activiteitenlogboek weergeven of schakelt u de optie Logboeken met diagnostische gegevens in de portal. Raadpleeg voor meer informatie, de [Azure Monitoring: niet-compute resources](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) artikel.
+De **Non-rekenresources** zijn resources in die u kunt geen toegang tot het onderliggende besturingssysteem en werk rechtstreeks met de resource. Bijvoorbeeld, Network Security Groups, Logic Apps, enzovoort. Azure Cosmos DB is een niet-compute-resource. U kunt de logboeken voor niet-compute-resources in het activiteitenlogboek weergeven of schakelt u de optie Logboeken met diagnostische gegevens in de portal. Raadpleeg voor meer informatie, de [bronnen van de gegevens in Azure Monitor](../monitoring/monitoring-data-sources.md) artikel.
 
 Het activiteitenlogboek registreert de bewerkingen op het abonnementsniveau van een voor Azure Cosmos DB. Bewerkingen zoals ListKeys, DatabaseAccounts schrijven en meer worden geregistreerd. Diagnoselogboeken bieden meer gedetailleerde logboekregistratie en kunnen u aan te melden DataPlaneRequests (maken, lezen, Query, enzovoort) en MongoRequests.
 
@@ -444,8 +444,8 @@ De volgende tabel beschrijft de inhoud van elke logboekvermelding.
 | **Categorie** | **Categorie** | Voor Azure Cosmos DB-Logboeken is **DataPlaneRequests** is de enige beschikbare waarde. |
 | **OperationName** | **OperationName** | Naam van de bewerking. Deze waarde kan een van de volgende bewerkingen zijn: maken, bijwerken, lezen, ReadFeed, verwijderen, vervangen, uitvoeren, SqlQuery, Query, JSQuery, Head, HeadFeed of Upsert.   |
 | **Eigenschappen** | N.v.t. | De inhoud van dit veld worden beschreven in de rijen die volgen. |
-| **activityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
-| **userAgent** | **userAgent_s** | Een tekenreeks waarmee de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {gebruiker agent name} / {version}.|
+| **ActivityId** | **activityId_g** | De unieke GUID voor de geregistreerde bewerking. |
+| **UserAgent** | **userAgent_s** | Een tekenreeks waarmee de clientagent van de gebruiker die de aanvraag uitvoert. De indeling is {gebruiker agent name} / {version}.|
 | **resourceType** | **ResourceType** | Het type van de toegang tot bronnen. Deze waarde kan een van de volgende resourcetypen zijn: Database, Container, Document, bijlage, gebruikers, machtigingen, StoredProcedure, Trigger, UserDefinedFunction of aanbieding. |
 | **statusCode** | **statusCode_s** | De reactiestatus van de bewerking. |
 | **requestResourceId** | **ResourceId** | De resourceId die betrekking hebben op de aanvraag. De waarde kan verwijzen naar databaseRid, collectionRid of documentRid, afhankelijk van de bewerking die wordt uitgevoerd.|

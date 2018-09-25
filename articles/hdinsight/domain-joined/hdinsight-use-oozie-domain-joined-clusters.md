@@ -1,22 +1,22 @@
 ---
-title: Apache Hadoop Oozie-werkstromen in aan domein gekoppelde Azure HDInsight-clusters
-description: Gebruik Hadoop Oozie in een HDInsight op basis van Linux domein-Enterprise-beveiligingspakket. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
+title: Apache Hadoop Oozie-werkstromen in Azure HDInsight-clusters met Enterprise-beveiligingspakket
+description: Gebruik Oozie met Hadoop in een Linux gebaseerde HDInsight Enterprise-beveiligingspakket. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048971"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947485"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie in aan domein gekoppelde HDInsight Hadoop clusters uitvoeren
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Voer Apache Oozie in HDInsight Hadoop clusters met Enterprise-beveiligingspakket
 Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden behe
 U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
 ## <a name="prerequisite"></a>Vereiste
-- Een domein Azure HDInsight Hadoop cluster. Zie [aan domein gekoppelde HDInsight-clusters configureren](./apache-domain-joined-configure-using-azure-adds.md).
+- Een Azure HDInsight Hadoop-cluster met Enterprise Security Package (ESP). Zie [configureren HDInsight-clusters met ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Zie voor gedetailleerde instructies over het gebruik van Oozie op clusters lid is van een controller [gebruik Hadoop Oozie-werkstromen in Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
+    > Zie voor gedetailleerde instructies over het gebruik van Oozie op niet-ESP clusters [gebruik Hadoop Oozie-werkstromen in Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="connect-to-a-domain-joined-cluster"></a>Verbinding maken met een cluster met een domein
+## <a name="connect-to-an-esp-cluster"></a>Verbinding maken met een cluster ESP
 
 Zie voor meer informatie over Secure Shell (SSH) [verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -166,7 +166,7 @@ nano workflow.xml
  ```
 4. Vervang `clustername` met de naam van het cluster. 
 
-5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X. Voer `Y`. Selecteer vervolgens **Enter**.
+5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X. Voer `Y` in. Selecteer vervolgens **Enter**.
 
     De werkstroom is onderverdeeld in twee delen:
     *   **Referentie-sectie.** In deze sectie worden gebruikt in de referenties die worden gebruikt voor het verifiëren van Oozie acties:
@@ -262,7 +262,7 @@ U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in 
     ```
 
 ## <a name="submit-oozie-jobs"></a>Oozie-taken verzenden
-Verzenden van taken voor domein-clusters Oozie is vergelijkbaar met Oozie-taken in clusters lid is van een controller te verzenden.
+Oozie-taken voor clusters met ESP verzenden is als het verzenden van taken Oozie in niet-ESP-clusters.
 
 Zie voor meer informatie, [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
@@ -311,7 +311,7 @@ Zie voor meer informatie, [Oozie-installatie en configuratie](https://oozie.apac
 Voor onderdelen, zoals Hive-server 1 waar de Ranger-invoegtoepassing is niet beschikbaar of wordt ondersteund, is het alleen grofkorrelige HDFS-autorisatie mogelijk. Fijnmazig autorisatie is alleen beschikbaar via Ranger-invoegtoepassingen.
 
 ## <a name="get-the-oozie-web-ui"></a>De web-UI van Oozie ophalen
-De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Als u de web-UI, moet u de volgende stappen uitvoeren in aan domein gekoppelde clusters:
+De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Als u de web-UI, moet u de volgende stappen uitvoeren in ESP clusters:
 
 1. Voeg een [edge-knooppunt](../hdinsight-apps-use-edge-node.md) en in te schakelen [SSH Kerberos-verificatie](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

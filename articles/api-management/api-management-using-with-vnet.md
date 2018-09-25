@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040332"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | Bron / doelpoort(en) | Richting | Transportprotocol | Bron / bestemming | Doel (*) | Type virtuele netwerk |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Communicatie van clients met API Management|Extern |
-| * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Beheereindpunt voor Azure-portal en Powershell |Externe en interne |
+| * / 3443 |Inkomend |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Beheereindpunt voor Azure-portal en Powershell |Externe en interne |
 | * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Afhankelijkheid van Azure Storage**, Azure Service Bus en Azure Active Directory (indien van toepassing).|Externe en interne |
 | * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / SQL|**Toegang tot Azure SQL-eindpunten** |Externe en interne |
 | * / 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent |Externe en interne |
@@ -158,8 +158,6 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 * **Incrementele Updates**: als u wijzigingen aanbrengt aan uw netwerk, verwijzen naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), om te verifiëren dat de API Management-service niet tot een van de kritieke resources die dit is afhankelijk van is verbroken. De verbindingsstatus van de moet worden bijgewerkt om de 15 minuten.
 
 * **Resourcenavigatiekoppelingen**: wanneer u deze implementeert in Resource Manager stijl vnet-subnet, API Management het subnet gereserveerd door het maken van een koppeling-resourcenavigatie. Als het subnet al een resource in een andere provider bevat, implementatie zal **mislukken**. Wanneer u een API Management-service naar een ander subnet verplaatsen of verwijderen, zullen we op dezelfde manier dat resourcenavigatiekoppeling verwijderen.
-
-* **API testen vanuit de Azure-portal**: bij het testen van een API van Azure portal en uw exemplaar van API Management is geïntegreerd met een interne VNet, de DNS-servers geconfigureerd op de VNet wordt gebruikt voor naamomzetting. Als u een 404-fout ontvangt bij het testen van de Azure-portal, zorgt u ervoor dat de DNS-servers voor het VNet de hostnaam van uw exemplaar van API Management correct kunnen omzetten. 
 
 ## <a name="subnet-size"> </a> De vereiste grootte subnet
 Azure reserveert bepaalde IP-adressen binnen elk subnet, en deze adressen kunnen niet worden gebruikt. De eerste en laatste IP-adressen van de subnetten zijn gereserveerd voor protocolconformiteit en drie adressen voor Azure-services. Zie voor meer informatie, [gelden er beperkingen voor het gebruik van IP-adressen binnen deze subnetten?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

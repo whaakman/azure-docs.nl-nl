@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: 0e37e1839d2248507a30de08e2ac4c975bd3b859
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 06e85845d41b240638a5b5b4d75d64fd460a99bf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644088"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953324"
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Installeren en gebruiken van de machine learning CLI voor veelgebruikte taken in Azure Machine Learning
 
-Azure Machine Learning-services zijn een geïntegreerde, end-to-end gegevenswetenschap en geavanceerde analyse-oplossing. Professionele gegevenswetenschappers kunnen Azure Machine Learning-services gebruiken om gegevens voorbereiden, experimenten ontwikkelen en modellen te implementeren op cloudschaal. 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning-service is een geïntegreerde, end-to-end gegevenswetenschap en geavanceerde analyse-oplossing. Professionele gegevenswetenschappers kunnen Azure Machine Learning-service gebruiken om te gegevens voorbereiden, experimenten ontwikkelen en modellen te implementeren op cloudschaal. 
 
 Azure Machine Learning biedt een opdrachtregelinterface (CLI) die u kunt:
 + Uw werkruimte en projecten beheren?
@@ -39,7 +42,7 @@ Dit artikel bevat enkele van de handigste CLI-opdrachten voor uw gemak.
 Moet u rechten voor bijdragers toegang tot een Azure-abonnement of resourcegroep waarin u uw modellen kunt implementeren. Bovendien moet u Azure Machine Learning Workbench installeren om uit te voeren van de CLI. 
 
 >[!IMPORTANT]
->De CLI met Azure Machine Learning-services geleverd wijkt af van de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), die wordt gebruikt voor het beheren van Azure-resources.
+>De CLI wordt geleverd met Azure Machine Learning-service af van wijkt de [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), die wordt gebruikt voor het beheren van Azure-resources.
 
 ## <a name="get-and-start-cli"></a>Ophalen en CLI starten
 
@@ -201,7 +204,7 @@ az ml env set -n <environment name> -g <resource group name>
 ## <a name="next-steps"></a>Volgende stappen
 
 Aan de slag met een van de volgende artikelen: 
-+ [Installeren en starten met Azure Machine Learning](../service/quickstart-installation.md)
++ [Installeren en starten met Azure Machine Learning](quickstart-installation.md)
 + [Classificeren Iris-gegevens-zelfstudie: Deel 1](tutorial-classifying-iris-part-1.md)
 
 Dieper graven met een van de volgende artikelen:

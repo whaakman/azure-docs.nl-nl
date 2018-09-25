@@ -1,6 +1,6 @@
 ---
-title: De webhook-schema gebruikt in een logboek activiteitswaarschuwingen begrijpen
-description: Meer informatie over het schema van de JSON die wordt gepost naar een webhook-URL wanneer een activiteit logboek waarschuwing wordt geactiveerd.
+title: Inzicht in de webhook-schema gebruikt in waarschuwingen voor activiteitenlogboeken
+description: Meer informatie over het schema van de JSON die wordt gepost naar een webhook-URL wanneer een waarschuwing voor activiteitenlogboek wordt geactiveerd.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e989406c852b7c87123681dd875f9cd8229524c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971923"
 ---
-# <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor Azure activiteit logboek waarschuwingen
-Als onderdeel van de definitie van een actiegroep, kunt u de webhook-eindpunten voor het ontvangen van meldingen van waarschuwingen activiteit logboek configureren. Met webhooks, kunt u deze meldingen met andere systemen voor na verwerking of aangepaste acties te routeren. Dit artikel laat zien hoe de nettolading voor de HTTP POST naar een webhook eruit ziet.
+# <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks voor waarschuwingen voor activiteitenlogboeken van Azure
+U kunt webhook-eindpunten voor het ontvangen van waarschuwingsmeldingen voor activiteit log configureren als onderdeel van de definitie van een actiegroep. Met webhooks, kunt u deze meldingen doorsturen naar andere systemen voor na verwerking of aangepaste acties. Dit artikel leest hoe de nettolading voor de HTTP POST naar een webhook eruitziet.
 
-Zie voor meer informatie over activiteit logboek waarschuwingen hoe [Azure activiteit logboek waarschuwingen maken](monitoring-activity-log-alerts.md).
+Zie voor meer informatie over waarschuwingen voor activiteitenlogboeken, hoe u [waarschuwingen voor Azure-activiteitenlogboek maken](monitoring-activity-log-alerts.md).
 
-Zie voor informatie over actiegroepen, hoe [Actiegroepen maken](monitoring-action-groups.md).
+Zie voor informatie over actiegroepen, hoe u [Actiegroepen maken](monitoring-action-groups.md).
 
-## <a name="authenticate-the-webhook"></a>De webhook verifiëren
-De webhook kan eventueel token gebaseerde verificatie gebruiken voor verificatie. De URI wordt opgeslagen met een token ID, bijvoorbeeld webhook `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
+## <a name="authenticate-the-webhook"></a>Verifiëren van de webhook
+De webhook kunt u eventueel autorisatie op basis van tokens gebruiken voor verificatie. De URI wordt opgeslagen met een token-ID, bijvoorbeeld webhook `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 
 ## <a name="payload-schema"></a>De nettolading van schema
-De JSON-nettolading opgenomen in de POST-bewerking verschilt op basis van de nettolading data.context.activityLog.eventSource veld.
+De JSON-nettolading die is opgenomen in de POST-bewerking afhankelijk van de nettolading van data.context.activityLog.eventSource veld.
 
 ### <a name="common"></a>Algemeen
 ```json
@@ -124,43 +124,80 @@ De JSON-nettolading opgenomen in de POST-bewerking verschilt op basis van de net
 }
 ```
 
-Zie voor specifieke schema-informatie over de service health melding activiteit logboek waarschuwingen, [Service health meldingen](monitoring-service-notifications.md). Bovendien meer informatie over hoe [webhook servicestatusmeldingen configureren met bestaande beheersystemen voor uw probleem](../service-health/service-health-alert-webhook-guide.md).
+### <a name="resourcehealth"></a>ResourceHealth
+```json
+{
+    "schemaId": "Microsoft.Insights/activityLogs",
+    "data": {
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+                "channels": "Admin, Operation",
+                "correlationId": "a1be61fd-37ur-ba05-b827-cb874708babf",
+                "eventSource": "ResourceHealth",
+                "eventTimestamp": "2018-09-04T23:09:03.343+00:00",
+                "eventDataId": "2b37e2d0-7bda-4de7-ur8c6-1447d02265b2",
+                "level": "Informational",
+                "operationName": "Microsoft.Resourcehealth/healthevent/Activated/action",
+                "operationId": "2b37e2d0-7bda-489f-81c6-1447d02265b2",
+                "properties": {
+                    "title": "Virtual Machine health status changed to unavailable",
+                    "details": "Virtual machine has experienced an unexpected event",
+                    "currentHealthStatus": "Unavailable",
+                    "previousHealthStatus": "Available",
+                    "type": "Downtime",
+                    "cause": "PlatformInitiated",
+                },
+                "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+                "resourceGroupName": "<resource group>",
+                "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
+                "status": "Active",
+                "subscriptionId": "<subscription Id",
+                "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
+                "resourceType": "Microsoft.Compute/virtualMachines"
+            }
+        }
+    }
+}
+```
 
-Zie voor meer informatie voor een specifiek schema bij alle waarschuwingen van andere activiteit logboek, [overzicht van het Azure activiteitenlogboek](monitoring-overview-activity-logs.md).
+Zie voor specifieke schema-informatie over service health melding activiteitenlogboekalarmen, [health servicemeldingen](monitoring-service-notifications.md). Bovendien leert hoe u [service health webhook-meldingen configureren met uw bestaande oplossingen voor probleem](../service-health/service-health-alert-webhook-guide.md).
 
-| Elementnaam | Beschrijving |
+Zie voor meer informatie voor een specifieke schema op ander activiteitenlogboekalarmen, [overzicht van de Azure-activiteitenlogboek](monitoring-overview-activity-logs.md).
+
+| De naam van element | Beschrijving |
 | --- | --- |
-| status |Gebruikt voor metrische waarschuwingen. Altijd ingesteld op 'actief' voor activiteit logboek waarschuwingen. |
+| status |Gebruikt voor het metrische waarschuwingen. Altijd ingesteld op 'actief' voor waarschuwingen voor activiteitenlogboeken. |
 | Context |De context van de gebeurtenis. |
 | resourceProviderName |De resourceprovider van de betrokken resource. |
 | conditionType |Altijd 'gebeurtenis'. |
-| naam |Naam van de waarschuwingsregel. |
-| id |Bron-ID van de waarschuwing. |
-| description |Beschrijving van de waarschuwing ingesteld wanneer de waarschuwing wordt gemaakt. |
+| naam |De naam van de waarschuwingsregel. |
+| id |Resource-ID van de waarschuwing. |
+| description |Beschrijving van de waarschuwing instellen wanneer de waarschuwing is gemaakt. |
 | subscriptionId |Azure-abonnement-ID. |
-| tijdstempel |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die de aanvraag verwerkt. |
-| resourceId |Bron-ID van de betrokken resource. |
+| tijdstempel |Tijd waarop de gebeurtenis is gegenereerd door de Azure-service die het verzoek heeft verwerkt. |
+| resourceId |Resource-ID van de betrokken resource. |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource. |
-| properties |Een set `<Key, Value>` paren (dat wil zeggen, `Dictionary<String, String>`) die bevat details over de gebeurtenis. |
-| gebeurtenis |Element met metagegevens over de gebeurtenis. |
-| Autorisatie |De eigenschappen van de gebeurtenis die toegangsbeheer op basis van rollen. Deze eigenschappen zijn meestal de actie, de rol en het bereik. |
-| category |De categorie van de gebeurtenis. Ondersteunde waarden zijn Administrative, waarschuwing, beveiliging, ServiceHealth en aanbeveling. |
-| oproepende functie |E-mailadres van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen zijn. |
-| correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde groter actie en meestal delen een correlationId. |
+| properties |Instellen van `<Key, Value>` paren (dat wil zeggen, `Dictionary<String, String>`) die vindt u informatie over de gebeurtenis. |
+| gebeurtenis |Element met metagegevens van de gebeurtenis. |
+| Autorisatie |De Role-Based Access Control-eigenschappen van de gebeurtenis. Deze eigenschappen zijn meestal de actie, de rol en het bereik. |
+| category |Categorie van de gebeurtenis. Ondersteunde waarden omvatten Beheersjablonen, waarschuwing, beveiliging, ServiceHealth en aanbevelingen. |
+| oproepende functie |E-mailadres van de gebruiker die de bewerking, UPN-claim of SPN claim op basis van beschikbaarheid uitgevoerd. Kan niet null zijn voor bepaalde systeemaanroepen. |
+| correlationId |Meestal een GUID in de indeling van tekenreeks. Gebeurtenissen met correlationId deel uitmaken van dezelfde grotere actie en meestal een correlationId delen. |
 | eventDescription |De beschrijving van de statische tekst van de gebeurtenis. |
 | eventDataId |De unieke id voor de gebeurtenis. |
-| EventSource |Naam van de Azure-service of de infrastructuur die de gebeurtenis heeft gegenereerd. |
+| Gebeurtenisbron |Naam van de Azure-service of de infrastructuur die de gebeurtenis is gegenereerd. |
 | httpRequest |De aanvraag bevat meestal de clientRequestId, clientIpAddress en HTTP-methode (bijvoorbeeld plaatsen). |
 | niveau |Een van de volgende waarden: kritiek, fout, waarschuwing en ter informatie. |
-| operationId |Meestal een GUID gedeeld door de gebeurtenissen die overeenkomt met één bewerking. |
+| operationId |Meestal een GUID gedeeld tussen de gebeurtenissen die overeenkomt met één bewerking. |
 | operationName |Naam van de bewerking. |
-| properties |Eigenschappen van de gebeurtenis. |
-| status |De tekenreeks. De status van de bewerking. Algemene waarden zijn gestart, wordt uitgevoerd, geslaagd, mislukt, actief en opgelost. |
-| subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Het kan ook andere tekenreeksen die een substatus beschrijven omvatten. Algemene substatus waarden zijn OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode : 504). |
+| properties |De eigenschappen van de gebeurtenis. |
+| status |tekenreeks. Status van de bewerking. Algemene waarden zijn gestart, wordt uitgevoerd, is voltooid, is mislukt, actieve en opgelost. |
+| subStatus |Omvat gewoonlijk het HTTP-statuscode van de bijbehorende REST-aanroep. Er kan ook andere tekenreeksen die een substatus beschrijven bevatten. Algemene substatus waarden zijn OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerd (HTTP-statuscode: 202), niet-inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet gevonden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409 ), Een interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode: 504). |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over het activiteitenlogboek](monitoring-overview-activity-logs.md).
-* [Azure automatiseringsscripts (Runbooks) uitvoeren op Azure waarschuwingen](http://go.microsoft.com/fwlink/?LinkId=627081).
-* [Een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een activiteit logboek-waarschuwing.
-* [Een logische app gebruiken voor het verzenden van een toegestane bericht door een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een activiteit logboek-waarschuwing.
-* [Gebruik van een logische app een bericht verzenden naar een Azure-wachtrij door een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een activiteit logboek-waarschuwing.
+* [Azure automation-scripts (Runbooks) uit te voeren op Azure-waarschuwingen](http://go.microsoft.com/fwlink/?LinkId=627081).
+* [Een logische app gebruiken voor het verzenden van een SMS-bericht via Twilio vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.
+* [Een logische app gebruiken op een Slack-bericht verzenden vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.
+* [Gebruik van een logische app een bericht verzenden naar een Azure-wachtrij vanuit een Azure-waarschuwing](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). In dit voorbeeld is voor metrische waarschuwingen, maar het kan worden gewijzigd om te werken met een waarschuwing voor activiteitenlogboek.

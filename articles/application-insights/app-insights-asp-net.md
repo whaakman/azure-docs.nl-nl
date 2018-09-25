@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991217"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947316"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Application Insights instellen voor uw ASP.NET-website
 
@@ -105,7 +105,7 @@ Klik in de portal op een tegel of grafiek om meer details te bekijken.
 ## <a name="step-4-publish-your-app"></a>Stap 4: uw app publiceren
 Publiceer uw app op de IIS-server of op Azure. Bekijk de livestream met metrische gegevens in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) om te controleren of alles goed werkt.
 
-Uw telemetrie wordt opgebouwd in de Application Insights-portal, waar u metrische gegevens kunt controleren, uw telemetrie kunt doorzoeken en [dashboards](app-insights-dashboards.md) kunt instellen. U kunt ook de krachtige [querytaal van Log Analytics](https://docs.loganalytics.io/) gebruiken om gebruik en prestaties te analyseren of om specifieke gebeurtenissen te zoeken.
+Uw telemetrie wordt opgebouwd in de Application Insights-portal, waar u metrische gegevens kunt controleren, uw telemetrie kunt doorzoeken en [dashboards](app-insights-dashboards.md) kunt instellen. U kunt ook de krachtige [querytaal van Log Analytics](https://aka.ms/LogAnalyticsLanguage) gebruiken om gebruik en prestaties te analyseren of om specifieke gebeurtenissen te zoeken.
 
 U kunt uw telemetrie ook blijven analyseren in [Visual Studio](app-insights-visual-studio.md) met hulpprogramma's voor diagnostisch zoeken en [Trends](app-insights-visual-studio-trends.md).
 

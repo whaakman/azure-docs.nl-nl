@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 00b908fb078a6ad32363c0168b88a162f8735fc3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 227e6b87e5a131147ffebdeac045b9b27ab20dc8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930542"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991314"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Aan de slag met Docker en Compose om te definiëren en uitvoeren van een toepassing met meerdere containers in Azure
 Met [opstellen](http://github.com/docker/compose), u een eenvoudig tekstbestand gebruiken voor het definiëren van een toepassing die bestaat uit meerdere Docker-containers. U instellen uw toepassing in één opdracht dat alles is voor het implementeren van uw omgeving gedefinieerde vervolgens. Bijvoorbeeld: in dit artikel wordt beschreven hoe u snel een WordPress-blog met een back-end MariaDB SQL-database op een Ubuntu-VM instellen. U kunt ook opstellen voor het instellen van complexere toepassingen gebruiken.
@@ -32,8 +32,8 @@ U kunt verschillende Azure-procedures en de beschikbare installatiekopieën of R
 Wanneer u de Docker VM-extensie gebruikt, wordt uw virtuele machine is automatisch ingesteld als een Docker-host en Compose al is geïnstalleerd.
 
 
-### <a name="create-docker-host-with-azure-cli-20"></a>Docker-host maken met Azure CLI 2.0
-Installeer de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+### <a name="create-docker-host-with-azure-cli"></a>Docker-host maken met Azure CLI
+Installeer de meest recente [Azure CLI](/cli/azure/install-az-cli2) en aan te melden bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 Maak eerst een resourcegroep voor uw Docker-omgeving met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 134c33ac28c6a094bdc50deb7206db95bf4436fc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574527"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993014"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diagnostische logboeken naar Log Analytics in Azure Stream
 
-**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime met Azure Log Analytics met behulp van de portal, PowerShell-cmdlets of Azure CLI 2.0.
+**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime met Azure Log Analytics met behulp van de portal, PowerShell-cmdlets of Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Wat u kunt doen met diagnostische logboeken in Log Analytics
 
@@ -73,9 +73,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Houd er rekening mee dat de werkruimte-id-eigenschap duurt de volledige Azure-resource-ID van de werkruimte, niet de werkruimte-ID/sleutel wordt weergegeven in de Log Analytics-portal voordat.
 
-### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
+### <a name="via-azure-cli"></a>Via Azure CLI
 
-Om in te schakelen streaming via de [Azure CLI 2.0](insights-cli-samples.md), kunt u de [az monitor diagnostic-settings maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
+Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u de [az monitor diagnostic-settings maken](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) opdracht.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

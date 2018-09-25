@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 094ee070a3eae9d102bd137e1a0ed7299b2b45a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e79132b604d4e09c980d683a6766a886e4308bde
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345893"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994153"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van Azure CLI
 
@@ -32,24 +32,25 @@ In dit artikel, leert met behulp van de Azure CLI, u hoe u voor het uitvoeren va
 - In- en uitschakelen van de door het systeem toegewezen beheerde identiteit op een Azure VM
 - Toevoegen en verwijderen van een gebruiker toegewezen beheerde identiteit op een Azure VM
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md). **Lees de [verschil tussen een beheerde identiteit door het systeem is toegewezen en de gebruiker toegewezen](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende Azure op basis van rollen access control-toewijzingen:
+
     > [!NOTE]
     > Er zijn geen extra Azure AD directory-roltoewijzingen is vereist.
+
     - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aan een virtuele machine maken en inschakelen en het systeem en/of de gebruiker toegewezen beheerde identiteit verwijderen uit een Azure-VM.
     - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van een gebruiker toegewezen beheerde identiteit.
     - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen beheerde identiteit van en naar een virtuele machine.
 - Als u wilt de CLI-scriptvoorbeelden uitvoeren, hebt u drie opties:
     - Gebruik [Azure Cloud Shell](../../cloud-shell/overview.md) vanuit Azure portal (Zie volgende sectie).
     - Gebruik de ingesloten Azure Cloud Shell via het 'Try It' de knop, zich in de rechterbovenhoek van elk codeblok.
-    - [Installeer de nieuwste versie van Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) als u liever een lokale CLI-console.
+    - [Installeer de nieuwste versie van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) als u liever een lokale CLI-console. 
       
       > [!NOTE]
       > De opdrachten zijn bijgewerkt in overeenstemming met de nieuwste versie van de [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).     
-        
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -132,7 +133,7 @@ In deze sectie helpt u bij het maken van een virtuele machine met de toewijzing 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Maak een beheerde identiteit gebruiker toegewezen met [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waarin de gebruiker toegewezen beheerde identiteit wordt gemaakt, en de `-n` parameter geeft u de naam ervan.    
+2. Maak een door de gebruiker toegewezen beheerde identiteit met [az identity create](/cli/azure/identity#az-identity-create).  De parameter `-g` geeft de resourcegroep aan waarin de door de gebruiker toegewezen beheerde identiteit wordt gemaakt en de parameter `-n` geeft de naam ervan aan.    
     
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

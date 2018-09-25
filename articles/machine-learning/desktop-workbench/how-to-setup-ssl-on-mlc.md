@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644352"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976218"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>SSL inschakelen op een Azure Machine Learning Compute (MLC)-cluster 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Deze instructies kunnen u het instellen van SSL voor het aanroepen van beoordelingen op een Machine Learning Compute (MLC)-cluster. 
 
@@ -65,7 +69,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>De CNAME- en het IP-adres toewijzen
 
-Maak een toewijzing tussen de CNAME die u hebt geselecteerd in de vereisten en het IP-adres van de realtime front-end (FE). Voor het detecteren van het IP-adres van de FE, moet u de onderstaande opdracht uitvoeren. De uitvoer wordt weergegeven een veld met de naam 'publicIpAddress' die het IP-adres van de front-end-realtime cluster bevat. Raadpleeg de instructies van uw DNS-provider voor het instellen van een record van de FQDN-naam die wordt gebruikt in CNAME naar het openbare IP-adres.
+Maak een toewijzing tussen de CNAME die u hebt geselecteerd in de vereisten en het IP-adres van de realtime front-end (FE). Voor het detecteren van het IP-adres van de FE, moet u de onderstaande opdracht uitvoeren. De uitvoer wordt weergegeven een veld met de naam 'openbare IP-adres', dat het IP-adres van de front-end voor realtime-cluster bevat. Raadpleeg de instructies van uw DNS-provider voor het instellen van een record van de FQDN-naam die wordt gebruikt in CNAME naar het openbare IP-adres.
 
 
 

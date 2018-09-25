@@ -1,6 +1,6 @@
 ---
-title: Met behulp van OMS Log Analytics waarschuwing REST-API
-description: De waarschuwing REST-API van Log Analytics kunt u waarschuwingen in logboekanalyse die deel uitmaakt van de Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat de details van de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
+title: Met behulp van OMS Log Analytics Alert REST API
+description: De Log Analytics Alert REST API kunt u waarschuwingen in Log Analytics die deel uitmaakt van de Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,43 +15,43 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9097ca13bf4f65db4b0924044a9c0f075e3703af
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128891"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984582"
 ---
-# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van waarschuwingsregels in logboekanalyse met REST-API
-De waarschuwing REST-API van Log Analytics kunt u waarschuwingen in Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat de details van de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
+# <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
+De Log Analytics Alert REST API kunt u waarschuwingen in Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
 
-Log Analytics Search REST-API RESTful is en toegankelijk zijn via de REST-API van Azure Resource Manager. In dit document vindt u voorbeelden waarbij de API worden geopend vanuit een PowerShell-opdrachtregel met [ARMClient](https://github.com/projectkudu/ARMClient), een open source-opdrachtregelprogramma dat vereenvoudigt de Azure Resource Manager-API wordt aangeroepen. Het gebruik van ARMClient en PowerShell is een van de vele opties voor toegang tot de Log Analytics zoeken-API. Met deze hulpprogramma's, kunt u gebruikmaken van de RESTful Azure Resource Manager-API aanroepen met OMS-werkruimten en uitvoeren van opdrachten in deze zoekopdracht. De API uitvoer zoekresultaten aan u in de JSON-indeling, zodat u kunt de lijst met zoekresultaten programmatisch op veel verschillende manieren gebruiken.
+De Log Analytics Search REST-API is RESTful en zijn toegankelijk via de Azure Resource Manager REST API. In dit document vindt u voorbeelden waarin de API is toegankelijk vanuit een PowerShell-opdrachtregel met [ARMClient](https://github.com/projectkudu/ARMClient), een open-source-opdrachtregelprogramma dat vereenvoudigt het aanroepen van de Azure Resource Manager-API. Het gebruik van ARMClient en PowerShell is een van de vele opties voor toegang tot de Log Analytics Search-API. Met deze hulpprogramma's, kunt u gebruikmaken van de RESTful API van Azure Resource Manager om aanroepen naar de OMS-werkruimten en zoeken in opdrachten in deze uitvoeren. De API uitvoer zoekresultaten aan u in JSON-indeling, zodat u kunt de lijst met zoekresultaten via een programma op veel verschillende manieren gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
-Waarschuwingen kunnen op dit moment kunnen alleen worden gemaakt met een opgeslagen zoekopdracht in logboekanalyse.  U kunt verwijzen naar de [logboek Search REST-API](log-analytics-log-search-api.md) voor meer informatie.
+Waarschuwingen kunnen op dit moment alleen worden gemaakt met een opgeslagen zoekopdracht in Log Analytics.  U kunt verwijzen naar de [Log Search REST-API](log-analytics-log-search-api.md) voor meer informatie.
 
 ## <a name="schedules"></a>Planningen
-Een opgeslagen zoekopdracht kan een of meer planningen hebben. Het schema wordt gedefinieerd hoe vaak de zoekopdracht is uitgevoerd en de tijdsinterval waarover de criteria wordt geïdentificeerd.
+Een opgeslagen zoekopdracht kan een of meer schema's hebben. Het schema wordt gedefinieerd hoe vaak de zoekopdracht wordt uitgevoerd en het tijdsinterval op waarover de criteria wordt geïdentificeerd.
 Schema's hebben de eigenschappen in de volgende tabel.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Interval |Hoe vaak de zoekactie wordt uitgevoerd. Gemeten in minuten. |
-| QueryTimeSpan |Het interval waarmee de criteria wordt geëvalueerd. Moet gelijk zijn aan of groter dan het Interval. Gemeten in minuten. |
-| Versie |De API-versie wordt gebruikt.  Op dit moment is moet dit altijd worden ingesteld op 1. |
+| Interval |Hoe vaak de zoekopdracht wordt uitgevoerd. Gemeten in minuten. |
+| QueryTimeSpan |Het tijdsinterval op waarover de criteria wordt geëvalueerd. Moet gelijk zijn aan of groter zijn dan het Interval. Gemeten in minuten. |
+| Versie |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
 
-Neem bijvoorbeeld een event-query met een Interval van 15 minuten en een TimeSpan-waarde van 30 minuten. In dit geval wordt de query wilt uitvoeren om de 15 minuten en een waarschuwing zou worden geactiveerd als de criteria nog steeds omzetten in true over een reeks van 30 minuten.
+Bijvoorbeeld, kunt u een gebeurtenisquery met een Interval van 15 minuten en een periode van 30 minuten. In dit geval wordt de query wordt uitgevoerd om de 15 minuten, en een waarschuwing wordt geactiveerd als de criteria verder worden omgezet naar de waarde true via een reeks van 30 minuten.
 
 ### <a name="retrieving-schedules"></a>Bij het ophalen van schema 's
-Gebruik de Get-methode voor het ophalen van alle schema's voor een opgeslagen zoekopdracht.
+De Get-methode gebruiken om op te halen van alle schema's voor een opgeslagen zoekactie.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules?api-version=2015-03-20
 
-Gebruik de Get-methode met een schema-ID voor het ophalen van een bepaalde planning voor een opgeslagen zoekopdracht.
+Gebruik de Get-methode met de ID van een schema om op te halen van een bepaalde planning voor een opgeslagen zoekactie.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
-Hier volgt een voorbeeldantwoord voor een schema.
+Hieronder volgt een voorbeeldantwoord voor een schema.
 
 ```json
 {
@@ -66,100 +66,100 @@ Hier volgt een voorbeeldantwoord voor een schema.
 }
 ```
 
-### <a name="creating-a-schedule"></a>Een schema maken
-De Put-methode met een uniek schema-ID gebruiken om een nieuwe planning te maken.  Houd er rekening mee dat twee planningen kunnen niet dezelfde ID zelfs als ze gekoppeld aan verschillende zijn opgeslagen zoekopdrachten.  Wanneer u een planning in de OMS-console maakt, wordt een GUID gemaakt voor de schema-ID.
+### <a name="creating-a-schedule"></a>Het maken van een planning
+Gebruik de Put-methode met de ID van een uniek schema een nieuw schema maken.  Houd er rekening mee dat twee schema's kunnen niet dezelfde ID, zelfs als ze gekoppeld aan verschillende zijn opgeslagen zoekopdrachten.  Wanneer u een planning in de OMS-console maakt, wordt een GUID gemaakt voor de schema-ID.
 
 > [!NOTE]
-> De naam op voor alle opgeslagen zoekopdrachten, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters.
+> De naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters.
 
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
-### <a name="editing-a-schedule"></a>Het bewerken van een planning
-Gebruik de Put-methode met een bestaand schema-ID voor de dezelfde opgeslagen zoekopdracht om te wijzigen die planning.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de planning.
+### <a name="editing-a-schedule"></a>Een schema bewerken
+Gebruik de Put-methode met de ID van een bestaande planning voor de dezelfde opgeslagen zoekopdracht om te wijzigen die planning.  De hoofdtekst van de aanvraag moet de etag van het schema bevatten.
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
 ### <a name="deleting-schedules"></a>Schema's verwijderen
-Gebruik de Delete-methode met een schema-ID om te verwijderen van een planning.
+Gebruik de Delete-methode met de ID van een planning om te verwijderen van een schema.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
 ## <a name="actions"></a>Acties
-Een planning kan meerdere acties hebben. Een actie kan definiëren een of meer processen uit te voeren zoals het verzenden van een e-mail of een runbook starten, of het kan een drempelwaarde die bepaalt wanneer de resultaten van een zoekopdracht voldoen aan bepaalde criteria definiëren.  Sommige acties definiëren beide zodat de processen worden uitgevoerd wanneer de drempelwaarde wordt voldaan.
+Een planning kan meerdere acties hebben. Een actie kan definiëren een of meer processen om uit te voeren, zoals een e-mail wordt verzonden of een runbook starten, of het kan een drempelwaarde waarmee wordt bepaald wanneer de resultaten van een zoekopdracht voldoen aan bepaalde criteria definiëren.  Sommige acties worden beide definiëren, zodat de processen worden uitgevoerd wanneer de drempelwaarde wordt voldaan.
 
-Alle acties hebben de eigenschappen in de volgende tabel.  Verschillende soorten waarschuwingen hebben verschillende aanvullende eigenschappen, die hieronder worden beschreven.
+Alle acties hebben de eigenschappen in de volgende tabel.  Verschillende typen waarschuwingen hebben verschillende extra eigenschappen, worden hieronder beschreven.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Type |Type van de actie.  De mogelijke waarden zijn momenteel waarschuwing en Webhook. |
+| Type |Het type van de actie.  De mogelijke waarden zijn momenteel waarschuwings- en Webhook. |
 | Naam |Weergavenaam voor de waarschuwing. |
-| Versie |De API-versie wordt gebruikt.  Op dit moment is moet dit altijd worden ingesteld op 1. |
+| Versie |De API-versie die wordt gebruikt.  Op dit moment moet dit altijd worden ingesteld op 1. |
 
 ### <a name="retrieving-actions"></a>Bij het ophalen van acties
 
 > [!NOTE]
-> 14 mei 2018, vanaf wordt alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Acties zijn voor gebruikers die waarschuwingen naar Azure uitbreiden, nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
-Gebruik de Get-methode voor het ophalen van alle acties voor een schema.
+De Get-methode gebruiken om op te halen van alle acties voor een schema.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
 
-Gebruik de Get-methode met de actie-ID voor het ophalen van een bepaalde actie voor een schema.
+Gebruik de Get-methode met de actie-ID ophalen van een bepaalde actie voor een schema.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
-### <a name="creating-or-editing-actions"></a>Maken of bewerken van acties
-Gebruik de Put-methode met een actie-ID die uniek is voor de planning voor het maken van een nieuwe actie.  Wanneer u een actie in de OMS-console maakt, is een GUID voor het actie-ID.
+### <a name="creating-or-editing-actions"></a>Het maken of bewerken van acties
+De Put-methode gebruiken met een actie-ID die uniek is voor de planning te maken van een nieuwe actie.  Wanneer u een actie in de OMS-console maakt, wordt een GUID wordt voor de actie-ID.
 
 > [!NOTE]
-> De naam op voor alle opgeslagen zoekopdrachten, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters.
+> De naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters.
 
-Gebruik de Put-methode met een bestaande actie-ID voor de dezelfde opgeslagen zoekopdracht om te wijzigen die planning.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de planning.
+Gebruik de Put-methode met een bestaande actie-ID voor de dezelfde opgeslagen zoekopdracht om te wijzigen die planning.  De hoofdtekst van de aanvraag moet de etag van het schema bevatten.
 
-De indeling van de aanvraag voor het maken van een nieuwe actie varieert per actietype zodat deze voorbeelden u in de volgende secties vindt.
+De indeling van de aanvraag voor het maken van een nieuwe actie verschilt per actietype, zodat deze voorbeelden u in de volgende secties vindt.
 
-### <a name="deleting-actions"></a>Acties worden verwijderd
+### <a name="deleting-actions"></a>Acties verwijderen
 
 > [!NOTE]
-> 14 mei 2018, vanaf wordt alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Acties zijn voor gebruikers die waarschuwingen naar Azure uitbreiden, nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Gebruik de Delete-methode met de actie-ID om te verwijderen van een actie.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
 
-### <a name="alert-actions"></a>Waarschuwing acties
-Een planning hebt slechts één meldingsactie.  Meldingen zijn een of meer van de secties in de volgende tabel.  Elk wordt nader hieronder beschreven.
+### <a name="alert-actions"></a>Waarschuwingsacties
+Een planning moet slechts één actie bij waarschuwing hebben.  Waarschuwingsacties zijn een of meer van de secties in de volgende tabel.  Elk wordt nader besproken die hieronder beschreven.
 
 | Sectie | Beschrijving | Gebruik |
 |:--- |:--- |:--- |
 | Drempelwaarde |Criteria voor wanneer de actie wordt uitgevoerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
-| Severity |Het label dat wordt gebruikt om te classificeren waarschuwing wanneer deze worden geactiveerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
-| Actiegroepen |Id's van Azure ActionGroup waar acties vereist zijn opgegeven, zoals - e-mailberichten, SMSs, telefoongesprekken, Webhooks, Automation-Runbooks, ITSM Connectors, enzovoort.| Vereist wanneer waarschuwingen worden uitgebreid naar Azure|
-| Acties aanpassen|De standaarduitvoer voor select acties van ActionGroup wijzigen| Optioneel voor elke waarschuwing kan worden gebruikt als waarschuwingen worden uitgebreid naar Azure. |
-| EmailNotification |E-mail verzenden naar meerdere ontvangers. | Niet vereist, als waarschuwingen worden uitgebreid naar Azure|
-| Herstel |Starten van een runbook in Azure Automation proberen om geïdentificeerde probleem te verhelpen. |Niet vereist, als waarschuwingen worden uitgebreid naar Azure|
-| Webhookacties | Push-gegevens van waarschuwingen, naar de gewenste service als JSON |Niet vereist, als waarschuwingen worden uitgebreid naar Azure|
+| Severity |Het label dat wordt gebruikt om te classificeren waarschuwing wanneer ze worden geactiveerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
+| Actiegroepen |Id's van Azure ActionGroup waar de acties die vereist zijn opgegeven, zoals - e-mailberichten, SMSs, gesprekken, Webhooks, Automation-Runbooks, ITSM-Connectors, enzovoort.| Vereist wanneer waarschuwingen worden uitgebreid naar Azure|
+| Acties aanpassen|De standaarduitvoer voor select acties op basis van ActionGroup wijzigen| Optioneel voor elke waarschuwing kan worden gebruikt nadat er waarschuwingen zijn uitgebreid naar Azure. |
+| EmailNotification |E-mail verzenden naar meerdere ontvangers. | Niet vereist als de waarschuwingen worden uitgebreid naar Azure|
+| Herstel |Een runbook te starten in Azure Automation om te proberen geïdentificeerde probleem te corrigeren. |Niet vereist als de waarschuwingen worden uitgebreid naar Azure|
+| Webhookacties | Gegevens van waarschuwingen, pushen naar gewenste service als JSON |Niet vereist als de waarschuwingen worden uitgebreid naar Azure|
 
 > [!NOTE]
-> 14 mei 2018, vanaf wordt alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### <a name="thresholds"></a>Drempelwaarden
-Een waarschuwing actie mag slechts één drempelwaarde hebben.  Andere processen in deze actie worden uitgevoerd wanneer de resultaten van een opgeslagen zoekopdracht overeenkomen met de drempelwaarde in een actie die is gekoppeld aan die zoekopdracht.  Een actie kan alleen een drempelwaarde ook bevatten, zodat deze kan worden gebruikt met de acties die van andere typen die geen drempelwaarden bevatten.
+Een actie bij waarschuwing mag slechts één drempelwaarde hebben.  Als de resultaten van een opgeslagen zoekopdracht overeenkomen met de drempelwaarde in een actie die is gekoppeld aan die zoekopdracht, worden alle andere processen in die actie uitgevoerd.  Een actie kan ook alleen een drempelwaarde bevatten, zodat deze kan worden gebruikt met de acties die van andere typen die geen drempelwaarden bevatten.
 
-De eigenschappen hebben drempelwaarden in de volgende tabel.
+Drempelwaarden hebben de eigenschappen in de volgende tabel.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Operator |Operator voor de drempelwaarde voor vergelijking. <br> gt = groter dan <br> lt = kleiner dan |
-| Waarde |Waarde voor de drempelwaarde. |
+| Operator |Operator voor de voor drempelwaardevergelijking. <br> gt = groter dan <br> lt = minder dan |
+| Waarde |De waarde voor de drempelwaarde. |
 
-Neem bijvoorbeeld een event-query met een Interval van 15 minuten, een TimeSpan-waarde van 30 minuten en een drempel van meer dan 10. In dit geval wordt de query wilt uitvoeren om de 15 minuten en een waarschuwing zou worden geactiveerd als het 10 gebeurtenissen die zijn gemaakt via een reeks van 30 minuten geretourneerd.
+Bijvoorbeeld, kunt u een gebeurtenisquery met een Interval van 15 minuten, een periode van 30 minuten en een drempelwaarde van meer dan 10. In dit geval wordt de query wordt uitgevoerd om de 15 minuten, en een waarschuwing wordt geactiveerd als het 10 gebeurtenissen die zijn gemaakt via een reeks van 30 minuten geretourneerd.
 
-Hier volgt een voorbeeldantwoord voor een actie met alleen een drempelwaarde.  
+Hieronder volgt een voorbeeldantwoord voor een actie met een drempelwaarde overschrijdt.  
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -172,26 +172,26 @@ Hier volgt een voorbeeldantwoord voor een actie met alleen een drempelwaarde.
         "Version": 1
     }
 
-De Put-methode met een unieke actie-ID gebruiken voor het maken van een nieuwe drempelwaarde-actie voor een schema.  
+De Put-methode gebruiken met een unieke actie-ID te maken van een nieuwe drempelwaarde-actie voor een schema.  
 
     $thresholdJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van een drempelwaarde voor een planning in te grijpen.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een actie van de drempelwaarde voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
 #### <a name="severity"></a>Severity
-Log Analytics kunt u uw waarschuwingen classificeren in categorieën zodat u eenvoudiger beheer en selectie. De ernst van de waarschuwing die gedefinieerd is: informatief, waarschuwingen en kritieke. Deze worden toegewezen aan de schaal genormaliseerde ernst van waarschuwingen van Azure als:
+Log Analytics kunt u uw waarschuwingen te classificeren in categorieën, waarmee eenvoudiger beheer en sorteren. De ernst van de waarschuwing die gedefinieerd is: informatief, waarschuwing en kritiek. Deze worden toegewezen aan de ernst van genormaliseerde schaal van Azure-waarschuwingen als:
 
-|Log Analytics Ernstniveau  |Ernstniveau van waarschuwingen van Azure  |
+|Ernstniveau van log Analytics  |Ernstniveau van waarschuwingen van Azure  |
 |---------|---------|
-|Kritieke |Sev 0|
-|Waarschuwing |Sev 1|
+|kritiek |Sev 0|
+|waarschuwing |Sev 1|
 |Informatief | Sev 2|
 
-Hier volgt een voorbeeldantwoord voor een actie met alleen een drempelwaarde en ernst. 
+Hieronder volgt een voorbeeldantwoord voor een actie met alleen een drempelwaarde en ernst. 
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -204,22 +204,22 @@ Hier volgt een voorbeeldantwoord voor een actie met alleen een drempelwaarde en 
         "Severity": "critical",
         "Version": 1    }
 
-De Put-methode met een unieke actie-ID gebruiken voor het maken van een nieuwe actie voor een schema met ernst.  
+Gebruik de Put-methode met een unieke actie-ID om een nieuwe actie voor een schema met ernst.  
 
     $thresholdWithSevJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van een actie ernst voor een schema.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een actie van de ernst voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
 
 #### <a name="action-groups"></a>Actiegroepen
-Alle waarschuwingen in Azure, gebruik actie groep als het standaardmechanisme voor het verwerken van acties. U kunt uw acties één keer opgeven en vervolgens de actiegroep meerdere waarschuwingen - koppelen in Azure met actie-groep. Zonder de noodzaak om te declareren dezelfde acties herhaaldelijk steeds opnieuw. Actie beheergroepen ondersteunen meerdere acties - zoals e-mail, SMS, telefoongesprek, ITSM verbinding, Automation-Runbook, Webhook URI en meer. 
+Alle waarschuwingen in Azure, gebruik actiegroep als het standaardmechanisme voor het verwerken van acties. Met de actiegroep, kunt u uw acties één keer opgeven en koppel vervolgens de actie die u wilt meerdere waarschuwingen - binnen Azure. Zonder de noodzaak om te declareren dezelfde acties herhaaldelijk telkens opnieuw. Actiegroepen ondersteuning voor meerdere acties - inclusief e-mail, SMS, Spraakoproep, ITSM-verbinding, Automation-Runbook, Webhook URI en meer. 
 
-Een planning hebt voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure - nu actie groepsgegevens doorgegeven samen met de drempelwaarde, te kunnen maken van een waarschuwing. E-details, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd aan de kant van een actie groep eerst maken voordat een waarschuwing; een kunt maken [groep acties van de Azure-Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) in de Portal of gebruik [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure, hebt een planning nu actiegroep informatie doorgegeven, samen met de drempelwaarde, kunnen een waarschuwing wilt maken. Details van de e-mail, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd in naast een actiegroep eerst voordat het maken van een waarschuwing; een kunt maken [actiegroep van Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) in de Portal of gebruik [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
-Wilt toevoegen koppeling van de actiegroep in een waarschuwing, geeft u de unieke ID van Azure Resource Manager van de actiegroep in de definitie van de waarschuwing. Hieronder vindt u een voorbeeld-afbeelding:
+Koppeling van de actiegroep toevoegen aan een waarschuwing, geef de unieke ID voor Azure Resource Manager van de actiegroep in het definitie van de waarschuwing. Hieronder vindt u een voorbeeld van afbeelding:
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -239,21 +239,21 @@ Wilt toevoegen koppeling van de actiegroep in een waarschuwing, geeft u de uniek
         "Version": 1
       },
 
-Gebruik de Put-methode met een unieke actie-ID al een bestaande groep acties voor een planning koppelen.  Hier volgt een voorbeeld-afbeelding van het gebruik van.
+De Put-methode gebruiken met een unieke actie-ID te koppelen van bestaande actiegroep voor een schema.  Hier volgt een voorbeeld van afbeelding van het gebruik van.
 
     $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van de groep van een actie die is gekoppeld voor een schema.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die is gekoppeld voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 #### <a name="customize-actions"></a>Acties aanpassen
-Door standaardacties, volgt u de standaardsjabloon en de indeling voor meldingen. Maar gebruiker kunt aanpassen sommige acties, zelfs als ze worden beheerd door de Actiegroepen. Op dit moment is aanpassing mogelijk voor het onderwerp van E-mail en Webhook-nettolading.
+Door standaardacties, volgt u de standaardsjabloon en de indeling voor meldingen. Maar gebruiker bepaalde acties kunt aanpassen, zelfs als ze worden beheerd door Actiegroepen. Op dit moment is aanpassing mogelijk dat het onderwerp van E-mail en Webhook-nettolading.
 
-##### <a name="customize-e-mail-subject-for-action-group"></a>E-mailonderwerp voor actie groep aanpassen
-Het onderwerp e-mail voor waarschuwingen is standaard: melding van waarschuwingen <AlertName> voor <WorkspaceName>. Maar deze kan worden aangepast, zodat u kunt specifieke woorden of labels - kunt u eenvoudig alvast filterregels in je postvak in. De details van aanpassen e-header moeten verzenden samen met ActionGroup details, zoals in het voorbeeld hieronder.
+##### <a name="customize-e-mail-subject-for-action-group"></a>E-mailonderwerp voor actiegroep aanpassen
+Het e-mailonderwerp voor waarschuwingen is standaard: waarschuwingsmelding <AlertName> voor <WorkspaceName>. Maar dit kan worden aangepast, zodat u kunt specifieke woorden of tags - kunt u eenvoudig gebruikmaken van filterregels in uw postvak in. De informatie aanpassen per e-mail verzenden-header moeten verzenden, samen met ActionGroup-details conform onderstaand voorbeeld.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -267,27 +267,27 @@ Het onderwerp e-mail voor waarschuwingen is standaard: melding van waarschuwinge
         "AzNsNotification": {
           "GroupIds": [
             "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ]
+          ],
           "CustomEmailSubject": "Azure Alert fired"
         },
         "Severity": "critical",
         "Version": 1
       },
 
-Gebruik de Put-methode met een unieke actie-ID al een bestaande groep voor acties koppelen aan de aanpassing voor een schema.  Hier volgt een voorbeeld-afbeelding van het gebruik van.
+De Put-methode gebruiken met een unieke actie-ID al bestaande actiegroep koppelen aan een schema aanpassen.  Hier volgt een voorbeeld van afbeelding van het gebruik van.
 
     $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van de groep van een actie die is gekoppeld voor een schema.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die is gekoppeld voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired' }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-##### <a name="customize-webhook-payload-for-action-group"></a>De nettolading van de Webhook aanpassen voor actie-groep
-De webhook verzonden via de actie-groep voor logboekanalyse heeft standaard een vaste structuur. Maar een JSON-nettolading kunt aanpassen met behulp van specifieke variabelen die worden ondersteund, om te voldoen aan de vereisten van de webhook-eindpunt. Zie voor meer informatie [Webhook-actie voor waarschuwingsregels logboek](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
+##### <a name="customize-webhook-payload-for-action-group"></a>Webhookpayload aanpassen voor de actiegroep
+De webhook is verzonden via actiegroep voor log analytics heeft standaard een vaste structuur. Maar een de JSON-nettolading kunt aanpassen met behulp van specifieke variabelen die worden ondersteund, om te voldoen aan de vereisten van de webhook-eindpunt. Zie voor meer informatie, [webhookactie voor waarschuwingsregels](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
 
-De details van de webhook aanpassen moeten samen met details ActionGroup verzenden en zal worden toegepast op alle Webhook URI opgegeven in de groep in te grijpen. zoals in het voorbeeld hieronder.
+De details van de webhook aanpassen hoeven in te verzenden, samen met details van ActionGroup en worden toegepast op alle Webhook URI opgegeven binnen de actiegroep; conform onderstaand voorbeeld.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -301,7 +301,7 @@ De details van de webhook aanpassen moeten samen met details ActionGroup verzend
         "AzNsNotification": {
           "GroupIds": [
             "/subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup"
-          ]
+          ],
           "CustomWebhookPayload": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
           "CustomEmailSubject": "Azure Alert fired"
         },
@@ -309,30 +309,30 @@ De details van de webhook aanpassen moeten samen met details ActionGroup verzend
         "Version": 1
       },
 
-Gebruik de Put-methode met een unieke actie-ID al een bestaande groep voor acties koppelen aan de aanpassing voor een schema.  Hier volgt een voorbeeld-afbeelding van het gebruik van.
+De Put-methode gebruiken met een unieke actie-ID al bestaande actiegroep koppelen aan een schema aanpassen.  Hier volgt een voorbeeld van afbeelding van het gebruik van.
 
     $AzNsJson = "{'properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup'], 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van de groep van een actie die is gekoppeld voor een schema.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een actiegroep die is gekoppeld voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 #### <a name="email-notification"></a>E-mailmelding
-E-mailmeldingen een e-mail verzenden naar een of meer geadresseerden.  Ze bevatten de eigenschappen in de volgende tabel.
+E-mailmeldingen verzenden e-mail naar een of meer ontvangers.  Ze bevatten de eigenschappen in de volgende tabel.
 
 > [!NOTE]
-> 14 mei 2018, vanaf wordt alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals e-mailmelding nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Geadresseerden |Lijst met e-mailadressen. |
 | Onderwerp |Het onderwerp van het e-mailbericht. |
-| Bijlage |Bijlagen worden momenteel niet ondersteund, zodat dit altijd de waarde 'None'. |
+| Bijlage |Bijlagen worden momenteel niet ondersteund, dus dit is altijd een waarde van 'None'. |
 
-Hier volgt een voorbeeldantwoord voor een actie van de melding e-mailbericht met een drempelwaarde.  
+Hieronder volgt een voorbeeldantwoord voor een e-mailactie voor melding met een drempelwaarde.  
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -353,31 +353,31 @@ Hier volgt een voorbeeldantwoord voor een actie van de melding e-mailbericht met
         "Version": 1
     }
 
-De Put-methode met een unieke actie-ID gebruiken voor het maken van een nieuwe e-actie voor een schema.  Het volgende voorbeeld wordt een e-mailbericht met een drempelwaarde, zodat de e-mail wordt verzonden wanneer de drempelwaarde, de resultaten van de opgeslagen zoekopdracht overschrijden.
+De Put-methode gebruiken met een unieke actie-ID te maken van een nieuw e-mailactie voor een schema.  Het volgende voorbeeld wordt een e-mailmelding met een drempelwaarde, zodat het e-mailbericht wordt verzonden wanneer de drempelwaarde, de resultaten van de opgeslagen zoekopdracht overschrijden.
 
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van een e-actie voor een schema.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een e-mailactie voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Herstelacties
-Herstelbewerkingen starten van een runbook in Azure Automation waarmee wordt geprobeerd het probleem dat wordt geïdentificeerd door de waarschuwing te verhelpen.  U moet een webhook voor het runbook dat is gebruikt in een herstelactie maken en geeft u de URI in de eigenschap WebhookUri.  Wanneer u deze actie met de OMS-console maakt, wordt automatisch een nieuwe webhook gemaakt voor het runbook.
+Herstel een runbook te starten in Azure Automation waarmee wordt geprobeerd om het probleem geïdentificeerd door de waarschuwing te verhelpen.  U moet maken van een webhook voor het runbook uit een herstelactie en geeft u de URI in de eigenschap WebhookUri.  Wanneer u deze actie met behulp van de OMS-console maakt, wordt automatisch een nieuwe webhook gemaakt voor het runbook.
 
 > [!NOTE]
-> 14 mei 2018, vanaf wordt alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden acties zoals herstel met behulp van runbook nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties, zoals herstel met behulp van runbook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
-Herstelbewerkingen bevatten de eigenschappen in de volgende tabel.
+De eigenschappen bevatten herstelbewerkingen in de volgende tabel.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| RunbookName |De naam van het runbook. Dit moet overeenkomen met een gepubliceerd runbook in de automation-account geconfigureerd in de Automation-oplossing in de OMS-werkruimte. |
+| RunbookName |De naam van het runbook. Dit moet overeenkomen met een gepubliceerd runbook in het automation-account dat is geconfigureerd in de oplossing voor automatisering in uw OMS-werkruimte. |
 | WebhookUri |De URI van de webhook. |
 | Vervaldatum |De vervaldatum en -tijd van de webhook.  Als de webhook niet beschikt over een verlopen, kan dit een geldige datum in de toekomst zijn. |
 
-Hier volgt een voorbeeldantwoord voor een herstelactie met een drempelwaarde.
+Hieronder volgt een voorbeeldantwoord voor een herstelactie met een drempelwaarde.
 
     "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
     "properties": {
@@ -395,18 +395,18 @@ Hier volgt een voorbeeldantwoord voor een herstelactie met een drempelwaarde.
         "Version": 1
     }
 
-De Put-methode met een unieke actie-ID gebruiken voor het maken van een nieuwe herstelactie voor een schema.  Het volgende voorbeeld wordt een herstelbewerking met een drempelwaarde, zodat het runbook wordt gestart wanneer de resultaten van de opgeslagen zoekopdracht de drempelwaarde overschrijden.
+De Put-methode gebruiken met een unieke actie-ID te maken van een nieuwe herstelactie voor een schema.  Het volgende voorbeeld wordt een herstel met een drempelwaarde, zodat het runbook wordt gestart wanneer de drempelwaarde, de resultaten van de opgeslagen zoekopdracht overschrijden.
 
     $remediateJson = "{'properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
 
-Gebruik de Put-methode met een bestaande actie-ID een herstelactie voor een schema wijzigen.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een herstelactie voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $remediateJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
 
 #### <a name="example"></a>Voorbeeld
-Hier volgt een voorbeeld van een volledige een nieuw e-waarschuwing wilt maken.  Hiermee maakt u een nieuw schema samen met een actie met een drempelwaarde en e-mailbericht.
+Hieronder volgt een compleet voorbeeld om te maken van een nieuw e-mailmelding.  Hiermee maakt u een nieuw schema samen met een actie met een drempelwaarde en e-mailbericht.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
     $resourceGroup  = "MyResourceGroup"    
@@ -423,15 +423,15 @@ Hier volgt een voorbeeld van een volledige een nieuw e-waarschuwing wilt maken. 
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>Webhookacties
-Een proces starten webhookacties door het aanroepen van een URL en het eventueel geven een nettolading worden verzonden.  Ze zijn vergelijkbaar met herstelacties maar ze zijn bedoeld voor webhooks die van processen dan Azure Automation-runbooks gebruikmaken mogelijk.  Ze bieden ook de aanvullende mogelijkheid bieden een nettolading moet worden geleverd aan het externe proces.
+Webhookacties start een proces doordat aanroepen van een URL en eventueel een nettolading wordt verzonden.  Ze zijn vergelijkbaar met herstelacties tenzij ze zijn bedoeld voor webhooks die processen dan Azure Automation-runbooks kunnen aanroepen.  Ze bieden ook de aanvullende mogelijkheid van het leveren van een payload moet worden geleverd aan het extern proces.
 
 > [!NOTE]
-> 14 mei 2018, vanaf wordt alle waarschuwingen in een werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden de acties zoals Webhook nu beheerd in Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Vanaf 14 mei 2018 worden wordt alle waarschuwingen in een openbare Azure-cloud-exemplaar van Log Analytics-werkruimte automatisch uitgebreid naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Voor gebruikers die waarschuwingen naar Azure uitbreiden, worden acties zoals Webhook nu beheerd in Azure-Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
-Webhookacties hoeven niet een drempelwaarde, maar in plaats daarvan moeten worden toegevoegd aan een schema dat een waarschuwing actie met een drempelwaarde is.  
+Webhookacties hoeven niet een drempelwaarde, maar in plaats daarvan moeten worden toegevoegd aan een schema dat een actie bij waarschuwing met een drempelwaarde is.  
 
-Hier volgt een voorbeeldantwoord voor webhook actie en een bijbehorende waarschuwingen met een drempelwaarde.
+Hieronder volgt een voorbeeldantwoord voor webhookactie en een bijbehorende actie bij waarschuwing met een drempelwaarde.
 
     {
         "__metadata": {},
@@ -463,8 +463,8 @@ Hier volgt een voorbeeldantwoord voor webhook actie en een bijbehorende waarschu
         ]
     }
 
-##### <a name="create-or-edit-a-webhook-action"></a>Maken of bewerken van een webhook-actie
-De Put-methode met een unieke actie-ID gebruiken voor het maken van een nieuwe webhook-actie voor een schema.  Het volgende voorbeeld maakt een actie Webhook en een waarschuwing met een drempelwaarde zodat de webhook wordt geactiveerd wanneer de resultaten van de opgeslagen zoekopdracht de drempelwaarde overschrijden.
+##### <a name="create-or-edit-a-webhook-action"></a>Maken of bewerken van een webhookactie
+De Put-methode gebruiken met een unieke actie-ID te maken van een nieuwe webhookactie voor een schema.  Het volgende voorbeeld wordt een webhookactie en een actie bij waarschuwing met een drempelwaarde zodat de webhook wordt geactiveerd wanneer de drempelwaarde, de resultaten van de opgeslagen zoekopdracht overschrijden.
 
     $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
@@ -472,13 +472,13 @@ De Put-methode met een unieke actie-ID gebruiken voor het maken van een nieuwe w
     $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
-Gebruik de Put-methode met een bestaande actie-ID te wijzigen van een webhook-actie voor een schema.  De hoofdtekst van de aanvraag vergezeld gaan van de etag van de actie.
+Gebruik de Put-methode met de ID van een bestaande actie om een webhookactie voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
 
     $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik de [REST-API om logboek zoekopdrachten](log-analytics-log-search-api.md) in logboekanalyse.
-* Meer informatie over [waarschuwingen melden waarschuwingen van azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
+* Gebruik de [REST-API voor het uitvoeren van zoekopdrachten in logboeken](log-analytics-log-search-api.md) in Log Analytics.
+* Meer informatie over [waarschuwingen voor activiteitenlogboeken in azure-waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

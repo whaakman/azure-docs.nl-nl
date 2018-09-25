@@ -1,6 +1,6 @@
 ---
 title: Overzicht van algemene patronen voor automatisch schalen
-description: Informatie over sommige van de algemene patronen automatisch schalen uw Azure-resource.
+description: Leer enkele van de algemene patronen voor automatisch schalen uw resource in Azure.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263257"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967401"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Overzicht van algemene patronen voor automatisch schalen
-Dit artikel worden enkele van de algemene patronen voor het schalen van uw resources in Azure.
+In dit artikel worden enkele van de algemene patronen voor het schalen van uw resource in Azure beschreven.
 
-Azure Monitor automatisch schalen geldt alleen voor virtuele Machine Scale Sets (VMSS), cloudservices, app-serviceabonnementen en app service-omgevingen. 
+Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Hiermee kunnen aan de slag
 
 In dit artikel wordt ervan uitgegaan dat u bekend met automatisch schalen bent. U kunt [hier uw resource schalen aan de slag][1]. Hier volgen enkele van de algemene patronen van de schaal.
 
-## <a name="scale-based-on-cpu"></a>Schalen op basis van CPU
+## <a name="scale-based-on-cpu"></a>Schaal op basis van CPU
 
-U hebt een web-app (VMSS/cloud service rol) en 
+U hebt een web-app (/ VMSS/cloud service rol) en
 
 - U wilt scale-out/schaal in op basis van de CPU.
-- Bovendien wilt u Zorg dat er een minimum aantal exemplaren. 
-- Bovendien wilt u ervoor te zorgen dat u een limiet ingesteld op het aantal exemplaren die om te kunnen worden geschaald.
+- Bovendien wilt u om ervoor te zorgen dat er een minimum aantal exemplaren.
+- U wilt ook, om ervoor te zorgen dat u een limiet ingesteld op het aantal exemplaren die kan worden geschaald tot.
 
-![Schalen op basis van CPU][2]
+![Schaal op basis van CPU][2]
 
-## <a name="scale-differently-on-weekdays-vs-weekends"></a>Anders weekdagen tegenover tijdens het weekend schalen
+## <a name="scale-differently-on-weekdays-vs-weekends"></a>Anders weekdagen vs tijdens het weekend schalen
 
-U hebt een web-app (VMSS/cloud service rol) en
+U hebt een web-app (/ VMSS/cloud service rol) en
 
-- Op het gewenste 3 exemplaren standaard (weekdagen)
-- U geen verkeer verwacht tijdens het weekend en moet daarom worden geschaald naar beneden 1 exemplaar in het weekend.
+- Op het gewenste 3 exemplaren standaard (op weekdagen)
+- U niet verwacht dat verkeer in het weekend en daarom moet worden geschaald naar 1 exemplaar in het weekend.
 
-![Anders weekdagen tegenover tijdens het weekend schalen][3]
+![Anders weekdagen vs tijdens het weekend schalen][3]
 
 ## <a name="scale-differently-during-holidays"></a>Anders tijdens de feestdagen schalen
 
-U hebt een web-app (VMSS/cloud service rol) en 
+U hebt een web-app (/ VMSS/cloud service rol) en
 
 - U wilt omhoog/omlaag schalen op basis van CPU-gebruik standaard
-- Echter tijdens feestdagen (of specifieke dagen die belangrijk voor uw bedrijf zijn) wilt u de standaardinstellingen overschrijven en meer capaciteit hebben tot uw beschikking staan.
+- Tijdens de feestdagen (of specifieke dagen die belangrijk voor uw bedrijf zijn) wilt u echter overschrijven de standaardinstellingen en hebt meer capaciteit beschikken.
 
-![Anders op feestdagen schaal][4]
+![Schaal anders op feestdagen][4]
 
-## <a name="scale-based-on-custom-metric"></a>Schalen op basis van aangepaste metrische gegevens
+## <a name="scale-based-on-custom-metric"></a>Schaal op basis van aangepaste meetwaarde
 
-U hebt een webfront-end en een API-laag die met de back-end communiceert. 
+U hebt een webfront-end en een API-laag die met de back-end communiceert.
 
-- U wilt schalen van de API-laag op basis van aangepaste gebeurtenissen in de front-end (voorbeeld: U wilt schalen van uw afrekenen op basis van het aantal items in de winkelwagen)
+- U wilt schalen van de API-laag op basis van aangepaste gebeurtenissen in de front-end (voorbeeld: U wilt uw afrekenen op basis van het aantal items in de winkelwagen schalen)
 
-![Schalen op basis van aangepaste metrische gegevens][5]
+![Schaal op basis van aangepaste meetwaarde][5]
 
 <!--Reference-->
 [1]: ./monitoring-autoscale-get-started.md

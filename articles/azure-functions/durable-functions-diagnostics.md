@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1211241ec3a2b32647260d1a5c7dc561019cfdf
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1ebca858632a64b5822658182a3b83c48f310164
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092238"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953024"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostische gegevens in duurzame functies (Azure Functions)
 
@@ -80,7 +80,7 @@ Om in te schakelen dat de uitgebreide orchestration opnieuw afspelen gebeurtenis
 
 ### <a name="single-instance-query"></a>Query voor één exemplaar
 
-De volgende query ziet u historische traceringsgegevens voor één exemplaar van de [Hello reeks](durable-functions-sequence.md) orchestration werken. Ze worden geschreven met behulp van de [Application Insights Query Language (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Deze gefilterd zodat alleen uitvoering opnieuw afspelen van de *logische* uitvoeringspad wordt weergegeven. Gebeurtenissen kunnen worden besteld door te sorteren door `timestamp` en `sequenceNumber` zoals wordt weergegeven in de onderstaande query: 
+De volgende query ziet u historische traceringsgegevens voor één exemplaar van de [Hello reeks](durable-functions-sequence.md) orchestration werken. Ze worden geschreven met behulp van de [Application Insights Query Language (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Deze gefilterd zodat alleen uitvoering opnieuw afspelen van de *logische* uitvoeringspad wordt weergegeven. Gebeurtenissen kunnen worden besteld door te sorteren door `timestamp` en `sequenceNumber` zoals wordt weergegeven in de onderstaande query: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";

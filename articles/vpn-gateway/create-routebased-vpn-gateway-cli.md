@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: d0f4e292c6f5a2725b4a9efe91e78c6e634ea64e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 870fa0f369a7296534ccad54a31fec9da8cb5ed2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38605974"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977584"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Een op route gebaseerde VPN-gateway maken met behulp van CLI
 
@@ -30,7 +30,7 @@ De stappen in dit artikel maakt een VNet, een subnet, een gatewaysubnet en een o
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om na te gaan welke versie er is geïnstalleerd. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 

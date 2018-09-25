@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424368"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041020"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
 In Azure Active Directory (Azure AD), kunt u complexe op kenmerken gebaseerde regels voor het inschakelen van dynamisch lidmaatschap voor groepen. Dynamisch groepslidmaatschap vermindert de administratieve overhead van het toevoegen en verwijderen van gebruikers. Dit artikel worden de eigenschappen en de syntaxis voor het maken van dynamische lidmaatschapsregels voor gebruikers of apparaten. U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
 
-Wanneer kenmerken van een gebruiker of apparaat wijzigt, evalueert het systeem alle dynamische groepsregels in een map om te controleren of de wijziging wilt activeren, een groep toevoegt of verwijdert. Als een gebruiker of het apparaat voldoet aan een regel voor een groep, worden ze toegevoegd als lid van die groep. Als ze niet langer voldoen aan de regel, worden ze verwijderd.
+Wanneer kenmerken van een gebruiker of apparaat wijzigt, evalueert het systeem alle dynamische groepsregels in een map om te controleren of de wijziging wilt activeren, een groep toevoegt of verwijdert. Als een gebruiker of het apparaat voldoet aan een regel voor een groep, worden ze toegevoegd als lid van die groep. Als ze niet langer voldoen aan de regel, worden ze verwijderd. U kunt geen handmatig toevoegen of verwijderen van een lid van een dynamische groep.
 
 * U kunt een dynamische groep voor apparaten of voor gebruikers maken, maar u kunt een regel waarmee gebruikers en apparaten bevat kan niet maken.
 * U kunt een groep apparaten op basis van kenmerken van de eigenaren van het apparaat kan niet maken. Regels voor groepslidmaatschap apparaat kunnen alleen verwijzen naar apparaatkenmerken.

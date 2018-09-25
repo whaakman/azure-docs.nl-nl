@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c0d028b2e6f5e759b46293bc3e1cbef6902ea8ea
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740850"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972314"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -94,8 +94,8 @@ Neem de volgende regels in acht als u het opslagaccount een naam geeft:
 
 Algemene opslagaccounts kunnen worden geconfigureerd voor een van de volgende prestatielagen:
 
-* Een standard-opslag-prestatielaag voor het opslaan van blobs, bestanden, tabellen, wachtrijen en schijven van de virtuele machine van Azure.
-* Een premium storage-prestatielaag voor het opslaan van virtuele-machineschijven van Azure alleen. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
+* Een standard-prestatielaag voor het opslaan van blobs, bestanden, tabellen, wachtrijen en schijven van de virtuele machine van Azure.
+* Een premium-prestatielaag voor het opslaan van virtuele-machineschijven van Azure alleen. Zie [Premium Storage: krachtige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Toegangslagen voor blok-blob-gegevens
 
@@ -107,12 +107,15 @@ De laag beschikbaar zijn:
 * De **cool** toegangslaag, die is geoptimaliseerd voor het opslaan van grote hoeveelheden gegevens die niet vaak worden geraadpleegd en die gedurende ten minste 30 dagen worden opgeslagen. Opslaan van gegevens in de koude laag rendabeler is, maar toegang tot die gegevens mogelijk iets duurder dan de toegang tot gegevens in de warme laag.
 * De **archief** laag, die alleen beschikbaar voor afzonderlijke blok-blobs is. De archive-laag is geoptimaliseerd voor gegevens die enkele uren latentie bij het ophalen kan tolereren en blijven in de archive-laag voor ten minste 180 dagen. De archive-laag is de meest voordelige optie zijn voor het opslaan van gegevens, maar toegang tot die gegevens is duurder dan de toegang tot gegevens in de warme als koude opslaglagen. 
 
+> [!NOTE]
+> De [Premium-laag voor access](../blobs/storage-blob-storage-tiers.md#premium-access-tier) beperkte Preview-versie beschikbaar is als een account voor lokaal redundante opslag (LRS) in de regio's Noord-Europa, VS Oost 2, VS-centraal en VS-West. Zie voor meer informatie over het registreren voor de Preview-versie, [Maak kennis met blobopslag van Azure Premium](http://aka.ms/premiumblob).
+
 Als er een wijziging in het gebruikspatroon van uw gegevens is, kunt u schakelen tussen deze toegangslagen op elk gewenst moment. 
 
 > [!IMPORTANT]
 > Wijzigen van de toegangslaag voor een bestaand opslagaccount of blob kan leiden tot extra kosten in rekening gebracht.
 
-Zie voor meer informatie over de toegangslagen, [Azure Blob storage: Hot, cool en archive storage-lagen](../blobs/storage-blob-storage-tiers.md).
+Zie voor meer informatie over de toegangslagen, [Azure Blob-opslag: Premium (preview), dynamische, statische en archiefopslaglaag](../blobs/storage-blob-storage-tiers.md).
 
 ## <a name="replication"></a>Replicatie
 

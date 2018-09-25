@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: De spraak-service kunt u een enkele aanvraag gebruiken voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. De spraak-NuGet-pakket, al is opgenomen als een verwijzing maakt gebruik van het project.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8eff6ff3d0263708158f2fea82380e88ba4638ad
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042071"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. Het project gebruikmaakt van de gesproken tekst [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al is opgenomen als een verwijzing. 

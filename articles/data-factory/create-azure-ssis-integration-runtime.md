@@ -8,24 +8,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/23/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a497ceab45bb3ace4e3f1ea063ef9c3e33818426
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a7ba62a28b65d1cd7152c793bc303e747057cdf8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059440"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991467"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>De Azure-SSIS integratieruntime in Azure Data Factory maken
 In dit artikel bevat stappen voor het inrichten van een Azure-SSIS integratieruntime in Azure Data Factory. Vervolgens kunt u SSDT (SQL Server Data Tools) of SSMS (SQL Server Management Studio) gebruiken om SSIS-pakketten (SQL Server Integration Services) te implementeren en uit te voeren in deze runtime van Azure. 
 
 De zelfstudie [zelfstudie: SQL Server Integration Services-pakketten (SSIS) implementeren in Azure](tutorial-create-azure-ssis-runtime-portal.md) ziet u hoe u een Azure-SSIS Integration Runtime (IR) maken met behulp van Azure SQL Database voor het hosten van de SSIS-catalogus. In dit artikel gaat verder in op de zelfstudie en ziet u hoe u het volgende doen: 
 
-- (Optioneel) gebruik Azure SQL Database met virtual network-service-eindpunten/Managed Instance (Preview) als de databaseserver voor het hosten van uw SSIS-catalogus (SSISDB-database). Zie [SQL Database en een beheerd exemplaar (preview) vergelijken](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview) voor hulp bij het kiezen van het type databaseserver om SSISDB te hosten. Als een vereiste moet u uw Azure-SSIS IR toevoegen aan een virtueel netwerk en het configureren van virtueel Netwerkmachtigingen en instellingen indien nodig. Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- (Optioneel) gebruik Azure SQL Database met virtual network service-eindpunten/beheerd exemplaar als de databaseserver voor het hosten van uw SSIS-catalogus (SSISDB-database). Zie voor richtlijnen bij het kiezen van het type van de database-server host SSISDB [logische Vergelijk SQL Database-server en SQL Database Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Als een vereiste moet u uw Azure-SSIS IR toevoegen aan een virtueel netwerk en het configureren van virtueel Netwerkmachtigingen en instellingen indien nodig. Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - (Optioneel) gebruik van Azure Active Directory (AAD)-verificatie met uw Azure Data Factory Managed Service Identity (MSI) voor Azure-SSIS IR verbinding maken met de database-server. Als een vereiste, moet u uw Data Factory-MSI in een AAD-groep met machtigingen voor toegang tot de database-server toevoegen, Zie [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -43,12 +43,12 @@ Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Featu
 ## <a name="prerequisites"></a>Vereisten 
 - **Azure-abonnement**. Als u geen abonnement hebt, kunt u een [gratis proefaccount](http://azure.microsoft.com/pricing/free-trial/) maken. 
 
-- **Azure SQL Database-server/Managed Instance (Preview)**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Op basis van de geselecteerde databaseserver kan SSISDB namens u worden gemaakt als een enkele database, als onderdeel van een elastische pool of in een beheerd exemplaar (preview). Deze is toegankelijk in een openbaar netwerk of kan worden toegevoegd aan een virtueel netwerk. Zie voor een lijst van ondersteunde Prijscategorieën voor Azure SQL Database, [SQL Database-resourcebeperkingen](../sql-database/sql-database-resource-limits.md). 
+- **Logische server van Azure SQL Database of Managed Instance**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Op basis van de geselecteerde database-server, kan SSISDB worden gemaakt uit uw naam als een individuele database, onderdeel van een elastische pool of in een beheerd exemplaar en toegankelijk zijn in openbaar netwerk of door het toevoegen van een virtueel netwerk. Zie voor een lijst van ondersteunde Prijscategorieën voor Azure SQL Database, [SQL Database-resourcebeperkingen](../sql-database/sql-database-resource-limits.md). 
 
-    Zorg ervoor dat uw Azure SQL Database-server of de Managed Instance (Preview) al geen SSIS-catalogus (SSIDB-database). Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus. 
+    Zorg ervoor dat uw logische Azure SQL Database-server of een beheerd exemplaar al geen SSIS-catalogus (SSIDB-database). Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus. 
 
 - **Klassieke of een virtueel netwerk van Azure Resource Manager (optioneel)**. U hebt een Azure-netwerk als ten minste één van de volgende voorwaarden voldaan wordt: 
-    - Als u beheert de SSIS-catalogusdatabase in Azure SQL Database met virtual network-service-eindpunten/Managed Instance (Preview) in een virtueel netwerk. 
+    - Als u beheert de SSIS-catalogusdatabase in Azure SQL Database met een virtueel netwerk service-eindpunten/beheerd exemplaar in een virtueel netwerk. 
     - U wilt verbinding maken met on-premises gegevensarchieven vanuit SSIS-pakketten die worden uitgevoerd in een Azure SSIS Integration Runtime. 
 
 - **Azure PowerShell**. Volg de instructies in [hoe u Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps), als u PowerShell gebruiken om een script uitgevoerd om het inrichten van Azure-SSIS integratieruntime die SSIS-pakketten in de cloud uitvoert. 
@@ -56,19 +56,19 @@ Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Featu
 ### <a name="region-support"></a>Ondersteuning voor regio
 Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/).
 
-Voor een lijst van Azure-regio's waarin de Azure-SSIS Integration Runtime momenteel beschikbaar is is, selecteert u de regio's die u interesseren op de volgende pagina uit en vouw vervolgens **Analytics** vinden **SSIS-Integratieruntime** : [Producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/). ### SQL-Database vergelijken en Managed Instance (Preview)
+Voor een lijst van Azure-regio's waarin de Azure-SSIS Integration Runtime momenteel beschikbaar is is, selecteert u de regio's die u interesseren op de volgende pagina uit en vouw vervolgens **Analytics** vinden **SSIS-Integratieruntime** : [Producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/). ### SQL-Database vergelijken en beheerd exemplaar
 
-### <a name="compare-sql-database-and-managed-instance-preview"></a>Vergelijken met SQL Database Managed Instance (Preview)
+### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Logische SQL Database-server en SQL Database Managed Instance vergelijken
 
-De volgende tabel vergelijkt bepaalde functies van SQL-Database en de Managed Instance (Preview), zoals ze betrekking op de Azure-SSIR IR hebben:
+De volgende tabel vergelijkt bepaalde functies van de logische SQL Database-server en SQL Database Managed Instance zoals ze betrekking op de Azure-SSIR IR hebben:
 
-| Functie | SQL Database | Beheerd exemplaar |
+| Functie | Logische SQL Database-server| SQL Database - beheerd exemplaar |
 |---------|--------------|------------------|
 | **Planning** | SQL Server Agent is niet beschikbaar.<br/><br/>Zie [plannen van een pakket als onderdeel van een Azure Data Factory-pijplijn](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity).| SQL Server Agent is beschikbaar. |
 | **Verificatie** | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker in de **dbmanager** rol.<br/><br/>Zie [inschakelen van Azure AD in Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker dan een Azure AD-beheerder. <br/><br/>Zie [inschakelen van Azure AD op beheerd exemplaar voor Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Servicelaag** | Als u de Azure-SSIS-IR in SQL-Database maakt, selecteert u de servicelaag voor SSISDB. Er zijn meerdere lagen van de services. | Wanneer u de Azure-SSIS-IR op een beheerd exemplaar maakt, kunt u de servicelaag niet selecteren voor SSISDB. Alle databases op de dezelfde Managed Instance delen dezelfde resource toegewezen aan deze instantie. |
 | **Virtueel netwerk** | Biedt ondersteuning voor Azure Resource Manager en klassieke virtuele netwerken. | Biedt alleen ondersteuning voor virtueel netwerk van Azure Resource Manager. Het virtuele netwerk is vereist.<br/><br/>Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als het beheerde exemplaar toevoegen, zorg ervoor dat de Azure-SSIS IR in een ander subnet dan het beheerde exemplaar is. Als u de Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij peering op virtueel netwerk (dit is beperkt tot dezelfde regio bevinden) of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Gedistribueerde transacties** | Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw pakketten MSDTC gedistribueerde transacties te coördineren, kunt u mogelijk een tijdelijke oplossing implementeren met behulp van elastische transacties voor SQL-Database. Op dit moment geen SSIS ingebouwde ondersteuning voor elastische transacties. Voor het gebruik van elastische transacties in uw SSIS-pakket, moet u aangepaste ADO.NET-code in de taak van een Script schrijven. Deze taak script moet het begin en einde van de transactie en de acties die plaatsvinden binnen de transactie moeten bevatten.<br/><br/>Zie voor meer informatie over het coderen van elastische transacties [transacties met Elastic databases met Azure SQL Database](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Zie voor meer informatie over elastische transacties in het algemeen [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
+| **Gedistribueerde transacties** | Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw pakketten MSDTC gedistribueerde transacties te coördineren, kunt u mogelijk een tijdelijke oplossing implementeren met behulp van elastische transacties voor SQL-Database. Op dit moment geen SSIS ingebouwde ondersteuning voor elastische transacties. Voor het gebruik van elastische transacties in uw SSIS-pakket, moet u aangepaste ADO.NET-code in de taak van een Script schrijven. Deze taak script moet het begin en einde van de transactie en de acties die plaatsvinden binnen de transactie moeten bevatten.<br/><br/>Zie voor meer informatie over het coderen van elastische transacties [elastische transacties met Azure SQL Database](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Zie voor meer informatie over elastische transacties in het algemeen [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -144,7 +144,7 @@ In deze sectie gebruikt u de Azure portal, specifiek de Data Factory-gebruikersi
 
     b. Selecteer bij **Locatie** de locatie van uw databaseserver voor het hosten van SSISDB. We raden u aan dezelfde locatie van uw integratieruntime te selecteren. 
 
-    c. Selecteer bij het **Eindpunt voor de Catalog-databaseserver** het eindpunt van uw databaseserver voor het hosten van SSISDB. Op basis van de geselecteerde databaseserver kan SSISDB namens u worden gemaakt als een enkele database, als onderdeel van een elastische pool of in een beheerd exemplaar (preview). Deze is toegankelijk in een openbaar netwerk of kan worden toegevoegd aan een virtueel netwerk. 
+    c. Selecteer bij het **Eindpunt voor de Catalog-databaseserver** het eindpunt van uw databaseserver voor het hosten van SSISDB. Op basis van de geselecteerde database-server, kan SSISDB worden gemaakt uit uw naam als een individuele database, onderdeel van een elastische pool of in een beheerd exemplaar en toegankelijk zijn in openbaar netwerk of door het toevoegen van een virtueel netwerk. 
 
     d. Op **gebruik AAD-verificatie...**  selectievakje, selecteer de verificatiemethode voor de database-server host SSISDB: SQL- of Azure Active Directory (AAD) met uw Azure Data Factory Managed Service Identity (MSI). Als u dit selectievakje inschakelt, moet u uw Data Factory-MSI in een AAD-groep met machtigingen voor toegang tot de database-server toevoegen, Zie [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -152,7 +152,7 @@ In deze sectie gebruikt u de Azure portal, specifiek de Data Factory-gebruikersi
 
     f. Voer bij **Beheerderswachtwoord** het wachtwoord voor SQL-verificatie voor uw databaseserver voor het hosten van SSISDB in. 
 
-    g. Selecteer bij de **servicelaag van de Catalog-database** de servicelaag voor uw databaseserver voor het hosten van SSISDB: Basic-/Standard-/Premium-laag of de naam van de elastische pool. 
+    g. Voor **Catalog Database-servicelaag**, selecteert u de servicelaag voor uw database-server host SSISDB: naam van Basic/Standard/Premium-laag of elastische pool. 
 
     h. Klik op **Verbinding testen**. Als dit lukt, klikt u op **Volgende**. 
 
@@ -164,7 +164,7 @@ In deze sectie gebruikt u de Azure portal, specifiek de Data Factory-gebruikersi
 
     b. Bij **SAS URI aangepaste installatie container**  voert u desgewenst de SAS (Shared Access Signature) URI (Uniform Resource Identifier) van uw Azure Storage Blob-container in waar uw installatiescript en de bijbehorende bestanden zijn opgeslagen. Zie [Aangepaste installatie voor Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). 
 
-1. Op **een virtueel netwerk selecteren...**  selectievakje, selecteer of u wilt uw integratieruntime toevoegen aan een virtueel netwerk. Bekijk het als u Azure SQL Database met virtual network-service-eindpunten/Managed Instance (Preview) gebruiken om te hosten van SSISDB of toegang tot on-premises gegevens; vereisen dat wil zeggen, on-premises gegevensbronnen/bestemmingen hebt in uw SSIS-pakketten, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Als u dit selectievakje inschakelt, kunt u de volgende stappen: 
+1. Op **een virtueel netwerk selecteren...**  selectievakje, selecteer of u wilt uw integratieruntime toevoegen aan een virtueel netwerk. Bekijk het als u gebruik van Azure SQL Database met een virtueel netwerk service-eindpunten/beheerd exemplaar naar SSISDB-host of toegang tot on-premises gegevens; vereisen dat wil zeggen, on-premises gegevensbronnen/bestemmingen hebt in uw SSIS-pakketten, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Als u dit selectievakje inschakelt, kunt u de volgende stappen: 
 
    ![Geavanceerde instellingen met een virtueel netwerk](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
@@ -174,9 +174,9 @@ In deze sectie gebruikt u de Azure portal, specifiek de Data Factory-gebruikersi
 
     c. Voor **Type**, selecteer het type van het virtuele netwerk: klassiek of Azure Resource Manager. U wordt aangeraden dat u Azure Resource Manager virtueel netwerk selecteert, sinds het klassieke virtuele netwerk binnenkort worden afgeschaft. 
 
-    d. Voor **VNet-naam**, selecteert u de naam van het virtuele netwerk. Dit virtuele netwerk moet hetzelfde virtuele netwerk voor Azure SQL Database met virtual network-service-eindpunten/Managed Instance (Preview) gebruikt voor het hosten van SSISDB en of het certificaat dat is verbonden met uw on-premises netwerk. 
+    d. Voor **VNet-naam**, selecteert u de naam van het virtuele netwerk. Dit virtuele netwerk moet worden gebruikt voor Azure SQL Database met virtual network service-eindpunten/beheerd exemplaar voor het hosten van SSISDB en of het certificaat dat is verbonden met uw on-premises netwerk hetzelfde virtuele netwerk. 
 
-    e. Voor **subnetnaam**, selecteert u de naam van het subnet voor het virtuele netwerk. Dit moet een ander subnet dan de versie die wordt gebruikt voor de Managed Instance (Preview) naar host SSISDB. 
+    e. Voor **subnetnaam**, selecteert u de naam van het subnet voor het virtuele netwerk. Dit moet een ander subnet dan de versie die wordt gebruikt voor beheerd exemplaar als host voor SSISDB. 
 
 1. Klik op **VNet validatie** en als dit lukt, klikt u op **voltooien** om te beginnen met het maken van uw Azure-SSIS integratieruntime. 
 
@@ -239,15 +239,15 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview)/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon    
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance (Preview)
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon    
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance (Preview) name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
 # Authentication info: SQL or Azure Active Directory (AAD)
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance (Preview)]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
 ### <a name="log-in-and-select-subscription"></a>Aanmelden en abonnement selecteren
@@ -329,9 +329,9 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ### <a name="create-an-integration-runtime"></a>Een Integration Runtime maken
 Voer de volgende opdrachten voor het maken van een Azure-SSIS integratieruntime die SSIS-pakketten in Azure uitvoert. 
 
-Als u niet Azure SQL Database met virtual network-service-eindpunten/Managed Instance (Preview gebruikt) voor het hosten van SSISDB, noch toegang nodig hebben met on-premises gegevens, kunt u parameters VNetId en Subnet weglaat of lege waarden doorgeven voor hen. Anders kunnen niet laat ze en moet geldige waarden doorgeven van de configuratie van uw virtuele netwerk, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+Als u niet gebruik van Azure SQL Database met een virtueel netwerk service-eindpunten/beheerd exemplaar naar SSISDB-host of toegang tot on-premises gegevens nodig hebben, kunt u VNetId en Subnet parameters weglaat of lege waarden doorgeven voor hen. Anders kunnen niet laat ze en moet geldige waarden doorgeven van de configuratie van uw virtuele netwerk, Zie [deelnemen aan Azure-SSIS IR aan een virtueel netwerk](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-Als u Managed Instance (Preview) naar host SSISDB, kunt u CatalogPricingTier parameter weglaat of een lege waarde voor het doorgeven. Anders u kan geen achterwege en moet een geldige waarde doorgeven in de lijst van ondersteunde Prijscategorieën voor Azure SQL Database, Zie [SQL Database-resourcebeperkingen](../sql-database/sql-database-resource-limits.md). 
+Als u Managed Instance naar host SSISDB, kunt u CatalogPricingTier parameter weglaat of een lege waarde voor het doorgeven. Anders u kan geen achterwege en moet een geldige waarde doorgeven in de lijst van ondersteunde Prijscategorieën voor Azure SQL Database, Zie [SQL Database-resourcebeperkingen](../sql-database/sql-database-resource-limits.md). 
 
 Als u Azure Active Directory (AAD)-verificatie met uw Azure Data Factory Managed Service Identity (MSI) verbinding maken met de database-server, kunt u de parameter CatalogAdminCredential weglaten, maar u moet uw Data Factory-MSI-bestand toevoegen aan een AAD-groep met toegang machtigingen voor de database-server, Zie [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). Anders kan geen achterwege en een geldig object gevormd door uw server-beheerdersgebruikersnaam en wachtwoord voor SQL-verificatie moet slagen.
 
@@ -409,15 +409,15 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance (Preview)/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon    
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance (Preview)
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon    
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance (Preview) name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
 # Authentication info: SQL or Azure Active Directory (AAD)
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance (Preview)]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 
 ### Log in and select subscription
 Connect-AzureRmAccount
@@ -579,7 +579,7 @@ In deze sectie kunt u de Azure Resource Manager-sjabloon gebruiken voor Azure-SS
     ``` 
 
 ## <a name="deploy-ssis-packages"></a>SSIS-pakketten implementeren
-Gebruik nu SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) om uw SSIS-pakketten te implementeren in Azure. Verbinding maken met uw database-server die als host fungeert voor de SSIS-catalogus (SSISDB). De naam van database-server is in de indeling: &lt;Azure SQL Database-servernaam&gt;. database.windows.net of &lt;de naam van de Managed Instance (Preview). DNS-voorvoegsel&gt;. database.windows.net. Zie het artikel [Pakketten implementeren](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) voor instructies. 
+Gebruik nu SQL Server Data Tools (SSDT) of SQL Server Management Studio (SSMS) om uw SSIS-pakketten te implementeren in Azure. Verbinding maken met uw database-server die als host fungeert voor de SSIS-catalogus (SSISDB). De naam van database-server is in de indeling: &lt;Azure SQL Database-servernaam&gt;. database.windows.net of &lt;Managed Instance-naam. DNS-voorvoegsel&gt;. database.windows.net. Zie het artikel [Pakketten implementeren](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) voor instructies. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de andere Azure-SSIS IR-onderwerpen in deze documentatie: 

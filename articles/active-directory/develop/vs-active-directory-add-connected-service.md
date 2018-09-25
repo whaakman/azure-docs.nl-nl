@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 2e446bad042965e8466e74b9b1abd8661ea88f8b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9b61362525962c5e01d7fef6d317cf9861dfd0a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977890"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Toevoegen van een Azure Active Directory met behulp van Connected Services in Visual Studio
 
@@ -35,7 +35,7 @@ De verbonden Active Directory-service wordt op dit moment geen ondersteuning voo
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Verbinding maken met Azure Active Directory met het dialoogvenster Connected Services
 
-1. Maak of open een ASP.NET MVC-project, of een ASP.NET Web API-project in Visual Studio. U kunt de MVC, Web-API toepassing met één pagina, Azure API App, mobiele Apps van Azure en Azure Mobile Service-sjablonen gebruiken.
+1. Maak of open een ASP.NET MVC-project, of een ASP.NET Web API-project in Visual Studio. U kunt de MVC, Web-API, Single-Page Application, Azure API App, mobiele Apps van Azure en Azure Mobile Service-sjablonen gebruiken.
 
 1. Selecteer de **Project > Connected Service toevoegen...**  opdracht of dubbelklik op de **Connected Services** knooppunt gevonden onder het project in Solution Explorer.
 

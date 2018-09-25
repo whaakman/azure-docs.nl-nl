@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba164cdf6d7665077616edc20d133c6912b186f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 19963edc3742cc5f09ed02249d313728410711c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160569"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973489"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen beheerde identiteit met de Azure CLI
 
@@ -39,11 +39,11 @@ In dit artikel leert u hoe u kunt maken, weergeven en verwijderen van een gebrui
 - Als u wilt de CLI-scriptvoorbeelden uitvoeren, hebt u drie opties:
     - Gebruik [Azure Cloud Shell](../../cloud-shell/overview.md) vanuit Azure portal (Zie volgende sectie).
     - Gebruik de ingesloten Azure Cloud Shell via het 'Try It' de knop, zich in de rechterbovenhoek van elk codeblok.
-    - [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 of hoger) als u liever een lokale CLI-console. Aanmelden bij Azure met `az login`, met een account dat is gekoppeld aan het Azure-abonnement waarin u wilt implementeren door de gebruiker toegewezen beheerde identiteit.
+    - [Installeer de nieuwste versie van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 of hoger) als u liever een lokale CLI-console. Aanmelden bij Azure met `az login`, met een account dat is gekoppeld aan het Azure-abonnement waarin u wilt implementeren door de gebruiker toegewezen beheerde identiteit.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-user-assigned-managed-identity"></a>Maken van een gebruiker toegewezen beheerde identiteit 
+## <a name="create-a-user-assigned-managed-identity"></a>Een door de gebruiker toegewezen beheerde identiteit maken 
 
 Gebruik voor het maken van een gebruiker toegewezen beheerde identiteit het [az-identiteit maken](/cli/azure/identity#az-identity-create) opdracht. De `-g` parameter geeft u de resourcegroep waar moet worden gemaakt van de gebruiker toegewezen beheerde identiteit, en de `-n` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
 

@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056867"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997266"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>De prestaties verbeteren door bestanden in Azure CDN te comprimeren
 Bestandscompressie is een eenvoudige maar effectieve methode voor het verbeteren van bestand overdrachtssnelheid en het laden van de pagina prestaties van een bestand door grootte te beperken voordat deze wordt verzonden vanaf de server. Bestandscompressie kunt bandbreedtekosten verlagen en biedt een beter te laten reageren ervaring voor uw gebruikers.
@@ -102,13 +102,14 @@ De lagen standard en premium CDN bieden dezelfde functionaliteit compressie, maa
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN Standard van Microsoft-profielen
 
-Voor **Azure CDN Standard van Microsoft** profielen, alle bestanden komen in aanmerking voor compressie. Echter, een bestand moet van een MIME-type dat is [geconfigureerd voor compressie](#enabling-compression).
+Voor **Azure CDN Standard van Microsoft** profielen, alleen in aanmerking komende bestanden zijn gecomprimeerd. Als u in aanmerking komen voor compressie, een bestand moet:-worden van een MIME-type dat is [geconfigureerd voor compressie](#enabling-compression).
+-Worden groter is dan 1 KB-kleiner is dan 8 MB
 
 Deze profielen ondersteunen de volgende aanduidingen van de compressie:
 - gzip (GNU zip)
 - brotli 
  
-Als de aanvraag meer dan één compressietype ondersteunt, hebben deze compressietypen voorrang op brotli compressie.
+Als de aanvraag meer dan één compressietype ondersteunt, voorrang brotli compressie.
 
 Wanneer een aanvraag voor een asset gzip-compressie en de resultaten van de aanvraag in een cache ontbreekt, voert Azure CDN gzip-compressie van de asset rechtstreeks op de POP-server. Daarna wordt het gecomprimeerde bestand geleverd uit de cache.
 

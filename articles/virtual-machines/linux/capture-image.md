@@ -1,6 +1,6 @@
 ---
-title: Een installatiekopie maken van een Linux-VM in Azure met behulp van CLI 2.0 | Microsoft Docs
-description: Een installatiekopie maken van een Azure-VM moet worden gebruikt voor grootschalige implementaties met de Azure CLI 2.0.
+title: Een installatiekopie maken van een Linux-VM in Azure met behulp van Azure CLI | Microsoft Docs
+description: Een installatiekopie maken van een Azure-VM moet worden gebruikt voor grootschalige implementaties met de Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 98d98c1337830ce54c7ff96c19812169be129584
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867698"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946813"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Hoe u een installatiekopie van een virtuele machine of een VHD maken
 
@@ -38,7 +38,7 @@ Zorg ervoor dat u voldoet aan de volgende vereisten:
 
 * U moet een Azure-VM gemaakt in het Resource Manager-implementatiemodel met behulp van beheerde schijven. Als u een Linux-VM hebt gemaakt, kunt u de [portal](quick-create-portal.md), wordt de [Azure CLI](quick-create-cli.md), of [Resource Manager-sjablonen](create-ssh-secured-vm-from-template.md). De virtuele machine configureren indien nodig. Bijvoorbeeld, [gegevensschijven toevoegen](add-disk.md), toepassen van updates en toepassingen te installeren. 
 
-* U moet ook de meest recente versie [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
+* U moet ook de meest recente versie [Azure CLI](/cli/azure/install-az-cli2) geïnstalleerd en worden aangemeld bij een Azure-account met [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 
@@ -62,7 +62,7 @@ De inrichting van de virtuele machine, met behulp van de Azure VM-agent verwijde
 4. Nadat de opdracht is voltooid, typt u **afsluiten**. Deze stap wordt de SSH-client gesloten.
 
 ## <a name="step-2-create-vm-image"></a>Stap 2: VM-installatiekopie maken
-De Azure CLI 2.0 gebruiken voor de virtuele machine markeren als gegeneraliseerd en vastleggen van de installatiekopie. In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
+De Azure-CLI gebruiken voor de virtuele machine markeren als gegeneraliseerd en vastleggen van de installatiekopie. In de volgende voorbeelden kunt u voorbeeldnamen parameter vervangen door uw eigen waarden. Voorbeeld-parameternamen bevatten *myResourceGroup*, *myVnet*, en *myVM*.
 
 1. Wijs de virtuele machine die u met de inrichting ongedaan gemaakt [az vm deallocate](/cli//azure/vm#deallocate). Het volgende voorbeeld wordt de virtuele machine met de naam de toewijzing ingetrokken *myVM* in de resourcegroep met de naam *myResourceGroup*:
    
@@ -146,4 +146,4 @@ U kunt meerdere virtuele machines maken vanuit de bron-VM-installatiekopie. Als 
 - Volg de stappen opnieuw voor de inrichting, toewijzing ongedaan maken, generaliseren en een installatiekopie maken.
 - Deze nieuwe installatiekopie gebruiken voor toekomstige implementaties. Indien gewenst, de oorspronkelijke installatiekopie verwijderen.
 
-Zie voor meer informatie over het beheren van uw VM's met de CLI [Azure CLI 2.0](/cli/azure).
+Zie voor meer informatie over het beheren van uw VM's met de CLI [Azure CLI](/cli/azure).

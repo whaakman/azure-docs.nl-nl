@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: c355d1c4021d8d0877dea216e0c11002b70595e4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105215"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996959"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Hadoop-toepassingen van derden op Azure HDInsight installeren
 
@@ -35,7 +35,7 @@ De volgende lijst bevat de gepubliceerde toepassingen:
 * **[Trifacta](http://www.trifacta.com/)**  kunnen data-engineers en bedrijfsanalisten efficiënter verkennen en de verschillende gegevens van vandaag voorbereiden door het gebruik van machine learning om aan te bieden een baanbrekende gebruikerservaring, de werkstroom en de architectuur.
 * **WANdisco Fusion HDI App** kunt continue consistente verbinding met de gegevens gewijzigd waar deze zich bevindt. Het biedt u met toegang tot uw gegevens op elk gewenst moment en overal met zonder uitvaltijd en geen onderbreking.
 
-De instructies in dit artikel zijn bestemd voor gebruik met Azure Portal. U kunt ook de Azure Resource Manager-sjabloon exporteren vanuit de portal of een kopie van de Resource Manager-sjabloon van leveranciers verkrijgen, en Azure PowerShell en Azure CLI gebruiken om de sjabloon te implementeren.  Zie [Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+De instructies in dit artikel zijn bestemd voor gebruik met Azure Portal. U kunt ook de Azure Resource Manager-sjabloon exporteren vanuit de portal of een kopie van de Resource Manager-sjabloon van leveranciers verkrijgen, en Azure PowerShell en de klassieke Azure-CLI gebruiken om de sjabloon te implementeren.  Zie [Hadoop-clusters maken in HDInsight met behulp van Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Als u HDInsight-toepassingen wilt installeren op een bestaand HDInsight-cluster, hebt u een HDInsight-cluster nodig. Zie [Clusters maken](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) voor informatie over het maken van een cluster. U kunt ook HDInsight-toepassingen installeren wanneer u een HDInsight-cluster maakt.

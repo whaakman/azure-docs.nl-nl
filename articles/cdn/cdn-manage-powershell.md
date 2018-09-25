@@ -3,8 +3,8 @@ title: Azure CDN met PowerShell beheren | Microsoft Docs
 description: Informatie over het gebruik van de Azure PowerShell-cmdlets voor het beheren van Azure CDN.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
-ms.author: mazha
-ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: d6a67bef831028426dec660a1c79feb4ab9340d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114069"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957707"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Azure CDN met PowerShell beheren
 PowerShell biedt een van de meest flexibele methoden voor het beheren van uw Azure CDN-profielen en eindpunten.  U kunt PowerShell interactief of door het schrijven van scripts gebruiken om beheertaken te automatiseren.  Deze zelfstudie ziet u enkele van de meest algemene taken die u kunt uitvoeren met PowerShell voor het beheren van uw Azure CDN-profielen en eindpunten.
@@ -144,10 +144,8 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 - Premium_Verizon
 - Custom_Verizon
 - Standard_Akamai
+- Standard_Microsoft
 - Standard_ChinaCdn
-
-> [!NOTE]
-> De SKU Standard_Microsoft wordt niet ondersteund wanneer het is in preview.
 
 ```powershell
 # Create a new profile

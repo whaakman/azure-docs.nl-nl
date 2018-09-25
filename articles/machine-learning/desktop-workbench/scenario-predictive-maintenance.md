@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35645725"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996210"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Voorspellend onderhoud voor echte scenario 's
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 De invloed van ongeplande downtime van apparatuur kan schadelijk zijn voor elk bedrijf. Het is essentieel dat veld-apparatuur-gebruik en prestaties te maximaliseren en de dure, niet-geplande uitvaltijd te minimaliseren. Vroege identificatie van problemen kunt u beperkte onderhoud resources worden toegewezen op een rendabele manier en kwaliteit en processen van de keten. 
 
@@ -41,10 +46,10 @@ Het zakelijke probleem voor deze gesimuleerde gegevens is om problemen die worde
 ## <a name="prerequisites"></a>Vereisten
 
 * Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar).
-* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Ga als volgt de [Quick Start-installatiehandleiding](../service/quickstart-installation.md) aan het programma te installeren en een werkruimte maken.
+* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Ga als volgt de [Quick Start-installatiehandleiding](quickstart-installation.md) aan het programma te installeren en een werkruimte maken.
 * Azure Machine Learning Operationalization vereist een lokale implementatie-omgeving en een [Azure Machine Learning Modelbeheer-account](model-management-overview.md).
 
-In dit voorbeeld wordt uitgevoerd op elke Machine Learning Workbench compute-context. Het is echter raadzaam om uit te voeren in het voorbeeld met ten minste 16 GB geheugen. In dit scenario is gebouwd en getest op een Windows 10-computer met een externe DS4_V2 standaard [Data Science Virtual Machine (DSVM) voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+In dit voorbeeld wordt uitgevoerd op elke Machine Learning Workbench compute-context. Het is echter raadzaam om uit te voeren in het voorbeeld met ten minste 16 GB geheugen. In dit scenario is gebouwd en getest op een Windows 10-computer met een externe DS4_V2 standaard [Data Science Virtual Machine (DSVM) voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model uitoefening is uitgevoerd met behulp van de 0.1.0a22 versie van de Azure Machine Learning CLI.
 
@@ -71,7 +76,7 @@ Met deze opdracht wordt een verificatiesleutel te gebruiken met de https:\\aka.m
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Is het beter om uit te voeren op een [DSVM voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) voor geheugen- en vereisten. Nadat de DSVM is geconfigureerd, bereidt u de externe Docker-omgeving met de volgende twee opdrachten:
+Is het beter om uit te voeren op een [DSVM voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) voor geheugen- en vereisten. Nadat de DSVM is geconfigureerd, bereidt u de externe Docker-omgeving met de volgende twee opdrachten:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

@@ -1,31 +1,31 @@
 ---
-title: Veelgestelde vragen over Azure Cost Management | Microsoft Docs
-description: Vindt u antwoorden op enkele veelgestelde vragen over Azure Cost Management.
+title: Veelgestelde vragen over Cloudyn in Azure | Microsoft Docs
+description: Vindt u antwoorden op enkele veelgestelde vragen over Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/20/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 2126875a18d4a6581629ea1c8362236242a666a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187254"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961022"
 ---
-# <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure Cost Management
+# <a name="frequently-asked-questions-for-cloudyn"></a>Veelgestelde vragen over Cloudyn
 
-In dit artikel komen enkele veelgestelde vragen over Azure Cost Management (ook wel cloudyn genoemd). Als u vragen over Cost Management hebt, kunt u vragen deze [Veelgestelde vragen over Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+In dit artikel komen enkele veelgestelde vragen over Cloudyn. Als u vragen over Cloudyn hebt, kunt u vragen deze [Veelgestelde vragen over de Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hoe kan ik problemen met het algemene indirecte enterprise instellen oplossen?
 
 Wanneer u de Cloudyn-portal voor het eerst gebruikt, ziet u mogelijk de volgende berichten als u een Enterprise Agreement of een Cloud Solution Provider (CSP) gebruiker:
 
-- 'De opgegeven API-sleutel is niet een sleutel van het bovenste niveau inschrijving' weergegeven in de **instellen van Azure Cost Management** wizard.
+- 'De opgegeven API-sleutel is niet een sleutel van het bovenste niveau inschrijving' weergegeven in de **Cloudyn ingesteld** wizard.
 - 'Directe inschrijving: geen' weergegeven in de Enterprise Agreement-portal.
 - "Er zijn geen gebruiksgegevens is gevonden voor de afgelopen 30 dagen. Neem contact op met uw leverancier om te controleren of de opmaak is ingeschakeld voor uw Azure-account' weergegeven in de Cloudyn-portal.
 
@@ -35,9 +35,9 @@ Los de problemen als volgt op:
 
 1. Uw wederverkoper moet _markeren_ voor uw account inschakelen. Raadpleeg de [Onboarding-handleiding voor indirecte klanten](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) voor meer instructies.
 
-2. U de Azure Enterprise overeenkomst-sleutel voor gebruik met Cloudyn genereren. Zie voor instructies [toevoegen van uw Azure EA](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) of [vinden Your EA Enrollment ID en API-sleutel](https://youtu.be/u_phLs_udig).
+2. U de Azure Enterprise overeenkomst-sleutel voor gebruik met Cloudyn genereren. Zie voor instructies [toevoegen van uw Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) of [vinden Your EA Enrollment ID en API-sleutel](https://youtu.be/u_phLs_udig).
 
-Alleen een Azure-servicebeheerder kan Cost Management inschakelen. U hebt onvoldoende co-beheerdersmachtigingen.
+Alleen een Azure-service-beheerder kunt Cloudyn inschakelen. U hebt onvoldoende co-beheerdersmachtigingen.
 
 Voordat u de Azure Enterprise overeenkomst-API-sleutel voor het instellen van Cloudyn genereren kunt, moet u de Azure Billing API inschakelen door de instructies op:
 
@@ -74,7 +74,7 @@ Nadat u de voorgaande stappen hebt voltooid, kunt u optimaliseren aanbevelingen 
 
 Eerst laten we bekijken met de meest gebruikte scenario dat ervoor zorgt dat de accounts voor gebruikers om op te halen *initiallySuspended*.
 
-> Admin1 mogelijk Microsoft Cloud Solution Provider- of Enterprise Agreement-gebruiker. De organisatie is klaar om te beginnen met behulp van Cost Management.  Hij wordt geregistreerd via Azure portal en zich bij de Cloudyn-portal aanmeldt. Als de persoon die de Cost Management-service en zich bij de Cloudyn-portal registreert, wordt hij de *primaire beheerder*. Admin1 maakt niet alle gebruikersaccounts. Echter met behulp van de Cloudyn-portal, hij maakt Azure-accounts en stelt u een hiërarchie voor entiteitskosten. Admin1 informeert Admin2, tenantbeheerder die hij nodig heeft om te registreren bij Cost Management en meld u aan bij de Cloudyn-portal.
+> Admin1 mogelijk Microsoft Cloud Solution Provider- of Enterprise Agreement-gebruiker. De organisatie is klaar om te beginnen met behulp van Cloudyn.  Hij wordt geregistreerd via Azure portal en zich bij de Cloudyn-portal aanmeldt. Als de persoon die de Cloudyn-service en zich bij de Cloudyn-portal registreert, wordt hij de *primaire beheerder*. Admin1 maakt niet alle gebruikersaccounts. Echter met behulp van de Cloudyn-portal, hij maakt Azure-accounts en stelt u een hiërarchie voor entiteitskosten. Admin1 informeert Admin2, tenantbeheerder die hij nodig heeft om te registreren bij Cloudyn en meld u aan bij de Cloudyn-portal.
 
 > Admin2 wordt geregistreerd via Azure portal. Echter wanneer hij wil zich aanmelden bij de Cloudyn-portal, hij krijgt een foutmelding met de mededeling zijn account is **onderbroken**. De primaire Admin1,-beheerder is op de hoogte gesteld van de account-onderbreking. Admin1 moet Admin2 van account activeren en verleen *entiteit beheerderstoegang* voor de juiste entiteiten en kunt u toegang tot de gebruiker en actieve account van de gebruiker.
 
@@ -94,13 +94,13 @@ Als u uw e-mailadres in Cloudyn van het standaard-adres in Azure wijzigt, kan uw
 
 U wordt aangeraden dat u ten minste twee Cloudyn administrator-accounts maken als een van de accounts is vergrendeld.
 
-Als u niet bij de Cloudyn-portal aanmelden, zorgt u ervoor dat u de juiste Azure Cost Management-URL voor aanmelding bij Cloudyn. Gebruik [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Als u niet bij de Cloudyn-portal aanmelden, zorgt u ervoor dat u de correcte URL gebruikt voor aanmelding bij Cloudyn. Gebruik [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Vermijd het gebruik van de directe URL Cloudyn https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hoe kan ik unactivated accounts met Azure-referenties activeren?
 
-Als uw Azure-accounts worden gedetecteerd door Cloudyn, gegevens van cost onmiddellijk vindt u in rapporten op basis van kosten. Voor Cloudyn om gegevens van gebruik en de prestaties te bieden, moet u echter uw Azure-referenties voor de accounts registreren. Zie voor instructies [toevoegen Azure Resource Manager](https://support.cloudyn.com/hc/en-us/articles/212784085-Adding-Azure-Resource-Manager).
+Als uw Azure-accounts worden gedetecteerd door Cloudyn, gegevens van cost onmiddellijk vindt u in rapporten op basis van kosten. Voor Cloudyn om gegevens van gebruik en de prestaties te bieden, moet u echter uw Azure-referenties voor de accounts registreren. Zie voor instructies [toevoegen Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
 
 Als u wilt toevoegen voor een account, Azure-referenties in de Cloudyn-portal, selecteert u het symbool bewerken aan de rechterkant van de accountnaam, niet het abonnement.
 
@@ -110,8 +110,8 @@ Als uw Azure-referenties aan Cloudyn zijn toegevoegd, het account wordt weergege
 
 Als u meer entiteiten worden gebruikt om aanvullende Enterprise overeenkomsten toevoegen aan een Cloudyn-abonnement. De volgende koppelingen beschrijven aanvullende entiteiten toevoegen:
 
-- [Toevoegen van een entiteit](https://support.cloudyn.com/hc/en-us/articles/212016145-Adding-an-Entity) artikel
-- [Uw hiërarchie met Kostenentiteiten definieert](https://support.cloudyn.com/hc/en-us/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
+- [Toevoegen van een entiteit](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) artikel
+- [Uw hiërarchie met Kostenentiteiten definieert](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
 
 Voor CSP's:
 
@@ -141,7 +141,7 @@ Als er een vertraging optreden bij het verzenden van gegevens van Azure naar Clo
 
 ## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Kosten schommelingen in Kostenrapporten van Cloudyn
 
-Kostenrapporten kunnen fluctuaties in de kosten weergeven wanneer cloudserviceproviders bijgewerkte facturering bestanden verzenden. Fluctuerend kosten optreden wanneer er nieuwe bestanden worden ontvangen van een cloudserviceprovider buiten de normale dagelijks of maandelijks schema reporting. Kosten wijzigingen niet worden veroorzaakt door Cloudyn herberekening. 
+Kostenrapporten kunnen fluctuaties in de kosten weergeven wanneer cloudserviceproviders bijgewerkte facturering bestanden verzenden. Fluctuerend kosten optreden wanneer er nieuwe bestanden worden ontvangen van een cloudserviceprovider buiten de normale dagelijks of maandelijks schema reporting. Kosten wijzigingen niet worden veroorzaakt door Cloudyn herberekening.
 
 Gedurende de maand zijn alle facturering bestanden die zijn verzonden door uw cloudserviceprovider een schatting van uw dagelijkse kosten. Soms gegevens regelmatig wordt bijgewerkt, soms meerdere keren per dag. Er zijn updates vaker met AWS dan Azure. Totaal blijft stabiel wanneer het berekenen van facturering voor de vorige maand voltooid is en de uiteindelijke facturering bestand wordt ontvangen. Normaal gesproken door de 10e van de maand.
 
@@ -155,7 +155,7 @@ Zie voor instructies [indirecte CSP-toegang in Cloudyn configureren](quick-regis
 
 Nadat u Azure Resource Manager-toegang en gegevens hebt toegevoegd, wordt verzameld, ziet u de **Optimizer** optie. Zie voor het activeren van Azure Resource Manager-toegang, [hoe activeren unactivated accounts met Azure-referenties?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
 
-## <a name="is-cost-managementcloudyn-agent-based"></a>Cost Management/Cloudyn agent gebaseerd?
+## <a name="is-cloudyn-agent-based"></a>Is de Cloudyn-agent gebaseerd?
 
 Nee. Agents worden niet gebruikt. Metrische gegevens van de virtuele machine van Azure voor virtuele machines zijn verzameld uit de Microsoft Insights-API. Als u verzamelen van metrische gegevens van virtuele Azure-machines wilt, moeten deze diagnostische instellingen zijn ingeschakeld.
 

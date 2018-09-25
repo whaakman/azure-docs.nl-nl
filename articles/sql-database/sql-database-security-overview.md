@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: 27870b5ab36cb9bbd191c130ab9035ad00205404
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b4a2894c92b85d777d2be3b1f5ffd53e2c92b88e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951624"
 ---
 # <a name="securing-your-sql-database"></a>Uw SQL Database beveiligen
 
@@ -79,7 +79,7 @@ SQL Database Auditing houdt databaseactiviteiten bij en helpt u bij de naleving 
 Controle, door te geven van een extra laag met beveiligingsinformatie die is ingebouwd in de Azure SQL Database-service die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases detecteert wordt aangevuld door detectie van bedreigingen. U wordt gewaarschuwd over verdachte activiteiten, potentiële kwetsbaarheden SQL-injectieaanvallen en afwijkende patronen voor databasetoegang. Waarschuwingen van Threat Detection kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van verdachte activiteiten en geven aanbevelingen voor het onderzoeken en tegenhouden. Detectie van bedreigingen kost $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie [Aan de slag met SQL Database Threat Detection](sql-database-threat-detection.md) voor meer informatie.
  
 ## <a name="compliance"></a>Naleving
-Naast de bovenstaande functies en functionaliteit waarmee u kunt uw toepassing ook te voldoen aan verschillende beveiligingsvereisten, Azure SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
+Naast de bovenstaande functies en functionaliteit waarmee u kunt uw toepassing ook te voldoen aan verschillende beveiligingsvereisten, Azure SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
 
 
 ## <a name="security-management"></a>Beveiligingsbeheer

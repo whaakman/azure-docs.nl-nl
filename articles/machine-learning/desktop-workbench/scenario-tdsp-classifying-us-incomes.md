@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057281"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948846"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Inkomstenclassificatie met Team Data Science Process (TDSP)-project
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>Inleiding
 
@@ -55,7 +60,7 @@ Zie [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Micros
 1. Een Azure [abonnement](https://azure.microsoft.com). U krijgt een [gratis abonnement](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) om uit te voeren in dit voorbeeld ook.
 2. Een [Azure Data Science Virtual Machine (DSVM) WindowsServer 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (VM-grootte: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)met 4 virtuele CPU's en 14 Gb RAM-geheugen). Hoewel getest op een Azure-DSVM, is het waarschijnlijk werken op elke computer met Windows 10.
 3. Raadpleeg de documentatie voor Azure Machine Learning en de bijbehorende services (Zie hieronder voor koppelingen).
-4. Zorg ervoor dat u Azure Machine Learning door correct hebt geïnstalleerd het [snel starten-installatiehandleiding](../service/quickstart-installation.md).
+4. Zorg ervoor dat u Azure Machine Learning door correct hebt geïnstalleerd het [snel starten-installatiehandleiding](quickstart-installation.md).
 
 De gegevensset voor dit voorbeeld is van de opslagplaats van de ML UCI [[koppeling]](https://archive.ics.uci.edu/ml/datasets/adult). Het is afkomstig uit de database van de telling van ons 1994 en bevat informatie over de telling en inkomsten voor ongeveer 50.000 personen. Dit is gestructureerde gegevensset met numerieke en categorische onderdelen en een categorische doel dat bestaat uit twee Inkomstencategorieën ('> 50 K' of ' < = 50 K'). 
 
@@ -65,7 +70,7 @@ Als u wilt opslaan en versie van uw project en de inhoud ervan, moet u beschikke
 ### <a name="informational-about-azure-machine-learning"></a>Ter informatie: Over Azure Machine Learning
 * [Veelgestelde vragen - aan de slag](frequently-asked-questions.md)
 * [Overzicht](../service/overview-what-is-azure-ml.md)
-* [Installatie](../service/quickstart-installation.md)
+* [Installatie](quickstart-installation.md)
 * [Kan worden uitgevoerd](experimentation-service-configuration.md)
 * [TDSP gebruiken](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Bestanden lezen en schrijven](how-to-read-write-files.md)

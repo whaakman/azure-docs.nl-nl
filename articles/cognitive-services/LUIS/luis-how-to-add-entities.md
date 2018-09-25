@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding (LUIS)-apps toevoegen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3fe76afca2eb8b14641589e4e29fc20b5d3de7fa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632278"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031999"
 ---
 # <a name="manage-entities"></a>Entiteiten beheren
 Nadat u uw app hebt geïdentificeerd [intents](luis-concept-intent.md), moet u [label voorbeeld uitingen](luis-concept-utterance.md) met [entiteiten](luis-concept-entity-types.md). Entiteiten kunnen worden de belangrijke onderdelen van een opdracht of een vraag, en essentieel zijn voor uw client-app de taak uit te voeren. 

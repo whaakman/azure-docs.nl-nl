@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125172"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948006"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>B2B-berichten bewaken en het instellen van logboekregistratie voor integratieaccounts in Azure Logic Apps
 
@@ -32,7 +32,7 @@ Na het instellen van B2B-communicatie tussen twee met zakelijke processen of toe
 
 ## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Logboekregistratie voor uw integratieaccount diagnostische gegevens inschakelen
 
-U kunt inschakelen logboekregistratie rechtstreeks vanaf uw integratie-account of [via de service Azure Monitor](#azure-monitor-service). Azure Monitor biedt basiscontrole met gegevens op infrastructuurniveau. Meer informatie over [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+U kunt inschakelen logboekregistratie rechtstreeks vanaf uw integratie-account of [via de service Azure Monitor](#azure-monitor-service). Azure Monitor biedt basiscontrole met gegevens op infrastructuurniveau. Meer informatie over [Azure Monitor](../azure-monitor/overview.md).
 
 ### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Diagnostische gegevens rechtstreeks vanuit uw integratieaccount logboekregistratie inschakelen
 

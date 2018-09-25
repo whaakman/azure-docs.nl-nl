@@ -1,5 +1,5 @@
 ---
-title: In het SAML-token voor bedrijfstoepassingen in Azure Active Directory wordt uitgegeven claims aanpassen | Microsoft Docs
+title: Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen | Microsoft Docs
 description: Informatie over het aanpassen van de claims die zijn uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,15 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 08e817b24d4190b6d7f774dd8c812d04e89c1e5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296750"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956958"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>In het SAML-token voor bedrijfstoepassingen in Azure Active Directory wordt uitgegeven claims aanpassen
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Hoe: in het SAML-token voor bedrijfstoepassingen in Azure AD uitgegeven claims aanpassen
+
 Vandaag nog Azure Active Directory biedt ondersteuning voor eenmalige aanmelding op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen vooraf geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker zich bij een toepassing via Azure AD met behulp van het SAML 2.0-protocol verifieert, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze tokens SAML bevatten informatie over de gebruiker bekend als 'claims'.
 
 In de id-spreken, een "claim" zijn gegevens met de mededeling van een id-provider van een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens is meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt gewoonlijk weergegeven in het onderwerp van de SAML-naam-id ook wel.

@@ -1,6 +1,6 @@
 ---
-title: Azure Functions-HTTP- en webhook-bindingen
-description: Over het gebruik van HTTP- en webhook-triggers en bindingen in Azure Functions.
+title: Azure Functions-HTTP-triggers en bindingen
+description: Over het gebruik van HTTP-triggers en bindingen in Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a1b34484978ad95f0945e93411ac2e2a74fff238
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980971"
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions-HTTP- en webhook-bindingen
+# <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
-In dit artikel wordt uitgelegd hoe u werken met HTTP-triggers en uitvoerbindingen in Azure Functions. Azure Functions ondersteunt HTTP-triggers en uitvoerbindingen.
+In dit artikel wordt uitgelegd hoe u werken met HTTP-triggers en uitvoerbindingen in Azure Functions.
 
-Een HTTP-trigger kan worden aangepast om te reageren op [webhooks](https://en.wikipedia.org/wiki/Webhook). Een webhook-trigger accepteert alleen een JSON-nettolading en valideert de JSON. Er zijn speciale versies van de webhook-trigger die het eenvoudiger om af te handelen webhooks van bepaalde providers, zoals GitHub en Slack.
+Een HTTP-trigger kan worden aangepast om te reageren op [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -312,164 +312,6 @@ public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"
     }
 }
 ```
-     
-## <a name="trigger---webhook-example"></a>Trigger - webhook-voorbeeld
-
-Zie het voorbeeld taalspecifieke:
-
-* [C#](#webhook---c-example)
-* [C# script (.csx)](#webhook---c-script-example)
-* [F#](#webhook---f-example)
-* [JavaScript](#webhook---javascript-example)
-
-### <a name="webhook---c-example"></a>Webhook - C#-voorbeeld
-
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een HTTP-200 in reactie op een generieke JSON-aanvraag verzendt.
-
-```cs
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-### <a name="webhook---c-script-example"></a>Webhook - C#-scriptvoorbeeld
-
-Het volgende voorbeeld ziet u een webhook-trigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie registreert opmerkingen van GitHub-probleem.
-
-Hier volgt de *function.json* bestand:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
-
-Dit is de C#-scriptcode:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    dynamic data = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
-
-    return req.CreateResponse(HttpStatusCode.OK, new {
-        body = $"New GitHub comment: {data.comment.body}"
-    });
-}
-```
-
-### <a name="webhook---f-example"></a>Webhook - F #-voorbeeld
-
-Het volgende voorbeeld ziet u een webhook-trigger binding in een *function.json* bestand en een [F #-functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie registreert opmerkingen van GitHub-probleem.
-
-Hier volgt de *function.json* bestand:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
-
-Dit is de F #-code:
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
-
-type Response = {
-    body: string
-}
-
-let Run(req: HttpRequestMessage, log: TraceWriter) =
-    async {
-        let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
-        let data = content |> JsonConvert.DeserializeObject
-        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
-        return req.CreateResponse(
-            HttpStatusCode.OK,
-            { body = sprintf "New GitHub comment: %s" data?comment?body })
-    } |> Async.StartAsTask
-```
-
-### <a name="webhook---javascript-example"></a>Webhook - JavaScript-voorbeeld
-
-Het volgende voorbeeld ziet u een webhook-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie registreert opmerkingen van GitHub-probleem.
-
-Hier volgt de binding-gegevens de *function.json* bestand:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-De [configuratie](#trigger---configuration) sectie wordt uitgelegd dat deze eigenschappen.
-
-Dit is de JavaScript-code:
-
-```javascript
-module.exports = function (context, data) {
-    context.log('GitHub WebHook triggered!', data.comment.body);
-    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-    context.done();
-};
-```
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
@@ -480,7 +322,7 @@ U kunt de autorisatie niveau en toegestane HTTP-methoden instellen in kenmerk co
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
 public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
 {
     ...
 }
@@ -500,7 +342,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het autorisatieniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er zijn geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een functie-specifieke API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [sleutels voor de verificatieregel](#authorization-keys). |
 | **Methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Indien niet opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
 | **route** | **route** | Hiermee definieert u de Routesjabloon beheren waarop aanvraag-URL's die uw functie reageert. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie, [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |Hiermee wordt de HTTP-trigger om te fungeren als een [webhook](https://en.wikipedia.org/wiki/Webhook) ontvanger voor de opgegeven provider. Stel de `methods` eigenschap als u deze eigenschap is ingesteld. Het webhooktype kan een van de volgende waarden zijn:<ul><li><code>genericJson</code>&mdash;Een algemene webhook-eindpunt zonder logica voor een specifieke provider. Deze instelling aanvragen beperkt tot alleen die via HTTP POST en met de `application/json` type inhoud.</li><li><code>github</code>&mdash;De functie reageert op [GitHub webhooks](https://developer.github.com/webhooks/). Gebruik niet de _authLevel_ eigenschap met GitHub webhooks. Zie de sectie GitHub webhooks verderop in dit artikel voor meer informatie.</li><li><code>slack</code>&mdash;De functie reageert op [webhooks Slack](https://api.slack.com/outgoing-webhooks). Gebruik niet de _authLevel_ eigenschap met de Slack webhooks. Zie de sectie Slack webhooks verderop in dit artikel voor meer informatie.</li></ul>|
+| **webHookType** | **WebHookType** | _Alleen ondersteund voor de versie 1.x-runtime._<br/><br/>Hiermee wordt de HTTP-trigger om te fungeren als een [webhook](https://en.wikipedia.org/wiki/Webhook) ontvanger voor de opgegeven provider. Stel de `methods` eigenschap als u deze eigenschap is ingesteld. Het webhooktype kan een van de volgende waarden zijn:<ul><li><code>genericJson</code>&mdash;Een algemene webhook-eindpunt zonder logica voor een specifieke provider. Deze instelling aanvragen beperkt tot alleen die via HTTP POST en met de `application/json` type inhoud.</li><li><code>github</code>&mdash;De functie reageert op [GitHub webhooks](https://developer.github.com/webhooks/). Gebruik niet de _authLevel_ eigenschap met GitHub webhooks. Zie de sectie GitHub webhooks verderop in dit artikel voor meer informatie.</li><li><code>slack</code>&mdash;De functie reageert op [webhooks Slack](https://api.slack.com/outgoing-webhooks). Gebruik niet de _authLevel_ eigenschap met de Slack webhooks. Zie de sectie Slack webhooks verderop in dit artikel voor meer informatie.</li></ul>|
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
@@ -508,21 +350,10 @@ Voor C# en F #-functies, kunt u het type van de invoer voor een trigger declarer
 
 De Functions-runtime biedt voor JavaScript-functies, de hoofdtekst van de aanvraag in plaats van het request-object. Zie voor meer informatie de [JavaScript trigger voorbeeld](#trigger---javascript-example).
 
-### <a name="github-webhooks"></a>GitHub webhooks
-
-Om te reageren op GitHub webhooks, eerst uw functie maken met een HTTP-Trigger en stel de **webHookType** eigenschap `github`. Kopieer de URL en API-sleutel in de **webhook toevoegen** pagina van uw GitHub-opslagplaats. 
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Zie [Een functie maken die wordt geactiveerd door een GitHub-webhook](functions-create-github-webhook-triggered-function.md) voor een voorbeeld.
-
-### <a name="slack-webhooks"></a>Slack-webhooks
-
-De Slack-webhook genereert een token voor u in plaats van waarin u kunt opgeven, dus u een sleutel functiespecifieke met het token van Slack configureren moet. Zie [sleutels voor de verificatieregel](#authorization-keys).
 
 ### <a name="customize-the-http-endpoint"></a>Aanpassen van het HTTP-eindpunt
 
-Wanneer u een functie voor een HTTP-trigger of een WebHook, maakt is de functie standaard beschikbaar met een route van het formulier:
+Wanneer u een functie voor een HTTP-trigger, maakt is de functie standaard beschikbaar met een route van het formulier:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
@@ -603,10 +434,13 @@ Standaard alle functie-routes worden voorafgegaan door *api*. U kunt ook aanpass
 
 ### <a name="authorization-keys"></a>Sleutels voor de verificatieregel
 
-Functions kunt u sleutels gebruiken voor het moeilijker voor toegang tot uw HTTP-eindpunten voor de functie tijdens de ontwikkeling.  Een standaard HTTP-trigger mogelijk dat die een API-sleutel worden gebruikt in de aanvraag. Webhooks kunnen sleutels gebruiken voor het toestaan van aanvragen in verschillende manieren, afhankelijk van wat de provider ondersteunt.
+Functions kunt u sleutels gebruiken voor het moeilijker voor toegang tot uw HTTP-eindpunten voor de functie tijdens de ontwikkeling.  Een standaard HTTP-trigger mogelijk dat die een API-sleutel worden gebruikt in de aanvraag. 
 
 > [!IMPORTANT]
 > Terwijl de sleutels kunnen helpen uw HTTP-eindpunten, onleesbaar maakt tijdens de ontwikkeling, zijn ze niet bedoeld als een manier voor het beveiligen van een HTTP-trigger in de productieomgeving. Zie voor meer informatie, [beveiligen van een HTTP-eindpunt in de productieomgeving](#secure-an-http-endpoint-in-production).
+
+> [!NOTE]
+> In de Functions-runtime 1.x kunnen webhook providers sleutels gebruiken voor het toestaan van aanvragen in verschillende manieren, afhankelijk van wat de provider ondersteunt. Dit wordt behandeld [Webhooks en sleutels](#webhooks-and-keys). De runtime versie 2.x bevat geen ingebouwde ondersteuning voor de webhook-providers.
 
 Er zijn twee soorten sleutels:
 
@@ -641,26 +475,45 @@ U kunt anonieme aanvragen, waarvoor geen sleutels. U kunt ook vereisen dat de ho
 > [!NOTE]
 > Wanneer u functies lokaal uitvoert, is autorisatie, ongeacht de instelling voor het opgegeven verificatietype uitgeschakeld. Nadat deze is gepubliceerd naar Azure, de `authLevel` instelling in de trigger wordt afgedwongen.
 
-### <a name="keys-and-webhooks"></a>Sleutels en webhooks
 
-Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger webhook, onderdeel van de HTTP-trigger, en het mechanisme is afhankelijk van het webhooktype. Elke methode zijn afhankelijk van een sleutel. De functie-sleutel met de naam 'standaard' wordt standaard gebruikt. Voor het gebruik van een andere productcode, de webhook-provider voor het verzenden van de naam van de sleutel met de aanvraag in een van de volgende manieren te configureren:
-
-* **Querytekenreeks**: de provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **Aanvraagkoptekst**: de provider geeft de naam van de sleutel in de `x-functions-clientid` header.
-
-Zie voor een voorbeeld van een webhook die is beveiligd met een sleutel, [een door een GitHub-webhook geactiveerde functie maken](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Beveiligen van een HTTP-eindpunt in de productieomgeving
 
 Als u wilt uw functie-eindpunten in de productieomgeving volledig te beveiligen, moet u overwegen implementatie van een van de volgende opties voor functie-app-beveiliging:
 
-* Schakel in App Service-verificatie/verificatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD), service-principal verificatie en vertrouwde externe id-providers gebruiken om gebruikers te verifiëren. Met deze functie is ingeschakeld, kunnen alleen geverifieerde gebruikers toegang tot uw functie-app. Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+* Inschakelen van App Service-verificatie / autorisatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD) en diverse externe id-providers gebruiken om clients te verifiëren. U kunt deze gebruiken voor het implementeren van aangepaste regels voor uw functies en u kunt werken met de gebruikersinformatie uit uw functiecode aan te geven. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md).
 
 * Azure API Management (APIM) gebruiken om aanvragen te verifiëren. APIM biedt een verscheidenheid aan opties voor API-beveiliging voor binnenkomende aanvragen. Zie voor meer informatie, [API Management-verificatiebeleid](../api-management/api-management-authentication-policies.md). Met APIM op locatie, kunt u uw functie-app voor het accepteren van aanvragen van het PI-adres van de APIM-instantie te configureren. Zie voor meer informatie, [IP-adresbeperkingen](ip-addresses.md#ip-address-restrictions).
 
 * Uw functie-app implementeren naar een Azure App Service Environment (ASE). As-omgeving biedt een toegewezen hosting omgeving waarin u kunt uw functies worden uitgevoerd. As-omgeving kunt u configureren van één front-gateway die u gebruiken kunt om alle inkomende aanvragen te verifiëren. Zie voor meer informatie, [configureren van een Web Application Firewall (WAF) voor App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
 Wanneer u een van deze functie op app-niveau beveiligingsmethoden, moet u de verificatie van de HTTP-geactiveerde functie op instellen `anonymous`.
+
+### <a name="webhooks"></a>Webhooks
+
+> [!NOTE]
+> Webhook-modus is alleen beschikbaar voor versie 1.x van de Functions-runtime.
+
+Webhook-modus biedt aanvullende validatie voor de webhook-nettoladingen. In versie 2.x, de basis HTTP-trigger nog werkt en is de aanbevolen aanpak voor webhooks.
+
+#### <a name="github-webhooks"></a>GitHub webhooks
+
+Om te reageren op GitHub webhooks, eerst uw functie maken met een HTTP-Trigger en stel de **webHookType** eigenschap `github`. Kopieer de URL en API-sleutel in de **webhook toevoegen** pagina van uw GitHub-opslagplaats. 
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+Zie [Een functie maken die wordt geactiveerd door een GitHub-webhook](functions-create-github-webhook-triggered-function.md) voor een voorbeeld.
+
+#### <a name="slack-webhooks"></a>Slack-webhooks
+
+De Slack-webhook genereert een token voor u in plaats van waarin u kunt opgeven, dus u een sleutel functiespecifieke met het token van Slack configureren moet. Zie [sleutels voor de verificatieregel](#authorization-keys).
+
+### <a name="webhooks-and-keys"></a>Webhooks en sleutels
+
+Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger webhook, onderdeel van de HTTP-trigger, en het mechanisme is afhankelijk van het webhooktype. Elke methode zijn afhankelijk van een sleutel. De functie-sleutel met de naam 'standaard' wordt standaard gebruikt. Voor het gebruik van een andere productcode, de webhook-provider voor het verzenden van de naam van de sleutel met de aanvraag in een van de volgende manieren te configureren:
+
+* **Querytekenreeks**: de provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Aanvraagkoptekst**: de provider geeft de naam van de sleutel in de `x-functions-clientid` header.
 
 ## <a name="trigger---limits"></a>Trigger - limieten
 
@@ -692,7 +545,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 Gebruik de taal-standaard antwoord patronen voor het verzenden van een HTTP-antwoord. In C# of C#-script, moet u de functie retourtype `HttpResponseMessage` of `Task<HttpResponseMessage>`. In C#, is een kenmerk van de geretourneerde waarde niet vereist.
 
-Bijvoorbeeld antwoorden, Zie de [trigger voorbeeld](#trigger---example) en de [webhook voorbeeld](#trigger---webhook-example).
+Bijvoorbeeld antwoorden, Zie de [trigger voorbeeld](#trigger---example).
 
 ## <a name="next-steps"></a>Volgende stappen
 

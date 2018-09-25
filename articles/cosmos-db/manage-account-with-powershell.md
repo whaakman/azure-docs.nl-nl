@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 90de671d8e57244765f1da439649e57485814533
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 60b13c8284708ce46d62b6659b2631a4f551c2ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051660"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983106"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Maak een Azure Cosmos DB-account met behulp van PowerShell
 
-De volgende handleiding wordt beschreven opdrachten voor het automatiseren van beheer van uw Azure Cosmos DB-database-accounts met behulp van Azure Powershell. Dit omvat ook opdrachten voor het beheren van accountsleutels en failover-prioriteiten in [databaseaccounts voor meerdere regio's][scaling-globally]. Bijwerken van uw databaseaccount, kunt u consistentie beleid wijzigen en regio's toevoegen/verwijderen. Voor het beheer van meerdere platforms van uw Azure Cosmos DB-account, kunt u een [Azure CLI](cli-samples.md), wordt de [Resource Provider REST API][rp-rest-api], of de [Azure-portal ](create-sql-api-dotnet.md#create-account).
+De volgende handleiding wordt beschreven opdrachten voor het automatiseren van beheer van uw Azure Cosmos DB-database-accounts met behulp van Azure Powershell. Dit omvat ook opdrachten voor het beheren van accountsleutels en failover-prioriteiten in [databaseaccounts voor meerdere regio's] [distribueren-gegevens-globally.md]. Bijwerken van uw databaseaccount, kunt u consistentie beleid wijzigen en regio's toevoegen/verwijderen. Voor het beheer van meerdere platforms van uw Azure Cosmos DB-account, kunt u een [Azure CLI](cli-samples.md), wordt de [Resource Provider REST API][rp-rest-api], of de [Azure-portal ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -33,7 +33,7 @@ Volg de instructies in [hoe u Azure PowerShell installeren en configureren] [ po
 
 ## <a id="create-documentdb-account-powershell"></a> Een Azure Cosmos DB-Account maken
 
-Met deze opdracht kunt u een Azure Cosmos DB-databaseaccount maken. Uw nieuwe databaseaccount configureren als een van beide één regio of [meerdere regio's] [ scaling-globally] met een bepaalde [consistentie beleid](consistency-levels.md).
+Met deze opdracht kunt u een Azure Cosmos DB-databaseaccount maken. Uw nieuwe databaseaccount als één regio of [meerdere regio's] [distribueren-gegevens-globally.md] configureren met een bepaalde [consistentie beleid](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Voorbeeld:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Opmerkingen
-* Het vorige voorbeeld maakt een databaseaccount met twee regio's. Het is ook mogelijk te maken van een databaseaccount met één regio (die is aangewezen als de schrijfregio en een failover-prioriteit-waarde van 0) of meer dan twee regio's. Zie voor meer informatie, [databaseaccounts voor meerdere regio's][scaling-globally].
+* Het vorige voorbeeld maakt een databaseaccount met twee regio's. Het is ook mogelijk te maken van een databaseaccount met één regio (die is aangewezen als de schrijfregio en een failover-prioriteit-waarde van 0) of meer dan twee regio's. Zie voor meer informatie [databaseaccounts voor meerdere regio's] [distribueren-gegevens-globally.md].
 * De locaties moet regio's waar Azure Cosmos DB algemeen beschikbaar is. De huidige lijst met regio's wordt geleverd op de [Azure-regio's pagina](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Bijwerken van een Azure Cosmos DB-databaseaccount

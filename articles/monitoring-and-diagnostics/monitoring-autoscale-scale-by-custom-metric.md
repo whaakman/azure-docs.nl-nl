@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216196"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987812"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure
 In dit artikel wordt beschreven hoe u uw resource schalen door een aangepaste metrische gegevens in Azure portal.
 
-Azure Monitor automatisch schalen geldt alleen voor Virtual Machine Scale Sets (VMSS), cloudservices, app service-abonnementen en app service-omgevingen. 
+Automatisch schalen van Azure Monitor is alleen bedoeld voor [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/), en [API Management-services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Hiermee kunnen aan de slag
 In dit artikel wordt ervan uitgegaan dat u een web-app met application insights is geconfigureerd. Als u er nog geen hebt, kunt u [Application Insights instellen voor uw ASP.NET-website][1]

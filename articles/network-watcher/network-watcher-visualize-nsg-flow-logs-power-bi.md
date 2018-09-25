@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060188"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032675"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Stroomlogboeken van Netwerkbeveiligingsgroep visualizing met Power BI
 
@@ -54,7 +54,7 @@ U moet ook de Power BI Desktop-client geïnstalleerd op uw computer en voldoende
 1. Downloaden en openen van de volgende Power BI-sjabloon in de Power BI Desktop-toepassing [Power BI netwerk-Watcher-stroomlogboeken sjabloon](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Voer de vereiste parameters voor de Query
     1. **StorageAccountName** – Hiermee geeft u op de naam van het opslagaccount met de NSG-stroomlogboeken die u wilt laden en visualiseren.
-    1. **NumberOfLogFiles** – Hiermee geeft u het nummer van de logboekbestanden die u wilt downloaden en visualiseren in Power BI. Bijvoorbeeld, als 50 is opgegeven, de meest recente 50 logboekbestanden. Ge hebben we 2 nsg's ingeschakeld en geconfigureerd voor het verzenden van NSG-stroomlogboeken aan dit account en vervolgens de laatste 25 minuten aan logboeken kunnen worden weergegeven.
+    1. **NumberOfLogFiles** – Hiermee geeft u het nummer van de logboekbestanden die u wilt downloaden en visualiseren in Power BI. Bijvoorbeeld, als 50 is opgegeven, de meest recente 50 logboekbestanden. Als we 2 nsg's ingeschakeld en geconfigureerd voor het verzenden van NSG-stroomlogboeken aan dit account hebt, kan de laatste 25 minuten aan logboeken worden weergegeven.
 
     ![hoofdvenster van Power BI][2]
 

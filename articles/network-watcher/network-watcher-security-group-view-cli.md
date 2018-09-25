@@ -1,6 +1,6 @@
 ---
-title: Analyseren van netwerkbeveiliging met Azure Network Watcher weergave van de beveiligingsgroep - Azure CLI 2.0 | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u Azure CLI 2.0 gebruiken voor het analyseren van een beveiliging voor virtuele machines met de weergave van de beveiligingsgroep.
+title: Analyseren van netwerkbeveiliging met Azure Network Watcher weergave van de beveiligingsgroep - Azure CLI | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u Azure CLI gebruiken voor het analyseren van een beveiliging voor virtuele machines met de weergave van de beveiligingsgroep.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090552"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962892"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Analyseren van de beveiliging van uw virtuele machines met de weergave van de beveiligingsgroep met behulp van Azure CLI 2.0
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analyseren van de beveiliging van uw virtuele machines met de weergave van de beveiligingsgroep met behulp van Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
@@ -30,10 +30,7 @@ ms.locfileid: "39090552"
 
 Weergave van de beveiligingsgroep retourneert geconfigureerde en toegepaste netwerkbeveiligingsgroepsregels beveiligingsregels die worden toegepast op een virtuele machine. Deze mogelijkheid is handig om te controleren en onderzoeken van Netwerkbeveiligingsgroepen en regels die zijn geconfigureerd op een virtuele machine om te controleren of verkeer wordt toegestaan of geweigerd correct. In dit artikel hebben we laten zien hoe u aan een virtuele machine met behulp van Azure CLI de geconfigureerde en effectieve beveiligingsregels ophalen
 
-
-In dit artikel wordt onze CLI van de volgende generatie voor het implementatiemodel resource management, Azure CLI 2.0 die beschikbaar is voor Windows, Mac en Linux.
-
-Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

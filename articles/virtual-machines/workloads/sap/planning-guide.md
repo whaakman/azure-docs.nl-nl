@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 274f9d89113f583cc7b65ae01f3132d35b82b920
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6257f1f9c237422174d695489b8ed39c7c37ebe2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969152"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -823,9 +823,9 @@ De Azure CLI bevat een set open-source, platformoverschrijdende opdrachten om te
 
 Zie voor meer informatie over installatie, configuratie en het gebruik van CLI opdrachten voor het uitvoeren van taken op Azure
 
-* [De Azure CLI installeren][xplat-cli]
+* [De klassieke Azure-CLI installeren][xplat-cli]
 * [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
-* [Gebruik de Azure CLI voor Mac, Linux en Windows met Azure Resource Manager][xplat-cli-azure-resource-manager]
+* [Gebruik de klassieke Azure CLI voor Mac, Linux en Windows met Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Lees ook hoofdstuk [Azure CLI voor Linux-VM's] [ deployment-guide-4.5.2] in de [Deployment Guide] [ planning-guide] over hoe u Azure CLI gebruiken voor het implementeren van de Azure Monitoring De extensie voor SAP.
 
@@ -959,7 +959,7 @@ In dit geval willen we een VHD, met of zonder een besturingssysteem, uploaden en
 * Een nieuwe virtuele machine maken van de configuratie van de virtuele machine met *New-AzureRmVM* -Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * Een gegevensschijf toevoegen aan een nieuwe virtuele machine met *Add-azurermvmdatadisk en* -Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
-**Azure CLI 2.0**
+**Azure-CLI**
 
 * Meld u aan bij uw abonnement met *az login*
 * Selecteer uw abonnement met *az account set--abonnement `<subscription name or id`>*
@@ -987,7 +987,7 @@ Een bestaande virtuele machine of een VHD uploaden van de on-premises netwerk om
   * Beheerde schijf afbeelding *Set AzureRmVMSourceImage* -Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
 * Een nieuwe virtuele machine maken van de configuratie van de virtuele machine met *New-AzureRmVM* -Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
-**Azure CLI 2.0**
+**Azure-CLI**
 
 * Gebruik *sysprep* op Windows of *waagent-inrichting* op Linux om te generaliseren van uw virtuele machine - Zie [technische documentatie van Sysprep](https://technet.microsoft.com/library/cc766049.aspx) voor Windows of [vastleggen een Virtuele Linux-machine om te gebruiken als een Resource Manager-sjabloon] [ capture-image-linux-step-2-create-vm-image] voor Linux
 * Meld u aan bij uw abonnement met *az login*
@@ -1036,7 +1036,7 @@ Tijdens het ophalen van de download niet kan de virtuele harde schijven of Manag
 
   Kom hier voor meer informatie van de cmdlet opslaan-AzureRmVhd <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
-#### <a name="cli-20"></a>CLI 2.0
+#### <a name="azure-cli"></a>Azure-CLI
   * Een beheerde schijf downloaden  
   U moet eerst toegang krijgen tot de onderliggende blob van de beheerde schijf. Vervolgens kunt u de onderliggende blob kopiëren naar een nieuw opslagaccount en de blob downloaden uit dit storage-account.
   ```
@@ -1074,7 +1074,7 @@ $config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<s
 New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure-CLI
 U kunt Azure CLI gebruiken om te kopiëren van een VHD, zoals wordt weergegeven in [in dit artikel][storage-azure-cli-copy-blobs]. Gebruik voor het maken van een nieuwe beheerde schijf *az schijf maken* zoals wordt weergegeven in het volgende voorbeeld.
 
 ```
@@ -1115,7 +1115,7 @@ $disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupNa
 $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzureRmVM
 ```
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure-CLI
 ```
 
 # attach a vhd to a vm
@@ -1158,7 +1158,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 Voor Zie voor voorbeelden [in dit artikel][storage-powershell-guide-full-copy-vhd].
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure-CLI
 * Het exemplaar bij starten
 
 ```
@@ -1614,8 +1614,8 @@ In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in 
 | --- | --- | --- | --- | --- |
 | Functie voor berichtverzending |sapdp`<nn>` Zie * |3201 |3200 - 3299 |SAP-Webdispatcher, die worden gebruikt door SAP GUI voor Windows en Java |
 | -Berichtenserver |sapms`<sid`> Zie ** |3600 |gratis sapms`<anySID`> |beveiligings-id = SAP-systeem-ID |
-| Gateway |sapgw`<nn`> Zie * |3301 |gratis |SAP-gateway, die wordt gebruikt voor CPIC en RFC communicatie |
-| SAP-router |sapdp99 |3299 |gratis |Namen van alleen CI (centrale exemplaar)-Service kunnen opnieuw worden toegewezen in /etc/services op een willekeurige waarde na de installatie. |
+| Gateway |sapgw`<nn`> Zie * |3301 |Gratis |SAP-gateway, die wordt gebruikt voor CPIC en RFC communicatie |
+| SAP-router |sapdp99 |3299 |Gratis |Namen van alleen CI (centrale exemplaar)-Service kunnen opnieuw worden toegewezen in /etc/services op een willekeurige waarde na de installatie. |
 
 *) nn = getal voor SAP-exemplaar
 

@@ -8,28 +8,29 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2c848ba87d7f42f6329e7b3166a4410cadbd63a0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037946"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
-Azure SQL-Database kan metrische en diagnostische gegevens verzenden logboeken voor de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
 
-* **Azure Storage**: gebruikt voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs.
+Azure SQL Database en databases met beheerd exemplaar metrische en diagnostische gegevens logboeken voor prestatiebewaking van eenvoudiger kan verzenden. U kunt een database naar stream Resourcegebruik, werkrollen en sessies en connectiviteit in een van deze Azure-resources configureren:
+
+* **Azure SQL Analytics**: gebruikt als intelligente geïntegreerde Azure-database-prestaties met rapportages, waarschuwingen en risicobeperking mogelijkheden voor controle.
 * **Azure Event Hubs**: gebruikt voor het integreren van SQL Database-telemetrie in uw eigen bewakingsoplossing of actieve pijplijnen.
-* **Azure Log Analytics**: gebruikt voor een out-of-the-box-oplossing voor prestatiecontrole met rapportages, waarschuwingen en risicobeperking mogelijkheden. Dit is een functie van de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **Azure Storage**: gebruikt voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs.
 
     ![Architectuur](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="enable-logging"></a>Logboekregistratie inschakelen
+## <a name="enable-logging-for-a-database"></a>Logboekregistratie inschakelen voor een database
 
-Metrische en diagnostische gegevens logboekregistratie is standaard niet ingeschakeld. U kunt inschakelen en beheren van metrische en diagnostische gegevens logboekregistratie met behulp van een van de volgende methoden:
+Metrische en diagnostische gegevens die zich aanmelden op de SQL-Database of een beheerd exemplaar in de database is niet standaard ingeschakeld. U kunt inschakelen en metrische en diagnostische gegevens telemetrie registreren voor een database met behulp van een van de volgende manieren beheren:
 
 - Azure Portal
 - PowerShell
@@ -39,38 +40,54 @@ Metrische en diagnostische gegevens logboekregistratie is standaard niet ingesch
 
 Wanneer u metrische gegevens en logboekregistratie van diagnostische gegevens inschakelt, moet u om op te geven van de Azure-resource waar de geselecteerde gegevens worden verzameld. Beschikbare opties zijn onder andere:
 
-- Log Analytics
+- SQL-analyse
 - Event Hubs
 - Storage 
 
-U kunt inrichten van een nieuwe Azure-resource of Selecteer een bestaande resource. Na het selecteren van de storage-resource, moet u opgeven welke gegevens worden verzameld. Beschikbare opties zijn onder andere:
+U kunt inrichten van een nieuwe Azure-resource of Selecteer een bestaande resource. Na het selecteren van een resource, met behulp van een database optie diagnostische instellingen, moet u opgeven welke gegevens worden verzameld. Beschikbare opties, met ondersteuning voor Azure SQL Database en de Managed Instance-database zijn onder andere:
 
-- [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): bevat DTU-percentage, DTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, percentage van sessies, percentage van de werknemers, opslag, opslagpercentage , en het percentage van XTP-opslag.
-- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): bevat informatie over de query-runtime-statistieken, zoals CPU-gebruik en de query duur.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): bevat informatie over de query wait-statistieken, dit geeft aan wat uw query's wachtte op, zoals CPU, het logboek en VERGRENDELEN.
-- [Fouten](sql-database-metrics-diag-logging.md#errors-dataset): bevat informatie over SQL-fouten die hebben plaatsgevonden voor deze database.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bevat informatie over hoeveel tijd een database besteed aan het wachten op andere wacht typen.
-- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): bevat informatie over time-outs die hebben plaatsgevonden in een database.
-- [Blokken](sql-database-metrics-diag-logging.md#blockings-dataset): bevat informatie over het blokkeren van gebeurtenissen die hebben plaatsgevonden in een database.
-- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights bevat. [Meer informatie over Intelligent Insights](sql-database-intelligent-insights.md).
-- **Audit** / **SQLSecurityAuditEvents**: momenteel niet beschikbaar.
+| Bewaking van telemetrie | Ondersteuning van Azure SQL-Database | Database in de Managed Instance-ondersteuning |
+| :------------------- | ------------------- | ------------------- |
+| [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): bevat DTU-/ CPU-percentage, DTU/CPU beperken, fysieke gegevens gelezen percentage logboek schrijven percentage geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, en Percentage van XTP-opslag. | Ja | Nee |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): bevat informatie over de query-runtime-statistieken, zoals CPU-gebruik zijn en duur van de statistieken op te vragen. | Ja | Ja |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): bevat informatie over de query wait-statistieken, dit geeft aan wat uw query's wachtte op, zoals CPU, het logboek en VERGRENDELEN. | Ja | Ja |
+| [Fouten](sql-database-metrics-diag-logging.md#errors-dataset): bevat informatie over SQL-fouten die hebben plaatsgevonden voor deze database. | Ja | Nee |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bevat informatie over hoeveel tijd een database besteed aan het wachten op andere wacht typen. | Ja | Nee |
+| [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): bevat informatie over time-outs die hebben plaatsgevonden in een database. | Ja | Nee |
+| [Blokken](sql-database-metrics-diag-logging.md#blockings-dataset): bevat informatie over het blokkeren van gebeurtenissen die hebben plaatsgevonden in een database. | Ja | Nee |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights bevat in prestaties. [Meer informatie over Intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
+
+**Houd er rekening mee**: voor het gebruik van Logboeken voor controle en SQLSecurityAuditEvents, hoewel deze opties beschikbaar in de database diagnostische instellingen zijn, deze logboeken alleen via moeten worden ingeschakeld **SQL Auditing** oplossing configureren Streaming telemetrie naar Log Analytics, Event Hub of opslag.
 
 Als u Event Hubs of een storage-account selecteert, kunt u een bewaarbeleid opgeven. Dit beleid verwijdert de gegevens die ouder is dan een geselecteerde periode. Als u Log Analytics opgeeft, is het bewaarbeleid afhankelijk van de geselecteerde prijscategorie. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Voor meer informatie over het inschakelen van logboekregistratie en begrijpen van de metrische gegevens en logboekbestanden categorieën die worden ondersteund door de verschillende Azure-services, wordt u aangeraden dat u leest: 
+## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>Logboekregistratie inschakelen voor elastische pools of Managed Instance
+
+Metrische gegevens en diagnostische gegevens vastleggen elastische pools of Managed Instance is niet standaard ingeschakeld. U kunt inschakelen en beheren van metrische gegevens en logboekregistratie van diagnostische gegevens telemetrie voor elastische pool of Managed Instance. De volgende gegevens zijn beschikbaar voor verzameling:
+
+| Bewaking van telemetrie | Elastische pool-ondersteuning | Ondersteuning voor Instance beheerd |
+| :------------------- | ------------------- | ------------------- |
+| [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics) (elastische pools): bevat eDTU/CPU-percentage, eDTU/CPU-limiet, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag en XTP-opslagpercentage . | Ja | N/A |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (MI): bevat het aantal vCores, gemiddelde CPU-percentage, i/o-aanvragen, lezen/geschreven bytes, gereserveerde opslagruimte, opslagruimte gebruikt. | N/A | Ja |
+
+Om te begrijpen van de metrische gegevens en meld u categorieën die worden ondersteund door de verschillende Azure-services, wordt u aangeraden dat u leest:
 
 * [Overzicht van metrische gegevens in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Overzicht van diagnostische logboeken van Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Om in te schakelen logboeken verzamelen van metrische en diagnostische gegevens in de portal, gaat u naar uw SQL-Database of elastische pool-pagina en selecteer vervolgens **diagnostische instellingen**.
+- Voor een metrische en diagnostische gegevens logboeken verzameling bestandsnaamgedeelte SQL-Databases of databases met beheerd exemplaar, gaat u naar de database en selecteer vervolgens **diagnostische instellingen**. Selecteer **+ diagnostische instelling toevoegen** om een nieuwe instelling te configureren of **instelling bewerken** aan een bestaande instelling bewerken.
 
    ![Inschakelen in Azure portal](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. Maak een nieuwe of bestaande diagnostische instellingen bewerken door het doel en de telemetrie te selecteren.
+- Voor **Azure SQL Database** Maak een nieuwe of bestaande diagnostische instellingen bewerken door het doel en de telemetrie te selecteren.
 
    ![Diagnostische instellingen](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+
+- Voor **beheerd exemplaar in de database** Maak een nieuwe of bestaande diagnostische instellingen bewerken door het doel en de telemetrie te selecteren.
+
+   ![Diagnostische instellingen](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -174,7 +191,7 @@ Bewaking van de vloot van een SQL-Database is heel eenvoudig met Log Analytics. 
 
 2. Databases naar record metrische gegevens en diagnostische logboeken configureren in de Log Analytics-resource die u hebt gemaakt.
 
-3. Installeer de **Azure SQL Analytics** oplossing uit de galerie in Log Analytics.
+3. Installeer de **Azure SQL Analytics** oplossing op Azure Marketplace.
 
 ### <a name="create-a-log-analytics-resource"></a>Een Log Analytics-resource maken
 
@@ -259,15 +276,52 @@ Meer informatie over het [metrische en diagnostische gegevens logboeken download
 
 ## <a name="metrics-and-logs-available"></a>Metrische gegevens en logboeken beschikbaar
 
-### <a name="all-metrics"></a>Alle metrische gegevens
+Raadpleeg de gedetailleerde inhoud in de bewaking telemetrie van metrische gegevens en logboeken beschikbaar voor Azure SQL Database, elastische pools Managed Instance en databases in het beheerde exemplaar.
+
+## <a name="all-metrics"></a>Alle metrische gegevens
+
+### <a name="all-metrics-for-elastic-pools"></a>Alle metrische gegevens voor elastische pools
 
 |**Resource**|**Metrische gegevens**|
 |---|---|
-|Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
 |Elastische pool|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
-|||
 
-### <a name="logs"></a>Logboeken
+### <a name="all-metrics-for-azure-sql-database"></a>Alle metrische gegevens voor Azure SQL Database
+
+|**Resource**|**Metrische gegevens**|
+|---|---|
+|Azure SQL Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
+
+## <a name="logs"></a>Logboeken
+
+### <a name="logs-for-managed-instance"></a>Logboeken voor het beheerde exemplaar
+
+### <a name="resource-usage-stats"></a>Statistieken voor het gebruik van resource
+
+|Eigenschap|Beschrijving|
+|---|---|
+|TenantId|Uw tenant-ID.|
+|SourceSystem|Altijd: Azure|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
+|Type|Altijd: AzureDiagnostics|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|Categorie|De naam van de categorie. Altijd: ResourceUsageStats|
+|Resource|Naam van de resource.|
+|ResourceType|De naam van het resourcetype. Altijd: MANAGEDINSTANCES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
+|LogicalServerName_s|Naam van het beheerde exemplaar.|
+|ResourceId|Resource-URI.|
+|SKU_s|Beheerde exemplaar product-SKU|
+|virtual_core_count_s|Numver van vCores beschikbaar|
+|avg_cpu_percent_s|Gemiddelde CPU-percentage|
+|reserved_storage_mb_s|Gereserveerde opslagcapaciteit op Managed Instance|
+|storage_space_used_mb_s|Gebruikte opslag op Managed Instance|
+|io_requests_s|Aantal IOPS|
+|io_bytes_read_s|Gelezen IOP's bytes|
+|io_bytes_written_s|Aantal geschreven bytes van IOPS|
+
+### <a name="logs-for-azure-sql-database-and-managed-instance-database"></a>Logboeken voor Azure SQL Database en het beheerde exemplaar van database
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
 
@@ -427,7 +481,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: time-outs|
 |OperationName|Naam van de bewerking. Altijd: TimeoutEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -450,7 +504,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: blokken|
 |OperationName|Naam van de bewerking. Altijd: BlockEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: e6b016d437011f8e9ebe3e2d3a6f3c9f737f6ecc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129570"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961974"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
@@ -95,7 +95,7 @@ Er is geen extra kosten voor het gebruik van deze functie. De prijs is onverande
 
 ## <a name="getting-started"></a>Aan de slag
 
-De meest recente versies van de [Azure-portal](http://portal.azure.com) en [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en de preview-versie van [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) onveranderbare storage ondersteuning voor Azure Blob-opslag.
+De meest recente versies van de [Azure-portal](http://portal.azure.com) en [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en de preview-versie van [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) onveranderbare storage ondersteuning voor Azure Blob-opslag.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -131,7 +131,7 @@ De meest recente versies van de [Azure-portal](http://portal.azure.com) en [Azur
 
 8. Schakel een juridische bewaring, hoeft u de tag te verwijderen.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure-CLI
 
 De functie is opgenomen in de volgende opdrachtgroepen: `az storage container immutability-policy` en `az storage container legal-hold`. Voer `-h` op deze om te zien van de opdrachten.
 

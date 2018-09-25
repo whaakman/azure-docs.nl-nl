@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090860"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952848"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimaliseer de prestaties en betrouwbaarheid van Azure Functions
 
@@ -73,6 +73,10 @@ Profiteer van beschermingsmaatregelen reeds wordt geboden voor onderdelen die u 
 ## <a name="scalability-best-practices"></a>Aanbevolen procedures voor schaalbaarheid
 
 Er zijn een aantal factoren die van invloed zijn op hoe de exemplaren van uw functie-app schalen. De details zijn opgegeven in de documentatie voor [functie schalen](functions-scale.md).  Hier volgen enkele aanbevolen procedures om ervoor te zorgen optimale schaalbaarheid van een functie-app.
+
+### <a name="share-and-manage-connections"></a>Delen en beheren van verbindingen
+
+Verbindingen met externe resources waar mogelijk opnieuw gebruiken.  Zie [over het beheren van verbindingen in Azure Functions](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Combineer geen testen en productie-code in dezelfde functie-app
 

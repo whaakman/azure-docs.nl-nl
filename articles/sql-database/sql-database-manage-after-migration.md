@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b34aca8d8aaf9e2c7dbdd092e14a1ebe1e04963d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367913"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985809"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -170,7 +170,7 @@ Express Route kunt u ook om uit te breiden tot 2 x de Bandbreedtelimiet die u vo
 - [Werkstromen](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Van alle wettelijke eisen die compatibel is met SQL-Database, en hoe helpt die met de naleving van mijn eigen organisatie?
-SQL-Database is compatibel met een scala aan om. Als u de meest recente set om dat wordt voldaan, gaat u naar de [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) en inzoomen op de ingebouwde die belangrijk voor uw organisatie om te zien zijn als de SQL-Database is opgenomen onder de compatibele Azure-services. Het is belangrijk te weten dat Hoewel SQL-Database kunnen worden gecertificeerd als een compatibele service, dit de compatibiliteit van de service van uw organisatie helpt, maar kan deze niet automatisch garanderen.
+SQL-Database is compatibel met een scala aan om. Als u de meest recente set om dat wordt voldaan, gaat u naar de [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) en inzoomen op de ingebouwde die belangrijk voor uw organisatie om te zien zijn als de SQL-Database is opgenomen onder de compatibele Azure-services. Het is belangrijk te weten dat Hoewel SQL-Database kunnen worden gecertificeerd als een compatibele service, dit de compatibiliteit van de service van uw organisatie helpt, maar kan deze niet automatisch garanderen.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligente database controleren en onderhoud na de migratie
 

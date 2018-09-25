@@ -1,6 +1,6 @@
 ---
-title: Wat is Bing aangepaste zoekactie? | Microsoft Docs
-description: Biedt een totaaloverzicht van Bing aangepaste zoekactie
+title: Wat is Bing Aangepaste zoekopdrachten? | Microsoft Docs
+description: Bevat een overzicht van Bing Custom Search
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,39 +9,55 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948074"
 ---
-# <a name="what-is-bing-custom-search"></a>Wat is Bing aangepaste zoekactie?
+# <a name="what-is-bing-custom-search"></a>Wat is Bing Aangepaste zoekopdrachten?
 
-Bing aangepaste zoeken kunt u voor het maken van de ervaringen op maat gemaakte zoeken naar onderwerpen die u interesseren. Bijvoorbeeld, als u een website die u een zoekfunctie kunt beschikt, kunt u de domeinen, websites en webpagina's met Bing worden gezocht. Uw gebruikers zien zoekresultaten wilt weergeven die zijn toegesneden op de ze in plaats van interesseren inhoud naar de pagina met zoekresultaten wilt weergeven die niet relevant inhoud bevatten.
+Bing aangepaste zoekopdrachten kunt maken op maat gemaakte zoekervaringen voor onderwerpen waarin u geïnteresseerd bent. Bijvoorbeeld, als u over een website die u een zoekfunctie kunt, kunt u de domeinen, websites en webpagina's die Bing zoeken. Uw gebruikers zien de resultaten die zijn afgestemd op de inhoud die ze geïnteresseerd in plaats van naar de pagina met zoekresultaten die niet van belang inhoud bevatten.
 
-Voor het maken van de aangepaste weergave van het web gebruikt u de aangepaste Bing-zoekopdracht [portal](https://customsearch.ai). De portal maakt u een aangepaste zoekactie-exemplaar waarin de domeinen, websites, en webpagina's die u wilt dat Bing om te zoeken en de websites die u niet wilt dat deze om te zoeken. Naast het opgeven van de URL's van de inhoud die u kent, kunt u de portal ook gebruiken vinden relevante inhoud die u wilt toevoegen.
+Gebruik voor het maken van uw aangepaste weergave van de website de Bing Custom Search [portal](https://customsearch.ai). De portal kunt u een exemplaar voor aangepast zoeken die Hiermee geeft u de domeinen, websites, en webpagina's die u wilt dat Bing om te zoeken naar en de websites die u niet wilt dat deze om te zoeken naar maken. Naast het opgeven van de URL's van de inhoud die u kent, kunt u de portal ook gebruiken om te zoeken naar relevante inhoud die u wilt toevoegen.
 
-De portal kunt u ook een specifieke webpagina op de bovenkant van het zoekresultaat vast als de gebruiker een bepaalde zoekterm invoert. 
+De portal kunt u een specifieke webpagina aan het begin van het zoekresultaat vastmaken als de gebruiker een specifieke zoekterm invoert. 
 
-Na het definiëren van uw exemplaar, kunt u aangepaste zoekactie integreren in uw website, bureaublad-app of mobiele app door de aangepaste zoeken-API aanroept. Als u een web gebaseerde site of toepassing hebt, kunt u de gehoste-gebruikersinterface weergegeven van de zoekinterface voor u.
+Na het definiëren van uw exemplaar, kunt u aangepaste zoekopdrachten integreren in uw website, desktop-app of mobiele app door de aangepaste zoekopdrachten-API aan te roepen. Als u een web gebaseerde site of toepassing hebt, kunt u de gehoste-gebruikersinterface weergegeven van de search-interface voor u.
 
-De volgende afbeelding toont de eenvoud van de integratie van aangepaste zoekactie.
+De volgende afbeelding toont de eenvoud van de aangepaste zoekopdrachten-integratie.
 
-![afbeelding alt](./media/bcs-overview.png "hoe Bing aangepaste zoekactie werkt.")
+![afbeelding alt](./media/bcs-overview.png "hoe Bing Custom Search werkt.")
 
-## <a name="customize-search-suggestions"></a>Zoeksuggesties aanpassen
+## <a name="adding-custom-search-box-suggestions"></a>Toevoegen van aangepaste zoekopdrachten vak suggesties
 
-Als u zich hebt geabonneerd aangepaste zoekactie op het juiste niveau (Zie de [prijzen van pagina's](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), kunt u de zoeksuggesties aangebracht in uw aangepaste zoekervaring aanpassen. De aangepaste voor Automatische suggestie API retourneert een lijst met voorgestelde query's op basis van een gedeeltelijke queryreeks waarmee de gebruiker. Met aangepaste voor Automatische suggestie, kunt u aangepaste zoeksuggesties relevant zijn voor de zoekfunctie opgeven. U opgeven of alleen aangepaste suggesties retourneren of Bing suggesties bevatten. Als Bing suggesties opgenomen zijn, worden aangepaste suggesties weergegeven voordat de suggesties die Bing biedt. Bing suggesties zijn beperkt tot de context van het exemplaar van uw aangepaste zoekactie.
+U kunt uw aangepaste zoekervaring met aangepaste-vak zoeksuggesties verrijken. Deze functie beschikt u over aangepaste zoeksuggesties relevant zijn voor uw zoekervaring. Als de gebruiker typt in het zoekvak in de vervolgkeuzelijst voorgestelde querytekenreeksen op basis van de gedeeltelijke queryreeks van de gebruiker bevat. U kunt opgeven of u wilt retourneren alleen uw aangepaste suggesties of bevat ook suggesties voor Bing. [Meer informatie](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>Toe te voegen aangepaste installatiekopie zoekervaring
+
+U kunt uw ervaring aangepast zoeken met afbeeldingen verrijken. Dit is vergelijkbaar met webresultaten, aangepaste zoekopdrachten ondersteunt zoeken voor afbeeldingen in uw exemplaar van de lijst met websites. [Meer informatie](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>Toevoegen van aangepaste video's zoeken-ervaring
+
+U kunt uw aangepaste zoekervaring met video's verrijken. Dit is vergelijkbaar met webresultaten, aangepaste zoekopdrachten ondersteunt het zoeken naar video's in uw exemplaar van de lijst met websites. [Meer informatie](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>Uw exemplaar voor aangepast zoeken met anderen te delen
+
+U kunt eenvoudig toestaan gezamenlijke bewerken en het testen van uw exemplaar door met leden van uw team te delen. [Meer informatie](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om snel aan de slag, Zie [maken van uw eerste exemplaar van Bing aangepaste zoekactie](quick-start.md).
+Als u wilt snel aan de slag, Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
 
-Zie voor meer informatie over de beschikbare opties voor het aanpassen van uw exemplaar van de zoekopdracht [definiëren van een aangepaste Zoekexemplaar](define-your-custom-view.md).
+Zie voor meer informatie over het aanpassen van uw exemplaar van de search [definiëren van een exemplaar voor aangepast zoeken](define-your-custom-view.md).
 
-Vertrouwd raken met de [aangepaste Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) verwijzing. De verwijzing bevat de lijst met eindpunten, kopteksten en queryparameters die u gebruiken wilt om aan te vragen van de zoekresultaten. Dit omvat ook de definities van de antwoord-objecten.
+Raken met de referentie-inhoud voor elk van de aangepaste zoekopdrachten-eindpunten. De verwijzing bevat de eindpunten, kopteksten en queryparameters die u gebruiken wilt om aan te vragen van zoekresultaten. Daarnaast vindt u hier definities van de responsobjecten.
 
-Zie voor meer informatie over het aanpassen van suggesties, [aangepaste zoeksuggesties definiëren](define-custom-suggestions.md).
+- [Custom Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [Aangepaste afbeeldingen-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [Aangepaste Vidoe-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Aangepaste automatische suggestie-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
-Lees [Bing gebruiken en de vereisten van de weergave](./use-and-display-requirements.md) zodat u de regels over het gebruik van de zoekresultaten niet verbreken.
+
+Lees [Gebruiks- en weergavevereisten voor Bing](./use-and-display-requirements.md) om er zeker van te zijn dat u alle regels voor het gebruik van de zoekresultaten volgt.

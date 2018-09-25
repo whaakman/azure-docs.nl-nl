@@ -1,42 +1,41 @@
 ---
-title: Ondersteuning en training voor Azure Machine Learning-services
-description: Dit artikel wordt beschreven hoe u ondersteuning en training voor Azure Machine Learning-services en Azure Machine Learning Workbench kunt krijgen
+title: Ondersteuning en training voor Azure Machine Learning-service
+description: Dit artikel wordt beschreven hoe u ondersteuning en training voor Azure Machine Learning-service kunt ophalen
 services: machine-learning
-author: j-martens
-ms.author: jmartens
-manager: cgronlund
-ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: article
-ms.date: 03/01/2018
-ms.openlocfilehash: a9529a2b38105274f021483cfce51f30fd38fb62
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.topic: conceptual
+ms.reviewer: jmartens
+author: j-martens
+ms.author: jmartens
+ms.date: 09/24/2018
+ms.openlocfilehash: b5834bfd47cf2ab8462462c43394c8f05e43afa3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644087"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971396"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-services"></a>Ondersteuning en training voor Azure Machine Learning-services
+# <a name="get-support-and-training-for-azure-machine-learning-service"></a>Ondersteuning en training voor Azure Machine Learning-service
 
-In dit artikel bevat informatie over hoe u meer informatie over Azure Machine Learning-services, evenals ondersteuning krijgen voor uw problemen en vragen. 
+In dit artikel bevat informatie over hoe u meer informatie over Azure Machine Learning-service, evenals ondersteuning krijgen voor uw problemen en vragen. 
 
 ## <a name="learn-more-about-azure-machine-learning"></a>Meer informatie over Azure Machine Learning
 
-Het [Azure Machine Learning-documentatiecentrum](../desktop-workbench/overview-what-is-azure-ml.md) bevat video’s voor zelfstudie en handleidingen. Deze stapsgewijze gidsen introduceren de services en wordt uitgelegd van de levenscyclus van de data science. We voegen regelmatig nieuw materiaal toe aan Machine Learning Center. 
-
-Bovendien zijn er [video's die u bekijken kunt voor meer informatie](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+Naast de documentatie op deze site, kunt u vinden:
++ [Zelfstudies en artikelen met procedures](../service/index.yml)
++ [overzicht van netwerkarchitectuur](../service/concept-azure-machine-learning-architecture.md)
++ [Video's](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
 U kunt **aanvragen indienen** voor extra materiaal met behulp van de feedbackkoppeling onder aan het artikel.
 
-## <a name="get-support-for-azure-machine-learning-services"></a>Profiteer van ondersteuning voor Azure Machine Learning-services
+## <a name="get-support-for-azure-machine-learning-service"></a>Profiteer van ondersteuning voor Azure Machine Learning-service
 
-U kunt ondersteuning krijgen voor Azure Machine Learning-services in de volgende manieren:
+Bekijk deze bronnen voor ondersteuning:
 
-+ **Technische ondersteuning**: Neem contact op met Azure technische ondersteuning door naar de pagina [ondersteuning voor Azure](https://azure.microsoft.com/support/options/) en Machine Learning te selecteren. 
++ **Technische ondersteuning**: Ga naar [technische ondersteuning van Azure](https://azure.microsoft.com/support/options/) en selecteert u Machine Learning. 
 
-+ **MSDN-gebruikersforum**: vragen stellen, vragen te beantwoorden en verbinding maken met andere gebruikers in de [ondersteuningsforum van Azure Machine Learning-services op MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
++ **-Gebruikersforum**: vragen stellen, vragen te beantwoorden en verbinding maken met andere gebruikers in de [ondersteuningsforum voor Azure Machine Learning-service op MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
 
 + **Stack Overflow**: Ga naar de Azure Machine Learning-community op [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) gelabeld met 'Azure-Machine-Learning'.
 
