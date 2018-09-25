@@ -13,18 +13,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 39c40482017ae0c0dedcfb1b65ff3767c4e45169
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057556"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999185"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>PHP configureren in Azure App Service WebApps
 
 ## <a name="introduction"></a>Inleiding
 
-Deze handleiding wordt beschreven hoe u de ingebouwde PHP-runtime configureren voor Web-Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)geeft u een aangepaste PHP-runtime en -extensies inschakelen. Voor het gebruik van App Service, zich aanmelden voor de [gratis] proefversie. Voor de meeste van deze handleiding, moet u eerst een PHP-web-app maken in App Service.
+Deze handleiding wordt beschreven hoe u de ingebouwde PHP-runtime configureren voor Web-Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)geeft u een aangepaste PHP-runtime en -extensies inschakelen. Voor het gebruik van App Service, zich aanmelden voor de [gratis proefversie]. Voor de meeste van deze handleiding, moet u eerst een PHP-web-app maken in App Service.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -58,9 +58,9 @@ PHP 7.0 en PHP 7.2 versies zijn ook beschikbaar, maar worden niet standaard inge
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-cli-20-linux-mac-windows"></a>Azure CLI 2.0 (Linux, Mac, Windows)
+### <a name="azure-cli"></a>Azure-CLI 
 
-Voor het gebruik van de Azure Command-Line Interface, moet u [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) op uw computer.
+Voor het gebruik van de Azure Command-Line Interface, moet u [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) op uw computer.
 
 1. Open Terminal, en meld u aan bij uw account.
 
@@ -80,11 +80,11 @@ Voor het gebruik van de Azure Command-Line Interface, moet u [Azure CLI 2.0 inst
 
 ## <a name="how-to-change-the-built-in-php-configurations"></a>Hoe: wijzigen van de ingebouwde PHP-configuraties
 
-Voor een ingebouwde PHP-runtime, kunt u een van de configuratieopties wijzigen door de volgende stappen. (Zie voor meer informatie over richtlijnen php.ini [lijst van php.ini richtlijnen].)
+Voor een ingebouwde PHP-runtime, kunt u een van de configuratieopties wijzigen door de volgende stappen. (Zie voor meer informatie over richtlijnen php.ini [Lijst van php.ini-richtlijnen].)
 
 ### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Wijzigen van PHP\_INI\_gebruiker, PHP\_INI\_PERDIR, PHP\_INI\_alle configuratie-instellingen
 
-1. Voeg een [.user.ini] -bestand naar de hoofdmap.
+1. Voeg een [. user.ini] -bestand naar de hoofdmap.
 1. Configuratieinstellingen toevoegen aan de `.user.ini` bestand met dezelfde syntaxis als u wilt gebruiken in een `php.ini` bestand. Bijvoorbeeld, als u wilt inschakelen op de `display_errors` instellen en de `upload_max_filesize` instelt op 10M, uw `.user.ini` bestand zou deze tekst bevatten:
 
         ; Example Settings
@@ -149,7 +149,7 @@ Zend-extensies worden ook ondersteund met behulp van een **PHP_ZENDEXTENSIONS** 
 In plaats van de standaard-PHP-runtime, kunt App Service Web Apps gebruiken van een PHP-runtime die u opgeeft voor het uitvoeren van PHP-scripts. De runtime die u opgeeft kan worden geconfigureerd door een `php.ini` -bestand dat u ook opgeven. Een aangepaste PHP-runtime gebruiken met Web-Apps, deze stappen te volgen.
 
 1. Verkrijgen van een niet-thread-safe, VC9 of VC11 compatibele versie van PHP voor Windows. Recente versies van PHP voor Windows vindt u hier: [ http://windows.php.net/download/ ]. Oudere versies vindt u in het archief hier: [ http://windows.php.net/downloads/releases/archives/ ].
-1. Wijzig de `php.ini` -bestand voor de runtime. Alle configuratieinstellingen die system-niveau-only richtlijnen worden genegeerd door de Web-Apps. (Zie voor meer informatie over het system-niveau-only richtlijnen [lijst van php.ini richtlijnen]).
+1. Wijzig de `php.ini` -bestand voor de runtime. Alle configuratieinstellingen die system-niveau-only richtlijnen worden genegeerd door de Web-Apps. (Zie voor meer informatie over het system-niveau-only richtlijnen [Lijst van php.ini-richtlijnen]).
 1. (Optioneel) extensies toevoegen aan uw PHP-runtime en kunnen ze in de `php.ini` bestand.
 1. Voeg een `bin` naar de hoofdmap en put de map waarin uw PHP-runtime in deze map (bijvoorbeeld `bin\php`).
 1. Uw web-app implementeren.
@@ -195,11 +195,11 @@ Zie voor meer informatie de [PHP-ontwikkelaarscentrum](https://azure.microsoft.c
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 >
 
-[gratis]: https://www.windowsazure.com/pricing/free-trial/
+[gratis proefversie]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[lijst van php.ini richtlijnen]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
+[Lijst van php.ini-richtlijnen]: http://www.php.net/manual/en/ini.list.php
+[. user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png

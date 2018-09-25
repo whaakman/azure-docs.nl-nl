@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met verificatie voor mobiele Apps in Xamarin Android
-description: Informatie over het verifiëren van gebruikers van uw Xamarin.android-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft met Mobile Apps.
+title: Aan de slag met verificatie voor Mobile Apps in Xamarin Android
+description: Informatie over het gebruik van Mobile Apps om gebruikers van uw Xamarin.android-app via een groot aantal id-providers, met inbegrip van AAD, Google, Facebook, Twitter en Microsoft te verifiëren.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
@@ -12,34 +12,34 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: 97207b722b65ccf98c57304cd559b0927aacd5a4
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595292"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063537"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Verificatie toevoegen aan uw Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Dit onderwerp leest u hoe u verifieert gebruikers van een mobiele App van uw clienttoepassing. In deze zelfstudie kunt u verificatie toevoegen aan de Quick Start-project met behulp van een id-provider die wordt ondersteund door Azure Mobile Apps. Nadat wordt hebt geverifieerd en gemachtigd in de mobiele App, wordt de waarde van de gebruiker-ID weergegeven.
+Dit onderwerp ziet u hoe u verifieert gebruikers van een mobiele App van uw clienttoepassing. In deze zelfstudie, kunt u verificatie toevoegen aan de Quick Start-project met behulp van een id-provider die wordt ondersteund door Azure Mobile Apps. Na wordt is geverifieerd en toegestaan in de mobiele App, wordt de waarde van de gebruiker-ID weergegeven.
 
-Deze zelfstudie is gebaseerd op de mobiele App Quick Start. U moet ook eerst Voltooi de zelfstudie [een Xamarin.Android-app maken]. Als u het gedownloade quick start-serverproject niet gebruikt, moet u het pakket voor verificatie-extensie toevoegen aan uw project. Zie voor meer informatie over server extensiepakketten [werken met de .NET-back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+In deze zelfstudie is gebaseerd op de mobiele App Quick Start. U moet ook eerst de zelfstudie hebt voltooid [Een Xamarin.Android-app maken]. Als u het gedownloade quick start-serverproject niet gebruikt, moet u het pakket voor verificatie-extensie toevoegen aan uw project. Zie voor meer informatie over het server-extensiepakketten [werken met de .NET back-endserver SDK voor Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register"></a>Uw app registreren voor verificatie en App-Services configureren
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>Uw app toevoegen aan de toegestane externe Omleidings-URL 's
 
-Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren. Hierdoor kan de verificatiesysteem terug te keren naar uw app zodra het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
+Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiëren. Hiermee kunt het verificatiesysteem terug te keren naar uw app nadat het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
 
-1. Selecteer in de [Azure-portal] uw App Service.
+1. Selecteer uw App Service in de [Azure-portal].
 
-2. Klik op de **verificatie / autorisatie** menuoptie.
+2. Klik op de **verificatie / autorisatie** menu-optie.
 
-3. In de **toegestaan externe Omleidings-URL's**, voer `url_scheme_of_your_app://easyauth.callback`.  De **url_scheme_of_your_app** in deze tekenreeks wordt het URL-schema voor uw mobiele toepassing.  Deze moet voldoen aan de normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en begin met een letter).  U moet een notitie van de tekenreeks die u naar wens aanpassen van uw mobiele toepassingscode met het URL-schema op verschillende plaatsen.
+3. In de **toegestane externe Omleidings-URL's**, voer `url_scheme_of_your_app://easyauth.callback`.  De **url_scheme_of_your_app** in deze reeks wordt het URL-schema voor uw mobiele toepassing.  Het moet normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en beginnen met een letter) volgen.  U moet een notitie van de tekenreeks die u kiest, aangezien u nodig hebt om aan te passen van de code van uw mobiele toepassing met de URL-schema op verschillende plaatsen.
 
 4. Klik op **OK**.
 
@@ -48,14 +48,14 @@ Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren.
 ## <a name="permissions"></a>Machtigingen beperken voor geverifieerde gebruikers
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Voer het clientproject op een apparaat of emulator in Visual Studio en Xamarin Studio. Controleer of dat een niet-verwerkte uitzondering met een statuscode van 401 (niet-geautoriseerd) treedt op nadat de app wordt gestart. Dit gebeurt omdat de app probeert te krijgen tot uw back-end voor mobiele App als een niet-geverifieerde gebruiker. De *TodoItem* tabel nu is verificatie vereist.
+Voer het clientproject op een apparaat of emulator in Visual Studio of Xamarin Studio. Controleer of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) is gegenereerd nadat de app wordt gestart. Dit komt doordat de app probeert te krijgen tot uw back-end van mobiele App als een niet-geverifieerde gebruiker. De *TodoItem* tabel nu verificatie is vereist.
 
-U wordt vervolgens de client-app voor aanvragen voor resources bijwerken vanuit de back-end voor de mobiele App met een geverifieerde gebruiker.
+U wordt vervolgens de client-app op aanvraag resources bijwerken van de back-end van de mobiele App met een geverifieerde gebruiker.
 
 ## <a name="add-authentication"></a>Verificatie toevoegen aan de app.
-De app is bijgewerkt om te vereisen dat gebruikers tikt u op de **aanmelden** knop en worden geverifieerd voordat gegevens worden weergegeven.
+De app wordt bijgewerkt om te vereisen dat gebruikers tikken op de **aanmelden** knop en verifiëren voordat gegevens worden weergegeven.
 
-1. Voeg de volgende code naar de **TodoActivity** klasse:
+1. Voeg de volgende code aan de **TodoActivity** klasse:
    
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -93,16 +93,16 @@ De app is bijgewerkt om te vereisen dat gebruikers tikt u op de **aanmelden** kn
             }
         }
    
-    Hiermee maakt u een nieuwe methode voor het verifiëren van een gebruiker en een methode-handler voor een nieuwe **aanmelden** knop. De gebruiker in de bovenstaande voorbeeldcode is geverifieerd met behulp van een Facebook-aanmelding. Een dialoogvenster wordt gebruikt voor het weergeven van de gebruikers-ID eenmaal is geverifieerd.
+    Hiermee maakt u een nieuwe methode voor het verifiëren van een gebruiker en een methode-handler voor een nieuwe **aanmelden** knop. De gebruiker in de bovenstaande voorbeeldcode wordt geverifieerd met behulp van een Facebook-aanmelding. Een dialoogvenster wordt gebruikt om de gebruikers-ID eenmaal geverifieerd weer te geven.
    
    > [!NOTE]
-   > Als u van een id-provider dan Facebook gebruikmaakt, wijzig de waarde die is doorgegeven aan **LoginAsync** boven op een van de volgende opties: *MicrosoftAccount*, *Twitter*,  *Google*, of *WindowsAzureActiveDirectory*.
+   > Als u een id-provider dan Facebook gebruikt, wijzigt u de waarde die is doorgegeven aan **LoginAsync** boven op een van de volgende opties: *MicrosoftAccount*, *Twitter*,  *Google*, of *WindowsAzureActiveDirectory*.
    > 
    > 
-2. In de **OnCreate** methode, verwijderen of commentarieer de volgende regel code:
+2. In de **OnCreate** methode, verwijderen of opmerking-out van de volgende coderegel:
    
         OnRefreshItemsSelected ();
-3. Voeg de volgende in het bestand Activity_To_Do.axml *LoginUser* knop definitie voordat u de bestaande *AddItem* knop:
+3. Voeg het volgende toe in het bestand Activity_To_Do.axml *LoginUser* knop definitie voordat u de bestaande *AddItem* knop:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -110,7 +110,7 @@ De app is bijgewerkt om te vereisen dat gebruikers tikt u op de **aanmelden** kn
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
-4. Voeg het volgende element naar het bronbestand Strings.xml:
+4. Voeg het volgende element in het bestand van de resources Strings.xml:
    
         <string name="login_button_text">Sign in</string>
 5. Open het bestand AndroidManifest.xml, voeg de volgende code in `<application>` XML-element:
@@ -124,7 +124,13 @@ De app is bijgewerkt om te vereisen dat gebruikers tikt u op de **aanmelden** kn
           </intent-filter>
         </activity>
 
-6. In Visual Studio en Xamarin Studio het clientproject uitvoeren op een apparaat of emulator en meld u aan met uw gekozen id-provider. Wanneer u is aangemeld bent, wordt de app uw aanmeldings-ID en de lijst met todo-items worden weergegeven en kunt u updates aanbrengen in de gegevens.
+6. Voer het clientproject uit op een apparaat of emulator in Visual Studio of Xamarin Studio en meld u aan met uw gekozen identiteitsprovider. Wanneer u is aangemeld bent, wordt de app uw aanmeldings-ID en de lijst met todo-items worden weergegeven en kunt u updates aanbrengen in de gegevens.
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+**De toepassing is vastgelopen met `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+In sommige gevallen, veroorzaakt een conflict in de voor ondersteuningspakketten die weergegeven als slechts een waarschuwing in de Visual studio, maar het vastlopen van de toepassing met deze uitzondering tijdens runtime. In dit geval moet u ervoor zorgen dat alle ondersteuningspakketten waarnaar wordt verwezen in uw project beschikt over dezelfde versie. De [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs` afhankelijkheid voor Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuning u pakketten moet dit pakket installeren met de vereiste versie rechtstreeks op het voorkomen van conflicten.
 
 <!-- URLs. -->
-[een Xamarin.Android-app maken]: app-service-mobile-xamarin-android-get-started.md
+[Een Xamarin.Android-app maken]: app-service-mobile-xamarin-android-get-started.md

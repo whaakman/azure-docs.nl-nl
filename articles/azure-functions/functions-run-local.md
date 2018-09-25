@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: b33c9246bef2ca22542e338a1ec1f91a92aa300e
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 08686c46cbba1d7e51f4d73a6c2d0010d767d0bd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324832"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039312"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -28,11 +28,11 @@ Azure Functions Core Tools kunt u ontwikkelen en testen van uw functies op uw lo
 
 Er zijn twee versies van Azure Functions Core Tools. De versie die u gebruikt, is afhankelijk van uw lokale ontwikkelomgeving [keuze van taal](supported-languages.md), en het niveau van ondersteuning vereist:
 
-+ [Versie 1.x](#v1): biedt ondersteuning voor versie 1.x van de runtime, die algemeen beschikbaar (GA). Deze versie van de hulpprogramma's wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm-pakket](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Versie 1.x](#v1): biedt ondersteuning voor versie 1.x van de runtime. Deze versie van de hulpprogramma's wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm-pakket](https://docs.npmjs.com/getting-started/what-is-npm). Met deze versie kunt u functies maken in de experimentele talen die officieel niet worden ondersteund. Zie voor meer informatie, [ondersteunde talen in Azure Functions](supported-languages.md)
 
-+ [Versie 2.x](#v2): biedt ondersteuning voor [versie 2.x van de runtime](functions-versions.md). Deze versie biedt ondersteuning voor [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Maakt gebruik van platform-specifieke pakketmanagers of npm voor installatie. Als de runtime 2.x is deze versie van de essentiële hulpprogramma momenteel in preview. In versie 2.x, alle functies in een functie-app moet worden gebruikt in de dezelfde taal.
++ [Versie 2.x](#v2): biedt ondersteuning voor [versie 2.x van de runtime](functions-versions.md). Deze versie biedt ondersteuning voor [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Maakt gebruik van platform-specifieke pakketmanagers of npm voor installatie.
 
-Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x. Voor het ontvangen van belangrijke updates op versie 2.x, met inbegrip van belangrijke wijzigingen aankondigingen, bekijk de [Azure App Service-aankondigingen](https://github.com/Azure/app-service-announcements/issues) opslagplaats.
+Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
@@ -40,18 +40,15 @@ Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x. Voor 
 
 ### <a name="v1"></a>Versie 1.x
 
-De Functions-runtime 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie .NET Framework (4.7.1) wordt gebruikt en wordt alleen ondersteund op Windows-computers. Voordat u de versie 1.x-hulpprogramma's installeert, moet u [NodeJS installeren](https://docs.npmjs.com/getting-started/installing-node), waaronder npm.
+De Functions-runtime 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie .NET Framework (4.7) wordt gebruikt en wordt alleen ondersteund op Windows-computers. Voordat u de versie 1.x-hulpprogramma's installeert, moet u [NodeJS installeren](https://docs.npmjs.com/getting-started/installing-node), waaronder npm.
 
 Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
 
 ```bash
-npm install -g azure-functions-core-tools
+npm install -g azure-functions-core-tools@v1
 ```
 
 ### <a name="v2"></a>Versie 2.x
-
->[!NOTE]
-> Azure Functions-runtime 2.0 is beschikbaar als preview en momenteel niet alle functies van Azure Functions worden ondersteund. Zie voor meer informatie, [versies van Azure Functions](functions-versions.md) 
 
 Versie 2.x van de hulpprogramma's maakt gebruik van de Azure Functions-runtime 2.x die is gebaseerd op .NET Core. Deze versie wordt ondersteund op alle platforms .NET Core 2.x ondersteunt, met inbegrip van [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux).
 
@@ -66,7 +63,7 @@ De volgende stappen gebruikt npm Core Tools installeren op Windows. U kunt ook [
 3. Installeer het pakket Core-hulpprogramma's:
 
     ```bash
-    npm install -g azure-functions-core-tools@core
+    npm install -g azure-functions-core-tools
     ```
 
 #### <a name="brew"></a>MacOS met Homebrew
@@ -116,6 +113,16 @@ De volgende stappen [APT](https://wiki.debian.org/Apt) Core Tools installeren op
     sudo apt-get install azure-functions-core-tools
     ```
 
+### <a name="v1"></a>Versie 1.x
+
+De Functions-runtime 1.x maakt gebruik van de oorspronkelijke versie van de hulpprogramma's. Deze versie .NET Framework (4.7.1) wordt gebruikt en wordt alleen ondersteund op Windows-computers. Voordat u de versie 1.x-hulpprogramma's installeert, moet u [NodeJS installeren](https://docs.npmjs.com/getting-started/installing-node), waaronder npm.
+
+Gebruik de volgende opdracht voor het installeren van de versie 1.x-hulpprogramma's:
+
+```bash
+npm install -g azure-functions-core-tools@v1
+```
+
 ## <a name="create-a-local-functions-project"></a>Een lokale Functions-project maken
 
 Een map functions-project bevat de bestanden [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file), samen met de submappen die de code voor afzonderlijke functies bevatten. Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de functies, de [handleiding voor ontwikkelaars van Azure Functions voor](functions-reference.md#folder-structure).
@@ -148,10 +155,19 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-Gebruik voor het maken van het project zonder een lokale Git-opslagplaats het `--no-source-control [-n]` optie.
+`func init` ondersteunt de volgende opties, die versie 2.x alleen-lezen, tenzij anders wordt vermeld:
+
+| Optie     | Beschrijving                            |
+| ------------ | -------------------------------------- |
+| **`--csx`** | Initialiseert een C#-script (.csx)-project. U moet opgeven `--csx` in de volgende opdrachten. |
+| **`--docker`** | Maken van een docker-bestand voor een container met behulp van een basisinstallatiekopie die is gebaseerd op de gekozen `--worker-runtime`. Gebruik deze optie als u van plan bent om te publiceren naar een aangepaste Linux-container. |
+| **`--force`** | Initialiseren van het project, zelfs wanneer er bestaande bestanden in het project zijn. Deze instelling overschrijft bestaande bestanden met dezelfde naam. Andere bestanden in de projectmap, worden niet beïnvloed. |
+| **`--no-source-control -n`** | Hiermee voorkomt u dat het standaard-maken van een Git-opslagplaats in versie 1.x. In versie 2.x, de git-opslagplaats die standaard is niet gemaakt. |
+| **`--source-control`** | Hiermee bepaalt u of een git-opslagplaats wordt gemaakt. Standaard wordt een opslagplaats is niet gemaakt. Wanneer `true`, een opslagplaats wordt gemaakt. |
+| **`--worker-runtime`** | Hiermee stelt u de taal voor het project. Ondersteunde waarden zijn `dotnet`, `node` (JavaScript), en `java`. Als niet is ingesteld, wordt u gevraagd uw runtime kiezen tijdens de initialisatie. |
 
 > [!IMPORTANT]
-> Standaard versie 2.x van de essentiële hulpprogramma maakt de functie app-projecten voor de .NET runtime als [projecten van C#-klasse](functions-dotnet-class-library.md) (.csproj). Deze C# projecten, die kunnen worden gebruikt met Visual Studio 2017 of Visual Studio Code, worden gecompileerd tijdens het testen en bij het publiceren naar Azure. Als u in plaats daarvan wilt maken en werken met de dezelfde C#-script (.csx)-bestanden gemaakt in versie 1.x en in de portal, moet u de `--csx` parameter bij het maken en implementeren van functions.
+> Standaard versie 2.x van de essentiële hulpprogramma maakt de functie app-projecten voor de .NET runtime als [projecten van C#-klasse](functions-dotnet-class-library.md) (.csproj). Deze C# projecten, die kunnen worden gebruikt met Visual Studio of Visual Studio Code, worden gecompileerd tijdens het testen en bij het publiceren naar Azure. Als u in plaats daarvan wilt maken en werken met de dezelfde C#-script (.csx)-bestanden gemaakt in versie 1.x en in de portal, moet u de `--csx` parameter bij het maken en implementeren van functions.
 
 ## <a name="register-extensions"></a>Extensies registreren
 
@@ -169,6 +185,7 @@ Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en
 {
   "IsEncrypted": false,
   "Values": {
+    "FUNCTIONS\_WORKER\_RUNTIME": "<language worker>",
     "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
@@ -204,7 +221,7 @@ Instellingen in het bestand local.settings.json worden alleen gebruikt door de F
 
 Wanneer er is geen geldige verbindingsreeks is ingesteld voor **AzureWebJobsStorage** en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:  
 
->Ontbrekende waarde voor AzureWebJobsStorage in local.settings.json. Dit is vereist voor alle triggers dan HTTP. U kunt uitvoeren ' azure functionapp ophalen-app-instellingen van de func <functionAppName>' of een verbindingsreeks in local.settings.json opgeven.
+> Ontbrekende waarde voor AzureWebJobsStorage in local.settings.json. Dit is vereist voor alle triggers dan HTTP. U kunt uitvoeren ' azure functionapp ophalen-app-instellingen van de func <functionAppName>' of een verbindingsreeks in local.settings.json opgeven.
 
 ### <a name="get-your-storage-connection-strings"></a>Uw storage-verbindingsreeksen ophalen
 
@@ -230,7 +247,7 @@ Zelfs wanneer u de opslagemulator gebruikt voor ontwikkeling, kunt u om te teste
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    
+
     Wanneer u bent niet al aangemeld naar Azure, wordt u gevraagd om dit te doen.
 
 ## <a name="create-func"></a>Een functie maken
@@ -271,10 +288,10 @@ U kunt deze opties ook opgeven in de opdracht met behulp van de volgende argumen
 
 | Argument     | Beschrijving                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--language -l`**| De sjabloon programmeertaal zoals C#, F # of JavaScript. Deze optie is vereist in versie 1.x. In versie 2.x gebruikt, geen gebruik deze optie en kiest u de standaardtaal van uw project. |
-| **`--template -t`** | Gebruik de `func templates list` opdracht om te zien van de volledige lijst met beschikbare sjablonen voor elke ondersteunde taal.   |
-| **`--name -n`** | De naam van de functie. |
 | **`--csx`** | (Versie 2.x) Genereert de dezelfde C#-script (.csx) sjablonen die worden gebruikt in versie 1.x en in de portal. |
+| **`--language -l`**| De sjabloon programmeertaal zoals C#, F # of JavaScript. Deze optie is vereist in versie 1.x. In versie 2.x gebruikt, geen gebruik deze optie of kies een taal die overeenkomt met de worker-runtime. |
+| **`--name -n`** | De naam van de functie. |
+| **`--template -t`** | Gebruik de `func templates list` opdracht om te zien van de volledige lijst met beschikbare sjablonen voor elke ondersteunde taal.   |
 
 Voer bijvoorbeeld de volgende opdracht voor het maken van een JavaScript-HTTP-trigger in één opdracht:
 
@@ -295,22 +312,23 @@ Om uit te voeren een Functions-project, de host van de functies worden uitgevoer
 ```bash
 func host start
 ```
+
 De `host` opdracht is alleen vereist in versie 1.x.
 
 `func host start` ondersteunt de volgende opties:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
+| **`--build`** | Bouw huidige project voordat wordt uitgevoerd. Versie 2.x en C# projecten alleen. |
+| **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. |
 | **`--cors`** | Een door komma's gescheiden lijst met CORS-oorsprong, zonder spaties. |
-| **`--debug <type>`** | Start de host met de poort voor foutopsporing openen zodat u kunt koppelen aan de **func.exe** verwerken van [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) of [Visual Studio 2017](functions-dotnet-class-library.md). De *\<type\>* opties zijn `VSCode` en `VS`.  |
+| **`--debug`** | Start de host met de poort voor foutopsporing openen zodat u kunt koppelen aan de **func.exe** verwerken van [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) of [Visual Studio 2017](functions-dotnet-class-library.md). Geldige waarden zijn `VSCode` en `VS`.  |
+| **`--language-worker`** | Argumenten voor het configureren van de werknemer taal. Versie 2.x alleen. |
+| **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt te gebruiken. Standaard: Een waarde van launch.json of 5858. Versie 1.x alleen. |
+| **`--password`** | Het wachtwoord of een bestand met het wachtwoord voor een pfx-bestand. Alleen gebruikt met `--cert`. Versie 2.x alleen. |
 | **`--port -p`** | De lokale poort voor luisteren. Standaardwaarde: 7071. |
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaard: 20 seconden.|
 | **`--useHttps`** | Verbinding maken met `https://localhost:{port}` in plaats van naar `http://localhost:{port}`. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
-| **`--build`** | Bouw huidige project voordat wordt uitgevoerd. Versie 2.x en C# projecten alleen. |
-| **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. | 
-| **`--password`** | Het wachtwoord of een bestand met het wachtwoord voor een pfx-bestand. Alleen gebruikt met `--cert`. Versie 2.x alleen. |
-| **`--language-worker`** | Argumenten voor het configureren van de werknemer taal. Versie 2.x alleen. |
-| **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt te gebruiken. Standaard: Een waarde van launch.json of 5858. Versie 1.x alleen. |
 
 Voor een C#-klassebibliotheekproject (.csproj), moet u opnemen de `--build` optie voor het genereren van het DLL-bestand voor de bibliotheek.
 
@@ -346,6 +364,7 @@ De volgende cURL-opdracht triggers de `MyHttpTrigger` Quick Start-functie van ee
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
+
 Het volgende voorbeeld wordt dezelfde functie aangeroepen vanuit een POST-aanvraag doorgeven _naam_ in de aanvraagtekst:
 
 ```bash
@@ -405,32 +424,71 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publiceren naar Azure
 
+Core-hulpprogramma's ondersteunt twee typen implementatie, functie project-bestanden rechtstreeks naar uw functie-app implementeren en implementeren van een aangepaste Linux-container, dit wordt alleen ondersteund in versie 2.x.
+
+In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd.
+
+### <a name="project-file-deployment"></a>Bestand implementeren  
+
+De meest voorkomende implementatiemethode omvat het gebruik van Core-hulpprogramma's kunnen worden verpakt uw functie-app-project en het pakket implementeren op uw functie-app. U kunt eventueel [uitvoeren van uw functies direct vanuit het implementatiepakket](run-functions-from-deployment-package.md).
+
 Als u wilt publiceren een Functions-project aan een functie-app in Azure, gebruikt u de `publish` opdracht:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-U kunt de volgende opties gebruiken:
-
-| Optie     | Beschrijving                            |
-| ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
-| **`--overwrite-settings -y`** | Moet worden gebruikt met `-i`. Hiermee wordt AppSettings in Azure met lokale waarde overschreven als deze verschilt. De standaardwaarde is vragen.|
-
 Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout optreedt wanneer de `<FunctionAppName>` bestaat niet in uw abonnement. Zie voor meer informatie over het maken van een functie-app vanuit de opdrachtprompt of terminal-venster met de Azure CLI, [maken van een functie-App voor uitvoering zonder server](./scripts/functions-cli-create-serverless.md).
 
 De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure Portal].  
 
 >[!IMPORTANT]  
-> Wanneer u een functie-app in Azure maakt, wordt versie 1.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 2.x van de runtime, de toepassingsinstelling toevoegen `FUNCTIONS_EXTENSION_VERSION=beta`.  
+> Wanneer u een functie-app in Azure maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, de toepassingsinstelling toevoegen `FUNCTIONS_EXTENSION_VERSION=~1`.  
 Gebruik de volgende Azure CLI-code voor deze instelling toevoegen aan uw functie-app:
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings FUNCTIONS_EXTENSION_VERSION=beta   
+--resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
 ```
+
+U kunt de volgende opties publiceren, die voor zowel versies, 1.x en 2.x gelden gebruiken:
+
+| Optie     | Beschrijving                            |
+| ------------ | -------------------------------------- |
+| **`--publish-local-settings -i`** |  Publicatie-instellingen in local.settings.json naar Azure, dat u wordt gevraagd om te overschrijven als de instelling bestaat al. Als u de opslagemulator gebruikt, wijzigt u de app-instelling op een [werkelijke opslagverbinding](#get-your-storage-connection-strings). |
+| **`--overwrite-settings -y`** | De prompt dat appinstellingen worden overschreven wanneer `--publish-local-settings -i` wordt gebruikt.|
+
+De volgende opties publiceren, worden alleen ondersteund in versie 2.x:
+
+| Optie     | Beschrijving                            |
+| ------------ | -------------------------------------- |
+| **`--publish-settings-only -o`** |  Publicatie-instellingen en alleen de inhoud overslaan. De standaardwaarde is vragen. |
+|**`--list-ignored-files`** | Geeft een lijst van bestanden die worden genegeerd tijdens het publiceren, die is gebaseerd op het bestand .funcignore. |
+| **`--list-included-files`** | Geeft een lijst van bestanden die zijn gepubliceerd, die is gebaseerd op het bestand .funcignore. |
+| **`--zip`** | Publiceren in uitvoeren vanuit Zip-pakket. Vereist dat de app hebt AzureWebJobsStorage instelling die is gedefinieerd. |
+| **`--force`** | Negeren vooraf publishing verificatie in bepaalde scenario's. |
+| **`--csx`** | Een C#-script (.csx)-project kunt publiceren. |
+| **`--no-build`** | Overslaan dotnet functies bouwen. |
+| **`--dotnet-cli-params`** | Wanneer publiceren gecompileerde C# (.csproj) functies, de essentiële hulpprogramma 'dotnet build--output bin/publiceren'-aanroepen. Parameters doorgegeven aan deze zullen worden toegevoegd aan de opdrachtregel. |
+
+### <a name="custom-container-deployment"></a>Aangepaste container implementeren
+
+Functions kunt u uw functieproject in een aangepaste Linux-container implementeren. Zie voor meer informatie, [een functie in Linux maken met een aangepaste installatiekopie](functions-create-function-linux-custom-image.md). Versie 2.x van Core Tools ondersteuning biedt voor een aangepaste container te implementeren. Aangepaste containers moeten een docker-bestand hebben. Gebruik de optie--dockerfile op `func init`.
+
+```bash
+func deploy
+```
+
+De volgende aangepaste container implementatie-opties zijn beschikbaar: 
+
+| Optie     | Beschrijving                            |
+| ------------ | -------------------------------------- |
+| **`--registry`** | De naam van een Docker-register van de huidige gebruiker aangemeld. |
+| **`--platform`** | Host-platform voor de functie-app. Geldige opties zijn `kubernetes` |
+| **`--name`** | Naam van de functie-app. |
+| **`--max`**  | Hiermee stelt u het maximum aantal exemplaren van de functie-app implementeren op (optioneel). |
+| **`--min`**  | Hiermee stelt u het minimum aantal exemplaren van de functie app implementeren op (optioneel). |
+| **`--config`** | Hiermee stelt u een configuratiebestand voor optionele implementatie. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
