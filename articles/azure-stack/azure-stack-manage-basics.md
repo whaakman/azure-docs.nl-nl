@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: mabrigg
 ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35907204"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093293"
 ---
 # <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
 Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.

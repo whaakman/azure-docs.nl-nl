@@ -11,16 +11,16 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: bonova
-ms.openlocfilehash: 113f171f5ad4bcc8ee9abc2935a9741f7c23c3b0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 711a076409ed1d90c197bbf97a6e15144c0a4d38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734215"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956622"
 ---
-# <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
+# <a name="what-is-a-managed-instance"></a>Wat is een beheerd exemplaar?
 
-Azure SQL Database Managed Instance (preview) is een nieuw implementatiemodel voor van Azure SQL Database, bijna 100% compatibiliteit met de nieuwste SQL Server on-premises Database-Engine (Enterprise Edition) bieden, biedt een systeemeigen [(virtueel netwerk VNet)](../virtual-network/virtual-networks-overview.md) implementatie die algemene beveiligingsproblemen, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor on-premises SQL Server-klanten. Met Managed Instance kunnen bestaande klanten met SQL Server voor lift- and -shift van hun on-premises toepassingen naar de cloud met minimale wijzigingen van toepassing en -database. Op hetzelfde moment, beheerd exemplaar behoudt alle PaaS-mogelijkheden (automatische patching en versie-updates, [geautomatiseerde back-ups](sql-database-automated-backups.md), [hoge beschikbaarheid](sql-database-high-availability.md) ), die aanzienlijk verminderd en totale Eigendomskosten.
+Azure SQL Database Managed Instance is een nieuw implementatiemodel voor van Azure SQL Database, bijna 100% compatibiliteit met de nieuwste SQL Server on-premises Database-Engine (Enterprise Edition) bieden, biedt een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die algemene beveiligingsproblemen, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor on-premises SQL Server-klanten. Met Managed Instance kunnen bestaande klanten met SQL Server voor lift- and -shift van hun on-premises toepassingen naar de cloud met minimale wijzigingen van toepassing en -database. Op hetzelfde moment, beheerd exemplaar behoudt alle PaaS-mogelijkheden (automatische patching en versie-updates, [geautomatiseerde back-ups](sql-database-automated-backups.md), [hoge beschikbaarheid](sql-database-high-availability.md) ), die aanzienlijk verminderd en totale Eigendomskosten.
 
 > [!IMPORTANT]
 > Zie [Uw databases migreren naar een volledig beheerde service met Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) voor een lijst met regio's waarin MI momenteel beschikbaar is.
@@ -69,7 +69,7 @@ De volgende tabel vindt u informatie over de optimale configuratie van uw Reken-
 
 Managed Instance is beschikbaar in twee Servicelagen:
 - **Algemeen gebruik**: ontworpen voor toepassingen met normale prestaties en i/o-latentie is vereist.
-- **Bedrijfskritiek**: ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
+- **Bedrijfskritiek (preview)**: ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
 
 Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van Azure SQL Database, [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
 
@@ -109,7 +109,7 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de cate
 
 Zie voor meer informatie [Standard/voor algemeen gebruik, beschikbaarheid en architectuur](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database.
 
-### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
+### <a name="business-critical-service-tier-preview"></a>Zakelijke kritieke-laag (preview)
 
 Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het biedt de hoogste herstelmogelijkheden bij fouten met behulp van verschillende geïsoleerde altijd op replica's. 
 
@@ -141,6 +141,9 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag
 
 Zie voor meer informatie [Premium/bedrijfskritiek beschikbaarheid en architectuur](sql-database-high-availability.md#premiumbusiness-critical-availability) in Azure SQL Database.
 
+> [!IMPORTANT]
+> De **bedrijfskritiek** servicelaag is beschikbaar als preview.
+
 ## <a name="advanced-security-and-compliance"></a>Geavanceerde beveiliging en naleving van voorschriften 
 
 Azure SQL Database Managed Instance combineert geavanceerde beveiligingsfuncties die worden geleverd door Azure-cloud- en SQL Server Database Engine. 
@@ -171,7 +174,7 @@ Azure SQL Database biedt een set geavanceerde beveiligingsfuncties die kunnen wo
 - [Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) vormt een aanvulling op [Managed Instance controle](sql-database-managed-instance-auditing.md) door te geven van een extra beveiligingslaag die is ingebouwd in de service die ongebruikelijke en potentieel schadelijke detecteert intelligence wil toegang tot of misbruik te maken databases. U wordt gewaarschuwd bij verdachte activiteiten, potentiële kwetsbaarheden, en SQL-injectie aanvallen, en afwijkende patronen voor databasetoegang. Waarschuwingen van Threat Detection kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van verdachte activiteiten en geven aanbevelingen voor het onderzoeken en tegenhouden.  
 - [Dynamische gegevensmaskering](/sql/relational-databases/security/dynamic-data-masking) blootstelling van gevoelige gegevens door deze te maskeren voor replicagegevens gebruikers. Dynamische gegevensmaskering helpt onbevoegde toegang tot gevoelige gegevens voorkomen doordat u aangeven hoeveel van de gevoelige gegevens worden vrijgegeven, met minimale impact op de toepassingslaag. Dit is een beveiligingsfunctie op basis van beleid. De gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden worden verborgen, terwijl de gegevens in de database niet worden gewijzigd. 
 - [Beveiliging op rijniveau](/sql/relational-databases/security/row-level-security) kunt u om te bepalen de toegang tot rijen in een database-tabel op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld door het groepslidmaatschap of uitvoeringscontext context groep). Beveiliging op rijniveau (RLS) vereenvoudigt het ontwerp en de code van de beveiliging in uw toepassing. Met RLS kunt u beperkingen instellen voor de toegang tot gegevens in rijen. Bijvoorbeeld, ervoor te zorgen dat werknemers alleen de rijen met gegevens die relevant voor hun afdeling zijn, of een gegevenstoegang beperken tot alleen de relevante gegevens. 
-- [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) beheerd exemplaar voor Azure SQL-gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in het beheerde exemplaar met transparante gegevensversleuteling beveiligen. TDE is een beproefde technologie voor versleuteling van inactieve gegevens, die verplicht is volgens veel nalevingsstandaarden voor de bescherming tegen diefstal van opslagmedia. Tijdens de openbare preview, wordt de automatische Sleutelbeheer-model ondersteund (uitgevoerd door de PaaS-platform). 
+- [Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Azure SQL Database Managed Instance-gegevensbestanden, bekend als het versleutelen van gegevens in rust worden versleuteld. TDE voert realtime i/o-versleuteling en ontsleuteling van de gegevens en logboekbestanden. De versleuteling gebruikt een databaseversleutelingssleutel (DEK), dat is opgeslagen in de database-bootrecord voor beschikbaarheid tijdens het herstel. U kunt alle databases in het beheerde exemplaar met transparante gegevensversleuteling beveiligen. TDE is een beproefde technologie voor versleuteling van inactieve gegevens, die verplicht is volgens veel nalevingsstandaarden voor de bescherming tegen diefstal van opslagmedia. Tijdens de openbare preview, wordt de automatische Sleutelbeheer-model ondersteund (uitgevoerd door de PaaS-platform). 
 
 Migratie van een versleutelde database naar SQL Managed Instance wordt via de Azure Database Migration Service (DMS) of systeemeigen terugzetten ondersteund. Als u van plan bent voor het migreren van versleutelde database met behulp van systeemeigen restore, is de migratie van het bestaande TDE-certificaat van de SQL Server on-premises of SQL Server-VM aan het beheerde exemplaar is een vereiste stap. Zie voor meer informatie over opties voor de migratie, [SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
@@ -226,7 +229,7 @@ Beheerd exemplaar voordelen wordt altijd-up-to-date in de cloud, betekent dat so
 - Beheerd exemplaar is niet toegestaan voor het volledige fysieke paden op te geven, zodat alle bijbehorende scenario's moeten anders worden ondersteund: DB herstellen biedt geen ondersteuning voor het verplaatsen met, DB maken kunnen geen fysieke paden, BULK INSERT werkt met Azure-Blobs alleen, enzovoort. 
 - Beheerd exemplaar ondersteunt [Azure AD-verificatie](sql-database-aad-authentication.md) als cloud-alternatief voor het Windows-verificatie. 
 - Beheerd exemplaar beheert automatisch de XTP-bestandsgroep en bestanden voor databases met In-Memory OLTP-objecten
-- Beheerd exemplaar biedt ondersteuning voor SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) waarin de SSIS-pakketten kunt, maar ze worden uitgevoerd op een beheerde Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Als u wilt vergelijken van de SSIS-functies in SQL-Database en de Managed Instance, Zie [SQL-Database vergelijken en Managed Instance (Preview)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Beheerd exemplaar biedt ondersteuning voor SQL Server Integration Services (SSIS) en host SSIS-catalogus (SSISDB) waarin de SSIS-pakketten kunt, maar ze worden uitgevoerd op een beheerde Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), Zie [maken Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Als u wilt vergelijken van de SSIS-functies in SQL-Database en de Managed Instance, Zie [logische server met SQL-Database vergelijken en Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Beheerfuncties voor beheerd exemplaar  
 
@@ -244,7 +247,7 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Deze waarde is gelijk aan die in SQL-Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Deze waarde wordt aangeduid Managed Instance.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:<instanceName>.<dnsPrefix>. database.Windows.NET, waar <instanceName> is geleverd door de klant, terwijl <dnsPrefix> automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Volledige DNS-exemplaarnaam in de volgende indeling:<instanceName>.<dnsPrefix>.database.Windows.NET, waar <instanceName> is geleverd door de klant, terwijl <dnsPrefix> automatisch gegenereerde deel uitmaakt van de naam van de globale DNS-naam uniekheid garanderen ('wcus17662feb9ce98', bijvoorbeeld)|Voorbeeld: Mijn-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Volgende stappen
 
