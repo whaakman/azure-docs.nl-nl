@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 739d46e900b51e93c0d232e57a54a9b05cfe49ce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965072"
+documentType: LandingData
+title: Documentatie voor Azure Resource Graph
+metadata:
+  title: 'Documentatie voor Azure Resource Graph: zelfstudies, API-naslag'
+  description: Azure Resource Graph is een service in Azure waarmee op schaal complexe query's op resources kunnen worden uitgevoerd.
+  services: resource-graph
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: resource-graph
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Met de documentatie voor Azure Resource Graph kunt u de querytaal voor het detecteren en verkennen van uw resources op schaal, configureren en ermee leren werken.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Configureer Resource Graph en voer uw eerste query uit.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/cli.svg
+      text: Azure-CLI
+      href: first-query-azurecli.md
+    - image:
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: first-query-powershell.md

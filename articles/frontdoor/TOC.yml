@@ -1,0 +1,61 @@
+items:
+- name: Documentatie voor Front Door Service
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is Azure Front Door Service?
+    href: front-door-overview.md
+- name: Snelstartgidsen
+  items:
+  - name: Een Front Door maken
+    href: quickstart-create-front-door.md
+- name: Zelfstudies
+  items:
+  - name: Een aangepast domein aan uw Front Door toevoegen
+    href: front-door-custom-domain.md
+- name: Voorbeelden
+  items:
+  - name: Resource Manager-sjablonen
+    href: front-door-quickstart-template-samples.md
+- name: Concepten
+  items:
+  - name: Back-ends en back-endpools
+    href: front-door-backend-pool.md
+  - name: DDoS-bescherming en toepassingslaagbeveiliging
+    href: front-door-ddos-security.md
+  - name: Taakverdeling realiseren met de Azure-suite voor toepassingslevering
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: Routeringsarchitectuur
+    href: front-door-routing-architecture.md
+  - name: Routeringsmethoden voor verkeer
+    href: front-door-routing-methods.md
+  - name: Uitleg over de wijze waarop Front Door routering afstemt op een aanvraag
+    href: front-door-route-matching.md
+  - name: Statuscontroles
+    href: front-door-health-probes.md
+  - name: URL opnieuw genereren
+    href: front-door-url-rewrite.md
+  - name: Opslaan in cache met Front Door
+    href: front-door-caching.md
+  - name: Ondersteuning voor HTTP/2
+    href: front-door-http2.md
+  - name: Protocolondersteuning voor HTTP-headers
+    href: front-door-http-headers-protocol.md
+  - name: Bewaking
+    href: front-door-diagnostics.md
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+ms.openlocfilehash: e44b12e49ea03cb344288367f1f9a97e195f39a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949125"
