@@ -1,10 +1,16 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e10dbc5ef0899134a1d629a058412b1eb36df335
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163406"
 documentType: LandingData
 title: Documentatie voor Azure Stack-gebruiker
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: Documentatie voor Azure Stack - zelfstudies, API-verwijzing
-  description: Informatie over het gebruik van Azure-Stack-services en apps maken voor Azure-Stack.
+  description: Informatie over het gebruik van Azure Stack-services en over het bouwen van apps voor Azure Stack.
   services: azure-stack
   author: jeffgilb
   manager: femila
@@ -12,16 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2018
+  ms.date: 09/25/2018
   ms.author: jeffgilb
-  ms.openlocfilehash: 4b258290b197ff4fdee9490012a36519b041622c
-  ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-  ms.translationtype: MT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 05/04/2018
-  ms.locfileid: "33205428"
 abstract:
-  description: Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure. Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.<br/><br/>Als u een Azure-Stack-operator die de infrastructuur beheert en -services biedt, Zie onze <a href="/azure/azure-stack/">operator documentatie</a>.<br/><br/>Als u een Azure-Stack-operator geïnteresseerd in de Azure Stack Development Kit (ASDK), een implementatie met één knooppunt van de Azure-Stack die u kunt downloaden en gratis gebruiken, raadpleegt u onze <a href="/azure/azure-stack/asdk">ASDK documentatie</a>.
+  description: Azure Stack is een hybride cloudplatform waarmee u Azure-services kunt gebruiken vanuit het datacenter van uw bedrijf of serviceprovider. Als ontwikkelaar kunt u apps bouwen in Azure Stack. U kunt deze vervolgens implementeren naar Azure Stack of naar Azure, of u kunt volledig hybride apps bouwen die gebruikmaken van de connectiviteit tussen een Azure Stack-cloud en Azure. Ontdek met onze snelstartgidsen en zelfstudies hoe u resources maakt en apps implementeert.<br/><br/>Als u Azure Stack-operators die u beheert de infrastructuur en -services biedt, raadpleegt u onze <a href="/azure/azure-stack/">operator documentatie</a>.<br/><br/>Als u Azure Stack-operators geïnteresseerd in de Azure Stack Development Kit (ASDK), een implementatie van één knooppunt van de Azure-Stack die u kunt downloaden en gratis gebruiken, raadpleegt u onze <a href="/azure/azure-stack/asdk">ASDK documentatie</a>.
 sections:
 - title: QuickStarts van vijf minuten
   items:
@@ -62,13 +62,19 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Toepassingen implementeren in zowel Azure en Azure-Stack.
+    text: Toepassingen implementeren in Azure en Azure Stack.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Apps implementeren in Azure Stack en in Azure</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Hybride cloud-identiteit in Azure en Azure Stack-toepassingen configureren</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Hybride cloud-verbindingen configureren met Azure en Azure-Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-identity">Hybride cloud-identiteit met Azure en Azure Stack-toepassingen configureren</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-hybrid-connectivity">Hybride cloud-connectiviteit configureren met Azure en Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-machine-learning">Maak een edge-machine learning-oplossing met Azure en Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack </a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Cross-cloud vergroten/verkleinen oplossingen maken met Azure</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Een geografisch gedistribueerde app-oplossing maken met Azure en Azure Stack</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-sql">Maximaal beschikbare SQL-databases maken</a>
+    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-mysql">MySQL-databases met hoge beschikbaarheid maken</a>
 - title: Referentie
   items:
   - type: list
@@ -76,4 +82,4 @@ sections:
     className: cardsD
     items:
     - title: Opdrachtregel
-      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Azure CLI-Stack</a></p>
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/reference-index?view=azure-cli-2017-03-09-profile">Azure Stack CLI</a></p>

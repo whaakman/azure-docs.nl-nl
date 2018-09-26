@@ -32,13 +32,13 @@ Voor meer informatie raadpleegt u ons [ondersteuningsbeleid voor containers](htt
 
 U kunt standaardprogramma's op uw besturingssysteem gebruiken om een sleutelpaar met openbare en privé-SSH RSA-sleutel te maken voor verificatie met de virtuele Linux-machines voor uw cluster. Raadpleeg de stappen voor [OS X en Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) of [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). 
 
-Als u [Azure CLI 2.0-opdrachten](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) gebruikt om een Container Service-cluster te implementeren, kunnen de SSH-sleutels automatisch worden gegenereerd voor uw cluster.
+Als u [Azure CLI-opdrachten](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) gebruikt om een Container Service-cluster te implementeren, kunnen de SSH-sleutels automatisch worden gegenereerd voor uw cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Hoe kan ik een service-principal maken voor mijn Kubernetes-cluster?
 
 Voor het maken van een Kubernetes-cluster in Azure Container Service zijn ook een id en wachtwoord nodig voor de service-principal van Azure Active Directory nodig. Zie [Over de service-principal voor een Kubernetes-cluster](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md) voor meer informatie.
 
-Als u [Azure CLI 2.0-opdrachten](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) gebruikt om een Kubernetes-cluster te implementeren, kunnen de referenties van de service-principal automatisch worden gegenereerd voor uw cluster.
+Als u [Azure CLI-opdrachten](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) gebruikt om een Kubernetes-cluster te implementeren, kunnen de referenties van de service-principal automatisch worden gegenereerd voor uw cluster.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>Hoe groot kan een cluster zijn dat ik maak?
 U kunt een cluster maken met 1, 3 of 5 hoofdknooppunten. U kunt maximaal 100 agentknooppunten kiezen.
@@ -105,4 +105,4 @@ Er zijn een aantal bekende DNS-problemen onder Windows waarvoor de oplossingen n
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) over Azure Container Service.
-* Implementeer een Container Service-cluster met de [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) of [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Implementeer een Container Service-cluster met de [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) of de [Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
