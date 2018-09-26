@@ -1,259 +1,271 @@
+items:
 - name: Documentatie voor Azure HDInsight
   href: /azure/hdinsight
 - name: Overzicht
   items:
-    - name: Over Kafka op HDInsight
-      href: apache-kafka-introduction.md
-    - name: Versiebeheer onderdeel
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
+  - name: Over Kafka op HDInsight
+    href: apache-kafka-introduction.md
+  - name: Versiebeheer onderdeel
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Snelstartgidsen
   items:
-    - name: Een Kafka-cluster maken - Portal
-      href: apache-kafka-get-started.md
-    - name: Een Kafka-cluster maken - PowerShell
-      href: apache-kafka-quickstart-powershell.md
-    - name: Een Kafka-cluster maken - Template
-      href: apache-kafka-quickstart-resource-manager-template.md
+  - name: Een Kafka-cluster maken - Portal
+    href: apache-kafka-get-started.md
+  - name: Een Kafka-cluster maken - PowerShell
+    href: apache-kafka-quickstart-powershell.md
+  - name: Een Kafka-cluster maken - Template
+    href: apache-kafka-quickstart-resource-manager-template.md
 - name: Zelfstudies
   items:
-    - name: Kafka en Spark
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-      maintainContext: true
-    - name: Kafka en Storm
-      href: ../hdinsight-apache-storm-with-kafka.md
-      maintainContext: true
-    - name: Kafka Producer- en Consumer-API
-      href: apache-kafka-producer-consumer-api.md
-    - name: Kafka Streams-API
-      href: apache-kafka-streams-api.md
+  - name: 1 - Structured streaming van Spark gebruiken
+    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    maintainContext: true
+  - name: 2 - Schrijven/lezen vanuit Kafka met Storm
+    href: ../hdinsight-apache-storm-with-kafka.md
+    maintainContext: true
+  - name: 3 - Kafka Producer- en Consumer-API
+    href: apache-kafka-producer-consumer-api.md
+  - name: 4 - Apps ontwikkelen met de Kafka Streams-API
+    href: apache-kafka-streams-api.md
 - name: Concepten
   items:
-    - name: Capaciteitsplanning
-      href: ../hdinsight-capacity-planning.md
-      maintainContext: true
-    - name: Opslag en schaalbaarheid
-      href: apache-kafka-scalability.md
-    - name: Hoge beschikbaarheid van gegevens
-      href: apache-kafka-high-availability.md
+  - name: Capaciteitsplanning
+    href: ../hdinsight-capacity-planning.md
+    maintainContext: true
+  - name: Opslag en schaalbaarheid
+    href: apache-kafka-scalability.md
+  - name: Hoge beschikbaarheid van gegevens
+    href: apache-kafka-high-availability.md
 - name: Procedures
   items:
-    - name: Automatisch onderwerp maken inschakelen
-      href: apache-kafka-auto-create-topics.md
-    - name: Kafka gebruiken met IoT Hub
-      href: apache-kafka-connector-iot-hub.md
-    - name: HDInsight-apps installeren
-      href: ../hdinsight-apps-install-applications.md
+  - name: Automatisch onderwerp maken inschakelen
+    href: apache-kafka-auto-create-topics.md
+  - name: Kafka gebruiken met IoT Hub
+    href: apache-kafka-connector-iot-hub.md
+  - name: HDInsight-apps installeren
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
+  - name: Kafka gebruiken in een virtueel netwerk
+    href: apache-kafka-connect-vpn-gateway.md
+  - name: Kafka-gegevens repliceren
+    href: apache-kafka-mirroring.md
+  - name: Kafka-logboekbestanden analyseren
+    href: apache-kafka-log-analytics-operations-management.md
+  - name: Streaming-pijplijnen maken
+    items:
+    - name: Spark, Kafka en Azure Cosmos-DB
+      href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
-    - name: Kafka gebruiken in een virtueel netwerk
-      href: apache-kafka-connect-vpn-gateway.md
-    - name: Kafka-gegevens repliceren
-      href: apache-kafka-mirroring.md
-    - name: Kafka-logboekbestanden analyseren
-      href: apache-kafka-log-analytics-operations-management.md
-    - name: Streaming-pijplijnen maken
-      items:
-        - name: 'Spark, Kafka en Azure Cosmos-DB'
-          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
-          maintainContext: true
-        - name: Kafka en Spark (DStream)
-          href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
-        - name: Kafka gebruiken met Azure Container Service
-          href: apache-kafka-azure-container-services.md
-    - name: Ontwikkelen
-      items:
-        - name: Lege edge-knooppunten gebruiken
-          href: ../hdinsight-apps-use-edge-node.md
-          maintainContext: true
-    - name: Clusters uitbreiden
-      items:
-        - name: Clusters aanpassen met Bootstrap
-          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-          maintainContext: true
-        - name: Clusters aanpassen met Script Action
-          href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: Scriptacties ontwikkelen
-          href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: HDInsight-toepassingen bouwen
-          items:
-            - name: Aangepaste apps installeren
-              href: ../hdinsight-apps-install-custom-applications.md
-              maintainContext: true
-            - name: Apps installeren met REST
-              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
-            - name: HDInsight-apps publiceren in Azure Marketplace
-              href: ../hdinsight-apps-publish-applications.md
-              maintainContext: true
-            - name: Gepubliceerde app installeren - Cask Data Application Platform (CDAP)
-              href: ../hdinsight-apps-install-cask.md
-              maintainContext: true
-            - name: Gepubliceerde app installeren - Dataiku
-              href: ../hdinsight-apps-install-dataiku.md
-              maintainContext: true
-            - name: Gepubliceerde app installeren - Datameer
-              href: ../hdinsight-apps-install-datameer.md
-              maintainContext: true
-            - name: Gepubliceerde app installeren - H2O
-              href: ../hdinsight-apps-install-h2o.md
-              maintainContext: true
-            - name: Gepubliceerde app installeren - Streamsets
-              href: ../hdinsight-apps-install-streamsets.md
-              maintainContext: true
-    - name: Beveiligen
-      items:
-        - name: SSH gebruiken met HDInsight
-          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-          maintainContext: true
-        - name: SSH-tunneling gebruiken
-          href: ../hdinsight-linux-ambari-ssh-tunnel.md
-          maintainContext: true
-    - name: Beheren
-      items:
-        - name: Linux-clusters maken
-          href: ../hdinsight-hadoop-provision-linux-clusters.md
-          maintainContext: true
-          items:
-            - name: Azure PowerShell gebruiken
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-              maintainContext: true
-            - name: cURL en de Azure REST API gebruiken
-              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-              maintainContext: true
-            - name: De .NET SDK gebruiken
-              href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-              maintainContext: true
-            - name: Azure CLI gebruiken
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-              maintainContext: true
-            - name: Azure Portal gebruiken
-              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-              maintainContext: true
-            - name: Azure Resource Manager-sjablonen gebruiken
-              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-              maintainContext: true
-        - name: Hadoop-clusters beheren
-          href: ../hdinsight-administer-use-portal-linux.md
-          maintainContext: true
-          items:
-            - name: .NET SDK gebruiken
-              href: ../hdinsight-administer-use-dotnet-sdk.md
-              maintainContext: true
-            - name: Azure PowerShell gebruiken
-              href: ../hdinsight-administer-use-powershell.md
-              maintainContext: true
-            - name: Azure CLI gebruiken
-              href: ../hdinsight-administer-use-command-line.md
-              maintainContext: true
-        - name: Clusters beheren met Ambari-webinterface
-          href: ../hdinsight-hadoop-manage-ambari.md
-          maintainContext: true
-          items:
-            - name: Clusters optimaliseren met de Ambari-webinterface
-              href: ../hdinsight-changing-configs-via-ambari.md
-              maintainContext: true
-            - name: Ambari REST-API gebruiken
-              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-              maintainContext: true
-        - name: Logboeken beheren voor een HDInsight-cluster
-          href: ../hdinsight-log-management.md
-          maintainContext: true
-        - name: Opslagaccounts toevoegen
-          href: ../hdinsight-hadoop-add-storage.md
-          maintainContext: true
-        - name: Gegevens uploaden voor Hadoop-taken
-          href: ../hdinsight-upload-data.md
-          maintainContext: true
-        - name: Meerdere HDInsight-clusters met Data Lake Store
-          href: ../hdinsight-multiple-clusters-data-lake-store.md
-          maintainContext: true
-        - name: Cluster en servicepoorten en URI's
-          href: ../hdinsight-hadoop-port-settings-for-services.md
-          maintainContext: true
-        - name: 'Beschikbaarheid en betrouwbaarheid '
-          href: ../hdinsight-high-availability-linux.md
-          maintainContext: true
-        - name: HDInsight-cluster upgraden naar nieuwere versie
-          href: ../hdinsight-upgrade-cluster.md
-          maintainContext: true
-        - name: OS-patches voor HDInsight-cluster
-          href: ../hdinsight-os-patching.md
-          maintainContext: true
-    - name: Problemen oplossen
-      href: ../hdinsight-troubleshoot-guide.md
+    - name: Kafka en Spark (DStream)
+      href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
+    - name: Kafka gebruiken met Azure Container Service
+      href: apache-kafka-azure-container-services.md
+  - name: Ontwikkelen
+    items:
+    - name: Lege edge-knooppunten gebruiken
+      href: ../hdinsight-apps-use-edge-node.md
+      maintainContext: true
+  - name: Clusters uitbreiden
+    items:
+    - name: Clusters aanpassen met Bootstrap
+      href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+      maintainContext: true
+    - name: Clusters aanpassen met Script Action
+      href: ../hdinsight-hadoop-customize-cluster-linux.md
+      maintainContext: true
+    - name: Scriptacties ontwikkelen
+      href: ../hdinsight-hadoop-script-actions-linux.md
+      maintainContext: true
+    - name: HDInsight-toepassingen bouwen
       items:
-        - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
-          href: ../hdinsight-troubleshoot-failed-cluster.md
-          maintainContext: true
-        - name: Problemen met HDFS oplossen
-          href: ../hdinsight-troubleshoot-hdfs.md
-          maintainContext: true
-        - name: Problemen met YARN oplossen
-          href: ../hdinsight-troubleshoot-yarn.md
-          maintainContext: true
-        - name: Resources
-          items:
-            - name: Informatie over het gebruik van HDInsight in Linux
-              href: ../hdinsight-hadoop-linux-information.md
-              maintainContext: true
-            - name: Hadoop-geheugen en -prestaties
-              href: ../hdinsight-hadoop-stack-trace-error-messages.md
-              maintainContext: true
-            - name: Toegang tot Hadoop YARN-toepassingslogboeken in Linux
-              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-              maintainContext: true
-            - name: Heapdumps voor Hadoop-services inschakelen
-              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-              maintainContext: true
+      - name: Aangepaste apps installeren
+        href: ../hdinsight-apps-install-custom-applications.md
+        maintainContext: true
+      - name: Apps installeren met REST
+        href: https://msdn.microsoft.com/library/mt706515.aspx
+      - name: HDInsight-apps publiceren in Azure Marketplace
+        href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Gepubliceerde app installeren - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Gepubliceerde app installeren - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Gepubliceerde app installeren - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Gepubliceerde app installeren - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Gepubliceerde app installeren - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
+        maintainContext: true
+  - name: Beveiligen
+    items:
+    - name: SSH gebruiken met HDInsight
+      href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+      maintainContext: true
+    - name: SSH-tunneling gebruiken
+      href: ../hdinsight-linux-ambari-ssh-tunnel.md
+      maintainContext: true
+    - name: BYOK (Bring Your Own Key)
+      href: apache-kafka-byok.md
+  - name: Beheren
+    items:
+    - name: Linux-clusters maken
+      href: ../hdinsight-hadoop-provision-linux-clusters.md
+      items:
+      - name: Azure PowerShell gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: cURL en de Azure REST API gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: De .NET SDK gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+        maintainContext: true
+      - name: De klassieke versie van de Azure CLI gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Azure Portal gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+        maintainContext: true
+      - name: Azure Resource Manager-sjablonen gebruiken
+        href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+        maintainContext: true
+      maintainContext: true
+    - name: Hadoop-clusters beheren
+      href: ../hdinsight-administer-use-portal-linux.md
+      items:
+      - name: .NET SDK gebruiken
+        href: ../hdinsight-administer-use-dotnet-sdk.md
+        maintainContext: true
+      - name: Azure PowerShell gebruiken
+        href: ../hdinsight-administer-use-powershell.md
+        maintainContext: true
+      - name: De klassieke versie van de Azure CLI gebruiken
+        href: ../hdinsight-administer-use-command-line.md
+        maintainContext: true
+      maintainContext: true
+    - name: Clusters beheren met Ambari-webinterface
+      href: ../hdinsight-hadoop-manage-ambari.md
+      items:
+      - name: Clusters optimaliseren met de Ambari-webinterface
+        href: ../hdinsight-changing-configs-via-ambari.md
+        maintainContext: true
+      - name: Ambari REST-API gebruiken
+        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+        maintainContext: true
+      maintainContext: true
+    - name: Logboeken beheren voor een HDInsight-cluster
+      href: ../hdinsight-log-management.md
+      maintainContext: true
+    - name: Opslagaccounts toevoegen
+      href: ../hdinsight-hadoop-add-storage.md
+      maintainContext: true
+    - name: Gegevens uploaden voor Hadoop-taken
+      href: ../hdinsight-upload-data.md
+      maintainContext: true
+    - name: Meerdere HDInsight-clusters met Data Lake Store
+      href: ../hdinsight-multiple-clusters-data-lake-store.md
+      maintainContext: true
+    - name: Cluster en servicepoorten en URI's
+      href: ../hdinsight-hadoop-port-settings-for-services.md
+      maintainContext: true
+    - name: 'Beschikbaarheid en betrouwbaarheid '
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
+    - name: HDInsight-cluster upgraden naar nieuwere versie
+      href: ../hdinsight-upgrade-cluster.md
+      maintainContext: true
+    - name: OS-patches voor HDInsight-cluster
+      href: ../hdinsight-os-patching.md
+      maintainContext: true
+  - name: Problemen oplossen
+    href: ../hdinsight-troubleshoot-guide.md
+    items:
+    - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
+    - name: Problemen met HDFS oplossen
+      href: ../hdinsight-troubleshoot-hdfs.md
+      maintainContext: true
+    - name: Problemen met YARN oplossen
+      href: ../hdinsight-troubleshoot-yarn.md
+      maintainContext: true
+    - name: Resources
+      items:
+      - name: Informatie over het gebruik van HDInsight in Linux
+        href: ../hdinsight-hadoop-linux-information.md
+        maintainContext: true
+      - name: Hadoop-geheugen en -prestaties
+        href: ../hdinsight-hadoop-stack-trace-error-messages.md
+        maintainContext: true
+      - name: Toegang tot Hadoop YARN-toepassingslogboeken in Linux
+        href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+        maintainContext: true
+      - name: Heapdumps voor Hadoop-services inschakelen
+        href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+        maintainContext: true
+    maintainContext: true
 - name: Gereedheid voor bedrijven
   items:
-    - name: Gegevens beveiligen
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  - name: Gegevens beveiligen
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    maintainContext: true
+  - name: Netwerktoegang
+    items:
+    - name: HDInsight in Azure VNet
+      href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true
-    - name: Netwerktoegang
-      items:
-        - name: HDInsight in Azure VNet
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
-        - name: HDInsight verbinden met een on-premises netwerk
-          href: ../connect-on-premises-network.md
-          maintainContext: true
-    - name: Bewaken met behulp van Log Analytics
-      items:
-        - name: Azure Log Analytics gebruiken
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Queries gebruiken met Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Cluster-prestaties bewaken
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
+    - name: HDInsight verbinden met een on-premises netwerk
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+  - name: Bewaken met behulp van Log Analytics
+    items:
+    - name: Azure Log Analytics gebruiken
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Queries gebruiken met Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Cluster-prestaties bewaken
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: Naslaginformatie
   items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.hdinsight
-    - name: REST
-      href: /rest/api/hdinsight/
-    - name: REST (Spark)
-      href: /rest/api/hdinsightspark/
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.hdinsight
+  - name: REST
+    href: /rest/api/hdinsight/
+  - name: REST (Spark)
+    href: /rest/api/hdinsightspark/
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
-    - name: Hulp op het forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight'
-    - name: Leertraject
-      href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
-    - name: Microsoft Professional-programma voor Big Data
-      href: 'https://academy.microsoft.com/en-us/professional-program/big-data/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Windows-hulpprogramma's voor HDInsight
-      href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+  - name: Hulp op het forum
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight
+  - name: Leertraject
+    href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
+  - name: Microsoft Professional-programma voor Big Data
+    href: https://academy.microsoft.com/en-us/professional-program/big-data/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Windows-hulpprogramma's voor HDInsight
+    href: ../hdinsight-hadoop-windows-tools.md
+    maintainContext: true
+ms.openlocfilehash: 173f3cbc5b0bf24e756998d60a7810834d874fd8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998199"

@@ -42,6 +42,8 @@ items:
     href: expressroute-qos.md
   - name: Circuits verplaatsen van het klassieke model naar Resource Manager
     href: expressroute-move.md
+  - name: Over ExpressRoute Direct
+    href: expressroute-erdirect-about.md
 - name: Handleidingen
   items:
   - name: Een circuit maken en wijzigen
@@ -68,6 +70,8 @@ items:
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure-CLI
       href: howto-linkvnet-cli.md
+  - name: ExpressRoute-circuits koppelen om Global Reach in te schakelen
+    href: expressroute-global-reach.md
   - name: Een site-naar-site-VPN configureren via Microsoft-peering
     href: site-to-site-vpn-over-microsoft-peering.md
   - name: Een virtuele netwerkgateway configureren voor ExpressRoute
@@ -78,6 +82,8 @@ items:
       href: expressroute-howto-add-gateway-resource-manager.md
   - name: Gelijktijdige ExpressRoute- en site-naar-site-verbindingen configureren
     href: expressroute-howto-coexist-resource-manager.md
+  - name: ExpressRoute Direct configureren
+    href: expressroute-howto-erdirect.md
   - name: Routefilters voor Microsoft-peering configureren
     items:
     - name: Azure Portal
@@ -102,8 +108,12 @@ items:
       href: expressroute-config-samples-routing.md
     - name: Voorbeelden van routerconfiguraties voor NAT
       href: expressroute-config-samples-nat.md
-  - name: Netwerkprestatiemeter configureren voor ExpressRoute
-    href: how-to-npm.md
+  - name: Bewaking
+    items:
+    - name: Bewaking, metrische gegevens en waarschuwingen voor ExpressRoute
+      href: expressroute-monitoring-metrics-alerts.md
+    - name: Netwerkprestatiemeter configureren voor ExpressRoute
+      href: how-to-npm.md
   - name: Artikelen over het klassieke implementatiemodel
     items:
     - name: Een circuit wijzigen
@@ -191,9 +201,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Openbare peering instellen voor uw circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 3353f2399d258ad8fcba4ea3cae6ff2d7db42271
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: effc8fc979bf516838418bd3b3805d791d8f3e68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41926940"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989089"

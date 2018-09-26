@@ -1,26 +1,27 @@
 ---
 title: TDE-certificaat migreren - met Azure SQL Database beheerd exemplaar | Microsoft Docs
-description: Certificaat dat de databaseversleutelingssleutel van een database beveiligt met transparante gegevensversleuteling migreren naar met Azure SQL Database beheerd exemplaar
-keywords: zelfstudie sql database, beheerd exemplaar sql database, TDE certificaat migreren
+description: Certificaat voor het beveiligen van Database Encryption Key van een database met transparent Data Encryption voor Azure SQL Database Managed Instance migreren
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.date: 08/09/2018
+ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050608"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161774"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Certificaat van met TDE beveiligde database migreren naar met Azure SQL Database beheerd exemplaar
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Certificaat van TDE beveiligde database migreren naar Azure SQL Database Managed Instance
 
-Wanneer een database die is beveiligd met [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) wordt gemigreerd naar een met Azure SQL Database beheerd exemplaar met behulp van de optie voor systeemeigen herstel, moet het corresponderende certificaat van de on-premises of IaaS SQL-server worden gemigreerd voordat de database wordt hersteld. Dit artikel leidt u door het proces van handmatige migratie van het certificaat naar een met Azure SQL Database beheerd exemplaar:
+Wanneer een database die is beveiligd door migreren [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) naar Azure SQL Database Managed Instance met behulp van systeemeigen hersteloptie, het corresponderende certificaat uit het on-premises of IaaS SQL Server moet worden gemigreerd voordat u het terugzetten van de database. Dit artikel leidt u door het proces van handmatige migratie van het certificaat naar een met Azure SQL Database beheerd exemplaar:
 
 > [!div class="checklist"]
 > * Certificaat exporteren naar een PFX-bestand (Personal Information Exchange)
@@ -30,7 +31,7 @@ Wanneer een database die is beveiligd met [transparante gegevensversleuteling](h
 Zie [Uw on-premises database migreren naar een beheerd exemplaar met behulp van Azure Database Migration Service ](../dms/tutorial-sql-server-to-managed-instance.md) voor een alternatieve optie met behulp van een volledig beheerde service voor naadloze migratie van zowel een met TDE beveiligde database als het bijbehorende certificaat.
 
 > [!IMPORTANT]
-> De transparante gegevensversleuteling voor een met Azure SQL beheerd exemplaar werkt in de door een service beheerde modus. Het gemigreerde certificaat wordt alleen gebruikt voor het herstellen van de met TDE beveiligde database. Vlak nadat het herstellen is voltooid, wordt het gemigreerde certificaat vervangen door een ander, door het systeem beheerd certificaat.
+> De Transparent Data Encryption voor Azure SQL Database Managed Instance werkt in de service beheerde modus. Het gemigreerde certificaat wordt alleen gebruikt voor het herstellen van de met TDE beveiligde database. Vlak nadat het herstellen is voltooid, wordt het gemigreerde certificaat vervangen door een ander, door het systeem beheerd certificaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -109,7 +110,7 @@ Als het certificaat is opgeslagen in het certificaatarchief van de lokale comput
 
 4. Volg de wizard om het certificaat en de persoonlijke sleutel te exporteren naar een PFX-indeling (Personal Information Exchange)
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Certificaat uploaden naar met Azure SQL beheerd exemplaar met behulp van de Azure PowerShell-cmdlet
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Certificaat uploaden naar Azure SQL Database Managed Instance met Azure PowerShell-cmdlet
 
 1. Begin met de voorbereidingsstappen in PowerShell:
 
@@ -139,6 +140,6 @@ Het certificaat is nu beschikbaar voor het opgegeven beheerde exemplaar en de ba
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe u de certificaatversleutelingssleutel van de database met transparante gegevensbeveiliging (TDE) van de on-premises of IaaS SQL-server naar een met Azure SQL beheerd exemplaar migreert.
+In dit artikel hebt u geleerd over het migreren van certificaat versleutelingssleutel van database met Transparent Data Encryption, beveiligen tegen de on-premises of IaaS SQL Server naar Azure SQL Database Managed Instance.
 
 Zie [Een databaseback-up terugzetten naar een met Azure SQL Database beheerd exemplaar](sql-database-managed-instance-get-started-restore.md) voor informatie over het terugzetten van een databaseback-up naar een met Azure SQL Database beheerd exemplaar.

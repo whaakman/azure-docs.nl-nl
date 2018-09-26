@@ -3,18 +3,22 @@ title: Wat is de service Azure SQL Database? | Microsoft Docs
 description: 'Maak kennis met SQL-Database: technische informatie en mogelijkheden van het relationele database beheersysteem (RDBMS) in de cloud van Microsoft.'
 keywords: inleiding in sql,intro in sql,wat is sql-database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054577"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163163"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
@@ -23,7 +27,7 @@ SQL Database is een algemene, beheerde relationele databaseservice in Microsoft 
 Azure SQL Database biedt de volgende implementatieopties voor een Azure SQL-database:
 - Als een individuele database met een eigen set resources die wordt beheerd via een logische server 
 - Als een gegroepeerde database in een [elastische pool](sql-database-elastic-pool.md) met een gedeelde set resources die wordt beheerd via een logische server
-- Als onderdeel van een verzameling databases, ook wel een [beheerd exemplaar](sql-database-managed-instance.md) genoemd (in openbare preview), die systeem- en gebruikersdatabases bevat en een set resources deelt
+- Als onderdeel van een verzameling van databases, ook wel een [beheerd exemplaar](sql-database-managed-instance.md) dat systeem en gebruikersdatabases en delen van een set met resources bevat
 
 In de volgende afbeelding worden deze implementatieopties weergegeven:
 
@@ -37,29 +41,27 @@ SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server
 > [!IMPORTANT]
 > Zie [SQL-functies](sql-database-features.md) voor informatie over de functieverschillen tussen SQL Database en SQL Server. 
 
-SQL Database levert voorspelbare prestaties op meerdere serviceniveaus met dynamische schaalbaarheid zonder uitvaltijd, ingebouwde intelligente optimalisatie, schaalbaarheid en beschikbaarheid op wereldwijde schaal en geavanceerde beveiligingsmogelijkheden. Bovendien hoeft u vrijwel geen tijd te besteden aan beheer. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van apps, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. De SQL Database-service is momenteel beschikbaar in 38 datacenters over de hele wereld, en er komen er regelmatig meer bij. Dat betekent dat u uw database kunt uitvoeren in een datacenter bij u in de buurt.
-
-> [!NOTE]
-> SQL Database Managed Instance is momenteel in preview en is slechts op één serviceniveau beschikbaar. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
->
+SQL Database biedt voorspelbare prestaties met meerdere resourcetypen, service-lagen en compute-grootten die dynamische schaalbaarheid geen uitvaltijd, ingebouwde intelligente optimalisatie, wereldwijde schaalbaarheid en beschikbaarheid en geavanceerde beveiliging biedt opties, allemaal met praktisch zonder beheer. Dankzij deze mogelijkheden kunt u zich richten op het sneller ontwikkelen en op de markt brengen van apps, in plaats van kostbare tijd en middelen in te zetten voor het beheer van virtuele machines en infrastructuur. De SQL Database-service is momenteel beschikbaar in 38 datacenters over de hele wereld, en er komen er regelmatig meer bij. Dat betekent dat u uw database kunt uitvoeren in een datacenter bij u in de buurt.
 
 ## <a name="scalable-performance-and-pools"></a>Schaalbare prestaties en pools
 
-Met SQL Database zijn alle databases volledig geïsoleerd en draagbaar, met elk een eigen servicelaag (binnen een [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md) of [een aankoopmodel op basis van vCore](sql-database-service-tiers-vcore.md)) en een gegarandeerd prestatieniveau. SQL Database biedt verschillende prestatieniveaus voor verschillende behoeften. Door de mogelijkheid om databasepools te maken kunt u het gebruik van resources maximaliseren en geld besparen.
+Met SQL Database, elke database is geïsoleerd van elkaar en draagbaar, elk met een eigen service tier binnen de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) en een gegarandeerde COMPUTE-grootte. SQL Database biedt verschillende grootten voor verschillende behoeften en mogelijkheid om databasepools te maken het gebruik van resources maximaliseren en geld te besparen.
 
-Met SQL Database Managed Instance wordt elk exemplaar geïsoleerd van andere exemplaren om zo gegarandeerde resources te kunnen toewijzen. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie. 
+- Met [SQL Database Managed Instance](sql-database-managed-instance.md), elk exemplaar is geïsoleerd van andere exemplaren om zo gegarandeerde resources. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
+- Met de [grootschalige servicelaag](sql-database-hyperscale.md) (preview) in de vCore model aanschaffen, kunt u schalen tot 100 TB met snelle back-up en herstellen van de mogelijkheden.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Prestaties en schaal aanpassen zonder uitvaltijd
 
 Microsoft SQL Database biedt een [op DTU gebaseerd aankoopmodel](sql-database-service-tiers-dtu.md) of het [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). 
-- Het op DTU gebaseerde aankoopmodel biedt een combinatie van berekenen, geheugen en i/o-resources in drie servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. Prestatieniveaus binnen elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
+- Het op DTU gebaseerde aankoopmodel biedt een combinatie van berekenen, geheugen en i/o-resources in drie servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
 - Met het op vCore gebaseerde aankoopmodel kunt u het aantal vCores, de hoeveelheid of het geheugen, en de hoeveelheid en de snelheid van de opslag kiezen.
 
-U kunt uw eerste app ontwikkelen op één enkele kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch de servicelaag wijzigen, zodat deze beter past bij de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
+U kunt uw eerste app ontwikkelen op een kleine, één database tegen lage kosten per maand in de categorie Algemeen gebruik-service en wijzig vervolgens de servicelaag handmatig of via een programma op elk gewenst moment in de servicelaag van zakelijke essentieel om te voldoen aan de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
+
+> [!IMPORTANT]
+> U kan niet schalen van een servicelaag voor algemeen gebruik en bedrijfskritiek naar een [grootschalige servicelaag](sql-database-hyperscale.md). U kunt echter prestatieniveaus binnen de servicelaag grootschalige wijzigen.
 
 Dynamische schaalbaarheid is iets anders dan automatisch schalen. Automatisch schalen vindt plaats wanneer een service automatisch wordt geschaald op basis van criteria, terwijl u met dynamische schaalbaarheid handmatig kunt schalen zonder uitvaltijd. Eén Azure SQL Database ondersteunt handmatige dynamische schaalbaarheid, maar niet automatisch schalen. Voor een meer *automatische* ervaring zou u elastische pools kunnen gebruiken. Hiermee kunnen databases resources in een pool delen op basis van afzonderlijke databasebehoeften. Er zijn echter scripts die kunnen helpen bij het automatiseren van schaalbaarheid voor één Azure SQL Database. Zie [PowerShell gebruiken voor het controleren en schalen van één Azure SQL-database](scripts/sql-database-monitor-and-scale-database-powershell.md) voor een voorbeeld. 
-
-SQL Database Managed Instance is in preview en biedt momenteel maar één servicelaag. Zie [SQL Database Managed Instance](sql-database-managed-instance.md) voor meer informatie.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastische pools voor optimaal resourcegebruik
 
@@ -86,13 +88,13 @@ Daarnaast kan SQL Database [metrische gegevens en diagnostische logboeken verzen
 
 - **Azure Storage**: voor het archiveren van grote hoeveelheden telemetriegegevens voor een lage prijs
 - **Azure Event Hub**: voor het integreren van SQL Database-telemetrie in uw eigen bewakingsoplossing of actieve pijplijnen
-- **Azure Log Analytics**: voor een ingebouwde bewakingsoplossing met functionaliteit voor rapportages, waarschuwingen en risicobeperking. Dit is een functie van de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: voor een ingebouwde bewakingsoplossing met functionaliteit voor rapportages, waarschuwingen en risicobeperking. Azure Log Analytics is een functie van de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![architectuur](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>Beschikbaarheid
 
-De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. In het Azure-platform wordt elk exemplaar van Azure SQL Database volledig beheerd en zijn geen verlies en een hoge beschikbaarheid van gegevens gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te integreren op één knooppunt voor hogere prestaties en vervolgens AlwaysOn-beschikbaarheidsgroepen te implementeren. Zie [Beschikbaarheid van SQL Database](sql-database-high-availability.md) voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database . Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
+De toonaangevende serviceovereenkomst [(SLA)](http://azure.microsoft.com/support/legal/sla/) van Azure met 99,99% beschikbaarheid dankzij een wereldwijd netwerk van door Microsoft beheerde datacenters, zorgt u ervoor dat uw app continu (24 uur per dag, 7 dagen per week) in de lucht blijft. In het Azure-platform wordt elk exemplaar van Azure SQL Database volledig beheerd en zijn geen verlies en een hoge beschikbaarheid van gegevens gegarandeerd. Patches, back-ups, replicatie, foutdetectie, onderliggende potentiële hardware-, software- of netwerkfouten, de implementatie van bugfixes, failovers, database-upgrades en andere onderhoudstaken worden in Azure automatisch afgehandeld. Standaard-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te scheiden. Premium-beschikbaarheid wordt bereikt door de lagen voor berekeningen en opslag te integreren op één knooppunt voor hogere prestaties en vervolgens AlwaysOn-beschikbaarheidsgroepen te implementeren. Zie voor een volledige beschrijving van de mogelijkheden voor hoge beschikbaarheid van Azure SQL Database, [beschikbaarheid van de SQL-Database](sql-database-high-availability.md). Daarnaast biedt SQL Database ingebouwde functies voor [bedrijfscontinuïteit en wereldwijde schaalbaarheid](sql-database-business-continuity.md), zoals:
 
 - **[Automatische back-ups](sql-database-automated-backups.md)**: SQL Database maakt automatische volledige en differentiële back-ups en back-ups van transactielogboeken.
 - **[Herstel naar een bepaald tijdstip](sql-database-recovery-using-backups.md)**: SQL Database ondersteunt het herstel naar ieder bepaald tijdstip dankzij de automatische bewaarperiode voor back-ups.
@@ -177,8 +179,8 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 - Zie deze Quick Starts om snel aan de slag te gaan:
 
   - [Een SQL-database maken in Azure Portal](sql-database-get-started-portal.md)  
-  - [Een SQL-database maken met de Azure CLI](sql-database-cli-samples.md)
-  - [Een SQL-database maken met PowerShell](sql-database-powershell-samples.md)
+  - [Een SQL-database maken met de Azure CLI](sql-database-get-started-cli.md)
+  - [Een SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
 
 - Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
   - [Azure CLI-voorbeelden voor SQL Database](sql-database-cli-samples.md)

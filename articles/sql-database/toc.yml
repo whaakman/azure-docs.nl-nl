@@ -34,8 +34,8 @@ items:
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
-    - name: SQL Operations Studio
-      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: Azure Data Studio
+      href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
     - name: Azure Portal
       href: sql-database-connect-query-portal.md
     - name: VS-code
@@ -93,6 +93,8 @@ items:
       href: sql-database-service-tiers-vcore.md
     - name: DTU-model
       href: sql-database-service-tiers-dtu.md
+    - name: Hyperscale serviceniveau
+      href: sql-database-hyperscale.md
     - name: Bronlimieten
       href: sql-database-resource-limits.md
     - name: Vooruitbetalen voor reservecapaciteit
@@ -309,44 +311,46 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Vergelijking van SQL-functies
     href: sql-database-features.md
-  - name: Controleren en afstemmen
+  - name: Prestaties en afstemmen
     items:
-    - name: Controleren en afstemmen
-      href: sql-database-troubleshoot-performance.md
     - name: Intelligente prestaties
       items:
-      - name: Prestatiebewaking
-        href: sql-database-single-database-monitor.md
-      - name: Verwerking van intelligente query's
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Verwerking van adaptieve query’s
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: Automatisch instellen
+      - name: Uitvoeren van query's
         items:
-        - name: Automatisch instellen
-          href: sql-database-automatic-tuning.md
-        - name: Automatisch instellen inschakelen
-          href: sql-database-automatic-tuning-enable.md
-        - name: Prestatie-aanbevelingen
+        - name: Verwerking van intelligente query's
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Verwerking van adaptieve query’s
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Bewaking en afstemming
+        items:
+        - name: Overzicht van bewaking en afstemming
+          href: sql-database-monitor-tune-overview.md
+        - name: Prestatieaanbevelingen van Database Advisor
           href: sql-database-advisor.md
-        - name: Aanbevelingen voor prestaties
+        - name: Acties en aanbevelingen afstemmen
           href: sql-database-performance.md
         - name: Prestatie-aanbevelingen toepassen
           href: sql-database-advisor-portal.md
-        - name: E-mailmeldingen inschakelen
-          href: sql-database-automatic-tuning-email-notifications.md
       - name: Intelligent Insights
         items:
-        - name: Intelligent Insights
+        - name: Overzicht van Intelligent Insights
           href: sql-database-intelligent-insights.md
-        - name: Diagnostische logboeken
+        - name: Diagnostisch logboek
           href: sql-database-metrics-diag-logging.md
-        - name: Logboeken met diagnostische gegevens gebruiken
+        - name: Het diagnostische logboek gebruiken
           href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Probleemoplossing voor prestaties
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Query Performance Insight gebruiken
+      - name: Inzicht in queryprestaties
         href: sql-database-query-performance.md
+      - name: Automatische afstemming van prestaties
+        items:
+        - name: Overzicht van automatische afstemming
+          href: sql-database-automatic-tuning.md
+        - name: Automatisch instellen inschakelen
+          href: sql-database-automatic-tuning-enable.md
+        - name: E-mailmeldingen inschakelen
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: Handmatig instellen
       items:
       - name: Handmatig instellen
@@ -355,16 +359,16 @@ items:
         href: sql-database-monitoring-with-dmvs.md
       - name: Query Store uitvoeren
         href: sql-database-operate-query-store.md
-    - name: In-memory bewaken
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Uitgebreide gebeurtenissen
-      items:
+      - name: In het geheugen
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Uitgebreide gebeurtenissen
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: Uitgebreide gebeurtenissen - gebeurtenisbestand
-        href: sql-database-xevent-code-event-file.md
-      - name: Uitgebreide gebeurtenissen - ringbuffer
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Uitgebreide gebeurtenissen
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Uitgebreide gebeurtenissen - gebeurtenisbestand
+          href: sql-database-xevent-code-event-file.md
+        - name: Uitgebreide gebeurtenissen - ringbuffer
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Waarschuwingen maken
       href: sql-database-insights-alerts-portal.md
     - name: Problemen met verbindingen oplossen
@@ -551,7 +555,7 @@ items:
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.sql/#sql
-  - name: Azure CLI 2.0
+  - name: Azure-CLI
     href: /cli/azure/sql
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
@@ -594,6 +598,8 @@ items:
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Veelgestelde vragen
@@ -616,9 +622,9 @@ items:
     href: /azure/architecture/
   - name: Verhalen van klanten
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: fe88a6f7559e6c5c44c2bf39e3167dd379f4b006
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b8ef8dec2d79a1eb49372432781a64914a70896
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730089"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985126"

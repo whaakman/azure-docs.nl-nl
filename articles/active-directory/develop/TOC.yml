@@ -1,221 +1,230 @@
 items:
-- name: Overzicht
-  href: azure-ad-developers-guide.md
-  items:
-  - name: Waarom Azure AD?
-    href: https://azure.microsoft.com/develop/identity/signin/
-  - name: Basisprincipes van Auth
-    href: authentication-scenarios.md
-  - name: App-typen
-    href: authentication-scenarios.md#application-types-and-scenarios
-- name: Aan de slag
-  items:
-  - name: Mobiele en desktop-apps
-    items:
-    - name: Overzicht
-      href: active-directory-authentication-scenarios.md#native-application-to-web-api
-    - name: iOS
-      href: quickstart-v1-ios.md
-    - name: Android
-      href: quickstart-v1-android.md
-    - name: .NET (Windows Desktop)
-      href: quickstart-v1-dotnet.md
-    - name: .NET (Xamarin)
-      href: quickstart-v1-xamarin.md
-    - name: OAuth 2.0
-      href: v1-protocols-oauth-code.md
-  - name: Web-apps
-    items:
-    - name: Overzicht
-      href: active-directory-authentication-scenarios.md#web-browser-to-web-application
-    - name: ASP.NET
-      href: quickstart-v1-aspnet-webapp.md
-    - name: ASP.NET Core
-      href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore
-    - name: Java
-      href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
-    - name: Python
-      href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
-    - name: Node.js
-      href: quickstart-v1-openid-connect-code.md
-    - name: OpenID Connect
-      href: v1-protocols-openid-connect-code.md
-  - name: Apps met één pagina
-    items:
-    - name: Overzicht
-      href: active-directory-authentication-scenarios.md#single-page-application-spa
-    - name: Angular JS
-      href: quickstart-v1-angularjs-spa.md
-    - name: Javascript
-      href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
-  - name: Web-API's
-    items:
-    - name: Overzicht
-      href: active-directory-authentication-scenarios.md#web-application-to-web-api
-    - name: ASP.NET
-      href: quickstart-v1-dotnet-webapi.md
-    - name: Node.js
-      href: quickstart-v1-nodejs-webapi.md
-  - name: Service-naar-service
-    items:
-    - name: Overzicht
-      href: active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api
-    - name: .NET
-      href: sample-v1-code.md#server-or-daemon-application-to-web-api
-    - name: Referenties voor OAuth 2.0-client
-      href: v1-oauth2-client-creds-grant-flow.md
-- name: Handleidingen
-  items:
-  - name: Een toepassing registreren
-    href: quickstart-v1-integrate-apps-with-azure-ad.md
-  - name: Apps met meerdere tenants
-    href: howto-convert-app-to-be-multi-tenant.md
-  - name: Voorwaardelijke toegang
-    href: conditional-access-dev-guide.md
-  - name: Machtigingen
-    displayName: Scopes
-    href: v1-permissions-and-consent.md
-  - name: OAuth en OpenID Connect
-    items:
-    - name: OpenID Connect-protocol
-      href: v1-protocols-openid-connect-code.md
-    - name: OAuth 2.0-verificatiecode verlenen
-      href: v1-protocols-oauth-code.md
-    - name: Impliciete goedkeuring voor OAuth 2.0
-      href: v1-oauth2-implicit-grant-flow.md
-  - name: SAML 2.0
-    href: active-directory-saml-protocol-reference.md
-    items:
-    - name: Rolclaims configureren
-      href: ../active-directory-enterprise-app-role-management.md
-    - name: Claims aanpassen
-      href: active-directory-saml-claims-customization.md
-    - name: Fouten opsporen van op SAML gebaseerde SSO
-      href: howto-v1-debug-saml-sso-issues.md
-    - name: SAML-protocol voor eenmalige aanmelding
-      href: single-sign-on-saml-protocol.md
-    - name: SAML-protocol voor eenmalige afmelding
-      href: single-sign-out-saml-protocol.md
-  - name: Een tenant maken
-    href: quickstart-create-new-tenant.md
-  - name: Servicevoorwaarden en privacyverklaring
-    href: howto-add-terms-of-service-privacy-statement.md
-  - name: Huisstijlrichtlijnen
-    href: howto-add-branding-in-azure-ad-apps.md
-  - name: Mobiele en desktop-SSO
-    items:
-    - name: SSO inschakelen in Android
-      href: howto-v1-enable-sso-android.md
-    - name: SSO inschakelen in iOS
-      href: howto-v1-enable-sso-ios.md
-  - name: Azure AD B2B
-    href: ../active-directory-b2b-what-is-azure-ad-b2b.md
-  - name: Gebruikers inrichten met SCIM
-    href: ../active-directory-scim-provisioning.md
-  - name: Azure AD Graph API
-    href: active-directory-graph-api.md
-    items:
-    - name: Aan de slag met AAD Graph
-      href: active-directory-graph-api-quickstart.md
-  - name: AppSource-certificering
-    href: howto-get-appsource-certified.md
-  - name: Azure AD-app-galerie
-    href: howto-app-gallery-listing.md
-  - name: Office 365-verkopersdashboard
-    href: https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard
-  - name: Werken met Visual Studio
-    items:
-    - name: De verbonden Active Directory-service gebruiken
-      href: vs-active-directory-add-connected-service.md
-    - name: Aan de slag met .NET MVC-projecten
-      href: vs-active-directory-dotnet-getting-started.md
-    - name: Wat is er gebeurd met mijn .NET MVC-project?
-      href: vs-active-directory-dotnet-what-happened.md
-    - name: Aan de slag met WebAPI-projecten
-      href: vs-active-directory-webapi-getting-started.md
-    - name: Wat is er gebeurd met mijn WebAPI-project?
-      href: vs-active-directory-webapi-what-happened.md
-    - name: Fout tijdens de verificatiedetectie
-      href: vs-active-directory-error.md
-  - name: Windows Server ADFS
-    href: https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers
-  - name: ACS-migratie
-    href: active-directory-acs-migration.md
-  - name: Best practices voor foutafhandeling voor ADAL
-    href: active-directory-devhowto-adal-error-handling.md
-- name: Naslaginformatie
-  items:
-  - name: Codevoorbeelden
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
-  - name: Auth-bibliotheken (ADAL)
-    href: active-directory-authentication-libraries.md
-  - name: Codevoorbeelden per scenario
-    displayName: ADAL
-    href: sample-v1-code.md
-  - name: Woordenlijst
-    href: developer-glossary.md
-  - name: Verificatieprotocollen
-    href: active-directory-authentication-protocols.md
-    items:
-    - name: OpenID Connect
-      href: v1-protocols-openid-connect-code.md
-    - name: Oauth
-      href: v1-protocols-oauth-code.md
-    - name: Service-naar-serviceaanroepen
-      href: v1-oauth2-client-creds-grant-flow.md
-    - name: Namens-stroom
-      href: v1-oauth2-on-behalf-of-flow.md
-    - name: Ondersteunde token- en claimtypen
-      href: v1-id-and-access-tokens.md
-    - name: Optionele en aangepaste toepassingsclaims configureren
-      href: active-directory-optional-claims.md
-    - name: Rollover van ondertekeningssleutel
-      href: active-directory-signing-key-rollover.md
-    - name: Federatieve metagegevens
-      href: azure-ad-federation-metadata.md
-    - name: Certificaatreferenties
-      href: active-directory-certificate-credentials.md
-  - name: Objecten voor toepassingen
-    href: app-objects-and-service-principals.md
-    items:
-    - name: Apps en Azure AD
-      href: active-directory-how-applications-are-added.md
-  - name: Manifest van de toepassing
-    href: reference-app-manifest.md
-  - name: Levensduur van tokens
-    href: ../active-directory-configurable-token-lifetimes.md
-  - name: Servicelimieten
-    href: ../active-directory-service-limits-restrictions.md
-- name: v2.0-eindpunt
-  displayName: MSAL
+- name: Microsoft Identity Platform (Azure Active Directory voor ontwikkelaars)
+  href: index.yml
+- name: Over het Microsoft Identity Platform
+  href: about-microsoft-identity-platform.md
+- name: v1.0
   items:
   - name: Overzicht
-    href: active-directory-appmodel-v2-overview.md
+    href: azure-ad-developers-guide.md
+  - name: Snelstartgidsen
     items:
-    - name: App-typen
-      href: v2-app-types.md
-    - name: Beperkingen
-      href: active-directory-v2-limitations.md
-    - name: Vergelijking van v1-v2
-      href: azure-ad-endpoint-comparison.md
-  - name: Aan de slag
-    items:
-    - name: Mobiele en desktop-apps
+    - name: Een ontwikkelaarsomgeving instellen
+      href: quickstart-create-new-tenant.md
+    - name: Een toepassing configureren
       items:
-      - name: iOS
-        href: tutorial-v2-ios.md
-      - name: Android
-        href: tutorial-v2-android.md
-      - name: .NET voor Windows Desktop
-        href: tutorial-v2-windows-desktop.md
-      - name: Universeel Windows-platform
-        href: tutorial-v2-windows-uwp.md
+      - name: Een app registreren
+        href: quickstart-v1-add-azure-ad-app.md
+      - name: Een app bijwerken
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Een app verwijderen
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: Toepassingen met één pagina
+      items:
+      - name: AngularJS
+        href: quickstart-v1-angularjs-spa.md
+      - name: Javascript
+        href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
     - name: Web-apps
       items:
       - name: ASP.NET
-        href: tutorial-v2-asp-webapp.md
+        href: quickstart-v1-aspnet-webapp.md
+      - name: Java
+        href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - name: Node.js
+        href: quickstart-v1-openid-connect-code.md
+      - name: Python
+        href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+    - name: Web-API's
+      items:
+      - name: ASP.NET
+        href: quickstart-v1-dotnet-webapi.md
+      - name: Node.js
+        href: quickstart-v1-nodejs-webapi.md
+    - name: Mobiele apps en desktop-apps
+      items:
+      - name: Android
+        href: quickstart-v1-android.md
+      - name: iOS
+        href: quickstart-v1-ios.md
+      - name: .NET voor Windows Desktop
+        href: quickstart-v1-dotnet.md
+      - name: Xamarin
+        href: quickstart-v1-xamarin.md
+    - name: Service-naar-service
+      href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
+  - name: Voorbeelden
+    href: sample-v1-code.md
+  - name: Concepten
+    items:
+    - name: Toepassingstypen
+      href: app-types.md
+      items:
+      - name: Toepassing met één pagina
+        href: single-page-application.md
+      - name: Web-app
+        href: web-app.md
+      - name: Web-API
+        href: web-api.md
+      - name: Mobiele en bureaubladapp
+        href: native-app.md
+      - name: Daemon- of servertoepassing
+        href: service-to-service.md
+    - name: Verificatie
+      href: authentication-scenarios.md
+      items:
+      - name: Protocollen
+        items:
+        - name: OAuth en het OpenID Connect-protocol
+          items:
+          - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
+            href: v1-oauth2-implicit-grant-flow.md
+          - name: 'OAuth 2.0: verificatiecode verlenen'
+            href: v1-protocols-oauth-code.md
+          - name: 'OAuth 2.0: namens-stroom'
+            href: v1-oauth2-on-behalf-of-flow.md
+          - name: 'OAuth 2.0: clientreferenties verlenen'
+            href: v1-oauth2-client-creds-grant-flow.md
+        - name: SAML 2.0
+          items:
+          - name: Eenmalige aanmelding
+            href: single-sign-on-saml-protocol.md
+          - name: Afmelden
+            href: single-sign-out-saml-protocol.md
+        - name: Webservices-federatie
+          items:
+          - name: Federatieve metagegevens
+            href: azure-ad-federation-metadata.md
+        - name: Rollover van ondertekeningssleutel
+          href: active-directory-signing-key-rollover.md
+      - name: Id-tokens
+        href: id-tokens.md
+      - name: Toegangstokens
+        href: access-tokens.md
+      - name: Certificaatreferenties
+        href: active-directory-certificate-credentials.md
+      - name: SAML-tokens
+        href: reference-saml-tokens.md
+    - name: Toepassingsconfiguratie
+      href: app-objects-and-service-principals.md
+      items:
+      - name: Hoe en waarom apps worden toegevoegd aan Azure AD
+        href: active-directory-how-applications-are-added.md
+      - name: Apps met één tenant en apps met meerdere tenants
+        href: single-and-multi-tenant-apps.md
+    - name: Machtigingen en toestemming
+      displayName: Scopes
+      href: v1-permissions-and-consent.md
+      items:
+      - name: Toestemmingsframework
+        href: consent-framework.md
+      - name: Ervaringen met toepassingstoestemming
+        href: ../application-consent-experience.md
+    - name: Voorwaardelijke toegang
+      href: conditional-access-dev-guide.md
+    - name: Nationale clouds
+      href: authentication-national-cloud.md
+  - name: Handleidingen
+    items:
+    - name: Verificatie
+      items:
+      - name: Eenmalige aanmelding configureren
+        displayName: SSO
+        items:
+        - name: SSO inschakelen in Android
+          href: howto-v1-enable-sso-android.md
+        - name: SSO inschakelen in iOS
+          href: howto-v1-enable-sso-ios.md
+        - name: Fouten opsporen van op SAML gebaseerde SSO
+          href: howto-v1-debug-saml-sso-issues.md
+      - name: Claims configureren
+        items:
+        - name: Rolclaims configureren
+          href: ../active-directory-enterprise-app-role-management.md
+        - name: Claims aanpassen
+          href: active-directory-saml-claims-customization.md
+    - name: Toepassingsconfiguratie
+      items:
+      - name: Van een app met één tenant een app met meerdere tenants maken
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Uw app tot een groep gebruikers beperken
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: App-rollen toevoegen aan uw toepassing
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Huisstijlrichtlijnen
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Servicevoorwaarden en privacyverklaring
+        href: howto-add-terms-of-service-privacy-statement.md
+    - name: Werken met Visual Studio
+      items:
+      - name: De verbonden Active Directory-service gebruiken
+        href: vs-active-directory-add-connected-service.md
+      - name: Aan de slag met .NET MVC-projecten
+        href: vs-active-directory-dotnet-getting-started.md
+      - name: Wat is er gebeurd met mijn .NET MVC-project?
+        href: vs-active-directory-dotnet-what-happened.md
+      - name: Aan de slag met WebAPI-projecten
+        href: vs-active-directory-webapi-getting-started.md
+      - name: Wat is er gebeurd met mijn WebAPI-project?
+        href: vs-active-directory-webapi-what-happened.md
+      - name: Fout tijdens de verificatiedetectie
+        href: vs-active-directory-error.md
+    - name: Een app op de markt brengen
+      items:
+      - name: Publiceren naar een app-bron
+        href: howto-get-appsource-certified.md
+      - name: Publiceren naar de Azure AD-app-galerie
+        href: howto-app-gallery-listing.md
+      - name: Publiceren naar het Office 365-verkopersdashboard
+        href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+    - name: Migreren vanuit de Azure Access Control Service
+      href: active-directory-acs-migration.md
+    - name: De Azure AD Graph API gebruiken
+      href: active-directory-graph-api-quickstart.md
+    - name: AD FS voor ontwikkelaars
+      href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+  - name: Verwijzingen
+    items:
+    - name: Azure AD-verificatiebibliotheken
+      displayName: ADAL
+      href: active-directory-authentication-libraries.md
+    - name: Azure AD Graph API
+      href: active-directory-graph-api.md
+    - name: Claims in Azure AD-beveiligingstokens
+      href: active-directory-optional-claims.md
+    - name: Manifest van de toepassing
+      href: reference-app-manifest.md
+    - name: Codes van verificatie- en autorisatiefouten
+      href: reference-aadsts-error-codes.md
+    - name: Wijzigingen die fouten veroorzaken
+      href: reference-breaking-changes.md
+  expanded: true
+- name: v2.0
+  items:
+  - name: Overzicht
+    href: v2-overview.md
+  - name: Snelstartgidsen
+    items:
+    - name: Een ontwikkelaarsomgeving instellen
+      href: quickstart-create-new-tenant.md
+    - name: Een toepassing configureren
+      items:
+      - name: Een app registreren
+        href: quickstart-v2-register-an-app.md
+      - name: Een app bijwerken
+        href: quickstart-v1-update-azure-ad-app.md
+      - name: Een app verwijderen
+        href: quickstart-v1-remove-azure-ad-app.md
+    - name: Toepassingen met één pagina
+      items:
+      - name: Javascript
+        href: quickstart-v2-javascript.md
+    - name: Web-apps
+      items:
+      - name: ASP.NET
+        href: quickstart-v2-aspnet-webapp.md
       - name: ASP.NET Core
-        href: https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2
+        href: quickstart-v2-aspnet-core-webapp.md
       - name: Node.js
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
     - name: Web-API's
@@ -224,63 +233,149 @@ items:
         href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
       - name: ASP.NET Core
         href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
-      - name: Node.js
-        href: https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2
-    - name: Apps met één pagina
+    - name: Mobiele apps en desktop-apps
       items:
-      - name: Javascript
-        href: tutorial-v2-javascript-spa.md
-    - name: Service-naar-service
+      - name: Android
+        href: quickstart-v2-android.md
+      - name: iOS
+        href: quickstart-v2-ios.md
+      - name: Universeel Windows-platform
+        href: quickstart-v2-uwp.md
+      - name: .NET voor Windows Desktop
+        href: quickstart-v2-windows-desktop.md
+    - name: Service naar service
       items:
       - name: ASP.NET
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
-  - name: Handleidingen
+  - name: Zelfstudies
     items:
-    - name: Een app registreren
-      href: quickstart-v2-register-an-app.md
-    - name: Naslaginformatie over app-registratie
-      href: active-directory-v2-registration-portal.md
-  - name: Naslaginformatie
-    items:
-    - name: Verificatiebibliotheken
-      displayName: MSAL
-      href: reference-v2-libraries.md
-    - name: v2.0-codevoorbeelden per scenario
-      displayName: MSAL
-      href: sample-v2-code.md
-    - name: v2.0-verificatieprotocollen
-      displayName: MSAL
-      href: active-directory-v2-protocols.md
+    - name: Toepassingen met één pagina
       items:
-      - name: OpenID Connect
-        href: v2-protocols-oidc.md
-      - name: OAuth 2.0-autorisatiecode verlenen
-        href: v2-oauth2-auth-code-flow.md
-      - name: Impliciete goedkeuring voor OAuth 2.0
-        href: v2-oauth2-implicit-grant-flow.md
-      - name: Referenties voor OAuth 2.0-client verlenen
-        href: v2-oauth2-client-creds-grant-flow.md
-      - name: Namens-stroom voor OAuth 2.0
-        href: v2-oauth2-on-behalf-of-flow.md
+      - name: Javascript
+        href: tutorial-v2-javascript-spa.md
+    - name: Web-apps
+      items:
+      - name: ASP.NET
+        href: tutorial-v2-asp-webapp.md
+    - name: Mobiele apps en desktop-apps
+      items:
+      - name: Android
+        href: tutorial-v2-android.md
+      - name: iOS
+        href: tutorial-v2-ios.md
+      - name: Universeel Windows-platform
+        href: tutorial-v2-windows-uwp.md
+      - name: .NET voor Windows Desktop
+        href: tutorial-v2-windows-desktop.md
+  - name: Voorbeelden
+    href: sample-v2-code.md
+  - name: Concepten
+    items:
+    - name: Kiezen tussen v1.0 en v2.0
+      href: azure-ad-endpoint-comparison.md
+    - name: Toepassingstypen
+      href: v2-app-types.md
+    - name: Verificatie
+      href: authentication-scenarios.md
+      items:
+      - name: Protocollen
+        items:
+        - name: OAuth en het OpenID Connect-protocol
+          items:
+          - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
+            href: v2-oauth2-implicit-grant-flow.md
+          - name: OAuth 2.0-verificatiecode verlenen
+            href: v2-oauth2-auth-code-flow.md
+          - name: Namens-stroom voor OAuth 2.0
+            href: v2-oauth2-on-behalf-of-flow.md
+          - name: 'OAuth 2.0: clientreferenties verlenen'
+            href: v2-oauth2-client-creds-grant-flow.md
+      - name: Id-tokens
+        href: id-tokens.md
+      - name: Toegangstokens
+        href: access-tokens.md
       - name: Certificaatreferenties
         href: active-directory-certificate-credentials.md
-      - name: Oauth 2.0 -voorbeeldcode
-        href: active-directory-protocols-oauth-get-jwt-token.md
-    - name: Tokens
-      href: v2-id-and-access-tokens.md
-    - name: Bereik en toestemming
+    - name: Toepassingsconfiguratie
+      href: app-objects-and-service-principals.md
+      items:
+      - name: Apps met één tenant en apps met meerdere tenants
+        href: single-and-multi-tenant-apps.md
+    - name: Machtigingen en toestemming
+      displayName: Scopes
       href: v2-permissions-and-consent.md
+      items:
+      - name: Toestemmingsframework
+        href: consent-framework.md
+      - name: Ervaringen met toepassingstoestemming
+        href: ../application-consent-experience.md
+    - name: Nationale clouds
+      href: authentication-national-cloud.md
+  - name: Handleidingen
+    items:
+    - name: Verificatie
+      items:
+      - name: Rolclaims configureren
+        href: ../active-directory-enterprise-app-role-management.md
+      - name: Claims aanpassen
+        href: active-directory-saml-claims-customization.md
+    - name: Toepassingsconfiguratie
+      items:
+      - name: Van een app met één tenant een app met meerdere tenants maken
+        href: howto-convert-app-to-be-multi-tenant.md
+      - name: Uw app tot een groep gebruikers beperken
+        href: howto-restrict-your-app-to-a-set-of-users.md
+      - name: App-rollen toevoegen aan uw toepassing
+        href: howto-add-app-roles-in-azure-ad-apps.md
+      - name: Huisstijlrichtlijnen
+        href: howto-add-branding-in-azure-ad-apps.md
+      - name: Servicevoorwaarden en privacyverklaring
+        href: howto-add-terms-of-service-privacy-statement.md
+    - name: Werken met Visual Studio
+      items:
+      - name: De verbonden Active Directory-service gebruiken
+        href: vs-active-directory-add-connected-service.md
+      - name: Aan de slag met .NET MVC-projecten
+        href: vs-active-directory-dotnet-getting-started.md
+      - name: Wat is er gebeurd met mijn .NET MVC-project?
+        href: vs-active-directory-dotnet-what-happened.md
+      - name: Aan de slag met WebAPI-projecten
+        href: vs-active-directory-webapi-getting-started.md
+      - name: Wat is er gebeurd met mijn WebAPI-project?
+        href: vs-active-directory-webapi-what-happened.md
+      - name: Fout tijdens de verificatiedetectie
+        href: vs-active-directory-error.md
+  - name: Verwijzingen
+    items:
+    - name: Microsoft Authentication Library
+      displayName: MSAL
+      href: reference-v2-libraries.md
+    - name: Azure AD-API's in Microsoft Graph
+      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: Manifest van de toepassing
+      href: reference-app-manifest.md
+    - name: Codes van verificatie- en autorisatiefouten
+      href: reference-aadsts-error-codes.md
+    - name: Wijzigingen die fouten veroorzaken
+      href: reference-breaking-changes.md
+  expanded: true
 - name: Resources
   items:
-  - name: Ondersteuning vragen
-    href: developer-support-help-options.md
+  - name: Woordenlijst
+    href: developer-glossary.md
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Prijscalculator
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 4bc0ff25b45da262d7db0bea3546edca23457ff6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+  - name: Azure AD-blog
+    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Aanmelden met Microsoft uitproberen
+    href: https://azure.microsoft.com/develop/identity/signin/
+  - name: Ondersteuning vragen
+    href: developer-support-help-options.md
+  - name: Managed Service Identity voor Azure-resources
+    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
+ms.openlocfilehash: f43ff4699faaddb51a43ce6ea282c61b226729e3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41929049"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988515"

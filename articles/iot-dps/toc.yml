@@ -41,6 +41,10 @@ items:
         href: quick-create-simulated-device-x509-node.md
       - name: Python
         href: quick-create-simulated-device-x509-python.md
+    - name: Attestation met behulp van een symmetrische sleutel
+      items:
+      - name: C
+        href: quick-create-simulated-device-symm-key.md
   - name: Apparaten registreren met behulp van inrichtingsservice-API's
     items:
     - name: TPM-attestation
@@ -82,8 +86,10 @@ items:
     href: tutorial-group-enrollments.md
 - name: Concepten
   items:
-  - name: Automatische inrichting
+  - name: Automatisch inrichten
     href: concepts-auto-provisioning.md
+  - name: Opnieuw inrichten
+    href: concepts-device-reprovision.md
   - name: Apparaten
     href: concepts-device.md
   - name: Beveiliging
@@ -92,6 +98,8 @@ items:
     href: concepts-service.md
   - name: TPM-attestation
     href: concepts-tpm-attestation.md
+  - name: Attestation met behulp van een symmetrische sleutel
+    href: concepts-symmetric-key-attestation.md
 - name: Handleidingen
   items:
   - name: MXChip IoT DevKit verbinden met IoT Hub
@@ -104,8 +112,10 @@ items:
       href: how-to-manage-enrollments-sdks.md
     - name: Geverifieerde CA-certificaten configureren
       href: how-to-verify-certificates.md
-    - name: Rolling apparaatcertificaten
+    - name: Apparaatcertificaten vernieuwen
       href: how-to-roll-certificates.md
+    - name: Apparaten opnieuw inrichten
+      href: how-to-reprovision.md
     - name: Uitschrijving beheren
       href: how-to-revoke-device-access-portal.md
     - name: Ongedaan maken van inrichting beheren
@@ -126,6 +136,12 @@ items:
       maintainContext: true
   - name: Attestation-mechanismen gebruiken met de SDK
     href: use-hsm-with-sdk.md
+  - name: Inrichten voor multitenancy
+    href: how-to-provision-multitenant.md
+  - name: Aangepast toewijzingsbeleid gebruiken
+    href: how-to-use-custom-allocation-policies.md
+  - name: Symmetrische sleutels gebruiken met verouderde apparaten
+    href: how-to-legacy-device-symm-key.md
   - name: SDK-hulpprogramma's gebruiken voor ontwikkeling
     href: how-to-use-sdk-tools.md
 - name: Naslaginformatie
@@ -210,9 +226,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 0a4369214f26622c2a30136a814b8e788e187144
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 7c662941bc72a9650cd40bd1361a6d43c11a4c5b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41929206"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989393"

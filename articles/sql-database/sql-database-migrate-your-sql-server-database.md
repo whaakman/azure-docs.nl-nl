@@ -2,19 +2,22 @@
 title: SQL Server DB migreren naar Azure SQL Database met behulp van DMA | Microsoft Docs
 description: Meer informatie over het migreren van SQL Server DB naar Azure SQL Database met behulp van DMA.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050201"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162851"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Uw SQL Server-database migreren naar Azure SQL Database met behulp van DMA
 
@@ -246,11 +249,11 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
 ## <a name="change-database-properties"></a>Eigenschappen van de database wijzigen
 
-U kunt de servicelaag, het prestatieniveau en het compatibiliteitsniveau wijzigen met behulp van SQL Server Management Studio. Voor de beste prestaties wordt u tijdens de importfase aangeraden naar een database met een hogere prestatielaag te importeren. Schaal echter omlaag nadat het importeren is voltooid om geld te besparen, totdat u klaar bent om de geïmporteerde database actief te gaan gebruiken. Het wijzigen van het compatibiliteitsniveau kan betere prestaties opleveren en toegang tot de nieuwste mogelijkheden van de Azure SQL Database-service. Wanneer u een oudere database migreert, wordt het compatibiliteitsniveau van de database gehandhaafd op het laagste ondersteunde niveau dat nog compatibel is met de database die wordt geïmporteerd. Zie [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Verbeterde prestaties bij het uitvoeren van query's met compatibiliteitsniveau 130 in Azure SQL Database) voor meer informatie.
+U kunt de servicelaag wijzigen, grootte en het niveau van compatibiliteit met SQL Server Management Studio. Tijdens de importeerfase aangeraden dat u importeren naar een hogere servicelaag of compute-grootte voor de beste prestaties, maar omlaag schalen te maken nadat het importeren is voltooid om geld te besparen totdat u klaar bent voor de geïmporteerde database actief te gebruiken. Het wijzigen van het compatibiliteitsniveau kan betere prestaties opleveren en toegang tot de nieuwste mogelijkheden van de Azure SQL Database-service. Wanneer u een oudere database migreert, wordt het compatibiliteitsniveau van de database gehandhaafd op het laagste ondersteunde niveau dat nog compatibel is met de database die wordt geïmporteerd. Zie [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Verbeterde prestaties bij het uitvoeren van query's met compatibiliteitsniveau 130 in Azure SQL Database) voor meer informatie.
 
 1. Klik in Objectverkenner met de rechtermuisknop op **mySampleDatabase** en klik vervolgens op **Nieuwe query**. Er wordt een queryvenster geopend dat is verbonden met uw database.
 
-2. Voer de volgende opdracht uit om de servicelaag in te stellen op **Standaard** en het prestatieniveau op **S1**.
+2. Voer de volgende opdracht uit om de servicelaag in te stellen **Standard** en de grootte van de compute op **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

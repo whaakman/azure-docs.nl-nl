@@ -1,63 +1,112 @@
+items:
 - name: Documentatie voor Kostenbeheer van Azure
   href: index.yml
-- name: Overzicht
   items:
+  - name: Overzicht
+    items:
     - name: Wat is Kostenbeheer?
-      href: overview.md
-- name: Snelstartgidsen
-  expanded: true
-  items:
-    - name: Kostengegevens weergeven
-      href: quick-register-azure-sub.md
-    - name: Kostengegevens weergeven - EA
-      href: quick-register-ea.md
-    - name: Kostengegevens weergeven - CSP
-      href: quick-register-csp.md
-- name: Zelfstudies
-  items:
-    - name: 1 - Gebruik en kosten controleren
-      href: tutorial-review-usage.md
-    - name: 2 - Uitgaven voorspellen
-      href: tutorial-forecast-spending.md
-    - name: 3 - Kosten beheren
-      href: tutorial-manage-costs.md
-    - name: 4 - Gereserveerde instanties optimaliseren
-      href: tutorial-optimize-reserved-instances.md
-    - name: 5 - Toegang tot gegevens beheren
-      href: tutorial-user-access.md
-- name: Concepten
-  items:
-    - name: Inzicht krijgen in kostenrapporten
-      href: understanding-cost-reports.md
-- name: Handleidingen
-  items:
-    - name: Azure-abonnementen en -accounts activeren
-      href: activate-subs-accounts.md
-    - name: Uitgebreide metrische gegevens voor virtuele machines toevoegen
-      href: azure-vm-extended-metrics.md
-    - name: Verbinding maken met een Google-account
-      href: connect-google-account.md
-    - name: Verbinding maken met een AWS-account
-      href: connect-aws-account.md
-    - name: Opslagaccounts configureren
-      href: storage-accounts.md
-    - name: Kostenbeheerrapporten gebruiken
-      href: use-reports.md
-    - name: Dashboards gebruiken
-      href: dashboards.md
-    - name: Budgetten beheren
-      href: manage-budgets.md
-- name: Resources
-  items:
-    - name: Video's over Kostenbeheer
-      href: ref-videos.md
+      href: overview-cost-mgt.md
+  - name: Snelstartgidsen
+    items:
+    - name: Beginnen met analyseren van kosten
+      href: quick-acm-cost-analysis.md
+    expanded: true
+  - name: Zelfstudies
+    items:
+    - name: 1 - Budgetten maken en beheren
+      href: tutorial-acm-create-budgets.md
+    - name: 2 - Gegevens exporteren
+      href: tutorial-export-acm-data.md
+    - name: 3 - Aanbevelingen voor optimalisatie
+      href: tutorial-acm-opt-recommendations.md
+  - name: Concepten
+    items:
+    - name: Best practices voor Azure Cost Management
+      href: cost-mgt-best-practices.md
+  - name: Naslaginformatie
+    items:
+    - name: Overzicht van Azure Consumption API
+      href: ../billing/billing-consumption-api-overview.md
+      items:
+      - name: Azure Consumption REST API
+        href: https://docs.microsoft.com/rest/api/consumption
     - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: https://azure.microsoft.com/roadmap/
+  - name: Resources
+    items:
+    - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+      href: /learn/browse/?products=azure-cost-management
+    - name: Azure-roadmap
+      href: https://azure.microsoft.com/roadmap/
     - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+      href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/en-us/regions/services/'
-    - name: Veelgestelde vragen
-      href: cost-mgt-faq.md
-    - name: Contact opnemen met ondersteuning
-      href: support-request-cost-management.md
+      href: https://azure.microsoft.com/regions/services/
+  - name: Cloudyn
+    items:
+    - name: Overzicht
+      items:
+      - name: Wat is Cloudyn?
+        href: overview.md
+    - name: Snelstartgidsen
+      items:
+      - name: Kostengegevens weergeven
+        href: quick-register-azure-sub.md
+      - name: Kostengegevens weergeven - EA
+        href: quick-register-ea.md
+      - name: Kostengegevens weergeven - CSP
+        href: quick-register-csp.md
+    - name: Zelfstudies
+      items:
+      - name: 1 - Gebruik en kosten controleren
+        href: tutorial-review-usage.md
+      - name: 2 - Uitgaven voorspellen
+        href: tutorial-forecast-spending.md
+      - name: 3 - Kosten beheren
+        href: tutorial-manage-costs.md
+      - name: 4 - Gereserveerde instanties optimaliseren
+        href: tutorial-optimize-reserved-instances.md
+      - name: 5 - Toegang tot gegevens beheren
+        href: tutorial-user-access.md
+    - name: Concepten
+      items:
+      - name: Inzicht krijgen in kostenrapporten
+        href: understanding-cost-reports.md
+    - name: Handleidingen
+      items:
+      - name: Azure-abonnementen en -accounts activeren
+        href: activate-subs-accounts.md
+      - name: Uitgebreide metrische gegevens voor virtuele machines toevoegen
+        href: azure-vm-extended-metrics.md
+      - name: Verbinding maken met een Google-account
+        href: connect-google-account.md
+      - name: Verbinding maken met een AWS-account
+        href: connect-aws-account.md
+      - name: Opslagaccounts configureren
+        href: storage-accounts.md
+      - name: Cloudyn-rapporten gebruiken
+        href: use-reports.md
+      - name: Dashboards gebruiken
+        href: dashboards.md
+      - name: Budgetten beheren
+        href: manage-budgets.md
+    - name: Resources
+      items:
+      - name: Cloudyn-video's
+        href: ref-videos.md
+      - name: Azure-roadmap
+        href: https://azure.microsoft.com/roadmap/
+      - name: Prijzen van Cloudyn
+        href: https://azure.microsoft.com/pricing/details/cost-management
+      - name: Regionale beschikbaarheid van Cloudyn
+        href: https://azure.microsoft.com/regions/services/
+      - name: Veelgestelde vragen over Cloudyn
+        href: cost-mgt-faq.md
+      - name: Contact opnemen met de ondersteuning van Cloudyn
+        href: support-request-cost-management.md
+ms.openlocfilehash: 8bce54dbde8acd8fb8d03479036c934242d434cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972450"

@@ -2,19 +2,22 @@
 title: Een geografisch gedistribueerde Azure SQL Database-oplossing implementeren| Microsoft Docs
 description: Informatie over het configureren van de Azure SQL-database en toepassing voor failover naar een gerepliceerde database, en failover testen.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416616"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166245"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Een geografisch gedistribueerde database implementeren
 
@@ -38,8 +41,8 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 - Azure SQL-database is geïnstalleerd. In deze zelfstudie wordt de voorbeelddatabase AdventureWorksLT gebruikt met de naam **mySampleDatabase** uit een van deze snelstartgidsen:
 
    - [Database maken - Portal](sql-database-get-started-portal.md)
-   - [Database maken - CLI](sql-database-get-started-cli.md)
-   - [Database maken - PowerShell](sql-database-get-started-powershell.md)
+   - [Database maken - CLI](sql-database-cli-samples.md)
+   - [Database maken - PowerShell](sql-database-powershell-samples.md)
 
 - Als u een methode hebt geïdentificeerd voor het uitvoeren van SQL-scripts tegen de database, kunt u een van de volgende query-hulpprogramma's gebruiken:
    - Query-editor in [Azure Portal](https://portal.azure.com). Zie [Verbinding maken en query's uitvoeren met Query-editor](sql-database-get-started-portal.md#query-the-sql-database) voor meer informatie over het gebruik van de query-editor in Azure Portal.
@@ -54,7 +57,7 @@ Maak verbinding met uw database en maak gebruikersaccounts met behulp van een va
 - SQL Server Management Studio
 - Visual Studio Code
 
-Deze gebruikersaccounts worden automatisch gerepliceerd met de secundaire server (en gesynchroniseerd gehouden). Als u SQL Server Management Studio of Visual Studio Code wilt gebruiken, dient u een firewallregel te configureren als u verbinding maakt vanaf een client op een IP-adres waarvoor nog geen firewall is geconfigureerd. Zie [Een serverfirewallregel maken](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor uitgebreide stappen.
+Deze gebruikersaccounts worden automatisch gerepliceerd met de secundaire server (en gesynchroniseerd gehouden). Als u SQL Server Management Studio of Visual Studio Code wilt gebruiken, dient u een firewallregel te configureren als u verbinding maakt vanaf een client op een IP-adres waarvoor nog geen firewall is geconfigureerd. Zie [Een serverfirewallregel maken](sql-database-get-started-portal-firewall.md) voor uitgebreide stappen.
 
 - Voer in een queryvenster de volgende query uit om twee gebruikersaccounts te maken in uw database. Dit script verleent **db_owner**-machtigingen aan het **app_admin**-account en verleent de machtigingen **SELECT** en **UPDATE** aan het **app_user**-account. 
 
@@ -70,7 +73,7 @@ Deze gebruikersaccounts worden automatisch gerepliceerd met de secundaire server
 
 ## <a name="create-database-level-firewall"></a>Firewall op databaseniveau maken
 
-Maak een [firewallregel op databaseniveau](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) voor uw SQL-database. Deze firewallregel op databaseniveau wordt automatisch gerepliceerd met de secundaire server die u in deze zelfstudie hebt gemaakt. Gebruik voor het gemak (in deze zelfstudie) het openbare IP-adres van de computer waarop u de stappen in deze zelfstudie uitvoert. Zie [Een serverfirewallregel maken](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) om het IP-adres vast te stellen dat wordt gebruikt voor de firewall op serverniveau voor uw huidige computer.  
+Maak een [firewallregel op databaseniveau](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) voor uw SQL-database. Deze firewallregel op databaseniveau wordt automatisch gerepliceerd met de secundaire server die u in deze zelfstudie hebt gemaakt. Gebruik voor het gemak (in deze zelfstudie) het openbare IP-adres van de computer waarop u de stappen in deze zelfstudie uitvoert. Zie [Een serverfirewallregel maken](sql-database-get-started-portal-firewall.md) om het IP-adres vast te stellen dat wordt gebruikt voor de firewall op serverniveau voor uw huidige computer.  
 
 - Vervang in het geopende queryvenster de vorige query door de volgende, waarbij u het IP-adres vervangt door de bijbehorende IP-adressen voor uw omgeving.  
 
@@ -390,8 +393,8 @@ In deze zelfstudie hebt u geleerd hoe u een Azure SQL-database en -toepassing co
 > * Java-toepassing maken en compileren om een query uit te voeren van een Azure SL-database
 > * Noodherstelanalyse uitvoeren
 
-Ga door naar de volgende zelfstudie voor informatie over het maken van een beheerd exemplaar.
+Ga naar de volgende zelfstudie voor SQL Server migreren naar Azure SQL Database Managed Instance met behulp van DMS.
 
 > [!div class="nextstepaction"]
->[Een beheerd exemplaar maken](sql-database-managed-instance-create-tutorial-portal.md)
+>[SQL Server migreren naar beheerd exemplaar voor Azure SQL Database met behulp van DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 

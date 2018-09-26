@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2ee8284861d62d4405d0f949ee74b1992440b66e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 701bf7db8304189b9348cad1c920f3e5ec1fecf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184557"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991127"
 documentType: LandingData
 title: Documentatie voor Azure DNS
 metadata:
@@ -48,11 +48,14 @@ sections:
   - type: paragraph
     text: Leer hoe u uw eigen domein in Azure DNS host, aangepaste DNS-records maakt voor een web-app die gebruikmaakt van Azure DNS en hoe u een private DNS-zone en private DNS-records maakt.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Uw domein hosten in Azure DNS</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">Aangepaste DNS-records voor een web-app maken</a>
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">Een persoonlijke DNS-zone en -record maken</a>
+    - html: <a href="/azure/dns/tutorial-alias-pip">Een aliasrecord zo configureren dat die naar een openbaar Azure-IP-adres verwijst</a>
+    - html: <a href="/azure/dns/tutorial-alias-tm">Een aliasrecord zo configureren dat die apex-domeinnamen ondersteunt met Traffic Manager</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">Een aliasrecord configureren voor zonerecords</a>
 - title: Gratis Pluralsight-videotraining
   items:
   - type: list

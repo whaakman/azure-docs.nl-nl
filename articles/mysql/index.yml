@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: aab2881462eafdc00bb0f3329f68789f07225773
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955823"
 documentType: LandingData
 title: Documentatie voor Azure Database voor MySQL
 metadata:
@@ -14,29 +20,23 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2017
   ms.author: carolz
-  ms.openlocfilehash: 817fc211b6296490af0a873a88eb76215b44c2dd
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 10/11/2017
-  ms.locfileid: "23070800"
 abstract:
-  description: Azure Database voor MySQL is een relationele databaseservice op basis van de open-source MySQL-serverengine.  Deze volledig beheerde Database as a Service kan bedrijfskritieke workloads verwerken met voorspelbare prestaties en dynamische schaalbaarheid. Ontwikkel toepassingen met Azure Database voor MySQL met behulp van open-sourcehulpprogramma's en een platform naar keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database voor MySQL gebruikt.
+  description: Azure Database voor MySQL is een relationele databaseservice op basis van de open-source MySQL-serverengine.  Deze volledig beheerde Database as a Service kan bedrijfskritieke werkbelastingen verwerken met voorspelbare prestaties en dynamische schaalbaarheid. Ontwikkel toepassingen met Azure Database voor MySQL met behulp van open-sourcehulpprogramma's en een platform naar keuze. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Database voor MySQL gebruikt.
 sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: 'Lees hoe u een MySQL-database in Azure maakt met behulp van:'
+    text: 'Lees hoe u een MySQL Database on Azure maakt met behulp van:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
+      text: Azure-portal
       href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
     - image:
         src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
+      text: Azure-CLI
       href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
 - title: Zelfstudies met stapsgewijze instructies
   items:

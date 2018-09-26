@@ -1,211 +1,222 @@
+items:
 - name: Documentatie voor Azure DB voor MySQL
   href: index.yml
 - name: Overzicht
   items:
-    - name: Azure DB voor MySQL
-      href: overview.md
+  - name: Azure DB voor MySQL
+    href: overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Database maken - Portal
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: Database maken - Azure CLI
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: Verbinding maken en query uitvoeren
-      items:
-        - name: PHP
-          href: connect-php.md
-        - name: Java
-          href: connect-java.md
-        - name: .Net
-          href: connect-csharp.md
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: C++
-          href: connect-cpp.md
-        - name: Aan de slag
-          href: connect-go.md
-        - name: MySQL Workbench
-          href: connect-workbench.md
+  - name: Database maken - Portal
+    href: quickstart-create-mysql-server-database-using-azure-portal.md
+  - name: Database maken - Azure CLI
+    href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: Verbinding maken en query uitvoeren
+    items:
+    - name: PHP
+      href: connect-php.md
+    - name: Java
+      href: connect-java.md
+    - name: .Net
+      href: connect-csharp.md
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: C++
+      href: connect-cpp.md
+    - name: Aan de slag
+      href: connect-go.md
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: 1 - Een database ontwerpen
-      items:
-        - name: Azure Portal
-          href: tutorial-design-database-using-portal.md
-        - name: Azure-CLI
-          href: tutorial-design-database-using-cli.md
-    - name: 2 - Een web-app maken
-      items:
-        - name: WordPress - portal
-          href: 'https://portal.azure.com/#create/WordPress.WordPress'
-        - name: PHP met MySQL
-          href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
-        - name: Java met MySQL
-          href: ../app-service/app-service-web-tutorial-java-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+  - name: 1 - Een database ontwerpen
+    items:
+    - name: Azure Portal
+      href: tutorial-design-database-using-portal.md
+    - name: Azure-CLI
+      href: tutorial-design-database-using-cli.md
+  - name: 2 - Een web-app maken
+    items:
+    - name: WordPress - portal
+      href: https://portal.azure.com/#create/WordPress.WordPress
+    - name: PHP met MySQL
+      href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+    - name: Java met MySQL
+      href: ../app-service/app-service-web-tutorial-java-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Voorbeelden
   items:
-    - name: Azure-CLI
-      href: sample-scripts-azure-cli.md
+  - name: Azure-CLI
+    href: sample-scripts-azure-cli.md
 - name: Concepten
   items:
-    - name: DB en servers
-      items:
-        - name: Servers
-          href: concepts-servers.md
-        - name: Ondersteunde versies
-          href: concepts-supported-versions.md
-        - name: Serverlogboeken
-          href: concepts-server-logs.md
-        - name: Hoge beschikbaarheid
-          href: concepts-high-availability.md
-    - name: Resources
-      items:
-        - name: Prijscategorieën
-          href: concepts-pricing-tiers.md
-        - name: Limieten
-          href: concepts-limits.md
-    - name: Gegevenstoegang en -beveiliging
-      items:
-        - name: Firewall-regels
-          href: concepts-firewall-rules.md
-        - name: SSL configureren
-          href: concepts-ssl-connection-security.md
-        - name: VNet
-          href: concepts-data-access-and-security-vnet.md
-    - name: Bedrijfscontinuïteit
-      items:
-        - name: Overzicht
-          href: concepts-business-continuity.md
-        - name: Back-ups en herstellen
-          href: concepts-backup.md
-    - name: Controleren
-      href: concepts-monitoring.md
-    - name: Ontwikkeling
-      items:
-        - name: Compatibiliteit van stuurprogramma's en hulpprogramma's
-          href: concepts-compatibility.md
-        - name: Toepassingen ontwikkelen
-          href: concepts-database-application-development.md
-    - name: Replicatie
-      items:
-        - name: Replicatie van binnenkomende gegevens
-          href: concepts-data-in-replication.md
+  - name: DB en servers
+    items:
+    - name: Servers
+      href: concepts-servers.md
+    - name: Ondersteunde versies
+      href: concepts-supported-versions.md
+    - name: Serverlogboeken
+      href: concepts-server-logs.md
+    - name: Hoge beschikbaarheid
+      href: concepts-high-availability.md
+  - name: Resources
+    items:
+    - name: Prijscategorieën
+      href: concepts-pricing-tiers.md
+    - name: Limieten
+      href: concepts-limits.md
+  - name: Gegevenstoegang en -beveiliging
+    items:
+    - name: Firewall-regels
+      href: concepts-firewall-rules.md
+    - name: SSL configureren
+      href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md
+  - name: Bedrijfscontinuïteit
+    items:
+    - name: Overzicht
+      href: concepts-business-continuity.md
+    - name: Back-ups en herstellen
+      href: concepts-backup.md
+  - name: Controleren
+    href: concepts-monitoring.md
+  - name: Ontwikkeling
+    items:
+    - name: Compatibiliteit van stuurprogramma's en hulpprogramma's
+      href: concepts-compatibility.md
+    - name: Toepassingen ontwikkelen
+      href: concepts-database-application-development.md
+  - name: Replicatie
+    items:
+    - name: Replicatie van binnenkomende gegevens
+      href: concepts-data-in-replication.md
+    - name: Leesreplica's
+      href: concepts-read-replicas.md
 - name: Handleidingen
   items:
-    - name: Een server beheren
-      items:
-        - name: Azure Portal
-          href: howto-create-manage-server-portal.md
-    - name: Firewall-regels
-      items:
-        - name: Azure Portal
-          href: howto-manage-firewall-using-portal.md
-        - name: Azure-CLI
-          href: howto-manage-firewall-using-cli.md
-    - name: Een server terugzetten
-      items:
-        - name: Azure Portal
-          href: howto-restore-server-portal.md
-        - name: Azure-CLI
-          href: howto-restore-server-cli.md
-    - name: Een database migreren
-      items:
-        - name: Dumpen en terugzetten
-          href: concepts-migrate-dump-restore.md
-        - name: Importeren en exporteren
-          href: concepts-migrate-import-export.md
-        - name: Migratie met minimale downtime
-          href: howto-migrate-online.md
-    - name: Toepassingen koppelen
-      items:
-        - name: Gebruikers maken
-          href: howto-create-users.md
-        - name: Verbindingsreeksen
-          href: howto-connection-string.md
-        - name: SSL configureren
-          href: howto-configure-ssl.md
-        - name: Web-apps
-          href: howto-connect-webapp.md
-    - name: Parameters van de server configureren
-      items:
-        - name: Azure Portal
-          href: howto-server-parameters.md
-        - name: Azure-CLI
-          href: howto-configure-server-parameters-using-cli.md
-    - name: Serverlogboeken openen
-      items:
-        - name: Azure Portal
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure-CLI
-          href: howto-configure-server-logs-in-cli.md
-    - name: Controleren
-      items:
-        - name: Waarschuwingen maken op basis van metrische gegevens
-          href: howto-alert-on-metric.md
-    - name: Replicatie
-      items:
-        - name: Replicatie van binnenkomende gegevens configureren
-          href: howto-data-in-replication.md
-    - name: Problemen oplossen
-      items:
-        - name: Prestatieproblemen van query's oplossen
-          href: howto-troubleshoot-query-performance.md
-        - name: Weergaven gebruiken in sys-schema
-          href: howto-troubleshoot-sys-schema.md
-    - name: Virtual Network
-      items:
-        - name: Azure Portal
-          href: howto-manage-vnet-using-portal.md
-        - name: Azure-CLI
-          href: howto-manage-vnet-using-cli.md
+  - name: Een server beheren
+    items:
+    - name: Azure Portal
+      href: howto-create-manage-server-portal.md
+  - name: Firewall-regels
+    items:
+    - name: Azure Portal
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure-CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Een server terugzetten
+    items:
+    - name: Azure Portal
+      href: howto-restore-server-portal.md
+    - name: Azure-CLI
+      href: howto-restore-server-cli.md
+  - name: Een database migreren
+    items:
+    - name: Dumpen en terugzetten
+      href: concepts-migrate-dump-restore.md
+    - name: Importeren en exporteren
+      href: concepts-migrate-import-export.md
+    - name: Migratie met minimale downtime
+      href: howto-migrate-online.md
+  - name: Toepassingen koppelen
+    items:
+    - name: Gebruikers maken
+      href: howto-create-users.md
+    - name: Verbindingsreeksen
+      href: howto-connection-string.md
+    - name: SSL configureren
+      href: howto-configure-ssl.md
+    - name: Web-apps
+      href: howto-connect-webapp.md
+  - name: Parameters van de server configureren
+    items:
+    - name: Azure Portal
+      href: howto-server-parameters.md
+    - name: Azure-CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Serverlogboeken openen
+    items:
+    - name: Azure Portal
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure-CLI
+      href: howto-configure-server-logs-in-cli.md
+  - name: Controleren
+    items:
+    - name: Waarschuwingen maken op basis van metrische gegevens
+      href: howto-alert-on-metric.md
+  - name: Replicatie
+    items:
+    - name: Replicatie van binnenkomende gegevens configureren
+      href: howto-data-in-replication.md
+    - name: Leesreplica's maken in de Azure-portal
+      href: howto-read-replicas-portal.md
+  - name: Problemen oplossen
+    items:
+    - name: Prestatieproblemen van query's oplossen
+      href: howto-troubleshoot-query-performance.md
+    - name: Weergaven gebruiken in sys-schema
+      href: howto-troubleshoot-sys-schema.md
+  - name: Virtual Network
+    items:
+    - name: Azure Portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure-CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/mysql
-    - name: REST-API
-      href: /rest/api/mysql
-    - name: Opgeslagen replicatieprocedures voor binnenkomende gegevens
-      href: reference-data-in-stored-procedures.md
+  - name: Azure-CLI
+    href: /cli/azure/mysql
+  - name: REST-API
+    href: /rest/api/mysql
+  - name: Opgeslagen replicatieprocedures voor binnenkomende gegevens
+    href: reference-data-in-stored-procedures.md
 - name: Resources
   items:
-    - name: Implementatiesjablonen
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/mysql/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: Video's
+  - name: Implementatiesjablonen
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/mysql/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: Video's
+    items:
+    - name: Productvideo's
+      href: videos.md
+    - name: Instructievideo's
       items:
-        - name: Productvideo's
-          href: videos.md
-        - name: Instructievideo's
-          items:
-            - name: Informatie over de functies en voordelen
-              href: 'https://aka.ms/mysql-intro-vid'
-            - name: Uw MySQL-app naar Azure migreren
-              href: 'https://aka.ms/mysql-migrate-vid'
-            - name: Web Apps bouwen en implementeren
-              href: 'https://aka.ms/mysql-webapps-vid'
-            - name: Containers verbinden met behulp van OSBA
-              href: 'https://aka.ms/mysql-osba-vid'
-    - name: Verzoeken om een functie toe te voegen
-      href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
-    - name: Beschikbaarheid in regio’s
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Ondersteuningsopties
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: Verhalen van klanten
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
-    - name: Partners
-      href: partners-migration-mysql.md
-    - name: Handleiding voor databasemigratie
-      href: 'https://datamigration.microsoft.com/'
+      - name: Informatie over de functies en voordelen
+        href: https://aka.ms/mysql-intro-vid
+      - name: Uw MySQL-app naar Azure migreren
+        href: https://aka.ms/mysql-migrate-vid
+      - name: Web Apps bouwen en implementeren
+        href: https://aka.ms/mysql-webapps-vid
+      - name: Containers verbinden met behulp van OSBA
+        href: https://aka.ms/mysql-osba-vid
+  - name: Verzoeken om een functie toe te voegen
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Beschikbaarheid in regio’s
+    href: https://azure.microsoft.com/regions/services/
+  - name: Ondersteuningsopties
+    href: https://azure.microsoft.com/support/options/
+  - name: Verhalen van klanten
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"
+  - name: Partners
+    href: partners-migration-mysql.md
+  - name: Handleiding voor databasemigratie
+    href: https://datamigration.microsoft.com/
+ms.openlocfilehash: 7c2ba8eecdf39d1e00abe91d9918fdaf2f1cec88
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980794"

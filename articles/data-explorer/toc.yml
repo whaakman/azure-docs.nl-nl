@@ -1,0 +1,62 @@
+items:
+- name: Documentatie voor Azure Data Explorer
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is Data Explorer?
+    href: data-explorer-overview.md
+- name: Snelstartgidsen
+  items:
+  - name: Een cluster maken - Azure Portal
+    href: create-cluster-database-portal.md
+  - name: Gegevens opnemen
+    items:
+    - name: Gegevens streamen - Event Hub
+      href: ingest-data-event-hub.md
+    - name: Gegevens batchen - Python
+      href: python-ingest-data.md
+    expanded: true
+  - name: Querygegevens
+    items:
+    - name: Webgebruikersinterface
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+    expanded: true
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Gegevens visualiseren - Power BI
+    href: visualize-power-bi.md
+- name: Concepten
+  items:
+  - name: Overzicht van gegevensopname
+    href: ingest-data-overview.md
+- name: Handleidingen
+  items:
+  - name: Query's schrijven
+    href: write-queries.md
+  - name: Voorbeeldgegevens opnemen
+    href: ingest-sample-data.md
+  - name: Databasemachtigingen beheren
+    href: manage-database-permissions.md
+  - name: Clusterstatus controleren
+    href: check-cluster-health.md
+  - name: Problemen oplossen
+    items:
+    - name: Een cluster maken
+      href: troubleshoot-create-cluster.md
+    - name: Verbinding maken met een cluster
+      href: troubleshoot-connect-cluster.md
+    - name: Werken met databases en tabellen
+      href: troubleshoot-database-table.md
+- name: Naslaginformatie
+  items:
+  - name: Taalverwijzing
+    href: https://aka.ms/kustolangref
+ms.openlocfilehash: 6373afdadf9d3916cb8e10be976d141ba55177cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964936"

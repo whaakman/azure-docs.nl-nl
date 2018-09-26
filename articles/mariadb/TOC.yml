@@ -1,0 +1,122 @@
+items:
+- name: Documentatie voor Azure DB voor MariaDB
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Azure DB voor MariaDB
+    href: overview.md
+- name: Snelstartgidsen
+  items:
+  - name: Database maken - Portal
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: Database maken - Azure CLI
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Verbinding maken en query uitvoeren
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: 1 - Een database ontwerpen
+    items:
+    - name: Azure Portal
+      href: tutorial-design-database-using-portal.md
+- name: Concepten
+  items:
+  - name: DB en servers
+    items:
+    - name: Servers
+      href: concepts-servers.md
+    - name: Ondersteunde versies
+      href: concepts-supported-versions.md
+    - name: Serverlogboeken
+      href: concepts-server-logs.md
+    - name: Hoge beschikbaarheid
+      href: concepts-high-availability.md
+  - name: Resources
+    items:
+    - name: Prijscategorieën
+      href: concepts-pricing-tiers.md
+    - name: Limieten
+      href: concepts-limits.md
+  - name: Gegevenstoegang en -beveiliging
+    items:
+    - name: Firewall-regels
+      href: concepts-firewall-rules.md
+    - name: SSL configureren
+      href: concepts-ssl-connection-security.md
+  - name: Bedrijfscontinuïteit
+    items:
+    - name: Overzicht
+      href: concepts-business-continuity.md
+    - name: Back-ups en herstellen
+      href: concepts-backup.md
+  - name: Replicatie
+    items:
+    - name: Replicatie van binnenkomende gegevens
+      href: concepts-data-in-replication.md
+- name: Handleidingen
+  items:
+  - name: Firewall-regels
+    items:
+    - name: Azure Portal
+      href: howto-manage-firewall-portal.md
+  - name: Een server terugzetten
+    items:
+    - name: Azure Portal
+      href: howto-restore-server-portal.md
+  - name: Een database migreren
+    items:
+    - name: Dumpen en terugzetten
+      href: howto-migrate-dump-restore.md
+  - name: Toepassingen koppelen
+    items:
+    - name: Gebruikers maken
+      href: howto-create-users.md
+    - name: Verbindingsreeksen
+      href: howto-connection-string.md
+    - name: SSL configureren
+      href: howto-configure-ssl.md
+  - name: Parameters van de server configureren
+    items:
+    - name: Azure Portal
+      href: howto-server-parameters.md
+  - name: Serverlogboeken openen
+    items:
+    - name: Azure Portal
+      href: howto-configure-server-logs-portal.md
+  - name: Replicatie
+    items:
+    - name: Replicatie van binnenkomende gegevens configureren
+      href: howto-data-in-replication.md
+- name: Naslaginformatie
+  items:
+  - name: REST-API
+    href: /rest/api/mariadb
+  - name: Opgeslagen replicatieprocedures voor binnenkomende gegevens
+    href: reference-data-in-stored-procedures.md
+- name: Resources
+  items:
+  - name: Implementatiesjablonen
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Verzoeken om een functie toe te voegen
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Beschikbaarheid in regio’s
+    href: https://azure.microsoft.com/regions/services/
+  - name: Ondersteuningsopties
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: a1b24ca3800866f00a97647d59e1f7353a0bdcc9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958489"

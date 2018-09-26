@@ -1,0 +1,262 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 845fb826d18949c30663c829e65537156bd2f865
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986061"
+documentType: LandingData
+title: Microsoft Identity Platform (Azure Active Directory voor ontwikkelaars)
+metadata:
+  title: Microsoft Identity Platform (Azure Active Directory voor ontwikkelaars)
+  description: Leer hoe u met het Microsoft Identity Platform apps bouwt waarbij gebruikers zich veilig kunnen aanmelden met alle Microsoft-identiteiten en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API's of API's die door ontwikkelaars zijn gemaakt.
+  services: active-directory
+  author: CelesteDG
+  manager: mtillman
+  ms.service: active-directory
+  ms.component: develop
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: celested
+abstract:
+  description: Het Microsoft Identity Platform bouwt voort op de identiteitsservice en het ontwikkelaarsplatform van Azure Active Directory (Azure AD). Met het Microsoft Identity Platform kunnen ontwikkelaars toepassingen maken waarbij gebruikers zich met alle Microsoft-identiteiten kunnen aanmelden en waarmee tokens worden opgehaald voor het aanroepen van Microsoft Graph, andere Microsoft-API's of API's die door ontwikkelaars zijn gemaakt. Het platform biedt uitgebreide functionaliteit en bevat een verificatieservice, open source-bibliotheken, mogelijkheden voor toepassingsregistratie en -configuratie, volledige ontwikkelaarsdocumentatie, codevoorbeelden en andere inhoud voor ontwikkelaars. Het Microsoft Identity Platform biedt ondersteuning voor standaardprotocollen als OAuth 2.0 en OpenID Connect.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video-featured.png
+      width: 250
+    title: Web-apps met verificatie bouwen (9:31)
+    href: https://www.youtube.com/watch?v=QWh5HZK9vRA
+    width: 250
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/active-directory/develop/about-microsoft-identity-platform
+      html: <p>Krijg een goed beeld van het Microsoft Identity Platform en de functies en mogelijkheden ervan.</p>
+      image:
+        src: ./media/index/i_get-started.svg
+      title: Over het Microsoft Identity Platform
+    - href: /azure/active-directory/develop/azure-ad-developers-guide/
+      html: <p>Verifieer Azure AD-identiteiten (werk- en schoolaccounts) door via het Azure AD v1.0-eindpunt tokens aan te vragen met behulp van Azure AD Authentication Library (ADAL), de Azure-portal of de Azure AD Graph API.</p>
+      image:
+        src: ./media/index/i_advanced.svg
+      title: v1.0
+    - href: /azure/active-directory/develop/v2-overview
+      html: <p>Verifieer een uitgebreidere set Microsoft-identiteiten via het zogenoemde Azure AD v2.0-eindpunt met behulp van Microsoft Authentication Library (MSAL), de Azure-portal of de Microsoft Graph API.</p>
+      image:
+        src: ./media/index/i_investigate.svg
+      title: v2.0
+- title: Snelstarts
+  items:
+  - type: paragraph
+    text: Volg deze snelstarts om snel een app te bouwen en functionaliteit toe te voegen, zoals tokens ophalen, tokens vernieuwen, gebruikers aanmelden, bepaalde gebruikersgegevens weergeven enz.
+  - type: paragraph
+    text: <b>Toepassingen met één pagina</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/angularjs-shield.svg
+      title: AngularJS
+    - image:
+        src: ./media/index/logo_js.svg
+      title: Javascript
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-angularjs-spa.md
+      - href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
+    - title: v2.0
+      values:
+      - href: 
+      - href: quickstart-v2-javascript.md
+  - type: paragraph
+    text: <b>Web-apps</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: ASP.NET
+    - image:
+        src: ./media/index/logo_NETcore.svg
+      title: ASP.NET Core
+    - image:
+        src: ./media/index/logo_java.svg
+      title: Java
+    - image:
+        src: ./media/index/logo_nodejs.svg
+      title: Node.js
+    - image:
+        src: ./media/index/logo_python.svg
+      title: Python
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-aspnet-webapp.md
+      - href: 
+      - href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+      - href: quickstart-v1-openid-connect-code.md
+      - href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+    - title: v2.0
+      values:
+      - href: quickstart-v2-aspnet-webapp.md
+      - href: quickstart-v2-aspnet-core-webapp.md
+      - href: 
+      - href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+      - href: 
+  - type: paragraph
+    text: <b>Web-API's</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: ASP.NET
+    - image:
+        src: ./media/index/logo_NETcore.svg
+      title: ASP.NET Core
+    - image:
+        src: ./media/index/logo_nodejs.svg
+      title: Node.js
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-dotnet-webapi.md
+      - href: 
+      - href: quickstart-v1-nodejs-webapi.md
+    - title: v2.0
+      values:
+      - href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+      - href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+      - href: 
+  - type: paragraph
+    text: <b>Mobiele en bureaubladapps</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_android.svg
+      title: Android
+    - image:
+        src: ./media/index/logo_ios.svg
+      title: iOS
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: Universeel Windows-platform
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: .NET voor Windows Desktop
+    - image:
+        src: ./media/index/logo_xamarin.svg
+      title: Xamarin
+    rows:
+    - title: v1.0
+      values:
+      - href: quickstart-v1-android.md
+      - href: quickstart-v1-ios.md
+      - href: 
+      - href: quickstart-v1-dotnet.md
+      - href: quickstart-v1-xamarin.md
+    - title: v2.0
+      values:
+      - href: quickstart-v2-android.md
+      - href: quickstart-v2-ios.md
+      - href: quickstart-v2-uwp.md
+      - href: quickstart-v2-windows-desktop.md
+      - href: 
+  - type: paragraph
+    text: <b>Service naar service</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: .NET
+    rows:
+    - title: v1.0
+      values:
+      - href: sample-v1-code.md#server-or-daemon-application-to-web-api
+    - title: v2.0
+      values:
+      - href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Gebruik het Microsoft Identity Platform en volg gedetailleerde, op scenario's gebaseerde procedures voor de belangrijkste verificatiegerelateerde ontwikkeltaken, zoals toegangstokens verkrijgen, aanmelding via Microsoft implementeren enz.
+  - type: paragraph
+    text: <b>Toepassingen met één pagina</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_js.svg
+      title: Javascript
+    rows:
+    - title: v1.0
+      values:
+      - href: 
+    - title: v2.0
+      values:
+      - href: tutorial-v2-javascript-spa.md
+  - type: paragraph
+    text: <b>Web-apps</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_NET.svg
+      title: ASP.NET
+    rows:
+    - title: v1.0
+      values:
+      - href: 
+    - title: v2.0
+      values:
+      - href: tutorial-v2-asp-webapp.md
+  - type: paragraph
+    text: <b>Mobiele en bureaubladapps</b>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: ./media/index/logo_android.svg
+      title: Android
+    - image:
+        src: ./media/index/logo_ios.svg
+      title: iOS
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: Universeel Windows-platform
+    - image:
+        src: ./media/index/logo_Windows.svg
+      title: .NET voor Windows Desktop
+    rows:
+    - title: v1.0
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: v2.0
+      values:
+      - href: tutorial-v2-android.md
+      - href: tutorial-v2-ios.md
+      - href: tutorial-v2-windows-uwp.md
+      - href: tutorial-v2-windows-desktop.md
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: Profiteer van codevoorbeelden op basis van het type app dat u ontwikkelt, uw platform en de API's die u gebruikt.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/develop/sample-v1-code">v1.0-codevoorbeelden per scenario</a>
+    - html: <a href="/azure/active-directory/develop/sample-v2-code">v2.0-codevoorbeelden per scenario</a>

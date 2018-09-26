@@ -1,76 +1,88 @@
+items:
 - name: Documentatie voor toegangsbeheer op basis van rollen
   href: index.yml
-  items: null
 - name: Overzicht
   items:
-    - name: Wat is RBAC?
-      href: overview.md
-    - name: Inzicht in de verschillende rollen
-      href: rbac-and-directory-admin-roles.md
+  - name: Wat is RBAC?
+    href: overview.md
+  - name: Inzicht in de verschillende rollen
+    href: rbac-and-directory-admin-roles.md
 - name: Snelstartgidsen
   items:
-    - name: Een gebruiker toegang verlenen
-      href: quickstart-assign-role-user-portal.md
+  - name: Een gebruiker toegang verlenen
+    href: quickstart-assign-role-user-portal.md
 - name: Zelfstudies
   items:
-    - name: Een gebruiker toegang verlenen - PowerShell
-      href: tutorial-role-assignments-user-powershell.md
-    - name: Een groep toegang verlenen - PowerShell
-      href: tutorial-role-assignments-group-powershell.md
-    - name: Een aangepaste rol maken - PowerShell
-      href: tutorial-custom-role-powershell.md
-    - name: Een aangepaste rol maken - CLI
-      href: tutorial-custom-role-cli.md
+  - name: Een gebruiker toegang verlenen - PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Een groep toegang verlenen - PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Een aangepaste rol maken - PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Een aangepaste rol maken - CLI
+    href: tutorial-custom-role-cli.md
 - name: Concepten
   items:
-    - name: Roldefinities begrijpen
-      href: role-definitions.md
-    - name: PIM (Privileged Identity Management) voor RBAC
-      href: pim-azure-resource.md
-    - name: Voorwaardelijke toegang voor Azure-beheer
-      href: conditional-access-azure-management.md
+  - name: Inzicht in roldefinities
+    href: role-definitions.md
+  - name: Inzicht in weigeringstoewijzingen
+    href: deny-assignments.md
+  - name: PIM (Privileged Identity Management) voor RBAC
+    href: pim-azure-resource.md
+  - name: Voorwaardelijke toegang voor Azure-beheer
+    href: conditional-access-azure-management.md
 - name: Handleidingen
   items:
-    - name: Toegang beheren
-      items:
-        - name: Portal
-          href: role-assignments-portal.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: Azure-CLI
-          href: role-assignments-cli.md
-        - name: REST-API
-          href: role-assignments-rest.md
-        - name: Template
-          href: role-assignments-template.md
-    - name: Aangepaste rollen
-      href: custom-roles.md
-      items:
-        - name: PowerShell
-          href: custom-roles-powershell.md
-        - name: Azure-CLI
-          href: custom-roles-cli.md
-        - name: REST-API
-          href: custom-roles-rest.md
-    - name: Activiteitenlogboeken bekijken
-      href: change-history-report.md
-    - name: Toegangsrechten voor de globale beheerder uitbreiden
-      href: elevate-access-global-admin.md
-    - name: Toegang voor externe gebruikers beheren
-      href: role-assignments-external-users.md
-    - name: Problemen oplossen
-      href: troubleshooting.md
+  - name: Toegang beheren
+    items:
+    - name: Portal
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: Azure-CLI
+      href: role-assignments-cli.md
+    - name: REST-API
+      href: role-assignments-rest.md
+    - name: Template
+      href: role-assignments-template.md
+  - name: Toegang weigeren
+    items:
+    - name: REST-API
+      href: deny-assignments-rest.md
+  - name: Aangepaste rollen
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Azure-CLI
+      href: custom-roles-cli.md
+    - name: REST-API
+      href: custom-roles-rest.md
+  - name: Activiteitenlogboeken bekijken
+    href: change-history-report.md
+  - name: Toegangsrechten voor de globale beheerder uitbreiden
+    href: elevate-access-global-admin.md
+  - name: Toegang voor externe gebruikers beheren
+    href: role-assignments-external-users.md
+  - name: Problemen oplossen
+    href: troubleshooting.md
 - name: Naslaginformatie
   items:
-    - name: Ingebouwde rollen
-      href: built-in-roles.md
-    - name: Resourceproviderbewerkingen
-      href: resource-provider-operations.md
-    - name: RBAC-beperkingen
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: Azure-CLI
-      href: /cli/azure/role?view=azure-cli-latest
-    - name: REST-API
-      href: /rest/api/authorization/
+  - name: Ingebouwde rollen
+    href: built-in-roles.md
+  - name: Resourceproviderbewerkingen
+    href: resource-provider-operations.md
+  - name: RBAC-beperkingen
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: Azure-CLI
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: REST-API
+    href: /rest/api/authorization/
+ms.openlocfilehash: 8a113e60cd9af0e7f9c0f192bc20ca674c56c0f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982780"

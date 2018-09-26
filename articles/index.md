@@ -6,12 +6,12 @@ description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Az
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9b9bbb9f584cf5fb071e75ea731c2325e334d10d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: cf8564ed36402a3d42516c6aedb1eded566a7971
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605960"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977720"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -96,6 +96,7 @@ ms.locfileid: "45605960"
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Virtuele Linux-machines</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Virtuele Windows-machines</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/blueprints/">Azure Blueprints</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -114,7 +115,7 @@ ms.locfileid: "45605960"
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -287,6 +288,47 @@ Azure DevOps Project </a>
                                     </div>
                                 </div>
                             </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Uw vaardigheden ontwikkelen met Microsoft Learn</h3>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                            <img src="/learn/achievements/tour-azure-services-and-features.svg" alt="">
+Een rondleiding maken door de Azure-services en -functies </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/principles-cloud-computing/">
+                                                            <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
+De principes van cloudcomputing </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
+                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
+Een serverloze web-app maken </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
+                                                            <img src="/learn/achievements/control-azure-services-with-cli.svg" alt="">
+Azure-services beheren via de CLI </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
+                                                            <img src="/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
+Azure-taken automatiseren met behulp van PowerShell-scripts </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/browse/?products=azure">Meer interactief leren...</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -448,6 +490,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/mysql/">
                                                 <img src="media/index/MySQL.svg" alt="" />
                                                 <p>Azure Database for MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mariadb/">
+                                                <img src="media/index/MariaDB.svg" alt="" />
+                                                <p>Azure Database for MariaDB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -695,6 +743,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/firewall/">
                                                 <img src="media/index/azure_firewall.svg" alt="" />
                                                 <p>Azure Firewall</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/frontdoor/">
+                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <p>Azure Front Door Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1095,6 +1149,12 @@ Azure DevOps Project </a>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-explorer/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <p>Azure Data Explorer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1658,9 +1718,21 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-policy/">
+                                            <a href="/azure/governance/policy/">
                                                 <img src="media/index/governance.svg" alt="" />
                                                 <p>Azure Policy</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/blueprints/">
+                                                <img src="media/index/blueprints.svg" alt="" />
+                                                <p>Azure Blueprints</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/resource-graph/">
+                                                <img src="media/index/resource-graph.svg" alt="" />
+                                                <p>Azure Resource Graph</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2188,6 +2260,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>Virtuele WAN</h3>
                                                     <p>Veilige brancheverbindingen op wereldwijde schaal bouwen</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/frontdoor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/frontdoor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Front Door Service</h3>
+                                                    <p>Een schaalbaar en veilig invoerpunt voor levering van web-apps wereldwijd</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3056,6 +3147,25 @@ Azure DevOps Project </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/mariadb/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MariaDB.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for MariaDB</h3>
+                                                    <p>Een beheerde MariaDB-databaseservice voor app-ontwikkelaars</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/dms/dms-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3149,6 +3259,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>Gegevenstransformatie en -verplaatsing coördineren en beheren</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-explorer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Explorer</h3>
+                                                    <p>Een snelle en zeer schaalbare service om logboek- en telemetriegegevens te verkennen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5122,7 +5251,7 @@ Azure DevOps Project </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-policy/">
+                                <a href="/azure/governance/policy/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5134,6 +5263,44 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
                                                     <p>Op grote schaal corporate governance en standaarden implementeren voor Azure-resources</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/blueprints/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blueprints.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Blueprints</h3>
+                                                    <p>Op herhaalbare wijze cloudomgevingen implementeren en bijwerken met behulp van samenstelbare artefacten</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/resource-graph/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-graph.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Resource Graph</h3>
+                                                    <p>Op grote schaal resources verkennen met een uitgebreide querytaal</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5953,7 +6120,7 @@ Service Fabric-SDK en -hulpprogramma's </h3>
                                                 <h3>
 SQL-hulpprogramma's </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>PREVIEW</sup></a>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>PREVIEW</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>

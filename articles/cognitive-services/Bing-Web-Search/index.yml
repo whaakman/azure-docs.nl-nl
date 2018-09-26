@@ -1,28 +1,49 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c9c5671e835e3402fe4dfbf45b295256009caa6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 7eb8996e786d7ee97569c84d70b808cc4210c947
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185276"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987302"
 documentType: LandingData
-title: Documentatie voor Bing Entiteiten zoeken
+title: Documentatie over de Bing Webzoekopdrachten-API
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: Documentatie voor Bing Webzoekopdrachten - zelfstudies, snelstarts, API-verwijzing | Microsoft Docs
+  title: Documentatie over de Bing Webzoekopdrachten-API - zelfstudies, snelstarts, API-verwijzingen | Microsoft Docs
   description: Informatie over het gebruik van de Bing Webzoekopdrachten-API om resultaten te verkrijgen van het Web die relevant zijn voor query's van gebruikers. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
   services: cognitive-services
-  author: v-jerkin
+  author: nitinme
   manager: cgronlun
   ms.service: bing-web-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jerkin
+  ms.date: 9/24/2018
+  ms.author: nitinme
 abstract:
   description: De Bing Webzoekopdrachten-API biedt een ervaring die vergelijkbaar is met die van Bing door zoekresultaten te retourneren die volgens Bing relevant zijn voor de query van een gebruiker. Deze resultaten kunnen webpagina's zijn, maar ook afbeeldingen, video's en meer.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-web-search/overview
+      html: <p>Informatie over de Bing Webzoekopdrachten-API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Wat is Bing Entiteiten zoeken?
+    - href: /azure/cognitive-services/bing-web-search/search-responses
+      html: <p>Inzicht in de hoofdtekst van de reactie van een Bing Webzoekopdrachten-API</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Reacties van Webzoekopdrachten
+    - href: /azure/cognitive-services/bing-web-search/autosuggest-bing-search-terms
+      html: <p>Uitleg over hoe automatische suggesties werken voor uw zoekquery’s</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Automatische suggesties voor Bing-query's
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -65,15 +86,27 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-web-search-single-page-app">Web-app van één pagina</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Broncode</a>
-    - html: <a href="computer-vision-web-search-tutorial.md">Mobiele Visual Search-app</a>
+    - html: <a href="tutorial-bing-web-search-single-page-app">Web-app van één pagina</a>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: 'Voorbeelden zoeken voor Bing Webzoekopdrachten-API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples">REST-voorbeelden</a>
+    - html: <a href="sdk-samples.md">SDK-voorbeelden</a>
 - title: Naslaginformatie
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: API's
+    - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">Bing Webzoekopdrachten-API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">Bing Webzoekopdrachten-API v5</a></p>
     - title: SDK's
-      html: <p><a href="sdk-samples.md">Voorbeelden van de Bing Webzoekopdrachten-SDK</a></p>
+      html: <p><a href="sdk-samples.md">SDK-naslaginformatie en -voorbeelden</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure-CLI</a></p>

@@ -1,0 +1,77 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 8985bfa71532cc73dbfeef8d63109476d6893c7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975969"
+documentType: LandingData
+title: Documentatie voor Azure Data Explorer
+metadata:
+  title: Documentatie voor Azure Data Explorer - Snelstarts, zelfstudies en taal- en API-referenties | Microsoft Docs
+  description: Azure Data Explorer is een cloudplatform voor log analytics dat is geoptimaliseerd voor ad-hoc big data-query's.
+  author: mgblythe
+  manager: kfile
+  ms.service: data-explorer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: mblythe
+abstract:
+  description: <p>Azure Data Explorer is een snelle en zeer schaalbare service om gegevens in logboeken en telemetrie te verkennen. Hiermee verwerkt u de vele gegevensstromen die door moderne software worden uitgevoerd, zodat u de gegevens kunt verzamelen, opslaan en analyseren. Azure Data Explorer is ideaal om grote hoeveelheden diverse gegevens van elke gegevensbron te analyseren, zoals websites, toepassingen, IoT-apparaten en meer.</p><p>Ontdek hoe u Azure Data Explorer gebruikt met onze snelstarts, zelfstudies en referenties.</p>
+sections:
+- title: Snelstarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Informatie over hoe u Azure Data Explorer inricht en gebruikt:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Een cluster en database maken
+      href: /azure/data-explorer/create-cluster-database-portal
+    - image:
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Stroomgegevens van Event Hubs opnemen
+      href: /azure/data-explorer/ingest-data-event-hub
+    - image:
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Query's uitvoeren op gegevens met de webinterface
+      href: /azure/data-explorer/web-query-data
+    - image:
+        src: /azure/data-explorer/media/index/logo-python.svg
+      text: Gegevens in de wachtrij opnemen met Python
+      href: /azure/data-explorer/python-ingest-data
+    - image:
+        src: /azure/data-explorer/media/index/logo-python.svg
+      text: Query's uitvoeren op gegevens met Python
+      href: /azure/data-explorer/python-query-data
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Meer informatie over hoe u end-to-end-oplossingen maakt:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/data-explorer/visualize-power-bi">Gegevens visualiseren van Azure Data Explorer in Power BI</a>
+- title: Gratis Pluralsight-videotraining
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Querytaal voor Azure Data Explorer
+      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+      image:
+        src: /azure/data-explorer/media/index/logo-pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Talen en API
+      html: <p><a href="https://aka.ms/kustolangref">Querytaal, beheeropdrachten en API's</a>

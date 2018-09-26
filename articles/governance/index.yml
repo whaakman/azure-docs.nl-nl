@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 1c25ae1acb112221047876ea6dd360c6d3bb2817
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946235"
+documentType: LandingData
+title: Azure Management - Governance
+metadata:
+  title: Azure Management - Governance
+  description: Leer meer over de concepten en Azure-services die beschikbaar zijn om uw omgeving consistent te beheren door expliciet ontwerp en regels, en over hoe u controleert op naleving.
+  services: governance
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: governance
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Governance is een verzameling concepten en services die zijn ontworpen om het beheer van verschillende Azure-resources op schaal mogelijk te maken. Deze services bieden de mogelijkheid om uw abonnementen op een logische manier te ordenen en te structureren, herbruikbare systeemeigen Azure-pakketten van resources maken en implementeren en om uw resources te definiëren, controleren en herstellen. Gebruik deze pagina om meer te leren over deze concepten en services en hoe u deze vandaag nog in uw omgeving inschakelt en gebruikt.
+sections:
+- title: Onderdelen en services
+- items:
+  - type: list
+    style: cards
+    className: cardsD
+    columns: 2
+    items:
+    - href: ./management-groups/overview
+      html: <p>Leer meer over uw abonnementen groeperen en ordenen in een logische rangschikking waarmee de implementatie van andere Governance-services op een gestructureerde manier wordt ondersteund.<br /></p>
+      image:
+        src: ./media/management-groups-illustration.svg
+      title: Beheergroepen
+    - href: ./resource-graph/
+      html: <p>Gebruik een krachtig opdrachtregelhulpprogramma (met ondersteuning voor Azure CLI en Azure PowerShell) om snel een query uit te voeren op complexe details van uw Azure-resources. Zoek en toon informatie dat eerder complexe en iteratieve scripts vereiste om die resources op schaal te ontdekken.</p>
+      image:
+        src: ./media/resource-graph-illustration.svg
+      title: Resource Graph
+    - href: ./policy/
+      html: <p>Definieer standaarden voor resources in uw omgeving en pas deze toe. Voorkom dat ongewenste resources worden gemaakt, verbeter nieuwe resources met extra elementen en controleer de herstelresources in uw omgeving.</p>
+      image:
+        src: ./media/policy-illustration.svg
+      title: Beleid
+    - href: ./blueprints/
+      html: <p>Maak een systeemeigen Azure-pakket van <i>artefacten</i> (resourcegroepen, beleid, roltoewijzingen, Resoure Manager-sjablonen en meer) dat dynamisch kan worden geïmplementeerd in abonnementen om consistente en herhaalbare omgevingen te maken.</p>
+      image:
+        src: ./media/blueprints-illustration.svg
+      title: Blauwdrukken
+- title: Implementaties
+- items:
+  - type: list
+    style: cards
+    className: cardsZ
+    columns: 3
+    items:
+    - href: /azure/architecture/cloud-adoption/governance/what-is-governance?toc=/azure/governance/toc.json
+      html: <p>In het verleden namen bedrijven het eigendom van en de verantwoordelijkheid voor alle technologieniveaus voor hun rekening, van infrastructuur tot software. De cloud biedt nu de mogelijkheid om de manier waarop bedrijven technologie gebruiken, te transformeren door resources naar wens in te richten en te gebruiken.</p>
+      title: Een bedrijfscloud implementeren
+    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+      html: <p>Hiermee kunnen beheerders ervoor zorgen dat werkbelastingen voldoen aan de minimale governancevereisten van een organisatie, zonder dat bedrijfsgroepen en ontwikkelaars in de weg worden gezeten.<br /><br /></p>
+      title: Enterprise Scaffold
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Beleid
+      html: <p>Opdrachtregel<ul><li><a href="/cli/azure/policy">Azure-CLI</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>REST-API<ul><li><a href="/rest/api/policy-insights/policyevents">Gebeurtenissen</a></li><li><a href="/rest/api/policy-insights/policystates">Statussen</a></li><li><a href="/rest/api/resources/policyassignments">Toewijzingen</a></li><li><a href="/rest/api/resources/policydefinitions">Definities voor beleid</a></li><li><a href="/rest/api/resources/policysetdefinitions">Definities voor initiatieven</a></li></ul></p>

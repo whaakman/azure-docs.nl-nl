@@ -1,51 +1,65 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 15863679b42962d414493804f234c9fde46172ea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c3120d4fb8fb9377d43cdd2df780810bb4634e52
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781155"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985024"
 documentType: LandingData
-title: Documentatie over Azure Machine Learning-services (preview)
+title: Documentatie over Azure Machine Learning-service (preview)
 metadata:
-  title: Documentatie over Azure Machine Learning-services (preview)
-  meta.description: Learn how to use Azure Machine Learning services (preview).
+  title: Documentatie over Azure Machine Learning (preview) - zelfstudies, API-verwijzing | Microsoft Docs
+  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
-  author: garyericson
+  author: j-martens
   manager: jhubbard
   ms.service: machine-learning
   ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: garye
+  ms.date: 09/24/2018
+  ms.author: jmartens
 abstract:
-  description: Met Azure Machine Learning-services (preview) kunt u machine learning- en AI-modellen bouwen, implementeren en beheren met behulp van Python-tools en -bibliotheken. U kunt een breed scala aan gegevens- en compute-services in Azure gebruiken om uw gegevens op te slaan en te verwerken.
+  description: Uitleg over het integreren van intelligente algoritmen in apps en websites. Gebruik scikit-learn, TensorFlow, PyTorch of een ander op Python gebaseerd framework om uw Machine Learning-model te bouwen en het lokaal of in de cloud te trainen. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsB
+    columns: 1
+    items:
+    - html: <p>Uw ML-modellen trainen en implementeren in een Azure-cloudservice. <a href="overview-what-is-azure-ml.md">Meer informatie over de service...</a></p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Azure Machine Learning-service
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: Uw eerste Machine Learning-project maken
+    text: Uw resources instellen voor de Azure Machine Learning-service.
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-installation.md">Installeren en maken</a>
+    - html: <a href="quickstart-get-started.md">Aan de slag in de Azure-portal </a>
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Meer informatie over hoe u uw gegevens voorbereidt, een experiment instelt en uw modellen operationeel maakt
+    text: Uitleg over het instellen van een experiment en het operationeel maken van uw modellen.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-1">Doorloop de basisprincipes van Machine Learning-services (preview)</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-2">Machine Learning Workbench gebruiken om een model te bouwen met de Iris-gegevensset</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-3">Meer informatie over het implementeren van een Machine Learning-model</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Azure Machine Learning Workbench gebruiken voor geavanceerde voorbereiding van gegevens</a>
-- title: Meer Azure Machine Learning-technologieën
+    - html: <a href="tutorial-train-models-with-aml">Uw eigen Machine Learning-model trainen</a>
+    - html: <a href="tutorial-auto-train-models">Laat ons automatisch een model voor u genereren en afstemmen</a>
+    - html: <a href="tutorial-deploy-models-with-aml">Een model implementeren als webservice</a>
+- title: Naslaginformatie
   items:
-  - type: paragraph
-    text: 'Andere technologieën in Azure Machine Learning:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="http://aka.ms/aml-sdk">Azure Machine Learning-SDK voor Python (belangrijkste SDK)</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a>
+- title: Andere Azure Machine Learning-technologieën
+  items:
   - type: list
     style: cards
     className: cardsFTitle
@@ -60,15 +74,3 @@ sections:
       image:
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Pakketten
-      html: <p><a href="reference-python-package-overview#amlpcv">Computer Vision</a></p><p><a href="reference-python-package-overview#amlpf">Prognose</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA-versnelling</a></p><p><a href="reference-python-package-overview#amlpta">Tekstanalyse</a></p>
-    - title: Talen
-      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API's voor REST-beheer</a></p>

@@ -1,47 +1,57 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978740"
 documentType: LandingData
-title: Documentatie voor Kostenbeheer van Azure
+title: Documentatie voor Azure Cost Management
 metadata:
-  title: Documentatie voor Kostenbeheer van Azure - zelfstudies, API-verwijzing | Microsoft Docs
-  description: Kostenbeheer van Azure is een kostenbeheeroplossing voor meerdere clouds, zodat u eenvoudig Azure- en andere cloudresources kunt gebruiken. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.
+  title: Documentatie voor Azure Cost Management - zelfstudies, API-verwijzing | Microsoft Docs
+  description: Azure Cost Management is een oplossing voor kostenbeheer waarmee u uw Azure-uitgaven kunt bijhouden en bewaken, en het resourcegebruik kunt optimaliseren. Leer aan de hand van onze snelstarts en zelfstudies hoe u kosten analyseert, budgetten maakt en beheert, gegevens exporteert, en aanbevelingen bekijkt en hier actie op onderneemt.
   services: cost-management
   author: bandersmsft
-  manager: carmonm
+  manager: dougeby
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/27/2018
+  ms.date: 09/14/2019
   ms.author: banders
-  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 03/16/2018
-  ms.locfileid: "29935329"
 abstract:
-  description: Kostenbeheer van Azure is gelicentieerd door Cloudyn, een dochterbedrijf van Microsoft. Het is een kostenbeheeroplossing voor meerdere clouds waarmee u op de beste manier Azure- en andere cloudresources kunt gebruiken en beheren. Ontdek met onze snelstartgidsen en zelfstudies hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert.
+  description: Azure Cost Management is een oplossing voor kostenbeheer waarmee u uw Azure-uitgaven kunt bijhouden en bewaken, en het resourcegebruik kunt optimaliseren. Leer aan de hand van onze snelstarts en zelfstudies hoe u kosten analyseert, budgetten maakt en beheert, gegevens exporteert, en aanbevelingen bekijkt en hier actie op onderneemt.
 sections:
-- title: QuickStarts van vijf minuten
+- title: Snelstarts van vijf minuten
   items:
   - type: paragraph
-    text: Ontdek hoe u uw overeenkomst of abonnementsgegevens van Azure kunt registreren met Kostenbeheer en de kostengegevens kunt weergeven.
+    text: Leer hoe u met Azure Cost Management aan de slag gaat om binnen uw organisatie kosten te analyseren.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Kostengegevens weergeven
-      href: quick-register-azure-sub
+      text: Kosten analyseren
+      href: quick-acm-cost-analysis
 - title: Stapsgewijze zelfstudies
   items:
   - type: paragraph
-    text: Ontdek hoe u gebruik en kosten bekijkt, kosten actief beheert, uitgaven voorspelt en kosten optimaliseert met behulp van Kostenbeheer.
+    text: Leer hoe u met Azure Cost Management budgetten maakt, gegevens exporteert, en aanbevelingen bekijkt en hier actie op onderneemt.
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-review-usage">Gebruik en kosten bekijken om afwijkingen en efficiëntie te detecteren</a>
-    - html: <a href="tutorial-forecast-spending">Toekomstige uitgaven voorspellen</a>
-    - html: <a href="tutorial-manage-costs">Kosten beheren met kostentoewijzing en rapporten over showback en chargeback</a>
-    - html: <a href="tutorial-optimize-reserved-instances">Gereserveerde instanties optimaliseren</a>
-    - html: <a href="tutorial-user-access">Toegang tot gegevens van Kostenbeheer toewijzen</a>
+    - html: <a href="tutorial-acm-create-budgets">Budgetten maken en beheren</a>
+    - html: <a href="tutorial-export-acm-data">Gegevens exporteren</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Aanbevelingen bekijken en hier actie op ondernemen</a>
+- title: Uw vaardigheden ontwikkelen met Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Kosten voorspellen en uw Azure-uitgaven optimaliseren
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image:
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cost-management">Meer interactief leren...</a>
