@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 0732fe06db77ab96c909c5f84f69825036fedf4e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031591"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163015"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
-Azure Load Balancer biedt uitgaande connectiviteit vanuit een virtueel netwerk naast binnenkomend verkeer.  Regels voor uitgaand verkeer kunnen u eenvoudig het configureren van openbare [Standard Load Balancer](load-balancer-standard-overview.md)van uitgaande netwerkadresomzetting (NAT).  Hebt u volledige declaratieve controle over uitgaande verbindingen kunnen worden geschaald en afstemmen van deze mogelijkheid aan uw specifieke behoeften.
+Azure Load Balancer biedt uitgaande connectiviteit vanuit een virtueel netwerk naast binnenkomend verkeer.  Regels voor uitgaand verkeer kunnen u eenvoudig het configureren van openbare [Standard Load Balancer](load-balancer-standard-overview.md)van uitgaande netwerkadresomzetting.  Hebt u volledige declaratieve controle over uitgaande verbindingen kunnen worden geschaald en afstemmen van deze mogelijkheid aan uw specifieke behoeften.
 
 ![Load Balancer-regels voor uitgaand](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -213,4 +213,5 @@ Wanneer u een interne Standard Load Balancer, is uitgaande NAT niet beschikbaar 
 
 - Meer informatie over het gebruik van [Load Balancer voor uitgaande verbindingen](load-balancer-outbound-connections.md).
 - Meer informatie over [standaardversie van Load Balancer](load-balancer-standard-overview.md).
-- Meer informatie over [in twee richtingen TCP opnieuw instellen op de time-out voor inactiviteit](https://aka.ms/lbtcpreset).
+- Meer informatie over [in twee richtingen TCP opnieuw instellen op de time-out voor inactiviteit](load-balancer-tcp-reset.md).
+- [Configureer regels voor uitgaand verkeer met Azure CLI 2.0](configure-load-balancer-outbound-cli.md).

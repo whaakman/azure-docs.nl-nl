@@ -1,28 +1,23 @@
 ---
 title: PowerShell - Remove TDE-beveiliging - Azure SQL Database | Microsoft Docs
 description: Handleiding voor het reageren op een potentieel aangetast TDE-beveiliging voor een Azure SQL Database of de Data Warehouse met TDE met Bring YOur Own Key (BYOK)-ondersteuning.
-keywords: ''
 services: sql-database
-documentationcenter: ''
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: vanto
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
-ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/07/2017
+author: becczhang
 ms.author: rebeccaz
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: c7d7c9ae3a53783a9f1f7dcef2275e74814d07f3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/07/2017
+ms.openlocfilehash: f965a008ed5973a544dba686e54e041ca6ef7673
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543925"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165990"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Verwijderen van de beveiliging van een transparante gegevensversleuteling (TDE) met behulp van PowerShell
 ## <a name="prerequisites"></a>Vereisten

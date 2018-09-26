@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9aa61e95eb808c38646fa9b8cefd4004f5477ee6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974660"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181439"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Ontwikkelen van .NET Standard door de gebruiker gedefinieerde functies voor Azure Stream Analytics Edge-taken (Preview)
 
@@ -31,7 +31,7 @@ Er zijn drie manieren voor het implementeren van UDF's:
 
 ## <a name="package-path"></a>Pad voor het pakket
 
-De indeling van een UDF-pakket heeft het pad `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLL's) en de resources worden gekopieerd onder de `/UserCustomCode/CLR/*` map waarmee isolatie van de gebruiker dll-bestanden van het systeem en Azure Stream Analytics-dll's.
+De indeling van een UDF-pakket heeft het pad `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLL's) en de resources worden gekopieerd onder de `/UserCustomCode/CLR/*` map waarmee isolatie van de gebruiker dll-bestanden van het systeem en Azure Stream Analytics-dll's. Dit pad voor het pakket wordt gebruikt voor alle functies, ongeacht de methode die wordt gebruikt om te gebruiken.
 
 ## <a name="supported-types-and-mapping"></a>Ondersteunde typen en -toewijzing
 
@@ -40,7 +40,7 @@ De indeling van een UDF-pakket heeft het pad `/UserCustomCode/CLR/*`. Dynamic Li
 |BOOL  |  bigint   |
 |Int32  |  bigint   |
 |Int64  |  bigint   |
-|drijvende komma  |  double   |
+|drijvend  |  double   |
 |double  |  double   |
 |tekenreeks  |  nvarchar(max)   |
 |Datum/tijd  |  Datum/tijd   |
@@ -59,10 +59,10 @@ Om te verwijzen naar een lokale project:
 
 1. Maak een nieuwe klassebibliotheek in uw oplossing.
 2. De code schrijven in uw klasse. Houd er rekening mee dat de klassen moeten worden gedefinieerd als *openbare* en objecten moeten worden gedefinieerd als *statische openbare*. 
-3. Bouw uw project.
+3. Bouw uw project. De hulpprogramma's wordt verpakt de artefacten in de bin-map naar een zip-bestand en upload het zip-bestand naar het storage-account. Gebruik voor externe verwijzingen Assemblyverwijzing in plaats van het NuGet-pakket.
 4. Verwijzen naar de nieuwe klasse in uw Azure Stream Analytics-project.
 5. Voeg een nieuwe functie in uw Azure Stream Analytics-project.
-6. Configureren van het assemblypad in het configuratiebestand van de taak `EdgeJobConfig.json`.
+6. Configureren van het assemblypad in het configuratiebestand van de taak `JobConfig.json`. Stel in de Assembly-pad op **lokale projectverwijzing of CodeBehind**.
 7. Zowel de function-project en de Azure Stream Analytics-project opnieuw.  
 
 ### <a name="example"></a>Voorbeeld
@@ -109,19 +109,19 @@ U kunt .NET Standard UDF's in een IDE van uw keuze maken en deze aanroepen vanui
 
 Zodra de assembly zip-pakketten zijn geüpload naar uw Azure storage-account, kunt u de functies in Azure Stream Analytics-query's. U hoeft alleen is ook de opslag in de configuratie van de Stream Analytics Edge-taak. U kunt de functie lokaal met deze optie niet testen omdat Visual Studio-hulpprogramma's wordt het pakket niet downloaden. Het pad voor het pakket wordt rechtstreeks naar de service geparseerd. 
 
-Het configureren van het assemblypad in het configuratiebestand voor een taak, zoals 'EdgeJobConfig.json':
+Het configureren van het assemblypad in het configuratiebestand van de taak `JobConfig.json`:
 
 Vouw de **configuratie van de Code door de gebruiker gedefinieerde** sectie en invullen van de configuratie met de volgende voorgestelde waarden:
 
  |**Instelling**  |**Voorgestelde waarde**  |
  |---------|---------|
- |Assembly-bron  |  Lokale projectverwijzing of CodeBehind   |
+ |Assembly-bron  | Bestaande Assembly-pakketten uit de Cloud    |
  |Resource  |  Gegevens van het huidige account kiezen   |
  |Abonnement  |  Kies uw abonnement.   |
  |Opslagaccount  |  Kies uw opslagaccount.   |
  |Container  |  Kies de container die u hebt gemaakt in uw storage-account.   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Configuratie van Azure Stream Analytics Edge-taak in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>Beperkingen
 De UDF-preview heeft momenteel de volgende beperkingen:

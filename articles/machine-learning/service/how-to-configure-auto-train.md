@@ -9,31 +9,31 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f4a8ff272e498871f4a31ce76487509673f48328
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034243"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163848"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configureren van uw geautomatiseerde machine learning-experiment
 
-Geautomatiseerde machine learning, kiest een algoritme voor u en genereert een model dat gereed is voor implementatie. Het model kan worden gedownload als u wilt ook verder worden aangepast. Er zijn diverse opties, kunt u geautomatiseerde machine learning-experimenten configureren. In deze handleiding leert u hoe u diverse configuratie-instellingen te definiëren.
+Geautomatiseerde machine learning-(geautomatiseerde ML) kiest een algoritme en hyperparameters voor u en genereert een model dat gereed is voor implementatie. Het model kan worden gedownload als u wilt ook verder worden aangepast. Er zijn verschillende opties die u gebruiken kunt om te configureren van automatische ML-experimenten. In deze handleiding leert u hoe u diverse configuratie-instellingen te definiëren.
 
-Voorbeelden van een geautomatiseerde machine learning, Zie [zelfstudie: een model classificatie automatisch de trein](tutorial-auto-train-models.md) of [trainen van modellen automatisch in de cloud](how-to-auto-train-remote.md).
+Voorbeelden van een geautomatiseerde ML, Zie [zelfstudie: een model classificatie met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md) of [trainen van modellen met geautomatiseerde machine learning in de cloud](how-to-auto-train-remote.md).
 
 Configuratie-opties zijn beschikbaar in geautomatiseerde machine learning:
 
 * Selecteer het type experiment, bijvoorbeeld, classificatie, regressie 
 * De gegevensbron, indelingen en ophalen van gegevens
 * Kies uw compute-doel (lokaal of extern)
-* `AutoML` instellingen voor experiment
-* Voer `AutoML` experimenteren
+* Instellingen voor ML-experiment geautomatiseerd
+* Een geautomatiseerde ML-experiment uit te voeren
 * Model metrische gegevens verkennen
 * Registreer en implementeer model
 
 ## <a name="select-your-experiment-type"></a>Selecteer het type experiment
-Voordat u uw experiment, moet u het type van machine learning probleem, u het oplossen van bepalen. Geautomatiseerde machine learning biedt ondersteuning voor twee categorieën van leren met supervisie: classificatie- en Regressiemodellen. Geautomatiseerde machine learning ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen van proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven.
+Voordat u uw experiment, moet u het type van machine learning probleem, u het oplossen van bepalen. Geautomatiseerde ML biedt ondersteuning voor twee categorieën van leren met supervisie: classificatie- en Regressiemodellen. Geautomatiseerde ML ondersteunt de volgende algoritmen tijdens de automatisering en het afstemmen proces. Als een gebruiker is er niet nodig voor u het algoritme opgeven.
 Classificatie | Regressie
 --|--
 sklearn.linear_model. LogisticRegression | sklearn.linear_model. ElasticNet
@@ -51,8 +51,8 @@ sklearn.ensemble.GradientBoostingClassifier |
 lightgbm. LGBMClassifier |
 
 
-## <a name="data-source-and-format-for-automl-experiment"></a>De gegevensbron en de indeling voor `AutoML` experimenteren
-`AutoML` biedt ondersteuning voor gegevens die zich bevinden op het lokale bureaublad of in de cloud in Azure Blob Storage. De gegevens kunnen worden gelezen in scikit-informatie over ondersteunde gegevensindelingen. U kunt de gegevens in (1) Numpy matrices X (kenmerken) en y (doelvariabele of ook wel bekend als label) of 2) Pandas dataframe lezen. 
+## <a name="data-source-and-format"></a>Gegevensbron en indeling
+Geautomatiseerde ML biedt ondersteuning voor gegevens die zich bevinden op het lokale bureaublad of in de cloud in Azure Blob Storage. De gegevens kunnen worden gelezen in scikit-informatie over ondersteunde gegevensindelingen. U kunt de gegevens in (1) Numpy matrices X (kenmerken) en y (doelvariabele of ook wel bekend als label) of 2) Pandas dataframe lezen. 
 
 Voorbeelden:
 
@@ -79,9 +79,9 @@ Voorbeelden:
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Ophalen van gegevens voor het experiment uitvoeren op externe compute
 
-Als u van een externe compute gebruikmaakt om uit te voeren van uw experiment AutoML, het ophalen van gegevens moet worden verpakt in een afzonderlijke python-script `GetData()`. Met dit script wordt uitgevoerd op de externe compute waar het experiment AutoML wordt uitgevoerd. `GetData` Elimineert de noodzaak voor het ophalen van de gegevens via de kabel voor elke iteratie. Zonder `GetData`, uw experiment mislukken wanneer u op de externe compute uitvoert.
+Als u van een externe compute gebruikmaakt om uit te voeren van uw experiment, het ophalen van gegevens moet worden verpakt in een afzonderlijke python-script `get_data()`. Met dit script wordt uitgevoerd op de externe compute waar het geautomatiseerde ML-experiment wordt uitgevoerd. `get_data` Elimineert de noodzaak voor het ophalen van de gegevens via de kabel voor elke iteratie. Zonder `get_data`, uw experiment mislukken wanneer u op de externe compute uitvoert.
 
-Hier volgt een voorbeeld van `GetData`:
+Hier volgt een voorbeeld van `get_data`:
 
 ```python
 %%writefile $project_folder/get_data.py 
@@ -100,13 +100,13 @@ def get_data(): # Burning man 2016 data
     return { "X" : df, "y" : y }
 ```
 
-In uw `AutoMLConfig` -object, geeft u de `data_script` parameter en geef het pad naar de `GetData` scriptbestand vergelijkbaar met hieronder:
+In uw `AutoMLConfig` -object, geeft u de `data_script` parameter en geef het pad naar de `get_data` scriptbestand vergelijkbaar met hieronder:
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "./get_data.py", **** )
+automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`GetData` script kan retourneren de volgende:
+`get_data` script kan retourneren de volgende:
 Sleutel | Type |    Sluiten elkaar wederzijds uit met | Beschrijving
 ---|---|---|---
 X | Pandas Dataframe of Numpy matrix | data_train, label, kolommen |  Alle functies te trainen met
@@ -140,17 +140,17 @@ Gebruik aangepaste validatie-gegevensset als willekeurige splitsen niet geaccept
 
 ## <a name="compute-to-run-experiment"></a>COMPUTE experiment uitvoeren
 
-Vervolgens kunt u bepalen waar u het model wordt getraind. Er wordt een geautomatiseerde machine learning-trainingsexperiment uitgevoerd op een compute-doel dat u bezit en beheren. 
+Vervolgens kunt u bepalen waar u het model wordt getraind. Er wordt een geautomatiseerde ML-trainingsexperiment uitgevoerd op een compute-doel dat u bezit en beheren. 
 
 Ondersteunde COMPUTE-opties zijn:
 1.  Uw lokale machine, zoals een lokale desktop of laptop – algemeen wanneer u kleine gegevensset hebt en u bent nog steeds in de fase verkennen.
 2.  Een externe computer in de cloud, [Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) waarop Linux – u een grote gegevensset hebt en wilt opschalen naar een grote virtuele machine die beschikbaar is in de Azure-Cloud. 
-3.  Azure Batch AI-cluster: een beheerd cluster dat u niet meer en werken met AutoML iteraties schalen parallel kunt instellen. 
+3.  Azure Batch AI-cluster: een beheerd cluster dat u instellen kunt voor uitschalen en geautomatiseerde ML iteraties parallel worden uitgevoerd. 
 
 
 ## <a name="configure-your-experiment-settings"></a>Uw experiment-instellingen configureren
 
-Er zijn enkele knoppen waarmee u kunt uw experiment AutoML configureren. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object.
+Er zijn enkele knoppen die u gebruiken kunt om te configureren van uw geautomatiseerde ML-experiment. Deze parameters zijn ingesteld door het instantiëren van een `AutoMLConfig` object.
 
 Voorbeelden zijn:
 
@@ -183,7 +183,7 @@ Deze tabel bevat de parameterinstellingen die beschikbaar zijn voor uw experimen
 
 Eigenschap |  Beschrijving | Standaardwaarde
 --|--|--
-`task`  |Geef het type van machine learning-probleem. Toegestane waarden zijn <li>Classificatie</li><li>Regressie</li>    | Geen |
+`task`  |Geef het type van machine learning-probleem. Toegestane waarden zijn <li>classificatie</li><li>Regressie</li>    | Geen |
 `primary_metric` |Metrische gegevens die u optimaliseren wilt bij het bouwen van uw model. Als u de nauwkeurigheid van de gegevens als de primary_metric opgeeft, geautomatiseerde ML, ziet er bijvoorbeeld als u wilt zoeken van een model met maximale nauwkeurigheid. U kunt slechts één primary_metric per experiment opgeven. Toegestane waarden zijn <br/>**Classificatie**:<br/><li> nauwkeurigheid  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressie**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | Voor classificatie: nauwkeurigheid <br/>Voor regressie: spearman_correlation <br/> |
 `exit_score` |  U kunt een doelwaarde instellen voor uw primary_metric. Nadat een model wordt gevonden die voldoet aan het doel primary_metric, geautomatiseerde ML stopt doorlopen en het experiment wordt beëindigd. Als deze waarde is niet ingesteld (standaard), wordt automatisch ML experiment blijft om uit te voeren van het aantal iteraties opgegeven in de herhalingen. Neemt een double-waarde. Als het doel is nooit bereikt, klikt u vervolgens blijven automatisch ML totdat het aantal iteraties opgegeven in de herhalingen wordt bereikt.|   Geen
 `iterations` |Maximum aantal iteraties. Elke herhaling is gelijk aan een trainingstaak die in een pijplijn resulteert. Pijplijn is voorverwerking van gegevens en het model. Als u een model van hoge kwaliteit 250 of meer gebruikt | 100
@@ -205,7 +205,7 @@ Eigenschap |  Beschrijving | Standaardwaarde
 `data_script`  |    Pad naar een bestand met de methode get_data.  Vereist voor extern worden uitgevoerd.   |Geen
 
 
-## <a name="run-automl-experiment"></a>Voer `AutoML` experimenteren
+## <a name="run-experiment"></a>Experiment uit te voeren
 
 Vervolgens kunnen we het experiment uitvoeren en het genereren van een model voor ons initiëren. Geeft de `AutoMLConfig` naar de `submit` methode voor het genereren van het model.
 
@@ -219,7 +219,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 
 ## <a name="explore-model-metrics"></a>Model metrische gegevens verkennen
-U kunt uw resultaten weergeven in een widget of een inline als u zich in een notitieblok. Zie de details op 'Bijhouden en evalueren van modellen'. (Zorg ervoor dat AML-inhoud bevat relevante informatie die u AutoML)
+U kunt uw resultaten weergeven in een widget of een inline als u zich in een notitieblok. Zie de details op 'Bijhouden en evalueren van modellen'. (Zorg ervoor dat AML-inhoud bevat relevante informatie die u geautomatiseerde ML)
 
 De volgende metrische gegevens worden opgeslagen in elke iteratie
 * AUC_macro
@@ -247,3 +247,5 @@ De volgende metrische gegevens worden opgeslagen in elke iteratie
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over [hoe en waar u kunt een model implementeren](how-to-deploy-and-where.md).
+
+Meer informatie over [hoe u een classificatie model trainen met geautomatiseerde ML](tutorial-auto-train-models.md) of [hoe u met behulp van geautomatiseerde ML op een externe bron van de trein](how-to-auto-train-remote.md). 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0a96d947bce579d2c1d7d31de83c7ef53eabd3a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994561"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165803"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes op Azure Stack Marketplace toevoegen
 
@@ -127,14 +127,20 @@ Tijdens het bijwerken van het Kubernetes-item, moet u het item dat in de Marketp
 
 De Kubernetes-item verwijderen:
 
-1. Noteer de naam van het huidige item, zoals `Microsoft.AzureStackKubernetesCluster.0.2.0`
+1. Verbinding maken met Azure Stack met PowerShell als een operator. Zie voor instructies, [verbinding maken met Azure Stack met PowerShell als operator](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
-1. Verbinding maken met Azure Stack met PowerShell.
-
-1. Gebruik de volgende PowerShell-cmdlet om het item te verwijderen:
+2. Het huidige item van de Kubernetes-Cluster niet vinden in de galerie.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. Noteer de naam van het huidige item, zoals `Microsoft.AzureStackKubernetesCluster.0.2.0`
+
+4. Gebruik de volgende PowerShell-cmdlet om het item te verwijderen:
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```

@@ -2,20 +2,22 @@
 title: Een Azure SQL-database herstellen vanuit een back-up | Microsoft Docs
 description: Meer informatie over Point-in-Time-Restore, waarmee u terug moet brengen een Azure SQL Database naar een eerder punt in tijd (maximaal 35 dagen).
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733559"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161332"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups met langetermijnretentie](sql-database-long-term-retention.md). U kunt van een databaseback-up te herstellen:

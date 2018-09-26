@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715411"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162267"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Over het maken en configureren van zelfgehoste Cloudintegratieruntime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration Runtime](concepts-integration-runtime.md).
@@ -187,18 +187,20 @@ In de Data Factory waaraan de machtigingen zijn verleend,
 
 1. Aantal gekoppelde IR dat kan worden gemaakt onder één zelf-hostende IR is **20**. Neem contact op met ondersteuning als u meer nodig hebt. 
 
-2. De data factory waarin gekoppelde IR wordt gemaakt ze beschikken over een MSI-bestand ([beheerde service-identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Standaard de data factory's die zijn gemaakt in de Ibiza-portal of PowerShell-cmdlets hebben MSI impliciet gemaakt. Echter, in sommige gevallen wanneer data factory is gemaakt met behulp van een Azure Resource Manager-sjabloon of SDK gebruikt, de '**identiteit**" **eigenschap moet worden ingesteld** expliciet om te controleren of Azure Resource Manager maakt een data factory een MSI-bestand bevat. 
+2. De data factory waarin gekoppelde IR wordt gemaakt ze beschikken over een MSI-bestand ([beheerde service-identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Standaard de data factory's die zijn gemaakt in Azure portal of PowerShell-cmdlets hebben MSI impliciet gemaakt. Echter, in sommige gevallen wanneer data factory is gemaakt met behulp van een Azure Resource Manager-sjabloon of SDK gebruikt, de '**identiteit**" **eigenschap moet worden ingesteld** expliciet om te controleren of Azure Resource Manager maakt een data factory een MSI-bestand bevat. 
 
 3. De zelf-hostende IR-versie moet gelijk zijn aan of groter zijn dan 3.8.xxxx.xx. Neem [download de nieuwste versie](https://www.microsoft.com/download/details.aspx?id=39717) van zelf-hostende IR
 
-4. De data factory waarin gekoppelde IR wordt gemaakt ze beschikken over een MSI-bestand ([beheerde service-identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). De data factory's die zijn gemaakt in de Ibiza-portal of PowerShell-cmdlets hebben standaard MSI ([beheerde service-identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-impliciet gemaakt, data factory's die zijn gemaakt met Azure Resource Manager (ARM)-sjabloon of SDK vereist echter "identiteitseigenschap" moet worden ingesteld om te controleren of een MSI-bestand wordt gemaakt.
+4. De data factory waarin gekoppelde IR wordt gemaakt ze beschikken over een MSI-bestand ([beheerde service-identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). De data factory's die zijn gemaakt in Azure portal of PowerShell-cmdlets hebben standaard MSI ([beheerde service-identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  impliciet gemaakt, data factory's die zijn gemaakt met Azure Resource Manager-sjabloon of SDK vereist echter "**identiteit**" eigenschap moet worden ingesteld om te controleren of een MSI-bestand wordt gemaakt.
 
 5. ADF .net SDK die ondersteuning bieden voor deze functie is versie > = 1.1.0
 
 6. Azure PowerShell die ondersteuning bieden voor deze functie is versie > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
 
-7. Als u wilt machtigen, moet de gebruiker 'Eigenaar'-rol of overgenomen 'eigenaar'-rol in de Data Factory waar de gedeelde IR bestaat. 
+7. Als u wilt machtigen, de gebruiker is vereist '**eigenaar**' rol of overgenomen "**eigenaar**' rol in de Data Factory waar de gedeelde IR bestaat. 
+
+8. Voor Active Directory  **[gastgebruikers](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, de zoekfunctie (vermeld alle Data Factory's met behulp van zoekwoord) in de gebruikersinterface [werkt niet](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Maar als de gastgebruiker wordt de '**eigenaar**'van de Data Factory, kunnen ze de IR zonder de zoekfunctionaliteit door rechtstreeks te typen van de beheerde Service-identiteit van de Data Factory die waarmee de IR worden gedeeld moet delen'**Toewijzen Pemission**"tekstvak en selecteer '**toevoegen**'in ADF UI. 
 
   > [!NOTE]
   > Deze functie is alleen beschikbaar in Azure Data Factory versie 2 

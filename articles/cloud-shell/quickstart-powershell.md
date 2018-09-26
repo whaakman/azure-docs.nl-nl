@@ -1,5 +1,5 @@
 ---
-title: PowerShell in de Snelstartgids voor Azure Cloud Shell (Preview) | Microsoft Docs
+title: PowerShell in de Snelstartgids voor Azure Cloud Shell | Microsoft Docs
 description: Snelstartgids voor PowerShell in Cloudshell
 services: Azure
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108135"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166187"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snelstartgids voor PowerShell in Azure Cloudshell (Preview)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snelstartgids voor PowerShell in Azure Cloudshell
 
-Dit document wordt uitgelegd hoe het gebruik van PowerShell in Cloud Shell in de [Azure-portal](https://aka.ms/PSCloudPreview).
+Dit document wordt uitgelegd hoe het gebruik van PowerShell in Cloud Shell in de [Azure-portal](https://portal.azure.com/).
 
 > [!NOTE]
 > Een [Bash in Azure Cloud Shell](quickstart.md) Quick Start is ook beschikbaar.

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
 ms.openlocfilehash: c7191f60b8780e8ccee9b330aa21d8174f0f0148
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160707"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106842"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen beheerde identiteit met Azure PowerShell
 
@@ -44,7 +44,7 @@ In dit artikel leert u hoe u kunt maken, weergeven en verwijderen van een gebrui
     - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) (lijst) rol te maken, lezen, bijwerken en verwijderen van een gebruiker toegewezen beheerde identiteit.
     - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol te lezen (lijst) de eigenschappen van een gebruiker toegewezen beheerde identiteit.
 
-## <a name="create-a-user-assigned-managed-identity"></a>Maken van een gebruiker toegewezen beheerde identiteit
+## <a name="create-a-user-assigned-managed-identity"></a>Een door de gebruiker toegewezen beheerde identiteit maken
 
 Gebruik voor het maken van een gebruiker toegewezen beheerde identiteit het [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity) opdracht. De `ResourceGroupName` parameter geeft u de resourcegroep waar moet worden gemaakt van de gebruiker toegewezen beheerde identiteit, en de `-Name` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
 

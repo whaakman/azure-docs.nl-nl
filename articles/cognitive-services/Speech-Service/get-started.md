@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950831"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182566"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service gratis uitproberen
 
@@ -111,7 +111,7 @@ Als u wilt overschakelen van één abonnement naar een andere, vervangen bijvoor
 > [!NOTE]
 > Sleutels voor een gratis proefversie worden gemaakt in de VS-West (`westus`) regio. Een abonnement dat is gemaakt via het Azure-dashboard mogelijk in een andere regio, indien gewenst.
 
-* Als uw toepassing gebruikmaakt van een [spraak SDK](speech-sdk.md), geef u de regiocode zoals `westus`, bij het instantiëren van `RecognizerFactory`. 
+* Als uw toepassing gebruikmaakt van een [spraak SDK](speech-sdk.md), geef u de regiocode zoals `westus`, bij het maken van een spraak-configuratie.
 * Als uw toepassing een van de spraakservice gebruikt [REST-API's](rest-apis.md), de regio is onderdeel van het eindpunt-URI die u gebruikt bij het maken van aanvragen.
 
 Sleutels die zijn gemaakt voor een regio zijn alleen geldig in deze regio. Er wordt geprobeerd om ze te gebruiken met andere regio's leidt tot verificatiefouten.

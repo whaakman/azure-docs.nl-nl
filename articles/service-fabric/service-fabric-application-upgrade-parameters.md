@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/17/2018
 ms.author: subramar
-ms.openlocfilehash: f3f381fddee9c1830202854f02556f73b5aeed23
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3f321775ba112471760e627e6b43ed17ff8c5b6b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055574"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182872"
 ---
 # <a name="application-upgrade-parameters"></a>Parameters toepassingsupgrade
 Dit artikel beschrijft de verschillende parameters die van toepassing tijdens de upgrade van een Azure Service Fabric-toepassing zijn. Parameters toepassingsupgrade bepaalt de time-outs en statuscontroles die worden toegepast tijdens de upgrade en u deze opgeven met de beleidsregels die moeten worden toegepast wanneer een upgrade mislukt.
@@ -42,7 +42,7 @@ Visual Studio Service Fabric application upgrade parameters zijn ingesteld via h
 | --- | --- | --- |
 ApplicationName |PS| De naam van de toepassing die wordt bijgewerkt. Voorbeelden: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Typt u de versie van de toepassing die de upgrade doelen. |
-FailureAction |PS, VS|Toegestane waarden zijn **ongeldig**, **terugdraaien**, en **handmatig**. De actie op die door Service Fabric bij de upgrade mislukt. De toepassing kan worden teruggedraaid naar de versie van vóór het bijwerken (Rollback) of de upgrade op het huidige upgradedomein kan worden gestopt. In dat laatste geval, de upgrademodus ook wordt gewijzigd naar **handmatig**.|
+FailureAction |PS, VS|Toegestane waarden zijn **terugdraaien**, **handmatig**, en **ongeldig**. De compenserende actie om uit te voeren wanneer een *bewaakte* tegenkomt bewaking beleidsschendingen beleid of de gezondheid van een upgrade uitvoert. <br>**Terugdraaien** geeft aan dat de upgrade automatisch naar de versie van vóór de upgrade wordt teruggedraaid. <br>**Handmatige** geeft aan dat de upgrade wordt overgeschakeld naar de *UnmonitoredManual* upgrademodus. <br>**Ongeldige** geeft aan dat de actie ongeldig is.|
 Gecontroleerd |PS|Geeft aan dat de upgrademodus wordt bewaakt. Nadat de cmdlet is een upgrade voor een upgradedomein voltooid als de status van het upgradedomein en de cluster voldoen aan de health-beleidsregels die u definieert, wordt het volgende upgradedomein bijgewerkt in Service Fabric. Als de upgradedomein of het cluster is mislukt om te voldoen aan statusbeleid, mislukt de upgrade en Service Fabric de upgrade voor het upgradedomein teruggedraaid of ingesteld op handmatige modus per het beleid dat is opgegeven. Dit is de aanbevolen modus voor upgrades van toepassingen in een productieomgeving. |
 UpgradeMode | VISUAL STUDIO | Toegestane waarden zijn **bewaakte** (standaard), **UnmonitoredAuto**, of **UnmonitoredManual**. Zie de PowerShell-parameters voor beide modi in dit artikel voor meer informatie. |
 UnmonitoredAuto | PS | Geeft aan dat de upgrademodus voor niet-bewaakte automatisch. Nadat de Service Fabric een upgradedomein wordt bijgewerkt, wordt het volgende upgradedomein, ongeacht de status van de toepassing in Service Fabric bijgewerkt. In deze modus wordt niet aanbevolen voor productie, en is alleen nuttig tijdens de ontwikkeling van een toepassing. |

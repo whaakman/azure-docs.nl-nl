@@ -1,62 +1,64 @@
 ---
-title: SQL Database-Noodhersteloefeningen | Microsoft Docs
-description: Informatie over richtlijnen en aanbevolen procedures voor het uitvoeren van noodhersteloefeningen met Azure SQL Database.
+title: SQL Database-Herstelanalyses | Microsoft Docs
+description: Informatie over richtlijnen en aanbevolen procedures voor het uitvoeren van analyses voor noodherstel met Azure SQL Database.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 52973758404faa4158afe81a92079c1acdb4cfd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: c861163670b05b01c9c6d64b81f6e83c979a2af8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645460"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163032"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Disaster Recovery inzoomen uitvoeren
-Het is raadzaam dat validatie van de gereedheid van de toepassing voor herstelwerkstroom regelmatig wordt uitgevoerd. Verifiëren van de toepassingsgedrag en de gevolgen van het verlies van gegevens en/of de onderbreking moet u dat de failover is een goede gewoonte engineering. Het is ook een vereiste door de meeste industrienormen als onderdeel van zakelijke continuïteit-certificering.
+# <a name="performing-disaster-recovery-drill"></a>Dr-Herstelanalyse uitvoeren
+Het verdient aanbeveling dat validatie van de gereedheid van de toepassing voor herstelwerkstroom regelmatig wordt uitgevoerd. Verifiëren van de werking van de toepassing en de gevolgen van het verlies van gegevens en/of de onderbreking omvat het dat de failover is een goede gewoonte engineering. Het is ook een vereiste door de meeste industrienormen als onderdeel van zakelijke continuïteit-certificering.
 
-Uitvoeren van een herstel na noodgevallen detailanalyse bestaat uit:
+Een Dr-herstelanalyse uitvoeren bestaat uit:
 
-* Onderbreking van de laag Simulating gegevens
+* Simulating uitval van laag
 * Herstellen
-* Toepassingsherstel integriteit post valideren
+* Valideren van de toepassing integriteit na herstel
 
-Afhankelijk van hoe u [ontworpen van uw toepassing voor bedrijfscontinuïteit](sql-database-business-continuity.md), de werkstroom uit te voeren van de analyse kan variëren. In dit artikel beschrijft de aanbevolen procedures voor het uitvoeren van een detailanalyse van het herstel na noodgevallen in de context van Azure SQL Database.
+Afhankelijk van hoe u [ontworpen van uw toepassing voor zakelijke continuïteit](sql-database-business-continuity.md), de werkstroom voor het uitvoeren van de analyse kan variëren. Dit artikel beschrijft de aanbevolen procedures voor het uitvoeren van een Dr-herstelanalyse in de context van Azure SQL Database.
 
 ## <a name="geo-restore"></a>Geo-herstel
-De mogelijke om gegevensverlies te voorkomen wanneer de uitvoering van een herstel na noodgevallen detailanalyse, uitvoeren met behulp van een testomgeving door een kopie van de productie-omgeving maken en deze om te controleren of de werkstroom van de toepassing van de analyse.
+Uitvoeren om te voorkomen dat het verlies van gegevens als een Dr-herstelanalyse uitvoeren, met behulp van een testomgeving door het maken van een kopie van de productie-omgeving en deze om te verifiëren van de toepassing de werkstroom van de analyse.
 
-#### <a name="outage-simulation"></a>Storing simulatie
-Om te simuleren de onderbreking, kunt u de brondatabase wijzigen. Dit zorgt ervoor dat de problemen met de toepassingen.
+#### <a name="outage-simulation"></a>Simulatie van de serviceonderbreking
+Als u wilt de storing simuleren, kunt u de naam van de brondatabase wijzigen. Dit zorgt ervoor dat de toepassing-verbindingsfouten.
 
 #### <a name="recovery"></a>Herstel
 * De geo-herstel van de database in een andere server uitvoeren, zoals wordt beschreven [hier](sql-database-disaster-recovery.md).
-* Wijzig de configuratie van de toepassing verbinding maken met de herstelde database en volg de [configureren van een database na het herstel](sql-database-disaster-recovery.md) handleiding om het herstel te voltooien.
+* Wijzigen van de configuratie van de toepassing als u wilt verbinding maken met de herstelde database en volg de [configureren van een database na het herstel](sql-database-disaster-recovery.md) handleiding om het herstel te voltooien.
 
 #### <a name="validation"></a>Validatie
-* Voltooien van de analyse door te controleren of de integriteit post toepassingsherstel (inclusief verbindingsreeksen, aanmeldingen, testen van de basisfunctionaliteit of andere onderdeel validaties van standaardtoepassing ondertekeningen procedures).
+* Voltooien van de analyse door te controleren of de toepassing integriteit na herstel (inclusief verbindingsreeksen, aanmeldingen, het testen van de basisfunctionaliteit of andere validaties deel van de standaardtoepassing ondertekeningen procedures).
 
 ## <a name="failover-groups"></a>Failover-groepen
-Voor een database die wordt beveiligd met behulp van failover-groepen, moet u de oefening inzoomen geplande failover naar de secundaire server. De geplande failover zorgt ervoor dat de primaire en secundaire databases in de groep failover synchroon blijven wanneer de rollen worden omgeschakeld. In tegenstelling tot de niet-geplande failover resulteren deze bewerking niet in een verlies van gegevens, zodat de analyse kan worden uitgevoerd in de productieomgeving.
+Voor een database die wordt beveiligd met behulp van failover-groepen, moet u de oefening inzoomen geplande failover naar de secundaire server. De geplande failover zorgt ervoor dat de primaire en secundaire databases in de failovergroep gesynchroniseerd blijven wanneer de rollen zijn overgeschakeld. In tegenstelling tot de niet-geplande failover leidt met deze bewerking niet tot verlies van gegevens, zodat de analyse kan worden uitgevoerd in de productieomgeving.
 
-#### <a name="outage-simulation"></a>Storing simulatie
-Om te simuleren de onderbreking, kunt u de webtoepassing of de virtuele machine verbonden met de database uitschakelen. Dit resulteert in het verbindingsfouten voor de webserver en webclients.
+#### <a name="outage-simulation"></a>Simulatie van de serviceonderbreking
+Als u wilt de storing simuleren, kunt u de web-App of de virtuele machine verbonden met de database uitschakelen. Dit resulteert in de fouten in de netwerkconnectiviteit voor de webclients.
 
 #### <a name="recovery"></a>Herstel
-* Zorg ervoor dat de toepassingsconfiguratie in de DR regio-verwijst naar de vorige secundaire, wordt de nieuwe primaire die toegankelijk zijn.
-* Initiëren [geplande failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) van de groep failover van de secundaire server.
+* Zorg ervoor dat de toepassingsconfiguratie in de DR-regio naar de vorige secundaire, wordt de nieuwe primaire voor volledige toegang.
+* Initiëren [geplande failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) van de failovergroep vanaf de secundaire server.
 * Ga als volgt de [configureren van een database na het herstel](sql-database-disaster-recovery.md) handleiding om het herstel te voltooien.
 
 #### <a name="validation"></a>Validatie
-Voltooien van de analyse door te controleren of de integriteit post toepassingsherstel (inclusief connectiviteit, het basisfunctionaliteit testen en verdere controles die vereist zijn voor de ondertekeningen inzoomen).
+Voltooien van de analyse door te controleren of de toepassing integriteit na herstel (met inbegrip van de verbinding, het basisfunctionaliteit testen en verdere controles die vereist zijn voor de ondertekeningen inzoomen).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over zakelijke continuïteit-scenario's [continuïteit scenario's](sql-database-business-continuity.md).
+* Zie voor meer informatie over zakelijke continuïteit-scenario's, [scenario's voor bedrijfscontinuïteit](sql-database-business-continuity.md).
 * Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md)
-* Zie voor meer informatie over het gebruik van automatische back-ups voor herstel, [een database herstellen vanuit back-ups service geïnitieerde](sql-database-recovery-using-backups.md).
-* Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie en failover groepen](sql-database-geo-replication-overview.md).  
+* Zie voor meer informatie over het gebruik van geautomatiseerde back-ups voor herstel, [een database herstellen vanuit back-ups service geïnitieerde](sql-database-recovery-using-backups.md).
+* Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie en failover-groepen](sql-database-geo-replication-overview.md).  

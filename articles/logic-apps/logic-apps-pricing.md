@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974303"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159553"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prijsmodel voor Azure Logic Apps
 
@@ -54,7 +54,7 @@ Uitvoeringen door een trigger vindt u in het overzichtsvenster van uw logische a
 
 ## <a name="actions"></a>Acties
 
-Ingebouwde acties, zoals de acties die HTTP-, Azure Functions of API Management en bepalen ook stromingsstappen worden gemeten als systeemeigen acties waarvoor hun respectieve typen. Acties die aanroepen [connectors](https://docs.microsoft.com/connectors) hebben van het type 'ApiConnection'. Deze connectors zijn geclassificeerd als standard of enterprise-connectors, die worden gemeten op basis van hun respectieve [prijzen][pricing]. 
+Ingebouwde acties, zoals de acties die HTTP-, Azure Functions of API Management en bepalen ook stromingsstappen worden gemeten als systeemeigen acties waarvoor hun respectieve typen. Acties die aanroepen [connectors](https://docs.microsoft.com/connectors) hebben van het type 'ApiConnection'. Deze connectors zijn geclassificeerd als standard of enterprise-connectors, die worden gemeten op basis van hun respectieve [prijzen][pricing]. Enterprise-connectors in *Preview* worden in rekening gebracht als standaard-connectors.
 
 Alle correct en zonder succes uitgevoerd acties zijn geteld en als actie-uitvoeringen gemeten. Acties die zijn overgeslagen, omdat het nog niet vervulde voorwaarden of acties die niet worden uitgevoerd, omdat de logische app wordt beëindigd voordat de voltooid, wordt echter niet gerekend als actie-uitvoeringen. Uitgeschakelde logic apps kunnen geen exemplaar maken van nieuwe exemplaren, zodat ze niet in rekening gebracht als ze zijn uitgeschakeld.
 

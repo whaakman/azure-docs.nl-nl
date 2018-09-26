@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2ef24692f9166fdca7eb19f648aee9ed3b0514f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026355"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185696"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
@@ -26,7 +26,7 @@ Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-
 
 * De Ev3-serie functies het E5-2673 v4 2,3 GHz (Broadwell)-processor in een hyper-threaded configuratie, bieden een betere toegevoegde waarde voor de meest algemene doeleinden-workloads, en hoe u de Ev3 in overeenstemming met de algemeen gebruik virtuele machines van de meeste andere clouds brengt.  Geheugen is (vanaf 7 GiB/vCPU op 8 GiB/vCPU) uitgevouwen terwijl de schijf en netwerk limieten zijn aangepast op basis van per core om uit te lijnen met de overgang naar hyperthreading is.  De Ev3 is het volgen tot de hoge geheugen-VM-grootten van de D/Dv2-families.
 
-* Azure Compute biedt groottes van virtuele machines die zijn geïsoleerd op het type van de specifieke hardware en speciaal voor één klant.  Deze VM-grootten zijn zeer geschikt voor workloads waarvoor een hoge mate van isolatie van andere klanten voor workloads met betrekking tot elementen, zoals naleving en wettelijke vereisten.  Klanten kunnen ook kiezen voor het verder onderverdelen de resources van deze geïsoleerde virtuele machines met behulp van [Azure-ondersteuning voor geneste virtuele machines](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Raadpleeg de tabellen van families met virtuele machines hieronder voor de geïsoleerde VM-opties.
+* Azure Compute biedt formaten virtuele machines die zijn geïsoleerd voor een specifiek hardwaretype en bedoeld voor een enkele klant.  Deze formaten virtuele machines zijn ideaal voor workloads waarvoor een hoge mate van isolatie van andere klanten vereist is en voor workloads waarbij elementen als naleving en wettelijke vereisten een rol spelen.  Klanten kunnen ook kiezen voor het verder onderverdelen de resources van deze geïsoleerde virtuele machines met behulp van [Azure-ondersteuning voor geneste virtuele machines](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Raadpleeg de tabellen van families met virtuele machines hieronder voor de geïsoleerde VM-opties.
 
 ## <a name="esv3-series"></a>Esv3-serie 
 
@@ -45,6 +45,7 @@ Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processo
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400 / 96                                | 2 / 2,000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4 / 4,000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8 / 8,000                                       |
+| Standard_E20s_v3&nbsp;<sup>2</sup> | 20     | 160         | 320            | 32             | 40.000 / 320 (400)                                                    | 32.000 / 480                              | 8 / 10.000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / 16,000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
@@ -76,6 +77,7 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
+| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10.000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 | Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |

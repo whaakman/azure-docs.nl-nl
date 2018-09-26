@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 496f411224a8d7424f85fed6e5eb105369863791
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714465"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161247"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Over technische profielen in Azure Active Directory B2C aangepast beleid
 
@@ -55,12 +55,10 @@ Alle typen technische profielen delen hetzelfde concept. U invoer claims verzend
     - Een REST-API aanroepen tijdens het verzenden van parameters als InputClaims en het ophalen van gegevens weer als OutputClaims.
     - Maken of bijwerken van het gebruikersaccount.
     - Verzendt en verifieert u de MFA-SMS-bericht.
-4. **ValidationTechnicalProfiles** : voor een [door technisch profiel zelf de bevestigde](self-asserted-technical-profile.md), kunt u een invoer aanroepen [validatie technisch profiel](validation-technical-profile.md). Het technische validatieprofiel valideert u de gegevens die is opgegeven door de gebruiker en retourneert een foutbericht of klik op Ok, met of zonder uitvoerclaims. Bijvoorbeeld, voordat Azure AD B2C een nieuw account maakt, wordt gecontroleerd of de gebruiker al in de directoryservices bestaat. U kunt een technisch profiel van de REST-API als u wilt toevoegen van uw eigen bedrijfslogica aanroepen.
-5. **OutputClaims** -Claims zijn retuned terug naar de eigenschappenverzameling claims. U kunt deze claims in de volgende indelingsstappen of uitvoer claims transformaties.
-6. **OutputClaimsTransformations** - invoer claims van elke uitvoer claimtransformatie uit de eigenschappenverzameling claims worden opgehaald. De uitvoerclaims van het technische profiel van de vorige stap en uitvoerclaims van de invoerclaims transformaties uit de eerste stap kunnen invoerclaims van een transformatie uitvoer claims zijn. Na de uitvoering, worden de uitvoerclaims teruggeplaatst in de eigenschappenverzameling claims. De uitvoerclaims van een uitvoer-claimtransformatie kunnen ook worden invoerclaims van een latere uitvoer claimtransformatie.
-7. **ValidationTechnicalProfiles** : voor een [bevestigde technisch profiel](self-asserted-technical-profile.md), kunt u een invoer aanroepen [validatie technisch profiel](validation-technical-profile.md). Het technische validatieprofiel valideert u de gegevens die door de gebruiker geprofileerd en retourneert een foutbericht of klik op Ok, met of zonder uitvoerclaims. Bijvoorbeeld, voordat Azure AD B2C een nieuw account maakt, wordt gecontroleerd of de gebruiker al in de directoryservices bestaat. U kunt een technisch profiel van de REST-API als u wilt toevoegen van uw eigen bedrijfslogica aanroepen.
-8. **OutputClaims** -Claims zijn retuned terug naar de eigenschappenverzameling claims. U kunt deze claims in de volgende indelingen stap, of de uitvoer claimtransformaties.
-9. **OutputClaimsTransformations** -claims van elke uitvoer invoer [transformatie claims](claimstransformations.md) zijn opgehaald uit de eigenschappenverzameling claims. De uitvoerclaims van het technische profiel van de vorige stappen is invoerclaims van een uitvoer claimtransformatie. Na de uitvoering, worden de uitvoerclaims teruggeplaatst in de eigenschappenverzameling claims. De uitvoerclaims van een uitvoer-claimtransformatie kunnen ook worden invoerclaims van een latere uitvoer claimtransformatie.
+4. **ValidationTechnicalProfiles** : voor een [bevestigde technisch profiel](self-asserted-technical-profile.md), kunt u een invoer aanroepen [validatie technisch profiel](validation-technical-profile.md). Het technische validatieprofiel valideert u de gegevens die door de gebruiker geprofileerd en retourneert een foutbericht of klik op Ok, met of zonder uitvoerclaims. Bijvoorbeeld, voordat Azure AD B2C een nieuw account maakt, wordt gecontroleerd of de gebruiker al in de directoryservices bestaat. U kunt een technisch profiel van de REST-API als u wilt toevoegen van uw eigen bedrijfslogica aanroepen.<p>De het bereik van de uitvoerclaims van een technische validatie-profiel is beperkt tot het technische profiel die de validatie van technisch profiel en andere technische validatie-profielen onder hetzelfde technisch profiel aanroept. Als u gebruikmaken van de uitvoerclaims in de volgende indelingsstap wilt, die u wilt toevoegen van de uitvoerclaims naar het technische profiel die het technische validatieprofiel aanroept.
+5. **OutputClaims** -Claims zijn retuned terug naar de eigenschappenverzameling claims. U kunt deze claims in de volgende indelingen stap, of de uitvoer claimtransformaties.
+6. **OutputClaimsTransformations** -claims van elke uitvoer invoer [transformatie claims](claimstransformations.md) zijn opgehaald uit de eigenschappenverzameling claims. De uitvoerclaims van het technische profiel van de vorige stappen is invoerclaims van een uitvoer claimtransformatie. Na de uitvoering, worden de uitvoerclaims teruggeplaatst in de eigenschappenverzameling claims. De uitvoerclaims van een uitvoer-claimtransformatie kunnen ook worden invoerclaims van een latere uitvoer claimtransformatie.
+7. **Eenmalige aanmelding (SSO) sessiebeheer** - [SSO sessiebeheer](active-directory-b2c-reference-sso-custom.md) interactie met een gebruiker beheert nadat de gebruiker is al geverifieerd. De beheerder kan bijvoorbeeld bepalen of de selectie van de id-providers wordt weergegeven, of dat lokale accountdetails moeten opnieuw worden ingevoerd.
 
 Een technisch profiel kan overnemen van een ander technisch profiel instellingen wijzigen of toevoegen van nieuwe functionaliteit.  De **IncludeTechnicalProfile** element is een verwijzing naar de technische basisprofiel waarvan een technisch profiel is afgeleid.  
 

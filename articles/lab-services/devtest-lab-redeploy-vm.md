@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 273b0f1105d8b71b90a06e2627e201b97f12a754
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646162"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095392"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Een virtuele machine in een lab in Azure DevTest Labs opnieuw implementeren
 Als u geen verbinding met een virtuele machine (VM) in een testomgeving via een verbinding met extern bureaublad maken, de virtuele machine opnieuw implementeren en probeer het opnieuw conencting toe. Wanneer u een virtuele machine opnieuw implementeren, wordt de virtuele machine in DevTest Labs verplaatst vanaf het knooppunt waarop deze wordt uitgevoerd naar een nieuw knooppunt in de Azure-infrastructuur. Vervolgens wordt de virtuele machine gestart en behoud van alle configuratie-opties en bijbehorende resources. Deze functie bespaart u de tijd besteed aan bij het oplossen van uw verbinding met extern bureaublad of de toepassing toegang tot Windows-VM's in het lab. 

@@ -4,14 +4,14 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f1986e2ebf406762916869d9dc1cb3d73174f93
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574875"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165684"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -39,7 +39,7 @@ Azure Migrate beoordeelt de volgende eigenschappen van de on-premises virtuele m
 **Eigenschap** | **Details** | **Status van de Azure-gereedheid**
 --- | --- | ---
 **Opstarttype** | Azure biedt ondersteuning voor virtuele machines met opstarttype als BIOS en geen UEFI. | Voorwaardelijk Gereed als het opstarttype UEFI is.
-**Kernen** | Het aantal kernen in de virtuele machines moet gelijk zijn aan of kleiner is dan het maximum aantal kernen (32) ondersteund voor een Azure-VM.<br/><br/> Als de geschiedenis van geheugenprestaties beschikbaar is, Azure Migrate rekening gehouden met de gebruikte kernen voor een vergelijking. Als een comfortfactor is opgegeven in de instellingen voor evaluatie, wordt het aantal gebruikte kernen vermenigvuldigd met de comfortfactor.<br/><br/> Als er geen prestatiegeschiedenis, Azure Migrate de toegewezen kerngeheugens, zonder toe te passen de comfortfactor gebruikt. | Gereed als minder dan of gelijk zijn aan limieten.
+**Kernen** | Het aantal kernen in de virtuele machines moet gelijk zijn aan of kleiner is dan het maximum aantal kernen (128 kernen) ondersteund voor een Azure-VM.<br/><br/> Als de geschiedenis van geheugenprestaties beschikbaar is, Azure Migrate rekening gehouden met de gebruikte kernen voor een vergelijking. Als een comfortfactor is opgegeven in de instellingen voor evaluatie, wordt het aantal gebruikte kernen vermenigvuldigd met de comfortfactor.<br/><br/> Als er geen prestatiegeschiedenis, Azure Migrate de toegewezen kerngeheugens, zonder toe te passen de comfortfactor gebruikt. | Gereed als minder dan of gelijk zijn aan limieten.
 **Geheugen** | De grootte van de machine-geheugen moet gelijk zijn aan of kleiner is dan de maximale hoeveelheid geheugen (3892 GB op Azure-M-serie Standard_M128m&nbsp;<sup>2</sup>) toegestaan voor een Azure-VM. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Als de geschiedenis van geheugenprestaties beschikbaar is, Azure Migrate rekening gehouden met het gebruikte geheugen voor de vergelijking. Als een comfortfactor is opgegeven, wordt het gebruikte geheugen vermenigvuldigd met de comfortfactor.<br/><br/> Als er geen geschiedenis van die de toegewezen geheugen wordt gebruikt, zonder toe te passen de comfortfactor.<br/><br/> | Gereed als binnen de grenzen.
 **Schijf voor opslag** | Toegewezen grootte van een schijf moet 4 TB (4096 GB) of minder.<br/><br/> Het aantal schijven die zijn gekoppeld aan de machine moet 65 of minder, met inbegrip van de besturingssysteemschijf. | Gereed als binnen de grenzen.
 **Netwerken** | Een virtuele machine moet 32 of minder NIC's die zijn gekoppeld aan deze. | Gereed als binnen de grenzen.
@@ -61,7 +61,8 @@ Windows Server 2008 R2 met alle SP 's | Azure biedt volledige ondersteuning.| Ge
 WindowsServer 2008 (32-bits en 64-bits) | Azure biedt volledige ondersteuning. | Gereed voor Azure
 WindowsServer 2003, 2003 R2 | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor de datum en het moet een [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk gereed voor Azure, kunt u het besturingssysteem te upgraden voordat u migreert naar Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
-Client voor Windows 7, 8 en 10 | Azure biedt ondersteuning voor Visual Studio-abonnement. | Voorwaardelijk gereed voor Azure
+Client voor Windows 7, 8 en 10 | Azure biedt ondersteuning voor met [Visual Studio-abonnement.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Voorwaardelijk gereed voor Azure
+Windows 10 Pro Desktop | Azure biedt ondersteuning voor met [Multitenant Hosting-rechten.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Voorwaardelijk gereed voor Azure
 Windows Vista, XP Professional | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
 Linux | Azure ondersteunt deze [Linux-besturingssystemen](../virtual-machines/linux/endorsed-distros.md). Andere Linux-besturingssystemen mogelijk op te starten in Azure, maar het is raadzaam het besturingssysteem upgraden naar een onderschreven versie voordat u migreert naar Azure. | Gereed voor Azure als de versie is goedgekeurd.<br/><br/>Voorwaardelijk Gereed als de versie niet is goedgekeurd.
 Andere besturingssystemen<br/><br/> bijv, Oracle Solaris, Apple Mac OS enz., toegang tot FreeBSD, enzovoort. | Azure biedt geen enkele aanbeveling voor deze besturingssystemen. De computer mogelijk op te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het wordt aanbevolen voor het installeren van een ondersteund besturingssysteem voordat u migreert naar Azure.  

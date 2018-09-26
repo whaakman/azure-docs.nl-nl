@@ -9,12 +9,12 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: fa6ff90c3a573285ec8d6cc6f2e97bf3c75a1e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993271"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158682"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Wat is FPGA en Project Brainwave?
 
@@ -28,7 +28,7 @@ FPGA's bevatten een matrix van programmeerbare logische blokken en een hiërarch
 
 |Processor||Beschrijving|
 |---|:-------:|------|
-|Toepassingsspecifieke geïntegreerde circuits|ASICs|Aangepaste circuits, zoals Google TensorFlow Processor eenheden (TPU), bieden de hoogste efficiëntie, maar zijn niet-flexibele.|
+|Toepassingsspecifieke geïntegreerde circuits|ASICs|Aangepaste circuits, zoals Google TensorFlow Processor eenheden (TPU), biedt het hoogste rendement. Ze kunnen niet opnieuw worden geconfigureerd wanneer uw behoeften veranderen.|
 |Veld-programmable gate arrays|FPGA 's|FPGA's, zoals die beschikbaar zijn op Azure, levert prestaties dicht bij ASICs, maar zijn flexibel en herconfigureerbare na verloop van tijd om nieuwe logica te implementeren.|
 |Grafische verwerkingseenheden|GPU 's|Een populaire optie voor AI-berekeningen bieden mogelijkheden voor de parallelle verwerking waardoor het sneller op beeldweergave dan CPU's.|
 |Central processing units|CPU's|Voor algemene doeleinden-processors waarvan de prestaties niet ideaal voor grafische afbeeldingen en video verwerking is.|
@@ -37,17 +37,15 @@ FPGA's bevatten een matrix van programmeerbare logische blokken en een hiërarch
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is van Microsoft voordelige hardware-architectuur, op basis van Intel FPGA-apparaten, die data scientists en ontwikkelaars gebruiken om te versnellen realtime AI-berekeningen.  Deze architectuur FPGA-functionaliteit biedt **prestaties**, **flexibiliteit**, en **schaal** en is beschikbaar op Azure.
 
-FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen. Batchverwerking betekent een grote hoeveelheid gegevens verzamelen en deze uit naar een processor voor het gebruik van hardware te verbeteren. Batchverwerking kan leiden tot latentie omdat meer gegevens moet worden verwerkt, maar deze doorvoer kan verbeteren. Project Brainwave implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie mag daarom vaak lager dan voor CPU en GPU.
+**FPGA's maken het mogelijk is om te realiseren met lage latentie voor realtime inferentietaken aanvragen.** Batchverwerking betekent een grote hoeveelheid gegevens verzamelen en deze uit naar een processor voor het gebruik van hardware te verbeteren. Batchverwerking kan leiden tot latentie omdat meer gegevens moet worden verwerkt, maar deze doorvoer kan verbeteren. Project Brainwave implementaties van neurale verwerkingseenheden vereisen batchverwerking; de latentie mag daarom vaak lager dan voor CPU en GPU.
 
 ### <a name="reconfigurable-power"></a>Herconfigureerbare power
-FPGA's kunnen worden geconfigureerd voor verschillende soorten machine learning-modellen. Deze flexibiliteit maakt het gemakkelijker om te versnellen van de toepassingen op basis van de meest optimale numerieke precisie en model van het geheugen wordt gebruikt.
+**FPGA's kunnen worden geconfigureerd voor verschillende soorten machine learning-modellen.** Deze flexibiliteit maakt het gemakkelijker om te versnellen van de toepassingen op basis van de meest optimale numerieke precisie en model van het geheugen wordt gebruikt.
 
 Regelmatig nieuwe machine learning-technieken worden ontwikkeld en ontwerp van de hardwareconfiguratie van Project Brainwave is ook zich snel ontwikkelende. Aangezien FPGA's herconfigureerbare, is het mogelijk te actueel blijven met de vereisten van de snel veranderende AI-algoritmen.
 
 ### <a name="whats-supported-on-azure"></a>Wat wordt ondersteund op Azure
-Microsoft Azure is's werelds grootste investeringen in de cloud in FPGA's. U kunt Project Brainwave uitvoeren op de infrastructuur van Azure schaal.
-
-Met deze hardwarearchitectuur FPGA-functionaliteit, getrainde neurale netwerken uitvoeren snel en met een lagere latentie. Project Brainwave kunt vooraf getrainde (DNN) in de deep neural networks parallel op FPGA's uit de service te schalen. De dnn's kunnen worden vooraf getrainde, als een grondige featurizer voor overdracht leren of op uw wensen afgestemd met bijgewerkte waarden.
+**Microsoft Azure is's werelds grootste investeringen in de cloud in FPGA's.** U kunt Project Brainwave uitvoeren op de infrastructuur van Azure schaal.
 
 Nu een Project Brainwave ondersteunt:
 + Afbeelding classificatie en herkenning van scenario 's
@@ -55,7 +53,9 @@ Nu een Project Brainwave ondersteunt:
 + Dnn's: ResNet 50, ResNet 152 VGG-16, SSD-VGG en DenseNet 121
 + Intel FPGA-hardware 
 
-## <a name="scenarios-and-applications"></a>Scenario's en toepassingen
+Met deze hardwarearchitectuur FPGA-functionaliteit, getrainde neurale netwerken uitvoeren snel en met een lagere latentie. Project Brainwave kunt vooraf getrainde (DNN) in de deep neural networks parallel op FPGA's uit de service te schalen. De dnn's kunnen worden vooraf getrainde, als een grondige featurizer voor overdracht leren of op uw wensen afgestemd met bijgewerkte waarden.
+
+### <a name="scenarios-and-applications"></a>Scenario's en toepassingen
 
 Project Brainwave is geïntegreerd met Azure Machine Learning. Gebruikt door Microsoft FPGA's voor DNN evaluatie, Bing-zoekresultaten en software gedefinieerde netwerken (SDN)-versnelling om te verminderen latentie bij het vrijmaken van CPU's voor andere taken.
 

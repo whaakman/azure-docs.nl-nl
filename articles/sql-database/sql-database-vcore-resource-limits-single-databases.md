@@ -2,19 +2,22 @@
 title: Azure SQL Database vCore gebaseerde resourcelimieten - database met | Microsoft Docs
 description: Deze pagina Beschrijving van enkele veelvoorkomende vCore gebaseerde resourcelimieten voor een individuele database in Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: single-database
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 46789f5f3449baead12133522997936c8a992d3b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964766"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166351"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -48,7 +51,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|
+|Aantal replica 's|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|000
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -70,7 +73,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|1|1|1|1|1|1|1|1|
+|Aantal replica 's|1|1|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -94,7 +97,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|3|3|3|3|3|3|
+|Aantal replica 's|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -116,7 +119,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Doel-IOPS (van 64 KB)|5000|10.000|20000|40000|60000|80000|100000|200000
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|3|3|3|3|3|3|3|3|
+|Aantal replica 's|3|3|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -140,7 +143,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica's|2|2|2|2|2|2|
+|Aantal replica 's|2|2|2|2|2|2|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|7|7|7|7|7|7|

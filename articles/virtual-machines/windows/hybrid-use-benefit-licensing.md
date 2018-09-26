@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
 ms.openlocfilehash: 1b893518ec67d6c11c2bcee3acc52c01cd573f86
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646386"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091563"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit voor Windows Server
 Voor klanten met Software Assurance kunt Azure Hybrid Benefit voor Windows Server u uw on-premises Windows Server-licenties en het uitvoeren van Windows virtuele machines op Azure tegen lagere kosten. U kunt Azure Hybrid Benefit voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines met Windows-besturingssysteem. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure Hybrid Benefit voor Windows Server en hoe u kunt bijwerken bestaande virtuele machines uitvoeren. Zie voor meer informatie over Azure Hybrid Benefit voor Windows Server licentie- en kosten besparen, de [Azure Hybrid Benefit voor Windows Server-licenties pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

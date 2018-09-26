@@ -2,20 +2,22 @@
 title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
 description: Dit onderwerp beschrijft de configuratie-opties voor een virtueel netwerk (VNet) met een Azure SQL Database Managed Instance.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: dfcd61abd9f995a9bb848c23143adb99b0620956
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042156"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181161"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor het beheerde exemplaar van Azure SQL Database
 
@@ -42,7 +44,7 @@ Voor het maken van een beheerd exemplaar, maakt u een toegewezen subnet (de Mana
 - **Toegewezen subnet**: de Managed Instance-subnet mag geen andere cloud-services die zijn gekoppeld aan deze bevatten en moet niet een gatewaysubnet. Kunt u zich niet aan een beheerd exemplaar maakt in een subnet met andere resources dan Managed Instance en u de andere resources in het subnet niet op de later kunt toevoegen.
 - **Compatibel Netwerkbeveiligingsgroep (NSG)**: een NSG die is gekoppeld aan een Managed Instance-subnet moet de regels die wordt weergegeven in de volgende tabellen (verplichte beveiligingsregels voor binnenkomend verkeer en verplichte uitgaande beveiligingsregels) voor alle andere regels bevatten. U kunt een NSG gebruiken voor het beheren van toegang tot het eindpunt van de gegevens Managed Instance volledig door te filteren van het verkeer op poort 1433. 
 - **Tabel compatibel is door de gebruiker gedefinieerde route (UDR)**: beheerd exemplaar van het subnet moet de routetabel van een gebruiker met **0.0.0.0/0 Next Hop Internet** als de verplichte UDR zijn toegewezen. Bovendien kunt u een UDR dat verkeer van routes met on-premises privé IP-adresbereiken als een doel via de gateway van virtueel netwerk of een virtueel netwerkapparaat (NVA) toevoegen. 
-- **Optionele aangepaste DNS**: als een aangepaste DNS-server is opgegeven op de virtuele netword, recursieve naamomzetting IP-adres (zoals 168.63.129.16) van Azure moet worden toegevoegd aan de lijst. Zie voor meer informatie, [configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md). De aangepaste DNS-server moeten kunnen omzetten van hostnamen in de volgende domeinen bevinden en hun subdomeinen: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, en *microsoftonline-p.com*. 
+- **Optionele aangepaste DNS**: als een aangepaste DNS-server is opgegeven in het virtuele netwerk, recursieve naamomzetting IP-adres (zoals 168.63.129.16) van Azure moet worden toegevoegd aan de lijst. Zie voor meer informatie, [configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md). De aangepaste DNS-server moeten kunnen omzetten van hostnamen in de volgende domeinen bevinden en hun subdomeinen: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, en *microsoftonline-p.com*. 
 - **Er is geen service-eindpunten**: beheerd exemplaar van het subnet moet een service-eindpunt dat is gekoppeld aan deze niet hebben. Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
 - **Voldoende IP-adressen**: beheerd exemplaar van het subnet moet de minimumwaarde van 16 IP-adressen (aanbevolen minimum is 32 IP-adressen). Zie voor meer informatie, [bepaalt de grootte van het subnet voor beheerde instanties](#determine-the-size-of-subnet-for-managed-instances)
 

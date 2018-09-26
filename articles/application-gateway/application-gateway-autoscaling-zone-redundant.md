@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951505"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165226"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisch schalen en zoneredundante toepassingsgateway (openbare Preview)
 
@@ -54,6 +54,7 @@ Er zijn geen kosten tijdens Preview-versie. U wordt gefactureerd voor andere res
 |Web application firewall automatisch schalen|WAF biedt geen ondersteuning voor automatisch schalen-modus. Modus vaste capaciteit wordt ondersteund.|
 
 ## <a name="next-steps"></a>Volgende stappen
+- [Een automatisch schalen, zoneredundante toepassingsgateway maken met een gereserveerd virtueel IP-adres met behulp van Azure PowerShell](tutorial-autoscale-ps.md)
 - Meer informatie over [Application Gateway](overview.md).
 - Meer informatie over [Azure Firewall](../firewall/overview.md). 
 

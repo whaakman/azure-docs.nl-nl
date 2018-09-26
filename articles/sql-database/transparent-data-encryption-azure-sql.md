@@ -2,23 +2,22 @@
 title: Transparante gegevensversleuteling voor Azure SQL Database en Data Warehouse | Microsoft Docs
 description: Een overzicht van transparante gegevensversleuteling voor SQL-Database en Data Warehouse. Het document bevat informatie over de voordelen ervan en de opties voor de configuratie, waaronder service beheerde transparante gegevensversleuteling en Bring Your Own Key.
 services: sql-database
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: vanto
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/09/2018
+author: becczhang
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 8c1db822c1c0e7b91843687fdc1e6f6808cf60c1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
+ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544159"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165923"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 

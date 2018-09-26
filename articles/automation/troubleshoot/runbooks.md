@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542562"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163899"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -93,11 +93,18 @@ Deze fout treedt op als naam van het abonnement niet geldig is of als de Azure A
 
 Om te bepalen als u hebt geverifieerd naar Azure en hebben toegang tot het abonnement dat u wilt selecteren, moet u de volgende stappen uitvoeren:  
 
-1. Zorg ervoor dat u uitvoert het **Add-AzureAccount** voordat u de **Select-AzureSubscription** cmdlet.  
-2. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **Get-AzureSubscription** cmdlet hieronder de **Add-AzureAccount** cmdlet en vervolgens de code wordt uitgevoerd. Nu kunt u controleren of de uitvoer van Get-Azure-abonnement de details van uw abonnement bevat.  
+1. Zorg ervoor dat u uitvoert het **Add-AzureAccount** cmdlet voordat u de **Select-AzureSubscription** cmdlet.  
+2. Als u nog steeds deze foutmelding ziet, wijzigt u de code door toe te voegen de **- AzureRmContext** parameter volgende de **Add-AzureAccount** cmdlet en vervolgens de code wordt uitgevoerd.
 
-   * Als u niet alle abonnementsgegevens in de uitvoer ziet, betekent dit dat het abonnement nog niet is geïnitialiseerd.  
-   * Als u de details van het abonnement in de uitvoer ziet, controleert u of dat u van het juiste abonnementsnaam of ID met gebruikmaakt de **Select-AzureSubscription** cmdlet.
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Scenario: De verificatie bij Azure is mislukt omdat de multi-factor authentication is ingeschakeld
 
@@ -151,7 +158,7 @@ Het onderliggende runbook is niet de juiste context gebruikt bij het uitvoeren v
 
 #### <a name="resolution"></a>Oplossing
 
-Als u werkt met meerdere abonnementen mogelijk de context van het abonnement worden verbroken tijdens het aanroepen van de onderliggende runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de onderliggende runbooks, voeg de `DefaultProfile` parameter voor de cmdlet en geeft u de context toe.
+Als u werkt met meerdere abonnementen mogelijk de context van het abonnement worden verbroken tijdens het aanroepen van de onderliggende runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de onderliggende runbooks, voeg de `AzureRmContext` parameter voor de cmdlet en geeft u de context toe.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 

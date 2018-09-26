@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: adpick
 ms.openlocfilehash: 094bfe041ae04e52b6d998ccfd1d964abf192d6a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35917193"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095096"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Waarschuwingen voor facturering of creditcard voor uw Microsoft Azure-abonnementen instellen
 Als u de accountbeheerder voor een Azure-abonnement bent, kunt u de Azure Service voor Facturatiemeldingen te maken van aangepaste facturatiemeldingen waarmee u kunt bewaken en beheren van de facturatieactiviteit voor uw Azure-accounts.

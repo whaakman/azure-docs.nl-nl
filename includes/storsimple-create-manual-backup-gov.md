@@ -10,7 +10,7 @@
     Hiermee wordt een taak voor het maken van een momentopname gestart. U ziet een melding aan de onderkant van de pagina nadat de taak is gemaakt.
 4. Voor het controleren van de taak klikt u op **Taak weergeven** in het systeemvak (aan de onderkant van de pagina). 
    
-    ![Handmatige backup2 maken](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
+    ![Handmatige-backup2 maken](./media/storsimple-create-manual-backup-gov/HCS_CreateManualBackup2-gov-include.png)
 5. Nadat de back-uptaak is voltooid, gaat u naar het tabblad **Back-upcatalogus**.
 6. Stel de filterselecties in op het juiste apparaat, back-upbeleid en tijdsbereik. Klik op het vinkje ![vinkje](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) nadat u de filters hebt ingesteld.
    

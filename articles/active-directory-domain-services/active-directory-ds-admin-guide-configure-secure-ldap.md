@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 5740f36889b8c4d6ce1604e6d0138f840e88ef1a
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505194"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182243"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 Dit artikel wordt beschreven hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw Azure AD Domain Services beheerde domein. Secure LDAP wordt ook wel bekend als ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -81,7 +81,7 @@ Open op uw Windows-computer, een nieuwe PowerShell-venster als **beheerder** en 
 
 ```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com `
+New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```

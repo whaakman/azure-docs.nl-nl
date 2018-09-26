@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 4d0c8a4395ee70881ffee56f9ed030943c6fa557
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: 666d3c4545f7dadfc16e6c98a5035b19bcebe7f6
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495370"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181945"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Als u uw bestaande investering in System Center Operations Manager wilt behouden en combineren met de uitgebreide mogelijkheden van Log Analytics, kunt u Operations Manager integreren met uw Log Analytics-werkruimte.  Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -39,7 +39,7 @@ Het volgende diagram toont de verbinding tussen de beheerservers en agents in ee
 
 Als uw IT-beveiligingsbeleid niet toestaat dat computers in uw netwerk verbinding maken met internet, kunnen beheerservers worden geconfigureerd om verbinding te maken met de OMS-Gateway voor het ontvangen van configuratiegegevens en het verzenden van verzamelde gegevens, afhankelijk van de oplossingen die zijn ingeschakeld.  Zie [Computers verbinden met OMS met behulp van de OMS-gateway](log-analytics-oms-gateway.md) voor meer informatie over en stappen voor het configureren van uw Operations Manager-beheergroep voor communicatie met de Log Analytics-service via een OMS-gateway.  
 
-## <a name="prerequisites"></a>Vereiste onderdelen 
+## <a name="prerequisites"></a>Vereisten 
 Voordat u begint, raadpleegt u de volgende vereisten.
 
 * Log Analytics biedt alleen ondersteuning voor System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 of hoger en Operations Manager 2012 R2 UR2 of hoger.  Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.

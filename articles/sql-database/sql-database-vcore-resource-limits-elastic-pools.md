@@ -2,19 +2,22 @@
 title: Azure SQL Database vCore gebaseerde resourcelimieten - elastische pools | Microsoft Docs
 description: Deze pagina Beschrijving van enkele veelvoorkomende vCore gebaseerde resourcelimieten voor elastische pools in Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 09/14/2018
-ms.author: carlrab
-ms.openlocfilehash: 19693e394b0bd3a589ead25e2ddfa2fa88e92bad
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730376"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161564"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen
 
@@ -52,7 +55,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|500|500|500|500|
 |Min./Max. elastische pool vcore-opties per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
-|Aantal replica's|1|1|1|1|1|1|
+|Aantal replica 's|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -76,7 +79,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|500|500|500|500|500|500|
 |Min./Max. elastische pool vcore-opties per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
-|Aantal replica's|1|1|1|1|1|1|1|1|
+|Aantal replica 's|1|1|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -102,7 +105,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|
 |Min./Max. elastische pool vcore-opties per database|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
-|Aantal replica's|3|3|3|3|3|3|
+|Aantal replica 's|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|

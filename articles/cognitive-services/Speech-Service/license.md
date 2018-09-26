@@ -9,18 +9,18 @@ ms.topic: article
 ms.component: speech-service
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 6e5f3128a6a62ef27bdc0d24ddda0afc54d78b03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a56b50e8bd01c8eab9e8935b0d250f1b0da59bc
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994748"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181841"
 ---
 # <a name="microsoft-software-license-termsbrmicrosoft-cognitive-services-speech-sdk"></a>LICENTIEBEPALINGEN VOOR MICROSOFT-SOFTWARE<br>MICROSOFT COGNITIVE SERVICES SPEECH SDK
 
 **ALS U LIVE IN (OF BENT VAN EEN BEDRIJF MET DE PRINCIPAL OP LOCATIE IN) DE VERENIGDE STATEN, LEEST U DE SECTIE 'BINDENDE ARBITRAGE EN AFSTANDSVERKLARING VERKLARING VAN AFSTAND' HIERONDER. IS VAN INVLOED OP HOE GESCHILLEN WORDEN OPGELOST.**
 
-Deze licentiebepalingen zijn een overeenkomst tussen u en Microsoft Corporation (of een van haar gelieerde ondernemingen). Ze van toepassing op de hierboven genoemde preview-software en alle Microsoft-services of software-updates (behalve voor zover dergelijke services of updates vergezeld gaan van nieuwe of aanvullende voorwaarden, bepalingen in welk geval deze andere prospectief en geen afbreuk doen uw of De rechten van Microsoft met betrekking tot software en services). ALS U MET DEZE LICENTIEVOORWAARDEN INSTEMT, HEBT U DE ONDERSTAANDE RECHTEN. MET BEHULP VAN DE SOFTWARE, GAAT U AKKOORD MET DEZE VOORWAARDEN.
+Deze licentiebepalingen zijn een overeenkomst tussen u en Microsoft Corporation (of een van haar gelieerde ondernemingen). Ze van toepassing op de bovengenoemde software en alle Microsoft-services of software-updates (behalve voor zover dergelijke services of updates vergezeld gaan van nieuwe of aanvullende voorwaarden, bepalingen in welk geval deze andere prospectief en geen afbreuk doen uw of De rechten van Microsoft met betrekking tot software en services). ALS U MET DEZE LICENTIEVOORWAARDEN INSTEMT, HEBT U DE ONDERSTAANDE RECHTEN.  MET BEHULP VAN DE SOFTWARE, GAAT U AKKOORD MET DEZE VOORWAARDEN.
 
 ## <a name="1-installation-and-use-rights"></a>1. RECHTEN VOOR INSTALLATIE EN GEBRUIK.
 

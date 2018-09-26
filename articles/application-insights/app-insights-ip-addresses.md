@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 724cdb82f601805ffd93f1afd0c27983cc1ef96b
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b165d7a21399fad0949953e733d7ee25a9dd0271
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389470"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159377"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adressen die worden gebruikt door Application Insights en Log Analytics
 De [Azure Application Insights](app-insights-overview.md) service maakt gebruik van een aantal IP-adressen. Mogelijk moet u deze adressen weten als de app die u bewaakt wordt gehost achter een firewall.
@@ -275,6 +275,12 @@ Opmerking: *. loganalytics.io domein eigendom is van het team van Log Analytics.
 | --- | --- | --- | --- |
 | Application Insights-JS SDK CDN | az416426.vo.msecnd.net | Dynamische | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | Dynamische | 80,443 |
+
+## <a name="alert-webhooks"></a>Webhooks voor waarschuwingen
+
+| Doel | IP | Poorten
+| --- | --- | --- | --- |
+| Waarschuwingen | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Profiler
 

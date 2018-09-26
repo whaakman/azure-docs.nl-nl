@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 6a9ecbcc5161f47a192d5bf3a893a42b3ee9ce2f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 10e6c440fe669f4bc8a18eb0a7a0f833675ab923
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379499"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182198"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindingen voor duurzame functies (Azure Functions)
 
@@ -143,7 +143,7 @@ Intern pollt deze binding trigger een wachtrij in het standaardopslagaccount voo
 Hier vindt u informatie over de trigger activiteit:
 
 * **Threading** -activiteit-triggers geen in tegenstelling tot de orchestration-trigger, alle beperkingen met betrekking threading of i/o. Ze kunnen worden behandeld als normale functies.
-* **Afhandeling van poising berichten** -er is geen ondersteuning voor beheer van Onverwerkbare berichten in de activiteit triggers.
+* **Afhandeling van poison-berichten** -er is geen ondersteuning voor beheer van Onverwerkbare berichten in de activiteit triggers.
 * **Bericht zichtbaarheid** -activiteit triggerberichten worden uit de wachtrij genomen en onzichtbaar gedurende een configureerbare duur. De zichtbaarheid van deze berichten wordt automatisch verlengd, zolang de functie-app uitgevoerd en in orde wordt.
 * **Retourwaarden** -waarden worden geserialiseerd naar JSON en persistent gemaakt met de orchestration-geschiedenistabel in Azure Table storage worden geretourneerd.
 

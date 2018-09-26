@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 54812ed8b53143d8fa156149bfb2c7adff7da98d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381341"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159887"
 ---
 # <a name="string-claims-transformations"></a>Tekenreeks claims transformaties
 
@@ -150,7 +150,7 @@ Gebruik die dit claims transformatie naar instellen een tekenreeks ClaimType waa
 
 ## <a name="compareclaims"></a>CompareClaims
 
-Bepalen of een tekenreeks-claim gelijk aan een andere is. Het resultaat is een nieuwe Booleaanse ClaimType Boole-waarde met een waarde van `true` of `false`.
+Bepalen of een tekenreeks-claim gelijk aan een andere is. Het resultaat is een nieuwe Booleaanse ClaimType met de waarde `true` of `false`.
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |

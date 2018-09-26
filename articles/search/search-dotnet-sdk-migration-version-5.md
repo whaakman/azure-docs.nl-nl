@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
 ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35907216"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091137"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Een upgrade naar de Azure Search .NET SDK versie 5
 Als u versie 4.0-preview of ouder bent van de [Azure Search .NET SDK](https://aka.ms/search-sdk), in dit artikel helpt u bij het bijwerken van de toepassing kan versie 5 gebruiken.

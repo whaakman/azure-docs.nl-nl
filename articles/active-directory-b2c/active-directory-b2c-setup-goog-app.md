@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5b8ae1d5d3f28c50cbbaedf65c5589fce98d3c68
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1ddcbba4eacad040420efaf087f170e6c06ab2a0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715904"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182396"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Google-account met behulp van Azure Active Directory B2C
 
@@ -37,10 +37,7 @@ Voor het gebruik van een Google-account als id-provider in Azure Active Director
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Een Google-account configureren als een id-provider
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.  
-
-    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-goog-app/switch-directories.png)
-
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 5. Voer een **naam**. Voer bijvoorbeeld *Google*.

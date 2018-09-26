@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 6ecddefd264bf4a6f57dd7fcd09c3a8cc10ec54a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377307"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182838"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IoT DevKit AZ3166 verbinden met Azure IoT Hub
 
@@ -128,29 +128,34 @@ Volg deze stappen voor de ontwikkelomgeving voorbereiden voor DevKit:
     * **macOS**: slepen en neerzetten het uitgepakte **Arduino.app** in `/Applications` map.
     * **Ubuntu**: zoals in de map uitpakken `$HOME/Downloads/arduino-1.8.5`
 
-1. Installeer [Visual Studio Code](https://code.visualstudio.com/), een platformoverschrijdende broncode-editor met krachtige developer-hulpmiddelen, zoals IntelliSense code uitvoeren en fouten opsporen.
+2. Installeer [Visual Studio Code](https://code.visualstudio.com/), een platformoverschrijdende broncode-editor met krachtige developer-hulpmiddelen, zoals IntelliSense code uitvoeren en fouten opsporen.
 
-1. Zoek naar **Azure IoT Workbench** in de marketplace extensie en installeer deze.
+3. Zoek naar **Azure IoT Workbench** in de marketplace extensie en installeer deze.
     ![Installeer Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) samen met de IoT-Workbench, andere afhankelijke uitbreidingen worden geïnstalleerd.
 
-1. Open **bestand > Voorkeuren > instellingen** en voeg de volgende regels Arduino configureren.
+4. Open **bestand > Voorkeuren > instellingen** en voeg de volgende regels Arduino configureren.
     * **Windows**:
-    ```javascript
+
+    ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **macOS**:
-    ```javascript
+
+    ```json
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **Ubuntu**:
-    ```javascript
+
+    ```json
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-1. Klik op `F1` openen het opdrachtenpalet, type en selecteer **Arduino: bord Manager**. Zoeken naar **AZ3166** en installeer de nieuwste versie.
+5. Klik op `F1` openen het opdrachtenpalet, type en selecteer **Arduino: bord Manager**. Zoeken naar **AZ3166** en installeer de nieuwste versie.
     ![DevKit SDK installeren](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>ST-koppeling stuurprogramma's installeren

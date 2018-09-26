@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8fd8bf6128d09d6431a8542206430b9bb6df095d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 09/25/2018
+ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063724"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181138"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -83,6 +83,10 @@ Zie voor meer informatie, [langetermijnretentie](sql-database-long-term-retentio
 ## <a name="are-backups-encrypted"></a>Back-ups versleuteld?
 
 Als uw database is versleuteld met TDE, wordt de back-ups worden automatisch versleuteld in rust, met inbegrip van LTR-back-ups. Als TDE is ingeschakeld voor een Azure SQL database, worden back-ups zijn eveneens versleuteld. Alle nieuwe Azure SQL-databases zijn geconfigureerd met TDE standaard ingeschakeld. Zie voor meer informatie over TDE [Transparent Data Encryption met Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="how-does-microsoft-ensure-backup-integrity"></a>Hoe garandeert Microsoft dat de integriteit van de back-up
+
+Regelmatig test het technische team van Azure SQL Database automatisch het terugzetten van geautomatiseerde databaseback-ups van databases in de service. Bij het herstellen, databases, ontvangen ook integriteitscontroles met DBCC CHECKDB. Problemen met gevonden tijdens de integriteitscontrole resulteert in een waarschuwing aan het technische team. Zie voor meer informatie over de integriteit van gegevens in Azure SQL Database, [integriteit van gegevens in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>Hoe geautomatiseerde back-ups van invloed zijn op mijn naleving?
 

@@ -12,8 +12,8 @@
    * Als u Amazon S3 of Amazon S3 met RRS hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **toegangssleutel** en **geheime sleutel** op. Voor Amazon S3 en Amazon S3 met RSS worden de volgende locaties ondersteund:
      
      * VS Standaard
-     * VS West (Oregon)
-     * VS West (Noord-Californië)
+     * US - west (Oregon)
+     * US - west (Noord-Californië)
      * EU (Ierland)
      * Azië en Stille Oceaan (Singapore)
      * Azië en Stille Oceaan (Sydney)
@@ -23,8 +23,8 @@
        ![Amazon-opslagaccount toevoegen](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
    * Als u HP als uw cloudserviceprovider hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **tenant-id**, **gebruikersnaam** en **wachtwoord** op. Voor HP worden de volgende locaties ondersteund:
      
-     * VS Oost
-     * VS West
+     * US - oost
+     * US - west
        
        ![HP-opslagaccount toevoegen](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
    * Als u **Openstack** als uw cloudserviceprovider hebt geselecteerd, geeft u een **hostnaam**, **toegangssleutel** en **geheime sleutel** op.

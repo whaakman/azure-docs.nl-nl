@@ -10,26 +10,26 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 80a227b57c8df157890337f0e207519c71ae5bd6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034617"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163474"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
-U kunt uw model op verschillende soorten compute-resources die u beheert te trainen in Azure Machine Learning. De compute-doel wordt mogelijk een lokale computer of een computer in de cloud. 
+U kunt uw model op verschillende soorten compute-resources die u beheert te trainen in Azure Machine Learning. De compute-doel wordt mogelijk een lokale computer of een computer in de cloud.
 
 U kunt eenvoudig omhoog of schaal uit uw machine learning-experiment door toe te voegen extra compute-doelen, zoals op basis van een Ubuntu Data Science Virtual Machine (DSVM) of Azure Batch AI. De DSVM is een aangepaste VM-installatiekopie op van Microsoft Azure-cloud speciaal gebouwd voor gegevenswetenschap. Bevat veel populaire gegevenswetenschap- en andere hulpprogramma's vooraf geïnstalleerd en geconfigureerd.  
 
-In dit artikel leert u over het bouwen van een model met behulp van geautomatiseerde ML op de DSVM.  
+In dit artikel leert u over het bouwen van een model met behulp van geautomatiseerde ML op de DSVM. Vindt u voorbeelden van het gebruik van Azure Batch AI in [deze voorbeeldnotitieblokken in GitHub](https://aka.ms/aml-notebooks).  
 
 ## <a name="how-does-remote-differ-from-local"></a>Hoe verschilt afstand van lokale?
 
-De zelfstudie '[een classificatie model trainen met geautomatiseerde ML](tutorial-auto-train-models.md)"leert u hoe u een lokale computer met het trainen van model met geautomatiseerde ML gebruiken.  De werkstroom bij het trainen van lokaal ook van toepassing is ook externe doelen. Met externe compute worden geautomatiseerd ML-iteraties asynchroon uitgevoerd. Hiermee kunt dat u een bepaalde iteratie annuleert, bekijk de status van de uitvoering, blijven werken van andere cellen in de Jupyter-notebook. Om te trainen op afstand, u eerst een externe compute-doel, zoals een Azure-DSVM maakt, configureert en indienen van uw code er.
+De zelfstudie '[een classificatie-model met geautomatiseerde machine learning te trainen](tutorial-auto-train-models.md)"leert u hoe u een lokale computer voor het model met geautomatiseerde ML te trainen.  De werkstroom bij het trainen van lokaal ook van toepassing is ook externe doelen. Echter met externe compute geautomatiseerde ML-iteraties uitgevoerd asynchroon. Hiermee kunt u een bepaalde iteratie annuleren, bekijk de status van de uitvoering of blijven werken van andere cellen in de Jupyter-notebook. Als u wilt trainen op afstand, moet u eerst een externe compute-doel, zoals een Azure-DSVM maken.  Vervolgens de externe bron te configureren en verzenden van uw code er.
 
-Dit artikel laat de extra stappen die nodig zijn om uit te voeren van ML automatisch Experimenteer op een externe DSVM.  Een object in de werkruimte `ws`, uit de zelfstudie wordt gebruikt in de code hier.
+In dit artikel bevat de extra stappen die nodig zijn voor een geautomatiseerde ML-experiment uitvoeren op een externe DSVM.  Een object in de werkruimte `ws`, uit de zelfstudie wordt gebruikt in de code hier.
 
 ```python
 ws = Workspace.from_config()
@@ -50,6 +50,7 @@ try:
     print('found existing dsvm.')
 except:
     print('creating new dsvm.')
+    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
     dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
     dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
     dsvm_compute.wait_for_completion(show_output = True)
@@ -69,10 +70,12 @@ Beperkingen op basis van DSVM zijn onder andere:
 >    1. Afsluiten zonder de virtuele machine te maken
 >    1. Voer de code voor het maken
 
+Deze code maakt geen gebruikersnaam of wachtwoord voor de DSVM die is ingericht. Als u rechtstreeks verbinding maken met de virtuele machine wilt, gaat u naar de [Azure-portal](https://portal.azure.com) inrichten referenties.  
 
-## <a name="access-data-using-get-data-file"></a>Toegang tot gegevens met behulp van gegevens ophalen-bestand
 
-Geef de externe resource toegang tot uw trainingsgegevens. Voor automatische ML-die worden uitgevoerd op externe compute experimenten, de gegevens moeten worden opgehaald met behulp van een `get_data()` functie.  
+## <a name="access-data-using-getdata-file"></a>Toegang tot gegevens met behulp van get_data bestand
+
+Geef de externe resource toegang tot uw trainingsgegevens. Voor geautomatiseerde machine learning-experimenten die worden uitgevoerd op externe compute, de gegevens moeten worden opgehaald met behulp van een `get_data()` functie.  
 
 Om toegang te bieden, moet u:
 + Maak een get_data.py bestand met een `get_data()` functie 
@@ -81,7 +84,7 @@ Om toegang te bieden, moet u:
 U kunt de code voor het lezen van gegevens uit een blob-opslag of lokale schijf in het bestand get_data.py bevatten. In het volgende codevoorbeeld wordt de gegevens zijn afkomstig uit het pakket sklearn.
 
 >[!Warning]
->Als u van externe compute gebruikmaakt, dan moet u `get_data()` om uit te voeren van uw gegevenstransformaties.
+>Als u van externe compute gebruikmaakt, dan moet u `get_data()` waar uw gegevenstransformaties worden uitgevoerd. Als u meer bibliotheken voor gegevenstransformaties installeren als onderdeel van get_data() wilt, zijn er extra stappen worden gevolgd. Raadpleeg de [auto-ml-dataprep-voorbeeld-notebook](https://aka.ms/aml-auto-ml-data-prep ) voor meer informatie.
 
 
 ```python
@@ -105,7 +108,7 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## <a name="configure-automated-machine-learning-experiment"></a>Geautomatiseerde machine learning-Experiment configureren
+## <a name="configure-experiment"></a>Configureren van experiment
 
 Geef de instellingen voor `AutoMLConfig`.  (Zie een [volledige lijst met parameters]() en hun mogelijke waarden.)
 
@@ -136,7 +139,7 @@ automl_config = AutoMLConfig(task='classification',
                             )
 ```
 
-## <a name="submit-automated-machine-learning-training-experiment"></a>Geautomatiseerde machine learning-trainingsexperiment verzenden
+## <a name="submit-training-experiment"></a>Trainingsexperiment verzenden
 
 Nu de configuratie voor het automatisch selecteren van het algoritme, de hyper-parameters indienen en het model te trainen. (Meer [meer informatie over instellingen]() voor de `submit` methode.)
 

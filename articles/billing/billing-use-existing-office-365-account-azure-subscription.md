@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.openlocfilehash: dd7b9609495cacd324ef5509f57db0384775e0a7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35914792"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093375"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Aanmelden voor een Azure-abonnement met uw Office 365-account
 Als u een Office 365-abonnement hebt, kunt u uw Office 365-account te maken van een Azure-abonnement. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met uw Office 365-gebruikersnaam en wachtwoord. Als u wilt instellen van virtuele machines of andere Azure-services gebruiken, moet u zich aanmelden voor een Azure-abonnement. U kunt uw Azure-abonnement met anderen kunt delen en [Role-Based Access Control gebruiken voor het beheren van toegang tot uw Azure-abonnement en resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

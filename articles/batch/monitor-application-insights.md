@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
 ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35907488"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094190"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Bewaken en fouten opsporen in een Azure Batch .NET-toepassing met Application Insights
 
@@ -277,7 +277,7 @@ De volgende schermafbeelding ziet u hoe een enkele tracering voor een taak is ge
 
 De volgende schermafbeeldingen laat zien hoe Application Insights-logboeken uitzonderingen van uw toepassing. In dit geval binnen enkele seconden van de toepassing die de uitzondering veroorzaakt, kunt u inzoomen op een specifieke uitzondering en vaststellen van het probleem.
 
-![Niet-verwerkte uitzonderingen](./media/monitor-application-insights/exception.png)
+![Onverwerkte uitzonderingen](./media/monitor-application-insights/exception.png)
 
 ### <a name="measure-blob-download-time"></a>Meting blob-downloadtijd
 

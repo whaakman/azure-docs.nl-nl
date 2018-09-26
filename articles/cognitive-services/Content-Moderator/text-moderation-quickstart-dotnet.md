@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7b7bba256b87be95d72d2bddbd10f11c097f1022
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 11f0cf523b6a6cfac2fb25924e5e03992945975e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720749"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182583"
 ---
 # <a name="moderate-text-using-net"></a>Gemiddeld tekst met behulp van .NET
 
@@ -105,7 +105,7 @@ Voeg de volgende code voor het maken van een Content Moderator-client voor uw ab
             // Create and initialize an instance of the Content Moderator API wrapper.
             ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-            client.BaseUrl = AzureBaseURL;
+            client.Endpoint = AzureBaseURL;
             return client;
         }
     }
@@ -118,13 +118,13 @@ De volgende statische velden toevoegen aan de **programma** klasse in Program.cs
     /// The name of the file that contains the text to evaluate.
     /// </summary>
     /// <remarks>You will need to create an input file and update this path
-    /// accordingly. Relative paths are ralative the execution directory.</remarks>
+    /// accordingly. Relative paths are relative to the execution directory.</remarks>
     private static string TextFile = "TextFile.txt";
 
     /// <summary>
     /// The name of the file to contain the output from the evaluation.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
 We de volgende tekst gebruikt voor het genereren van de uitvoer voor deze Quick Start:
@@ -142,6 +142,8 @@ Voeg de volgende code aan de **Main** methode.
 
     // Load the input text.
     string text = File.ReadAllText(TextFile);
+    Console.WriteLine("Screening {0}", TextFile);
+
     text = text.Replace(System.Environment.NewLine, " ");
 
     // Save the moderation results to a file.
@@ -150,8 +152,8 @@ Voeg de volgende code aan de **Main** methode.
         // Create a Content Moderator client and evaluate the text.
         using (var client = Clients.NewClient())
         {
-            // Screen the input text: check for profanity, classify the text into three categories
-                // do autocorrect text, and check for personally identifying 
+            // Screen the input text: check for profanity, classify the text into three categories,
+                // do autocorrect text, and check for personally identifying
                 // information (PII)
                 outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
                 var screenResult =

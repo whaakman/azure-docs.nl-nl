@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060566"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185564"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -144,6 +144,9 @@ Standard-SSD-schijven worden ondersteund door SSD media, geoptimaliseerd als voo
 
 <a id="standard-ssds-azure-regions"></a>**Wat zijn de regio's die momenteel worden ondersteund voor Standard-SSD-schijven?**
 Alle Azure-regio's bieden nu ondersteuning voor Standard-SSD-schijven.
+
+**Is Azure Backup beschikbaar bij het gebruik van Standard-SSD's?**
+Nee, Azure Backup is nog niet beschikbaar.
 
 **Hoe kan ik de Standard-SSD-schijven maken?**
 U kunt Standard-SSD-schijven met behulp van Azure Resource Manager-sjablonen, SDK, PowerShell of CLI maken. Hieronder vindt u de parameters nodig in het Resource Manager-sjabloon voor het maken van de Standard-SSD-schijven:

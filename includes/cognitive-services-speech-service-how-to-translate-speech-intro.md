@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: dc2e025cdd9fcc153f3cb81988a9ca3ec729c934
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab4795325f733d15403b53f027daa4fb8c824cc6
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47021128"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47186237"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -18,7 +18,7 @@ De SDK biedt de volledige functionaliteit van de service. Het basisproces voor h
 
 1. Maak een configuratie van de vertaling spraak en bieden een abonnementssleutel voor spraak-service (of een verificatietoken) en een [regio](~/articles/cognitive-services/speech-service/regions.md) als parameters. Indien nodig, kunt u de configuratie wijzigen. Bijvoorbeeld, kunt u de talen van het bron- en NAT configureren, evenals opgeven of u wilt dat SMS of spraak uitvoer.
 
-1. Maken een vertaling herkenning van de factory spraak. Geef een audio-configuratie als u wilt dat kent van een andere bron dan de standaard-microfoon (bijvoorbeeld audiostream of audio-bestand).
+1. Maak een NAT-herkenning van de configuratie van de vertaling spraak. Geef een audio-configuratie als u wilt dat kent van een andere bron dan de standaard-microfoon (bijvoorbeeld audiostream of audio-bestand).
 
 1. De gebeurtenissen voor asynchrone bewerking bezighouden indien gewenst. Uw gebeurtenis-handlers voor de herkenning wordt aangeroepen wanneer er tussentijdse en definitieve resultaten, evenals een synthese-gebeurtenis voor de optionele audio-uitvoer. Anders ontvangt uw toepassing alleen een resultaat van de definitieve transcriptie.
 

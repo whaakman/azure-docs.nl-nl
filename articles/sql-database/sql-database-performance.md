@@ -1,21 +1,22 @@
 ---
 title: Prestaties - Azure SQL Database bewaken en verbeteren | Microsoft Docs
 description: De Azure SQL Database biedt prestaties hulpprogramma's waarmee u gebieden geïdentificeerd die u kunnen de huidige queryprestaties verbeteren.
-services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5d739787d5b268ddfcf5bb9e6494c3cba6b3cdc2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718777"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162952"
 ---
 # <a name="monitor-and-improve-performance"></a>Prestaties bewaken en verbeteren
 Azure SQL Database geeft mogelijke problemen in uw database en wordt aanbevolen acties die prestaties van uw workload verbeteren kunnen door intelligente acties en aanbevelingen te geven.

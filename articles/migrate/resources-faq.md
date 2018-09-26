@@ -4,14 +4,14 @@ description: Veelgestelde vragen over Azure Migrate adressen
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377534"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161859"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -41,7 +41,7 @@ Azure Migrate is een service voor beveiligingsbeoordeling die helpt u bij het de
 Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery Deployment Planner is een hulpprogramma voor het plannen noodherstel (DR).
 
 **Migratie van VMware naar Azure**: als u van plan bent uw on-premises workloads migreren naar Azure, Azure Migrate gebruiken voor het plannen van de migratie. Azure Migrate beoordeelt on-premises werkbelastingen en biedt richtlijnen, inzichten en mechanismen om u te helpen bij het migreren naar Azure. Wanneer u klaar met uw migratieplan bent, kunt u services zoals Azure Site Recovery en Azure Database Migration Service de machines migreren naar Azure.
- 
+
 **Migratie van Hyper-V naar Azure**: Azure Migrate ondersteunt momenteel alleen evaluatie van virtuele VMware-machines voor migratie naar Azure. Ondersteuning voor Hyper-V is op de roadmap voor Azure Migrate. In de tussentijd kunt u Site Recovery Deployment Planner. Zodra de Hyper-V-ondersteuning is ingeschakeld in Azure Migrate, kunt u Azure Migrate kunt gebruiken voor het plannen van de migratie van Hyper-V-werkbelastingen.
 
 **Herstel na noodgevallen van VMware/Hyper-V naar Azure**: als u van plan bent om te doen, herstel na noodgeval (DR) op Azure met behulp van Azure Site Recovery (Site Recovery), gebruikt u Site Recovery Deployment Planner voor herstel na Noodgevallen plannen. Site Recovery Deployment Planner biedt een diepgaande, ASR-specifieke beoordeling van uw on-premises omgeving. Het biedt aanbevelingen die door Site Recovery voor geslaagde DR-bewerkingen, zoals replicatie, failover van uw virtuele machines vereist zijn.  
@@ -58,7 +58,7 @@ De verbinding kan worden via internet of het gebruik van ExpressRoute met openba
 
 Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. OVA-sjabloon is, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate werken worden gehandhaafd.   
 
-## <a name="discovery-and-assessment"></a>Detectie en evaluatie
+## <a name="discovery"></a>Detectie
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Welke gegevens worden verzameld door Azure Migrate?
 
@@ -130,11 +130,14 @@ Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren
 
 U kunt 1500 virtuele machines in een enkele migratieproject detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure Migrate kunt detecteren.
 
+## <a name="assessment"></a>Beoordeling
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Ondersteuning voor Azure Migrate Enterprise Agreement (EA) op basis van kostenraming?
 
 Azure Migrate ondersteunt momenteel geen schatting van de kosten voor [Enterprise overeenkomst-aanbieding](https://azure.microsoft.com/offers/enterprise-agreement-support/). De oplossing is om te betalen per gebruik als de aanbieding en handmatig opgeven van het kortingspercentage (van toepassing op het abonnement) in het veld 'Korting' van de evaluatie-eigenschappen opgeven.
 
   ![Korting](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
@@ -144,7 +147,34 @@ Azure Migrate is zonder extra kosten beschikbaar. Meer informatie over prijzen v
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Kan ik een bestaande werkruimte gebruiken voor visualisatie van afhankelijkheden?
 
-Azure Migrate biedt geen ondersteuning voor het gebruik van een bestaande werkruimte voor visualisatie van afhankelijkheden, echter Microsoft Monitoring Agent (MMA) biedt ondersteuning voor multihoming en kunt u gegevens verzenden naar meerdere werkruimten. Dus als u al de agents geïmplementeerd en geconfigureerd met een werkruimte hebt, kunt u gebruikmaken van multihoming in de MMA-agent en configureert in de werkruimte Azure Migrate (naast de bestaande werkruimte) en daarvan. [Hier](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) is een blog over hoe u multihoming in een MMA-agent kunt inschakelen.
+Ja, Azure Migrate nu kunt u een bestaande werkruimte koppelen aan het migratieproject en gebruikmaken van deze voor visualisatie van afhankelijkheden. [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>Kan ik de visualisatie Afhankelijkheidsrapport exporteren?
+
+Nee, de visualisatie van afhankelijkheden kan niet worden geëxporteerd. Echter, omdat Azure Migrate maakt gebruik van servicetoewijzing voor visualisatie van afhankelijkheden, kunt u de [Service kaart REST-API's](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) om de afhankelijkheden in een json-indeling.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Hoe kan ik de installatie van Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden automatiseren?
+
+[Hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) is een script dat u voor de installatie van agent voor afhankelijkheden gebruiken kunt. Voor de MMA, [hier](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) is een script dat beschikbaar is op TechNet waarvan u gebruik kunt maken.
+
+Naast scripts, kunt u ook gebruikmaken van hulpprogramma's voor implementatie, zoals System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) enzovoort naar de agents te implementeren.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Wat zijn de besturingssystemen die door MMA?
+
+De lijst van Windows-besturingssystemen wordt ondersteund door de MMA is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+De lijst met Linux-besturingssystemen wordt ondersteund door de MMA is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Wat zijn de besturingssystemen die ondersteund door de agent voor afhankelijkheden?
+
+De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan ik meer dan één uur duurt afhankelijkheden in Azure Migrate visualiseren?
+Nee, kunt u visualiseren afhankelijkheden voor de duur van maximaal één uur voor Azure Migrate. Azure Migrate kunt u terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, maar de maximale duur waarvoor u de afhankelijkheden visualiseren is tot 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Visualisatie van afhankelijkheden is wordt ondersteund voor groepen met meer dan 10 virtuele machines?
+U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

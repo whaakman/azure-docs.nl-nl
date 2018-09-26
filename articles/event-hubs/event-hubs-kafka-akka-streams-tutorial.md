@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 063f8bc050064d191dd502b74156be85df4f0031
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745493"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182199"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Met behulp van Akka Streams voor Apache Kafka met Eventhubs
 Deze zelfstudie leert u hoe verbinding Akka stromen maken met Kafka-functionaliteit eventhubs zonder te wijzigen van uw clients protocol of uitvoeren van uw eigen clusters. Biedt ondersteuning voor Azure Event Hubs voor de Kafka [Apache Kafka, versie 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -27,14 +27,14 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Een Event Hubs-naamruimte maken
 > * De voorbeeldproject klonen
-> * Flink producent uitvoeren 
-> * Flink consument uitvoeren
+> * Akka Streams producent uitvoeren 
+> * Akka Streams consument uitvoeren
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor deze zelfstudie, zorg ervoor dat u de volgende vereisten:
 
-* Lees de [Event Hubs voor Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) artikel. 
+* Lees het artikel [Event Hubs voor Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) door. 
 * Een Azure-abonnement. Als u nog geen account hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
 * [Java Development Kit (JDK 1.8 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
@@ -142,8 +142,8 @@ In deze zelfstudie hebt u geleerd hoe Akka Streams zonder te wijzigen van uw cli
 > [!div class="checklist"]
 > * Een Event Hubs-naamruimte maken
 > * De voorbeeldproject klonen
-> * Flink producent uitvoeren 
-> * Flink consument uitvoeren
+> * Akka Streams producent uitvoeren 
+> * Akka Streams consument uitvoeren
 
 Zie voor meer informatie over Event Hubs en Event Hubs voor Kafka, het volgende onderwerp:  
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
 ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646405"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095788"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Ophalen Resource Health met behulp van de REST-API 
 
@@ -53,7 +53,7 @@ De volgende headers zijn vereist:
 
 Er is geen aanvraagtekst is nodig voor deze bewerking.
 
-## <a name="handle-the-response"></a>Het antwoord verwerkt
+## <a name="handle-the-response"></a>Het antwoord verwerken
 
 Statuscode 200 wordt geretourneerd met een lijst met waarden van de gezondheid van gebeurtenis overeenkomt met de filterparameter, samen met een `nextlink` URI om op te halen van de volgende pagina van de resultaten.
 

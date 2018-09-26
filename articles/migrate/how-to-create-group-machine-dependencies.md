@@ -4,14 +4,14 @@ description: Beschrijft hoe u een evaluatie met behulp van machineafhankelijkhed
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737089"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163423"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -55,6 +55,7 @@ De agent installeren op een Windows-machine:
 4. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**.
 5. Klik op **toevoegen** om toe te voegen een nieuwe Log Analytics-werkruimte. Plak in de werkruimte-ID en de sleutel die u hebt gekopieerd uit de portal. Klik op **Volgende**.
 
+[Meer informatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) over de lijst met ondersteuning voor Windows-besturingssystemen door MMA.
 
 De agent installeren op een Linux-machine:
 
@@ -63,6 +64,7 @@ De agent installeren op een Linux-machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Meer informatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) over de lijst met ondersteuning voor Linux-besturingssystemen door MMA.
 
 ### <a name="install-the-dependency-agent"></a>De afhankelijkheidsagent installeren
 1. Voor het installeren van de agent voor afhankelijkheden op een Windows-machine, dubbelklik op het setup-bestand en volg de wizard.
@@ -102,5 +104,6 @@ Nadat de groep is gemaakt, is het aanbevolen om agents te installeren op alle co
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Informatie over hoe](how-to-create-group-dependencies.md) aan de groep verfijnen door groepsafhankelijkheden visualiseren
+- [Meer informatie](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) over de veelgestelde vragen over de visualisatie van afhankelijkheden.
+- [Informatie over hoe](how-to-create-group-dependencies.md) aan de groep verfijnen door groepsafhankelijkheden visualiseren.
 - [Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.

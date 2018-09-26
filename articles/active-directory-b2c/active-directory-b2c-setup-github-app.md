@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 92ae3e0697c2ecd345c8e75690d40a81ef473ba4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7f8b2c6dc570f7a610c0d661da0c6df7491647bd
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713779"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182175"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een GitHub-account met behulp van Azure Active Directory B2C
 
@@ -37,10 +37,7 @@ Voor het gebruik van een Github-account als id-provider in Azure Active Director
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>Een GitHub-account configureren als een id-provider
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.  
-
-    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-github-app/switch-directories.png)
-
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 5. Geef een **naam**. Voer bijvoorbeeld *Github*.

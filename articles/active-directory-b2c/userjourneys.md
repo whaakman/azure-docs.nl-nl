@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c49ebcf31df950920574af05a9411e463b908bad
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381271"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161813"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -173,8 +173,8 @@ De **ClaimsProviderSelection** element bevat de volgende kenmerken:
 
 | Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Nee | De id van de claimuitwisseling, die wordt uitgevoerd in de volgende indelingsstap van de selectie van claims-provider. Dit kenmerk van het kenmerk ValidationClaimsExchangeId moet worden opgegeven. | 
-| ValidationClaimsExchangeId | Nee | De id van de claimuitwisseling, die wordt uitgevoerd in de huidige orchestration-stap voor het valideren van de selectie van claims-provider. Dit kenmerk van het kenmerk TargetClaimsExchangeId moet worden opgegeven. |
+| TargetClaimsExchangeId | Nee | De id van de claimuitwisseling, die wordt uitgevoerd in de volgende indelingsstap van de selectie van claims-provider. Dit kenmerk of het kenmerk ValidationClaimsExchangeId moet worden opgegeven, maar niet beide. | 
+| ValidationClaimsExchangeId | Nee | De id van de claimuitwisseling, die wordt uitgevoerd in de huidige orchestration-stap voor het valideren van de selectie van claims-provider. Dit kenmerk of het kenmerk TargetClaimsExchangeId moet worden opgegeven, maar niet beide. |
 
 ### <a name="claimsproviderselection-example"></a>Voorbeeld van de ClaimsProviderSelection
 

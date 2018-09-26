@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.openlocfilehash: 4e1444f385859044b2dadd83c8e9841d8fc78bb0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643669"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096408"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Een webservice met behulp van de portal van Azure Machine Learning-webservices beheren
 U kunt beheren op uw Machine Learning nieuwe en klassieke webservices met behulp van de portal voor Microsoft Azure Machine Learning-webservices. Omdat klassieke webservices en nieuwe Web services zijn afhankelijk van verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.

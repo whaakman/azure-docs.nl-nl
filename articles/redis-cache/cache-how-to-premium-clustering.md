@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: wesmc
 ms.openlocfilehash: b61c5860cb18f5a5b4ffa96212d66b7becad9928
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590462"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092353"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Het configureren van Redis-clustering voor een Premium Azure Redis Cache
 Azure Redis-Cache heeft een ander cache-aanbiedingen, waardoor u flexibiliteit bij de keuze van de grootte van de cache en -onderdelen, met inbegrip van Premium-functies zoals clustering, persistentie en virtual network-ondersteuning. In dit artikel wordt beschreven hoe het configureren van clustering in een premium Azure Redis-Cache-exemplaar.

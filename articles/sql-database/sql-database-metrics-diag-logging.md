@@ -2,21 +2,22 @@
 title: Metrische gegevens van Azure SQL database en diagnostische logboekregistratie | Microsoft Docs
 description: Meer informatie over het configureren van Azure SQL Database voor het opslaan van Resourcegebruik, connectiviteit en Uitvoeringsstatistieken query.
 services: sql-database
-documentationcenter: ''
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 2c848ba87d7f42f6329e7b3166a4410cadbd63a0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bf9185ece171ef0595aa3470fd52b839eb5d6136
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037946"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165956"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 
@@ -481,7 +482,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: time-outs|
 |OperationName|Naam van de bewerking. Altijd: TimeoutEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -504,7 +505,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: blokken|
 |OperationName|Naam van de bewerking. Altijd: BlockEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|

@@ -1,20 +1,23 @@
 ---
 title: Azure portal gebruiken voor het maken van SQL Database-waarschuwingen | Microsoft Docs
 description: De Azure portal gebruiken voor het maken van waarschuwingen van de SQL-Database, die meldingen of automatisering activeren kunnen wanneer de door u opgegeven voorwaarden wordt voldaan.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 43702de9f0da3b5b82c304cf9289768f7a8264fc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732631"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159309"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en Data Warehouse
 

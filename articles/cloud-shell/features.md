@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998760"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162284"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Bestanden buiten `$Home` en status van de machine zijn niet blijven behouden tus
 
 ### <a name="azure-drive-azure"></a>Azure-station (Azure:)
 
-PowerShell in Cloud Shell (Preview) begint u in Azure-station (`Azure:`).
+PowerShell in Cloud Shell start u in Azure-station (`Azure:`).
 De Azure-station kunt u eenvoudige detectie en navigatie van Azure-resources, zoals Compute, netwerk, opslag enz. die vergelijkbaar is met het bestandssysteem navigatie.
 U kunt echter ook doorgaan met de vertrouwde [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure) voor het beheren van deze resources, ongeacht het station dat u zich in.
 Eventuele wijzigingen in de Azure-resources, hetzij rechtstreeks in Azure portal of via Azure PowerShell-cmdlets, worden weerspiegeld in de Azure-station.  U kunt uitvoeren `dir -Force` vernieuwen van uw resources.
@@ -81,6 +81,6 @@ Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogram
 
 ## <a name="next-steps"></a>Volgende stappen
 [Bash in Cloud Shell-snelstartgids](quickstart.md) <br>
-[PowerShell in de Snelstartgids voor Cloud Shell (Preview)](quickstart-powershell.md) <br>
-[Meer informatie over Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[PowerShell in Cloud Shell-snelstartgids](quickstart-powershell.md) <br>
+[Meer informatie over Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Meer informatie over Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

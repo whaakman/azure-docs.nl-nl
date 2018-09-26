@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: d9f34345275efbb8aec422e5fa14234c7d6a61a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997842"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162777"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pijplijnen en Azure Machine Learning
 
@@ -34,7 +34,7 @@ Het volgende diagram toont een voorbeeld van de pijplijn:
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Waarom zou u pijplijnen met Azure Machine Learning bouwen?
 
-De Azure Machine Learning-SDK voor Python kan ook ML-pijplijnen maken te verzenden en volgen van afzonderlijke pijplijnuitvoeringen worden gebruikt.
+De [Azure Machine Learning-SDK voor Python](#the-python-sdk-for-pipelines) maken ook ML-pijplijnen te verzenden en volgen van afzonderlijke pijplijnuitvoeringen kunnen worden gebruikt.
 
 Met pijplijnen, kunt u uw werkstroom met de eenvoud, de snelheid, draagbaarheid en hergebruik optimaliseren. Bij het bouwen van pijplijnen met Azure Machine Learning, kunt u zich richten op wat u het beste kent &mdash; machine learning &mdash; in plaats van infrastructuur.
 
@@ -42,7 +42,7 @@ Met behulp van afzonderlijke stappen, maakt het mogelijk alleen de stappen die u
 
 Zodra de pijplijn is ontworpen, is er vaak meer aan te passen om de lus training van de pijplijn. Wanneer u een pijplijn, de run koppelingen naar de stappen die opnieuw worden gestart moeten, zoals een bijgewerkte trainingsscript opnieuw uitvoeren en slaat over wat er nog niet is gewijzigd. De dezelfde paradigma is van toepassing op ongewijzigd scripts die worden gebruikt voor het uitvoeren van de stap. 
 
-Met Azure Machine Learning, kunt u afzonderlijke toolkits en frameworks, zoals Microsoft Cognitive Toolkit of TensorFlow voor elke stap in de pijplijn. Azure coördinaten tussen de verschillende [compute-doelen](concept-azure-machine-learning-architecture.md) u gebruiken zodat de tussentijdse gegevens kunnen worden gedeeld met de downstream compute-doelen eenvoudig. 
+Met Azure Machine Learning, kunt u verschillende toolkits en frameworks, zoals Microsoft Cognitive Toolkit of TensorFlow voor elke stap in de pijplijn. Azure coördinaten tussen de verschillende [compute-doelen](concept-azure-machine-learning-architecture.md) u gebruiken zodat de tussentijdse gegevens kunnen worden gedeeld met de downstream compute-doelen eenvoudig. 
 
 ## <a name="key-advantages"></a>Belangrijkste voordelen
 
@@ -63,7 +63,7 @@ Met behulp van declaratieve gegevensafhankelijkheden, kunt u uw taken optimalise
 
 Pijplijnen kunnen worden opgeslagen als sjabloon en kunnen worden geïmplementeerd op een REST-eindpunt, zodat u kunt batch scoring of retraining taken plannen.
 
-Bekijk de [Python SDK-referentiedocumenten voor pijplijnen](http://aka.ms/aml-sdk).
+Bekijk de [Python SDK-referentiedocumenten voor pijplijnen](http://aka.ms/aml-sdk) en het notitieblok in de volgende sectie voor informatie over het bouwen van uw eigen.
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
  

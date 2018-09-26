@@ -2,24 +2,18 @@
 title: Azure Site Recovery-implementatieplanner voor VMware naar Azure | Microsoft Docs
 description: In dit artikel wordt het scenario beschreven voor het gebruik van de Azure Site Recovery-implementatieplanner voor VMware naar Azure.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 8298f4a31db974f75e80aef7589bfd31fd7c7491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: 1e0d8358519ae53875e63de9975d0b2b0ce588cf
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921049"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182073"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>De Azure Site Recovery-implementatieplanner voor VMware naar Azure uitvoeren
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner voor productie-installaties van het type VMware-naar-Azure.
@@ -210,7 +204,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Voorbeeld 7: een rapport genereren voor de Azure-regio Zuid-India met de Indiase roepie en een specifieke aanbiedings-ID
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Voorbeeld 7: een rapport genereren voor de Azure-regio India - zuid met de Indiase roepie en een specifieke aanbiedings-ID
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

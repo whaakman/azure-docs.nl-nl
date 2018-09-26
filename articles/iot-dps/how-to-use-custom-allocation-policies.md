@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955236"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161696"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Het gebruik van aangepaste toewijzingsbeleid
 
 
-Een aangepaste toewijzingsbeleid hebt u meer controle over hoe apparaten worden toegewezen aan een IoT-hub. Dit wordt gerealiseerd met behulp van aangepaste code in een [Azure Function](../azure-functions/functions-overview.md) apparaten toewijzen aan een IoT-hub. De service voor apparaatinrichting roept uw Azure-functie code voor het leveren van de IoT hub-groep. Uw functiecode retourneert de IoT hub-informatie voor het inrichten van het apparaat.
+Een aangepaste toewijzingsbeleid hebt u meer controle over hoe apparaten worden toegewezen aan een IoT-hub. Dit wordt gerealiseerd met behulp van aangepaste code in een [Azure Function](../azure-functions/functions-overview.md) apparaten toewijzen aan een IoT-hub. De service voor apparaatinrichting roept uw Azure-functiecode bieden alle relevante informatie over het apparaat en de inschrijving. Uw functiecode aan te geven wordt uitgevoerd en retourneert de IoT hub-informatie die wordt gebruikt voor het inrichten van het apparaat.
 
 Met behulp van aangepaste toewijzingsbeleid definieert u uw eigen toewijzingsbeleid wanneer het beleid dat is geleverd door de Device Provisioning Service niet voldoen aan de vereisten van uw scenario.
 
@@ -107,7 +107,9 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
     ![Aangepaste toewijzing registratiegroep voor attestation-symmetrische sleutel toevoegen](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. Op **Registratiegroep toevoegen**, klikt u op **een nieuwe IoT-hub koppelen** te koppelen van uw nieuwe divisie IoT-hubs.
+4. Op **Registratiegroep toevoegen**, klikt u op **een nieuwe IoT-hub koppelen** te koppelen van uw nieuwe divisie IoT-hubs. 
+
+    U moet deze stap uitvoeren voor zowel van uw afdelingen IoT-hubs.
 
     **Abonnement**: als u meerdere abonnementen hebt, kiest u het abonnement waarin u de divisie IoT-hubs hebt gemaakt.
 
@@ -278,9 +280,9 @@ In deze sectie maakt u een nieuwe registratiegroep die gebruikmaakt van de aange
 
 In deze sectie maakt u twee unieke apparaat-sleutels. Een sleutel wordt gebruikt voor een gesimuleerde toaster-apparaat. De andere sleutel wordt gebruikt voor een gesimuleerde heatmap pomp-apparaat.
 
-Gebruiken voor het genereren van de sleutel van het apparaat, de **primaire sleutel** u eerder hebt genoteerd voor het berekenen van de [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) van het apparaat registratie-ID voor elk apparaat en het resultaat in Base 64-indeling converteren.
+Voor het genereren van de sleutel van het apparaat, gebruikt u de **primaire sleutel** u eerder hebt genoteerd voor het berekenen van de [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) van het apparaat registratie-ID voor elk apparaat en het resultaat in Base 64-indeling converteren. Voor meer informatie over het maken van afgeleide apparaatsleutels met Registratiegroepen, Zie de sectie van de groep inschrijvingen van [symmetrische sleutel attestation](concepts-symmetric-key-attestation.md).
 
-Gebruik de volgende twee apparaatregistratie-id's en compute van een apparaatsleutel voor beide apparaten. Een geldige achtervoegsel om te werken met de voorbeeldcode voor het aangepaste toewijzingsbeleid voor beide registratie-id's hebben:
+In het voorbeeld in dit artikel gebruikt u de volgende twee apparaatregistratie-id's en compute van een apparaatsleutel voor beide apparaten. Een geldige achtervoegsel om te werken met de voorbeeldcode voor het aangepaste toewijzingsbeleid voor beide registratie-id's hebben:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -289,53 +291,53 @@ Gebruik de volgende twee apparaatregistratie-id's en compute van een apparaatsle
 
 Als u een Linux-werkstation gebruikt, kunt u openssl gebruiken voor het genereren van uw apparaatsleutels afgeleide zoals wordt weergegeven in het volgende voorbeeld.
 
-Vervang de waarde van **sleutel** met de **primaire sleutel** u eerder hebt genoteerd.
+1. Vervang de waarde van **sleutel** met de **primaire sleutel** u eerder hebt genoteerd.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Windows-werkstations
 
 Als u een Windows-werkstation gebruikt, kunt u PowerShell gebruiken voor het genereren van de afgeleide apparaatsleutel zoals wordt weergegeven in het volgende voorbeeld.
 
-Vervang de waarde van **sleutel** met de **primaire sleutel** u eerder hebt genoteerd.
+1. Vervang de waarde van **sleutel** met de **primaire sleutel** u eerder hebt genoteerd.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 De gesimuleerde apparaten worden de apparaatsleutels afgeleide gebruiken met elke registratie-ID om uit te voeren van de symmetrische sleutel attestation.

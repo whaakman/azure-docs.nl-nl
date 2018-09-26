@@ -7,34 +7,59 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576117"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181886"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-In Azure Search, een [service is ingericht](search-create-service-portal.md) op een specifieke prijscategorie of SKU. Opties zijn onder andere **gratis**, **Basic**, of **Standard**, waarbij **Standard** is beschikbaar in meerdere configuraties en capaciteit. 
+In Azure Search, een [service is ingericht](search-create-service-portal.md) op een vaste prijscategorie of SKU: **gratis**, **Basic**, of **Standard**, waarbij  **Standard** is beschikbaar in meerdere configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken. 
 
-Het doel van dit artikel is kunt u een categorie kiezen. Vormt een aanvulling op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/) en [Servicelimieten](search-limits-quotas-capacity.md) pagina met een samenvatting van de facturering concepten en gebruiken op een manier die is gekoppeld aan verschillende lagen. Het is ook raadt aan om een herhaalbare aanpak om te begrijpen welke laag beste voldoet aan uw behoeften. 
+Lagen te capaciteit bepalen geen functies, met differentiatie is per:
 
-Lagen bepalen capaciteit, niet functies. Als de capaciteit van een laag blijkt te laag zijn, moet u voor het inrichten van een nieuwe service van het hogere niveau en vervolgens [uw indexen opnieuw laden](search-howto-reindex.md). Er is geen in-place upgrade van de dezelfde service van een SKU naar een andere.
++ Aantal indexen die u kunt maken
++ Grootte en snelheid van de partities (fysieke opslag)
 
-Beschikbaarheid van functies is geen primaire laag overweging. Alle lagen, met inbegrip van de **gratis** laag, functiepariteit, met uitzondering van de indexeerfunctie ondersteuning voor S3HD bieden. Echter kunnen beperkingen voor indexering en resource effectief beperken de omvang van het gebruik van functies. Bijvoorbeeld, [cognitief zoeken](cognitive-search-concept-intro.md) indexeren is langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te zijn uitgerust met zeer kleine gebeurt.
+Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiepariteit, grotere workloads kunnen dicteren vereisten voor hogere lagen. Bijvoorbeeld, [cognitief zoeken](cognitive-search-concept-intro.md) indexeren is langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te zijn uitgerust met zeer kleine gebeurt.
 
-> [!TIP]
-> De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling. Nadat u een laag kiezen en [inrichten van een service voor zoeken](search-create-service-portal.md), kunt u [verhogen aantal replica en partitie](search-capacity-planning.md) voor het afstemmen van prestaties. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
+> [!NOTE] 
+> Functiepariteit bestaat voor de lagen met uitzondering van [indexeerfuncties](search-indexer-overview.md), die is niet beschikbaar op S3HD.
 >
 
-## <a name="billing-concepts"></a>Facturering-concepten
+Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) voor het afstemmen van prestaties. Dat kunt u met twee of drie van elk starten bijvoorbeeld, kunt u het resourceniveau van de voor een werkbelasting met zware indexering kan tijdelijk verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
 
-Concepten die u wilt meer informatie over voor de geselecteerde laag bevatten definities van de capaciteit, Servicelimieten en service-eenheden. 
+> [!Important] 
+> Hoewel het schatten van de toekomstige behoeften voor indexen en opslag kunt lijkt giswerk, is het waard is om dit. Als de capaciteit van een laag blijkt te laag zijn, moet u voor het inrichten van een nieuwe service van het hogere niveau en vervolgens [uw indexen opnieuw laden](search-howto-reindex.md). Er is geen in-place upgrade van de dezelfde service van een SKU naar een andere.
+>
 
-### <a name="capacity"></a>Capaciteit
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
+
+## <a name="how-billing-works"></a>Werking van facturering
+
+In Azure Search, het belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU). Omdat Azure Search, hangt af van de replica's en partities van functie, verstandig niet het om aan te brengen door slechts in één van de andere kosten in rekening. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. 
+
+Formulaically, een SU is voor het product van *replica* en *partities* die worden gebruikt door een service: **`(R X P = SU)`**
+
+Ten minste elke service wordt gestart met 1 SU (één replica wordt vermenigvuldigd met één partitie), maar voor grotere workloads, een realistischer model een 3-replica, 3-partitie-service in rekening gebracht als 9 su's mogelijk. 
+
+Het tarief is **per uur per SU**, waarbij elke laag met een steeds hogere snelheid. Hogere lagen geleverd met grotere en sneller partities, die bijdragen aan een totale hogere uurtarief voor die laag. Tarieven voor elke laag kan worden gevonden op [prijsinformatie](https://azure.microsoft.com/pricing/details/search/). 
+
+Hoewel elke laag geleidelijk hogere capaciteit biedt, kunt u doen om een *gedeelte* van de totale capaciteit online, met de rest in reserveren. Wat betreft facturering is het aantal partities en replica's die u online, berekend met behulp van de formule SU, waarmee wordt bepaald wat u daadwerkelijk betaalt brengt.
+
+### <a name="tips-for-lowering-the-bill"></a>Tips voor het verlagen van de factuur
+
+U kunt de service op de factuur verlagen niet afsluiten. Toegewezen resources voor partities en replica's zijn operationele 24-7, die zijn ondergebracht in reserveren voor exclusief gebruik gedurende de levensduur van uw service. De enige manier om een factuur verlagen is om te beperken van replica's en partities op het laagste niveau dat nog steeds u tot aanvaardbare prestaties kunt. 
+
+Een andere hendel is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan de uurtarieven voor S2 of S3. U kunt het inrichten van een service op de laagste waarde van uw prognoses en als uw bedrijf te groot, maakt u een tweede grotere gelaagde service uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item.
+
+### <a name="capacity-drill-down"></a>Inzoom capaciteit
 
 Capaciteit is gestructureerd als *replica's* en *partities*. 
 
@@ -45,15 +70,7 @@ Capaciteit is gestructureerd als *replica's* en *partities*.
 > [!NOTE]
 > Alle **Standard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het veranderen van de balans. **Basic** biedt u drie replica's voor hoge beschikbaarheid, maar slechts één partitie heeft. **Gratis** lagen bieden geen toegewezen resources: computing resources worden gedeeld door meerdere gratis services.
 
-### <a name="search-units"></a>Zoekeenheden
-
-Het belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU), is de Factureringseenheid voor Azure Search. Omdat Azure Search, hangt af van de replica's en partities van functie, verstandig niet het om aan te brengen door een of andere kosten in rekening. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. Formulaically, is van het product van de replica en partities die worden gebruikt door een service in een SU: (X-P R = SU). Ten minste elke service wordt gestart met 1 SU (één replica wordt vermenigvuldigd met één partitie), maar een realistischer model mogelijk nog een 3-replica, 3-partitie-service in rekening gebracht als 9 su's. 
-
-Hoewel elke laag geleidelijk hogere capaciteit biedt, kunt u een gedeelte van de totale capaciteit online brengen met de rest in reserve aan te geven. Wat betreft facturering is het aantal partities en replica's die u online, berekend met behulp van de formule SU, waarmee wordt bepaald wat u daadwerkelijk betaalt brengt.
-
-Frequentie van de facturering is per uur per Streamingeenheid, waarbij elke laag met een ander tarief. Tarieven voor elke laag kan worden gevonden op [prijsinformatie](https://azure.microsoft.com/pricing/details/search/).
-
-### <a name="limits"></a>Limieten
+### <a name="more-about-service-limits"></a>Meer informatie over Servicelimieten
 
 Hostresources, zoals indexen en indexeerfuncties-Services. Elke laag legt [Servicelimieten](search-limits-quotas-capacity.md) op de hoeveelheid resources die u kunt maken. Hierdoor is een bovengrens voor het aantal indexen (en andere objecten) de tweede onderscheidende functie voor lagen. Houd er rekening mee de beperkingen voor aantal indexen tijdens het bekijken van elke optie in de portal. Andere resources, zoals Indexeerfuncties en gegevensbronnen kennis en vaardigheden, wordt intensief gebruikt met index limieten.
 

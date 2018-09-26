@@ -1,5 +1,5 @@
 ---
-title: TCP-opnieuw instellen van de verdeling van de belasting van time-out voor inactiviteit | Microsoft Docs
+title: Load Balancer TCP opnieuw instellen op niet-actieve | Microsoft Docs
 description: Load Balancer met in twee richtingen TCP eerste pakketten op de time-out voor inactiviteit
 services: load-balancer
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: b33c701bde082404ea86c9882dcb7bf50d1f1df9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 212212d4650fe25b4ced591d4d4f1ee184e3fc44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036170"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163321"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Load Balancer met TCP-opnieuw instellen op de time-out voor inactiviteit (openbare Preview)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP-opnieuw instellen op niet-actieve (openbare Preview)
 
 U kunt [Standard Load Balancer](load-balancer-standard-overview.md) te maken van een beter voorspelbare gedrag van toepassingen voor uw scenario's met in twee richtingen TCP wordt opnieuw ingesteld (TCP RST pakket) voor elke configureerbare time-out voor inactiviteit.  Het standaardgedrag van de Load Balancer is stromen op de achtergrond te verwijderen wanneer de time-out voor inactiviteit van een stroom is bereikt.
 
@@ -75,6 +75,7 @@ Deze parameter werkt momenteel in de volgende regio's.  In de regio's hier niet 
 
 | Regio |
 |---|
+| Azië - zuidoost |
 | US - oost 2 |
 | Verenigde Staten-Noord |
 | US - west |
@@ -89,4 +90,4 @@ Deze tabel wordt bijgewerkt als de Preview-versie is uitgebreid naar andere regi
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [standaardversie van Load Balancer](load-balancer-standard-overview.md).
-- Meer informatie over [regels voor uitgaand verkeer](https://aka.ms/lboutboundrules).
+- Meer informatie over [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).

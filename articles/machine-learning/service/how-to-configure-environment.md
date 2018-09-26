@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 7796accffb7041e567c5e18857d09e105b5268ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 87b3bc4128d800e4f76d71dc5f9d081dffa0e3a7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961566"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163440"
 ---
 # <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Een ontwikkelomgeving voor de Azure Machine Learning-service configureren
 
@@ -39,17 +39,31 @@ De aanbevolen aanpak is het gebruik van Zorgcontinuüm Anaconda [conda virtuele 
 
 Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te communiceren met uw werkruimte van Azure Machine Learning-service.  Er zijn twee manieren om dit bestand:
 
-* Wanneer u hebt voltooid de [snelstartgids](quickstart-get-started.md), het bestand `config.json` wordt voor u gemaakt in Azure-notitieblokken.  Dit bestand bevat de configuratiegegevens voor uw werkruimte.  Downloaden in dezelfde map als de scripts of laptops die ernaar verwijzen.
+* Voltooi de [snelstartgids](quickstart-get-started.md) een werkruimte en de configuratie-bestand te maken. Het bestand `config.json` wordt voor u gemaakt in Azure-notitieblokken.  Dit bestand bevat de configuratiegegevens voor uw werkruimte.  Download of kopieer deze in dezelfde map als de scripts of laptops die ernaar verwijzen.
+
 
 * Het configuratiebestand zelf maken met de volgende stappen uit:
 
     1. Open de werkruimte in de [Azure-portal](https://portal.azure.com). Kopieer de __Werkruimtenaam__, __resourcegroep__, en __abonnements-ID__. Deze waarden worden gebruikt om te maken van het configuratiebestand.
 
-       Werkruimte-dashboard van de portal wordt ondersteund op Edge, Chrome en Firefox-browser.
-    
         ![Azure Portal](./media/how-to-configure-environment/configure.png) 
     
-    3. Maak een bestand met de naam in een teksteditor **config.json**.  Voeg de volgende inhoud naar dat bestand, invoegen van de waarden uit de portal:
+    1. Maak het bestand met deze code voor Python. Voer de code uit in dezelfde map als de scripts of laptops die verwijzen naar de werkruimte:
+        ```
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        Hiermee schrijft u de volgende `aml_config/config.json` bestand: 
     
         ```json
         {
@@ -58,12 +72,11 @@ Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te commu
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Later in uw code, moet u dit bestand met lezen:  `ws = Workspace.from_config()`
-    
-    4. Zorg ervoor dat u **config.json** in dezelfde map als de scripts of laptops die ernaar verwijzen.
-    
+        U kunt kopiëren de `aml_config` directory of alleen `config.json` -bestand in een andere adreslijst die verwijst naar de werkruimte.
+
+>[!NOTE] 
+>Andere scripts of notitieblokken in dezelfde map of onder wordt de werkruimte met geladen `ws=Workspace.from_config()`
+
 ## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Azure-notitieblokken en -virtuele Machine voor Datatechnologie
 
 Azure-notitieblokken en Azure Data Science Virtual Machines (DSVM) zijn vooraf geconfigureerd voor samenwerking met de Azure Machine Learning-service. Vereiste onderdelen, zoals de SDK van Azure Machine Learning, zijn vooraf geïnstalleerd in deze omgevingen.
@@ -98,7 +111,7 @@ Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de Azure Mac
 3. Voor het installeren van Azure Machine Learning-SDK met notebook extra's, gebruik de volgende opdracht:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     Het kan enkele minuten voor het installeren van de SDK duren.
@@ -155,7 +168,7 @@ Zie voor een voorbeeld van het gebruik van Azure-notitieblokken met de Azure Mac
 2. Gebruik de volgende opdracht voor het installeren van de SDK van Azure Machine Learning:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. Zie de Visual Studio marketplace-vermelding voor installeren van de Visual Studio code-hulpprogramma's voor AI [hulpprogramma's voor AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 

@@ -2,24 +2,18 @@
 title: Azure Site Recovery-implementatieplanner voor VMware naar Azure | Microsoft Docs
 description: Dit is de gebruikershandleiding voor de Azure Site Recovery-implementatieplanner.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919136"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182379"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van de Azure Site Recovery-implementatieplanner  
 
@@ -46,7 +40,7 @@ U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [onder
 **Azure-opslagkosten per maand-jaar** Dit toont de totale opslagkosten die zullen worden gemaakt voor premium en standard-opslag voor replicatie en details voor DR.
 
 ## <a name="detailed-cost-analysis"></a>Gedetailleerde kostenanalyse
-Azure-prijzen voor berekening, opslag, netwerk enz. variëren per Azure-regio. U kunt een kostenramingsrapport genereren met de meest recente Azure-prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en voor de opgegeven Azure-doelregio in de opgegeven valuta. Het hulpprogramma gebruikt standaard de Azure-regio VS - west 2 en als valuta de Amerikaanse dollar (USD). Als u een andere regio en valuta hebt gebruikt, worden de volgende keer wanneer u een rapport zonder abonnements-id, aanbiedings-id, doelregio en valuta genereert, de prijzen van de laatst gebruikte doelregio en valuta voor de raming van kosten gebruikt.
+Azure-prijzen voor berekening, opslag, netwerk enz. variëren per Azure-regio. U kunt een kostenramingsrapport genereren met de meest recente Azure-prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en voor de opgegeven Azure-doelregio in de opgegeven valuta. Het hulpprogramma gebruikt standaard de Azure-regio US - west 2 en als valuta de Amerikaanse dollar (USD). Als u een andere regio en valuta hebt gebruikt, worden de volgende keer wanneer u een rapport zonder abonnements-id, aanbiedings-id, doelregio en valuta genereert, de prijzen van de laatst gebruikte doelregio en valuta voor de raming van kosten gebruikt.
 In deze sectie wordt het abonnements-ID en aanbiedings-ID weergegeven die u hebt gebruikt voor het genereren van rapporten.  Als u deze niet hebt gebruikt, is deze leeg.
 
 Voor het hele rapport geldt dat de cellen die grijs zijn gemarkeerd, alleen-lezen zijn. Witte cellen kunnen worden gewijzigd overeenkomstig uw vereisten.

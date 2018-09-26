@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005872"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161638"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer Standard
 
@@ -232,6 +232,8 @@ Standaardversie van Load Balancer is een gebracht product op basis van het aanta
 - Meer informatie over [standaardversie van Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Meer informatie over [ondersteunde multi-dimensionale metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) voor diagnostische gegevens in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Meer informatie over het gebruik van [Load Balancer voor uitgaande verbindingen](load-balancer-outbound-connections.md).
+- Meer informatie over [regels voor uitgaand verkeer](load-balancer-outbound-rules-overview.md).
+- Meer informatie over [TCP opnieuw ingesteld op niet-actieve](load-balancer-tcp-reset.md).
 - Meer informatie over [standaardversie van Load Balancer met regels voor taakverdeling HA-poorten in](load-balancer-ha-ports-overview.md).
 - Meer informatie over het gebruik van [Load Balancer met meerdere front-ends](load-balancer-multivip-overview.md).
 - Meer informatie over [virtuele netwerken](../virtual-network/virtual-networks-overview.md).

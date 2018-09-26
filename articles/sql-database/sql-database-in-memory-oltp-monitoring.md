@@ -2,19 +2,22 @@
 title: XTP-In-memory-opslag controleren | Microsoft Docs
 description: Schatting en monitor XTP-In-memory-opslag gebruiken, capaciteit; capaciteit fout 41823 oplossen
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: 3cfa13ae78c2669cc15e4c1e4eb7ab6615b1a263
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985223"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161621"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitor In-Memory OLTP-opslag
 Bij het gebruik van [In-Memory OLTP](sql-database-in-memory.md), gegevens in tabellen geoptimaliseerd voor geheugen en tabelvariabelen zich bevindt in de In-Memory OLTP-opslag. Elke servicelaag Premium en bedrijfskritiek heeft een maximale grootte van de In-Memory OLTP-opslag. Zie [DTU gebaseerde resourcelimieten - individuele database](sql-database-dtu-resource-limits-single-databases.md), [DTU gebaseerde resourcelimieten - elastische pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore gebaseerde resourcelimieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).

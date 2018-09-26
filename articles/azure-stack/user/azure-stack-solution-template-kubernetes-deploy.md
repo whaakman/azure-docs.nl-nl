@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977533"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163491"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
 
@@ -28,7 +28,7 @@ ms.locfileid: "46977533"
 > [!Note]  
 > Kubernetes in Azure Stack is in preview. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Cluster Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
 
-Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren. De sjabloon is niet hetzelfde beheerd AKS-service die wordt aangeboden in de globale Azure, maar dichter bij de ACS-service.
+Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren. Houd er rekening mee de sjabloon is niet de dezelfde beheerde AKS-service aangeboden in de globale Azure.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes en containers
 
@@ -54,7 +54,7 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 
 1. Controleer of u een geldig abonnement in de portal van uw Azure Stack-tenant hebben en dat u onvoldoende openbare IP hebt-adressen beschikbaar om toe te voegen nieuwe toepassingen.
 
-    Het cluster kan niet worden geïmplementeerd naar een Azure Stack **beheerder** abonnement. U moet een gebruiker **-abonnement gebruiken. 
+    Het cluster kan niet worden geïmplementeerd naar een Azure Stack **beheerder** abonnement. U moet gebruiken een **gebruiker** abonnement. 
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Een service-principal maken in Azure AD
 
@@ -113,9 +113,23 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
 
     ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Selecteer **basisbeginselen** in het maken van Kubernetes.
+### <a name="1-basics"></a>1. Basisbeginselen
+
+1. Selecteer **basisbeginselen** in Kubernetes-Cluster maken.
 
     ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+1. Selecteer uw **abonnement** -id.
+
+1. Voer de naam van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep. De resourcenaam moet alleen alfanumerieke tekens en kleine letters.
+
+1. Selecteer de **locatie** van de resourcegroep. Dit is de regio die u voor uw Azure Stack-installatie kiest.
+
+### <a name="2-kubernetes-cluster-settings"></a>2. Instellingen voor Kubernetes-Cluster
+
+1. Selecteer **Kubernetes-Cluster instellingen** in Kubernetes-Cluster maken.
+
+    ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 1. Voer de **Linux VM-Beheerdersgebruikersnaam**. De naam van de gebruiker voor de virtuele Linux-Machines die deel van het Kubernetes-cluster uitmaken en DVM.
 
@@ -126,28 +140,29 @@ De service-principal toegang geven aan uw abonnement, zodat de principal-resourc
     > [!Note]  
     > Gebruik een master profiel van nieuwe en unieke DNS-voorvoegsel voor elk cluster.
 
-1. Voer de **Agentcount Pool profiel**. Het aantal bevat het aantal agents in het cluster. Er mag uit 1 tot en met 4.
+1. Selecteer de **Kubernetes Master Pool profiel aantal**. Het aantal bevat het aantal knooppunten in de master-pool. Er mag uit 1 tot en met 7. Deze waarde moet een oneven getal.
 
-1. Voer de **Service-Principal ClientId** dit wordt gebruikt door de Kubernetes Azure-cloud-provider.
+1. Selecteer **de VMSize van de master-VM's van Kubernetes**.
 
-1. Voer de **Clientgeheim Service-Principal** die u hebt gemaakt bij het maken van service-principal-toepassing.
+1. Selecteer de **groep Kubernetes-profiel knooppunten**. Het aantal bevat het aantal agents in het cluster. 
+
+1. Selecteer de **Opslagprofiel**. U kunt ervoor kiezen **Blob schijf** of **beheerde schijf**. Hiermee geeft u het VM-grootte van de Kubernetes-knooppunt VM's. 
+
+1. Voer de **Service-Principal ClientId** dit wordt gebruikt door de Kubernetes Azure-cloud-provider. De Client-ID die is geïdentificeerd als de toepassings-ID wanneer uw uw service-principal gemaakt.
+
+1. Voer de **Clientgeheim Service-Principal** die u hebt gemaakt bij het maken van uw service-principal.
 
 1. Voer de **Kubernetes Azure Cloud Provider-versie**. Dit is de versie van de Kubernetes Azure-provider. Azure Stack brengt een aangepaste Kubernetes-build voor elke Azure Stack-versie.
 
-1. Selecteer uw **abonnement** -id.
+### <a name="3-summary"></a>3. Samenvatting
 
-1. Voer de naam van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep. De resourcenaam moet alleen alfanumerieke tekens en kleine letters.
+1. Selecteer Samenvatting. De blade wordt een validatiebericht voor de configuratie-instellingen van uw Kubernetes-Cluster.
 
-1. Selecteer de **locatie** van de resourcegroep. Dit is de regio die u voor uw Azure Stack-installatie kiest.
+    ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-### <a name="specify-the-azure-stack-settings"></a>Geef de instellingen op Azure Stack
+2. Controleer uw instellingen.
 
-1. Selecteer de **instellingen voor Azure Stack-stempel**.
-
-    ![Oplossingssjabloon implementeren](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
-
-1. Voer de **Arm-eindpunt voor de Tenantsleutel**. Dit is de Azure Resource Manager-eindpunt verbinding maken met de resourcegroep voor het Kubernetes-cluster maken. U moet het eindpunt van uw Azure Stack-operators voor een geïntegreerd systeem ophalen. Voor de Azure Stack Development Kit (ASDK), kunt u `https://management.local.azurestack.external`.
-
+3. Selecteer **OK** om uw cluster te implementeren.
 
 ## <a name="connect-to-your-cluster"></a>Verbinding maken met uw cluster
 

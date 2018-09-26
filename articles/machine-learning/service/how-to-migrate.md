@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 2182a39836f02596d22168722e6ece7a2872dccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969477"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158561"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migreren naar de nieuwste versie van Azure Machine Learning-service 
 
@@ -29,7 +29,7 @@ De volgende tabel en het artikel wordt uitgelegd wat u kunt doen met uw bestaand
 |-----------------|:-------------:|-------------|
 |Machine learning-modellen (zoals lokale bestanden)|Ja|Geen. Werkt net als voorheen.|
 |Afhankelijkheden van modellen en schema's (zoals lokale bestanden)|Ja|Geen. Werkt net als voorheen.|
-|projecten|Ja|[De lokale map toevoegen aan nieuwe werkruimte](#projects).|
+|Projecten|Ja|[De lokale map toevoegen aan nieuwe werkruimte](#projects).|
 |Uitvoeringsgeschiedenis|Nee|[Downloadbare](#history) even.|
 |Prep gegevensbestanden|Nee|[Voorbereiden van de gegevensset van elke grootte](#dataprep) voor modellen met behulp van de nieuwe Azure Machine Learning Data Prep SDK of gebruik van Azure Databricks.|
 |COMPUTE-doelen|Nee|Deze registreren in de nieuwe werkruimte.|
@@ -54,13 +54,13 @@ Resources, zoals uw experimenten-accounts, Modelbeheer-accounts en machine learn
 
 Aan de slag met de meest recente versie van het maken van een Azure Machine Learning-werkruimte in de [Azure-portal](quickstart-get-started.md). Werkruimte-dashboard van de portal wordt ondersteund op Edge, Chrome en Firefox-browser.
 
-Deze nieuwe werkruimte is de Serviceresource op het hoogste niveau en kunt u alle van de nieuwste functies van Azure Machine Learning-service gebruiken. [Meer informatie over deze werkruimte en architectuur](concept-azure-machine-learning-architecture.md).
+Deze nieuwe werkruimte is de Serviceresource op het hoogste niveau en kunt u alle van de nieuwste functies van Azure Machine Learning-service gebruiken. Meer informatie over dit [werkruimte en architectuur](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
-## <a name="projects"></a>projecten
+## <a name="projects"></a>Projecten
 
-In plaats van dat uw projecten in een werkruimte in de cloud, projecten, zijn nu mappen op uw lokale computer in de nieuwste versie. [Zie een diagram van de meest recente architectuur](concept-azure-machine-learning-architecture.md). 
+In plaats van dat uw projecten in een werkruimte in de cloud, projecten, zijn nu mappen op uw lokale computer in de nieuwste versie. Zie een diagram van de [meest recente architectuur](concept-azure-machine-learning-architecture.md). 
 
 Om door te gaan met behulp van de lokale directory met uw bestanden en scripts, geef de naam van de map in de ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python-opdracht, of met behulp van de CLI-opdracht 'az ml project koppelen'.
 

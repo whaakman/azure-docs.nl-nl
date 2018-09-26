@@ -4,14 +4,14 @@ description: Beschrijft hoe u een evaluatie met afhankelijkheidstoewijzing groep
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 4f5ab4565191b38c07b2071609a57db2525860e3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733411"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158611"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met afhankelijkheidstoewijzing groep verfijnen
 
@@ -101,5 +101,5 @@ Als u wilt controleren van de afhankelijkheden van een specifieke computer die w
 
 
 ## <a name="next-steps"></a>Volgende stappen
-
-[Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.
+- [Meer informatie](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) over de veelgestelde vragen over de visualisatie van afhankelijkheden.
+- [Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.

@@ -2,19 +2,22 @@
 title: Azure SQL Database controleren met Dynamic Management Views | Microsoft Docs
 description: Informatie over het detecteren en onderzoeken van problemen met de algemene prestaties met behulp van dynamische beheerweergaven voor het bewaken van Microsoft Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/08/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 8750670f2acc41cd712254ba11b4d2ec20aa58aa
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/08/2018
+ms.openlocfilehash: 97907eee9982fdf6a804bc13edbf8c14efa4ce42
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981833"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161383"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Bewaking van Azure SQL-database met behulp van de dynamische beheerweergave
 Microsoft Azure SQL Database kunt een subset van de dynamische beheerweergaven voor het vaststellen van prestatieproblemen, die kunnen worden veroorzaakt door geblokkeerd of langlopende query's, resourceknelpunten en slechte queryplannen. In dit onderwerp bevat informatie over het vaststellen van problemen met de algemene prestaties met behulp van dynamische beheerweergaven.

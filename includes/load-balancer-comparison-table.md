@@ -5,15 +5,15 @@ services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 8/8/2018
+ms.date: 9/24/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: c3b35666a4340818fa9fcabea25541cd5d27c13b
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f5eb4b630039401fa6947ab6734274051f290a94
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060391"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47185638"
 ---
 | | Standaard SKU | Basis-SKU |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "47060391"
 | Diagnostiek | Azure Monitor, multi-dimensionale metrische gegevens, waaronder bytes en pakket-tellers, health probe status, verbindingspogingen (TCP SYN), status van de uitgaande verbinding (SNAT geslaagde en mislukte stromen), actieve gegevens vlak metingen | Azure Log Analytics voor openbare Load Balancer alleen SNAT uitputting van waarschuwing, back-end-pool health tellen. |
 | Maximaal beschikbare poorten | Interne load balancer | Niet beschikbaar |
 | Standaard beveiligen | Standaard gesloten voor openbare IP-adres en de Load Balancer-eindpunten en een netwerkbeveiligingsgroep moet worden gebruikt om expliciet whitelist voor verkeer stromen. | Standaard opent, worden de netwerkbeveiligingsgroep is optioneel. |
-| [Uitgaande verbindingen](../articles/load-balancer/load-balancer-outbound-connections.md) | Meerdere front-ends met per regel opt-out voor taakverdeling. Een uitgaande scenario _moet_ expliciet worden gemaakt voor de virtuele machine om te kunnen gebruiken uitgaande connectiviteit.  Service-eindpunten voor virtueel netwerk kan worden bereikt zonder de uitgaande connectiviteit en tellen niet mee met gegevens die worden verwerkt.  Alle openbare IP-adressen, met inbegrip van Azure PaaS-services die niet beschikbaar als VNet-Service-eindpunten, moeten worden bereikt via de uitgaande connectiviteit en het aantal voor gegevens die worden verwerkt. Bij een interne Load Balancer een virtuele machine levert is, zijn uitgaande verbindingen via standaard SNAT niet beschikbaar. Uitgaande SNAT programmeren is transportprotocol bepaald op basis van het protocol van de inkomende regel voor taakverdeling. | Één front-end willekeurig worden geselecteerd als er meerdere front-ends aanwezig zijn.  Wanneer u alleen een interne Load Balancer is een virtuele machine fungeert, wordt standaard SNAT wordt gebruikt. |
+| [Uitgaande verbindingen](../articles/load-balancer/load-balancer-outbound-connections.md) | U kunt expliciet definiëren de uitgaande NAT op basis van een groep met [regels voor uitgaand verkeer](../articles/load-balancer/load-balancer-outbound-rules-overview.md). U kunt meerdere front-ends met per load balancing regel opt-out. Een uitgaande scenario _moet_ expliciet worden gemaakt voor de virtuele machine om te kunnen gebruiken uitgaande connectiviteit.  Service-eindpunten voor virtueel netwerk kan worden bereikt zonder de uitgaande connectiviteit en tellen niet mee met gegevens die worden verwerkt.  Alle openbare IP-adressen, met inbegrip van Azure PaaS-services die niet beschikbaar als VNet-Service-eindpunten, moeten worden bereikt via de uitgaande connectiviteit en het aantal voor gegevens die worden verwerkt. Wanneer een interne Load Balancer een virtuele machine levert is, zijn uitgaande verbindingen via standaard SNAT niet beschikbaar. Gebruik [regels voor uitgaand verkeer](../articles/load-balancer/load-balancer-outbound-rules-overview.md) in plaats daarvan. Uitgaande SNAT programmeren is transportprotocol bepaald op basis van het protocol van de inkomende regel voor taakverdeling. | Één front-end willekeurig worden geselecteerd als er meerdere front-ends aanwezig zijn.  Wanneer u alleen een interne Load Balancer is een virtuele machine fungeert, wordt standaard SNAT wordt gebruikt. |
 | [Regels voor uitgaand verkeer](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Declaratieve uitgaande NAT-configuratie, zoals welke openbare IP-adressen of openbare IP-prefix(en), configureerbare uitgaande time-out voor inactiviteit, aangepaste SNAT poort toewijzing | Niet beschikbaar |
 |  [TCP-opnieuw instellen op niet-actieve](../articles/load-balancer/load-balancer-tcp-reset.md) | TCP (TCP RST) op voor time-out bij inactief opnieuw ingesteld op elke regel inschakelen | Niet beschikbaar |
 | [Meerdere frontends](../articles/load-balancer/load-balancer-multivip-overview.md) | Inkomende en [uitgaande](../articles/load-balancer/load-balancer-outbound-connections.md) | Alleen binnenkomende gegevens |

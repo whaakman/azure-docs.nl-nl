@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6dcc1abdf06df2de951bb851c8b1abe93b71a69e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381307"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162439"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een technische SAML-profiel te definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -106,7 +106,6 @@ De **naam** kenmerk van het Protocol-element moet worden ingesteld op `SAML2`.
 | Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | PartnerEntity | Ja | URL van de metagegevens van de SAML-identiteitsprovider. Kopieer de metagegevens van de id-provider en toe te voegen in het CDATA-element `<![CDATA[Your IDP metadata]]>` |
-| IssuerUri | Nee | Hiermee bepaalt u de waarde van **entityID** van de **EntityDescriptor** -element in de metagegevens van het technische profiel van de Azure AD B2C. De **entityID** kenmerk is de unieke id van de serviceprovider, in dit geval het technische profiel van de Azure AD B2C. De standaardwaarde van de **entityID** is `https://login.microsoftonline.com/te/your-tenant.onmicrosoft.com/your-base-policy-name` |
 | WantsSignedRequests | Nee | Geeft aan of het technische profiel vereist dat alle van de uitgaande verificatieaanvragen moeten worden ondertekend. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`. Wanneer de waarde is ingesteld op `true`, wordt de **SamlMessageSigning** cryptografische sleutel moet worden opgegeven en alle uitgaande verificatieaanvragen zijn ondertekend. Als de waarde is ingesteld op `false`, wordt de **SigAlg** en **handtekening** parameters (querytekenreeks of parameter plaatsen) worden weggelaten uit de aanvraag. Deze metagegevens bepaalt ook de metagegevens van de **AuthnRequestsSigned** kenmerk, die wordt uitgevoerd in de metagegevens van de Azure AD B2C technisch profiel dat wordt gedeeld met de id-provider. |
 | XmlSignatureAlgorithm | Nee | De methode die Azure AD B2C gebruikt voor het ondertekenen van de SAML-aanvraag. Deze metagegevens bepaalt de waarde van de **SigAlg** parameter (querytekenreeks of parameter plaatsen) in de SAML-aanvraag. Mogelijke waarden: `Sha256`, `Sha384`, `Sha512`, of `Sha1`. Zorg ervoor dat u de handtekeningalgoritme configureren aan beide zijden met dezelfde waarde. Gebruik alleen de algoritme die ondersteuning biedt voor uw certificaat. | 
 | WantsSignedAssertions | Nee | Geeft aan of het technische profiel is vereist dat alle inkomende bevestigingen zijn ondertekend. Mogelijke waarden: `true` of `false`. De standaardwaarde is `true`. Als de waarde is ingesteld op `true`, alle asserties sectie `saml:Assertion` verzonden door de identiteit van de Azure AD B2C-provider moet worden ondertekend. Als de waarde is ingesteld op `false`, de id-provider mag niet de asserties ondertekenen, maar zelfs als dit het geval, Azure AD B2C de handtekening niet gevalideerd. Deze metagegevens bepaalt ook de markering voor metagegevens **WantsAssertionsSigned**, die wordt uitgevoerd in de metagegevens van de Azure AD B2C technisch profiel dat wordt gedeeld met de id-provider. Als u de validatie van asserties uitschakelt, ook kunt u de validatie van de handtekening antwoord uitschakelen (Zie voor meer informatie, **ResponsesSigned**). |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 587540430dc4089973186c2862f402ccde73df65
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047641"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163799"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>De diagnostische gegevens voor prestaties voor virtuele machines van Azure
 
@@ -35,15 +35,15 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installeren en uitvoeren van diagnostische gegevens voor prestaties op de virtuele machine
 Prestaties van diagnostische gegevens wordt geïnstalleerd voor een VM-extensie die wordt uitgevoerd een hulpprogramma voor diagnostische gegevens met de naam [PerfInsights](https://aka.ms/perfinsights). Als u wilt installeren en uitvoeren van diagnostische gegevens over prestaties, de volgende stappen uit:
-1)  Selecteer in de linkerkolom van opdrachten, **virtuele machines**.
-2)  Selecteer de virtuele machine die u uitvoeren wilt op in de lijst met namen van de virtuele machine.
-3)  Selecteer in de rechterkolom van opdrachten, **prestatiediagnoses**.
+1.  Selecteer in de linkerkolom van opdrachten, **virtuele machines**.
+1.  Selecteer de virtuele machine die u uitvoeren wilt op in de lijst met namen van de virtuele machine.
+1.  Selecteer in de rechterkolom van opdrachten, **prestatiediagnoses**.
 
     ![Schermopname van het Azure-portal met installatie performance diagnostics knop gemarkeerd](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
     > In deze schermafbeelding, is de blade van de namen van de virtuele machine verborgen.
-4) Selecteer een opslagaccount (optioneel)
+1. Selecteer een opslagaccount (optioneel)
 
     Als u een enkel opslagaccount gebruiken voor het opslaan van de prestatieresultaten van de diagnostische gegevens voor meerdere virtuele machines wilt, kunt u een opslagaccount selecteren door te klikken op de **instellingen** knop op de werkbalk. Klik op de **OK** knop nadat u de storage-account selecteren.
 
@@ -53,8 +53,8 @@ Prestaties van diagnostische gegevens wordt geïnstalleerd voor een VM-extensie 
 
     ![Schermopname van het storage-account selecteren uit de blade van instellingen voor diagnostische gegevens over prestaties](media/performance-diagnostics/select-storage-account.png)
 
-5) Selecteer de **prestatiediagnoses installeren** knop.
-6) Selecteer de **diagnose uitvoeren** selectievakje in als u een diagnose uitvoeren wilt nadat de installatie is voltooid. Als u deze selectie maakt, moet u kunnen de prestaties analysis scenario en de verwante opties te kiezen.
+1. Selecteer de **prestatiediagnoses installeren** knop.
+1. Selecteer de **diagnose uitvoeren** selectievakje in als u een diagnose uitvoeren wilt nadat de installatie is voltooid. Als u deze selectie maakt, moet u kunnen de prestaties analysis scenario en de verwante opties te kiezen.
 
     ![Schermafbeelding van de prestatiecontrole installeren knop](media/performance-diagnostics/install-diagnostics-button.png)
 
@@ -148,13 +148,13 @@ Wanneer u een ondersteuningsticket met Microsoft opent, is het belangrijk dat u 
 
 **Optie 2:** een Shared Access Signature genereren voor de diagnostische gegevens gecomprimeerd bestand rapporteren  
 U kunt een koppeling naar het gecomprimeerde bestand rapporten delen met behulp van handtekeningen voor gedeelde toegang. Voer de volgende stappen uit om dit te doen: 
-1)  Blader naar het opslagaccount waarin de diagnostische gegevens worden opgeslagen in de Azure-portal.
-2)  Selecteer **Blobs** onder de **Blob-service** sectie. 
-3)  Selecteer de **azdiagextnresults** container.
-4)  Selecteer het prestaties diagnostische uitvoer gecomprimeerde bestand dat u wilt delen.
-5)  Op de **SAS genereren** tabblad, selecteert u de criteria voor het delen van. 
-6)  Klik op **blob SAS-token en URL genereren**.
-7)  Kopieer de **Blob SAS-URL**, en deze delen met de ondersteuningstechnicus. 
+1.  Blader naar het opslagaccount waarin de diagnostische gegevens worden opgeslagen in de Azure-portal.
+1.  Selecteer **Blobs** onder de **Blob-service** sectie. 
+1.  Selecteer de **azdiagextnresults** container.
+1.  Selecteer het prestaties diagnostische uitvoer gecomprimeerde bestand dat u wilt delen.
+1.  Op de **SAS genereren** tabblad, selecteert u de criteria voor het delen van. 
+1.  Klik op **blob SAS-token en URL genereren**.
+1.  Kopieer de **Blob SAS-URL**, en deze delen met de ondersteuningstechnicus. 
 
 **Optie 3:** downloaden van het rapport van de storage-account
 
@@ -162,8 +162,8 @@ U kunt ook de prestaties van diagnostische gegevens rapport gecomprimeerd bestan
 
 ### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Hoe ik de diagnostische gegevens vastleggen op het juiste moment?
 Elke prestatiediagnoses uitvoeren bestaat uit twee fasen: 
-1)  Installeren of bijwerken van de prestaties van diagnostische gegevens over VM-extensie.
-2)  De diagnostische gegevens voor de opgegeven duur uitvoeren.
+1.  Installeren of bijwerken van de prestaties van diagnostische gegevens over VM-extensie.
+1.  De diagnostische gegevens voor de opgegeven duur uitvoeren.
 
 Er is momenteel geen eenvoudige manier om te weten precies zien wanneer de installatie van de VM-extensie voltooid is. Het duurt meestal ongeveer 45 seconden tot 1 minuut voor het installeren van de VM-extensie. Nadat de VM-extensie is geïnstalleerd, kunt u de stappen om te reproduceren als u wilt dat de prestaties van diagnostische gegevens vastleggen van de juiste set gegevens voor het oplossen van problemen kunt uitvoeren. 
 

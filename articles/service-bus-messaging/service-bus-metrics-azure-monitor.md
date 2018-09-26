@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: d141ac284b1ed8e128588e1a49a0594e0c61707f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974048"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166330"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
-Metrische gegevens over Service Bus biedt u de status van resources in uw Azure-abonnement. Met een uitgebreide set metrische gegevens, kunt u de algemene status van uw Service Bus-resources, niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de beoordelen. Deze statistische gegevens is belangrijk, omdat ze u houden op de status van Service Bus. Metrische gegevens kunnen ook helpen problemen hoofdoorzaak zonder contact opnemen met ondersteuning van Azure.
+Service Bus metrische gegevens geven u de status van resources in uw Azure-abonnement. Met een uitgebreide set metrische gegevens, kunt u de algemene status van uw Service Bus-resources, niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de beoordelen. Deze statistische gegevens is belangrijk, omdat ze u houden op de status van Service Bus. Metrische gegevens kunnen ook helpen problemen hoofdoorzaak zonder contact opnemen met ondersteuning van Azure.
 
 Azure Monitor biedt een uniforme gebruikersinterfaces voor bewaking over de verschillende Azure-services. Zie voor meer informatie, [bewaken in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) en de [ophalen van Azure Monitor metrics met .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) op GitHub.
 
@@ -37,7 +37,7 @@ U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](h
 
 ![][1]
 
-U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Peview)**. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de entiteit, selecteer de entiteit en klik vervolgens op **metrische gegevens (preview)**.
+U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Preview)**. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de entiteit, selecteer de entiteit en klik vervolgens op **metrische gegevens (preview)**.
 
 ![][2]
 
@@ -70,7 +70,7 @@ Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
 De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
-1. Client side-fouten (In HTTP die 400 fouten).
+1. Client-side '-fouten (In HTTP die 400 fouten).
 2. Fouten die tijdens het verwerken van berichten, zoals optreden [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -90,6 +90,9 @@ De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 |Gesloten verbindingen (preview)|Het aantal gesloten verbindingen.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Metrische gegevens voor het gebruik van resources
+
+> [!NOTE] 
+> De volgende metrische gegevens zijn alleen beschikbaar bij de **premium** laag. 
 
 | Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |

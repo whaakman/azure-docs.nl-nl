@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 7e430d1b590413f497c851b687abcaa98e04d0e4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053858"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158900"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Wat is Azure Machine Learning CLI?
 
@@ -56,6 +56,8 @@ Voorbeelden zijn:
 Gegevenswetenschappers worden aanbevolen om het gebruik van de Azure ML-SDK.
 
 ## <a name="common-machine-learning-cli-commands"></a>Reguliere machine learning CLI-opdrachten
+> [!NOTE]
+> Voorbeeld van bestanden die u gebruiken kunt om uit te voeren is de onderstaande opdrachten vindt u [hier.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Gebruik de uitgebreide set `az ml` interactie van de service in een opdrachtregelomgeving, met inbegrip van Azure-portal cloudshell-opdrachten.
 
@@ -73,7 +75,7 @@ Hier volgt een voorbeeld van veelgebruikte opdrachten:
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
-+ Een DSVM (data science VM) maken voor training modellen. U kunt ook BatchAI clusters voor een gedistribueerde training maken.
++ Maak een DSVM (data science VM). U kunt ook maken BatchAI clusters voor een gedistribueerde training of AKS-clusters voor implementatie.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -84,7 +86,7 @@ Hier volgt een voorbeeld van veelgebruikte opdrachten:
   az ml project attach --experiment-name myhistory
   ```
 
-+ Dien een experiment op basis van de Azure Machine Learning-service op de compute-doel van uw keuze. In dit voorbeeld wordt uitgevoerd op basis van de lokale compute-omgeving. U vindt een voorbeeldscript train.py [hier](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/train.py).
++ Dien een experiment op basis van de Azure Machine Learning-service op de compute-doel van uw keuze. In dit voorbeeld wordt uitgevoerd op basis van de lokale compute-omgeving. Zorg ervoor dat uw bestand conda-omgeving vastlegt uw python-afhankelijkheden.
 
   ```AzureCLI
   az ml run submit -c local train.py
@@ -99,17 +101,17 @@ az ml history list
 
 + Registreer een model met Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Een installatiekopie bevat uw machine learning-model en de afhankelijkheden maken. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m mymodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Uw App-pakket model implementeert naar doelen, met inbegrip van ACI en AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Volledige lijst met

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643801"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162165"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights cohorten
 
@@ -110,7 +110,7 @@ De vorige twee cohorten zijn gedefinieerd met behulp van de vervolgkeuzelijsten.
 
     * Een querysectie, waar u het cohort definiëren met behulp van een analytics-query.
 
-    In de querysectie u [een analytics-query schrijven](https://docs.loganalytics.io/index). De query selecteert het aantal rijen met een beschrijving van het cohort dat u wilt definiëren. Het programma cohorten vervolgens impliciet wordt toegevoegd een "| samenvatten op user_Id'-component in de query. Deze gegevens is een voorbeeld hieronder de query in een tabel, zodat u kunt ervoor zorgen dat uw query resultaten worden geretourneerd.
+    In de querysectie u [een analytics-query schrijven](/azure/kusto/query). De query selecteert het aantal rijen met een beschrijving van het cohort dat u wilt definiëren. Het programma cohorten vervolgens impliciet wordt toegevoegd een "| samenvatten op user_Id'-component in de query. Deze gegevens is een voorbeeld hieronder de query in een tabel, zodat u kunt ervoor zorgen dat uw query resultaten worden geretourneerd.
 
     > [!NOTE]
     > Als u de query niet ziet, probeert u het formaat van de sectie als u wilt deze groter en weergeven van de query. De GIF-animaties kunnen aan het begin van deze sectie ziet u het formaat gedrag.

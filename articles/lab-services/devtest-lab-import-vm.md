@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646178"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094518"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>VM's importeren uit een andere lab in Azure DevTest Labs
 De service Azure DevTest Labs aanzienlijk wordt verbeterd beheer van virtuele machines (VM's) voor de ontwikkeling en testactiviteiten. Hiermee kunt u een virtuele machine van een lab verplaatsen naar een andere als het team of wijzigen van de vereisten voor de infrastructuur. Hier volgen enkele algemene scenario's denkbaar waarin om dit te doen: 

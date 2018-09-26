@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039732"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159093"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -227,7 +227,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * SQL Database-server - database en server moet zich in dezelfde resourcegroep bevinden. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
 * Time Series Insights
 * Traffic Manager
-* Virtuele Machines - VM's met beheerde schijven kunnen niet worden verplaatst. Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
+* Virtuele Machines - voor virtuele machines met beheerde schijven, Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele Machines (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele netwerken - Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations)
@@ -267,28 +267,30 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
 
-Beheerde schijven worden ondersteund voor de verplaatsing vanaf 24 September 2018. U zult moeten zich registreren voor deze functie inschakelen
+Beheerde schijven worden ondersteund voor de verplaatsing vanaf September 24 mei 2018. Hebt u te registreren als deze functie wilt inschakelen.
 
-#### <a name="powershell"></a>PowerShell
-`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
-#### <a name="cli"></a>CLI
-`az feature register Microsoft.Compute ManagedResourcesMove`
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
 
+```azurecli-interactive
+az feature register Microsoft.Compute ManagedResourcesMove
+```
 
-Dit betekent dat u kunt ook verplaatsen:
+Deze ondersteuning betekent dat u kunt ook verplaatsen:
 
 * Virtuele machines met beheerde schijven
 * Beheerde installatiekopieën
 * Beheerde momentopnamen
 * Beschikbaarheidssets met virtuele machines met beheerde schijven
 
-Hier volgen de beperkingen die nog niet ondersteund
+Dit zijn de beperkingen die nog niet worden ondersteund:
 
 * Virtuele Machines met een certificaat dat is opgeslagen in Key Vault kan worden verplaatst naar een nieuwe resourcegroep in hetzelfde abonnement, maar niet tussen meerdere abonnementen.
 * Virtuele Machines met Azure Backup zijn geconfigureerd. Gebruik de volgende tijdelijke oplossing voor deze virtuele Machines verplaatsen
   * Ga naar de locatie van uw virtuele Machine.
-  * Zoek een resourcegroep met de volgende naamgevingspatroon: "AzureBackupRG_<location of your VM>_1 ' bijvoorbeeld AzureBackupRG_westus2_1
-  * Als in Azure Portal, klikt u vervolgens selectievakje ' verborgen typen weergeven"
+  * Zoek een resourcegroep met de volgende naamgevingspatroon: `AzureBackupRG_<location of your VM>_1` bijvoorbeeld AzureBackupRG_westus2_1
+  * Als in Azure portal, klikt u vervolgens selectievakje ' verborgen typen weergeven"
   * Als in PowerShell, gebruikt u de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
   * Als u in de CLI, gebruikt u de `az resource list -g AzureBackupRG_<location of your VM>_1`
   * Zoek nu de resource met type `Microsoft.Compute/restorePointCollections` waarvoor het naamgevingspatroon `AzureBackup_<name of your VM that you're trying to move>_###########`
