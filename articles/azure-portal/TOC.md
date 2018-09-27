@@ -5,7 +5,7 @@
 # Concepten
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Sneltoetsen](azure-portal-keyboard-shortcuts.md)
-## [Ondersteunde browsers en apparaten](../azure-preview-portal-supported-browsers-devices.md)
+## [Ondersteunde browsers en apparaten](azure-portal-supported-browsers-devices.md)
 ## [Structuur van Azure-dashboards](azure-portal-dashboards-structure.md)
 # Handleidingen
 ## Implementeren

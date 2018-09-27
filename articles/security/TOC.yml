@@ -5,16 +5,20 @@ items:
   href: azure-security.md
   items:
   - name: Geavanceerde detectie van bedreigingen
+    displayName: vulnerability, virus, ids, incident
     href: azure-threat-detection.md
   - name: Logboekregistratie en bewaking in Azure
+    displayName: incident
     href: azure-log-audit.md
   - name: Azure-netwerkbeveiliging
+    displayName: firewall, ssl, vpn, ids
     href: abstract-azure-network-security.md
   - name: Beveiliging van serverloze Azure-platforms
     href: abstract-serverless-platform-security.md
   - name: Containerbeveiliging in Azure
     href: abstract-container-security-microsoft-azure.md
   - name: Operationele beveiliging inschakelen
+    displayName: policy, policies
     href: abstract-azure-operational-security.md
   - name: Isolatie in de Azure-cloud
     href: azure-isolation.md
@@ -43,6 +47,7 @@ items:
     - name: Schijfversleuteling voor IaaS-VM's
       items:
       - name: Meer informatie over Azure Disk Encryption
+        displayName: bitlocker
         href: azure-security-disk-encryption-overview.md
       - name: Snelstartgidsen
         items:
@@ -90,6 +95,7 @@ items:
     - name: Onderdelen en grenzen
       href: azure-infrastructure-components.md
     - name: Netwerkarchitectuur
+      displayName: ssl
       href: azure-infrastructure-network.md
     - name: Productienetwerk
       href: azure-production-network.md
@@ -104,11 +110,13 @@ items:
     - name: Gegevensbeveiliging
       href: azure-protection-of-customer-data.md
   - name: Microsoft Antimalware
+    displayName: virus
     href: azure-security-antimalware.md
   - name: IaaS-beveiliging
     href: security-virtual-machines-overview.md
     items:
     - name: Best practices voor IaaS-workloads
+      displayName: patch
       href: azure-security-iaas.md
     - name: Azure Marketplace-installatiekopieën
       href: security-recommendations-azure-marketplace-images.md
@@ -128,6 +136,7 @@ items:
       displayName: identity
       href: azure-security-global-admin.md
   - name: Netwerkbeveiliging
+    displayName: firewall, ssl, vpn, ids
     href: security-network-overview.md
     items:
     - name: Aanbevolen procedures
@@ -169,6 +178,7 @@ items:
   - name: Controle en logboekregistratie
     items:
     - name: Beveiligingsbeheer
+      displayName: vulnerability, incident, virus,
       href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Extern beheer en beveiliging
       href: azure-security-management.md
@@ -196,17 +206,17 @@ items:
     - name: Controlelijst voor beveiliging
       href: azure-operational-security-checklist.md
 - name: Governance en naleving
-  displayName: blueprint
+  displayName: blueprint, privacy
   items:
   - name: AU PROTECTED
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: IaaS-webtoepassing
       href: ./blueprints/au-protected-iaaswa-overview.md
     - name: PaaS-webtoepassing
       href: ./blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Gegevensanalyse
       href: ./blueprints/fedramp-analytics-overview.md
@@ -217,7 +227,7 @@ items:
     - name: PaaS-webtoepassing
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Gegevensanalyse
       href: ./blueprints/ffiec-analytics-overview.md
@@ -228,7 +238,7 @@ items:
     - name: PaaS-webtoepassing
       href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Gegevensanalyse
       href: ./blueprints/gdpr-analytics-overview.md
@@ -239,12 +249,12 @@ items:
     - name: PaaS-webtoepassing
       href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Statusgegevens en AI
       href: ./blueprints/azure-health.md
   - name: NIST SP 800-171
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Gegevensanalyse
       href: ./blueprints/nist171-analytics-overview.md
@@ -255,7 +265,7 @@ items:
     - name: PaaS-webtoepassing
       href: ./blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Gegevensanalyse
       href: ./blueprints/pcidss-analytics-overview.md
@@ -266,12 +276,12 @@ items:
     - name: PaaS-webtoepassing
       href: ./blueprints/pcidss-paaswa-overview.md
   - name: TIC
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Vertrouwde internetverbinding met Azure
       href: ./compliance/compliance-tic.md
   - name: UK NHS
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: Gegevensanalyse
       href: ./blueprints/uknhs-analytics-overview.md
@@ -282,7 +292,7 @@ items:
     - name: PaaS-webtoepassing
       href: ./blueprints/uknhs-paaswa-overview.md
   - name: UK OFFICIAL
-    displayName: blueprint
+    displayName: blueprint, privacy
     items:
     - name: IaaS-webtoepassing
       href: ./blueprints/ukofficial-iaaswa-overview.md
@@ -307,6 +317,7 @@ items:
   - name: Pen testen
     href: azure-security-pen-testing.md
   - name: Microsoft Threat Modeling Tool
+    displayName: stride
     href: azure-security-threat-modeling-tool.md
     items:
     - name: Aan de slag
@@ -338,9 +349,9 @@ items:
         href: azure-security-threat-modeling-tool-sensitive-data.md
       - name: Sessiebeheer
         href: azure-security-threat-modeling-tool-session-management.md
-ms.openlocfilehash: 99ff7a6ba5a2289855739ce8b269c4b3aae10e61
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 21b41c50165ab4effa803cc0736b7fc64f252c43
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364853"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222128"
