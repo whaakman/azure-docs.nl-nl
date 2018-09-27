@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4219878673bbb3560ca13f09eb0fde940b2b17e3
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987900"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222757"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -25,9 +25,7 @@ U kunt aan de slag met een kleine hoeveelheid gegevens voor een concepttest. Maa
 
 ## <a name="prerequisites"></a>Vereisten
 
-De **tekst naar spraak** stem aanpassing functie is momenteel in private preview. [Vul het aanvraagformulier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) worden overwogen om toegang te krijgen.
-
-U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Uw abonnement als volgt verbinding te maken met de aangepaste spraak-portal.
+U moet een Azure-account en een abonnement op de spraak-service. [Maak een](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Uw abonnement als volgt verbinding te maken met de aangepaste spraak-portal.
 
 1. Meld u aan bij de [aangepaste spraak portal](https://customvoice.ai) met hetzelfde Microsoft-account dat u gebruikt om toe te passen om toegang te krijgen.
 
@@ -35,16 +33,13 @@ U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](
 
     ![Abonnementen](media/custom-voice/subscriptions.png)
 
-3. Kies op de pagina 'Abonnementen', 'Verbinding maken met bestaande abonnement'.
+3. Kies op de pagina 'Abonnementen', 'Verbinding maken met bestaande abonnement'. Houd er rekening mee dat spraakservices verschillende regio's ondersteunen. Controleer de regio waar de abonnementssleutel van uw is gemaakt en zorg ervoor dat u uw sleutel verbinden met de juiste onderliggende portal.  
 
 4. Plak uw abonnementssleutel in de tabel, zoals hieronder wordt weergegeven. Elk abonnement heeft twee sleutels en u kunt een van beide.
 
      ![Abonnement toevoegen](media/custom-voice/add-subscription.png)
 
 U bent klaar om te beginnen.
-
-> [!IMPORTANT]
-> In de beperkte preview-fase moet abonnementen in de whitelist opgenomen om de aangepaste spraak-functie te gebruiken. Volg de stappen op de pagina om uw abonnement in de whitelist opgenomen.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Voorbereiden van de opnamen en transcripties
 
@@ -232,4 +227,4 @@ Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
-- [Water in C#](quickstart-csharp-dotnet-windows.md)
+- [Registreren van uw stem-voorbeelden](record-custom-voice-samples.md)

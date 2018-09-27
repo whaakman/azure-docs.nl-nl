@@ -1,5 +1,5 @@
 ---
-title: Aandachtspunten voor netwerken met een Azure App Service-omgeving
+title: Aandachtspunten voor netwerken met een Azure App Service Environment
 description: Het netwerkverkeer van de as-omgeving en hoe nsg's en udr's met de as-omgeving instellen
 services: app-service
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: ef2288e2f756db6529f1ec5f7b3a49067b2998aa
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b9897fd0030c2b6efed0fefc47dd6720a61978cd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644273"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165139"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
@@ -67,6 +67,8 @@ Als u omhoog of omlaag schalen, nieuwe rollen van de juiste grootte heeft toegev
 
 ## <a name="ase-dependencies"></a>As-omgeving afhankelijkheden ##
 
+### <a name="ase-inbound-dependencies"></a>As-omgeving inkomende afhankelijkheden ###
+
 De as-omgeving binnenkomende toegang afhankelijkheden zijn:
 
 | Gebruiken | Vanaf | Handeling |
@@ -84,26 +86,23 @@ Voor de communicatie tussen de Azure load balancer en het ASE-subnet zijn de poo
 
 Als u app toegewezen IP-adressen die u wilt toestaan dat verkeer van de IP-adressen toegewezen aan uw apps op het ASE-subnet.
 
-Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe systemen. Deze systeemafhankelijkheden met DNS-namen zijn gedefinieerd, en niet toewijzen aan een vaste set IP-adressen. De as-omgeving is dus uitgaand verkeer vanuit het ASE-subnet op alle externe IP-adressen in een groot aantal poorten vereist. Een as-omgeving heeft de volgende uitgaande afhankelijkheden:
+De TCP-verkeer binnen via poorten 454 en 455 komt moet gaan van de dezelfde VIP of hebt u een probleem met asymmetrische routering. 
 
-| Gebruiken | Vanaf | Handeling |
-|-----|------|----|
-| Azure Storage | ASE-subnet | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is alleen nodig voor ASEv1.) |
-| Azure SQL Database | ASE-subnet | database.Windows.NET: 1433 |
-| Azure-beheer | ASE-subnet | Management.Core.Windows.NET, management.azure.com, admin.core.windows.net: 443 |
-| Verificatie van SSL-certificaat |  ASE-subnet            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
-| Azure Active Directory        | ASE-subnet            |  Login.Windows.NET: 443 |
-| App Service-beheer        | ASE-subnet            |  GR-prod -<regionspecific>. cloudapp.net, az-prod.metrics.nsatc .net: 443 |
-| Azure DNS                     | ASE-subnet            |  Internet: 53 |
-| Interne communicatie as-omgeving    | ASE-subnet: alle poorten |  ASE-subnet: alle poorten |
+### <a name="ase-outbound-dependencies"></a>Uitgaande ASE-afhankelijkheden ###
 
-Als de as-omgeving de toegang tot deze afhankelijkheden verliest, werkt niet. In dat geval lang genoeg, wordt de as-omgeving is onderbroken.
+Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe systemen. Veel van deze systeemafhankelijkheden met DNS-namen zijn gedefinieerd, en niet toewijzen aan een vaste set IP-adressen. De as-omgeving is dus uitgaand verkeer vanuit het ASE-subnet op alle externe IP-adressen in een groot aantal poorten vereist. 
+
+De volledige lijst van de uitgaande afhankelijkheden worden weergegeven in het document dat wordt beschreven [uitgaand verkeer van App Service-omgeving te vergrendelen](./firewall-integration.md). Als de as-omgeving de toegang tot de afhankelijkheden ervan verliest, werkt niet. In dat geval lang genoeg, wordt de as-omgeving is onderbroken. 
 
 ### <a name="customer-dns"></a>Klant DNS ###
 
 Als het VNet met een door de klant gedefinieerde DNS-server is geconfigureerd, wordt het door de tenantwerkbelastingen gebruiken. Er moet nog steeds de as-omgeving om te communiceren met Azure DNS voor beheerdoeleinden. 
 
 Als het VNet is geconfigureerd met een klant DNS op de andere kant van een VPN-verbinding, moet de DNS-server bereikbaar is vanaf het subnet waarin de as-omgeving zijn.
+
+Voor het testen van de oplossing van uw web-app kunt u de consoleopdracht *nameresolver*. Ga naar het foutopsporingsvenster in uw scm-site voor uw app of Ga naar de app in de portal en selecteer console. Vanuit de shell-prompt kunt u de opdracht geven *nameresolver* samen met het adres dat u wilt zoeken. Het resultaat dat je weer toegang krijgen is gelijk aan wat uw app krijgt bij het maken van de dezelfde zoekopdracht. Als u nslookup doet u een zoekopdracht met behulp van de Azure DNS in plaats daarvan.
+
+Als u de DNS-instelling van het VNet dat uw ASE in wijzigt, moet u opnieuw opstarten van de as-omgeving. Om te voorkomen dat opnieuw opstarten van de as-omgeving, is het raadzaam dat u uw DNS-instellingen voor uw VNet configureren voordat u uw ASE maken.  
 
 <a name="portaldep"></a>
 
@@ -205,9 +204,6 @@ Als u wilt de dezelfde routes handmatig hebt gemaakt, de volgende stappen uit:
 ## <a name="service-endpoints"></a>Service-eindpunten ##
 
 Met service-eindpunten kunt u de toegang tot multitenant-services beperken tot een reeks virtuele Azure-netwerken en subnetten. In de documentatie [Virtual Network Service Endpoints][serviceendpoints] (Virtuele netwerkservice-eindpunten) vindt u meer informatie over service-eindpunten. 
-
-   > [!NOTE]
-   > Service-eindpunten met SQL werken niet met ASE in de regio's van de Amerikaanse overheid. Deze informatie is alleen geldig in de Azure openbare regio's.
 
 Wanneer u service-eindpunten voor een bron inschakelt, worden er routes gemaakt die een hogere prioriteit hebben dan alle andere routes. Als u service-eindpunten gebruikt met een ASE met geforceerde tunnels, maakt het managementverkeer van Azure SQL en Azure Storage geen gebruik van geforceerde tunnels. 
 

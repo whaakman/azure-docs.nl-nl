@@ -14,19 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 79cc543e2a106fa8cbff31bdd0e6bb35afe68e4b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918849"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392037"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure facturerings-API's gebruiken om via een programma inzicht uw gebruik van Azure
-Gebruik Azure facturering API's voor pull-gebruik en de resource-gegevens in uw favoriete hulpprogramma's voor gegevensanalyse. Het gebruik van Azure-resources en RateCard APIs kunt u nauwkeurig kunnen voorspellen en uw kosten beheren. De API's worden geïmplementeerd als een Resource Provider en een deel van de API's beschikbaar gemaakt door de Azure Resource Manager-familie.  
+Gebruik Azure facturering API's voor pull-gebruik en de resource-gegevens in uw favoriete hulpprogramma's voor gegevensanalyse. De Azure Resource Usage- en RateCard-API’s kunnen u helpen uw kosten nauwkeurig te voorspellen en te beheren. De API's worden geïmplementeerd als een Resource Provider en een deel van de API's beschikbaar gemaakt door de Azure Resource Manager-familie.  
 
 > [!div class="nextstepaction"]
-> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>API voor Azure-facturen downloaden (Preview)
 Zodra de [aanmelden is voltooid](billing-manage-access.md#opt-in), downloaden van facturen met behulp van de preview-versie van [factuur API](/rest/api/billing). De functies zijn onder andere:
@@ -65,7 +65,7 @@ Hier volgen enkele van de scenario's die zijn aangebracht mogelijk is met de com
   * U kunt ook bepalen als een ander Azure-aanbiedingtype resulteert in een betere rentabiliteit op een Azure-resource.
   
 ## <a name="partner-solutions"></a>Partneroplossingen
-[Cloud Cruiser en Microsoft Azure Billing API-integratie](billing-usage-rate-card-partner-solution-cloudcruiser.md) wordt beschreven hoe [Cloud Cruiser van Express voor Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) werkt rechtstreeks vanuit de portal Windows Azure Pack (WAP). U kunt de operationele en financiële aspecten van de Microsoft Azure privé of gehoste openbare cloud naadloos beheren vanuit een enkele gebruikersinterface.   
+In [Cloud Cruiser en Microsoft Azure Billing API-integratie](billing-usage-rate-card-partner-solution-cloudcruiser.md) wordt beschreven hoe [Cloud Cruiser van Express voor Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) rechtstreeks vanuit de WAP-portal (Windows Azure Pack) werkt. U kunt de operationele en financiële aspecten van de openbare of gehoste openbare cloud van Microsoft Azure naadloos beheren vanuit één gebruikersinterface.   
 
 ## <a name="next-steps"></a>Volgende stappen
 * Bekijk de codevoorbeelden op GitHub:

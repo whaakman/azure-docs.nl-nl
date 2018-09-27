@@ -3,19 +3,19 @@ title: Azure-account om u als partner-ID koppelen | Microsoft Docs
 description: Bewaken met Azure-klanten door partner-ID koppelen aan het gebruikersaccount dat u gebruikt voor het beheren van resources van de klant bijhouden.
 services: billing
 author: dhirajgandhi
-ms.author: dhgandhi
+ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ddfe83bf4d10eb3ee9b61ee1f60e60a965047cf9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980190"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391775"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>De partner-ID koppelen aan uw Azure-accounts
 

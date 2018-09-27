@@ -1,6 +1,6 @@
 ---
 title: Een toegangscontrole voor Azure AD directory-rollen in PIM starten | Microsoft Docs
-description: Leer hoe u een toegangscontrole voor voor Azure AD-maprollen starten in Azure AD Privileged Identity Management (PIM).
+description: Leer hoe u een toegangscontrole voor Azure AD-maprollen starten in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a431a0a0000cc8b0838bbe05c703cc548c8977c5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5c7216a419ba01c1b2df744e305bf059cf68104e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189399"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224379"
 ---
 # <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Een toegangscontrole voor Azure AD directory-rollen in PIM starten
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen bevoorrechte rol moeten medewerkers of hoofdbeheerders regelmatig maken toegangsbeoordelingen om te vragen van beheerders voor het controleren van de functies die gebruikers hebben gekregen. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Azure AD Privileged Identity Management (PIM).

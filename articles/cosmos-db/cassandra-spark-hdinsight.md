@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f71f5fa71d685af103bd82b3ccd2a910ab81d90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34293ffc70ebbc2a8639913aefe3b62ed8e618d4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962910"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222774"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Toegang tot Azure Cosmos DB Cassandra-API uit Spark op YARN met HDInsight
 
@@ -32,7 +32,7 @@ In dit artikel wordt uitgelegd hoe u toegang krijgen tot Azure Cosmos DB Cassand
 
 * [Cqlsh voor validatie gebruiken als u dus liever](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuratie van de Cassandra-API in Spark2** -connector van de Datastax voor Cassandra vereist dat de Cassandra-verbinding om details te worden geïnitialiseerd als onderdeel van de Spark-context. Wanneer u een Jupyter-notebook start, wordt de spark-sessie en context zijn al geïnitialiseerd en wordt niet aangeraden om te stoppen en opnieuw initialiseren van de Spark-context, tenzij deze voltooid met elke configuratie ingesteld als onderdeel van de HDInsight standaard Jupyter-notebook Start is. Een tijdelijke oplossing is het toevoegen van de details van de Cassandra-exemplaar aan Ambari, rechtstreeks Spark2-serviceconfiguratie. Dit is een eenmalige activiteit per cluster dat een Spark2 service moet opnieuw worden opgestart.
+* **Configuratie van de Cassandra-API in Spark2** -de Spark-connector voor Cassandra is vereist dat de Cassandra-verbinding om details te worden geïnitialiseerd als onderdeel van de Spark-context. Wanneer u een Jupyter-notebook start, wordt de spark-sessie en context zijn al geïnitialiseerd en wordt niet aangeraden om te stoppen en opnieuw initialiseren van de Spark-context, tenzij deze voltooid met elke configuratie ingesteld als onderdeel van de HDInsight standaard Jupyter-notebook Start is. Een tijdelijke oplossing is het toevoegen van de details van de Cassandra-exemplaar aan Ambari, rechtstreeks Spark2-serviceconfiguratie. Dit is een eenmalige activiteit per cluster dat een Spark2 service moet opnieuw worden opgestart.
  
   1. Ga naar Ambari, Spark2 service en klik op de peeringconfiguraties
 
@@ -68,7 +68,7 @@ Spark-shell wordt gebruikt voor testen/verkennen.
   import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType,LongType,FloatType,DoubleType, TimestampType}
   import org.apache.spark.sql.cassandra._
 
-  //datastax Spark connector
+  //Spark connector
   import com.datastax.spark.connector._
   import com.datastax.spark.connector.cql.CassandraConnector
 

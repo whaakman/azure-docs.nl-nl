@@ -1,20 +1,21 @@
 ---
-title: Beheren van inhoud met behulp van onlinebeoordelingen door mensen in Azure Content Moderator | Microsoft Docs
+title: 'Beheren van inhoud met behulp van onlinebeoordelingen door mensen met de API-console: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Informatie over het maken van onlinebeoordelingen door mensen in de Content Moderator-API-console.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866505"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219750"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Beoordelingen van de API-console maken
 

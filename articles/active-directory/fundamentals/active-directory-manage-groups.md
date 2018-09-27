@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 3ec8472285ecc7512e2eedc8b9ac850ef8e9cf87
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298017"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223969"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Meer informatie over het beheer van toegang met behulp van Azure Active Directory-groepen
 Azure Active Directory (Azure AD) helpt u bij het beheren van uw cloud-gebaseerde apps, on-premises toepassingen en uw resources met behulp van groepen van uw organisatie. Uw resources kunnen deel uitmaken van de map, zoals machtigingen voor het beheren van objecten door middel van rollen in de directory, of extern naar de map, zoals software as a Service (SaaS)-apps, Azure-services, SharePoint-sites, en on-premises resources.

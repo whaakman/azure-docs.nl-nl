@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 03c4a36330ca17eea4233e928d6b728e94e15292
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 18b7b1b3d2a74b6e3aeb671154de48bd7b7f1e00
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299186"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218051"
 ---
 # <a name="alert-confidence-score"></a>Betrouwbaarheidsscore waarschuwing 
 
@@ -29,7 +29,7 @@ De betrouwbaarheidsscore in Security Center kan helpen bij het sorteren van uw t
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Hoe de betrouwbaarheidsscore wordt geactiveerd
 
-Waarschuwingen worden gegenereerd wanneer er verdachte processen worden gedetecteerd die worden uitgevoerd op uw virtuele machines. Security Center controleert en analyseert deze waarschuwingen op Windows-machines uitvoeren in Azure. Deze geautomatiseerde controles en correlaties met behulp van geavanceerde algoritmen voor meerdere entiteiten en gegevensbronnen in de organisatie, en al uw Azure-resources uitvoert, en met een betrouwbaarheidsscore dit een maateenheid voor hoe zeker Security Center is biedt is dat de waarschuwing authentiek is en moet worden onderzocht.
+Waarschuwingen worden gegenereerd wanneer er verdachte processen worden gedetecteerd die worden uitgevoerd op uw virtuele machines. Security Center controleert en analyseert deze waarschuwingen op Windows-machines uitvoeren in Azure. Deze geautomatiseerde controles en correlaties met behulp van geavanceerde algoritmen voor meerdere entiteiten en gegevensbronnen in de organisatie, en al uw Azure-resources uitvoert, en geeft weer met een score die een maateenheid voor hoe zeker Security Center is is vertrouwen dat is de waarschuwing authentiek is en moet worden onderzocht.
 
 ## <a name="understanding-the-confidence-score"></a>Informatie over de betrouwbaarheidsscore
 

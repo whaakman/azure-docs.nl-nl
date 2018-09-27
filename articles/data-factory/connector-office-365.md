@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: a077c7d154235205126d77e5523c0acd96e70ad5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: dc5f6c8c12dc10d135eaaf26d83236b2287bf059
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031608"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223115"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
-Azure Data Factory kunt u de uitgebreide gegevens van de organisatie in uw Office 365-tenant in Azure op een schaalbare manier en bouwen van toepassingen voor gegevensanalyse en inzichten op basis van deze waardevolle activa. Integratie met Privileged Access Management biedt beveiligd toegangsbeheer voor de waardevolle gegevens in Office 365.  Raadpleeg voor meer informatie over beheerde toegang tot Microsoft Graph in Microsoft Azure Preview [deze koppeling](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
+Azure Data Factory kunt u de uitgebreide gegevens van de organisatie in uw Office 365-tenant in Azure op een schaalbare manier en bouwen van toepassingen voor gegevensanalyse en inzichten op basis van deze waardevolle activa. Integratie met Privileged Access Management biedt beveiligd toegangsbeheer voor de waardevolle gegevens in Office 365.  Voor meer informatie over Microsoft Graph-gegevens verbinden, Raadpleeg [deze koppeling](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Office 365. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 

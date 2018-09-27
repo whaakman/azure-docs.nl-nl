@@ -2,21 +2,22 @@
 title: Meervoudige verificatie - Azure SQL | Microsoft Docs
 description: Azure SQL Database en Azure SQL Data Warehouse ondersteuning voor verbindingen van SQL Server Management Studio (SSMS) met behulp van universele verificatie van Active Directory.
 services: sql-database
-documentationcenter: ''
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.openlocfilehash: e1755ec0db998f1f9303d3baceb3b40f079945fe
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542377"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166653"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universele authenticatie met SQL-Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)
 Azure SQL Database en Azure SQL Data Warehouse ondersteunt verbindingen van het gebruik van SQL Server Management Studio (SSMS) *Universal verificatie van Active Directory*. 

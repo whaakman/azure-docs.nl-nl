@@ -3,20 +3,21 @@ title: Virtual Network-service-eindpunten en regels voor Azure SQL Database | Mi
 description: Een subnet markeren als een service-eindpunt voor Virtueelnetwerk. Vervolgens het eindpunt als een virtueel netwerk-regel om de ACL uw Azure SQL Database. U-SQL-Database aanvaardt vervolgens communicatie van alle virtuele machines en andere knooppunten in het subnet.
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.reviewer: vanto
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 51a9c1e2528833f0931e0bff30a9ec8a78eb99e0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367335"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166806"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 

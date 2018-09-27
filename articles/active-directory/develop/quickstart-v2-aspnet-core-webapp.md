@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984939"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227421"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Aanmelden bij Microsoft toevoegen aan een ASP.NET Core web-app
 
@@ -62,7 +62,7 @@ In deze snelstartgids bevat een codevoorbeeld van die u laat zien hoe een ASP.NE
 
 1. Pak het zip-bestand naar een lokale map (bijvoorbeeld **C:\Azure-Samples**)
 1. Als u Visual Studio 2017 gebruikt, opent u het project in Visual Studio (optioneel)
-1. Bewerken **appsettings.json** en vervang de waarde voor `ClientId` met de toepassings-Id van de toepassing die u zojuist hebt geregistreerd:
+1. Bewerken **appsettings.json** en vervang de waarde voor `ClientId` met toepassings-Id van de toepassing die u zojuist hebt geregistreerd:
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -112,7 +112,7 @@ public void Configure(string name, OpenIdConnectOptions options)
 > |Waar  |  |
 > |---------|---------|
 > |ClientId     |Toepassings-Id van de toepassing geregistreerd in Azure portal|
-> |instantie | De STS-eindpunt voor de gebruiker om te verifiëren. Meestal https://login.microsoftonline.com/{tenant}/v2.0 voor openbare cloud, waarbij {tenant} de naam van uw tenant, uw tenant-Id is of *algemene* voor een verwijzing naar het algemene eindpunt (gebruikt voor toepassingen met meerdere tenants)|
+> |Instantie | De STS-eindpunt voor de gebruiker om te verifiëren. Meestal https://login.microsoftonline.com/{tenant}/v2.0 voor openbare cloud, waarbij {tenant} de naam van uw tenant, uw tenant-Id is of *algemene* voor een verwijzing naar het algemene eindpunt (gebruikt voor toepassingen met meerdere tenants)|
 > |UseTokenLifetime |Geeft aan dat de verificatiecookie moet overeenkomen met die van het verificatietoken|
 > |RequireHttpsMetadata     |HTTPS voor de metadata-adres of -instantie nodig. Het verdient aanbeveling deze waarde om te wijzigen `True`|
 > |TokenValidationParameters     | Een lijst met parameters voor validatie van tokens. In dit geval `ValidateIssuer` is ingesteld op `false` om aan te geven dat aanmeldingen vanaf een persoonlijke, of werk- of schoolaccount accounts kunnen worden geaccepteerd|

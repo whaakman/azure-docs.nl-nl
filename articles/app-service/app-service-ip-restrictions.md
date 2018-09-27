@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 7/30/2018
 ms.author: ccompy
-ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffeb01a46b62202292f6e1ea91f47cd87954387
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364305"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219125"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Statische IP-beperkingen voor Azure App Service #
 
@@ -29,7 +29,7 @@ De mogelijkheid IP-beperkingen werkt met alle App Service die wordt gehost werkb
 
 Wanneer een aanvraag wordt gedaan aan uw app, wordt het van IP-adres geëvalueerd op basis van de lijst met IP-beperkingen. Als het adres is niet toegestaan voor toegang op basis van de regels in de lijst, de service reageert met een [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuscode.
 
-De mogelijkheid IP-beperkingen is geïmplementeerd in de front-end-rollen van App Service, die zijn upstream van de werknemer hosts waarop uw code wordt uitgevoerd. IP-beperkingen zijn daarvoor effectief netwerk ACL's.  
+De mogelijkheid IP-beperkingen is geïmplementeerd in de front-end-rollen van App Service, die zijn upstream van de werknemer hosts waarop uw code wordt uitgevoerd. IP-beperkingen zijn daarom effectief netwerk ACL's.  
 
 ![IP-beperkingen voor stroom](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 

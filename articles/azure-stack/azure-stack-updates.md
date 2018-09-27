@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579034"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222493"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Updates beheren in Azure Stack-overzicht
 
@@ -45,6 +45,13 @@ Als er updates worden geïnstalleerd, kunt u statuswaarde op hoog niveau weergev
 ## <a name="plan-for-updates"></a>Updates plannen
 
 Wordt aangeraden dat u op de hoogte stellen gebruikers van elke onderhoudsbewerkingen, en dat u plant dat normale onderhoudsvensters tijdens de kantooruren indien mogelijk. Onderhoudsbewerkingen kunnen invloed hebben op zowel tenantwerkbelastingen en portal bewerkingen.
+
+
+- Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>Met behulp van de tegel Update om updates te beheren
 U beheren updates vanuit de beheerdersportal. U kunt de tegel Update in het dashboard om te gebruiken als Azure Stack-operators:

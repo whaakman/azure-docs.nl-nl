@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031354"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164392"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Zelfstudie: 5. Vrije vorm-gegevens herkennen
+# <a name="tutorial-5-extract-free-form-data"></a>Zelfstudie 5: Vrije gegevens ophalen
 
 In deze zelfstudie, gebruikt u de entiteit pattern.any om gegevens te extraheren uit uitingen waar de uitingen zich goed opgemaakte en waar het einde van de gegevens kan eenvoudig kan worden verward met de resterende woorden van de utterance. 
 

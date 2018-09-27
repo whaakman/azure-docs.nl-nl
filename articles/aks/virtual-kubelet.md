@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 6ff28443dda65e91fa69fececaff95aa8e872603
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604234"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226438"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Virtual Kubelet gebruiken met Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Voor het installeren van de Virtual Kubelet [Helm](https://docs.helm.sh/using_he
 
 ### <a name="for-rbac-enabled-clusters"></a>Voor clusters met RBAC-ingeschakeld
 
-Als uw AKS-cluster RBAC is ingeschakeld is, moet u een service-account en een binding van de rol voor gebruik met Tiller maken. Zie voor meer informatie, [Helm rollen gebaseerd toegangsbeheer][helm-rbac]. Maak een bestand met de naam voor het maken van een service-account en een binding van de rol, *rbac-virtualkubelet.yaml* en plak de definitie van de volgende:
+Als uw AKS-cluster RBAC is ingeschakeld is, moet u een service-account en een binding van de rol voor gebruik met Tiller maken. Zie voor meer informatie, [Helm rollen gebaseerd toegangsbeheer][helm-rbac]. Maak een bestand met de naam voor het maken van een service-account en een binding van de rol, *rbac virtuele kubelet.yaml* en plak de definitie van de volgende:
 
 ```yaml
 apiVersion: v1
@@ -59,7 +59,7 @@ subjects:
     namespace: kube-system
 ```
 
-Het serviceaccount van toepassing en binden met [kubectl toepassen] [ kubectl-apply] en geef uw *rbac-virtualkubelet.yaml* bestand, zoals weergegeven in het volgende voorbeeld:
+Het serviceaccount van toepassing en binden met [kubectl toepassen] [ kubectl-apply] en geef uw *rbac virtuele kubelet.yaml* bestand, zoals weergegeven in het volgende voorbeeld:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -182,7 +182,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

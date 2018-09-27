@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator - matig tekst met behulp van .NET | Microsoft Docs
-description: Het gemiddelde van tekst met behulp van Azure Content Moderator-SDK voor .NET
+title: Gemiddeld tekst - Content Moderator-.NET
+titlesuffix: Azure Cognitive Services
+description: Het gemiddelde van tekst met behulp van de Content Moderator-SDK voor .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 11f0cf523b6a6cfac2fb25924e5e03992945975e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6db97231b2dc8905f1a3b3a6bc63580e9f371f84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182583"
+ms.locfileid: "47227262"
 ---
 # <a name="moderate-text-using-net"></a>Gemiddeld tekst met behulp van .NET
 
 In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+
 - Detecteren van potentieel grof taalgebruik in tekst met filteren op basis van een term
 - Gebruik op basis van machine-learning-modellen [classificeren van de tekst](text-moderation-api.md#classification) in drie categorieën.
 - Persoonlijk identificeerbare informatie (PII) zoals VS en UK telefoonnummers, e-mailadressen en VS postadressen detecteren.

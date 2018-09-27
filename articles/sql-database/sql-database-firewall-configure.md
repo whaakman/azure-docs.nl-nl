@@ -1,22 +1,23 @@
 ---
 title: Azure SQL Database en datawarehouse-firewallregels | Microsoft Docs
 description: Informatie over het configureren van een SQL-database en SQL Data Warehouse-firewall met firewallregels op serverniveau voor het beheren van toegang en SQL Database-firewallregels op databaseniveau configureren.
-keywords: Server-database-firewall
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 698014c24d6a3af3fb79980a07e25483554b1007
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bc246031e57fd8e28cddf9f4e6e170b0695d7579
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042428"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166748"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL-Database en SQL Data Warehouse firewall-regels 
 

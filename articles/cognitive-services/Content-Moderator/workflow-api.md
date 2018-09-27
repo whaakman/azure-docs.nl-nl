@@ -1,59 +1,60 @@
 ---
-title: Azure Content beheerder - interrupts werkstromen | Microsoft Docs
-description: Werkstromen met inhoud toezicht gebruiken.
+title: Beheer van werkstromen - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Werkstromen met inhoudstoezicht gebruiken.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 079fcd119f1536f9e76ca57fccc76538b3c3ed78
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344568"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226871"
 ---
-# <a name="moderation-workflows"></a>Controle-werkstromen
+# <a name="moderation-workflows"></a>Beheer van werkstromen
 
-Inhoud beheerder bevat hulpprogramma's en API's voor het beheren van werkstromen. Gebruik van werkstromen met de [taakbewerkingen bekijken van de API](review-api.md) om human in de lus revisie maken op basis van uw inhoud beleid en de drempelwaarden te automatiseren.
+Content Moderator bevat hulpprogramma's en API's voor het beheren van werkstromen. Gebruik van werkstromen met de [taakbewerkingen bekijken API's](review-api.md) om human-in-the-loop beoordeling maken op basis van uw inhoud beleid en de drempelwaarden te automatiseren.
 
-De controle-API biedt de volgende manieren menselijke toezicht opnemen in uw inhoud toezichtproces:
+De beoordeling-API biedt de volgende manieren op te nemen van menselijk toezicht in uw inhoudstoezicht-proces:
 
-1. De **taak** bewerkingen voor het starten van de machine-ondersteunde wijzigen en human bekijken maken als één stap.
-1. De **bekijken** bewerkingen voor human buiten de controle-stap het maken, bekijken.
-1. De **werkstroom** bewerkingen voor het beheren van werkstromen automatiseren scannen met drempelwaarden voor het maken van bekijken.
+1. De **taak** bewerkingen voor het starten van computer-ondersteund toezicht en human bekijken maken als één stap.
+1. De **bekijken** bewerkingen voor human maken buiten de stap toezicht bekijken.
+1. De **werkstroom** bewerkingen voor het beheren van werkstromen automatiseren van scannen met drempelwaarden voor het maken bekijken.
 
-In dit artikel bevat informatie over de **werkstroom** bewerkingen. Lees de [taken en beoordeelt](review-api.md) overzicht voor meer informatie over inhoud toezicht taken en bekijkt.
+In dit artikel bevat informatie over de **werkstroom** bewerkingen. Lees de [taken en beoordeelt](review-api.md) overzicht voor meer informatie over inhoudstoezicht toegangsbeoordelingen en taken.
 
-Uitchecken van het **standaard** werkstroom is de beste manier aan de slag op informatie over werkstromen in inhoud beheerder.
+Controleren van de **standaard** werkstroom is de beste manier om aan de slag met informatie over werkstromen in de Content Moderator.
 
 ## <a name="your-first-workflow"></a>Uw eerste werkstroom
 
-Uw eerste werkstroom wordt geleverd met uw [hulpprogramma team controleren](https://contentmoderator.cognitive.microsoft.com/). Meld u als u dit nog niet hebt gedaan.
+Uw eerste werkstroom wordt geleverd met uw [bekijken hulpprogramma team](https://contentmoderator.cognitive.microsoft.com/). Meld u als u dit nog niet hebt gedaan.
 
-Navigeer naar de [bekijken van tool-werkstromen](Review-Tool-User-Guide/Workflows.md) scherm op het tabblad instellingen. U ziet een **standaard** werkstroom zoals weergegeven in de volgende afbeelding:
+Navigeer naar de [bekijken van de tool-werkstromen](Review-Tool-User-Guide/Workflows.md) scherm onder het tabblad instellingen. U ziet een **standaard** werkstroom zoals wordt weergegeven in de volgende afbeelding:
 
-![Inhoud beheerder werkstromen](Review-Tool-User-Guide/images/2-workflows-1.png)
+![Content Moderator-werkstromen](Review-Tool-User-Guide/images/2-workflows-1.png)
 
-### <a name="open-the-default-workflow"></a>De standaardwerkstroom openen
+### <a name="open-the-default-workflow"></a>Open de standaardwerkstroom
 
-Gebruik de **bewerken** optie voor het openen van de werkstroom pagina bewerken, zoals wordt weergegeven in de volgende afbeelding: ![inhoud beheerder standaardwerkstroom](images/default-workflow-listed.PNG)
+Gebruik de **bewerken** optie voor het openen van de werkstroom pagina bewerkt, zoals wordt weergegeven in de volgende afbeelding: ![standaardwerkstroom Content Moderator](images/default-workflow-listed.PNG)
 
-### <a name="the-designer-view"></a>De ontwerpfunctie weergave
+### <a name="the-designer-view"></a>De designer-weergave
 
 U ziet de **Designer** tabblad voor de werkstroom. De ontwerpfunctie weergave bevat de volgende stappen uit:
 
-1. De **voorwaarde** voor de werkstroom moet worden geëvalueerd. In dit geval wordt de werkstroom oproepen de beheerder van de inhoud van een installatiekopie API en wordt gecontroleerd of de `isAdult` gelijk is aan de uitvoer `true`.
-1. De **actie** moeten worden uitgevoerd als de voorwaarde wordt voldaan. In dit geval wordt de werkstroom maakt een beoordeling in het hulpprogramma controleren als de `isAdult` uitvoer is `true`.
+1. De **voorwaarde** voor de werkstroom moet worden geëvalueerd. In dit geval wordt de werkstroom aanroepen de Content Moderator van API en controles of afbeelding de `isAdult` uitvoer is gelijk aan `true`.
+1. De **actie** moeten worden uitgevoerd als de voorwaarde wordt voldaan. In dit geval wordt de werkstroom maakt een beoordeling in het beoordelingsprogramma als de `isAdult` uitvoer is `true`.
 
-![Inhoud beheerder standaardworkflow - ontwerpfunctie](images/default-workflow-designer.png)
+![Content Moderator standaardwerkstroom - ontwerpfunctie](images/default-workflow-designer.png)
 
 ### <a name="the-json-view"></a>De JSON-weergave
 
-Selecteer de **JSON** tabblad voor een overzicht van de JSON-definitie van de werkstroom.
+Selecteer de **JSON** tabblad om te bekijken van de JSON-definitie van de werkstroom.
 
     {
         "Type": "Logic",
@@ -76,27 +77,27 @@ Selecteer de **JSON** tabblad voor een overzicht van de JSON-definitie van de we
         }
     }
 
-### <a name="key-learning"></a>Sleutel learning
+### <a name="key-learning"></a>Belangrijkste learning
 
-De werkstromen in inhoud beheerder zijn eenvoudig te configureren en flexibele. Als de ingebouwde designer voldoet niet aan uw vereisten, de werkstroomdefinitie schrijven in de **JSON** indeling. Gebruik vervolgens de JSON-definitie met de [werkstroom API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) maken en beheren van de werkstroom van uw toepassing.
+De werkstromen in de Content Moderator zijn eenvoudig te configureren en flexibel. Als de ingebouwde ontwerpfunctie voldoet niet aan uw vereisten, schrijft u de definitie van de werkstroom in de **JSON** indeling. Gebruik vervolgens de JSON-definitie met de [werkstroom API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) maken en beheren van de werkstroom van uw toepassing.
 
-## <a name="define-a-custom-workflow"></a>Een aangepaste werkstroom definiëren
+## <a name="define-a-custom-workflow"></a>Een aangepaste werkstromen worden gedefinieerd
 
-Inhoud beheerder werkstroommogelijkheden toestaan definiëren en gebruik van aangepaste werkstromen. Gebruik de [tool-werkstromen how-to bekijken](Review-Tool-User-Guide/Workflows.md) artikel voor het definiëren van een aangepaste werkstroom. Deze werkstroom gebruikt inhoud beheerder OCR mogelijkheid voor tekst ophalen uit een voorbeeld van afbeelding. Vervolgens maakt u een beoordeling in het hulpprogramma voor beoordeling.
+Dankzij Content Moderator kunnen definiëren en gebruiken van aangepaste werkstromen. Gebruik de [tool-werkstromen procedures bekijken](Review-Tool-User-Guide/Workflows.md) artikel om een aangepaste werkstroom te definiëren. Content Moderator OCR mogelijkheid deze werkstroom gebruikt om tekst te extraheren uit een voorbeeldafbeelding. Vervolgens wordt een beoordeling in het controlehulpprogramma gemaakt.
 
 ### <a name="the-sample-image"></a>De installatiekopie van het voorbeeld
 
 Sla de [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) naar uw lokale schijf. Deze installatiekopie moet u voor uw oefening.
 
-### <a name="the-designer-view"></a>De ontwerpfunctie weergave
+### <a name="the-designer-view"></a>De designer-weergave
 
-Selecteer de **Designer** tabblad en de [werkstroom maken-zelfstudie](Review-Tool-User-Guide/Workflows.md) voor het definiëren van een aangepaste werkstroom. De volgende afbeelding toont de ontwerpfunctie **voorwaarde** weergeven. Raadpleeg de handleiding voor een overzicht van de rest van de stappen.
+Selecteer de **Designer** tabblad en de [werkstroom maken zelfstudie](Review-Tool-User-Guide/Workflows.md) om een aangepaste werkstroom te definiëren. De volgende afbeelding ziet u van de ontwerpfunctie **voorwaarde** weergeven. Raadpleeg de zelfstudie om te zien van de rest van de stappen.
 
-![Inhoud beheerder - werkstroom voorwaarde](Review-Tool-User-Guide/images/ocr-workflow-step-2-condition.PNG)
+![Content Moderator - werkstroom voorwaarde](Review-Tool-User-Guide/images/ocr-workflow-step-2-condition.PNG)
 
 ### <a name="the-json-view"></a>De JSON-weergave
 
-Selecteer de **JSON** tabblad voor een overzicht van de volgende JSON-definitie van uw aangepaste werkstroom. U ziet hoe de **als dan** instructies in de JSON-definitie overeenkomen met de stappen die u hebt gedefinieerd met behulp van de ontwerpfunctie weergave.
+Selecteer de **JSON** tabblad om te bekijken van de volgende JSON-definitie van uw aangepaste werkstroom. U ziet hoe de **als dan** instructies in de JSON-definitie komen overeen met de stappen die u hebt gedefinieerd met behulp van de ontwerpweergave.
 
     {
         "Type": "Logic",
@@ -130,31 +131,31 @@ Selecteer de **JSON** tabblad voor een overzicht van de volgende JSON-definitie 
         }
     }
 
-### <a name="workflow-result"></a>Resultaat van de werkstroom
+### <a name="workflow-result"></a>Resultaat werkstroom
 
-Nadat u de werkstroom vanaf het scherm werkstromen hebt getest, wordt de volgende evaluatie gemaakt. Navigeer naar de **installatiekopie** tabblad onder **bekijken** om te zien van uw beoordeling.
-De werkstroom gemaakt, de controle omdat de primaire voorwaarde getest positief op de aanwezigheid van tekst. De evaluatie gemarkeerd, zodat u de **`a`** tag op in de evaluatie van de installatiekopie.
+Nadat u de werkstroom van het scherm werkstromen hebt getest, wordt de volgende controle wordt gemaakt. Navigeer naar de **installatiekopie** tabblad onder **bekijken** om te zien van uw beoordeling.
+De werkstroom gemaakt, de beoordeling omdat de primaire voorwaarde getest op de aanwezigheid van tekst positief. De beoordeling gemarkeerd, zodat u de **`a`** tag op in de evaluatie van de installatiekopie.
 
-![Inhoud beheerder - eenvoudige werkstroom-uitvoer](images/ocr-sample-image-workflow1.PNG)
+![Content Moderator - eenvoudige werkstroom-uitvoer](images/ocr-sample-image-workflow1.PNG)
 
 
-## <a name="advanced-workflow-with-combination"></a>Geavanceerde werkstroom met een combinatie
+## <a name="advanced-workflow-with-combination"></a>Geavanceerde werkstroom met combinatie
 
 ### <a name="the-sample-image"></a>De installatiekopie van het voorbeeld
 
-Gebruik van dezelfde [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) die is gebruikt in de vorige sectie.
+Gebruik dezelfde [voorbeeldafbeelding](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) die is gebruikt in de vorige sectie.
 
-Dit keer ongeveer wijzigen echter uw primaire voorwaarde in een combinatie van twee controles. Naast het controleren van tekst, Controleer of de tekst eventuele taalgebruik heeft. De werkstroom maakt u een overzicht als tekst wordt gevonden **en** taalgebruik in het detecteert.
+Dit keer ongeveer wijzigen echter uw primaire voorwaarde in een combinatie van twee controles. Behalve dat wordt gecontroleerd voor tekst, Controleer of de tekst er ongepast taalgebruik heeft. De werkstroom een beoordeling wordt gemaakt als deze tekst wordt gevonden met **en** grof taalgebruik gedetecteerd in het.
 
-### <a name="the-designer-view"></a>De ontwerpfunctie weergave
+### <a name="the-designer-view"></a>De designer-weergave
 
 Wijzigen van de **voorwaarde** naar een **combinatie**, de werkstroom wijzigen. De volgende afbeelding toont de nieuwe weergave u ziet in de ontwerpfunctie.
 
-![Inhoud beheerder - gewijzigde werkstroom voorwaarde](images/ocr-workflow-2-designer.PNG)
+![Content Moderator - gewijzigde werkstroom voorwaarde](images/ocr-workflow-2-designer.PNG)
 
 ### <a name="the-json-view"></a>De JSON-weergave
 
-Selecteer de **JSON** tabblad voor een overzicht van de volgende JSON-definitie van de gewijzigde, aangepaste werkstroom. U ziet hoe de **als dan** instructies in de JSON-definitie overeenkomen met de nieuwe stappen die u hebt toegevoegd aan de werkstroom.
+Selecteer de **JSON** tabblad om te bekijken van de volgende JSON-definitie van de gewijzigde, aangepaste werkstroom. U ziet hoe de **als dan** instructies in de JSON-definitie komen overeen met de nieuwe stappen die u hebt toegevoegd aan de werkstroom.
 
     {
         "Type": "Logic",
@@ -201,45 +202,45 @@ Selecteer de **JSON** tabblad voor een overzicht van de volgende JSON-definitie 
     }
 
     
-### <a name="workflow-result"></a>Resultaat van de werkstroom
+### <a name="workflow-result"></a>Resultaat werkstroom
 
-Nadat u de werkstroom opnieuw hebt getest, kunt u vinden dat geen revisie is gemaakt. Om te bevestigen gebrek aan herzieningen, gaat u naar de **installatiekopie** tabblad onder **controleren**.
-De werkstroom heeft de controle niet maken omdat deze niet taalgebruik gedetecteerd in de uitgepakte tekst.
+Nadat u de werkstroom opnieuw hebt getest, kunt u vinden dat er geen beoordeling wordt gemaakt. Als u wilt controleren of het ontbreken van een beoordeling, gaat u naar de **installatiekopie** tabblad onder **bekijken**.
+De werkstroom is de revisie niet maken omdat er geen Detecteer grof taalgebruik in de geëxtraheerde tekst.
 
-![Inhoud beheerder - gewijzigde werkstroom-uitvoer](images/ocr-workflow-2-result.PNG)
+![Content Moderator - gewijzigde werkstroomuitvoer](images/ocr-workflow-2-result.PNG)
 
 
-## <a name="the-workflow-api"></a>De Workflow-API
+## <a name="the-workflow-api"></a>De werkstroom API
 
-De [werkstroombewerkingen](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) de programmeerinterface tot de workflow-mogelijkheden bieden. U werkstromen maken, Werkstroomdetails ophalen en bijwerken van werkstroomdefinities met behulp van de API van de werkstroom.
+De [werkstroombewerkingen](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) bieden de programmeerinterface tot de werkstroommogelijkheden. U werkstromen maken, Werkstroomdetails van ophalen en bijwerken van werkstroomdefinities van de met behulp van de werkstroom-API.
 
-### <a name="get-all-workflow-details"></a>Details van de workflow GET [All]
+### <a name="get-all-workflow-details"></a>Details van de werkstroom opvragen [All]
 
-De **werkstroom Get-** bewerking accepteert de volgende invoer:
+De **werkstroom Get** bewerking accepteert de invoer van de volgende:
 
 - **team**: de team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: de naam van uw werkstroom. Gebruik `default` beginnen.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie [overzicht](overview.md).
+- **workflowname**: de naam van uw werkstroom. Gebruik `default` begint met.
+- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
 
-Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK` en de **antwoordinhoud** vak de werkstroomdefinitie wordt weergegeven in de JSON-indeling.
-Lees voor meer informatie de [werkstroom API console Quick Start](try-review-api-job.md).
+Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK` en de **antwoordinhoud** in het definitie van de werkstroom weergegeven in de JSON-indeling.
+Lees voor meer informatie de [werkstroom API-console snelstartgids](try-review-api-job.md).
 
 ### <a name="create-or-update-workflow"></a>Maken of bijwerken van de werkstroom
 
-Het maken en de update opnieuw kunt maken van de werkstroom van de API.
+De bewerking voor het maken en bijwerken kunt het maken van de werkstroom van de API.
 
-De **werkstroom maken of bijwerken** bewerking accepteert de volgende invoer:
+De **werkstroom maken of bijwerken** bewerking accepteert de invoer van de volgende:
 
 - **team**: de team-ID die u hebt gemaakt bij het instellen van uw [hulpprogramma account controleren](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: de naam van uw werkstroom. Gebruik `default` beginnen.
-- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie [overzicht](overview.md).
+- **workflowname**: de naam van uw werkstroom. Gebruik `default` begint met.
+- **OCP-Apim-Subscription-Key**: zich op de **instellingen** tabblad. Zie voor meer informatie, [overzicht](overview.md).
 
-Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK` en de **antwoordinhoud** bevat `true`. Voor meer informatie, [uitprobeert de `Create` bewerking](try-review-api-job.md).
+Als de bewerking is geslaagd, de **antwoordstatus** is `200 OK` en de **antwoordinhoud** bevat `true`. Voor meer informatie, [testen de `Create` bewerking](try-review-api-job.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Bekijk voor meer informatie over het maken van aangepaste werkstromen, de [bekijken van het hulpprogramma werkstroom zelfstudie](Review-Tool-User-Guide/Workflows.md). 
 
-Uitprobeert de [werkstroom API console](try-review-api-job.md) en de REST-API-codevoorbeelden gebruiken. 
+U kunt uitproberen de [werkstroom API-console](try-review-api-job.md) en gebruiken van de REST-API-codevoorbeelden. 
 
-Gebruik tot slot uw aangepaste werkstromen met de **taak** bewerkingen shon in [taak API console](try-review-api-job.md) en de [taken .NET Quick Start](moderation-jobs-quickstart-dotnet.md).
+Gebruik ten slotte uw aangepaste werkstromen met de **taak** bewerkingen uitvoeren als shon in [taak API-console](try-review-api-job.md) en de [Snelstartgids voor .NET-taken](moderation-jobs-quickstart-dotnet.md).

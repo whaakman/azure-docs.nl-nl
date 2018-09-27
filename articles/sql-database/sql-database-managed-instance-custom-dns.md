@@ -2,20 +2,22 @@
 title: Azure SQL Database Managed Instance aangepaste DNS | Microsoft Docs
 description: Dit onderwerp beschrijft de configuratie-opties voor een aangepaste DNS-server met een Azure SQL Database Managed Instance.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949482"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224270"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Een aangepaste DNS configureren voor Azure SQL Database Managed Instance
 
@@ -36,7 +38,7 @@ Als u wilt maken van een aangepaste DNS-configuratie is compatibel met het behee
    ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Lijst met niet instellen van Azure recursieve naamomzetting in DNS zorgt ervoor dat het beheerde exemplaar in te voeren van slechte staat. Herstellen vanaf dat staat mogelijk moet u nieuwe instantie in een VNet aan het nalevingsbeleid voor netwerken, serviceniveau-Instantiegegevens maken en herstellen van uw databases. Zie [VNet-configuratie](sql-database-managed-instance-vnet-configuration.md).
+   > Instelling van Azure recursieve naamomzetting in de lijst met DNS kan leiden tot het beheerde exemplaar in te voeren een beschadigde status waarbij de aangepaste DNS-servers om een bepaalde reden niet beschikbaar zijn. Herstellen vanaf dat staat mogelijk moet u nieuwe instantie in een VNet aan het nalevingsbeleid voor netwerken, serviceniveau-Instantiegegevens maken en herstellen van uw databases. Instelling van de Azure recursieve naamomzetting omdat de laatste vermelding in de lijst met DNS-zorgt ervoor dat, zelfs als alle aangepaste DNS-servers mislukt, kunnen openbare namen nog steeds worden opgelost. Zie [VNet-configuratie](sql-database-managed-instance-vnet-configuration.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

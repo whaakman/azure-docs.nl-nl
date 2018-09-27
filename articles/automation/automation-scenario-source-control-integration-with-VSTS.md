@@ -9,12 +9,12 @@ ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual
 ms.date: 03/19/2017
-ms.openlocfilehash: 022fca09b9e748c030df6b5fc944f7930942a6f7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ef21060e98972dd7bc561f9a4311fa0c4bdec3b4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302405"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227058"
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-azure-devops"></a>Azure Automation-scenario: Automation integratie van broncodebeheer met Azure DevOps
 
@@ -47,7 +47,7 @@ Maak een [beveiligde variabele](automation-variables.md) in uw automation-accoun
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Importeer het runbook dat worden gesynchroniseerd met uw runbooks of configuraties in het automation-account. U kunt de [voorbeeldrunbook Azure DevOps](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) of de [Azure DevOps met Git voorbeeldrunbook](https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) vanuit de PowerShellGallery.com afhankelijk van of u met Azure DevOps-broncodebeheer of Azure DevOps met Git en implementeren naar uw automation-account.
+Importeer het runbook dat worden gesynchroniseerd met uw runbooks of configuraties in het automation-account. Kunt u de [Azure DevOps-voorbeeldrunbook](https://www.powershellgallery.com/packages/Sync-VSTS) of de [Azure DevOps met Git voorbeeldrunbook](https://www.powershellgallery.com/packages/Sync-VSTSGit) uit de [PowerShell Gallery](https://www.powershellgallery.com) afhankelijk van of u Azure DevOps-bron besturingselement of Azure DevOps met Git en implementeren in uw automation-account.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 

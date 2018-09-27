@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634498"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227364"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Facturering en de kosten management automation-scenario 's
 
@@ -95,7 +95,7 @@ U kunt de facturering en beheer-API's in een verscheidenheid aan scenario's voor
 ### <a name="what-is-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Wat is het verschil tussen de Enterprise Reporting API's en de API-verbruik? Wanneer moet ik elke gebruiken?
 Deze API's hebben een aantal soortgelijke functionaliteit en de dezelfde breed scala aan vragen in de ruimte facturering en cost management kunnen beantwoorden. Elke API zijn echter bedoeld voor verschillende doelgroepen: 
 
-- **Enterprise Reporting API's**: deze API's zijn beschikbaar voor klanten die zich hebben aangemeld voor een Enterprise Agreement van Microsoft die deze toegang tot in de onderhandelde monetaire toezeggingen en aangepaste prijzen verleent. De API's vereisen een sleutel te gebruiken die kan worden verkregen via de [Enterprise Portal](https://ea.azure.com). Voor een beschrijving van deze API's, Zie [overzicht van de rapportage-API's voor zakelijke klanten](billing-enterprise-api.md).
+- **Enterprise Reporting API's**: deze API's zijn beschikbaar voor klanten die zich hebben aangemeld voor een Enterprise Agreement van Microsoft die deze toegang tot in de onderhandelde monetaire toezeggingen en aangepaste prijzen verleent. De API's vereisen een sleutel te gebruiken die kan worden verkregen via de [Enterprise Portal](https://ea.azure.com). Zie voor een beschrijving van deze API's, [overzicht van de rapportage-API's voor zakelijke klanten](billing-enterprise-api.md).
 
 - **Gebruik API's**: deze API's zijn beschikbaar voor alle klanten, met een paar uitzonderingen. Zie voor meer informatie, [overzicht van Azure-verbruik API](billing-consumption-api-overview.md) en de [Azure-verbruik API-verwijzingen](https://docs.microsoft.com/rest/api/consumption/). De opgegeven API's zijn de aanbevolen oplossing voor de meest recente ontwikkelscenario's. 
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 00d79462fcaad785820e3879079414c88c958a89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961481"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220564"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Key Vault met de Azure CLI beheren 
 
-In dit artikel wordt uitgelegd hoe u aan de slag met Azure Key Vault met behulp van de Azure CLI.  U ziet informatie op:
+In dit artikel wordt uitgelegd hoe u aan de slag met Azure Key Vault met de Azure CLI.  U ziet informatie op:
 
 - Over het maken van een geharde container (een kluis) in Azure
 - Een sleutel, het geheim of het certificaat toe te voegen aan de sleutelkluis

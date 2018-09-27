@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123885"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221091"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -32,7 +32,7 @@ Als u wilt controleren-eindpunt configureren, moet u de volgende instellingen op
 * **Protocol**. Kies HTTP, HTTPS of TCP als protocol gebruikt bij het scannen van het eindpunt van Traffic Manager, om te controleren of de status. Bewaking van HTTPS wordt niet gecontroleerd dat of uw SSL-certificaat geldig is--er alleen wordt gecontroleerd of het certificaat aanwezig is.
 * **Poort**. Kies de poort die wordt gebruikt voor de aanvraag.
 * **Pad**. Deze configuratie-instelling is alleen geldig voor de protocollen HTTP en HTTPS, voor welke opgeven van het pad naar de instelling vereist is. Het leveren van deze instelling voor de TCP-protocol resulteert in een fout bewaking. Geef het relatieve pad en de naam van de webpagina of het bestand dat gebruikmaakt van de bewaking voor HTTP en HTTPS-protocol. Een slash (/) is een geldige vermelding voor het relatieve pad. Deze waarde geeft aan dat het bestand in de hoofdmap (standaard is).
-* **Instellingen voor aangepaste header** dit configuratie-instelling kunt u toevoegen aan specifieke HTTP-headers voor de status controleert Traffic Manager verzendt naar eindpunten onder een profiel toevoegen. De aangepaste kopteksten kunnen worden opgegeven op het niveau van een profiel van toepassing zijn voor alle eindpunten in dit profiel en/of op het niveau van een eindpunt alleen van toepassing op dit eindpunt. U kunt aangepaste headers gebruiken voor het met statuscontroles naar eindpunten in een omgeving met meerdere tenants correct worden doorgestuurd naar de bestemming door een host-header op te geven. U kunt deze instelling ook gebruiken door toe te voegen unieke kopteksten die kunnen worden gebruikt voor het identificeren van Traffic Manager afkomstig is van HTTP (S)-aanvragen en ze anders verwerkt.
+* **Instellingen voor aangepaste header** deze configuratie-instelling kunt u specifieke HTTP-headers voor de status controleert Traffic Manager verzendt naar eindpunten onder een profiel. De aangepaste kopteksten kunnen worden opgegeven op het niveau van een profiel van toepassing zijn voor alle eindpunten in dit profiel en/of op het niveau van een eindpunt alleen van toepassing op dit eindpunt. U kunt aangepaste headers gebruiken voor het met statuscontroles naar eindpunten in een omgeving met meerdere tenants correct worden doorgestuurd naar de bestemming door een host-header op te geven. U kunt deze instelling ook gebruiken door toe te voegen unieke kopteksten die kunnen worden gebruikt voor het identificeren van Traffic Manager afkomstig is van HTTP (S)-aanvragen en ze anders verwerkt.
 * **Verwachte status code bereiken** deze instelling kunt u meerdere succes code bereiken in de indeling 200 299, 301 301 opgeven. Als deze statuscodes zijn ontvangen als antwoord van een eindpunt als een controle van gatewayservicestatus is gestart, worden deze eindpunten als in orde gemarkeerd in Traffic Manager. U kunt maximaal 8 statusbereik code opgeven. Deze instelling geldt alleen voor HTTP en HTTPS-protocol en voor alle eindpunten. Deze instelling is op het niveau van het Traffic Manager-profiel en wordt standaard de waarde 200 is gedefinieerd als de code van de status geslaagd.
 * **Testinterval**. Deze waarde wordt bepaald hoe vaak een eindpunt is ingeschakeld voor de status van een testinterval Traffic Manager-agent. U kunt hier de twee waarden opgeven: 30 seconden (normaal zoeken) en 10 seconden (snelle probing). Als er geen waarden zijn opgegeven, wordt het profiel wordt ingesteld op een standaardwaarde van 30 seconden. Ga naar de [prijzen van Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pagina voor meer informatie over de prijzen voor snelle testinterval.
 * **Aantal mislukte aanmeldingen getolereerd**. Deze waarde wordt bepaald hoeveel storingen die een testinterval Traffic Manager-agent maximaal voordat u dit eindpunt als niet in orde markeert wordt toegestaan. De waarde kan liggen tussen 0 en 9. Een waarde van 0 wordt aangegeven dat een controle storing kan leiden tot dit eindpunt moet worden gemarkeerd als niet in orde. Als er geen waarde is opgegeven, wordt de standaardwaarde van 3.

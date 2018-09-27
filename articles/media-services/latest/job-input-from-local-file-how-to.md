@@ -1,32 +1,32 @@
 ---
-title: De invoer van een Azure Media Services-taak maken op basis van een lokaal bestand | Microsoft Docs
-description: Dit onderwerp leest het maken van een taak voor invoer van een lokaal bestand.
+title: Maak een Azure Media Services-taak van een lokaal bestand | Microsoft Docs
+description: In dit onderwerp laat zien hoe de Taakinvoer van een maken vanuit een lokaal bestand.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 94e7192e13397ad8ec973d92f4c538f430c9cd60
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 66bd03b03289f568c019588f1b8ac1317ab9c076
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160002"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222011"
 ---
-# <a name="create-a-job-input-from-a-local-file"></a>De invoer van een taak maken op basis van een lokaal bestand
+# <a name="create-a-job-input-from-a-local-file"></a>De Taakinvoer van een maken vanuit een lokaal bestand
 
-In Media Services-v3 bij het verzenden van taken voor het verwerken van uw video's, hebt u Media Services uitgelegd waar vind ik het invoervideo. De invoer video kan worden opgeslagen als een activum Media-Service in dat geval het maken van een invoer asset op basis van een bestand (lokaal of in Azure Blob-opslag is opgeslagen). Dit onderwerp leest het maken van een taak voor invoer van een lokaal bestand. Zie voor een compleet voorbeeld [github voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
+Wanneer u taken voor het verwerken van uw video's, verzendt in Media Services v3 hebt u Media Services zien waar vind ik de invoervideo. De invoervideo kan worden opgeslagen als een activum van Media Service, in welk geval het maken van een invoer asset op basis van een bestand (lokaal of in Azure Blob-opslag opgeslagen). In dit onderwerp laat zien hoe de Taakinvoer van een maken vanuit een lokaal bestand. Zie voor een compleet voorbeeld [github voorbeeld](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs).
 
 ## <a name="net-sample"></a>.NET-voorbeeld
 
-De volgende code laat zien hoe een invoer-activum maken en deze gebruiken als invoer voor de taak. De functie CreateInputAsset voert de volgende acties:
+De volgende code laat zien hoe een invoer asset maken en gebruiken als de invoer voor de taak. De functie CreateInputAsset voert de volgende handelingen uit:
 
-* De Asset gemaakt 
+* Hiermee maakt u de Asset 
 * Haalt een beschrijfbare [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) voor de [container in opslag](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) van de asset
 * Uploadt het bestand naar de container in opslag met de SAS-URL
 
@@ -36,4 +36,4 @@ De volgende code laat zien hoe een invoer-activum maken en deze gebruiken als in
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maken van een taak voor invoer van de URL van een HTTP (s)](job-input-from-http-how-to.md).
+[De Taakinvoer van een maken van een HTTPS-URL](job-input-from-http-how-to.md).

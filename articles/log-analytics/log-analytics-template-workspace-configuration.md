@@ -15,31 +15,31 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 314b3b5ae331d562b13ba593d5f9b35b87786003
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132949"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225545"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
-U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:
+U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met sjablonen uitvoeren kunt zijn:
 
-* Een werkruimte inclusief prijscategorie instelling maken 
+* Een werkruimte met inbegrip van de prijscategorie instelling maken 
 * Een oplossing toevoegen
 * Opgeslagen zoekopdrachten maken
-* Maak een computergroep
-* Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
-* Verzamelen van prestatiemeteritems van Linux- en Windows-computers
+* Een computergroep maken
+* Verzamelen van IIS-logboeken van computers met de Windows-agent is geïnstalleerd
+* Verzamelen van prestatiemeteritems van Linux en Windows-computers
 * Gebeurtenissen verzamelen van syslog op Linux-computers 
-* Verzamelen van gebeurtenissen van Windows-gebeurtenislogboeken
-* Log analytics agent toevoegen aan een virtuele machine van Azure
-* Log analytics om gegevens te indexeren verzameld met behulp van Azure diagnostics configureren
+* Gebeurtenissen verzamelen van Windows-gebeurtenislogboeken
+* De log analytics-agent toevoegen aan een virtuele machine van Azure
+* Log analytics om gegevens te indexeren die zijn verzameld met behulp van Azure diagnostics configureren
 
-In dit artikel vindt u voorbeelden van een sjabloon die illustratie van enkele van de configuratie die u met behulp van sjablonen uitvoeren kunt.
+In dit artikel bevat voorbeelden van een sjabloon die laten zien van bepaalde onderdelen van de configuratie die u met sjablonen kunt uitvoeren.
 
 ## <a name="api-versions"></a>API-versies
-De volgende tabel bevat de API-versie voor de resources in dit voorbeeld gebruikt.
+De volgende tabel bevat de API-versie voor de resources die in dit voorbeeld worden gebruikt.
 
 | Resource | Resourcetype | API-versie |
 |:---|:---|:---|:---|
@@ -49,18 +49,18 @@ De volgende tabel bevat de API-versie voor de resources in dit voorbeeld gebruik
 | Oplossing    | oplossingen     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte maken
-Het volgende voorbeeld wordt een werkruimte met een sjabloon van uw lokale computer. Het JSON-sjabloon is geconfigureerd om te vragen u alleen voor de naam van de werkruimte en geeft een standaardwaarde voor de parameters die waarschijnlijk moet worden gebruikt als een standaardconfiguratie in uw omgeving.  
+Het volgende voorbeeld wordt een werkruimte met behulp van een sjabloon van uw lokale computer. De JSON-sjabloon is geconfigureerd om te vragen u alleen voor de naam van de werkruimte en een standaardwaarde opgegeven voor de andere parameters die waarschijnlijk moet worden gebruikt als een standaardconfiguratie in uw omgeving.  
 
-De volgende parameters instellen een standaardwaarde:
+De volgende parameters instelt een standaardwaarde:
 
-* Locatie - standaard ingesteld op VS-Oost
-* SKU - standaard ingesteld op de nieuwe Per GB prijscategorie uitgebracht in de 2018 April model prijzen
+* locatie - standaard ingesteld op VS-Oost
+* SKU - standaard ingesteld op de nieuwe prijzen Per GB-laag met de uitgebracht in April 2018 prijsmodel
 
 >[!WARNING]
->Als het maken en configureren van een werkruimte voor logboekanalyse in een abonnement dat in de nieuwe April 2018 prijzen model heeft gekozen, is het de enige geldige logboekanalyse prijscategorie **PerGB2018**. 
+>Als het maken of configureren van een Log Analytics-werkruimte in een abonnement dat is deelneemt aan het nieuwe prijsmodel April 2018, is het de enige geldige Log Analytics prijscategorie **PerGB2018**. 
 >
 
-### <a name="create-and-deploy-template"></a>Maken en implementeren van sjabloon
+### <a name="create-and-deploy-template"></a>Sjabloon maken en implementeren
 
 1. Kopieer en plak de volgende JSON-syntaxis in het bestand:
 
@@ -97,7 +97,7 @@ De volgende parameters instellen een standaardwaarde:
             "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          },
+          }
     },
     "resources": [
         {
@@ -117,9 +117,9 @@ De volgende parameters instellen een standaardwaarde:
        ]
     }
     ```
-2. Bewerk de sjabloon om te voldoen aan uw vereisten.  Bekijk [Microsoft.OperationalInsights/workspaces sjabloon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) verwijzing naar meer informatie over welke eigenschappen en waarden worden ondersteund. 
+2. De sjabloon bijwerken om aan uw eisen voldoen.  Beoordeling [Microsoft.OperationalInsights/workspaces sjabloon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) verwijzing voor meer informatie over welke eigenschappen en waarden worden ondersteund. 
 3. Sla dit bestand als **deploylaworkspacetemplate.json** naar een lokale map.
-4. U kunt deze sjabloon nu implementeren. U PowerShell of de opdrachtregel om de werkruimte cretae te gebruiken.
+4. U kunt deze sjabloon nu implementeren. U gebruikt PowerShell of de opdrachtregel voor het cretae de werkruimte.
 
    * Gebruik de volgende opdrachten uit de map met de sjabloon voor PowerShell:
    
@@ -134,20 +134,20 @@ De volgende parameters instellen een standaardwaarde:
         azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
         ```
 
-De implementatie kan enkele minuten duren. Wanneer deze is voltooid, ziet u een bericht dat lijkt op de volgende die het resultaat bevat:<br><br> ![Voorbeeld van resultaat wanneer de implementatie is voltooid](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+De implementatie kan enkele minuten duren. Als deze is voltooid, ziet u een bericht dat lijkt op de volgende mogelijkheden van het resultaat:<br><br> ![Voorbeeld van resultaat wanneer de implementatie is voltooid](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## <a name="configure-a-log-analytics-workspace"></a>Configureren van een werkruimte voor logboekanalyse
-De volgende sjabloon voorbeeld ziet u hoe:
+## <a name="configure-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte configureren
+De volgende sjabloon voorbeeld ziet u hoe u:
 
 1. Oplossingen toevoegen aan de werkruimte
 2. Opgeslagen zoekopdrachten maken
-3. Maak een computergroep
-4. Verzamelen van IIS-logboeken van computers met de Windows-agent die is geïnstalleerd
+3. Een computergroep maken
+4. Verzamelen van IIS-logboeken van computers met de Windows-agent is geïnstalleerd
 5. Verzamelen van prestatiemeteritems voor logische schijf van Linux-computers (% gebruikte Inodes Beschikbare Megabytes; Percentage gebruikte ruimte; Schijfoverdrachten per seconde; Schijf lezen per seconde; Schijf schrijven per seconde)
 6. Syslog-gebeurtenissen verzamelen van Linux-computers
-7. Fout- en waarschuwingsberichten gebeurtenissen verzamelen uit het gebeurtenislogboek van toepassing op Windows-computers
+7. Fout- en waarschuwingsberichten gebeurtenissen verzamelen van het logboek voor toepassingsgebeurtenissen van Windows-computers
 8. Beschikbaar geheugen in megabytes-prestatiemeteritem verzamelen van Windows-computers
-9. IIS-logboeken en Windows-gebeurtenislogboeken is geschreven door Azure diagnostische gegevens naar een opslagaccount verzamelen
+9. Verzamelen van IIS-logboeken en Windows-gebeurtenislogboeken die is geschreven door Azure diagnostics naar een opslagaccount
 
 ```json
 {
@@ -497,8 +497,8 @@ De volgende sjabloon voorbeeld ziet u hoe:
 De voorbeeldsjabloon implementeren:
 
 1. De gekoppelde steekproef bijvoorbeeld in een bestand opslaan `azuredeploy.json` 
-2. De sjabloon om de gewenste configuratie bewerken
-3. Gebruik PowerShell of de opdrachtregel om de sjabloon te implementeren
+2. De sjabloon bijwerken om de gewenste configuratie
+3. PowerShell of de opdrachtregel gebruiken om de sjabloon te implementeren
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
@@ -512,15 +512,15 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 ```
 
 ## <a name="example-resource-manager-templates"></a>Voorbeeld van de Resource Manager-sjablonen
-De Azure quickstart-sjablonengalerie bevat verschillende sjablonen voor logboekanalyse, met inbegrip van:
+De galerie van Azure-quickstart-sjabloon bevat verschillende sjablonen voor Log Analytics, met inbegrip van:
 
-* [Een virtuele machine met Windows met de extensie Log Analytics VM implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Een virtuele machine waarop Linux wordt uitgevoerd met de extensie Log Analytics VM implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Azure Site Recovery met behulp van een bestaande werkruimte voor logboekanalyse bewaken](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Bewaak Web-Apps van Azure met behulp van een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Implementeren van een virtuele machine met Windows met de Log Analytics VM-extensie](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Implementeer een virtuele machine waarop Linux wordt uitgevoerd met de Log Analytics VM-extensie](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Monitor voor Azure Site Recovery met behulp van een bestaande Log Analytics-werkruimte](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Monitor voor Azure Web Apps met behulp van een bestaande Log Analytics-werkruimte](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [Een bestaand opslagaccount toevoegen aan OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Windows-agent implementeren op Azure VM's met behulp van Resource Manager-sjabloon](../virtual-machines/windows/extensions-oms.md).
-* [Linux-agent implementeren op Azure VM's met behulp van Resource Manager-sjabloon](../virtual-machines/linux/extensions-oms.md).
+* [Windows-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/windows/extensions-oms.md).
+* [Linux-agent implementeren op virtuele Azure-machines met behulp van Resource Manager-sjabloon](../virtual-machines/linux/extensions-oms.md).
 

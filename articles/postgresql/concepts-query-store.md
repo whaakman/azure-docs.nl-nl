@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953020"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393484"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Prestaties bijhouden met de Query Store
 
 **Is van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
 
 > [!IMPORTANT]
-> De functie voor Query Store is in openbare Preview.
+> De functie voor Query Store is in openbare Preview in een beperkt aantal regio's.
 
 
 De functie voor Query Store in Azure Database for PostgreSQL biedt een manier voor het bijhouden van prestaties van query's na verloop van tijd. Query Store vereenvoudigt het door u te helpen snel problemen met prestaties vinden het langst lopende en meest resource-intensieve query's. Query Store automatisch een geschiedenis van query's en runtime-statistieken worden vastgelegd en behoudt hij ze controleren. Deze scheidt gegevens door tijdvensters zodat u databasegebruikspatronen kunt zien. Gegevens voor alle gebruikers, databases en query's worden opgeslagen in een database met de naam **azure_sys** in de Azure Database for PostgreSQL-exemplaar.
@@ -117,7 +117,7 @@ In deze weergave retourneert alle gegevens in Query Store. Er is één rij voor 
 |ID   |bigint  || Interne hash-code, berekend vanaf parseringsstructuur van de instructie|
 |query_sql_text |Varchar(10000)  || Tekst van een representatieve instructie. Verschillende query's met dezelfde structuur zijn samen; geclusterd Deze tekst is de tekst voor de eerste dag van de query's in het cluster.|
 |het queryplan    |bigint |   |ID van het abonnement nog overeenkomt met deze query is niet beschikbaar|
-|start_time |tijdstempel  ||  Query's worden samengevoegd per keer buckets - de tijdsduur van een bucket is 15 minuten standaard maar kunnen worden geconfigureerd. Dit is de begintijd die overeenkomt met het tijdsinterval voor deze vermelding.|
+|start_time |tijdstempel  ||  Query's worden samengevoegd per keer buckets - de tijdsduur van een bucket is 15 minuten standaard. Dit is de begintijd die overeenkomt met het tijdsinterval voor deze vermelding.|
 |end_time   |tijdstempel  ||  De eindtijd die overeenkomt met het tijdsinterval voor deze vermelding.|
 |oproepen  |bigint  || Aantal keren dat de query wordt uitgevoerd|
 |TOTAL_TIME |dubbele precisie   ||  Totaal aantal query uitvoeringstijd, in milliseconden|
@@ -168,6 +168,10 @@ Query_store.qs_reset() geeft als resultaat void
 Query_store.staging_data_reset() geeft als resultaat void
 
 `staging_data_reset` Hiermee verwijdert alle statistische gegevens die in het geheugen worden verzameld door de Query Store (dat wil zeggen, de gegevens in het geheugen dat niet is verwijderd, maar met de database). Deze functie kan alleen worden uitgevoerd door de rol van de server-beheerder.
+
+## <a name="limitations-and-known-issues"></a>Beperkingen en bekende problemen
+- Als een PostgreSQL-server heeft de parameter-default_transaction_read_only op, kan geen gegevens vastleggen in Query Store.
+- Query Store functionaliteit kan worden onderbroken als er lange Unicode-query's (> = 6000 bytes).
 
 
 ## <a name="next-steps"></a>Volgende stappen

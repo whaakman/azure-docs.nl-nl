@@ -10,22 +10,26 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: c357026e20ff402dd7236bd8db7fe2abe488bc39
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 673b8ddf3ed07507cbce4b54e9b8a488cb3ac689
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954242"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166602"
 ---
-# <a name="prepare-data-with-the-azure-machine-learning-data-prep-sdk-for-python"></a>Gegevens voorbereiden met de Azure Machine Learning Data Prep SDK voor Python
+# <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Gegevens voorbereiden voor modellen met Azure Machine Learning
  
-Voorbereiden van gegevens is een belangrijk onderdeel van een machine learning-werkstroom. Uw modellen worden meer nauwkeurige en efficiënte als ze toegang hebben tot het opschonen van gegevens in een indeling die is het eenvoudiger om te gebruiken. U kunt de [SDK van Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) laden van gegevens van verschillende indelingen en die gegevens schrijven naar een locatie voor uw modellen voor toegang tot deze beter bruikbaar transformeren. 
+Voorbereiden van gegevens is een belangrijk onderdeel van een machine learning-werkstroom. Uw modellen worden meer nauwkeurige en efficiënte als ze toegang hebben tot het opschonen van gegevens in een indeling die is het eenvoudiger om te gebruiken. 
 
+U kunt uw gegevens in met behulp van Python voorbereiden de [SDK van Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py). 
 
-## <a name="steps-for-data-preparation-with-azure-machine-learning"></a>Stappen voor gegevensvoorbereiding met Azure Machine Learning 
-1. [Gegevens laden](how-to-load-data.md )
-2. [Gegevens transformeren](how-to-transform-data.md )
-3. [Gegevens schrijven](how-to-write-data.md )
+## <a name="data-preparation-pipeline"></a>Voorbereiding van gegevenspijplijn
+
+De belangrijkste stappen voor gegevensvoorbereiding zijn:
+
+1. [Gegevens laden](how-to-load-data.md), wat kan zijn in verschillende indelingen
+2. [Transformeren](how-to-transform-data.md) deze in een beter bruikbaar structuur
+3. [Schrijven](how-to-write-data.md) die gegevens naar een locatie die toegankelijk is voor uw modellen
 
 ![Gegevens voorbereiden](./media/concept-data-preparation/data-prep-process.png)
 

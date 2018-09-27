@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688725"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225722"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>De StorSimple Device Manager-service gebruiken voor het beheren van uw opslagaccountreferenties
 
@@ -143,7 +143,7 @@ Wanneer u een opslagaccount maakt, genereert Microsoft Azure twee 512-bits opsla
 
 Toepassingen gebruiken normaal gesproken alleen een van de sleutels voor toegang tot uw gegevens. Na een bepaalde periode, kunt u uw toepassingen zijn overgestapt naar het met behulp van de tweede sleutel hebben. Nadat u uw toepassingen naar de secundaire sleutel hebt overgeschakeld, kunt u de eerste sleutel buiten gebruik stellen en vervolgens een nieuwe sleutel te genereren. Met behulp van de twee sleutels op deze manier kunt uw toepassingen toegang tot de gegevens zonder enige uitvaltijd.
 
-De opslagaccountsleutels zijn altijd in de service in een versleutelde vorm opgeslagen. Deze kunnen echter worden hersteld via de StorSimple Device Manager-service. De service krijgen de primaire en secundaire sleutel voor alle opslagaccounts in hetzelfde abonnement, met inbegrip van accounts die zijn gemaakt in de Storage-service, evenals de standaard-storage-accounts die worden gegenereerd wanneer de StorSimple Device Manager-service is eerst wordt gemaakt. De StorSimple Device Manager-service wordt altijd kunnen genieten van deze sleutels van de klassieke Azure portal en deze vervolgens opslaan in een versleutelde manier.
+De opslagaccountsleutels zijn altijd in de service in een versleutelde vorm opgeslagen. Deze kunnen echter worden hersteld via de StorSimple Device Manager-service. De service krijgen de primaire en secundaire sleutel voor alle opslagaccounts in hetzelfde abonnement, met inbegrip van accounts die zijn gemaakt in de Storage-service, evenals de standaard-storage-accounts die worden gegenereerd wanneer de service StorSimple Device Manager voor het eerst werd gemaakt. De StorSimple Device Manager-service wordt altijd kunnen genieten van deze sleutels van de klassieke Azure portal en deze vervolgens opslaan in een versleutelde manier.
 
 ## <a name="rotation-workflow"></a>Rotatie van werkstroom
 

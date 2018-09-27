@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2018
+ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e98012a012c8569a40fe454a777e5f108bfe0e2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311043"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224117"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatische upgrade
 Deze functie is ingevoerd met build [1.1.105.0 (uitgebracht februari 2016)](reference-connect-version-history.md#111050).  Deze functie is bijgewerkt in [1.1.561 bouwen](reference-connect-version-history.md#115610) en biedt nu ondersteuning voor aanvullende scenario's die niet eerder werden ondersteund.
@@ -39,7 +39,7 @@ De huidige status van de automatische upgrade kan worden weergegeven met de Powe
 | Status | Opmerking |
 | --- | --- |
 | Ingeschakeld |Automatisch bijwerken is ingeschakeld. |
-| Uitgesteld |Door het systeem alleen ingesteld. Het systeem is niet langer in aanmerking voor automatische upgrades. |
+| Uitgesteld |Door het systeem alleen ingesteld. Het systeem is **momenteel niet** in aanmerking voor automatische upgrades. |
 | Uitgeschakeld |Automatisch bijwerken is uitgeschakeld. |
 
 U kunt wisselen tussen **ingeschakeld** en **uitgeschakelde** met `Set-ADSyncAutoUpgrade`. Alleen het systeem moet de status ingesteld **onderbroken**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 00/19/2018
 ms.author: genli
-ms.openlocfilehash: 6525067ec7a7a3154d1439f15736a1038ab0408c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a029e331129d40b0380fc142d858aa299b7751b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167914"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225443"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows wordt een blauw scherm fout weergegeven wanneer een Azure-VM wordt opgestart
 Dit artikel wordt beschreven blauw scherm fouten die optreden kunnen tijdens het opstarten van een Windows virtuele Machine (VM) in Microsoft Azure. Het bevat stappen voor het verzamelen van gegevens voor een ondersteuningsticket. 
@@ -43,7 +43,7 @@ Er zijn mogelijk meerdere redenen als waarom u een fout stoppen krijgt. De meest
 - Beschadigde systeembestand of geheugen
 - Een toepassing toegang heeft tot een niet-toegestane sector van het geheugen
 
-## <a name="solution"></a>Oplossing
+## <a name="collect-memory-dump-file"></a>Een geheugendumpbestand verzamelen
 
 U lost dit probleem, moet u eerst om te verzamelen dumpbestand voor de crash en neem contact op met de ondersteuning met het dumpbestand. Volg deze stappen voor het verzamelen van het dumpbestand:
 
@@ -53,7 +53,7 @@ U lost dit probleem, moet u eerst om te verzamelen dumpbestand voor de crash en 
 2. [De besturingssysteemschijf koppelen aan een virtuele machine voor herstel](troubleshoot-recovery-disks-portal.md). 
 3. Extern bureaublad op de virtuele machine voor herstel.
 
-### <a name="collect-dump-file-and-submit-a-support-ticket"></a>Verzamelen van dumpbestand en verzend een ondersteuningsticket
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Zoek dumpbestand en verzend een ondersteuningsticket
 
 1. Op de virtuele machine voor herstel, gaat u naar de map windows in de gekoppelde besturingssysteemschijf. Als de stationsletter die is toegewezen aan de gekoppelde besturingssysteemschijf F is, moet u gaat u naar F:\Windows.
 2. Zoek het dumpbestand th, en vervolgens [verzend een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) met het dumpbestand. 

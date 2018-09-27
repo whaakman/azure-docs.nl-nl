@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 984185febf770ae10a021d129b0ef6c43da4d0f1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032764"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223607"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Een Azure AD-identiteit gebruiken voor toegang tot Azure Storage met CLI of PowerShell (Preview)
 
@@ -75,13 +75,13 @@ Azure PowerShell gebruiken voor het aanmelden met een Azure AD-identiteit:
     ```
 1. Sluit en Open de PowerShell-venster na de installatie van PowerShellGet. 
 
-1. AzureRM installeren:
+1. Installeer de nieuwste versie van Azure PowerShell:
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-1. Een van de preview-modules te installeren:
+1. Een van de Azure Storage preview-modules die ondersteuning biedt voor Azure AD te installeren:
 
     ```powershell
     Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 

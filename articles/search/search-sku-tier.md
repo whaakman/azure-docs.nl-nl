@@ -9,18 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181886"
+ms.locfileid: "47221755"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-In Azure Search, een [service is ingericht](search-create-service-portal.md) op een vaste prijscategorie of SKU: **gratis**, **Basic**, of **Standard**, waarbij  **Standard** is beschikbaar in meerdere configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken. 
+In Azure Search, een [service is ingericht](search-create-service-portal.md) op een prijzen laag of SKU die voor de levensduur van de service is opgelost. -Laag zijn **gratis**, **Basic**, of **Standard**, waarbij **Standard** is beschikbaar in meerdere configuraties en capaciteit. De meeste klanten beginnen met de **gratis** -laag voor evaluatie en vervolgens omgezet naar **Standard** voor ontwikkeling en productie-implementaties. U kunt alle snelstartgidsen en zelfstudies uitvoeren op de **gratis** laag, zoals die voor de resource-intensieve cognitief zoeken. 
 
-Lagen te capaciteit bepalen geen functies, met differentiatie is per:
+Lagen bepalen capaciteit, functies, en door elkaar worden onderscheiden:
 
 + Aantal indexen die u kunt maken
 + Grootte en snelheid van de partities (fysieke opslag)
@@ -28,14 +28,10 @@ Lagen te capaciteit bepalen geen functies, met differentiatie is per:
 Hoewel alle lagen, inclusief de **gratis** laag, in het algemeen bieden functiepariteit, grotere workloads kunnen dicteren vereisten voor hogere lagen. Bijvoorbeeld, [cognitief zoeken](cognitive-search-concept-intro.md) indexeren is langlopende vaardigheden die time-out voor een gratis service, tenzij de gegevensset te zijn uitgerust met zeer kleine gebeurt.
 
 > [!NOTE] 
-> Functiepariteit bestaat voor de lagen met uitzondering van [indexeerfuncties](search-indexer-overview.md), die is niet beschikbaar op S3HD.
+> De uitzondering functiepariteit is [indexeerfuncties](search-indexer-overview.md), die zijn niet beschikbaar op S3HD.
 >
 
-Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) voor het afstemmen van prestaties. Dat kunt u met twee of drie van elk starten bijvoorbeeld, kunt u het resourceniveau van de voor een werkbelasting met zware indexering kan tijdelijk verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
-
-> [!Important] 
-> Hoewel het schatten van de toekomstige behoeften voor indexen en opslag kunt lijkt giswerk, is het waard is om dit. Als de capaciteit van een laag blijkt te laag zijn, moet u voor het inrichten van een nieuwe service van het hogere niveau en vervolgens [uw indexen opnieuw laden](search-howto-reindex.md). Er is geen in-place upgrade van de dezelfde service van een SKU naar een andere.
->
+Binnen een laag, kunt u [replica en partitie resources aanpassen](search-capacity-planning.md) voor het afstemmen van prestaties. Dat kunt u met twee of drie van elk starten bijvoorbeeld, kan u tijdelijk de rekenkracht voor een zware indexering werkbelasting verhogen. De mogelijkheid om af te stemmen resource niveaus binnen een laag voegt u flexibiliteit toe, maar ook iets ingewikkelder, uw analyse. Mogelijk hebt om te experimenteren om te zien of een lagere laag met hogere resources/replica's betere waarde en prestaties dan een hogere laag met lagere te biedt. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen, [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -53,15 +49,15 @@ Het tarief is **per uur per SU**, waarbij elke laag met een steeds hogere snelhe
 
 Hoewel elke laag geleidelijk hogere capaciteit biedt, kunt u doen om een *gedeelte* van de totale capaciteit online, met de rest in reserveren. Wat betreft facturering is het aantal partities en replica's die u online, berekend met behulp van de formule SU, waarmee wordt bepaald wat u daadwerkelijk betaalt brengt.
 
-### <a name="tips-for-lowering-the-bill"></a>Tips voor het verlagen van de factuur
+### <a name="tips-for-reducing-costs"></a>Tips voor het verminderen van kosten
 
-U kunt de service op de factuur verlagen niet afsluiten. Toegewezen resources voor partities en replica's zijn operationele 24-7, die zijn ondergebracht in reserveren voor exclusief gebruik gedurende de levensduur van uw service. De enige manier om een factuur verlagen is om te beperken van replica's en partities op het laagste niveau dat nog steeds u tot aanvaardbare prestaties kunt. 
+U kunt de service op de factuur verlagen niet afsluiten. Toegewezen resources voor partities en replica's zijn operationele 24-7, voor exclusief gebruik gedurende de levensduur van uw service is toegewezen. De enige manier om een factuur verlagen door te verminderen van replica's en partities op een laag niveau waarmee u nog steeds acceptabel is en [SLA-naleving](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Een andere hendel is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan de uurtarieven voor S2 of S3. U kunt het inrichten van een service op de laagste waarde van uw prognoses en als uw bedrijf te groot, maakt u een tweede grotere gelaagde service uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item.
+Een andere hendel voor het verminderen van kosten is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan S2 of S3-tarieven. U kunt een service die gericht zijn op de laagste waarde van de load-projecties kan inrichten. Als u de service langzamerhand, een tweede grotere lagen service maken, uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item. Voor op lokale servers is het gebruikelijk "kopen van ' zodat u de verwachte groei kunt verwerken. Maar met een cloudservice, kunt u kosten te besparen voort meest doelbewust weten dat u altijd naar een hogere lagen service overschakelen kunt als het huidige abonnement ontoereikend is.
 
 ### <a name="capacity-drill-down"></a>Inzoom capaciteit
 
-Capaciteit is gestructureerd als *replica's* en *partities*. 
+In Azure Search capaciteit is gestructureerd als *replica's* en *partities*. 
 
 + Replica's zijn exemplaren van de search service, waarbij elke replica als host fungeert voor een gelijke kopie van een index. Een service met 6 replica's heeft bijvoorbeeld 6 kopieën van elke index geladen in de service. 
 
@@ -105,7 +101,11 @@ Capaciteit en kosten van het uitvoeren van de service gaan hand in hand. Lagen l
 
 Bedrijfsvereisten voorschrijven doorgaans het aantal indexen, u moet. Bijvoorbeeld, globale index voor een grote opslagruimte voor documenten, of misschien meerdere indexen op basis van regio, toepassing of nichemarkten business.
 
-Om te bepalen van de grootte van een index, die u hebt tot [bouwen een](search-create-index-portal.md). De gegevensstructuur van de in Azure Search is voornamelijk een [omgekeerde index](https://en.wikipedia.org/wiki/Inverted_index), heeft andere eigenschappen dan de brongegevens. Grootte en complexiteit voor een omgekeerde index worden bepaald door de inhoud, niet per se de hoeveelheid gegevens die u in het kanaal. Een bron van grote hoeveelheden gegevens met zeer grote redundantie kan leiden tot een kleinere-index dan een kleinere gegevensset die zeer variabel inhoud bevat.  Het is daarom zelden mogelijk afleiden van de indexgrootte van de is gebaseerd op de grootte van de oorspronkelijke gegevensset.
+Om te bepalen van de grootte van een index, die u hebt tot [bouwen een](search-create-index-portal.md). De gegevensstructuur van de in Azure Search is voornamelijk een [omgekeerde index](https://en.wikipedia.org/wiki/Inverted_index), heeft andere eigenschappen dan de brongegevens. Grootte en complexiteit voor een omgekeerde index worden bepaald door de inhoud, niet per se de hoeveelheid gegevens die u in het kanaal. Een bron van grote hoeveelheden gegevens met zeer grote redundantie kan leiden tot een kleinere-index dan een kleinere gegevensset die zeer variabel inhoud bevat. Het is daarom zelden mogelijk afleiden van de indexgrootte van de is gebaseerd op de grootte van de oorspronkelijke gegevensset.
+
+> [!NOTE] 
+> Hoewel het schatten van de toekomstige behoeften voor indexen en opslag kunt lijkt giswerk, is het waard is om dit. Als de capaciteit van een laag blijkt te laag zijn, moet u voor het inrichten van een nieuwe service van het hogere niveau en vervolgens [uw indexen opnieuw laden](search-howto-reindex.md). Er is geen in-place upgrade van de dezelfde service van een SKU naar een andere.
+>
 
 ### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Stap 1: Maakt een ruwe schatting met behulp van de gratis laag ontwikkelen
 

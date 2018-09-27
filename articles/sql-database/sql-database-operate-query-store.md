@@ -2,19 +2,22 @@
 title: Operationele Query Store in Azure SQL-Database
 description: Meer informatie over het uitvoeren van de Query Store in Azure SQL Database
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903095"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164562"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Besturingssysteem van de Query Store in Azure SQL-Database
 Query Store in Azure is een volledig beheerde database-functie die voortdurend worden verzameld en geeft gedetailleerde historische informatie over alle query's. U kunt zien over de Query Store vergelijken met van een vliegtuig flight data recorder die aanzienlijk eenvoudiger queryprestaties probleemoplossing voor cloud en on-premises-klanten. In dit artikel wordt uitgelegd dat specifieke aspecten van het besturingssysteem van de Query Store in Azure. Met deze vooraf verzamelde querygegevens, kunt u snel vaststellen en dus houd meer tijd te focussen op hun bedrijf en oplossen van problemen met prestaties. 
@@ -54,6 +57,6 @@ Meer informatie Bekijk voor de volgende artikelen:
 
 * [Een flight data recorder voor uw database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [Prestaties controleren via de Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Query Store-gebruiksscenario 's](https://msdn.microsoft.com/library/mt614796.aspx)
+* [Query Store-gebruiksscenario's](https://msdn.microsoft.com/library/mt614796.aspx)
  
 

@@ -4,7 +4,7 @@ description: 'In dit onderwerp wordt beschreven hoe u een kanaal dat een single-
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056906"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222060"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -166,7 +166,7 @@ Een kanaal biedt een invoereindpunt (URL voor opnemen) dat u in het live coderin
 
 Zodra u een kanaal hebt gemaakt, kunt u de opname-URL's krijgen. Als u deze URL's, het kanaal niet hoeft te zijn de **met** staat. Wanneer u klaar om te beginnen met het pushen van gegevens naar het kanaal bent, moet zich in de **met** staat. Nadat het kanaal begint het ophalen van gegevens, kunt u uw stroom via de URL van de Preview-versie kunt bekijken.
 
-Hebt u een optie van het opnemen van gefragmenteerde MP4 (Smooth Streaming) live stream via een SSL-verbinding. Als u wilt opnemen via SSL, zorg ervoor dat u de URL voor opnemen bijwerkt naar HTTPS. Houd er rekening mee dat op dit moment AMS biedt geen ondersteuning voor SSL met aangepaste domeinen.  
+Hebt u een optie van het opnemen van gefragmenteerde MP4 (Smooth Streaming) live stream via een SSL-verbinding. Als u wilt opnemen via SSL, zorg ervoor dat u de URL voor opnemen bijwerkt naar HTTPS. Op dit moment biedt geen AMS ondersteuning voor SSL met aangepaste domeinen.  
 
 ### <a name="allowed-ip-addresses"></a>Toegestane IP-adressen
 U kunt de IP-adressen die video publiceren naar dit kanaal mogen definiëren. Toegestane IP-adressen worden opgegeven als een enkel IP-adres (bijvoorbeeld '10.0.0.1'), een IP-adresbereik met een IP-adres en een CIDR-subnetmasker (bijvoorbeeld ' 10.0.0.1/22') of een IP-bereik met behulp van een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld , ' 10.0.0.1(255.255.252.0)').

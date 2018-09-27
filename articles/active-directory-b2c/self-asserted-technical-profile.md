@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9472f0fb6ca7c9924df57bb61a3f234bc7d4b13
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381198"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166908"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een zelf-gecontroleerde technisch profiel definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -135,6 +135,7 @@ U kunt ook het technische profiel van een REST-API aanroept met uw zakelijke log
 | ContentDefinitionReferenceId | Ja | De id van de [inhoud definitie](contentdefinitions.md) die zijn gekoppeld aan dit technisch profiel. |
 | EnforceEmailVerification | Nee | Voor aanmelding bij of profiel bewerken, e-mailverificatie wordt afgedwongen. Mogelijke waarden: `true` (standaard), of `false`. | 
 | setting.showSignupLink | Nee | De knop Aanmelden weergegeven. Mogelijke waarden: `true` (standaard), of `false` |
+| setting.retryLimit | Nee | Hiermee bepaalt u het aantal keren dat die een gebruiker proberen kan om de gegevens die wordt vergeleken met het technische profiel van een validatie te bieden. Bijvoorbeeld, probeert een gebruiker om u te registreren met een account dat bestaat al en wordt geprobeerd totdat de limiet bereikt.
 | SignUpTarget | Nee | De aanmelding doel exchange-id. Wanneer de gebruiker op de knop aanmelden klikt, wordt de opgegeven exchange-id in Azure AD B2C uitgevoerd. |
 
 ## <a name="cryptographic-keys"></a>Cryptografische sleutels

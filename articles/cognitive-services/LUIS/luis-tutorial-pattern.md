@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040700"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166398"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie: 3. Algemene vormen voor uitingen toevoegen
+# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie 3: Algemene utterance indelingen toevoegen
 
 In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en entiteit voorspelling terwijl er minder voorbeeld uitingen. Het patroon wordt geboden via een sjabloon utterance-voorbeeld, waarin u de syntaxis voor het identificeren van entiteiten en ignorable tekst bevat. Een patroon is een combinatie van de expressie die overeenkomen met en machine learning.  Het voorbeeld van een sjabloon utterance, samen met de intentie uitingen geven LUIS een beter beeld van welke uitingen past het doel. 
 

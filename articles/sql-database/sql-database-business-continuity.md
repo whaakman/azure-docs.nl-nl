@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 320489f27a3c00cf4d13f7db37c6eb9fda39f5f1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064119"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221143"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -123,7 +123,7 @@ Als u actieve geo-replicatie en automatische failover-groepen als uw herstelmech
 > 
 
 ### <a name="perform-a-geo-restore"></a>Geo-herstel uitvoeren
-Als u gebruikmaakt van de automatische back-ups met geografisch redundante opslag (standaard ingeschakeld), kunt u herstellen de database via [geo-herstel](sql-database-disaster-recovery.md#recover-using-geo-restore). Herstel vindt doorgaans plaats binnen 12 uur - verlies van gegevens van maximaal één uur bepaald door de wanneer de laatste per uur differentiële back-up is gemaakt en gerepliceerd. Totdat het herstellen is voltooid, kan de database geen transacties registreren en niet reageren op query's. Opmerking: de database naar de laatst beschikbare punt in tijd geo-herstel alleen hersteld.
+Als u gebruikmaakt van de automatische back-ups met geografisch redundante opslag (standaard ingeschakeld), kunt u herstellen de database via [geo-herstel](sql-database-disaster-recovery.md#recover-using-geo-restore). Herstel vindt doorgaans plaats binnen 12 uur - verlies van gegevens van maximaal één uur bepaald door de wanneer de laatste logboekback-up is gemaakt en gerepliceerd. Totdat het herstellen is voltooid, kan de database geen transacties registreren en niet reageren op query's. Opmerking: de database naar de laatst beschikbare punt in tijd geo-herstel alleen hersteld.
 
 > [!NOTE]
 > Als het datacenter weer online komt voordat u uw toepassing naar de herstelde database schakelt, kunt u het herstel annuleren.  

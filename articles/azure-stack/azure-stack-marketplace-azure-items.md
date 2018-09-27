@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032288"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221720"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit.*
 
-## <a name="virtual-machine-extensions"></a>Extensies voor virtuele machines
+## <a name="virtual-machine-extensions"></a>Extensies virtuele machine
 
 Wanneer er updates beschikbaar voor extensies voor virtuele machines (VM zijn) u wilt gebruiken, moet u deze downloaden. Extensies in het product hebt verzonden, niet bijwerken in de normale patch- en bijwerkproces; dus regelmatig controleren op updates. Andere extensies zijn alleen beschikbaar via de Marketplace-beheer.
 
@@ -230,6 +230,8 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Security Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Centraal beheren meerdere Barracuda Web Application Firewalls (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda e Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda e Security Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | E-security-gateway om te beveiligen tegen bedreigingen voor inkomende e-mail gedragen. | Barracuda Networks, Inc. |
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Beveiliging en DDoS-bescherming tegen geautomatiseerde & gerichte aanvallen. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Honderden CloudGen Firewalls van Barracuda, ongeacht hun locatie en de vormfactor centraal te beheren. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall voor Azure](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall voor Azure](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | Firewall beschermt waar de toepassing en de gegevens zich bevinden, in plaats van uitsluitend waar de verbinding eindigt. | Barracuda Networks, Inc. |
 | ![Check Point vSEC beveiligingsbeheer](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC beveiligingsbeheer](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC voorziet in geavanceerde, met meerdere lagen threat preventie ter bescherming van de klant assets in Azure tegen schadelijke software en geavanceerde bedreigingen. **Beide Check Point vSEC marketplace-items downloaden.** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Bouwen, implementeren en beheren met Chef Automate, het continue automatiseringsplatform. **Beide Chef marketplace-items downloaden** | Chef-Software, Inc. |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Beheren, controleren en virtuele machines versleutelen met gemak en vertrouwen. **Download alle CloudLink SecureVM-items.** | Dell EMC |

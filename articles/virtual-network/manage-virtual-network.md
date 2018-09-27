@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8d92c5d01e977fc64e823a0229b5f2ede944743
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985639"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221176"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Maken, wijzigen of verwijderen van een virtueel netwerk
 
@@ -89,7 +89,7 @@ Voer de volgende taken voordat u de stappen in elke sectie van dit artikel:
     - **Eigenschappen**: geeft de instellingen over het virtuele netwerk, met inbegrip van de resource-ID van het virtuele netwerk en het deel uitmaakt van Azure-abonnement.
     - **Diagram**: het diagram biedt een visuele representatie van alle apparaten die zijn verbonden met het virtuele netwerk. Het diagram heeft enkele belangrijke informatie over de apparaten. Selecteer het apparaat voor het beheren van een apparaat in deze weergave in het diagram.
     - **Algemene instellingen voor Azure**: voor meer informatie over algemene Azure-instellingen, Zie de volgende informatie:
-        *   [Activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+        *   [Activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
         *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

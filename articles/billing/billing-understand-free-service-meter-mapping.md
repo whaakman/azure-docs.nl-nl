@@ -1,6 +1,6 @@
 ---
 title: Service kan de toewijzing van de Meter voor gratis Azure-account | Microsoft Docs
-description: Toewijzing van de meter voor services die deel uitmaakt van een gratis account-service te begrijpen.
+description: Krijg inzicht in de toewijzing van de meter voor services die zijn opgenomen met gratis account-service.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,45 +13,45 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 3019fe5f8b44eaa32d4ab309f296d6b4574df1d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 4a8b2c07754b1a1c9679f7b044f112bf03dfb433
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061367"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392105"
 ---
-# <a name="understand-free-service-to-meter-mapping"></a>Gratis service toewijzing van de meter begrijpen
+# <a name="understand-free-service-to-meter-mapping"></a>Inzicht in de gratis service toewijzing van de meter
 
-Elke Azure-service verzendt informatie over het gebruik op basis van de meters die gebruikmaakt van het Azure factureringssysteem rekening te brengen van gebruikers voor services. Voor meer informatie over het gebruik van de gratis services, bekijken we de meter toewijzing voor deze services-service. Zie voor meer informatie over het maken van gratis services, [gratis services maken met gratis Azure-account](billing-create-free-services-included-free-account.md).
+Elke Azure-service verzendt gebruik ten opzichte van de meter, waarbij de Azure-facturering systeem gebruik wordt gemaakt in rekening te brengen van gebruikers voor services. Voor meer informatie over het gebruik van gratis services, kunt u de toewijzing van de meter voor deze services-service laten we kijken. Zie voor meer informatie over het maken van gratis services, [gratis services maken met gratis Azure-account](billing-create-free-services-included-free-account.md).
 
 ## <a name="service-to-meter-mapping-for-free-account-eligible-services"></a>De service wilt meten toewijzing gratis account in aanmerking komende services 
 
-|    Service   | De naam van de meter op Azure-portal | De naam van de meter in bestands-/ API gebruik | Id van de meter |
+|    Service   | Meternaam in Azure portal | De Meternaam van de in bestands-gebruik/API | Id van de meter |
 | ------------ | -------------------------- | -------------------------| -------- |
-| B1S Linux VM | COMPUTE uren - Standard_B1 VM | Rekenuren - gratis | 8260cba2-4437-47d1-a31e-2561cd370f50
-| B1S Windows VM | COMPUTE uren - Standard_B1 VM (Windows) | Rekenuren - gratis | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
+| B1S virtuele Linux-machine | Rekenuren - standaard_b1 VM | Rekenuren - gratis | 8260cba2-4437-47d1-a31e-2561cd370f50
+| B1S Windows VM | Rekenuren - standaard_b1 VM (Windows) | Rekenuren - gratis | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
 | B1S VM - openbare IP-adressen  | Uren IP-adres - openbare IP-adressen | Uren IP-adres - gratis | ae56b367-2708-4454-a3d9-2be7b2364ea1
-| CosmosDB | Opslag (GB) - Cosmos DB | Beschikbare opslag (GB) | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
+| CosmosDB | Opslag (GB) - Cosmos DB | Opslag (GB) - gratis | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
 | CosmosDB | 100 aanvraageenheden (uren) - Cosmos DB | 100 aanvraageenheden (uren) - gratis | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
 | File Storage | Standaard-IO - bestanden (GB) - lokaal Redundant | Standaard-IO - bestanden (GB) - gratis | a7f2aa67-b9a2-4593-a413-6ec86d6c8e5b
 | File Storage | Standaard-IO - eenheden voor bestanden lezen (per 10.000) | Standaard-IO - eenheden voor bestanden lezen (per 10.000) - gratis | 6207404d-3389-4d20-9087-cc078ddc3fd9
 | File Storage | Standaard-IO - eenheden voor bestanden wegschrijven (per 10.000) | Standaard-IO - eenheden voor bestanden wegschrijven (per 10.000) - gratis | 223d8004-d29a-46cf-b4f4-d2d34b12548b
-| File Storage | Standaard-IO - eenheden voor bestandsprotocolbewerkingen (per 10.000) | Standaard-IO - Bestandsprotocolbewerkingen (per 10.000) - gratis | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
+| File Storage | Standaard-IO - eenheden voor bestandsprotocolbewerkingen (per 10.000) | Standaard-IO - eenheden voor Bestandsprotocolbewerkingen (per 10.000) - gratis | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
 | File Storage | Standaard-IO - eenheden voor opvragen bestanden (per 10.000) | Standaard-IO - eenheden voor opvragen bestanden (per 10.000) - gratis | e8ae79ad-c2ab-4D82-b226-dd3c33dfd40c
-| Hot blok-Blob-opslag | Standaard-IO - leesbewerkingen Hot blok-Blob (per 10.000) | Standaard-IO - Hot blok-Blob leesbewerkingen (per 10.000) - gratis |fd7cfa1e-026e-4be1-871b-1c2386e8902e
-| Hot blok-Blob-opslag | Standaard-IO - Hot blok-Blob (GB) - lokaal Redundant | Standaard-IO - Hot blok-Blob (GB) - gratis | 67a3a3fd-826f-42c1-8843-bffa14f0da13
-| Hot blok-Blob-opslag | Standaard-IO - schrijfbewerkingen Hot blok-Blob (per 10.000) | Standaard-IO - schrijfbewerkingen Hot blok-Blob (per 10.000) - gratis | b34bbb76-edce-4c2d-a288-81a2db1fea53
-| Hot blok-Blob-opslag  | Standaard-IO - Hot blok-Blob schrijfbewerkingen/bewerkingen na opvragen (per 10.000) | Standaard-IO - Hot blok-Blob schrijfbewerkingen/bewerkingen na opvragen (per 10.000) - gratis | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
-| Schijf beheerd *  | Standaard beheerde schijf/momentopnamen (GB) - lokaal Redundant | Standaard beheerde schijf/momentopnamen (GB) - gratis | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Schijf beheerd *  | Bewerkingen voor Standard-beheerde schijven (per 10.000) | Bewerkingen voor Standard-beheerde schijven (per 10.000) - gratis | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
-| Schijf beheerd *  | Premium-opslag pagina-Blob/P6 (eenheden) - lokaal Redundant | Premium-opslag pagina-Blob/P6 (eenheden) - gratis | 2b98c168-27ca-4cc1-b509-e887dec87657
+| ' Hot ' blok-Blob-opslag | Standaard-IO - leesbewerkingen ' hot ' blok-Blob (per 10.000) | Standaard-IO - ' hot ' blok-Blob leesbewerkingen (per 10.000) - gratis |fd7cfa1e-026e-4be1-871b-1c2386e8902e
+| ' Hot ' blok-Blob-opslag | Standaard-IO - ' hot ' blok-Blob (GB) - lokaal Redundant | Standaard-IO - ' hot ' blok-Blob (GB) - gratis | 67a3a3fd-826f-42c1-8843-bffa14f0da13
+| ' Hot ' blok-Blob-opslag | Standaard-IO - schrijfbewerkingen van ' hot ' blok-Blob (per 10.000) | Standaard-IO - ' hot ' blok-Blob schrijfbewerkingen (per 10.000) - gratis | b34bbb76-edce-4c2d-a288-81a2db1fea53
+| ' Hot ' blok-Blob-opslag  | Standaard-IO - ' hot ' blok-Blob schrijfbewerkingen/bewerkingen na opvragen (per 10.000) | Standaard-IO - ' hot ' blok-Blob Schrijf/Opvraagbewerkingen (per 10.000) - gratis | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
+| Beheerde schijf *  | Standaard beheerde schijf/momentopnamen (GB) - lokaal Redundant | Standaard beheerde schijf/momentopnamen (GB) - gratis | ad94c237-52a5-4804-ae65-38c5bf85ef42
+| Beheerde schijf *  | Standard-beheerde schijfbewerkingen (per 10.000) | Standard-beheerde schijfbewerkingen (per 10.000) - gratis | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
+| Beheerde schijf *  | Premium Storage pagina-Blob/P6 (eenheden) - lokaal Redundant | Premium Storage pagina-Blob/P6 (eenheden) - gratis | 2b98c168-27ca-4cc1-b509-e887dec87657
 | SQL Database | Standard S0-Databasedagen - SQL-Database | Standard S0-Databasedagen - gratis | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
-| Gedeeld - bandbreedte ** | Uitgaande gegevensoverdracht (GB) | Gegevensoverdracht, uitgaand (GB) - gratis | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
+| Gedeeld - bandbreedte ** | Uitgaande gegevensoverdracht (GB) | Gegevensoverdracht uit (GB) - gratis | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\* Als u een Windows-machine maken en kies beheerde schijf, verbruikt u beheerde schijven meter als onderdeel van de virtuele machine.
+\* Als u een Windows-machine maken en kies de beheerde schijf, kunt u beheerde schijf meter als onderdeel van de virtuele machine wordt verbruikt.
 
-\** Gedeelde meters kunnen worden gebruikt door meerdere services. Zowel virtuele machines en opslag verzenden bijvoorbeeld gebruik tegen gegevens overbrengen Out(GB) meter.
+\** Gedeelde meters kunnen worden gebruikt door meerdere services. Zowel virtuele machines en opslag introduceren bijvoorbeeld gebruik ten opzichte van de gegevens overdragen Out(GB) meter.
 
 
 
@@ -59,4 +59,4 @@ Elke Azure-service verzendt informatie over het gebruik op basis van de meters d
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u hulp nodig hebt, moet [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

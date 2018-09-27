@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 00a15d42084b660ee2ec4db2b012a5e47fc02b41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988442"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222111"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
@@ -64,7 +64,7 @@ Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wann
 1. Voer in het zoekvak boven aan de portal, *routetabellen* in het zoekvak in. Wanneer **routetabellen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de routetabel in de lijst die u wilt weergeven van details voor. Onder **instellingen**, vindt u de **Routes** in de routetabel en het **subnetten** de routetabel is gekoppeld aan.
 3. Zie voor meer informatie over algemene Azure-instellingen, de volgende informatie:
-    *   [Activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [Activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

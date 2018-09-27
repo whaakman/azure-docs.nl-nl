@@ -15,47 +15,47 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 666d3c4545f7dadfc16e6c98a5035b19bcebe7f6
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ba15ecdb59eb98094367d8cd4760323d863332c4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181945"
+ms.locfileid: "47222706"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
-Als u uw bestaande investering in System Center Operations Manager wilt behouden en combineren met de uitgebreide mogelijkheden van Log Analytics, kunt u Operations Manager integreren met uw Log Analytics-werkruimte.  Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
+Als u uw bestaande investering in System Center Operations Manager wilt behouden en combineren met de uitgebreide mogelijkheden van Log Analytics, kunt u Operations Manager integreren met uw Log Analytics-werkruimte. Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
 
 * Statuscontrole van uw IT-services met Operations Manager
 * Onderhoud van de integratie met uw ITSM-beheeroplossingen voor incidenten en problemen
 * Beheer van de levenscyclus van agents die lokaal zijn geïmplementeerd of op IaaS-VM's in de openbare cloud, en die u bewaakt met Operations Manager
 
-Integratie met System Center Operations Manager levert meerwaarde op voor uw strategie voor servicebewerkingen. Dit is te danken aan de snelheid en efficiëntie van Log Analytics bij het verzamelen, opslaan en analyseren van gegevens van Operations Manager.  Log Analytics helpt u de oorzaken van (terugkerende) problemen te correleren en identificeren, zodat u uw bestaande probleembeheerproces beter kunt ondersteunen.  De zoekmachine voor het onderzoeken van prestatie-, gebeurtenis- en waarschuwingsgegevens is uiterst flexibel en bevat geavanceerde dashboards en uitgebreide rapportagemogelijkheden om deze gegevens op verschillende zinvolle manieren weer te geven. Dat is de kracht van Log Analytics in combinatie met Operations Manager.
+Integratie met System Center Operations Manager levert meerwaarde op voor uw strategie voor servicebewerkingen. Dit is te danken aan de snelheid en efficiëntie van Log Analytics bij het verzamelen, opslaan en analyseren van gegevens van Operations Manager. Log Analytics helpt u de oorzaken van (terugkerende) problemen te correleren en identificeren, zodat u uw bestaande probleembeheerproces beter kunt ondersteunen. De zoekmachine voor het onderzoeken van prestatie-, gebeurtenis- en waarschuwingsgegevens is uiterst flexibel en bevat geavanceerde dashboards en uitgebreide rapportagemogelijkheden om deze gegevens op verschillende zinvolle manieren weer te geven. Dat is de kracht van Log Analytics in combinatie met Operations Manager.
 
-De agents die rapporteren aan de beheergroep van Operations Manager, verzamelen gegevens van uw servers op basis van de gegevensbronnen en oplossingen van Log Analytics die u hebt ingeschakeld in uw werkruimte.  Afhankelijk van de ingeschakelde oplossingen, worden de gegevens rechtstreeks verzonden vanaf een Operations Manager-beheerserver naar de service of, vanwege de grote hoeveelheid gegevens die wordt verzameld op de agent, rechtstreeks vanaf de agent naar Log Analytics. De beheerserver stuurt de gegevens rechtstreeks naar de service. Deze worden nooit naar de operationele database of datawarehouse-database geschreven.  Als de verbinding tussen een beheerserver en Log Analytics wordt verbroken, worden de gegevens lokaal opgeslagen totdat de verbinding met Log Analytics hersteld is.  Als de beheerserver offline is vanwege gepland onderhoud of niet-geplande uitval, neemt een andere beheerserver in de beheergroep de verbinding met Log Analytics over.  
+De agents die rapporteren aan de beheergroep van Operations Manager, verzamelen gegevens van uw servers op basis van de gegevensbronnen en oplossingen van Log Analytics die u hebt ingeschakeld in uw werkruimte. Afhankelijk van de ingeschakelde oplossingen, worden de gegevens rechtstreeks verzonden vanaf een Operations Manager-beheerserver naar de service of, vanwege de grote hoeveelheid gegevens die wordt verzameld op de agent, rechtstreeks vanaf de agent naar Log Analytics. De beheerserver stuurt de gegevens rechtstreeks naar de service. Deze worden nooit naar de operationele database of datawarehouse-database geschreven. Als de verbinding tussen een beheerserver en Log Analytics wordt verbroken, worden de gegevens lokaal opgeslagen totdat de verbinding met Log Analytics hersteld is. Als de beheerserver offline is vanwege gepland onderhoud of niet-geplande uitval, neemt een andere beheerserver in de beheergroep de verbinding met Log Analytics over.  
 
 Het volgende diagram toont de verbinding tussen de beheerservers en agents in een System Center Operations Manager-beheergroep en Log Analytics, met inbegrip van de richting en poorten.   
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-Als uw IT-beveiligingsbeleid niet toestaat dat computers in uw netwerk verbinding maken met internet, kunnen beheerservers worden geconfigureerd om verbinding te maken met de OMS-Gateway voor het ontvangen van configuratiegegevens en het verzenden van verzamelde gegevens, afhankelijk van de oplossingen die zijn ingeschakeld.  Zie [Computers verbinden met OMS met behulp van de OMS-gateway](log-analytics-oms-gateway.md) voor meer informatie over en stappen voor het configureren van uw Operations Manager-beheergroep voor communicatie met de Log Analytics-service via een OMS-gateway.  
+Als uw IT-beveiligingsbeleid niet toestaat dat computers in uw netwerk verbinding maken met internet, kunnen beheerservers worden geconfigureerd om verbinding te maken met de OMS-Gateway voor het ontvangen van configuratiegegevens en het verzenden van verzamelde gegevens, afhankelijk van de oplossingen die zijn ingeschakeld. Zie [Computers verbinden met OMS met behulp van de OMS-gateway](log-analytics-oms-gateway.md) voor meer informatie over en stappen voor het configureren van uw Operations Manager-beheergroep voor communicatie met de Log Analytics-service via een OMS-gateway.  
 
 ## <a name="prerequisites"></a>Vereisten 
 Voordat u begint, raadpleegt u de volgende vereisten.
 
-* Log Analytics biedt alleen ondersteuning voor System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 of hoger en Operations Manager 2012 R2 UR2 of hoger.  Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.
+* Log Analytics biedt alleen ondersteuning voor System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 of hoger en Operations Manager 2012 R2 UR2 of hoger. Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.
 * Alle Operations Manager-agents moeten voldoen aan de minimale vereisten voor ondersteuning. Zorg ervoor dat agents zijn aan de minimale update, anders Windows-agentcommunicatie kan mislukken en genereren van fouten in het gebeurtenislogboek van Operations Manager.
-* Een Log Analytics-werkruimte.  Raadpleeg voor meer informatie, [computers uit uw omgeving verbinden met Log Analytics](log-analytics-concept-hybrid.md).
+* Een Log Analytics-werkruimte. Raadpleeg voor meer informatie, [computers uit uw omgeving verbinden met Log Analytics](log-analytics-concept-hybrid.md).
 * U verificatie op Azure met een account dat lid is van de [rol van inzender van Log Analytics](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
 >Recente wijzigingen in Azure API's wordt voorkomen dat klanten kunnen met succes integratie tussen de beheergroep en de Log Analytics voor het eerst configureren. Voor klanten die hun beheergroep al hebt geïntegreerd met de service, wordt u niet beïnvloed, tenzij u nodig hebt om uw bestaande verbinding opnieuw te configureren.  
->Een nieuw managementpack is de release voor elke versie van Operations Manager:  
+>Een nieuw managementpack is vrijgegeven voor elke versie van Operations Manager:  
 >* Download het managementpack uit voor System Center Operations Manager 1801 [hier](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* Voor System Center 2016 - Operations Manager, downloadt u het managementpack uit [hier](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* Voor System Center Operations Manager 2012 R2, downloadt u het managementpack uit [hier](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
 
 ### <a name="network"></a>Netwerk
-De onderstaande lijst bevat de vereiste proxy- en firewallconfiguratiegegevens voor de Operations Manager-agent, beheerservers en Operations-console voor communicatie met Log Analytics.  Het verkeer van elk onderdeel is uitgaand vanaf het netwerk naar de Log Analytics-service.     
+De onderstaande lijst bevat de vereiste proxy- en firewallconfiguratiegegevens voor de Operations Manager-agent, beheerservers en Operations-console voor communicatie met Log Analytics. Het verkeer van elk onderdeel is uitgaand vanaf het netwerk naar de Log Analytics-service.   
 
 |Resource | Poortnummer| HTTPS-controle overslaan|  
 |---------|------|-----------------------|  
@@ -82,7 +82,7 @@ De onderstaande lijst bevat de vereiste proxy- en firewallconfiguratiegegevens v
 |docs.loganalytics.io| 80 en 443||  
 
 ### <a name="tls-12-protocol"></a>TLS 1.2-protocol
-Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Log Analytics, sterk raden we u aan de groep agent en -beheerserver te gebruiken ten minste configureren Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**.  Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Log Analytics, sterk raden we u aan de groep agent en -beheerserver te gebruiken ten minste configureren Transport Layer Security (TLS) 1.2. Oudere versies van TLS/Secure Sockets Layer (SSL) kwetsbaar zijn gevonden en hoewel ze op dit moment nog steeds werken om toe te staan achterwaartse compatibiliteit, zijn ze onderling **niet aanbevolen**. Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="connecting-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Voer de volgende stappen uit om uw Operations Manager-beheergroep te verbinden met een van uw Log Analytics-werkruimten.
@@ -102,7 +102,7 @@ Na het voltooien van de volgende stappen voor de integratie met Log Analytics, k
 1. Vouw het knooppunt Operations Management Suite uit en klik op **Verbinding**.
 1. Klik op de koppeling **Registreren bij Operations Management Suite**.
 1. Voer op de pagina **Wizard Operations Management Suite voorbereiden: verificatie** het e-mailadres of telefoonnummer en het wachtwoord in van het beheerdersaccount dat is gekoppeld aan uw OMS-abonnement, en klik op **Aanmelden**.
-1. Nadat u bent geverifieerd, op de **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** pagina, wordt u gevraagd om uw Azure-tenant, abonnement en Log Analytics-werkruimte te selecteren.  Als u meerdere werkruimten hebt, selecteert u in de keuzelijst de werkruimte die u bij de Operations Manager-beheergroep wilt registreren, en klikt u op **Volgende**.
+1. Nadat u bent geverifieerd, op de **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** pagina, wordt u gevraagd om uw Azure-tenant, abonnement en Log Analytics-werkruimte te selecteren. Als u meerdere werkruimten hebt, selecteert u in de keuzelijst de werkruimte die u bij de Operations Manager-beheergroep wilt registreren, en klikt u op **Volgende**.
    
    > [!NOTE]
    > Operations Manager ondersteunt slechts één Log Analytics-werkruimte tegelijk. De verbinding en de computers die bij de vorige Log Analytics-werkruimte waren geregistreerd, worden verwijderd.
@@ -119,10 +119,10 @@ Na het configureren van integratie met uw Log Analytics-werkruimte, wordt alleen
 1. Klik op de koppeling **Computer/Groep toevoegen** onder de kop Acties rechts in het deelvenster.
 1. In het dialoogvenster **Computer zoeken** kunt u zoeken naar computers of groepen die worden bewaakt door Operations Manager. Selecteer de computers of groepen die u wilt toevoegen aan Log Analytics, klik op **Toevoegen** en klik vervolgens op **OK**.
 
-U kunt de computers en groepen die zijn geconfigureerd voor het verzamelen van gegevens bekijken in het knooppunt Beheerde computers onder Operations Management Suite in de werkruimte **Beheer** van de Operations-console.  Hier kunt u zo nodig computers en groepen toevoegen of verwijderen.
+U kunt de computers en groepen die zijn geconfigureerd voor het verzamelen van gegevens bekijken in het knooppunt Beheerde computers onder Operations Management Suite in de werkruimte **Beheer** van de Operations-console. Hier kunt u zo nodig computers en groepen toevoegen of verwijderen.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Proxy-instellingen configureren in de Operations-console
-Voer de volgende stappen uit als een interne proxyserver tussen de beheergroep en de Log Analytics-service is.  Deze instellingen worden centraal beheerd via de beheergroep en gedistribueerd naar door een agent beheerde systemen die zijn opgenomen in het bereik voor het verzamelen van gegevens voor Log Analytics.  Dit is nuttig voor oplossingen die de beheerserver overslaan en gegevens rechtstreeks naar de service verzenden.
+Voer de volgende stappen uit als een interne proxyserver tussen de beheergroep en de Log Analytics-service is. Deze instellingen worden centraal beheerd via de beheergroep en gedistribueerd naar door een agent beheerde systemen die zijn opgenomen in het bereik voor het verzamelen van gegevens voor Log Analytics.  Dit is nuttig voor oplossingen die de beheerserver overslaan en gegevens rechtstreeks naar de service verzenden.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
 1. Vouw Operations Management Suite uit en klik op **Verbindingen**.
@@ -136,25 +136,25 @@ Als verificatie vereist is voor de proxyserver, voert u de volgende stappen om r
 1. Open het profiel **System Center Advisor RunAs-profielproxy**.
 1. Klik in de wizard Uitvoeren als-profiel op Toevoegen om een Uitvoeren als-account te gebruiken. U kunt een nieuw [Uitvoeren als-account](https://technet.microsoft.com/library/hh321655.aspx) maken of een bestaand account gebruiken. Dit account moet over voldoende rechten beschikken voor het doorgeven van de proxyserver.
 1. Als u het account voor beheer wilt instellen, kiest u **Een geselecteerde klasse, groep of object**, klikt u op **Selecteren...** en klikt u vervolgens op **Groep...** om het vak **Groep zoeken** te openen.
-1. Zoek en selecteer de **Microsoft System Center Advisor Monitoring Server-groep**.  Klik op **OK** na het selecteren van de groep om het vak **Groep zoeken** te sluiten.
+1. Zoek en selecteer de **Microsoft System Center Advisor Monitoring Server-groep**. Klik op **OK** na het selecteren van de groep om het vak **Groep zoeken** te sluiten.
 1. Klik op **OK** om het vak **Een Uitvoeren als-account toevoegen** te sluiten.
 1. Klik op **Opslaan** om de wizard te voltooien en de wijzigingen op te slaan.
 
 Nadat de verbinding is gemaakt en u de agents die gegevens verzamelen en verzenden naar Log Analytics hebt geconfigureerd, wordt de volgende configuratie toegepast in de beheergroep, niet noodzakelijkerwijs in deze volgorde:
 
-* Het Uitvoeren als-account **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** wordt gemaakt.  Het wordt gekoppeld aan het Uitvoeren als-profiel **Microsoft System Center Advisor Run As Profile Blob** voor twee klassen: **Collection Server** (server voor verzameling) en **Operations Manager Management Group** (Operations Manager-beheergroep).
+* Het Uitvoeren als-account **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** wordt gemaakt. Het wordt gekoppeld aan het Uitvoeren als-profiel **Microsoft System Center Advisor Run As Profile Blob** voor twee klassen: **Collection Server** (server voor verzameling) en **Operations Manager Management Group** (Operations Manager-beheergroep).
 * Er worden twee connectors gemaakt.  De eerste connector is **Microsoft.SystemCenter.Advisor.DataConnector**. Deze wordt automatisch geconfigureerd met een abonnement zodat alle waarschuwingen die door de klassen in de beheergroep worden gegenereerd, worden doorgestuurd naar Log Analytics. De tweede connector is **Advisor Connector**. Deze wordt gebruikt voor de communicatie met de OMS-webservice en het delen van gegevens.
 * Agents en groepen die u hebt geselecteerd voor het verzamelen van gegevens in de beheergroep, worden toegevoegd aan de **Microsoft System Center Advisor Monitoring Server-groep**.
 
 ## <a name="management-pack-updates"></a>Management pack-updates
-Nadat de configuratie is voltooid, wordt er een verbinding tot stand gebracht tussen de Operations Manager-beheergroep en de Log Analytics-service.  De beheerserver wordt gesynchroniseerd met de webservice en ontvangt informatie over de bijgewerkte configuratie in de vorm van management packs voor de oplossingen die u hebt ingeschakeld en die zijn geïntegreerd met Operations Manager.   Er wordt gecontroleerd op updates van deze management packs. Als er updates beschikbaar zijn, worden deze automatisch gedownload en geïmporteerd in Operations Manager.  Dit gedrag wordt voornamelijk bepaald door twee regels:
+Nadat de configuratie is voltooid, wordt er een verbinding tot stand gebracht tussen de Operations Manager-beheergroep en de Log Analytics-service. De beheerserver wordt gesynchroniseerd met de webservice en ontvangt informatie over de bijgewerkte configuratie in de vorm van management packs voor de oplossingen die u hebt ingeschakeld en die zijn geïntegreerd met Operations Manager. Operations Manager wordt gecontroleerd op updates van deze management packs en automatisch downloaden en importeert deze als ze beschikbaar. Dit gedrag wordt voornamelijk bepaald door twee regels:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - Hiermee worden de basis-management packs van Log Analytics bijgewerkt. Deze regel wordt standaard elke 12 uur uitgevoerd.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Hiermee worden de management packs van ingeschakelde oplossingen in uw werkruimte bijgewerkt. Deze regel wordt standaard elke vijf (5) minuten uitgevoerd.
 
-U kunt deze twee regels uitschakelen als u automatische downloads wilt voorkomen of overschrijven als u de frequentie wilt wijzigen waarmee de beheerserver met OMS wordt gesynchroniseerd om te controleren of er een nieuw management pack beschikbaar is dat moet worden gedownload.  Volg de stappen voor het [overschrijven van een regel of controle](https://technet.microsoft.com/library/hh212869.aspx) als u de parameter **Frequency** (Frequentie) wilt bijwerken met een waarde in seconden om het synchronisatieschema te wijzigen. Wijzig de parameter **Enabled** (Ingeschakeld) als u de regels wilt uitschakelen.  Configureer de overschrijvingen voor alle objecten van de klasse Operations Manager Management Group.
+U kunt deze twee regels uitschakelen als u automatische downloads wilt voorkomen of overschrijven als u de frequentie wilt wijzigen waarmee de beheerserver met OMS wordt gesynchroniseerd om te controleren of er een nieuw management pack beschikbaar is dat moet worden gedownload. Volg de stappen voor het [overschrijven van een regel of controle](https://technet.microsoft.com/library/hh212869.aspx) als u de parameter **Frequency** (Frequentie) wilt bijwerken met een waarde in seconden om het synchronisatieschema te wijzigen. Wijzig de parameter **Enabled** (Ingeschakeld) als u de regels wilt uitschakelen. Configureer de overschrijvingen voor alle objecten van de klasse Operations Manager Management Group.
 
-Als u wilt doorgaan na uw bestaande wijzigingsproces voor een besturingselement voor het beheren van management Packs in uw productiebeheergroep, kunt u uitschakelen van de regels en ze inschakelen tijdens bepaalde uren waarin updates mogen. Als u een ontwikkelings- of QA-beheergroep in uw omgeving hebt en deze met internet verbonden is, kunt u die beheergroep configureren met een Log Analytics-werkruimte ter ondersteuning van dit scenario.  Zo kunt u de iteratieve vrijgaven van de Log Analytics-management packs beoordelen en evalueren voordat u ze vrijgeeft in uw productiebeheergroep.
+Als u wilt doorgaan na uw bestaande wijzigingsproces voor een besturingselement voor het beheren van management Packs in uw productiebeheergroep, kunt u uitschakelen van de regels en ze inschakelen tijdens bepaalde uren waarin updates mogen. Als u een ontwikkelings- of QA-beheergroep in uw omgeving hebt en deze met internet verbonden is, kunt u die beheergroep configureren met een Log Analytics-werkruimte ter ondersteuning van dit scenario. Zo kunt u de iteratieve vrijgaven van de Log Analytics-management packs beoordelen en evalueren voordat u ze vrijgeeft in uw productiebeheergroep.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Een Operations Manager-groep overschakelen naar een nieuwe Log Analytics-werkruimte
 1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
@@ -189,9 +189,9 @@ Er zijn meerdere manieren om te controleren of Log Analytics met succes is geïn
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-log-analytics"></a>Integratie met Log Analytics verwijderen
-Als de integratie tussen uw Operations Manager-beheergroep en de Log Analytics-werkruimte niet meer nodig is, moet u verschillende stappen uitvoeren om de verbinding en de configuratie in de beheergroep correct te verwijderen. Met de volgende procedure werkt u de Log Analytics-werkruimte bij door de referentie van de beheergroep, de Log Analytics-connectors en de management packs voor integratie met de service te verwijderen.   
+Als de integratie tussen uw Operations Manager-beheergroep en de Log Analytics-werkruimte niet meer nodig is, moet u verschillende stappen uitvoeren om de verbinding en de configuratie in de beheergroep correct te verwijderen. Met de volgende procedure werkt u de Log Analytics-werkruimte bij door de referentie van de beheergroep, de Log Analytics-connectors en de management packs voor integratie met de service te verwijderen.  
 
-De management packs voor de oplossingen die u hebt ingeschakeld en die zijn geïntegreerd met Operations Manager en de management packs die zijn vereist voor integratie met de Log Analytics-service kunnen niet eenvoudig worden verwijderd uit de beheergroep.  Dat komt omdat bepaalde Log Analytics-management packs afhankelijk zijn van andere gerelateerde management packs.  Download het script [remove a management pack with dependencies](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) (een management pack met afhankelijkheden verwijderen) van TechNet Script Center als u management packs die afhankelijk zijn van andere management packs wilt verwijderen.  
+De management packs voor de oplossingen die u hebt ingeschakeld en die zijn geïntegreerd met Operations Manager en de management packs die zijn vereist voor integratie met de Log Analytics-service kunnen niet eenvoudig worden verwijderd uit de beheergroep. Dat komt omdat bepaalde Log Analytics-management packs afhankelijk zijn van andere gerelateerde management packs. Download het script [remove a management pack with dependencies](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) (een management pack met afhankelijkheden verwijderen) van TechNet Script Center als u management packs die afhankelijk zijn van andere management packs wilt verwijderen.  
 
 1. Open de Operations Manager-opdrachtshell met een account dat lid is van de rol Administrators in Operations Manager.
    
@@ -215,7 +215,7 @@ De management packs voor de oplossingen die u hebt ingeschakeld en die zijn geï
 
 1. Klik in de OMS-portal op de tegel **Instellingen**.
 1. Selecteer **verbonden bronnen**.
-1. In de tabel onder de sectie System Center Operations Manager ziet u de naam van de beheergroep die u wilt verwijderen uit de werkruimte.  Klik onder de kolom **Laatste gegevens** op **Verwijderen**.  
+1. In de tabel onder de sectie System Center Operations Manager ziet u de naam van de beheergroep die u wilt verwijderen uit de werkruimte. Klik onder de kolom **Laatste gegevens** op **Verwijderen**.  
    
     > [!NOTE]
     > De koppeling **Verwijderen** is pas beschikbaar als er 14 dagen geen activiteit van de verbonden beheergroep is gedetecteerd.  
@@ -321,10 +321,10 @@ Als u de twee connectors Microsoft.SystemCenter.Advisor.DataConnector en Advisor
     Remove-Connector $connectorName
 ```
 
-Als u de beheergroep in de toekomst opnieuw wilt verbinden met een Log Analytics-werkruimte, moet u het management pack-bestand `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` opnieuw importeren.  Afhankelijk van welke versie van System Center Operations Manager in uw omgeving is geïmplementeerd, bevindt dit bestand zich op de volgende locatie:
+In de toekomst als u van plan uw beheergroep die u wilt een Log Analytics-werkruimte opnieuw verbinding maken bent, moet u om opnieuw te importeren de `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` management pack-bestand. Afhankelijk van welke versie van System Center Operations Manager in uw omgeving is geïmplementeerd, bevindt dit bestand zich op de volgende locatie:
 
 * Op het bronmedium in de map `\ManagementPacks` voor System Center 2016 - Operations Manager of hoger.
-* Van het meest recente updatepakket dat op de beheergroep is toegepast.  Voor Operations Manager 2012 is de bronmap ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` en voor 2012 R2 bevindt deze zich in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* Van het meest recente updatepakket dat op de beheergroep is toegepast. Voor Operations Manager 2012 is de bronmap ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` en voor 2012 R2 bevindt deze zich in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie [Log Analytics-oplossingen uit de galerie met oplossingen toevoegen](log-analytics-add-solutions.md) om functionaliteit toe te voegen en gegevens te verzamelen.

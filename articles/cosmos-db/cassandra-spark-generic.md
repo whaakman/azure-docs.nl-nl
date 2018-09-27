@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: b7a6d449e7b8d0f3980a38767147e6b3a37f8e0f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2f5aebf32cf5860ca8fc32ab741177c6df15c60
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995994"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227194"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Verbinding maken met Azure Cosmos DB Cassandra-API van Spark
 
@@ -27,9 +27,9 @@ In dit artikel is een tussen een reeks artikelen over Cassandra-API van Azure Co
 * Inrichten van uw keuze van Spark-omgeving [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Anderen].
 
 ## <a name="dependencies-for-connectivity"></a>Afhankelijkheden voor connectiviteit
-* **Datastax Spark-connector voor Cassandra:** Datastax Spark-connector wordt gebruikt voor verbinding met Azure Cosmos DB Cassandra-API.  Bepalen welke en de versie van de connector zich bevindt [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel is met de Spark- en Scala-versies van uw Spark-omgeving.
+* **Spark-connector voor Cassandra:** Spark-connector wordt gebruikt voor verbinding met Azure Cosmos DB Cassandra-API.  Bepalen welke en de versie van de connector zich bevindt [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel is met de Spark- en Scala-versies van uw Spark-omgeving.
 
-* **Azure Cosmos DB-helper-bibliotheek voor Cassandra-API:** naast de Datastax-connector, moet u een ander bibliotheektype bespreken [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) van Azure Cosmos DB. Deze bibliotheek bevat een factory verbinding en een aangepaste nieuwe poging beleid klassen.
+* **Azure Cosmos DB-helper-bibliotheek voor Cassandra-API:** naast de Spark-connector, moet u een ander bibliotheektype bespreken [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) van Azure Cosmos DB. Deze bibliotheek bevat een factory verbinding en een aangepaste nieuwe poging beleid klassen.
 
   Het beleid voor opnieuw proberen in Azure Cosmos DB is geconfigureerd voor het afhandelen van HTTP-status code 429 ("tarief grote aanvraag') uitzonderingen. De Cassandra-API van Azure Cosmos DB vertaalt deze uitzonderingen overbelaste fouten op het systeemeigen Cassandra-protocol en u kunt het opnieuw met de back-laag. Omdat Azure Cosmos DB ingerichte doorvoer model gebruikt, wordt aanvraag beperkende uitzonderingen optreden wanneer de Inkomend/uitgaand verkeer toename van de tarieven. Het beleid voor opnieuw proberen beschermt uw spark-taken op basis van gegevens pieken die tijdelijk groter is dan de doorvoer die is toegewezen voor uw verzameling.
 
@@ -40,7 +40,7 @@ In dit artikel is een tussen een reeks artikelen over Cassandra-API van Azure Co
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Parameters voor Spark-connector voor configuratie van doorvoer
 
-De volgende tabel bevat configuratie-parameters voor Azure Cosmos DB Cassandra-API-specifieke doorvoer is geleverd door de connector. Zie voor een gedetailleerde lijst van alle configuratieparameters, [naslaginformatie voor configuratie](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) pagina van de DataStax Spark Cassandra Connector GitHub-opslagplaats.
+De volgende tabel bevat configuratie-parameters voor Azure Cosmos DB Cassandra-API-specifieke doorvoer is geleverd door de connector. Zie voor een gedetailleerde lijst van alle configuratieparameters, [naslaginformatie voor configuratie](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) pagina van de Spark Cassandra Connector GitHub-opslagplaats.
 
 | **De naam van eigenschap** | **Standaardwaarde** | **Beschrijving** |
 |---------|---------|---------|
@@ -80,14 +80,14 @@ Terwijl de bovenstaande secties specifiek voor Azure Spark op basis van PaaS-ser
 
 #### <a name="connector-dependencies"></a>Connector-afhankelijkheden:
 
-1. Toevoegen van de maven-coördinaten voor de [Datastax Cassandra-connector voor Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
+1. Toevoegen van de maven-coördinaten aan de [Cassandra-connector voor Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
 2. Toevoegen van de maven-coördinaten voor de [Azure Cosmos DB-hulpbibliotheek](cassandra-spark-generic.md#dependencies-for-connectivity) voor Cassandra-API
 
 #### <a name="imports"></a>Invoer:
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

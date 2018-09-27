@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 561c5b0f49c36cf15e85e3a334c7a8aa326f70a9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715054"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219413"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Een microservice aanpassen en opnieuw implementeren
 
@@ -58,13 +58,13 @@ Wijzig nu het statusbericht van de Iot Hub-beheer microservice "Nieuwe wijziging
 3. StatusController.cs in een teksteditor of IDE die u wilt openen. 
 4. Zoek de volgende code:
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "Alive and well");
     ```
 
     en dit wijzigen in de onderstaande code en sla deze.
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
@@ -118,13 +118,13 @@ Nu moet u uw lokale docker-compose.yml om op te halen van de nieuwe docker-insta
 3. Zoek de volgende code:
 
     ```docker
-    image: azureiotpcs/pcs-auth-dotnet:testing
+    image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     en pas deze als lijken op de onderstaande afbeelding en op te slaan.
 
     ```cmd/sh
-    image: [docker ID]/pcs-auth-dotnet:testing
+    image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## <a name="view-the-new-response-status"></a>De nieuwe antwoordstatus weergeven

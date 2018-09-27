@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972380"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221703"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-handleiding voor oplossingen voor Voorspellend onderhoud
 
@@ -426,19 +426,19 @@ Het laatste gedeelte van deze handleiding bevat een lijst van PdM oplossingssjab
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Cursussen voor voorspeld onderhoud
 
-De [Azure AI-leertraject voor predictief onderhoud](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) biedt het trainingsmateriaal voor een beter begrip van de concepten en wiskunde achter de algoritmen en technieken die worden gebruikt in PdM problemen. 
-
-Microsoft Azure biedt gratis inhoud en -training op algemene AI-concepten en procedures.
+Microsoft Azure biedt leertrajecten voor de basisconcepten achter PdM technieken, naast inhoud en -training voor algemene AI-concepten en procedures.
 
 | Training-resource  | Beschikbaarheid |
 |:-------------------|--------------|
+| [Leertraject voor PdM met behulp van structuren en willekeurige Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
+| [Leertraject voor PdM met behulp van Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
 | [AI-ontwikkelaar op Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI-School](http://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI-training vanuit GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI-Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI-Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Voor Microsoft-Partners |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Voor Microsoft-Partners |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partners |
+| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partners |
 
 Bovendien zijn gratis MOOCS (massive open online cursussen) op AI aangeboden online door academische instellingen, zoals Stanford en MIT en andere educatieve bedrijven.

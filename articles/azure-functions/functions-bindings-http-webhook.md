@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1b34484978ad95f0945e93411ac2e2a74fff238
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980971"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227551"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions-HTTP-triggers en bindingen
 
@@ -483,7 +483,7 @@ Als u wilt uw functie-eindpunten in de productieomgeving volledig te beveiligen,
 
 * Inschakelen van App Service-verificatie / autorisatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD) en diverse externe id-providers gebruiken om clients te verifiëren. U kunt deze gebruiken voor het implementeren van aangepaste regels voor uw functies en u kunt werken met de gebruikersinformatie uit uw functiecode aan te geven. Zie voor meer informatie, [verificatie en autorisatie in Azure App Service](../app-service/app-service-authentication-overview.md).
 
-* Azure API Management (APIM) gebruiken om aanvragen te verifiëren. APIM biedt een verscheidenheid aan opties voor API-beveiliging voor binnenkomende aanvragen. Zie voor meer informatie, [API Management-verificatiebeleid](../api-management/api-management-authentication-policies.md). Met APIM op locatie, kunt u uw functie-app voor het accepteren van aanvragen van het PI-adres van de APIM-instantie te configureren. Zie voor meer informatie, [IP-adresbeperkingen](ip-addresses.md#ip-address-restrictions).
+* Azure API Management (APIM) gebruiken om aanvragen te verifiëren. APIM biedt een verscheidenheid aan opties voor API-beveiliging voor binnenkomende aanvragen. Zie voor meer informatie, [API Management-verificatiebeleid](../api-management/api-management-authentication-policies.md). Met APIM op locatie, kunt u uw functie-app voor het accepteren van aanvragen van het IP-adres van de APIM-instantie te configureren. Zie voor meer informatie, [IP-adresbeperkingen](ip-addresses.md#ip-address-restrictions).
 
 * Uw functie-app implementeren naar een Azure App Service Environment (ASE). As-omgeving biedt een toegewezen hosting omgeving waarin u kunt uw functies worden uitgevoerd. As-omgeving kunt u configureren van één front-gateway die u gebruiken kunt om alle inkomende aanvragen te verifiëren. Zie voor meer informatie, [configureren van een Web Application Firewall (WAF) voor App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 

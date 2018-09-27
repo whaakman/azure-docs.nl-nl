@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 30f9a874853f4cb492d7a562d0d2439b73cf62dc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989971"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225159"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Met behulp van Azure Monitor voor de toewijzing van virtuele machines om te begrijpen van toepassingsonderdelen
-De onderdelen van de gedetecteerde toepassing weergeven in Windows en Linux virtuele machines van Azure bent u uw omgeving kan worden waargenomen op twee manieren met Azure Monitor voor virtuele machines, van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor. 
+De gedetecteerde toepassing onderdelen op Windows en Linux-machines die worden uitgevoerd in uw Azure-omgeving kunnen worden waargenomen weergeven op twee manieren met Azure Monitor voor virtuele machines van een virtuele machine rechtstreeks of via groepen virtuele machines van Azure Monitor. 
 
 Dit artikel krijgt u inzicht in de ervaring tussen de twee perspectieven en hoe u de functie van de kaart. Zie voor meer informatie over het configureren van Azure Monitor voor virtuele machines [Azure Monitor inschakelen voor virtuele machines](monitoring-vminsights-onboard.md).
 

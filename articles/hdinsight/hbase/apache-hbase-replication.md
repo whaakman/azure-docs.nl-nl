@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978536"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224373"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
 
@@ -70,7 +70,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 | Eigenschap | Waarde |
 |----------|-------|
 | Locatie | US - west |
-| VNet-naam | &lt;ClusterNamePrevix >-vnet1 |
+| VNET-naam | &lt;ClusterNamePrevix >-vnet1 |
 | Adresruimtevoorvoegsel | 10.1.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.1.0.0/24 |
@@ -87,7 +87,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 | Eigenschap | Waarde |
 |----------|-------|
 | Locatie | US - oost |
-| VNet-naam | &lt;ClusterNamePrevix >-vnet2 |
+| VNET-naam | &lt;ClusterNamePrevix >-vnet2 |
 | Adresruimtevoorvoegsel | 10.2.0.0/16 |
 | Subnetnaam | subnet 1 |
 | Het subnetvoorvoegsel | 10.2.0.0/24 |
@@ -109,6 +109,7 @@ Voor het installeren van de binding moet yon vinden van het openbare IP-adres va
 2. Open de DNS-virtuele machine en selecteer **resourcegroepen > [Resourcegroepnaam] > [vnet1DNS]**.  Naam van de resourcegroep is degene die u in de laatste procedure maakt. De namen van de standaard DNS-virtuele machine zijn *vnet1DNS* en *vnet2NDS*.
 3. Selecteer **eigenschappen** om de eigenschappenpagina van het virtuele netwerk te openen.
 4. Noteer de **openbaar IP-adres**, en Controleer ook of de **privé IP-adres**.  Het privé IP-adres worden **10.1.0.4** voor vnet1DNS en **10.2.0.4** voor vnet2DNS.  
+5. Wijzig de DNS-Servers voor beide virtuele netwerken voor het gebruik van standaard (door Azure geleverd) DNS-servers voor binnenkomende en uitgaande toegang tot het downloaden van pakketten voor het installeren van de binding in de volgende stappen uit.
 
 Gebruik de volgende procedure voor het installeren van de binding voor:
 
@@ -217,7 +218,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]

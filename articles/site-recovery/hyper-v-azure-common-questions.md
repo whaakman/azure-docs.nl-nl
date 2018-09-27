@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7600fc81d0d3e3607f2185ad2c793255a0c68634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721905"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227296"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Veelgestelde vragen - Hyper-V naar Azure-replicatie
 
@@ -104,7 +104,7 @@ U kunt elke app of het uitvoeren van een Hyper-V-VM die aan de voldoet workload 
 
 ### <a name="whats-the-replication-process"></a>Wat is het replicatieproces?
 
-1. Wanneer de eerste replicatie wordt geactiveerd, wordt een momentopname van de momentopname van Hyper-V-VM wordt gemaakt.
+1. Wanneer de eerste replicatie wordt geactiveerd, wordt een Hyper-V-VM-momentopname wordt gemaakt.
 2. Virtuele harde schijven op de virtuele machine worden één voor één gerepliceerd, tot ze allemaal zijn gekopieerd naar Azure. Dit kan even duren, afhankelijk van de VM-grootte en de netwerkbandbreedte. Informatie over het verhogen van de netwerkbandbreedte.
 3. Als er tijdens de initiële replicatie wordt uitgevoerd, worden de wijzigingen in de Hyper-V Replica Replication Tracker bijgehouden als Hyper-V-replicatielogboeken (.hrl). Deze logboekbestanden bevinden zich in dezelfde map als de schijven. Elke schijf heeft een bijbehorend .hrl-bestand dat wordt verzonden naar een secundaire opslag. De momentopname- en logboekbestanden nemen schijfbronnen in beslag terwijl de eerste replicatie wordt uitgevoerd.
 4. Als de initiële replicatie is voltooid, wordt de VM-momentopname verwijderd.

@@ -2,19 +2,22 @@
 title: Azure SQL Database In-Memory-technologieën | Microsoft Docs
 description: Azure SQL Database In-Memory-technologieën verbeteren aanzienlijk de prestaties van de transactionele en workloads voor analyse.
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: 5fd0d487371acdf8d0b3301cc881aa2f059a9f41
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984149"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166925"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 

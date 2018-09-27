@@ -1,25 +1,25 @@
 ---
-title: Zoek op Internet voor trends video's | Microsoft Docs
-description: Laat zien hoe de Bing Video zoeken-API gebruiken om te zoeken op het web voor trends video's.
+title: Het web zoeken naar trending video's - Bing video's zoeken
+titlesuffix: Azure Cognitive Services
+description: Laat zien hoe de Bing video's zoeken-API gebruiken om te zoeken naar het web voor trending video's.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 897A28A3-0980-484E-814F-FFE1D5C885E6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 8db7fcf77042631260b4b165bd3d44053827f3ce
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8a6ccc9ea8cf9468d7638360c9db8131bc6dc5be
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344419"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222039"
 ---
-# <a name="get-trending-videos"></a>Trends video's ophalen  
+# <a name="get-trending-videos"></a>Trending video's ophalen  
 
-Als u vandaag trends video's, de volgende GET-aanvraag te verzenden:  
+Om op te halen van vandaag trending video's, de volgende GET-aanvraag te verzenden:  
   
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
@@ -31,24 +31,24 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-De volgende markten ondersteuning trends video's.  
+De volgende markten ondersteuning voor trending video's.  
  
 -   en-AU (Engels, Australië)  
 -   NL-CA (Engels, Canada)  
--   en-GB (Engels, Engeland)  
+-   en-GB (Engels, Groot-Brittannië)  
 -   NL-ID (Engels, Indonesië)  
--   NL-IE (Engels, Ierland)  
--   NL-IN (Engels, India)  
+-   NL-Internet Explorer (Engels, Ierland)  
+-   NL-IN-(Engels, India)  
 -   NL-NZ (Engels, Nieuw-Zeeland)  
 -   NL-PH (Engels, Filipijnen)  
--   NL-SG (Engels, Singapore)  
+-   en-Lidmaatschappen (Engels, Singapore)  
 -   en-US (Engels, Verenigde Staten)  
--   NL WW (Engels, wereldwijd statistische-code)  
--   NL-ZA (Engels, Zuid-Afrika)  
+-   NL-WW (Engels, wereldwijd statistische-code)  
+-   NL-ZA-(Engels, Zuid-Afrika)  
 -   zh-CN (Chinees, China)
 
   
-Het volgende voorbeeld ziet een antwoord met trends video's.  
+Het volgende voorbeeld ziet een antwoord met trending video's.  
 
 ```  
 {  
@@ -113,7 +113,7 @@ Het volgende voorbeeld ziet een antwoord met trends video's.
 }  
   
 ```  
-Het antwoord bevat een lijst met video's op categorie en subcategorie. Als de lijst met categorieën een categorie muziek video's bevat en een van de subcategorieën Top is, kan u een categorie boven muziek video's maken in de gebruikerservaring. U kunt vervolgens de `thumbnailUrl`, `displayText`, en `webSearchUrl` velden voor het maken van een klikbaar tegel onder elke categorie (bijvoorbeeld bovenste muziek video's). Wanneer de gebruiker op de tegel, bent ze naar Bing van video browser geleid waar de video wordt afgespeeld.
+Het antwoord bevat een lijst met video's op categorie en subcategorie. Als de lijst met categorieën die een categorie muziek video's en een van de subcategorieën boven is, kan u bijvoorbeeld een categorie boven muziek-video's maken in uw gebruikerservaring. U kunt vervolgens de `thumbnailUrl`, `displayText`, en `webSearchUrl` velden op de tegel met een geklikt in elke categorie (bijvoorbeeld bovenste muziek video's) maken. Wanneer de gebruiker op de tegel, er ze wordt van de Bing video-browser waar de video wordt afgespeeld.
 
-Het antwoord bevat ook banner video's, die de meest populaire trends video's. De banner video's kunnen afkomstig zijn van een of meer van de categorieën.  
+Het antwoord bevat ook een banner video's, die het meest populaire trending video's. De banner video's kunnen afkomstig zijn van een of meer van de categorieën.  
   

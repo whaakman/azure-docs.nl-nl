@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: bd05f1c5c2c8f4c4469a702b73341fd506c54815
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958778"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227517"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -68,7 +68,7 @@ Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer *
 1. Voer in het zoekvak boven aan de portal, *netwerkbeveiligingsgroepen*. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in de lijst met zoekresultaten, selecteert u deze.
 2. Selecteer de netwerkbeveiligingsgroep in de lijst die u wilt weergeven van details voor. Onder **instellingen** vindt u de **inkomende beveiligingsregels** en **uitgaande beveiligingsregels**, wordt de **netwerkinterfaces** en  **Subnetten** de netwerkbeveiligingsgroep is gekoppeld aan. U kunt ook inschakelen of uitschakelen **diagnostische logboeken** en **effectieve beveiligingsregels**. Zie voor meer informatie, [diagnostische logboeken](virtual-network-nsg-manage-log.md) en [effectieve beveiligingsregels bekijken](diagnose-network-traffic-filter-problem.md).
 3. Zie voor meer informatie over de algemene instellingen voor Azure die worden vermeld, de volgende artikelen:
-    *   [Activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [Activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

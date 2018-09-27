@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 59e5825554843ef7265cbccdd9a63db0426891fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307786"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226306"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>PremiumV2-laag voor Azure App Service configureren
 
@@ -55,7 +55,7 @@ Selecteer **productie**en selecteer vervolgens **P1V2**, **P2V2**, of **P3V2**, 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Als er geen **P1V2**, **P2V2**, en **P3V2** als opties, of als de opties worden grijs weergegeven out, klikt u vervolgens **PremiumV2** waarschijnlijk niet beschikbaar is in de onderliggende App Service-implementatie met de App Service-plan. Zie Zie [kan worden uitgebreid van de combinatie van een niet-ondersteund resourcetype groep en regio](#unsupported) voor meer informatie.
+> Als er geen **P1V2**, **P2V2**, en **P3V2** als opties, of als de opties worden grijs weergegeven out, klikt u vervolgens **PremiumV2** waarschijnlijk niet beschikbaar is in de onderliggende App Service-implementatie met de App Service-plan. Zie [kan worden uitgebreid van de combinatie van een niet-ondersteund resourcetype groep en regio](#unsupported) voor meer informatie.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Een bestaande app te PremiumV2-laag omhoog schalen
 

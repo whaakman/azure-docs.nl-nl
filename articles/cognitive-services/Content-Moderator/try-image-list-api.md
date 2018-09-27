@@ -1,80 +1,81 @@
 ---
-title: Gemiddelde van afbeeldingen met behulp van aangepaste lijsten in Azure inhoud beheerder | Microsoft Docs
-description: Afbeelding van aangepaste lijsten in de console inhoud beheerder API Test-Drive.
+title: 'Gemiddeld afbeeldingen met behulp van aangepaste lijsten met de API-console: Content Moderator'
+titlesuffix: Azure Content Moderator
+description: Maak een proefrit met aangepaste afbeeldingslijsten in de Content Moderator-API-console.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2d714f017be16d978ffbb877a2b7e78e1caf9169
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344555"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219954"
 ---
-# <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Gemiddelde met lijsten van de aangepaste installatiekopie in de API-console
+# <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Gemiddelde met aangepaste afbeeldingslijsten in de API-console
 
-U gebruikt de [lijst Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure inhoud beheerder voor het maken van aangepaste lijsten van afbeeldingen. De aangepaste lijsten met afbeeldingen gebruiken met de installatiekopie toezicht-API. De bewerking van de installatiekopie van toezicht evalueert uw installatiekopie. Als u aangepaste lijsten maakt, wordt deze door de bewerking ook vergelijkt met de afbeeldingen in uw aangepaste lijsten. Aangepaste lijsten kunt u de installatiekopie van het toestaan of blokkeren.
+U gebruikt de [lijst Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) in Azure Content Moderator om aangepaste lijsten van installatiekopieën te maken. Gebruik de aangepaste lijsten van afbeeldingen met de afbeeldingen-API voor beheer. De bewerking van de toezicht installatiekopie evalueert uw installatiekopie. Als u aangepaste lijsten maakt, wordt deze door de bewerking ook vergeleken met de afbeeldingen in uw aangepaste lijsten. U kunt aangepaste lijsten blokkeren of toestaan dat de installatiekopie.
 
 > [!NOTE]
-> Er is een maximumlimiet van **5 installatiekopie lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
+> Er is een maximumlimiet van **5 image lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
 >
 
-U de lijst beheer-API gebruiken voor de volgende taken uitvoeren:
+In dat geval gebruikt u de lijst Management-API in de volgende taken uitvoeren:
 
 - Een lijst maken.
-- Installatiekopieën toevoegen aan een lijst.
+- Afbeeldingen toevoegen aan een lijst.
 - Installatiekopieën van het scherm op basis van de afbeeldingen in een lijst.
-- Installatiekopieën van een lijst verwijderen.
-- Een lijst te verwijderen.
-- Lijst met gegevens bewerken.
-- De index vernieuwen, zodat de wijzigingen in de lijst zijn opgenomen in een nieuwe scan.
+- Afbeeldingen uit een lijst verwijderen.
+- Een lijst verwijderen.
+- Bewerk de gegevens weer te geven.
+- De index vernieuwen zodat wijzigingen in de lijst zijn opgenomen in een nieuwe scan.
 
 ## <a name="use-the-api-console"></a>De API-console gebruiken
-Voordat u kunt de API in de online-console test-drive, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie [overzicht](overview.md).
+Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie, [overzicht](overview.md).
 
-## <a name="refresh-search-index"></a>Vernieuwen van de search-index
+## <a name="refresh-search-index"></a>Search-index vernieuwen
 
-Nadat u wijzigingen in een lijst met afbeeldingen aanbrengt, moet u de index om wijzigingen te worden opgenomen in toekomstige scans vernieuwen. Deze stap is vergelijkbaar met hoe een zoekmachine op het bureaublad (indien ingeschakeld) of een zoekmachine voortdurend vernieuwd de index als nieuwe bestanden of pagina's wilt opnemen.
+Nadat u wijzigingen in een lijst met afbeeldingen aanbrengt, moet u de index voor de wijzigingen moeten worden opgenomen in toekomstige scans vernieuwen. Deze stap is vergelijkbaar met hoe een zoekmachine op het bureaublad (indien ingeschakeld) of een zoekmachine voortdurend Hiermee vernieuwt u de index zodanig dat nieuwe bestanden of pagina's.
 
-1.  In de [installatiekopie lijst Management API-referentiemateriaal](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), selecteer in het menu links **afbeelding vindt u een**, en selecteer vervolgens **zoekindex vernieuwen**.
+1.  In de [installatiekopie lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), selecteert u in het menu links **afbeelding geeft een lijst**, en selecteer vervolgens **zoekindex vernieuwen**.
 
   De **afbeelding geeft een lijst - zoekindex vernieuwen** pagina wordt geopend.
 
-2. Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
  
-    ![Afbeelding van lijsten: Search-Index pagina Regioselectie vernieuwen](images/test-drive-region.png)
+    ![Lijst met installatiekopieën - zoekindex vernieuwen pagina regio selecteren](images/test-drive-region.png)
 
     De **afbeelding geeft een lijst - zoekindex vernieuwen** API-console wordt geopend.
 
-3.  In de **listId** en voer de id van de lijst. Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
+3.  In de **listId** voert u de lijst-ID. Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
 
-  ![De installatiekopie van een lijst met - vak van vernieuwen Search-Index console antwoord inhoud](images/try-image-list-refresh-1.png)
+  ![Lijst met installatiekopieën - vak met de Search-Index vernieuwen console antwoord inhoud](images/try-image-list-refresh-1.png)
 
 
-## <a name="create-an-image-list"></a>Een lijst met afbeeldingen maken
+## <a name="create-an-image-list"></a>Een installatiekopie maken
 
-1.  Ga naar de [installatiekopie lijst Management API-referentiemateriaal](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
+1.  Ga naar de [installatiekopie lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
 
   De **afbeelding geeft een lijst - maken** pagina wordt geopend. 
 
-3.  Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie.
+3.  Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie.
 
-    ![Afbeelding van lijsten: maken pagina regio selecteren](images/test-drive-region.png)
+    ![Afbeelding van lijsten: maken van de selectie van de regio](images/test-drive-region.png)
 
     De **afbeelding geeft een lijst - maken** API-console wordt geopend.
  
-4.  In de **Ocp-Apim-Subscription-Key** Voer de abonnementssleutel van uw.
+4.  In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
 
-5.  In de **aanvraagtekst** Geef waarden voor **naam** (bijvoorbeeld MyList) en **beschrijving**.
+5.  In de **aanvraagtekst** vak, voer waarden in voor **naam** (bijvoorbeeld MyList) en **beschrijving**.
 
-  ![Afbeelding van lijsten: maken van de console aanvraag hoofdtekstnaam en beschrijving](images/try-terms-list-create-1.png)
+  ![Afbeelding van lijsten: maken van de console aanvraag hoofdtekst van de naam en beschrijving](images/try-terms-list-create-1.png)
 
-6.  Sleutel / waarde-paar tijdelijke aanduidingen gebruiken meer beschrijvende metagegevens toewijzen aan de lijst.
+6.  Sleutel / waarde-paar tijdelijke aanduidingen gebruiken meer beschrijvende metagegevens toewijzen aan uw lijst.
 
         {
            "Name": "MyExclusionList",
@@ -86,83 +87,83 @@ Nadat u wijzigingen in een lijst met afbeeldingen aanbrengt, moet u de index om 
            }
         }
 
-  Lijst met metagegevens als sleutel-waardeparen en niet de werkelijke installatiekopieën toevoegen.
+  Metagegevens van de lijst als sleutel-waardeparen en niet de werkelijke installatiekopieën toevoegen.
  
-7.  Selecteer **Verzenden**. De lijst wordt gemaakt. Opmerking de **ID** waarde die is gekoppeld aan de nieuwe lijst. In dat geval moet u deze ID in voor de beheerfuncties van andere installatiekopie-lijst.
+7.  Selecteer **Verzenden**. De lijst wordt gemaakt. Houd er rekening mee de **ID** waarde die is gekoppeld aan de nieuwe lijst. In dat geval moet u deze ID in voor de beheerfuncties van andere installatiekopie-lijst.
 
-  ![Afbeelding van lijsten: console antwoord inhoud vak geeft de lijst-ID maken](images/try-terms-list-create-2.png)
+  ![Afbeelding van lijsten: console antwoord maken en de inhoud in de lijst-ID wordt weergegeven](images/try-terms-list-create-2.png)
  
 8.  Afbeeldingen vervolgens toevoegen aan MyList. Selecteer in het menu links **installatiekopie**, en selecteer vervolgens **afbeelding toevoegen**.
 
-  De **Image - installatiekopie toe te voegen** pagina wordt geopend. 
+  De **Image - installatiekopie toevoegen** pagina wordt geopend. 
 
-9. Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie.
+9. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie.
 
-  ![Afbeelding: installatiekopie pagina Regioselectie toevoegen](images/test-drive-region.png)
+  ![Installatiekopie - installatiekopie van de selectie van de regio toevoegen](images/test-drive-region.png)
 
-  De **Image - installatiekopie toe te voegen** API-console wordt geopend.
+  De **Image - installatiekopie toevoegen** API-console wordt geopend.
  
 10. In de **listId** vak, voer de lijst-ID die u hebt gegenereerd en voer vervolgens de URL van de installatiekopie die u wilt toevoegen. Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
 
-11. Selecteer om te controleren of de afbeelding is toegevoegd aan de lijst, in het menu links **installatiekopie**, en selecteer vervolgens **installatiekopie-id ophalen**.
+11. Selecteer om te controleren dat de afbeelding is toegevoegd aan de lijst, in het menu links **installatiekopie**, en selecteer vervolgens **installatiekopie-id ophalen**.
 
   De **afbeelding - installatiekopie-id ophalen** API-console wordt geopend.
   
-12. In de **listId** vak, voert u de ID van de lijst en voer vervolgens de abonnementssleutel van uw. Selecteer **Verzenden**.
+12. In de **listId** vak, voer de lijst-ID en voer vervolgens de abonnementssleutel van uw. Selecteer **Verzenden**.
 
-  ![Afbeelding - Get alle installatiekopie-id's console antwoord inhoud in de lijst staan de installatiekopieën die u hebt ingevoerd](images/try-image-list-create-11.png)
+  ![Installatiekopie - Get alle installatiekopie-id's console antwoord vak inhoud geeft een lijst van de installatiekopieën die u hebt ingevoerd](images/try-image-list-create-11.png)
  
-10. Installatiekopieën van een paar meer toevoegen. Nu u een aangepaste lijst met afbeeldingen hebt gemaakt, proberen [evalueren installatiekopieën](try-image-api.md) met behulp van de lijst van de aangepaste installatiekopie. 
+10. Een paar meer installatiekopieën toevoegen. Nu u een aangepaste lijst met installatiekopieën hebt gemaakt, kunt u proberen [evalueren installatiekopieën](try-image-api.md) met behulp van de lijst met aangepaste afbeeldingen. 
 
-## <a name="delete-images-and-lists"></a>Verwijderen van afbeeldingen en lijsten
+## <a name="delete-images-and-lists"></a>Verwijderen van installatiekopieën en lijsten
 
-Verwijderen van een afbeelding of een lijst is eenvoudig. De API kunt u de volgende taken uitvoeren:
+Het is eenvoudig een installatiekopie of een lijst te verwijderen. De API kunt u de volgende taken uitvoeren:
 
-- Een installatiekopie verwijderen. (**Afbeelding: verwijderen**)
-- De afbeeldingen in een lijst verwijderen zonder te verwijderen van de lijst. (**Afbeelding: verwijdert u alle installatiekopieën**)
-- Een lijst en alle inhoud verwijderd. (**Installatiekopie lijsten - Delete**)
+- Een installatiekopie verwijderen. (**Image - verwijderen**)
+- Alle installatiekopieën in een lijst verwijderen zonder te verwijderen van de lijst. (**Afbeelding: verwijdert u alle installatiekopieën**)
+- Een lijst en alle inhoud verwijderd. (**Afbeeldingslijsten - verwijderen**)
 
 In dit voorbeeld wordt een één installatiekopie verwijderd:
 
-1. In de [installatiekopie lijst Management API-referentiemateriaal](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), selecteer in het menu links **installatiekopie**, en selecteer vervolgens **verwijderen**. 
+1. In de [installatiekopie lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), selecteert u in het menu links **installatiekopie**, en selecteer vervolgens **verwijderen**. 
 
-  De **afbeelding: verwijderen** pagina wordt geopend.
+  De **Image - verwijderen** pagina wordt geopend.
 
-2. Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie. 
+2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
 
-  ![Afbeelding - selectie van regio pagina verwijderen](images/test-drive-region.png)
+  ![Installatiekopie - selectie verwijderen pagina-regio](images/test-drive-region.png)
  
-  De **afbeelding: verwijderen** API-console wordt geopend.
+  De **Image - verwijderen** API-console wordt geopend.
  
-3.  In de **listId** en voer de ID van de lijst voor het verwijderen van een afbeelding uit.  Dit is het aantal geretourneerd in de **afbeelding - installatiekopie-id ophalen** console voor MyList. Voer vervolgens de **ImageId** van de afbeelding te verwijderen. 
+3.  In de **listId** voert u de ID van de lijst als u wilt verwijderen van een afbeelding uit.  Dit is het dat wordt geretourneerd de **afbeelding - installatiekopie-id ophalen** console voor MyList. Voer vervolgens de **ImageId** van de afbeelding te verwijderen. 
 
 In ons voorbeeld wordt de lijst-ID is **58953**, de waarde voor **ContentSource**. De installatiekopie-ID is **59021**, de waarde voor **ContentIds**.
 
 4.  Voer de abonnementssleutel van uw en selecteer vervolgens **verzenden**.
 
-5.  Om te controleren dat de installatiekopie is verwijderd, gebruikt de **afbeelding - installatiekopie-id ophalen** console.
+5.  Om te controleren dat de installatiekopie is verwijderd, gebruikt u de **afbeelding - installatiekopie-id ophalen** console.
  
-## <a name="change-list-information"></a>Informatie over de lijst wijzigen
+## <a name="change-list-information"></a>Lijst met gegevens wijzigen
 
-U kunt de naam en beschrijving van een lijst bewerkt en metagegevensitems toevoegen.
+U kunt een lijst met de naam en beschrijving bewerken en metagegevensitems toevoegen.
 
-1.  In de [installatiekopie lijst Management API-referentiemateriaal](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), selecteer in het menu links **afbeelding vindt u een**, en selecteer vervolgens **Details van de Update**. 
+1.  In de [installatiekopie lijst Management API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672), selecteert u in het menu links **afbeelding geeft een lijst**, en selecteer vervolgens **Details van de Update**. 
 
   De **afbeelding geeft een lijst - Details van de Update** pagina wordt geopend.
 
-2. Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie.  
+2. Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie.  
 
-    ![De installatiekopie van een lijst met - Details van de Update pagina Regioselectie](images/test-drive-region.png)
+    ![Lijst met installatiekopieën - Details van de Update pagina regio selecteren](images/test-drive-region.png)
 
     De **afbeelding geeft een lijst - Details van de Update** API-console wordt geopend.
  
-3.  In de **listId** vak, voert u de ID van de lijst en voer vervolgens de abonnementssleutel van uw.
+3.  In de **listId** vak, voer de lijst-ID en voer vervolgens de abonnementssleutel van uw.
 
-4.  In de **aanvraagtekst** vak, bewerk de instellingen en selecteer vervolgens de **verzenden** knop op de pagina.
+4.  In de **aanvraagtekst** vak, voer de benodigde aanpassingen en selecteer vervolgens de **verzenden** knop op de pagina.
 
-  ![De installatiekopie van een lijst met - Details van de Update console aanvraag hoofdtekst bewerkingen](images/try-terms-list-change-1.png)
+  ![Lijst met installatiekopieën - Details van de Update-console aanvraag hoofdtekst bewerkingen](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De REST API gebruiken in uw code of starten met de [afbeelding vindt u een .NET-Quick Start](image-lists-quickstart-dotnet.md) integreren met uw toepassing.
+De REST-API in uw code te gebruiken of beginnen met de [afbeelding geeft een lijst van de Snelstartgids voor .NET](image-lists-quickstart-dotnet.md) om te integreren in uw toepassing.

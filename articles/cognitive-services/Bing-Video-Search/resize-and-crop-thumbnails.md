@@ -1,22 +1,22 @@
 ---
-title: Het formaat en Bing miniaturen bijsnijden | Microsoft Docs
-description: Laat zien hoe de grootte wijzigen en bijsnijden miniaturen die een Bing-antwoord bevat.
+title: Het formaat en bijsnijden miniaturen van Bing - Bing video's zoeken
+titlesuffix: Azure Cognitive Services
+description: Laat zien hoe het formaat en bijsnijden miniatuurweergaven die een Bing-antwoord bevat.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1BA175EC-65B4-43FD-9E4E-D7DA07FD8670
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c1b9104a87805a0632538f326a99931a1730fc48
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ab6b0d8b84ad7b023fe48526e028346f286b0b2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344394"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223386"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>Grootte wijzigen en bijsnijden miniatuurafbeeldingen
+# <a name="resizing-and-cropping-thumbnail-images"></a>Vergroten/verkleinen en bijsnijden miniatuurafbeeldingen
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]
