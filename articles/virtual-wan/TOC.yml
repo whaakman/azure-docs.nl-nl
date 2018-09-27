@@ -1,34 +1,53 @@
+items:
 - name: Documentatie voor Virtual WAN
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over Virtual WAN
-      href: virtual-wan-about.md
+  - name: Over Virtual WAN
+    href: virtual-wan-about.md
 - name: Zelfstudies
   items:
-    - name: Een site-naar-site-verbinding maken
-      href: virtual-wan-site-to-site-portal.md
+  - name: Een site-naar-site-verbinding maken
+    href: virtual-wan-site-to-site-portal.md
+  - name: Een ExpressRoute-verbinding maken
+    href: virtual-wan-expressroute-portal.md
+  - name: Een punt-naar-site-verbinding maken
+    href: virtual-wan-point-to-site-portal.md
+- name: Concepten
+  items:
+  - name: Locaties en partners
+    href: virtual-wan-locations-partners.md
+  - name: Office 365-controlelaag in Virtual WAN
+    href: virtual-wan-office365-overview.md
 - name: Handleidingen
   items:
-    - name: Automatisering configureren - WAN Partners
-      href: virtual-wan-configure-automation-providers.md
+  - name: 'Virtuele WAN-partners: automatisering'
+    href: virtual-wan-configure-automation-providers.md
+  - name: Verkeer routeren van een virtuele hub naar een NVA
+    href: virtual-wan-route-table.md
 - name: Naslaginformatie
   items:
-    - name: REST
-      href: /rest/api/azure
+  - name: REST
+    href: /rest/api/azure
 - name: Resources
   items:
-    - name: Veelgestelde vragen
-      href: virtual-wan-faq.md
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Abonnements- en servicebeperkingen
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: SLA
-      href: 'https://azure.microsoft.com/support/legal/sla'
+  - name: Veelgestelde vragen
+    href: virtual-wan-faq.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Abonnements- en servicebeperkingen
+    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/vpn-gateway
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla
+ms.openlocfilehash: a8b9bf44a68e389547e08055e5036562457f6175
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957377"

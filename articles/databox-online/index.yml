@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 16b7fbdfa6df1b8cabf4f5e29a6109d9f9a9200e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959764"
+documentType: LandingData
+title: Documentatie voor Azure Data Box voor online overdracht
+metadata:
+  title: Documentatie voor Azure Data Box voor online overdracht
+  description: Met de Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor gegevensoverdracht via het netwerk met hoge prestaties.
+  services: databox-edge-gateway
+  author: alkohli
+  manager: twooley
+  ms.service: databox-edge-gateway
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: alkohli
+abstract:
+  description: Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor gegevensoverdracht via het netwerk met hoge prestaties.<p>Kies Data Box Gateway <SUP>(preview)</SUP> voor het verzenden van gegevens voor archivering in de cloud, herstel na noodgevallen of voor de verwerking van gegevens met de kracht van de cloud.  Gebruik Data Box Edge <SUP>(preview)</SUP> om uw gegevens te filteren, analyseren en transformeren terwijl deze worden verplaatst naar Azure.</p><p>Gebruik onze zelfstudies voor meer informatie over hoe u Data Box Gateway en Data Box Edge kunt gebruiken voor overdracht via een netwerk.</p>
+sections:
+- title: Zelfstudies
+  items:
+  - type: paragraph
+    text: <b>Voor Data Box Gateway <SUP>(preview)</SUP></b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-gateway-deploy-prep">Voorbereidingen voor de implementatie van Azure Data Box Gateway</a>
+    - html: <a href="/azure/databox/data-box-deploy-set-up">Azure Data Box Gateway inrichten in Hyper-V</a>
+    - html: <a href="data-box-gateway-deploy-provision-vmware">Azure Data Box Gateway inrichten in VMware</a>
+    - html: <a href="data-box-gateway-deploy-connect-setup-activate">Azure Data Box Gateway verbinden, instellen en activeren</a>
+    - html: <a href=data-box-gateway-deploy-add-shares">Gegevens overdragen met Azure Data Box Gateway</a>
+  - type: paragraph
+    text: <b>Voor Data Box Edge <SUP>(preview)</SUP></b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-edge-overview#sign-up">Aanmelden</a>
