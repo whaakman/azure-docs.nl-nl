@@ -23,12 +23,6 @@ items:
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
     items:
-    - name: Azure Cosmos DB
-      href: functions-create-cosmos-db-triggered-function.md
-    - name: Blob Storage
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Queue Storage
-      href: functions-create-storage-queue-triggered-function.md
     - name: Timer
       href: functions-create-scheduled-function.md
   - name: Integreren
@@ -244,7 +238,7 @@ items:
       href: functions-bindings-sendgrid.md
     - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: SignalR-service
+    - name: SignalR Service
       href: functions-bindings-signalr-service.md
     - name: Table Storage
       href: functions-bindings-storage-table.md
@@ -282,9 +276,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Service-updates
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 69bdebbd3226696a7f320095ff3797db48ffff96
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf5f18b386f6a9e4182c62d17b8c62249e3d4c7b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064427"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391655"
