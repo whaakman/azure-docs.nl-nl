@@ -1,21 +1,9 @@
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
 ---
-title: API-verwijzing - Face-API
-titleSuffix: Azure Cognitive Services
-description: API-verwijzing bevat informatie over het beheer van de persoon, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management en Face-API's voor algoritmen.
-services: cognitive-services
-author: SteveMSFT
-manager: cgronlun
-ms.service: cognitive-services
-ms.component: face-api
-ms.topic: reference
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 54217e9f007a85242f38168d464e4242f1fe2504
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124238"
+titel: API-verwijzing - Face-API titleSuffix: Beschrijving van Azure Cognitive Services: API-verwijzing vindt u informatie over het beheer van de persoon, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management en Face-API's voor algoritmen.
+Services: de auteur van cognitive services: SteveMSFT manager: cgronlun
+
+MS.service: cognitive services ms.component: face-api ms.topic: verwijzen naar ms.date: 01-03-2018 ms.author: sbowles
 ---
 # <a name="api-reference"></a>API-naslaginformatie
 

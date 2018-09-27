@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: c67cc5cb13e2c1112c4752660c82c3ab18360b00
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056621"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393610"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -89,7 +89,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Scheduler](#scheduler-limits)
 * [Zoeken](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [SignalR-Service](#signalr-service-limits)
+* [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -165,8 +165,6 @@ De volgende tabel worden de functies en limieten van de Basic, Standard en Premi
 ### <a name="storage-limits"></a>Maximale opslag
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
-
-[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
 
 Zie voor meer informatie over opslagaccountlimieten [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 

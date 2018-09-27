@@ -2,21 +2,22 @@
 title: Azure SQL Database Managed Instance-overzicht | Microsoft Docs
 description: Dit onderwerp wordt een Azure SQL Database Managed Instance beschreven en wordt uitgelegd hoe het werkt en wat is het verschil met een individuele database in Azure SQL Database.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 711a076409ed1d90c197bbf97a6e15144c0a4d38
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956622"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392819"
 ---
 # <a name="what-is-a-managed-instance"></a>Wat is een beheerd exemplaar?
 
@@ -205,7 +206,10 @@ Beheerd exemplaar doelen gebruikersscenario's met grote databasemigratie vanuit 
 De migratie maakt gebruik van SQL-back-ups naar Azure blob-opslag. Back-ups die zijn opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar beheerd exemplaar met behulp van de [T-SQL terugzetten opdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
   - Zie voor een snelstart voor het herstellen van de Wide World Importers - back-upbestand van Standard-database, het [herstellen van een back-upbestand naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md). In deze quickstart ziet dat u moet een back-upbestand uploaden naar Azure BLOB-opslag en beveiligd met behulp van een Shared access signature (SAS)-sleutel.
   - Zie voor meer informatie over het herstellen van URL [systeemeigen terugzetten vanuit URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Back-ups van een beheerd exemplaar kunnen alleen worden hersteld naar een andere Managed Instance. Ze kunnen niet worden hersteld naar een on-premises SQL Server of naar een enkele of gegroepeerde-database voor de logische server voor Azure SQL Database.
+
 ### <a name="data-migration-service"></a>Data migratieservice
 
 Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatieopties zijn onder andere Azure SQL Database Managed Instance en SQL Server in virtuele Azure-machine in openbare Preview. Zie [uw on-premises database migreren naar Managed Instance met behulp van DMS](https://aka.ms/migratetoMIusingDMS).
@@ -233,7 +237,7 @@ Beheerd exemplaar voordelen wordt altijd-up-to-date in de cloud, betekent dat so
 
 ### <a name="managed-instance-administration-features"></a>Beheerfuncties voor beheerd exemplaar  
 
-Beheerd exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk het meest voor bedrijven is. Veel beheerder/DBA systeemactiviteiten zijn niet vereist, of ze zijn eenvoudig. Bijvoorbeeld, OS / RDBMS-installatie en patching uit handen, dynamische exemplaar vergroten of verkleinen en configuratie, back-ups, database-replicatie (met inbegrip van systeemdatabases), configuratie voor hoge beschikbaarheid en configuratie van de status en prestaties bewaken van gegevens streams. 
+Beheerd exemplaar inschakelen systeembeheerder om zich te richten op wat belangrijk het meest voor bedrijven is. Veel beheerder/DBA systeemactiviteiten zijn niet vereist, of ze zijn eenvoudig. Bijvoorbeeld, OS / RDBMS-installatie en patching uit handen, dynamische exemplaar vergroten of verkleinen en de configuratie, back-ups, [databasereplicatie](replication-with-sql-database-managed-instance.md) (met inbegrip van systeemdatabases), configuratie voor hoge beschikbaarheid en de configuratie van de gezondheid en Prestatiebewaking van gegevensstromen. 
 
 > [!IMPORTANT]
 > Zie voor een lijst met ondersteunde, gedeeltelijk ondersteunde en niet-ondersteunde functies [SQL Database-functies](sql-database-features.md). Zie voor een lijst van T-SQL-verschillen in beheerde instanties ten opzichte van SQL Server, [exemplaar T-SQL-verschillen beheerd met SQL Server](sql-database-managed-instance-transact-sql-information.md)

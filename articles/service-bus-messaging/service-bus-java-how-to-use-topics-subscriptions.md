@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 09/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0dc0ebd94abaa9dacd685034a46da1a7f204bfff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0be5f9842cd3aa90d82f3efe44451e624ed5d371
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700068"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395675"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Service Bus-onderwerpen en abonnementen gebruiken met Java
 
@@ -32,9 +32,9 @@ Service Bus-onderwerpen en -abonnementen bieden ondersteuning voor een berichten
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-Anders dan bij Service Bus-wachtrijen, waarin elk bericht door een enkele gebruiker wordt verwerkt, bieden onderwerpen en abonnementen een 'één-naar-veel'-communicatiewijze, waarbij een patroon voor publiceren/abonneren wordt gebruikt. Het is mogelijk meerdere abonnementen voor een onderwerp te registreren. Wanneer een bericht naar een onderwerp wordt verzonden, wordt dit vervolgens beschikbaar gemaakt voor elk abonnement, waar het vervolgens zelfstandig wordt afgehandeld/verwerkt.
+Tegenstelling tot het Service Bus-wachtrijen, waarin elk bericht wordt verwerkt door een enkele gebruiker voorzien onderwerpen en -abonnementen in de vorm van een een-op-veel communicatie, met behulp van een patroon voor publiceren/abonneren. Het is mogelijk meerdere abonnementen voor een onderwerp te registreren. Wanneer een bericht naar een onderwerp wordt verzonden, wordt dit vervolgens beschikbaar gemaakt voor elk abonnement, waar het vervolgens zelfstandig wordt afgehandeld/verwerkt.
 
-Een abonnement op een onderwerp lijkt op een virtuele wachtrij die kopieën van de berichten ontvangen die naar het onderwerp zijn verzonden. U kunt optioneel filterregels registreren voor een onderwerp op basis van per abonnement, zodat u kunt het filter/beperken welke berichten voor een onderwerp worden ontvangen door welke berichtabonnementen.
+Een abonnement op een onderwerp lijkt op een virtuele wachtrij die kopieën van de berichten ontvangen die naar het onderwerp zijn verzonden. U kunt optioneel filterregels voor een onderwerp op basis van per abonnement, zodat u kunt filteren of beperken welke berichten naar een onderwerp worden ontvangen door welke berichtabonnementen registreren.
 
 Service Bus-onderwerpen en abonnementen kunnen u schalen voor het verwerken van een groot aantal berichten over een groot aantal gebruikers en toepassingen.
 
@@ -103,7 +103,7 @@ U kunt de **listTopics** methode voor **ServiceBusContract** objecten om te cont
 Abonnementen op onderwerpen ook worden gemaakt met de **ServiceBusService** klasse. Abonnementen hebben een naam en kunnen een optioneel filter hebben waarmee de verzameling berichten wordt beperkt die aan de virtuele wachtrij van het abonnement wordt doorgegeven.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Een abonnement maken met het standaardfilter (MatchAll)
-Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Wanneer de **MatchAll** filter wordt gebruikt, worden alle berichten die zijn gepubliceerd naar het onderwerp in de virtuele wachtrij van het abonnement geplaatst. Met het volgende voorbeeld maakt u een abonnement met de naam AllMessages en wordt het standaardfilter **MatchAll** gebruikt.
+Het **MatchAll**-filter is het standaardfilter dat wordt gebruikt als er bij het maken van een nieuw abonnement geen filter is opgegeven. Wanneer de **MatchAll** filter wordt gebruikt, worden alle berichten die zijn gepubliceerd naar het onderwerp in de virtuele wachtrij van het abonnement geplaatst. Het volgende voorbeeld wordt een abonnement genaamd `AllMessages` en gebruikmaakt van de `MatchAll` filter.
 
 ```java
 SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -233,11 +233,11 @@ catch (Exception e) {
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Het vastlopen van de toepassing en onleesbare berichten afhandelen
-Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing kan het bericht te verwerken voor een of andere reden niet, dan kan worden aangeroepen de **unlockMessage** methode voor het ontvangen bericht (in plaats van de **deleteMessage** methode). Dit zorgt ervoor dat Service Bus het bericht in het onderwerp ontgrendelt en het toegankelijk maken voor het opnieuw worden ontvangen door dezelfde consumerende toepassing of door een andere consumerende toepassing.
+Service Bus biedt functionaliteit om netjes te herstellen bij fouten in uw toepassing of problemen bij het verwerken van een bericht. Als een ontvangende toepassing kan het bericht te verwerken voor een of andere reden niet, dan kan worden aangeroepen de **unlockMessage** methode voor het ontvangen bericht (in plaats van de **deleteMessage** methode). Aanroepen van deze methode zorgt ervoor dat Service Bus het bericht in het onderwerp ontgrendelt en het beschikbaar worden om opnieuw te ontvangen, ofwel door dezelfde consumerende toepassing of door een andere consumerende toepassing.
 
 Er is ook een time-out gekoppeld aan een bericht dat in het onderwerp is vergrendeld en als de toepassing niet kan verwerken van het bericht voordat de time-out van de vergrendeling verloopt (bijvoorbeeld, als de toepassing vastloopt), en vervolgens de Service Bus het bericht automatisch ontgrendelt en wordt het beschikbaar voor het opnieuw worden ontvangen.
 
-In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de **deleteMessage** aanvraag is uitgegeven, wordt het bericht is opnieuw naar de toepassing bezorgd wanneer deze opnieuw wordt opgestart. Dit proces heet vaak **tenminste eenmaal verwerken**; dat wil zeggen, elk bericht ten minste één keer wordt verwerkt, maar in bepaalde situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. Dit wordt vaak bereikt met behulp van de **getMessageId** -methode van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
+In het geval dat de toepassing is vastgelopen na het verwerken van het bericht, maar voordat de **deleteMessage** aanvraag is uitgegeven, wordt het bericht is opnieuw naar de toepassing bezorgd wanneer deze opnieuw wordt opgestart. Dit proces heet vaak **ten minste één keer worden verwerkt**, dat wil zeggen, elk bericht ten minste één keer wordt verwerkt, maar in bepaalde situaties hetzelfde bericht opnieuw kan worden bezorgd. Als in het scenario dubbele verwerking niet wordt getolereerd, dan moeten toepassingsontwikkelaars extra logica toevoegen aan de toepassing om dubbele berichtbezorging af te handelen. U kunt dit doen met behulp van de **getMessageId** -methode van het bericht dat gelijk bij meerdere bezorgingspogingen blijft.
 
 ## <a name="delete-topics-and-subscriptions"></a>Onderwerpen en abonnementen verwijderen
 De belangrijkste manier om te verwijderen van onderwerpen en abonnementen, is met een **ServiceBusContract** object. Als een onderwerp wordt verwijderd, worden ook alle abonnementen verwijderd die zijn geregistreerd bij het onderwerp. Abonnementen kunnen ook afzonderlijk worden verwijderd.
@@ -253,7 +253,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u de basisprincipes van Service Bus-wachtrijen hebt geleerd, Zie [Service Bus-wachtrijen, onderwerpen en abonnementen] [ Service Bus queues, topics, and subscriptions] voor meer informatie.
+Zie voor meer informatie, [Service Bus-wachtrijen, onderwerpen en abonnementen] [ Service Bus queues, topics, and subscriptions] voor meer informatie.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2ab917f701ebcb78ae01a4ed97915858e5b95db
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028168"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392870"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Netwerkarchitectuur van SAP HANA (grote instanties)
 
@@ -79,7 +79,7 @@ De verschillen naar SAP-oplossingen in Azure zijn:
 - De architectuur van SAP-toepassing is gevoeliger voor netwerklatentie dan typische scenario's waarbij gegevens worden uitgewisseld tussen on-premises en Azure.
 - De virtuele netwerkgateway heeft ten minste twee ExpressRoute-verbindingen. Beide verbindingen delen de maximale bandbreedte voor binnenkomende gegevens van de virtuele netwerkgateway.
 
-De ervaren netwerklatentie tussen virtuele machines en HANA grote instantie eenheden kunnen hoger zijn dan een normaal traject latentie van de VM-VM-netwerk. Afhankelijk van de Azure-regio, de meetwaarden kunnen groter zijn dan de 0,7 ms traject latentie geclassificeerd als een waarde onder het gemiddelde in [SAP Opmerking #1100926 - Veelgestelde vragen over: prestaties van het netwerk](https://launchpad.support.sap.com/#/notes/1100926/E). Niettemin implementeren klanten voor productie op basis van SAP HANA SAP-toepassingen is op SAP HANA grote instantie. De klanten die geweldige verbeteringen voor rapporten geïmplementeerd door het uitvoeren van hun SAP-toepassingen op SAP HANA met behulp van HANA grote instantie eenheden. Zorg ervoor dat u uw bedrijfsprocessen grondig testen in Azure HANA grote instantie.
+De ervaren netwerklatentie tussen virtuele machines en HANA grote instantie eenheden kunnen hoger zijn dan een normaal traject latentie van de VM-VM-netwerk. Afhankelijk van de Azure-regio, de meetwaarden kunnen groter zijn dan de 0,7 ms traject latentie geclassificeerd als een waarde onder het gemiddelde in [SAP Opmerking #1100926 - Veelgestelde vragen over: prestaties van het netwerk](https://launchpad.support.sap.com/#/notes/1100926/E). Afhankelijk van Azure-regio en hulpprogramma voor het meten van de traject netwerklatentie tussen een virtuele machine van Azure en HANA grote instantie eenheid, de gemeten latentie kan worden tot en rond 2 milliseconden. Niettemin implementeren klanten voor productie op basis van SAP HANA SAP-toepassingen is op SAP HANA grote instantie. Zorg ervoor dat u uw bedrijfsprocessen grondig testen in Azure HANA grote instantie.
  
 Voor deterministische netwerklatentie tussen virtuele machines en HANA grote instantie, de keuze van de virtuele netwerkgateway SKU is essentieel. In tegenstelling tot de patronen in het netwerkverkeer tussen on-premises en virtuele machines, kunt het patroon voor verkeer tussen virtuele machines en HANA grote instantie ontwikkelen met kleine maar hoge pieken van aanvragen en gegevens volumes moet worden verzonden. Voor het afhandelen van dergelijke bursts goed, raden we het gebruik van de gateway-SKU UltraPerformance. Voor het Type II-klasse van HANA grote instantie SKU's is het gebruik van de gateway-SKU UltraPerformance als een virtuele netwerkgateway verplicht.
 

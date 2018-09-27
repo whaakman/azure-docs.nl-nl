@@ -4,16 +4,16 @@ description: Deze instructies begeleidt u bij het herstel van resources die niet
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 747650bc47644cdca07f705f42d063c995ebe9bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980250"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392687"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Herstellen van niet-compatibele resources met Azure Policy
 
@@ -27,7 +27,7 @@ Beleid wordt gemaakt van een beheerde identiteit voor elke toewijzing voor u, ma
 ![Beheerde identiteit - ontbrekende functie](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Als een resource die is gewijzigd door **deployIfNotExists** buiten het bereik van de beleidstoewijzing, beheerde identiteit van de toewijzing via een programma moet toegang wordt verleend of mislukt de implementatie van het herstel.
+> Als een resource die is gewijzigd door **deployIfNotExists** valt buiten het bereik van de beleidstoewijzing of de sjabloon voor eigenschappen van de toegang tot bronnen buiten het bereik van de beleidstoewijzing, beheerde identiteit van de toewijzing moet [handmatig toegang verleend](#manually-configure-the-managed-identity) of mislukt de implementatie van het herstel.
 
 ## <a name="configure-policy-definition"></a>Beleidsdefinitie configureren
 
@@ -53,6 +53,79 @@ az role definition list --name 'Contributor'
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Contributor'
 ```
+
+## <a name="manually-configure-the-managed-identity"></a>Handmatig configureren van de beheerde identiteit
+
+Wanneer u een toewijzing met behulp van de portal maakt, beleid zowel genereert de beheerde identiteit en verleent het de rollen die zijn gedefinieerd in **roleDefinitionIds**. Stappen voor het maken van de beheerde identiteit en machtigingen toewijzen moeten handmatig worden uitgevoerd in de volgende voorwaarden:
+
+- Tijdens het gebruik van de SDK (zoals Azure PowerShell)
+- Wanneer een resource buiten het bereik van de roltoewijzing is gewijzigd door de sjabloon
+- Wanneer een resource buiten het bereik van de roltoewijzing wordt gelezen door de sjabloon
+
+> [!NOTE]
+> Azure PowerShell en .NET zijn de enige SDK's die momenteel ondersteuning voor deze mogelijkheid.
+
+### <a name="create-managed-identity-with-powershell"></a>Beheerde identiteit maken met PowerShell
+
+Een beheerde identiteit maken tijdens de toewijzing van het beleid, **locatie** moet worden gedefinieerd en **AssignIdentity** gebruikt. Het volgende voorbeeld wordt de definitie van het ingebouwde beleid **transparent data encryption voor SQL DB implementeren**, de doelresourcegroep die is ingesteld en vervolgens de toewijzing maakt.
+
+```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+
+# Create the assignment using the -Location and -AssignIdentity properties
+$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+```
+
+De `$assignment` variabele bevat nu de principal-ID van de beheerde identiteit, samen met de waarden die zijn geretourneerd bij het maken van een beleidstoewijzing. Dit kan worden geopend via `$assignment.Identity.PrincipalId`.
+
+### <a name="grant-defined-roles-with-powershell"></a>Verleen gedefinieerd rollen met PowerShell
+
+De nieuwe beheerde identiteit moet replicatie via Azure Active Directory voltooien voordat deze de vereiste rollen kan worden verleend. Wanneer replicatie voltooid is, het volgende voorbeeld doorloopt de beleidsdefinitie in `$policyDef` voor de **roleDefinitionIds** en maakt gebruik van [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) verleent de nieuwe beheerde identiteit de rollen.
+
+```azurepowershell-interactive
+# Use the $policyDef to get to the roleDefinitionIds array
+$roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
+
+if ($roleDefinitionIds.Count -gt 0)
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+}
+```
+
+### <a name="grant-defined-roles-through-portal"></a>Verleen rollen via portal gedefinieerd
+
+Er zijn twee manieren om toegang te verlenen beheerde identiteit van een toewijzing van de gedefinieerde rollen met behulp van de portal, met behulp van **toegangsbeheer (IAM)** of door te klikken en de toewijzing van een beleid of initiatief bewerken **opslaan**.
+
+Een rol toevoegen aan de beheerde identiteit van de toewijzing, de volgende stappen uit:
+
+1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren.
+
+1. Selecteer **Toewijzingen** in het linkerdeelvenster van de Azure Policy-pagina.
+
+1. Zoek de toewijzing die een beheerde identiteit heeft en klik op de naam.
+
+1. Zoek de **toewijzings-ID** eigenschap op de pagina bewerken. De toewijzings-ID is ongeveer als volgt:
+
+   ```
+   /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
+   ```
+
+   De naam van de beheerde identiteit is het laatste gedeelte van de toewijzing van resource-ID, die is `2802056bfc094dfb95d4d7a5` in dit voorbeeld. Kopieer dit gedeelte van de toewijzing van resource-ID.
+
+1. Navigeer naar de resource of de resources bovenliggende container (resourcegroep, abonnement, beheergroep) waarvoor de roldefinitie die handmatig zijn toegevoegd.
+
+1. Klik op de **toegangsbeheer (IAM)** op de pagina resources koppelen en klik op **+ toevoegen** aan de bovenkant van de pagina voor het beheer van toegang.
+
+1. Selecteer de juiste rol die overeenkomt met een **roleDefinitionIds** van de beleidsdefinitie. Laat **toegang toewijzen aan** ingesteld op de standaardwaarde van 'Azure AD gebruiker, groep of toepassing'. In de **Selecteer** vak, plakt of typt u het gedeelte van de resource-ID van toewijzing zich eerder hebt. Wanneer de zoekopdracht is voltooid, klikt u op het object met dezelfde naam-id selecteren en op **opslaan**.
 
 ## <a name="create-a-remediation-task"></a>Een herstel-taak maken
 

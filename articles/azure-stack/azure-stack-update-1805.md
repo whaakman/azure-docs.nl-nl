@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 60b4658d18d39797d30055e86cb21689cfb661fa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5224829b59e7ad425fb01a242a702e0d4cad8657
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631653"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392377"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 update
 
@@ -91,6 +91,9 @@ Na de installatie van 1805, eventuele van toepassing Hotfixes te installeren. Ra
 Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="portal"></a>Portal  
+
+- De technische documentatie voor Azure Stack is gericht op de meest recente versie. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
+
 - <!-- 2931230 – IS  ASDK --> Abonnementen die zijn toegevoegd aan een gebruikersabonnement als een aanvullende plan kunnen niet worden verwijderd, zelfs wanneer u het abonnement uit het gebruikersabonnement verwijderen. Het abonnement blijft totdat de abonnementen die verwijzen naar het aanvullende plan worden ook verwijderd. 
 
 - <!-- TBD - IS ASDK --> U kunt geen updates voor stuurprogramma's toepassen met behulp van een OEM-uitbreidingspakket met deze versie van Azure Stack.  Er is geen oplossing voor dit probleem.

@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: 8ac3bb2c95420eb4a608f003f3d937e3a47c272b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: cwatson
+ms.openlocfilehash: a9ca57ce916dc3f9bc8d451063596519d1d6649c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448227"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391336"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programmatische wijze Azure-Dashboards maken
 
@@ -45,7 +45,7 @@ Als u wilt een nieuw dashboard maken, gebruikt u de nieuwe dashboard-opdracht in
 U kunt vervolgens de tegelgalerie gebruiken om te zoeken en tegels toevoegen. Tegels zijn toegevoegd door te slepen en neer te zetten. Sommige tegels ondersteuning vergroten of verkleinen via een slepen-ingang, terwijl andere ondersteuning corrigeert groottes die kunnen worden weergegeven in het contextmenu.
 
 ### <a name="drag-handle"></a>Slepen-ingang
-![Sleep de greep](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+![Slepen-ingang](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
 ### <a name="fixed-sizes-via-context-menu"></a>Vaste grootten via contextmenu
 ![contextmenu grootten](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)

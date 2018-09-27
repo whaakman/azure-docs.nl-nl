@@ -1,6 +1,6 @@
 ---
-title: Bewaken en bijhouden gebruik van de gratis Azure-services | Microsoft Docs
-description: Informatie over het gebruik van de gratis services controleren. Gebruik van Azure portal en gebruik van csv.
+title: Monitor en traceren gebruik van gratis Azure-services | Microsoft Docs
+description: Informatie over het gebruik van gratis services controleren. Gebruik van Azure portal en gebruik van csv.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,62 +13,62 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061313"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390235"
 ---
-# <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controleer gebruik van de beschikbare services in uw gratis Azure-account 
+# <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Gebruik van gratis services inbegrepen bij uw gratis Azure-account controleren 
 
-Er zijn niet in rekening gebracht voor services voor het vrije in gratis Azure-account, tenzij u de grenzen van deze services overschrijdt. Om te blijven met de limieten, kunt u ofwel de Azure portal of het bestand met informatie over het gebruik om te controleren en bijhouden van het gebruik van de gratis services gebruiken. 
+U betaalt geen voor services die zijn gratis inbegrepen met gratis Azure-account, tenzij u de grenzen van deze services overschrijdt. Om te blijven met de limieten, kunt u ofwel de Azure portal of uw gebruiksbestand om te controleren en bijhouden van het gebruik van gratis services gebruiken. 
 
-## <a name="check-usage-on-the-azure-portal"></a>Gebruik in de Azure portal controleren
+## <a name="check-usage-on-the-azure-portal"></a>Gebruik in Azure portal controleren
 
 1.  Meld u aan bij [Azure Portal]( http://portal.azure.com).
 
-2.  Selecteer in het linkernavigatievenster gebied **alle services**.
+2.  Selecteer in de navigatiebalk aan de linkerkant gebied **alle services**.
 
-3.  Selecteer **abonnementen**.
+3.  Selecteer **Abonnementen**.
 
-4.  Selecteer het abonnement dat u hebt gemaakt toen u zich registreerde gratis account.
+4.  Selecteer het abonnement dat u hebt gemaakt toen u zich hebt geregistreerd voor een gratis account.
 
     ![Schermafbeelding van alle abonnementen](./media/billing-check-usage-of-free-services/select-free-account-subscription.png)
 
-5.  De overzichtssectie ziet u essentiële informatie over uw abonnement zoals abonnements-ID, bieden type en de abonnementsnaam van het. U kunt ook informatie over wanneer uw account voor de gratis tegoed zou verlopen vinden.
+5.  De overzichtssectie ziet u de essentiële informatie over uw abonnement, zoals de abonnements-ID, bieden een type en de naam van abonnement. U vindt hier ook informatie over wanneer uw tegoed gratis account zou verlopen.
 
-    ![Schermafbeelding van essentiële informatie abonnement](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
+    ![Schermafbeelding van essentiële informatie van abonnement](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
 
-6.  Schuif naar beneden zoeken naar informatie over de huidige en verwachte kosten. De kosten bevat informatie over het gebruik van services niet zijn opgenomen in een gratis account en het gebruik van meer dan de grenzen van de beschikbare services. 
+6.  Schuif omlaag naar zoeken naar informatie over uw huidige en geraamde kosten. De kosten omvatten het gebruik van services die niet zijn opgenomen in uw gratis account en het gebruik van meer dan de grenzen van gratis services. 
 
-    ![Schermafbeelding van abonnement kostengegevens](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
+    ![Schermafbeelding van informatie over de kosten van abonnementen](./media/billing-check-usage-of-free-services/subscription-cost-information.png)
 
-7.  Het laatste gedeelte van de overzichtssectie bevat een tabel op het gebruik van de beschikbare services. 
+7.  Het laatste gedeelte van de overzichtssectie bevat een tabel op het gebruik van gratis services. 
 
-    ![Schermafbeelding van informatie over het gebruik van gratis services](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
+    ![Schermafbeelding van het gebruik van gratis services](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
     De tabel bevat de volgende kolommen:
 
-* **De naam van de meter:** identificeert de maateenheid voor de meter wordt gebruikt. Zie voor meer informatie over service toewijzing van de meter, [gratis service toewijzing van de meter begrijpen](billing-understand-free-service-meter-mapping.md). 
-* **Gebruikslimiet:** gebruiks- en de limiet voor het meten van de huidige maand. U kunt deze informatie ook vinden in de statusbalk.
-* **Status:** status van de informatie over het gebruik van de meter. Op basis van uw gebruikspatroon, kunt u hebben een van deze statuten.
+* **Meternaam:** identificeert de maateenheid voor de meter wordt gebruikt. Zie voor meer informatie over de toewijzing van de meter-service, [inzicht in de gratis service toewijzing van de meter](billing-understand-free-service-meter-mapping.md). 
+* **Gebruikslimiet:** het gebruik en de limiet voor het meten van de huidige maand. U kunt ook deze informatie vinden in de statusbalk.
+* **Status:** gebruik van de status van de meter. Op basis van uw gebruikspatroon, kunt u hebben een van deze statuten.
   * **Niet in gebruik:** u hebt niet de meter gebruikt of het gebruik van de meter heeft niet het factureringssysteem bereikt.
-  * **Overschreden op \<datum >:** u hebt de limiet voor het meten van overschreden \<datum >.
-  * **Waarschijnlijk niet Exceed:** bent u waarschijnlijk niet langer zijn dan de limiet voor de meter.
-  * **Is groter dan op \<datum >:** bent u waarschijnlijk meer dan de limiet voor de meter op \<datum >.
+  * **Overschreden op \<datum >:** u hebt de limiet voor de meter overschreden op \<datum >.
+  * **Waarschijnlijk Exceed:** u waarschijnlijk niet langer zijn dan de limiet voor de meter.
+  * **Overschrijdt op \<datum >:** u waarschijnlijk langer zijn dan de limiet voor de meter op \<datum >.
 
 
-## <a name="check-usage-through-the-usage-file"></a>Gebruik controleren via het gebruik van bestand
+## <a name="check-usage-through-the-usage-file"></a>Gebruik controleren via het gebruiksbestand
 
-Uw gebruik-bestand bevat gedetailleerde informatie voor uw Azure-abonnement. U kunt uw maandelijkse en dagelijks gebruik bestand downloaden van Azure-Accountcentrum. Zie voor meer informatie over het gebruik van bestand downloaden en begrijpen van de toegang is vereist, [factuur ophalen en gebruik](billing-download-azure-invoice-daily-usage-date.md). Zie voor meer informatie over kolommen in het bestand gebruik, [begrijpen van de voorwaarden van uw gebruik](billing-understand-your-usage.md). 
+Uw gebruiksbestand bevat gedetailleerde informatie voor uw Azure-abonnement. U kunt downloaden van uw maandelijkse en dagelijks gebruiksbestand van Azure-Accountcentrum. Zie voor meer informatie over het van-gebruiksbestand downloaden en begrijpen van de toegang is vereist, [ophalen factuur- en gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md). Zie voor meer informatie over de kolommen in het gebruiksbestand, [meer informatie over uw gebruik](billing-understand-your-usage.md). 
 
-Het gebruik van-bestand bevat informatie over het gebruik voor gratis en betaalde services. Gratis service meters zou hebben **vrije** toegevoegd aan het einde van de naam van de meter. Gratis meters, open het bestand in excel en filter vinden de **kolom Meter categorie** voor cellen met tekst **- vrij** (Filters gebruiken om tekst &rarr; filter Contains) &nbsp;
+Het van-gebruiksbestand bevat informatie over het gebruik van gratis en betaalde services. Gratis service meters zou hebben **gratis** toegevoegd aan het einde van de meternaam van de. Zoeken naar gratis meters, open het bestand in excel en filter de **Metercategorie kolom** voor cellen met tekst **- vrij** (Filters gebruiken om tekst &rarr; filter Contains) &nbsp;
 
-![Schermafbeelding van informatie over het gebruik van gratis services](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
+![Schermafbeelding van het gebruik van gratis services](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u hulp nodig hebt, moet [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

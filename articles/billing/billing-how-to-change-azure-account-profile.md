@@ -1,6 +1,6 @@
 ---
-title: Profielgegevens Azure-account wijzigen | Microsoft Docs
-description: Hierin wordt beschreven hoe u het profiel van uw Azure-account wijzigen en antwoorden op de veelgestelde vragen zoals waarom u land in het Azure-Accountcentrum niet wijzigen
+title: De profielgegevens van uw Azure-account wijzigen | Microsoft Docs
+description: Beschrijft hoe u het profiel van uw Azure-account wijzigt en vindt u antwoorden op veelgestelde vragen, zoals waarom u land/regio in de Azure-Accountcentrum niet wijzigen
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce9e7de13ff95024685ccf916541357f5362727
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4f17a65befc1abbe2a2405e8470f61068ac34f8b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070648"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394808"
 ---
-# <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Azure-account profielgegevens zoals contact-e-mailadres en telefoonnummer wijzigen
+# <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>De profielgegevens van uw Azure-account zoals contact-e-mailadres en telefoonnummer wijzigen
 
-Het e-mailadres in de accountbeheerder profiel wordt gebruikt door Microsoft op de hoogte van belangrijke facturering-gerelateerde updates over het abonnement. Het is raadzaam dat u opgeeft dat een contact op met e-mailadres dat je regelmatig controleren.
+Het e-mailadres in van de Account-beheerder het profiel wordt gebruikt door Microsoft om u te waarschuwen over belangrijke met betrekking tot facturering updates over het abonnement. Het is raadzaam dat u opgeeft dat een contact op met e-mailadres dat u regelmatig controleren.
 
-## <a name="how-to-change-your-profile-information"></a>Het wijzigen van je profielgegevens
+## <a name="how-to-change-your-profile-information"></a>Uw profielgegevens wijzigen
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.azure.com/Profile).
-1. Selecteer de **details bewerken** knop, en werk vervolgens de **profiel** informatie.
+1. Meld u aan bij het [Azure-accountcentrum](https://account.azure.com/Profile).
+1. Selecteer de knop **Details bewerken** en werk vervolgens de gegevens bij **Profiel** bij.
 
    ![profiel](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-### <a name="can-notifications-be-sent-to-a-different-email-address-other-than-the-account-administrator-email-address-associated-with-my-account"></a>Kunnen meldingen worden verzonden naar een ander e-mailadres andere dan de accountbeheerder e-mailadres gekoppeld aan Mijn account?
+### <a name="can-notifications-be-sent-to-a-different-email-address-other-than-the-account-administrator-email-address-associated-with-my-account"></a>Kunnen meldingen worden verzonden naar een ander e-mailadres dan het Account beheerder e-mailadres dat is gekoppeld aan Mijn account?
 
-Ja. Het e-mailadres voor het account opgehaald belangrijke meldingen over alle abonnementen onder het account. Daarom is het raadzaam dat u opgeeft dat een contact op met e-mailadres waarmee de accountbeheerder regelmatig gecontroleerd.
+Ja. Het e-mailadres voor het account worden belangrijke meldingen over de abonnementen onder het account opgehaald. Daarom is het raadzaam dat u opgeeft dat een e-mailadres waarmee de accountbeheerder wordt regelmatig gecontroleerd.
 
-### <a name="can-i-change-the-account-administrator-email-address-in-my-profile"></a>Kan ik de accountbeheerder e-mailadres in Mijn profiel wijzigen?
+### <a name="can-i-change-the-account-administrator-email-address-in-my-profile"></a>Kan ik het e-mailadres accountbeheerder wijzigen in Mijn profiel?
 
-Ja. De accountbeheerder is de persoon die de Azure-account instellen en die belangrijk e-mailmeldingen over alle abonnementen onder het account ontvangt. Het is raadzaam dat u opgeeft dat een contact op met e-mailadres waarmee de accountbeheerder regelmatig gecontroleerd.
+Ja. De accountbeheerder is de persoon die het Azure-account instellen en die belangrijke e-mailmeldingen over alle abonnementen onder het account ontvangt. Het is raadzaam dat u opgeeft dat een e-mailadres waarmee de accountbeheerder wordt regelmatig gecontroleerd.
 
-### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Mijn e-mail van het profiel bijwerken ook werkt mijn aanmelding e-mailadres?
+### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Bijwerken van mijn profiel e-mailadres ook werkt mijn e-mailadres voor aanmelding?
 
-Nee. Bijwerken van het e-mailadres van het profiel, wordt uw e-mailadres van aanmelding niet bijgewerkt. Als u wilt wijzigen van uw e-mailadres voor aanmelding, moet u het eigendom overdraagt van het account.
+Nee. Bijwerken van het e-mailadres van het profiel, wordt uw e-mailadres voor aanmelding niet bijgewerkt. Als u wilt wijzigen van uw e-mailadres voor aanmelding, moet u het eigendom overdraagt van het account.
 
-### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Het adres van mijn profiel bijwerken ook werkt mijn factuuradres creditcard?
+### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Het profieladres van mijn bijwerken ook werkt het factuuradres van mijn creditcard?
 
-Zie voor meer informatie over het bijwerken van je factureringsgegevens, [wijzigen van de creditcard die is gebruikt om een Azure-abonnement te betalen](billing-how-to-change-credit-card.md).
+Zie voor informatie over het bijwerken van uw factureringsgegevens, [wijzigen van de creditcard die is gebruikt om een Azure-abonnement te betalen](billing-how-to-change-credit-card.md).
 
-### <a name="why-cant-i-update-the-country"></a>Waarom kan ik het land niet bijwerken
+### <a name="why-cant-i-update-the-country"></a>Waarom kan ik het land niet bijwerken?
 
-Vanwege technische beperkingen wijzigen we het land op een bestaande account niet. U kunt echter een account maken in het gewenste land en neem contact op met de ondersteuning van Azure voor het migreren van uw services naar dat account.
+Vanwege technische beperkingen, kan het land voor een bestaand account niet worden gewijzigd. U kunt echter een account maken in de gewenste land/regio en vervolgens contact op met de Azure-klantenservice om uw services migreren naar dat account.
 
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Welk e-mailadres komt de facturering waarschuwingen van Azure preview-functie gebruiken?
+### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Welk e-mailadres heeft Factuurwaarschuwingen Azure preview-functie gebruiken?
 
-U ontvangt waarschuwingen op het e-mailadres dat u toevoegen wanneer u zich aanmeldt voor de waarschuwingen. Het e-mailadres dat is gebruikt voor de waarschuwingen is gescheiden van de accountbeheerder e-mailadres. Zie voor meer informatie [waarschuwingen voor uw Microsoft Azure-abonnementen facturering instellen](billing-set-up-alerts.md).
+U ontvangt waarschuwingen op het e-mailadres dat u toevoegen wanneer u zich aanmeldt voor de waarschuwingen. Het e-mailadres dat is gebruikt voor de waarschuwingen is gescheiden van de accountbeheerder e-mailadres. Zie voor meer informatie, [waarschuwingen voor uw Microsoft Azure-abonnementen voor facturering instellen](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost. 
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost. 
 

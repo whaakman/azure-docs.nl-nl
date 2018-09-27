@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: 4d3af3b7c7084c3c410bc936356d9caff643b805
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1ca0ec7185707d9b9f9712c2ace8dacb361f7b5b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182124"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394366"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Afbeelding van automatische besturingssysteemupgrades schaalset van virtuele machine van Azure
 
@@ -38,17 +38,15 @@ Automatische upgrade van besturingssysteem heeft de volgende kenmerken:
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>Hoe werkt automatische OS upgrade functioneren?
 
-Een upgrade werkt door de besturingssysteemschijf van een virtuele machine vervangen door een nieuw exemplaar gemaakt met behulp van de meest recente versie van de installatiekopie. Alle extensies hebt geconfigureerd en aangepaste scripts worden uitgevoerd, terwijl de vastgelegde gegevens schijven worden bewaard. Om te beperken de downtime van toepassingen, plaatsvinden upgrades in batches van computers met niet meer dan 20% van de schaalset op elk gewenst moment bijwerken. U hebt ook de optie voor het integreren van de statustest van een Azure Load Balancer-toepassing. Dit wordt sterk aanbevolen gebruikmaken van de heartbeat van een toepassing en valideren van de upgrade is geslaagd voor elke batch in het upgradeproces.
+Een upgrade werkt door de besturingssysteemschijf van een virtuele machine vervangen door een nieuw exemplaar gemaakt met behulp van de meest recente versie van de installatiekopie. Alle extensies hebt geconfigureerd en aangepaste scripts worden uitgevoerd, terwijl de vastgelegde gegevens schijven worden bewaard. Om te beperken de downtime van toepassingen, plaatsvinden upgrades in batches van computers met niet meer dan 20% van de schaalset op elk gewenst moment bijwerken. U hebt ook de optie voor het integreren van de statustest van een Azure Load Balancer-toepassing. Het is raadzaam de heartbeat van een toepassing integreren en valideren van de upgrade is geslaagd voor elke batch in het upgradeproces. De stappen worden uitgevoerd zijn: 
 
-Dit zijn de stappen worden uitgevoerd: 
-
-1. Voordat u het upgradeproces begint, zorg ervoor dat niet meer dan 20% van de exemplaren niet in orde zijn. 
+1. Voordat u begint met het upgradeproces start, wordt de orchestrator ervoor te zorgen dat niet meer dan 20% van de exemplaren niet in orde zijn. 
 2. Identificeren van de batch van VM-instanties om bij te werken met een maximum van 20% van de totale exemplaren met batch.
 3. De installatiekopie van het besturingssysteem van deze batch met VM-exemplaren een upgrade uitvoert.
-4. Als de klant heeft geconfigureerd statuscontroles van toepassing, wordt de upgrade moet wachten tot vijf minuten voor tests om te worden in orde is, gaat u direct verder naar de volgende batch. 
+4. Als de klant heeft geconfigureerd statuscontroles van toepassing zijn, wacht de upgrade tot vijf minuten voor tests om te worden in orde is, voordat u doorgaat met het upgraden van de volgende batch. 
 5. Als er resterend exemplaren om bij te werken, Ga naar de stap 1) voor de volgende batch; anders wordt is de upgrade voltooid.
 
-De schaalset OS Upgrade-Engine controles voor de algemene status van de VM-exemplaar vóór de upgrade van elke batch. Tijdens het upgraden van een batch, mogelijk zijn er andere gelijktijdige gepland of niet-gepland onderhoud plaatsvinden in de Azure-Datacenters die mogelijk van invloed op de beschikbaarheid van uw VM's. Het is dus mogelijk dat er tijdelijk meer dan 20% exemplaren mogelijk niet actief. In dergelijke gevallen schaalset aan het einde van de huidige batch, de upgrade stopt.
+De schaalset OS upgrade orchestrator controles voor de algemene status van de VM-exemplaar vóór de upgrade van elke batch. Tijdens het upgraden van een batch, mogelijk zijn er andere gelijktijdige gepland of niet-gepland onderhoud plaatsvinden in de Azure-Datacenters die mogelijk van invloed op de beschikbaarheid van uw VM's. Het is dus mogelijk dat er tijdelijk meer dan 20% exemplaren mogelijk niet actief. In dergelijke gevallen schaalset aan het einde van de huidige batch, de upgrade stopt.
 
 ## <a name="supported-os-images"></a>Ondersteunde OS-installatiekopieën
 Alleen bepaalde installatiekopieën voor OS-platform worden momenteel ondersteund. U aangepaste installatiekopieën die u zelf hebt gemaakt te hebben op dit moment niet gebruiken. 
@@ -72,7 +70,8 @@ De volgende SKU's worden momenteel ondersteund (meer zullen worden in de toekoms
 
 - De *versie* eigenschap van de platforminstallatiekopie moet worden ingesteld op *nieuwste*.
 - Gebruik statuscontroles van toepassing voor niet-Service Fabric-schaalsets.
-- Zorg ervoor dat de resources dat het model met een schaalset naar verwijst is beschikbaar en actueel blijven. Exa.SAS URI voor bootstrapping nettolading in VM-extensie-eigenschappen, nettolading in storage-account, de verwijzing naar geheimen in het model. 
+- Zorg ervoor dat de resources dat het model met een schaalset naar verwijst beschikbaar is en up-to-date gehouden. 
+  Exa.SAS URI voor bootstrapping nettolading in VM-extensie-eigenschappen, nettolading in storage-account, de verwijzing naar geheimen in het model. 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Afbeelding van automatische besturingssysteemupgrades configureren
 Voor het configureren van Automatische upgrade van besturingssysteem-installatiekopie, zorg ervoor dat de *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* eigenschap is ingesteld op *waar* instellen in het modeldefinitie. 
@@ -117,7 +116,7 @@ De load balancer-test kan worden verwezen de *networkProfile* van de schaal inge
   ...
 ```
 > [!NOTE]
-> Deze sectie geldt alleen voor schaalsets zonder Service Fabric. Service Fabric heeft een eigen begrip van de toepassingsstatus. Als u automatische Besturingssysteemupgrades voor Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem Updatedomein per Updatedomein voor hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric uitgerold. Zie voor meer informatie over de kenmerken van de duurzaamheid van Service Fabric-clusters, [deze documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Als u automatische Besturingssysteemupgrades voor Service Fabric, wordt de nieuwe installatiekopie van het besturingssysteem Updatedomein per Updatedomein voor hoge beschikbaarheid van de services die worden uitgevoerd in Service Fabric uitgerold. Zie voor meer informatie over de kenmerken van de duurzaamheid van Service Fabric-clusters, [deze documentatie](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Referenties up-to-date houden
 Als uw schaalset maakt gebruik van referenties voor toegang tot externe bronnen, bijvoorbeeld als een VM-extensie is geconfigureerd dat gebruikmaakt van een SAS-token voor storage-account, moet u om te controleren of dat de referenties worden up-to-date gehouden. Er zijn geen referenties, met inbegrip van certificaten en tokens verlopen, de upgrade mislukken als de eerste batch VM's blijven in een foutstatus.
@@ -130,7 +129,7 @@ De aanbevolen stappen voor het herstellen van virtuele machines en automatisch b
 * Implementeer de bijgewerkte schaalset, die alle VM-exemplaren, waaronder mislukte die wordt bijgewerkt. 
 
 ## <a name="get-the-history-of-automatic-os-image-upgrades"></a>De geschiedenis van automatische besturingssysteemupgrades afbeelding ophalen 
-U kunt de geschiedenis van de meest recente bijwerken van het besturingssysteem uitgevoerd op uw schaalset met Azure PowerShell, Azure CLI 2.0 of de REST API's kunt controleren. U kunt de geschiedenis ophalen voor de laatste 5 OS upgrade probeert binnen de afgelopen 2 maanden.
+U kunt de geschiedenis van de meest recente bijwerken van het besturingssysteem uitgevoerd op uw schaalset met Azure PowerShell, Azure CLI 2.0 of de REST API's kunt controleren. U kunt de geschiedenis ophalen voor de laatste vijf OS upgrade probeert binnen de afgelopen twee maanden.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 In volgende voorbeeld wordt Azure PowerShell gebruikt om te controleren of de status van de schaalset met de naam *myVMSS* in de resourcegroep met de naam *myResourceGroup*:

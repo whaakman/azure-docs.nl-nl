@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - toezicht op Video | Microsoft Docs
+title: Videotoezicht met menselijke beoordeling - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Geautomatiseerd beheer van video- en programma's voor menselijke beoordeling gebruiken om te modereren ongepaste inhoud melden
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714493"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222077"
 ---
-# <a name="video-moderation"></a>Beheer van video
+# <a name="video-moderation-with-human-review"></a>Videotoezicht met menselijke beoordeling
 
 Gebruik Content Moderator geautomatiseerd [videotoezicht](video-moderation-api.md) en [hulpprogramma voor menselijke beoordeling](Review-Tool-User-Guide/human-in-the-loop.md) matige video's en Transcripten voor volwassenen (expliciete) en ongepaste inhoud (suggestieve) de beste resultaten voor uw bedrijf.
 

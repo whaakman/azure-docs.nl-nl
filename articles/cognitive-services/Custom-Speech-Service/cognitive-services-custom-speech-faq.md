@@ -1,21 +1,22 @@
 ---
-title: Veelgestelde vragen over de Custom Speech Service op Azure | Microsoft Docs
+title: Veelgestelde vragen - Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Hier vindt u antwoorden op de meest populaire vragen over de Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: faq
 ms.date: 11/21/2016
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ab4adefbfbfa1a295f980fd31bffaeaa957ce0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2de2efe3287cbb0b915434c2c9ad982fe162d741
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955279"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223715"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Veelgestelde vragen over Custom Speech Service
 

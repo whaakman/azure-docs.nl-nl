@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: efdded28fa4554bf58399d997bf663781a08755e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9e180e15801a7100349c7334a2452adfeab95500
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714698"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394474"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informatie over de Speech to Text-API
 
@@ -26,7 +26,7 @@ De **spraak naar tekst** API biedt de volgende functies:
 
 - Realtime continue herkenning. **Spraak naar tekst** kunnen gebruikers audio naar tekst in realtime te transcriberen. Het ondersteunt ook tussenliggende resultaten van de woorden die tot nu toe zijn herkend. De service automatisch worden herkend als het einde van spraak. Gebruikers kunnen ook aanvullende opmaakopties, met inbegrip van hoofdletters en interpunctie, grof taalgebruik maskeren en inverse tekst normalisering kiezen.
 
-- Geoptimaliseerde **spraak naar tekst** resultaten voor interactieve, conversatie en dicteren scenario's. 
+- Geoptimaliseerde **spraak naar tekst** resultaten voor interactieve, conversatie en dicteren scenario's. De herkende resultaten worden geretourneerd in formulieren voor zowel Lexical en weergeven (lexicale resultaten, Zie DetailedSpeechRecognitionResult in voor de voorbeelden of API).
 
 - Ondersteuning van verschillende talen en dialecten. Zie voor de volledige lijst van ondersteunde talen in beide modi erkenning, [ondersteunde talen](supported-languages.md#speech-to-text).
 

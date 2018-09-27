@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: aaa18e5bc4a95ed0c7334232417f68064fd26ca7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 40ed6105dca5ea14c64fb2b103c5623cd56333af
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734902"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393363"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -878,8 +878,9 @@ Toegang tot de blob via in JavaScript, `context.bindings.<name from function.jso
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Ga naar een snelstartgids die gebruikmaakt van een Blob storage-trigger](functions-create-storage-blob-triggered-function.md)
+* [Meer informatie over Azure functions-triggers en bindingen](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Meer informatie over Azure functions-triggers en bindingen](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
+--->

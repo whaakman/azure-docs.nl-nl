@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: dc912ded6f879d14689a267c7ee63245c11c0bd0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054945"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393261"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Cross-tenant-analytics met behulp van data - app met één tenant opgehaald
  
@@ -212,7 +212,7 @@ Het inzicht te krijgen in patronen verkopen ticket kunnen Wingtip Tickets te opt
 Ondertussen klagen sommige Wingtip Tickets-klanten dat ze het moeilijk te verkopen voldoende tickets te rechtvaardigen, de servicekosten. In deze inzichten er het is wellicht een kans om kaartverkoop voor attenderen venues te verbeteren. Hogere omzet zou verhoogt de waargenomen waarde van de service. Klik met de rechtermuisknop op fact_Tickets en selecteer **nieuwe meting**. Voer de volgende expressie voor de nieuwe meting met de naam **AverageTicketsSold**:
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 Selecteer de volgende Visualisatieopties voor het tekenen van de percentage tickets die door elke venue om te bepalen van hun relatieve succes verkocht.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 951c012dd22cf83741211b9601a5e7502de33be6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127819"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393023"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 update
 
@@ -168,6 +168,8 @@ Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadple
 Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="portal"></a>Portal
+
+- De technische documentatie voor Azure Stack is gericht op de meest recente versie. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
 
 - De mogelijkheid om te [een nieuwe ondersteuningsaanvraag openen in de vervolgkeuzelijst](azure-stack-manage-portals.md#quick-access-to-help-and-support) binnen de beheerder van de portal is niet beschikbaar. Voor Azure Stack in plaats daarvan gebruik geïntegreerde systemen, de volgende koppeling: [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest).
 

@@ -10,19 +10,19 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958013"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220972"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
-Azure Monitor maximaliseert de beschikbaarheid en prestaties van uw toepassingen door het leveren van een uitgebreide oplossing voor het verzamelen, analyseren en uitvoeren van telemetrie van uw cloud en on-premises omgevingen. Het helpt u begrijpen hoe uw toepassingen worden uitgevoerd en proactief identificeert die betrekking hebben op deze en de resources die ze afhankelijk van zijn problemen.
+Azure Monitor maximaliseert de beschikbaarheid en prestaties van uw toepassingen door het leveren van een uitgebreide oplossing voor het verzamelen, analyseren en uitvoeren van telemetrie van uw cloud en on-premises omgevingen. Het helpt u begrijpen hoe uw toepassingen presteren en stelt proactief problemen vast die betrekking hebben op de toepassingen en de resources waarvan ze afhankelijk zijn.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
@@ -47,7 +47,7 @@ De querytaal van Log Analytics is geschikt voor eenvoudige logboeken-query's, ma
 ![Logboeken](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Welke gegevens worden verzameld door Azure Monitor?
-Log Analytics kan gegevens verzamelen uit een groot aantal bronnen. U kunt zien van de bewakingsgegevens voor uw toepassingen in lagen, variërend van uw toepassing, alle besturingssysteem en services afhankelijk, omlaag naar het platform zelf wordt geboden. Azure Monitor verzamelt gegevens van elk van de volgende lagen:
+Azure Monitor kunt u gegevens verzamelen uit een groot aantal bronnen. U kunt zien van de bewakingsgegevens voor uw toepassingen in lagen, variërend van uw toepassing, alle besturingssysteem en services afhankelijk, omlaag naar het platform zelf wordt geboden. Azure Monitor verzamelt gegevens van elk van de volgende lagen:
 
 - **Gegevens voor toepassingsbewaking**: gegevens over de prestaties en functionaliteit van de code u hebt geschreven, ongeacht het platform.
 - **Gastbesturingssysteem bewakingsgegevens**: gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Dit kan worden uitgevoerd in Azure, een andere cloud of on-premises. 
@@ -145,9 +145,6 @@ Meerdere API's zijn beschikbaar voor lezen en schrijven logboeken en metrische g
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over:
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) om aan de slag te gaan met metrische gegevens en waarschuwingen voor kernbewaking.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) als u problemen probeert te analyseren in uw App Service-web-app.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) voor het analyseren van verzamelde bewakingsgegevens en logboeken.
-
-
-
+* [Metrische gegevens en logboeken](../monitoring/monitoring-data-collection.md) voor de gegevens die door Azure Monitor worden verzameld.
+* [Gegevensbronnen](../monitoring/monitoring-data-sources.md) voor het verzenden van telemetrie in de verschillende onderdelen van uw toepassing.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) voor het analyseren van verzamelde gegevens.

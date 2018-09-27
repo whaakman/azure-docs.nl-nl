@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: bfab0c374e4b20b09167f37363fe0681144426ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a3274053e772cbdf120be15a385c84d5ae37d610
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699342"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392649"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>De Java Message Service (JMS) API gebruiken met Service Bus en AMQP 1.0
 Het Advanced Message Queuing Protocol (AMQP 1.0) is een efficiënte, betrouwbare, wire-level berichtenprotocol dat u gebruiken kunt om robuuste, platformonafhankelijke berichten toepassingen te bouwen.

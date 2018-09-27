@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
-ms.author: jlian
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7cb9d8e0f03dc5cb81d68d51be018e79074a32c2
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39124980"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391296"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Uw gratis proefversie of Azure voor Microsoft Imagine-abonnement upgraden naar betalen per gebruik
 
 Upgrade uw [gratis proefversie](https://azure.microsoft.com/free/) of [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) abonnement op [betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) in het Azure-Accountcentrum.
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/subscriptions).
+1. Meld u aan bij het [Azure-accountcentrum](https://account.windowsazure.com/subscriptions).
 2. Selecteer in de sectie van de status van abonnement de **nu een upgrade uitvoeren** banner.
    
     ![Schermopname die laat waar u zien moet klikken om te upgraden van gratis proefversie naar betalen per gebruik](./media/billing-upgrade-azure-subscription/billpage.png)

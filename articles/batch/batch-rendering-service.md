@@ -6,14 +6,14 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034740"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393550"
 ---
-# <a name="rendering-using-azure"></a>Rendering met Azure
+# <a name="rendering-using-azure"></a>Weergeven met Azure
 
 Rendering is het proces van 3D-modellen maken en deze omzetten in 2D-afbeeldingen. 3D-scènebestanden zijn ontworpen en in toepassingen als Autodesk 3ds Max, Autodesk Maya en Blender.  Rendering-toepassingen als Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray en Blender cycli produceren 2D-afbeeldingen.  Soms enkele afbeeldingen zijn gemaakt op basis van de scènebestanden. Het is echter gebruikelijk modelleren en meerdere afbeeldingen weergeven en ze vervolgens combineren in een animatie.
 
@@ -69,7 +69,7 @@ Azure Batch is gebruikt voor veel werkbelastingen, maar de volgende mogelijkhede
   * Azure Marketplace-VM-installatiekopieën beschikbaar zijn die populaire grafische toepassingen en renderingtoepassingen, voorkomen van de noodzaak om te installeren van de toepassingen zelf of uw eigen aangepaste installatiekopieën maken met de geïnstalleerde toepassingen bevatten. 
 * Betalen per gebruik-licentieverlening voor rendering-toepassingen:
   * U kunt kiezen om te betalen voor de toepassingen per minuut, naast de facturatie voor de Reken-VM's, die voorkomt dat u hoeft te kopen van licenties en mogelijk voor de toepassingen een licentieserver configureren.  Betalen voor gebruik betekent ook dat het is mogelijk die geschikt zijn voor verschillende en onverwachte laden omdat er geen een vast aantal licenties.
-  * Het is ook mogelijk om de vooraf geïnstalleerde toepassingen gebruiken met uw eigen licenties en gebruik niet de licentieverlening voor betalen per gebruik.
+  * Het is ook mogelijk om de vooraf geïnstalleerde toepassingen gebruiken met uw eigen licenties en gebruik niet de licentieverlening voor betalen per gebruik. U doet dit door u installeert gewoonlijk een on-premises of op basis van Azure licentieserver en een Azure-netwerk om de rendering van toepassingen verbinding met de licentieserver te gebruiken.
 * Plug-ins voor het ontwerpen van de client en ontwerptoepassingen:
   * Invoegtoepassingen toestaan eindgebruikers gebruikmaken van Azure Batch rechtstreeks vanuit de clienttoepassing, zoals Autodesk Maya, waardoor ze maken van pools,-taken verzenden en maken gebruik van meer rekencapaciteit om uit te voeren sneller uitgevoerd.
 * Integratie van manager weergegeven:

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954395"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227143"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst voor IoT Hub
 In dit artikel worden enkele van de algemene termen gebruikt in de IoT Hub-artikelen.
@@ -27,7 +27,7 @@ Automatische Apparaatbeheer in Azure IoT Hub automatiseert veel herhaalde en com
 ## <a name="automatic-device-configuration"></a>Configuratie van automatische inrichting
 Uw back-end oplossing kunt [automatische apparaatconfiguraties](iot-hub-auto-device-config.md) gewenste eigenschappen toewijzen aan een set [apparaatdubbels](#device-twin) en status rapporteren met behulp van metrische systeemmeetgegevens en aangepaste metrische gegevens. 
 
-## <a name="azure-classic-cli"></a>CLI van Azure classic
+## <a name="azure-classic-cli"></a>Klassieke versie van Azure CLI
 De [Azure klassieke CLI](../cli-install-nodejs.md) is een hulpprogramma voor meerdere platformen, open-source, op basis van shell-opdracht voor het maken en beheren van resources in Microsoft Azure. Deze versie van de CLI moet worden gebruikt voor alleen voor klassieke implementaties.
 
 ## <a name="azure-cli"></a>Azure-CLI
@@ -136,7 +136,7 @@ Een [apparaatdubbel](iot-hub-devguide-device-twins.md) is JSON-document waarin i
 Net als bij het dubbele apparaat, is een moduledubbel JSON-document waarin statusinformatie van de module, zoals metagegevens, configuraties en voorwaarden. IoT-Hub zich blijft voordoen een moduledubbel voor elke module-identiteit die u onder een apparaat-id in uw IoT-hub inricht. Moduledubbels kunnen u voorwaarden van de module en configuraties tussen de module en de back-end oplossing te synchroniseren. U kunt een query moduledubbels naar specifieke modules en de status van langlopende bewerkingen opvragen.
 
 ## <a name="twin-queries"></a>Apparaatdubbel-query 's
-[Module- en apparaat-query's voor apparaattwins](iot-hub-devguide-query-language.md) gebruikt u de SQL-achtige IoT Hub-querytaal gegevens ophalen uit uw apparaatdubbels of moduledubbels. U kunt de dezelfde IoT Hub-querytaal gebruiken om op te halen van informatie over [ ](#job) die worden uitgevoerd in uw IoT-hub.
+[Module- en apparaat-query's voor apparaattwins](iot-hub-devguide-query-language.md) gebruikt u de SQL-achtige IoT Hub-querytaal gegevens ophalen uit uw apparaatdubbels of moduledubbels. U kunt de dezelfde IoT Hub-querytaal gebruiken om op te halen van informatie over [](#job) die worden uitgevoerd in uw IoT-hub.
 
 ## <a name="twin-synchronization"></a>Dubbele synchronisatie
 Twin synchronisatie gebruikt het [gewenste eigenschappen](#desired-properties) in uw apparaatdubbels of moduledubbels voor uw apparaten te configureren of modules ophalen [gerapporteerde eigenschappen](#reported-properties) uit om op te slaan op het dubbele.
@@ -177,7 +177,7 @@ IoT Hub is een volledig beheerde Azure-service die stabiele en veilige tweericht
 [Metrische gegevens van IoT-Hub](iot-hub-metrics.md) bieden u de gegevens over de status van de IoT-hubs in uw [Azure-abonnement](#subscription). Metrische gegevens van IoT Hub kunt u de algemene status van de service en de apparaten die zijn verbonden met het beoordelen. Metrische gegevens van IoT Hub kunt u zien wat er gebeurt met uw IoT-hub en hoofdoorzaak problemen onderzoeken zonder contact opnemen met ondersteuning van Azure.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub-querytaal
-De [IoT Hub-querytaal](iot-hub-devguide-query-language.md) is een SQL-achtige taal waarmee u kunt query uw [ ](#job) en dubbele apparaten.
+De [IoT Hub-querytaal](iot-hub-devguide-query-language.md) is een SQL-achtige taal waarmee u kunt query uw [](#job) en dubbele apparaten.
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT-Hub Resource REST-API
 U kunt de [REST-API voor IoT Hub Resource](https://docs.microsoft.com/rest/api/iothub/iothubresource) voor het beheren van de IoT-hubs in uw [Azure-abonnement](#subscription) uitvoeren van bewerkingen, zoals het maken, bijwerken en verwijderen van hubs.
@@ -219,7 +219,7 @@ In de context van een [apparaatdubbel](iot-hub-devguide-device-twins.md), gerapp
 [Azure Resource Manager](#azure-resource-manager) maakt gebruik van resourcegroepen naar gerelateerde resources te groeperen. Bewerkingen uit te voeren op alle resources in de groep tegelijkertijd kunt u een resourcegroep.
 
 ## <a name="retry-policy"></a>Beleid voor opnieuw proberen
-Gebruik van een beleid voor opnieuw proberen om af te handelen [tijdelijke fouten](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) wanneer u verbinding maken met een service in de cloud.
+Gebruik van een beleid voor opnieuw proberen om af te handelen [tijdelijke fouten](/azure/architecture/best-practices/transient-faults) wanneer u verbinding maken met een service in de cloud.
 
 ## <a name="routing-rules"></a>Regels voor doorsturen
 U configureert [routeringsregels](iot-hub-devguide-messages-read-custom.md) in uw IoT-hub voor het routeren van apparaat-naar-cloud-berichten naar een [ingebouwd eindpunt](#built-in-endpoints) of [aangepaste eindpunten](#custom-endpoints) voor verwerking door de back-end .

@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
-ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: f7ec113a7fa51fc6d3684c2e7ee9379bd1534e30
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919051"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392405"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
 Voor meer informatie over uw Azure-factuur, vergelijken met uw factuur met de gedetailleerde dagelijks gebruik van bestands- en -rapporten voor de kosten in de Azure-portal.
@@ -35,7 +35,7 @@ Zie voor gedetailleerde voorwaarden en beschrijvingen van uw factuur en gedetail
 Zie voor meer informatie over de kostenbeheerrapporten, [kostenbeheer van Azure portal](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 > [!div class="nextstepaction"]
-> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>Hoe ik ervoor zorgen dat de kosten in rekening gebracht op mijn factuur correct zijn?
 
@@ -52,12 +52,12 @@ De gebruikskosten worden weergegeven op het niveau van de meter. De volgende ter
  | Factuur (PDF-bestand) | Gedetailleerd gebruik (CSV)|
  | --- | --- |
 |Factureringscyclus | Factureringsperiode |
- |Naam |Metercategorie |
+ |Naam |De categorie van de meter |
  |Type |Subcategorie van de meter |
- |Resource |Meternaam |
+ |Resource |De naam van de meter |
  |Regio |De regio van de meter |
  |Verbruikt |Verbruikt aantal |
- |Opgenomen |Inbegrepen hoeveelheid |
+ |Inbegrepen |Inbegrepen hoeveelheid |
  |Factureerbaar |Overschreden hoeveelheid |
 
 De **gebruikskosten** gedeelte van uw factuur bevat de totale waarde voor elke meter die tijdens de factureringsperiode is verbruikt. De volgende schermafbeelding ziet u bijvoorbeeld een gebruik kosten in rekening gebracht voor de Azure Scheduler-service.

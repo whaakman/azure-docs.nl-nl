@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: ed591007e6ad83dfbafe13db0bd3d8b53fc216f3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bca25f5e7a6fd7685d20236033a5a225c5183a2d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106366"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225341"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Aan de slag met Apparaatbeheer (.NET/.NET)
 
@@ -213,7 +213,7 @@ In deze sectie gaat u het volgende doen:
 8. Klik in Solution Explorer van Visual Studio met de rechtermuisknop op uw oplossing en klik op **Set StartUp Projects...**. Selecteer **Single startup project**, en selecteer vervolgens de **SimulateManagedDevice** -project in de vervolgkeuzelijst. Bouw de oplossing.       
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel implementeren [afhandeling van tijdelijke fouten](https://msdn.microsoft.com/library/hh680901.aspx).
+> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="run-the-apps"></a>De apps uitvoeren
 

@@ -1,6 +1,6 @@
 ---
-title: Wijzigen van uw creditcard voor Azure | Microsoft Docs
-description: Hierin wordt beschreven hoe u de creditcard die is gebruikt om te betalen voor een Azure-abonnement wijzigen
+title: Wijzigen van uw creditcard is geregistreerd voor Azure | Microsoft Docs
+description: Hierin wordt beschreven hoe u het wijzigen van de creditcard die is gebruikt om te betalen voor een Azure-abonnement
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 6b0db12da7c187ce80f1d55ce8b9900601033068
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068310"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395488"
 ---
-# <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard voor Azure
+# <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard of betaalpas nodig voor Azure
 
-In het midden-Account, kunt u een nieuwe creditcard toevoegen, een bestaande creditcard bijwerken of verwijderen van een creditcard die u niet gebruikt. U moet [accountbeheerder](billing-subscription-transfer.md#whoisaa) u deze wijzigingen aanbrengt.
+In het Accountcentrum, kunt u een nieuwe creditcard toevoegen, een bestaande creditcard bijwerken of verwijderen van een creditcard die u niet gebruikt. U moet [accountbeheerder](billing-subscription-transfer.md#whoisaa) u deze wijzigingen aanbrengt.
 
-**U wilt overschakelen naar betalen met factuur?** Zie [betalen voor Azure-abonnementen door factuur](billing-how-to-pay-by-invoice.md).
+**Wilt u overschakelen naar betalen per factuur?** Zie [voor Azure-abonnementen betalen per factuur](billing-how-to-pay-by-invoice.md).
  
 <a id="addcard"></a>
 
-## <a name="add-a-new-credit-or-debit-card"></a>Een nieuwe creditcard toevoegen
+## <a name="add-a-new-credit-or-debit-card"></a>Een nieuwe creditcard of betaalpas kaart toevoegen
 
-1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder.
+1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
 1. Selecteer een abonnement.
 1. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
 
-    ![Schermafbeelding van beheren betaling methoden optie is geselecteerd.](./media/billing-how-to-change-credit-card/changesub_new.png)
-1. Selecteer '+' een kaart toevoegen.
+    ![Schermopname die laat beheren methoden betalingsoptie geselecteerd zien.](./media/billing-how-to-change-credit-card/changesub_new.png)
+1. Selecteer '+' om toe te voegen een kaart.
 
-    ![Schermafbeelding van de optie Bewerken naast de betalingsmethode.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Creditcard of kaartgegevens afgetrokken.
+    ![Schermafbeelding van de optie Bewerken naast de betalingswijze.](./media/billing-how-to-change-credit-card/editcard_new.png)
+1. Creditcard of betaalpas kaartgegevens.
 1. Selecteer **Opslaan**. 
 
-Als u een fout optreedt nadat u de creditcard hebt toegevoegd, Zie [creditcard geweigerd op Azure aanmelding](billing-credit-card-fails-during-azure-sign-up.md).
+Als u een foutmelding krijgt nadat u de creditcard hebt toegevoegd, Zie [creditcard is geregistreerd bij Azure aanmelden geweigerd](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## <a name="update-existing-credit-or-debit-card"></a>Bijwerken van bestaande creditcard of betaalpas
 
-Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de details van de bestaande creditcard zoals de vervaldatum bijwerken. Als uw creditcard gewijzigd omdat de kaart verloren is, gestolen of verlopen, volg de stappen in de [een creditcard als een betalingsmethode toevoegen](#addcard) sectie. U hoeft niet de CVW bijwerken.
+Als uw creditcard wordt vernieuwd en het aantal hetzelfde blijft, moet u de details van de bestaande creditcard is geregistreerd, zoals de datum van afloop voor bijwerken. Als uw creditcard telefoonnummer is gewijzigd omdat de kaart verloren is, gestolen of verlopen, volg de stappen in de [creditcard is geregistreerd als een betalingswijze toevoegen](#addcard) sectie. U hoeft niet te werken van de CVW.
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder.
+1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
 1. Selecteer het abonnement dat gekoppeld aan de kaart.
 1. Selecteer **betalingswijzen beheren**.
 1. Selecteer **bewerken** naast de kaart die u wilt bijwerken.
-1. De details van de creditcardgegevens bijwerken.
+1. De details van de creditcard of betaalpas bijwerken.
 1. Selecteer **Opslaan**.
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Een andere creditcard gebruiken voor het Azure-abonnement
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder.
+1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
 1. Selecteer het abonnement dat gekoppeld aan de kaart.
 1. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
-1. Klik op **gebruiken in plaats daarvan** naast de kaart die u wilt gebruiken. Dit werkt ook geen andere abonnementen die momenteel zijn verbonden met deze kaart. 
+1. Klik op **gebruiken in plaats daarvan** naast de kaart die u wilt gebruiken. Dit werkt ook geen andere abonnementen die momenteel zijn gekoppeld aan deze kaart. 
 
-## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Een creditcard verwijderen uit het account
+## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Een creditcard of betaalpas nodig van het account verwijderen
 
-1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de accountbeheerder.
+1. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als accountbeheerder.
 1. Selecteer het abonnement dat gekoppeld aan de kaart.
 3. Selecteer **Betalingswijzen beheren** aan de rechterkant van de pagina.
 4. Klik op **verwijderen** voor de creditcard die u wilt verwijderen.
 
-Als uw creditcard gekoppeld aan andere actieve abonnementen van Microsoft is, kunt u deze niet verwijderen uit uw Azure-account. Verwijder de creditcard van alle actieve abonnementen die u met Microsoft hebt en probeer het opnieuw.
+Als uw creditcard gekoppeld aan andere actieve abonnementen op Microsoft is, kunt u deze niet verwijderen uit uw Azure-account. Verwijderen van de creditcard van alle actieve abonnementen die u met Microsoft hebt en probeer het opnieuw.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Mijn abonnement is uitgeschakeld. Waarom niet kan ik mijn creditcard nu verwijderen?
+### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Mijn abonnement is uitgeschakeld. Waarom kan ik nu niet verwijderen mijn creditcard?
 
-Nadat uw abonnement is uitgeschakeld of geannuleerd, wachten we 90 dagen voordat uw abonnement permanent te verwijderen. Wij houden uw betalingsmethode in bestand tijdens de bewaarperiode voor het geval u wilt dat het abonnement opnieuw activeren. Het abonnement wordt hierna is volledig verwijderd.
+Nadat uw abonnement is uitgeschakeld of geannuleerd, wacht we 90 dagen voordat uw abonnement permanent worden verwijderd. We bewaren uw betalingswijze wordt gebruikt in het bestand tijdens de retentieperiode voor het geval u wilt het abonnement opnieuw activeren. Het abonnement wordt hierna volledig verwijderd.
 
-Als u verwijderen van uw creditcard wilt voordat de bewaarperiode van 90 dagen wordt beëindigd, [uw abonnement opnieuw activeren](billing-subscription-become-disable.md). Als u niet opnieuw activeren, [Neem contact op met de ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Als u verwijderen van uw creditcard wilt voordat de bewaarperiode van 90 dagen afloopt, [uw abonnement opnieuw activeren](billing-subscription-become-disable.md). Als u niet opnieuw activeren, [Neem contact op met ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Waarom krijg ik telkens zulke 'uw aanmeldingssessie is verlopen. Klik hier om te melden'?
+### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Waarom ik steeds 'uw aanmeldingssessie is verlopen. Klik hier om te weer aanmelden'?
 
-Als u dit foutbericht steeds, zelfs als er al je afgemeld en weer in, probeer het opnieuw met een persoonlijke browsersessie.
+Als u dit foutbericht ontvangen blijven, zelfs als er al u bent afgemeld en weer in, probeer het opnieuw met een persoonlijke browsersessie.
 
-### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Hoe gebruik een andere kaart voor elk abonnement die ik heb?
+### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Hoe gebruik ik een andere kaart voor elk abonnement dat ik heb?
 
-Helaas als dezelfde kaart al door uw abonnementen gebruikt worden, is het niet mogelijk deze voor het gebruik van verschillende kaarten te scheiden. Echter, wanneer u zich voor een nieuw abonnement aanmeldt, kunt u met een nieuwe betalingsmethode voor dat abonnement.
+Helaas, als uw abonnementen zijn al met dezelfde kaart, het is niet mogelijk om ze voor het gebruik van andere kaarten te scheiden. Echter, wanneer u zich registreert voor een nieuw abonnement, kunt u kiezen voor gebruik van een nieuwe betalingswijze voor dat abonnement.
 
 ### <a name="how-do-i-make-payments"></a>Hoe maak ik betalingen?
 
-Als u een creditcard of een betaalpas als uw betalingsmethode instellen, brengen we uw kaart automatisch na elke factureringsperiode. U hoeft niet verder niets te doen.
+Als u een creditcard of een betaalpas als uw betalingswijze wordt gebruikt instellen, berekenen we uw kaart automatisch na elke betalingsperiode. U hoeft te ondernemen.
 
-Als u bent [betalen met factuur](billing-how-to-pay-by-invoice.md), uw betaling naar de locatie die onder van uw factuur verzenden.
+Als u bent [betalen per factuur](billing-how-to-pay-by-invoice.md), verzenden de betaling naar de locatie aan de onderkant van uw factuur weergegeven.
 
 ### <a name="how-do-i-make-a-one-time-payment"></a>Hoe maak ik een eenmalige betaling?
 
-Helaas ondersteuning Azure momenteel geen voor eenmalige betalingen voor creditcardgegevens kaarten. 
+Helaas, Azure op dit moment biedt geen ondersteuning voor eenmalige betalingen voor creditcards of betaalpassen. 
 
-### <a name="how-do-i-change-the-tax-id"></a>Hoe kan ik het btw-nummer wijzigen?
+### <a name="how-do-i-change-the-tax-id"></a>Hoe kan ik de belasting-ID wijzigen?
 
-Als u wilt toevoegen of bijwerken van btw-nummer, gaat u naar [ **profiel** in Azure-Accountcentrum](https://account.azure.com/Profile), selecteer daarna **btw-record**. Dit btw-nummer wordt gebruikt voor de berekening van btw-uitzonderingen en wordt weergegeven op uw factuur.
+Als u wilt toevoegen of bijwerken van de btw-nummer, Ga naar [ **profiel** in Azure-Accountcentrum](https://account.azure.com/Profile)en selecteer vervolgens **btw-record**. Dit btw-nummer wordt gebruikt voor de berekening van btw-vrijstelling en wordt vermeld op uw factuur.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

@@ -3,7 +3,7 @@ title: Azure Stack 1804 Update | Microsoft Docs
 description: Meer informatie over wat er in de update 1804 voor Azure Stack geïntegreerde systemen, de bekende problemen en het downloaden van de update.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413512"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393516"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 update
 
@@ -56,7 +56,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 
 
 
-## <a name="fixed-issues"></a>Opgeloste problemen
+## <a name="fixed-issues"></a>Problemen opgelost
 
 - <!-- IS, ASDK -->  In de beheerportal hebt niet meer tot de tegel Update vernieuwen voordat wordt informatie weergegeven.
  
@@ -102,6 +102,9 @@ Na de installatie van 1804, eventuele van toepassing Hotfixes te installeren. Ra
 Hieronder vindt u na de installatie bekende problemen voor de build **20180513.1**.
 
 #### <a name="portal"></a>Portal
+
+- De technische documentatie voor Azure Stack is gericht op de meest recente versie. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
+
 - <!-- TBD - IS ASDK --> U kunt geen updates voor stuurprogramma's toepassen met behulp van een OEM-uitbreidingspakket met deze versie van Azure Stack.  Er is geen oplossing voor dit probleem.
 
 - <!-- 1272111 - IS --> Nadat u installeert of naar deze versie van Azure Stack bijwerkt, kan het niet mogelijk om Azure Stack-schaaleenheden in het beheerportal weer te geven.  

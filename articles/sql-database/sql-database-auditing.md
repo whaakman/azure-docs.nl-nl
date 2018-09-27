@@ -12,12 +12,12 @@ ms.author: giladm
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/10/2018
-ms.openlocfilehash: dd1672c0cdae243bf6ff19efa22df66239611b44
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8ba07b22d247cb9263890a747bd166d63af27e3b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064167"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395744"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Met Azure SQL database auditing houdt databasegebeurtenissen en geschreven naar een auditlogboek in uw Azure storage-account. Ook controle:
@@ -109,7 +109,7 @@ Als u ervoor hebt gekozen auditlogboeken schrijven naar Log Analytics:
 
     ![Open in OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- U kunt ook u kunt ook toegang tot de auditlogboeken van Log Analytics-blade. Open uw Log Analytics-werkruimte en klik vervolgens onder **algemene** sectie, klikt u op **logboeken**. U kunt beginnen met een eenvoudige query, zoals: search *"SQLSecurityAuditEvents"* om weer te geven van de audit-Logboeken.
+- U kunt ook u kunt ook toegang tot de auditlogboeken van Log Analytics-blade. Open uw Log Analytics-werkruimte en klik vervolgens onder **algemene** sectie, klikt u op **logboeken**. U kunt beginnen met een eenvoudige query, zoals: *zoeken naar "SQLSecurityAuditEvents"* om weer te geven van de audit-Logboeken.
     Hier kunt u ook kunt gebruiken [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) geavanceerde zoekopdrachten uitvoeren op uw logboekgegevens audit. Log Analytics biedt u realtime operationele inzichten met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van miljoenen records gemakkelijk in uw werkbelastingen en servers. Zie voor meer nuttige informatie over opdrachten en OMS Log Analytics-zoektaal, [Log Analytics zoeken verwijzing](../log-analytics/log-analytics-log-search.md).
 
 Als u ervoor hebt gekozen auditlogboeken naar Event Hub schrijven:

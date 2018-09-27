@@ -1,22 +1,23 @@
 ---
 title: Exemplaar van SQL Server migreren naar Azure SQL Database Managed Instance | Microsoft Docs
 description: Leer hoe u een exemplaar van SQL Server migreren naar Azure SQL Database Managed Instance.
-keywords: databasemigratie, sql server-databasemigratie, hulpprogramma's voor databasemigratie, database migreren, sql-database migreren
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 09/20/2018
-ms.author: bonova
-ms.openlocfilehash: 5aad6060691c796906232d9625ff00b748616a77
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.date: 09/26/2018
+ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038985"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394050"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -107,6 +108,8 @@ De volgende tabel vindt u meer informatie over de methoden die u kunt gebruiken,
 > - Herstellen van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in de basispagina of msdb-databases), wordt aangeraden deze scripts en T-SQL-scripts uitvoeren op de doel-exemplaar.
 
 Zie voor een snelstart van het back-up van een database herstellen naar een beheerd exemplaar met behulp van een SAS-referentie [herstellen vanuit back-up naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## <a name="monitor-applications"></a>Toepassingen bewaken
 

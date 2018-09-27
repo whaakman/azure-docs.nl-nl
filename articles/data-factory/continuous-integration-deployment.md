@@ -1,6 +1,6 @@
 ---
-title: Continue integratie en implementatie in Azure Data Factory | Microsoft Docs
-description: Informatie over het gebruik van continue integratie en implementatie Data Factory-pijplijnen verplaatsen van de ene omgeving (ontwikkeling, testen, productie) naar een andere.
+title: Continue integratie en levering in Azure Data Factory | Microsoft Docs
+description: Informatie over het gebruik van continue integratie en levering Data Factory-pijplijnen verplaatsen van de ene omgeving (ontwikkeling, testen, productie) naar een andere.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 587c4c0804de809431bf9e731e7533f0d75770d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364974"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392612"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
-Continue integratie is het testen van elke wijziging gereed om terug te uw codebasis automatisch en zo vroeg mogelijk. Continue implementatie volgt de tests die plaatsvindt tijdens de continue integratie en verstuurd van wijzigingen naar een systeem fasering of productie.
+Continue integratie is het testen van elke wijziging gereed om terug te uw codebasis automatisch en zo vroeg mogelijk. Continue levering volgt de tests die plaatsvindt tijdens de continue integratie en verstuurd van wijzigingen naar een systeem fasering of productie.
 
-Betekent verplaatsen Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory, doorlopende integratie en implementatie. Als u wilt doen doorlopende integratie en implementatie, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De gebruikersinterface van Data Factory een Resource Manager-sjabloon kunt genereren wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal voor het Resource Manager-sjabloon voor de data factory en een configuratiebestand met alle tekenreeksen in uw verbindingen en andere parameters wordt gegenereerd. Vervolgens moet u maken van een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie). Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
+Betekent verplaatsen Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory, continue integratie en levering. Als u wilt doen continue integratie en levering, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De gebruikersinterface van Data Factory een Resource Manager-sjabloon kunt genereren wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal voor het Resource Manager-sjabloon voor de data factory en een configuratiebestand met alle tekenreeksen in uw verbindingen en andere parameters wordt gegenereerd. Vervolgens moet u maken van een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie). Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
 
 Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie van deze functie:
 
@@ -53,9 +53,9 @@ Selecteer **bestand laden** voor het selecteren van de geëxporteerde Resource M
 ![Open-code weer te geven van de verbindingsreeks](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Levenscyclus van continue integratie
-Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die u kunt gebruiken nadat u Azure DevOps Services GIT-integratie in de Data Factory-gebruikersinterface ingeschakeld:
+Hier wordt de hele levenscyclus voor continue integratie en levering die u kunt gebruiken nadat u Azure-opslagplaatsen Git-integratie in de Data Factory-gebruikersinterface ingeschakeld:
 
-1.  Instellen van een development data factory met Azure DevOps-Services waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
+1.  Instellen van een development data factory met Azure-opslagplaatsen waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
 
 1.  Ontwikkelaars kunnen vervolgens resources zoals pijplijnen wijzigen. Wanneer ze hun wijzigingen aanbrengt, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
 
@@ -67,23 +67,23 @@ Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die
 
 1.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere parameterbestanden voor de factory test en de productie-factory.
 
-## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Continue integratie met Azure DevOps Services Releases automatiseren
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Continue integratie met Azure-pijplijnen releases automatiseren
 
-Hier volgen de stappen voor het instellen van een versie van Azure DevOps-Services, zodat u kunt de implementatie van een data factory om meerdere omgevingen te automatiseren.
+Hier volgen de stappen voor het instellen van een Azure-pijplijnen release, zodat u kunt de implementatie van een data factory om meerdere omgevingen te automatiseren.
 
-![Diagram van continue integratie met Azure DevOps-Services](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram van continue integratie met Azure-pijplijnen](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Vereisten
 
--   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of Azure DevOps-Services de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of Azure-opslagplaatsen de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Een Data Factory met Azure DevOps Services Git geconfigureerd.
+-   Een Data Factory met Azure-opslagplaatsen Git-integratie is geconfigureerd.
 
 -   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
 
-### <a name="set-up-an-azure-devops-services-release"></a>Instellen van een versie van Azure DevOps-Services
+### <a name="set-up-an-azure-pipelines-release"></a>Instellen van een Azure-pijplijnen-versie
 
-1.  Ga naar de pagina Azure DevOps-Services in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
+1.  Ga naar de pagina van uw Azure-opslagplaatsen in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
 
 1.  Klik op het bovenste menu **Azure pijplijnen** &gt; **Releases** &gt; **release-definitie maken**.
 
@@ -121,7 +121,7 @@ Hier volgen de stappen voor het instellen van een versie van Azure DevOps-Servic
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Optioneel: de geheimen ophalen uit Azure Key Vault
 
-Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij de release van Azure DevOps-Services met behulp van Azure Key Vault.
+Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij met behulp van Azure Key Vault met de release van Azure-pijplijnen.
 
 Er zijn twee manieren voor het afhandelen van de geheimen:
 
@@ -156,13 +156,13 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Machtigingen verlenen voor de Services van Azure DevOps-agent
-De Azure Key Vault-taak mislukken de eerste keer met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` bestand met de opdracht machtigingen geven tot de Services van Azure DevOps-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Machtigingen verlenen voor de Azure-pijplijnen-agent
+De Azure Key Vault-taak mislukken de eerste keer met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` bestand met de opdracht machtigingen geven tot de Azure-pijplijnen-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
 
 ### <a name="update-active-triggers"></a>Actieve triggers bijwerken
 Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het actieve triggers bijwerken, moet u handmatig ze stopt en start deze na de implementatie. U kunt een Azure Powershell-taak toevoegen voor dit doel, zoals wordt weergegeven in het volgende voorbeeld:
 
-1.  Zoek in het tabblad taken van de Release van Azure DevOps Services **Azure Powershell** en toe te voegen.
+1.  Zoek in het tabblad taken van de release van **Azure Powershell** en toe te voegen.
 
 1.  Kies **Azure Resource Manager** als de verbinding typt en selecteer uw abonnement.
 
@@ -180,7 +180,7 @@ U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met
 
 ## <a name="sample-deployment-template"></a>Voorbeeldsjabloon voor implementatie
 
-Hier volgt een voorbeeld-implementatiesjabloon die u in Azure DevOps-Services importeren kunt.
+Hier volgt een voorbeeld-implementatiesjabloon die u in Azure-pijplijnen importeren kunt.
 
 ```json
 {

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 1db54cfd32a0d598d0079ddaec9aab5d6b2f84c1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5cf795b85e295488a04e95dbabcee46134361495
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039289"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222469"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -125,7 +125,7 @@ U kunt repliceren en herstellen van virtuele machines tussen elke twee regio's b
 Amerika | Canada-Oost, Canada-midden, Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2, VS-midden, Noord-centraal VS
 Europa | UK-West, UK-Zuid, Noord-Europa, West-Europa, Frankrijk-centraal, Frankrijk-Zuid
 Azië | Zuid-India, centraal-India, Zuidoost-Azië, Oost-Azië, Japan-Oost, Japan-West, Korea centraal, Korea Zuid
-Australië   | Australië-Oost, Australië-Zuidoost
+Australië   | Australië-Oost, Australië-Zuidoost, Australië-midden, Australië centraal 2
 Azure Government    | VS (overheid) Virginia, VS (overheid)-Iowa, VS (overheid)-Arizona, VS (overheid)-Texas, VS DOD Oost, VS DOD-centraal
 Duitsland | Duitsland-centraal, Duitsland-Noordoost
 China | China-Oost, China-Noord

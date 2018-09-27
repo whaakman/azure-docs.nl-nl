@@ -1,6 +1,6 @@
 ---
-title: Controleer de factureringsgegevens Azure-abonnement met de REST-API | Microsoft Docs
-description: Informatie over het gebruik van Azure REST API's voor facturerings-abonnementsgegevens.
+title: Controleer de factureringsgegevens van Azure-abonnement met REST-API | Microsoft Docs
+description: Leer hoe u Azure REST API's gebruiken om te controleren van factureringsgegevens abonnement.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: alleonar
-ms.openlocfilehash: cc29d1f613af67604d50654be794cc90080098bb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: erikre
+ms.openlocfilehash: d0199711370dae6a23626337946e45e84fd33047
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063853"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394712"
 ---
-# <a name="review-subscription-billing-using-rest-apis"></a>Abonnement facturering met REST API's bekijken
+# <a name="review-subscription-billing-using-rest-apis"></a>Abonnement facturering met behulp van REST-API's bekijken
 
-Azure rapportage-API's helpen u te controleren en beheren van uw Azure kosten.  
+Azure API's van Reporting helpt u bij bekijken en beheren van uw Azure-kosten.  
 
-Resultaten om te voldoen aan uw behoeften aanpassen met behulp van filters.
+Met behulp van filters resultaten om te voldoen aan uw behoeften aanpassen.
 
-Hier kunt u informatie over een REST-API gebruiken om te retourneren van facturering details van abonnement voor een bepaald datumbereik.
+Hier kunt u informatie over het gebruik van een REST-API om terug te keren factureringsgegevens abonnement voor een bepaald datumbereik.
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
@@ -39,20 +39,20 @@ Authorization: Bearer
 
 De `{subscriptionID}` parameter is vereist en identificeert het doelabonnement.
 
-De `{billingPeriod}` parameter is vereist en geeft een huidige [factureringsperiode](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
+De `{billingPeriod}` -parameter is vereist en geeft een huidige [factureringsperiode](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
 
-De `${startDate}` en `${endDate}` parameters zijn vereist voor dit voorbeeld, maar is optioneel voor het eindpunt.  Ze het datumbereik opgeven als tekenreeksen in de vorm van jjjj-MM-DD (voorbeelden: `'20180501'` en `'20180615'`). 
+De `${startDate}` en `${endDate}` parameters zijn vereist voor dit voorbeeld, maar optionele voor het eindpunt.  Ze het datumbereik opgeven als tekenreeksen in de vorm van DD-MM-jjjj (voorbeelden: `'20180501'` en `'20180615'`). 
 
 De volgende headers zijn vereist: 
 
-|Aanvraag-header|Beschrijving|  
+|Aanvraagheader|Beschrijving|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ## <a name="response"></a>Antwoord  
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagde reactie die een lijst met gedetailleerde kosten voor uw account bevat.
+Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, waarin een lijst met gedetailleerde kosten voor uw account.
 
 ``` json
 {
@@ -79,23 +79,23 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde reactie die een lijst
 } 
 ```  
 
-Elk item in **waarde** vertegenwoordigt een details over het gebruik van een service:
+Elk item in **waarde** vertegenwoordigt een details met betrekking tot het gebruik van een service:
 
-|Eigenschap Response|Beschrijving|
+|Antwoord-eigenschap|Beschrijving|
 |----------------|----------|
-|**subscriptionGuid** | Globaal unieke ID voor het abonnement. | 
-|**Begindatum** | Datum van het gebruik gestart. |
-|**EndDate bevat** | Datum van het gebruik is beëindigd. |
+|**subscriptionGuid** | Unieke ID voor het abonnement. | 
+|**Begindatum** | De datum van het gebruik aan de slag. |
+|**Einddatum** | De datum van het gebruik is beëindigd. |
 |**useageQuantity** | De hoeveelheid die wordt gebruikt. | 
 |**billableQuantity** | De hoeveelheid daadwerkelijk in rekening gebracht. |
-|**pretaxCost** | Kosten gefactureerd voordat de van toepassing zijnde belastingen. | 
+|**pretaxCost** | Kosten gefactureerd, voordat u van toepassing zijnde belastingen. | 
 |**meterDetails** | Gedetailleerde informatie over het gebruik. |
-|**nextLink**| Als de waarde, een URL voor de volgende 'pagina"gegevens bevat. Leeg wanneer de pagina het laatste is. |  
+|**nextLink**| Als de waarde, Hiermee geeft u een URL voor de volgende "page" van gegevens. Leeg wanneer de pagina de laatste is. |  
 ||
   
-In dit voorbeeld is afgekort; Zie [lijst informatie over het gebruik](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) voor een volledige beschrijving van elk antwoordveld. 
+In dit voorbeeld is afgekort; Zie [lijst met informatie over het gebruik](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) voor een volledige beschrijving van elk antwoordveld. 
 
-Andere statuscodes duiden op fouten. In deze gevallen is het object response wordt uitgelegd waarom de aanvraag is mislukt.
+Andere statuscodes duiden op fouten. In dergelijke gevallen wordt het object response uitgelegd waarom de aanvraag is mislukt.
 
 ``` json
 {  
@@ -108,6 +108,6 @@ Andere statuscodes duiden op fouten. In deze gevallen is het object response wor
 ```  
 
 ## <a name="next-steps"></a>Volgende stappen 
-- Bekijk [Enterprise melden-overzicht](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Onderzoek [Enterprise facturering REST-API](https://docs.microsoft.com/rest/api/billing/)   
-- [Aan de slag met Azure REST-API](https://docs.microsoft.com/rest/api/azure/)   
+- Beoordeling [Enterprise rapportageoverzicht](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Onderzoeken [Enterprise facturering REST-API](https://docs.microsoft.com/rest/api/billing/)   
+- [Aan de slag met REST API van Azure](https://docs.microsoft.com/rest/api/azure/)   

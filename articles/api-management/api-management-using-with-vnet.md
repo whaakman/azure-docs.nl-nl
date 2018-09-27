@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1a02fd604d08e87c84a73657b7204ecb42b3498b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040332"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393176"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Azure-netwerken (VNETs) kunt u een van uw Azure-resources in een niet-internet routeerbare netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over Azure Virtual Networks beginnen met de informatie hier: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -110,10 +110,11 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Communicatie van clients met API Management|Extern |
 | * / 3443 |Inkomend |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Beheereindpunt voor Azure-portal en Powershell |Externe en interne |
-| * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Afhankelijkheid van Azure Storage**, Azure Service Bus en Azure Active Directory (indien van toepassing).|Externe en interne |
+| * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / opslag|**Afhankelijkheid van Azure Storage**|Externe en interne |
+| * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET| Azure Active Directory (indien van toepassing)|Externe en interne |
 | * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / SQL|**Toegang tot Azure SQL-eindpunten** |Externe en interne |
-| * / 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent |Externe en interne |
-| * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure-bestandsshare voor GIT |Externe en interne |
+| * / 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / EventHub |Afhankelijkheid voor logboek naar Event Hub-beleid en de monitoring agent |Externe en interne |
+| * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / opslag |Afhankelijkheid van Azure-bestandsshare voor GIT |Externe en interne |
 | * / 1886 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Die nodig zijn voor het publiceren van de Integriteitsstatus van de op Resource Health |Externe en interne |
 | * / 25028 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten |Externe en interne |
 | * / 6381 - 6383 |Inkomende en uitgaande |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Toegang tot Redis Cache-exemplaren tussen RoleInstances |Externe en interne |
@@ -130,9 +131,11 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 
     | Azure-omgeving | Eindpunten |
     | --- | --- |
-    | Azure openbaar | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.NET</li><li>prod3.metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li></ul> |
+    | Azure openbaar | <ul><li>Prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.NET</li><li>prod3.metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>Prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com waar `East US 2` eastus2.warm.ingestion.msftcloudes.com is</li></ul> |
     | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.metrics.nsatc.NET</li><li>prod3.metrics.nsatc.NET</li></ul> |
     | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.metrics.nsatc.NET</li><li>prod3.metrics.nsatc.NET</li></ul> |
+
+* **Azure-portal Diagnostics**: de stroom van diagnostische logboeken van Azure portal inschakelen bij het gebruik van de API Management-extensie van binnen een virtueel netwerk, uitgaande toegang tot `dc.services.visualstudio.com` op poort 443 is vereist. Dit helpt bij het oplossen van problemen die u tegenkomen kan bij het gebruik van extensie.
 
 * **Snelle installatie van de Route**: een algemene configuratie van de klant is voor het definiëren van hun eigen standaardroute (0.0.0.0/0) die ervoor zorgt uitgaand internetverkeer dat naar in plaats daarvan flow on-premises. Connectiviteit met Azure API Management verbroken met deze verkeersstroom altijd omdat het uitgaande verkeer geblokkeerd on-premises wordt en NAT wilt een onherkenbare set met adressen die niet meer met verschillende Azure-eindpunten werken. De oplossing is voor het definiëren van een (of meer) gebruiker gedefinieerde routes ([udr's][UDRs]) op het subnet waarin de Azure API Management. Een UDR definieert de subnet-specifieke routes die worden gebruikt in plaats van de standaardroute.
   Het verdient indien mogelijk, gebruik de volgende configuratie:
@@ -184,6 +187,7 @@ Gezien de berekening boven de minimale grootte van het subnet waarin API Managem
 * [Het verbinden van een Virtueelnetwerk van verschillende implementatiemodellen](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Het gebruik van de API-Inspector te traceren aanroepen in Azure API Management](api-management-howto-api-inspector.md)
 * [Veelgestelde vragen over Virtual Network](../virtual-network/virtual-networks-faq.md)
+* [Servicetags](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

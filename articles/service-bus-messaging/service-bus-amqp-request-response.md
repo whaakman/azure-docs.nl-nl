@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 0299b05517629740576c562effaa41658f28532f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e4dda534fd50c634f621558fa7d7821302c73979
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163240"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395098"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-reactie-bewerkingen
 
@@ -134,7 +134,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:renew-lock`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
  De berichttekst van de aanvraag moet bestaan uit de sectie van een amqp-waarde met een map met de volgende items:  
@@ -172,14 +172,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|lang|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
+|`from-sequence-number`|lengte|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
 |`message-count`|int|Ja|Maximum aantal berichten te bekijken.|  
   
 #### <a name="response"></a>Antwoord  
@@ -213,7 +213,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:schedule-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -257,7 +257,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:cancel-scheduled-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -293,7 +293,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:renew-session-lock`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -327,14 +327,14 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|uit de volgnummer|lang|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
+|uit de volgnummer|lengte|Ja|Volgnummer uit waarop u wilt beginnen peek.|  
 |aantal berichten|int|Ja|Maximum aantal berichten te bekijken.|  
 |sessie-id|tekenreeks|Ja|Sessie-ID.|  
   
@@ -369,7 +369,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -398,7 +398,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:get-session-state`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -432,7 +432,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|Bewerking|tekenreeks|Ja|`com.microsoft:get-message-sessions`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
@@ -614,7 +614,7 @@ Elke kaart vermelding in de matrix bevat de volgende eigenschappen:
 | 3 | tekenreeks | Antwoorden op |
 | 4 | tekenreeks | Label |
 | 5 | tekenreeks | Sessie-id |
-| 6 | tekenreeks | Antwoorden op sessie-ID|
+| 6 | tekenreeks | Id antwoord op sessie|
 | 7 | tekenreeks | Inhoudstype |
 | 8 | Kaart | Overzicht van de toepassing gedefinieerde eigenschappen |
 

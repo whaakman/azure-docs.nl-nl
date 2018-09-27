@@ -4,7 +4,7 @@ description: Informatie over het ontwikkelen en testen van Data Factory-pijplijn
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: ca1ca616fdd097811b3f02285706b3ae8977d737
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034126"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391089"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iteratieve ontwikkeling en foutopsporing met Azure Data Factory
 
@@ -42,11 +42,8 @@ Nadat een testuitvoering is geslaagd, meer activiteiten toevoegen aan uw pijplij
 
 Wanneer u wordt uitgevoerd test, hoeft u uw wijzigingen aan de data factory publiceren voordat u **Debug**. Deze functie is handig in situaties waar u om ervoor te zorgen dat de wijzigingen werken zoals verwacht voordat u de werkstroom van de data factory bijwerken.
 
-## <a name="more-info-about-debugging"></a>Meer informatie over het opsporen van fouten
-
-1. De test wordt uitgevoerd gestart met de **Debug** mogelijkheid zijn niet beschikbaar in de lijst op de **Monitor** tabblad. U kunt alleen Zie wordt uitgevoerd met geactiveerde **nu activeren**, **planning**, of **Tumblingvenster** wordt geactiveerd de **Monitor** tabblad. Ziet u de laatste test uitvoeren gestart met de **Debug** -mogelijkheid in de **uitvoer** venster van de pijplijncanvas.
-
-2. Selecteren **Debug** daadwerkelijk voert de pijplijn. Dus, bijvoorbeeld als de pijplijn copy-activiteit bevat, de testuitvoering kopieert gegevens van bron naar bestemming. Als gevolg hiervan is het beste testen mappen in uw activiteiten kopiëren en andere activiteiten te gebruiken bij het opsporen van fouten. Nadat u de pijplijn opsporen hebt, schakelt u naar de werkelijke mappen die u wilt gebruiken in normale bewerkingen.
+> [!IMPORTANT]
+> Selecteren **Debug** daadwerkelijk voert de pijplijn. Dus, bijvoorbeeld als de pijplijn copy-activiteit bevat, de testuitvoering kopieert gegevens van bron naar bestemming. Als gevolg hiervan is het beste testen mappen in uw activiteiten kopiëren en andere activiteiten te gebruiken bij het opsporen van fouten. Nadat u de pijplijn opsporen hebt, schakelt u naar de werkelijke mappen die u wilt gebruiken in normale bewerkingen.
 
 ## <a name="visualizing-debug-runs"></a>Die foutopsporing wordt uitgevoerd
 
@@ -55,6 +52,10 @@ U kunt alle foutopsporing wordt uitgevoerd die uitgevoerd voor uw data factory o
 ![Selecteer het pictogram voor de weergave actieve foutopsporing wordt uitgevoerd](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Van voorbeeldlijst met actieve foutopsporing wordt uitgevoerd](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>Bewaking van foutopsporing wordt uitgevoerd
+
+De test wordt uitgevoerd gestart met de **Debug** mogelijkheid zijn niet beschikbaar in de lijst op de **Monitor** tabblad. U kunt alleen Zie wordt uitgevoerd met geactiveerde **nu activeren**, **planning**, of **Tumblingvenster** wordt geactiveerd de **Monitor** tabblad. Ziet u de laatste test uitvoeren gestart met de **Debug** -mogelijkheid in de **uitvoer** venster van de pijplijncanvas.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Onderbrekingspunten instellen voor foutopsporing
 

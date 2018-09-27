@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: shlo
-ms.openlocfilehash: 5bb1099dee919de50d2c2fc110f3a204e580b66c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465976"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394415"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
 
 - Auteur rechtstreeks met de Data Factory-service.
-- Ontwerpen met Git-integratie met Azure-opslagplaatsen voor samenwerking, broncodebeheer of versiebeheer.
+- Ontwerpen met Azure-opslagplaatsen Git-integratie voor samenwerking, broncodebeheer en versiebeheer.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>De auteur van rechtstreeks met de Data Factory-service
-Visueel ontwerpen met de Data Factory-service wijkt af van visueel ontwerpen met Azure DevOps-Services op twee manieren:
+Visueel ontwerpen met de Data Factory-service wijkt af van het visuele ontwerp met Git-integratie op twee manieren:
 
 - De Data Factory-service bevat geen een opslagplaats voor het opslaan van de JSON-entiteiten voor uw wijzigingen.
 - De Data Factory-service is niet geoptimaliseerd voor samenwerking of versiebeheer.
@@ -38,8 +38,8 @@ Bij het gebruik van de UX **Ontwerpcanvas** om rechtstreeks met de Data Factory-
 
 ![Modus publiceren](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-git-integration-with-azure-repos"></a>Ontwerpen met Git-integratie met Azure-opslagplaatsen
-Visueel ontwerpen met Git-integratie met Azure-opslagplaatsen biedt ondersteuning voor broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een Azure-opslagplaatsen Git-organisatie-opslagplaats voor broncodebeheer, samenwerking, versiebeheer enzovoort. Een enkel Azure-opslagplaatsen Git-organisatie kan meerdere opslagplaatsen hebben, maar een Azure-opslagplaatsen Git-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u een Azure-opslagplaatsen organisatie of een opslagplaats geen hebt, volgt u [deze instructies](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) om uw resources te maken.
+## <a name="author-with-azure-repos-git-integration"></a>Ontwerpen met Azure-opslagplaatsen Git-integratie
+Visueel ontwerpen met Azure-opslagplaatsen Git-integratie ondersteunt broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een Azure-opslagplaatsen Git-organisatie-opslagplaats voor broncodebeheer, samenwerking, versiebeheer enzovoort. Een enkel Azure-opslagplaatsen Git-organisatie kan meerdere opslagplaatsen hebben, maar een Azure-opslagplaatsen Git-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u een Azure-opslagplaatsen organisatie of een opslagplaats geen hebt, volgt u [deze instructies](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) om uw resources te maken.
 
 > [!NOTE]
 > U kunt het taakscript en gegevensbestanden opslaan in een Azure-opslagplaatsen Git-opslagplaats. U moet echter de bestanden handmatig uploaden naar Azure Storage. Een Data Factory-pijplijn uploadt script of gegevens-bestanden die zijn opgeslagen in een Azure-opslagplaatsen Git-opslagplaats naar Azure Storage niet automatisch.
@@ -61,7 +61,7 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 
 | Instelling | Beschrijving | Waarde |
 |:--- |:--- |:--- |
-| **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Houd er rekening mee**: GitHub wordt momenteel niet ondersteund. | Azure Dev Ops Git |
+| **Type opslagplaats** | Het type van de codeopslagplaats Azure-opslagplaatsen.<br/>**Houd er rekening mee**: GitHub wordt momenteel niet ondersteund. | Azure-opslagplaatsen Git |
 | **Azure Active Directory** | De naam van uw Azure AD-tenant. | <your tenant name> |
 | **Organisatie van de Azure-opslagplaatsen** | De naam van uw Azure-opslagplaatsen-organisatie. U vindt de naam van uw Azure-opslagplaatsen organisatie op `https://{organization name}.visualstudio.com`. U kunt [aanmelden bij uw organisatie Azure-opslagplaatsen](https://www.visualstudio.com/team-services/git/) voor toegang tot uw Visual Studio-profiel en -opslagplaatsen en projecten weergegeven. | <your organization name> |
 | **ProjectName** | De naam van uw Azure-opslagplaatsen-project. U vindt de naam van uw Azure-opslagplaatsen project op `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,7 +70,7 @@ Het deelvenster ziet u de volgende code in de Azure-opslagplaatsen instellingen 
 | **Hoofdmap** | De hoofdmap in de vertakking van uw Azure-opslagplaatsen samenwerking. | <your root folder name> |
 | **Bestaande resources van Data Factory importeren naar opslagplaats** | Hiermee bepaalt u of bestaande resources van data factory importeren uit de UX **canvas voor ontwerpen** in een Azure-opslagplaatsen Git-opslagplaats. Schakel het in uw data factory-resources importeren in de bijbehorende Git-opslagplaats in JSON-indeling. Deze actie wordt elke resource afzonderlijk geëxporteerd (dat wil zeggen, de gekoppelde services en gegevenssets zijn geëxporteerd naar afzonderlijke betreffende JSON's). Wanneer dit selectievakje niet is ingeschakeld, wordt de bestaande resources zijn niet geïmporteerd. | Geselecteerde (standaard) |
 
-#### <a name="configuration-method-2--azure-repos-git-repo-ux-authoring-canvas"></a>Configuratiemethode 2 (Azure-opslagplaatsen Git-opslagplaats): UX canvas voor ontwerpen
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Configuratiemethode 2 (Azure-opslagplaatsen Git-opslagplaats): UX canvas voor ontwerpen
 In de Azure Data Factory-UX **Ontwerpcanvas**, Ga naar uw data factory. Selecteer de **Data Factory** vervolgkeuzelijst en selecteer vervolgens **Codeopslagplaats configureren**.
 
 Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de configuratie-instellingen, de beschrijvingen in <a href="#method1">configuratiemethode 1</a>.

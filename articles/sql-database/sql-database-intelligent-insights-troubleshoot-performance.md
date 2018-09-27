@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 311d1e1fc048e65182fbcbc8ca4b6f8c338da0de
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163865"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222451"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -41,7 +41,7 @@ Intelligent Insights detecteert automatisch prestatieproblemen met SQL Database 
 | [Pagelatch conflicten](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Meerdere threads probeert gelijktijdig te krijgen tot de dezelfde in-memory-gegevens buffer's leidt tot verbeterde wachttijden en pagelatch conflicten veroorzaakt. Dit is die betrekking hebben op de prestaties van de SQL-database. | Meerdere threads probeert gelijktijdig te krijgen tot de dezelfde in-memory-gegevens buffer's leidt tot verbeterde wachttijden en pagelatch conflicten veroorzaakt. Dit is die betrekking hebben op de prestaties van de database. |
 | [Ontbrekende Index](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | Ontbrekende index is gedetecteerd die betrekking hebben op de prestaties van de SQL-database. | Ontbrekende index is gedetecteerd die betrekking hebben op de prestaties van de database. |
 | [Nieuwe Query](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Nieuwe query gedetecteerd die betrekking hebben op de algehele prestaties van de SQL-Database. | Nieuwe query gedetecteerd die betrekking hebben op de algehele prestaties van de database. |
-| [Ongebruikelijke wacht statistiek](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | Ongebruikelijke database wachttijden zijn gedetecteerd die betrekking hebben op de prestaties van de SQL-database. | Ongebruikelijke database wachttijden zijn gedetecteerd die betrekking hebben op de prestaties van de database. |
+| [Verbeterde wacht statistiek](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Verbeterde database wachttijden zijn gedetecteerd die betrekking hebben op de prestaties van de SQL-database. | Verbeterde database wachttijden zijn gedetecteerd die betrekking hebben op de prestaties van de database. |
 | [TempDB conflicten](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Meerdere threads probeert te krijgen tot de dezelfde TempDB-resource een knelpunt veroorzaakt. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Meerdere threads probeert te krijgen tot de dezelfde TempDB-resource een knelpunt veroorzaakt. Dit is die betrekking hebben op de prestaties van de database. |
 | [Elastische Pool-DTU-tekort](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Gebrek aan beschikbare edtu's in de elastische pool is die betrekking hebben op prestaties van SQL Database. | Niet beschikbaar voor Managed Instance aangezien hierbij vCore-model. |
 | [Regressie plannen](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Nieuw plan of een wijziging in de werkbelasting van een bestaand plan is gedetecteerd. Dit is die betrekking hebben op de prestaties van de SQL-Database. | Nieuw plan of een wijziging in de werkbelasting van een bestaand plan is gedetecteerd. Dit is die betrekking hebben op de prestaties van de database. |
@@ -203,17 +203,17 @@ Diagnostische gegevens over de logboekgegevens uitvoer maximaal twee nieuwe de m
 
 Overweeg het gebruik van [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
-## <a name="unusual-wait-statistic"></a>Ongebruikelijke wacht statistiek
+## <a name="increased-wait-statistic"></a>Verbeterde wacht statistiek
 
 ### <a name="what-is-happening"></a>Wat gebeurt er
 
 Dit patroon detecteerbare prestaties geeft aan dat een verslechtering van de werkbelasting prestaties die slecht presterende query's worden geïdentificeerd, vergeleken met de afgelopen zeven dagen werkbelasting basislijn.
 
-In dit geval wordt het systeem kan niet de slecht presterende query's onder andere categorieën detecteerbare standaardprestaties classificeren, maar de wachttijd statistieken die verantwoordelijk is voor de regressie gevonden. Daarom wordt deze beschouwt als query's met *ongebruikelijke wacht statistieken*, waar ook de statistiek ongebruikelijke wacht die verantwoordelijk is voor de regressie wordt weergegeven. 
+In dit geval wordt het systeem kan niet de slecht presterende query's onder andere categorieën detecteerbare standaardprestaties classificeren, maar de wachttijd statistieken die verantwoordelijk is voor de regressie gevonden. Daarom wordt deze beschouwt als query's met *verhoogd wacht statistieken*, waar ook de wachttijd statistieken die verantwoordelijk is voor de regressie wordt weergegeven. 
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-De logboekbestanden met diagnostische gegevens levert informatie over ongebruikelijke wacht tijd details, query-hashes van de betrokken query's en de wachttijden.
+De uitvoer-informatie over verbeterde wacht tijd-gegevens en query-hashes van de betrokken query's-diagnoselogboek.
 
 Omdat het systeem kan niet met succes de hoofdoorzaak van slecht presterende query's identificeren, wordt de diagnostische gegevens in een goed uitgangspunt voor het oplossen van handmatige. U kunt de prestaties van deze query's optimaliseren. Er is een goede gewoonte om op te halen, alleen gegevens die u wilt gebruiken en vereenvoudigen en complexe query's in kleinere opdelen. 
 

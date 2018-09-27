@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 25ab2f735cfd4b0870729cb86992665fa8984580
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976373"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395437"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Aanbevelingen in Azure Database for PostgreSQL voor prestaties
 
 **Is van toepassing op:** Azure Database for PostgreSQL 9.6 en 10
 
 > [!IMPORTANT]
-> Aanbevelingen voor prestaties is in openbare Preview.
+> Aanbevelingen voor prestaties is in openbare Preview in een beperkt aantal regio's.
 
 De functie voor aanbevelingen voor prestaties geeft de bovenste indexen die kunnen worden gemaakt in uw Azure Database for PostgreSQL-server om prestaties te verbeteren. Om te produceren indexaanbevelingen, wordt de functie rekening gehouden met verschillende kenmerken van de database, met inbegrip van het schema en de werkbelasting, zoals gerapporteerd door de Query Store. Na de implementatie van elke aanbeveling prestaties, moeten klanten prestaties voor het evalueren van de impact van deze wijzigingen testen. 
 

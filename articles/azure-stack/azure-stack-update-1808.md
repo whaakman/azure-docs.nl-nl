@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466061"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395709"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -146,6 +146,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="portal"></a>Portal
 
+- De technische documentatie voor Azure Stack is gericht op de meest recente versie. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
+
 - <!-- TBD - IS ASDK --> U ziet een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, klikt u op **Dashboard bewerken**, klik met de rechtermuisknop en selecteer **opnieuw ingesteld op standaardstatus**.
 
 - <!-- 2930718 - IS ASDK --> In de beheerdersportal bij het openen van de details van elk gebruikersabonnement na het sluiten van de blade en te klikken op **Recent**, de naam van het abonnement wordt niet weergegeven.
@@ -217,6 +219,8 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - <!-- 2724873 - IS --> Bij het gebruik van de PowerShell-cmdlets **Start AzsScaleUnitNode** of **Stop-AzsScaleunitNode** voor het beheren van schaaleenheden, de eerste poging om te starten of stoppen van de schaaleenheid kan mislukken. Als de cmdlet voor de eerste keer uitvoert mislukt, wordt de cmdlet nogmaals uitvoeren. De tweede uitvoering moet slagen om de bewerking te voltooien. 
 
 - <!-- TBD - IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure Stack maakt, wordt een onjuist aantal gegevensschijven die aan een virtuele machine uit de DS-serie kunt koppelen door de portal weergegeven. DS-serie VM's kan zo veel gegevensschijven bevatten als de Azure-configuratie.
+
+- <!-- TBD - IS ASDK --> Als u een omgeving met meerdere tenants, inrichten van een virtuele machine met een beheerde schijf in een abonnement niet behoren tot de standaardtenant is mislukt met de volgende fout: *de resourcebewerking is voltooid met afgesloten Inrichtingsstatus 'Mislukt'.*
 
 - <!-- TBD - IS ASDK --> Als een uitbreiding op een VM-implementatie de inrichting te lang duurt, laat gebruikers de time-out van de inrichting in plaats van bij stoppen van de procedure voor de toewijzing ongedaan of verwijder de virtuele machine.  
 

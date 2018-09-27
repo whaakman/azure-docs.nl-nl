@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023290"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225256"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Ophalen van Azure-omgeving waarop de virtuele machine wordt uitgevoerd 
 
-Azure heeft verschillende soverign clouds, zoals [Azure Government](https://azure.microsoft.com/overview/clouds/government/) , soms moet u de Azure-omgeving om sommige runtime beslissingen te nemen. Volgende voorbeeld ziet u hoe u dit kunt doen
+Azure heeft verschillende onafhankelijke clouds, zoals [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Soms moet u de Azure-omgeving om sommige runtime beslissingen te nemen. Het volgende voorbeeld ziet u hoe u dit kunt doen.
 
 **Aanvraag**
 
@@ -445,7 +445,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Ja is Metadata-service beschikbaar voor Schalingsinstanties instellen. 
 8. Hoe krijg ik ondersteuning voor de service?
    * Voor ondersteuning voor de service, maakt u een Ondersteuningsprobleem in Azure-portal voor de virtuele machine waar u zijn niet in staat om op te halen van de reactie met metagegevens na lange pogingen 
-9. Er verschijnt er is een time-out opgetreden voor de aanroep van de de service?
+9. Kan ik er is een time-out opgetreden voor de aanroep naar de service krijgen?
    * Metagegevens-aanroepen moeten worden gemaakt van het primaire IP-adres toegewezen aan de netwerkkaart van de virtuele machine, ook als u hebt gewijzigd uw routes er moeten een route voor 169.254.0.0/16 adres buiten uw netwerkkaart.
 10. Kan ik mijn labels in Virtual Machine Scale set bijgewerkt, maar ze niet weergegeven in de exemplaren in tegenstelling tot virtuele machines?
    * Op dit moment voor ScaleSets weergegeven labels alleen op de virtuele machine op een opnieuw opstarten/terugzetten van een installatiekopie/of een schijf met het exemplaar wijzigen. 

@@ -9,19 +9,19 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b738cc2fc7db6987b8f4ad54a2c53cc9e69989b3
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181537"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227500"
 ---
 # <a name="unity-sample-walkthrough"></a>Walkthrough voor voorbeeld van Unity
 Dit is een overzicht van het Project akoestische-voorbeeld. Voor meer informatie over welke akoestische Project is, bekijk de [Inleiding tot Project akoestische](what-is-acoustics.md). Als u hulp nodig hebt in het Project akoestische-pakket toe te voegen aan een bestaande Unity-project, gebruikt de [introductiehandleiding](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Vereisten voor het uitvoeren van het voorbeeldproject
 * Unity 2018.2 +, met behulp van .NET 4.x scripting runtime-versie
-* Editor voor Windows 64-bits Unity
+* Windows 64-bits Unity Editor
 * Het voorbeeld biedt ondersteuning voor Windows-bureaublad, UWP en Android-doelen, met inbegrip van beeldschermen head gekoppeld (HMDs)
 * Azure Batch-abonnement nodig voor bake proces
 
@@ -43,7 +43,7 @@ Het voorbeeld bevat de instellingen uit te voeren op Windows-bureaublad-, UWP-, 
 ![VR inschakelen](media/VRSupport.png)  
 
 Verbinding maken met een hoofdtelefoon VR tot uw PC. Ga naar **bestand > Build Settings**, en klikt u op **bouwen en uitvoeren** het voorbeeld implementeren in uw hoofdtelefoon VR. Navigeer door de scène met behulp van de bewegingscontrollers voor uw hoofdtelefoon of gebruik W, A-Z, D op het toetsenbord.    
-Als u wilt richten op Android- en Oculus Go, kiest u Android van de **Build Settings** menu. Klik op **overschakelen doel**, klikt u vervolgens **bouwen en uitvoeren**. Hierdoor wordt de voorbeeld-scène geïmplementeerd naar uw verbonden Android-apparaat. Voor Zie voor meer informatie over het ontwikkelen van Unity voor Android, [documentatie voor Unity](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+Als u wilt richten op Android- en Oculus Go, kiest u Android van de **Build Settings** menu. Klik op **overschakelen doel**, klikt u vervolgens **bouwen en uitvoeren**. Hierdoor wordt de voorbeeld-scène geïmplementeerd naar uw verbonden Android-apparaat. Zie voor meer informatie over het ontwikkelen van Unity voor Android [documentatie voor Unity](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
 ![Doel-Android](media/TargetAndroid.png)  
 

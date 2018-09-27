@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d2f9c5dc8decfbe613d9fd3be2c37b45f1e4f2ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987625"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393924"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Meerdere masters conflictoplossing in Azure Cosmos DB 
 
@@ -208,11 +208,12 @@ Hieronder vindt u voorbeeldtoepassingen die laten zien van conflictoplossing voo
 
 |API-model  | SDK |Voorbeeld |
 |---------|---------|---------|
-|SQL      | .NET    |[Azure-cosmos-DB-SQL-DotNet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
+|SQL-API    | .NET    |[Azure-cosmos-DB-SQL-DotNet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
+|SQL-API    | Knooppunt    |[Azure-cosmos-js/samples/MultiRegionWrite /](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |
+|SQL-API    | Java    |[Azure-cosmos-DB-SQL-Java-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-java-multi-master)  |
 |MongoDB  | .NET    |[Azure-cosmos-DB-mongodb-DotNet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-multi-master)   |
-|Tabel    | .NET    |[Azure-cosmos-DB-Table-DotNet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
-|SQL      | Knooppunt    |[Azure-cosmos-js/samples/MultiRegionWrite /](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |
-|SQL      | Java    |[Azure-cosmos-DB-SQL-Java-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-java-multi-master)  |
+|Tabel-API  | .NET    |[Azure-cosmos-DB-Table-DotNet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-multi-master)       |
+|Gremlin-API | .NET | [Azure-cosmos-DB-gremlin-dontnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-gremlin-dontnet-multi-master)|
 
 ## <a name="next-steps"></a>Volgende stappen
 

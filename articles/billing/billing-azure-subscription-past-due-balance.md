@@ -1,6 +1,6 @@
 ---
-title: Uitstaand saldo e-mail via Azure | Microsoft Docs
-description: Hierin wordt beschreven hoe betaling doen als uw Azure-abonnement een uitstaand heeft verschuldigd saldo
+title: Uitstaand saldo e-mailbericht van Azure | Microsoft Docs
+description: Beschrijft hoe u betalingen als uw Azure-abonnement een verleden heeft vervaldatum saldo
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 5e5d8849e59d95640b490d29bf1233135980486c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.author: cwatson
+ms.openlocfilehash: fbc1f906812c0fb40a173fd90eac315753c893ef
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159217"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393228"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Los vervallen verdelen voor uw Azure-abonnement nadat er een e-mailbericht is opgehaald uit Azure
+# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Verschuldigd saldo voor uw Azure-abonnement nadat ze een e-mailbericht van Azure
 
-Als uw betaling niet is ontvangen of als uw betaling kan niet worden verwerkt, kan u een e-mail ontvangen of er een waarschuwing weergegeven in de portal- of Azure-Accountcentrum. Het bericht is mogelijk zoals:
+Als uw betaling is niet ontvangen of als uw betaling kan niet worden verwerkt, kan u een e-mail ontvangen of er een waarschuwing weergegeven in het Accountcentrum of Azure-portal. Het bericht is mogelijk, zoals:
 
-**We hebben je creditcard voor uw abonnement niet zijn. Om te voorkomen dat een service worden onderbroken, werk uw betalingsgegevens.**
+**We zijn niet uw creditcard voor uw abonnement. Werk de betalingsgegevens bij om te voorkomen dat een service wordt onderbroken.**
 
-Volg de stappen in het artikel om op te lossen het verleden saldo verschuldigd.
+Volg de stappen in het artikel om op te lossen van de laatste saldo verschuldigd.
 
-## <a name="resolve-the-past-due-balance"></a>Los het verleden saldo verschuldigd
+## <a name="resolve-the-past-due-balance"></a>Oplossen van het verleden saldo verschuldigd
 
-* Als de geregistreerde creditcard is afgewezen of verlopen, [wijzigen van de creditcard die is gebruikt om te betalen voor het abonnement](billing-how-to-change-credit-card.md) of neem contact op met uw bank om het probleem te verhelpen. Wanneer u de betalingsmethode bijwerkt, wordt de betaling voor alle openstaande bedragen onmiddellijk verwerkt door Azure. Betaling is ook verwerkt voor andere Microsoft-services waarbij er openstaande bedragen.
+* Als de geregistreerde creditcard is afgewezen of verlopen, [wijzigen van de creditcard die is gebruikt om te betalen voor het abonnement](billing-how-to-change-credit-card.md) of neem contact op met uw bank om het probleem te verhelpen. Wanneer u de betalingswijze bijwerkt, wordt in Azure onmiddellijk de betaling voor alle openstaande kosten die worden verwerkt. Betaling is ook verwerkt voor andere Microsoft-services waarin u werkt met openstaande bedragen.
 
-* Als u zich op een factuur modus betalingsmethode, betalen naar de locatie die aan de onderkant van uw factuur. Als u hulp nodig hebt, neem dan contact op met [ondersteuning van Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Als u van een factuur-modus van betaling gebruikmaakt, verzendt u de betaling naar de locatie die aan de onderkant van uw factuur. Als u hulp nodig hebt, neem dan contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-* Als u niet een factuur ziet, omdat de beheerder van het bedrijf of gewijzigde functies heeft verlaten, neem dan contact op met [ondersteuning van Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om het probleem te verhelpen.
+* Als u niet een factuur ziet doordat de accountbeheerder het bedrijf of een andere rol heeft verlaten, neem dan contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om het probleem te verhelpen.
 
-* Als u weet uw betaling is verwerkt, maar nog steeds uw abonnement is uitgeschakeld, neem contact op met [ondersteuning van Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Als u bekend bent met uw betaling is verwerkt, maar uw abonnement nog steeds is uitgeschakeld, neem contact op met [ondersteuning voor Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="not-getting-billing-email-notifications"></a>Niet ophalen van facturering e-mailmeldingen?
 
-Als u de accountbeheerder bent [controleren welke e-mailadres wordt gebruikt voor meldingen](billing-how-to-change-azure-account-profile.md). Het is raadzaam dat u een e-mailadres dat je regelmatig controleren. Als het e-mailadres klopt, controleert u de map Ongewenste e-mail.
+Als u de accountbeheerder bent [controleren welk e-mailadres wordt gebruikt voor meldingen](billing-how-to-change-azure-account-profile.md). U wordt aangeraden dat u een e-mailadres dat u regelmatig controleren. Als het e-mailadres klopt, controleert u de map Ongewenste e-mail.
 
-## <a name="if-i-forget-to-pay-what-happens"></a>Wat gebeurt er als ik vergeet om te betalen?
+## <a name="if-i-forget-to-pay-what-happens"></a>Wat gebeurt er als ik bent vergeten om te betalen?
 
-De service wordt geannuleerd en uw resources zijn niet meer beschikbaar. Uw Azure-gegevens verwijderd negentig dagen na de service is beëindigd. Zie voor meer informatie, [Microsoft Trust Center - hoe beheer van uw gegevens](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+De service is geannuleerd en uw resources zijn niet meer beschikbaar. Uw Azure-gegevens wordt verwijderd van 90 dagen nadat de service is beëindigd. Zie voor meer informatie, [Microsoft Trust Center - hoe we uw gegevens beheren](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

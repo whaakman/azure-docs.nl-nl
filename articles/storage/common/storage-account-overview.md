@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972314"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222094"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -57,7 +57,7 @@ Opslagaccounts voor algemeen gebruik v2 ondersteuning voor de nieuwste opslagfun
 
 Microsoft raadt u aan met behulp van een opslagaccount voor algemeen gebruik v2 voor de meeste scenario's. U kunt gemakkelijk een voor algemeen gebruik v1- of Blob storage-account upgraden naar een algemeen gebruik v2-account geen downtime of toepassing regeneraties en zonder de noodzaak om gegevens te kopiëren. Zie voor meer informatie over het bijwerken naar een account voor algemeen gebruik v2 [upgraden naar een opslagaccount voor algemeen gebruik v2](storage-account-upgrade.md). 
 
-Opslagaccounts voor algemeen gebruik v2 bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [Toegangslagen voor blob-gegevens](#access-tiers-for-blob-data).
+Opslagaccounts voor algemeen gebruik v2 bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
 
 ### <a name="general-purpose-v1-accounts"></a>V1-accounts voor algemeen gebruik
 
@@ -81,7 +81,7 @@ Hoewel voor algemeen gebruik v2-accounts in de meeste gevallen aanbevolen zijn, 
 
 Een Blob storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde objectgegevens als blok-blobs. BLOB storage-accounts bieden de dezelfde duurzaamheid, beschikbaarheid, schaalbaarheid en prestatieverhogende functies die beschikbaar met opslagaccounts voor algemeen gebruik v2 zijn. BLOB storage-accounts ondersteunen opslaan blok-blobs en toevoeg-blobs, maar niet voor pagina-blobs.
 
-BLOB storage-accounts bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [Toegangslagen voor blob-gegevens](#access-tiers-for-blob-data).
+BLOB storage-accounts bieden meerdere toegangslagen voor het opslaan van gegevens op basis van uw gebruikspatronen. Zie voor meer informatie, [toegangslagen voor blok-blobgegevens](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Naamgeving van opslagaccounts
 

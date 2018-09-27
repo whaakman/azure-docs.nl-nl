@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f58c156019048a4e6b08267bf28325857ec69b3a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 20da1eb7b71c625dc83c52b30020f38992819e95
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302200"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395352"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -67,7 +67,7 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
    ![Eerste webpagina voor overdracht van abonnement](./media/billing-subscription-transfer/image4.png)
 
    ![Tweede webpagina voor overdracht van abonnement](./media/billing-subscription-transfer/image5.png)
-1. Succes! Nu wordt het abonnement overgedragen.
+1. Gelukt! Nu wordt het abonnement overgedragen.
 
 <a id="EA"></a>
 

@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ab0162c6c38b2abef840836114d33f3d92efe1a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d39cfddc42ea0e03f6b0f6c8d1c0160839742518
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042496"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393907"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -36,6 +36,192 @@ Azure AD ontvangt verbeteringen regelmatig. Als u wilt bijhouden met de meest re
 Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt.
 
 ---
+## <a name="september-2018"></a>September 2018
+ 
+### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Bijgewerkte rol-beheerdersmachtigingen voor dynamische groepen
+
+**Type:** vast  
+**Service-categorie:** groepsbeheer  
+**Product-mogelijkheid:** samenwerking
+
+We hebben een probleem is opgelost, zodat de specifieke beheerdersrollen nu kunnen maken en bijwerken van dynamisch-lidmaatschapregels, zonder dat de eigenaar van de groep.
+
+De rollen zijn:
+
+- Globale beheerder of onderneming Writer
+
+- Intune-servicebeheerder
+
+- Beheerder van gebruikersaccounts
+
+Zie voor meer informatie, [een dynamische groep maken en de status controleren](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
+
+---
+
+### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Vereenvoudigde configuratie van eenmalige aanmelding (SSO)-instellingen voor sommige apps van derden
+
+**Type:** nieuwe functie  
+**Service-categorie:** zakelijke Apps  
+**Product-mogelijkheid:** eenmalige aanmelding
+
+We realiseren ons dat instellen van eenmalige aanmelding (SSO) voor Software als een Service (SaaS)-apps kunnen lastig zijn vanwege de unieke aard van de configuratie van apps. We hebben een vereenvoudigde configuratie-ervaring voor het automatisch vullen van de SSO-configuratie-instellingen voor de volgende externe SaaS-apps gemaakt:
+
+- Zendesk
+
+- ArcGis Online
+
+- Jamf Pro
+
+Als u wilt gaan met behulp van deze ervaring met één klik, gaat u naar de **Azure-portal** > **SSO-configuratie** pagina voor de app. Zie voor meer informatie, [SaaS-toepassing-integratie met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+---
+
+### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure van de Active Directory - waar bevindt uw gegevens zich? pagina
+
+**Type:** nieuwe functie  
+**Service-categorie:** andere  
+**Product-mogelijkheid:** GoLocal
+
+Selecteer de regio van uw bedrijf uit de **Azure Active Directory - waar bevindt uw gegevens zich** pagina om te bekijken welke Azure-datacenter ook uw Azure AD-gegevens in rust voor alle Azure AD-services nieuwste. U kunt de gegevens filteren op specifieke Azure AD-services voor de regio van uw bedrijf.
+
+Voor toegang tot deze functie en voor meer informatie, Zie [Azure Active Directory - waar bevindt uw gegevens zich](http://aka.ms/AADDataMap).
+
+---
+
+### <a name="new-deployment-plan-available-for-the-my-apps-access-panel"></a>Nieuwe implementatieplan beschikbaar voor het toegangsvenster voor mijn Apps
+
+**Type:** nieuwe functie  
+**Service-categorie:** mijn Apps  
+**Product-mogelijkheid:** eenmalige aanmelding
+
+Bekijk de nieuwe implementatieplan die beschikbaar is voor het toegangsvenster voor mijn Apps (http://aka.ms/deploymentplans).
+Het deelvenster Mijn Apps toegang biedt gebruikers met één plek om te zoeken en toegang tot hun apps. De portal bevat ook gebruikers met selfservice-mogelijkheden, zoals aanvragen van toegang tot apps en -groepen of beheren van toegang tot deze resources namens anderen.
+
+Zie voor meer informatie, [wat is de portal mijn Apps?](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)
+
+---
+
+### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Tabblad nieuwe probleemoplossing en ondersteuning op de pagina aanmeldingen logboeken van de Azure-portal
+
+**Type:** nieuwe functie  
+**Service-categorie:** rapportage  
+**Product-mogelijkheid:** controleren en rapporteren
+
+De nieuwe **probleemoplossing en ondersteuning** tabblad op de **aanmeldingen** pagina van de Azure portal, is bedoeld voor beheerders en ondersteuningstechnici oplossen van problemen met betrekking tot Azure AD-aanmeldingen. Deze nieuwe tabblad bevat de foutcode, foutbericht en herstelaanbevelingen (indien aanwezig) om u te helpen bij het oplossen van het probleem. Als u niet het probleem op te lossen, ook geven we u een nieuwe manier om u te maken van een ondersteuning ticket met de **naar Klembord kopiëren** ondervindt, die vult de **aanvraag-ID** en **datum (UTC)** velden voor het logboekbestand in uw ondersteuningsticket.  
+
+![Logboeken aanmelden met het nieuwe tabblad](media/whats-new/troubleshooting-and-support.png)
+
+---
+
+### <a name="enhanced-support-for-custom-extension-properties-used-to-create-dynamic-membership-rules"></a>Uitgebreide ondersteuning voor aangepaste extensie-eigenschappen die zijn gebruikt voor het maken van de dynamisch-lidmaatschapregels
+
+**Type:** gewijzigde functie  
+**Service-categorie:** groepsbeheer  
+**Product-mogelijkheid:** samenwerking
+
+Met deze update, u kunt nu klikt u op de **aangepaste extensie-eigenschappen ophalen** koppelen vanuit de opbouwfunctie voor dynamische gebruiker groep regel, Voer uw unieke app-ID en de volledige lijst met aangepaste extensie-eigenschappen om te gebruiken bij het maken van een dynamisch te ontvangen het lidmaatschapsregel voor gebruikers. Deze lijst kan ook worden vernieuwd om op te halen van alle nieuwe aangepaste extensie-eigenschappen voor die app.
+
+Zie voor meer informatie over het gebruik van aangepaste extensie-eigenschappen voor de dynamisch-lidmaatschapregels [extensie-eigenschappen en aangepaste extensie-eigenschappen](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership#extension-properties-and-custom-extension-properties)
+
+---
+
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde client-apps voor Azure AD op Apps gebaseerde voorwaardelijke toegang
+
+**Type:** plannen voor wijziging  
+**Service-categorie:** voorwaardelijke toegang  
+**Product-mogelijkheid:** identiteit, beveiliging en bescherming
+
+De volgende apps zijn in de lijst met [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
+
+- Microsoft To-Do
+
+- Microsoft Stream
+
+Zie voor meer informatie:
+
+- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+
+---
+
+### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Nieuwe ondersteuning voor Self-Service voor wachtwoord opnieuw instellen vanaf het vergrendelingsscherm van Windows 7/8/8.1
+
+**Type:** nieuwe functie  
+**Service-categorie:** SSPR  
+**Product-mogelijkheid:** gebruikersverificatie
+
+Na het instellen van deze nieuwe functie, uw gebruikers een koppeling om hun wachtwoord opnieuw in te zien de **vergrendeling** scherm van een apparaat met Windows 7, Windows 8 of Windows 8.1. Door te klikken op de koppeling, wordt de gebruiker geleid door de dezelfde stroom voor wachtwoord opnieuw instellen via de webbrowser.
+
+Zie voor meer informatie, [inschakelen voor wachtwoord opnieuw instellen van Windows 7, 8 en 8.1](https://aka.ms/ssprforwindows78)
+
+---
+
+### <a name="change-notice-authorization-codes-will-no-longer-be-available-for-reuse"></a>Kennisgeving te wijzigen: autorisatiecodes worden niet langer beschikbaar voor hergebruik 
+
+**Type:** plannen voor wijziging  
+**Service-categorie:** verificaties (aanmeldingen)  
+**Product-mogelijkheid:** gebruikersverificatie
+
+Vanaf 10 oktober 2018, Azure AD wordt niet meer accepteren van eerder gebruikte verificatie codes voor apps. Deze wijziging in de beveiliging zorgt ervoor dat Azure AD in overeenstemming met de OAuth-specificatie brengen en worden afgedwongen op de v1- en v2-eindpunten.
+
+Als uw app wordt gebruikgemaakt van autorisatiecodes om op te halen van tokens voor meerdere bronnen, raden wij u gebruik van de code om op te halen van een vernieuwingstoken en gebruikt vervolgens die vernieuwingstoken om te verkrijgen van aanvullende tokens voor andere resources. Autorisatiecodes kunnen slechts eenmaal worden gebruikt, maar vernieuwen van tokens kunnen meerdere keren worden gebruikt in meerdere resources. Elke app die u probeert om een verificatiecode op te geven tijdens de OAuth-codestroom opnieuw te gebruiken krijgt een foutmelding invalid_grant zijn.
+
+>[!Note]
+>In een poging om te helpen minimaliseren verbroken apps, apps die afhankelijk zijn van dit patroon en hebt meer dan 10 aanmeldingen per dag, zijn geven een uitzondering.
+
+Zie voor deze en andere wijzigingen met betrekking tot de protocollen, [de volledige lijst met wat is er nieuw voor de verificatie](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---september-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - September 2018
+
+**Type:** nieuwe functie  
+**Service-categorie:** zakelijke Apps  
+**Product-mogelijkheid:** 3e partij-integratie
+ 
+In September 2018, hebben we deze 16 nieuwe apps met Federatie ondersteuning aan de app-galerie toegevoegd:
+
+[Uberflip](https://docs.microsoft.com/azure/active-directory/saas-apps/uberflip-tutorial), [Comeet werving Software](https://docs.microsoft.com/azure/active-directory/saas-apps/comeetrecruitingsoftware-tutorial), [Workteam](https://docs.microsoft.com/azure/active-directory/saas-apps/workteam-tutorial), [ArcGIS Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/arcgisenterprise-tutorial), [Nuclino](https://docs.microsoft.com/azure/active-directory/saas-apps/nuclino-tutorial), [ JDA Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/jdacloud-tutorial), [Snowflake](https://docs.microsoft.com/azure/active-directory/saas-apps/snowflake-tutorial), NavigoCloud, [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-tutorial), join.me, [ZephyrSSO](https://docs.microsoft.com/azure/active-directory/saas-apps/zephyrsso-tutorial), [Silverback](https://docs.microsoft.com/azure/active-directory/saas-apps/silverback-tutorial), Riverbed Xirrus EasyPass, [Rackspace SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/rackspacesso-tutorial), SSO voor Azure, SurveyMonkey Enlyft [Convene](https://docs.microsoft.com/azure/active-directory/saas-apps/convene-tutorial), [dmarcian](https://docs.microsoft.com/azure/active-directory/saas-apps/dmarcian-tutorial)
+
+Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Active Directory](https://aka.ms/appstutorial). Zie voor meer informatie over het aanbieden van uw toepassing in de Azure AD-app-galerie [uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="support-for-additional-claims-transformations-methods"></a>Ondersteuning voor aanvullende claims transformaties methoden
+
+**Type:** nieuwe functie  
+**Service-categorie:** zakelijke Apps  
+**Product-mogelijkheid:** eenmalige aanmelding
+
+We hebben nieuwe claim transformatie methoden, ToLower() en ToUpper(), die kan worden toegepast op SAML-tokens uit de SAML-gebaseerde geïntroduceerd **configuratie voor eenmalige aanmelding** pagina.
+
+Zie voor meer informatie, [over het aanpassen van uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
+
+---
+
+### <a name="updated-saml-based-app-configuration-ui-preview"></a>Bijgewerkt op basis van SAML-app-configuratie UI (preview)
+
+**Type:** gewijzigde functie  
+**Service-categorie:** zakelijke Apps  
+**Product-mogelijkheid:** eenmalige aanmelding
+
+Als onderdeel van onze bijgewerkt op basis van SAML appconfiguratie-UI krijgt u het:
+
+- Een bijgewerkte scenario-ervaring voor het configureren van uw apps op basis van SAML.
+
+- Meer zichtbaarheid over wat er ontbreekt of is onjuist in uw configuratie.
+
+- De mogelijkheid om toe te voegen meerdere e-mailadressen voor melding over verlopen certificaat.
+
+- Nieuwe claim transformatie methoden, ToLower() en ToUpper() en meer.
+
+- Een manier voor het uploaden van uw eigen token handtekeningcertificaat voor apps in uw onderneming.
+
+- Een manier om in te stellen de NameID-indeling voor SAML-apps, en een manier om in te stellen de NameID-waarde als uitbreidingen van de Directory.
+
+Als u wilt inschakelen op deze bijgewerkte weergave, klikt u op de **proberen onze nieuwe ervaring voor** koppeling vanaf de bovenkant van de **Single Sign-On** pagina. Zie voor meer informatie, [zelfstudie: Configureer SAML gebaseerde eenmalige aanmelding voor een toepassing met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
+
+---
+
 ## <a name="august-2018"></a>Augustus 2018
 
 ### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Wijzigingen in Azure Active Directory-IP-adresbereiken
@@ -61,12 +247,15 @@ Het is raadzaam de oude IP-adresbereiken niet verwijderen tot al uw netwerkverke
 **Type:** plannen voor wijziging  
 **Service-categorie:** verificaties (aanmeldingen)  
 **Product-mogelijkheid:** gebruikersverificatie
- 
-Vanaf 10 oktober 2018, meer Azure AD accepteert eerder gebruikt verificatie codes voor nieuwe apps. Alle Apps die zijn gemaakt vóór 10 oktober 2018 wordt nog steeds mogelijk om verificatie codes opnieuw te gebruiken. Deze wijziging in de beveiliging zorgt ervoor dat Azure AD in overeenstemming met de OAuth-specificatie brengen en worden afgedwongen op de v1- en v2-eindpunten.
 
-Als uw app wordt gebruikgemaakt van autorisatiecodes om op te halen van tokens voor meerdere bronnen, raden wij u gebruik van de code om op te halen van een vernieuwingstoken en gebruikt vervolgens die vernieuwingstoken om te verkrijgen van aanvullende tokens voor andere resources. Autorisatiecodes kunnen slechts eenmaal worden gebruikt, maar vernieuwen van tokens kunnen meerdere keren worden gebruikt in meerdere resources. Een nieuwe app waarmee wordt geprobeerd om een verificatiecode op te geven tijdens de OAuth-codestroom opnieuw te gebruiken krijgt een fout invalid_grant, intrekken van het vorige vernieuwingstoken dat is verkregen met behulp van deze dubbele code.
+Vanaf 10 oktober 2018, Azure AD wordt niet meer accepteren van eerder gebruikte verificatie codes voor apps. Deze wijziging in de beveiliging zorgt ervoor dat Azure AD in overeenstemming met de OAuth-specificatie brengen en worden afgedwongen op de v1- en v2-eindpunten.
 
-Zie voor meer informatie over het vernieuwen van tokens [vernieuwen van de toegangstokens](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code#refreshing-the-access-tokens).
+Als uw app wordt gebruikgemaakt van autorisatiecodes om op te halen van tokens voor meerdere bronnen, raden wij u gebruik van de code om op te halen van een vernieuwingstoken en gebruikt vervolgens die vernieuwingstoken om te verkrijgen van aanvullende tokens voor andere resources. Autorisatiecodes kunnen slechts eenmaal worden gebruikt, maar vernieuwen van tokens kunnen meerdere keren worden gebruikt in meerdere resources. Elke app die u probeert om een verificatiecode op te geven tijdens de OAuth-codestroom opnieuw te gebruiken krijgt een foutmelding invalid_grant zijn.
+
+>[!Note]
+>In een poging om te helpen minimaliseren verbroken apps, apps die afhankelijk zijn van dit patroon en hebt meer dan 10 aanmeldingen per dag, zijn geven een uitzondering.
+
+Zie voor deze en andere wijzigingen met betrekking tot de protocollen, [de volledige lijst met wat is er nieuw voor de verificatie](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
  
 ---
 
@@ -154,7 +343,7 @@ Zie voor meer informatie over onze systeemeigen ondersteuning voor Tableau [Azur
 **Service-categorie:** B2B  
 **Product-mogelijkheid:** B2B/B2C
 
-Door het instellen van Federatie met Google in uw organisatie, kunt u toestaan dat uitgenodigde Gmail gebruikers aanmelden bij uw gedeelde apps en resources met behulp van hun bestaande Google-account, zonder te hoeven maken van een persoonlijk Microsoft-Account (MSA's) of een Azure AD-account.
+Door het instellen van Federatie met Google in uw organisatie, kunt u uitgenodigde Gmail gebruikers zich laten uw gedeelde apps en resources met behulp van hun bestaande Google-account, zonder te hoeven maken van een persoonlijk Microsoft-Account (MSA's) of een Azure AD-account.
 
 Dit is een opt-in voor openbare preview-versie. Zie voor meer informatie over Google federation [Google toevoegen als een id-provider voor B2B-gastgebruikers](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
 
@@ -356,7 +545,7 @@ Dit is een opt-in voor openbare preview-versie. Beheerders kunnen inschakelen op
 **Service-categorie:** SSPR  
 **Product-mogelijkheid:** gebruikersverificatie
 
-Deze functie kunt niet-beheerders hun identiteit te verifiëren bij het herstellen van een wachtwoord met behulp van een melding of de code van de Microsoft Authenticator (of een andere verificator-app). Nadat beheerders schakelt u deze optie selfservice wachtwoord opnieuw instellen van methode voor gebruikers die een mobiele app via aka.ms/mfasetup hebt geregistreerd of aka.ms/setupsecurityinfo hun mobiele app kunt gebruiken als een verificatiemethode tijdens hun wachtwoord opnieuw instellen.
+Deze functie kunt niet-beheerders hun identiteit te verifiëren bij het herstellen van een wachtwoord met behulp van een melding of de code van de Microsoft Authenticator (of een andere verificator-app). Nadat beheerders inschakelen dit self-service voor wachtwoord opnieuw instellen van methode, gebruikers die zich hebben geregistreerd een mobiele app via aka.ms/mfasetup of aka.ms/setupsecurityinfo kunnen hun mobiele app gebruiken als een verificatiemethode tijdens hun wachtwoord opnieuw instellen.
 
 Mobiele app-meldingen kan alleen worden ingeschakeld als onderdeel van een beleid dat is vereist twee methoden voor uw wachtwoord opnieuw instellen.
 
@@ -1637,7 +1826,7 @@ Zie voor meer informatie, [voorwaardelijke toegang van Azure AD-app op basis van
  
 ---
 
-### <a name="manage-azure-ad-devices-in-the-azure-portal"></a>Azure AD-apparaten in de Azure-Portal beheren
+### <a name="manage-azure-ad-devices-in-the-azure-portal"></a>Azure AD-apparaten in de Azure-portal beheren
 
 **Type:** nieuwe functie  
 **Service-categorie:** Device Registration service en beheer  

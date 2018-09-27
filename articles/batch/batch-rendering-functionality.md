@@ -1,17 +1,17 @@
 ---
-title: Mogelijkheden voor rendering in batch
+title: Mogelijkheden voor weergave in batches
 description: Mogelijkheden voor specifieke rendering in Azure Batch
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42059430"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392774"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Mogelijkheden van Azure Batch rendering
 
@@ -50,9 +50,12 @@ De toepassingen die worden gebruikt en een vergoeding voor licentieverlening heb
 * Geef de `applicationLicenses` eigenschap wanneer [het maken van een groep](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  De volgende waarden kunnen worden opgegeven in de matrix van tekenreeksen - "vray", "arnold", "3dsmax", 'maya'.
 * Wanneer u een of meer toepassingen opgeeft, wordt de kosten van deze toepassingen toegevoegd aan de kosten van de virtuele machines.  Prijzen van de toepassing worden weergegeven op de [Azure Batch-pagina met prijzen](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Als u in plaats daarvan u verbinding maakt met een licentieserver de rendering-toepassingen te gebruiken, geeft u de `applicationLicenses` eigenschap.
+
 U kunt de Azure portal of de Batch Explorer toepassingen selecteren en weergeven van de prijzen van toepassing.
 
-Als een poging is gedaan om een toepassing te gebruiken, maar de toepassing nog niet is opgegeven de `applicationLicenses` eigenschap van de configuratie van de groep en vervolgens het uitvoeren van toepassingen is mislukt met een licentiefout en de afsluitcode dan nul.
+Als een poging is gedaan om een toepassing te gebruiken, maar de toepassing nog niet is opgegeven de `applicationLicenses` eigenschap van de configuratie van de groep of kiest, wordt er geen bereik een licentieserver en vervolgens het uitvoeren van toepassingen is mislukt met een licentiefout en de afsluitcode dan nul.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Omgevingsvariabelen voor vooraf geïnstalleerde toepassingen
 

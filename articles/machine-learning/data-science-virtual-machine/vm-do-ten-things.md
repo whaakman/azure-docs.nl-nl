@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502808"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395726"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
 
@@ -47,7 +47,7 @@ In dit artikel leert u hoe u uw DSVM voor verschillende data science-taken uitvo
 **Vereisten**
 
 * U moet een Azure-abonnement. U kunt zich aanmelden voor een gratis proefversie [hier](https://azure.microsoft.com/free/).
-* Instructies voor het inrichten van een Data Science Virtual Machine in Azure portal zijn beschikbaar op [het maken van een virtuele machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+* Instructies voor het inrichten van een Data Science Virtual Machine in Azure portal zijn beschikbaar op [het maken van een virtuele machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Gegevens verkennen en ontwikkelen van modellen met behulp van Microsoft ML Server of Python
 Talen als R en Python kunt u uw gegevens analyseren op de DSVM.
@@ -56,7 +56,7 @@ Voor R, kunt u een IDE zoals RStudio die kan worden gevonden in het startmenu of
 
 Voor Python, kunt u een IDE zoals Visual Studio Community Edition, met Python Tools for Visual Studio (PTVS)-extensie die vooraf zijn geïnstalleerd. De hoofdmap conda-omgeving is standaard alleen Python 3.6, geconfigureerd op PTVS. Om in te schakelen Anaconda Python 2.7, moet u de volgende stappen uit:
 
-* Aangepaste omgevingen voor elke versie maken door te navigeren naar **extra** -> **Python Tools** -> **Python-omgevingen** en vervolgens te klikken op ' **+ Aangepast**'in de Visual Studio 2015 Community-versie
+* Aangepaste omgevingen voor elke versie maken door te navigeren naar **extra** -> **Python Tools** -> **Python-omgevingen** en vervolgens te klikken op ' **+ Aangepast**'in de Visual Studio Community-versie
 * Geef een beschrijving en het pad van het voorvoegsel omgeving als *c:\anaconda\envs\python2* voor Anaconda Python 2.7
 * Klik op **automatisch detecteren** en vervolgens **toepassen** om op te slaan van de omgeving.
 
@@ -66,7 +66,7 @@ Hier ziet u hoe de installatie van de aangepaste omgeving eruitziet in Visual St
 
 Zie de [documentatie bij PTVS](http://aka.ms/ptvsdocs) voor meer informatie over het maken van de Python-omgevingen.
 
-Nu u worden ingesteld om een nieuwe Python-project te maken. Navigeer naar **bestand** -> **nieuw** -> **Project** -> **Python** en selecteer het type Python-toepassing die u wilt maken. U kunt de Python-omgeving voor het huidige project instellen op de gewenste versie (Anaconda 2.7 of 3.6) met de rechtermuisknop te klikken op de **Python-omgeving**, Klik daarvoor **Python-omgevingen toevoegen/verwijderen**, en vervolgens de gewenste omgeving verzamelen. U vindt meer informatie over het werken met PTVS in het product [documentatie](http://aka.ms/ptvsdocs).
+Nu u worden ingesteld om een nieuwe Python-project te maken. Navigeer naar **bestand** -> **nieuw** -> **Project** -> **Python** en selecteer het type Python-toepassing die u wilt maken. U kunt de Python-omgeving voor het huidige project instellen op de gewenste versie (Python 2.7 of 3.6) met de rechtermuisknop te klikken op de **Python-omgevingen**, Klik daarvoor **Python-omgevingen toevoegen/verwijderen**, en vervolgens de gewenste omgeving verzamelen. U vindt meer informatie over het werken met PTVS in het product [documentatie](http://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Met behulp van een Jupyter-Notebook om te verkennen en modelleren van uw gegevens met Python of R
 De Jupyter-Notebook is een krachtige omgeving die voorziet in een browser gebaseerde "IDE' gegevens verkennen en modelleren. U kunt Python 2, 3 van Python of R (Open Source en het Microsoft R Server) gebruiken in een Jupyter-Notebook.
@@ -145,7 +145,7 @@ U kunt R-modellen die zijn gebouwd op de Data Science Virtual Machine of ergens 
 
 Hier volgt de procedure en code-codefragmenten die u instelt, bouwen, publiceren en een model gebruiken als een webservice in Azure Machine Learning kunnen worden gebruikt.
 
-#### <a name="setup"></a>Installatie
+#### <a name="setup"></a>Instellen
 
 * Maak een bestand settings.json in een map met de naam ```.azureml``` onder de basismap en voert u de parameters van uw Azure Machine Learning-werkruimte:
 
@@ -254,7 +254,7 @@ In Visual Studio, kunt u de dezelfde kloonbewerking doen. De volgende schermafbe
 U vindt meer informatie over het werken met uw GitHub-opslagplaats van verschillende resources beschikbaar op github.com met behulp van Git. De [overzichtskaart](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is een nuttig verwijzing.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Toegang tot verschillende Azure-gegevens en analyses services
-### <a name="azure-blob"></a>Azure-blob
+### <a name="azure-blob"></a>Azure Blob
 Azure-blob is een betrouwbare, betaalbare cloudopslag voor gegevens, groot en klein. Deze sectie wordt beschreven hoe u gegevens kunt verplaatsen naar Azure BLOB Storage en toegang tot gegevens die zijn opgeslagen in een Azure-Blob.
 
 **Vereiste**
@@ -865,6 +865,6 @@ Er zijn verschillende hulpprogramma's die vooraf zijn ingebouwd in de DSVM die v
 
 U kunt gebruikmaken van andere Azure data en analyse-services bevatten in dit artikel voor het verbeteren van uw omgeving voor analyse. In sommige gevallen mogelijk wens extra hulpprogramma's, met inbegrip van sommige bedrijfseigen externe hulpprogramma's. U hebt volledige beheerderstoegang op de virtuele machine voor het installeren van nieuwe hulpprogramma's die u nodig hebt. U kunt ook extra pakketten installeren in Python / R die niet vooraf zijn geïnstalleerd. Voor Python kunt u een ```conda``` of ```pip```. Voor R kunt u de ```install.packages()``` in de R-console of gebruik de IDE en kies "**pakketten** -> **pakketten installeren...** ".
 
-## <a name="summary"></a>Overzicht
+## <a name="summary"></a>Samenvatting
 Hieronder volgen slechts enkele van de dingen die u dit op de Microsoft Data Science Virtual Machine doen kunt. Er zijn veel meer dingen die u doen kunt om deze een effectieve analytics-omgeving.
 

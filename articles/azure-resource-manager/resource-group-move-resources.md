@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159093"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393278"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -220,7 +220,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
-* SignalR-Service
+* SignalR Service
 * Opslag - storage-accounts in verschillende regio's kan niet worden verplaatst in dezelfde bewerking. Gebruik in plaats daarvan de afzonderlijke bewerkingen voor elke regio.
 * Opslag (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Stream Analytics - status voor Stream Analytics taken bij het uitvoeren van in kunnen niet worden verplaatst.
@@ -274,7 +274,29 @@ Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNames
 ```
 
 ```azurecli-interactive
-az feature register Microsoft.Compute ManagedResourcesMove
+az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+In eerste instantie retourneert een status van de aanvraag voor functieregistratie `Registering`. U kunt de huidige status met controleren:
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+Wacht enkele minuten voor de status gewijzigd in `Registered`.
+
+Nadat de functie is geregistreerd, registreert de `Microsoft.Compute` resourceprovider. Deze stap uitvoeren, zelfs als de resourceprovider eerder is geregistreerd.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
 ```
 
 Deze ondersteuning betekent dat u kunt ook verplaatsen:

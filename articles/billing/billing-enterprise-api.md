@@ -14,19 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: aedwin
-ms.openlocfilehash: b67e6202c470be46b3100c06e503c05415371c6e
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 7cc5b0cb12e806b0946ce421e7ee6daa4de76afa
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920439"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390593"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Overzicht van de rapportage-API's voor zakelijke klanten
 De rapportage-API's kunnen Azure Enterprise-klanten om op te halen via een programma gebruiks- en factureringsgegevens in de gewenste hulpprogramma's voor gegevensanalyse. Zakelijke klanten zich hebben aangemeld een [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) met Azure om te maken in de onderhandelde monetaire toezeggingen en toegang krijgen tot aangepaste prijzen voor Azure-resources.
 
 > [!div class="nextstepaction"]
-> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="enabling-data-access-to-the-api"></a>Voor gegevenstoegang tot de API
 * **Genereren of de API-sleutel ophalen** -Meld u aan bij de Enterprise portal en navigeert u naar rapporten > Download Usage > API Access Key genereren of de API-sleutel ophalen.
@@ -58,7 +58,7 @@ In het antwoord van de bovenstaande API Etags geretourneerd. Een wijziging in de
 |Statuscode van antwoord|Bericht|Beschrijving|
 |-|-|-|
 |200| OK|Geen fout|
-|401| Niet gemachtigd| API-sleutel niet wordt gevonden, ongeldig, verlopen enzovoort.|
+|401| Niet geautoriseerd| API-sleutel niet wordt gevonden, ongeldig, verlopen enzovoort.|
 |404| Niet beschikbaar| Rapporteindpunt is niet gevonden|
 |400| Onjuiste aanvraag| Ongeldige parameters – datumbereiken, EA-nummers, enz.|
 |500| Serverfout| Unexoected fout bij verwerking van aanvraag| 

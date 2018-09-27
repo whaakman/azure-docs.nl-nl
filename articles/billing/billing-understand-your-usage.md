@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van uw Azure gedetailleerde begrijpen | Microsoft Docs
-description: Informatie over het lezen van en inzicht in de secties van gedetailleerde gebruik van uw CSV voor uw Azure-abonnement
+title: Uw gedetailleerde gebruik van Azure begrijpen | Microsoft Docs
+description: Meer informatie over het lezen en begrijpen van de secties van uw gedetailleerde gebruik CSV voor uw Azure-abonnement
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -13,80 +13,80 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060797"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394425"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Termen in uw Microsoft Azure gedetailleerde gebruikskosten begrijpen 
+# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Meer informatie over de Microsoft Azure gedetailleerde gebruikskosten 
 
-Het gebruik van gedetailleerde kosten CSV-bestand bevat dagelijks en meter niveau gebruikskosten voor de huidige factureringsperiode. 
+Het gedetailleerde gebruik kosten CSV-bestand bevat dagelijkse en meter niveau gebruikskosten voor de huidige factureringsperiode. 
 
-Als u het bestand met gedetailleerde informatie over het gebruik, Zie [het ophalen van uw Azure facturering facturen en dagelijks gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
-Het is beschikbaar in een indeling met door komma's gescheiden waarden (.csv) dat u in een werkbladtoepassing openen kunt. Als er twee versies beschikbaar zijn, wordt versie 2 downloaden. Dat is de meest recente bestandsindeling.
+Als u uw gedetailleerde gebruik-bestand, raadpleegt u [over het verkrijgen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md).
+Het is beschikbaar in een indeling met door komma's gescheiden waarden (.csv) die u in een werkbladtoepassing openen kunt. Als er twee versies beschikbaar zijn, moet u versie 2 downloaden. Dat is de meest recente bestandsindeling.
 
-Gebruikskosten zijn het totale aantal **maandelijkse** kosten voor een abonnement. De gebruikskosten rekening geen gehouden met eventuele tegoed of kortingen.
+Gebruikskosten zijn de totale **maandelijkse** kosten op een abonnement. De kosten voor het gebruik rekening geen gehouden met eventuele tegoeden of kortingen.
 
 >[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
-## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Gedetailleerde voorwaarden en beschrijvingen van het bestand met gedetailleerde informatie over het gebruik
+## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Gedetailleerde voorwaarden en beschrijvingen van het bestand met gedetailleerde informatie over gebruik
 
-De volgende secties worden de belangrijke termen die wordt weergegeven in versie 2 van het bestand gedetailleerde informatie over het gebruik.
+De volgende secties beschrijven de belangrijke termen die in versie 2 van het bestand gedetailleerd gebruik worden weergegeven.
 
 ### <a name="statement"></a>Verklaring
 
-Het bovenste gedeelte van het CSV-bestand voor gedetailleerde informatie over het gebruik ziet u de services die u hebt gebruikt tijdens de maand factureringsperiode. De volgende tabel bevat de voorwaarden en beschrijvingen in deze sectie wordt weergegeven.
+Het bovenste gedeelte van het gedetailleerde gebruik CSV-bestand ziet u de services die u hebt gebruikt tijdens de factureringsperiode van de maand. De volgende tabel bevat de voorwaarden en -beschrijvingen weergegeven in deze sectie.
 
 | Termijn | Beschrijving |
 | --- | --- |
 |Factureringsperiode |De factureringsperiode wanneer de meters zijn gebruikt |
-|De categorie van de meter |Geeft de service op het hoogste niveau voor het gebruik |
-|De subcategorie van de meter |Definieert het type van de Azure-service die invloed kan zijn op de snelheid |
+|De categorie van de meter |Identificeert de service op het hoogste niveau voor het gebruik |
+|De subcategorie van de meter |Bepaalt het type Azure-service die invloed kan zijn op de snelheid |
 |De naam van de meter |Identificeert de maateenheid voor de meter wordt gebruikt |
-|De regio van de meter |Geeft de locatie van het datacenter voor bepaalde services die worden berekend op basis van locatie datacenter |
-|SKU |De unieke systeem-id voor elk Azure meter identificeert |
-|Eenheid |De eenheid waarmee de kosten voor de service worden berekend. Bijvoorbeeld GB, uur, 10.000 s. |
-|Verbruikt aantal |Het bedrag van de meter wordt gebruikt tijdens de factureringsperiode |
-|Inbegrepen hoeveelheid |Het bedrag van de meter die is opgenomen gratis in de huidige factureringsperiode |
-|Overschreden hoeveelheid |Bevat het verschil tussen de verbruikt en de hoeveelheid opgenomen. U wordt gefactureerd voor dit bedrag. Voor betalen per gebruik aanbiedingen waarbij geen aantal opgenomen met de aanbieding is dit totaal hetzelfde als de hoeveelheid verbruikt. |
-|Binnen toezegging |Geeft de kosten van de meter dat wordt afgetrokken van uw toezeggingsbedrag die zijn gekoppeld aan uw aanbieding 6 of 12 maanden. Kosten van de meter worden in chronologische volgorde afgetrokken. |
-|Valuta |De valuta die wordt gebruikt in uw huidige factureringsperiode |
-|Overschrijding |Geeft de kosten van de meter die groter is dan uw toezeggingsbedrag die zijn gekoppeld aan uw aanbieding 6 of 12 maanden |
-|Toezeggingstarief |Geeft het streven tarief op basis van het totale aantal toezeggingsbedrag die zijn gekoppeld aan uw aanbieding 6 of 12 maanden |
-|Tarief |De frequentie waarmee die u in rekening per factureerbare eenheid gebracht bent |
-|Waarde |Geeft het resultaat van de kolom overschrijding aantal door de snelheid kolom vermenigvuldigen. Als de hoeveelheid verbruikte niet groter zijn dan de hoeveelheid opgenomen, zijn er geen kosten in deze kolom. |
+|De regio van de meter |Geeft de locatie van de datacenterlocatie voor bepaalde services waarbij de prijs gebaseerd op de datacenterlocatie |
+|SKU |De unieke systeem-id voor elke Azure-meter |
+|Eenheid |De eenheid waarmee de kosten voor de service worden berekend. Bijvoorbeeld GB, uren, 10.000 s. |
+|Verbruikt aantal |Het bedrag van de meter gebruikt tijdens de factureringsperiode |
+|Inbegrepen hoeveelheid |Het bedrag van de meter die is opgenomen gratis inbegrepen in uw huidige factureringsperiode. |
+|Overschreden hoeveelheid |Bevat het verschil tussen de verbruikte hoeveelheid en het aantal opgenomen. U wordt gefactureerd voor dit bedrag. Bij betalen per gebruik-aanbiedingen waarbij er geen hoeveelheid opgenomen in de aanbieding is dit totaal hetzelfde als de verbruikte hoeveelheid. |
+|Binnen toezegging |Geeft de meter-kosten die worden afgetrokken van de toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden. Meter-kosten worden afgetrokken in chronologische volgorde. |
+|Valuta |De valuta die wordt gebruikt in uw huidige factureringsperiode. |
+|Overschrijding |De kosten voor meter die groter zijn dan de toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden |
+|Toezeggingstarief |Geeft het toezeggingstarief op basis van de totale toezeggingshoeveelheid die is gekoppeld aan uw aanbieding 6 of 12 maanden |
+|Tarief |Het tarief dat u kosten in per factureerbare eenheid gebracht rekening |
+|Waarde |Toont het resultaat van het vermenigvuldigen van de hoeveelheid overschrijding kolom met de kolom tarief. Als de verbruikte hoeveelheid niet hoger is dan het aantal opgenomen, zijn er geen kosten in deze kolom. |
 
 ### <a name="daily-usage"></a>Dagelijks gebruik
 
-De sectie dagelijks gebruik van het CSV-bestand bevat gebruiksdetails die invloed hebben op de facturering tarieven. De volgende tabel bevat de voorwaarden en beschrijvingen in deze sectie wordt weergegeven.
+De sectie dagelijks gebruik van het CSV-bestand bevat informatie over het gebruik die invloed hebben op de facturering-tarieven. De volgende tabel bevat de voorwaarden en -beschrijvingen weergegeven in deze sectie.
 
 | Termijn | Beschrijving |
 | --- | --- |
 |Gebruiksdatum |De datum waarop de meter is gebruikt |
-|De categorie van de meter |Geeft de op het hoogste niveau service waarvoor dit gebruik behoort |
-|Id van de meter |De gefactureerde meter-ID die wordt gebruikt voor de prijs van facturering gebruik |
+|De categorie van de meter |Geeft de op het hoogste niveau service waartoe dit gebruik behoort |
+|Id van de meter |De gefactureerde meter-ID die wordt gebruikt voor prijsfacturering wordt gehanteerd |
 |De subcategorie van de meter |Definieert het type Azure-service die invloed kan zijn op de snelheid |
 |De naam van de meter |Identificeert de maateenheid voor de meter wordt gebruikt |
-|De regio van de meter |Geeft de locatie van het datacenter voor bepaalde services die worden berekend op basis van locatie datacenter |
-|Eenheid |De eenheid die de meter wordt in rekening gebracht in identificeert. Bijvoorbeeld GB, uur, 10.000 s. |
-|Verbruikt aantal |Het bedrag van de meter die voor die dag is verbruikt |
-|Resourcelocatie |Identificeert het datacenter waarop de meter wordt uitgevoerd |
+|De regio van de meter |Geeft de locatie van de datacenterlocatie voor bepaalde services waarbij de prijs gebaseerd op de datacenterlocatie |
+|Eenheid |De eenheid waarmee de meter wordt in rekening gebracht in. Bijvoorbeeld GB, uren, 10.000 s. |
+|Verbruikt aantal |Het bedrag van de meter die is verbruikt voor die dag |
+|Resourcelocatie |Identificeert het datacenter waar de meter wordt uitgevoerd |
 |Verbruikte service |De Azure-platform-service die u gebruikt |
-|Resourcegroep |De resourcegroep waarin de geïmplementeerde meter in wordt uitgevoerd. <br/><br/>Zie voor meer informatie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|Exemplaar-id | De id voor de meter. <br/><br/> De id bevat de naam die u voor de meter opgeeft als deze is gemaakt. Het is de naam van de bron of de volledig gekwalificeerde Resource-ID. Zie voor meer informatie [Azure Resource Manager-API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tags | Code die u aan de meter toewijst. Gebruik labels facturering groeperen van records.<br/><br/>U kunt bijvoorbeeld codes gebruiken om kosten te verdelen door de afdeling die gebruikmaakt van de meter. Services die ondersteuning bieden voor het importeerbereik tags zijn virtuele machines, opslag- en netwerkservices ingericht met behulp van de [Azure Resource Manager-API](https://docs.microsoft.com/rest/api/resources/resources). Zie voor meer informatie [ordenen van uw Azure-resources met labels](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Aanvullende informatie |Service-specifieke metagegevens. Bijvoorbeeld, een type installatiekopie voor een virtuele machine. |
-|Service-informatie 1 |De naam van het project dat de service tot op uw abonnement behoort. |
-|Service-informatie 2 |Verouderde veld waarmee optionele servicespecifieke metagegevens wordt vastgelegd |
+|Resourcegroep |De resourcegroep waarin de geïmplementeerde meter wordt uitgevoerd in. <br/><br/>Zie voor meer informatie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
+|Exemplaar-id | De id voor de meter. <br/><br/> De id bevat de naam die u voor de meter opgeeft wanneer deze is gemaakt. Het is de naam van de resource of de volledig gekwalificeerde Resource-ID. Zie voor meer informatie, [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
+|Tags | Code die u aan de meter toewijst. Gebruik tags facturering om records te groeperen.<br/><br/>U kunt bijvoorbeeld tags gebruiken om kosten te verdelen van de afdeling die gebruikmaakt van de meter. Services die ondersteuning bieden voor uitgeven van tags zijn virtuele machines, opslag- en netwerkservices die zijn ingericht met behulp van de [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). Zie voor meer informatie, [ordenen van uw Azure-resources met tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Aanvullende informatie |Servicespecifieke metagegevens. Bijvoorbeeld, een type installatiekopie voor een virtuele machine. |
+|Service-informatie 1 |De naam van het project die op uw abonnement deel uitmaakt van de service |
+|Service-informatie 2 |Ouder veld met optionele servicespecifieke metagegevens |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Hoe maak ik ervoor dat de kosten in mijn bestand gedetailleerde informatie over het gebruik correct zijn?
-Als er een kosten op uw bestand voor gedetailleerde informatie over het gebruik die u graag meer details op, Zie [inzicht in uw factuur voor Microsoft Azure.](./billing-understand-your-bill.md)
+## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Hoe ik ervoor zorgen dat de kosten in rekening gebracht in mijn bestand gedetailleerd gebruik correct zijn?
+Als er een kosten in rekening gebracht op uw gedetailleerde gebruik-bestand dat u wilt meer informatie over, Zie [meer informatie over uw factuur voor Microsoft Azure.](./billing-understand-your-bill.md)
 
 ## <a name="external"></a>Hoe zit het met externe servicekosten?
-Externe services (ook wel bekend als Marketplace orders) worden geleverd door onafhankelijke serviceleveranciers en worden afzonderlijk gefactureerd. De kosten worden niet weergegeven op de Azure-factuur. Zie voor meer informatie, [inzicht in uw Azure externe servicekosten](billing-understand-your-azure-marketplace-charges.md).
+Externe services (ook wel bekend als een Marketplace-bestellingen) worden geleverd door een onafhankelijke serviceleveranciers en worden afzonderlijk gefactureerd. De kosten worden niet weergegeven op de Azure-factuur. Zie voor meer informatie, [meer informatie over uw Azure externe servicekosten](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?) ophalen van uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?) om uw probleem snel worden opgelost.

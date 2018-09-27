@@ -1,6 +1,6 @@
 ---
-title: Toegang voor Azure virtual Network (VNET) van Azure Logic Apps
-description: In dit overzicht ziet u hoe geïsoleerde logic apps kunnen verbinden met virtuele Azure-netwerken (VNETs) van de integratie van service-omgevingen (ISEs) die gebruikmaken van particuliere en toegewezen resources
+title: Toegang tot Azure-netwerken van Azure Logic Apps
+description: In dit overzicht ziet u hoe geïsoleerde logic apps kunnen verbinden met Azure-netwerken van integratie van service-omgevingen (ISEs) die gebruikmaken van particuliere en toegewezen resources
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,31 +9,31 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b012f1ac9c5f08a7e74871ca215299904f6b1deb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958642"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393135"
 ---
-# <a name="access-to-azure-virtual-network-vnet-resources-from-isolated-azure-logic-apps"></a>Toegang tot resources van Azure Virtual Network (VNET) van geïsoleerde Azure Logic Apps
+# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Toegang tot resources van Azure Virtual Network van geïsoleerde Azure Logic Apps
 
 > [!NOTE]
 > Deze mogelijkheid is in *privépreview*. Om te vragen tot, [maken van uw aanvraag voor deelname aan hier](https://aka.ms/iseprivatepreview).
 
-Soms moeten toegang tot beveiligde resources, zoals virtuele machines (VM's) en andere systemen of -services in uw logic apps en integratieaccounts een [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md). Dit om toegang te bieden, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) als de locatie voor het maken van uw logic apps en integratieaccounts. 
+Soms moeten toegang tot beveiligde resources, zoals virtuele machines (VM's) en andere systemen of -services in uw logic apps en integratieaccounts een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md). Dit om toegang te bieden, kunt u [maken een *integratieserviceomgeving* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) als de locatie voor het maken van uw logic apps en integratieaccounts. 
 
 ![Integratie van service-omgeving selecteren](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Het maken van een ISE, implementeert u een exemplaar van de Logic Apps privé en geïsoleerd in uw VNET. Het privé-exemplaar toegewezen resources, zoals opslag gebruikt en wordt afzonderlijk van de openbare 'global' Logic Apps-service wordt uitgevoerd. Dankzij deze scheiding ook vermindert de invloed die andere Azure-tenants op de prestaties van uw apps hebben kunnen, of de ['luidruchtige buren'-effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
+Het maken van een ISE, implementeert u een exemplaar van de Logic Apps privé en geïsoleerd in uw Azure-netwerk. Het privé-exemplaar toegewezen resources, zoals opslag gebruikt en wordt afzonderlijk van de openbare 'global' Logic Apps-service wordt uitgevoerd. Dankzij deze scheiding ook vermindert de invloed die andere Azure-tenants op de prestaties van uw apps hebben kunnen, of de ['luidruchtige buren'-effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
 
-In dit overzicht wordt beschreven hoe het maken van een ISE helpt logic apps en rechtstreekse toegang tot resources in uw Azure-VNET-integratieaccounts en vergelijkt de verschillen tussen een ISE en de globale Logic Apps-service.
+In dit overzicht wordt beschreven hoe het maken van een ISE helpt logic apps en integratieaccounts rechtstreeks toegang tot de resources in uw Azure-netwerk en vergelijkt de verschillen tussen een ISE en de globale Logic Apps-service.
 
 <a name="difference"></a>
 
 ## <a name="isolated-versus-global"></a>Ten opzichte van globale (geïsoleerd)
 
-Wanneer u een geïntegreerde service environment (ISE) in Azure maakt, kunt u een Azure VNET als een *peer* voor uw omgeving. Azure heeft een persoonlijke exemplaar van de Logic Apps-service in uw VNET, wat resulteert in een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources geïmplementeerd. Als u een logische app maakt, selecteert u in deze omgeving als locatie van uw app, waarmee ook uw logische app direct toegang tot de resources in uw VNET.  
+Wanneer u een geïntegreerde service environment (ISE) in Azure maakt, kunt u een Azure-netwerk als een *peer* voor uw omgeving. Azure heeft een persoonlijke exemplaar van de Logic Apps-service in uw virtuele netwerk, wat resulteert in een geïsoleerde omgeving waarin u kunt maken en uw logische apps worden uitgevoerd op specifieke resources geïmplementeerd. Als u een logische app maakt, selecteert u in deze omgeving als locatie van uw app, waarmee ook uw logische app direct toegang tot de resources in uw virtuele netwerk.  
 
 Logische apps in een ISE bieden de dezelfde gebruikerservaringen en vergelijkbare mogelijkheden als de globale Logic Apps-service. Niet alleen kunt u dezelfde dient te worden en connectors die zijn opgegeven door de globale Logic Apps-service gebruiken, maar u kunt kiezen uit de connectors die ISE versies bieden. Dit is bijvoorbeeld sommige standaard-connectors die worden geboden door versies die worden uitgevoerd in een ISE:
  
@@ -62,9 +62,9 @@ Het verschil tussen ISE en niet-ISE-connectors is op de locaties waar de trigger
 
 <a name="vnet-access"></a>
 
-## <a name="permissions-for-vnet-access"></a>Machtigingen voor VNET-toegang
+## <a name="permissions-for-virtual-network-access"></a>Machtigingen voor toegang tot het virtuele netwerk
 
-Wanneer u een integratie van service-omgeving (ISE) maakt, selecteert u een Azure-netwerk (VNET) als een *peer* voor uw omgeving. U kunt echter *alleen* deze relatie maken of *peering*, bij het maken van uw ISE. Deze relatie geeft uw ISE-toegang tot resources in uw VNET, waarmee vervolgens logische apps in die ISE rechtstreeks verbinding maken met resources in uw VNET. Voor on-premises systemen in een VNET dat gekoppeld aan een ISE, logische apps rechtstreeks toegang tot deze systemen met behulp van deze items: 
+Wanneer u een integratie van service-omgeving (ISE) maakt, kunt u een Azure-netwerk als een *peer* voor uw omgeving. U kunt echter *alleen* deze relatie maken of *peering*, bij het maken van uw ISE. Deze relatie geeft uw ISE-toegang tot resources in uw virtuele netwerk, zodat logic apps in die ISE rechtstreeks verbinding maken met resources in uw virtuele netwerk. Voor on-premises systemen in een virtueel netwerk dat gekoppeld aan een ISE, logische apps rechtstreeks toegang tot deze systemen met behulp van deze items: 
 
 * ISE-connector voor dat systeem, bijvoorbeeld SQL Server
 
@@ -72,9 +72,9 @@ Wanneer u een integratie van service-omgeving (ISE) maakt, selecteert u een Azur
 
 * Aangepaste connector
 
-Voor on-premises systemen die zich niet in een VNET of geen ISE connectors, kunt u nog steeds verbinding maken nadat u [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
+Voor on-premises systemen die zich niet in een virtueel netwerk of geen ISE connectors, kunt u nog steeds verbinding maken nadat u [instellen en gebruiken van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-install.md).
 
-Voordat u een Azure VNET als een peer voor uw omgeving selecteren kunt, moet u machtigingen voor toegangsbeheer op basis van rollen (RBAC) instellen in uw Azure VNET voor de service Azure Logic Apps. Deze taak is vereist dat u toewijst de **Inzender voor netwerken** en **Inzender voor klassieke** rollen naar de service Azure Logic Apps. Zie voor meer informatie over de rolmachtigingen die vereist zijn voor de peering, de [machtigingen sectie in maken, wijzigen of verwijderen van een peering op virtueel netwerk](../virtual-network/virtual-network-manage-peering.md#permissions).
+Voordat u een Azure-netwerk als een peer voor uw omgeving selecteren kunt, moet u machtigingen voor toegangsbeheer op basis van rollen (RBAC) instellen in uw virtuele netwerk voor de service Azure Logic Apps. Deze taak is vereist dat u toewijst de **Inzender voor netwerken** en **Inzender voor klassieke** rollen naar de service Azure Logic Apps. Zie voor meer informatie over de rolmachtigingen die vereist zijn voor de peering, de [machtigingen sectie in maken, wijzigen of verwijderen van een peering op virtueel netwerk](../virtual-network/virtual-network-manage-peering.md#permissions).
 
 <a name="create-integration-account-environment"></a>
 
@@ -89,6 +89,6 @@ Kunt u integratieaccounts met logic apps die worden uitgevoerd in een integratie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het [verbinding maken met virtuele netwerken (VNETs) van geïsoleerde logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* Meer informatie over het [verbinding maken met virtuele Azure-netwerken van geïsoleerde logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * Meer informatie over [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)
 * Meer informatie over [integratie van virtuele netwerken voor Azure-services](../virtual-network/virtual-network-for-azure-services.md)

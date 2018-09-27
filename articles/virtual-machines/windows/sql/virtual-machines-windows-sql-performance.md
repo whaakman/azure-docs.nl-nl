@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/24/2018
+ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886182"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394946"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
@@ -28,20 +28,20 @@ ms.locfileid: "42886182"
 
 Dit artikel bevat richtlijnen voor het optimaliseren van prestaties van SQL Server in Microsoft Azure Virtual machines. Tijdens het uitvoeren van SQL Server in Azure Virtual Machines, is het raadzaam dat u doorgaan met behulp van dezelfde databaseprestaties afstemmen van de opties die van toepassing op SQL Server in on-premises server-omgeving. De prestaties van een relationele database in een openbare cloud is echter afhankelijk van veel factoren zoals de grootte van een virtuele machine en de configuratie van de gegevensschijven.
 
-[SQL Server-installatiekopieën die zijn ingericht in Azure portal](quickstart-sql-vm-create-portal.md) opslag configureren met aanbevolen procedures. Zie voor meer informatie over hoe opslag wordt geconfigureerd, [opslagconfiguratie voor SQL Server-VM's](virtual-machines-windows-sql-server-storage-configuration.md). Na het inrichten, toe te passen van andere optimalisaties die in dit artikel worden besproken. Uw keuzes baseren op uw werkbelasting en controleer of door middel van testen.
+[SQL Server-installatiekopieën die zijn ingericht in Azure portal](quickstart-sql-vm-create-portal.md) Volg de aanbevolen procedures voor algemene opslag-configuratie (Zie voor meer informatie over hoe opslag wordt geconfigureerd, [opslagconfiguratie voor SQL Server-VM's](virtual-machines-windows-sql-server-storage-configuration.md)). Na het inrichten, toe te passen van andere optimalisaties die in dit artikel worden besproken. Uw keuzes baseren op uw werkbelasting en controleer of door middel van testen.
 
 > [!TIP]
-> In dit artikel is gericht op het ophalen van de *aanbevolen* prestaties voor SQL Server op Azure Virtual machines. Als uw werkbelasting minder zwaar worden belast is, kan u niet alle hieronder vermelde optimalisatie nodig. Houd rekening met uw prestatiebehoeften en patronen van werkbelasting kijkt u bij het evalueren van deze aanbevelingen.
+> Er zit doorgaans een balans tussen voor kosten te optimaliseren en te optimaliseren voor prestaties. In dit artikel is gericht op het ophalen van de *aanbevolen* prestaties voor SQL Server op Azure Virtual machines. Als uw werkbelasting minder zwaar worden belast is, kan u niet alle hieronder vermelde optimalisatie nodig. Houd rekening met uw prestatiebehoeften, kosten en patronen van werkbelasting kijkt u bij het evalueren van deze aanbevelingen.
 
 ## <a name="quick-check-list"></a>Lijst met snelle controle
 
 Hier volgt een lijst met snelle controle voor optimale prestaties van SQL Server op Azure Virtual Machines:
 
-| Oppervlakte | Optimalisaties |
+| Onderwerp | Optimalisaties |
 | --- | --- |
 | [VM-grootte](#vm-size-guidance) |[DS3_v2](../sizes-general.md) of hoger voor SQL Enterprise edition.<br/><br/>[DS2_v2](../sizes-general.md) of hoger voor SQL Standard- en Web-edities. |
 | [Storage](#storage-guidance) |Gebruik [Premium Storage](../premium-storage.md). Standard-opslag wordt alleen aanbevolen voor ontwikkelen en testen.<br/><br/>Houd de [opslagaccount](../../../storage/common/storage-create-storage-account.md) en SQL Server-VM in dezelfde regio.<br/><br/>Azure uitschakelen [geografisch redundante opslag](../../../storage/common/storage-redundancy.md) (geo-replicatie) op het storage-account. |
-| [Schijven](#disks-guidance) |Minimaal 2 gebruiken [P30 schijven](../premium-storage.md#scalability-and-performance-targets) (1 voor logboekbestanden en 1 voor gegevensbestanden en TempDB; of stripe twee of meer schijven en alle bestanden in een enkel volume store).<br/><br/>Vermijd het gebruik van besturingssysteem of tijdelijke schijven voor de database-opslag of logboekregistratie.<br/><br/>Schakel de leescache in op de schijven die als host fungeert voor de gegevens en TempDB-gegevensbestanden.<br/><br/>Schakel niet opslaan in cache op een of meer schijven die als host fungeert voor het logboekbestand.<br/><br/>Belangrijk: Stop de SQL Server-service bij het wijzigen van de cache-instellingen voor een Azure VM-schijf.<br/><br/>Stripe meerdere Azure-gegevensschijven om op te halen van hogere i/o-doorvoer.<br/><br/>Opmaken met gedocumenteerde toewijzing grootten. |
+| [Schijven](#disks-guidance) |Minimaal 2 gebruiken [P30 schijven](../premium-storage.md#scalability-and-performance-targets) (1 voor logboekbestanden en 1 voor met inbegrip van TempDB-gegevensbestanden).<br/><br/>Vermijd het gebruik van besturingssysteem of tijdelijke schijven voor de database-opslag of logboekregistratie.<br/><br/>Schakel de leescache in op de schijven die als host fungeert voor de gegevens en TempDB-gegevensbestanden.<br/><br/>Schakel niet opslaan in cache op een of meer schijven die als host fungeert voor het logboekbestand.<br/><br/>Belangrijk: Stop de SQL Server-service bij het wijzigen van de cache-instellingen voor een Azure VM-schijf.<br/><br/>Stripe meerdere Azure-gegevensschijven om op te halen van hogere i/o-doorvoer.<br/><br/>Opmaken met gedocumenteerde toewijzing grootten. |
 | [I/O](#io-guidance) |Database pagina compressie inschakelen.<br/><br/>Bestanden onmiddellijk de initialisatie van de gegevensbestanden inschakelen.<br/><br/>Limiet systeemverwerking op de database.<br/><br/>Schakel Automatische verkleining van de database.<br/><br/>Verplaats alle databases naar gegevensschijven, met inbegrip van systeemdatabases.<br/><br/>SQL Server-fout logboek- en traceringsbestanden bestandsmappen naar gegevensschijven verplaatsen.<br/><br/>Setup standaardbestandslocaties voor back-up en -database.<br/><br/>Vergrendelde pagina's inschakelen.<br/><br/>Oplossingen voor SQL Server-prestaties van toepassing. |
 | [Functiespecifieke](#feature-specific-guidance) |Back-up rechtstreeks naar de blob-opslag. |
 
@@ -54,14 +54,14 @@ Voor gevoelige toepassingen met prestaties, wordt aanbevolen dat u het volgende 
 * **SQL Server Enterprise Edition**: DS3_v2 of hoger
 * **SQL Server Standard en Web-edities**: DS2_v2 of hoger
 
-[DSv2-serie](../sizes-general.md#dsv2-series) VMs ondersteuning voor premium storage, die wordt aanbevolen voor de beste prestaties. De grootte aanbevolen basislijnen hier zijn, maar de grootte van de werkelijke machine die u selecteert, is afhankelijk van uw werklastvraag. DSv2-serie VM's zijn algemeen gebruik VM's die geschikt voor verschillende workloads, zijn terwijl andere machines-grootten zijn geoptimaliseerd voor specifieke werkbelasting typen. Bijvoorbeeld, de [M-serie](../sizes-memory.md#m-series) biedt het hoogste aantal vCPU's en geheugen voor de grootste SQL Server-workloads. De [GS-serie](../sizes-memory.md#gs-series) en [DSv2-serie 11-15](../sizes-memory.md#dsv2-series-11-15) zijn geoptimaliseerd voor grote geheugenvereisten. Beide van deze serie zijn ook beschikbaar in [constrained core grootten](../../windows/constrained-vcpu.md), die voor workloads met lagere eisen bespaart u geld. De [Ls-serie](../sizes-storage.md) machines zijn geoptimaliseerd voor snelle doorvoer van schijfgegevens en IO. Het is belangrijk rekening houden met uw specifieke SQL Server-werkbelasting en dit toepassen op uw selectie van een VM-serie en de grootte.
+[DSv2-serie](../sizes-general.md#dsv2-series) VMs ondersteuning voor premium storage, die wordt aanbevolen voor de beste prestaties. De grootte aanbevolen basislijnen hier zijn, maar de grootte van de werkelijke machine die u selecteert, is afhankelijk van uw werklastvraag. DSv2-serie VM's zijn voor algemeen gebruik VM's die geschikt voor verschillende workloads, zijn terwijl andere machines-grootten zijn geoptimaliseerd voor specifieke werkbelasting typen. Bijvoorbeeld, de [M-serie](../sizes-memory.md#m-series) biedt het hoogste aantal vCPU's en geheugen voor de grootste SQL Server-workloads. De [GS-serie](../sizes-memory.md#gs-series) en [DSv2-serie 11-15](../sizes-memory.md#dsv2-series-11-15) zijn geoptimaliseerd voor grote geheugenvereisten. Beide van deze serie zijn ook beschikbaar in [constrained core grootten](../../windows/constrained-vcpu.md), die voor workloads met lagere eisen bespaart u geld. De [Ls-serie](../sizes-storage.md) machines zijn geoptimaliseerd voor snelle doorvoer van schijfgegevens en IO. Het is belangrijk rekening houden met uw specifieke SQL Server-werkbelasting en dit toepassen op uw selectie van een VM-serie en de grootte.
 
 ## <a name="storage-guidance"></a>Richtlijnen voor opslag
 
 DS-serie (samen met DSv2-serie en GS-serie) virtuele machines ondersteuning [Premium Storage](../premium-storage.md). Premium-opslag wordt aanbevolen voor alle werkbelastingen voor productie.
 
 > [!WARNING]
-> Standard-opslag heeft verschillende latentie en bandbreedte en wordt alleen aanbevolen voor werkbelastingen voor ontwikkelen/testen. Werkbelastingen voor productie moeten gebruikmaken van Premium Storage.
+> Standard-opslag heeft verschillende latentie en bandbreedte en wordt alleen aanbevolen voor werkbelastingen voor ontwikkelen/testen. Dit omvat de nieuwe Standard-SSD-opslag. Werkbelastingen voor productie moeten gebruikmaken van Premium Storage.
 
 Bovendien is het raadzaam dat u uw Azure storage-account maken in hetzelfde Datacenter als uw virtuele machines van SQL Server om te beperken van vertragingen van overdracht. Bij het maken van een storage-account, uitschakelen geo-replicatie als consistente schrijven volgorde over meerdere schijven kan niet worden gegarandeerd. Overweeg in plaats daarvan de configuratie van een SQL Server disaster recovery-technologie tussen twee Azure-datacenters. Zie voor meer informatie, [hoge beschikbaarheid en herstel na noodgevallen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -85,13 +85,16 @@ Standaardcache-beleid op de besturingssysteemschijf is **lezen/schrijven**. Voor
 
 Het station voor tijdelijke opslag, met het label de **D**: station, niet naar Azure blob-opslag worden opgeslagen. Sla niet uw databasebestanden van de gebruiker of de gebruiker transactielogboekbestanden op de **D**: station.
 
-Voor de D-serie, uit de Dv2-serie en G-serie VM's is het tijdelijke station op deze virtuele machines op basis van SSD. Als uw workload intensief gebruikgemaakt van TempDB (zoals tijdelijke objecten of complexe joins wordt) TempDB opslaan op de **D** station kan leiden tot hogere TempDB-doorvoer en lagere latentie voor TempDB.
+Voor de D-serie, uit de Dv2-serie en G-serie VM's is het tijdelijke station op deze virtuele machines op basis van SSD. Als uw workload intensief gebruikgemaakt van TempDB (zoals tijdelijke objecten of complexe joins wordt) TempDB opslaan op de **D** station kan leiden tot hogere TempDB-doorvoer en lagere latentie voor TempDB. Zie voor een voorbeeldscenario de TempDB-discussie in het volgende blogbericht: [de richtlijnen voor opslag voor SQL Server op Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
 Voor virtuele machines die ondersteuning bieden voor Premium Storage (DS-serie, DSv2-serie en GS-serie), wordt u aangeraden TempDB opslaan op een schijf die ondersteuning biedt voor Premium-opslag met lees-caching ingeschakeld. Er is een uitzondering op deze aanbeveling; Als uw verbruik TempDB schrijven-intensieve is, u betere prestaties bereiken door TempDB opslaan op de lokale **D** station, die ook SSD-gebaseerde op deze machinegrootten.
 
 ### <a name="data-disks"></a>Gegevensschijven
 
-* **Gegevensschijven gebruiken voor gegevens en logboekbestanden**: als u niet striping van de schijf gebruikt, gebruikt u twee Premium Storage [P30 schijven](../premium-storage.md#scalability-and-performance-targets) waar één schijf bevat de logboekbestanden en de andere bevat de gegevens en het TempDB-bestanden. Elke schijf Premium-opslag biedt een aantal IOPs en bandbreedte (MB/s), afhankelijk van de grootte, zoals beschreven in het artikel [met behulp van Premium Storage voor schijven](../premium-storage.md). Als u van een schijf striping techniek, zoals opslagruimten gebruikmaakt, raden wij u plaatst alle gegevens en logboekbestanden op hetzelfde station bevinden.
+* **Gegevensschijven gebruiken voor gegevens en logboekbestanden**: als u niet striping van de schijf gebruikt, gebruikt u twee Premium Storage [P30 schijven](../premium-storage.md#scalability-and-performance-targets) waar één schijf bevat de logboekbestanden en de andere bevat de gegevens en het TempDB-bestanden. Elke schijf Premium-opslag biedt een aantal IOPs en bandbreedte (MB/s), afhankelijk van de grootte, zoals beschreven in het artikel [met behulp van Premium Storage voor schijven](../premium-storage.md). Als u een schijf striping techniek, zoals opslagruimten gebruikt, kunt u optimale prestaties bereiken door twee groepen, één voor de logboekbestanden en de andere voor de gegevensbestanden. Als u van plan bent te gebruiken van SQL Server Failover Cluster Instances (FCI), moet u een groep configureren.
+
+   > [!TIP]
+   > Voor de resultaten op verschillende configuraties van de schijf en werkbelasting, Zie het volgende blogbericht: [de richtlijnen voor opslag voor SQL Server op Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
    > [!NOTE]
    > Wanneer u een SQL Server-VM in de portal inricht, hebt u de mogelijkheid om de opslagconfiguratie bewerken. Afhankelijk van uw configuratie configureert Azure een of meer schijven. Meerdere schijven zijn gecombineerd tot een enkel opslaggroep met gesegmenteerd te verdelen. De gegevens en logboekbestanden bestanden bevinden zich samen in deze configuratie. Zie voor meer informatie, [opslagconfiguratie voor SQL Server-VM's](virtual-machines-windows-sql-server-storage-configuration.md).
@@ -101,7 +104,7 @@ Voor virtuele machines die ondersteuning bieden voor Premium Storage (DS-serie, 
   * Voor Windows 8/Windows Server 2012 of hoger, gebruikt u [opslagruimten](https://technet.microsoft.com/library/hh831739.aspx) met de volgende richtlijnen:
 
       1. Stel de interleave (Streepgrootte) op 64 KB (65536 bytes) voor OLTP-workloads en 256 KB (262144 bytes) voor magazijnbeheer data-workloads om te voorkomen dat invloed op de prestaties vanwege databasetransactielogboeken. Dit moet worden ingesteld met PowerShell.
-      1. Het aantal kolommen ingesteld = aantal fysieke schijven. PowerShell gebruiken bij het configureren van meer dan 8 schijven (geen Server Manager UI). 
+      2. Het aantal kolommen ingesteld = aantal fysieke schijven. PowerShell gebruiken bij het configureren van meer dan 8 schijven (geen Server Manager UI). 
 
     De volgende PowerShell wordt bijvoorbeeld een nieuwe opslaggroep gemaakt met de interleave-grootte aan 64 KB en het aantal kolommen in 2:
 
@@ -114,7 +117,7 @@ Voor virtuele machines die ondersteuning bieden voor Premium Storage (DS-serie, 
 
   * Voor Windows 2008 R2 of eerder, kunt u dynamische schijven (OS striped volumes) en de Streepgrootte altijd gelijk is aan 64 KB. Houd er rekening mee dat deze optie is afgeschaft vanaf Windows 8/Windows Server 2012. Zie voor meer informatie, de instructie ondersteuning op [Virtual Disk Service is over te stappen op Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * Als u [Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) met een scenario, zoals [SQL Server Failover Cluster Instances](virtual-machines-windows-portal-sql-create-failover-cluster.md), moet u één groep configureren. Houd er rekening mee dat hoewel verschillende volumes kunnen worden gemaakt op die één groep, alle dezelfde kenmerken, zoals het dezelfde cachebeleid delen.
+  * Als u [Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) met [SQL Server Failover Cluster Instances](virtual-machines-windows-portal-sql-create-failover-cluster.md), moet u één groep configureren. Houd er rekening mee dat hoewel verschillende volumes kunnen worden gemaakt op die één groep, alle dezelfde kenmerken, zoals het dezelfde cachebeleid delen.
 
   * Bepaalt het aantal schijven die zijn gekoppeld aan uw opslaggroep op basis van de load-verwachtingen. Houd er rekening mee dat andere VM-grootten verschillende aantallen gekoppelde gegevensschijven toestaan. Zie voor meer informatie, [grootten voor virtuele Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -124,7 +127,7 @@ Voor virtuele machines die ondersteuning bieden voor Premium Storage (DS-serie, 
 
   * Als u van afzonderlijke schijven voor gegevens en logboekbestanden gebruikmaakt, schakel de leescache in op de gegevensschijven die als host fungeert voor uw gegevens en TempDB-gegevensbestanden. Dit kan resulteren in een aanzienlijke prestatievoordelen. Schakel niet opslaan in cache op de schijf het logboekbestand houden terwijl dit zorgt ervoor een kleine afname in de prestaties dat.
 
-  * Als u van striping van de schijf gebruikmaakt, profiteren de meeste workloads van lees-caching. Vanwege de prestatieverbetering te bereiken met schijfsegmentering geldt deze aanbeveling, zelfs wanneer het logboekbestand op hetzelfde station bevinden. In bepaalde workloads hoge kan betere prestaties worden behaald met geen caching. Dit kan alleen worden bepaald door middel van testen.
+  * Als u door striping van de schijf in een één opslaggroep gebruikt, profiteren de meeste workloads van lees-caching. Als u afzonderlijke opslaggroepen voor het logboek- en gegevensbestanden hebt, schakel de leescache in alleen op de opslaggroep voor de gegevensbestanden. In bepaalde workloads hoge kan betere prestaties worden behaald met geen caching. Dit kan alleen worden bepaald door middel van testen.
 
   * De bovenstaande aanbevelingen gelden voor Premium Storage-schijven. Als u Premium Storage niet gebruikt, Schakel geen eventuele opslaan in cache op eventuele gegevensschijven.
 
@@ -178,6 +181,8 @@ Sommige implementaties mogelijk extra prestatievoordelen biedt met meer geavance
 * **SQL Server-gegevensbestanden in Azure**: deze nieuwe functie [SQL Server-gegevensbestanden in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is beschikbaar vanaf SQL Server 2014. Gegevensbestanden in Azure SQL-Server uitgevoerd, ziet u vergelijkbare prestatiekenmerken als het gebruik van Azure-gegevensschijven.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Zie voor meer informatie over opslag en prestaties, [de richtlijnen voor opslag voor SQL Server op Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 
 Zie voor aanbevolen procedures voor beveiliging, [veiligheidsoverwegingen voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 

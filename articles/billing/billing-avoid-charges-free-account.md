@@ -1,6 +1,6 @@
 ---
-title: Kosten voor uw gratis Azure-account | Microsoft Docs
-description: Begrijpen waarom ziet u kosten voor uw gratis Azure-account. Meer informatie over de manieren om deze kosten te voorkomen.
+title: Kosten voorkomen voor uw gratis Azure-account | Microsoft Docs
+description: Krijg inzicht in ziet u kosten in rekening gebracht voor uw gratis Azure-account. Meer informatie over manieren om deze kosten te voorkomen.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -13,55 +13,55 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 8803a4c0f1be3a3407e5e90bbdadeddbfcb1ab9c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061001"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394162"
 ---
-# <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vermijd ophalen in rekening gebracht voor uw gratis Azure-account
+# <a name="avoid-getting-charged-for-your-azure-free-account"></a>Vermijd oninbaar voor uw gratis Azure-account
 
-Gratis Azure-account biedt u $200 Azure-tegoed voor de eerste 30 dagen en een beperkte hoeveelheid gratis services gedurende 12 maanden. Zie voor meer informatie [gratis Azure-account](https://azure.microsoft.com/free/). Afhankelijk van de status van uw tegoed, kan uw tegoed gebruiken of ophalen in rekening gebracht voor gebruik buiten de gratis services en aantallen.
+Gratis Azure-account biedt u $200 aan Azure-tegoed voor de eerste 30 dagen en een beperkte hoeveelheid van gratis services voor 12 maanden. Zie [Gratis Azure-account](https://azure.microsoft.com/free/) voor meer informatie. Afhankelijk van de status van uw tegoed, kunnen uw tegoed gebruiken of in rekening gebracht voor gebruik buiten de gratis services en aantallen.
 
-## <a name="you-still-have-active-azure-free-account-credit"></a>U nog steeds hebt actief Azure gratis account tegoed 
-Als u nog steeds Azure-tegoeden die nog niet zijn verlopen hebt, Azure uw tegoed gebruikt om te betalen voor gebruik buiten de gratis services en aantallen.
+## <a name="you-still-have-active-azure-free-account-credit"></a>U hebt nog steeds actief Azure gratis accounttegoed 
+Als u nog steeds Azure-tegoed dat nog niet is verlopen hebt, gebruikt Azure uw tegoed om te betalen voor gebruik buiten de gratis services en aantallen.
 
-## <a name="your-credit-ran-out-or-has-expired"></a>Uw tegoed uit uitgevoerd of is verlopen
-Als uw tegoed tijdens of aan het einde van 30 dagen is verlopen, wordt uw abonnement in Azure uitgeschakeld. Om door te gaan met Azure-services, moet u uw abonnement bijwerken naar een abonnement met betalen naar gebruik. Zie voor meer informatie [Upgrade van uw gratis proefversie van Azure-abonnement naar betalen per gebruik](billing-upgrade-azure-subscription.md). Nadat u een upgrade uitvoert, heeft uw abonnement nog steeds toegang tot services gedurende 12 maanden gratis. U alleen ophalen in rekening gebracht voor gebruik buiten de gratis services en aantallen.
-
-
-Bekijken we enkele redenen waarom dat u kunt kosten op uw gratis Azure-account.
+## <a name="your-credit-ran-out-or-has-expired"></a>Uw tegoed van hebt uitgevoerd of is verlopen
+Als uw tegoed is uitgevoerd uit of aan het einde van 30 dagen is verlopen, wordt uw abonnement uitgeschakeld in Azure. Om door te gaan met Azure-services, moet u uw abonnement upgraden naar een betalen per gebruik-abonnement. Zie voor meer informatie, [uw gratis proefversie van Azure-abonnement upgraden naar betalen per gebruik](billing-upgrade-azure-subscription.md). Nadat u een upgrade uitvoert, heeft uw abonnement nog steeds toegang tot gratis services voor 12 maanden. U alleen in rekening gebracht voor gebruik buiten de gratis services en aantallen.
 
 
-### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>Gebruik van uw overschrijdt de grenzen van de beschikbare services in uw gratis Azure-account
+We bekijken enkele van de redenen dat kunt u kosten in rekening gebracht op uw gratis Azure-account.
 
-U krijgt maandelijks een beperkte hoeveelheid gratis services met uw gratis Azure-account. De beschikbare hoeveelheid verloopt aan het einde van de maand en niet overschakelen naar de volgende maand. Bijvoorbeeld, krijgt u 5 GB van File storage elke maand. Als in een maand, u alleen 2 GB gebruikt, rollover niet via de resterende 3 GB van de volgende maand. Houd gebruik binnen de grenzen van uw Voorkom ophalen in rekening gebracht. Zie voor meer informatie over de limieten van gratis services, [wat gratis Azure-account is](https://azure.microsoft.com/free/free-account-faq/). Het gebruik van uw gratis service Zie [Controleer gebruik van de gratis services die deel uitmaakt van de gratis Azure-Account](billing-check-free-service-usage.md). 
 
-### <a name="you-are-using-services-not-included-for-free-with-your-azure-free-account"></a>U services niet gratis zijn opgenomen in uw gratis Azure-account gebruikt
+### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>Uw gebruik overschrijdt de grenzen van gratis services inbegrepen bij uw gratis Azure-account
 
-U ophalen in rekening gebracht betalen naar gebruik tarieven voor het gebruik van services, die niet opgenomen gratis bij uw gratis Azure-account zijn. Zie voor meer informatie over services die deel uitmaakt van een gratis account, [wat gratis Azure-account is](https://azure.microsoft.com/free/free-account-faq/). U kunt het gebruik van de services die u in de Azure portal of via het gebruik van Azure-bestand gebruikt controleren. Zie voor meer informatie, [regelmatig controleren van de portal voor verdeling van de kosten en snelheid branden](billing-getting-started.md#costs) en [downloaden van informatie over het gebruik van het Account Center](billing-download-azure-invoice-daily-usage-date.md). 
+U krijgt een beperkte hoeveelheid van gratis services per maand met uw gratis Azure-account. De gratis beschikbare ruimte aan het einde van de maand is verlopen en niet meegenomen naar de volgende maand. Bijvoorbeeld, u 5 GB aan opslag van bestanden per maand. Als in een maand, moet u alleen 2 GB gebruikt, kunnen de resterende 3 GB zich niet meegenomen naar de volgende maand. Houd uw gebruik binnen de grenzen om te voorkomen oninbaar. Zie voor meer informatie over de limieten van gratis services, [wat is er gratis Azure-account](https://azure.microsoft.com/free/free-account-faq/). Om te controleren of uw gebruik van de gratis service, Zie [gebruik van gratis services die zijn opgenomen in de gratis Azure-Account controleren](billing-check-free-service-usage.md). 
 
-### <a name="you-have-reached-the-end-of-your-12-months-free-services"></a>U hebt het einde van uw 12 maanden bereikt gratis services
+### <a name="you-are-using-services-not-included-for-free-with-your-azure-free-account"></a>U services die niet gratis zijn opgenomen in uw gratis Azure-account gebruikt
 
-Uw gratis services en hoeveelheden verloopt aan het einde van twaalf maanden. U vindt hier de verloopdatum van de Azure-portal.
+U betaalt betalen per gebruik-tarieven voor het gebruik van services, die niet inbegrepen bij uw gratis Azure-account zijn. Zie voor meer informatie over services die zijn opgenomen met gratis account, [wat is er gratis Azure-account](https://azure.microsoft.com/free/free-account-faq/). Het gebruik van de services die u in Azure portal of via het gebruik van Azure-bestand gebruikt, kunt u controleren. Zie voor meer informatie, [regelmatig controleren op de portal voor verdeling van de kosten en burn rate](billing-getting-started.md#costs) en [gebruiksgegevens downloaden via het Accountcentrum](billing-download-azure-invoice-daily-usage-date.md). 
+
+### <a name="you-have-reached-the-end-of-your-12-months-free-services"></a>U hebt bereikt het einde van de 12 maanden gratis services
+
+Uw gratis services en de aantallen verloopt aan het einde van 12 maanden. Vindt u de vervaldatum van de Azure-portal.
 
 1.  Meld u aan bij [Azure Portal](http://portal.azure.com).
 
-2.  Selecteer in het linkernavigatievenster gebied **alle services**.
+2.  Selecteer in de navigatiebalk aan de linkerkant gebied **alle services**.
 
-3.  Selecteer **abonnementen**.
+3.  Selecteer **Abonnementen**.
 
-4.  Selecteer het abonnement dat u hebt gemaakt toen u zich registreerde gratis account.
+4.  Selecteer het abonnement dat u hebt gemaakt toen u zich hebt geregistreerd voor een gratis account.
 
-5.  Schuif naar beneden zoeken gratis services raster. Klik op de knopinfo die zich op de bovenkant van het raster links.
+5.  Schuif omlaag naar zoeken gratis services raster. Klik op de knopinfo die zich in de rechterbovenhoek linksboven in het raster.
 
-![Schermopname die laat zien waar vind ik gratis account voordelen vervaldatum](./media/billing-avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
+![Schermopname die laat zien waar vind ik de vervaldatum van gratis account voordelen](./media/billing-avoid-charges-free-account/freeaccount-benefits-expiration-date.png)
 
 
-Wanneer uw gratis services en hoeveelheden verlopen, wordt Azure rekent u betalen naar gebruik tarieven voor alle services die u gebruikt. De Azure-portal kunt u de resources voor de services die u niet gebruikt verwijderen. Als u niet dat alle Azure-service gebruiken wilt, kunt u [uw abonnement annuleren](billing-how-to-cancel-azure-subscription.md).
+Nadat uw gratis services en de aantallen zijn verlopen, wordt Azure rekent u betalen per gebruik-tarieven voor alle services die u gebruikt. U kunt de Azure-portal gebruiken om de resources voor de services die u niet gebruikt te verwijderen. Als u niet dat elke Azure-service gebruikt wilt, kunt u [uw abonnement annuleert](billing-how-to-cancel-azure-subscription.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u hulp nodig hebt, moet [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

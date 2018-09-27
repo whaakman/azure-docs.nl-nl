@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cjiang
-ms.openlocfilehash: 8368055ed017d8a9e9af92ae6461086abf1d0cff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: cwatson
+ms.openlocfilehash: d48b55af705eddb42853fb236e5eb6a214d1a0ff
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450002"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394044"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Aanmelden voor Office 365-abonnement met uw Azure-account
 Als u Azure-abonnee bent, kunt u uw Azure-account om u te registreren voor een Office 365-abonnement. Als u deel uitmaakt van een organisatie met een Azure-abonnement bent, kunt u Office 365-abonnementen voor gebruikers in uw bestaande Azure Active Directory (Azure AD). Meld u aan bij Office 365 met een account met globale beheerder of factureringsbeheerder machtigingen in uw Azure Active Directory-tenant. Zie voor meer informatie, [Controleer de accountmachtigingen van mijn in Azure AD](#RoleInAzureAD) en [beheerdersrollen toewijzen in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).

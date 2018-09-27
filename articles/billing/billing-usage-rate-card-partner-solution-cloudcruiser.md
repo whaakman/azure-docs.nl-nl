@@ -1,6 +1,6 @@
 ---
 title: Cloud Cruiser en Microsoft Azure Billing API-integratie | Microsoft Docs
-description: Biedt een unieke perspectief van Microsoft Azure Billing partner Cruiser Cloud, op hun ervaringen van de Azure Billing API's integreren in hun product.  Dit is vooral nuttig voor Azure en Cloud Cruiser klanten die zijn geïnteresseerd zijn in gebruik/probeert Cloud Cruiser voor Microsoft Azure-pakket.
+description: Biedt een unieke perspectief van Microsoft Azure Billing partner Cloud Cruiser, op hun ervaringen die de Azure Billing API's integreren in hun product.  Dit is vooral handig voor klanten met Azure en Cloud Cruiser die zijn geïnteresseerd in met behulp van/probeert Cloud Cruiser voor Microsoft Azure Pack.
 services: ''
 documentationcenter: ''
 author: tonguyen
@@ -14,21 +14,21 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo
-ms.openlocfilehash: 487636ffb0efc35c282e14d835c6669ed9d47315
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: erikre
+ms.openlocfilehash: 95d90e898ddc8766cf96a5a72c315407cd596393
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771494"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393856"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser en Microsoft Azure Billing API-integratie
-Dit artikel wordt beschreven hoe de gegevens van de nieuwe Microsoft Azure Billing-API's kan worden gebruikt in de Cloud Cruiser voor werkstroom kosten simulatie en analyse.
+Dit artikel wordt beschreven hoe de gegevens die worden verzameld van de nieuwe Microsoft Azure Billing API's in de Cloud Cruiser kan worden gebruikt voor de werkstroom kosten simulatie en analyse.
 
 ## <a name="azure-ratecard-api"></a>Azure RateCard API
-De API RateCard biedt informatie van de snelheid van Azure. Na verificatie met de juiste referenties opgeeft, kunt u een query de API voor het verzamelen van metagegevens over de beschikbare services in Azure, samen met de tarieven van uw bieden.
+De RateCard API biedt gegevens over van Azure. Na verificatie met de juiste referenties opgeeft, kunt u een query de API voor het verzamelen van metagegevens over de services die beschikbaar zijn op Azure, samen met de tarieven die zijn gekoppeld aan uw aanbieding.
 
-Het volgende voorbeeldantwoord is van de API met de prijzen voor de A0 (Windows)-exemplaar:
+Het volgende voorbeeldantwoord afkomstig is van de API met de prijzen voor de A0-exemplaar (Windows):
 
     {
         "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
@@ -45,105 +45,105 @@ Het volgende voorbeeldantwoord is van de API met de prijzen voor de A0 (Windows)
         "MeterStatus": "Active"
     },
 
-### <a name="cloud-cruisers-interface-to-azure-ratecard-api"></a>Cloud Cruiser van Interface naar Azure RateCard API
-Cloud Cruiser kunt u de informatie RateCard API gebruiken op verschillende manieren. Voor dit artikel wordt gedemonstreerd hoe deze kan worden gebruikt om ervoor te IaaS werkbelasting kosten simulatie en -analyse.
+### <a name="cloud-cruisers-interface-to-azure-ratecard-api"></a>Cloud Cruiser de Interface voor Azure RateCard API
+Cloud Cruiser kunt de RateCard API-informatie op verschillende manieren gebruiken. In dit artikel laten we zien hoe het kan worden gebruikt voor het maken van IaaS werkbelasting kosten simulatie en analyse.
 
-Stel dat een werkbelasting van meerdere instanties die actief zijn op Microsoft Azure Pack (WAP) ter illustratie van deze gebruiksvoorbeeld. Het doel is om te simuleren van deze dezelfde werkbelasting op Azure en schat de kosten van dergelijke migratie uitvoeren. Om te kunnen maken van deze simulatie, zijn er twee belangrijke taken worden uitgevoerd:
+Stel een werkbelasting voor meerdere exemplaren op Microsoft Azure Pack (WAP) uitgevoerd om te demonstreren deze use case. Het doel is om te simuleren van deze dezelfde werkbelasting op Azure en schat de kosten van deze migratie. Als u wilt maken in deze simulatie, zijn er twee belangrijkste taken die moeten worden uitgevoerd:
 
-1. **Importeren en verwerken van de API RateCard verzamelde gegevens van de service.** Deze taak wordt ook uitgevoerd op de werkmappen, waarbij het uitpakken van de API RateCard getransformeerd en gepubliceerd naar een nieuw plan voor snelheid. Dit nieuwe snelheid abonnement wordt gebruikt op de simulaties als indicatie van de prijzen van Azure.
-2. **Normaliseren WAP-services en Azure IaaS-services.** Standaard WAP-services zijn gebaseerd op afzonderlijke resources (CPU, geheugen, schijfgrootte, enz.) bij Azure services zijn gebaseerd op de exemplaargrootte van het (A0, A1, A2, enzovoort). Deze eerste taak kan worden uitgevoerd door de Cloud Cruiser ETL-engine, aangeroepen werkmappen, waar deze resources kunnen worden gebundeld op exemplaar grootten, vergelijkbaar met het exemplaar van Azure-services.
+1. **Importeren en verwerken van gegevens voor de service die is verzameld van de RateCard API.** Deze taak wordt ook uitgevoerd op de werkmappen, waarbij het uitpakken van de RateCard API getransformeerd en gepubliceerd naar een nieuwe tariefplan. Deze nieuwe tariefplan wordt gebruikt op de simulaties om in te schatten van de Azure-prijzen.
+2. **Normaliseren WAP-services en Azure IaaS-services.** Standaard WAP-services zijn gebaseerd op afzonderlijke resources (CPU, geheugen, schijfgrootte, enzovoort) terwijl Azure services zijn afhankelijk van de grootte van het exemplaar (A0, A1, A2, enz.). Deze eerste taak kan worden uitgevoerd door de ETL-engine van Cloud Cruiser, aangeroepen werkmappen, waar deze resources kunnen worden gebundeld op exemplaargrootten, vergelijkbaar met de services van Azure-instantie.
 
 ### <a name="import-data-from-the-ratecard-api"></a>Gegevens importeren uit de RateCard-API
-Cloud Cruiser werkmappen bieden een geautomatiseerde manier voor het verzamelen en informatie van de API RateCard verwerken.  Werkmappen voor ETL (uitpakken-transformatie-load) kunnen u de verzameling, transformatie en publiceren van gegevens naar de Cloud Cruiser-database configureren.
+Cloud Cruiser werkmappen bieden een geautomatiseerde manier voor het verzamelen en verwerken van gegevens uit de RateCard API.  ETL (extract-transform-load) werkmappen kunnen u de verzameling, transformatie en publicatie van gegevens in de Cloud Cruiser-database configureren.
 
-Elke werkmap, kan een of meerdere verzamelingen, zodat u gegevens uit verschillende bronnen naar een aanvulling vormen op of uitbreiding van de gebruiksgegevens correleren hebben. De volgende twee schermafbeeldingen laten zien hoe u een nieuwe *verzameling* in een bestaande werkmap en het importeren van gegevens in de *verzameling* van de API RateCard:
+Elke werkmap kan een of meerdere verzamelingen, zodat u kunt het correleren van gegevens uit verschillende bronnen te vullen of Verbeter de gebruiksgegevens hebben. De volgende twee schermafbeeldingen laten zien hoe u een nieuw *verzameling* in een bestaande werkmap en importeren van gegevens in de *verzameling* van de RateCard API:
 
 ![Afbeelding 1: een nieuwe verzameling maken][1]
 
-![Afbeelding 2: gegevens importeren uit de nieuwe verzameling][2]
+![Afbeelding 2: gegevens importeren van de nieuwe verzameling][2]
 
-Na het importeren van de gegevens in de werkmap is het mogelijk te maken van meerdere stappen en processen voor transformatie, om te wijzigen en model van de gegevens. Bijvoorbeeld, aangezien we alleen geïnteresseerd in de infrastructuur-as-a-Service (IaaS bent) we kunnen de transformatie-stappen gebruiken om onnodige rijen te verwijderen of records, gerelateerd aan services dan IaaS.
+Na het importeren van de gegevens in de werkmap, is het mogelijk te maken van meerdere stappen en processen voor transformatie, om te wijzigen en de gegevens modelleren. In dit voorbeeld omdat we alleen geïnteresseerd bent in infrastructuur-as-a-Service (IaaS), gebruiken we de stappen voor gegevenstransformatie om onnodige rijen te verwijderen of records, die betrekking hebben op services dan IaaS.
 
-De volgende schermafbeelding ziet de transformatie stappen voor het verwerken van de gegevens die worden verzameld van RateCard API:
+De volgende schermafbeelding ziet u de stappen voor gegevenstransformatie gebruikt voor het verwerken van de gegevens die worden verzameld van RateCard API:
 
-![Afbeelding 3 - transformatie stappen voor het verwerken van de verzamelde gegevens van RateCard API][3]
+![Afbeelding 3 - transformatiestappen voor het verwerken van verzamelde gegevens van RateCard API][3]
 
-### <a name="defining-new-services-and-rate-plans"></a>Plannen voor het definiëren van nieuwe Services en snelheid
-Er zijn verschillende manieren voor het definiëren van services op Cloud Cruiser. Een van de opties is voor het importeren van de services van de gebruiksgegevens. Deze methode wordt doorgaans gebruikt bij het werken met openbare clouds, waarbij de services al zijn gedefinieerd door de provider.
+### <a name="defining-new-services-and-rate-plans"></a>Nieuwe Services en snelheid definiëren plannen
+Er zijn verschillende manieren voor het definiëren van services op Cloud Cruiser. Een van de opties is voor het importeren van de services van gegevens over gebruik. Deze methode wordt doorgaans gebruikt bij het werken met openbare clouds, waar de services die al zijn gedefinieerd door de provider.
 
-Een Tariefplan is een reeks tarieven of prijzen die kunnen worden toegepast op verschillende services, op basis van ingangsdatums of groep aan klanten, onder andere opties. Tarieven kunnen ook worden gebruikt op Cloud Cruiser simulatie of 'Wat-als'-scenario's om te begrijpen hoe wijzigingen in services invloed hebben op de totale kosten van een werklast te maken.
+Een Tariefplan is een set tarieven of prijzen die kunnen worden toegepast op verschillende services uit, op basis van ingangsdatums of groep van klanten, onder andere opties. Tariefplannen kunnen ook worden gebruikt in de Cloud Cruiser simulatie of 'What-if-scenario's, om te begrijpen hoe wijzigingen in services invloed hebben op de totale kosten van een werkbelasting te maken.
 
-In dit voorbeeld gebruiken we de service-informatie van de API RateCard voor het definiëren van nieuwe services in de Cloud Cruiser. We kunnen op dezelfde manier de tarieven tot de services gebruiken voor het maken van een nieuwe Tariefplan op Cloud Cruiser.
+In dit voorbeeld gebruiken we de service-informatie van de RateCard API voor het definiëren van nieuwe services in de Cloud Cruiser. We kunnen op dezelfde manier, de tarieven die is gekoppeld aan de services gebruiken voor het maken van een nieuwe Tariefplan op Cloud Cruiser.
 
-Aan het einde van het proces voor transformatie is het mogelijk te maken van een nieuwe stap en de gegevens van de API RateCard publiceren als nieuwe services en tarieven.
+Aan het einde van het proces voor transformatie is het mogelijk te maken van een nieuwe stap en de gegevens van de RateCard API publiceren als nieuwe services en -tarieven.
 
-![Afbeelding 4: de gegevens van de API RateCard publiceren als een nieuwe Services en tarieven][4]
+![Afbeelding 4: de gegevens uit de RateCard API publiceren als een nieuwe Services en -tarieven][4]
 
-### <a name="verify-azure-services-and-rates"></a>Controleer of de Azure-Services en tarieven
-Na het publiceren van de services en tarieven, kunt u controleren of de lijst met geïmporteerde services in de Cloud Cruiser *Services* tabblad:
+### <a name="verify-azure-services-and-rates"></a>Controleer of de Azure-Services en -tarieven
+Na het publiceren van de services en -tarieven, kunt u controleren of de lijst met geïmporteerde services in de Cloud Cruiser *Services* tabblad:
 
-![Afbeelding 5: de nieuwe Services verifiëren][5]
+![Afbeelding 5: de nieuwe Services controleren][5]
 
-Op de *snelheid plannen* tabblad kunt u het nieuwe snelheid plan genaamd 'AzureSimulation' met de tarieven geïmporteerd uit de API RateCard controleren.
+Op de *tarief plannen* tabblad kunt u het nieuwe tariefplan met de naam 'AzureSimulation' met de tarieven geïmporteerd uit de RateCard API controleren.
 
 ![Afbeelding 6 - verifiëren van de nieuwe Tariefplan en de bijbehorende tarieven][6]
 
 ### <a name="normalize-wap-and-azure-services"></a>Normaliseren WAP en Azure-Services
-WAP biedt standaard gebruiksgegevens op basis van het gebruik van de berekenings-, geheugen- en netwerkbronnen. In de Cloud Cruiser, definieert u uw services op basis van rechtstreeks op de toewijzing of het gecontroleerde gebruik van deze bronnen. U kunt bijvoorbeeld een basic frequentie instellen voor elk uur van de CPU-gebruik of de GB geheugen toegewezen aan een exemplaar kosten in rekening gebracht.
+WAP biedt standaard, informatie over het gebruik op basis van het gebruik van Reken-, geheugen- en netwerkbronnen. In de Cloud Cruiser, definieert u uw services op basis van rechtstreeks op de toewijzing of het met een datalimiet gebruik van deze resources. U kunt bijvoorbeeld het instellen van een basic-tarief voor elk uur van de CPU-gebruik of de GB aan geheugen toegewezen aan een exemplaar in rekening gebracht.
 
-In dit voorbeeld moet vergelijken kosten tussen WAP en Azure, voor het cumuleren van het gebruik van bronnen op WAP in bundels, die vervolgens kunnen worden toegewezen aan Azure-services. Deze transformatie kan gemakkelijk worden geïmplementeerd in de werkmappen:
+Bijvoorbeeld, om kosten tussen WAP en Azure, vergelijken moet we het gebruik van bronnen op WAP in pakketten, die vervolgens kunnen worden toegewezen aan Azure-services. Deze transformatie kan eenvoudig worden geïmplementeerd in de werkmappen:
 
-![Afbeelding 7: transformeren WAP-gegevens voor het normaliseren van services][7]
+![Afbeelding 7: transformeren van WAP-gegevens voor het normaliseren van services][7]
 
-De laatste stap in de werkmap is voor het publiceren van de gegevens in de Cloud Cruiser-database. De gebruiksgegevens is tijdens deze stap nu gebundeld in services (die zijn toegewezen aan de Azure-Services) en gekoppeld aan standaardtarieven voor het maken van de kosten.
+De laatste stap in de werkmap is voor het publiceren van de gegevens in de Cloud Cruiser-database. Gegevens over gebruik is tijdens deze stap nu gebundeld in services (die zijn toegewezen aan de Azure-Services) en gekoppeld aan de standaardtarieven voor het maken van de kosten in rekening gebracht.
 
-Nadat de werkmap is voltooid, kunt u de verwerking van de gegevens automatiseren door een taak toevoegen op de scheduler en het opgeven van de frequentie en het tijdstip voor de werkmap om uit te voeren.
+Nadat de werkmap is voltooid, kunt u de verwerking van de gegevens, automatiseren door het toevoegen van een taak op de scheduler en de frequentie en het tijdstip voor de werkmap om uit te voeren op te geven.
 
 ![Afbeelding 8 - werkmap plannen][8]
 
-### <a name="create-reports-for-workload-cost-simulation-analysis"></a>Rapporten voor werkbelasting kosten simulatie analyse maken
-We kunnen nadat de gebruiksgegevens worden verzameld en kosten zijn geladen in de Cloud Cruiser-database, de Cloud Cruiser Insights-module voor het maken van de werkbelasting kosten simulatie die we willen gebruiken.
+### <a name="create-reports-for-workload-cost-simulation-analysis"></a>Rapporten maken voor de werkbelasting kosten simulatie analyse
+Nadat de gebruiksgegevens worden verzameld en kosten in rekening gebracht in de Cloud Cruiser-database worden geladen, kunt we het Cloud Cruiser Insights-module gebruiken voor het maken van de werkbelasting simulatie gewenste kosten.
 
-Om dit scenario demonstreren, wordt het volgende rapport gemaakt:
+Als u wilt laten zien in dit scenario, we hebben het volgende rapport gemaakt:
 
-![Vergelijking van kosten][9]
+![Vergelijking van de kosten][9]
 
-De bovenste grafiek bevat een kostenvergelijking per services, vergelijken van de prijs van het uitvoeren van de werkbelasting voor elke specifieke service tussen WAP (donker blauw) en Azure (lichte blauw).
+De bovenste grafiek toont een kostenvergelijking van de door services, de prijs van het uitvoeren van de werkbelasting voor elke specifieke service tussen WAP (Donkerblauw) en Azure (Lichtblauw) te vergelijken.
 
-De grafiek onder toont dezelfde gegevens, maar uitgesplitst per afdeling. De kosten voor elke afdeling in voor het uitvoeren van hun werkbelasting op WAP en Azure, samen met het verschil tussen deze twee wordt weergegeven in de balk besparingen (groen).
+De onderste grafiek laat zien dezelfde gegevens maar onderverdeeld op basis van afdeling. De kosten voor elke afdeling om uit te voeren van hun werkbelasting op de WAP- en Azure, samen met het verschil tussen deze wordt weergegeven in de balk besparingen (groen).
 
 ## <a name="azure-usage-api"></a>Gebruik van Azure-API
 ### <a name="introduction"></a>Inleiding
-Microsoft heeft onlangs geïntroduceerd voor de Azure-gebruik API, abonnees programmatisch ophalen van gebruiksgegevens inzicht in hun verbruik toestaan. Cloud Cruiser klanten kunnen profiteren van de rijkere gegevensset beschikbaar via deze API.
+Microsoft is onlangs geïntroduceerd voor het Azure Usage API, zodat abonnees om op te halen via een programma gegevens over gebruik voor inzicht in hun gebruik. Cloud Cruiser-klanten kunnen profiteren van de uitgebreide gegevensset beschikbaar via deze API.
 
-Cloud Cruiser kunt u de integratie met de API-gebruik op verschillende manieren gebruiken. De granulatie (elk uur gebruiksgegevens) en metagegevens broninformatie beschikbaar is via de API biedt de benodigde gegevensset ter ondersteuning van flexibele Showback of terugstorting modellen. 
+Cloud Cruiser kunt u de integratie met de API-gebruik op verschillende manieren gebruiken. De granulatie (per uur gebruiksgegevens) en resource metagegevensinformatie beschikbaar via de API biedt de benodigde gegevensset ter ondersteuning van flexibele Showback of Chargeback modellen. 
 
-In deze zelfstudie presenteren we een voorbeeld van hoe Cloud Cruiser van de informatie over het gebruik API-informatie profiteren kunt. Meer specifiek, wordt er een resourcegroep maken in Azure, tags voor de structuur van het account koppelen en beschrijven het proces van binnenhalen en verwerken van de tag-informatie in de Cloud Cruiser.
+In deze zelfstudie geven we een voorbeeld van hoe Cloud Cruiser van de Usage API-informatie profiteren kan. Meer specifiek, wordt er een resourcegroep maken op Azure, tags voor de structuur van het account koppelen en beschrijven het proces van ophalen en verwerken van de informatie over de assettag in Cloud Cruiser.
 
-Het uiteindelijke doel is mogelijk te maken van rapporten, zoals de volgende en kunnen analyseren van kosten en het verbruik op basis van de account-structuur gevuld door de labels.
+Het uiteindelijke doel is om te kunnen maken van rapporten, zoals de volgende uitvoer en kan om kosten en verbruik op basis van de account-structuur gevuld met de labels te analyseren.
 
 ![Afbeelding 10 - rapport met storingen met tags][10]
 
-### <a name="microsoft-azure-tags"></a>Labels van de Microsoft Azure
-De gegevens beschikbaar zijn via de API voor het gebruik van Azure bevat niet alleen informatie over het verbruik, maar ook met inbegrip van alle codes die zijn gekoppeld aan het bron-metagegevens. Labels zijn een gemakkelijke manier om uw resources te organiseren, maar om te kunnen werken, moet u ervoor te zorgen dat:
+### <a name="microsoft-azure-tags"></a>Microsoft Azure-Tags
+De gegevens beschikbaar zijn via de API voor het gebruik van Azure bevatten niet alleen informatie over het energieverbruik, maar ook met inbegrip van alle tags die zijn gekoppeld aan deze resource-metagegevens. -Tags bieden een eenvoudige manier om uw resources te organiseren, maar als u wilt worden van kracht, moet u ervoor te zorgen dat:
 
-* Labels zijn correct toegepast op de bronnen tijdens het inrichten
-* Labels zijn correct van het proces Showback/verrekenen gebruikt om te koppelen van het gebruik van de organisatie-account structuur.
+* Labels worden correct toegepast op de resources tegelijk inrichten
+* Tags zijn goed gebruikt op het proces factureringen/terugstortingen om te koppelen van het gebruik van de organisatie-account structuur.
 
-Beide van deze vereisten kunnen lastig zijn, vooral wanneer er is een handmatig proces over het inrichten of opladen van kant. Verkeerd getypt, onjuiste of zelfs ontbrekende tags zijn algemene klachten van klanten wanneer met labels en deze fouten moeilijk om levensduur van de zijde geladen maken kan.
+Beide van deze vereisten kunnen lastig zijn, met name wanneer er een handmatig proces voor de levering of aan clientzijde in rekening gebracht. Verkeerd getypt, onjuiste of zelfs ontbrekende tags zijn algemene klachten van klanten bij met behulp van tags en deze fouten kan leven aan de Bezig met laden moeilijk maken.
 
-Met de nieuwe Azure gebruik API Cloud Cruiser pull-labels resourcegegevens, en via een geavanceerde ETL hulpprogramma werkmappen aangeroepen, deze algemene tagging fouten zijn opgelost. Via de transformatie met behulp van reguliere expressies en correlatie van gegevens, Cloud Cruiser onjuist gelabelde bronnen identificeren en toepassen van de juiste labels, zodat de juiste koppeling van de resources met de consument.
+Met de nieuwe Azure Usage API Cloud Cruiser resource tagging informatie halen, en met een geavanceerde ETL hulpprogramma werkmappen genoemd, deze algemene labels fouten oplossen. Met de transformatie met behulp van reguliere expressies en correlatie van gegevens, Cloud Cruiser onjuist gelabelde resources identificeren en toepassen van de juiste tags, ervoor te zorgen dat de juiste koppeling van de resources met de consument.
 
-Aan de geladen Cloud Cruiser automatiseert de Showback/verrekenen en de labelgegevens kunt gebruiken om te koppelen van het gebruik van de juiste gebruiker (afdeling, afdeling, Project, enzovoort). Deze automatisering biedt een enorme verbetering en kunt controleren of een consistente en controleerbare geladen proces.
+Aan de Bezig met laden Cloud Cruiser de factureringen/terugstortingen automatiseert en de informatie over de assettag kunt gebruiken om te koppelen van het gebruik moet de juiste gebruiker (afdeling, afdeling, Project, enz.). Deze automatisering biedt een enorme verbetering vormt en kunt controleren of een consistente en controleerbare Bezig met laden proces.
 
-### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Maken van een resourcegroep met labels op Microsoft Azure
-De eerste stap in deze zelfstudie is het een resourcegroep maken in de Azure portal maakt u nieuwe labels te koppelen aan de resources. Bijvoorbeeld, maken we de volgende codes: afdeling, omgeving, eigenaar, Project.
+### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Het maken van een resourcegroep met tags op Microsoft Azure
+De eerste stap in deze zelfstudie is het maken van een resourcegroep in Azure portal, maakt u nieuwe tags wilt koppelen aan de resources. In dit voorbeeld maken we de volgende codes: Project-afdeling, milieu, eigenaar.
 
-De volgende Schermafbeelding toont een voorbeeld van een resourcegroep met de bijbehorende tags.
+De volgende schermafbeelding ziet een voorbeeld van resourcegroep met de bijbehorende labels.
 
-![Afbeelding 11 - resourcegroep met de bijbehorende tags op Azure-portal][11]
+![Afbeelding 11 - resourcegroep met de gekoppelde tags in Azure portal][11]
 
-De volgende stap is het ophalen van de informatie van de API voor gebruik in de Cloud Cruiser. De Usage-API biedt momenteel reacties in JSON-indeling. Hier volgt een voorbeeld van de gegevens zijn opgehaald:
+De volgende stap is om op te halen van de gegevens van de API-gebruik in de Cloud Cruiser. De Usage-API biedt momenteel antwoorden in JSON-indeling. Hier volgt een voorbeeld van de gegevens opgehaald:
 
     {
       "id": "/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXX/providers/Microsoft.Commerce/UsageAggregates/Daily_BRSDT_20150623_0000",
@@ -168,42 +168,42 @@ De volgende stap is het ophalen van de informatie van de API voor gebruik in de 
     },
 
 
-### <a name="import-data-from-the-usage-api-into-cloud-cruiser"></a>Gegevens van de API voor gebruik in de Cloud Cruiser importeren
-Cloud Cruiser werkmappen bieden een geautomatiseerde manier voor het verzamelen en de verwerking van gegevens van de API-gebruik. Een werkmap van ETL (uitpakken-transformatie-load) kunt u de verzameling, transformatie en publiceren van gegevens naar de Cloud Cruiser-database configureren.
+### <a name="import-data-from-the-usage-api-into-cloud-cruiser"></a>Gegevens importeren uit de API-gebruik in de Cloud Cruiser
+Cloud Cruiser werkmappen bieden een geautomatiseerde manier voor het verzamelen en de verwerking van gegevens van de API-gebruik. De werkmap van een ETL (extract-transform-load) kunt u de verzameling, transformatie en publicatie van gegevens in de Cloud Cruiser-database configureren.
 
-Elke werkmap, kan een of meerdere verzamelingen hebben. Hiermee kunt u gegevens uit verschillende bronnen naar een aanvulling vormen op of uitbreiding van de gebruiksgegevens correleren. Bijvoorbeeld, maken we een nieuw werkblad in de werkmap Azure-sjabloon (*UsageAPI)* en stel een nieuw *verzameling* voor het importeren van gegevens van de API-gebruik.
+Elke werkmap kan een of meer verzamelingen hebben. Hiermee kunt u correlaties zichtbaar maken tussen gegevens uit verschillende bronnen te vullen of Verbeter de gebruiksgegevens. In dit voorbeeld maken we een nieuw blad in de werkmap van de Azure-sjabloon (*UsageAPI)* en stel een nieuwe *verzameling* om gegevens te importeren vanuit de API-gebruik.
 
-![Afbeelding 3 - API gebruiksgegevens geïmporteerd in het blad UsageAPI][12]
+![Afbeelding 3: gegevens over gebruik API geïmporteerd in het werkblad UsageAPI][12]
 
-U ziet dat deze werkmap al andere werkbladen heeft voor het importeren van de services van Azure (*ImportServices*), en de informatie over het verbruik van de API facturering verwerken (*PublishData*).
+U ziet dat deze werkmap al andere werkbladen voor het importeren van services van Azure (*ImportServices*), en verwerken van de informatie over het energieverbruik van de facturering-API (*PublishData*).
 
-We gebruik vervolgens de Usage-API voor het vullen van de *UsageAPI* werkblad en het correleren van de gegevens voor de gegevens over het verbruik van de API facturering op de *PublishData* blad.
+Vervolgens gebruiken we de Usage-API voor het vullen van de *UsageAPI* blad en correleren van de gegevens met de gegevens over het verbruik van de facturering-API op de *PublishData* blad.
 
-### <a name="processing-the-tag-information-from-the-usage-api"></a>Verwerking van de tag-informatie van de API-gebruik
-Na het importeren van de gegevens in de werkmap maken we transformatie stappen in de *UsageAPI* blad om de gegevens van de API. Eerste stap is het gebruik van een 'JSON splitsen'-processor en uitpakken van de labels van een veld vervolgens velden voor elk van deze (afdeling, Project eigenaar en omgeving) maken.
+### <a name="processing-the-tag-information-from-the-usage-api"></a>Verwerking van de informatie over de assettag van de API-gebruik
+Na het importeren van de gegevens in de werkmap, maken we de stappen voor gegevenstransformatie in de *UsageAPI* blad om de gegevens van de API. Eerste stap is het gebruik van een processor "JSON splitsen" uitpakken van de labels van een veld en vervolgens velden maken voor elk incident (afdeling, Project, eigenaar en omgeving).
 
-![Afbeelding 4: nieuwe velden voor de tag-informatie maken][13]
+![Afbeelding 4: nieuwe velden voor de informatie over de assettag maken][13]
 
-U ziet de "Netwerken" service ontbreekt de labelgegevens (geel vak), maar we kunnen verifiëren dat het deel van dezelfde resourcegroep uitmaakt door te kijken de *ResourceGroupName* veld. Aangezien we de tags voor de andere bronnen van deze resourcegroep hebben, kunnen we gebruik van deze informatie om de ontbrekende tags toepassen op deze resource later in het proces.
+U ziet de service 'Netwerken' ontbreekt de informatie over de assettag (geel vak), maar we kunnen verifiëren dat het is onderdeel van dezelfde resourcegroep door te kijken de *ResourceGroupName* veld. Aangezien we de tags voor de andere resources in deze resourcegroep hebben, kunnen we gebruiken deze gegevens naar de ontbrekende labels toevoegen aan deze resource later in het proces.
 
-De volgende stap is het maken van een opzoektabel koppelen van de gegevens van de codes voor de *ResourceGroupName*. Deze opzoektabel wordt gebruikt op de volgende stap voor het aanvullen van de verbruiksgegevens label informatie.
+De volgende stap is het maken van een opzoektabel koppelen van de gegevens van de labels aan de *ResourceGroupName*. Deze opzoektabel wordt gebruikt op de volgende stap om de gegevens met informatie over de assettag verrijken.
 
-### <a name="adding-the-tag-information-to-the-consumption-data"></a>De labelgegevens toe te voegen aan de verbruiksgegevens
-Nu we kunt gaan naar de *PublishData* werkblad, welke processen de informatie over het verbruik van de API facturering en de velden die zijn opgehaald uit de labels toevoegen. Dit proces wordt uitgevoerd door te kijken in de opzoektabel op de vorige stap hebt gemaakt met behulp van de *ResourceGroupName* als de sleutel voor zoekopdrachten.
+### <a name="adding-the-tag-information-to-the-consumption-data"></a>De informatie over de assettag toe te voegen aan de verbruiksgegevens
+Nu we u naar gaat kunt de *PublishData* blad, welke processen de informatie over het energieverbruik van de facturering-API, en de velden die zijn geëxtraheerd uit de labels toevoegen. Dit proces wordt uitgevoerd door te kijken in de opzoektabel op de vorige stap hebt gemaakt met behulp van de *ResourceGroupName* als de sleutel voor zoekopdrachten.
 
-![Afbeelding 5: de structuur van het account met de gegevens van zoekopdrachten in te vullen][14]
+![Afbeelding 5: de structuur van het account met de gegevens uit de opzoekbewerkingen vullen][14]
 
-U ziet dat de juiste account structure-velden voor de service "Netwerken" zijn toegepast, en het verhelpen van het probleem met de ontbrekende codes. We ook de velden van de structuur account voor bronnen dan de doelgegevensruimte resourcegroep met 'Andere' ingevuld om ze in de rapporten te onderscheiden.
+U ziet dat de juiste account structuurvelden voor de service "Netwerken" zijn toegepast, en het probleem is opgelost met de ontbrekende codes. We ook de velden van de structuur account voor resources dan ons doel resourcegroep met 'Ander' gevuld om u te onderscheiden van de rapporten.
 
-Nu moet we alleen een stap voor het publiceren van de gebruiksgegevens toevoegen. De juiste tarieven voor elke service op onze Tariefplan gedefinieerd worden tijdens deze stap wordt toegepast op de informatie over het gebruik, met de resulterende kosten geladen in de database.
+Nu wilt we alleen toevoegen van een stap voor het publiceren van gegevens over gebruik. De juiste tarieven voor elke service die is gedefinieerd op onze Tariefplan worden tijdens deze stap wordt toegepast op de informatie over het gebruik, met de resulterende kosten in de database geladen.
 
-Het beste onderdeel is dat u alleen eenmaal door dit proces te gaan. Als de werkmap is voltooid, moet u alleen toe te voegen aan de planner en deze wordt elk uur of dagelijks uitgevoerd op het geplande tijdstip. Is alleen een kwestie van nieuwe rapporten maken of bestaande relaties aanpassen om te kunnen analyseren van de gegevens zodat u betekenisvolle inzichten verkrijgen van uw gebruik van cloud.
+Het mooiste is dat u alleen aan de slag door dit proces eenmaal hebt. Als de werkmap is voltooid, moet u alleen toe te voegen aan de scheduler en deze op het geplande tijdstip wordt elk uur of dagelijks uitgevoerd. Is alleen een kwestie van nieuwe rapporten te maken of bestaande toepassingen aanpassen om te kunnen analyseren van de gegevens voor het ophalen van bruikbare inzichten uit uw gebruik van de cloud.
 
 ### <a name="next-steps"></a>Volgende stappen
-* Voor gedetailleerde instructies over het maken van Cloud Cruiser werkmappen en de rapporten die verwijzen naar de Cloud Cruiser online [documentatie](http://docs.cloudcruiser.com/) (geldig aanmelden vereist).  Raadpleeg voor meer informatie over Cloud Cruiser [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
-* Zie [inzicht in uw Microsoft Azure-brongebruik](billing-usage-rate-card-overview.md) voor een overzicht van het gebruik van Azure-bronnen en RateCard APIs.
-* Bekijk de [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) voor meer informatie over beide API's die deel uitmaken van de reeks API's die zijn opgegeven door de Azure Resource Manager.
-* Als u meteen rechts in de voorbeeldcode wilt, Bekijk onze Microsoft Azure Billing API codevoorbeelden op [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?term=billing).
+* Voor gedetailleerde instructies over het maken van Cloud Cruiser werkmappen en -rapporten verwijzen naar de Cloud Cruiser online [documentatie](http://docs.cloudcruiser.com/) (geldige aanmelding vereist).  Voor meer informatie over Cloud Cruiser, neem contact op met [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
+* Zie [inzicht in het gebruik van de Microsoft Azure-resources](billing-usage-rate-card-overview.md) voor een overzicht van het gebruik van Azure-resources en RateCard APIs.
+* Bekijk de [Azure Billing REST API-verwijzing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) voor meer informatie over beide API's die deel uitmaken van de set API's die zijn opgegeven door de Azure Resource Manager.
+* Als u meteen in de voorbeeldcode wilt, bekijk dan onze Microsoft Azure Billing API-codevoorbeelden op [Azure-codevoorbeelden](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### <a name="learn-more"></a>Meer informatie
 * Zie voor meer informatie over de Azure Resource Manager, de [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) artikel.
@@ -211,16 +211,16 @@ Het beste onderdeel is dat u alleen eenmaal door dit proces te gaan. Als de werk
 <!--Image references-->
 
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Afbeelding 1: een nieuwe verzameling maken"
-[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Afbeelding 2: gegevens importeren uit de nieuwe verzameling"
-[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Afbeelding 3 - transformatie stappen voor het verwerken van de verzamelde gegevens van RateCard API"
-[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Afbeelding 4: de gegevens van de API RateCard publiceren als een nieuwe Services en tarieven"
-[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Afbeelding 5: de nieuwe Services verifiëren"
+[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Afbeelding 2: gegevens importeren van de nieuwe verzameling"
+[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Afbeelding 3 - transformatiestappen voor het verwerken van verzamelde gegevens van RateCard API"
+[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Afbeelding 4: de gegevens uit de RateCard API publiceren als een nieuwe Services en -tarieven"
+[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Afbeelding 5: de nieuwe Services controleren"
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Afbeelding 6 - verifiëren van de nieuwe Tariefplan en de bijbehorende tarieven"
-[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Afbeelding 7: transformeren WAP-gegevens voor het normaliseren van services"
+[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Afbeelding 7: transformeren van WAP-gegevens voor het normaliseren van services"
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Afbeelding 8 - werkmap plannen"
-[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Afbeelding 9 - voorbeeldrapport voor de werkbelasting kosten vergelijking scenario"
+[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Afbeelding 9 - voorbeeld-rapport voor de werkbelasting kosten vergelijking scenario"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Afbeelding 10 - rapport met storingen met tags"
-[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Afbeelding 11 - resourcegroep met de bijbehorende tags op Azure-portal"
-[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Afbeelding 12 - API gebruiksgegevens geïmporteerd in het blad UsageAPI"
-[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Afbeelding 13 - nieuwe velden voor de tag-informatie maken"
-[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Afbeelding 14 - vullen met de structuur van het account met de gegevens van zoekopdrachten"
+[11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Afbeelding 11 - resourcegroep met de gekoppelde tags in Azure portal"
+[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Afbeelding 12 - API voor gebruiksgegevens geïmporteerd in het werkblad UsageAPI"
+[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Afbeelding 13 - nieuwe velden voor de informatie over de assettag maken"
+[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Afbeelding 14 - invullen van de structuur van het account met de gegevens uit de opzoekbewerkingen"
