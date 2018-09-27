@@ -18,31 +18,39 @@ items:
   items:
   - name: Onverwachte kosten voorkomen
     href: billing-getting-started.md
-  - name: Meldingen voor facturering instellen
-    href: billing-set-up-alerts.md
-  - name: Prijs berekenen
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Resourcetags gebruiken
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: Beginnen met analyseren van kosten - alleen EA
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: Budgetten maken en beheren - alleen EA
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: Aanbevelingen optimaliseren - alleen EA
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Prijs berekenen
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: De bestedingslimiet begrijpen
     href: billing-spending-limit.md
+  - name: Meldingen voor facturering instellen
+    href: billing-set-up-alerts.md
   - name: Opslaan met Azure-reserveringen
     items:
     - name: Wat zijn Azure-reserveringen?
       href: billing-save-compute-costs-reservations.md
     - name: Een reservering kopen
       items:
-      - name: Virtuele machine
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux-software
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: Virtuele machine
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: Korting toepassen
       items:
       - name: Gereserveerde VM-instanties
         href: billing-understand-vm-reservation-charges.md
-      - name: Gereserveerde SQL Database-capaciteit
+      - name: Reservecapaciteit voor SQL Database
         href: billing-understand-reservation-charges.md
       - name: Gereserveerde Cosmos DB-capaciteit
         href: billing-understand-cosmosdb-reservation-charges.md
@@ -172,9 +180,9 @@ items:
     items:
     - name: REST-API van Enterprise Reporting
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 2ef6d1445b444b7816a7a652f052c169cf0d78ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0090b62d3738804877687e2071d96b13f7c9dd13
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969560"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063554"

@@ -7,6 +7,7 @@
 #### [Registreren in Dev Center](./register-dev-center.md) 
 #### [Factureringsopties voor Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Gebruikskenmerken van klanten van Azure-partners](./azure-partner-customer-usage-attribution.md)
+#### [Leadmanagement voor de cloud-marketplace](./lead-management-for-cloud-marketplace.md)
 
 ### [Webwinkels](./comparing-appsource-azure-marketplace.md)  
 

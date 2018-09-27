@@ -1,233 +1,242 @@
+items:
 - name: Documentatie voor App Service op Linux
   href: index.yml
 - name: Overzicht
   items:
-    - name: Meer informatie over Web Apps
-      href: ../app-service-web-overview.md
-    - name: Meer informatie over App Service op Linux
-      href: app-service-linux-intro.md
-    - name: Hostingopties vergelijken
-      href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Meer informatie over Web Apps
+    href: ../app-service-web-overview.md
+  - name: Meer informatie over App Service op Linux
+    href: app-service-linux-intro.md
+  - name: Hostingopties vergelijken
+    href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Een .NET Core-app maken
-      href: quickstart-dotnetcore.md
-    - name: Een PHP-app maken
-      href: quickstart-php.md
-    - name: Een Node.js-app maken
-      href: quickstart-nodejs.md
-    - name: Een Java-app maken
-      href: quickstart-java.md
-    - name: Een Python-app maken
-      href: quickstart-python.md
-    - name: Een Ruby-app maken
-      href: quickstart-ruby.md
-    - name: Een Docker-/Go-app maken
-      href: quickstart-docker-go.md
-    - name: Een app met meerdere containers maken
-      href: quickstart-multi-container.md
+  - name: Een .NET Core-app maken
+    href: quickstart-dotnetcore.md
+  - name: Een PHP-app maken
+    href: quickstart-php.md
+  - name: Een Node.js-app maken
+    href: quickstart-nodejs.md
+  - name: Een Java-app maken
+    href: quickstart-java.md
+  - name: Een Python-app maken
+    href: quickstart-python.md
+  - name: Een Ruby-app maken
+    href: quickstart-ruby.md
+  - name: Een Docker-/Go-app maken
+    href: quickstart-docker-go.md
+  - name: Een app met meerdere containers maken
+    href: quickstart-multi-container.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: App met DB
-      items:
-        - name: .Net Core met SQL DB
-          href: tutorial-dotnetcore-sqldb-app.md
-        - name: Ruby met Postgres
-          href: tutorial-ruby-postgres-app.md
-        - name: PHP met MySQL
-          href: tutorial-php-mysql-app.md
-        - name: Node.js met MongoDB
-          href: tutorial-nodejs-mongodb-app.md
-        - name: Aangepaste Python-container met Postgres
-          href: tutorial-docker-python-postgresql-app.md
-    - name: App met meerdere containers
-      href: tutorial-multi-container-app.md
-    - name: Aangepaste Docker-afbeelding
-      href: tutorial-custom-docker-image.md
-    - name: Aangepast domein toewijzen
-      href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: SSL-certificaat verbinden
-      href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: CDN toevoegen
-      href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Gebruikers verifiëren
-      href: tutorial-auth-aad.md
+  - name: App met DB
+    items:
+    - name: .Net Core met SQL DB
+      href: tutorial-dotnetcore-sqldb-app.md
+    - name: Ruby met Postgres
+      href: tutorial-ruby-postgres-app.md
+    - name: PHP met MySQL
+      href: tutorial-php-mysql-app.md
+    - name: Node.js met MongoDB
+      href: tutorial-nodejs-mongodb-app.md
+    - name: Aangepaste Python-container met Postgres
+      href: tutorial-docker-python-postgresql-app.md
+  - name: App met meerdere containers
+    href: tutorial-multi-container-app.md
+  - name: Aangepaste Docker-afbeelding
+    href: tutorial-custom-docker-image.md
+  - name: Aangepast domein toewijzen
+    href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: SSL-certificaat verbinden
+    href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: CDN toevoegen
+    href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Gebruikers verifiëren
+    href: tutorial-auth-aad.md
 - name: Voorbeelden
   items:
-    - name: Azure-CLI
-      href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Azure PowerShell
-      href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Azure-CLI
+    href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Azure PowerShell
+    href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Concepten
   items:
-    - name: De werking van App Service
-      href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: App Service-abonnementen
-      href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: App Service-omgeving
-      href: ../environment/intro.md
-    - name: Inkomende en uitgaande IP-adressen
-      href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Verificatie en autorisatie
-      href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Een implementatietype kiezen
-      href: choose-deployment-type.md
-    - name: Diagnostiek
-      href: ../app-service-diagnostics.md
+  - name: De werking van App Service
+    href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: App Service-abonnementen
+    href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: App Service-omgeving
+    href: ../environment/intro.md
+  - name: Gids voor Java-ontwikkelaars
+    href: app-service-linux-java.md
+  - name: Inkomende en uitgaande IP-adressen
+    href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Verificatie en autorisatie
+    href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Een implementatietype kiezen
+    href: choose-deployment-type.md
+  - name: Diagnostiek
+    href: ../app-service-diagnostics.md
 - name: Handleidingen
   items:
-    - name: Toepassing configureren
+  - name: Toepassing configureren
+    items:
+    - name: App-instellingen gebruiken
+      href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Implementeren in Azure
+    items:
+    - name: De app implementeren
       items:
-        - name: App-instellingen gebruiken
-          href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Implementeren in Azure
+      - name: Implementeren via FTP
+        href: ../app-service-deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Implementeren via cloudsynchronisatie
+        href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Doorlopend implementeren
+        href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Implementeren vanuit lokale Git
+        href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Implementeren met sjabloon
+        href: ../app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Implementatiereferenties instellen
+      href: ../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Faseringsomgevingen maken
+      href: ../web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Aangepast domein toewijzen
+    items:
+    - name: Een domein kopen
+      href: ../custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Domeinen toewijzen met Traffic Manager
+      href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Een actief domein migreren
+      href: ../app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: App beveiligen
+    items:
+    - name: Een SSL-certificaat kopen
+      href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Gebruikers verifiëren
       items:
-        - name: De app implementeren
-          items:
-            - name: Implementeren via FTP
-              href: ../app-service-deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Implementeren via cloudsynchronisatie
-              href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Doorlopend implementeren
-              href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Implementeren vanuit lokale Git
-              href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Implementeren met sjabloon
-              href: ../app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Implementatiereferenties instellen
-          href: ../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Faseringsomgevingen maken
-          href: ../web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Aangepast domein toewijzen
-      items:
-        - name: Een domein kopen
-          href: ../custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Domeinen toewijzen met Traffic Manager
-          href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Een actief domein migreren
-          href: ../app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: App beveiligen
-      items:
-        - name: Een SSL-certificaat kopen
-          href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Gebruikers verifiëren
-          items:
-            - name: Verifiëren met Azure AD
-              href: ../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Verifiëren met Facebook
-              href: ../app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Verifiëren met Google
-              href: ../app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Verifiëren met een Microsoft-account
-              href: ../app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Verifiëren met Twitter
-              href: ../app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Verificatie aanpassen
-          href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Wederzijdse TLS-verificatie configureren
-          href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: App schalen
-      items:
-        - name: Servercapaciteit omhoog schalen
-          href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Uitschalen naar meerdere exemplaren
-          href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Hosting met hoge dichtheid
-          href: ../app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: App controleren
-      items:
-        - name: Verbinding maken met de app via SSH
-          href: app-service-linux-ssh-support.md
-        - name: Quota & waarschuwingen
-          href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Logboeken inschakelen
-          href: ../web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Een app beheren
-      items:
-        - name: Een back-up maken van een app
-          href: ../web-sites-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Een back-up terugzetten
-          href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Een app klonen
-          href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Resources verplaatsen
-          href: '../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations'
+      - name: Verifiëren met Azure AD
+        href: ../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Verifiëren met Facebook
+        href: ../app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Verifiëren met Google
+        href: ../app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Verifiëren met een Microsoft-account
+        href: ../app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Verifiëren met Twitter
+        href: ../app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Verificatie aanpassen
+      href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Wederzijdse TLS-verificatie configureren
+      href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: App schalen
+    items:
+    - name: Servercapaciteit omhoog schalen
+      href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Uitschalen naar meerdere exemplaren
+      href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Hosting met hoge dichtheid
+      href: ../app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: App controleren
+    items:
+    - name: Verbinding maken met de app via SSH
+      href: app-service-linux-ssh-support.md
+    - name: Quota & waarschuwingen
+      href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Logboeken inschakelen
+      href: ../web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Een app beheren
+    items:
+    - name: Een back-up maken van een app
+      href: ../web-sites-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Een back-up terugzetten
+      href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Een app klonen
+      href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Resources verplaatsen
+      href: ../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/appservice
-    - name: Azure PowerShell
-      href: /powershell
-    - name: REST-API
-      href: /rest/api/appservice/
+  - name: Azure-CLI
+    href: /cli/azure/appservice
+  - name: Azure PowerShell
+    href: /powershell
+  - name: REST-API
+    href: /rest/api/appservice/
 - name: Resources
   items:
-    - name: Veelgestelde vragen over App Service op Linux
-      href: app-service-linux-faq.md
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/app-service/'
-    - name: Quotumgegevens
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
-    - name: Service-updates en release-opmerkingen
+  - name: Veelgestelde vragen over App Service op Linux
+    href: app-service-linux-faq.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/app-service/
+  - name: Quotumgegevens
+    href: ../../azure-subscription-service-limits.md#app-service-limits
+  - name: Service-updates en release-opmerkingen
+    items:
+    - name: Azure-updates
+      href: https://azure.microsoft.com/updates/?product=app-service
+    - name: Azure SDK voor .NET 3.0
+      href: ../azure-sdk-dotnet-release-notes-3-0.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure SDK voor .NET 2.9
+      href: ../azure-sdk-dotnet-release-notes-2-9.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure SDK voor .NET 2.8
+      href: ../azure-sdk-dotnet-release-notes-2-8.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure SDK voor .NET 2.7
+      href: ../azure-sdk-dotnet-release-notes-2-7.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure SDK voor .NET 2.6
+      href: ../azure-sdk-dotnet-release-notes-2-6.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure SDK voor .NET 2.5.1
+      href: ../app-service-release-notes.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure SDK voor .NET 2.5
+      href: https://msdn.microsoft.com/library/azure/dn873976.aspx
+    - name: Azure SDK voor .NET 2.4
+      href: https://msdn.microsoft.com/library/azure/dn794167.aspx
+    - name: Azure SDK voor .NET 2.3
+      href: https://msdn.microsoft.com/library/azure/dn655054.aspx
+    - name: Azure SDK voor .NET 2.2
+      href: https://msdn.microsoft.com/library/azure/dn459835.aspx
+    - name: Azure SDK voor .NET 2.1
+      href: https://msdn.microsoft.com/library/azure/dn407359.aspx
+    - name: Azure SDK voor .NET 2.0
+      href: https://msdn.microsoft.com/library/azure/dn169556.aspx
+  - name: Aanbevolen procedures
+    href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Voorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=app-service
+  - name: Video's
+    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+  - name: Kookboeken
+    items:
+    - name: Referentiearchitecturen
+      href: /azure/architecture/reference-architectures/app-service-web-app/
+    - name: Implementatiescripts
+      href: https://azure.microsoft.com/documentation/scripts/
+  - name: Problemen oplossen
+    items:
+    - name: Problemen met Visual Studio oplossen
+      href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Problemen met Node.js-app oplossen
+      href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Problemen met HTTP 502 en 503 oplossen
+      href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Prestatieproblemen oplossen
+      href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Veelgestelde vragen
       items:
-        - name: Azure-updates
-          href: 'https://azure.microsoft.com/updates/?product=app-service'
-        - name: Azure SDK voor .NET 3.0
-          href: ../azure-sdk-dotnet-release-notes-3-0.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Azure SDK voor .NET 2.9
-          href: ../azure-sdk-dotnet-release-notes-2-9.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Azure SDK voor .NET 2.8
-          href: ../azure-sdk-dotnet-release-notes-2-8.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Azure SDK voor .NET 2.7
-          href: ../azure-sdk-dotnet-release-notes-2-7.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Azure SDK voor .NET 2.6
-          href: ../azure-sdk-dotnet-release-notes-2-6.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Azure SDK voor .NET 2.5.1
-          href: ../app-service-release-notes.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Azure SDK voor .NET 2.5
-          href: 'https://msdn.microsoft.com/library/azure/dn873976.aspx'
-        - name: Azure SDK voor .NET 2.4
-          href: 'https://msdn.microsoft.com/library/azure/dn794167.aspx'
-        - name: Azure SDK voor .NET 2.3
-          href: 'https://msdn.microsoft.com/library/azure/dn655054.aspx'
-        - name: Azure SDK voor .NET 2.2
-          href: 'https://msdn.microsoft.com/library/azure/dn459835.aspx'
-        - name: Azure SDK voor .NET 2.1
-          href: 'https://msdn.microsoft.com/library/azure/dn407359.aspx'
-        - name: Azure SDK voor .NET 2.0
-          href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
-    - name: Aanbevolen procedures
-      href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Voorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Video's
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
-    - name: Kookboeken
-      items:
-        - name: Referentiearchitecturen
-          href: /azure/architecture/reference-architectures/app-service-web-app/
-        - name: Implementatiescripts
-          href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Problemen oplossen
-      items:
-        - name: Problemen met Visual Studio oplossen
-          href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Problemen met Node.js-app oplossen
-          href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Problemen met HTTP 502 en 503 oplossen
-          href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Prestatieproblemen oplossen
-          href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Veelgestelde vragen
-          items:
-            - name: 'Veelgestelde vragen over beschikbaarheid, prestaties en toepassing'
-              href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Veelgestelde vragen over implementatie
-              href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Veelgestelde vragen over open-sourcetechnologieën
-              href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-            - name: Veelgestelde vragen over configuratie en beheer
-              href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Veelgestelde vragen over beschikbaarheid, prestaties en toepassing
+        href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Veelgestelde vragen over implementatie
+        href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Veelgestelde vragen over open-sourcetechnologieën
+        href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Veelgestelde vragen over configuratie en beheer
+        href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+ms.openlocfilehash: 91086dcfd6f786fd49fc5f8864da292831999286
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063979"
