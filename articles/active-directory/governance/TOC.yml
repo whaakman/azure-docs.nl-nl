@@ -1,33 +1,41 @@
 items:
-- name: Documentatie over Azure AD-toegangsbeoordelingen
+- name: Documentatie over Azure AD-identiteitsbeheer
+  href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is een toegangsbeoordeling?
-    href: access-reviews-overview.md
+  - name: Wat is identiteitsbeheer?
+    href: identity-governance-overview.md
+  expanded: true
 - name: Handleidingen
   items:
-  - name: Een toegangsbeoordeling maken
-    href: create-access-review.md
-  - name: Een toegangsbeoordeling voltooien
-    href: complete-access-review.md
-  - name: Een toegangsbeoordeling uitvoeren
-    href: perform-access-review.md
-  - name: Uw toegang beoordelen
-    href: review-your-access.md
-  - name: Toegang voor gasten met toegangsbeoordelingen
-    href: manage-guest-access-with-access-reviews.md
-  - name: Gebruikerstoegang beheren met beoordelingen
-    href: manage-user-access-with-access-reviews.md
-  - name: Programma's en de bijbehorende besturingselementen beheren
-    href: manage-programs-controls.md
-  - name: Resultaten van toegangsbeoordeling ophalen
-    href: retrieve-access-review.md
+  - name: Toegangsbeoordelingen
+    items:
+    - name: Wat is een toegangsbeoordeling?
+      href: access-reviews-overview.md
+    - name: Een toegangsbeoordeling maken
+      href: create-access-review.md
+    - name: Een toegangsbeoordeling voltooien
+      href: complete-access-review.md
+    - name: Een toegangsbeoordeling uitvoeren
+      href: perform-access-review.md
+    - name: Uw toegang beoordelen
+      href: review-your-access.md
+    - name: Toegang voor gasten met toegangsbeoordelingen
+      href: manage-guest-access-with-access-reviews.md
+    - name: Gebruikerstoegang beheren met beoordelingen
+      href: manage-user-access-with-access-reviews.md
+    - name: Programma's en de bijbehorende besturingselementen beheren
+      href: manage-programs-controls.md
+    - name: Resultaten van toegangsbeoordeling ophalen
+      href: retrieve-access-review.md
+    - name: Uitgesloten gebruikers beheren
+      href: conditional-access-exclusion.md
   - name: Gebruiksvoorwaarden
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: 302273bc1fe1ed73fff4cb4f5a8bc90f08636340
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606742"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163134"

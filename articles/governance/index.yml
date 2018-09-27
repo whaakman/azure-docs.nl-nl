@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1c25ae1acb112221047876ea6dd360c6d3bb2817
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ecf300b4095b4b6c928f4caddf9ee51423f6e1cc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946235"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163644"
 documentType: LandingData
 title: Azure Management - Governance
 metadata:
@@ -19,6 +19,15 @@ metadata:
   ms.author: dacoulte
 abstract:
   description: Azure Governance is een verzameling concepten en services die zijn ontworpen om het beheer van verschillende Azure-resources op schaal mogelijk te maken. Deze services bieden de mogelijkheid om uw abonnementen op een logische manier te ordenen en te structureren, herbruikbare systeemeigen Azure-pakketten van resources maken en implementeren en om uw resources te definiëren, controleren en herstellen. Gebruik deze pagina om meer te leren over deze concepten en services en hoe u deze vandaag nog in uw omgeving inschakelt en gebruikt.
+  aside:
+    image:
+      alt: 
+      height: 225
+      src: ./media/video.png
+      width: 250
+    title: Snelheid en controle over resources met Azure Governance (1:47)
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    width: 250
 sections:
 - title: Onderdelen en services
 - items:
@@ -60,11 +69,3 @@ sections:
     - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
       html: <p>Hiermee kunnen beheerders ervoor zorgen dat werkbelastingen voldoen aan de minimale governancevereisten van een organisatie, zonder dat bedrijfsgroepen en ontwikkelaars in de weg worden gezeten.<br /><br /></p>
       title: Enterprise Scaffold
-- title: Naslaginformatie
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Beleid
-      html: <p>Opdrachtregel<ul><li><a href="/cli/azure/policy">Azure-CLI</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>REST-API<ul><li><a href="/rest/api/policy-insights/policyevents">Gebeurtenissen</a></li><li><a href="/rest/api/policy-insights/policystates">Statussen</a></li><li><a href="/rest/api/resources/policyassignments">Toewijzingen</a></li><li><a href="/rest/api/resources/policydefinitions">Definities voor beleid</a></li><li><a href="/rest/api/resources/policysetdefinitions">Definities voor initiatieven</a></li></ul></p>

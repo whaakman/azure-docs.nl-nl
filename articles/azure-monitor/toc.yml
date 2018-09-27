@@ -65,7 +65,7 @@ items:
 - name: Concepten
   items:
   - name: Azure-beheer
-    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
   - name: Bewakingsgegevens
     items:
     - name: Metrische gegevens en logboeken
@@ -103,9 +103,9 @@ items:
       - name: Vooraf samengevoegde metrische gegevens op basis van logboeken
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
-      href: https://aka.ms/AzureMonitorContainers
+      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Virtuele machines
-      href: https://aka.ms/AzureMonitorVirtualMachines
+      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Bewakingsoplossingen
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Gegevens analyseren
@@ -504,10 +504,16 @@ items:
         href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers bewaken
       items:
-      - name: Overzicht Containers bewaken
-        href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
-      - name: AKS-containerstatus
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure Monitor voor containers
+        items:
+        - name: Onboarding
+          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Analyseren
+          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Stoppen met bewaken
+          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Problemen oplossen
+          href: ../monitoring/monitoring-container-insights-troubleshoot.md
       - name: Docker- en Windows-containers bewaken
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Docker-toepassingen bewaken
@@ -538,6 +544,22 @@ items:
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Virtuele machines bewaken
       items:
+      - name: Azure Monitor voor virtuele machines
+        items:
+        - name: Bekende problemen
+          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+        - name: Veelgestelde vragen
+          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: Onboarding
+          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+        - name: Statusbewaking
+          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+        - name: Afhankelijkheden toewijzen
+          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+        - name: Prestaties bewaken
+          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+        - name: Query's uitvoeren op gegevens met Log Analytics
+          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
       - name: Status van agent
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capaciteit en prestaties
@@ -615,8 +637,6 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query uitvoeren op logboekgegevens
       items:
-      - name: Taalverwijzing
-        href: https://docs.loganalytics.io
       - name: Aan de slag
         items:
         - name: Aan de slag met de Analytics-portal
@@ -651,8 +671,20 @@ items:
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Taalverwijzing
+        items:
+        - name: Taalverwijzing
+          href: /azure/kusto/query
+        - name: Verschillen met Kusto
+          href: ../log-analytics/query-language/kusto.md
+        - name: app-expressie
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+        - name: werkruimte-expressie
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Toepassingsgegevens
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Standaardeigenschappen
+        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Zoekopdrachten in meerdere bronnen
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Acties uitvoeren vanuit de zoekresultaten
@@ -946,9 +978,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Codevoorbeelden
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c5f69264c293cb5e10c016fc79bc86dd091da533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef2057d55903d3fdc4d2fc7f914f29e84cffc638
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981811"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181962"

@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986508"
 documentType: LandingData
-title: Documentatie voor Azure Data Box
+title: Azure Data Box voor offlineoverdracht
 metadata:
-  title: Documentatie voor Azure Data Box
-  description: Met de Azure Data Box-service kunt u snel, goedkoop en betrouwbaar terabytes aan gegevens overdragen aan Azure. Microsoft versnelt de beveiligde gegevensoverdracht door u schijven te sturen en de logistiek van begin tot eind af te handelen.
+  title: Documentatie voor Azure Data Box voor offlineoverdracht
+  description: Met de Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor offlineoverdracht wanneer u wordt beperkt door tijd, het netwerk of de kosten.
   services: databox
   author: alkohli
   manager: twooley
@@ -11,36 +17,35 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/10/2018
+  ms.date: 09/24/2018
   ms.author: alkohli
-  ms.openlocfilehash: 5077d0ba77b6bdce99f1dfdf258182980a367b6c
-  ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/13/2018
-  ms.locfileid: "39010137"
 abstract:
-  description: 'Met de Azure Data Box-service kunt u snel, goedkoop en betrouwbaar terabytes aan gegevens overdragen aan Azure. Microsoft versnelt de beveiligde gegevensoverdracht door u schijven te sturen en de logistiek van begin tot eind af te handelen.<p>Draag grote aantallen gegevens over aan Azure in vier eenvoudige stappen: bestellen, ontvangen, de gegevens naar de schijf kopiëren en de schijven terugsturen naar Azure. Nadat de schijven zijn ontvangen, worden de gegevens opgenomen in Azure en de schijven veilig gewist.<p><a href="/azure/databox/data-box-disk-overview">Meer informatie over Data Box Disk</a>.</p>'
+  description: Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor offlineoverdracht wanneer u wordt beperkt door tijd, het netwerk of de kosten.<p>Afhankelijk van de gegevensgrootte kiest u Data Box Disk, Data Box <SUP>(preview)</SUP> of Data Box Heavy <SUP>(preview)</SUP>. Voor elk apparaat wordt de overdracht naar Azure uitgevoerd in vier stappen (bestellen, ontvangen, gegevens naar apparaat kopiëren en apparaat retourneren aan Azure). In Azure Datacenter worden gegevens geüpload en vervolgens gewist.</p><p>Gebruik onze snelstartgidsen en zelfstudies voor meer informatie over hoe u Data Box kunt gebruiken voor uw offlinegegevensoverdracht.</p>
 sections:
 - title: Snelstartgids
   items:
-  - type: paragraph
-    text: Informatie over hoe u Data Box Disk gebruikt om gegevens over te dragen aan Azure.
   - type: list
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Data Box instellen in Azure Portal
+      href: /azure/databox/data-box-quickstart-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Data Box Disk <SUP>(preview)</SUP> instellen in Azure Portal
       href: /azure/databox/data-box-disk-quickstart-portal
-- title: Stapsgewijze zelfstudie
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Aanmelden voor Data Box Heavy <SUP>(preview)</SUP>
+      href: /azure/databox/data-box-heavy-overview#sign-up
+- title: Zelfstudies
   items:
-  - type: paragraph
-    text: Informatie over hoe u met Data Box Disk gegevens kunt importeren in Azure.
   - type: list
-    style: ordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="data-box-disk-deploy-ordered">Data Box Disk bestellen</a>
-    - html: <a href="data-box-disk-deploy-set-up">Data Box Disk instellen</a>
-    - html: <a href="data-box-disk-deploy-copy-data">Gegevens kopiëren naar Data Box Disk</a>
-    - html: <a href="data-box-disk-deploy-picked-up">Data Box Disk terugsturen en gegeven uploaden naar Azure</a>
+    - title: Voor Data Box
+      html: <p><a href="/azure/databox/data-box-deploy-ordered">Azure Data Box bestellen</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Azure Data Box bekabelen en verbinden</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Gegevens naar Azure Data Box kopiëren</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Azure Data Box retourneren en de upload verifiëren</a></p>
+    - title: Voor Data Box Disk <SUP>(preview)</SUP>
+      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Azure Data Box Disk bestellen</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Azure Data Box Disk uitpakken, aansluiten en ontgrendelen</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Gegevens naar Azure Data Box Disk kopiëren</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Azure Data Box Disk retourneren en de upload verifiëren</a></p>

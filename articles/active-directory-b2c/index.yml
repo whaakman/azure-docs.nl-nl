@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 9fd163db5b727c5284756e2d24a35c6c6e57a794
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181378"
 documentType: LandingData
 title: Documentatie over Azure Active Directory B2C
 metadata:
@@ -12,24 +18,39 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/29/2018
   ms.author: davidmu
-  ms.openlocfilehash: a70e3fe60291a0ee50dbaa4bd3caa460ff12ffef
-  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 06/20/2018
-  ms.locfileid: "36284262"
 abstract:
   description: Azure Active Directory (Azure AD) B2C is een identiteitsbeheerservice waarmee u kunt aanpassen en controleren hoe uw klanten zich registreren en aanmelden en hoe zijn hun profielen beheren wanneer ze uw toepassingen gebruiken. Dit omvat ook toepassingen die onder meer zijn ontwikkeld voor iOS, Android en .NET. Met Azure AD B2C kunt u deze acties uitvoeren terwijl u tegelijkertijd de identiteit van uw klant beschermt. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure AD B2C gebruikt.
   aside:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
+      src: ./media/index/active-directory-b2c-video.PNG
       width: 250
-    title: Business-to-Consumer-identiteitsbeheer met Azure Active Directory B2C (12:56)
-    href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
+    title: Klantidentiteitsbeheer met Azure AD B2C (20:56)
+    href: https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/active-directory-b2c/active-directory-b2c-overview
+      html: <p>Meer informatie over Azure AD B2C en welke functies en mogelijkheden dit biedt.</p>
+      image:
+        src: ./media/index/i_get-started.svg
+      title: Over Azure AD B2C
+    - href: /azure/active-directory-b2c/solution-articles
+      html: <p>Verken oplossings- en trainingsmogelijkheden met behulp van Azure AD B2C.</p>
+      image:
+        src: ./media/index/i_advanced.svg
+      title: Oplossingen en training
+    - href: /azure/active-directory-b2c/trustframeworkpolicy
+      html: <p>Maak geavanceerde scenario's voor registratie en aanmelding met behulp van aangepast beleid in Azure AD B2C.</p>
+      image:
+        src: ./media/index/i_investigate.svg
+      title: Identity-ervaringsframework
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
@@ -58,11 +79,11 @@ sections:
     className: cardsD
     items:
     - title: ASP.NET
-      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Toepassing registreren</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Gebruikers verifiëren</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">API-toegang toekennen</a></p>
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Een tenant maken</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Gebruikers verifiëren</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">API-toegang toekennen</a></p>
     - title: Bureaublad
-      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Toepassing registreren</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Gebruikers verifiëren</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">API-toegang toekennen</a></p>
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Een tenant maken</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Gebruikers verifiëren</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">API-toegang toekennen</a></p>
     - title: Eén pagina
-      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Toepassing registreren</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Gebruikers verifiëren</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">API-toegang toekennen</a></p>
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Een tenant maken</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Gebruikers verifiëren</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">API-toegang toekennen</a></p>
 - title: Voorbeelden
   items:
   - type: paragraph

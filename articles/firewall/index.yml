@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 13146f48acb13e1bd4c7247902e3e8abcc0a84f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948754"
 documentType: LandingData
 title: Documentatie voor Azure Firewall
 metadata:
@@ -8,14 +14,8 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: landing-page
-  ms.date: 7/11/2018
+  ms.date: 9/24/2018
   ms.author: victorh
-  ms.openlocfilehash: 979ce06a38e397a42b9f34c7eb82aa9c8a2e141e
-  ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/12/2018
-  ms.locfileid: "38991774"
 abstract:
   description: Informatie over de implementatie van Azure Firewall, een netwerkbeveiligingsservice in de cloud. Met zelfstudies, API-verwijzingen en andere documentatie leert u hoe u beleid op toepassings- en netwerkniveau instelt om uw virtuele Azure-netwerkresources te beschermen.
 sections:
@@ -27,6 +27,8 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure Firewall implementeren en configureren met Azure Portal</a>
+    - html: <a href="/azure/firewall/tutorial-hybrid-ps">In een hybride netwerk implementeren</a>
+    - html: <a href="/azure/firewall/tutorial-firewall-dnat">Inkomend verkeer filteren met DNAT</a>
     - html: <a href="/azure/firewall/tutorial-diagnostics">Azure Firewall-logboeken bewaken</a>
 - title: Voorbeelden
   items:

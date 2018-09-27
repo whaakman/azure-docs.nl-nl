@@ -1,0 +1,45 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 8246ad22fa343cebc276a1cb6d73d5e86421e792
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47167489"
+documentType: LandingData
+title: Documentatie over Azure AD-identiteitsbeheer
+metadata:
+  document_id: 
+  title: Documentatie over identiteitsbeheer in Azure Active Directory | Microsoft Docs
+  description: Meer informatie over identiteitslevenscyclusbeheer, toegangslevenscyclusbeheer en veilig beheer van zowel werknemers als partners.
+  services: active-directory
+  author: rolyon
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/16/2018
+  ms.author: rolyon
+abstract:
+  description: Identiteitsbeheer in Azure Active Directory (Azure AD) biedt organisaties de mogelijkheid om de identiteitslevenscyclus en de toegangslevenscyclus te beheren, en maakt veilig beheer van werknemers en partners mogelijk.
+sections:
+- title: Identiteitsbeheer
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/governance/identity-governance-overview">Wat is identiteitsbeheer?</a>
+- title: Toegangsbeoordelingen
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/governance/access-reviews-overview">Wat is een toegangsbeoordeling?</a>
+    - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gebruikerstoegang beheren met toegangsbeoordelingen</a>
+    - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gastentoegang beheren met toegangsbeoordelingen</a>
+- title: Gebruiksvoorwaarden
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/governance/active-directory-tou">Wat kan ik doen met Gebruiksvoorwaarden?</a>
