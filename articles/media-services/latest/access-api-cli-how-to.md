@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
 ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724027"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096788"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Toegang tot Azure mediaservices API met de Azure CLI
  
@@ -32,7 +32,7 @@ In dit artikel leest u hoe de Azure CLI gebruiken voor een Azure AD-toepassing e
 
 ## <a name="prerequisites"></a>Vereisten 
 
-Maak een nieuwe Azure Media Services-account, zoals beschreven in [in deze Quick Start](create-account-cli-quickstart.md).
+Maak een nieuw Media Services-account zoals beschreven in deze [snelstart](create-account-cli-quickstart.md).
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -40,7 +40,7 @@ Meld u aan bij [Azure Portal](http://portal.azure.com) en start **CloudShell** o
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u wilt installeren of upgraden, Zie [Azure CLI installeren](/cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

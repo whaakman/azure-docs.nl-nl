@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 180d4092a2570b719e77d98319ab9b329f2e48c5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: bdbe15a85ad4d2ef6918b7ab7e16942edde5096e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637427"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220325"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Maken, weergeven, verwijderen of een rol toewijzen aan een gebruiker toegewezen beheerde identiteit met Azure portal
 
@@ -27,7 +27,7 @@ ms.locfileid: "45637427"
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken voor verificatie bij services die ondersteuning bieden voor Azure AD-verificatie, zonder de referenties in uw code. 
 
-In dit artikel leert u hoe u maken, weergeven, verwijderen of een rol toewijzen aan een gebruiker-toegewezen beheerde identiteit met behulp van de Azure-Portal.
+In dit artikel leert u hoe u te maken, weergeven, verwijderen of een rol toewijzen aan een gebruiker toegewezen beheerde identiteit met behulp van de Azure-Portal.
 
 ## <a name="prerequisites"></a>Vereisten
 

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435788"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166449"
 ---
 # <a name="my-first-powershell-runbook"></a>Mijn eerste PowerShell-runbook
 
@@ -83,7 +83,17 @@ Het runbook dat u hebt gemaakt, bevindt zich nog steeds in de modus Concept. U m
 12. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat u hebt bekeken toen u het runbook startte. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Stap 5: verificatie toevoegen voor het beheren van Azure-resources
-U hebt het runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. U wilt dat er Azure-resources mee worden beheerd. Het is niet kunt doen die al is, tenzij u hebt het laten verifiëren met de referenties die wordt verwezen in de [vereisten](#prerequisites). doet u dat met de **Connect-AzureRmAccount** cmdlet.
+U hebt het runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. U wilt dat er Azure-resources mee worden beheerd. Het is niet kunt doen die al is, tenzij u hebt het laten verifiëren met de referenties die wordt verwezen in de [vereisten](#prerequisites). doet u dat met de **Connect-AzureRmAccount** cmdlet. Als u bij het beheren van resources voor meerdere abonnementen die u wilt gebruiken de **- AzureRmContext** parameter samen met [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. Open de teksteditor door te klikken op **bewerken** op de pagina MyFirstRunbook-PowerShell.
 2. u hoeft niet de **Write-Output** regel meer, dus gaan en deze verwijdert.

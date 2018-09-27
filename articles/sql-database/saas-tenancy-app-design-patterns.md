@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: b9009452ada6ebfb7626532b1fac406563704ef3
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056674"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227483"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-patronen voor databases-tenants
 
@@ -138,7 +138,7 @@ Twee variaties van een multitenant-database-model worden besproken in het volgen
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. App met meerdere tenants met een database met meerdere tenants
 
-De eenvoudigste patroon voor multitenant-database maakt gebruik van een database met één host gegevens voor alle tenants.  Als er meer tenants worden toegevoegd, wordt de database omhoog geschaald met meer opslagruimte en rekencapaciteit bronnen.  Deze omhoog schalen mogelijk alle die nodig is, hoewel er altijd een schaallimiet voor de ultieme.  Lange voordat deze limiet is bereikt de database wordt echter lastig zijn om te beheren.
+De eenvoudigste patroon voor multitenant-database maakt gebruik van een individuele database met hostgegevens voor alle tenants.  Als er meer tenants worden toegevoegd, wordt de database omhoog geschaald met meer opslagruimte en rekencapaciteit bronnen.  Deze omhoog schalen mogelijk alle die nodig is, hoewel er altijd een schaallimiet voor de ultieme.  Lange voordat deze limiet is bereikt de database wordt echter lastig zijn om te beheren.
 
 Beheerbewerkingen die op de afzonderlijke tenants gericht zijn, hoe complexer om te implementeren in een multitenant-database.  En op schaal deze bewerkingen worden onaanvaardbaar langzaam.  Een voorbeeld hiervan is een point-in-time-terugzetten van de gegevens voor één tenant.
 

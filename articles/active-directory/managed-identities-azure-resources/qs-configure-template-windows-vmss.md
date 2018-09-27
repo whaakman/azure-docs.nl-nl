@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 259e22607887d4aae43c46a410edb6efa8a5e497
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637658"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220916"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configureren van beheerde identiteiten voor Azure-resources op een virtuele machine van Azure-schaal met behulp van een sjabloon
 
@@ -326,7 +326,7 @@ Als u een virtuele-machineschaalset die een gebruiker toegewezen beheerde identi
 
 1. Of u zich aanmeldt bij Azure lokaal of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Als u een virtuele-machineschaalset waarvoor alleen beheerde identiteit gebruiker toegewezen hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Hebt u een virtuele-machineschaalset waarvoor alleen beheerde identiteit aan een gebruiker zijn toegewezen, kunt u deze uitschakelen door het wijzigen van het identiteitstype aan `None`.
 
    Het volgende voorbeeld ziet u hoe alle beheerde identiteiten die door de gebruiker toegewezen verwijderen uit een virtuele machine met geen systeem toegewezen beheerde identiteiten:
 
@@ -343,7 +343,7 @@ Als u een virtuele-machineschaalset die een gebruiker toegewezen beheerde identi
    
    **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**
     
-   Verwijderen van een een enkele gebruiker toegewezen beheerde identiteit van een virtuele-machineschaalset verwijderen uit de `userAssignedIdentities` woordenlijst.
+   Als u een enkele gebruiker toegewezen beheerde identiteit van een virtuele-machineschaalset, wilt verwijderen uit de `userAssignedIdentities` woordenlijst.
 
    Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
 

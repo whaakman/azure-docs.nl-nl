@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714442"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395540"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -171,7 +171,9 @@ Druk op F5 om de functie testen. Accepteer desgevraagd de aanvraag van Visual St
 
 Met het project dat wordt uitgevoerd, kunt u uw code testen als u de geïmplementeerde functie wilt testen. Zie voor meer informatie, [strategieën voor het testen van uw code in Azure Functions](functions-test-a-function.md). Bij het uitvoeren in de foutopsporingsmodus, worden de onderbrekingspunten druk in Visual Studio zoals verwacht. 
 
-Zie voor een voorbeeld van hoe u kunt een wachtrij geactiveerde functie te testen, het [wachtrij geactiveerde functie beknopte zelfstudie](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code en Azure functions lokaal testen](functions-run-local.md).
 
@@ -179,7 +181,7 @@ Zie voor meer informatie over het gebruik van Azure Functions Core Tools, [Code 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Instellingen voor functie-apps
+## <a name="function-app-settings"></a>Instellingen voor functie-app
 
 Alle instellingen die u hebt toegevoegd in de local.settings.json moeten ook worden toegevoegd aan de functie-app in Azure. Deze instellingen worden niet automatisch geüpload wanneer u het project publiceren.
 

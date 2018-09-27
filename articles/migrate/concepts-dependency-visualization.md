@@ -4,14 +4,14 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 84ce20186b882bf07177305291a6f7512ed9ac62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732020"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165021"
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheden
 
@@ -32,7 +32,7 @@ Azure Migrate gebruikt de [Serviceoverzicht](../operations-management-suite/oper
     ![Log Analytics-werkruimte koppelen](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
-- De gekoppelde werkruimte met de sleutel is gecodeerd **migratieproject**, en de waarde ** projectnaam, die u gebruiken kunt om te zoeken in Azure portal.
+- De gekoppelde werkruimte met de sleutel is gecodeerd **migratieproject**, en de waarde **projectnaam**, die u kunt gebruiken om te zoeken in Azure portal.
 - Ga naar de werkruimte die is gekoppeld aan het project, gaat u naar **Essentials** sectie van het project **overzicht** pagina en toegang tot de werkruimte
 
     ![Log Analytics-werkruimte navigeren](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -62,5 +62,5 @@ U kunt de Log Analytics-werkruimte buiten Azure Migrate gebruiken. Het wordt nie
 Verwijder de werkruimte hebt gemaakt door Azure Migrate, niet, tenzij u het migratieproject verwijderen. Als u dit doet, werkt de functie voor visualisatie van afhankelijkheden niet zoals verwacht.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-[Machines groeperen met behulp van machineafhankelijkheden](how-to-create-group-machine-dependencies.md)
+- [Machines groeperen met behulp van machineafhankelijkheden](how-to-create-group-machine-dependencies.md)
+- [Meer informatie](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) over de veelgestelde vragen over de visualisatie van afhankelijkheden.

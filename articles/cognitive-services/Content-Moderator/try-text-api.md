@@ -1,63 +1,64 @@
 ---
-title: Gemiddelde tekst met behulp van de tekst toezicht API in Azure inhoud beheerder | Microsoft Docs
-description: Test-Drive toezicht tekst met behulp van de controle-API van tekst in de online-console.
+title: Gemiddeld tekst met behulp van de tekst toezicht-API - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Maak een proefrit met beheer van tekst met behulp van de Text-API voor beheer in de online-console.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344854"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219784"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Gemiddeld tekst van de API-console
 
-Gebruik de [tekst toezicht API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure inhoud beheerder om te scannen van uw tekstinhoud. De bewerking scant de inhoud voor taalgebruik en vergelijkt de inhoud op basis van aangepaste en gedeelde zwarte lijsten.
+Gebruik de [tekst toezicht-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator voor het scannen van de tekstinhoud van uw. De bewerking scant uw taalgebruik en vergelijkt de inhoud op basis van aangepaste en gedeelde zwarte lijsten.
 
 
-## <a name="get-your-api-key"></a>Uw API-sleutel ophalen
-Voordat u kunt de API in de online-console test-drive, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie [overzicht](overview.md).
+## <a name="get-your-api-key"></a>Haal uw API-sleutel
+Voordat u de API in de online-console uitproberen kan, moet u de abonnementssleutel van uw. Dit bevindt zich op de **instellingen** tabblad, in de **Ocp-Apim-Subscription-Key** vak. Zie voor meer informatie, [overzicht](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Navigeer naar de API-verwijzing
-Ga naar de [tekst toezicht API-referentiemateriaal](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+Ga naar de [tekst Afbeeldingstoezicht-API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   De **tekst - scherm** pagina wordt geopend.
 
-## <a name="open-the-api-console"></a>Open de console API
-Voor **Open API testen console**, selecteer de regio die het beste past bij uw locatie. 
+## <a name="open-the-api-console"></a>De API-console openen
+Voor **Open API testconsole**, selecteer de regio die het beste past bij uw locatie. 
 
-  ![Tekst - scherm pagina Regioselectie](images/test-drive-region.png)
+  ![Tekst - scherm pagina regio selecteren](images/test-drive-region.png)
 
   De **tekst - scherm** API-console wordt geopend.
 
 ## <a name="select-the-inputs"></a>Selecteer de invoer
 
 ### <a name="parameters"></a>Parameters
-Selecteer de queryparameters die u wilt gebruiken in het scherm tekst. Gebruik voor dit voorbeeld wordt de standaardwaarde voor **taal**. U kunt ook laat dit veld leeg omdat de bewerking automatisch de taal die waarschijnlijk als onderdeel van de uitvoering detecteert.
+Selecteer de queryparameters die u wilt gebruiken in uw tekst-scherm. In dit voorbeeld gebruikt u de standaardwaarde voor **taal**. U kunt ook het leeg laten omdat de bewerking automatisch de taal die waarschijnlijk als onderdeel van de uitvoering ervan detecteert.
 
 > [!NOTE]
-> Voor de **taal** parameter toewijzen `eng` of laat het veld leeg voor een overzicht van de machine-ondersteunde **classificatie** antwoord (preview-functie). **Deze functie ondersteunt alleen Engels**.
+> Voor de **taal** parameter toewijzen `eng` of laat het veld leeg om te zien van de computer-ondersteund **classificatie** antwoord (preview-functie). **Deze functie ondersteunt alleen Engels**.
 >
-> Voor **taalgebruik voorwaarden** detectie, gebruik de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die worden vermeld in dit artikel of laat het veld leeg.
+> Voor **grof taalgebruik voorwaarden** detectie, gebruik de [ISO 639-3-code](http://www-01.sil.org/iso639-3/codes.asp) van de ondersteunde talen die worden vermeld in dit artikel of laat het veld leeg.
 
-Voor **AutoCorrectie**, **PII**, en **classificeren (preview)**, selecteer **true**. Laat de **ListId** veld leeg.
+Voor **AutoCorrectie**, **PII**, en **classificeren (preview)**, selecteer **waar**. Laat de **ListId** veld leeg.
 
   ![Tekst - scherm console queryparameters](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Inhoudstype
-Voor **Content-Type**, selecteer het type inhoud dat u wilt filteren. In dit voorbeeld gebruikt u de standaard **text/plain** inhoudstype. In de **Ocp-Apim-Subscription-Key** Voer de abonnementssleutel van uw.
+Voor **Content-Type**, selecteer het type inhoud dat u wilt dat op het scherm. In dit voorbeeld gebruikt u de standaard **text/plain** type inhoud. In de **Ocp-Apim-Subscription-Key** voert u de abonnementssleutel van uw.
 
 ### <a name="sample-text-to-scan"></a>Voorbeeldtekst om te scannen
 In de **aanvraagtekst** Voer wat tekst. Het volgende voorbeeld ziet een opzettelijke typefout in de tekst.
 
 > [!NOTE]
-> Ongeldige sociaal-fiscaal nummer in de volgende voorbeeldtekst is opzettelijk. Het doel is de Voorbeeldinvoer overbrengen en uitvoernotatie opgeven.
+> Ongeldige sociaal-fiscaal nummer in het volgende voorbeeldtekst is opzettelijk. Het doel is het overbrengen van de Voorbeeldinvoer en indeling van uitvoer.
 
 ```
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -67,21 +68,21 @@ In de **aanvraagtekst** Voer wat tekst. Het volgende voorbeeld ziet een opzettel
 
 ### <a name="text-classification-feature"></a>De functie voor classificatie
 
-In het volgende voorbeeld ziet u de inhoud beheerder tekst machine-ondersteunde indeling antwoord. Zo kunt u mogelijk ongewenste inhoud detecteren. De gemarkeerde inhoud kan als ongepast markeren, afhankelijk van de context beschouwd. Naast het overbrengen van de kans op elke categorie, kan deze een menselijke beoordeling van de inhoud aanbevelen. De functie gebruikt een getraind model mogelijk misbruik, negatieve of discriminerende taal vast te stellen. Dit omvat taalgebruik, afgekorte woorden, aanstootgevende en opzettelijk verkeerd gespelde woorden worden beoordeeld. 
+In het volgende voorbeeld ziet u de Content Moderator geautomatiseerd tekst classificatie antwoord. Het helpt met het detecteren van potentieel ongewenste inhoud. De gemarkeerde inhoud kan worden beschouwd als als ongepast, afhankelijk van de context. Naast het overbrengen van de kans op elke categorie, kan deze een menselijke beoordeling van de inhoud aanbevelen. De functie maakt gebruik van een getraind model voor het identificeren van mogelijke beledigende, negatieve of discriminerende taal. Dit omvat slang, verkorte woorden en aanstootgevende en opzettelijk verkeerd gespelde woorden voor controle. 
 
 #### <a name="explanation"></a>Uitleg
 
-- `Category1` Hiermee geeft u de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksueel expliciete of volwassenen in bepaalde situaties.
-- `Category2` Hiermee geeft u de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksuele suggestieve of volwassen in bepaalde situaties.
+- `Category1` Hiermee geeft u de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksueel expliciet of volwassenen in bepaalde situaties.
+- `Category2` Hiermee geeft u de mogelijke aanwezigheid van de taal die kan worden beschouwd als seksueel suggestieve of volwassen in bepaalde situaties.
 - `Category3` Hiermee geeft u de mogelijke aanwezigheid van de taal die mogelijk aanstootgevend in bepaalde situaties.
-- `Score` ligt tussen 0 en 1. Hoe hoger de score, hoe groter het model is voorspellen van de categorie mogelijk van toepassing. Dit voorbeeld is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. U wordt aangeraden testen door uw eigen inhoud om te bepalen hoe elke categorie wordt uitgelijnd aan uw vereisten.
-- `ReviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten dient te beoordelen of wilt gebruiken deze waarde of op aangepaste drempelwaarden op basis van hun inhoud beleidsregels bepalen.
+- `Score` ligt tussen 0 en 1. Hoe hoger de score, hoe hoger het model is voorspellen van de categorie mogelijk van toepassing zijn. Deze Preview-versie, is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. Het is raadzaam om eerst te testen met uw eigen inhoud om te bepalen hoe elke categorie overeenstemt met uw vereisten.
+- `ReviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten moeten beoordelen of u wilt deze waarde wordt gebruikt of moet u besluiten welke aangepaste drempelwaarden op basis van hun inhoud beleid.
 
 ### <a name="analyze-the-response"></a>Het antwoord analyseren
-Het volgende antwoord bevat de verschillende inzichten van de API. Deze bevat mogelijke taalgebruik, PII classificatie (preview) en de versie automatisch worden gecorrigeerd.
+Het volgende antwoord bevat de verschillende inzichten van de API. Het bevat potentieel grof taalgebruik, PII-classificatie (preview) en de versie automatisch worden gecorrigeerd.
 
 > [!NOTE]
-> De functie 'Classificatie' machine ondersteunde is in preview en ondersteunt alleen Engels.
+> De functie 'Classificatie' geautomatiseerd is in preview en ondersteunt alleen Engels.
 
 ```
 {
@@ -161,8 +162,8 @@ Het volgende antwoord bevat de verschillende inzichten van de API. Deze bevat mo
 }
 ```
 
-Voor een gedetailleerde beschrijving van alle secties in het JSON-antwoord, raadpleegt u de [tekst toezicht API-overzicht](text-moderation-api.md).
+Voor een gedetailleerde beschrijving van alle secties in het JSON-antwoord, raadpleegt u de [tekst afbeeldingstoezicht-API-overzicht](text-moderation-api.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De REST API gebruiken in uw code of starten met de [tekst toezicht .NET Quick Start](text-moderation-quickstart-dotnet.md) integreren met uw toepassing.
+De REST-API in uw code te gebruiken of beginnen met de [tekst toezicht .NET snelstartgids](text-moderation-quickstart-dotnet.md) om te integreren in uw toepassing.

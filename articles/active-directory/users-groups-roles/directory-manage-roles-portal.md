@@ -1,5 +1,5 @@
 ---
-title: Leden van een rol voor beheerders en rolmachtigingen weergeven in Azure Active Directory | Microsoft Docs
+title: Weergeven en toewijzen van beheerder machtigingen van de rol in Azure Active Directory | Microsoft Docs
 description: U kunt nu zien en beheren van leden van de rol van een Azure AD-beheerder in de portal. Voor diegenen die vaak roltoewijzingen beheren.
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5a42f48e85eea95211b36e0c08dcb0edb4928a20
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cb2e5286eb8e910b555e221242a735f00dff4778
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38489919"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182821"
 ---
-# <a name="view-members-and-descriptions-of-administrator-roles-in-azure-active-directory"></a>Leden weergeven en beschrijvingen van beheerdersrollen in Azure Active Directory
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Weergeven en toewijzen van beheerdersrollen in Azure Active Directory
 
 U kunt nu zien en beheren van alle leden van de beheerdersrollen in de Azure Active Directory-portal. Als u vaak roltoewijzingen beheren, kunt u deze ervaring wordt waarschijnlijk liever. En als u zich ooit afgevraagd "Wat de heid moeten deze rollen echt doen?", ziet u een gedetailleerde lijst met machtigingen voor elk van de Azure AD-beheerdersrollen.
 
@@ -29,13 +29,13 @@ Het is gemakkelijk om te zien van uw eigen machtigingen ook. Klik op **uw rol** 
 
 ![lijst met rollen in Azure AD-portal](./media/directory-manage-roles-portal/role-list.png)
 
-Selecteer de hele rij om de lijst met toegewezen leden weer te geven. U kunt selecteren **beheren in PIM** voor aanvullende beheermogelijkheden. Privileged Role Administrators "Permanent" kunt wijzigen (altijd actief in de rol) toewijzingen aan 'In aanmerking komende' (in de rol alleen als er verhoogde). Als u geen PIM hebt, kunt u nog steeds selecteren **beheren in PIM** om u te registreren voor een proefversie. Privileged Identity Management is vereist een [Azure AD Premium P2-licentieabonnement](../privileged-identity-management/subscription-requirements.md).
+Selecteer de rij voor een rol om de gebruikers die zijn toegewezen aan de rol weer te geven. U kunt selecteren **beheren in PIM** voor aanvullende beheermogelijkheden. Privileged Role Administrators "Permanent" kunt wijzigen (altijd actief in de rol) toewijzingen aan 'In aanmerking komende' (in de rol alleen als er verhoogde). Als u geen PIM hebt, kunt u nog steeds selecteren **beheren in PIM** om u te registreren voor een proefversie. Privileged Identity Management is vereist een [Azure AD Premium P2-licentieabonnement](../privileged-identity-management/subscription-requirements.md).
 
 ![lijst met leden van de rol van beheerder](./media/directory-manage-roles-portal/member-list.png)
 
-Als u een globale beheerder of een beheerder met bevoorrechte rol bent, kunt u eenvoudig toevoegen of verwijderen leden, de lijst filteren, of Selecteer een lid gaat u naar de pagina van de gebruiker om te zien van hun actieve rollen toegewezen. 
+Als u een globale beheerder of een beheerder met bevoorrechte rol bent, kunt u eenvoudig toevoegen of verwijderen leden, de lijst filteren, of Selecteer een lid om te zien van hun actieve rollen toegewezen krijgen.
 
-## <a name="detailed-role-permissions-in-the-portal"></a>Gedetailleerde machtigingen in de portal
+## <a name="view-role-permissions"></a>Rolmachtigingen weergeven
 
 Wanneer u de leden van een rol bekijkt, selecteert u **beschrijving** om te zien van de volledige lijst met machtigingen die zijn verleend door de roltoewijzing. De pagina bevat koppelingen naar relevante documentatie aan u te helpen bij het beheren van directory-rollen.
 

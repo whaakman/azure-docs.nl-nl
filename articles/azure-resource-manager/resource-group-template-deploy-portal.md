@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494075"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220122"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Resources implementeren met Resource Manager-sjablonen en Azure Portal
 
 In dit artikel ziet u hoe u de [Azure-portal](https://portal.azure.com) met [Azure Resource Manager](resource-group-overview.md) implementeren van uw Azure-resources. Zie voor meer informatie over het beheren van uw resources, [Azure-resources beheren via portal](resource-group-portal.md).
 
-## <a name="create-resource-group"></a>Resourcegroep maken
+## <a name="create-resource-group"></a>Een resourcegroep maken
 
 1. Voor het maken van een lege resourcegroep selecteert **resourcegroepen**.
 
@@ -60,7 +60,7 @@ Nadat u een resourcegroep hebt gemaakt, kunt u resources te implementeren vanuit
 
 1. Afhankelijk van het type geselecteerde bron hebt u een verzameling relevante eigenschappen om in te stellen vóór de implementatie. U moet een doelresourcegroep selecteren voor alle typen. De volgende afbeelding ziet u hoe u een web-app maakt en implementeert u deze in de resourcegroep die u hebt gemaakt.
 
-   ![Resourcegroep maken](./media/resource-group-template-deploy-portal/select-existing-group.png)
+   ![Een resourcegroep maken](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
    U kunt ook een resourcegroep maken bij het implementeren van uw resources. Selecteer **nieuw** en geef een naam op voor de resourcegroep.
 
@@ -137,4 +137,4 @@ De portal kunt u een sjabloon opslaan in uw Azure-account en later opnieuw te im
 * Zie bekijken van auditlogboeken [bewerkingen controleren met Resource Manager](resource-group-audit.md).
 * Zie voor het oplossen van fouten bij de implementatie, [implementatiebewerkingen bekijken](resource-manager-deployment-operations.md).
 * Als u wilt ophalen van een sjabloon van een implementatie of de resourcegroep, Zie [Azure Resource Manager-sjabloon exporteren uit bestaande resources](resource-manager-export-template.md).
-* Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+* Veilig rollout uw service in meerdere regio's Zie [Azure Deployment Manager](deployment-manager-overview.md).

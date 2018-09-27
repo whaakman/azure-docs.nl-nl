@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 2126875a18d4a6581629ea1c8362236242a666a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961022"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221975"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Veelgestelde vragen over Cloudyn
 
@@ -145,7 +145,7 @@ Kostenrapporten kunnen fluctuaties in de kosten weergeven wanneer cloudservicepr
 
 Gedurende de maand zijn alle facturering bestanden die zijn verzonden door uw cloudserviceprovider een schatting van uw dagelijkse kosten. Soms gegevens regelmatig wordt bijgewerkt, soms meerdere keren per dag. Er zijn updates vaker met AWS dan Azure. Totaal blijft stabiel wanneer het berekenen van facturering voor de vorige maand voltooid is en de uiteindelijke facturering bestand wordt ontvangen. Normaal gesproken door de 10e van de maand.
 
-Wijzigingen optreden wanneer u aanpassingen van de kosten van uw cloudserviceprovider ontvangt. Tegoed ontvangen is een voorbeeld. Wijzigingen kunnen maanden optreden nadat de desbetreffende maand is gesloten. Wijzigingen worden weergegeven wanneer een herberekening wordt gemaakt door uw cloudserviceprovider. Cloudyn-updates de historische gegevens om ervoor te zorgen dat alle aanpassingen worden herberekend. Hij controleert ook dat kosten nauwkeurig worden weergegeven in het rapport.
+Wijzigingen optreden wanneer u aanpassingen van de kosten van uw cloudserviceprovider ontvangt. Tegoed ontvangen is een voorbeeld. Wijzigingen kunnen maanden optreden nadat de desbetreffende maand is gesloten. Wijzigingen worden weergegeven wanneer een herberekening wordt gemaakt door uw cloudserviceprovider. Cloudyn-updates de historische gegevens om ervoor te zorgen dat alle aanpassingen worden herberekend. Hij controleert ook dat de kosten worden weergegeven nauwkeurig in deze rapporten.
 
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Hoe kan een directe CSP Cloudyn-toegang configureren voor indirecte CSP-klanten of partners?
 

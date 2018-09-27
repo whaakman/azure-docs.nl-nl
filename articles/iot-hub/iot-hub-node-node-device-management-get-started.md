@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d9985aaefbb664f42b63fc25daff3ea2b37221fb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573431"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219369"
 ---
 # <a name="get-started-with-device-management-node"></a>Aan de slag met Apparaatbeheer (Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-In deze handleiding ontdekt u hoe u:
+In deze zelfstudie ontdekt u hoe u:
 
 * De Azure portal gebruiken voor het maken van een IoT-Hub en een apparaat-id maken in uw IoT-hub.
 * Maak een gesimuleerde apparaat-app met een rechtstreekse methode die het apparaat opnieuw wordt opgestart. Directe methoden zijn aangeroepen vanuit de cloud.
@@ -128,7 +128,7 @@ In deze sectie wordt u
 8. Opslaan en sluiten de **dmpatterns_getstarted_device.js** bestand.
 
 > [!NOTE]
-> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u een beleid voor opnieuw proberen implementeren (zoals exponentieel uitstel), zoals aangegeven in het MSDN-artikel [Transient Fault Handling][lnk-transient-faults] (Afhandeling van tijdelijke fouten).
+> Om de zaken niet nodeloos ingewikkeld te maken, is in deze handleiding geen beleid voor opnieuw proberen geïmplementeerd. Bij de productiecode moet u beleid voor opnieuw proberen (zoals exponentieel uitstel), zoals aangegeven in het artikel implementeren [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Een extern opnieuw opstarten op het apparaat met een rechtstreekse methode activeren
 In deze sectie maakt u een Node.js-consoletoepassing die een extern opnieuw opstarten op een apparaat met een rechtstreekse methode initieert. De app maakt gebruik van apparaatdubbel-query's voor het detecteren van de laatste keer opnieuw opstarten voor dat apparaat.
@@ -240,4 +240,3 @@ U kunt nu de apps uitvoeren.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

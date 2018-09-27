@@ -1,21 +1,22 @@
 ---
-title: Migreren van Prijscategorieën van Custom Speech Service-eindpunten in Azure | Microsoft Docs
-description: Informatie over het migreren van implementaties van lagen S0 en S1 naar S2 van Custom Speech Service-eindpunten in Cognitive Services.
+title: Prijscategorieën van eindpunten - Custom Speech Service migreren
+titlesuffix: Azure Cognitive Services
+description: Informatie over het migreren van implementaties van lagen S0 en S1 naar S2 van Custom Speech Service-eindpunten.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964970"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224848"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migreren van implementaties naar het nieuwe prijsmodel
 Vanaf juli 2017, Custom Speech Service biedt een [nieuwe prijsmodel](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). Het nieuwe model is *gemakkelijker te begrijpen*, *eenvoudiger om kosten te berekenen*, en *flexibelere* in termen van schalen. Voor het schalen, heeft Microsoft introduceert het concept van een schaaleenheid. Elke schaaleenheid kan vijf gelijktijdige aanvragen worden verwerkt. De schaal voor gelijktijdige aanvragen in het oude model is ingesteld op 5 gelijktijdige aanvragen voor S0-laag en is ingesteld op 12 gelijktijdige aanvragen voor laag S1. We hebben deze limieten te te bieden u meer flexibiliteit met uw use-casevereisten geopend.

@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294166"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218781"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen
 
@@ -31,9 +31,9 @@ IoT Edge-runtime voert de volgende functies op IoT Edge-apparaten:
 
 ![IoT Edge-runtime communiceert inzichten en status van de module voor IoT-Hub][1]
 
-De verantwoordelijkheden van de IoT Edge-runtime kunnen worden onderverdeeld in twee categorieën: Modulebeheer en communicatie. Deze twee rollen worden uitgevoerd door twee onderdelen die gezamenlijk de IoT Edge-runtime. De IoT Edge hub is verantwoordelijk voor communicatie, terwijl de IoT Edge-agent wordt beheerd, implementeren en controleren van de modules. 
+De verantwoordelijkheden van de IoT Edge-runtime kunnen worden onderverdeeld in twee categorieën: communicatie-en-module. Deze twee rollen worden uitgevoerd door twee onderdelen die gezamenlijk de IoT Edge-runtime. De IoT Edge hub is verantwoordelijk voor communicatie, terwijl de IoT Edge-agent wordt beheerd, implementeren en controleren van de modules. 
 
-Zowel de Edge agent en Edge hub zijn modules, net als elke andere module die wordt uitgevoerd op een IoT Edge-apparaat. 
+Zowel de Edge hub en de Edge agent zijn modules, net als elke andere module die wordt uitgevoerd op een IoT Edge-apparaat. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge hub
 

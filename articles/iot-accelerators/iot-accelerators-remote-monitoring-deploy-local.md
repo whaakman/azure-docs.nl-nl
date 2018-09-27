@@ -6,18 +6,18 @@ manager: timlt
 ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034974"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219971"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>De Remote Monitoring solution accelerator lokaal implementeren
 
-In dit artikel leest u hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling. Deze benadering implementeert de microservices naar een lokale Docker-container en maakt gebruik van IoT Hub, Cosmos DB en Azure Time Series Insights-services in de cloud.
+In dit artikel leest u hoe de oplossingsverbetering voor externe bewaking implementeren naar uw lokale computer voor het testen en ontwikkeling. De methode die wordt beschreven in dit artikel implementeert de microservices naar een lokale Docker-container en maakt gebruik van IoT Hub, Cosmos DB en Azure Time Series Insights-services in de cloud. Zie voor meer informatie over het uitvoeren van de oplossingsverbetering voor externe controle in een IDE op uw lokale computer, [Microservices starten op de lokale omgeving](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) op GitHub.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -75,13 +75,19 @@ Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen
 
     Het script wordt de resourcegroep gemaakt in Azure met de naam van uw oplossing. Deze resourcegroep bevat de Azure-resources die maakt gebruik van de solution accelerator.
 
-3. Wanneer het script is voltooid, wordt een lijst met omgevingsvariabelen weergegeven. Volg de instructies voor het opslaan van deze variabelen aan de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** bestand.
+3. Wanneer het script is voltooid, wordt een lijst met omgevingsvariabelen weergegeven. Volg de instructies in de uitvoer van de opdracht voor het opslaan van deze variabelen aan de **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\lokale\\.env** bestand.
 
 ### <a name="use-existing-azure-resources"></a>Bestaande Azure-bronnen
 
-Als u al hebt gemaakt de vereiste Azure-resources bewerken met de variabele definities van de omgeving in de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** bestand met de vereiste waarden. De **.env** bestand bevat gedetailleerde informatie over waar u kunt de vereiste waarden vinden.
+Als u al hebt gemaakt de vereiste Azure-resources bewerken met de variabele definities van de omgeving in de **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\lokale\\.env**  bestand met de vereiste waarden. De **.env** bestand bevat gedetailleerde informatie over waar u kunt de vereiste waarden vinden.
 
 ## <a name="run-the-microservices-in-docker"></a>Uitvoeren van de microservices in Docker
+
+De microservices die worden uitgevoerd in de lokale Docker-containers nodig hebt voor toegang tot de services die worden uitgevoerd in Azure. U kunt de internetverbinding van uw Docker-omgeving met behulp van de volgende opdracht uit die een kleine-container gestart en wordt geprobeerd te pingen van een internet-adres testen:
+
+```cmd/sh
+docker run --rm -ti library/alpine ping google.com
+```
 
 Als u wilt uitvoeren in de solution accelerator, gaat u naar de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** map in uw opdrachtregelomgeving en voer de volgende opdracht:
 
@@ -97,7 +103,7 @@ Voor toegang tot het oplossingsdashboard voor externe controle, gaat u naar [ ht
 
 ## <a name="clean-up"></a>Opruimen
 
-Verwijder onnodige om kosten te voorkomen, wanneer u klaar bent met het testen, cloudservices van uw Azure-abonnement. De eenvoudigste manier om het verwijderen van de services is om te navigeren naar de [Azure-portal](https://ms.portal.azure.com) en verwijder de resourcegroep die is gemaakt bij het uitvoeren van de **start.cmd** script.
+Om te voorkomen dat onnodige verwijderen kosten, wanneer u klaar bent met de test cloudservices uit uw Azure-abonnement. De eenvoudigste manier om het verwijderen van de services is om te navigeren naar de [Azure-portal](https://ms.portal.azure.com) en verwijder de resourcegroep die is gemaakt bij het uitvoeren van de **start.cmd** script.
 
 Gebruik de `docker-compose down --rmi all` opdracht voor het verwijderen van de Docker-installatiekopieën en maak ruimte vrij op uw lokale computer. U kunt ook de lokale kopie van de bewaking op afstand opslagplaats gemaakt wanneer u de broncode van GitHub gekloond verwijderen.
 

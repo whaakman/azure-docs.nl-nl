@@ -5,14 +5,14 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/26/2018
 ms.author: raynew
-ms.openlocfilehash: 533b12f5a2a70834d9f0dc7ecabebf7864fb3a1e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bf2562f4772d20f099faec94794e0e908e6636d5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299001"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227534"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - een migratie-infrastructuur implementeren
 
@@ -58,7 +58,7 @@ Voordat u Contoso kunt migreren naar Azure, is het essentieel is voor het voorbe
 
 Voordat we kijken naar de infrastructuur, kunt u sommige achtergrondinformatie over de mogelijkheden van Azure we in dit artikel bespreken lezen:
 
-- Er zijn een aantal opties beschikbaar voor het aanschaffen van Azure toegang, met inbegrip van betalen per gebruik, Enterprise Agreements (EA), of Open Licensing van Microsoft-resellers of van Microsoft-Partners weten als Cloud Solution Providers (CSP's). Meer informatie over [Aankoopopties](https://azure.microsoft.com/pricing/purchase-options/), en meer informatie over hoe u [Azure-abonnementen zijn ingedeeld](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
+- Er zijn een aantal opties beschikbaar voor aankopen toegang van Azure, met inbegrip van betalen per gebruik, Enterprise Agreements (EA), Open Licensing van Microsoft-resellers of van Partners van Microsoft Cloud Solution Providers (CSP's) genoemd. Meer informatie over [Aankoopopties](https://azure.microsoft.com/pricing/purchase-options/), en meer informatie over hoe u [Azure-abonnementen zijn ingedeeld](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
 - Bekijk een overzicht van Azure [identiteits-en toegang](https://www.microsoft.com/trustcenter/security/identity). In het bijzonder meer informatie over [Azure AD en uitbreiding van on-premises AD naar de cloud](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Er is een nuttig downloadbare e-book over [identiteits- en toegangsbeheer management (IAM) in een hybride omgeving](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
 - Azure biedt een robuuste netwerkinfrastructuur met opties voor hybride verbindingen. Bekijk een overzicht van [netwerk- en toegangsbeheer](https://docs.microsoft.com/azure/security/security-network-overview).
 - Een inleiding tot [Azure-beveiliging](https://docs.microsoft.com/azure/security/azure-security), en meer informatie over het maken van een plan voor [governance](https://docs.microsoft.com/azure/security/governance-in-azure).
@@ -96,7 +96,7 @@ Contoso is gaan met een [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 Contoso moet na betalen voor Azure, om te achterhalen hoe u Azure-abonnementen beheren. Contoso heeft een EA, en dus geen limiet voor het aantal Azure-abonnementen het kunt instellen.
 
-- Een Azure Enterprise-inschrijving wordt gedefinieerd hoe de vorm van een bedrijf en Azure-services gebruikt en een bestuursstructuur core definieert.
+- Een Azure Enterprise-inschrijving wordt gedefinieerd hoe een bedrijf vormen en Azure-services gebruikt, en definieert een bestuursstructuur core.
 - Als een eerste stap heeft Contoso vastgesteld dat een structuur (bekend als een enterprise-platform voor Enterprise-inschrijving. Contoso gebruikt [in dit artikel](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) om te begrijpen en ontwerpen van een scaffold.
 - Contoso heeft nu besloten om een functionele benadering gebruiken om abonnementen te beheren.
     - Binnen het bedrijf wordt, een enkel IT-afdeling die het budget van de Azure bepaalt gebruikt. Dit is de enige groep met abonnementen.
@@ -112,7 +112,7 @@ Met de abonnementen die zijn geconfigureerd, kunt Contoso kijken Microsoft-licen
 
 #### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Bij het implementeren van virtuele machines in Azure, zijn standaard installatiekopieën een licentie die in rekening op Contoso per minuut voor de software die wordt gebruikt. Echter Contoso is een op de lange termijn klant van Microsoft, en EAs bijgehouden en licenties met software assurance (SA) openen. 
+Bij het implementeren van virtuele machines in Azure, zijn standaard installatiekopieën een licentie die in rekening op Contoso per minuut voor de software die wordt gebruikt. Echter, Contoso is een op de lange termijn klant van Microsoft en heeft bewaard EAs en open-licenties met Software Assurance (SA). 
 
 Azure Hybrid Benefit biedt een rendabele methode voor het Contoso-migratie, doordat het besparen op Azure VM's en SQL Server-werkbelastingen door te converteren of hergebruiken van Windows Server Datacenter en Standard edition-licenties met Software Assurance wordt gedekt. Hiermee schakelt u Contoso voor een lagere op basis van compute-tarief voor virtuele machines en SQL Server. [Meer informatie](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -137,8 +137,8 @@ Verlenen en beheren van gebruikerstoegang tot Azure-resources met beheer van ide
 - Contoso wil de on-premises Active Directory in de cloud uitbreiden, in plaats van een nieuwe afzonderlijk systeem in Azure bouwen.
 - Hiermee maakt u een op basis van Azure Active Directory om dit te doen.
 - Contoso heeft geen Office 365 aanwezig is, dus hij moet voor het inrichten van een nieuwe Azure AD.
-- Office 365 maakt gebruik van Azure AD voor beheer van gebruikers. Contoso is Office 365 gebruikt, zou deze al een Azure AD-grondbeginsel hebben en gebruiken als de primaire AD.
-- [Meer informatie](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) over Azure AD voor Office 365, en leer [toevoegen van een abonnement](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) met een bestaande Azure AD.
+- Office 365 maakt gebruik van Azure AD voor beheer van gebruikers. Contoso is Office 365 gebruikt, moet al een Azure AD-tenant en die kunt gebruiken als de primaire AD.
+- [Meer informatie](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) over Azure AD voor Office 365, en leer [toevoegen van een abonnement](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) aan een bestaande Azure AD-tenant.
 
 ### <a name="create-an-azure-ad"></a>Een Azure AD maken
 
@@ -154,16 +154,16 @@ Contoso maakt gebruik van de gratis versie van Azure AD die is opgenomen met een
 
 ### <a name="add-the-domain-name"></a>De domeinnaam toevoegen
 
-Voor het gebruik van de standaard domain name, moet de Contoso-beheerders toe te voegen als een aangepaste naam aan Azure AD. Deze optie kan ze bekend gebruikersnamen toewijzen. Bijvoorbeeld, een gebruiker zich aanmelden met e-mailadres billg@contoso.com, in plaats van dat billg@contosomigration.microsoft.com. 
+Voor het gebruik van de standaard domain name, moet de Contoso-beheerders toe te voegen als een aangepaste domeinnaam aan Azure AD. Deze optie kan ze bekend gebruikersnamen toewijzen. Bijvoorbeeld, een gebruiker zich aanmelden met het e-mailadres billg@contoso.com, in plaats van dat billg@contosomigration.microsoft.com. 
 
-Voor het instellen van een aangepaste naam ze toe te voegen aan de directory, een DNS-vermelding toevoegen en controleer vervolgens of de naam in Azure AD.
+Voor het instellen van een aangepaste domeinnaam ze toe te voegen aan de directory, een DNS-vermelding toevoegen en controleer vervolgens of de naam in Azure AD.
 
 1. In **aangepaste-domeinnamen** > **aangepast domein toevoegen**, zij het domein toevoegen.
 2. Ze moeten registreren bij de domeinregistrar voor het gebruik van een DNS-vermelding in Azure. 
 
     - In de **aangepaste-domeinnamen** lijst, ze de DSN-informatie voor de naam van de opmerking. Het maakt gebruik van een MX-vermelding.
     - Ze nodig hebben toegang tot de naamserver om dit te doen. Ze zich aanmelden bij het domein Contoso.com en maak een nieuwe MX-record voor de DNS-vermelding die is geleverd door Azure AD, met behulp van de details die u hebt genoteerd.  
-1. Nadat de DNS-records worden doorgegeven, in de naam van de details voor het domein, klikt de gebruiker op **controleren** om te controleren of de aangepaste naam.
+1. Nadat de DNS-records worden doorgegeven, in de naam van de details voor het domein, klikt de gebruiker op **controleren** om te controleren of de aangepaste domeinnaam.
 
      ![Azure AD DNS](./media/contoso-migration-infrastructure/azure-ad-dns.png) 
 
@@ -176,7 +176,7 @@ De Azure AD is actief en werkend, Contoso beheerders wilt toevoegen van werkneme
 Azure-resourcegroepen verzamelen Azure-resources. Met behulp van een resourcegroep-ID, kunt Azure bewerkingen op de resources binnen de groep uit te voeren.
 
 - Een Azure-abonnement kan meerdere resourcegroepen toewijzen, maar een resourcegroep kan alleen bestaan binnen één abonnement.
-- Bovendien één resourcegroep bestaan meerdere resources kunt hebben, maar een resource kan alleen deel uitmaken van één groep.
+- Bovendien één resourcegroep bestaan meerdere resources kunt hebben, maar een resource kan slechts aan één resourcegroep bestaan.
 
 Beheerders van Contoso instellen van Azure-resourcegroepen, zoals samengevat in de volgende tabel.
 
@@ -224,7 +224,7 @@ Integratie in het kader, Contoso maakt gebruik van de [hulpprogramma Azure AD Co
 
     ![AD Connect downloaden](./media/contoso-migration-infrastructure/download-ad-connect.png) 
 
-2. Ze start de **AzureADConnect.msi** installatie met behulp van **expresinstellingen gebruiken**. Dit is de meest voorkomende installatie en kan worden gebruikt voor een topologie met één forest met wachtwoord-hashsynchronisatie voor verificatie.
+2. Ze start de **AzureADConnect.msi** installatie met **expresinstellingen gebruiken**. Dit is de meest voorkomende installatie en kan worden gebruikt voor een topologie met één forest met wachtwoord-hashsynchronisatie voor verificatie.
 
     ![AD Connect-Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz1.png) 
 
@@ -244,7 +244,7 @@ Houd rekening met het volgende:
 
     ![On-premises AD in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
-- Contoso IT-team wordt in elke groep, op basis van de rol aangegeven.
+- Het Contoso IT-team wordt in elke groep, op basis van de rol aangegeven.
 
     ![On-premises AD-leden in Azure](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png) 
 
@@ -255,7 +255,7 @@ Azure [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-b
 Rollen Contoso beheerders nu toegewezen aan de AD-beveiligingsgroepen waartoe deze gesynchroniseerd van on-premises.
 
 1. In de **ControlCobRG** resourcegroep, klikken ze op **toegangsbeheer (IAM)** > **toevoegen**.
-2. In **machtigingen toevoegen** > **rol**, selecteren ze **Inzender**, en selecteer de **ContosoCobRG** AD-groep in de lijst. De groep wordt vervolgens weergegeven in **geselecteerde leden** lijst. 
+2. In **machtigingen toevoegen** > **rol**, > **Inzender**, selecteren ze de **ContosoCobRG** AD-groep in de lijst. De groep wordt vervolgens weergegeven in de **geselecteerde leden** lijst. 
 3. Ze Herhaal deze stap met dezelfde machtigingen voor de andere resourcegroepen (met uitzondering van **ContosoAzureAdmins**), door de Inzender-rechten toe te voegen aan de AD-account dat overeenkomt met de resourcegroep.
 4. Voor de **ContosoAzureAdmins** AD-groep, ze wijzen de **eigenaar** rol.
 
@@ -274,7 +274,7 @@ Azure-resources worden geïmplementeerd in de regio's.
 - Meer informatie over [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/), en krijg inzicht in [hoe regio's zijn gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 
-Contoso heeft besloten om te gaan met de VS-Oost 2 (te vinden in Virginia) als de primaire regio en VS-midden als de secundaire regio. Er zijn een aantal redenen:
+Contoso heeft besloten om te gaan met de VS-Oost 2 (te vinden in Virginia) als de primaire regio en VS-midden (te vinden in Iowa) als de secundaire regio. Er zijn een aantal redenen:
 
 - Het Contoso-datacenter bevindt zich in New York en Contoso beschouwd als latentie naar de dichtstbijzijnde datacentrum.
 - De regio VS-Oost 2 heeft de service en producten die Contoso moet worden gebruikt. Niet alle Azure-regio's zijn hetzelfde in termen van de producten en services die beschikbaar zijn. U kunt bekijken [Azure-producten per regio](https://azure.microsoft.com/global-infrastructure/services/).
@@ -282,7 +282,7 @@ Contoso heeft besloten om te gaan met de VS-Oost 2 (te vinden in Virginia) als d
 
 Als deze als over de hybride omgeving, moet Contoso Houd rekening met het inbouwen van tolerantie en strategie voor herstel na noodgevallen in het ontwerp van de regio. Ruime zin is strategieën voor het bereik van een implementatie met één regio, die op Azure-platform functies zoals de domeinen met fouten en regionale koppelen voor flexibiliteit vertrouwt, door naar een volledig actief / actief-model in welke cloudservices en -database geïmplementeerd en onderhoud zijn gebruikers van twee regio's.
 
-Contoso heeft besloten om een middelste weg te nemen. Het implementeren van apps en resources in een primaire regio wordt en een volledige infrastructuur niet behouden in de secundaire regio, zodat deze klaar is om te fungeren als een volledige back-up in het geval van noodherstel voor volledige app of een storing van de regio.
+Contoso heeft besloten om een middelste weg te nemen. Voor het implementeren van apps en resources in een primaire regio wordt en een volledige kopie van de infrastructuur behouden in de secundaire regio, zodat deze klaar is om te fungeren als een volledige back-up in het geval van volledige app na noodgevallen of een regionale storing.
 
 ### <a name="set-up-availability-zones"></a>Beschikbaarheidszones instellen
 
@@ -298,11 +298,11 @@ Contoso beschikbaarheid implementeert zones als apps aanroepen van schaalbaarhei
 
 ## <a name="step-4-design-a-network-infrastructure"></a>Stap 4: Een netwerkinfrastructuur ontwerpen
 
-Contoso is gereed om te overwegen een strategie voor netwerken met de regionale ontwerp in plaats. Nodig om na te denken over de on-premises datacenter en Azure verbinding maakt en met elkaar communiceren, en over het ontwerpen van uw netwerkinfrastructuur in Azure. Specifiek Contoso moet:
+Contoso is gereed om te overwegen een strategie voor netwerken met de regionale ontwerp in plaats. Nodig om na te denken over de on-premises datacenter en Azure verbinding maakt en met elkaar communiceren, en over het ontwerpen van de netwerkinfrastructuur in Azure. Specifiek Contoso moet:
 
-**Hybride verbinding met het netwerk van plan bent**: bepalen hoe het gaat om netwerken te verbinden via on-premises en Azure.
-**Een Azure-netwerk-infrastructuur ontwerpen**: bepalen hoe netwerken worden geïmplementeerd via regio's. Hoe communiceert netwerken binnen dezelfde regio en tussen regio's?
-**Ontwerpen en Azure-netwerken instellen**: Azure-netwerken en subnetten, instellen en beslissen wat erin worden geplaatst.
+- **Hybride verbinding met het netwerk van plan bent**: bepalen hoe het gaat om netwerken te verbinden via on-premises en Azure.
+- **Een Azure-netwerk-infrastructuur ontwerpen**: bepalen hoe netwerken worden geïmplementeerd via regio's. Hoe communiceert netwerken binnen dezelfde regio en tussen regio's?
+- **Ontwerpen en Azure-netwerken instellen**: Azure-netwerken en subnetten, instellen en beslissen wat erin worden geplaatst.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Plannen van hybride verbinding met het netwerk
 
@@ -333,7 +333,7 @@ Hier ziet u hoe Contoso besloten voor het implementeren van hybride verbindingen
 
 ### <a name="design-the-azure-network-infrastructure"></a>De Azure-netwerk-infrastructuur ontwerpen
 
-Het is essentieel dat de Contoso netwerken in plaats op een manier die de hybride implementatie, veilige en schaalbare maakt geplaatst. U doet dit door Contoso op lange termijn benadering en het ontwerpen van virtuele netwerken (VNets) veerkracht en geschikt voor bedrijven. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) over het plannen van vnet's.
+Het is essentieel dat de Contoso netwerken in plaats op een manier die de hybride implementatie, veilige en schaalbare maakt geplaatst. U doet dit door Contoso op lange termijn benadering en het ontwerpen van virtuele netwerken (VNets) voor tolerantie en geschikt voor bedrijven. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) over het plannen van vnet's.
 
 Contoso heeft voor de verbinding van de twee regio's wordt besloten voor het implementeren van een model van de virtuele hub-hub-netwerk:
 
@@ -378,7 +378,7 @@ In de hub en spoke-model die Contoso heeft gekozen, nodig om na te denken over h
 - Vanuit het datacenter Contoso:
     - Inkomend verkeer via site-naar-site VPN-(of ExpressRoute) komt binnen via het openbare IP-adres van de Azure VPN-gateway.
     - Verkeer wordt doorgestuurd via de firewall en kan worden firewall-regels.
-    - Na het toepassen van regels wordt verkeer doorgestuurd naar een interne load balancer (Standard-SKU) op de interne zone met vertrouwde-subnet.
+    - Na het toepassen van firewall-regels, wordt verkeer doorgestuurd naar een interne load balancer (Standard-SKU) op de interne zone met vertrouwde-subnet.
     - Uitgaand verkeer van de vertrouwde subnet naar het on-premises datacenter via VPN wordt doorgestuurd via de firewall en regels die zijn toegepast, voordat u doorgaat op de site-naar-site VPN-verbinding.
 
 
@@ -399,12 +399,12 @@ VS-Oost 2 is de primaire regio die Contoso gebruiken voor het implementeren van 
 
 - **Hub**: de hub VNet in VS-Oost 2 is het middelpunt van primaire verbinding met het on-premises datacenter.
 - **VNets**: knooppunt VNets in VS-Oost 2 kunnen worden gebruikt om workloads te isoleren indien nodig. Contoso heeft twee knooppunt VNets in VS-Oost 2, naast de Hub VNet, doen:
-    - **VNET-DEV-EUS2**. Dit VNet vindt u dat de ontwikkeling en het testteam wordt een volledig werkend netwerk voor ontwikkelprojecten. Het fungeert als een leider gebied van productie, en zal afhankelijk zijn van de productie-infrastructuur om te functie.
+    - **VNET-DEV-EUS2**. Dit VNet gaat bieden de ontwikkeling en testen van team met een volledig werkend netwerk voor dev-projecten. Het fungeert als een leider gebied van productie, en zal afhankelijk zijn van de productie-infrastructuur om te functie.
     - **VNET-PROD-EUS2**: Azure IaaS productieonderdelen bevindt zich in dit netwerk. 
     -  Elk VNet heeft een eigen unieke adresruimte, met elkaar niet overlappen. Contoso wilt routering zonder NAT configureren
 - **Subnetten**:
     - Er is een subnet in elk netwerk voor elke app-laag
-    - Elk subnet in het productienetwerk heeft een overeenkomend subnet in het Dev-VNet.
+    - Elk subnet in het productienetwerk heeft een overeenkomend subnet in het VNet-ontwikkeling.
     - Het productienetwerk is bovendien een subnetmasker voor domeincontrollers.
 
 Vnet's in VS-Oost 2 worden samengevat in de volgende tabel.
@@ -431,7 +431,7 @@ Vnet's in VS-Oost 2 worden samengevat in de volgende tabel.
 
 #### <a name="subnets-in-the-east-us-2-dev-network-vnet-dev-eus2"></a>Subnetten in het oostelijke VS 2 Dev-netwerk (VNET-DEV-EUS2)
 
-Het Dev VNet wordt door het ontwikkelingsteam gebruikt als een leider gebied van productie. Er worden drie subnetten.
+Het VNet ontwikkeling wordt gebruikt door het ontwikkelingsteam als een leider gebied voor productie. Er worden drie subnetten.
 
 **Subnet** | **CIDR** | **Adressen** | **In het subnet**
 --- | --- | --- | ---
@@ -442,7 +442,7 @@ Het Dev VNet wordt door het ontwikkelingsteam gebruikt als een leider gebied van
 
 #### <a name="subnets-in-the-east-us-2-production-network-vnet-prod-eus2"></a>Subnetten in het oostelijke VS 2 productie-netwerk (VNET-PROD-EUS2)
 
-Onderdelen van Azure IaaS bevinden zich in het productienetwerk. Elke app-laag heeft een eigen subnet. Subnetten overeen met die in het netwerk ontwikkelen met de toevoeging van een subnetmasker voor domeincontrollers.
+Onderdelen van Azure IaaS bevinden zich in het productienetwerk. Elke app-laag heeft een eigen subnet. Subnetten overeen met die in het netwerk ontwikkeling met de toevoeging van een subnetmasker voor domeincontrollers.
 
 **Subnet** | **CIDR** | **Adressen** | **In het subnet**
 --- | --- | --- | ---
@@ -459,7 +459,7 @@ Onderdelen van Azure IaaS bevinden zich in het productienetwerk. Elke app-laag h
 
 VS-midden is de secundaire regio van Contoso. Hier ziet u hoe Contoso netwerken wordt ontwerpen:
 
-- **Hub**: de hub Vnet in VS-Oost 2 het middelpunt van connectiviteit met het on-premises datacenter en het knooppunt VNets in VS-Oost 2 kunnen worden gebruikt om te isoleren werkbelastingen is indien nodig, afzonderlijk beheerd vanaf andere knooppunten.
+- **Hub**: de hub VNet in VS-Oost 2 het middelpunt van connectiviteit met het on-premises datacenter en het knooppunt VNets in VS-Oost 2 kunnen worden gebruikt om te isoleren werkbelastingen is indien nodig, afzonderlijk beheerd vanaf andere knooppunten.
 - **VNets**: Contoso heeft twee VNets in VS-midden:
     - VNET-PROD-CU 'S. Dit VNet is een productienetwerk, vergelijkbaar met VNET-PROD_EUS2. 
     - VNET-ASR-CU 'S. Dit VNet fungeert als een locatie waarin de virtuele machines die zijn gemaakt na een failover van on-premises of als een locatie voor Azure-VM's waarvoor een failover van de primaire naar de secundaire regio is. Dit netwerk is vergelijkbaar met de productienetwerken, maar zonder dat alle domeincontrollers erop.
@@ -504,7 +504,7 @@ Parallel met het productienetwerk in de primaire regio in de VS-Oost 2, moet u e
 
 De VNET-ASR-CUS-netwerk wordt gebruikt ten behoeve van failover tussen regio's. Site Recovery wordt gebruikt voor het repliceren en failover van virtuele Azure-machines tussen de regio's. Het fungeert ook als een Contoso-datacenter met Azure-netwerk voor beveiligde werkbelastingen die on-premises blijven, maar schakelt over naar Azure voor herstel na noodgevallen.
 
-VNET-ASR-Cu's is standaard hetzelfde subnet als de productie VNET in VS-Oost 2, maar zonder de noodzaak van een domein-controller-subnet.
+VNET-ASR-Cu's is standaard hetzelfde subnet als de productie VNet in VS-Oost 2, maar zonder de noodzaak van een domein-controller-subnet.
 
 **Subnet** | **CIDR** | **Adressen** | **In het subnet**
 --- | --- | --- | ---
@@ -535,7 +535,7 @@ Voor de domeincontrollers in het netwerk VNET-PROD-EUS2 wil Contoso verkeer toe 
 
     ![Peering](./media/contoso-migration-infrastructure/peering2.png)
 
-3. On-premises ze een statische route die zorgt ervoor het lokale verkeer dat routeren via de VPN-tunnel naar het VNet moeten instellen. De configuratie van de zou worden uitgevoerd op de gateway waarmee de VPN-tunnel van Contoso naar Azure. Ze Windows Routering en externe toegang hiervoor gebruiken.
+3. On-premises ze een statische route die zorgt ervoor het lokale verkeer dat routeren via de VPN-tunnel naar het VNet moeten instellen. De configuratie van de zou worden uitgevoerd op de gateway waarmee de VPN-tunnel van Contoso naar Azure. Ze RRAS hiervoor gebruiken.
 
     ![Peering](./media/contoso-migration-infrastructure/peering3.png)
 
@@ -555,7 +555,7 @@ Contoso-beheerders hebben besloten dat de Azure DNS-service een goede keuze in d
 
 - Aangezien dit een hybride netwerk dat alle de virtuele machines on-premises en in Azure moeten kunnen omzetten van namen te laten functioneren. Dit betekent dat aangepaste DNS-instellingen moeten worden toegepast op alle vnet's.
 - Contoso heeft momenteel DC's die zijn geïmplementeerd in de Contoso-datacenter en in de filialen. De primaire DNS-servers zijn CONTOSODC1(172.16.0.10) en CONTOSODC2(172.16.0.1)
-- Wanneer de VNets die zijn geïmplementeerd, wordt de on-premises domeincontrollers worden ingesteld als DNS-server in de netwerken moet worden gebruikt. 
+- Wanneer de VNets die zijn geïmplementeerd, wordt de on-premises domeincontrollers worden ingesteld als DNS-servers in de netwerken moet worden gebruikt. 
 - Als u wilt configureren, bij het gebruik van aangepaste DNS in het VNet, moet de recursieve resolvers IP-adres (zoals 168.63.129.16) van Azure worden toegevoegd aan de lijst met DNS.  U doet dit door configureren Contoso DNS-serverinstellingen op elke VNet. De aangepaste DNS-instellingen voor de VNET-HUB-EUS2 netwerk zou bijvoorbeeld als volgt zijn:
     
     ![Aangepaste DNS](./media/contoso-migration-infrastructure/custom-dns.png)
@@ -607,7 +607,7 @@ Beheerders van Contoso zijn na het bijwerken van netwerkinstellingen, gereed voo
 
     ![DNS-doorstuurserver](./media/contoso-migration-infrastructure/dns-forwarder.png)
 
-10. Vervolgens nu de aangepaste DNS-instellingen voor elk VNet bijwerken met de juiste domeincontroller voor de VNet-regio. Ze opnemen on-premises DC's in de lijst.
+10. Ze nu bijwerken de aangepaste DNS-instellingen voor elk VNet met de juiste domeincontroller voor de VNet-regio. Ze opnemen on-premises DC's in de lijst.
 
 ### <a name="set-up-active-directory"></a>Active Directory instellen
 
@@ -642,11 +642,11 @@ Zoals ook het configureren van de identiteit en toegangsbeheer, is al Contoso ge
 
 ### <a name="set-up-policies"></a>Beleid instellen
 
-De Azure Policy-service beoordeelt wat uw resources, scannen op die niet compatibel zijn met de beleidsdefinities die u geïmplementeerd hebt. Bijvoorbeeld, is mogelijk een beleid dat alleen bepaalde typen virtuele machines kunt opgeven of resources aan een specifieke tag vereist. 
+De Azure Policy-service beoordeelt wat uw resources, scannen op die niet compatibel zijn met de beleidsdefinities die u geïmplementeerd hebt. Bijvoorbeeld, mogelijk hebt u een beleid dat alleen bepaalde typen virtuele machines kunt opgeven of resources aan een specifieke tag vereist. 
 
-Azure-beleid een beleidsdefinitie opgeven en de toewijzing van configuratiebeleid opgeven het bereik waarin een beleid moet worden toegepast. Het bereik kan variëren van een beheergroep tot een resourcegroep. [Informatie over](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) over het maken en beheren van beleid.
+Azure-beleid een beleidsdefinitie opgeven en een beleidstoewijzing Hiermee geeft u het bereik waarin een beleid moet worden toegepast. Het bereik kan variëren van een beheergroep tot een resourcegroep. [Informatie over](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) over het maken en beheren van beleid.
 
-Aan de slag met een paar van het beleid is Contoso wilt:
+Contoso wil aan de slag met een aantal beleidsregels:
 
 - Dit wil een beleid om ervoor te zorgen dat resources kunnen alleen worden geïmplementeerd in de regio's EUS2 en Cu's.
 - Het bedrijf wil beperken van VM-SKU's naar goedgekeurde SKU's. De bedoeling is om ervoor te zorgen dat dure VM-SKU's worden niet gebruikt.
@@ -681,7 +681,7 @@ Beleid van kracht onmiddellijk en Contoso-resources voor compatibiliteit kunt co
 1. Klik in de Azure-portal op de **naleving** koppeling.
 2. Het dashboard voor apparaatnaleving wordt weergegeven. U kunt inzoomen voor meer informatie.
 
-    ![Naleving van het beleid](./media/contoso-migration-infrastructure/policy-compliance.png)
+    ![Beleidsnaleving](./media/contoso-migration-infrastructure/policy-compliance.png)
 
 
 ### <a name="set-up-locks"></a>Vergrendelingen instellen
@@ -701,11 +701,11 @@ Als u wilt bijhouden resources zoals ze worden toegevoegd, wordt het steeds bela
 
 Naast het verstrekken van informatie over resources en eigenaren, kunnen labels Contoso te aggregeren en groep resources, en het gebruik van die gegevens voor terugstortingsdoeleinden.
 
-Contoso moet voor het visualiseren van de Azure-assets op een manier die zinvol is voor het bedrijf. Bijvoorbeeld, maar de rol of afdeling. Houd er rekening mee dat resources hoeft te bevinden zich in dezelfde resourcegroep voor het delen van een tag. U doet dit door maakt Contoso u een eenvoudige tagtaxonomie zodat iedereen dezelfde tags gebruikt.
+Contoso moet voor het visualiseren van de Azure-assets op een manier die zinvol is voor het bedrijf. Bijvoorbeeld op rol of afdeling. Houd er rekening mee dat resources hoeft te bevinden zich in dezelfde resourcegroep voor het delen van een tag. Contoso maakt u een eenvoudige tagtaxonomie zodat iedereen dezelfde tags gebruikt.
 
 **Naam van de tag** | **Waarde**
 --- | ---
-CostCenter | 12345: dit moet een geldige kostenplaats van SAP.
+Kostenplaats | 12345: dit moet een geldige kostenplaats van SAP.
 Business Unit | Naam van business unit (van SAP). Komt overeen met kostenplaats.
 ApplicationTeam | E-mailalias van het team dat eigenaar is van ondersteuning voor de app.
 CatalogName | De naam van de app of ShareServices, per de Servicecatalogus die ondersteuning biedt voor de resource.
@@ -724,7 +724,7 @@ Contoso wordt na het maken van de tag, gaat u terug en nieuwe Azure policy-defin
 
 Beveiliging is van cruciaal belang in de cloud en Azure biedt een breed scala aan mogelijkheden en hulpprogramma's voor beveiliging. Dit helpt u bij het maken van veilige oplossingen op de beveiligde Azure-platform. Lezen [vertrouwen in de vertrouwde cloud](https://azure.microsoft.com/overview/trusted-cloud/) voor meer informatie over Azure-beveiliging.
 
-Er enkele belangrijke aspecten voor Contoso te overwegen:
+Er zijn enkele aspecten voor Contoso te overwegen:
 
 - **Azure Security Center**: Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor hybride cloudworkloads. Met Security Center kunt u beveiligingsbeleid toepassen voor verschillende workloads, blootstelling aan bedreigingen beperken en aanvallen detecteren en afwenden.  [Meer informatie](https://docs.microsoft.com/azure/security-center/security-center-intro).
 - **Netwerkbeveiligingsgroepen (nsg's)**: een NSG is een filter (firewall) die een lijst van beveiliging bevat regels die, wanneer toegepast, toestaan of weigeren van netwerkverkeer naar resources die zijn verbonden met Azure vnet's. [Meer informatie](https://docs.microsoft.com/azure/virtual-network/security-overview).
@@ -752,7 +752,7 @@ Contoso gebruik van de continue beveiligingsevaluatie waarmee de beveiliging van
 - Continue evaluatie kunt het operationele team van Contoso voor het detecteren van mogelijke beveiligingsproblemen, zoals systemen met ontbrekende beveiligingsupdates of netwerkpoorten weergegeven. 
 - Contoso wil in het bijzonder zorg ervoor dat alle virtuele machines zijn beveiligd. Security Center helpt met dit VM-status controleren en het doen van prioriteit gebaseerde en uitvoerbare aanbevelingen voor het herstellen van beveiligingsproblemen voordat er misbruik wordt gemaakt.
 
-![Controle](./media/contoso-migration-infrastructure/monitoring.png)
+![Bewaking](./media/contoso-migration-infrastructure/monitoring.png)
 
 ### <a name="work-with-nsgs"></a>Werken met nsg 's
 
@@ -761,11 +761,12 @@ Contoso beperken van netwerkverkeer tot resources in een virtueel netwerk met be
 - Een netwerkbeveiligingsgroep bevat een lijst met beveiligingsregels die binnenkomend of uitgaand netwerkverkeer toestaan of weigeren op basis van het bron- of doel-IP-adres, de poort en het protocol.
 - Wanneer toegepast op een subnet, worden regels worden toegepast op alle resources in het subnet. Naast netwerkinterfaces bevat deze exemplaren van Azure services die zijn geïmplementeerd in het subnet.
 - Toepassingsbeveiligingsgroepen (asg's) kunnen u netwerkbeveiliging configureren als een natuurlijke uitbreiding van een app, zodat u kunt een groep VM's en beleidsregels voor netwerkbeveiliging op basis van deze groepen te definiëren.
-    - App-beveiligingsgroepen betekenen dat u uw beveiligingsbeleid op grote schaal, zonder handmatig onderhoud van expliciete IP-adressen kunt hergebruiken. Het platform verwerkt de complexiteit van expliciete IP-adressen en meerdere regelsets, zodat u zich kunt richten op uw bedrijfslogica.
-    - U kunt een toepassingsbeveiligingsregel opgeven als bron en doel in een beveiligingsregel. Nadat uw beveiligingsbeleid is gedefinieerd, kunt u virtuele machines maken en toewijzen van de VM NIC's aan een groep. 
+    - Toepassingsbeveiligingsgroepen betekenen dat Contoso het beveiligingsbeleid op grote schaal, zonder handmatig onderhoud van expliciete IP-adressen kunt hergebruiken. Het platform verwerkt de complexiteit van expliciete IP-adressen en meerdere regelsets, zodat u zich kunt richten op uw bedrijfslogica.
+    - Contoso kan een toepassingsbeveiligingsgroep opgeven als de bron en doel in een beveiligingsregel. Nadat een beveiligingsbeleid is gedefinieerd, kan Contoso virtuele machines maken en toewijzen van de VM NIC's aan een groep. 
 
 
-Contoso wordt een combinatie van nsg's en asg's implementeren. Contoso bang zijn over het beheer van de NSG. Dit wordt ook niet zitten om over de overmatig gebruik van nsg's en de extra complexiteit voor operationele medewerkers.
+Contoso wordt een combinatie van nsg's en asg's implementeren. Contoso heeft betrekking op over het beheer van de NSG. Dit wordt ook niet zitten om over de overmatig gebruik van nsg's en de extra complexiteit voor operationele medewerkers. Dit is wat Contoso doet:
+
 - Al het verkeer naar en van alle subnetten (Noord-Zuid), zijn onderworpen aan een NSG-regel, met uitzondering van de GatewaySubnets in het Hub-netwerken.
 - Alle firewalls of de domeincontroller worden beveiligd door zowel subnet met nsg's en NIC-nsg's.
 - Alle productie-Apps hebben asg's die worden toegepast.

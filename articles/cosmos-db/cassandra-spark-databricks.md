@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 3f1bdb63253506aee211f3733df2a339824de7a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994646"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222016"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Toegang tot Azure Cosmos DB Cassandra API gegevens uit Azure Databricks
 
@@ -32,9 +32,9 @@ Dit artikel wordt beschreven hoe u in combinatie met Azure Cosmos DB Cassandra-A
 
 * [Cqlsh voor validatie gebruiken als u dus liever](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuratie van de Cassandra-API-exemplaar voor Datastax Cassandra-connector:**
+* **Configuratie van de Cassandra-API-exemplaar voor Cassandra-connector:**
 
-  De connector Datastax voor Cassandra vereist de details van de Cassandra-verbinding moet worden geïnitialiseerd als onderdeel van de spark-context. Wanneer u een Databricks-notebook start, wordt de spark-context is al geïnitialiseerd en wordt niet aangeraden om te stoppen en opnieuw initialiseren. Een mogelijke oplossing is het toevoegen van de configuratie van de Cassandra-API-exemplaren op het clusterniveau van een, in de configuratie van spark. Dit is een eenmalige activiteit per cluster. Voeg de volgende code aan de configuratie van Spark als een spatie sleutel-waardepaar gescheiden:
+  De connector voor Cassandra-API is vereist voor de details van de Cassandra-verbinding moet worden geïnitialiseerd als onderdeel van de spark-context. Wanneer u een Databricks-notebook start, wordt de spark-context is al geïnitialiseerd en wordt niet aangeraden om te stoppen en opnieuw initialiseren. Een mogelijke oplossing is het toevoegen van de configuratie van de Cassandra-API-exemplaren op het clusterniveau van een, in de configuratie van spark. Dit is een eenmalige activiteit per cluster. Voeg de volgende code aan de configuratie van Spark als een spatie sleutel-waardepaar gescheiden:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -46,11 +46,11 @@ Dit artikel wordt beschreven hoe u in combinatie met Azure Cosmos DB Cassandra-A
 
 ## <a name="add-the-required-dependencies"></a>De vereiste afhankelijkheden toevoegen
 
-* **Datastax Cassandra Spark-connector:** : als u wilt integreren met Azure Cosmos DB Cassandra-API met Spark, de Datastax Cassandra-connector moet worden gekoppeld aan het Azure Databricks-cluster. Koppelen van het cluster:
+* **Cassandra-Spark-connector:** - Cassandra-API van Azure Cosmos DB worden geïntegreerd met Spark, de connector moet worden gekoppeld aan het Azure Databricks-cluster Cassandra. Koppelen van het cluster:
 
-  * Bekijk de Databricks-runtimeversie de Spark-versie. Gaat u naar de [maven-coördinaten](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel zijn met de Datastax Cassandra Spark-connector, en deze koppelen aan het cluster. Zie ["Voor het uploaden van een Maven-pakket of een Spark-pakket"](https://docs.databricks.com/user-guide/libraries.html) artikel de connector-bibliotheek koppelen aan het cluster. Bijvoorbeeld, maven-coördinaat voor "Databricks Runtime versie 4.3", "2.3.1 Spark," en "Scala 2.11" is `spark-cassandra-connector_2.11-2.3.1`
+  * Bekijk de Databricks-runtimeversie de Spark-versie. Gaat u naar de [maven-coördinaten](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) die compatibel zijn met de Cassandra-Spark-connector, en deze koppelen aan het cluster. Zie ["Voor het uploaden van een Maven-pakket of een Spark-pakket"](https://docs.databricks.com/user-guide/libraries.html) artikel de connector-bibliotheek koppelen aan het cluster. Bijvoorbeeld, maven-coördinaat voor "Databricks Runtime versie 4.3", "2.3.1 Spark," en "Scala 2.11" is `spark-cassandra-connector_2.11-2.3.1`
 
-* **Azure Cosmos DB Cassandra-API-specifieke bibliotheek:** -een aangepaste verbinding factory is vereist voor het configureren van het beleid voor opnieuw proberen van de Datastax Spark-connector met Azure Cosmos DB Cassandra-API. Voeg de `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven-coördinaten](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) de bibliotheek koppelen aan het cluster.
+* **Azure Cosmos DB Cassandra-API-specifieke bibliotheek:** -een aangepaste verbinding factory is vereist voor het configureren van het beleid voor opnieuw proberen van de Cassandra-Spark-connector met Azure Cosmos DB Cassandra-API. Voeg de `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven-coördinaten](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) de bibliotheek koppelen aan het cluster.
 
 ## <a name="sample-notebooks"></a>Voorbeeld-laptops
 

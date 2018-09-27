@@ -1,21 +1,21 @@
 ---
-title: Upgrade van de Bing Video-API versie 5 naar versie 7 | Microsoft Docs
+title: Upgrade van de Bing Video zoeken-API versie 5 naar versie 7
+titlesuffix: Azure Cognitive Services
 description: Hiermee geeft u de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: FA7DDF07-97AC-4EBE-8C50-A9737D43B38E
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: db1bc07c06f3d073b6cc0f206620e50a5f048e2a
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 967355d213f226711914e298a2fbf5676ebefe4f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41987960"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224457"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Upgrade guide voor video zoeken-API
 

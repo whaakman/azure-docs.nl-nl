@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6257f1f9c237422174d695489b8ed39c7c37ebe2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b190e539c411811e8e77b39e7b0738e9d7c3c8c6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969152"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227602"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -450,7 +450,7 @@ Het is belangrijk dat u er rekening mee dat de VM (s) in elk van de sets worden 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Cross-Premises - implementatie van één of meerdere SAP-virtuele machines naar Azure met de vereiste van volledig geïntegreerd in de on-premises netwerk
 ![VPN met Site-naar-Site-connectiviteit (cross-premises)][planning-guide-figure-300]
 
-Dit scenario is een cross-premises scenario met vele mogelijke implementaties. Dit kan worden aangeduid met on-premises uitvoeren van sommige onderdelen van de SAP liggend en andere onderdelen van de SAP-landschap op Azure. Alle aspecten van het feit dat onderdeel van de SAP-onderdelen worden uitgevoerd op Azure moeten worden transparant voor eindgebruikers. Daarom werken de SAP Transport correctie System (STM), RFC communicatie, afdrukken, beveiliging (zoals SSO), enzovoort naadloos voor de SAP-systemen die worden uitgevoerd op Azure. Maar de cross-premises-scenario wordt ook beschreven voor een scenario waarin de complete SAP-landschap dat wordt uitgevoerd in Azure met het domein van de klant en DNS uitgebreid naar Azure.
+Dit scenario is een cross-premises scenario met vele mogelijke implementaties. Dit kan worden aangeduid met het uitvoeren van sommige onderdelen van de SAP-landschap on-premises en andere onderdelen van de SAP-landschap dat op Azure. Alle aspecten van het feit dat onderdeel van de SAP-onderdelen worden uitgevoerd op Azure moeten worden transparant voor eindgebruikers. Daarom werken de SAP Transport correctie System (STM), RFC communicatie, afdrukken, beveiliging (zoals SSO), enzovoort naadloos voor de SAP-systemen die worden uitgevoerd op Azure. Maar de cross-premises-scenario wordt ook beschreven voor een scenario waarin de complete SAP-landschap dat wordt uitgevoerd in Azure met het domein van de klant en DNS uitgebreid naar Azure.
 
 > [!NOTE]
 > Dit is het implementatiescenario dat wordt ondersteund voor het uitvoeren van productief SAP-systemen.
@@ -1614,8 +1614,8 @@ In de tabel onder normale SAP worden communicatiepoorten weergegeven. Het is in 
 | --- | --- | --- | --- | --- |
 | Functie voor berichtverzending |sapdp`<nn>` Zie * |3201 |3200 - 3299 |SAP-Webdispatcher, die worden gebruikt door SAP GUI voor Windows en Java |
 | -Berichtenserver |sapms`<sid`> Zie ** |3600 |gratis sapms`<anySID`> |beveiligings-id = SAP-systeem-ID |
-| Gateway |sapgw`<nn`> Zie * |3301 |Gratis |SAP-gateway, die wordt gebruikt voor CPIC en RFC communicatie |
-| SAP-router |sapdp99 |3299 |Gratis |Namen van alleen CI (centrale exemplaar)-Service kunnen opnieuw worden toegewezen in /etc/services op een willekeurige waarde na de installatie. |
+| Gateway |sapgw`<nn`> Zie * |3301 |gratis |SAP-gateway, die wordt gebruikt voor CPIC en RFC communicatie |
+| SAP-router |sapdp99 |3299 |gratis |Namen van alleen CI (centrale exemplaar)-Service kunnen opnieuw worden toegewezen in /etc/services op een willekeurige waarde na de installatie. |
 
 *) nn = getal voor SAP-exemplaar
 

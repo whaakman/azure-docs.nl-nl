@@ -1,21 +1,21 @@
 ---
-title: Insights-token gebruiken met Bing visuele zoekopdrachten-API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Ziet u hoe u van een installatiekopie inzicht token met visuele zoekopdrachten-API om inzichten over een afbeelding te verkrijgen.
+title: Insights token - gebruikt Bing visuele zoekopdrachten
+titleSuffix: Azure Cognitive Services
+description: Ziet u hoe u van een installatiekopie inzicht token met Bing visuele zoekopdrachten-API om inzichten over een afbeelding te verkrijgen.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e853545e07709d82fa1e3b1143392e6d6012f6f6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126555"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227585"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Met behulp van een token inzichten om inzichten over een afbeelding te verkrijgen
 
@@ -68,7 +68,7 @@ Zie voor voorbeelden die gebruikmaken van het token insights [C#](#using-csharp)
 
 ### <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows. (De gratis Community-editie blijft werken.)
+U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows. (De gratis Community-editie volstaat.)
 
 In deze Quick Start kunt u een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
 
@@ -80,7 +80,7 @@ Om uit te voeren deze toepassing, de volgende stappen uit:
 1. Vervang de inhoud van `Program.cs` met de code die wordt weergegeven in deze Quick Start.
 2. Vervang de `accessKey` waarde met de abonnementssleutel van uw.
 2. Vervang de `insightsToken` waarde met een token inzichten uit een antwoord/afbeeldingen/zoeken.
-3. Voer het programma.
+3. Voer het programma uit.
 
 ```csharp
 using System;
@@ -240,11 +240,11 @@ namespace VisualSearchInsightsToken
 
 <a name="using-java" />
 
-## <a name="using-java"></a>Met behulp van Java
+## <a name="using-java"></a>Java gebruiken
 
 ### <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
+U hebt [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
 
 In deze Quick Start kunt u een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
 
@@ -256,7 +256,7 @@ Om uit te voeren deze toepassing, de volgende stappen uit:
 2. Maak een nieuwe Java-project in uw favoriete IDE of editor.
 3. De opgegeven code toevoegen in een bestand met de naam `VisualSearch.java`.
 4. Vervang de `subscriptionKey` waarde met de abonnementssleutel van uw.
-5. Voer het programma.
+5. Voer het programma uit.
 
 ```java
 package insightstoken;
@@ -382,7 +382,7 @@ Om uit te voeren deze toepassing, de volgende stappen uit:
   ```  
 4. Maak een bestand met de naam GetVisualInsights.js en voeg de volgende code toe.
 5. Vervang de `subscriptionKey` waarde met de abonnementssleutel van uw.
-7. Voer het programma.  
+7. Voer het programma uit.  
   ```
   node GetVisualInsights.js
   ```
@@ -425,7 +425,7 @@ function requestCallback(err, res, body) {
 
 <a name="using-python" />
 
-## <a name="using-python"></a>Met behulp van Python
+## <a name="using-python"></a>Python gebruiken
 
 
 ### <a name="prerequisites"></a>Vereisten
@@ -441,7 +441,7 @@ Om uit te voeren deze toepassing, de volgende stappen uit:
 1. Maak een nieuwe Python-project in uw favoriete IDE of editor.
 2. Maak een bestand met de naam visualsearch.py en voeg de code die wordt weergegeven in deze Quick Start.
 3. Vervang de `SUBSCRIPTION_KEY` waarde met de abonnementssleutel van uw.
-4. Voer het programma.
+4. Voer het programma uit.
 
 
 ```python

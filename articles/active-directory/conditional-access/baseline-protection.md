@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024070"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222264"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Wat is basislijn protection (preview)?  
 
@@ -56,7 +56,7 @@ Dit beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt
 
 ## <a name="enable-a-baseline-policy"></a>Een beleid inschakelen 
 
-Basislijn-beleidsregels zijn beschikbaar als preview, zijn ze standaard niet geactiveerd. U moet handmatig een beleid inschakelen als u wilt activeren. Zodra deze functie de algemene beschikbaarheid bereikt heeft, worden de beleidsregels zijn standaard ingeschakeld. De wijziging geplande gedrag is de reden waarom u bovendien activeren en deactiveren van een derde optie hebt om de status van een beleid ingesteld: **automatisch inschakelen van beleid in de toekomst**. Als u deze optie selecteert, kunt u Microsoft bepalen wanneer u een beleid activeren.      
+Basislijn-beleidsregels zijn beschikbaar als preview, zijn ze standaard niet geactiveerd. U moet handmatig een beleid inschakelen als u wilt activeren. Als u expliciet de basislijn-beleid in de previewfase inschakelt, worden ze actief blijven wanneer deze functie algemeen beschikbaar wordt. De wijziging geplande gedrag is de reden waarom, om te activeren en deactiveren, hebt u ook een derde optie om de status van een beleid ingesteld: **automatisch inschakelen van beleid in de toekomst**. Als u deze optie selecteert, kunt u laat u de beleidsregels uitgeschakeld tijdens de preview, maar deze automatisch inschakelen wanneer deze functie algemeen beschikbaar wordt aan Microsoft. Als u niet expliciet basislijn beleid nu inschakelt en schakel niet het **automatisch inschakelen van beleid in de toekomst** optie, het beleid blijft uitgeschakeld wanneer deze functie algemeen beschikbaar wordt.
 
 
 **Een Basisbeleid inschakelen:**  

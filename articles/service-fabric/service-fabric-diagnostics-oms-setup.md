@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: 5fa7b7ebfb1495a737a6d037566101df632764aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377748"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220463"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics instellen voor een cluster
 
@@ -80,7 +80,7 @@ U kunt gebruiken en wijzigen [deze voorbeeldsjabloon](https://github.com/Azure-S
 
 * Hiermee maakt u een Service Fabric-cluster 5 knooppunten
 * Hiermee maakt u een Log Analytics-werkruimte en een Service Fabric-oplossing
-* Hiermee configureert u de OMS-Agent voor het verzamelen en 2 voorbeeld prestatiemeteritems te verzenden naar de werkruimte
+* Hiermee configureert u de OMS-Agent voor het verzamelen en verzenden van 2 voorbeeld-prestatiemeteritems in de werkruimte
 * Hiermee configureert u WAD voor het verzamelen van Service Fabric en stuurt deze naar Azure storage-tabellen (WADServiceFabric * EventTable)
 * Hiermee configureert u de Log Analytics-werkruimte als u wilt de gebeurtenissen kan lezen uit deze tabellen
 

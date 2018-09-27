@@ -1,40 +1,43 @@
 ---
-title: Migreren van bestaande databases uit te schalen | Microsoft Docs
-description: Shard databases voor het gebruik van hulpprogramma's voor elastische database door het maken van een shard-toewijzing manager converteren
+title: Bestaande databases migreren voor uitschalen | Microsoft Docs
+description: Shard-databases voor het gebruik van hulpmiddelen voor elastic database door het maken van een shard-Toewijzingsbeheer converteren
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 99b315c96e6decbc3bd7622835ba0639e9560164
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645936"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166357"
 ---
-# <a name="migrate-existing-databases-to-scale-out"></a>Migreren van bestaande databases uit te schalen
-Uw bestaande uitgebreid shard databases met hulpprogramma's van Azure SQL Database database eenvoudig te beheren (zoals de [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md)). Converteert u eerst een bestaande set van databases moeten worden gebruikt de [shard kaart manager](sql-database-elastic-scale-shard-map-management.md). 
+# <a name="migrate-existing-databases-to-scale-out"></a>Bestaande databases migreren voor uitschalen
+Uw bestaande uitgeschaalde shard databases met behulp van Azure SQL Database-hulpprogramma's voor databases eenvoudig te beheren (zoals de [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md)). Converteert u eerst een bestaande set met databases te gebruiken de [shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). 
 
 ## <a name="overview"></a>Overzicht
-Voor het migreren van een bestaande database in de shard: 
+Voor het migreren van een bestaande shard-database: 
 
-1. Bereid de [shard-toewijzing manager-database](sql-database-elastic-scale-shard-map-management.md).
+1. Bereid de [database voor shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md).
 2. Maak de shard-toewijzing.
 3. Bereid de afzonderlijke shards.  
 4. Toewijzingen toevoegen aan de shard-toewijzing.
 
-Deze technieken kunnen worden geïmplementeerd met behulp van de [clientbibliotheek voor .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), of de PowerShell-scripts gevonden op [Azure SQL DB - elastische Database extra scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). De voorbeelden die hier worden de PowerShell-scripts gebruiken.
+Deze technieken kunnen worden geïmplementeerd met behulp van de [.NET Framework-clientbibliotheek](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), of de PowerShell-scripts gevonden op [Azure SQL DB - scripts voor Elastic Database-hulpprogramma's](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Deze voorbeelden gebruiken de PowerShell-scripts.
 
-Zie voor meer informatie over de ShardMapManager [Shard kaart management](sql-database-elastic-scale-shard-map-management.md). Zie voor een overzicht van de hulpprogramma's van elastische database [elastische Database functies overzicht](sql-database-elastic-scale-introduction.md).
+Zie voor meer informatie over de ShardMapManager [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md). Zie voor een overzicht van de hulpprogramma's voor elastische databases, [Functieoverzicht Elastic Database](sql-database-elastic-scale-introduction.md).
 
-## <a name="prepare-the-shard-map-manager-database"></a>Voorbereiden van de manager-database van de shard-kaart
-De shard-toewijzing manager is een speciale database die de gegevens voor het beheren van uitgebreide databases bevat. U kunt een bestaande database gebruiken of een nieuwe database maken. Een database die fungeert als de manager van shard-toewijzing mag niet dezelfde database als een shard zijn. Het PowerShell-script heeft de database niet voor u gemaakt. 
+## <a name="prepare-the-shard-map-manager-database"></a>Voorbereiden van de database voor shard-Toewijzingsbeheer
+De shard-Toewijzingsbeheer is een speciale database met de gegevens voor het beheren van uitgeschaalde databases. U kunt een bestaande database gebruiken of een nieuwe database maken. Een database die fungeert als de shard-Toewijzingsbeheer mag niet dezelfde database als een shard zijn. Het PowerShell-script heeft de database niet maken voor u. 
 
-## <a name="step-1-create-a-shard-map-manager"></a>Stap 1: Maak een shard kaart manager
+## <a name="step-1-create-a-shard-map-manager"></a>Stap 1: Maak een shard-Toewijzingsbeheer
     # Create a shard map manager. 
     New-ShardMapManager -UserName '<user_name>' 
     -Password '<password>' 
@@ -44,8 +47,8 @@ De shard-toewijzing manager is een speciale database die de gegevens voor het be
     # for the new or existing database that should be used for storing 
     # tenant-database mapping information.
 
-### <a name="to-retrieve-the-shard-map-manager"></a>Voor het ophalen van de manager shard-kaart
-Na het maken, kunt u de shard-toewijzing manager met deze cmdlet ophalen. Deze stap is nodig voor elke keer dat u wilt gebruiken, het ShardMapManager-object.
+### <a name="to-retrieve-the-shard-map-manager"></a>Om op te halen van de shard-Toewijzingsbeheer
+Na het maken, kunt u de shard-Toewijzingsbeheer met deze cmdlet ophalen. Deze stap is nodig wanneer u moet het object ShardMapManager gebruiken.
 
     # Try to get a reference to the Shard Map Manager  
     $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' 
@@ -54,30 +57,30 @@ Na het maken, kunt u de shard-toewijzing manager met deze cmdlet ophalen. Deze s
     -SqlDatabaseName '<smm_db_name>' 
 
 
-## <a name="step-2-create-the-shard-map"></a>Stap 2: Maak de shard-kaart
-Selecteer het type van shard-toewijzing te maken. De keuze is afhankelijk van de database-architectuur: 
+## <a name="step-2-create-the-shard-map"></a>Stap 2: Maak de shard-toewijzing
+Selecteer het type van de shard-toewijzing te maken. De keuze is afhankelijk van de database-architectuur: 
 
-1. Één tenant per database (voor termen, Zie de [verklarende woordenlijst](sql-database-elastic-scale-glossary.md).) 
+1. Met één tenant per database (voor voorwaarden, Zie de [verklarende woordenlijst](sql-database-elastic-scale-glossary.md).) 
 2. Meerdere tenants per database (twee typen):
    1. Toewijzing van de lijst
-   2. Bereik toewijzing
+   2. Toewijzing van bereik
 
-Voor een model voor één tenant, maakt u een **lijst toewijzing** shard-toewijzing. Het model voor één tenant wijst één database per tenant. Dit is een doeltreffend model voor SaaS-ontwikkelaars aangezien vereenvoudigt het beheer.
+Voor een model met één tenant, maakt u een **lijst toewijzing** shard-toewijzing. Het model met één tenant wordt één database per tenant toegewezen. Dit is een doeltreffend model voor SaaS-ontwikkelaars omdat dit vereenvoudigt het beheer.
 
 ![Toewijzing van de lijst][1]
 
-Het model multitenant verschillende tenants toegewezen aan een individuele database (en u kunt groepen van tenants verdelen over meerdere databases). Dit model gebruiken wanneer u verwacht dat elke tenant kleine hoeveelheden gegevens nodig hebben. In dit model tal van tenants aan een database met toewijzen **bereik toewijzing**. 
+Het model met meerdere tenants verschillende tenants toegewezen aan een individuele database (en u kunt groepen van tenants verdelen over meerdere databases). Dit model gebruiken wanneer u verwacht elke tenant dat hebben kleine Gegevensbehoeften. In dit model kunt u een bereik van tenants toewijzen voor het gebruik van een database **bereik toewijzing**. 
 
-![Bereik toewijzing][2]
+![Toewijzing van bereik][2]
 
-Of u kunt implementeren met een multitenant database model met een *lijst toewijzing* meerdere tenants toewijzen aan een individuele database. Bijvoorbeeld, DB1 wordt gebruikt voor het opslaan van informatie over het tenant-ID 1 en 5 en DB2 slaat gegevens voor de tenant 7- en 10. 
+Of u kunt implementeren met een multitenant-database-model met een *lijst toewijzing* meerdere tenants toewijzen aan een individuele database. Bijvoorbeeld, DB1 wordt gebruikt voor het opslaan van informatie over de tenant-ID 1 en 5 en DB2 slaat gegevens voor de tenant 7- en 10. 
 
-![Meerdere tenants voor één database][3] 
+![Meerdere tenants in één DB][3] 
 
 **Op basis van uw keuze, kies een van de volgende opties:**
 
 ### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>Optie 1: een shard-toewijzing voor de toewijzing van een lijst maken
-Maakt een shard-toewijzing met behulp van het object ShardMapManager. 
+Een shard-toewijzing met behulp van het object ShardMapManager maken. 
 
     # $ShardMapManager is the shard map manager object. 
     $ShardMap = New-ListShardMap -KeyType $([int]) 
@@ -85,8 +88,8 @@ Maakt een shard-toewijzing met behulp van het object ShardMapManager.
     -ShardMapManager $ShardMapManager 
 
 
-### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Optie 2: Maak een shard-toewijzing voor de toewijzing van een bereik
-Als u wilt gebruikmaken van dit patroon van een toewijzing, tenant-id-waarden moet continue bereiken en het is acceptabel om onderbreking in de bereiken door het bereik wordt overgeslagen bij het maken van de databases.
+### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Optie 2: een shard-toewijzing voor de toewijzing van een bereik maken
+Gebruikmaken van dit patroon toewijzing, tenant-id-waarden moet continue bereiken, en het is acceptabel om lege ruimte in de bereiken door het bereik wordt overgeslagen bij het maken van de databases.
 
     # $ShardMapManager is the shard map manager object 
     # 'RangeShardMap' is the unique identifier for the range shard map.  
@@ -95,11 +98,11 @@ Als u wilt gebruikmaken van dit patroon van een toewijzing, tenant-id-waarden mo
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Optie 3: De toewijzingen van de lijst op een individuele database
-Instellen van dit patroon vereist ook het maken van een kaart lijst zoals u in stap 2, optie 1.
+### <a name="option-3-list-mappings-on-a-single-database"></a>Optie 3: Lijst met toewijzingen voor een individuele database
+Instellen van dit patroon is het maken van een kaart lijst ook vereist zoals wordt weergegeven in stap 2, optie 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Stap 3: Afzonderlijke shards voorbereiden
-Elke shard (database) toevoegen aan de shard-toewijzing manager. Hiermee wordt de afzonderlijke databases voorbereid voor het opslaan van informatie over de Identiteitstoewijzing. Deze methode niet uitvoeren op elke shard.
+## <a name="step-3-prepare-individual-shards"></a>Stap 3: Voorbereiden afzonderlijke shards
+Elke shard (database) toevoegen aan de shard-toewijzing. De afzonderlijke databases nu voorbereid voor het opslaan van informatie over de Identiteitstoewijzing. Deze methode niet uitvoeren op elke shard.
 
     Add-Shard 
     -ShardMap $ShardMap 
@@ -109,10 +112,10 @@ Elke shard (database) toevoegen aan de shard-toewijzing manager. Hiermee wordt d
 
 
 ## <a name="step-4-add-mappings"></a>Stap 4: Toewijzingen toevoegen
-Toewijzingen toe te voegen, is afhankelijk van het soort shard-toewijzing die u hebt gemaakt. Als u een lijst kaart hebt gemaakt, kunt u de toewijzingen van de lijst toevoegen. Als u een bereik kaart hebt gemaakt, voegt u bereik toewijzingen.
+Het toevoegen van toewijzingen, is afhankelijk van het soort shard-toewijzing die u hebt gemaakt. Als u een lijst-toewijzing gemaakt, voegt u de lijst met toewijzingen. Als u een bereik-toewijzing gemaakt, kunt u bereik toewijzingen toevoegen.
 
-### <a name="option-1-map-the-data-for-a-list-mapping"></a>Optie 1: de gegevens voor een lijst toewijzing toewijzen
-De gegevens moeten worden toegewezen door de toewijzing van een lijst toe te voegen voor elke tenant.  
+### <a name="option-1-map-the-data-for-a-list-mapping"></a>Optie 1: de gegevens voor de toewijzing van een lijst met toewijzen
+De gegevens worden toegewezen door de toewijzing van een lijst toe te voegen voor elke tenant.  
 
     # Create the mappings and associate it with the new shards 
     Add-ListMapping 
@@ -123,7 +126,7 @@ De gegevens moeten worden toegewezen door de toewijzing van een lijst toe te voe
     -SqlDatabaseName '<shard_database_name>' 
 
 ### <a name="option-2-map-the-data-for-a-range-mapping"></a>Optie 2: de gegevens voor de toewijzing van een bereik toewijzen
-Voeg de bereik-toewijzingen voor de tenant-ID bereik met alle - database koppelingen:
+Voeg de bereik-toewijzingen voor de tenant-ID bereik met alle - database-koppelingen:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 
@@ -135,31 +138,31 @@ Voeg de bereik-toewijzingen voor de tenant-ID bereik met alle - database koppeli
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Stap 4-optie 3: de gegevens voor meerdere tenants op een individuele database toewijzen
-Voer Add-ListMapping (optie 1) voor elke tenant. 
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Stap 4-optie 3: de gegevens voor meerdere tenants in een individuele database toewijzen
+Voor elke tenant, uitvoeren van de Add-ListMapping (optie 1). 
 
 ## <a name="checking-the-mappings"></a>De toewijzingen controleren
-Informatie over de bestaande shards en de bijbehorende toewijzingen kan worden opgevraagd met volgende opdrachten:  
+Informatie over de bestaande shards en de bijbehorende toewijzingen kan worden opgevraagd met de volgende opdrachten:  
 
     # List the shards and mappings 
     Get-Shards -ShardMap $ShardMap 
     Get-Mappings -ShardMap $ShardMap 
 
 ## <a name="summary"></a>Samenvatting
-Nadat u de installatie hebt voltooid, kunt u beginnen met het gebruik van de clientbibliotheek voor elastische Database. U kunt ook [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en [query meerdere shard](sql-database-elastic-scale-multishard-querying.md).
+Nadat u de installatie hebt voltooid, kunt u beginnen met het gebruik van de clientbibliotheek voor Elastic Database. U kunt ook [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md) en [multi-shard query](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Ophalen van de PowerShell-scripts uit [Azure SQL DB elastische Database hulpprogramma's voor scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Ophalen van de PowerShell-scripts uit [Azure SQL DB Elastic Database extra scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-De hulpprogramma's zijn ook op GitHub: [/elastische-db-hulpprogramma's van Azure](https://github.com/Azure/elastic-db-tools).
+De hulpprogramma's zijn ook op GitHub: [Azure/elastische-db-hulpprogramma's](https://github.com/Azure/elastic-db-tools).
 
-Het samenvoegen van gesplitste-hulpprogramma gebruiken om gegevens te verplaatsen naar of van een multi-tenant model naar een model voor één tenant. Zie [gesplitste merge tool](sql-database-elastic-scale-get-started.md).
+Gebruik het hulpprogramma voor splitsen en samenvoegen om gegevens te verplaatsen naar of van een multi-tenant model naar een model met één tenant. Zie [hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-get-started.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 Zie voor informatie over algemene gegevensarchitectuurpatronen van multitenant software as a service (SaaS)-databasetoepassingen, [Ontwerppatronen voor multitenant SaaS-toepassingen met Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Vragen en Functieaanvragen
-Gebruik voor vragen de [SQL Database-forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) en voor functieaanvragen, toe te voegen aan de [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).
+Voor vragen, gebruikt u de [forum van SQL-Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) en voor functieaanvragen, toe te voegen aan de [forum met feedback van SQL-Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

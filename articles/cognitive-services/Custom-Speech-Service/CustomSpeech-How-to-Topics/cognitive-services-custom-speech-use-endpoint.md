@@ -1,21 +1,22 @@
 ---
-title: Gebruik een aangepaste spraak-eindpunt met Custom Speech Service op Azure | Microsoft Docs
-description: Informatie over het gebruik van een aangepaste spraak-naar-tekst-eindpunt met de Custom Speech Service in Cognitive Services.
+title: Een aangepaste spraak-endpoint - Custom Speech Service gebruiken
+titlesuffix: Azure Cognitive Services
+description: Informatie over het gebruik van een aangepaste spraak-naar-tekst-eindpunt met de Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966517"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223369"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Een aangepast spraak naar tekst-eindpunt gebruiken
 U kunt aanvragen verzenden naar een eindpunt van de spraak-naar-tekst Azure Custom Speech Service op een soortgelijke manier als aan het standaardeindpunt voor Cognitive Services spraak. Deze eindpunten zijn identiek aan de Standaardeindpunten van de spraak-API. Dus is dezelfde functionaliteit die beschikbaar is via de clientbibliotheek of de REST-API voor de spraak-API ook beschikbaar voor uw aangepast eindpunt.

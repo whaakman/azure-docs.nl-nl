@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf1d1a62bd8e2e1d0a0a8ad30f2d4c4833be0e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a52654ab620908b9c8c07edf3fcdfbf70068528d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125090"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220785"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Een Log Analytics-werkruimte maken in Azure portal
 Dit is een unieke Log Analytics-omgeving met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen in Azure portal die kunt u een Log Analytics-werkruimte instellen.  De stappen in dit artikel zijn vereist als u van plan bent voor het verzamelen van gegevens uit de volgende bronnen:
@@ -28,7 +28,7 @@ Dit is een unieke Log Analytics-omgeving met een eigen gegevensopslagplaats, geg
 * Azure-resources in uw abonnement
 * On-premises computers bewaakt door System Center Operations Manager
 * Apparaatverzamelingen van System Center Configuration Manager 
-* Diagnose- of logboekgegevens van Azure Storage
+* Diagnostische gegevens of logboek gegevens uit Azure storage
 
 Zie de volgende onderwerpen voor andere bronnen, zoals Azure-VM's en Windows of Linux-VM's in uw omgeving:
 
@@ -48,7 +48,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
   
 2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
 
-  * Geef een naam op voor de nieuwe **OMS-werkruimte**, bijvoorbeeld *StandaardLAWerkruimte*. 
+  * Geef een naam op voor de nieuwe **Log Analytics-werkruimte**, zoals *Standaardlawerkruimte*. 
   * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
   * Voor **resourcegroep**, kiest u een bestaande resource gebruiken groep al setup of maak een nieuwe.  
   * Selecteer een beschikbare **locatie**.  Zie voor meer informatie, die [Log Analytics is beschikbaar in regio's](https://azure.microsoft.com/regions/services/).
@@ -56,7 +56,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
 
-3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **OMS-werkruimte**, klikt u op **OK**.  
+3. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** deelvenster, klikt u op **OK**.  
 
 Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu. 
 
@@ -66,4 +66,4 @@ Nu dat u een werkruimte beschikbaar hebt, kunt u verzamelen van telemetrie bewak
 * Zie voor het inschakelen van verzamelen van gegevens uit Azure-resources met Azure Diagnostics of Azure storage [Azure verzamelen van Logboeken en metrische gegevens voor gebruik in Log Analytics](log-analytics-azure-storage.md).  
 * [System Center Operations Manager als een gegevensbron toevoegen](log-analytics-om-agents.md) voor het verzamelen van gegevens van agents die rapporteren van uw Operations Manager-beheergroep en sla deze op in uw Log Analytics-werkruimte. 
 * Verbinding maken met [Configuration Manager](log-analytics-sccm.md) voor het importeren van computers die lid van verzamelingen in de hiërarchie zijn.  
-* Controleer de [beheeroplossingen](log-analytics-add-solutions.md) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.
+* Controleer de [beheeroplossingen](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) beschikbaar en hoe u kunt toevoegen of verwijderen van een oplossing uit uw werkruimte.

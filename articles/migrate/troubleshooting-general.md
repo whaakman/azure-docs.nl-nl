@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/24/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126358"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165294"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -34,6 +34,12 @@ Om het verzamelen van prestatiegegevens voor schijven en het netwerk mogelijk, w
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ik agents zijn geïnstalleerd en de visualisatie van afhankelijkheden gebruikt voor het maken van groepen. Nu na een failover, de machines actie "Agent installeren" in plaats van 'Afhankelijkheden bij weergave' weergeven
 * Post geplande of niet-geplande failover, on-premises machines zijn uitgeschakeld en gelijkwaardige machines in Azure hebben zijn ingeschakeld. Deze machines een ander MAC-adres hebt aanschaft. Ze kunnen een ander IP-adres dat is gebaseerd op of de gebruiker heeft ervoor gekozen op het lokale IP-adres behouden of niet verkrijgen. Als zowel MAC als IP-adressen verschillen, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
 * Test-failover, plaatsen de on-premises machines ingeschakeld blijven zoals verwacht. Gelijkwaardige machines hebben ingeschakeld in Azure ander MAC-adres verkrijgen en kunnen verschillende IP-adres hebt aanschaft. Tenzij de gebruiker wordt geblokkeerd uitgaand verkeer van Log Analytics van deze machines, Azure Migrate heeft niet de on-premises machines koppelen aan alle gegevens van de afhankelijkheid Serviceoverzicht en vraagt de gebruiker voor het installeren van agents in plaats van afhankelijkheden weergeven.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ik heb een Azure-Geografie hebt opgegeven tijdens het maken van een migratieproject hoe vind ik uit de exacte Azure-regio waar de metagegevens van de gedetecteerde zou worden opgeslagen?
+
+Gaat u naar de **Essentials** sectie de **overzicht** pagina van het project voor het identificeren van de exacte locatie waar de metagegevens worden opgeslagen. De locatie wordt willekeurig geselecteerd binnen het geografische gebied Azure Migrate en u het pas wijzigen. Als u een project maken in een bepaalde regio wilt, kunt u de REST API's te maken van het migratieproject doorgeven van de gewenste regio.
+
+   ![Projectlocatie](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>Fouten in de logboekverzamelaar
 
@@ -102,6 +108,37 @@ Als het probleem wordt nog steeds in de meest recente versie gebeurt, kan het zi
 2. Als stap 1 mislukt, probeert u via het IP-adres verbinding te maken met de vCenter-server.
 3. Bepaal het juiste poortnummer om verbinding te maken met de vCenter-server.
 4. Controleer tot slot of de vCenter-server actief is.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Oplossen van problemen met visualisatie van afhankelijkheden
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Kan ik de Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden op mijn on-premises VM's geïnstalleerd, maar de afhankelijkheden worden nu weergegeven in de Azure Migrate-portal.
+
+Nadat u de agents hebt geïnstalleerd, plaats Azure Migrate vindt meestal voor 15 tot 30 minuten om de afhankelijkheden in de portal weer te geven. Als u meer dan 30 minuten hebt gewacht, controleert u of de MMA-agent kan communiceren met de OMS-werkruimte door de onderstaande stappen te volgen:
+
+Voor Windows VM:
+1. Ga naar **Configuratiescherm** en start **Microsoft Monitoring Agent**
+2. Ga naar de **Azure Log Analytics (OMS)** tabblad in de pop-MMA-eigenschappen
+3. Zorg ervoor dat de **Status** voor de werkruimte groen is.
+4. Als de status niet groen is is, probeert de werkruimte verwijderen en opnieuw toe te voegen aan de MMA.
+        ![MMA-Status](./media/troubleshooting-general/mma-status.png)
+
+Voor Linux-VM, moet u ervoor zorgen dat de opdrachten voor installatie van MMA- en afhankelijkheidsmonitors agent is voltooid.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Wat zijn de besturingssystemen die door MMA?
+
+De lijst van Windows-besturingssystemen wordt ondersteund door de MMA is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+De lijst met Linux-besturingssystemen wordt ondersteund door de MMA is [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Wat zijn de besturingssystemen die ondersteund door de agent voor afhankelijkheden?
+
+De lijst van Windows-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+De lijst met Linux-besturingssystemen wordt ondersteund door de agent voor afhankelijkheden is [hier](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Ik kan geen visualiseren afhankelijkheden in Azure Migrate voor meer dan één uur duurt?
+Azure Migrate kunt u visualiseren afhankelijkheden voor maximaal één uur duurt. Hoewel Azure Migrate, u kunt terugkeren naar een bepaalde datum in de geschiedenis voor maximaal laatste maand, is de maximale duur waarvoor u de afhankelijkheden visualiseren maximaal 1 uur. Bijvoorbeeld, u kunt de functionaliteit van de duur van de tijd in de kaart van afhankelijkheden, gebruiken om afhankelijkheden voor gisteren, maar kan alleen weergeven voor een venster van één uur.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Ik kan geen visualiseren afhankelijkheden voor groepen met meer dan 10 virtuele machines?
+U kunt [visualiseren afhankelijkheden voor groepen](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) dat hebben van 10 virtuele machines, hebt u een groep met meer dan 10 virtuele machines, we raden u aan de groep in kleinere groepen splitsen en de afhankelijkheden visualiseren.
 
 ## <a name="troubleshoot-readiness-issues"></a>Problemen met gereedheid
 

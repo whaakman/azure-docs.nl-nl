@@ -2,20 +2,22 @@
 title: Azure SQL Database Managed Instance T-SQL-verschillen | Microsoft Docs
 description: Dit artikel worden de T-SQL-verschillen tussen Azure SQL Database Managed Instance en SQL Server.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/13/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: c23fbf0af7d1a15b0efee8af123150feb42c708e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966885"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166500"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server 
 
@@ -89,7 +91,7 @@ Beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zodat 
  
 ### <a name="certificates"></a>Certificaten 
 
-Beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zodat de volgende beperkingen zijn van toepassing: 
+Managed Instance heeft geen toegang tot bestandsshares en Windows-mappen. Daarom zijn de volgende beperkingen van toepassing: 
 - `CREATE FROM`/`BACKUP TO` bestand wordt niet ondersteund voor certificaten
 - `CREATE`/`BACKUP` certificaat van `FILE` / `ASSEMBLY` wordt niet ondersteund. Bestanden met persoonlijke sleutel kunnen niet worden gebruikt.  
  
@@ -106,7 +108,7 @@ WITH PRIVATE KEY ( <private_key_options> )
  
 ### <a name="clr"></a>CLR 
 
-Beheerd exemplaar geen toegang tot gedeelde bestanden en mappen, Windows, zodat de volgende beperkingen zijn van toepassing: 
+Managed Instance heeft geen toegang tot bestandsshares en Windows-mappen. Daarom zijn de volgende beperkingen van toepassing: 
 - Alleen `CREATE ASSEMBLY FROM BINARY` wordt ondersteund. Zie [maken van de ASSEMBLY van binaire](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` wordt niet ondersteund. Zie [ASSEMBLY maken vanuit bestand](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` kan niet verwijzen naar bestanden. Zie [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
@@ -360,7 +362,7 @@ Zie voor meer informatie over de Restore-instructies [herstellen instructies](ht
 - Gebeurtenislogboek wordt niet ondersteund. 
  
 De volgende functies worden momenteel niet ondersteund, maar in de toekomst worden ingeschakeld:  
-- Proxy 's
+- Proxy's
 - Plannen van taken op niet-actieve CPU 
 - Agent in-/ uitschakelen
 - Waarschuwingen

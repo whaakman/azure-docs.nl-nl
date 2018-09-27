@@ -7,37 +7,35 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5732293510a75a3c40df5cf3d31978c5ce599791
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 819e6364aebab11097260c54575ab65914293ce7
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720154"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180526"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Twitter-account met behulp van Azure Active Directory B2C
 
-## <a name="create-a-twitter-application"></a>Een Twitter-toepassing maken
+## <a name="create-an-application"></a>Een app maken
 
-Voor het gebruik van een Twitter-account als id-provider in Azure Active Directory (Azure AD) B2C, moet u een toepassing maken in de tenant die aangeeft. Als u nog een Twitter-account hebt, kunt u krijgen via [ https://twitter.com/signup ](https://twitter.com/signup).
+Voor het gebruik van Twitter als id-provider in Azure AD B2C, moet u een Twitter-toepassing maken. Als u nog een Twitter-account hebt, kunt u krijgen via [ https://twitter.com/signup ](https://twitter.com/signup).
 
-1. Aanmelden bij de [Twitter Apps](https://apps.twitter.com/) met uw Twitter-referenties.
+1. Aanmelden bij de [Twitter ontwikkelaars](https://developer.twitter.com/en/apps) -website met de referenties van uw Twitter-account.
 2. Selecteer **maken van een app**.
-3. Voer de **appnaam**, **toepassingsbeschrijving**, en **Website-URL**.
-4. Voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy-name/oauth1/authresp` in **Callback-URL's**. Vervang `your-tenant-name` met de naam van uw tenant en `your-policy-name` met de naam van uw beleid. Bijvoorbeeld `b2c_1_signupsignin`. U moet alle kleine letters gebruiken bij het invoeren van uw tenantnaam en de naam van beleid, zelfs als ze zijn gedefinieerd met behulp van hoofdletters in Azure AD B2C.
-5. Ga akkoord met de **Developer-overeenkomst** en selecteer **maken**.
-7. Selecteer de **Keys and Access Tokens** tabblad.
-8. Kopieer de waarden van **API-sleutel** en **API geheime sleutel**. U moet beide een Twitter-account worden geconfigureerd als een id-provider in uw tenant.
+3. Voer een **appnaam** en een **toepassingsbeschrijving**.
+4. In **Website-URL**, voer `https://your-tenant.b2clogin.com`. Vervang `your-tenant` met de naam van uw tenant. Bijvoorbeeld https://contosob2c.b2clogin.com.
+5. Voor de **URL voor terugbellen**, voer `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Vervang `your-tenant` met de naam van de naam van uw tenant en `your-policy-Id` met de id van uw beleid. Bijvoorbeeld `b2c_1A_signup_signin_twitter`. U moet alle kleine letters gebruiken bij het invoeren van de tenantnaam van uw, zelfs als de tenant is gedefinieerd met behulp van hoofdletters in Azure AD B2C.
+6. Aan de onderkant van de pagina, lees en accepteer de voorwaarden en selecteer vervolgens **maken**.
+7. Op de **App-details** weergeeft, schakelt **bewerken > details bewerken**, schakel het selectievakje voor **inschakelen aanmelden bij Twitter**, en selecteer vervolgens **opslaan**.
+8. Selecteer **sleutels en tokens** en noteer de **consument-API-sleutel** en de **consument-API-geheim** waarden voor later gebruik.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configureren van Twitter als id-provider in uw tenant
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.  
-
-    ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-twitter-app/switch-directories.png)
-
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 5. Geef een **naam**. Voer bijvoorbeeld *Twitter*.

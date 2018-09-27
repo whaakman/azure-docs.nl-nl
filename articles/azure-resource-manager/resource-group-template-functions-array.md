@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e0269e17a419c6b611d72a7d00668fe9c9519894
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929670"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166178"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix- en -functies voor Azure Resource Manager-sjablonen 
 
 Resource Manager biedt verschillende functies voor het werken met matrices en objecten.
 
-* [matrix](#array)
+* [Matrix](#array)
 * [samenvoegen](#coalesce)
 * [concat](#concat)
 * [bevat](#contains)
@@ -35,10 +35,10 @@ Resource Manager biedt verschillende functies voor het werken met matrices en ob
 * [snijpunt](#intersection)
 * [json](#json)
 * [laatste](#last)
-* [lengte](#length)
+* [Lengte](#length)
 * [max](#max)
 * [min](#min)
-* [bereik](#range)
+* [Bereik](#range)
 * [skip](#skip)
 * [toets maken](#take)
 * [Union](#union)
@@ -738,6 +738,10 @@ Retourneert een JSON-object.
 
 Het JSON-object van de opgegeven tekenreeks of een leeg object wanneer **null** is opgegeven.
 
+### <a name="remarks"></a>Opmerkingen
+
+Als u een waarde voor de parameter of variabele opnemen in het JSON-object moet, gebruikt u de [concat](resource-group-template-functions-string.md#concat) functie voor het maken van de tekenreeks die u aan de functie doorgeeft.
+
 ### <a name="example"></a>Voorbeeld
 
 De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) laat zien hoe u het gebruik van de json-functie met matrices en objecten:
@@ -746,6 +750,12 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,6 +781,7 @@ De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Booleaans | True |
+| paramOutput | Object | {"a": "demo waarde"}
 
 In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
@@ -847,7 +862,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="length" />
 
-## <a name="length"></a>lengte
+## <a name="length"></a>Lengte
 `length(arg1)`
 
 Retourneert het aantal elementen in een matrix of tekens in een tekenreeks.
@@ -1058,7 +1073,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="range" />
 
-## <a name="range"></a>bereik
+## <a name="range"></a>Bereik
 `range(startingInteger, numberOfElements)`
 
 Maakt een matrix van gehele getallen van een geheel getal vanaf en met een aantal items.
