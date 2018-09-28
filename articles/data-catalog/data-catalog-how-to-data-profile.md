@@ -2,18 +2,18 @@
 title: Het gebruik van gegevens-gegevensbronnen in Azure Data Catalog-profilering
 description: Hoe kan ik artikel waarbij het opnemen van profielen voor tabel - en kolomniveau gegevens bij het registreren van gegevensbronnen in Azure Data Catalog en gegevens profielen gebruiken om te begrijpen van gegevensbronnen zijn gemarkeerd.
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 2f628367e2e5b0e6a4481a6212ff201b11a7105a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b40bbe7d1eb89f934d6ae07688e698f1949f8e76
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053552"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410235"
 ---
 # <a name="data-profile-data-sources"></a>Gegevensbronnen met gegevensprofielen
 ## <a name="introduction"></a>Inleiding

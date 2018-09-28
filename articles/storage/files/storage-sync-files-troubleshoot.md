@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 88c73b3c9fd3ffc0c323b9971e245e6f6d9695a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095535"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409470"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -22,7 +22,7 @@ In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw A
 
 1. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure-bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
+3. Microsoft Ondersteuning. Maken van een nieuwe ondersteuningsaanvraag in de Azure-portal op de **Help** tabblad de **Help en ondersteuning** knop en selecteer vervolgens **nieuwe ondersteuningsaanvraag**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enz.). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -233,17 +233,16 @@ Als u wilt zien deze fouten, voer de **FileSyncErrorsReport.ps1** PowerShell-scr
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. Azure File Sync maakt een tijdelijke VSS-momentopname eenmaal per dag op de server om bestanden te synchroniseren met open ingangen. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Een bestand kan niet worden gesynchroniseerd omdat deze gebruikt wordt. Het bestand worden gesynchroniseerd wanneer deze niet meer gebruikt wordt. | Er is geen actie vereist. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Wijziging van een bestand of directory kan niet nog worden gesynchroniseerd omdat een afhankelijke map nog niet is gesynchroniseerd. Dit item wordt gesynchroniseerd nadat de afhankelijke wijzigingen zijn gesynchroniseerd. | Er is geen actie vereist. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie, dus hij moet opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie; dit bestand moet daarom opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
 
 #### <a name="handling-unsupported-characters"></a>Verwerking van niet-ondersteunde tekens
-Als de **FileSyncErrorsReport.ps1** PowerShell-script bevat fouten vanwege niet-ondersteunde tekens (0x7b-foutcodes en 0x8007007b), moet u Verwijder of wijzig de naam van de tekens op fouten van de betreffende bestanden. PowerShell wordt deze tekens als vraagtekens of lege rechthoeken waarschijnlijk afdrukken, omdat de meeste van deze tekens geen standaard visuele codering hebben.
+Als de **FileSyncErrorsReport.ps1** PowerShell-script bevat fouten vanwege niet-ondersteunde tekens (0x7b-foutcodes en 0x8007007b), moet u Verwijder of wijzig de naam van de tekens op fouten van de betreffende bestanden. PowerShell wordt deze tekens als vraagtekens of lege rechthoeken waarschijnlijk afdrukken, omdat de meeste van deze tekens geen standaard visuele codering hebben. De [evaluatiecriteria hulpprogramma](storage-sync-files-planning.md#evaluation-tool) kan worden gebruikt voor het identificeren van de tekens die niet worden ondersteund.
 
 De onderstaande tabel bevat alle van de Azure File Sync biedt nog geen ondersteuning voor unicode-tekens.
 
 | Tekenset | Aantal tekens |
 |---------------|-----------------|
 | <ul><li>0x0000009D (opdracht osc besturingssysteem)</li><li>0x00000090 (DC's apparaatreeks-besturingselement)</li><li>0x0000008F (shift drie één ss3)</li><li>0x00000081 (hoog octet standaardoptie)</li><li>0x0000007F (del verwijderen)</li><li>0x0000008D (ri Omgekeerde regelinvoer)</li></ul> | 6 |
-| <ul><li>0x0000200F (rechts-naar-links is ingeschakeld)</li><li>0x0000200E (links-naar-rechts is ingeschakeld)</li><li>0x0000202E (onderdrukking rechts-naar-links)</li><li>0x0000202D (links-naar-rechts overschrijven)</li><li>0x0000202C (pop gerichte opmaak)</li><li>0x0000202B (insluiten van rechts naar links)</li><li>0x0000202A (insluiten van links naar rechts)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (Arabisch presentatie formulieren-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (aanbiedingen) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (ongedefinieerd)</li><li>0x000FFFFE - 0x000FFFFF = 2 (aanvullende persoonlijk gebruiksgebied)</li></ul> | 30 |
@@ -423,7 +422,7 @@ Deze fout kan optreden als uw organisatie van een afsluitende SSL-proxy gebruikm
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Door in te stellen deze registerwaarde, accepteert de Azure File Sync-agent van een lokaal vertrouwd SSL-certificaat bij de overdracht van gegevens tussen de server en de cloudservice.
+Als u deze registerwaarde instelt, accepteert de Azure File Sync-agent elk lokaal vertrouwd SSL-certificaat tijdens de gegevensoverdracht tussen de server en de cloudservice.
 
 <a id="-2147012894"></a>**Een verbinding met de service kan niet worden gemaakt.**  
 | | |
@@ -516,7 +515,7 @@ In gevallen waarbij er veel per bestand synchronisatiefouten, synchronisatiesess
 | **Fouttekenreeks** | ECS_E_SYNC_INVALID_PATH |
 | **Herstel is vereist** | Ja |
 
-Zorg ervoor dat het pad bestaat, is op een lokaal NTFS-volume en is niet een reparsepunt of een bestaande servereindpunt.
+Controleer of het pad bestaat, op een lokaal NTFS-volume staat en geen reparsepunt of bestaand servereindpunt is.
 
 <a id="-2134376373"></a>**De service is momenteel niet beschikbaar.**  
 | | |

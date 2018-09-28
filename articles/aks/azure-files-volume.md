@@ -1,32 +1,36 @@
 ---
-title: Gebruik Azure-bestand met AKS
-description: Azure-schijven gebruiken met AKS
+title: Maak een statische volume voor meerdere schillen zijn in Azure Kubernetes Service (AKS)
+description: Meer informatie over het handmatig maken van een volume met Azure Files voor gebruik met meerdere gelijktijdige schillen in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 09/26/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: b35d0e33009f76e0b2d6f90c52c98ce5f317792d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5518ebb2985635507368943774e6be803cfffa8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436757"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409048"
 ---
-# <a name="volumes-with-azure-files"></a>Volumes met Azure files
+# <a name="manually-create-and-use-an-azure-files-share-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van een Azure-bestandsshare in Azure Kubernetes Service (AKS)
 
-Op containers gebaseerde toepassingen moeten vaak voor toegang tot en behoud van gegevens in een volume dat externe gegevens. Azure files kan worden gebruikt als deze extern gegevensarchief. Dit artikel vindt u met behulp van Azure files als een volume Kubernetes in Azure Kubernetes Service.
+Op containers gebaseerde toepassingen moeten vaak voor toegang tot en behoud van gegevens in een volume dat externe gegevens. Als meerdere schillen gelijktijdige toegang tot de dezelfde opslagvolume moeten, kunt u Azure Files verbinding maken met behulp van de [Server Message Block (SMB)-protocol][smb-overview]. Dit artikel ziet u hoe u handmatig maken van een Azure-bestandsshare en deze koppelen aan een schil in AKS.
 
 Zie voor meer informatie over Kubernetes volumes [Kubernetes volumes][kubernetes-volumes].
 
+## <a name="before-you-begin"></a>Voordat u begint
+
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+
+U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+
 ## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
 
-Voordat u een Azure-bestandsshare als een Kubernetes-volume, moet u een Azure Storage-account en de bestandsshare maken. Het volgende script kan worden gebruikt om deze taken uit te voeren. Let op of werk de parameterwaarden, enkele van deze nodig zijn bij het maken van het Kubernetes-volume.
+Voordat u Azure Files als een Kubernetes-volume gebruiken kunt, moet u een Azure Storage-account en de bestandsshare maken. Het volgende script maakt een resourcegroep met de naam *myAKSShare*, een opslagaccount en een bestandsshare met de naam *aksshare*:
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Change these four parameters
@@ -55,19 +59,21 @@ echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
 echo Storage account key: $STORAGE_KEY
 ```
 
-## <a name="create-kubernetes-secret"></a>Kubernetes-geheim maken
+Noteer de naam van het opslagaccount en de sleutel die wordt weergegeven aan het einde van de uitvoer van het script. Deze waarden zijn nodig als u het Kubernetes-volume maken in een van de volgende stappen uit.
 
-Kubernetes moet referenties voor toegang tot de bestandsshare. Deze referenties worden opgeslagen een [Kubernetes-geheim][kubernetes-secret], die bij het maken van een Kubernetes-schil wordt verwezen.
+## <a name="create-a-kubernetes-secret"></a>Een Kubernetes-geheim maken
 
-Gebruik de volgende opdracht om het geheim te maken. Vervang `STORAGE_ACCOUNT_NAME` met de naam van uw opslagaccount, en `STORAGE_ACCOUNT_KEY` met accountsleutel van uw opslagaccount.
+Kubernetes moet referenties voor toegang tot de bestandsshare in de vorige stap hebt gemaakt. Deze referenties worden opgeslagen een [Kubernetes-geheim][kubernetes-secret], die bij het maken van een Kubernetes-schil wordt verwezen.
+
+Gebruik de `kubectl create secret` opdracht om het geheim te maken. Het volgende voorbeeld wordt een gedeeld met de naam *azure-secret*. Vervang *STORAGE_ACCOUNT_NAME* met de naam van uw opslagaccount wordt weergegeven in de uitvoer van de vorige stap en *STORAGE_ACCOUNT_KEY* met de opslagsleutel van uw:
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=STORAGE_ACCOUNT_KEY
 ```
 
-## <a name="mount-file-share-as-volume"></a>Koppel de bestandsshare als volume
+## <a name="mount-the-file-share-as-a-volume"></a>Koppel de bestandsshare als volume
 
-Koppel uw Azure-bestandsshare in uw schil door het configureren van het volume in de specificatie. Maak een nieuw bestand met de naam `azure-files-pod.yaml` met de volgende inhoud. Update `aksshare` met de naam van de Azure-bestanden delen.
+Voor het koppelen van de Azure-bestandsshare in uw schil, configureert u het volume in de container-specificaties. Maak een nieuw bestand met de naam `azure-files-pod.yaml` met de volgende inhoud. Als u de naam van het delen van bestanden of de geheime naam gewijzigd, werkt u de *shareName* en *secretName*. Als gewenst is, werkt u de `mountPath`, dit is het pad waar de bestanden delen in de schil is gekoppeld.
 
 ```yaml
 apiVersion: v1
@@ -89,29 +95,30 @@ spec:
       readOnly: false
 ```
 
-Kubectl gebruiken om te maken van een schil.
+Gebruik de `kubectl` opdracht voor het maken van de schil.
 
 ```azurecli-interactive
 kubectl apply -f azure-files-pod.yaml
 ```
 
-U hebt nu een container die wordt uitgevoerd met uw Azure-bestandsshare die is gekoppeld in de `/mnt/azure` directory.  U kunt zien dat het volume koppelen tijdens de controle van uw schil via `kubectl describe pod azure-files-pod`.
+U hebt nu een actieve schil met een Azure-bestandsshare aan gekoppeld */mnt/azure*. U kunt `kubectl describe pod azure-files-pod` om te controleren of de share is gekoppeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over Kubernetes-volumes met behulp van Azure Files.
-
-> [!div class="nextstepaction"]
-> [Kubernetes-invoegtoepassing voor Azure Files][kubernetes-files]
+Zie voor meer informatie over AKS clusters communiceren met Azure Files, de [Kubernetes-invoegtoepassing voor Azure Files][kubernetes-files].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
 [az-storage-create]: /cli/azure/storage/account#az-storage-account-create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
 [az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

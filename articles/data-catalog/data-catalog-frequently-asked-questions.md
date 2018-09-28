@@ -2,18 +2,18 @@
 title: Veelgestelde vragen over Azure Data Catalog
 description: Veelgestelde vragen over Azure Data Catalog, met inbegrip van mogelijkheden voor detectie van gegevensbronnen, aantekening en beheren.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: bb9223e2eef11d3378c228f8cd5242e6ebbbc74d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053569"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409181"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Veelgestelde vragen over Azure Data Catalog
 In dit artikel vindt u antwoorden op veelgestelde vragen met betrekking tot de service Azure Data Catalog.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.reviewer: ''
+ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221720"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423472"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -143,6 +143,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Krachtige gedistribueerd berichtensysteem publiceren / abonneren. | Bitnami |
 | ![Kafka-Cluster](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka-Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka is publicatie-/ abonnementsberichten gewijzigd als een gedistribueerde doorvoerlogboek. Deze oplossing verbetert de betrouwbaarheid van een Kafka-cluster in te richten meerdere Kafka-brokers en Zookeeper-exemplaren. **Deze oplossingssjabloon vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hybride-Cloudbeveiliging](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | De Kaspersky hybride Cloud Security kunt een naadloos gecoördineerd en adaptieve cybersecurity-ecosysteem. | Kaspersky Lab |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Deze oplossing implementeert een Kubernetes-cluster uitgevoerd als een zelfstandig cluster met sjablonen die zijn gegenereerd met de ACS-Engine.<br>**Deze oplossingssjabloon vereist ook Ubuntu Server 16.04 LTS en aangepast Script voor Linux 2.0.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Volledig geïntegreerd en klaar voor het uitvoeren van de ontwikkelomgeving. | Bitnami |
 | ![LAPS](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | Complete PHP, PostgreSQL en Apache-ontwikkelomgeving. | Bitnami |
 | ![Laten we chatten](media/azure-stack-marketplace-azure-items/letschat.png) | [Laten we chatten](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Open-source permanent programma voor chatberichten. | Bitnami |
@@ -207,6 +208,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | Digitale asset management-systeem voor verbeterde samenwerking. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | Browsergebaseerde IMAP-client met de functionaliteit, zoals MIME-ondersteuning. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Eenvoudig te gebruiken ontwikkelomgeving voor Ruby on Rails. | Bitnami |
+| ![Service Fabric-cluster](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric-Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Deze oplossing wordt geïmplementeerd voor Service Fabric uitgevoerd als een zelfstandige cluster op een virtuele-Machineschaalset opgehaald. <br>**Deze oplossingssjabloon moet u ook de Windows Server 2016 Datacenter downloaden**| Microsoft |
 | ![Deelvenster in Zoekmachineoptimalisatie](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | Open-source SEO management-toepassing voor het bijhouden van meerdere websites. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | E-open-source Commerce Platform. | Bitnami |
 | ![Eenvoudige Machines Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Eenvoudige Machines Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Eenvoudige forum software op uw eigen onlinecommunity bouwen. | Bitnami |
@@ -241,6 +243,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![KEMP LoadMaster Load Balancer ADC inhoud Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC inhoud Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer uit laag 4-7 Application Delivery Controller (ADC), inhoud Switch en Traffic Manager. | KEMP Technologies, Inc. |
 | ![NRI mPLAT Suite - meerdere Cloud-tablets](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - meerdere Cloud-tablets](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Een enkel deelvenster van glas te bewaken, configureren, inrichten, automatiseren en beheren van een werkbelasting of de cloud. | NRI |
 | ![Compatibel is met NooBaa hybride AWS S3 - Community-editie](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hybride AWS S3 compatibe - Community-editie](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatibele storage-service die openbare omvat en on-premises resources van de capaciteit. | NooBaa |
+| ![Gateway voor Multipoint, nul NetFoundry vertrouwen Azure Stack-verbindingen](media/azure-stack-marketplace-azure-items/netfoundry.png) | [Gateway voor Multipoint, nul NetFoundry vertrouwen Azure Stack-verbindingen](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Alleen uit software, meerdere punten connectiviteit tussen Azure Stack en overal en via een netwerkverbinding met de bedrijfstak toonaangevende nul vertrouwen beveiliging, 5 x de doorvoer van VPN- en een onbeperkt aantal gelijktijdige gebruikers. | NetFoundry |
 | ![Palo Alto VM-reeks Next Generatiefirewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-reeks Next Generatiefirewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | De volgende-generatiefirewall van de VM-serie kan klanten voor het migreren van hun toepassingen en gegevens veilig naar Azure Stack of ze worden beschermd tegen bekende en onbekende bedreigingen met een beleid ter preventie van toepassing in een whitelist opnemen en bedreigingen. **Deze installatiekopie is vereist voor een sjabloon te implementeren; Raadpleeg deze [artikel](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) voor belangrijke informatie.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detecteert bekende en onbekende beveiligingsproblemen en aanvallen op web-apps voorkomen. **Beide PT Marketplace-items downloaden.** | Positieve technologieën |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure Stack-infrastructuur te automatiseren. **Beide Puppet Marketplace-items downloaden.** | Puppet |

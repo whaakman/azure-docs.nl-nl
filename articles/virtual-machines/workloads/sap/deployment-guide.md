@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c6d7b4515546ea51264b094316c5da52dbb321c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957020"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407923"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1000,6 +1000,10 @@ Deze controle zorgt ervoor dat alle maatstaven voor prestaties die worden weerge
 
 Als de Azure uitgebreide controle-extensie is niet geïnstalleerd of de AzureEnhancedMonitoring-service wordt niet uitgevoerd, heeft de extensie niet correct is geconfigureerd. Zie voor gedetailleerde informatie over het implementeren van de extensie [probleemoplossing van de Azure monitoring-infrastructuur voor SAP][deployment-guide-5.3].
 
+> [!NOTE]
+> De Azperflib.exe is een onderdeel dat kan niet worden gebruikt voor eigen doeleinden. Het is een onderdeel die voorziet in een Azure-bewakingsgegevens die betrekking hebben op de virtuele machine voor de SAP-Host-Agent.
+> 
+
 ##### <a name="check-the-output-of-azperflibexe"></a>Controleer de uitvoer van azperflib.exe
 Azperflib.exe uitvoer ziet u dat alle Azure-prestatiemeteritems voor SAP wordt gevuld. Een indicator samenvatting en de status weergegeven onder aan de lijst met items die worden verzameld, de status van de Azure-bewaking.
 
@@ -1093,6 +1097,10 @@ Als een deel van de bewaking correct zoals aangegeven door de test wordt beschre
 
 Zorg ervoor dat elk resultaat van de gezondheid van **OK**. Als het aantal controles worden niet weergegeven **OK**, voert u de cmdlet update zoals beschreven in [configureren van de Azure uitgebreide controle-extensie voor SAP][deployment-guide-4.5]. Wacht 15 minuten en Herhaal de controles die worden beschreven in [gereedheidscontrole voor Azure uitgebreide bewaking voor SAP] [ deployment-guide-5.1] en [Statuscontrole voor Azure-infrastructuur configuratie van de bewaking] [deployment-guide-5.2]. Als de controles aangeven dat er zich een probleem met enkele of alle items, Zie [probleemoplossing van de Azure monitoring-infrastructuur voor SAP][deployment-guide-5.3].
 
+> [!Note]
+> U kunt een aantal waarschuwingen in gevallen waarin het gebruik van beheerde standaardschijven Azure ervaren. Waarschuwingen worden weergegeven in plaats van de tests 'OK' retourneren. Dit is normaal en beoogde in het geval van dat schijftype. Zie ook [probleemoplossing van de Azure monitoring-infrastructuur voor SAP][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Het oplossen van de Azure monitoring-infrastructuur voor SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure-prestatiemeteritems, worden niet weergegeven op alle
@@ -1144,6 +1152,23 @@ De map \\var\\lib\\waagent\\ heeft geen een submap voor de extensie voor Azure v
 
 ###### <a name="solution"></a>Oplossing
 De extensie is niet geïnstalleerd. Bepalen of dit een probleem met de proxy is (zoals eerder beschreven). Mogelijk moet u start de computer opnieuw op en/of opnieuw de `Set-AzureRmVMAEMExtension` configuratiescript.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>De uitvoering van Set-AzureRmVMAEMExtension en Test-AzureRmVMAEMExtension waarschuwingsberichten Standard Managed Disks worden niet ondersteund met de mededeling weergeven
+
+###### <a name="issue"></a>Probleem
+Wanneer uitvoeren Set-AzureRmVMAEMExtension of Test-AzureRmVMAEMExtension zoals deze berichten worden weergegeven:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+U kunt een resultaat dat is die een niet-status in orde aangeeft azperfli.exe uitvoeren, zoals eerder beschreven ophalen. 
+
+###### <a name="solution"></a>Oplossing
+De berichten worden veroorzaakt door het feit dat de API's gebruikt door de controle-extensie om te controleren op statistieken van de standaard Azure Storage-Accounts zijn niet leveren van Standard Managed Disks. Dit is niet een kwestie van belang. Reden voor de introductie van de bewaking voor Standard Disk-opslag-accounts is beperking van i/o's die vaak zijn opgetreden. Beheerde schijven zal voorkomen dat dergelijke beperking door het aantal schijven in een storage-account te beperken. Omdat u niet hoeft dit type gegevens te controleren is daarom niet kritiek.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Er ontbreken enkele Azure-prestatiemeteritems
 Metrische gegevens voor prestaties in Azure worden door een daemon Hiermee haalt u gegevens uit verschillende bronnen verzameld. Sommige configuratiegegevens lokaal worden verzameld, en sommige metrische gegevens voor prestaties van Azure Diagnostics worden gelezen. Tellers voor opslag zijn afkomstig van de logboeken in uw storage-abonnement.

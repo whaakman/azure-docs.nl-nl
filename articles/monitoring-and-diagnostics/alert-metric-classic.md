@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951607"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409997"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen van metrische gegevens met behulp van Azure Monitor
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
 Klassieke metrische waarschuwingen in Azure Monitor biedt een manier om te worden geïnformeerd wanneer een van de metrische gegevens een drempelwaarde overschrijden. Klassieke metrische waarschuwingen is een oudere functionaliteit waarmee waarschuwingen voor de niet-dimensionale metrische gegevens. Er is een bestaande nieuwere functionaliteit, metrische waarschuwingen die verbeterde functionaliteit voor klassieke metrische waarschuwingen heeft. U kunt meer informatie over de nieuwe functionaliteit metrische waarschuwingen in [metriek overzicht van waarschuwingen](alert-metric-overview.md). In dit artikel wordt wordt beschreven hoe u maken, weergeven en beheren van klassieke waarschuwingsregels voor metrische gegevens via Azure portal, Azure CLI en Powershell.
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>Een klassieke waarschuwingsregel voor metrische gegevens met behulp van Azure portal maken
+## <a name="with-azure-portal"></a>Met Azure portal
 
 1. In de [portal](https://portal.azure.com/), zoek de resource die u wilt bewaken, en selecteer dit.
 
@@ -46,15 +46,13 @@ Klassieke metrische waarschuwingen in Azure Monitor biedt een manier om te worde
 
 Binnen een paar minuten, wordt de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>Uw klassieke waarschuwingsregels voor metrische gegevens met behulp van Azure portal beheren
-
 Nadat u een waarschuwing gemaakt, kunt u selecteert en voer een van de volgende taken:
 
 * Een grafiek waarin de drempelwaarde voor metrische gegevens en de werkelijke waarden van de vorige dag weergeven.
 * Bewerken of te verwijderen.
 * **Uitschakelen** of **inschakelen** als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen voor deze waarschuwing.
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>Het maken en beheren van klassieke waarschuwingsregel voor metrische gegevens met behulp van Azure CLI
+## <a name="with-azure-cli"></a>Met Azure CLI
 
 In de vorige secties beschreven hoe u kunt maken, weergeven en beheren van waarschuwingsregels voor metrische gegevens gebruik met Azure portal. In deze sectie wordt beschreven hoe u doet hetzelfde met platformonafhankelijke [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Snelste manier om te beginnen met behulp van Azure CLI is via [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest).
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van PowerShell
+## <a name="with-powershell"></a>Met PowerShell
 
 Deze secties ziet u hoe u PowerShell-opdrachten maken, weergeven en beheren van klassieke metrische waarschuwingen. De voorbeelden in het artikel ziet u hoe u Azure Monitor-cmdlets kunt gebruiken voor klassieke metrische waarschuwingen.
 

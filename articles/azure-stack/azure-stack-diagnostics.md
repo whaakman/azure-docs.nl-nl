@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616946"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419596"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -124,7 +124,7 @@ if($s)
  |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
  |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
  |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|Domein|KeyVaultInternalDataPlane|SQL|
+ |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|EEG|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Storage|
  |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
@@ -143,14 +143,6 @@ if($s)
  |Cloud|id-provider|OnboardRP|     |   
  |Cluster|IDN 's|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Logboeken verzamelen met een grafische gebruikersinterface
-In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure Stack-logboeken bieden, kunt u ook gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de Azure Stack-hulpprogramma's GitHub extra hoofdopslagplaats op http://aka.ms/AzureStackTools.
-
-De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de meest recente beschikbare versie hebt, moet u deze rechtstreeks vanuit downloaden http://aka.ms/ERCS. Gestart vanuit een PowerShell-sessie met beheerdersrechten, het script maakt verbinding met het eindpunt van de bevoegdheden en Get-AzureStackLog uitgevoerd met de opgegeven parameters. Als er geen parameters zijn opgegeven, standaard het script dat wordt gevraagd om parameters via een grafische gebruikersinterface.
-
-Voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell-script, kunt u bekijken [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de GitHub-opslagplaats van de Azure Stack-hulpprogramma's. 
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 

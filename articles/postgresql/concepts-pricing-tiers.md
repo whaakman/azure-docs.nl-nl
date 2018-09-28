@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/27/2018
+ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379535"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423541"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
 
@@ -74,6 +74,11 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 | Japan - west | X | X |
 | Korea - centraal |  | X |
 | Korea - zuid |  | X |
+| Duitsland - centraal |  | X |
+| US DoD - centraal  | X |  |
+| US DoD - oost  | X |  |
+| VS (overheid) - Arizona |  | X |
+| VS (overheid) - Texas |  | X |
 
 ## <a name="storage"></a>Storage
 
@@ -120,4 +125,4 @@ Zie de service voor de meest recente prijsinformatie [pagina met prijzen](https:
 
 - Meer informatie over het [een PostgreSQL-server maken in de portal](tutorial-design-database-using-azure-portal.md).
 - Meer informatie over het [controleren en schalen van een Azure Database for PostgreSQL-server met behulp van Azure CLI](scripts/sample-scale-server-up-or-down.md).
-- Meer informatie over de [service beperkingen](concepts-limits.md).
+- Meer informatie over de [service beperkingen](concepts-limits.md). 

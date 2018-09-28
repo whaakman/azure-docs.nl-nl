@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294574"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423592"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -310,9 +310,3 @@ Azure biedt een set facturering REST-API's waarmee toegang tot het gebruik van r
 Hoewel het moeilijk om in te schatten kosten vooraf, Azure heeft een [prijscalculator](https://azure.microsoft.com/pricing/calculator/) dat u gebruiken kunt wanneer u een schatting maken van de kosten van geïmplementeerde resources. U kunt ook de blade facturering in de portal en de facturering REST API's gebruiken om te schatten van de toekomstige kosten, op basis van huidige verbruik.
 
 >**Aan de slag**: Zie [facturering Azure-gebruik en RateCard APIs overzicht](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Meldingen voor facturering instellen
-
-Nadat u uw toepassing of oplossing op Azure hebt geïmplementeerd, kunt u waarschuwingen die dat u een e-mail verzendt wanneer u bij het benaderen van de bestedingslimieten die zijn gedefinieerd in de waarschuwing kunt maken.
-
->**Aan de slag**: Zie voor meer informatie, [waarschuwingen voor uw Microsoft Azure-abonnementen voor facturering instellen](../../billing-set-up-alerts.md).

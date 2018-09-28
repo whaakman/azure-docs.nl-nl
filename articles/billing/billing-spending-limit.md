@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 20b664e8a194c394f90b1d060dbd081fc1507528
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395607"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423082"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Informatie over Azure-bestedingslimiet en hoe u deze kunt verwijderen
 
 Bestedingslimiet in Azure bestaat om te voorkomen dat uitgaven gedurende het creditbedrag. Alle nieuwe klanten die zich aanmelden voor de proefversie of aanbiedingen met tegoeden verspreid over verschillende maanden hebben de bestedingslimiet standaard ingeschakeld. De bestedingslimiet is van $0. Het kan niet worden gewijzigd. De bestedingslimiet is niet beschikbaar voor abonnementstypen zoals Betalen per gebruik-abonnementen en toegezegde abonnementen. Zie de [volledig overzicht van Azure-aanbiedingen en de beschikbaarheid van de bestedingslimiet](https://azure.microsoft.com/support/legal/offer-details/).
-
-**Wilt u meldingen voor facturering?** Zie [waarschuwingen voor facturering of tegoed voor Azure-abonnementen instellen](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>Wat gebeurt er wanneer ik de bestedingslimiet bereik?
 
@@ -78,7 +76,7 @@ Deze functie is alleen beschikbaar wanneer de bestedingslimiet voor onbepaalde t
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Hoe stel ik een aangepaste bestedingslimiet?
 
-Er zijn geen aangepaste limieten vandaag besteden. Echter, u kunt ervoor kiezen om te [gebruiken-mailmeldingen voor facturering om te bepalen uw uitgaven](billing-set-up-alerts.md).
+Aangepaste bestedingslimieten zijn niet beschikbaar.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Voorkomt dat de bestedingslimiet alle kosten van Azure?
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 81f4830691f423e51d6c1f0b71a8fc62160ea92e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393006"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422657"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Waarom is mijn Azure-abonnement uitgeschakeld en hoe ik het opnieuw activeren?
 
@@ -38,7 +38,7 @@ Azure-abonnementen met zoals gratis proefversie en Visual Studio Enterprise-tego
 > [!NOTE] 
 > Als u een gratis proefversie van abonnement hebt en u de bestedingslimiet verwijderen, wordt uw abonnement wordt omgezet naar betalen per gebruik aan het einde van de gratis proefversie. U mag uw resterende tegoed houden voor de volledige 30 dagen nadat u het abonnement hebt gemaakt. U hebt ook toegang tot gratis services voor 12 maanden.
 
-Als u wilt controleren en beheren van facturatieactiviteit voor Azure, Zie [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md) en [waarschuwingen voor uw Microsoft Azure-abonnementen voor facturering instellen](billing-set-up-alerts.md).
+Als u wilt controleren en beheren van facturatieactiviteit voor Azure, Zie [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Uw factuur is verstreken

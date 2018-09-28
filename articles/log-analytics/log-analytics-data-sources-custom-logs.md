@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363140"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423507"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 Bron van de aangepaste logboeken in Log Analytics kunt u voor het verzamelen van gebeurtenissen uit tekstbestanden op zowel Windows als Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra de verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met behulp van parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van Log Analytics.
@@ -40,6 +40,10 @@ De logboekbestanden te verzamelen, moeten overeenkomen met de volgende criteria 
 >Als er dubbele vermeldingen in het logboekbestand, verzamelt Log Analytics deze.  De lijst met zoekresultaten wordt wel inconsistent waar de filterresultaten meer gebeurtenissen dan het aantal resultaten weergeven.  Het is belangrijk dat u in het logboek te bepalen of dit probleem wordt veroorzaakt door de toepassing die wordt deze gemaakt en los indien mogelijk het voordat u de definitie van de verzameling aangepaste logboek valideren.  
 >
   
+>[!NOTE]
+> Als uw toepassing een nieuw logboekbestand maakt per dag of wanneer het een bepaalde grootte bereikt, detecteert de Log Analytics-agent voor Linux geen ze pas na het opnieuw is opgestart. Dit is omdat de agent alleen inventariseren en begint met de bewaking van patronen met de opgegeven zich aanmeldt bij het opstarten en als gevolg hiervan u van plan bent om het moet door het automatiseren van het opnieuw opstarten van de agent.  Deze beperking bestaat niet met de Log Analytics-agent voor Windows.  
+>
+
 ## <a name="defining-a-custom-log"></a>Een aangepast logboek definiëren
 Gebruik de volgende procedure voor het definiëren van een aangepaste logboekbestand.  Ga naar het einde van dit artikel voor een overzicht van een voorbeeld van het toevoegen van een aangepast logboek.
 
@@ -66,9 +70,13 @@ Als een timestamp-scheidingsteken wordt gebruikt, wordt de eigenschap TimeGenera
 5. Klik op **Volgende**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Stap 3. Paden van logboekverzamelingen toevoegen
-U moet een of meer paden definiëren op de agent waar het aangepaste logboek kunnen worden gevonden.  U kunt ofwel een specifiek pad en de naam voor het logboekbestand opgeven of kunt u een pad met jokertekens voor de naam opgeven.  Dit biedt ondersteuning voor toepassingen die een nieuw bestand maken elke dag of wanneer een bestand een bepaalde grootte heeft bereikt.  U kunt ook meerdere paden opgeven voor één logboekbestand.
+U moet een of meer paden definiëren op de agent waar het aangepaste logboek kunnen worden gevonden.  U kunt ofwel een specifiek pad en de naam voor het logboekbestand opgeven of kunt u een pad met jokertekens voor de naam opgeven. Dit biedt ondersteuning voor toepassingen die een nieuw bestand maken elke dag of wanneer een bestand een bepaalde grootte heeft bereikt. U kunt ook meerdere paden opgeven voor één logboekbestand.
 
 Bijvoorbeeld, een toepassing kan een logboekbestand elke dag maken met de datum die is opgenomen in de naam zoals log20100316.txt in. Een patroon voor een logboek met dergelijke mogelijk *log\*.txt* die wilt toepassen op een logbestand de toepassing na de naamgeving van schema.
+
+>[!NOTE]
+> Als uw toepassing een nieuw logboekbestand maakt per dag of wanneer het een bepaalde grootte bereikt, detecteert de Log Analytics-agent voor Linux geen ze pas na het opnieuw is opgestart. Dit is omdat de agent alleen inventariseren en begint met de bewaking van patronen met de opgegeven zich aanmeldt bij het opstarten en als gevolg hiervan u van plan bent om het moet door het automatiseren van het opnieuw opstarten van de agent.  Deze beperking bestaat niet met de Log Analytics-agent voor Windows.  
+>
 
 De volgende tabel bevat voorbeelden van geldige patronen om op te geven van de verschillende logboekbestanden.
 

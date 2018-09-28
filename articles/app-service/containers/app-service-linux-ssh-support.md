@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 049ae78efee0b5ebdf6bfbe207f8c85d94e9238f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 631933647e27428349fc1efeb17f62f4614f7f64
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050065"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423303"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-ondersteuning voor Azure App Service on Linux
 
@@ -122,10 +122,10 @@ Als u al hebt uitgevoerd `az extension add` voorheen uitvoeren [az extension upd
 az extension update --name webapp
 ```
 
-Open een externe verbinding met uw app met de [az webapp extern verbinding maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<abonnement\_id >_,  _\<groep\_naam >_ en \_< app\_naam > _ voor uw app en vervang \<poort > met een lokale poortnummer.
+Open een externe verbinding met uw app met de [az webapp extern verbinding maken](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) opdracht. Geef  _\<abonnement\_id >_,  _\<groep\_naam >_ en \_< app\_naam > _ voor uw app.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> -p <port> &
+az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
 ```
 
 > [!TIP]

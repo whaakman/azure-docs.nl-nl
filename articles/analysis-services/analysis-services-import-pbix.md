@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a4bb5f59e7aa99a676145ba7a6dbd1883cb860cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394306"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423575"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Een Power BI Desktop-bestand importeren
 
@@ -22,13 +22,14 @@ U kunt een gegevensmodel in Power BI Desktop-bestand (pbix) importeren in Azure 
 **Beperkingen**   
 
 - Importeren uit een pbix-bestand maakt gebruik van de webfunctie designer in de portal, die is **preview**. Functionaliteit is beperkt. Voor meer geavanceerde model ontwikkelen en testen is het raadzaam het gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
-- Als u het volgende foutbericht krijgt bij het importeren, heeft het pbix-bestand preview-functies ingeschakeld die nog niet worden ondersteund in Azure Analysis Services.
+- Als uw gegevensmodel wordt gemaakt in Power BI Desktop juli 2018 Update (2.60.5169.3201) of hoger, zorg ervoor dat er geen preview-functies zijn ingeschakeld. Preview-functies zijn nog niet ondersteund in Azure Analysis Services.  
+Als u het volgende foutbericht krijgt bij het importeren, heeft het pbix-bestand preview-functies ingeschakeld die nog niet worden ondersteund in Azure Analysis Services.
 
-    ![Compatibiliteitswaarschuwing met niveau](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)
+    ![Compatibiliteitswaarschuwing met niveau](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - U moet over de machtigingen van de server-beheerder om te importeren uit een pbix-bestand.
 - Het pbix-model verbinding kan maken met **Azure SQL Database** en **Azure SQL Data Warehouse** worden alleen de gegevensbronnen.
 - Het pbix-model kan niet live hebben of DirectQuery-verbindingen. 
-- Importeren mislukt mogelijk als uw pbix-gegevensmodel metagegevens niet ondersteund in Analysis Services bevat.
+
 
 ## <a name="to-import-from-pbix"></a>Om te importeren uit pbix
 

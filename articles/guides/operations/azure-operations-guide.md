@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296853"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423490"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -129,7 +129,7 @@ Services voor netwerken in Azure zowel tussen Azure en on-premises datacenters:
 
 - Azure Virtual Network
 
-- Azure ExpressRoute
+- ExpressRoute van Azure
 
 - Azure-provided DNS
 
@@ -151,7 +151,7 @@ Een van de beneﬁts van het gebruik van Azure is dat u uw toepassingen in versc
 
 De Azure-portal is een webgebaseerde toepassing die kan worden gebruikt om te maken, beheren en verwijderen van Azure-resources en services. De Azure portal bevindt zich in [portal.azure.com](https://portal.azure.com). Het bevat een aanpasbaar dashboard en hulpprogramma's voor het beheren van Azure-resources. Het biedt ook informatie over facturering en abonnementen. Zie voor meer informatie, [overzicht van Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) en [Azure-resources beheren via portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
-### <a name="resources"></a>Bronnen
+### <a name="resources"></a>Resources
 
 Azure-resources zijn afzonderlijke compute, netwerken, gegevens of app die als host fungeert voor services die zijn geïmplementeerd in een Azure-abonnement. Sommige algemene resources zijn virtuele machines, storage-accounts of SQL-databases. Azure-services bestaan vaak uit meerdere verwante Azure-resources. Een virtuele Azure-machine kan bijvoorbeeld een virtuele machine, de storage-account, de netwerkadapter en het openbare IP-adres bevatten. Deze resources kunnen worden gemaakt, beheerd en afzonderlijk of als een groep verwijderd. Azure-resources worden behandeld in meer detail verderop in deze handleiding.
 
@@ -163,7 +163,7 @@ Een Azure-resourcegroep is een container met gerelateerde resources voor een Azu
 
 Een Azure Resource Manager-sjabloon is een JavaScript Object Notation (JSON)-bestand dat definieert een of meer resources om te implementeren in een resourcegroep. Het definieert ook de afhankelijkheden tussen de geïmplementeerde resources. Resource Manager-sjablonen worden behandeld in meer detail verderop in deze handleiding.
 
-### <a name="automation"></a>Automatisering
+### <a name="automation"></a>Automation
 
 Naast het maken, beheren en -resources verwijderen met behulp van Azure portal, kunt u deze activiteiten automatiseren met behulp van PowerShell of de Azure-opdrachtregelinterface (CLI).
 
@@ -228,10 +228,6 @@ Zie voor meer informatie, [inzicht in het gebruik van de Microsoft Azure-resourc
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognose kosten met de prijscalculator
 
 De prijzen voor elke service in Azure is anders. Veel Azure-services bieden Basic, Standard en Premium-lagen. Elke categorie heeft meestal verschillende niveaus van prijs- prestatieverhouding. Met behulp van de [online prijscalculator](http://azure.microsoft.com/pricing/calculator), kunt u schattingen voor prijzen. De Rekenmachine bevat de flexibiliteit om kosten op een enkele bron of een groep resources te schatten.
-
-### <a name="set-up-billing-alerts"></a>Meldingen voor facturering instellen
-
-Nadat u uw toepassing of oplossing op Azure hebt geïmplementeerd, kunt u waarschuwingen die dat u een e-mail verzendt wanneer u benadering bestedingslimieten gedefinieerd in de waarschuwing kunt maken. Zie voor meer informatie, [waarschuwingen voor uw Microsoft Azure-abonnementen voor facturering instellen](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -377,7 +373,7 @@ Azure storage-accounts kunnen worden geconfigureerd met verschillende niveaus va
 
 Elk opslagtype heeft een verschillende use case.
 
-#### <a name="blob-storage"></a>Blobopslag
+#### <a name="blob-storage"></a>Blob Storage
 
 Het woord *blob* is een acroniem voor *BLOB*. BLOBs zijn niet-gestructureerde bestanden zoals u die u op uw computer opslaat. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag. Azure Blob-opslag bevat ook gegevensschijven van virtuele Machines van Azure.
 

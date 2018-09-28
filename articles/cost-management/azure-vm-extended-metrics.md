@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9c09f473f5d8b399c4fb1b1ad449c783c797f4dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968506"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423354"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
@@ -33,36 +33,38 @@ Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines 
 > [!NOTE]
 > Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Cloudyn is niet compatibel met de Log Analytics VM-extensie.
 
-## <a name="verify-that-metrics-are-enabled-on-vms"></a>Controleer of metrische gegevens zijn ingeschakeld op virtuele machines
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Bepalen of uitgebreide metrische gegevens zijn ingeschakeld
 
 1. Meld u aan bij Azure Portal op http://portal.azure.com.
 2. Onder **virtuele machines**, selecteert u een virtuele machine en klik vervolgens onder **bewaking**, selecteer **metrische gegevens**. Een lijst met beschikbare metrische gegevens wordt weergegeven.
 3. Sommige metrische gegevens selecteren en een grafiek voor deze gegevens worden weergegeven.  
     ![Voorbeeld van de metrische gegevens: host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
 
-In het voorgaande voorbeeld wordt een beperkte set van standaard metrische gegevens zijn beschikbaar voor uw hosts, maar geheugen metrische gegevens zijn niet. Geheugen metrische gegevens maken deel uit van de uitgebreide metrische gegevens. U moet enkele extra stappen voor het inschakelen van uitgebreide metrische gegevens uitvoeren. De volgende informatie helpt u om hen in staat.
+In het voorgaande voorbeeld wordt een beperkte set van standaard metrische gegevens zijn beschikbaar voor uw hosts, maar geheugen metrische gegevens zijn niet. Geheugen metrische gegevens maken deel uit van de uitgebreide metrische gegevens. In dit geval zijn uitgebreide metrische gegevens niet ingeschakeld voor de virtuele machine. U moet enkele extra stappen voor het inschakelen van uitgebreide metrische gegevens uitvoeren. De volgende informatie helpt u om hen in staat.
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Uitgebreide metrische gegevens in Azure portal inschakelen
 
 Standaard metrische gegevens zijn computer metrische gegevens voor hosts. De _[Host] Percentage CPU_ meetwaarde is een voorbeeld. Er zijn ook eenvoudige metrische gegevens voor de Gast-VM's en uitgebreide metrische gegevens ook genoemd. Voorbeelden van uitgebreide metrische gegevens zijn _[Gast] geheugenpercentage_ en _[] Gastgeheugen beschikbaar_.
 
-Het inschakelen van uitgebreide metrische gegevens is eenvoudig. Voor elke virtuele machine, schakel de bewaking op gastniveau. Wanneer u de bewaking op gastniveau inschakelt, wordt de Azure diagnostics-agent is geïnstalleerd op de virtuele machine. Het volgende proces is hetzelfde voor klassieke en reguliere virtuele machines en hetzelfde voor Windows en Linux-VM's.
+Het inschakelen van uitgebreide metrische gegevens is eenvoudig. Voor elke virtuele machine, schakel de bewaking op gastniveau. Wanneer u de bewaking op gastniveau inschakelt, wordt de Azure diagnostics-agent is geïnstalleerd op de virtuele machine. Standaard een set met uitgebreide metrische gegevens worden toegevoegd. Het volgende proces is hetzelfde voor klassieke en reguliere virtuele machines en hetzelfde voor Windows en Linux-VM's.
 
 Houd er rekening mee dat Azure- en Linux bewaking op gastniveau zijn vereist voor een opslagaccount. Wanneer u bewaking op gastniveau, inschakelt als u een bestaand opslagaccount niet kiezen, is klikt u vervolgens een gemaakt voor u.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Bewaking op gastniveau op bestaande virtuele machines inschakelen
 
 1. In **virtuele Machines**, uw lijst met uw virtuele machines weergeven en selecteer vervolgens een virtuele machine.
-2. Onder **bewaking**, selecteer **metrische gegevens**.
-3. Klik op **diagnostische instellingen**.
-4. Klik op de instellingenpagina van diagnostische gegevens **bewaking op gastniveau inschakelen**.  
+2. Onder **bewaking**, selecteer **diagnostische instellingen**.
+3. Klik op de instellingenpagina van diagnostische gegevens **bewaking op gastniveau inschakelen**.  
     ![Gast niveau bewaking inschakelen](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Na een paar minuten is de Azure diagnostics-agent geïnstalleerd op de virtuele machine. De pagina vernieuwd en de lijst met beschikbare metrische gegevens is bijgewerkt met metrische gegevens voor gasten.  
+4. Na een paar minuten is de Azure diagnostics-agent geïnstalleerd op de virtuele machine. Een set van metrische gegevens worden toegevoegd. Vernieuw de pagina. De toegevoegde prestatiemeteritems worden weergegeven op het tabblad Overzicht.
+5. Selecteer onder controle, **metrische gegevens**.
+6. In de grafiek met metrische gegevens onder **metriek Namespace**, selecteer **gast (klassiek)**.
+7. In de lijst met metrische gegevens, kunt u alle van de beschikbare prestatiemeteritems weergeven voor de Gast-VM.  
     ![Uitgebreide metrische gegevens](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Bewaking op gastniveau op nieuwe virtuele machines inschakelen
 
-Zorg ervoor dat u selecteert wanneer u nieuwe virtuele machines maakt, **diagnostische gegevens van Guest OS**.
+Wanneer u nieuwe virtuele machines, op het tabblad beheer maakt, selecteert u **op** voor **besturingssysteem Gast diagnostics**.
 
 ![Gastbesturingssysteem diagnostische gegevens inschakelen](./media/azure-vm-extended-metrics/new-enable-diag.png)
 

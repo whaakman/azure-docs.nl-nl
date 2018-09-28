@@ -5,15 +5,15 @@ services: container-registry
 author: mmacy
 manager: jeconnoc
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
+ms.topic: article
+ms.date: 09/27/2018
 ms.author: marsma
-ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 9bb1f7682338f1d9e591ed1350e1940d85462bd1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423501"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409334"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Aanbevolen procedures voor Azure Container Registry
 
@@ -66,31 +66,25 @@ Zie [Verifiëren met een Azure containerregister](container-registry-authenticat
 
 De opslagbeperkingen van elke [containerregister-SKU] [ container-registry-skus] zijn bedoeld om te worden uitgelijnd met een typisch scenario: **Basic** om te beginnen, **Standard**  voor het merendeel van de productietoepassingen en **Premium** voor hyperschaalprestaties en [geo-replicatie][container-registry-geo-replication]. Tijdens de levensduur van het register moet u de grootte ervan beheren door regelmatig ongebruikte inhoud te verwijderen.
 
-U vindt het huidige gebruik van een register in het containerregister **Overzicht** in de Azure Portal:
+Gebruik de Azure CLI-opdracht [az acr show-gebruik] [ az-acr-show-usage] om weer te geven van de huidige grootte van het register:
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+U vindt hier ook de huidige opslag die wordt gebruikt de **overzicht** van het register in Azure portal:
 
 ![Informatie over het registergebruik in Azure Portal][registry-overview-quotas]
 
-U kunt de grootte van het register beheren met behulp van de [Azure CLI] [ azure-cli] of de [Azure Portal][azure-portal]. Alleen de beheerde SKU's (Basic, Standard, Premium) ondersteunen het verwijderen van opslagplaatsen en installatiekopieën. U kunt geen opslagplaatsen, installatiekopieën of tags in een Classic-register verwijderen.
+### <a name="delete-image-data"></a>Image-gegevens verwijderen
 
-### <a name="delete-in-azure-cli"></a>Verwijderen in de Azure CLI
+Azure Container Registry biedt ondersteuning voor verschillende methoden voor het verwijderen van image-gegevens van uw containerregister. U kunt afbeeldingen op label verwijderen of digest manifest of een hele opslagplaats verwijderen.
 
-Gebruik de opdracht [az acr repository delete] [ az-acr-repository-delete] om een opslagplaats of inhoud binnen een opslagplaats te verwijderen.
-
-Als u een opslagplaats, inclusief alle tags en laaggegevens over installatiekopieën binnen de opslagplaats wilt verwijderen, geeft u alleen de naam van de opslagplaats op tijdens het uitvoeren van [az acr repository delete][az-acr-repository-delete]. In het volgende voorbeeld verwijderen we de opslagplaats *myapplication* en alle tags en laaggegevens over installatiekopieën binnen de opslagplaats:
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-U kunt ook installatiekopiegegevens uit een opslagplaats verwijderen met behulp van de argumenten `--tag` en `--manifest`. Zie het [naslagmateriaal over de opdracht az acr repository delete][az-acr-repository-delete] voor meer informatie over deze argumenten.
-
-### <a name="delete-in-azure-portal"></a>Verwijderen in Azure Portal
-
-Als u een opslagplaats wilt verwijderen uit een register in Azure Portal, gaat u eerst naar uw containerregister. Selecteer vervolgens onder **SERVICES** de optie **Opslagplaatsen** en klik met de rechtermuisknop op de opslagplaats die u wilt verwijderen. Selecteer **Verwijderen** om de opslagplaats en de Docker-installatiekopieën daarin te verwijderen.
-
-![Een opslagplaats verwijderen in Azure Portal][delete-repository-portal]
-
-U kunt op een vergelijkbare manier ook tags uit een opslagplaats verwijderen. Navigeer naar de opslagplaats, klik met de rechtermuisknop op de tag die u wilt verwijderen onder **TAGS** en selecteer **Verwijderen**.
+Voor meer informatie over het image-gegevens verwijderen uit het register (soms ook wel "dangling" of "zwevende") met inbegrip van gecodeerde afbeeldingen, Zie [verwijderen van installatiekopieën van containers in Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -102,6 +96,7 @@ Azure Container Registry is beschikbaar in verschillende categorieën, ook wel S
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
