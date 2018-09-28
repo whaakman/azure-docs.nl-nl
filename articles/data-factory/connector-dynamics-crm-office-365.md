@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d1a34a4c341a48f594f37da9fb34420adab390ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227313"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406172"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -158,8 +158,8 @@ Als u wilt kopiëren van gegevens van en naar Dynamics, stel de eigenschap type 
 | entityName | De logische naam van de entiteit om op te halen. | Nee voor bron (als 'query' in de bron van de activiteit is opgegeven), Ja voor sink |
 
 > [!IMPORTANT]
->- Wanneer u gegevens van Dynamics kopieert, is de sectie "structuur" in de gegevensset Dynamics vereist om te controleren of het resultaat van een deterministische kopiëren. Hiermee wordt de kolom naam en het gegevenstype voor de Dynamics-gegevens die u kopiëren wilt via gedefinieerd. Zie voor meer informatie, [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) en [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
->- Tijdens het ontwerpen van in de gebruikersinterface, kunt ADF afleiden uit het schema steekproeven van de bovenste rijen van het queryresultaat Dynamics initialiseren van de constructie structuur, waarin de aanvraag kolommen met geen waarden worden weggelaten vanwege optimalisatie van prestaties door Dynamics-service. U kunt bekijken en toevoegen van meer kolommen in de Dynamics schema/gegevenssetstructuur indien nodig, die wordt gebruikt tijdens runtime kopiëren. 
+>- Wanneer u gegevens van Dynamics kopieert, wordt de sectie "structuur" is optioneel, maar werd in de Dynamics-gegevensset om te controleren of het resultaat van een deterministische kopiëren wordt aanbevolen. Hiermee wordt de kolom naam en het gegevenstype voor de Dynamics-gegevens die u kopiëren wilt via gedefinieerd. Zie voor meer informatie, [gegevenssetstructuur](concepts-datasets-linked-services.md#dataset-structure) en [gegevenstypetoewijzing voor Dynamics](#data-type-mapping-for-dynamics).
+>- Bij het importeren van schema in het ontwerpen van de gebruikersinterface, afleiden ADF het schema van de bovenste rijen van het queryresultaat Dynamics initialiseren van de constructie structuur, waarbij de aanvraag kolommen met geen waarden worden weggelaten steekproeven. U kunt bekijken en toevoegen van meer kolommen in de Dynamics schema/gegevenssetstructuur indien nodig, die wordt gebruikt tijdens runtime kopiëren.
 >- Wanneer u gegevens naar Dynamics kopiëren, is de sectie "structuur" optioneel in de Dynamics-gegevensset. Welke kolommen u wilt kopiëren naar wordt bepaald door het schema van de bron. Als de bron is een CSV-bestand zonder header voor de 'structuur"in de invoergegevensset opgeven met de kolom naam en het gegevenstype. Deze worden toegewezen aan de velden in het CSV-bestand één voor één in volgorde.
 
 **Voorbeeld:**

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 28f572ee61271c4c81319f7c263172012788765a
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055540"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423014"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Een zelfstandige één tenant-toepassing die gebruikmaakt van Azure SQL Database implementeren en verkennen
 
@@ -27,7 +27,7 @@ De zelfstandige toepassing of het patroon van de app-per-tenant wordt geïmpleme
 
 In deze zelfstudie implementeert u drie zelfstandige toepassingen voor drie tenants in uw Azure-abonnement.  U hebt volledige toegang om te verkennen en werken met de afzonderlijke toepassingsonderdelen.
 
-De toepassing source code en scripts zijn beschikbaar in de [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-opslagplaats.
+De toepassing source code en scripts zijn beschikbaar in de [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub-opslagplaats. De toepassing is gemaakt met behulp van Visual Studio 2015, en niet is geopend en compileren in Visual Studio 2017 zonder bij te werken.
 
 
 In deze zelfstudie komen deze onderwerpen aan bod:

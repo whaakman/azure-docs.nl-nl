@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 6b1de03814017ca4eb811362b2aaf5ac24f5ea86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: df145ebe6276c911ef3064e3f8ff7a23a2faa870
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999797"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423031"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Hoe u ingebouwde Azure-Monitor voor containers
 In dit artikel wordt beschreven hoe u voor het instellen van Azure Monitor voor containers voor het bewaken van de prestaties van workloads die worden geïmplementeerd in Kubernetes-omgevingen en die worden gehost op [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -204,7 +204,7 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
                         "apiVersion": "2015-11-01-preview",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "location": "[parameters('workspaceRegion')]",
-                        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
                         "properties": {
                             "workspaceResourceId": "[parameters('workspaceResourceId')]"
                         },

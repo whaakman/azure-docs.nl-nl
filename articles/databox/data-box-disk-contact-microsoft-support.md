@@ -5,19 +5,19 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/27/2018
 ms.author: alkohli;
 ms.component: ''
-ms.openlocfilehash: afb7de78a30367b0cc12e621019f1e8be975e63f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191631"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422810"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Open een ondersteuningsticket voor Azure Data Box 
 
-Als u problemen ondervindt met uw Azure Data Box-service, kunt u een serviceaanvraag voor technische ondersteuning. In dit artikel begeleidt u bij:
+In dit artikel is van toepassing op Azure Data Box en Azure Data Box-schijf, die worden beheerd door de Azure Data Box-service. Als u problemen ondervindt met uw Azure Data Box-service, kunt u een serviceaanvraag voor technische ondersteuning. In dit artikel begeleidt u bij:
 
 * Het maken van een ondersteuningsaanvraag.
 * Over het beheren van een aanvraag ondersteuningslevenscyclus uit in de portal.

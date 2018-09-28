@@ -1,9 +1,9 @@
 ---
-title: Vergelijking van de Azure AD v2.0-eindpunt met v1.0 eindpunt | Microsoft Docs
+title: Vergelijking van de Azure AD v2.0-eindpunt met het eindpunt v1.0 | Microsoft Docs
 description: De verschillen tussen Azure AD v2.0-eindpunt en het eindpunt v1.0 weten
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948950"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406529"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Vergelijking van de Azure AD v2.0-eindpunt met v1.0-eindpunt
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Vergelijking van de Azure AD v2.0-eindpunt met het eindpunt v1.0
 
 Wanneer u een nieuwe toepassing ontwikkelt, is het belangrijk te weten van de verschillen tussen de v1.0 en v2.0-eindpunten. Hieronder vindt u de belangrijkste verschillen, evenals enkele bestaande beperkingen voor het v2.0-eindpunt.
 
 > [!NOTE]
-> Niet alle Azure AD-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](#limitations).
+> Niet alle Azure Active Directory (Azure AD)-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](#limitations).
 
 ## <a name="who-can-sign-in"></a>Wie zich kan aanmelden
 
@@ -37,7 +37,7 @@ Wanneer u een nieuwe toepassing ontwikkelt, is het belangrijk te weten van de ve
 
 * Het eindpunt v1.0 kan alleen werk- en schoolaccounts accounts aanmelden bij uw toepassing (Azure AD)
 
-* Het v2.0-eindpunt kunt werk en schoolaccounts van Azure Active Directory en persoonlijke accounts (MSA) (hotmail.com, outlook.com, msn.com) aan te melden.
+* Het v2.0-eindpunt kunt werk en schoolaccounts van Azure AD en persoonlijke accounts (MSA) (hotmail.com, outlook.com, msn.com) aan te melden.
 
 * V1.0 zowel v2.0-eindpunten ook accepteren aanmeldingen van *[gastgebruikers](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* van een Azure AD-directory voor toepassingen die zijn geconfigureerd als *[één tenant](single-and-multi-tenant-apps.md)* of voor *multitenant* toepassingen die zijn geconfigureerd om te verwijzen naar het eindpunt van de tenant-specifieke (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -119,7 +119,7 @@ De `email` bereik maakt het mogelijk de toegang tot uw Apps naar de primaire e-m
 
 Hiermee kunt u uw app op een manier vrijgeven van minimale code – u kunt alleen de gebruiker vragen voor de set met informatie over dat uw app nodig heeft om zijn werk te doen. Zie voor meer informatie over deze scopes [de bereikverwijzing v2.0](v2-permissions-and-consent.md).
 
-## <a name="token-claims"></a>Tokenclaims
+## <a name="token-claims"></a>Token claims
 
 De claims in de tokens die zijn uitgegeven door het v2.0-eindpunt, worden niet identiek zijn aan de tokens die zijn uitgegeven door de algemeen beschikbare Azure AD-eindpunten. Apps migreren naar de nieuwe service moeten niet wordt ervan uitgegaan dat een specifieke claim in id_tokens of access_tokens aanwezig. Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt zijn beschikbaar in de [toegangstoken](access-tokens.md) verwijzing en [ `id_token` verwijzing](id-tokens.md)
 
@@ -214,15 +214,13 @@ Ondersteuning voor clientbibliotheek voor het v2.0-eindpunt is momenteel beperkt
 
 Het v2.0-eindpunt biedt geen ondersteuning voor SAML of WS-Federation; het ondersteunt alleen Open ID Connect en OAuth 2.0. Niet alle functies en mogelijkheden van OAuth-protocollen zijn opgenomen in het v2.0-eindpunt.
 
-De volgende protocol-functies en mogelijkheden zijn momenteel *niet beschikbaar* in het v2.0-eindpunt:
+De volgende protocol-functies en mogelijkheden zijn momenteel *niet beschikbaar* of *niet ondersteund* in het v2.0-eindpunt:
 
-* Op dit moment de `email` claim wordt alleen geretourneerd als een optionele claim is geconfigureerd en bereik scope = e-mailbericht is opgegeven in de aanvraag. Dit gedrag wijzigen, zoals het v2.0-eindpunt is bijgewerkt om verder te voldoen aan de Open ID Connect en OAuth 2.0-standaarden.
+* De `email` claim wordt alleen geretourneerd als een optionele claim is geconfigureerd en bereik scope = e-mailbericht is opgegeven in de aanvraag. Dit gedrag te wijzigen als het v2.0-eindpunt is bijgewerkt om verder te voldoen aan de Open ID Connect en OAuth 2.0-standaarden echter verwacht.
 
 * Het v2.0-eindpunt biedt geen ondersteuning voor claims van verlenende rol of groep in het ID-tokens.
 
-* De [clientreferenties van OAuth 2.0-Resource-eigenaar wachtwoord](https://tools.ietf.org/html/rfc6749#section-4.3) wordt niet ondersteund door het v2.0-eindpunt.
-
-Het v2.0-eindpunt biedt bovendien geen ondersteuning voor een vorm van het SAML- of WS-Federation-protocol.
+* Het v2.0-eindpunt biedt geen ondersteuning voor [clientreferenties van OAuth 2.0-Resource-eigenaar wachtwoord](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 Lees voor meer informatie over het bereik van protocol-functionaliteit worden ondersteund in het v2.0-eindpunt, onze [OpenID Connect en OAuth 2.0-protocol verwijzing](active-directory-v2-protocols.md).
 

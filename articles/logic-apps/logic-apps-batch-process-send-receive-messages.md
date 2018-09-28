@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128742"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410150"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in Azure Logic Apps voor batch
 
@@ -60,7 +60,7 @@ Voordat u berichten naar een batch verzenden kunt, moet eerst die partij bestaan
    |----------|-------------|
    | **Batchmodus** | - **Inline**: voor het definiëren van releasecriteria in de batchtrigger <br>- **Integratieaccount**: voor het definiëren van configuraties met meerdere release criteria via een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). U kunt deze configuraties allemaal op één locatie in plaats van in afzonderlijke logische apps te onderhouden met een integratieaccount. | 
    | **Batchnaam** | De naam voor uw batch-, die in dit voorbeeld 'TestBatch', en is alleen bedoeld voor **Inline** batchmodus |  
-   | **Releasecriteria** | Is alleen bedoeld voor **Inline** batch-modus en Hiermee geeft u de criteria om te voldoen aan voordat elke batch wordt verwerkt: <p>- **Bericht op basis van aantal**: het aantal berichten voor het verzamelen van 10 berichten in de batch, bijvoorbeeld: <br>- **Op basis van grootte**: de maximale batchgrootte in bytes, voor bijvoorbeeld 100 MB <br>- **Op basis van planning**: het interval en frequentie tussen batch worden vrijgegeven, bijvoorbeeld tien minuten. U kunt ook een datum en tijd opgeven. <br>- **Selecteer alle**: Gebruik de opgegeven criteria. | 
+   | **Releasecriteria** | Is alleen bedoeld voor **Inline** batch-modus en selecteert de criteria om te voldoen aan voordat elke batch wordt verwerkt: <p>- **Bericht op basis van aantal**: het aantal berichten voor het verzamelen van 10 berichten in de batch, bijvoorbeeld: <br>- **Op basis van grootte**: de maximale batchgrootte in bytes, voor bijvoorbeeld 100 MB <br>- **Op basis van planning**: het interval en frequentie tussen batch worden vrijgegeven, bijvoorbeeld tien minuten. De minimale terugkeer is 60 seconden of 1 minuut. Fractionele minuten waarden zijn effectief naar boven afgerond op 1 minuut. Als een datum en tijd opgeven, kiest u **geavanceerde opties weergeven**. <br>- **Selecteer alle**: Gebruik de opgegeven criteria. | 
    ||| 
    
    In dit voorbeeld worden alle criteria geselecteerd:
@@ -107,9 +107,7 @@ Voordat u berichten naar een batch verzenden kunt, moet eerst die partij bestaan
 
    * In de **hoofdtekst** vak, wanneer de lijst met dynamische inhoud wordt weergegeven, selecteert u de **bericht-Id** veld. 
 
-     Ontwerper van logische Apps wordt automatisch een lus 'voor elke' rond de actie voor e-mail verzenden toegevoegd omdat deze actie wordt een matrix als invoer geaccepteerd. 
-     Deze lus verzendt een e-mail voor elk bericht in de batch. 
-     Dus als de batchtrigger is ingesteld op 10 berichten, u krijgt tijd 10 e-mails de trigger wordt geactiveerd.
+     Ontwerper van logische Apps wordt automatisch een lus 'voor elke' rond de actie voor e-mail verzenden toegevoegd omdat deze actie de uitvoer van de vorige actie als wanneer u een verzameling, in plaats van een batch behandelt. 
 
      ![Selecteer voor 'Hoofdtekst', '-bericht-Id'](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ Uw logische app van de batch afzender per minuut wordt uitgevoerd, genereert een
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* [Batch- en verzenden EDI-berichten](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Bouwen op definities voor logische Apps met behulp van JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Een serverloze app bouwen in Visual Studio met Azure Logic Apps en Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Afhandeling van uitzonderingen en logboekregistratie van fouten voor logische apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

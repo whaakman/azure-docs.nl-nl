@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.reviewer: quying
+ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299454"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407904"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
 U kunt een SQL-exemplaar op een virtuele machine (VM) hosten [Azure Stack](azure-stack-poc.md), of op een virtuele machine buiten uw Azure Stack-omgeving, zolang de SQL-resourceprovider kunt verbinding maken met het exemplaar.
+
+> [!NOTE]
+> SQL-databases moet worden worden gemaakt op de server van de SQL-resource-provider. De SQL-resourceprovider moet worden gemaakt in het abonnement van de provider standaard terwijl hosting SQL-servers moeten worden gemaakt in een factureerbare, gebruikersabonnement. De server van de resource provider moet niet worden gebruikt om host gebruikersdatabases.
 
 ## <a name="overview"></a>Overzicht
 

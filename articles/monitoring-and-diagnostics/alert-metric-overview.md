@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948686"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405917"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
-Metrische waarschuwingen in Azure Monitor hierop worden gebaseerd multi-dimensionale metrische gegevens. Deze metrische gegevens zijn mogelijk platform metrische gegevens, aangepaste metrische gegevens (preview), populaire logboeken van Log Analytics is geconverteerd naar metrische gegevens, Application Insights standaard metrische gegevens. Metrische waarschuwingen evalueren met regelmatige intervallen om te controleren of voorwaarden op een of metrische waarde time series ' True ' zijn en een melding wanneer de evaluaties wordt voldaan. Metrische waarschuwingen zijn stateful dat wil zeggen, dat ze alleen verzenden van meldingen wanneer de status verandert.
+Metrische waarschuwingen in Azure Monitor hierop worden gebaseerd multi-dimensionale metrische gegevens. Deze metrische gegevens mogelijk platform metrische gegevens, [aangepaste metrische gegevens](metrics-custom-overview.md), [populaire logboeken van Log Analytics wordt geconverteerd naar metrische gegevens](monitoring-metric-alerts-logs.md), standaard metrische gegevens van Application Insights. Metrische waarschuwingen evalueren met regelmatige intervallen om te controleren of voorwaarden op een of meer metriek tijdreeksen ' True ' zijn en een melding wanneer de evaluaties wordt voldaan. Metrische waarschuwingen zijn stateful, dat wil zeggen, ze alleen verzenden van meldingen wanneer de status verandert.
 
 ## <a name="how-do-metric-alerts-work"></a>De werking van metrische waarschuwingen
 
@@ -75,11 +75,17 @@ Stel, u hebt een web-app die zeer grote vraag te zien en moet u meer instanties 
 
 Deze regel worden alle waarden voor het exemplaar van Internet Explorer automatisch gecontroleerd u kunt uw exemplaren bewaken deze direct hoeft te wijzigen van de waarschuwingsregel voor metrische gegevens opnieuw.
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>Bewaking van meerdere resources met behulp van metrische waarschuwingen
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Bewaking van meerdere resources met behulp van metrische waarschuwingen
 
-Als u uit de vorige sectie hebt gezien, is het mogelijk om een enkele waarschuwingsregel voor metrische gegevens die elke dimensiecombinatie van afzonderlijke (zoals controleert) een metrische tijdreeks). U bent echter nog steeds beperkt tot één resource tegelijk uitvoeren. Metrische waarschuwingen nu ondersteuning ook voor bewaking van meerdere resources met één regel in de Preview-versie. Als u 100s van virtuele machines in uw abonnement hebt, kunt u deze nieuwe functie snel instellen voor bewaking. 
+Als u uit de vorige sectie hebt gezien, is het mogelijk om een enkele waarschuwingsregel voor metrische gegevens die elke dimensiecombinatie van afzonderlijke (zoals controleert) een metrische tijdreeks). Eerder waren u echter nog steeds beperkt tot één resource tegelijk uitvoeren. Azure Monitor biedt ook ondersteuning voor het bewaken van meerdere resources met een waarschuwingsregel voor metrische gegevens. Deze functie is momenteel preview en alleen ondersteund op virtuele machines. Een één waarschuwing voor metrische gegevens kan ook resources in een Azure-regio te bewaken.
 
-Deze functie is momenteel beschikbaar als preview-product. Het maken van regels voor metrische waarschuwingen die meerdere resources bewaken wordt momenteel niet ondersteund via Azure portal. U kunt deze regels via Azure Resource Manager-sjablonen maken.
+U kunt het bereik van de bewaking met een één waarschuwing voor metrische gegevens op drie manieren opgeven:
+
+- Als een lijst met virtuele machines in een Azure-regio binnen een abonnement
+- alle virtuele machines (in een Azure-regio) in een of meer resourcegroepen in een abonnement
+- alle virtuele machines (in een Azure-regio) in één abonnement
+
+Het maken van regels voor metrische waarschuwingen die meerdere resources bewaken wordt momenteel niet ondersteund via Azure portal. U kunt deze regels via maken [Azure Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). U ontvangt afzonderlijke meldingen voor elke virtuele machine. 
 
 ## <a name="typical-latency"></a>Normale latentie
 

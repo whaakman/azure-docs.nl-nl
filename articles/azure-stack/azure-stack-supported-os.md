@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 09/26/2018
 ms.author: sethm
-ms.reviewer: JeffGoldner
-ms.openlocfilehash: 65e9b4371eab4e4e4978e91184ab9712b9ecc9eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629360"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405594"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gastbesturingssystemen die worden ondersteund in Azure Stack
 
@@ -40,11 +40,12 @@ Azure Stack biedt ondersteuning voor de Windows-gastbesturingssystemen die worde
 | Windows Server 2008 SP2 | 64-bits |  Uw eigen installatiekopie gebruiken |
 | Windows 10 *(Zie Opmerking 1)* | 64-bits, Pro en Enterprise | Uw eigen installatiekopie gebruiken |
 
-***Opmerking 1:*** *Windows 10-client om besturingssystemen te implementeren in Azure Stack, moet u hebben [Windows per gebruiker-licentieverlening](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) of aanschaffen via een gekwalificeerde Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+> [!NOTE]
+> Windows 10-client om besturingssystemen te implementeren in Azure Stack, moet u hebben [Windows per gebruiker-licentieverlening](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) of aanschaffen via een gekwalificeerde Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
 
 Marketplace-installatiekopieën zijn beschikbaar voor betalen als u-gebruik of BYOL (EA/SPLA)-licentieverlening. Gebruik van beide op een enkele instantie van Azure Stack wordt niet ondersteund. Tijdens de implementatie van injects Azure Stack een geschikte versie van de gastagent in de afbeelding.
 
- Datacenter-edities zijn beschikbaar in de marketplace voor het downloaden van; klanten kunnen hun eigen server-installatiekopieën met inbegrip van andere edities meebrengen. Windows-clientinstallatiekopieën zijn niet beschikbaar in de Marketplace.
+Datacenter-edities zijn beschikbaar in de marketplace voor het downloaden van; klanten kunnen hun eigen server-installatiekopieën met inbegrip van andere edities meebrengen. Windows-clientinstallatiekopieën zijn niet beschikbaar in de Marketplace.
 
 ## <a name="linux"></a>Linux
 
@@ -70,6 +71,11 @@ Linux-distributies die worden vermeld als beschikbaar in de Marketplace bevatten
 | Ubuntu 16.04-LTS | 64-bits | Canonical | Ja |
 | Ubuntu 18.04-LTS | 64-bits | Canonical | Ja |
 
-In de toekomst mogelijk andere Linux-distributies ondersteund.
-
 Raadpleeg voor informatie over Red Hat Enterprise Linux, [Red Hat en Azure Stack: veelgestelde vragen over](https://access.redhat.com/articles/3413531).
+
+## <a name="next-steps"></a>Volgende stappen
+
+Zie voor meer informatie over Azure Stack Marketplace, de volgende artikelen:
+
+[Marketplace-items downloaden](azure-stack-download-azure-marketplace-item.md)  
+[Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)

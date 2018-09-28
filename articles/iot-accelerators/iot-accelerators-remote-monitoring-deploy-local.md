@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7007b1406dbcfab3af4700418ac2ce07b9e521c0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219971"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407430"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>De Remote Monitoring solution accelerator lokaal implementeren
 
@@ -42,17 +42,13 @@ De bewaking op afstand source code GitHub-opslagplaats bevat de Docker-configura
 Voor het downloaden van de meest recente versie van de Java-microservices-implementaties, voert u de volgende uit:
 
 ```cmd/sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
-cd azure-iot-pcs-remote-monitoring-java
-git submodule foreach git pull origin master
+git clone https://github.com/Azure/remote-monitoring-services-java.git
 ```
 
 Voor het downloaden van de meest recente versie van de .NET-microservice-implementaties, voert u de volgende uit:
 
 ```cmd\sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
-cd azure-iot-pcs-remote-monitoring-dotnet
-git submodule foreach git pull origin master
+git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
 ```
 
 > [!NOTE]
@@ -66,7 +62,7 @@ Hoewel dit artikel u hoe u de microservices lokaal uitvoert leest, worden ze ver
 
 Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen:
 
-1. In de opdrachtregel-omgeving, gaat u naar de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** map in de gekloonde kopie van de opslagplaats.
+1. In de opdrachtregel-omgeving, gaat u naar de **remote-monitoring-services-dotnet\scripts\local\launch** map in de gekloonde kopie van de opslagplaats.
 
 2. Voer de **start.cmd** script en volg de aanwijzingen. Het script vraagt u zich aanmeldt bij uw Azure-account en het script nogmaals starten. Het script vraagt u vervolgens de volgende informatie:
     * De naam van een oplossing.
@@ -75,11 +71,11 @@ Als u de vereiste Azure-resources is nog niet hebt gemaakt, volgt u deze stappen
 
     Het script wordt de resourcegroep gemaakt in Azure met de naam van uw oplossing. Deze resourcegroep bevat de Azure-resources die maakt gebruik van de solution accelerator.
 
-3. Wanneer het script is voltooid, wordt een lijst met omgevingsvariabelen weergegeven. Volg de instructies in de uitvoer van de opdracht voor het opslaan van deze variabelen aan de **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\lokale\\.env** bestand.
+3. Wanneer het script is voltooid, wordt een lijst met omgevingsvariabelen weergegeven. Volg de instructies in de uitvoer van de opdracht voor het opslaan van deze variabelen aan de **remote-monitoring-services-dotnet\\scripts\\lokale\\.env** bestand.
 
 ### <a name="use-existing-azure-resources"></a>Bestaande Azure-bronnen
 
-Als u al hebt gemaakt de vereiste Azure-resources bewerken met de variabele definities van de omgeving in de **azure-iot-pcs-remote-monitoring-dotnet\\services\\scripts\\lokale\\.env**  bestand met de vereiste waarden. De **.env** bestand bevat gedetailleerde informatie over waar u kunt de vereiste waarden vinden.
+Als u al hebt gemaakt de vereiste Azure-resources bewerken met de variabele definities van de omgeving in de **remote-monitoring-services-dotnet\\scripts\\lokale\\.env** bestand met de vereiste waarden. De **.env** bestand bevat gedetailleerde informatie over waar u kunt de vereiste waarden vinden.
 
 ## <a name="run-the-microservices-in-docker"></a>Uitvoeren van de microservices in Docker
 
@@ -89,7 +85,7 @@ De microservices die worden uitgevoerd in de lokale Docker-containers nodig hebt
 docker run --rm -ti library/alpine ping google.com
 ```
 
-Als u wilt uitvoeren in de solution accelerator, gaat u naar de **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** map in uw opdrachtregelomgeving en voer de volgende opdracht:
+Als u wilt uitvoeren in de solution accelerator, gaat u naar de **remote-monitoring-services-dotnet\\scripts\\lokale** map in uw opdrachtregelomgeving en voer de volgende opdracht:
 
 ```cmd\sh
 docker-compose up

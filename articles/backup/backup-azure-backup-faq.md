@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: aa26106460f305568fcb2dd1b84fbc54370e5f39
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: efe08eddaceb5a764dbd5393e79644eac1e2e106
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543574"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406155"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -148,7 +148,7 @@ In de volgende tabel wordt uitgelegd hoe de grootte voor elke gegevensbron wordt
 | Microsoft Exchange |De som van alle Exchange-databases in een Exchange-server waarvan een back-up wordt gemaakt. |
 | BMR/systeemstatus |Elke afzonderlijke kopie van de BMR of systeemstatus van de machine waarvan een back-up wordt gemaakt. |
 
-Voor Azure IaaS VM backup, kan elke virtuele machine mag maximaal 16 gegevensschijven hebben en elke gegevensschijf maximaal 4095 GB.
+Voor Azure IaaS VM backup, kan elke virtuele machine mag maximaal 32 gegevensschijven hebben, en elke gegevensschijf maximaal 4095 GB.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Is er een limiet voor de hoeveelheid gegevens die zijn opgeslagen in een Recovery Services-kluis?
 Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Recovery Services-kluis.

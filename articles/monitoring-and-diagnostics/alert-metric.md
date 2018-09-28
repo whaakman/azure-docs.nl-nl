@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956986"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409368"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen van metrische gegevens met behulp van Azure Monitor
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van metrische waarschuwingen met behulp van Azure Monitor
 
 Metrische waarschuwingen in Azure Monitor biedt een manier om te worden geïnformeerd wanneer een van de metrische gegevens een drempelwaarde overschrijden. Metrische waarschuwingen werken op een scala aan platform multi-dimensionale metrische gegevens, aangepaste metrische gegevens, Application Insights-standaard en aangepaste metrische gegevens. In dit artikel wordt wordt beschreven hoe u maken, weergeven en beheren van regels voor metrische waarschuwingen via Azure portal en Azure CLI. U kunt ook de waarschuwingsregels voor metrische gegevens gebruik met behulp van Azure Resource Manager-sjablonen die wordt beschreven in maken [een apart artikel](monitoring-enable-alerts-using-template.md).
 
 U kunt meer informatie over hoe metrische waarschuwingen werken vanaf [metriek overzicht van waarschuwingen](alert-metric-overview.md).
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Maken van een waarschuwingsregel voor metrische gegevens met behulp van Azure portal
+## <a name="create-with-azure-portal"></a>Maken met Azure portal
 
 De volgende procedure wordt beschreven hoe u een waarschuwingsregel voor metrische gegevens maken in Azure portal:
 
@@ -58,7 +58,7 @@ De volgende procedure wordt beschreven hoe u een waarschuwingsregel voor metrisc
 > [!NOTE]
 > Waarschuwing voor metrische gegevens regels die zijn gemaakt via de portal worden gemaakt in dezelfde resourcegroep bevinden als de doelresource.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Weergeven en beheren van waarschuwingsregels voor metrische gegevens gebruik met Azure portal
+## <a name="view-and-manage-with-azure-portal"></a>Weergeven en beheren met Azure portal
 
 U kunt weergeven en beheren van waarschuwingsregels voor metrische gegevens gebruik met behulp van de blade van de regels beheren onder waarschuwingen. De onderstaande procedure ziet u hoe uw waarschuwingsregels voor metrische gegevens weergeven en bewerken van een van beide.
 
@@ -80,7 +80,7 @@ U kunt weergeven en beheren van waarschuwingsregels voor metrische gegevens gebr
 
 6. Klik op **gedaan** om op te slaan, uw bewerkingen.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Maken, weergeven en beheren van waarschuwingsregels voor metrische gegevens gebruik met Azure CLI
+## <a name="with-azure-cli"></a>Met Azure CLI
 
 In de vorige secties beschreven hoe u kunt maken, weergeven en beheren van waarschuwingsregels voor metrische gegevens gebruik met Azure portal. In deze sectie wordt beschreven hoe u doet hetzelfde met platformonafhankelijke [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Snelste manier om te beginnen met behulp van Azure CLI is via [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest). Voor dit artikel gebruiken we cloudshell.
 

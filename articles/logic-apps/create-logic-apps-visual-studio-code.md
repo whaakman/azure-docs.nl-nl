@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958353"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405285"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Maken en beheren van geautomatiseerde logic app workflows - Visual Studio Code
 
 Met [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en Visual Studio Code, die u kunt maken en beheren van logische apps die u helpen bij automatiseren van taken, werkstromen en processen voor het integreren van apps, gegevens, systemen en services voor organisaties en ondernemingen. Dit artikel wordt beschreven hoe u kunt maken en definities voor logische Apps-werkstroom bewerken door in een ervaring op basis van code te werken. U kunt ook werken over logische apps die al zijn geïmplementeerd op <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> in de cloud. 
 
-Maar u kunt dezelfde taken in uitvoeren de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> en in Visual Studio, u kunt sneller aan de slag in Visual Studio Code als u wilt werken rechtstreeks in de code. Bijvoorbeeld, kunt u ook uitschakelen, inschakelen, verwijderen en vernieuwen van de gemaakte logische apps.
+Maar u kunt dezelfde taken in uitvoeren de <a href="https://portal.azure.com" target="_blank">Azure-portal</a> en in Visual Studio, u kunt sneller aan de slag in Visual Studio Code als u wilt werken rechtstreeks in de code. Bijvoorbeeld, kunt u ook uitschakelen, inschakelen, verwijderen en vernieuwen van de gemaakte logische apps. U kunt ook werken op logic apps en integratieaccounts elk ontwikkelplatform waarop Visual Studio Code wordt uitgevoerd, zoals Linux, Windows en Mac.
 
 In dit artikel kunt u dezelfde logische app zoals in de [Quick Start voor het maken van een logische app in Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), die meer is gericht op de basisconcepten. In Visual Studio Code, is de logische app ziet eruit zoals in dit voorbeeld:
 
@@ -43,7 +43,7 @@ Voordat u begint, zorg er dan voor dat u hebt deze items:
 
   * Visual Studio Code-extensie voor Azure Logic Apps
 
-    U kunt deze extensie installeren in Visual Studio Code. 
+    U kunt deze extensie installeren de [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) of rechtstreeks uit in Visual Studio Code. 
     Zorg ervoor dat u Visual Studio Code opnieuw laden na de installatie. 
 
     !["Visual Studio Code-extensie voor Azure Logic Apps" zoeken](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ Voordat u begint, zorg er dan voor dat u hebt deze items:
 
     ![Extensie geïnstalleerd](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    Zie voor meer informatie, <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">extensie Marketplace</a>. 
+    Zie voor meer informatie, <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">extensie Marketplace</a>. U kunt ook bekijken en bijdragen aan open-source-versie van deze extensie indienen door naar de pagina de [Azure Logic Apps-extensie voor Visual Studio Code op GitHub](https://github.com/Microsoft/vscode-azurelogicapps). 
 
 <a name="sign-in-azure"></a>
 

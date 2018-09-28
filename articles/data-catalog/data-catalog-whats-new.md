@@ -2,18 +2,18 @@
 title: Wat is er nieuw in Azure Data Catalog
 description: Dit artikel bevat een overzicht van nieuwe mogelijkheden toegevoegd aan Azure Data Catalog.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 61f837fbe7f53cdf9f313e5498c6f99ea14203a7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047002"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406325"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe functies van de gebruiker gerichte, omdat sommige versies van het gericht zijn op de mogelijkheden van de back-end-service. Deze pagina ziet u nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.

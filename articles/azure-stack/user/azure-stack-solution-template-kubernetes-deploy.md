@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163491"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409351"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes in Azure Stack is in preview. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Cluster Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
+> Kubernetes in Azure Stack is in preview.
 
 Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren. Houd er rekening mee de sjabloon is niet de dezelfde beheerde AKS-service aangeboden in de globale Azure.
 
@@ -55,6 +55,8 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 1. Controleer of u een geldig abonnement in de portal van uw Azure Stack-tenant hebben en dat u onvoldoende openbare IP hebt-adressen beschikbaar om toe te voegen nieuwe toepassingen.
 
     Het cluster kan niet worden geïmplementeerd naar een Azure Stack **beheerder** abonnement. U moet gebruiken een **gebruiker** abonnement. 
+
+1. Als u geen Kubernetes-Cluster in de marketplace, neemt u contact op met de beheerder van Azure Stack.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Een service-principal maken in Azure AD
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465654"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409606"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreren van de PostgreSQL-database met behulp van dumpen en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) om op te halen van een PostgreSQL-database naar een dumpbestand en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen vanuit een archiefbestand die zijn gemaakt door pg_dump.
@@ -36,9 +36,6 @@ Bijvoorbeeld, als u hebt een database met de naam en een lokale server **testdb*
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Kopieer de back-upbestanden naar een Azure-blob/store en het herstel uitvoeren van daaruit, moet je kunt veel sneller dan het uitvoeren van het herstel via Internet.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Herstel de gegevens in de doel-Azure Database voor PostrgeSQL pg_restore gebruiken
 Nadat u de doel-database hebt gemaakt, kunt u de opdracht pg_restore en de d-,--dbname-parameter voor het terugzetten van de gegevens in de doeldatabase uit het dumpbestand.
@@ -74,7 +71,7 @@ Een manier om uw bestaande PostgreSQL-database migreren naar Azure Database for 
     ```
 
 ### <a name="for-the-restore"></a>Voor het herstellen
-- Kopieer de back-upbestanden in een Azure-blob/store en het herstellen van daaruit uitvoeren. Deze moet sneller dan de terugzetbewerking doen via het Internet. 
+- Het is raadzaam dat u de back-upbestand naar een Azure-VM in dezelfde regio als de Azure Database for PostgreSQL-server u migreert verplaatsen naar en voer de pg_restore van die VM te verminderen van de netwerklatentie. We raden u ook aan dat de virtuele machine wordt gemaakt met [versnelde netwerken](..\virtual-network\create-vm-accelerated-networking-powershell.md) ingeschakeld.
 - Het standaard moet worden gedaan, maar het dumpbestand om te controleren dat de instructies van de index maken na het invoegen van de gegevens zijn geopend. Als dit niet het geval is, verplaatst u de instructies van de index maken nadat de gegevens worden ingevoegd.
 - Herstellen met de schakelopties -Fc- en -j *#* naar parallel het terugzetten. *#* is het aantal kernen op de doelserver. U kunt ook proberen met *#* ingesteld op twee keer het aantal kernen van de doelserver om te zien van de impact. Bijvoorbeeld:
 

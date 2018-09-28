@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2582284f56da1dd1c49c4183ba07a4f60d4f6061
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 85fbbc4e489c7b48f7dc95de1738636b7383de16
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381200"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419403"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -37,15 +37,15 @@ De **BuildingBlocks** element wordt toegevoegd in de [TrustFrameworkPolicy](trus
     <ClaimsSchema>
       ...
     </ClaimsSchema>
-    <ClaimsTransformations>
-      ...
-    </ClaimsTransformations>
     <Predicates>
     ...
     </Predicates>
     <PredicateValidations>
     ...
     </PredicateValidations>
+    <ClaimsTransformations>
+      ...
+    </ClaimsTransformations>
     <ContentDefinitions>
       ...
     </ContentDefinitions>
@@ -55,9 +55,11 @@ De **BuildingBlocks** element wordt toegevoegd in de [TrustFrameworkPolicy](trus
  </BuildingBlocks>
 ```
 
-De **BuildingBlocks** element bevat de volgende elementen:
+De **BuildingBlocks** element bevat de volgende elementen die moeten worden opgegeven in de volgorde gedefinieerd:
 
 - [ClaimsSchema](claimsschema.md) -definieert de claimtypen aan die kunnen worden verwezen als onderdeel van het beleid. Het schema van claims is de plek waar u uw claimtypen declareren. Een claimtype is vergelijkbaar met een variabele in vele programmatische talen. U kunt met het claimtype kunt verzamelen van gegevens van de gebruiker van uw toepassing, claims ontvangen van sociale id-providers, verzenden en ontvangen van gegevens van een aangepast REST-API of alle interne gegevens die worden gebruikt door het aangepaste beleid worden opgeslagen. 
+
+- [Predikaten en PredicateValidationsInput](predicates.md) -kunt u een validatieproces om ervoor te zorgen dat alleen juist opgemaakte gegevens worden ingevoerd in een claim uitvoeren.
  
 - [ClaimsTransformations](claimstransformations.md) -bevat een lijst met claimtransformaties die kunnen worden gebruikt in uw beleid.  Een claim converteert een claimtransformatie naar een andere. In de claimtransformatie geeft u een methode voor transformatie, zoals: 
     - Het wijzigen van het geval van een claim tekenreeks voor de versie die is opgegeven. Bijvoorbeeld, wijzigen van een tekenreeks van kleine letters naar hoofdletters.
@@ -70,4 +72,4 @@ De **BuildingBlocks** element bevat de volgende elementen:
 
 - [Lokalisatie](localization.md) -kunt u meerdere talen te ondersteunen. De lokalisatieondersteuning in het beleid kunt u de lijst met ondersteunde talen in een beleid instellen en kies een taal. Taalspecifieke tekenreeksen en verzamelingen worden ook ondersteund.
 
-- [Predikaten en PredicateValidationsInput](predicates.md) -kunt u een validatieproces om ervoor te zorgen dat alleen juist opgemaakte gegevens worden ingevoerd in een claim uitvoeren.
+

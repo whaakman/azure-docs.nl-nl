@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 672e31109b71a8a4238a05851a58a7c83e275b19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 14db9ec9e4cd90d0c2d224bd944e2bc5b591a53b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576306"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405900"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Overzicht van Azure Event Hubs Event Processor Host
 
@@ -88,7 +88,8 @@ Vervolgens exemplaar maken van een [EventProcessorHost](/dotnet/api/microsoft.az
 - **eventHubConnectionString:** de verbindingsreeks naar de event hub, die kan worden opgehaald uit de Azure-portal. Deze verbindingsreeks moet **luisteren** machtigingen voor de event hub.
 - **storageConnectionString:** de storage-account gebruikt voor het resourcebeheer van de interne.
 
-Ten slotte consumenten registreren de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) -exemplaar met de Event Hubs-service. Registreren van geeft u de Event Hubs-service kunnen verwachten dat de app voor consumenten van gebeurtenissen van enkele van de partities verbruikt en om aan te roepen de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementatiecode wanneer deze gebeurtenissen te verbruiken pushes.
+Ten slotte consumenten registreren de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) -exemplaar met de Event Hubs-service. Registreren van een klasse event processor met een exemplaar van EventProcessorHost start gebeurtenisverwerking. Registreren van geeft u de Event Hubs-service kunnen verwachten dat de app voor consumenten van gebeurtenissen van enkele van de partities verbruikt en om aan te roepen de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementatiecode wanneer deze gebeurtenissen te verbruiken pushes. 
+
 
 ### <a name="example"></a>Voorbeeld
 
@@ -123,7 +124,7 @@ Hier, krijgt elke host eigendom van een partitie gedurende een bepaalde periode 
 
 Elke aanroep van [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) voorziet in een verzameling van gebeurtenissen. Het is uw verantwoordelijkheid om deze gebeurtenissen te verwerken. Het is raadzaam dat u relatief snel handelingen; dat wil zeggen, kunt u doen als weinig verwerking mogelijk. Gebruik in plaats daarvan consumentengroepen. Als u nodig hebt te schrijven naar de opslag en sommige routering, is het in het algemeen beter gebruik van twee consumentengroepen en twee [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementaties die afzonderlijk worden uitgevoerd.
 
-Op een bepaald moment tijdens de verwerking, is het raadzaam om wat u hebt gelezen en voltooid bij te houden. Het bijhouden is van essentieel belang als u het lezen, opnieuw opstarten moet, zodat u niet teruggaan naar het begin van de stroom. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) vereenvoudigt deze bijhouden met behulp van *controlepunten*. Een controlepunt is een locatie of een offset voor een bepaalde partitie, binnen een bepaalde consumergroep, op het moment waarop u bent ervan overtuigd dat u de berichten zijn verwerkt. Een controlepunt in markering **EventProcessorHost** wordt bereikt door het aanroepen van de [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) methode voor het [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) object. Deze bewerking wordt doorgaans uitgevoerd binnen de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) methode, maar kan ook worden uitgevoerd in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
+Op een bepaald moment tijdens de verwerking, is het raadzaam om wat u hebt gelezen en voltooid bij te houden. Het bijhouden is van essentieel belang als u het lezen, opnieuw opstarten moet, zodat u niet teruggaan naar het begin van de stroom. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) vereenvoudigt deze bijhouden met behulp van *controlepunten*. Een controlepunt is een locatie of een offset voor een bepaalde partitie, binnen een bepaalde consumergroep, op het moment waarop u bent ervan overtuigd dat u de berichten zijn verwerkt. Een controlepunt in markering **EventProcessorHost** wordt bereikt door het aanroepen van de [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) methode voor het [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) object. Deze bewerking wordt uitgevoerd binnen de [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) methode, maar kan ook worden uitgevoerd in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
 ## <a name="checkpointing"></a>Controlepunten plaatsen
 
@@ -140,8 +141,9 @@ Standaard [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.e
 Ten slotte [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) foutloos sluiten van alle partitie lezers kunnen en moet altijd worden aangeroepen wanneer een exemplaar van afgesloten [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Dit niet doet, kan dit vertraging veroorzaken bij het starten van andere exemplaren van **EventProcessorHost** vanwege de verlooptijd van de lease en epoche conflicten. Epoche management wordt beschreven in dit [blogbericht](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)
 
 ## <a name="lease-management"></a>Lease-management
+Registreren van een klasse event processor met een exemplaar van EventProcessorHost start gebeurtenisverwerking. De instantie van de host haalt leases op aantal partities van de Event Hub, mogelijk gegevens uit formulieren sommige vanuit andere exemplaren hosten op een manier die convergeert wel op een gelijkmatige verdeling van partities voor alle instanties van de host ligt. Voor elke partitie geleased de instantie van de host maakt een exemplaar van de klasse opgegeven event processor, klikt u vervolgens ontvangt gebeurtenissen van deze partitie en geeft deze door aan de event processor-instantie. Als u meer instanties zijn toegevoegd en meer leases afkomstig zijn, verdeelt EventProcessorHost uiteindelijk de belasting tussen alle gebruikers.
 
-Zoals eerder uitgelegd, de tabel bijhouden vereenvoudigt de aard van automatisch schalen van [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). Als een exemplaar van **EventProcessorHost** wordt gestart, deze leases zo veel mogelijk verkrijgt en begint met het lezen van gebeurtenissen. Als de leases bijna is verlopen, **EventProcessorHost** probeert te vernieuwen door een reservering. Als de lease beschikbaar voor vernieuwen is, blijft lezen van de processor, maar als dat niet het geval is, de lezer is gesloten en [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) wordt genoemd. **CloseAsync** is een goed moment om uit te voeren van laatste opschoontaken voor deze partitie.
+Zoals eerder uitgelegd, de tabel bijhouden vereenvoudigt de aard van de functie voor automatisch schalen van [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). Als een exemplaar van **EventProcessorHost** wordt gestart, deze leases zo veel mogelijk verkrijgt en begint met het lezen van gebeurtenissen. Als de leases bijna is verlopen, **EventProcessorHost** probeert te vernieuwen door een reservering. Als de lease beschikbaar voor vernieuwen is, blijft lezen van de processor, maar als dat niet het geval is, de lezer is gesloten en [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) wordt genoemd. **CloseAsync** is een goed moment om uit te voeren van laatste opschoontaken voor deze partitie.
 
 **EventProcessorHost** bevat een [PartitionManagerOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.partitionmanageroptions) eigenschap. Deze eigenschap kunt u bepalen leasebeheer. Deze opties instellen voordat u registreert uw [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementatie.
 

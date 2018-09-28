@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 77da95ce0d37e8d0b35125f0cc8dc33376a52259
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967620"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401581"
 ---
 Organisaties hebben grootschalige computerbehoeften. Deze Big Compute-workloads omvatten technisch ontwerp en -analyse, berekeningen van financiële risico's, rendering van afbeeldingen, complexe modellering, Monte Carlo-simulaties en meer. 
 
@@ -162,7 +162,7 @@ Virtuele Azure-machines, virtuele-machineschaalsets, Batch en gerelateerde compu
 ### <a name="data-and-analytics"></a>Gegevens en analyse
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 

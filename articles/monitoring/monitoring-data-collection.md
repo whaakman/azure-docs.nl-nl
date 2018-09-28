@@ -7,17 +7,17 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962927"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406037"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Door gegevens te controleren die worden verzameld door Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) is een service waarmee u uw toepassingen en de resources die ze erop dat vertrouwen bewaken. Centrale op deze functie is opslag van Telemetrie en andere gegevens van bewaakte resources. Dit artikel bevat een volledige beschrijving van hoe deze gegevens worden opgeslagen en gebruikt door Azure Monitor.
@@ -155,7 +155,7 @@ Log Analytics kan gegevens verzamelen uit diverse bronnen, zowel binnen Azure en
 Taken die u met Logboeken uitvoeren kunt omvatten het volgende:
 
 - Gebruik de [Log Analytics-pagina](../log-analytics/query-language/get-started-analytics-portal.md) in de Azure portal voor het schrijven van query's voor het analyseren van logboekgegevens.  Resultaten weergegeven als tabellen of grafieken vastmaken een [Azure-dashboard](../azure-portal/azure-portal-dashboards.md).
-- Configureren van een [waarschuwingsregel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) die duurt of verzendt een melding [automatische actie](../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.
+- Configureren van een [waarschuwingsregel](../monitoring-and-diagnostics/alert-log.md) die duurt of verzendt een melding [automatische actie](../monitoring-and-diagnostics/monitoring-action-groups.md) wanneer de resultaten van de query overeenkomt met een bepaalde resultaat.
 - Een werkstroom op basis van gegevens in met behulp van Log Analytics bouwen [Logic Apps]().
 - De resultaten van een query voor het exporteren [Power BI](../log-analytics/log-analytics-powerbi.md) verschillende visualisaties gebruiken en delen met gebruikers buiten Azure.
 - Toegang tot metrische waarden van een opdrachtregel of met behulp van aangepaste toepassing [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) of [REST-API](https://dev.loganalytics.io/).
@@ -175,7 +175,7 @@ Informatie voor het verzamelen van metrische gegevens van Azure-resources op [Az
 ### <a name="logs-to-metrics"></a>Logboeken naar metrische gegevens
 Zoals hierboven beschreven, zijn metrische gegevens sneller reageren dan Logboeken, zodat u waarschuwingen met een lagere latentie en tegen lagere kosten maken kunt. Log Analytics verzamelt een aanzienlijke hoeveelheid numerieke gegevens die zijn geschikt voor metrische gegevens, maar niet zijn opgeslagen in de metrische gegevens van Azure store.  Een veelvoorkomend voorbeeld is de prestatiegegevens die worden verzameld van agents en oplossingen voor beheer. Sommige van deze waarden kunnen worden gekopieerd naar het archief van metrische gegevens, waar ze beschikbaar voor waarschuwingen en voor analyse met Metrics explorer zijn.
 
-De uitleg van deze functie is beschikbaar op [sneller metrische waarschuwingen voor logboeken nu beschikbaar in de beperkte openbare preview](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). De lijst met waarden ondersteuning is beschikbaar op [ondersteunde metrische gegevens en het maken van methoden voor nieuwe metrische waarschuwingen](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+De uitleg van deze functie is beschikbaar op [metrische waarschuwingen maken voor logboeken in Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). De lijst met waarden ondersteuning is beschikbaar op [ondersteunde metrische gegevens met Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream-gegevens met externe systemen
 Naast het gebruik van de hulpprogramma's in Azure voor het analyseren van gegevens, mogelijk hebt u een vereiste dit doorsturen naar een extern hulpprogramma, zoals een security information en event management (SIEM) product. Doorsturen van dit gebeurt meestal rechtstreeks vanuit de bewaakte resources via [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

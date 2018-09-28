@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 05/4/2018
-ms.openlocfilehash: f5133b5da055710208390bfe7fd5d6d7d85696df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 041f1c426f8f181255e315978878d146a14bc88b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965336"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410252"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Maken en beheren van Azure Database voor PostgreSQL-firewallregels met behulp van Azure CLI
 Firewallregels op serverniveau kunnen beheerders toegang tot een Azure Database for PostgreSQL-Server beheren vanaf een specifiek IP-adres of IP-adresbereik. Met behulp van handige Azure CLI-opdrachten, kunt u maken, bijwerken, verwijderen, lijst, en firewallregels voor het beheren van uw server weergeven. Zie voor een overzicht van Azure Database voor PostgreSQL-firewallregels, [Azure Database for PostgreSQL-Server firewall-regels](concepts-firewall-rules.md)
@@ -40,11 +40,8 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server-
 ## <a name="create-firewall-rule"></a>Firewallregel maken
 Voer voor het maken van een nieuwe firewallregel op de server de [az postgres server firewall-regel maken](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) opdracht. 
 
-Door op te geven 0.0.0.0 als de `--start-ip-address` en 255.255.255.255 als de `--end-ip-address` bereik, het volgende voorbeeld kan alle IP-adressen voor toegang tot de server **mydemoserver.postgres.database.azure.com**
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-Geef hetzelfde adres in voor toegang tot een enkel IP-adres, de `--start-ip-address` en `--end-ip-address`, zoals in dit voorbeeld.
+To allow access to a singular IP address, provide the same address in the `--start-ip-address` and `--end-ip-address`, as in this example, replacing the IP shown here with your specific IP.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
@@ -62,7 +59,7 @@ Implementatie is geslaagd bevat de uitvoer van de opdracht de details van de fir
 ## <a name="update-firewall-rule"></a>Update-firewallregel 
 Bijwerken van een bestaande firewallregel op de server met [az postgres server firewall-rule update](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) opdracht. Geef de naam van de bestaande firewallregel als invoer en het begin IP- en IP-kenmerken om bij te werken.
 ```azurecli-interactive
-az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
+az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.0
 ```
 Implementatie is geslaagd bevat de uitvoer van de opdracht de details van de firewallregel die u hebt bijgewerkt, wordt standaard in JSON-indeling. Als er een fout is, wordt de uitvoer in plaats daarvan een foutbericht weergegeven.
 > [!NOTE]

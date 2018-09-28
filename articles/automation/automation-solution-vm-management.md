@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99329dd812ad47cf98845ba794bc108d26d85352
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543693"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409841"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -31,6 +31,9 @@ De volgende zijn beperkingen aan de huidige oplossing:
 - Deze oplossing VM's in andere regio's worden beheerd, maar kan alleen worden gebruikt in hetzelfde abonnement als uw Azure Automation-account.
 - Deze oplossing is beschikbaar in Azure en AzureGov in elke regio die ondersteuning biedt voor een Log Analytics-werkruimte, een Azure Automation-account en waarschuwingen. AzureGov regio's bieden op dit moment geen ondersteuning van e-mailfunctionaliteit.
 
+> [!NOTE]
+> Als u van de oplossing voor klassieke virtuele machines gebruikmaakt, worden alle virtuele machines verwerkt sequentieel worden verwerkt per cloudservice. Verwerking van een parallelle taak wordt nog steeds worden ondersteund in de verschillende cloudservices.
+
 ## <a name="prerequisites"></a>Vereisten
 
 De runbooks voor deze oplossing werkt met een [uitvoeren als-account](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
@@ -45,28 +48,28 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 
    > [!NOTE]
    > U kunt het ook maken vanaf elke locatie in de Azure-portal door te klikken op **een resource maken**. Typ in de Marketplace-pagina, een trefwoord zoals **Start** of **starten/stoppen**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. U kunt ook Typ trefwoorden in een of meer van de volledige naam van de oplossing en druk op Enter. Selecteer **VM's starten/stoppen buiten kantooruren** uit de lijst met zoekresultaten.
-1. In de **VM's starten/stoppen buiten kantooruren** pagina voor de geselecteerde oplossing, Controleer de samenvattingsinformatie en klik vervolgens op **maken**.
+2. In de **VM's starten/stoppen buiten kantooruren** pagina voor de geselecteerde oplossing, Controleer de samenvattingsinformatie en klik vervolgens op **maken**.
 
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
-1. De **oplossing toevoegen** pagina wordt weergegeven. U wordt gevraagd de oplossing te configureren voordat u deze in uw Automation-abonnement kunt importeren.
+3. De **oplossing toevoegen** pagina wordt weergegeven. U wordt gevraagd de oplossing te configureren voordat u deze in uw Automation-abonnement kunt importeren.
 
    ![Oplossing toevoegen voor VM beheren pagina](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. Op de **oplossing toevoegen** weergeeft, schakelt **werkruimte**. Selecteer een Log Analytics-werkruimte die gekoppeld aan hetzelfde Azure-abonnement dat het Automation-account in. Als u een werkruimte hebt, selecteert u **nieuwe werkruimte maken**. Op de **Log Analytics-werkruimte** pagina, voert u de volgende stappen uit:
+4. Op de **oplossing toevoegen** weergeeft, schakelt **werkruimte**. Selecteer een Log Analytics-werkruimte die gekoppeld aan hetzelfde Azure-abonnement dat het Automation-account in. Als u een werkruimte hebt, selecteert u **nieuwe werkruimte maken**. Op de **Log Analytics-werkruimte** pagina, voert u de volgende stappen uit:
    - Geef een naam voor de nieuwe **Log Analytics-werkruimte**.
    - Selecteer een **abonnement** om te koppelen aan door in de vervolgkeuzelijst te selecteren of de geselecteerde standaardwaarde niet geschikt is.
    - Voor **resourcegroep**, u kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep.
    - Selecteer een **locatie**. Op dit moment de enige beschikbare locaties zijn **Australië-Zuidoost**, **Canada-centraal**, **centraal-India**, **VS-Oost**, **Japan (Oost)**, **Zuidoost-Azië**, **UK-Zuid**, en **West-Europa**.
    - Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Log Analytics is bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en de Per GB-laag is de enige optie.
 
-1. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
-1. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een werkruimte voor Log u. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
+5. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
+6. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een werkruimte voor Log u. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
    - Voer in het veld **Naam** de naam van het Automation-account in.
 
     Alle andere opties worden automatisch ingevuld op basis van de geselecteerde Log Analytics-werkruimte. Deze opties worden niet gewijzigd. Een Uitvoeren als-account voor Azure is de standaardmethode voor verificatie voor de runbooks die zijn opgenomen in deze oplossing. Nadat u op **OK**, worden de configuratieopties gevalideerd en het Automation-account wordt gemaakt. U kunt de voortgang bijhouden onder **Meldingen** in het menu.
 
-1. Ten slotte op de **oplossing toevoegen** weergeeft, schakelt **configuratie**. De **Parameters** pagina wordt weergegeven.
+7. Ten slotte op de **oplossing toevoegen** weergeeft, schakelt **configuratie**. De **Parameters** pagina wordt weergegeven.
 
    ![Pagina van de parameters voor oplossing](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
@@ -83,7 +86,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
      > [!IMPORTANT]
      > De standaardwaarde voor **ResourceGroup doelnamen** is een **&ast;**. Dit is bedoeld voor alle virtuele machines in een abonnement. Als u niet wilt dat de oplossing is gericht op alle virtuele machines in uw abonnement wordt deze waarde moet worden bijgewerkt naar een lijst met namen van resourcegroepen voordat u de schema's inschakelt.
 
-1. Nadat u de oorspronkelijke instellingen vereist voor de oplossing hebt geconfigureerd, klikt u op **OK** sluiten de **Parameters** pagina en selecteer **maken**. Nadat u alle instellingen worden gevalideerd, wordt de oplossing wordt geïmplementeerd op uw abonnement. Dit proces duurt enkele seconden om te voltooien en u kunt de voortgang bijhouden onder **meldingen** in het menu.
+8. Nadat u de oorspronkelijke instellingen vereist voor de oplossing hebt geconfigureerd, klikt u op **OK** sluiten de **Parameters** pagina en selecteer **maken**. Nadat u alle instellingen worden gevalideerd, wordt de oplossing wordt geïmplementeerd op uw abonnement. Dit proces duurt enkele seconden om te voltooien en u kunt de voortgang bijhouden onder **meldingen** in het menu.
 
 ## <a name="scenarios"></a>Scenario's
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8947a34f43f09281712c0e211c3dc6b8db9da6b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/26/2018
+ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160669"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407652"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Een vCore-servicelaag kiezen, Reken-, geheugen, opslag- en i/o-resources
 
@@ -89,7 +89,7 @@ Opslag voor back-ups ter ondersteuning van het punt in tijd herstellen (PITR) is
 
 ### <a name="hyperscale-service-tier-preview"></a>Zeer grootschalige servicelaag (preview)
 
-back-up op basis van een momentopname in Azure, externe opslag en herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed op de i/o-prestaties van de rekencapaciteit. Herstelbewerkingen zijn zeer snel en niet van de grootte van bewerkingen voor gegevens (in minuten niet uren/dagen).
+In de servicelaag grootschalige zijn back-ups op basis van een momentopname en opgeslagen in Azure, externe opslag. Hiermee herstelt u deze momentopnamen gebruiken voor snel herstel. Back-ups zijn onmiddellijk en niet van invloed op de i/o-prestaties van de rekencapaciteit. Herstelbewerkingen zijn zeer snel en niet van de grootte van bewerkingen voor gegevens (in minuten niet uren/dagen).
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 

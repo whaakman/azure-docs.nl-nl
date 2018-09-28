@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 587c4c0804de809431bf9e731e7533f0d75770d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ff112459ef23930329fc1959a633bd6f505893a1
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392612"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419592"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
@@ -720,7 +720,7 @@ Hier volgt een voorbeeld-implementatiesjabloon die u in Azure-pijplijnen importe
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Voorbeeld van een script om te stoppen en opnieuw opstarten van triggers en opschonen
 
-Hier volgt een voorbeeld van een script om te stoppen triggers vóór de implementatie en triggers daarna opnieuw starten. Het script bevat ook een code voor het verwijderen van resources die zijn verwijderd.
+Hier volgt een voorbeeld van een script om te stoppen triggers vóór de implementatie en triggers daarna opnieuw starten. Het script bevat ook een code voor het verwijderen van resources die zijn verwijderd. Zie voor het installeren van de meest recente versie van Azure PowerShell, [Azure PowerShell installeren op Windows met PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param

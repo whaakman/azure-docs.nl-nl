@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: d17215fe05a4795bd539759d98695ec2f6b0df3d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393488"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422997"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -54,17 +54,6 @@ Zie voor meer informatie over prijzen [Veelgestelde vragen over](https://azure.m
 Doorgaans wanneer u een service in Azure portal toevoegt, is er een weergave waarin u een vergelijkbare geschatte kosten per maand. Bijvoorbeeld, als u ervoor de grootte van uw Windows-VM kiest, ziet u de geschatte maandelijkse kosten voor de rekenuren:
 
 ![Voorbeeld: een A1-Windows-VM wordt geschat op kosten $66.96 USD per maand](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Meldingen voor facturering instellen
-
-Factureringsmeldingen instellen om op te halen e-mailberichten wanneer uw kosten-Gebruik hoger is dan een hoeveelheid die u opgeeft. Als u een maandelijks tegoed hebt, Stel waarschuwingen voor wanneer u een opgegeven hoeveelheid. Zie voor meer informatie, [waarschuwingen voor uw Microsoft Azure-abonnementen voor facturering instellen](billing-set-up-alerts.md).
-
-![Schermafbeelding van een e-mailwaarschuwing facturering](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Deze functie is nog in preview, zodat u uw gebruik regelmatig te controleren.
-
-Mogelijk wilt u de geschatte kosten van de prijscalculator gebruiken als een richtlijn voor de eerste waarschuwing.
 
 ### <a name="spending-limit"></a> Controleer of u een bestedingslimiet hebt op
 
@@ -166,7 +155,7 @@ Enterprise kosten weergaven zijn momenteel in openbare Preview. Items om te wete
     - U bent een beheerder van een afdeling en de Inschrijvingsbeheerder heeft het "DA kosten weergeven' instellen uitgeschakeld.  Neem contact op met de beheerder van uw registratie om toegang te krijgen. 
     - U Azure heb aangeschaft via een kanaalpartner en de partner heeft niet informatie over de prijzen.  
 - Wanneer instellingen met betrekking tot toegang tot de kosten zijn bijgewerkt in de Enterprise-portal, is er een vertraging van enkele minuten duren voordat de wijzigingen zijn doorgevoerd in de Azure-portal.
-- Uitgavenlimiet,-mailmeldingen voor facturering en meer begeleiding factuur niet van toepassing zijn op EA-abonnementen.
+- Bestedingslimiet en factuur richtlijnen gelden niet voor EA-abonnementen.
 
 ### <a name="check-your-subscription-and-access"></a>Controleer uw abonnement en toegang
 

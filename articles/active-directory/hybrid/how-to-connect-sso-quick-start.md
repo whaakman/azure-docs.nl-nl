@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312338"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405985"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -124,9 +124,9 @@ Er zijn twee manieren om gebruikers Intranet zone-instellingen te wijzigen:
 
     Het resultaat ziet er zo uit:
 
-    Waarde:https://autologon.microsoftazuread-sso.com
+    Waardenaam: https://autologon.microsoftazuread-sso.com
   
-    Gegevens: 1
+    Waarde (gegevens): 1
 
    >[!NOTE]
    > Als u weigeren van sommige gebruikers met een naadloze eenmalige aanmelding wilt (bijvoorbeeld, als deze gebruikers zich aanmelden op gedeelde kiosken), de bovenstaande waarden ingesteld op **4**. Deze actie wordt de URL van de Azure AD toegevoegd aan de zone met beperkte toegang en naadloze eenmalige aanmelding voortdurend mislukt.

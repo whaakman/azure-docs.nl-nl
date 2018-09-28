@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106874"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406121"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -78,12 +78,12 @@ Voor persoonlijke Microsoft-accounts kunt u uw identiteit bewijst door in te voe
 
     ![Microsoft Authenticator-app met de beschikbare accounts met hun bijbehorende vervolgkeuzelijstpijlen](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
 
-2.  Selecteer **scannen QR-code te herstellen**, en vervolgens scan de QR-code die is geleverd door uw beheerder.
+2.  Selecteer **scannen QR-code te herstellen**, en vervolgens de QR-code scannen.
 
     ![Microsoft Authenticator-app, zodat u uw QR-code scannen](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Zie voor meer informatie over het registreren van een QR-code de [toevoegen sectie van de Get-accounts aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) artikel.
+    >Zie voor meer informatie over het registreren van een QR-code [aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) of [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), afhankelijk van of uw beheerder beveiligingsgegevens is ingeschakeld.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Het oplossen van problemen met back-up en herstel
 Er zijn enkele redenen waarom de back-up mogelijk niet beschikbaar:

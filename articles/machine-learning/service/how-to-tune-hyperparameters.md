@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 205a4d454be02d64058e3d0fcffda35df5b831a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6370fd9125c5b14df781b27e028c139175b7589
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971668"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405798"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Afstemmen van hyperparameters voor uw model
 
@@ -240,7 +240,7 @@ max_concurrent_runs=4
 Hiermee configureert u de hyperparameter afstemmen experiment voor het gebruik van maximaal 20 totaal aantal uitvoeringen, 4 configuraties tegelijk uitvoeren.
 
 ## <a name="configure-your-hyperparameter-tuning-experiment"></a>Uw experiment afstemmen hyperparameter configureren
-U kunt uw experiment met behulp van de gedefinieerde hyperpameter zoeken ruimte, het beleid voor vroegtijdige beëindiging, de primaire metrische gegevens en de toewijzing van resources uit de bovenstaande secties afstemmen hyperparameter configureren. Daarnaast moet u bieden een `estimator` die wordt aangeroepen met de sample hyperparameters. De `estimator` beschrijft de trainingsscript die u uitvoert, de resources per taak (één of meerdere gpu) en de compute-doel te gebruiken. Sinds gelijktijdigheid voor uw experiment afstemmen hyperparameter wordt geregeld op de resources die beschikbaar is, moet u ervoor te zorgen dat uw compute-doel moet worden opgegeven in de `estimator` voldoende bronnen voor gewenste gelijktijdigheid heeft. (Zie [koppeling](/how-to-train-ml-models.md) voor meer informatie over loopt).
+U kunt uw experiment met behulp van de gedefinieerde hyperpameter zoeken ruimte, het beleid voor vroegtijdige beëindiging, de primaire metrische gegevens en de toewijzing van resources uit de bovenstaande secties afstemmen hyperparameter configureren. Daarnaast moet u bieden een `estimator` die wordt aangeroepen met de sample hyperparameters. De `estimator` beschrijft de trainingsscript die u uitvoert, de resources per taak (één of meerdere gpu) en de compute-doel te gebruiken. Sinds gelijktijdigheid voor uw experiment afstemmen hyperparameter wordt geregeld op de resources die beschikbaar is, moet u ervoor te zorgen dat uw compute-doel moet worden opgegeven in de `estimator` voldoende bronnen voor gewenste gelijktijdigheid heeft. (Zie [het trainen van modellen](how-to-train-ml-models.md) voor meer informatie over loopt).
 
 Hier volgt een voorbeeld van hoe u uw hyperparameter afstemmen experiment - kunt configureren
 
@@ -314,5 +314,5 @@ Dit notitieblok ophalen:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Bijhouden van een experiment](/how-to-track-experiments.md)
-* [Een getraind model implementeren](/how-to-deploy-and-where.md)
+* [Bijhouden van een experiment](how-to-track-experiments.md)
+* [Een getraind model implementeren](how-to-deploy-and-where.md)

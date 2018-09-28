@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498178"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407872"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Key Vault-functie voor voorlopig verwijderen
 
@@ -41,12 +41,22 @@ Met deze functie is de DELETE-bewerking op een key vault of key vault-object een
 
 Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard ingeschakeld** in deze release. 
 
-### <a name="do-not-purge-flag"></a>De vlag niet leegmaken
-Een gebruiker wil verwijderen van de kluis of het object kluis forceren kunt doen. Dat is als een gebruiker met machtigingen voor het verwijderen van een kluis of een object in de kluis opschonen kunt dwingen, zelfs als de functie voor voorlopig verwijderen voor deze kluis is ingeschakeld. Maar als de gebruiker wil voorkomen dat force wordt verwijderd van de kluis of het object kluis ze kunt--inschakelen opschonen beveiliging vlag waar. Wanneer u een kluis maakt, kunt u de vlag inschakelen op deze manier. De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld. De opdracht uit om dit te doen in Azure CLI 2 is
+### <a name="purge-protection--flag"></a>Vlag van de beveiliging verwijderen
+Beveiliging verwijderen (**--inschakelen opschonen beveiliging** in de Azure CLI) vlag is standaard uitgeschakeld. Als deze vlag is ingeschakeld, een kluis of een object status verwijderd kan niet worden verwijderd totdat is de bewaarperiode van 90 dagen verstreken. Deze kluis of het object kan nog steeds worden hersteld. Met deze markering biedt extra zekerheid voor klanten die een kluis of een object kan nooit worden definitief verwijderd totdat de bewaartermijn is verstreken. U kunt de vlag opschonen-beveiliging inschakelen alleen als de functie voor voorlopig verwijderen-vlag ingeschakeld is, of bij het maken van kluizen inschakelen beide voorlopig verwijderen en beveiliging verwijderen.
+
+[!NOTE] De vereiste voor het inschakelen van leegmaken van de beveiliging is hebt u voorlopig verwijderen zijn ingeschakeld. De opdracht uit om dit te doen in Azure CLI 2 is
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
 ```
+
+### <a name="permitted-purge"></a>Toegestane opschonen
+
+Definitief verwijderen, verwijderen van gegevens, wordt een key vault is het mogelijk is via een POST-bewerking op de proxy-resource en speciale bevoegdheden vereist. Over het algemeen is alleen de eigenaar van het abonnement mogelijk een sleutelkluis leegmaken. De POST-bewerking wordt geactiveerd voor de onmiddellijke en niet-herstelbare verwijdering van deze kluis. 
+
+Een uitzondering hierop zijn
+- het geval wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval alleen de service voert de werkelijke verwijdering en wordt als een geplande proces. 
+- Wanneer--inschakelen-opschonen-bescherming-vlag is ingeschakeld op de kluis zelf. Key Vault wordt in dit geval wachten gedurende 90 dagen na wanneer het oorspronkelijke geheime object is gemarkeerd voor verwijdering permanent verwijderen van het object.
 
 ### <a name="key-vault-recovery"></a>Herstel van de sleutelkluis
 
@@ -70,12 +80,6 @@ Voorlopig verwijderde bronnen worden gedurende een bepaalde periode, kunt u 90 d
 - Alleen een specifiek bevoegde gebruiker mogelijk een key vault of key vault-object met behulp van een opdracht tot verwijderen van de bijbehorende proxy-bron geforceerd verwijderen.
 
 Tenzij een key vault of key vault-object is hersteld, aan het einde van de retentie-interval dat de service wordt uitgevoerd een opschonen van de voorlopig verwijderde key vault of key vault-object en de bijbehorende inhoud. Verwijderen van de resource kan niet opnieuw worden gepland.
-
-### <a name="permitted-purge"></a>Toegestane opschonen
-
-Definitief verwijderen, verwijderen van gegevens, wordt een key vault is het mogelijk is via een POST-bewerking op de proxy-resource en speciale bevoegdheden vereist. Over het algemeen is alleen de eigenaar van het abonnement mogelijk een sleutelkluis leegmaken. De POST-bewerking wordt geactiveerd voor de onmiddellijke en niet-herstelbare verwijdering van deze kluis. 
-
-Een uitzondering hierop is het geval wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval alleen de service voert de werkelijke verwijdering en wordt als een geplande proces. 
 
 ### <a name="billing-implications"></a>Gevolgen van facturering
 

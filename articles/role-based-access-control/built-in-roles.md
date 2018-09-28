@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/15/2018
+ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 0b7933df1e9f250430800b5b7deba06239cb6fd1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736668"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410269"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -63,8 +63,11 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor klassieke Opslagaccounts](#classic-storage-account-contributor) | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
 | [Klassieke opslag Account servicerol Sleuteloperator](#classic-storage-account-key-operator-service-role) | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
 | [Inzender voor klassieke virtuele machines](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
+| [Inzender voor cognitive Services](#cognitive-services-contributor) | Hiermee kunt u maken, lezen, bijwerken, verwijderen en sleutels van Cognitive Services beheren. |
 | [Cognitive Services-gebruiker](#cognitive-services-user) | Hiermee kunt u lees- en sleutels van Cognitive Services weergeven. |
 | [Rol van lezer voor cosmos DB-Account](#cosmos-db-account-reader-role) | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
+| [Inzender voor kostenbeheer](#cost-management-contributor) | Kunt u kosten wilt weergeven en beheren van kosten configuratie (bijvoorbeeld budgetten, uitvoer) |
+| [Kostenbeheer-lezer](#cost-management-reader) | Kan gegevens van cost en configuratie (bijvoorbeeld budgetten, uitvoer) weergeven |
 | [Inzender voor Data Box](#data-box-contributor) | Hiermee beheert u alles onder de Data Box-Service, behalve het verlenen van toegang aan anderen. |
 | [Data Box-lezer](#data-box-reader) | U kunt Data Box-Service met uitzondering van het maken van de volgorde of ordergegevens bewerken en toegang geven tot andere beheren. |
 | [Inzender Data Factory](#data-factory-contributor) | Hiermee beheert u data factory's, maar kunt u niet de toegang tot de data factory's beheren. |
@@ -73,6 +76,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [DevTest Labs-gebruiker](#devtest-labs-user) | Hiermee kunt u verbinding kunt maken, starten, opnieuw opstarten en afsluiten van virtuele machines in Azure DevTest Labs. |
 | [Inzender voor DNS-Zone](#dns-zone-contributor) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [Inzender voor het DocumentDB-Account](#documentdb-account-contributor) | Kan Azure Cosmos DB-accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB. |
+| [HDInsight Domain Services-Inzender](#hdinsight-domain-services-contributor) | Kan lezen, maken, wijzigen en verwijderen van domeinservices gerelateerde bewerkingen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
 | [Inzender voor het Account van de intelligente systemen](#intelligent-systems-account-contributor) | Hiermee beheert u Intelligent Systems-accounts, maar kunt u niet de toegang tot de accounts beheren. |
 | [Inzender voor Key Vault](#key-vault-contributor) | Hiermee kunt u sleutelkluizen beheren, maar niet de toegang hiertoe. |
 | [Labmaker](#lab-creator) | Hiermee kunt u beheerde labs maken, beheren en verwijderen in uw Azure Lab-accounts. |
@@ -91,6 +95,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
+| [PowerApps-beheerder Test](#powerapps-administrator-test) | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
 | [Lezer en toegang tot gegevens](#reader-and-data-access) | Hiermee kunt u Alles weergeven, maar kunt u verwijderen of te maken van een storage-account of een ingesloten resource niet. Er kunnen ook toegang tot alle gegevens in een opslagaccount verleend via toegang tot opslagaccountsleutels lezen/schrijven. |
 | [Redis-Cache-Inzender](#redis-cache-contributor) | Hiermee beheert u exemplaren van Redis-cache, maar kunt u niet de toegang tot de exemplaren beheren. |
 | [Inzender voor Resourcebeleid (Preview)](#resource-policy-contributor-preview) | (Preview) Gebruikers gevuld vanuit EA, met rechten voor het maken/wijzigen voor resourcebeleid, supportticket maken en het lezen van resources/hiërarchie. |
@@ -373,6 +378,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Resultaten van de bewerking op de back-upbeheer beheren |
@@ -393,14 +399,13 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | De bewerking kluis ophalen wordt een object waarmee de Azure-resource van het type 'kluis' |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Beheren van detectiebewerking voor het ophalen van containers van een nieuw gemaakt |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Hiermee vernieuwt u de containerlijst |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Maken en beheren van geregistreerde identiteiten |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Maken en beheren van het gebruik van Recovery Services-kluis |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="backup-operator"></a>Back-upoperator
@@ -497,7 +502,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Hiermee worden de gebruiksgegevens voor een Recovery Services-kluis geretourneerd. |
 
-## <a name="billing-reader"></a>Facturering voor lezer
+## <a name="billing-reader"></a>Lezer voor facturering
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -506,9 +511,10 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Billing/*/read | Facturering-gegevens lezen |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="biztalk-contributor"></a>Inzender voor BizTalk
@@ -655,6 +661,31 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
+## <a name="cognitive-services-contributor"></a>Inzender voor cognitive Services
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u maken, lezen, bijwerken, verwijderen en sleutels van Cognitive Services beheren. |
+> | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **Acties** |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | Hiermee kunt u de functies van een abonnement ophalen. |
+> | Microsoft.Features/providers/features/read | Hiermee kunt u de functie van een abonnement voor een opgegeven resourceprovider ophalen. |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
+> | Microsoft.Insights/diagnosticSettings/* | Gemaakt, bijgewerkt of de diagnostische instelling voor analyseserver lezen |
+> | Microsoft.Insights/logDefinitions/read | Logboekdefinities lezen |
+> | Microsoft.Insights/metricdefinitions/read | Metrische definities lezen |
+> | Microsoft.Insights/metrics/read | De metrische gegevens lezen |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
+> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
+> | Microsoft.Resources/deployments/operations/read | Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Hiermee worden de resultaten van de abonnementsbewerking opgehaald. |
+> | Microsoft.Resources/subscriptions/read | Hiermee kunt u de lijst met abonnementen ophalen. |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
 ## <a name="cognitive-services-user"></a>Cognitive Services-gebruiker
 > [!div class="mx-tableFixed"]
 > | | |
@@ -691,6 +722,34 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
+## <a name="cost-management-contributor"></a>Inzender voor kostenbeheer
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kunt u kosten wilt weergeven en beheren van kosten configuratie (bijvoorbeeld budgetten, uitvoer) |
+> | **Id** | 434105ed-43f6-45C7-a02f-909b2ba83430 |
+> | **Acties** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | Een lijst met beschikbare factureringsperioden |
+> | Microsoft.Resources/subscriptions/read | Hiermee kunt u de lijst met abonnementen ophalen. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
+## <a name="cost-management-reader"></a>Kostenbeheer-lezer
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kan gegevens van cost en configuratie (bijvoorbeeld budgetten, uitvoer) weergeven |
+> | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **Acties** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | Een lijst met beschikbare factureringsperioden |
+> | Microsoft.Resources/subscriptions/read | Hiermee kunt u de lijst met abonnementen ophalen. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
 ## <a name="data-box-contributor"></a>Inzender voor Data Box
 > [!div class="mx-tableFixed"]
 > | | |
@@ -714,7 +773,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Databox/*/read |  |
-> | Microsoft.Databox/jobs/listsecrets/action | Hiermee wordt een lijst gemaakt van niet-versleutelde geheimen die betrekking hebben op de order. |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | Geeft een lijst van de niet-versleutelde referenties met betrekking tot de order. |
 > | Microsoft.Databox/locations/availableSkus/action | Met deze methode wordt de lijst met beschikbare SKU's geretourneerd. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
@@ -846,6 +906,17 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
+## <a name="hdinsight-domain-services-contributor"></a>HDInsight Domain Services-Inzender
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Kan lezen, maken, wijzigen en verwijderen van domeinservices gerelateerde bewerkingen die nodig zijn voor HDInsight Enterprise-beveiligingspakket |
+> | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **Acties** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Inzender voor ISS-accounts
 > [!div class="mx-tableFixed"]
@@ -1140,6 +1211,21 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | NewRelic.APM/accounts/* |  |
 
+## <a name="powerapps-administrator-test"></a>PowerApps-beheerder Test
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u DNS-zones en recordsets beheren in Azure DNS, maar kunt u niet bepalen wie toegang heeft. |
+> | **Id** | befefa01-2a29-4897-83a8-272ff33ce314 |
+> | **Acties** |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
+> | Microsoft.Network/dnsZones/* |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
+> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
 ## <a name="reader-and-data-access"></a>Lezer- en gegevenstoegang
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1425,6 +1511,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Sql/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **notActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Auditbeleid kan niet worden bewerkt. |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Controle-instellingen bewerken niet |
 > | Microsoft.Sql/servers/databases/auditRecords/read | De controlerecords voor database-blob ophalen |
@@ -1452,6 +1539,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server audit beleid maken en beheren |
 > | Microsoft.Sql/servers/auditingSettings/* | Maken en beheren van SQL server-controle-instellingen |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Maken en beheren van controlebeleid van de SQL server-database |
@@ -1491,6 +1579,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Sql/servers/* | Maken en beheren van de SQL-servers |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | **notActions** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL server audit beleid kan niet worden bewerkt. |
 > | Microsoft.Sql/servers/auditingSettings/* | Instellingen voor SQL server audit kan niet worden bewerkt. |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Controlebeleid van de SQL server-database kan niet worden bewerkt. |

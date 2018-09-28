@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08a90811356f508eebfed9f88500a694f2fbd83e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699383"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407124"
 ---
 # <a name="topic-filters-and-actions"></a>Onderwerpfilters en acties
 
@@ -30,7 +30,7 @@ Service Bus ondersteunt drie filtervoorwaarden:
 
 -   *Booleaanse filters* : de **TrueFilter** en **FalseFilter** ofwel ervoor zorgen dat alle binnenkomende berichten (**waar**) of geen van de binnenkomende berichten (**false**) worden geselecteerd voor het abonnement.
 
--   *SQL-Filters* : een **SqlFilter** bevat een SQL-achtige voorwaardelijke expressie die wordt geëvalueerd in de broker op basis van de gebruiker gedefinieerde eigenschappen en eigenschappen van de binnenkomende berichten. Alle Systeemeigenschappen moeten worden voorafgegaan door `sys.` in de voorwaardelijke expressie. De [subset van de SQL-taal voor de filtervoorwaarden](service-bus-messaging-sql-filter.md) tests sprake is van de eigenschappen (EXISTS), ook als voor null-waarden (NULL IS), logische NOT/en/of, relationele operators eenvoudige numerieke rekenkundige bewerking en eenvoudige tekstpatroon die overeenkomt met dergelijke.
+-   *SQL-Filters* : een **SqlFilter** bevat een SQL-achtige voorwaardelijke expressie die wordt geëvalueerd in de broker op basis van de gebruiker gedefinieerde eigenschappen en eigenschappen van de binnenkomende berichten. Alle Systeemeigenschappen moeten worden voorafgegaan door `sys.` in de voorwaardelijke expressie. De [subset van de SQL-taal voor de filtervoorwaarden](service-bus-messaging-sql-filter.md) tests sprake is van de eigenschappen (`EXISTS`), evenals als voor null-waarden (`IS NULL`), logische NOT/en/of, relationele operators, eenvoudige numerieke rekenkundige bewerking, en eenvoudige tekst patroon die overeenkomt met `LIKE`.
 
 -   *Correlatiefilters* : een **CorrelationFilter** bevat een set voorwaarden die worden vergeleken met een of meer van de gebruikers- en eigenschappen van een binnenkomende bericht. Er wordt vaak gebruikt voor het vergelijken van de **CorrelationId** eigenschap, maar de toepassing kan er ook voor kiezen om te vergelijken met **ContentType**, **Label**,  **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId**, **naar**, en een door de gebruiker gedefinieerd de eigenschappen. Een overeenkomst wordt gevonden wanneer de waarde van een binnenkomende bericht voor een eigenschap gelijk aan de waarde die is opgegeven in het correlatiefilter is. Voor expressies voor verbindingsreeksen, zijn de vergelijking is hoofdlettergevoelig. Bij het opgeven van meerdere identieke eigenschappen, het filter combineert ze als een logische voorwaarde en, wat betekent dat voor het filter zodat deze overeenkomen met, moeten aan alle voorwaarden voldoet.
 
@@ -40,7 +40,7 @@ Filterregels voor complexe nodig verwerkingscapaciteit. Het gebruik van SQL-filt
 
 ## <a name="actions"></a>Acties
 
-Met de voorwaarden voor SQL-filter, en alleen met die, kunt u een actie die aantekeningen toevoegen aan het bericht door toe te voegen, te verwijderen of vervangen van eigenschappen en hun waarden kunt definiëren. De actie [maakt gebruik van een expressie voor een SQL-achtige](service-bus-messaging-sql-filter.md) die los leans op de syntaxis van de UPDATE van de SQL-instructie. De actie is uitgevoerd op het bericht nadat deze zijn afgestemd en voordat het bericht is geselecteerd in het onderwerp. De wijzigingen in de berichteigenschappen zijn exclusief zijn voor het bericht gekopieerd naar het abonnement.
+Met de voorwaarden van SQL-filter, kunt u een actie die aantekeningen toevoegen aan het bericht door toe te voegen, te verwijderen of vervangen van eigenschappen en hun waarden definiëren. De actie [maakt gebruik van een expressie voor een SQL-achtige](service-bus-messaging-sql-filter.md) die los leans op de syntaxis van de UPDATE van de SQL-instructie. De actie is uitgevoerd op het bericht nadat deze zijn afgestemd en voordat het bericht is geselecteerd in het onderwerp. De wijzigingen in de berichteigenschappen zijn exclusief zijn voor het bericht gekopieerd naar het abonnement.
 
 ## <a name="usage-patterns"></a>Gebruikspatronen
 

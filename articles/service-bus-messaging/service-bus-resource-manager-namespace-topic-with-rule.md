@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: dd0ef94c7efb27641d5f0bf50d87bf852bcd1e9a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696333"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404958"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte maken met een onderwerp, abonnement en regel met een Azure Resource Manager-sjabloon
 
@@ -43,7 +43,7 @@ Zie voor de volledige sjabloon, de [Service Bus-naamruimte met een onderwerp, ab
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
+## <a name="what-do-you-deploy"></a>Wat u implementeren?
 
 Met deze sjabloon kunt implementeren u een Service Bus-naamruimte met een onderwerp, abonnement en regel (filter).
 
@@ -59,7 +59,7 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 
 ## <a name="parameters"></a>Parameters
 
-Met Azure Resource Manager, moet u parameters voor waarden die u opgeven wilt wanneer de sjabloon wordt geïmplementeerd definiëren. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
+Met Azure Resource Manager, de parameters definiëren voor waarden die u opgeven wilt wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die alle parameterwaarden bevat. Een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving die u implementeert. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
 De sjabloon definieert de volgende parameters:
 
@@ -180,7 +180,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Nu dat u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, meer informatie over het beheren van deze bronnen hiervoor deze artikelen:
 
 * [Azure Servicebus beheren](service-bus-management-libraries.md)
-* [Servicebus met PowerShell beheren](service-bus-manage-with-ps.md)
+* [Service Bus met PowerShell beheren](service-bus-manage-with-ps.md)
 * [Service Bus-resources beheren met de Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

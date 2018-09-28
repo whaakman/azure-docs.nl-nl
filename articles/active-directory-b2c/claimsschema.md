@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 76fdf532a35cbe16543bc49b5c02fad5d86690d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 364600d4c1c53f4e5fe726d443287bf1a5f2d4ec
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718983"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419165"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -268,7 +268,7 @@ De **wachtwoord** type gebruikersinvoer wordt gebruikt om vast te leggen van een
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-De **DateTimeDropdown** type gebruikersinvoer wordt gebruikt voor een set vervolgkeuzelijsten om te selecteren van een dag, maand en jaar.
+De **DateTimeDropdown** type gebruikersinvoer wordt gebruikt voor een set vervolgkeuzelijsten om te selecteren van een dag, maand en jaar. U kunt predicaten en PredicateValidations elementen gebruiken voor het beheren van de minimale en maximale waarden. Zie voor meer informatie de **configureren van een bepaalde periode** sectie van [predicaten en PredicateValidations](predicates.md).
 
 ![Met behulp van claimtype met datetimedropdown](./media/claimsschema/datetimedropdown.png)
 

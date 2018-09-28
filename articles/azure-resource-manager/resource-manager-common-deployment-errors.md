@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ef0b3d9ae0cea5082a5c764012958f02113fe9a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425380"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408484"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -32,7 +32,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten voor Azure-implementati
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Ga als volgt naamsbeperkingen voor storage-accounts. | [De naam van opslagaccount oplossen](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controleer de eigenschappen van het opslagaccount beschikbaar. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Het cluster of de regio heeft geen beschikbare bronnen of kan de aangevraagde VM-grootte niet ondersteunen. De aanvraag opnieuw uitvoeren op een later tijdstip, of vraag een andere VM-grootte. | [Problemen met inrichten en de toewijzing voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemen met inrichten en de toewijzing voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) en [toewijzingsfouten oplossen](../virtual-machines/windows/allocation-failure.md)|
+| AllocationFailed | Het cluster of de regio heeft geen beschikbare bronnen of kan de aangevraagde VM-grootte niet ondersteunen. De aanvraag opnieuw uitvoeren op een later tijdstip, of vraag een andere VM-grootte. | [Problemen met inrichten en de toewijzing voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemen met inrichten en de toewijzing voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) en [toewijzingsfouten oplossen](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wachten op voor de gelijktijdige bewerking is voltooid. | |
 | AuthorizationFailed | Uw account of service-principal heeft geen voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de rol van die uw account behoort tot en de toegang voor de implementatie-scope. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | U hebt verzonden implementatie waarden die niet overeenkomen met wat er door Resource Manager wordt verwacht. Controleer de binnenste statusbericht voor hulp bij het oplossen van problemen. | [Sjabloonverwijzing](/azure/templates/) en [ondersteunde locaties](resource-manager-templates-resources.md#location) |

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542817"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408977"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -47,7 +47,7 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 Voordat u uw omgeving hebt voorbereid, moet u deze beperkingen begrijpt:
 
 * Back-ups van virtuele machines met Standard-SSD wordt momenteel niet ondersteund.
-* Back-ups van virtuele machines met meer dan 16 gegevensschijven wordt niet ondersteund.
+* Back-ups van virtuele machines met meer dan 32 gegevensschijven wordt niet ondersteund.
 * Back-ups van virtuele machines met een gereserveerd IP-adres en geen gedefinieerde eindpunt wordt niet ondersteund.
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel instellen (LUKS)-codering wordt niet ondersteund.
 * Wordt niet aanbevolen back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out bestandsserver. Als u klaar bent, wordt mislukken van CSV-schrijvers verwacht. Ze nodig hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie van het cluster tijdens de taak van een momentopname. Azure Backup biedt geen ondersteuning voor meerdere VM's. 

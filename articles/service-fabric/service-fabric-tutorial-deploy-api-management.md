@@ -1,6 +1,6 @@
 ---
 title: API Management integreren met Service Fabric | Microsoft Docs
-description: In deze zelfstudie leert u hoe u snel aan de slag kunt met Azure API Management en Service Fabric.
+description: Leer hoe u snel aan de slag met Azure API Management verkeer routeren naar een back-endservice in Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,54 +9,37 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1b0588e25c0d156080a2e879185b76714d8691b2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 572a4cd78fe60351babb9e86c604447f6848a866
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113371"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408229"
 ---
-# <a name="tutorial-integrate-api-management-with-service-fabric-in-azure"></a>Zelfstudie: API Management integreren met Service Fabric in Azure
+# <a name="integrate-api-management-with-service-fabric-in-azure"></a>API Management te integreren met Service Fabric in Azure
 
-Deze zelfstudie is deel vier een serie.  De implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u API's met een geavanceerde set regels voor doorsturen moet publiceren voor uw Service Fabric-services in de back-end. Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. In Service Fabric kan een gateway elke stateless service zijn die is ontworpen voor inkomend verkeer, zoals een ASP.NET Core-toepassing, Event Hubs, IoT-Hub of Azure API Management.
+De implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u API's met een geavanceerde set regels voor doorsturen moet publiceren voor uw Service Fabric-services in de back-end. Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. In Service Fabric kan een gateway elke stateless service zijn die is ontworpen voor inkomend verkeer, zoals een ASP.NET Core-toepassing, Event Hubs, IoT-Hub of Azure API Management.
 
-Deze zelfstudie laat zien hoe u [Azure API Management](../api-management/api-management-key-concepts.md) instelt met Service Fabric om verkeer om te leiden naar een service in de back-end van Service Fabric.  Aan het einde van de zelfstudie hebt u API Management geïmplementeerd in een VNET en een API-bewerking geconfigureerd voor het verzenden van verkeer naar -stateless services in de back-end. Zie het [overzichtsartikel](service-fabric-api-management-overview.md) voor meer informatie over Azure API Management-scenario's met Service Fabric.
-
-In deze zelfstudie leert u het volgende:
-
-> [!div class="checklist"]
-> * API Management implementeren
-> * API Management configureren
-> * Een API-bewerking maken
-> * Een back-endbeleid configureren
-> * De API aan een product toevoegen
-
-In deze zelfstudiereeks leert u het volgende:
-> [!div class="checklist"]
-> * Een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) maken in Azure met behulp van een sjabloon
-> * [Een cluster in- of uitschalen](service-fabric-tutorial-scale-cluster.md)
-> * [De runtime van een cluster upgraden](service-fabric-tutorial-upgrade-cluster.md)
-> * API Management implementeren met Service Fabric
+Dit artikel leest u over het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te routeren naar een back-endservice in Service Fabric.  Aan het einde van de zelfstudie hebt u API Management geïmplementeerd in een VNET en een API-bewerking geconfigureerd voor het verzenden van verkeer naar -stateless services in de back-end. Zie het [overzichtsartikel](service-fabric-api-management-overview.md) voor meer informatie over Azure API Management-scenario's met Service Fabric.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor u met deze zelfstudie begint:
+Voordat u begint:
 
 * Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installeer de [Azure Powershell-module, versie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI 2.0](/cli/azure/install-azure-cli).
-* Maak een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure
+* Installeer de [Azure Powershell, moduleversie 4.1 of hoger](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) of [Azure CLI](/cli/azure/install-azure-cli).
+* Maak een veilig [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in een netwerkbeveiligingsgroep.
 * Als u een Windows-cluster implementeert, richt u een Windows-ontwikkelomgeving in. Installeer [Visual Studio 2017](http://www.visualstudio.com) en de workloads voor **Azure-ontwikkeling**, **ASP.NET-ontwikkeling en webontwikkeling** en **.NET Core platformoverschrijdende ontwikkeling**.  Richt vervolgens een [.NET-ontwikkelomgeving in](service-fabric-get-started.md).
-* Als u een Linux-cluster implementeert, richt u een Java-ontwikkelomgeving in voor [Linux](service-fabric-get-started-linux.md) of [Mac OS](service-fabric-get-started-mac.md).  Installeer de [Service Fabric CLI](service-fabric-cli.md).
 
 ## <a name="network-topology"></a>Netwerktopologie
 
-U beschikt nu over een veilig [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) in Azure en kunt dus API Management gaan implementeren in het virtuele netwerk (VNET) in het subnet en in de netwerkbeveiligingsgroep die is aangewezen voor API Management. Voor deze zelfstudie is de sjabloon API Management-Resource Manager vooraf geconfigureerd voor het gebruik van de namen van het VNET, het subnet en de netwerkbeveiligingsgroep die u hebt ingesteld in de vorige zelfstudie over het [opzetten van een Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md). Met deze zelfstudie wordt de volgende topologie geïmplementeerd naar Azure, waarbij API Management en Service Fabric zich bevinden in subnetten van hetzelfde virtuele netwerk:
+Nu dat u een veilige hebt [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in Azure API Management implementeren met het virtuele netwerk (VNET) in het subnet en Netwerkbeveiligingsgroep die is aangewezen voor API Management. In dit artikel de API Management Resource Manager-sjabloon is vooraf geconfigureerd voor het gebruik van de namen van de VNET, subnet en Netwerkbeveiligingsgroep die u hebt ingesteld in de [zelfstudie voor Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in dit artikel worden de volgende topologie geïmplementeerd in Azure waarin API Management en Service Fabric zijn in subnetten van hetzelfde Virtueelnetwerk:
 
  ![Afbeelding van topologie][sf-apim-topology-overview]
 
@@ -77,11 +60,9 @@ az account set --subscription <guid>
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Een service implementeren in de back-end van Service Fabric
 
-Voordat u API Management configureert voor het routeren van verkeer naar een service in de back-end van Service Fabric moet u eerst een actieve service maken die aanvragen kan accepteren.  Als u eerder een [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) hebt gemaakt, implementeert u een .NET-service voor Service Fabric.  Als u eerder een [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) hebt gemaakt, implementeert u een service van Java voor Service Fabric.
+Voordat u API Management configureert voor het routeren van verkeer naar een service in de back-end van Service Fabric moet u eerst een actieve service maken die aanvragen kan accepteren.  
 
-### <a name="deploy-a-net-service-fabric-service"></a>Een .NET-service voor Service Fabric implementeren
-
-Voor deze zelfstudie maakt u een eenvoudige stateless Reliable Service van ASP.NET Core met behulp van de standaardsjabloon voor web-API's. Hiermee maakt u een HTTP-eindpunt voor uw service, die u beschikbaar maakt via Azure API Management.
+Maak een eenvoudige stateless ASP.NET Core betrouwbare Service met behulp van de standaardsjabloon voor Web-API-project. Hiermee maakt u een HTTP-eindpunt voor uw service, die u beschikbaar maakt via Azure API Management.
 
 Start Visual Studio als beheerder en maak een ASP.NET Core-service:
 
@@ -115,42 +96,6 @@ Start Visual Studio als beheerder en maak een ASP.NET Core-service:
 
 Als het goed is, wordt er nu een stateless ASP.NET Core-service met de naam `fabric:/ApiApplication/WebApiService` uitgevoerd in het Service Fabric-cluster in Azure.
 
-### <a name="create-a-java-service-fabric-service"></a>Een Java-service maken voor Service Fabric
-
-Voor deze zelfstudie gaat u een eenvoudige webserver implementeren, die berichten via een echo-opdracht terugstuurt naar de gebruiker. De voorbeeldtoepassing voor een echo-server bevat een HTTP-eindpunt voor uw service, die u beschikbaar maakt via Azure API Management.
-
-1. Kloon de getting started-voorbeelden voor Java.
-
-   ```bash
-   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started/reliable-services-actor-sample
-   ```
-
-2. Bewerk *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Pas het eindpunt aan zodat de service op poort 8081 luistert.
-
-   ```xml
-   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
-   ```
-
-3. Sla *ServiceManifest.xml* op en bouw vervolgens de toepassing EchoServer1.0.
-
-   ```bash
-   cd Services/EchoServer/EchoServer1.0/
-   gradle
-   ```
-
-4. Implementeer de toepassing in het cluster.
-
-   ```bash
-   cd Scripts
-   sfctl cluster select --endpoint https://mycluster.southcentralus.cloudapp.azure.com:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
-   ./install.sh
-   ```
-
-   Als het goed is, wordt er nu een stateless Java-service met de naam `fabric:/EchoServerApplication/EchoServerService` uitgevoerd in het Service Fabric-cluster in Azure.
-
-5. Open een browser en typ http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Als het goed is, ziet u "[versie 1.0] Hallo wereld!!!" weergegeven.
-
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Resource Manager-sjablonen downloaden en begrijpen
 
 Download de volgende Resource Manager-sjablonen en parameterbestanden en sla ze op:
@@ -170,9 +115,9 @@ In de volgende secties worden de resources beschreven die worden gedefinieerd me
 
 ### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
 
-[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) zorgt voor de configuratie van de beveiliging van API Management. API Management moet voor de detectie van services worden geverifieerd bij uw Service Fabric-cluster. Dit gebeurt met behulp van een clientcertificaat dat toegang tot het cluster heeft. In deze zelfstudie wordt het certificaat gebruikt dat u eerder hebt opgegeven bij het maken van het [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor). Dit certificaat biedt namelijk standaard toegang tot uw cluster.
+[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) zorgt voor de configuratie van de beveiliging van API Management. API Management moet voor de detectie van services worden geverifieerd bij uw Service Fabric-cluster. Dit gebeurt met behulp van een clientcertificaat dat toegang tot het cluster heeft. In dit artikel wordt hetzelfde certificaat eerder hebt opgegeven bij het maken van de [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor), die standaard kan worden gebruikt voor toegang tot uw cluster.
 
-In deze zelfstudie wordt hetzelfde certificaat gebruikt voor clientverificatie en voor de beveiliging tussen knooppunten van een cluster. U kunt een afzonderlijk clientcertificaat gebruiken als u een certificaat hebt geconfigureerd voor toegang tot uw Service Fabric-cluster. Geef de waarden voor **name**, **password** en **data** (met base-64 gecodeerde tekenreeks) op uit het bestand met de persoonlijke sleutel (.pfx) van het clustercertificaat dat u hebt opgegeven tijdens het maken van uw Service Fabric-cluster.
+Dit artikel wordt hetzelfde certificaat voor clientverificatie en beveiliging van knooppunt-naar-knooppunt-clusters. U kunt een afzonderlijk clientcertificaat gebruiken als u een certificaat hebt geconfigureerd voor toegang tot uw Service Fabric-cluster. Geef de waarden voor **name**, **password** en **data** (met base-64 gecodeerde tekenreeks) op uit het bestand met de persoonlijke sleutel (.pfx) van het clustercertificaat dat u hebt opgegeven tijdens het maken van uw Service Fabric-cluster.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 
@@ -184,18 +129,18 @@ Voor back-ends van Service Fabric is het Service Fabric-cluster de back-end in p
 
 Met [Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) wordt een product gemaakt. In Azure API Management bevat een product een of meer API's, evenals een gebruiksquotum en de gebruiksvoorwaarden. Zodra een product is gepubliceerd, kunnen ontwikkelaars zich abonneren op het product en de API's van het product gaan gebruiken.
 
-Geef beschrijvende waarden op voor het product bij **displayName** en **description**. Voor deze zelfstudie is weliswaar een abonnement vereist, maar dit abonnement hoeft niet te worden goedgekeurd door een beheerder.  De **state** van dit product is 'published' en het product is dus zichtbaar voor abonnees.
+Geef beschrijvende waarden op voor het product bij **displayName** en **description**. Een abonnement is vereist, maar abonnement goedgekeurd door een beheerder is niet in dit artikel.  De **state** van dit product is 'published' en het product is dus zichtbaar voor abonnees.
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
 
 Met [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) wordt een API gemaakt. Een API in API Management vertegenwoordigt een reeks bewerkingen die kunnen worden aangeroepen door clienttoepassingen. Nadat de bewerkingen zijn toegevoegd, wordt de API toegevoegd aan een product en is deze klaar voor publicatie. Als een API is gepubliceerd, kunnen ontwikkelaars zich abonneren op de API en deze gebruiken.
 
-* **displayName** kan elke naam zijn voor uw API. Voor deze zelfstudie gebruiken we 'Service Fabric-App'.
+* **displayName** kan elke naam zijn voor uw API. In dit artikel gebruiken 'Service Fabric-App'.
 * **name** is een unieke en beschrijvende naam voor de API, zoals 'service-fabric-app'. Deze naam wordt weergegeven in de portals ontwikkelaars en de uitgever.
-* **serviceUrl** verwijst naar de HTTP-service die de API implementeert. API Management stuurt aanvragen door naar dit adres. De waarde van deze URL wordt niet gebruikt voor Service Fabric-back-ends. U kunt hier elke waarde invoeren. Voor deze zelfstudie bijvoorbeeld http://servicefabric.
+* **serviceUrl** verwijst naar de HTTP-service die de API implementeert. API Management stuurt aanvragen door naar dit adres. De waarde van deze URL wordt niet gebruikt voor Service Fabric-back-ends. U kunt hier elke waarde invoeren. Voor dit artikel, bijvoorbeeld 'http://servicefabric'.
 * De waarde voor **path** wordt toegevoegd aan de basis-URL voor de API Management-service. De basis-URL is gemeenschappelijk voor alle API's die worden gehost door een exemplaar van API Management-service. In API Management worden API's herkend aan hun achtervoegsel en daarom moet het achtervoegsel uniek zijn voor elke API voor een bepaalde uitgever.
-* **protocols** bepaalt welke protocollen kunnen worden gebruikt om toegang te krijgen tot de API. Voor deze zelfstudie gebruiken en **http** en **https**.
-* **path** is een achtervoegsel voor de API. Gebruik voor deze zelfstudie 'myapp'.
+* **protocols** bepaalt welke protocollen kunnen worden gebruikt om toegang te krijgen tot de API. In dit artikel lijst **http** en **https**.
+* **path** is een achtervoegsel voor de API. In dit artikel gebruiken 'myapp'.
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
 
@@ -203,9 +148,9 @@ Met [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagem
 
 Geef deze waarden op als u een API-bewerking voor de front-end wilt toevoegen:
 
-* **displayName** en **description** beschrijven de bewerking. Voor deze zelfstudie gebruiken we 'values'.
-* **method** is het HTTP-woord.  Voor deze zelfstudie gebruiken we **GET**.
-* **urlTemplate** wordt toegevoegd aan de basis-URL van de API en identificeert één HTTP-bewerking.  Gebruik voor deze zelfstudie `/api/values` als u de .NET-back-endservice hebt toegevoegd of `getMessage` als u de Java-back-endservice hebt toegevoegd.  De standaardinstelling is dat het URL-pad dat hier wordt opgegeven, het URL-pad is dat naar de service van Service Fabric in de back-end wordt verzonden. Als u hier het URL-pad opgeeft dat ook door de service wordt gebruikt, zoals '/api/values', werkt de bewerking zonder verdere aanpassingen. U kunt hier ook een URL-pad opgeven dat verschilt van het URL-pad dat wordt gebruikt door de service van Service Fabric in de back-end. In dat geval moet u later ook een opdracht voor wijziging van het pad opgeven in het beleid voor de bewerking.
+* **displayName** en **description** beschrijven de bewerking. In dit artikel gebruiken we 'Values'.
+* **method** is het HTTP-woord.  Geef voor dit artikel **ophalen**.
+* **urlTemplate** wordt toegevoegd aan de basis-URL van de API en identificeert één HTTP-bewerking.  In dit artikel gebruiken `/api/values` als u de .NET back-endservice hebt toegevoegd of `getMessage` als u de Java-back-endservice hebt toegevoegd.  De standaardinstelling is dat het URL-pad dat hier wordt opgegeven, het URL-pad is dat naar de service van Service Fabric in de back-end wordt verzonden. Als u hier het URL-pad opgeeft dat ook door de service wordt gebruikt, zoals '/api/values', werkt de bewerking zonder verdere aanpassingen. U kunt hier ook een URL-pad opgeven dat verschilt van het URL-pad dat wordt gebruikt door de service van Service Fabric in de back-end. In dat geval moet u later ook een opdracht voor wijziging van het pad opgeven in het beleid voor de bewerking.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
@@ -218,7 +163,7 @@ De [back-endconfiguratie voor Service Fabric](/azure/api-management/api-manageme
 * Replicaselectie voor stateful services.
 * Voorwaarden voor opnieuw uitvoeren van omzetting waarmee u de voorwaarden kunt opgeven voor het opnieuw omzetten van een servicelocatie en het opnieuw verzenden van een aanvraag.
 
-**policyContent** bevat de XML-inhoud van het beleid, met Json-escape.  Maak voor deze zelfstudie een back-endbeleid om aanvragen rechtstreeks door te sturen naar de stateless service van .NET of Java die eerder is geïmplementeerd. Voeg een beleid `set-backend-service` onder inbound policies.  Vervang de waarde voor *sf-service-instance-name* door `fabric:/ApiApplication/WebApiService` als u eerder de .NET back-endservice hebt geïmplementeerd of door `fabric:/EchoServerApplication/EchoServerService` als u de Java-service hebt geïmplementeerd.  *backend-id* verwijst naar een resource in de back-end, in dit geval de resource `Microsoft.ApiManagement/service/backends` die is gedefinieerd in de sjabloon *apim.json*. *backend-id* kan ook verwijzen naar een andere back-endresource die is gemaakt met behulp van de API's van API Management. Voor deze zelfstudie stelt u *backend-id* in op de waarde van de parameter *service_fabric_backend_name*.
+**policyContent** bevat de XML-inhoud van het beleid, met Json-escape.  In dit artikel maakt u een back endbeleid voor het routeren van aanvragen rechtstreeks naar de .NET of Java stateless service eerder hebt geïmplementeerd. Voeg een beleid `set-backend-service` onder inbound policies.  Vervang de waarde voor *sf-service-instance-name* door `fabric:/ApiApplication/WebApiService` als u eerder de .NET back-endservice hebt geïmplementeerd of door `fabric:/EchoServerApplication/EchoServerService` als u de Java-service hebt geïmplementeerd.  *backend-id* verwijst naar een resource in de back-end, in dit geval de resource `Microsoft.ApiManagement/service/backends` die is gedefinieerd in de sjabloon *apim.json*. *backend-id* kan ook verwijzen naar een andere back-endresource die is gemaakt met behulp van de API's van API Management. In dit artikel instellen *back-end-id* aan de waarde van de *service_fabric_backend_name* parameter.
 
 ```xml
 <policies>
@@ -227,7 +172,7 @@ De [back-endconfiguratie voor Service Fabric](/azure/api-management/api-manageme
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
   </inbound>
   <backend>
     <base/>
@@ -267,7 +212,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-Vervang bij *inbound_policy* de waarde voor *sf-service-instance-name* door `fabric:/ApiApplication/WebApiService` als u eerder de .NET back-endservice hebt geïmplementeerd of door `fabric:/EchoServerApplication/EchoServerService` als u de Java-service hebt geïmplementeerd. *backend-id* verwijst naar een resource in de back-end, in dit geval de resource `Microsoft.ApiManagement/service/backends` die is gedefinieerd in de sjabloon *apim.json*. *backend-id* kan ook verwijzen naar een andere back-endresource die is gemaakt met behulp van de API's van API Management. Voor deze zelfstudie stelt u *backend-id* in op de waarde van de parameter *service_fabric_backend_name*.
+Vervang bij *inbound_policy* de waarde voor *sf-service-instance-name* door `fabric:/ApiApplication/WebApiService` als u eerder de .NET back-endservice hebt geïmplementeerd of door `fabric:/EchoServerApplication/EchoServerService` als u de Java-service hebt geïmplementeerd. *backend-id* verwijst naar een resource in de back-end, in dit geval de resource `Microsoft.ApiManagement/service/backends` die is gedefinieerd in de sjabloon *apim.json*. *backend-id* kan ook verwijzen naar een andere back-endresource die is gemaakt met behulp van de API's van API Management. In dit artikel instellen *back-end-id* aan de waarde van de *service_fabric_backend_name* parameter.
 
 ```xml
 <policies>
@@ -276,7 +221,7 @@ Vervang bij *inbound_policy* de waarde voor *sf-service-instance-name* door `fab
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
   </inbound>
   <backend>
     <base/>
@@ -349,14 +294,7 @@ az group delete --name $ResourceGroupName
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie heeft u het volgende geleerd:
-
-> [!div class="checklist"]
-> * API Management implementeren
-> * API Management configureren
-> * Een API-bewerking maken
-> * Een back-endbeleid configureren
-> * De API aan een product toevoegen
+Meer informatie over het gebruik van [API Management](/azure/api-management/import-and-publish).
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

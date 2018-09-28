@@ -2,18 +2,18 @@
 title: Azure Data Catalog-concepten voor ontwikkelaars
 description: Inleiding tot de belangrijkste concepten in Azure Data Catalog conceptuele model als weergegeven met de REST-API-catalogus.
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 753b4660c8ca47f12aace87a254b93a88db8aaa7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 97dafe01db4779332a530dc8981b3d6ada8c9df9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053776"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406512"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog-concepten voor ontwikkelaars
 Microsoft **Azure Data Catalog** is een volledig beheerde cloudservice die mogelijkheden voor detectie van gegevensbronnen en crowdsourcing metagegevens van de gegevensbron biedt. Ontwikkelaars kunnen de service via de REST-API's gebruiken. Informatie over de concepten die zijn geïmplementeerd in de service is het belangrijk is voor ontwikkelaars om te integreren in is **Azure Data Catalog**.

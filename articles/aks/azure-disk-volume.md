@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 68a7883e7f8b3fb62265375208f66b761d43d82e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391206"
+ms.locfileid: "47404616"
 ---
 # <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Handmatig maken en gebruiken van Kubernetes-volume met de Azure-schijven in Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Zie voor meer informatie over Kubernetes volumes [Kubernetes volumes][kubernetes
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, raadpleegt u [Azure CLI installeren] [install-azure-cli].
+U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Maken van een Azure-schijf
 
@@ -91,7 +91,7 @@ U hebt nu een actieve schil met een Azure-schijf geplaatst in `/mnt/azure`. U ku
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over AKS clusters communiceren met Azure-schijven, Zie de [Kubernetes-invoegtoepassing voor Azure-schijven][kubernetes-disks]
+Voor meer informatie over AKS clusters communiceren met Azure-schijven, Zie de [Kubernetes-invoegtoepassing voor Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
@@ -106,3 +106,4 @@ Voor meer informatie over AKS clusters communiceren met Azure-schijven, Zie de [
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[install-azure-cli]: /cli/azure/install-azure-cli

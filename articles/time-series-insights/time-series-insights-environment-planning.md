@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 90a01e1b6741d0668a71e612d9c0cf90871b67da
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: fa178efadf001b70501b132ede67686ae5c06363
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366315"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422555"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw Azure Time Series Insights-omgeving plannen
 
@@ -72,7 +72,7 @@ De volgende tabel geeft een overzicht van de opnamecapaciteit voor elke SKU:
 |S1     |   30 miljoen     |  30 GB     |  720    |  720 KB   |
 |S2     |   300 miljoen    |   300 GB   | 7,200   | 7200 KB  |
 
-U kunt de capaciteit Verhoog van een S1 of S2 SKU naar 10 eenheden in één omgeving. U kunt vanuit een S1-omgeving naar een S2 of vanuit een S2-omgeving naar een S1 niet migreren. 
+U kunt de capaciteit Verhoog van een S1 of S2 SKU naar 10 eenheden in één omgeving. U kunt vanuit een S1-omgeving naar een S2 of vanuit een S2-omgeving naar een S1 niet migreren.
 
 Voor opnamecapaciteit, moet u eerst bepalen van de totale inkomend verkeer die u nodig op basis van per maand hebt. Vervolgens vaststellen wat uw per minuut nodig zijn, omdat dit is waar bandbreedtebeperking en latentie van een rol spelen.
 
@@ -90,32 +90,36 @@ U weet mogelijk niet van tevoren regelen hoeveel gegevens die u verwacht te push
  
 ### <a name="mitigate-throttling-and-latency"></a>Bandbreedtebeperking en latentie te beperken
 
-Zie voor meer informatie over hoe u om te voorkomen dat de beperking en latentie [verminderen latentie en beperking](time-series-insights-environment-mitigate-latency.md). 
+Zie voor meer informatie over hoe u om te voorkomen dat de beperking en latentie [verminderen latentie en beperking](time-series-insights-environment-mitigate-latency.md).
 
 ## <a name="shaping-your-events"></a>Uw gebeurtenissen vormgeven
-Het is belangrijk om te controleren of de manier waarop u gebeurtenissen verzenden naar TSI biedt ondersteuning voor de grootte van de omgeving die u inricht (daarentegen, kunt u toewijzen de grootte van de omgeving op hoeveel gebeurtenissen TSI leest en de grootte van elke gebeurtenis).  Het is ook belangrijk om na te denken over de kenmerken die u wilt mogelijk segmenteren en filteren op bij het opvragen van uw gegevens.  Met dat gegeven in gedachte, wordt aangeraden voor het controleren van de JSON vormgeven sectie van onze *gebeurtenissen verzenden* documentatie [-documentatie] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Het is aan de onderkant van de pagina.  
+Het is belangrijk om te controleren of de manier waarop u gebeurtenissen verzenden naar TSI biedt ondersteuning voor de grootte van de omgeving die u inricht (daarentegen, kunt u toewijzen de grootte van de omgeving op hoeveel gebeurtenissen TSI leest en de grootte van elke gebeurtenis).  Het is ook belangrijk om na te denken over de kenmerken die u wilt mogelijk segmenteren en filteren op bij het opvragen van uw gegevens.  Met dat gegeven in gedachte, wordt aangeraden voor het controleren van de JSON vormgeven sectie van onze [verzenden van gebeurtenissen documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Het is aan de onderkant van de pagina.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Ervoor te zorgen dat er referentiegegevens op locatie
 Een Referentiegegevensset is een verzameling van items die de ervaring van de gebeurtenissen uit uw gebeurtenisbron. De engine voor Time Series Insights inkomende lid wordt van elke gebeurtenis uit uw gebeurtenisbron aan de desbetreffende gegevensrij in uw referentiegegevensset. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op de primaire sleutel of meer kolommen gedefinieerd in uw referentiegegevensset.
 
 Let op: referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat alleen de gegevens van de huidige en toekomstige inkomend is afgestemd en toegevoegd aan de verwijzing datum is ingesteld, zodra deze is geconfigureerd en geüpload.  Als u wilt verzenden van grote hoeveelheden historische gegevens van TSI en niet uploaden of referentiegegevens eerst maken in de TSI mogelijk hebt u uw werk opnieuw toepassen (hint, niet veel plezier met).  
 
-Ga voor meer informatie over het maken en beheren van uw referentiegegevens in TSI uploaden naar onze *verwijzen naar gegevens* documentatie [documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Ga voor meer informatie over het maken en beheren van uw referentiegegevens in TSI uploaden naar onze [gegevensset referentiedocumentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="business-disaster-recovery"></a>Noodherstel voor bedrijven
-Als een Azure-service biedt Time Series Insights hoge beschikbaarheid (HA) met behulp van redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing. De Microsoft Azure-platform bevat ook functies voor informatie over het bouwen van oplossingen met mogelijkheden voor disaster recovery (DR) of regio-overschrijdende beschikbaarheid. Als u wilt voor globale, interregionale hoge beschikbaarheid voor apparaten of gebruikers profiteren van deze functies Azure herstel na Noodgevallen. Het artikel [technische richtlijnen voor Azure Business Continuity](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en herstel na Noodgevallen. [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen] [https://docs.microsoft.com/en-us/azure/architecture/resiliency/index] document bevat architectuurrichtlijnen voor strategieën voor Azure-toepassingen om HA en DR te realiseren.
+Als een Azure-service biedt Time Series Insights hoge beschikbaarheid (HA) met behulp van redundantie op het niveau van de Azure-regio, zonder extra werk vereist voor de oplossing. De Microsoft Azure-platform bevat ook functies voor informatie over het bouwen van oplossingen met mogelijkheden voor disaster recovery (DR) of regio-overschrijdende beschikbaarheid. Als u wilt voor globale, interregionale hoge beschikbaarheid voor apparaten of gebruikers profiteren van deze functies Azure herstel na Noodgevallen. Het artikel [technische richtlijnen voor Azure Business Continuity](../resiliency/resiliency-technical-guidance.md) beschrijving van de ingebouwde functies in Azure voor bedrijfscontinuïteit en herstel na Noodgevallen. De [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](https://docs.microsoft.com/azure/architecture/resiliency/index) document bevat architectuurrichtlijnen voor strategieën voor Azure-toepassingen om HA en DR te realiseren.
 
-Azure Time Series Insights heeft geen ingebouwde noodherstel (BCDR). Klanten die behoefte BCDR hebben kunnen nog steeds een strategie voor herstel met behulp van de volgende methode implementeren: 
+Azure Time Series Insights heeft geen ingebouwde noodherstel (BCDR).
+Standaard hebben zowel Azure IoT Hub en Event Hubs herstel, zijn geïntegreerd.
 
-Een tweede Time Series Insights-omgeving in een Azure-regio van de back-up maken en gebeurtenissen verzenden naar deze secundaire omgeving van de bron van de primaire gebeurtenis, gebruik te maken van een tweede speciale klantengroep en van de bron van die gebeurtenis BCDR richtlijnen.  
+Ga voor meer informatie over het beleid voor IoT-Hub BCDR [hier](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  
+
+Ga voor meer informatie over het beleid van de Event hub BCDR [hier](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+
+Klanten die behoefte BCDR hebben kunnen echter nog steeds een strategie voor herstel met behulp van de volgende methode implementeren.
+Door het maken van een tweede Time Series Insights-omgeving in een back-Azure-regio maken en te verzenden-gebeurtenissen op deze secundaire omgeving van de primaire gegevensbron, gebruik te maken van een tweede speciale klantengroep en van de bron van die gebeurtenis BCDR richtlijnen.  
 
 1.  In de tweede regio omgeving te maken.  Meer informatie over het maken van een Time Series Insights-omgeving [hier](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 2.  Maken van een tweede speciale klantengroep voor uw gebeurtenisbron en de bron van die gebeurtenis verbinden met de nieuwe omgeving.  Zorg ervoor dat de tweede, toegewezen consumergroep aanwijzen.  U meer informatie over dit door een [IoT Hub-documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) of [Event hub-documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Als uw primaire regio uitvallen tijdens een incident na noodgevallen, zijn overgestapt van bewerkingen aan de back-up Time Series Insights-omgeving.  
 
-Standaard hebben de Azure Iot Hub en Event Hubs herstel, zijn geïntegreerd. Ga voor meer informatie over het beleid voor IoT-Hub BCDR [hier](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Ga voor meer informatie over het beleid van de Event hub BCDR [hier](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
-
-Het is **belangrijk te weten** tijdens een Failover-scenario kunnen er een vertraging optreden voordat TSI verwerken van berichten opnieuw kunt starten. Kan dit leiden tot een piek in het verwerken van berichten voor meer informatie Neem eens [beperking van Time Series Insights beheren](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
+Het is **belangrijk te weten** tijdens een failover-scenario kunnen er een vertraging optreden voordat TSI verwerken van berichten opnieuw kunt starten: kan dit leiden tot een piek in de verwerking van berichten. Kijk eens voor meer informatie [dit document](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Een Event Hub-gebeurtenisbron toevoegen](time-series-insights-how-to-add-an-event-source-eventhub.md)

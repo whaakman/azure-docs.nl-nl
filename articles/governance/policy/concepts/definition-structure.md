@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7a1b7b7f970aff620ce01e340c5e56326f4a4a35
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 329bba11c95056b038fdab5041637cbb6a0feb6a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055081"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407260"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -81,6 +81,10 @@ We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinitie
 
 Parameters helpen uw beleidsbeheer te vereenvoudigen door het aantal beleidsdefinities te verminderen. Met parameters, zoals de velden in een formulier – `name`, `address`, `city`, `state`. Deze parameters altijd hetzelfde blijven, maar hun waarden worden gewijzigd op basis van het afzonderlijke invullen van het formulier.
 Parameters werken op dezelfde manier als het samenstellen van beleid. Door parameters te nemen in de beleidsdefinitie van een, kunt u beleid voor verschillende scenario's met behulp van verschillende waarden gebruiken.
+
+> [!NOTE]
+> De definitie van de parameters voor een beleid of initiatiefdefinitie kan alleen worden geconfigureerd tijdens het maken van het beleid of initiatief. De definitie van de parameters kan niet later worden gewijzigd.
+> Dit voorkomt dat bestaande toewijzingen van het beleid of initiatief indirect wordt ongeldig gemaakt.
 
 U kunt bijvoorbeeld een beleid voor een resource-eigenschap te beperken van de locaties waar resources kunnen worden geïmplementeerd definiëren. In dit geval zou u de volgende parameters declareren wanneer u uw beleid maakt:
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
-ms.openlocfilehash: b915a56b14332bfa885eaccf9a151d08c58dc5b1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973688"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408273"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>OpenVPN configureren voor Azure point-to-site VPN-Gateway (Preview)
 
@@ -20,7 +20,30 @@ Dit artikel helpt u bij het instellen van OpenVPN op Azure VPN-Gateway. Het arti
 
 > [!IMPORTANT]
 > Deze openbare preview-versie wordt aangeboden zonder serviceovereenkomst en moet niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="register"></a>Deze functie registreren
+
+Klik op de **TryIt** in deze stappen voor het registreren van deze functie eenvoudig met Azure Cloud Shell.
+
+>[!NOTE]
+>Als u deze functie niet registreert, wordt het niet mogelijk om deze te gebruiken.
 >
+
+Nadat u hebt geklikt **TryIt** om te openen in de Azure Cloud Shell, kopieer en plak de volgende opdrachten:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+ 
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+Zodra de functie wordt weergegeven als ingeschreven, Registreer het abonnement op de Microsoft.Network-naamruimte.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Een punt-naar-site-VPN maken
 

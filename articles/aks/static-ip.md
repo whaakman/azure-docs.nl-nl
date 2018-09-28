@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: a7e592e9911c596f2cf74724e73c469ed616e5f0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8aab091ed992a946cd78ecf4f0c8fdfff4185a08
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391335"
+ms.locfileid: "47407549"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch openbaar IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Dit artikel ziet u hoe u een statisch openbaar IP-adres maakt en deze toewijzen 
 
 In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
 
-U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, raadpleegt u [Azure CLI installeren] [install-azure-cli].
+U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
 
 ## <a name="create-a-static-ip-address"></a>Een statisch IP-adres maken
 
@@ -69,20 +69,26 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Een service maken met het statische IP-adres
 
-Toevoegen voor het maken van een service met het statische IP-adres, de `loadBalancerIP` eigenschap en de waarde van de statische IP-adres in het manifest YAML, zoals wordt weergegeven in het volgende voorbeeld:
+Toevoegen voor het maken van een service met de statische openbare IP-adres, de `loadBalancerIP` eigenschap en de waarde van de statische openbare IP-adres in het manifest YAML. Maak een bestand met de naam `load-balancer-service.yaml` en kopieer de volgende YAML. Geef uw eigen openbare IP-adres in de vorige stap hebt gemaakt.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: azure-load-balancer
 spec:
   loadBalancerIP: 40.121.183.52
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: azure-load-balancer
+```
+
+Maken van de service en de implementatie met de `kubectl apply` opdracht.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## <a name="troubleshoot"></a>Problemen oplossen
@@ -90,17 +96,17 @@ spec:
 Als het statische IP-adres die zijn gedefinieerd in de *loadBalancerIP* eigenschap van het Kubernetes-servicemanifest bestaat niet of is niet gemaakt in de resourcegroep van het knooppunt, mislukt het maken van de load balancer-service. Als u wilt oplossen, bekijk de gebeurtenissen van de service maken met de [kubectl beschrijven] [ kubectl-describe] opdracht. Geef de naam van de service die zijn opgegeven in het manifest YAML, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
-kubectl describe service azure-vote-front
+kubectl describe service azure-load-balancer
 ```
 
 Informatie over de resource voor de Kubernetes-service wordt weergegeven. De *gebeurtenissen* aan het einde van de volgende voorbeelduitvoer geven aan dat de *gebruiker opgegeven IP-adres is niet gevonden*. Controleer of dat u de statische openbare IP-adres hebt gemaakt in de resourcegroep van het knooppunt en of het IP-adres dat is opgegeven in het manifest van de Kubernetes-service juist is in deze scenario's.
 
 ```
-Name:                     azure-vote-front
+Name:                     azure-load-balancer
 Namespace:                default
 Labels:                   <none>
 Annotations:              <none>
-Selector:                 app=azure-vote-front
+Selector:                 app=azure-load-balancer
 Type:                     LoadBalancer
 IP:                       10.0.18.125
 IP:                       40.121.183.52
@@ -114,7 +120,7 @@ Events:
   Type     Reason                      Age               From                Message
   ----     ------                      ----              ----                -------
   Normal   CreatingLoadBalancer        7s (x2 over 22s)  service-controller  Creating load balancer
-  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-vote-front: user supplied IP Address 40.121.183.52 was not found
+  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-load-balancer: user supplied IP Address 40.121.183.52 was not found
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -133,3 +139,4 @@ Als u meer controle wilt over het netwerkverkeer voor uw toepassingen, kunt u in
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

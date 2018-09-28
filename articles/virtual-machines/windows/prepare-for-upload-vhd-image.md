@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 293671ac3426a92453e0c1642d421038824ac02c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4787f5b9657afbcedbd3803d6a17af9c8cf9099
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886970"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406988"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -313,7 +313,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 
     De volgende groepen moeten worden weergegeven op dit beleid:
 
-    - Administrators
+    - Beheerders
     - Back-upoperators
     - Iedereen
     - Gebruikers
@@ -374,7 +374,7 @@ Als u in plaats daarvan wilt slechts aan één virtuele machine maken van één 
 Zie voor meer informatie over het maken van een virtuele machine van een gespecialiseerde schijf:
 
 - [Een virtuele machine maken vanaf een gespecialiseerde schijf](create-vm-specialized.md)
-- [Een virtuele machine maken vanaf een gespecialiseerde VHD-schijf](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
+- [Een virtuele machine maken vanaf een gespecialiseerde VHD-schijf](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Als u maken van een gegeneraliseerde installatiekopie wilt, moet u sysprep uitvoeren. Zie voor meer informatie over Sysprep [Sysprep gebruiken: een inleiding](http://technet.microsoft.com/library/bb457073.aspx). 
 

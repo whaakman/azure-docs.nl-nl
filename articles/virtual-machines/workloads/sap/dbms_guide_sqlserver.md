@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076038"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406912"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 
@@ -381,8 +381,10 @@ SQL Server 2014 en latere releases open de mogelijkheid voor het opslaan van bes
 
 * Het Opslagaccount gebruikte moet zich in dezelfde Azure-regio bevinden als de naam die wordt gebruikt voor het implementeren van de virtuele machine SQL-Server wordt uitgevoerd in.
 * Overwegingen met betrekking tot eerder vermelde met betrekking tot de distributie van VHD's die via andere Azure Storage-Accounts gelden voor deze methode ook implementaties. Betekent dat het aantal i/o-bewerkingen op basis van de grenzen van de Azure Storage-Account.
-* In plaats van boekhouding op van de VM-opslag i/o-quotum, zal het verkeer op basis van de storage-blobs die de bestanden van de gegevens en logboekbestanden voor SQL Server, worden verwerkt in de bandbreedte van de virtuele machine van het specifieke VM-type. Voor de bandbreedte van het netwerk van een bepaald type van de virtuele machine, moet u het artikel [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* In plaats van boekhouding op van de VM-opslag i/o-quotum, zal het verkeer op basis van de storage-blobs die de bestanden van de gegevens en logboekbestanden voor SQL Server, worden verwerkt in de bandbreedte van de virtuele machine van het specifieke VM-type. Voor netwerk- en bandbreedte van een bepaald type van de virtuele machine, moet u het artikel [grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Als gevolg van i/o via het netwerk quotum pushen, moet u het opslagquotum zijn voornamelijk gestrand en gebruiken met die de totale bandbreedte van de virtuele machine slechts gedeeltelijk.
 * De IOPS en i/o doorvoer prestatiedoelen met Azure Premium Storage voor de verschillende schijfgrootten niet meer van toepassing. Zelfs als de blobs die u hebt gemaakt, bevinden zich in Azure Premium Storage. De doelen worden beschreven het artikel [High-performance Premium Storage en beheerde schijven voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Als gevolg van het plaatsen van SQL Server-gegevensbestanden en logboekbestanden rechtstreeks op blobs die zijn opgeslagen op Azure Premium Storage, kunnen de prestatiekenmerken afwijken in vergelijking met VHD's op Azure Premium Storage.
+* Hostcache in op basis van als beschikbaar voor Azure Premium Storage-schijven is niet beschikbaar bij het plaatsen van SQL Server-gegevensbestanden rechtstreeks op de Azure-blobs.
 * Op virtuele machines uit de M-serie, worden niet Azure Write Accelerator gebruikt voor de ondersteuning van onder de milliseconde schrijfbewerkingen ten opzichte van het logboekbestand van de SQL Server-transactie. 
 
 Details van deze functionaliteit kunnen worden gevonden in het artikel [SQL Server-gegevensbestanden in Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017)

@@ -2,18 +2,18 @@
 title: Inleiding tot Azure Data Catalog
 description: Dit artikel bevat een overzicht van Microsoft Azure Data Catalog, met inbegrip van de functies ervan en de problemen die Data Catalog oplost. Met Data Catalog kan elke gebruiker gegevensbronnen registreren, detecteren, begrijpen en gebruiken.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: ba9cce1c63145bea25e657cb690287e1cbf5a4e4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3da12ae290730869026de24761b28f332927f01e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053661"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408450"
 ---
 # <a name="what-is-azure-data-catalog"></a>Wat is Azure Data Catalog?
 Azure Data Catalog is een volledig beheerde cloudservice waarvan de gebruikers de gegevensbronnen die ze nodig hebben, kunnen opzoeken en inzichten kunnen verkrijgen uit de gegevensbronnen die ze vinden. Tegelijkertijd helpt Data Catalog organisaties meer waarde te halen uit hun bestaande investeringen. 

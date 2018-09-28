@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034447"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405611"
 ---
 # <a name="custom-roles-in-azure"></a>Aangepaste rollen in Azure
 
-Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken. Aangepaste rollen worden opgeslagen in een tenant Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke tenant kan maximaal 2000 aangepaste rollen hebben. Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
+Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen, kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource-bereiken. Aangepaste rollen worden opgeslagen in een directory van Azure Active Directory (Azure AD) en kunnen worden gedeeld met abonnementen. Elke directory kan maximaal 2000 aangepaste rollen hebben. Aangepaste rollen kunnen worden gemaakt met behulp van Azure PowerShell, Azure CLI of de REST-API.
 
 ## <a name="custom-role-example"></a>Voorbeeld van de aangepaste rol
 
@@ -92,7 +92,7 @@ Een aangepaste rol heeft de volgende eigenschappen.
 
 | Eigenschap | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| `Name` | Ja | Reeks | De weergavenaam van de aangepaste rol. Moet uniek zijn voor uw tenant. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 128. |
+| `Name` | Ja | Reeks | De weergavenaam van de aangepaste rol. De roldefinitie van een is een resource op abonnementsniveau, kan een roldefinitie kan worden gebruikt in meerdere abonnementen die de dezelfde Azure AD-directory delen. Deze weergavenaam moet uniek zijn in het bereik van de Azure AD-directory. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 128. |
 | `Id` | Ja | Reeks | De unieke ID van de aangepaste rol. Voor Azure PowerShell en Azure CLI, worden deze ID wordt automatisch gegenereerd bij het maken van een nieuwe rol. |
 | `IsCustom` | Ja | Reeks | Geeft aan of dit een aangepaste rol. Ingesteld op `true` voor aangepaste rollen. |
 | `Description` | Ja | Reeks | De beschrijving van de aangepaste rol. Kan bevatten letters, cijfers, spaties en speciale tekens. Maximum aantal tekens is 1024. |

@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f17a65befc1abbe2a2405e8470f61068ac34f8b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394808"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422623"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>De profielgegevens van uw Azure-account zoals contact-e-mailadres en telefoonnummer wijzigen
 
@@ -55,10 +55,6 @@ Zie voor informatie over het bijwerken van uw factureringsgegevens, [wijzigen va
 ### <a name="why-cant-i-update-the-country"></a>Waarom kan ik het land niet bijwerken?
 
 Vanwege technische beperkingen, kan het land voor een bestaand account niet worden gewijzigd. U kunt echter een account maken in de gewenste land/regio en vervolgens contact op met de Azure-klantenservice om uw services migreren naar dat account.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Welk e-mailadres heeft Factuurwaarschuwingen Azure preview-functie gebruiken?
-
-U ontvangt waarschuwingen op het e-mailadres dat u toevoegen wanneer u zich aanmeldt voor de waarschuwingen. Het e-mailadres dat is gebruikt voor de waarschuwingen is gescheiden van de accountbeheerder e-mailadres. Zie voor meer informatie, [waarschuwingen voor uw Microsoft Azure-abonnementen voor facturering instellen](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

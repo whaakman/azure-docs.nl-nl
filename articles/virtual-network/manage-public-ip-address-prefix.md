@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 1426bddb6e9e3e110fe5a86ed451ec40c2677e78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957495"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405730"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Maken, wijzigen of verwijderen van een openbare IP-adresvoorvoegsel
 
@@ -78,7 +78,6 @@ Als u een voorvoegsel maakt, moet u statische IP-adressen uit het voorvoegsel. V
     |Naam|Ja|De naam van het openbare IP-adres moet uniek zijn binnen de resourcegroep die u selecteert.|
    |Time-out voor inactiviteit (minuten)|Nee|Het aantal minuten dat een TCP- of HTTP-verbinding open zonder afhankelijkheid van clients voor het verzenden van keepalive-berichten. |
    |DNS-naamlabel|Nee|Moet uniek zijn binnen Azure-regio die voor het maken van de naam van de in (voor alle abonnementen en alle klanten). Azure wordt automatisch geregistreerd de naam en IP-adres in de DNS, zodat u verbinding met een resource met de naam maken kunt. Azure voegt een standaard-subnet, zoals *location.cloudapp.azure.com* (indien de locatie de locatie die u selecteert is) op de naam u opgeeft, voor het maken van de volledig gekwalificeerde DNS-naam. Zie voor meer informatie, [Azure DNS gebruiken met een openbaar IP-adres van Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
-   |Beschikbaarheidszone|  Nee | Deze instelling wordt alleen weergegeven als u een ondersteunde regio selecteren. Zie voor een lijst van ondersteunde locaties, [overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Zone-redundante wordt automatisch geselecteerd voor u en uw gegevenspad flexibele maakt voor fouten in zone. Als u liever om te waarborgen van een specifieke zone, dit geen bestand is tegen fouten van de zone is, kunt u een specifieke zone kunt selecteren.
 
 ## <a name="view-or-delete-a-prefix"></a>Weergeven of verwijderen van een voorvoegsel
 

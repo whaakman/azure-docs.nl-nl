@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccdd17bf5a6b3ff00fd3fdada8f4ae02a071274c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392436"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423167"
 ---
 # <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
@@ -140,7 +140,7 @@ Service Bus ondersteunt automatische bericht doorsturen van, op, of tussen gepar
 
 Service Bus opgelegd momenteel de volgende beperkingen met betrekking tot gepartitioneerde wachtrijen en onderwerpen:
 
-* Gepartitioneerde wachtrijen en onderwerpen worden niet ondersteund in de laag Premium-messaging.
+* Gepartitioneerde wachtrijen en onderwerpen worden niet ondersteund in de laag Premium-messaging. Sessies worden ondersteund in de premier-laag met behulp van de sessie-id. 
 * Gepartitioneerde wachtrijen en onderwerpen bieden geen ondersteuning voor het verzenden van berichten die deel uitmaken van verschillende sessies in één transactie.
 * Service Bus staat momenteel maximaal 100 gepartitioneerde wachtrijen en onderwerpen per naamruimte toe. Elke gepartitioneerde wachtrij of onderwerp telt voor het quotum van 10.000 entiteiten per naamruimte (geldt niet voor Premium-laag).
 

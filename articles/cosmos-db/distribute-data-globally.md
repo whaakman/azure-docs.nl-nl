@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: fef4d14e6f5a9dcba1f7e111f9a54c3e1a9fbfa9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227c243d82665dc533e3bfa6a1fe3e9bb775a262
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959849"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408892"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Globale gegevensdistributie met Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Azure is overal - heeft een wereldwijde footprint in meer dan 50 geografische re
 
 ## <a name="global-distribution-with-multi-master"></a>Globale distributie met meerdere masters
 
-Als een systeemeigen geboren in de cloudservice, is Azure Cosmos DB zorgvuldig ontworpen vanaf het begin van voor multitenancy, wereldwijde distributie en meerdere masters voor document, sleutel / waarde-, grafiek en kolom-familie gegevensmodellen.
+Als een cloudservice is Azure Cosmos DB zorgvuldig ontworpen ter ondersteuning van multitenancy, wereldwijde distributie en meerdere masters voor document, sleutel / waarde-, grafiek en kolom-familie gegevensmodellen.
 
 ![Azure Cosmos DB-container gepartitioneerd en verdeeld over drie regio 's](./media/distribute-data-globally/global-apps.png)
 

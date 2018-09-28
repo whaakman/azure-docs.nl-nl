@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ac57c27cf973a2ba236ad1812129e29284deb211
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1250851386b9423b66bdbfd03292de56fd38850d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696119"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410099"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Een Service Bus-autorisatieregel voor naamruimte en wachtrij met een Azure Resource Manager-sjabloon maken
 
@@ -167,7 +167,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u hebt gemaakt en geïmplementeerd resources met behulp van Azure Resource Manager, meer informatie over het beheren van deze bronnen hiervoor deze artikelen:
 
-* [Servicebus met PowerShell beheren](service-bus-powershell-how-to-provision.md)
+* [Service Bus met PowerShell beheren](service-bus-powershell-how-to-provision.md)
 * [Service Bus-resources beheren met de Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Service Bus-verificatie en autorisatie](service-bus-authentication-and-authorization.md)
 

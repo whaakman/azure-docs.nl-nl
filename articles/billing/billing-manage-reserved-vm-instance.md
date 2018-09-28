@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: ca880ea273552198b4bc84cbe594489ef0adf5e0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0b19bb0d77bb600258596ce369713464641a7d2f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393193"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423235"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -28,7 +28,7 @@ Als u Azure Reserved Virtual Machine Instances hebt gekocht, kunt u de instellin
 
 ## <a name="change-the-scope-for-a-reservation"></a>Het bereik voor een reservering wijzigen
 
- De reserveringskorting is van toepassing op virtuele machines, SQL-databases of andere bronnen die overeenkomen met uw reservering en binnen het reserveringsbereik worden uitgevoerd. Het bereik van een reservering kan worden voor één abonnement of voor alle abonnementen in de context van de facturering. Als u het bereik aan één abonnement hebt ingesteld, wordt de reservering wordt vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het bereik op gedeelde, Azure komt overeen met de reservering naar resources die worden uitgevoerd in alle abonnementen binnen de context van de facturering instellen. De context van de facturering is afhankelijk van het abonnement dat u gebruikt de reservering kopen.
+ De reserveringskorting is van toepassing op virtuele machines, SQL databases, Azure Cosmos DB of andere bronnen die overeenkomen met uw reservering en binnen het reserveringsbereik worden uitgevoerd. Het bereik van een reservering kan worden voor één abonnement of voor alle abonnementen in de context van de facturering. Als u het bereik aan één abonnement hebt ingesteld, wordt de reservering wordt vergeleken met het uitvoeren van resources in het geselecteerde abonnement. Als u het bereik op gedeelde, Azure komt overeen met de reservering naar resources die worden uitgevoerd in alle abonnementen binnen de context van de facturering instellen. De context van de facturering is afhankelijk van het abonnement dat u gebruikt de reservering kopen.
 
 Het bereik van een reservering bijwerken:
 
@@ -122,6 +122,7 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md)
+- [Betaal vooruit voor Azure Cosmos DB-resources met Azure Cosmos DB gereserveerde capaciteit](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Betaal vooruit voor SUSE-software plannen uit de Azure-reserveringen](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Begrijpen hoe de VM-reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast](../billing/billing-understand-suse-reservation-charges.md)
