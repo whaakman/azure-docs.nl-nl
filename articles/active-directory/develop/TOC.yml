@@ -79,11 +79,11 @@ items:
           items:
           - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
             href: v1-oauth2-implicit-grant-flow.md
-          - name: 'OAuth 2.0: verificatiecode verlenen'
+          - name: OAuth 2.0-verificatiecode verlenen
             href: v1-protocols-oauth-code.md
-          - name: 'OAuth 2.0: namens-stroom'
+          - name: Namens-stroom voor OAuth 2.0
             href: v1-oauth2-on-behalf-of-flow.md
-          - name: 'OAuth 2.0: clientreferenties verlenen'
+          - name: Referenties voor OAuth 2.0-client verlenen
             href: v1-oauth2-client-creds-grant-flow.md
         - name: SAML 2.0
           items:
@@ -288,7 +288,7 @@ items:
             href: v2-oauth2-auth-code-flow.md
           - name: Namens-stroom voor OAuth 2.0
             href: v2-oauth2-on-behalf-of-flow.md
-          - name: 'OAuth 2.0: clientreferenties verlenen'
+          - name: Referenties voor OAuth 2.0-client verlenen
             href: v2-oauth2-client-creds-grant-flow.md
       - name: Id-tokens
         href: id-tokens.md
@@ -373,9 +373,9 @@ items:
     href: developer-support-help-options.md
   - name: Managed Service Identity voor Azure-resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: f43ff4699faaddb51a43ce6ea282c61b226729e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b7962d6083887a25f582471b6b3e405f3f8f9
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988515"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419663"

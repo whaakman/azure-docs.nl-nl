@@ -125,6 +125,8 @@ items:
     href: infrastructure-automation.md
   - name: Beveiliging en beleid
     href: security-policy.md
+  - name: Toestanden en levenscyclus
+    href: states-lifecycle.md
   - name: Bewaking
     href: monitor.md
   - name: Back-ups maken en herstellen
@@ -498,55 +500,7 @@ items:
       - name: Veelgestelde vragen
         href: migration-classic-resource-manager-faq.md
   - name: Problemen oplossen
-    items:
-    - name: SSH-verbindingen
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: Gedetailleerde stappen voor het oplossen van problemen
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Linux-VM-wachtwoord opnieuw instellen
-      href: reset-password.md
-    - name: Inzicht in opnieuw opstarten van een systeem
-      href: understand-vm-reboot.md
-    - name: Diagnostische gegevens over opstarten
-      href: boot-diagnostics.md
-    - name: Seriële console
-      href: serial-console.md
-      items:
-      - name: Seriële console GRUB/modus voor één gebruiker
-        href: serial-console-grub-single-user-mode.md
-      - name: Seriële console NMI/SysRq
-        href: serial-console-nmi-sysrq.md
-    - name: Toegang tot toepassingen
-      href: troubleshoot-app-connection.md
-    - name: Toewijzingsfouten
-      href: allocation-failure.md
-    - name: Toewijzingsfouten - klassieke VM
-      href: allocation-failure-classic.md
-    - name: Implementatieproblemen
-      href: troubleshoot-deploy-vm.md
-    - name: Een virtuele machine maken
-      href: troubleshoot-deployment-new-vm.md
-    - name: Apparaatnamen zijn gewijzigd
-      href: troubleshoot-device-names-problems.md
-    - name: Een virtuele machine opnieuw implementeren naar een nieuw Azure-knooppunt
-      href: redeploy-to-new-node.md
-    - name: Veelvoorkomende foutberichten
-      href: error-messages.md
-    - name: Toegang tot VM voor herstel
-      items:
-      - name: Azure-CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure Portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Gekoppelde VHD's
-      items:
-      - name: Fouten bij het verwijderen van een Storage-resource
-        href: storage-resource-deletion-errors.md
-      - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
-        href: unexpected-reboots-attached-vhds.md
-    - name: Netwerkbeperkingsfouten
-      href: troubleshooting-throttling-errors.md
+    href: ../troubleshooting/index.md
 - name: Naslaginformatie
   items:
   - name: Azure-CLI
@@ -583,9 +537,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Veelgestelde vragen
     href: faq.md
-ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9887abf2965b7122c6d0fda1954cc249d67f3380
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035586"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408994"
