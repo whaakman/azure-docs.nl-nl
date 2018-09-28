@@ -1,0 +1,120 @@
+items:
+- name: Probleemoplossing voor Azure-VM's
+  href: index.md
+- name: Toewijzingsfouten
+  items:
+  - name: Toewijzingsfouten
+    href: allocation-failure.md
+  - name: Toewijzingsfouten voor klassieke implementaties
+    href: allocation-failure-classic.md
+- name: Diagnostische gegevens over opstarten
+  href: boot-diagnostics.md
+- name: RDP
+  items:
+  - name: RDP opnieuw instellen
+    href: reset-rdp.md
+  - name: Problemen met RDP oplossen
+    href: troubleshoot-rdp-connection.md
+  - name: Gedetailleerde RDP-probleemoplossing
+    href: detailed-troubleshoot-rdp.md
+  - name: Specifieke fouten oplossen
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH
+  items:
+  - name: Problemen met SSH oplossen
+    href: troubleshoot-ssh-connection.md
+  - name: Gedetailleerde SSH-probleemoplossing
+    href: detailed-troubleshoot-ssh-connection.md
+- name: Veelvoorkomende foutberichten
+  href: error-messages.md
+- name: Prestatieproblemen met Windows-VM's
+  href: performance-diagnostics.md
+  items:
+  - name: PerfInsights gebruiken
+    href: how-to-use-perfInsights.md
+  - name: Extensie voor diagnostische gegevens over prestaties
+    href: performance-diagnostics-vm-extension.md
+- name: VM-agent voor Windows offline installeren
+  href: install-vm-agent-offline.md
+- name: Een virtuele machine opnieuw implementeren
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
+- name: VM-wachtwoord opnieuw instellen
+  items:
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: NIC opnieuw instellen
+  href: reset-network-interface.md
+- name: Een virtuele machine opnieuw starten of het formaat van een virtuele machine wijzigen
+  href: restart-resize-error-troubleshooting.md
+- name: Via de seriële console
+  items:
+  - name: Linux-VM
+    href: serial-console-linux.md
+    items:
+    - name: Seriële console GRUB/modus voor één gebruiker
+      href: serial-console-grub-single-user-mode.md
+    - name: Seriële console NMI/SysRq
+      href: serial-console-nmi-sysrq.md
+  - name: Windows-VM
+    href: serial-console-windows.md
+    items:
+    - name: CMD- en PowerShell-opdrachten
+      href: serial-console-cmd-ps-commands.md
+- name: Fouten bij het verwijderen van opslagresources
+  href: storage-resource-deletion-errors.md
+- name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
+  href: unexpected-reboots-attached-vhds.md
+- name: Windows-activeringsproblemen
+  href: troubleshoot-activation-problems.md
+- name: Problemen met toegang tot toepassingen
+  href: troubleshoot-app-connection.md
+- name: Nieuwe VM-implementaties
+  items:
+  - name: Linux
+    href: troubleshoot-deployment-new-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deployment-new-vm-windows.md
+- name: Problemen met implementaties oplossen
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+- name: Apparaatnamen zijn gewijzigd
+  href: troubleshoot-device-names-problems.md
+- name: Toegang tot VM voor herstel
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Azure Portal
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Azure Portal
+      href: troubleshoot-recovery-disks-portal-linux.md
+- name: BitLocker-fouten
+  href: troubleshoot-bitlocker-boot-error.md
+- name: Fouten in het bestandssysteem controleren
+  href: troubleshoot-check-disk-boot-error.md
+- name: Netwerkbeperkingsfouten
+  href: troubleshooting-throttling-errors.md
+- name: Geneste virtualisatie gebruiken
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Het opnieuw opstarten van systemen begrijpen
+  href: understand-vm-reboot.md
+ms.openlocfilehash: b00e785c3ae31171ce3189edd9cffe094bc71024
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410736"

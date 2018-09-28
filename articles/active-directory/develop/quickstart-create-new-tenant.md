@@ -1,6 +1,6 @@
 ---
-title: Een Azure AD-tenant verkrijgen | Microsoft Docs
-description: Een Azure Active Directory-tenant verkrijgen voor het registreren en maken van toepassingen.
+title: Een Azure Active Directory-tenant maken | Microsoft Docs
+description: Informatie over het maken van een Azure Active Directory-tenant voor het registreren en maken van toepassingen.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,34 +12,67 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1f866d3ee56b0c9a1e7a986d3ac951764b6a1cae
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: MT
+ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963931"
 ---
-# <a name="how-to-get-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant verkrijgen
+# <a name="quickstart-set-up-a-dev-environment"></a>Snelstart: een ontwikkelaarsomgeving instellen
 
-In Azure Active Directory (Azure AD) is een [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0) representatief voor een organisatie. Het is een toegewezen exemplaar van de Azure AD-service die een organisatie ontvangt en waarvan de organisatie de eigenaar is wanneer deze een relatie aangaat met Microsoft, bijvoorbeeld door zich te registreren voor een Microsoft-cloudservice zoals Azure, Microsoft Intune of Office 365. Elke Azure AD-tenant is uniek en werkt afzonderlijk van andere Azure AD-tenants. 
+Met het Microsoft Identity Platform kunnen ontwikkelaars apps bouwen voor een breed scala van aangepaste Microsoft 365-omgevingen en -identiteiten. Om aan de slag te gaan met het Microsoft Identity Platform hebt u toegang nodig tot een omgeving, ook wel een Azure AD-tenant genoemd, waarmee u apps kunt registreren en beheren. Daarnaast hebt u toegang nodig tot Microsoft 365-gegevens en moet u aangepaste beperkingen voor voorwaardelijke toegang en de tenant implementeren. 
 
-Een tenant bevat alle gebruikers in een bedrijf en de bijbehorende informatie: hun wachtwoorden, gebruikersprofielgegevens, machtigingen enzovoort. Het bevat ook groepen, toepassingen en andere informatie over een organisatie en de beveiliging.
+Een tenant vertegenwoordigt een organisatie. Een tenant is een toegewezen exemplaar van Azure AD dat een organisatie of app-ontwikkelaar ontvangt wanneer deze een relatie start met Microsoft, door zich bijvoorbeeld aan te melden voor Azure, Microsoft Intune of Microsoft 365. 
 
-Als u wilt dat Azure AD-gebruikers zich kunnen aanmelden bij uw toepassing, moet u uw toepassing registreren in een tenant van uzelf. Het maken van een Azure AD-tenant en het publiceren van een toepassing in deze tenant is **helemaal gratis**. U kunt er echter wel voor kiezen om te betalen voor bepaalde premium-functies in uw tenant. Veel ontwikkelaars maken verschillende tenants en toepassingen om te experimenten, te ontwikkelen, te faseren en te testen.
+Elke Azure AD-tenant is verschillend en gescheiden van andere Azure AD-tenants. Elke tenant heeft een eigen weergave van werk- en schoolidentiteiten, consumentidentiteiten (als het een Azure AD B2C-tenant betreft) en app-registraties. Met een app-registratie binnen uw tenant kunt u verificatie toestaan vanaf accounts alleen binnen uw tenants of alle tenants. 
 
-## <a name="use-an-existing-azure-ad-tenant"></a>Een bestaande Azure AD-tenant gebruiken
+## <a name="determining-environment-type"></a>Omgevingstype bepalen
 
-Veel ontwikkelaars hebben al tenants via services of abonnementen die zijn gekoppeld aan Azure AD-tenants, zoals via Office 365- of Azure-abonnementen. Om te zien of u al een tenant hebt, moet u zich aanmelden bij [Azure Portal](https://portal.azure.com) met het account dat u wilt gebruiken voor het beheren van uw toepassing en kijken wat er in de rechterbovenhoek wordt weergegeven over uw account. Als u een tenant hebt, wordt u automatisch aangemeld bij deze tenant en ziet u de naam van de tenant direct onder de accountnaam. Als u de muisaanwijzer op uw accountnaam houdt rechtsboven op de Azure Portal, ziet u uw naam, uw e-mailadres, directory en tenant-id (een GUID), en uw domein. Als uw account is gekoppeld aan meerdere tenants, kunt u de accountnaam selecteren om een menu te openen waarmee u kunt schakelen tussen de tenants. Elke tenant heeft zijn eigen tenant-id.
+Er zijn twee soorten omgevingen die u kunt maken. Welke u nodig hebt is uitsluitend gebaseerd op de typen gebruikers die u moet verifiëren met uw app.
+
+* Werk en school (Azure AD-accounts) of Microsoft-accounts (zoals outlook.com en live.com)
+* Socialemedia-accounts en lokale accounts (Azure AD B2C)
+
+De snelstart is verdeeld in twee scenario’s, afhankelijk van het type app dat u bouwt. Als u meer hulp nodig hebt bij het bepalen van een ID-type, raadpleegt u [Over het Microsoft Identity Platform](about-microsoft-identity-platform.md).
+
+## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Werk- en schoolaccounts of persoonlijke Microsoft-accounts
+
+### <a name="use-an-existing-tenant"></a>Een bestaande tenant gebruiken
+
+Veel ontwikkelaars hebben al tenants via services of abonnementen die zijn gekoppeld aan Azure AD-tenants, zoals via Microsoft 365- of Azure-abonnementen.
+
+1. Om te controleren of u al een tenant hebt, meld u zich aan bij [Azure Portal](https://portal.azure.com) met het account dat u wilt gebruiken voor het beheren van uw toepassing.
+1. Kijk in de rechterbovenhoek. Als u een tenant hebt, wordt u automatisch aangemeld en ziet u de naam van de tenant direct onder de accountnaam.
+   * Houd de muisaanwijzer op uw accountnaam rechtsboven in Azure Portal om uw naam, e-mailadres, directory en tenant-id (een GUID), en uw domein te zien.
+   * Als uw account is gekoppeld aan meerdere tenants, kunt u de accountnaam selecteren om een menu te openen waarmee u kunt schakelen tussen de tenants. Elke tenant heeft zijn eigen tenant-id.
 
 > [!TIP]
-> Als u de tenant-id wilt, kunt u deze informatie op meerdere manieren vinden. U kunt de muisaanwijzer over de accountnaam bewegen om de tenant-id te zien of u kunt **Azure Active Directory > Eigenschappen > Map-id** in Azure Portal selecteren.
+> Als u de tenant-id wilt zoeken, kunt u:
+* De muisaanwijzer op uw accountnaam houden om de directory/tenant-ID te zien, of
+* **Azure Active Directory > Eigenschappen > Directory-ID** selecteren in Azure Portal.
 
-Als er geen bestaande tenant is gekoppeld aan uw account, ziet u een GUID onder de accountnaam. U moet dan eerst [een nieuwe tenant maken](#create-a-new-azure-ad-tenant) voordat u bewerkingen kunt uitvoeren zoals het registreren van apps.
+Als er geen bestaande tenant is gekoppeld aan uw account, ziet u een GUID onder de accountnaam. U moet dan eerst een nieuwe tenant maken voordat u bewerkingen kunt uitvoeren zoals het registreren van apps. Daarvoor volgt u de stappen in het volgende gedeelte.
 
-## <a name="create-a-new-azure-ad-tenant"></a>Een nieuwe Azure AD-tenant maken
+### <a name="create-a-new-azure-ad-tenant"></a>Een nieuwe Azure AD-tenant maken
 
-Als u nog geen Azure AD-tenant hebt of een nieuwe wilt maken, kan dat met behulp van de [interface voor het maken van een map](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) in [Azure Portal](https://portal.azure.com). Dit duurt ongeveer een minuut en u kunt dan meteen naar uw nieuwe tenant navigeren.
+Als u nog geen Azure AD-tenant hebt of een nieuwe wilt maken voor ontwikkeling, kan dat met behulp van de [interface voor het maken van een map](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). U moet de volgende informatie opgeven voor het maken van de nieuwe tenant:
+
+- **Naam van de organisatie**
+- **Eerste domein**: dit wordt onderdeel van *. onmicrosoft.com. U kunt het domein later nog aanpassen. 
+- **Land of regio**
+
+## <a name="social-and-local-accounts"></a>Socialemedia-accounts en lokale accounts
+
+Om te beginnen met het bouwen van apps waarmee socialemedia-accounts en lokale accounts zich aanmelden, moet u een Azure AD B2C-tenant maken. Daarvoor volgt u de stappen in [een Azure AD B2C-tenant maken](../../active-directory-b2c/tutorial-create-tenant.md). 
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Probeer een snelstart voor het schrijven van code en begin met het verifiëren van gebruikers. 
+* Ga voor meer gedetailleerde codevoorbeelden naar het gedeelte **Zelfstudies** van de documentatie.
+* Wilt u uw app in de cloud implementeren? Lees dan [containers implementeren naar Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 

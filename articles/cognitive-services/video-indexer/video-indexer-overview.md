@@ -1,44 +1,57 @@
 ---
-title: Azure Video Indexer | Microsoft Docs
+title: Wat is Video Indexer?
+titlesuffix: Azure Cognitive Services
 description: Dit onderwerp geeft een overzicht van de service Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 07/25/2018
+ms.date: 09/15/2018
 ms.author: nolachar
-ms.openlocfilehash: f52c4af29d0c7de8b5edbe869640ffc5dddb5c5e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fd92e91989bd1a37626227b327d644c9d704ab6c
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397888"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983011"
 ---
-# <a name="what-is-video-indexer-preview"></a>Wat is Video Indexer? (preview)
+# <a name="what-is-video-indexer"></a>Wat is Video Indexer?
 
-Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service) en Azure Search. Gebruik de toepassing om met behulp van technologieën voor kunstmatige intelligentie de volgende inzichten op te halen uit video's:
-
-- **Automatische taaldetectie**: de taal van een video kan automatisch worden vastgesteld door Video Indexer. Automatische taaldetectie ondersteunt momenteel Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans en Russisch. De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
-- **Audiotranscriptie**: Video Indexer ondersteunt spraak-naar-tekst, waardoor klanten een transcriptie kunnen krijgen van de gesproken tekst. Ondersteunde talen zijn onder andere Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Portugees (Brazilië), Japans en Russisch (met in de toekomst nog veel meer talen). 
-- **Gezichtstracering en -detectie**: technologieën voor gezichtsdetectie maken het mogelijk om gezichten te detecteren in een video. De gedetecteerde gezichten worden vergeleken met een database met beroemdheden om vast te stellen of er beroemdheden aanwezig zijn in de video. Klanten kunnen ook gezichten labelen die niet worden herkend als een beroemdheid. Video Indexer bouwt op basis van die labels een gezichtsmodel op en kan die gezichten dan herkennen in video's die in de toekomst worden ingediend.
-- **Indexering van sprekers**: Video Indexer biedt de mogelijkheid om aan te geven en te begrijpen welke spreker welke tekst heeft uitgesproken en wanneer.
-- **Visuele tekstherkenning**: met deze technologie kan Video Indexer tekst ophalen die wordt weergegeven in de video's.  
-- **Detectie van stemactiviteit**: deze functie stelt Video Indexer in staat om achtergrondgeluid te onderscheiden van stemactiviteit. 
-- **Scènedetectie**: Video Indexer biedt de mogelijkheid om een visuele analyse uit te voeren van de video om te bepalen wanneer een scène verandert in een video.
-- **Extractie van sleutelframes**: Video Indexer detecteert automatisch sleutelframes in een video. 
-- **Sentimentanalyse**: Video Indexer voert sentimentanalyse uit op de tekst die is geëxtraheerd met behulp van spraak-naar-tekst en optische tekenherkenning en biedt die informatie aan in de vorm van positieve, negatief of neutrale sentimenten, samen met tijdcodes.
-- **Vertaling**: Video Indexer biedt de mogelijkheid om audiotranscripties te vertalen van de ene taal naar de andere taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Portugees (Brazilië), Japans en Russisch. Zodra de vertaling is voltooid, kan de gebruiker in de videospeler ondertiteling in andere talen weergeven.
-- **Detectie van ongepaste inhoud**: deze technologie maakt het mogelijk om de aanwezigheid van expliciet en/of ongepast materiaal in video's te detecteren en kan worden gebruikt voor het filteren van inhoud. 
-- **Extractie van trefwoorden**: Video Indexer extraheert trefwoorden op basis van de transcriptie van de gesproken woorden en de tekst die is herkend door visuele tekstherkenning.
-- **Labels**: Video Indexer biedt labels voor visuele objecten zoals een kat, hond, tafel of auto, evenals acties zoals staan, rennen of vliegen.
-- **Merken**: Video Indexer extraheert merken op basis van de transcriptie van de gesproken woorden en de tekst die is herkend door visuele tekstherkenning.
+Azure Video Indexer is een cloudtoepassing die is gebouwd met behulp van Azure Media Analytics, Azure Search, Cognitive Services (zoals de Face-API, Microsoft Translator, de Computer Vision-API en Custom Speech Service). Hiermee kunt u inzichten ophalen uit uw video's met Video Indexer-modellen die hieronder worden beschreven:
+ 
+- **Automatische taaldetectie**: identificeert automatisch de meest gesproken taal. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Russisch en Portugees (Brazilië). De taal wordt standaard ingesteld op het Engels als de taal niet kan worden gedetecteerd.
+- **Audiotranscriptie**: converteert spraak naar tekst in 10 talen en kan worden uitgebreid. De volgende talen worden ondersteund: Engels, Spaans, Frans, Duits, Italiaans, Chinees (vereenvoudigd), Japans, Arabisch, Russisch en Portugees (Brazilië).
+- **Ondertiteling**: hiermee maakt u ondertiteling in drie indelingen: VTT, TTML, SRT.
+- **Verwerking van twee kanalen**: detecteert automatisch afzonderlijke transcripten en voegt ze samen in één tijdlijn.
+- **Ruisvermindering**: schoont telefoonaudio of luide opnamen op (gebaseerd op Skype-filters).
+- **Transcriptaanpassing (CRIS)**: traint uitgebreide aangepaste spraak-naar-tekst-modellen zodat ze branchespecifieke transcripten maken en voert deze uit.
+- **Sprekersopsomming**: detecteert en begrijpt welke spreker welke woorden heeft gezegd en wanneer.
+- **Statistieken van de spreker**: biedt statistieken voor de spraakverhouding van sprekers.
+- **Visuele tekstherkenning (OCR)**: extraheert de tekst die visueel wordt weergegeven in de video.
+- **Extractie van sleutelframes**: detecteert stabiele sleutelframes in een video.
+- **Gevoelsanalyse**: identificeert positieve, negatieve en neutrale gevoelens uit visuele tekst en gesproken woorden.
+- **Visueel inhoudstoezicht**: detecteert inhoud voor volwassenen en/of ongepaste visuele elementen.
+- **Trefwoorden extraheren**: trefwoorden worden geëxtraheerd uit de visuele tekst en spraak.
+- **Identificatie van labels**: identificeert visuele objecten en acties die worden weergegeven.
+- **Merken extraheren**: merken worden geëxtraheerd uit de visuele tekst en spraak.
+- **Gezichtsdetectie**: detecteert en groepeert gezichten die worden weergegeven in de video.
+- **Miniatuurextractie voor gezichten ('beste gezicht')**: identificeert automatisch het beste vastgelegde gezicht in elke groep van gezichten (gebaseerd op de kwaliteit, de grootte en positie) en extraheert deze als een afbeeldingsasset.
+- **Beroemdheden identificeren**: herkent beroemdheden in de video op basis van een database van 1 miljoen beroemdheden. De bron is afkomstig van IMDB, Wikipedia en belangrijke LinkedIn-influencers.
+- **Aangepaste gezichtsidentificatie**: herkent gezichten in de video op basis van een aangepast model dat is getraind voor het specifieke account.
+- **Tekstueel inhoudsbeheer**: detecteert expliciete tekst in het audiotranscript.
+- **Scènedetectie**: herkent wanneer een scène wijzigt in de video.
+- **Detectie van zwarte frames**: identificeert zwarte frames in de video.
+- **Audio-effecten**: identificeert audio-effecten, zoals applaus, spraak en stilte.
+- **Onderwerpdeductie**: maakt een deductie van de belangrijkste onderwerpen uit de transcripten. De [IPTC](https://iptc.org/standards/media-topics/)-taxonomie van het eerste niveau is opgenomen.
+- **Detectie van emoties**: identificeert emoties op basis van hints in de spraak en audio. De emotie kan vreugde, verdriet, boosheid of angst zijn.
+- **Artefacten**: extraheert een grote verscheidenheid aan 'extra gedetailleerde' artefacten voor elk van de modellen.
+- **Vertaling**: maakt vertalingen van het audiotranscript in 54 verschillende talen.
 
 Wanneer Video Indexer klaar is met de verwerking en analyse, kunt u de video-inzichten bekijken, cureren, doorzoeken en publiceren.
 
-De Video Indexer-service is geschikt voor een groot aantal toepassingen, ongeacht of u inhoudsbeheerder of ontwikkelaar bent. Inhoudsbeheerders kunnen de webportal van Video Indexer gebruiken om de voordelen van de service te benutten zonder één regel code te schrijven. Zie [deze zelfstudie over Video Indexer om snel aan de slag te gaan met de portal](video-indexer-get-started.md). Ontwikkelaars kunnen API's gebruiken om inhoud op schaal te verwerken. Zie [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md) voor meer informatie. De service stelt klanten ook in staat om met behulp van widgets videostreams en geëxtraheerde inzichten te publiceren in hun eigen toepassingen. Zie [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md) voor meer informatie.
+De Video Indexer-service is geschikt voor een groot aantal toepassingen, ongeacht of u inhoudsbeheerder of ontwikkelaar bent. Inhoudsbeheerders kunnen de webportal van Video Indexer gebruiken om de voordelen van de service te benutten zonder één regel code te schrijven. Zie [deze zelfstudie over Video Indexer](video-indexer-get-started.md) om aan de slag te gaan met de website. Ontwikkelaars kunnen API's gebruiken om inhoud op schaal te verwerken. Zie [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md) voor meer informatie. De service stelt klanten ook in staat om met behulp van widgets videostreams en geëxtraheerde inzichten te publiceren in hun eigen toepassingen. Zie [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md) voor meer informatie.
 
 U kunt zich registreren voor de service met behulp van een bestaand account van AAD, LinkedIn, Facebook, Google of MSA. Zie [Aan de slag](video-indexer-get-started.md) voor meer informatie.
 
@@ -58,6 +71,6 @@ Raadpleeg dit [blog](http://aka.ms/videoindexerblog) voor meer informatie.
 
 U kunt aan de slag met Video Indexer. Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Aan de slag met de Video Indexer-portal](video-indexer-get-started.md)
+- [Aan de slag met de Video Indexer-website](video-indexer-get-started.md)
 - [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md)
 - [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md)

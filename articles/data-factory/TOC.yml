@@ -117,6 +117,8 @@ items:
     href: concepts-pipeline-execution-triggers.md
   - name: Integratie-runtime
     href: concepts-integration-runtime.md
+  - name: Inzicht krijgen in prijzen
+    href: pricing-concepts.md
   - name: Naamgevingsregels
     href: naming-rules.md
 - name: Handleidingen
@@ -125,7 +127,7 @@ items:
     items:
     - name: Visueel gegevensfabrieken maken
       href: author-visually.md
-    - name: Continue integratie en implementatie
+    - name: Continue integratie en levering
       href: continuous-integration-deployment.md
     - name: Iteratieve ontwikkeling en foutopsporing
       href: iterative-development-debugging.md
@@ -223,9 +225,6 @@ items:
       href: connector-odbc.md
     - name: Office 365
       href: connector-office-365.md
-      items:
-      - name: Overzicht van Office 365-gegevens laden
-        href: load-office-365-data.md
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Eloqua
@@ -297,6 +296,8 @@ items:
       href: load-azure-sql-data-warehouse.md
     - name: Data Lake Storage Gen1 laden
       href: load-azure-data-lake-store.md
+    - name: Office 365-gegevens laden
+      href: load-office-365-data.md
     - name: Gepartitioneerde gegevens lezen of schrijven
       href: how-to-read-write-partitioned-data.md
     - name: Ondersteuning voor indeling en compressie
@@ -454,9 +455,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Ondersteuningsopties
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1c19765dfc3912e8c0899ec7020668fbe0d454ba
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 713daeb450abc89009b4a93b3e725146e7489fd5
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367689"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395658"

@@ -16,12 +16,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2c7c1e71830eb3fe4f7240195dac828ac9dfed3a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127472"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951558"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Dashboards van Log Analytics-gegevens maken en delen
 
@@ -56,7 +56,7 @@ U wordt gevraagd een abonnement en resourcegroep te kiezen waarnaar uw dashboard
 
 Vanuit de portal Zoeken in logboeken van Azure Portal kunt u eenvoudige query's van één regel maken. U kunt de portal Zoeken in logboeken gebruiken zonder een externe portal te starten. Vanuit deze portal kunt u tal van functies met logboekzoekopdrachten uitvoeren. Zo kunt u waarschuwingsregels en computergroepen maken en de resultaten van de query exporteren. 
 
-De [portal Advanced Analytics](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) is een speciale portal die geavanceerde functionaliteit biedt die niet beschikbaar is in de portal Zoeken in logboeken. Voorbeelden van functies zijn de mogelijkheid om een query van meerdere regels te bewerken, code selectief uit te voeren, contextafhankelijke Intellisense en slimme analyse. In de portal Advanced Analytics maakt u een grafische prestatieweergave en slaat u deze op voor een toekomstige zoekopdracht. U maakt de weergave vast aan het gedeelde dashboard dat u eerder hebt gemaakt.   
+De [Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)-portal is een speciale portal die geavanceerde functionaliteit biedt die niet beschikbaar is in de portal Zoeken in logboeken. Voorbeelden van functies zijn de mogelijkheid om een query van meerdere regels te bewerken, code selectief uit te voeren, contextafhankelijke Intellisense en slimme analyse. In de portal Advanced Analytics maakt u een grafische prestatieweergave en slaat u deze op voor een toekomstige zoekopdracht. U maakt de weergave vast aan het gedeelde dashboard dat u eerder hebt gemaakt.   
 
 U start de portal Advanced Analytics via een koppeling in de portal Zoeken in logboeken.<br> ![De portal Advanced Analytics starten](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

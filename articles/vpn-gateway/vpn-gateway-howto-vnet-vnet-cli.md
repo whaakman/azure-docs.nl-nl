@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 796f63a77e90c729edae7b11adf3c7be807db5f4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670908"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971957"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
 
@@ -99,7 +99,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 
 * VNet-naam: TestVNet1
 * Resourcegroep: TestRG1
-* Locatie: VS - oost
+* Locatie: US - oost
 * TestVNet1: 10.11.0.0/16 en 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -118,7 +118,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Resourcegroep: TestRG4
-* Locatie: VS - west
+* Locatie: US - west
 * GatewayName: VNet4GW
 * Openbare IP: VNet4GWIP
 * VPNType: op route gebaseerd

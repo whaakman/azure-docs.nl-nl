@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 30dbdff584f1bea955072e96a5e0f03cfe4c92c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963727"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410201"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -71,7 +71,7 @@ Kennis van Azure en Azure Stack is vereist. Beginnen met de volgende onderwerpen
 
  -  [Azure Stack-basisbegrippen](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
- -  [Azure Stack hybride CI/CD-handleiding](/azure-stack-solution-pipeline.md)
+ -  [Azure Stack hybride CI/CD-handleiding](/azure/azure-stack/user/azure-stack-solution-pipeline)
 
 **Azure**
 

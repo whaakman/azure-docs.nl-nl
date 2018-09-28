@@ -19,12 +19,14 @@
 #### [Azure-toepassingen: beheerde toepassingen](./marketplace-managed-apps.md)
 #### [SaaS-apps](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
+#### [IoT Edge-modules](./iot-edge-module.md) 
 #### [Adviesservices](./consulting-services.md)  
 #### [Publicatiehandleiding voor Office 365, Dynamics 365 en Power BI](./appsource-offer-publishing-guide.md)
 #### [Een Microsoft AppSource- en Azure Marketplace-vermelding inschakelen met Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
+#### [Validatie van Marketplace-inhoud](./marketplace-criteria-content-validation.md)
 
 ### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
 

@@ -1,111 +1,112 @@
 ---
-title: Gebruik Azure Video Indexer-API | Microsoft Docs
-description: Dit artikel leest hoe u aan de slag met behulp van de Video Indexer-API.
+title: 'Zelfstudie: de Video Indexer-API gebruiken'
+titlesuffix: Azure Cognitive Services
+description: Met dit artikel leert u hoe u aan de slag gaat met de Video Indexer-API.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: bd0f9e01257bec2d39ef0c8e13b68c4a7a13637d
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542919"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985562"
 ---
-# <a name="use-azure-video-indexer-api"></a>Gebruik Azure Video Indexer-API
+# <a name="tutorial-use-the-video-indexer-api"></a>Zelfstudie: de Video Indexer-API gebruiken
 
 > [!Note]
-> De Video Indexer-API V1 is op 1 augustus 2018 afgeschaft. U moet nu de v2-API voor Video Indexer gebruiken. <br/>Als u wilt ontwikkelen met Video Indexer v2-API's, Zie de instructies [hier](https://api-portal.videoindexer.ai/). 
+> De Video Indexer V1-API is afgeschaft op 1 augustus 2018. U moet nu de Video Indexer v2-API gebruiken. <br/>Bekijk [hier](https://api-portal.videoindexer.ai/) de instructies voor ontwikkeling met de Video Indexer v2-API's. 
 
-Video Indexer consolideert verschillende audio en video kunstmatige intelligentie (AI)-technologieën die worden aangeboden door Microsoft in één geïntegreerde service, wat het ontwikkelen eenvoudiger. De API's zijn ontworpen voor ontwikkelaars zich richten op de Media AI-technologieën gebruiken zonder u zorgen te maken over schalen, globale bereiken inschakelen, beschikbaarheid en betrouwbaarheid van cloud-platform. De API kunt u uw bestanden uploaden, ophalen, gedetailleerde inzichten in video's, URL's van inzicht en de ingesloten speler widgets ophalen als u wilt deze insluiten in uw toepassing en andere taken.
+Video Indexer integreert een aantal audiovisuele technologieën voor kunstmatige intelligentie (AI) die Microsoft in een enkele geïntegreerde service aanbiedt, wat de ontwikkeling eenvoudiger maakt. De API's zijn ontworpen om het ontwikkelaars mogelijk te maken zich te concentreren op het verbruik van Media AI-technologieën, zonder zich druk te hoeven maken over schaal, wereldwijd bereik, beschikbaarheid en betrouwbaarheid van cloud-platforms. U kunt de API gebruiken om uw bestanden te uploaden, gedetailleerde video-inzichten te krijgen, URL's van inzicht- en spelerwidgets te krijgen om deze in te sluiten in uw toepassing of voor andere taken.
 
-Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor de minuten geïndexeerd, evenals de Azure Media Services account gerelateerde kosten in rekening gebracht. 
+Wanneer u een Video Indexer-account maakt, kunt u kiezen uit een gratis proefversie (waarmee u een bepaald aantal gratis minuten indexering krijgt) of een betaalde optie (zonder quotumlimiet). Bij de gratis proefversie biedt Video Indexer websitegebruikers maximaal 600 minuten aan gratis indexering en API-gebruikers maximaal 2400 minuten gratis indexering. Met de betaalde versie maakt u een Video Indexer-account dat is [gekoppeld aan uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt zowel voor de geïndexeerde minuten als voor kosten verbonden aan het Azure Media Services-account. 
 
-Dit artikel wordt beschreven hoe de ontwikkelaars kunnen profiteren van de [Video Indexer-API](https://api-portal.videoindexer.ai/).
+In dit artikel wordt uitgelegd hoe ontwikkelaars kunnen profiteren van de [Video Indexer-API](https://api-portal.videoindexer.ai/).
 
-## <a name="subscribe-to-the-api"></a>Abonneer u op de API
+## <a name="subscribe-to-the-api"></a>Abonneren op de API
 
-1. Aanmelden bij [Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/).
+1. Meld u aan bij de [Video Indexer-ontwikkelaarsportal](https://api-portal.videoindexer.ai/).
     
     ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
-    > * U moet de dezelfde provider die u hebt gebruikt toen u zich hebt geregistreerd voor Video Indexer gebruiken.
-    > * Persoonlijke Google en Microsoft (outlook/live) accounts kunnen alleen worden gebruikt voor proefaccounts. Accounts die zijn verbonden met Azure vereist Azure AD.
-    > * Er mag slechts één actieve account per E-Mail. Als een gebruiker probeert om aan te melden met user@gmail.com voor LinkedIn en daarna met user@gmail.com voor Google de later een foutpagina weergeven, dat de gebruiker al bestaat.
+    > * U moet dezelfde provider gebruiken als voor het aanmelden bij Video Indexer.
+    > * Persoonlijke Google- en Microsoft-accounts (Outlook/Live) kunnen alleen voor proefaccounts worden gebruikt. Accounts die gekoppeld zijn met Azure vereisen Azure Active Directory.
+    > * U kunt slechts één actief account per e-mailadres gebruiken. Als een gebruiker zich met user@gmail.com voor LinkedIn probeert aan te melden en daarna met user@gmail.com voor Google, zal de laatste een foutpagina weergeven, met de tekst dat de gebruiker al bestaat.
 
-2. Zich abonneren.
+2. Abonneer u.
 
-    Selecteer de [producten](https://api-portal.videoindexer.ai/products) tabblad. Vervolgens selecteert u autorisatie en abonneren. 
+    Selecteer het tabblad [Producten](https://api-portal.videoindexer.ai/products). Selecteer daarna Autorisatie en abonneren. 
     
     ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
-    > Nieuwe gebruikers worden automatisch geabonneerd op autorisatie.
+    > Nieuwe gebruikers worden automatisch geabonneerd op Autorisatie.
     
-    Zodra u zich hebt geabonneerd, kunt u zich om uw abonnement en de primaire en secundaire sleutels te bekijken. De sleutels moeten worden beveiligd. De sleutels mag alleen worden gebruikt door de servercode. Deze mag niet zijn beschikbaar op de client (.js, .html, enz.).
+    Wanneer u zich abonneert, kunt u uw abonnement en uw primaire en secundaire sleutels zien. De sleutels moeten beveiligd zijn. De sleutels mogen alleen door uw servercode gebruikt worden. Ze mogen niet aan clientzijde beschikbaar zijn (.js, .html, enzovoort).
 
     ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api03.png)
 
-## <a name="obtain-access-token-using-the-authorization-api"></a>Met behulp van de autorisatie-API-toegangstoken verkrijgen
+## <a name="obtain-access-token-using-the-authorization-api"></a>Tokens verkrijgen met de Authorization-API
 
-Zodra u geabonneerd op de autorisatie-API, kunt u zich aan toegangstokens verkrijgen. Deze toegangstokens worden gebruikt voor verificatie op basis van de Operations-API. 
+Zodra u geabonneerd bent op de Authorization-API, kunt u toegangstokens verkrijgen. Deze toegangstokens worden gebruikt voor verificatie op basis van de Operations-API. 
 
-Elke aanroep naar de Operations-API moet worden gekoppeld aan een toegangstoken die overeenkomt met het bereik van de autorisatie van de aanroep.
+Elke aanroep naar de Operations-API moet worden gekoppeld aan een toegangstoken dat overeenkomt met het autorisatiebereik van de aanroep.
 
-- Het gebruikersniveau van de - toegangsniveau gebruikerstokens kunnen u bewerkingen uitvoeren op de **gebruiker** niveau. Bijvoorbeeld: get-gekoppelde accounts.
-- Accountniveau – account toegangsniveau van de tokens kunnen u bewerkingen uitvoeren op de **account** niveau of de **video** niveau. Bijvoorbeeld video uploaden, lijst met alle video's, krijg inzichten in video's, enzovoort.
-- Videoniveau – toegangsniveau van de video-tokens kunnen u bewerkingen uitvoeren op een specifieke **video**. Bijvoorbeeld: get inzichten in video's, ondertiteling downloaden, krijg widgets, enzovoort. 
+- Gebruikersniveau: met toegangstokens op gebruikersniveau kunt u bewerkingen uitvoeren op het **gebruikersniveau**. Hiermee kunt u bijvoorbeeld gekoppelde accounts ophalen.
+- Accountniveau: met toegangstokens op accountniveau kunt u bewerkingen uitvoeren op het **accountniveau** of het **videoniveau**. Hiermee kunt u bijvoorbeeld een video uploaden, een lijst maken met alle video's, inzichten krijgen in video's, enzovoort.
+- Videoniveau: met toegangstokens op videoniveau kunt u bewerkingen uitvoeren op een specifieke **video**. Hiermee kunt u bijvoorbeeld inzichten in een video krijgen, ondertiteling downloaden, widgets ophalen, enzovoort. 
 
-U kunt bepalen of deze tokens alleen-lezen zijn of ze bewerken door op te geven toestaan **bewerken = true/false**.
+U kunt bepalen of deze tokens alleen-lezen zijn of dat ze bewerkt kunnen worden door **allowEdit=true/false** op te geven.
 
-Voor de meeste scenario's voor server-naar-server, wordt u waarschijnlijk dezelfde gebruiken **account** token omdat hierin beide **account** operations en **video** bewerkingen. Echter, als u van plan bent om te maken van de client-side-aanroepen met Video Indexer (bijvoorbeeld van javascript), u wilt gebruiken een **video** toegangstoken om te voorkomen dat clients de toegang tot het gehele account. Dat is ook de reden dat wanneer VideoIndexer clientcode insluiten in uw client (bijvoorbeeld met behulp van **ophalen Insights Widget** of **Player Widget ophalen**) moet u een **video**toegangstoken.
+Voor de meeste scenario's van server naar server, moet u waarschijnlijk hetzelfde **accounttoken** gebruiken omdat hierin zowel **accountbewerkingen** als **videobewerkingen** zijn opgenomen. Als u echter van plan bent om aanroepen van de clientzijde te doen met Video Indexer (bijvoorbeeld vanuit JavaScript), kunt u het best een **videotoegangstoken** gebruiken om te voorkomen dat clients toegang krijgen tot het gehele account. Dat is ook de reden dat wanneer u Video Indexer-clientcode insluit in uw client (bijvoorbeeld met behulp van **Inzichtenwidget ophalen** of **Spelerwidget ophalen**), u een **videotoegangstoken** moet opgeven.
 
-Dingen om eenvoudiger te maken, kunt u de **autorisatie** API > **GetAccounts** ophalen van uw accounts zonder het verkrijgen van een gebruiker token eerst. U kunt ook vragen om op te halen van de accounts met behulp van geldige tokens, zodat u kunt het overslaan van een extra aanroep van een account-token ophalen.
+Om het eenvoudiger te maken, kunt u **Authorization-API** > **GetAccounts** gebruiken om uw accounts op te halen zonder eerst een gebruikerstoken te verkrijgen. U kunt verzoeken om de accounts op te halen met behulp van geldige tokens, zodat u een extra aanroep om een accounttoken op te halen kunt overslaan.
 
-Toegangstokens verlopen na 1 uur. Zorg ervoor dat uw token geldig is voordat u met behulp van de Operations-API. Als is verlopen, de autorisatie-API voor het ophalen van een nieuw toegangstoken aanroepen.
+Toegangstokens verlopen na één uur. Zorg ervoor dat uw token geldig is voordat u de Operations-API gebruikt. Als uw toegangstoken is verlopen, gebruikt u de Authorization-API om een nieuwe op te halen.
  
-U bent klaar om te integreren met de API. Zoek [de gedetailleerde beschrijving van elke Video Indexer REST-API](http://api-portal.videoindexer.ai/).
+U bent nu klaar om te integreren met de API. Zoek [de gedetailleerde beschrijving van elke Video Indexer-REST API](http://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Locatie
 
-Alle bewerking API's vereist een locatieparameter, waarmee wordt aangegeven van de regio die de aanroep moet worden gestuurd en in het account is gemaakt.
+Alle API's voor bewerking vereisen een locatieparameter, waarmee de regio wordt aangegeven waar de aanroep naar moet worden gestuurd en waarin het account is gemaakt.
 
-De waarden die worden beschreven in de volgende tabel zijn van toepassing. De **Param waarde** is de waarde die u als doorgeven met behulp van de API.
+De waarden die worden beschreven in de volgende tabel zijn van toepassing. De **Parameterwaarde** is de waarde die u doorgeeft met behulp van de API.
 
-|**Naam**|**Waarde van parameter**|**Beschrijving**|
+|**Naam**|**Parameterwaarde**|**Beschrijving**|
 |---|---|---|
-|Proefversie|proefversie|Voor proefaccounts gebruikt.|
-|US - west|westus2|Gebruikt voor de regio van Azure VS-West 2.|
-|Europa - noord |northeurope|Voor de regio Noord-Europa Azure gebruikt.|
-|Azië - oost|eastasia|Gebruikt voor de regio Oost-Azië van Azure.|
+|Proefversie|trial|Wordt gebruikt voor proefaccounts.|
+|US - west|westus2|Wordt gebruikt voor de Azure-regio US - west 2.|
+|Europa - noord |northeurope|Wordt gebruikt voor de Azure-regio Europa - noord.|
+|Azië - oost|eastasia|Wordt gebruikt voor de Azure-regio Azië - oost.|
 
 ## <a name="account-id"></a>Account-id 
 
-De Account-ID-parameter is vereist in alle operationele API-aanroepen. Account-ID is een GUID die kan worden verkregen in een van de volgende manieren:
+De parameter Account-id is vereist in alle operationele API-aanroepen. Account-id is een GUID die kan worden verkregen op een van de volgende manieren:
 
-* Gebruik de **Video Indexer-website** om op te halen van de Account-ID:
+* Gebruik de **Video Indexer-website** om de account-id op te halen:
 
-    1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
-    2. Blader naar de **instellingen** pagina.
-    3. Kopieer de account-ID.
+    1. Ga naar de [Video Indexer](https://www.videoindexer.ai/)-website en meld u aan.
+    2. Ga naar de pagina **Instellingen**.
+    3. Kopieer de account-id.
 
         ![Account-id](./media/video-indexer-use-apis/account-id.png)
 
-* Gebruik **Video Indexer-Ontwikkelaarsportal** om op te halen via een programma de Account-ID.
+* Gebruik de **Video Indexer-ontwikkelaarsportal** om de account-id programmatisch op te halen.
 
-    Gebruik de [accounts ophalen](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    Gebruik de API [Accounts ophalen](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?).
     
     > [!TIP]
-    > U kunt de toegangstokens voor de accounts genereren door te definiëren `generateAccessTokens=true`.
+    > U kunt de toegangstokens voor de accounts genereren door `generateAccessTokens=true` te definiëren.
     
-* Haal de account-ID van de URL van een pagina van de speler in uw account.
+* Haal de account-id op uit de URL van een pagina van de speler in uw account.
 
-    Wanneer u een video bekijkt, de ID wordt weergegeven na de `accounts` sectie en voordat de `videos` sectie.
+    Wanneer u een video bekijkt, wordt de id weergegeven na de sectie `accounts` en voor de sectie `videos`.
 
     ```
     https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
@@ -113,17 +114,17 @@ De Account-ID-parameter is vereist in alle operationele API-aanroepen. Account-I
 
 ## <a name="recommendations"></a>Aanbevelingen
 
-Deze sectie vindt u enkele aanbevelingen bij het gebruik van Video Indexer-API.
+In deze sectie vindt u enkele aanbevelingen bij het gebruik van de Video Indexer-API.
 
-- Als u van plan bent een video kunt uploaden, is het raadzaam om het bestand in een openbaar netwerklocatie (bijvoorbeeld OneDrive). Haal de koppeling naar de video en geef de URL als de parameter van de bestand uploaden. 
+- Als u van plan bent een video te uploaden, is het raadzaam om het bestand in een openbare netwerklocatie te plaatsen (bijvoorbeeld OneDrive). Haal de link naar de video op en geef de URL op als de parameter van het uploadbestand. 
 
-    De URL die is opgegeven met Video Indexer moet verwijzen naar een media (audio of video)-bestand. Sommige van de koppelingen die worden gegenereerd door OneDrive zijn voor een HTML-pagina die het bestand bevat. Een eenvoudige verificatie voor de URL worden kan te plakken in een browser – als het bestand begonnen met het downloaden, is het waarschijnlijk een goede URL. Als de browser wordt gerenderd enkele visualisatie, is het waarschijnlijk niet een koppeling naar een bestand, maar een HTML-pagina.
+    De URL die is opgegeven met Video Indexer moet verwijzen naar een mediabestand (audio of video). Sommige links die worden gegenereerd door OneDrive zijn voor een HTML-pagina die het bestand bevat. U kunt de URL eenvoudig verifiëren door deze in een browser te plakken. Als het bestand wordt gedownload, is het waarschijnlijk een goede URL. Als de browser een visualisatie weergeeft, is het waarschijnlijk niet een link naar een bestand, maar naar een HTML-pagina.
     
-- Als u de API die inzichten in video's opgehaald voor de opgegeven video aanroepen, krijgt u een gedetailleerde JSON-uitvoer als de inhoud van de reactie. [Informatie over de geretourneerde JSON in dit onderwerp](video-indexer-output-json.md).
+- Als u de API die video-inzichten ophaalt voor de opgegeven video aanroept, krijgt u gedetailleerde JSON-uitvoer als resultaat. [Informatie over de geretourneerde JSON in dit onderwerp](video-indexer-output-json.md).
 
 ## <a name="code-sample"></a>Codevoorbeeld
 
-De volgende C#-codefragment toont het gebruik van alle de Video Indexer-API's samen.
+Het volgende C#-codefragment toont het gebruik van alle Video Indexer-API's samen.
 
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
@@ -221,6 +222,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Details van de JSON-uitvoer onderzoeken](video-indexer-output-json.md).
+[Details van de JSON-uitvoer bekijken](video-indexer-output-json.md)
 
-[Video Indexer-overzicht](video-indexer-overview.md)
+[Overzicht van Video Indexer](video-indexer-overview.md)
