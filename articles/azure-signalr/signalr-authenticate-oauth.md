@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667647"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974320"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Zelfstudie: Verificatie van Azure SignalR-service
-
-De Microsoft Azure SignalR-service is momenteel beschikbaar in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Deze zelfstudie is gebaseerd op de toepassing voor een chatruimte die wordt beschreven in de snelstart. Als u [Een chatruimte maken met de SignalR-service](signalr-quickstart-dotnet-core.md) nog niet voltooid, moet u dat eerst doen. 
 
@@ -396,7 +394,7 @@ In dit gedeelte gaat u echte verificatie inschakelen door het kenmerk `Authorize
 
 In dit gedeelte gebruikt u de opdrachtregelinterface (CLI) van Azure vanuit de Azure Cloud-Shell om een nieuwe [Azure-web-app](https://docs.microsoft.com/azure/app-service/) te maken voor het hosten van uw ASP.NET-toepassing in Azure. De web-app wordt geconfigureerd voor het gebruik van een lokale Git-implementatie. De web-app wordt daarnaast geconfigureerd met de verbindingsreeks voor SignalR, geheimen van de GitHub OAuth-app en een implementatiegebruiker.
 
-In de stappen in dit gedeelte wordt de extensie *signalr* voor de Azure CLI gebruikt. Voer de volgende opdracht uit om de extensie *signalr* voor Azure CLI 2.0 te installeren:
+In de stappen in dit gedeelte wordt de extensie *signalr* voor de Azure CLI gebruikt. Voer de volgende opdracht uit om de extensie *signalr* voor Azure CLI te installeren:
 
 ```azurecli-interactive
 az extension add -n signalr

@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: bijhouden, wijzigingen, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120582"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995248"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Problemen met wijzigingen in uw omgeving oplossen
 
@@ -32,6 +32,7 @@ In deze zelfstudie leert u het volgende:
 > * Verbinding met activiteitenlogboek inschakelen
 > * Een gebeurtenis activeren
 > * Wijzigingen weergeven
+> * Waarschuwingen configureren
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,7 +42,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * Een [Automation-account](automation-offering-get-started.md) voor opslag van de Watcher- en actie-runbooks en de Watcher-taak.
 * Een [virtuele machine](../virtual-machines/windows/quick-create-portal.md) voor de onboarding.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij Azure Portal op http://portal.azure.com.
 
@@ -57,7 +58,7 @@ Als u ![Wijzigingen bijhouden inschakelt](./media/automation-tutorial-troublesho
 Een [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-werkruimte wordt gebruikt om gegevens te verzamelen die worden gegenereerd door functies en services zoals Inventaris.
 De werkruimte biedt één locatie om gegevens uit meerdere bronnen te bekijken en te analyseren.
 
-Tijdens het onboarding-proces wordt de virtuele machine ingericht met Microsoft Monitoring Agent (MMA) en Hybrid Worker.
+Tijdens het onboardingproces wordt de virtuele machine ingericht met Microsoft Monitoring Agent (MMA) en Hybrid Worker.
 Deze agent wordt gebruikt om te communiceren met de virtuele machine en om informatie op te vragen over geïnstalleerde software.
 
 Het inschakelen van de oplossing kan maximaal 15 minuten duren. Gedurende deze tijd mag u het browservenster niet sluiten.
@@ -66,20 +67,22 @@ Het duurt tussen 30 minuten en 6 uur voordat de gegevens beschikbaar zijn voor a
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Wijzigingen bijhouden gebruiken in Log Analytics
 
-Wijzigingen bijhouden genereert logboekgegevens die naar Log Analytics worden verzonden. Als u de logboeken wilt doorzoeken door query's uit te voeren, selecteert u **Log Analytics** boven in het venster **Wijzigingen bijhouden**.
-Gegevens van Wijzigingen bijhouden worden opgeslagen onder het type **ConfigurationChange**. De volgende voorbeeldquery voor Log Analytics retourneert alle Windows-services die zijn gestopt.
+Wijzigingen bijhouden genereert logboekgegevens die naar Log Analytics worden verzonden.
+Als u de logboeken wilt doorzoeken door query's uit te voeren, selecteert u **Log Analytics** boven in het venster **Wijzigingen bijhouden**.
+Gegevens van Wijzigingen bijhouden worden opgeslagen onder het type **ConfigurationChange**.
+De volgende voorbeeldquery voor Log Analytics retourneert alle Windows-services die zijn gestopt.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Zie [Azure Log Analytics](https://docs.loganalytics.io/index) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Log Analytics.
+Zie [Azure Log Analytics](../log-analytics/log-analytics-queries.md) voor meer informatie over het uitvoeren en doorzoeken van logboekbestanden in Log Analytics.
 
 ## <a name="configure-change-tracking"></a>Wijzigingen bijhouden configureren
 
 Met Wijzigingen bijhouden kunt u wijzigingen in de configuratie van de virtuele machine bijhouden. In de volgende stappen wordt uitgelegd hoe u het bijhouden van registersleutels en bestanden configureert.
- 
+
 Kies welke bestanden en registersleutels u wilt verzamelen en volgen door **Instellingen bewerken** te selecteren bovenaan de pagina **Wijzigingen bijhouden**.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ In het venster **Werkruimteconfiguratie** voegt u Windows-registersleutels, Wind
 1. Selecteer **Toevoegen** op het tabblad **Windows-register**.
     Het venster **Windows-register voor het bijhouden van wijzigingen toevoegen** wordt geopend.
 
-3. In **Windows-register voor het bijhouden van wijzigingen toevoegen** voert u de gegevens in die u wilt bijhouden voor de sleutel en klikt u op **Opslaan**
+1. In **Windows-register voor het bijhouden van wijzigingen toevoegen** voert u de gegevens in die u wilt bijhouden voor de sleutel en klikt u op **Opslaan**
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
@@ -168,6 +171,49 @@ Selecteer een **WindowsServices**-wijziging waarna het venster **Details van wij
 
 ![Details van de wijziging weergeven in de portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Waarschuwingen configureren
+
+Het kan handig zijn om wijzigingen te bekijken in Azure Portal, maar het is nóg handiger om waarschuwingen te ontvangen wanneer er iets verandert (bijvoorbeeld wanneer een service wordt gestopt).
+
+Als u een waarschuwing voor het stoppen van services wilt toevoegen, gaat u in Azure Portal naar **Bewaken**. Klik dan bij **Gedeelde services** op **Waarschuwingen** en klik dan op **+ Nieuwe waarschuwingsregel**
+
+Klik onder **1. Waarschuwingsvoorwaarde definiëren** op **+ Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Log Analytics**. Selecteer de Log Analytics-werkruimte en selecteer vervolgens **Gereed**.
+
+![Een resource selecteren](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Selecteer **+ Criteria toevoegen**.
+Selecteer onder **Signaallogica configureren** in de tabel de optie **Aangepast zoeken in logboeken**. Voer de volgende query in het tekstvak Zoekquery in:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Met deze query worden de computers geretourneerd waarbij de W3SVC-service is gestopt tijdens de opgegeven periode.
+
+Voer onder **Waarschuwingslogica** voor **Drempelwaarde** het volgende in: **0**. Wanneer u klaar bent, selecteert u **Gereed**.
+
+![Signaallogica configureren](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+Selecteer bij **2. Waarschuwingsdetails definiëren** een naam en beschrijving voor de waarschuwing. Stel **Ernst** in op **Informatie (Sev 2)**, **Waarschuwing (Sev 1)** of **Kritiek (Sev 0)**.
+
+![Waarschuwingsdetails definiëren](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+Selecteer onder **3. Actiegroep definiëren** de optie **Nieuwe actiegroep**. Een actiegroep is een groep acties die u op meerdere waarschuwingen kunt toepassen. Deze acties kunnen bestaan uit, maar zijn niet beperkt tot, e-mailmeldingen, runbooks, webhooks en nog veel meer. Raadpleeg [Actiegroepen maken en beheren](../monitoring-and-diagnostics/monitoring-action-groups.md) voor meer informatie over actiegroepen.
+
+Voer in het vak **Naam van actiegroep** een naam in voor de waarschuwing en een korte naam. De korte naam wordt gebruikt in plaats van een volledige naam voor de actiegroep als er meldingen worden verzonden door deze groep te gebruiken.
+
+Voer onder **Acties** een naam in voor de actie, bijvoorbeeld **Beheerders een e-mail verzenden**. Selecteer onder **ACTIETYPE** de optie **E-mail/sms/push/spraak**. Selecteer onder **DETAILS** de optie **Details bewerken**.
+
+![Actiegroep toevoegen](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+Voer in het deelvenster **E-mail/sms/push/spraak** een naam in. Selecteer het selectievakje **E-mail** en voer vervolgens een geldig e-mailadres in. Klik op **OK** op de pagina **E-mail/sms/push/spraak** en klik dan op **OK** op de pagina **Actiegroep toevoegen**.
+
+Selecteer onder **Regel maken** bij **Acties aanpassen** de optie **E-mailonderwerp** als u het onderwerp van het waarschuwingsbericht wilt aanpassen. Wanneer u klaar bent, selecteert u **Waarschuwingsregel maken**. De waarschuwing laat u weten wanneer een update-implementatie is voltooid en op welke machines deze update-implementatie is uitgevoerd.
+
+In de volgende afbeelding ziet u een e-mail die u zou kunnen ontvangen wanneer de W3SVC-service stopt.
+
+![e-mail](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende geleerd:
@@ -179,6 +225,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Verbinding met activiteitenlogboek inschakelen
 > * Een gebeurtenis activeren
 > * Wijzigingen weergeven
+> * Waarschuwingen configureren
 
 Ga verder naar het overzicht van de oplossing Wijzigingen bijhouden en Inventaris als u er meer over wilt weten.
 

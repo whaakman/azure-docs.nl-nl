@@ -25,7 +25,7 @@ Naam    |Beschrijving                                        |Type       | Bewer
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                                          |Int64      |Is gelijk aan
 TI      |Titel van document                                        |Reeks     |Is gelijk aan,<br/>StartsWith
-L       |Papier taal code gescheiden door '\@@@ '            |Reeks     |Is gelijk aan
+L       |Papier taal code gescheiden door '\@@@\ '            |Reeks     |Is gelijk aan
 J       |Papier jaar                                         |Int32      |Is gelijk aan,<br/>IsBetween
 D       |Papier datum                                         |Date       |Is gelijk aan,<br/>IsBetween
 CC      |Aantal citaat                                     |Int32      |geen  

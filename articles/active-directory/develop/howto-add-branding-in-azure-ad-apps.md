@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958863"
 ---
 # <a name="branding-guidelines-for-applications"></a>Huisstijlrichtlijnen voor apps
 
-In dit artikel worden de huisstijlrichtlijnen besproken die u moet gebruiken bij het ontwikkelen van apps met Azure Active Directory (Azure AD). Deze richtlijnen begeleiden uw klanten wanneer ze hun werk- of schoolaccount, dat in Azure AD wordt beheerd, of hun persoonlijke account willen gebruiken om zich te registreren voor en aan te melden bij uw app.
+Wanneer u toepassingen ontwikkelt met Azure Active Directory (Azure AD), moet u uw klanten wanneer ze hun werk- of schoolaccount (dat in Azure AD wordt beheerd) of hun persoonlijke account willen gebruiken, aangeven dat ze zich moeten registreren voor en aanmelden bij uw app.
+
+In dit artikel leert u het volgende:
+
+- Meer informatie over de twee soorten gebruikersaccounts die worden beheerd door Microsoft en hoe u in uw toepassing naar Azure AD-accounts kunt verwijzen
+- Wat u moet doen om het Microsoft-logo toe te voegen voor gebruik in uw app
+- Hoe u de officiële afbeeldingen voor **Aanmelden** of **Aanmelden bij Microsoft** downloadt voor gebruik in uw app
+- De do's en don'ts van huisstijl en navigatie
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Persoonlijke accounts vs. werk- of schoolaccounts van Microsoft
 
 Microsoft beheert twee soorten gebruikersaccounts:
 
-* **Persoonlijke accounts** (voorheen bekend als Windows Live ID). Deze accounts vertegenwoordigen de relatie tussen *afzonderlijke* gebruikers en Microsoft, en worden gebruikt om toegang te verkrijgen tot consumentenapparaten en services van Microsoft. Deze accounts zijn bedoeld voor persoonlijk gebruik.
-* **Werk- of schoolaccounts.** Deze accounts worden beheerd door Microsoft namens organisaties die Azure Active Directory gebruiken. Deze accounts worden gebruikt voor aanmelding bij Office 365 en andere zakelijke services van Microsoft.
+- **Persoonlijke accounts** (voorheen bekend als Windows Live ID). Deze accounts vertegenwoordigen de relatie tussen *afzonderlijke* gebruikers en Microsoft, en worden gebruikt om toegang te verkrijgen tot consumentenapparaten en services van Microsoft. Deze accounts zijn bedoeld voor persoonlijk gebruik.
+- **Werk- of schoolaccounts.** Deze accounts worden beheerd door Microsoft namens organisaties die Azure Active Directory gebruiken. Deze accounts worden gebruikt voor aanmelding bij Office 365 en andere zakelijke services van Microsoft.
 
 Werk- of schoolaccounts van Microsoft worden meestal toegewezen aan eindgebruikers (werknemers, leerlingen/studenten, overheidspersoneel) door hun organisaties (bedrijf, school, overheidsinstelling). Deze accounts worden rechtstreeks in de cloud beheerd (op het Azure AD-platform) of met Azure AD gesynchroniseerd vanuit een on-premises directory, zoals Windows Server Active Directory. Microsoft is de *bewaarder* van de werk- of schoolaccounts, maar de accounts zijn eigendom van en worden beheerd door de organisatie.
 
@@ -41,8 +48,8 @@ Werk- of schoolaccounts van Microsoft worden meestal toegewezen aan eindgebruike
 
 Microsoft stelt eindgebruikers niet bloot aan de merknaam Azure of Active Directory, en u moet dat ook niet doen.
 
-* Zodra gebruikers zijn aangemeld, moeten ze de naam en het logo van de organisatie zoveel mogelijk zien. Dit is beter dan algemene termen zoals ‘uw organisatie’ te gebruiken.
-* Wanneer gebruikers niet zijn aangemeld, moet u naar hun accounts verwijzen als ‘werk- of schoolaccounts’ en het Microsoft-logo gebruiken om te laten zien dat Microsoft deze accounts beheert. Gebruik geen termen zoals ‘ondernemingsaccount’, ‘bedrijfsaccount’ of ‘zakelijk account’, want die kunnen voor verwarring zorgen bij de gebruiker.
+- Zodra gebruikers zijn aangemeld, moeten ze de naam en het logo van de organisatie zoveel mogelijk zien. Dit is beter dan algemene termen zoals ‘uw organisatie’ te gebruiken.
+- Wanneer gebruikers niet zijn aangemeld, moet u naar hun accounts verwijzen als ‘werk- of schoolaccounts’ en het Microsoft-logo gebruiken om te laten zien dat Microsoft deze accounts beheert. Gebruik geen termen zoals ‘ondernemingsaccount’, ‘bedrijfsaccount’ of ‘zakelijk account’, want die kunnen voor verwarring zorgen bij de gebruiker.
 
 ## <a name="user-account-pictogram"></a>Pictogram van het gebruikersaccount
 
@@ -94,7 +101,6 @@ Als u de officiële afbeelding wilt downloaden voor gebruik in uw app, klikt u m
 | Aanmelden met Microsoft (licht thema) | ![Knop Aanmelden licht thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Knop Aanmelden met Microsoft licht thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | Aanmelden (donker thema)                 | ![Korte knop Aanmelden donker thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Korte knop Aanmelden donker thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | Aanmelden (licht thema)                | ![Korte knop Aanmelden licht thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Korte knop Aanmelden licht thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>Huisstijl: wel en niet doen
 

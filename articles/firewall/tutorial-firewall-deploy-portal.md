@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575986"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983511"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -31,7 +31,9 @@ Netwerkverkeer is onderhevig aan de geconfigureerde firewallregels wanneer u het
 
 Toepassings- en netwerkregels worden opgeslagen in *regelverzamelingen*. Een regelverzameling is een lijst met regels die dezelfde actie en prioriteit hebben.  Een netwerkregelverzameling is een lijst met netwerkregels en een toepassingsregelverzameling is een lijst met toepassingsregels.
 
-Netwerkregelverzamelingen worden altijd vóór toepassingsregelverzamelingen verwerkt. Alle regels zijn afsluitend, dus als er een overeenkomst wordt gevonden in een netwerkregelverzameling, worden de volgende toepassingsregelverzamelingen voor die sessie niet verwerkt.
+Azure Firewall beschikt niet over een concept voor binnenkomende en uitgaande regels. Er zijn toepassings- en netwerkregels en deze worden toegepast op al het verkeer dat via de firewall binnenkomt. Netwerkregels worden het eerst toegepast, daarna de toepassingsregels, en de regels zijn afsluitend.
+
+Als bijvoorbeeld een overeenkomende netwerkregel wordt aangetroffen wordt het pakket niet geëvalueerd door de toepassingsregels. Als er geen overeenkomende netwerkregel wordt aangetroffen en het protocol van het pakket HTTP/HTTPS is, wordt het pakket vervolgens door de toepassingsregels geëvalueerd. Als er nog steeds geen overeenkomende regel wordt gevonden, wordt het pakket geëvalueerd op basis van de verzameling regels van de infrastructuur. Als er dan nog steeds geen overeenkomende regel is, wordt het pakket standaard afgewezen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -46,10 +48,6 @@ In deze zelfstudie leert u het volgende:
 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Bij de voorbeelden in de Azure Firewall-artikelen wordt ervan uitgegaan dat u de openbare preview van Azure Firewall al hebt ingeschakeld. Zie [De openbare preview van Azure Firewall inschakelen](public-preview.md) voor meer informatie.
 
 Voor deze zelfstudie maakt u één VNet met drie subnetten:
 - **FW-SN** – De firewall bevindt zich in dit subnet.
@@ -83,9 +81,7 @@ Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te i
 7. Bij **Abonnement** selecteert u uw abonnement.
 8. Bij **Resourcegroep** selecteert u **Bestaande gebruiken** en selecteert u vervolgens **Test-FW-RG**.
 9. Bij **Locatie** selecteert u dezelfde locatie die u eerder hebt gebruikt.
-10. Onder **Subnet** typt u bij **Naam** de naam **AzureFirewallSubnet**.
-
-    De firewall zal zich in dit subnet bevinden, en de subnetnaam **moet** AzureFirewallSubnet zijn.
+10. Onder **Subnet** typt u bij **Naam** de naam **AzureFirewallSubnet**. De firewall zal zich in dit subnet bevinden, en de subnetnaam **moet** AzureFirewallSubnet zijn.
 11. Bij **Adresbereik** typt u **10.0.1.0/24**.
 12. Gebruik de andere standaardinstellingen en klik vervolgens op **Maken**.
 
@@ -207,25 +203,21 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 
 
 1. Open de resourcegroep **Test-FW-RG** en klik op de firewall **Test-FW01**.
-1. Klik op de pagina **Test-FW01** onder **Instellingen** op **Regels**.
-2. Klik op **Toepassingsregelverzameling toevoegen**.
-3. Bij **Naam** typt u **App-Coll01**.
-1. Bij **Prioriteit** typt u **200**.
-2. Bij **Actie** selecteert u **Toestaan**.
+2. Klik op de pagina **Test-FW01** onder **Instellingen** op **Regels**.
+3. Klik op **Toepassingsregelverzameling toevoegen**.
+4. Bij **Naam** typt u **App-Coll01**.
+5. Bij **Prioriteit** typt u **200**.
+6. Bij **Actie** selecteert u **Toestaan**.
+7. Onder **Regels** typt u bij **Naam** de naam **AllowGH**.
+8. Bij **Bronadressen** typt u **10.0.2.0/24**.
+9. Bij **Protocol:poort** typt u **http, https**. 
+10. Bij **Doel-FQDN’s** typt u **github.com**.
+11. Klik op **Add**.
 
-6. Onder **Regels** typt u bij **Naam** de naam **AllowGH**.
-7. Bij **Bronadressen** typt u **10.0.2.0/24**.
-8. Bij **Protocol:poort** typt u **http, https**. 
-9. Bij **Doel-FQDN’s** typt u **github.com**.
-10. Klik op **Add**.
+Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’s die standaard zijn toegestaan. Deze FQDN’s zijn specifiek voor het platform en kunnen niet voor andere doeleinden worden gebruikt. Zie [FQDN's voor infrastructuur](infrastructure-fqdns.md) voor meer informatie.
 
-> [!NOTE]
-> Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’s die standaard zijn toegestaan. Deze FQDN’s zijn specifiek voor het platform en kunnen niet voor andere doeleinden worden gebruikt. De toegestane infrastructuur-FQDN’s omvatten:
->- Compute-toegang tot opslag-PIR (Platform Image Repository).
->- Toegang tot Managed Disks-statusopslag.
->- Windows Diagnostische gegevens
->
-> U kunt deze ingebouwde infrastructuurregelverzameling overschrijven door een toepassingsregelverzameling *alles weigeren* te maken die als laatste wordt verwerkt. Deze wordt altijd vóór de infrastructuurregelverzameling verwerkt. Alles wat niet in de infrastructuurregelverzameling staat, wordt standaard geweigerd.
+> [!Note]
+> FQDN-tags kunnen op dit moment alleen met Azure PowerShell en REST worden geconfigureerd. [Klik hier](https://aka.ms/firewallapplicationrule) voor meer informatie. 
 
 ## <a name="configure-network-rules"></a>Netwerkregels configureren
 

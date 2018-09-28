@@ -1,25 +1,18 @@
 ---
 title: 'Overzicht van ExpressRoute: uw on-premises netwerk uitbreiden naar Azure via een persoonlijke verbinding | Microsoft Docs'
-description: In dit technische overzicht van ExpressRoute wordt uitgelegd hoe een ExpressRoute-verbinding kan worden gebruikt om uw on-premises netwerk via een persoonlijke verbinding uit te breiden naar Azure.
-documentationcenter: na
+description: In het technische overzicht van ExpressRoute wordt uitgelegd hoe een ExpressRoute-verbinding kan worden gebruikt om uw on-premises netwerk via een persoonlijke verbinding uit te breiden naar Azure.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.topic: overview
+ms.date: 09/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f1bc447f73912ccf04f0c0cf7d6460d472bace4c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29940158"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961900"
 ---
 # <a name="expressroute-overview"></a>Overzicht van ExpressRoute
 Met Microsoft Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbreiden via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en Dynamics 365.
@@ -70,11 +63,29 @@ Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, h
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Globale connectiviteit met de Premium-invoegtoepassing voor ExpressRoute
 U kunt de Premium-invoegtoepassing voor ExpressRoute inschakelen om connectiviteit uit te breiden tot buiten de geopolitieke grenzen. Als u bijvoorbeeld via ExpressRoute bent verbonden met Microsoft in Amsterdam, hebt u toegang tot alle Microsoft Cloud-services die worden gehost in alle regio's van de wereld (uitgezonderd nationale clouds). U hebt toegang tot services die zijn geïmplementeerd in Zuid-Amerika of Australië op dezelfde manier als waarop u toegang hebt tot regio's in Noord- en West-Europa.
 
+### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Overal on-premises connectiviteit met ExpressRoute Global Reach
+
+U kunt ExpressRoute Global Reach inschakelen zodat er gegevens tussen al uw externe sites kunnen worden uitgewisseld, door meerdere van uw ExpressRoute-circuits met elkaar te verbinden. Als u een privédatacenter in Californië hebt dat is verbonden met ExpressRoute in Silicon Valley en een ander privédatacenter in Texas hebt dat is verbonden met ExpressRoute in Dallas, kunt u met ExpressRoute Global Reach uw privédatacenters met elkaar verbinden via twee ExpressRoute-circuits. Het verkeer tussen datacenters verplaatst zich via het netwerk van Microsoft.
+
+Zie [ExpressRoute Global Reach](expressroute-global-reach.md) voor meer informatie.
+
 ### <a name="rich-connectivity-partner-ecosystem"></a>Uitgebreid connectiviteitsecosysteem van partners
 ExpressRoute heeft een voortdurend groeiend ecosysteem van connectiviteitsproviders en SI-partners. Raadpleeg het artikel [ExpressRoute providers and locations](expressroute-locations.md) (Overzicht van ExpressRoute-providers en -locaties) voor de meest recente informatie.
 
 ### <a name="connectivity-to-national-clouds"></a>Connectiviteit met nationale clouds
 Microsoft stuurt geïsoleerde cloudomgevingen aan voor speciale geopolitieke regio's en klantsegmenten. Raadpleeg de pagina [ExpressRoute providers and locations](expressroute-locations.md) (Overzicht van ExpressRoute-providers en -locaties) voor een lijst van nationale clouds en providers.
+
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+ExpressRoute Direct biedt klanten de mogelijkheid om rechtstreeks verbinding te maken met het wereldwijde netwerk van Microsoft op peeringlocaties die zich strategisch verdeeld over de hele wereld bevinden. ExpressRoute Direct biedt twee verbindingsmogelijkheden van 100 Gbps, die ondersteuning bieden voor actief/actief-verbindingen op schaal. 
+
+Belangrijke functies die ExpressRoute rechtstreeks bieden, zijn onder andere de volgende:
+
+* Massale gegevensopname in services als Storage en Cosmos DB 
+* Fysieke isolatie voor branches waarvoor bepaalde wettelijke regels gelden waardoor speciale en geïsoleerde verbindingen een vereiste zijn, zoals het bankwezen, de overheid en de detailhandel 
+* Gedetailleerde controle van circuitdistributie op basis van bedrijfsonderdelen
+
+Zie [About ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973) (Over ExpressRoute Direct) voor meer informatie.
 
 ### <a name="bandwidth-options"></a>Bandbreedte-opties
 U kunt ExpressRoute-circuits aanschaffen voor een breed scala aan bandbreedten. Hieronder vindt u een lijst van ondersteunde bandbreedten. Controleer ook de lijst met ondersteunde bandbreedten van uw connectiviteitsproviders.
@@ -98,7 +109,7 @@ U kunt een factureringsmodel selecteren dat voor u het meest geschikt is. Kies e
 * **Naar gebruik**. U betaalt maandelijks een vast bedrag voor het ExpressRoute-circuit. Alle binnenkomende gegevensoverdracht is gratis. Uitgaande gegevensoverdracht wordt in rekening gebracht per GB aan gegevensoverdracht. De tarieven voor gegevensoverdracht verschillen per regio.
 * **Premium-invoegtoepassing voor ExpressRoute**. De Premium-invoegtoepassing voor ExpressRoute is een invoegtoepassing via het ExpressRoute-circuit. De Premium-invoegtoepassing voor ExpressRoute biedt de volgende mogelijkheden: 
   * Ruimere routelimieten voor openbare en persoonlijke Azure-peering van 4000 routes naar 10.000 routes.
-  * Globale connectiviteit voor services. Een ExpressRoute-circuit, gemaakt in een willekeurige regio (met uitzondering van nationale clouds), hebben toegang tot resources in elke andere regio ter wereld. Zo is een virtueel netwerk, gemaakt in West-Europa, toegankelijk via een ExpressRoute-circuit dat is ingericht in Silicon Valley.
+  * Globale connectiviteit voor services. Een ExpressRoute-circuit, gemaakt in een willekeurige regio (met uitzondering van nationale clouds), hebben toegang tot resources in elke andere regio ter wereld. Zo is een virtueel netwerk, gemaakt in Europa - west, toegankelijk via een ExpressRoute-circuit dat is ingericht in Silicon Valley.
   * Aantal VNet-koppelingen per ExpressRoute-circuit verhoogd van 10 tot een hogere limiet, afhankelijk van de bandbreedte van het circuit.
 
 ## <a name="faq"></a>Veelgestelde vragen

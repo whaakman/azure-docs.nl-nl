@@ -1,6 +1,6 @@
 ---
-title: Een toepassing registreren met het Azure AD v2.0-eindpunt met behulp van de portal | Microsoft Docs
-description: Informatie over het registreren van een app met Microsoft voor het inschakelen van aanmelden en toegang tot Microsoft-services met behulp van het v2.0-eindpunt
+title: Een app registreren bij het Azure Active Directory v2.0-eindpunt | Microsoft Docs
+description: Informatie over hoe u een app registreert bij Microsoft voor het inschakelen van aanmelding bij en toegang tot Microsoft-services met behulp van het Azure Active Directory v2.0-eindpunt.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,47 +12,50 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
+ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 8ab4e6b5b2813a216b6dd6f0fc108a09239ca9a6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: MT
+ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506547"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975807"
 ---
-# <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Informatie over het registreren van een app met het v2.0-eindpunt
-Een app maken die zowel persoonlijke Microsoft-account (MSA) & werk accepteert of school aanmelding bij het account (Azure AD), moet u eerst een app registreren bij Microsoft. Op dit moment kunt u zich niet aan alle bestaande apps die u met Azure AD hebt gebruikt of MSA -, moet u een compleet nieuwe toepassing maken.
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Snelstart: Een app registreren bij het Azure Active Directory v2.0-eindpunt
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Als u een app wilt bouwen die zowel aanmelding via een persoonlijk Microsoft-account (MSA) als een werk- of schoolaccount (Azure Active Directory) accepteert, moet u een app registreren bij het Azure Active Directory-v2.0-eindpunt (Azure AD). Op dit moment kunt u geen van de bestaande apps gebruiken die u bij Azure Active Directory of MSA hebt - u moet u een compleet nieuwe app maken.
 
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Om te bepalen als u het v2.0-eindpunt moet gebruiken, meer informatie over de [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en -functies worden ondersteund door het v2.0-eindpunt. Lees meer informatie over de [beperkingen van v2.0](active-directory-v2-limitations.md) om te bepalen of u het v2.0-eindpunt moet gebruiken.
 
+## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>Stap 1: Aanmelden bij de Microsoft-portal voor toepassingsregistratie
 
-## <a name="visit-the-microsoft-app-registration-portal"></a>Ga naar de Microsoft app-registratieportal
-Navigeer naar de Microsoft app-registratieportal op [ https://apps.dev.microsoft.com/ ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). 
+1. Navigeer naar de Microsoft-portal voor toepassingsregistratie op [ https://apps.dev.microsoft.com/ ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
+1. Meld u aan met ofwel een persoonlijk of werk- of schoolaccount van Microsoft. Als u geen van beide hebt, moet u zich aanmelden voor een nieuw persoonlijk account.
+1. Klaar? U zou nu moeten kijken naar de lijst met Microsoft-apps, die waarschijnlijk leeg is. Daar gaan we verandering in brengen.
 
-Meld u aan met ofwel een persoonlijke of werk- of schoolaccount van Microsoft-account. Als u geen, dient u zich hebt aanmelden voor een nieuw persoonlijk account.
+## <a name="step-2-register-an-app"></a>Stap 2: Een app registreren
 
-Gedaan? U moet nu worden kijken naar de lijst met Microsoft-apps, die waarschijnlijk leeg is. Laten we die wijzigen.
-
-Klik op **een app toevoegen**, en geef deze een naam. De portal wordt uw app een wereldwijd unieke toepassings-ID die u later in uw code toewijzen. Als uw app een server-side-onderdeel bevat dat toegangstokens nodig zijn voor het aanroepen van API's (denkt: Office, Azure of uw eigen web-API), moet u maakt een **Toepassingsgeheim** hier ook.
-
-Voeg vervolgens de **Platforms** dat door uw app wordt gebruikt.
-
-* Voor het web gebaseerde apps bieden een **omleidings-URI** waar aanmelden berichten kunnen worden verzonden.
-* Voor mobiele apps, noteert u de standaard-redirect die URI automatisch voor u gemaakt.
-* Voor web-API's, een bereik van standaard toegang tot de Web-API automatisch voor u gemaakt. U kunt kiezen om toe te voegen extra scopes met behulp van de **bereik toevoegen** knop. U kunt ook alle toepassingen die vooraf zijn gemachtigd voor het gebruik van uw Web-API met toevoegen de **vooraf geautoriseerde toepassingen** formulier. 
-
-(Optioneel) u kunt het uiterlijk van de aanmeldingspagina in de **profiel** sectie. Zorg ervoor dat u **opslaan** voordat u doorgaat.
+1. Selecteer **Een app toevoegen** en geef de app een naam.
+    Door de portal wordt aan uw app een wereldwijd unieke toepassings-id toegewezen die u later in uw code gaat gebruiken. Als uw app een serveronderdeel bevat dat toegangstokens nodig heeft voor het aanroepen van API's (denk aan: Office, Azure of uw eigen web-API) moet u hier ook een **Toepassingsgeheim** maken.
+1. Voeg vervolgens de **Platforms** toe die door uw app worden gebruikt.
+    * Geef voor web-apps een **Omleidings-URI** op waarnaar aanmeldingberichten kunnen worden verzonden.
+    * Noteer voor mobiele apps de standaardomleidings-URI die automatisch wordt gemaakt.
+    * Voor web-API's wordt automatisch een standaardbereik voor toegang tot de web-API gemaakt.
+        U kunt aanvullende bereiken toevoegen met de knop **Bereik toevoegen**. U kunt ook toepassingen toevoegen die vooraf zijn gemachtigd voor het gebruik van uw web-API met behulp van het formulier **Vooraf gemachtigde toepassingen**.
+1. Pas desgewenst de weergave van de aanmeldingspagina aan in de sectie **Profiel**. 
+1. **Sla uw wijzigingen op** voordat u doorgaat.
 
 > [!NOTE]
-> Wanneer u maakt een toepassing met behulp [ https://apps.dev.microsoft.com/ ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), de toepassing wordt geregistreerd in de starttenant van het account waarmee u zich bij de portal. Dit betekent dat u een toepassing niet kunt registreren in uw Azure AD-tenant met behulp van een persoonlijk Microsoft-account. Als u expliciet een toepassing registreren in een bepaalde tenant wilt, zich aanmelden met een oorspronkelijk is gemaakt in deze tenant.
+> Wanneer u een toepassing registreert met behulp van [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), wordt de toepassing geregistreerd in de starttenant van het account waarmee u zich bij de portal aanmeldt. Dit betekent dat u een toepassing niet kunt registreren in uw Azure AD-tenant met behulp van een persoonlijk Microsoft-account. Als u een toepassing expliciet in een bepaalde tenant wilt registreren, meldt u zich aan met een account dat oorspronkelijk is gemaakt in die tenant.
 
+## <a name="next-steps"></a>Volgende stappen
 
-## <a name="build-a-quickstart-app"></a>Quick Start-app bouwen
-Nu dat u een Microsoft-app hebt, kunt u een van de zelfstudies v2.0 kunt voltooien. Hier volgen enkele aanbevelingen:
+Nu u een Microsoft-app hebt, kunt u een van de snelstarts over v2.0 volgen. Hier volgen enkele aanbevelingen:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
