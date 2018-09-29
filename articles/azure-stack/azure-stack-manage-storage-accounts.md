@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139704"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452272"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Storage-accounts in Azure Stack beheren
 Informatie over het beheren van storage-accounts in Azure Stack om te zoeken, herstellen en het vrijmaken van opslagcapaciteit op basis van bedrijfsbehoeften.
@@ -28,19 +27,19 @@ Informatie over het beheren van storage-accounts in Azure Stack om te zoeken, he
 ## <a name="find"></a>Een storage-account zoeken
 De lijst met opslagaccounts in de regio kan worden weergegeven in Azure Stack door:
 
-1. Navigeer in een internetbrowser naar https://adminportal.local.azurestack.external.
-2. Aanmelden bij de Azure Stack-beheerportal als een cloud-operator (met behulp van de referenties die u hebt opgegeven tijdens de implementatie)
-3. Zoek op het standaarddashboard – de **regiobeheer** lijst en selecteer de regio die u verkennen wilt, bijvoorbeeld **(lokale**).
+1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
+
+2. Selecteer **alle services** > **regiobeheer** onder **beheer**.
+
+3. Selecteer **opslag** uit de **Resourceproviders** lijst.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Selecteer **opslag** uit de **Resourceproviders** lijst.
+   ![Opslagresourceprovider](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Selecteer **opslagaccounts** in **opslag**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. In het deelvenster van de beheerder in de storage Resource Provider – Schuif vervolgens omlaag naar de **Storage-accounts** tabblad en selecteer deze.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   De resulterende pagina is de lijst met opslagaccounts in deze regio.
+   De blade wordt weergegeven de lijst met opslagaccounts in deze regio.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,7 +75,7 @@ Het is mogelijk in een situatie waarin u wilt een verwijderd account herstellen.
 
 Er is een eenvoudige manier om dat te doen in Azure Stack:
 
-1. Blader naar de lijst met storage-accounts. Zie [vinden van een storage-account](#find) in dit onderwerp voor meer informatie.
+1. Blader naar de lijst met storage-accounts. Zie [vinden van een storage-account](#find) in dit artikel voor meer informatie.
 2. Zoek dat specifieke account in de lijst. U wilt filteren.
 3. Controleer de *status* van het account. Deze melding **verwijderde**.
 4. Selecteer het account waarmee het detailvenster van het account wordt geopend.
@@ -97,19 +96,18 @@ Er is een eenvoudige manier om dat te doen in Azure Stack:
   Buiten de bewaarperiode manier zijn dat de verwijderde account de bewaarperiode is overschreden en kan niet worden hersteld.
 * Uw account verwijderd, wordt niet weergegeven in de lijst met accounts.
   
-  Uw account kan niet in de lijst met accounts weergegeven wanneer de verwijderde account is al verwijderd. In dit geval wordt worden deze niet hersteld. Zie [vrijmaken capaciteit](#reclaim) in dit onderwerp.
+  Uw account kan niet in de lijst met accounts weergegeven wanneer de verwijderde account is al verwijderd. In dit geval wordt worden deze niet hersteld. Zie [vrijmaken capaciteit](#reclaim) in dit artikel.
 
 ## <a name="set-the-retention-period"></a>De bewaarperiode instellen
 De bewaartermijn instellen kunt een cloud-operator om op te geven van een bepaalde periode in dagen (tussen 0 en 9999 dagen) gedurende welke een verwijderd account kan mogelijk worden hersteld. De gebruikelijke bewaarperiode is ingesteld op 0 dagen. Als de waarde '0' betekent dat alle verwijderde account onmiddellijk buiten de bewaarperiode valt en gemarkeerd voor periodieke garbagecollection.
 
 **De bewaarperiode wijzigen:**
 
-1. Navigeer in een internetbrowser naar https://adminportal.local.azurestack.external.
-2. Aanmelden bij de Azure Stack-beheerportal als een cloud-operator (met behulp van de referenties die u hebt opgegeven tijdens de implementatie)
-3. Zoek op het standaarddashboard – de **regiobeheer** lijst en selecteer de regio die u verkennen wilt: bijvoorbeeld **(lokale**).
-4. Selecteer **opslag** uit de **Resourceproviders** lijst.
-5. Selecteer **instellingen** aan de bovenkant om de instelling deelvenster te openen.
-6. Selecteer **configuratie** bewerkt u vervolgens de waarde voor de retentie-periode.
+1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
+2. Selecteer **alle services** > **regiobeheer** onder **beheer**.
+3. Selecteer **opslag** uit de **Resourceproviders** lijst.
+4. Selecteer **instellingen** aan de bovenkant om de instelling deelvenster te openen.
+5. Selecteer **configuratie** bewerkt u vervolgens de waarde voor de retentie-periode.
 
    Het aantal dagen instellen en vervolgens op te slaan.
    
@@ -142,7 +140,7 @@ U kunt ook PowerShell gebruiken om op te heffen expliciet de bewaarperiode en on
    Zie voor meer informatie over Azure Resource Manager-cmdlets, [met behulp van Azure PowerShell met Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Voer de volgende cmdlets:
 
-> [!NOTE]
+> [!NOTE]  
 > Als u deze cmdlets uitvoert, verwijdert u permanent het account en de inhoud ervan. Het kan niet worden hersteld. Gebruik deze optie met zorg.
 
 ```PowerShell  

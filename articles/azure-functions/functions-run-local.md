@@ -9,14 +9,14 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: f950d8d5b52685e45acf4093adac451c8f22aecd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a987ea8fbfc3d6360a604d0d9f3dbab1b5559444
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226208"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452425"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -177,7 +177,7 @@ In versie 2.x van de Azure Functions-runtime die u moet expliciet de binding-ext
 
 Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](functions-triggers-bindings.md#register-binding-extensions).
 
-## <a name="local-settings-file"></a>Voor lokale instellingenbestand
+## <a name="local-settings-file"></a>Lokale instellingsbestand
 
 Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core Tools. Het heeft de volgende structuur:
 

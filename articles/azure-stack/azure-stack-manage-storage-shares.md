@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071382"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452323"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren
+# <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure Stack beheren 
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
@@ -86,10 +85,15 @@ Als een cloud-operator, kunt u de opslagcapaciteit van een share met behulp van 
 - **Capaciteitsplanning** is de hoeveelheid gegevens in bytes die wordt gebruikt door alle gebieden van de bestanden die de gegevens van de tenant en gekoppelde metagegevens opgeslagen.
 
 ### <a name="use-the-administrator-portal"></a>De beheerdersportal gebruiken
-Als een cloud-operator, kunt u de beheerportal om de opslagcapaciteit van alle shares weer te geven. **Ga naar de opslag** > **bestandsshares** openen van de lijst met de bestandsshare waar u de informatie over het gebruik kunt bekijken.
-![Voorbeeld: Opslag-bestandsshares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **Totaal aantal** is de totale ruimte in bytes die beschikbaar op de share zijn. Deze ruimte wordt gebruikt voor gegevens en metagegevens die wordt beheerd door de storage-services.
-- **GEBRUIKT** is de hoeveelheid gegevens in bytes die wordt gebruikt door alle gebieden van de bestanden die de gegevens van de tenant en gekoppelde metagegevens opgeslagen.
+Als een cloud-operator, kunt u de beheerportal om de opslagcapaciteit van alle shares weer te geven.
+
+1. Aanmelden bij de [-beheerportal](https://adminportal.local.azurestack.external).
+2. Selecteer **alle services** > **opslag** openen van de lijst met de bestandsshare waar u de informatie over het gebruik kunt bekijken. 
+
+  ![Voorbeeld: Opslag-bestandsshares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **Totaal aantal** is de totale ruimte in bytes die beschikbaar op de share zijn. Deze ruimte wordt gebruikt voor gegevens en metagegevens die wordt beheerd door de storage-services.
+  - **GEBRUIKT** is de hoeveelheid gegevens in bytes die wordt gebruikt door alle gebieden van de bestanden die de gegevens van de tenant en gekoppelde metagegevens opgeslagen.
 
 ### <a name="storage-space-alerts"></a>Storage space waarschuwingen
 Wanneer u de beheerportal gebruikt, ontvangt u meldingen over shares die weinig schijfruimte.
