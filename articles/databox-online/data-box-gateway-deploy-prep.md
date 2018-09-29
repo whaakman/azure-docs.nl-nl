@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953409"
+ms.locfileid: "47030594"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Zelfstudie: Implementatie voorbereiden van Azure Data Box Gateway (Preview-versie)
 
@@ -40,7 +40,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 
 > [!IMPORTANT]
-> - Data Box Gateway is in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
+> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
 
 ### <a name="get-started"></a>Aan de slag
 
@@ -89,7 +89,7 @@ Zorg voordat u begint voor het volgende:
 
 ## <a name="create-a-new-resource"></a>Een nieuwe resource maken
 
-Een enkel exemplaar van de Data Box Gateway-resource kan meerdere virtuele Data Box Gateway-apparaten beheren. Voer de volgende stappen uit om een nieuwe Data Box Gateway-resource te maken. 
+Voer de volgende stappen uit om een nieuwe Data Box Gateway-resource te maken. 
 
 Als u al een Data Box Gateway-resource hebt voor het beheer van uw virtuele apparaten, kunt u deze stap overslaan en verdergaan met [Activeringscode ophalen](#get-the-activation-key).
 

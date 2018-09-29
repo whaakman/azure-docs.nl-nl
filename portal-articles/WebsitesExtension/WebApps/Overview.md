@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301290"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432220"
 ---
 # <a name="app-service-documentation"></a>Documentatie over App Service
 Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.
@@ -40,7 +40,7 @@ Ontdek hoe u in Azure beveiligde web-apps implementeert, beheert en bewaakt.
   - [.NET met Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js met MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java met MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python met PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [Python met PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Een bestaand aangepast domein toewijzen aan uw toepassing](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Een bestaand SSL-certificaat binden aan uw toepassing](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

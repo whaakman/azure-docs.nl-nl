@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391328"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161036"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Gegevens weergeven of analyseren die zijn verzameld met Zoeken in logboeken van Log Analytics
 
@@ -85,7 +85,7 @@ U kunt hetzelfde filter instellen door **Filter** te selecteren in het eigenscha
 
 De optie **Filter** is alleen beschikbaar voor eigenschappen waarvan de naam blauw is wanneer u er met de muisaanwijzer over beweegt.  Dit zijn *doorzoekbare* velden die zijn geïndexeerd voor zoekvoorwaarden.  Grijze velden zijn *op vrije tekst doorzoekbare* velden waarvoor alleen de optie **Verwijzingen weergeven** beschikbaar is.  Met deze optie worden records geretourneerd die deze waarde in een eigenschap bevatten.
 
-U kunt de resultaten op één eigenschap groeperen door de optie **Groeperen op** in het recordmenu te selecteren.  Hiermee voegt u de operator [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) toe aan de query die de resultaten in een grafiek weergeeft.  U kunt groeperen op meer dan één eigenschap, maar dan moet u de query rechtstreeks bewerken.  Selecteer het recordmenu naast de eigenschap **Computer** en selecteer **Groeperen op computer**.  
+U kunt de resultaten op één eigenschap groeperen door de optie **Groeperen op** in het recordmenu te selecteren.  Hiermee voegt u de operator [samenvatten](/azure/kusto/query/summarizeoperator) toe aan de query die de resultaten in een grafiek weergeeft.  U kunt groeperen op meer dan één eigenschap, maar dan moet u de query rechtstreeks bewerken.  Selecteer het recordmenu naast de eigenschap **Computer** en selecteer **Groeperen op computer**.  
 
 ![Groeperen op computer](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![Processorgebruik](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Dit beperkt de gegevens tot een bepaald meteritem, maar plaatst deze nog niet in een vorm die handig is.  U kunt de gegevens weergegeven in een lijndiagram, maar u moet deze eerst groeperen op Computer en TimeGenerated.  Als u wilt groeperen op meerdere velden, moet u de query rechtstreeks wijzigen. Wijzig de query daarom als volgt.  Hiermee wordt de functie [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) in de eigenschap **CounterValue** gebruikt om de gemiddelde waarde voor elk uur te berekenen.
+Dit beperkt de gegevens tot een bepaald meteritem, maar plaatst deze nog niet in een vorm die handig is.  U kunt de gegevens weergegeven in een lijndiagram, maar u moet deze eerst groeperen op Computer en TimeGenerated.  Als u wilt groeperen op meerdere velden, moet u de query rechtstreeks wijzigen. Wijzig de query daarom als volgt.  Hiermee wordt de functie [avg](/azure/kusto/query/avg-aggfunction) in de eigenschap **CounterValue** gebruikt om de gemiddelde waarde voor elk uur te berekenen.
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![Prestatiegegevensgrafiek](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Nu de gegevens naar behoren zijn gegroepeerd, kunt u deze weergeven in een visuele grafiek door de operator [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) toe te voegen.  
+Nu de gegevens naar behoren zijn gegroepeerd, kunt u deze weergeven in een visuele grafiek door de operator [render](/azure/kusto/query/renderoperator) toe te voegen.  
 
 ```
 Perf  

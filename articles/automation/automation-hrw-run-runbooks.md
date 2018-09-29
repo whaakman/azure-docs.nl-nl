@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103765"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431811"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks uitvoeren op een Hybrid Runbook Worker
 
@@ -39,7 +39,8 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Runbookmachtigingen
 
-Runbooks die worden uitgevoerd op een Hybrid Runbook Worker kan niet dezelfde methode die meestal gebruikt wordt voor runbooks die worden geverifieerd met Azure-resources, omdat ze toegang resources buiten Azure tot zijn gebruiken. Geef het runbook kan een eigen verificatie van lokale bronnen, of kunt u een RunAs-account voor de context van een gebruiker voor alle runbooks.
+Runbooks die worden uitgevoerd op een Hybrid Runbook Worker kan niet dezelfde methode die meestal gebruikt wordt voor runbooks die worden geverifieerd met Azure-resources, omdat ze toegang resources buiten Azure tot zijn gebruiken. Het runbook kan een eigen verificatie van lokale bronnen geven, of kunt configureren met behulp van verificatie [beheerde identiteiten voor een Azure-resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
+), of kunt u een RunAs-account voor de context van een gebruiker voor alle runbooks.
 
 ### <a name="runbook-authentication"></a>Runbookverificatie
 
@@ -74,6 +75,32 @@ Gebruik de volgende procedure om op te geven van een RunAs-account voor een Hybr
 4. Selecteer **alle instellingen** en vervolgens **Hybrid worker-groepsinstellingen**.
 5. Wijziging **Run As-** van **standaard** naar **aangepaste**.
 6. Selecteer de referentie op en klik op **opslaan**.
+
+### <a name="managed-identities-for-azure-resources"></a>Beheerde identiteiten voor Azure-Resources
+
+Hybrid Runbook Workers die worden uitgevoerd op virtuele machines van Azure kunt u beheerde identiteiten voor Azure-resources gebruiken om Azure-resources te verifiëren. Er zijn veel voordelen voor het gebruik van beheerde identiteiten voor Azure-resources via Run As-accounts.
+
+* Niet nodig voor het Run As-certificaat exporteren en vervolgens importeren in Hybrid Runbook Worker
+* U hoeft te vernieuwen van het certificaat dat wordt gebruikt door het uitvoeren als-account
+* Niet nodig voor het afhandelen van het verbindingsobject uitvoeren als in uw runbook-code
+
+U moet de volgende stappen voor het gebruik van een beheerde identiteit voor Azure-resources op een Hybrid Runbook worker:
+
+1. Een Azure-VM maken
+2. [Beheerde identiteiten voor Azure-resources op de virtuele machine configureren](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
+3. [Uw VM-toegang verlenen tot een resourcegroep in Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
+4. [Een toegangstoken met behulp van de virtuele machine door het systeem toegewezen beheerde identiteit ophalen] (.. / active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+5. [Installeer de Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) op de virtuele machine.
+
+Als de voorgaande stappen voltooid zijn, kunt u `Connect-AzureRmAccount -Identity` in het runbook om te verifiëren bij Azure-resources. Dit vermindert de noodzaak gebruikmaken van een Run As-Account en het certificaat voor het uitvoeren als-account beheren.
+
+```powershell
+# Connect to Azure using the Managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
+Connect-AzureRmAccount -Identity
+
+# Get all VM names from the subscription
+Get-AzureRmVm | Select Name
+```
 
 ### <a name="automation-run-as-account"></a>Automation uitvoeren als-account
 
