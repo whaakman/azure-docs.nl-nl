@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056818"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434537"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -71,7 +71,7 @@ Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake
 | Database | De naam van de database waar u de uitvoer verzendt. |
 | Servernaam | De naam van de SQL-Database-server. |
 | Gebruikersnaam | De gebruikersnaam die toegang heeft tot het schrijven naar de database. |
-| Wachtwoord | Het wachtwoord voor het verbinding maken met de databas.e |
+| Wachtwoord | Het wachtwoord voor verbinding met de database |
 | Tabel | De naam van de tabel waar de uitvoer wordt geschreven. Naam van de tabel is hoofdlettergevoelig en het schema van deze tabel moet exact overeenkomen met het aantal velden en hun type wordt gegenereerd door de taakuitvoer van uw. |
 
 > [!NOTE]

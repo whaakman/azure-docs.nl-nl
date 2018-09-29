@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: b5a876ea8b5cc70ee0ca0dcac8628c12dc2b009b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413614"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452510"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-versieprofielen gebruiken met Java in Azure Stack
 
@@ -63,7 +63,7 @@ Gebruik de volgende stappen voor het installeren van de Java SDK:
 
 1.  De officiële instructies om Git te installeren. Zie voor instructies [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  De officiële instructies voor het installeren van de [Java SDK](http://zulu.org/download/)) en [Maven](https://maven.apache.org/). De juiste versie is versie 8 van de Java Developer Kit. De juiste Apache Maven is versie 3.0 of hoger. De omgevingsvariabele JAVA_HOME moet worden ingesteld op de installatielocatie van de Java Development Kit om uit te voeren van de Quick Start. Zie voor meer informatie, [uw eerste functie maken met Java en Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  De officiële instructies voor het installeren van de [Java SDK](http://zulu.org/download/) en [Maven](https://maven.apache.org/). De juiste versie is versie 8 van de Java Developer Kit. De juiste Apache Maven is versie 3.0 of hoger. De omgevingsvariabele JAVA_HOME moet worden ingesteld op de installatielocatie van de Java Development Kit om uit te voeren van de Quick Start. Zie voor meer informatie, [uw eerste functie maken met Java en Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  De juiste om afhankelijkheidspakketten te installeren, opent u het bestand Pom.xml in uw Java-toepassing. Een afhankelijkheid toevoegen, zoals wordt weergegeven in de volgende code:
 
@@ -89,7 +89,7 @@ Gebruik de volgende stappen voor het installeren van de Java SDK:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van de Azure-SDK voor .NET met Azure Stack, moet u de volgende waarden opgeven en vervolgens waarden met omgevingsvariabelen instellen. Als u wilt de omgevingsvariabelen instellen, raadpleegt u de instructies onder de tabel voor uw besturingssysteem.
+Voor het gebruik van de Java-SDK van Azure met Azure Stack, moet u de volgende waarden opgeven en vervolgens waarden met omgevingsvariabelen instellen. Als u wilt de omgevingsvariabelen instellen, raadpleegt u de instructies onder de tabel voor uw besturingssysteem.
 
 | Waarde                     | Omgevingsvariabelen | Beschrijving                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -128,7 +128,9 @@ Houd rekening met de volgende overwegingen:
 
 - De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): https://management.local.azurestack.external/
 
-- De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+
+Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 JSON-voorbeeldbestand:
 
@@ -149,9 +151,7 @@ JSON-voorbeeldbestand:
 
 1.  **com.Microsoft.Azure.profile\_2018\_03\_01\_hybride**: nieuwste die is gebouwd voor Azure Stack-profiel. Gebruik dit profiel voor services meest compatibel is met Azure Stack, zolang er op het stempel 1808 of verdere.
 
-2.  **com.Microsoft.Azure.profile\_2017\_03\_09\_profiel**: als u van een tijdstempel die lager is dan de build 1808 gebruikmaakt, dit profiel gebruiken.
-
-3.  **com.Microsoft.Azure**: profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services.
+2.  **com.Microsoft.Azure**: profiel met de nieuwste versies van alle services. Gebruik de nieuwste versies van alle services.
 
 Zie voor meer informatie over Azure Stack- en API-profielen, de [samenvatting van de API-profielen](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -231,14 +231,14 @@ U kunt de volgende GitHub-voorbeelden als verwijzingen gebruiken voor het maken 
 
 2.  Een Azure-service-principal maken en toewijzen van een rol voor toegang tot het abonnement. Zie voor instructies over het maken van een service-principal [gebruik Azure PowerShell een service-principal maken met een certificaat](../azure-stack-create-service-principals.md).
 
-3.  De volgende vereiste waarden ophalen:
+3.  De volgende vereiste omgeving variabele waarden ophalen:
     
-   1.  Tenant-id
-   2.  Client-id
-   3.  Clientgeheim
-   4.  Abonnements-id
-   5.  Resource Manager-eindpunt
-   6.  Resourcelocatie
+   1.  TENANT_ID
+   2.  CLIENT_ID
+   3.  WAARDE VOOR CLIENT_SECRET
+   4.  ABONNEMENTS-ID
+   5.  ARM_ENDPOINT
+   6.  RESOURCE_LOCATION
 
 4.  Stel de volgende omgevingsvariabelen met behulp van de gegevens die u hebt opgehaald uit de Service-Principal hebt gemaakt met behulp van de opdrachtprompt:
     
@@ -273,10 +273,8 @@ U kunt de volgende GitHub-voorbeelden als verwijzingen gebruiken voor het maken 
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-7.  In het pom.xml-bestand, moet u het hieronder om het profiel 2018-03-01-hybride gebruiken voor Azure Stack afhankelijkheid toevoegen. Met deze afhankelijkheid installeert de modules die zijn gekoppeld aan dit profiel voor de resourceproviders Compute, netwerken, opslag, KeyVault en App-Services.
-    
-   Houd er rekening mee dat u de meest recente profiel met doel-Azure kunt gebruiken:
-        
+6.  In het pom.xml-bestand, moet u het hieronder om het profiel 2018-03-01-hybride gebruiken voor Azure Stack afhankelijkheid toevoegen. Met deze afhankelijkheid installeert de modules die zijn gekoppeld aan dit profiel voor de resourceproviders Compute, netwerken, opslag, KeyVault en App-Services.
+      
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>

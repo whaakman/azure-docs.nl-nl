@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314662"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432049"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>AD FS-vertrouwensrelatie met Azure AD met behulp van Azure AD Connect beheren
 
@@ -41,7 +41,7 @@ Azure AD Connect beheert **alleen** instellingen met betrekking tot Azure AD-ver
 | Instelling | Beschrijving |
 | :--- | :--- |
 | Certificaat voor token-ondertekening | Azure AD Connect kan worden gebruikt om te herstellen en opnieuw maken van de vertrouwensrelatie met Azure AD. Azure AD Connect biedt een eenmalige direct rollover van certificaten voor tokenondertekening voor AD FS en updates van de federatie-instellingen van Azure AD-domein.|
-| Token ondertekeningsalgoritme | Microsoft adviseert als het token-ondertekening algoritme SHA-256 aan. Azure AD Connect kan worden gedetecteerd als het algoritme voor token-ondertekening is ingesteld op een waarde minder veilig dan het SHA-256. Deze wordt de instelling worden bijgewerkt naar SHA-256 in de volgende mogelijke configuratie-bewerking. |
+| Token ondertekeningsalgoritme | Microsoft adviseert als het token-ondertekening algoritme SHA-256 aan. Azure AD Connect kan worden gedetecteerd als het algoritme voor token-ondertekening is ingesteld op een waarde minder veilig dan het SHA-256. Deze wordt de instelling worden bijgewerkt naar SHA-256 in de volgende mogelijke configuratie-bewerking. Andere relying party-vertrouwensrelatie moet worden bijgewerkt voor het gebruik van het nieuwe token certificaat voor ondertekening. |
 | Azure AD-id voor vertrouwensrelatie | Azure AD Connect stelt de juiste id-waarde voor de Azure AD-vertrouwensrelatie. AD FS identificatie unieke van de Azure AD-vertrouwensrelatie met de id-waarde. |
 | Azure AD-eindpunten | Azure AD Connect zorgt ervoor dat de eindpunten zijn geconfigureerd voor de Azure AD-vertrouwensrelatie altijd aan de hand van de meest recente aanbevolen waarden voor tolerantie en prestaties wordt. |
 | Transformatieregels voor uitgifte | Er zijn getallen van de claimregels die nodig zijn voor optimale prestaties van de functies van Azure AD in een federatieve omgeving. Azure AD Connect zorgt ervoor dat de Azure AD-vertrouwensrelatie altijd is geconfigureerd met de juiste set met aanbevolen claimregels. |

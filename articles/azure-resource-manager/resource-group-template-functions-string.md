@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager-sjabloonfuncties - string | Microsoft Docs
+title: Functies van Azure Resource Manager-sjablonen - tekenreeks | Microsoft Docs
 description: Beschrijft de functies in een Azure Resource Manager-sjabloon gebruiken om te werken met tekenreeksen.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e0578572de53fefddb88e163520d2bf5f580012
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360356"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434310"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeks-functies voor Azure Resource Manager-sjablonen
+# <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
 
 Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 
@@ -29,25 +29,25 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [Bevat](#contains)
+* [bevat](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [leeg](#empty)
+* [leeg zijn](#empty)
 * [endsWith](#endswith)
 * [eerste](#first)
 * [GUID](#guid)
 * [indexOf](#indexof)
 * [laatste](#last)
 * [lastIndexOf](#lastindexof)
-* [lengte](#length)
+* [Lengte](#length)
 * [padLeft](#padleft)
 * [vervangen](#replace)
 * [skip](#skip)
 * [split](#split)
-* [StartsWith](resource-group-template-functions-string.md#startswith)
+* [startsWith](resource-group-template-functions-string.md#startswith)
 * [Tekenreeks](#string)
 * [de subtekenreeks](#substring)
-* [duren](#take)
+* [toets maken](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [trim](#trim)
@@ -58,24 +58,24 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 
 <a id="base64" />
 
-## <a name="base64"></a>Base64
+## <a name="base64"></a>met base64
 `base64(inputString)`
 
-Retourneert de base64-weergave van de invoertekenreeks.
+Retourneert de Base 64-weergave van de ingevoerde tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |tekenreeks |De waarde moet worden geretourneerd als een base64-weergave. |
+| inputString |Ja |tekenreeks |De waarde dat wordt geretourneerd als een Base 64-indeling. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met de base64-weergave.
+Een tekenreeks met Base 64-indeling.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) laat zien hoe u de functie base64.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) laat zien hoe u de met base64-functie te gebruiken.
 
 ```json
 {
@@ -114,21 +114,21 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | base64Output | Reeks | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Reeks | Een twee drie |
-| toJsonOutput | Object | {"een": "a", "twee": "b"} |
+| toJsonOutput | Object | {"een": "a", "2": "b"} |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
@@ -139,13 +139,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="base64tojson"></a>base64ToJson
 `base64tojson`
 
-Converteert een base64-weergave naar een JSON-object.
+Converteert een Base 64-indeling naar een JSON-object.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |tekenreeks |De weergave base64 converteren naar een JSON-object. |
+| base64Value |Ja |tekenreeks |De Base 64-indeling converteren naar een JSON-object. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -153,7 +153,7 @@ Een JSON-object.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) wordt van de functie base64ToJson gebruikt om een base64-waarde te converteren:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) maakt gebruik van de functie base64ToJson om een met base64-waarde te converteren:
 
 ```json
 {
@@ -192,21 +192,21 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | base64Output | Reeks | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Reeks | Een twee drie |
-| toJsonOutput | Object | {"een": "a", "twee": "b"} |
+| toJsonOutput | Object | {"een": "a", "2": "b"} |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
@@ -217,13 +217,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="base64tostring"></a>base64ToString
 `base64ToString(base64Value)`
 
-Converteert een base64-weergave naar een tekenreeks.
+Converteert een Base 64-indeling naar een tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |tekenreeks |De weergave base64 converteren naar een tekenreeks. |
+| base64Value |Ja |tekenreeks |De Base 64-indeling converteren naar een tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -231,7 +231,7 @@ Een tekenreeks van de geconverteerde base64-waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) wordt van de functie base64ToString gebruikt om een base64-waarde te converteren:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) maakt gebruik van de functie base64ToString om een met base64-waarde te converteren:
 
 ```json
 {
@@ -270,21 +270,21 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | base64Output | Reeks | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Reeks | Een twee drie |
-| toJsonOutput | Object | {"een": "a", "twee": "b"} |
+| toJsonOutput | Object | {"een": "a", "2": "b"} |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
@@ -295,21 +295,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="concat"></a>concat
 `concat (arg1, arg2, arg3, ...)`
 
-Combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks of combineert meerdere matrices en retourneert de aaneengeschakelde matrix.
+Combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks of combineert meerdere matrices en retourneert de samengevoegde matrix.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |tekenreeks of matrix |De eerste waarde voor de samenvoeging. |
-| Extra argumenten |Nee |tekenreeks |Aanvullende waarden in opeenvolgende volgorde voor de samenvoeging. |
+| Arg1 |Ja |tekenreeks of matrix |De eerste waarde voor samenvoeging. |
+| aanvullende argumenten |Nee |tekenreeks |Aanvullende waarden in opeenvolgende volgorde voor samenvoeging. |
 
 ### <a name="return-value"></a>Retourwaarde
 Een tekenreeks of matrix met samengevoegde waarden.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) ziet u het combineren van twee tekenreekswaarden zoals en een samengevoegde tekenreeks retourneren.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) laat zien hoe u het combineren van twee tekenreekswaarden en een samengevoegde tekenreeks te retourneren.
 
 ```json
 {
@@ -331,25 +331,25 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | concatOutput | Reeks | prefix-5yj4yjf5mbg72 |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) ziet u twee matrices combineren.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) laat zien hoe u twee matrices combineren.
 
 ```json
 {
@@ -384,19 +384,19 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| retourneren | Matrix | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| terug | Matrix | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
@@ -407,22 +407,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="contains"></a>bevat
 `contains (container, itemToFind)`
 
-Controleert of een matrix een waarde bevat, een object een sleutel bevat of een tekenreeks een subtekenreeks bevat.
+Controleert of een matrix een waarde bevat, een object een sleutel bevat of een tekenreeks een subtekenreeks. De vergelijking van gegevensreeksen is hoofdlettergevoelig. De vergelijking is echter niet-hoofdlettergevoelige bij het testen van als een object een sleutel bevat.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| container |Ja |Array, object of een tekenreeks |De waarde met de waarde om te zoeken. |
-| itemToFind |Ja |String of int. |De waarde om te zoeken. |
+| container |Ja |matrix of object tekenreeks |De waarde met de waarde om te zoeken. |
+| itemToFind |Ja |tekenreeks of int |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-**De waarde True** als het item gevonden, anders wordt is **False**.
+**De waarde True** als het item gevonden, anders is, **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) toont hoe u bevat met verschillende typen:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) toont hoe u met verschillende typen bevat:
 
 ```json
 {
@@ -473,7 +473,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -484,13 +484,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | arrayTrue | BOOL | True |
 | arrayFalse | BOOL | False |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
@@ -501,17 +501,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="datauri"></a>dataUri
 `dataUri(stringToConvert)`
 
-Converteert een waarde met een gegevens-URI.
+Converteert een waarde naar een gegevens-URI.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |tekenreeks |De waarde converteren naar een gegevens-URI. |
+| stringToConvert |Ja |tekenreeks |De waarde moet worden geconverteerd naar een gegevens-URI. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks zijn opgemaakt als een gegevens-URI.
+Een tekenreeks is opgemaakt als een gegevens-URI.
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -545,20 +545,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| dataUriOutput | Reeks | gegevens: tekst / onbewerkte; charset = utf8; base64, SGVsbG8 = |
+| dataUriOutput | Reeks | gegevens: text / zonder opmaak; charset = utf8; base64, SGVsbG8 = |
 | toStringOutput | Reeks | Hallo mensen! |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
@@ -569,7 +569,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="datauritostring"></a>dataUriToString
 `dataUriToString(dataUriToConvert)`
 
-Een gegevens-URI converteert geformatteerd waarde naar een tekenreeks.
+Een gegevens-URI converteert opgemaakt waarde naar een tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
@@ -613,20 +613,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| dataUriOutput | Reeks | gegevens: tekst / onbewerkte; charset = utf8; base64, SGVsbG8 = |
+| dataUriOutput | Reeks | gegevens: text / zonder opmaak; charset = utf8; base64, SGVsbG8 = |
 | toStringOutput | Reeks | Hallo mensen! |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
@@ -637,17 +637,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="empty"></a>Leeg
 `empty(itemToTest)`
 
-Hiermee wordt bepaald of een matrix, een object of een tekenreeks leeg is.
+Bepaalt of een matrix, een object of een tekenreeks leeg is.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |Array, object of een tekenreeks |De waarde om te controleren als deze leeg is. |
+| itemToTest |Ja |matrix of object tekenreeks |De waarde moet worden gecontroleerd als dit leeg zijn. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Retourneert **True** als de waarde leeg, anders wordt is **False**.
+Retourneert **waar** als de waarde leeg, anders is, **False**.
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -690,7 +690,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -698,13 +698,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | objectEmpty | BOOL | True |
 | stringEmpty | BOOL | True |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
@@ -715,13 +715,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="endswith"></a>endsWith
 `endsWith(stringToSearch, stringToFind)`
 
-Hiermee wordt bepaald of een tekenreeks met een waarde eindigt. De vergelijking is niet hoofdlettergevoelig.
+Bepaalt of een tekenreeks met een waarde eindigt. De vergelijking is niet hoofdlettergevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToSearch |Ja |tekenreeks |De waarde die bevat het artikel om te zoeken. |
 | stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
@@ -730,7 +730,7 @@ Hiermee wordt bepaald of een tekenreeks met een waarde eindigt. De vergelijking 
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) laat zien hoe de functies startsWith en endsWith gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) ziet u hoe u de functies startsWith en endsWith:
 
 ```json
 {
@@ -766,7 +766,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -777,13 +777,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | endsCapTrue | BOOL | True |
 | endsFalse | BOOL | False |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
@@ -800,7 +800,7 @@ Retourneert het eerste teken van de tekenreeks of het eerste element van de matr
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De waarde voor het ophalen van het eerste element of teken. |
+| Arg1 |Ja |matrix of tekenreeks |De waarde om op te halen van het eerste element of het teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -808,7 +808,7 @@ Een tekenreeks van het eerste teken of het type (string, int, matrix of object) 
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) laat zien hoe u de eerste functie met een matrix en de tekenreeks.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) ziet u hoe u de eerste functie met een matrix en een tekenreeks.
 
 ```json
 {
@@ -835,20 +835,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayOutput | Reeks | één |
 | stringOutput | Reeks | O |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
@@ -858,22 +858,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 `guid (baseString, ...)`
 
-Maakt een waarde in de indeling van een globally unique identifier op basis van de waarden als parameters.
+Hiermee maakt een waarde in de indeling van een globally unique identifier op basis van de waarden geleverd als parameters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |tekenreeks |De waarde die wordt gebruikt in de hash-functie voor het maken van de GUID. |
-| extra parameters indien nodig |Nee |tekenreeks |U kunt toevoegen die nodig zijn voor het maken van de waarde die het niveau van de uniekheid van tekenreeksen. |
+| aanvullende parameters indien nodig |Nee |tekenreeks |U kunt zoveel tekenreeksen als nodig voor het maken van de waarde die het niveau van de uniciteit bepaalt toevoegen. |
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie is handig als u moet een waarde in de indeling van een globally unique identifier maken. U opgeven parameterwaarden die het uniciteitsbereik voor het resultaat beperken. U kunt opgeven of de naam uniek naar beneden op abonnement, resourcegroep of implementatie is.
+Deze functie is handig als u wilt maken van een waarde in de indeling van een globally unique identifier. U opgeven parameterwaarden die beperken van het bereik van de uniciteit voor het resultaat. U kunt opgeven of de naam van de unieke omlaag naar het abonnement, resourcegroep of implementatie.
 
-De geretourneerde waarde is niet een willekeurige tekenreeks op, maar in plaats daarvan het resultaat van een hash-functie. De geretourneerde waarde is 36 tekens lang. Het is niet uniek.
+De geretourneerde waarde is niet een willekeurige tekenreeks, maar in plaats van het resultaat van een hash-functie. De geretourneerde waarde is 36 tekens lang zijn. Het is niet uniek.
 
-De volgende voorbeelden laten zien hoe guid gebruiken voor het maken van een unieke waarde voor vaak gebruikte niveaus.
+De volgende voorbeelden laten zien hoe u guid om te maken van een unieke waarde voor de meest gebruikte niveaus.
 
 Uniek binnen het bereik van abonnement
 
@@ -887,7 +887,7 @@ Uniek binnen het bereik van resourcegroep
 "[guid(resourceGroup().id)]"
 ```
 
-Uniek binnen het bereik van implementatie voor een resourcegroep
+Uniek binnen het bereik van de implementatie voor een resourcegroep
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
@@ -895,11 +895,11 @@ Uniek binnen het bereik van implementatie voor een resourcegroep
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met de indeling van een globally unique identifier 36 tekens.
+Een tekenreeks met 36 tekens in de indeling van een globally unique identifier.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) resultaten retourneert uit guid:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) resultaten uit guid:
 
 ```json
 {
@@ -925,13 +925,13 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
@@ -942,22 +942,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="indexof"></a>indexOf
 `indexOf(stringToSearch, stringToFind)`
 
-Retourneert de eerste positie van een waarde in een tekenreeks. De vergelijking is niet hoofdlettergevoelig.
+Retourneert de eerste positie van een waarde van een tekenreeks. De vergelijking is niet hoofdlettergevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToSearch |Ja |tekenreeks |De waarde die bevat het artikel om te zoeken. |
 | stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat de positie van het item te vinden. De waarde is nul. Als het item niet gevonden is, wordt -1 geretourneerd.
+Een geheel getal dat staat voor de positie van het item te vinden. De waarde is nul. Als het item niet wordt gevonden, wordt -1 geretourneerd.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) laat zien hoe de functies indexOf en lastIndexOf gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) ziet u hoe u de functies indexOf en lastIndexOf:
 
 ```json
 {
@@ -989,7 +989,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -997,15 +997,15 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | lastT | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| notFound | Int | -1 |
+| NotFound | Int | -1 |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
@@ -1022,7 +1022,7 @@ Retourneert de laatste teken van de tekenreeks of het laatste element van de mat
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De waarde voor het ophalen van het laatste element of teken. |
+| Arg1 |Ja |matrix of tekenreeks |De waarde om op te halen van het laatste element of het teken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1030,7 +1030,7 @@ Een tekenreeks van het laatste teken of het type (string, int, matrix of object)
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) laat zien hoe u de laatste functie met een matrix en de tekenreeks.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) ziet u hoe u de laatste functie met een matrix en een tekenreeks.
 
 ```json
 {
@@ -1057,20 +1057,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayOutput | Reeks | drie |
-| stringOutput | Reeks | E |
+| stringOutput | Reeks | e |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
@@ -1081,22 +1081,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="lastindexof"></a>lastIndexOf
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Retourneert de laatste positie van een waarde in een tekenreeks. De vergelijking is niet hoofdlettergevoelig.
+Retourneert de laatste positie van een waarde van een tekenreeks. De vergelijking is niet hoofdlettergevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToSearch |Ja |tekenreeks |De waarde die bevat het artikel om te zoeken. |
 | stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een geheel getal dat staat voor de laatste positie van het item te vinden. De waarde is nul. Als het item niet gevonden is, wordt -1 geretourneerd.
+Een geheel getal dat staat voor de laatste positie van het item te vinden. De waarde is nul. Als het item niet wordt gevonden, wordt -1 geretourneerd.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) laat zien hoe de functies indexOf en lastIndexOf gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) ziet u hoe u de functies indexOf en lastIndexOf:
 
 ```json
 {
@@ -1128,7 +1128,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -1136,15 +1136,15 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | lastT | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| notFound | Int | -1 |
+| NotFound | Int | -1 |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
@@ -1152,7 +1152,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="length" />
 
-## <a name="length"></a>lengte
+## <a name="length"></a>Lengte
 `length(string)`
 
 Retourneert het aantal tekens in een tekenreeks of elementen in een matrix.
@@ -1161,7 +1161,7 @@ Retourneert het aantal tekens in een tekenreeks of elementen in een matrix.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |matrix of tekenreeks |De matrix te gebruiken voor het ophalen van het aantal elementen of de tekenreeks moet worden gebruikt voor het ophalen van het aantal tekens. |
+| Arg1 |Ja |matrix of tekenreeks |De matrix te gebruiken voor het ophalen van het aantal elementen, of een tekenreeks te gebruiken voor het ophalen van het aantal tekens. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1169,7 +1169,7 @@ Een int.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) lengte gebruiken met een matrix en de tekenreeks bevat:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) ziet u hoe u de lengte van een matrix en een tekenreeks:
 
 ```json
 {
@@ -1203,20 +1203,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
@@ -1224,7 +1224,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="padleft" />
 
-## <a name="padleft"></a>PadLeft
+## <a name="padleft"></a>padLeft
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
 Retourneert een rechts uitgelijnde tekenreeks met tekens toe te voegen aan de linkerkant tot het bereiken van de totale lengte van de opgegeven.
@@ -1233,11 +1233,11 @@ Retourneert een rechts uitgelijnde tekenreeks met tekens toe te voegen aan de li
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Ja |String of int. |De waarde rechts uitlijnen. |
-| totalLength |Ja |int |Het totale aantal tekens in de tekenreeks geretourneerd. |
-| paddingCharacter |Nee |willekeurig teken |Het teken dat moet worden gebruikt voor links-opvulling tot de totale lengte is bereikt. De standaardwaarde is een spatie. |
+| valueToPad |Ja |tekenreeks of int |De waarde rechts uitlijnen. |
+| totalLength |Ja |int |Het totale aantal tekens in de geretourneerde tekenreeks. |
+| paddingCharacter |Nee |willekeurig teken |Het teken dat moet worden gebruikt voor links-opvulling totdat de totale lengte is bereikt. De standaardwaarde is een spatie. |
 
-Als de oorspronkelijke reeks langer dan het aantal tekens is worden opgevuld, worden geen tekens toegevoegd.
+Als de oorspronkelijke reeks langer dan het aantal tekens dat moet worden opvullen met het teken is, worden geen tekens toegevoegd.
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1245,7 +1245,7 @@ Een tekenreeks met ten minste het aantal tekens opgegeven.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) laat zien hoe de gebruiker opgegeven parameterwaarde opgevuld door het teken nul toe te voegen totdat het totale aantal tekens is bereikt. 
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) laat zien hoe u opvullen met het teken van de gebruiker opgegeven parameterwaarde door toe te voegen van het teken nul totdat het totale aantal tekens is bereikt. 
 
 ```json
 {
@@ -1267,19 +1267,19 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | stringOutput | Reeks | 0000000123 |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
@@ -1290,23 +1290,23 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="replace"></a>vervangen
 `replace(originalString, oldString, newString)`
 
-Retourneert een nieuwe tekenreeks met alle exemplaren van de ene tekenreeks vervangen door een andere tekenreeks.
+Retourneert een nieuwe tekenreeks met alle exemplaren van een tekenreeks vervangen door een andere tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |tekenreeks |De waarde die is van alle exemplaren van de ene tekenreeks vervangen door een andere tekenreeks. |
+| originalString |Ja |tekenreeks |De waarde waarvoor alle exemplaren van een tekenreeks vervangen door een andere tekenreeks. |
 | oldString |Ja |tekenreeks |De tekenreeks die moet worden verwijderd uit de oorspronkelijke reeks. |
-| met de newString |Ja |tekenreeks |De tekenreeks om toe te voegen in plaats van de verwijderde tekenreeks. |
+| newString |Ja |tekenreeks |De tekenreeks om toe te voegen in plaats van de verwijderde tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks met de vervangende tekens.
+Een tekenreeks met de tekens die vervangen.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) toont alle streepjes verwijderen van de gebruiker opgegeven tekenreeks en deel uitmaken van de tekenreeks vervangen door een andere tekenreeks.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) leest hoe alle streepjes verwijderen uit de gebruiker opgegeven tekenreeks en Vervang een deel van de tekenreeks met een andere tekenreeks.
 
 ```json
 {
@@ -1332,20 +1332,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | firstOutput | Reeks | 1231231234 |
 | secodeOutput | Reeks | 123-123-xxxx |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
@@ -1353,25 +1353,25 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="skip" />
 
-## <a name="skip"></a>Overslaan
+## <a name="skip"></a>overslaan
 `skip(originalValue, numberToSkip)`
 
-Retourneert een tekenreeks met de tekens na het opgegeven aantal tekens of een matrix met alle elementen na het opgegeven aantal elementen.
+Retourneert een tekenreeks waarbij alle tekens na het opgegeven aantal tekens of een matrix met alle elementen na het opgegeven aantal elementen.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De matrix of tekenreeks moet worden gebruikt voor het overslaan. |
-| numberToSkip |Ja |int |Het aantal elementen of tekens over te slaan. Als deze waarde 0 of minder is, worden alle elementen of tekens in de waarde geretourneerd. Als deze groter dan de lengte van de matrix of tekenreeks is, een lege matrix of tekenreeks geretourneerd. |
+| originalValue |Ja |matrix of tekenreeks |De ingevoerde matrix of tekenreeks die moet worden gebruikt voor het overslaan. |
+| numberToSkip |Ja |int |Het aantal elementen of tekens om over te slaan. Als deze waarde 0 of minder is, worden alle elementen of tekens in de waarde geretourneerd. Als dit groter is dan de lengte van de matrix of tekenreeks, wordt een lege matrix of tekenreeks geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of tekenreeks zijn.
+Een matrix of tekenreeks.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) slaat het opgegeven aantal elementen in de matrix en het opgegeven aantal tekens in een tekenreeks.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) slaat het opgegeven aantal elementen in de matrix, en het opgegeven aantal tekens in een tekenreeks.
 
 ```json
 {
@@ -1413,20 +1413,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Matrix | ["drie"] |
+| arrayOutput | Matrix | ["3"] |
 | stringOutput | Reeks | twee drie |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
@@ -1437,14 +1437,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="split"></a>split
 `split(inputString, delimiter)`
 
-Retourneert een matrix met tekenreeksen die de subtekenreeksen de invoerreeks die worden gescheiden door de opgegeven scheidingstekens bevat.
+Retourneert een matrix met tekenreeksen die de subtekenreeksen van de ingevoerde tekenreeks die worden gescheiden door de opgegeven scheidingstekens bevat.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |tekenreeks |De tekenreeks om op te splitsen. |
-| Scheidingsteken |Ja |tekenreeks of matrix met tekenreeksen |Het scheidingsteken moet worden gebruikt voor het splitsen van de tekenreeks. |
+| inputString |Ja |tekenreeks |De tekenreeks te splitsen. |
+| scheidingsteken |Ja |tekenreeks of een matrix met tekenreeksen |Het scheidingsteken moet worden gebruikt voor het splitsen van de tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1452,7 +1452,7 @@ Een matrix met tekenreeksen.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) splitst de invoerreeks met een komma en met een komma of puntkomma's.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) splitst de ingevoerde tekenreeks met een door komma's, en met een komma of puntkomma's.
 
 ```json
 {
@@ -1485,20 +1485,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| firstOutput | Matrix | ['een', 'twee', 'drie'] |
-| secondOutput | Matrix | ['een', 'twee', 'drie'] |
+| firstOutput | Matrix | ["een", "twee", "drie"] |
+| secondOutput | Matrix | ["een", "twee", "drie"] |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
@@ -1506,16 +1506,16 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="startswith" />
 
-## <a name="startswith"></a>StartsWith
+## <a name="startswith"></a>startsWith
 `startsWith(stringToSearch, stringToFind)`
 
-Hiermee wordt bepaald of een tekenreeks met een waarde begint. De vergelijking is niet hoofdlettergevoelig.
+Bepaalt of een tekenreeks met een waarde begint. De vergelijking is niet hoofdlettergevoelig.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToSearch |Ja |tekenreeks |De waarde die bevat het artikel om te zoeken. |
 | stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
@@ -1524,7 +1524,7 @@ Hiermee wordt bepaald of een tekenreeks met een waarde begint. De vergelijking i
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) laat zien hoe de functies startsWith en endsWith gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) ziet u hoe u de functies startsWith en endsWith:
 
 ```json
 {
@@ -1560,7 +1560,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -1571,13 +1571,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | endsCapTrue | BOOL | True |
 | endsFalse | BOOL | False |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
@@ -1588,13 +1588,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="string"></a>tekenreeks
 `string(valueToConvert)`
 
-De opgegeven waarde converteert naar een tekenreeks.
+De opgegeven waarde omgezet in een tekenreeks.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Ja | Alle |De waarde niet converteren naar tekenreeks. Elk type waarde kan worden geconverteerd, met inbegrip van objecten en -matrices. |
+| valueToConvert |Ja | Alle |De waarde te converteren naar een tekenreeks. Elk type waarde kan worden geconverteerd, met inbegrip van objecten en -matrices. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1647,21 +1647,21 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| objectOutput | Reeks | {{'valueA': 10, 'valueB': "Voorbeeldtekst"} |
+| objectOutput | Reeks | {'valueA': 10, "waardeb is": "Voorbeeldtekst"} |
 | arrayOutput | Reeks | ["a", "b", "c"] |
 | intOutput | Reeks | 5 |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
@@ -1672,15 +1672,15 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="substring"></a>de subtekenreeks
 `substring(stringToParse, startIndex, length)`
 
-Retourneert een subtekenreeks die begint bij de opgegeven tekenpositie en het opgegeven aantal tekens bevat.
+Retourneert een subtekenreeks die begint op de positie van het opgegeven teken en het opgegeven aantal tekens bevat.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |tekenreeks |De oorspronkelijke tekenreeks weer waaruit de subtekenreeks wordt opgehaald. |
+| stringToParse |Ja |tekenreeks |De oorspronkelijke tekenreeks waaruit de subtekenreeks wordt opgehaald. |
 | startIndex |Nee |int |De op nul gebaseerde beginpositie voor de subtekenreeks. |
-| lengte |Nee |int |Het aantal tekens voor de subtekenreeks. Moet verwijzen naar een locatie binnen de tekenreeks. |
+| Lengte |Nee |int |Het aantal tekens in voor de subtekenreeks. Moet verwijzen naar een locatie in de tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1688,7 +1688,7 @@ De subtekenreeks.
 
 ### <a name="remarks"></a>Opmerkingen
 
-De functie mislukt wanneer de subtekenreeks breder is dan het einde van de tekenreeks. Het volgende voorbeeld mislukt met de fout 'de parameters van de index en lengte moeten naar een locatie binnen de tekenreeks verwijzen. De Indexparameter: '0', de lengteparameter: 11, de lengte van de tekenreeksparameter: "10". ".
+De functie mislukt wanneer de subtekenreeks buiten het einde van de tekenreeks valt. Het volgende voorbeeld is mislukt met de fout "de index en lengte moeten verwijzen naar een locatie in de tekenreeks. De Indexparameter: '0', de lengteparameter: 11, de lengte van de tekenreeksparameter: '10'. '.
 
 ```json
 "parameters": {
@@ -1723,19 +1723,19 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | substringOutput | Reeks | twee |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
@@ -1743,7 +1743,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="take" />
 
-## <a name="take"></a>duren
+## <a name="take"></a>toets maken
 `take(originalValue, numberToTake)`
 
 Retourneert een tekenreeks zijn met het opgegeven aantal tekens vanaf het begin van de tekenreeks of een matrix met het opgegeven aantal elementen vanaf het begin van de matrix.
@@ -1752,16 +1752,16 @@ Retourneert een tekenreeks zijn met het opgegeven aantal tekens vanaf het begin 
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| originalValue |Ja |matrix of tekenreeks |De matrix of tekenreeks op voor het nemen van elementen uit. |
-| numberToTake |Ja |int |Het aantal elementen of tekens te laten worden. Als deze waarde 0 of minder is, wordt een lege matrix of tekenreeks geretourneerd. Als deze groter is dan de lengte van de opgegeven matrix of tekenreeks is, worden alle elementen in de matrix of tekenreeks geretourneerd. |
+| originalValue |Ja |matrix of tekenreeks |De ingevoerde matrix of tekenreeks waaruit de elementen uit. |
+| numberToTake |Ja |int |Het aantal elementen of tekens op te nemen. Als deze waarde 0 of minder is, wordt een lege matrix of tekenreeks geretourneerd. Als dit groter is dan de lengte van de opgegeven matrix of tekenreeks, worden alle elementen in de matrix of tekenreeks worden geretourneerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een matrix of tekenreeks zijn.
+Een matrix of tekenreeks.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) duurt het opgegeven aantal elementen vanaf de matrix en tekens uit een tekenreeks.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) neemt van het opgegeven aantal elementen van de matrix en tekens uit een tekenreeks.
 
 ```json
 {
@@ -1803,20 +1803,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Matrix | ['een', 'twee'] |
+| arrayOutput | Matrix | ["een", "twee"] |
 | stringOutput | Reeks | op |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
@@ -1827,21 +1827,21 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="tolower"></a>toLower
 `toLower(stringToChange)`
 
-De opgegeven tekenreeks converteren naar kleine letters.
+De opgegeven tekenreeks die wordt omgezet in kleine letters.
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |tekenreeks |De waarde te converteren naar kleine letters. |
+| stringToChange |Ja |tekenreeks |De waarde moet worden geconverteerd naar kleine letters. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De tekenreeks wordt omgezet in kleine letters.
+De tekenreeks wordt geconverteerd naar kleine letters.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameterwaarde converteert naar kleine letters en hoofdletters.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameterwaarde wordt geconverteerd naar kleine letters en hoofdletters.
 
 ```json
 {
@@ -1867,20 +1867,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | toLowerOutput | Reeks | Een twee drie |
 | toUpperOutput | Reeks | EEN TWEE DRIE |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
@@ -1897,15 +1897,15 @@ De opgegeven tekenreeks die wordt omgezet in hoofdletters.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |tekenreeks |De waarde converteren naar hoofdletters. |
+| stringToChange |Ja |tekenreeks |De waarde moet worden geconverteerd naar hoofdletters. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De tekenreeks wordt omgezet in hoofdletters.
+De tekenreeks wordt geconverteerd naar hoofdletters.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameterwaarde converteert naar kleine letters en hoofdletters.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) een parameterwaarde wordt geconverteerd naar kleine letters en hoofdletters.
 
 ```json
 {
@@ -1931,20 +1931,20 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | toLowerOutput | Reeks | Een twee drie |
 | toUpperOutput | Reeks | EEN TWEE DRIE |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
@@ -1961,15 +1961,15 @@ Verwijdert alle voorloop- en volgspaties spatietekens bestaan uit de opgegeven t
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |tekenreeks |De waarde trim. |
+| stringToTrim |Ja |tekenreeks |De waarde naar trim. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De tekenreeks zonder voorloopspaties en afsluitende spatietekens bestaan.
+De tekenreeks zonder voorloopspaties en afsluitende spatietekens bevatten.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) verwijdert de spaties uit de parameter.
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) verwijdert de spatietekens bevatten van de parameter.
 
 ```json
 {
@@ -1991,19 +1991,19 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| retourneren | Reeks | Een twee drie |
+| terug | Reeks | Een twee drie |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
@@ -2014,24 +2014,24 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="uniquestring"></a>uniqueString
 `uniqueString (baseString, ...)`
 
-Maakt een deterministische hash-tekenreeks op basis van de waarden als parameters. 
+Hiermee maakt u een deterministische hash-tekenreeks op basis van de waarden geleverd als parameters. 
 
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |tekenreeks |De waarde die wordt gebruikt in de hash-functie voor het maken van een unieke tekenreeks. |
-| extra parameters indien nodig |Nee |tekenreeks |U kunt toevoegen die nodig zijn voor het maken van de waarde die het niveau van de uniekheid van tekenreeksen. |
+| aanvullende parameters indien nodig |Nee |tekenreeks |U kunt zoveel tekenreeksen als nodig voor het maken van de waarde die het niveau van de uniciteit bepaalt toevoegen. |
 
 ### <a name="remarks"></a>Opmerkingen
 
-Deze functie is handig als u moet een unieke naam voor een resource te maken. U opgeven parameterwaarden die het uniciteitsbereik voor het resultaat beperken. U kunt opgeven of de naam uniek naar beneden op abonnement, resourcegroep of implementatie is. 
+Deze functie is handig wanneer u moet een unieke naam voor een resource maken. U opgeven parameterwaarden die beperken van het bereik van de uniciteit voor het resultaat. U kunt opgeven of de naam van de unieke omlaag naar het abonnement, resourcegroep of implementatie. 
 
-De geretourneerde waarde is niet een willekeurige tekenreeks op, maar in plaats daarvan het resultaat van een hash-functie. De geretourneerde waarde is 13 tekens bevatten. Het is niet uniek. U kunt de waarde combineren met een voorvoegsel van de naamconventie voor het maken van een beschrijvende naam. Het volgende voorbeeld ziet de indeling van de geretourneerde waarde. De werkelijke waarde verschilt per de opgegeven parameters.
+De geretourneerde waarde is niet een willekeurige tekenreeks, maar in plaats van het resultaat van een hash-functie. De geretourneerde waarde is 13 tekens bevatten. Het is niet uniek. U kunt de waarde worden gecombineerd met een voorvoegsel van de naamconventie voor het maken van een naam die zinvol is. Het volgende voorbeeld ziet de indeling van de geretourneerde waarde. De werkelijke waarde is afhankelijk van de opgegeven parameters.
 
     tcvhiyu5h2o5o
 
-De volgende voorbeelden laten zien hoe uniqueString gebruiken voor het maken van een unieke waarde voor vaak gebruikte niveaus.
+De volgende voorbeelden laten zien hoe uniqueString gebruiken voor het maken van een unieke waarde voor de meest gebruikte niveaus.
 
 Uniek binnen het bereik van abonnement
 
@@ -2045,13 +2045,13 @@ Uniek binnen het bereik van resourcegroep
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Uniek binnen het bereik van implementatie voor een resourcegroep
+Uniek binnen het bereik van de implementatie voor een resourcegroep
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Het volgende voorbeeld laat zien hoe een unieke naam voor een opslagaccount op basis van de resourcegroep maken. Binnen de resourcegroep is de naam niet uniek als op dezelfde manier samengesteld.
+Het volgende voorbeeld ziet hoe u een unieke naam voor een opslagaccount op basis van de resourcegroep te maken. In de resourcegroep is de naam niet uniek als op dezelfde manier samengesteld.
 
 ```json
 "resources": [{ 
@@ -2066,7 +2066,7 @@ Een tekenreeks met 13 tekens.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) resultaten retourneert uit uniquestring:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) resultaten uit uniquestring:
 
 ```json
 {
@@ -2086,13 +2086,13 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
@@ -2103,7 +2103,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="uri"></a>uri
 `uri (baseUri, relativeUri)`
 
-Maakt een absolute URI door baseUri en de tekenreeks relativeUri te combineren.
+Hiermee maakt u een absolute URI zijn die door de baseUri en de tekenreeks relativeUri te combineren.
 
 ### <a name="parameters"></a>Parameters
 
@@ -2116,17 +2116,17 @@ De waarde voor de **baseUri** parameter kan een specifiek bestand bevatten, maar
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een tekenreeks die de absolute URI voor de basis- en relatieve waarden vertegenwoordigt.
+Een tekenreeks die de absolute URI zijn die voor de basis- en relatieve waarden vertegenwoordigt.
 
 ### <a name="examples"></a>Voorbeelden
 
-Het volgende voorbeeld laat zien hoe een koppeling naar een geneste sjabloon op basis van de waarde van de bovenliggende sjabloon maken.
+Het volgende voorbeeld ziet hoe u een koppeling naar een geneste sjabloon op basis van de waarde van de bovenliggende sjabloon.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) laat zien hoe uri, uriComponent en uriComponentToString te gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u de uri en uriComponent uriComponentToString:
 
 ```json
 {
@@ -2155,7 +2155,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -2163,13 +2163,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | componentOutput | Reeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
 | toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
@@ -2186,7 +2186,7 @@ Codeert een URI.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |tekenreeks |De waarde voor het coderen. |
+| stringToEncode |Ja |tekenreeks |De waarde moet worden gecodeerd. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -2194,7 +2194,7 @@ Een tekenreeks van de URI gecodeerde waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) laat zien hoe uri, uriComponent en uriComponentToString te gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u de uri en uriComponent uriComponentToString:
 
 ```json
 {
@@ -2223,7 +2223,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -2231,13 +2231,13 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | componentOutput | Reeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
 | toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
@@ -2254,15 +2254,15 @@ Retourneert dat een tekenreeks van een URI-gecodeerde waarde.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |tekenreeks |De URI gecodeerde waarde converteren naar een tekenreeks. |
+| uriEncodedString |Ja |tekenreeks |Waarde moet worden geconverteerd naar een tekenreeks met de URI-codering. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-Een gecodeerde tekenreeks van URI gecodeerde waarde.
+Een gedecodeerde tekenreeks met URI gecodeerde waarde.
 
 ### <a name="examples"></a>Voorbeelden
 
-De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) laat zien hoe uri, uriComponent en uriComponentToString te gebruiken:
+De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) ziet u hoe u de uri en uriComponent uriComponentToString:
 
 ```json
 {
@@ -2291,7 +2291,7 @@ De volgende [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples
 }
 ```
 
-De uitvoer van het vorige voorbeeld met de standaardwaarde is:
+De uitvoer uit het vorige voorbeeld met de standaardwaarden is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
@@ -2299,21 +2299,21 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | componentOutput | Reeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
 | toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
-Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met Azure CLI, gebruikt u:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
-Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
+In dit als voorbeeldsjabloon wilt implementeren met PowerShell, gebruikt u:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).
+* Zie voor een beschrijving van de secties in een Azure Resource Manager-sjabloon, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 * U kunt meerdere sjablonen samenvoegen, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Voor een opgegeven aantal keer herhalen bij het maken van een type resource, Zie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md).
-* Zie voor het implementeren van de sjabloon die u hebt gemaakt, [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Op een opgegeven aantal keren herhalen bij het maken van een type resource, Zie [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md).
+* Zie voor meer informatie over het implementeren van de sjabloon die u hebt gemaakt, [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

@@ -1,28 +1,28 @@
 ---
-title: Bing Speech ondersteunde talen | Microsoft Docs
-titlesuffix: Azure Cognitive Services
-description: Een lijst met talen die worden ondersteund door Bing Speech.
+title: Taalondersteuning - spraak-API
+titleSuffix: Azure Cognitive Services
+description: Een lijst van natuurlijke talen die worden ondersteund door de spraak-API.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX
-ms.openlocfilehash: c1051ebec815a2bcb2832f7dd2fcb570b8c53223
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968075"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433137"
 ---
-# <a name="supported-languages"></a>Ondersteunde talen
+# <a name="language-and-region-support-for-speech-api"></a>Ondersteuning voor spraak-API voor taal en regio
 
 ## <a name="interactive-and-dictation-mode"></a>Interactief en dicteren modus
 
-De Microsoft-spraakherkenning API ondersteunt de volgende talen in `interactive` en `dictation` modi. 
+De Microsoft-spraakherkenning API ondersteunt de volgende talen in `interactive` en `dictation` modi.
 
 |Code | Taal | Code | Taal |
 |-----|-----|-----|-----|
@@ -40,11 +40,12 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen in `interactive`
 | es-MX | Spaans (Mexico) |zh-CN | Chinees (Mandarijn, vereenvoudigd)  |
 | fi-FI | Fins (Finland) |zh-HK | Chinees (Hongkong SAR) |
 | fr-CA | Frans (Canada) | zh-TW | Chinees (Mandarijn, Taiwanees)|
-| fr-FR | Frans (Frankrijk) | ||
+| fr-FR | Frans (Frankrijk) | Gu-IN | Gujarati (India) |
+| TA-IN |Tamil (India) | te-IN | Telugu (India) |
 
 ## <a name="conversation-mode"></a>Conversatiemodus
 
-De Microsoft-spraakherkenning API ondersteunt de volgende talen in `conversation` modi. 
+De Microsoft-spraakherkenning API ondersteunt de volgende talen in `conversation` modi.
 
 | Code | Taal | Code | Taal |
 |-----|-----|-----|-----|

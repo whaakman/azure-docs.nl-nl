@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181574"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433221"
 ---
 # <a name="design-process-overview"></a>Overzicht van het ontwerp
-U kunt de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express: vooraf maken van ontwerp, gezonde bron plaatsing en na bake ontwerp. Het proces vereist minder markeringen die zijn gekoppeld aan volumes weerklank behoudt designer bepalen hoe een scène geluiden plaatsen.
+U kunt de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express: vooraf verdient scène setup, gezonde bron plaatsing en na bake ontwerp. Het proces vereist minder markeringen die zijn gekoppeld aan volumes weerklank behoudt designer bepalen hoe een scène geluiden plaatsen.
 
 ## <a name="pre-bake-design"></a>Ontwerp vooraf maken
-Het ontwerpproces voor vooraf bake produceert de scène en metagegevens die worden gebruikt voor de simulatie geluid wave, waaronder te selecteren welke elementen van de scène wordt opgenomen in de simulatie occlusions, weerspiegeling en weerklank opgeven. De metagegevens van de scène is de selectie van akoestische materialen voor elk element in de scène. Het akoestisch materiaal beheren geluid energieverbruik weergegeven van elke surface.
+Het installatieproces vooraf bake scène produceert de scène en metagegevens die worden gebruikt voor de simulatie geluid wave, waaronder te selecteren welke elementen van de scène wordt opgenomen in de simulatie occlusions, weerspiegeling en weerklank opgeven. De metagegevens van de scène is de selectie van akoestische materialen voor elk element in de scène. Het akoestisch materiaal beheren geluid energieverbruik weergegeven van elke surface.
 
 De standaard opname coëfficiënt voor alle oppervlakken is 0,04, sterk reflecteert. U kunt fraaie uiterlijk en spelen effecten bereiken door het afstemmen van de coëfficiënten voor opname van verschillende materialen in de scène, die met name belangrijk naar listeners zijn wanneer ze de overgang van het ene gebied van de scène naar een andere horen. Bijvoorbeeld, verbetert overstappen van een donkere reverberant kamer naar een heldere, niet-reverberant outdoor scène de impact van de overgang. Als u wilt dit resultaat te bereiken, de coëfficiënten voor opname in het materiaal outdoor scène hogere af te stemmen.
 

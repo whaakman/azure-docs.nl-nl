@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ba241ccfdaed8694d3dfb9513e56975e39cdb1c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395777"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452391"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -50,6 +50,10 @@ ms.locfileid: "47395777"
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* Meer flexibiliteit toegevoegd aan meerdere regio's aanvraag tijdelijke fouten.
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 
 * Toegevoegde meerdere regio's schrijven ondersteuning.
@@ -323,6 +327,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |27 september 2018 |--- |
 | [2.1.0](#2.1.0) |21 september 2018 |--- |
 | [2.0.0](#2.0.0) |07 september 2018 |--- |
 | [1.22.0](#1.22.0) |19 april 2018 |--- |

@@ -15,16 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969390"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433477"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Een Linux-machine die gebruikmaakt van SSH-verificatie met de REST-API maken
 
-Een virtuele machine (VM) in Azure wordt gedefinieerd door de verschillende parameters, zoals locatie, de grootte van de hardware, de installatiekopie van besturingssysteem en de aanmeldingsreferenties. Dit artikel leest u hoe de REST-API gebruiken om te maken van een virtuele Linux-machine die gebruikmaakt van SSH-verificatie.
+Een Linux virtuele machine (VM) in Azure bestaat uit verschillende bronnen, zoals schijven en netwerk-interfaces en definieert parameters, zoals locatie, grootte en operating system image en verificatie-instellingen.
+
+U kunt een Linux-VM via de Azure portal, Azure CLI 2.0, veel Azure-SDK's, Azure Resource Manager-sjablonen en veel hulpprogramma's van derden, zoals Ansible of Terraform maken. Deze hulpprogramma's uiteindelijk de REST-API gebruiken om de Linux-VM te maken.
+
+Dit artikel leest u hoe de REST-API gebruiken om te maken van een Linux-VM waarop Ubuntu 18.04-LTS met beheerde schijven en SSH-verificatie wordt uitgevoerd.
+
+## <a name="before-you-start"></a>Voordat u begint
+
+Voordat u maken en de aanvraag indienen, gaat u te werk:
+
+* De `{subscription-id}` voor uw abonnement
+  * Als u meerdere abonnementen hebt, raadpleegt u [met meerdere abonnementen werken](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+* Een `{resourceGroupName}` u vooraf hebt gemaakt
+* Een [virtuele netwerkinterface](../../virtual-network/virtual-network-network-interface.md) in dezelfde resourcegroep bevinden
+* Een SSH-sleutelpaar (u kunt [een nieuw token genereren](mac-create-ssh-keys.md) als u geen een hebt)
+
+## <a name="request-basics"></a>Grondbeginselen van aanvraag
 
 Als u wilt maken of bijwerken van een virtuele machine, gebruikt u de volgende *plaatsen* bewerking:
 
@@ -32,9 +48,7 @@ Als u wilt maken of bijwerken van een virtuele machine, gebruikt u de volgende *
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>Een aanvraag maken
-
-Maakt de *plaatsen* aanvraag, de `{subscription-id}` parameter is vereist. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). U definieert een `{resourceGroupName}` en `{vmName}` voor uw resources samen met de `api-version` parameter. In dit artikel wordt gebruikgemaakt van `api-version=2017-12-01`.
+Naast de `{subscription-id}` en `{resourceGroupName}` parameters, moet u om op te geven de `{vmName}` (`api-version` is optioneel, maar in dit artikel is getest met `api-version=2017-12-01`)
 
 De volgende headers zijn vereist:
 
@@ -43,7 +57,7 @@ De volgende headers zijn vereist:
 | *Content-Type:*  | Vereist. Ingesteld op `application/json`. |
 | *Autorisatie:* | Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-Zie voor meer informatie over het maken van de aanvraag [onderdelen van een REST-API-aanvraag/antwoord](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+Raadpleeg voor algemene informatie over het werken met REST API-aanvragen [onderdelen van een REST-API-aanvraag/antwoord](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
 ## <a name="create-the-request-body"></a>Hoofdtekst van de aanvraag maken
 
@@ -58,15 +72,12 @@ De volgende algemene definities worden gebruikt voor het bouwen van een aanvraag
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Hiermee geeft u de instellingen van het besturingssysteem voor de virtuele machine. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Hiermee geeft u de netwerkinterfaces van de virtuele machine. |
 
-Zie voor een volledige lijst van de beschikbare definities in de aanvraagtekst [virtuele machines maken of bijwerken van de aanvraag hoofdtekst defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
-
-### <a name="example-request-body"></a>Voorbeeld van de aanvraag hoofdtekst
-
-De aanvraagtekst van de volgende voorbeeld definieert een Ubuntu 18.04 LTS-installatiekopie die gebruikmaakt van Premium-beheerde schijven. SSH-verificatie voor openbare sleutel wordt gebruikt en de virtuele machine maakt gebruik van een bestaande virtuele netwerkinterfacekaart (NIC) die u hebt [eerder hebt gemaakt](../../virtual-network/virtual-network-network-interface.md). Geef uw openbare SSH-sleutel in de *osProfile.linuxConfiguration.ssh.publicKeys.keyData* veld. Indien nodig, kunt u [een SSH-sleutelpaar genereren](mac-create-ssh-keys.md).
+Een voorbeeld van de aanvraagtekst is lager dan. Zorg ervoor dat u de naam van de virtuele machine in de `{computerName}` en `{name}` parameters, de naam van de netwerkinterface die u hebt gemaakt onder `networkInterfaces`, uw gebruikersnaam in `adminUsername` en `path`, en de *openbare*gedeelte van uw SSH-sleutelpaar (zich in, bijvoorbeeld `~/.ssh/id_rsa.pub`) in `keyData`. Andere parameters die u wilt wijzigen bevatten `location` en `vmSize`.  
 
 ```json
 {
   "location": "eastus",
+  "name": "{vmName}",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_DS1_v2"
@@ -89,7 +100,7 @@ De aanvraagtekst van de volgende voorbeeld definieert een Ubuntu 18.04 LTS-insta
     },
     "osProfile": {
       "adminUsername": "{your-username}",
-      "computerName": "myVM",
+      "computerName": "{vmName}",
       "linuxConfiguration": {
         "ssh": {
           "publicKeys": [
@@ -105,19 +116,24 @@ De aanvraagtekst van de volgende voorbeeld definieert een Ubuntu 18.04 LTS-insta
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
     }
-  },
-  "name": "myVM"
+  }
 }
 ```
 
-## <a name="responses"></a>Antwoorden
+Zie voor een volledige lijst van de beschikbare definities in de aanvraagtekst [virtuele machines maken of bijwerken van de aanvraag hoofdtekst defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
+
+## <a name="sending-the-request"></a>De aanvraag wordt verzonden
+
+U kunt de client van uw voorkeur voor het verzenden van deze HTTP-aanvraag. U kunt ook een [in de browser hulpprogramma](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) door te klikken op de **uitproberen** knop.
+
+### <a name="responses"></a>Antwoorden
 
 Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van een virtuele machine:
 
@@ -125,10 +141,6 @@ Er zijn twee gelukt-antwoorden voor de bewerking voor het maken of bijwerken van
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201-gemaakt | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Gemaakt     |
-
-Zie voor meer informatie over de REST-API-reacties [verwerken van het antwoordbericht](/rest/api/azure/#process-the-response-message).
-
-### <a name="example-response"></a>Voorbeeld van een antwoord
 
 Een verkorte *201-gemaakt* antwoord van het vorige voorbeeld van de hoofdtekst van de aanvraag die wordt gemaakt van een virtuele machine blijkt een *vmId* is toegewezen en de *provisioningState* is*Maken*:
 
@@ -138,6 +150,8 @@ Een verkorte *201-gemaakt* antwoord van het vorige voorbeeld van de hoofdtekst v
     "provisioningState": "Creating"
 }
 ```
+
+Zie voor meer informatie over de REST-API-reacties [verwerken van het antwoordbericht](/rest/api/azure/#process-the-response-message).
 
 ## <a name="next-steps"></a>Volgende stappen
 

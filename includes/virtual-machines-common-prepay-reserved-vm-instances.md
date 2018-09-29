@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 75e493f6b2e47bf3323df9e52ad3a933a6efbead
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058496"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454461"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -19,21 +19,22 @@ U kunt een gereserveerde VM-instantie kopen de [Azure-portal](https://portal.azu
 
 - U moet zich in een rol van eigenaar voor ten minste één Enterprise of abonnement op gebruiksbasis.
 - Voor Enterprise-abonnementen, aankopen in de reservering moeten zijn ingeschakeld in de [EA-portal](https://ea.azure.com).
-- Voor het programma Cloud Solution Provider (CSP) kunnen alleen de agents beheerder of de verkoop-agents de reserveringen kopen.
+- Voor het programma Cloud Solution Provider (CSP) kopen alleen de agents beheerder of de verkoop agents reserveringen.
 
-## <a name="determine-the-right-vm-size-before-purchase"></a>Bepaal de juiste VM-grootte voor aankoop
+## <a name="determine-the-right-vm-size-before-you-buy"></a>De juiste VM-grootte bepalen voordat u aanschaft
 
-De velden metersubcategorie en Product in de gebruiksgegevens geen onderscheid maakt tussen VM-grootten die gebruikmaken van premiumopslag van VM-grootten die niet van premiumopslag gebruikmaken, met behulp van deze veld om te bepalen van de VM-grootte voor het kopen van reserveringen kan leiden tot onjuiste reservering kopen en geeft u reservering kortingen. Gebruik een van de onderstaande methoden om te bepalen van de juiste VM-grootte voor de reserveringsaankoop.
+De velden metersubcategorie en Product in de gebruiksgegevens geen onderscheid maken tussen VM-grootten die gebruikmaken van premiumopslag van virtuele machines die niet. Als u deze velden om te bepalen van de VM-grootte moet worden gebruikt voor de reservering, kunt u mogelijk het verkeerde formaat kopen en krijgen geen de reserveringskorting die u verwacht. Gebruik een van de volgende methoden om de juiste VM-grootte te bepalen wanneer u de reservering kopen:
 
-- Verwijzen naar het veld AdditionalInfo in uw van gebruiksbestand of de usage-API om te bepalen het juiste VM-grootte voor een aankoop van de reservering. Gebruik de waarden niet vanaf de velden metersubcategorie of Product, omdat deze velden geen onderscheid tussen S en niet-S-versies van een virtuele machine maken.
-- U krijgt ook een nauwkeurige VM-grootte, met behulp van Powershell, Azure Resource Manager, of gegevens van virtuele machine in Azure portal.
+- Verwijzen naar het veld AdditionalInfo in uw van gebruiksbestand of de usage-API om te bepalen van de juiste VM-grootte. Gebruik niet de waarden uit velden metersubcategorie of Product. Deze velden geen onderscheid maken tussen S en niet-S-versies van een virtuele machine.
+- Verkrijgen van nauwkeurige VM-grootte, met behulp van Powershell, Azure Resource Manager of details van de virtuele machine in Azure portal.
 
 Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enkele uitzonderingen:
 
-- Klassieke virtuele machines en Cloud services de reserveringskorting niet ophalen.
-- Onderdrukte core VM's krijgen geen reservering kortingen.
-- Volgende VM-reeks reservering kortingen niet ophalen: A-serie, Av2-serie en G-serie.
-- Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie zijn niet beschikbaar voor het kopen van reserveringen.
+- De reserveringskorting is niet van toepassing voor de volgende virtuele machines:
+  - Klassieke virtuele machines en Cloudservices
+  - Beperkte vCPU-grootten
+  - VM-Series: A-serie, Av2-serie of uit de G-serie
+  - Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie
 - Clouds: Reserveringen zijn niet beschikbaar voor aankoop in de regio's Azure US Government, Duitsland en China.
 - Onvoldoende quotum: een reservering die is afgestemd op één abonnement vCPU-quotum is beschikbaar in het abonnement voor de nieuwe gereserveerde instantie moet hebben. Bijvoorbeeld, als het doelabonnement een limiet van 10 vcpu's voor uit de D-serie heeft, kan niet klikt u vervolgens u kopen een reservering voor 11 Standard_D1 exemplaren. De controle van het quotum voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor uit de D-serie heeft en twee standard_D1 instanties zijn geïmplementeerd, kunt klikt u vervolgens u kopen een reservering voor 10 standard_D1-exemplaren in dit abonnement. 
 - Capaciteitsbeperkingen voor: In zeldzame gevallen kan Azure beperkt de aanschaf van nieuwe reserveringen voor een subset van de VM-grootten, vanwege onvoldoende capaciteit in een regio.

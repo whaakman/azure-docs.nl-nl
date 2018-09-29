@@ -3,19 +3,18 @@ title: Limieten en configuratie - Azure Logic Apps | Microsoft Docs
 description: Service limieten en configuratiewaarden voor Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060163"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452445"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -76,7 +75,7 @@ Als u wilt wijzigen van de standaardlimiet voor het tussen 7 dagen en 90 dagen, 
 
 Wanneer u een logische app uitschakelt, wordt geen nieuwe uitvoeringen worden geïnstantieerd. Alle wordt uitgevoerd en actieve uitvoeringen wordt voortgezet totdat ze zijn voltooid, wat tijd in beslag kan duren.
 
-Wanneer u een logische app verwijdert, wordt geen nieuwe uitvoeringen worden geïnstantieerd. Alle wordt uitgevoerd en actieve uitvoeringen zijn geannuleerd. Als u duizenden wordt uitgevoerd hebt, mogelijk annulering aanzienlijke tijd in beslag nemen.
+Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. Alle uitvoeringen die bezig zijn en wachten op uitvoering worden geannuleerd. Als u duizenden uitvoeringen hebt, kan de annulering een aanzienlijke tijd in beslag nemen.
 
 <a name="looping-debatching-limits"></a>
 
@@ -305,8 +304,13 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 Ter ondersteuning van de aanroepen die [connectors](../connectors/apis-list.md) maken, de firewallconfiguraties van uw instellen, zodat ze deze uitgaande IP-adressen bevatten op basis van de regio's waar uw logische apps bestaan.
 
 > [!IMPORTANT]
->
 > Als u bestaande configuraties hebt, werkt u deze **zo snel mogelijk vóór 1 September 2018** zodat ze zijn en overeenkomen met de IP-adressen in deze lijst voor de regio's waar uw logische apps bestaan. 
+> 
+> Logic Apps biedt geen ondersteuning voor rechtstreeks verbinding te maken naar Azure storage-accounts via firewalls. Voor toegang tot deze opslagaccounts, hier een van beide opties gebruiken: 
+>
+> * Maak een [integratieserviceomgeving](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), waarmee verbinding kan maken met bronnen in een Azure-netwerk. 
+> 
+> * Als u al API Management gebruikt, kunt u deze service voor dit scenario. Zie voor meer informatie, [integratie van eenvoudige ondernemingsstructuur](http://aka.ms/aisarch).
 
 | Logic Apps-regio | Uitgaande IP | 
 |-------------------|-------------|  

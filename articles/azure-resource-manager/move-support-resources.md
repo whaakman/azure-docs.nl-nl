@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4ec09f5ed57dca89934efa750eed05e1ebcb1216
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298282"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434973"
 ---
 # <a name="move-operation-support-for-resources"></a>Ondersteuning voor resources verplaatsen
 
@@ -190,6 +190,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | registers | Ja | Ja |
 | registers/buildtasks | Ja | Ja |
 | registers/replicaties | Nee | Nee |
+| registers/taken | Ja | Ja |
 | registers/webhooks | Ja | Ja |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
@@ -197,6 +198,7 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | ------------- | -------------- | ------------ |
 | containerservices | Nee | Nee |
 | managedclusters | Nee | Nee |
+| openshiftmanagedclusters | Nee | Nee |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Resourcetype | Resourcegroep | Abonnement |
@@ -276,6 +278,15 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | ------------- | -------------- | ------------ |
 | servergroepen | Nee | Nee |
 | servers | Ja | Ja |
+
+## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | -------------- | ------------ |
+| artifactsources | Nee | Nee |
+| Implementaties | Nee | Nee |
+| servicetopologies | Nee | Nee |
+| servicetopologies/services | Nee | Nee |
+| servicetopologies/services/serviceunits | Nee | Nee |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Resourcetype | Resourcegroep | Abonnement |
@@ -417,6 +428,11 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | ------------- | -------------- | ------------ |
 | accounts | Ja | Ja |
 
+## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
+| Resourcetype | Resourcegroep | Abonnement |
+| ------------- | -------------- | ------------ |
+| werkruimten | Ja | Ja |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
@@ -449,15 +465,22 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | ------------- | -------------- | ------------ |
 | applicationgateways | Nee | Nee |
 | applicationsecuritygroups | Ja | Ja |
+| azurefirewalls | Ja | Ja |
 | verbindingen | Ja | Ja |
 | ddosprotectionplans | Nee | Nee |
 | dnszones | Ja | Ja |
 | expressroutecircuits | Nee | Nee |
+| expressroutecrossconnections | Nee | Nee |
+| expressroutegateways | Nee | Nee |
 | expressrouteports | Nee | Nee |
+| frontdoors | Ja | Ja |
+| frontdoorwebapplicationfirewallpolicies | Ja | Ja |
+| interfaceendpoints | Nee | Nee |
 | load balancers | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
 | networkintentpolicies | Ja | Ja |
 | netwerkinterfaces | Ja | Ja |
+| networkprofiles | Nee | Nee |
 | networksecuritygroups | Ja | Ja |
 | networkwatchers | Ja | Ja |
 | networkwatchers/connectionmonitors | Ja | Ja |
@@ -467,9 +490,16 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 | publicipprefixes | Ja | Ja |
 | routefilters | Nee | Nee |
 | routetables | Ja | Ja |
+| serviceendpointpolicies | Ja | Ja |
 | trafficmanagerprofiles | Ja | Ja |
+| virtualhubs | Ja | Ja |
 | virtualnetworkgateways | Ja | Ja |
 | virtualnetworks | Ja | Ja |
+| virtualnetworktaps | Nee | Nee |
+| virtualwans | Ja | Ja |
+| vpngateways | Ja | Ja |
+| vpnsites | Ja | Ja |
+| webapplicationfirewallpolicies | Ja | Ja |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resourcetype | Resourcegroep | Abonnement |
@@ -568,6 +598,8 @@ Als er de resourceprovider en het resourcetype, gebruikt u de tabellen in dit ar
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Resourcetype | Resourcegroep | Abonnement |
 | ------------- | -------------- | ------------ |
+| managedinstances | Ja | Ja |
+| managedinstances/databases | Ja | Ja |
 | servers | Ja | Ja |
 | servers/databases | Ja | Ja |
 | servers/elasticpools | Ja | Ja |

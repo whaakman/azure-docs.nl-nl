@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 379dd0efb0c40cbab6e356f011938d3e6116117e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162267"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434191"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Over het maken en configureren van zelfgehoste Cloudintegratieruntime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration Runtime](concepts-integration-runtime.md).
@@ -32,7 +32,7 @@ Dit document beschrijft hoe u kunt maken en configureren van zelfgehoste IR.
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2. Download en installeer de zelf-hostende integratieruntime (op de lokale computer).
+2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) en zelf-hostende integratieruntime (op de lokale computer) installeren.
 3. Verificatiesleutel ophalen en zelf-hostende integratieruntime registreren met de sleutel. Hier volgt een voorbeeld van PowerShell:
 
     ```powershell
@@ -95,7 +95,7 @@ Zelf-hostende integratieruntime kan worden geïnstalleerd door het downloaden va
 9. Ophalen van de verificatiesleutel met behulp van Azure PowerShell. PowerShell-voorbeeld voor het ophalen van de verificatiesleutel:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Op de **registreert Integration Runtime (zelf-hostend)** pagina van Microsoft Integration Runtime Configuration Manager die worden uitgevoerd op uw computer, voer de volgende stappen uit:
     1. Plak de **verificatiesleutel** in het tekstvak.

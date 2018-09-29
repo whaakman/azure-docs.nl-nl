@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544274"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433698"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
 Run As-accounts in Azure Automation worden gebruikt voor verificatie voor het beheren van resources in Azure met de Azure-cmdlets.
 
-Wanneer u een uitvoeren als-account maakt, maakt u een nieuwe service-principalgebruiker in Azure Active Directory en de rol Inzender toegewezen aan deze gebruiker op het abonnementsniveau.
+Wanneer u een uitvoeren als-account maakt, maakt u een nieuwe service-principalgebruiker in Azure Active Directory en de rol Inzender toegewezen aan deze gebruiker op het abonnementsniveau. Voor runbooks die gebruikmaken van Hybrid Runbook Workers op Azure virtual machines, kunt u [beheerde identiteiten voor een Azure-resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) in plaats van uitvoeren als-accounts om uw Azure-resources te verifiëren.
 
 Er zijn twee typen uitvoeren als-Accounts:
 

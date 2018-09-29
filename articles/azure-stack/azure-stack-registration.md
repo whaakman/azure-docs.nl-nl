@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364598"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452527"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -94,6 +94,19 @@ Uw Azure Stack-implementatie mogelijk *verbonden* of *verbroken*.
  - **De verbinding verbroken**  
  Met de niet-verbonden via de Azure-implementatie-optie, u kunt implementeren en gebruiken van Azure Stack zonder een verbinding met Internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit.
     - [Registreer een niet-verbonden met Azure Stack de **capaciteit** factureringsmodel ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>Bepaal de naam van een unieke registratie gebruiken 
+Wanneer u Azure Stack met Azure hebt geregistreerd, moet u een unieke registratie-naam opgeven. Een eenvoudige manier om uw Azure Stack-abonnement koppelen aan een registratie van Azure, is met uw Azure Stack **Cloud-ID**. 
+
+> [!NOTE]
+> Azure Stack-registraties met behulp van het factureringsmodel op basis van capaciteit moet de unieke naam wijzigen wanneer opnieuw te registreren nadat deze jaarlijkse abonnementen zijn verlopen.
+
+Om te bepalen van de Cloud-ID voor uw Azure Stack-implementatie, opent u PowerShell als beheerder op een computer dan toegang tot de bevoorrechte eindpunt, voer de volgende opdrachten, en noteer de **CloudID** waarde: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Verbonden met betalen per gebruik facturering registreren
 
@@ -257,7 +270,7 @@ Vervolgens moet u een activeringscode ophalen van de registratie-resource in Azu
 Als u de activeringscode, voer de volgende PowerShell-cmdlets:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ U kunt de registratietoken gebruikt voor het maken van de resource:
 Of u kunt de naam van de registratie:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

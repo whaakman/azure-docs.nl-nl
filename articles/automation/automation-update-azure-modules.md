@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 278f21713712e346648553642adf0d072c9f1b98
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fbb57753117f3c60010fe910616b8d0af5178360
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063418"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434820"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -29,10 +29,13 @@ Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigin
 
 1. Op de pagina Modules van uw Automation-account, is een optie met de naam **Update Azure-Modules**. Het is altijd ingeschakeld.<br><br> ![De optie Azure-Modules in Modules pagina bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Klik op **Update Azure-Modules**, ter bevestiging een melding wordt weergegeven dat wordt gevraagd of u wilt doorgaan.<br><br> ![Melding van Azure-Modules bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+  > [!NOTE]
+  > Voordat u bijwerkt van uw Azure-modules die het wordt aanbevolen dat u werkt ze bij in een test Automation-Account om ervoor te zorgen dat werken uw bestaande scripts zoals verwacht voordat het bijwerken van uw Azure-modules.
+  >
+  > De **Update Azure-Modules** knop is alleen beschikbaar in de openbare cloud. Het is niet beschikbaar in de [soevereine regio's](https://azure.microsoft.com/global-infrastructure/). Raadpleeg [alternatieve manieren om bij te werken uw modules](#alternative-ways-to-update-your-modules) sectie voor meer informatie.
 
-   > [!NOTE]
-   > De **Update Azure-Modules** knop is alleen beschikbaar in de openbare cloud. Het is niet beschikbaar in de [soevereine regio's](https://azure.microsoft.com/global-infrastructure/).
+
+2. Klik op **Update Azure-Modules**, ter bevestiging een melding wordt weergegeven dat wordt gevraagd of u wilt doorgaan.<br><br> ![Melding van Azure-Modules bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. Klik op **Ja** en begint met het updateproces voor de module. Het updateproces duurt ongeveer 15-20 minuten om bij te werken van de volgende modules:
 
@@ -53,6 +56,16 @@ Omdat modules regelmatig door de productgroep bijgewerkt worden, kunnen wijzigin
 > Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.  
 
 Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u dit updateproces iedere maand uitvoeren of dus om ervoor te zorgen dat u de meest recente modules hebt. Azure Automation maakt gebruik van de verbinding AzureRunAsConnection om te verifiëren bij het bijwerken van de modules, als de service-principal is verlopen of niet meer op het abonnementsniveau, de module-update bestaat mislukt.
+
+## <a name="alternative-ways-to-update-your-modules"></a>Alternatieve manieren om uw modules bijwerken
+
+Zoals gezegd, de **Update Azure-Modules** knop is niet beschikbaar in soevereine clouds, dit is alleen beschikbaar in de globale Azure-cloud. Dit is vanwege het feit dat de nieuwste versie van de Azure PowerShell-modules uit de galerie met PowerShell niet met het Resource Manager-services in deze clouds die momenteel zijn geïmplementeerd werkt mogelijk.
+
+Bijwerken van de modules kan nog steeds worden gedaan door het importeren van de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook ingecheckt in uw Automation-Account en uitvoeren.
+
+Gebruik de `AzureRmEnvironment` parameter om door te geven van de juiste omgeving aan het runbook.  Acceptabele waarden zijn **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, en **AzureUSGovernmentCloud**. Als u een waarde voor deze parameter niet doorgegeven, het runbook de openbare cloud van Azure wordt standaard **AzureCloud**.
+
+Als u een specifieke versie van de Azure PowerShell-module gebruiken in plaats van de meest recente beschikbare op de PowerShell Gallery wilt, deze versies doorgeven aan de optionele `ModuleVersionOverrides` parameter van de **Update AzureModule** runbook. Zie voor voorbeelden van de [Update AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell-modules die niet worden vermeld in de `ModuleVersionOverrides` parameter worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery. Als er niets wordt doorgegeven aan de `ModuleVersionOverrides` parameter, alle modules worden bijgewerkt met de meest recente moduleversies op de PowerShell Gallery, dit is het gedrag van de **Update Azure-Modules** knop.
 
 ## <a name="next-steps"></a>Volgende stappen
 

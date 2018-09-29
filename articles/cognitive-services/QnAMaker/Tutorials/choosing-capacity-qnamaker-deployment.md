@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 3acf7ccd9d8a4091dba8ff0ff8ef53369ea9402d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 01548cf2de8db8f4dc9984598a5e5544bf97fd49
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041969"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432644"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Capaciteit voor uw implementatie QnA Maker kiezen
 
@@ -38,7 +38,7 @@ De volgende tabel biedt richtlijnen op hoog niveau.
 |                        | QnA Maker-Management | App Service | Azure Search | Beperkingen                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Experiment        | Gratis SKU             | Gratis versie   | Gratis versie    | Maximaal 2 kB's, 50 MB's publiceren  |
-| Dev/Test-omgeving   | Standaard SKU         | Gedeeld      | Basic        | Publiceren van maximaal 4 kB's, grootte van 2 GB    |
+| Dev/Test-omgeving   | Standaard SKU         | Gedeeld      | Basic        | Publiceren tot 14 kB's, grootte van 2 GB    |
 | Productie-omgeving | Standaard SKU         | Basic       | Standard     | Maximaal 49 kB's, 25 GB grootte publiceren |
 
 Zie voor het upgraden van uw stack QnA Maker, [uw QnA Maker-service upgraden](../How-To/upgrade-qnamaker-service.md).

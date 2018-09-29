@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720052"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451768"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multitenancy in Azure Stack
 
@@ -101,7 +101,8 @@ Register-AzSWithMyDirectoryTenant `
 > Als uw Azure Stack-beheerder in de toekomst nieuwe services of updates installeert, moet u mogelijk met dit script opnieuw uitvoeren.
 >
 > Voer dit script opnieuw uit op elk gewenst moment om te controleren of de status van de Azure Stack-toepassingen in uw directory.
-
+> 
+> Als u problemen met het maken van virtuele machines in Managed Disks (geïntroduceerd bij de update 1808), een nieuwe opgevallen **schijf Resource Provider** is toegevoegd, die met dit script opnieuw te worden uitgevoerd.
 
 ### <a name="activate-the-administrator-and-tenant-portals"></a>De beheerder en tenant-portals activeren
 Na de implementaties die gebruikmaken van Azure AD, moet u zowel de Azure Stack-beheerder en tenant de portals activeren. Deze activering toestemming heeft om op te geven van de Azure Stack-portal en Azure Resource Manager de juiste machtigingen (die worden vermeld op de pagina toestemming) voor alle gebruikers van de map.

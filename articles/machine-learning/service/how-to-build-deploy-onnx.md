@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: acd5c1e1ae4aefa94ca4d1f6ef510ab1b028c3dd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164893"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434069"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX- en Azure Machine Learning: maken en interoperabele AI-modellen implementeren
 
@@ -68,7 +68,7 @@ Met Azure Machine Learning-service, kunt u implementeren, beheren en controleren
 
 ### <a name="install-and-configure-the-onnx-runtime"></a>Installeren en configureren van de ONNX-Runtime
 
-De ONNX-Runtime is een engine met hoge prestaties Deductie voor ONNX-modellen. Het wordt geleverd met een Python-API en biedt hardwareversnelling in CPU- en GPU. Op dit moment ondersteunt 1.2 ONNX-modellen en op Ubuntu 16.04 Linux wordt uitgevoerd.
+De ONNX-Runtime is een engine met hoge prestaties Deductie voor ONNX-modellen. Het wordt geleverd met een Python-API en biedt hardwareversnelling in CPU- en GPU. Op dit moment ondersteunt 1.2 ONNX-modellen en op Ubuntu 16.04 Linux wordt uitgevoerd. Beide [CPU](https://pypi.org/project/onnxruntime) en [GPU](https://pypi.org/project/onnxruntime-gpu) pakketten zijn beschikbaar op [PyPi.org](https://pypi.org).
 
 Voor het installeren van de ONNX-Runtime gebruiken:
 ```python
@@ -95,7 +95,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Zie voor de volledige API-verwijzing de [ONNX-runtime-referentiedocumenten](https://aka.ms/onnxruntime-python).
+Zie voor de volledige API-verwijzing de [ONNX-Runtime-referentiedocumenten](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Voorbeeld van de implementatiestappen
 
@@ -173,13 +173,14 @@ Hier volgt een voorbeeld voor het implementeren van een ONNX-model:
    Het bestand `myenv.yml` beschrijft de afhankelijkheden die nodig zijn voor de installatiekopie. Raadpleeg deze [zelfstudie](tutorial-deploy-models-with-aml.md#create-environment-file) voor instructies over het maken van een omgevingsbestand, zoals dit voorbeeldbestand:
 
    ```
-   name: myenv
-   channels:
-     - defaults
-   dependencies:
-     - pip:
-       - onnxruntime
-       - azureml-core
+   from azureml.core.conda_dependencies import CondaDependencies 
+
+   myenv = CondaDependencies()
+   myenv.add_pip_package("azureml-core")
+   myenv.add_pip_package("onnxruntime")
+
+   with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
    ```
 
 4. Uw ONNX-model met Azure Machine Learning om te implementeren:

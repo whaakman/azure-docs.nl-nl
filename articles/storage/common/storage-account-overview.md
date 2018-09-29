@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222094"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432882"
 ---
 # <a name="azure-storage-account-overview"></a>Overzicht van Azure storage-account
 
@@ -39,7 +39,7 @@ De volgende tabel beschrijft de soorten opslagaccounts en de bijbehorende mogeli
 
 <sup>1</sup>met het Azure Resource Manager-implementatiemodel wordt aanbevolen. Opslagaccounts met behulp van het klassieke implementatiemodel kunnen nog steeds worden gemaakt op bepaalde locaties en bestaande klassieke accounts worden nog steeds ondersteund. Zie voor meer informatie, [Azure Resource Manager en klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen](../../azure-resource-manager/resource-manager-deployment-model.md).
 
-<sup>2</sup>alle storage-accounts zijn versleuteling voor data-at-rest met behulp van Storage Service Encryption (SSE). Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](storage-service-encryption.md).
+<sup>2</sup>alle opslagaccounts zijn versleuteld met behulp van Storage Service Encryption (SSE) voor data-at-rest. Zie voor meer informatie, [Azure Storage-Serviceversleuteling voor Data-at-Rest](storage-service-encryption.md).
 
 <sup>3</sup>de archive-laag is beschikbaar op het niveau van een afzonderlijke blob alleen, niet op het niveau van de storage-account. Alleen blok-blobs en toevoeg-blobs kunnen worden gearchiveerd. Zie voor meer informatie, [Azure Blob storage: Hot, cool en archive storage-lagen](../blobs/storage-blob-storage-tiers.md).
 

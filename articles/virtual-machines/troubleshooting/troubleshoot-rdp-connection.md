@@ -4,7 +4,7 @@ description: Oplossen van problemen wanneer u geen verbinding maken met uw Windo
 keywords: 'Fout bij extern bureaublad, verbinding met extern bureaublad-fout: kan geen verbinding maken met virtuele machine, extern bureaublad oplossen'
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: d08f5f5a553c0f7459aa8eed3b4e7658d0e6a4a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413550"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452448"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Problemen oplossen met extern bureaublad-verbindingen met een Azure-machine
 De Remote Desktop Protocol (RDP)-verbinding met uw op basis van Windows Azure-machine (VM) kan mislukken voor verschillende oorzaken hebben, zodat u geen toegang tot uw virtuele machine. Het probleem is met de extern bureaublad-service op de virtuele machine, de netwerkverbinding of de extern bureaublad-client op de hostcomputer. In dit artikel begeleidt u bij sommige van de meest voorkomende methoden voor het oplossen van problemen met RDP-verbinding. 

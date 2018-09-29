@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: dfe561e7a7231c8e7f9465819a01cd4b0a35f47c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983077"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434534"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal gebruiken voor het maken van een back-up van meerdere virtuele machines
 
@@ -42,9 +42,9 @@ De Recovery Services-kluis bevat de back-upgegevens en het back-upbeleid dat wor
 
     ![Het menu Kluis openen](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
 
-3. In het menu Recovery Services-kluis: 
+3. In het menu Recovery Services-kluis:
 
-    - Typ *myRecoveryServicesVault* bij **Naam**.
+    - *myRecoveryServicesVault* in bij **Naam**.
     - De huidige abonnements-id wordt weergegeven in **Abonnement**. Als u meer abonnementen hebt, kunt u een ander abonnement kiezen voor de nieuwe kluis.
     - Selecteer voor **Resourcegroep** de optie **Bestaande gebruiken** en kies *myResourceGroup*. Als *myResourceGroup* niet bestaat, selecteert u **Nieuwe maken** en typt u *myResourceGroup*.
     - Kies in de vervolgkeuzelijst **Locatie** de optie *Europa - west*.
@@ -76,7 +76,7 @@ Nadat de Recovery Services-kluis is gemaakt, bestaat de volgende stap uit het co
 
     ![Workload selecteren](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. Typ in het menu **Back-upbeleid** voor **Beleidsnaam** de tekst *Financiën*. Voer de volgende wijzigingen in voor het backup-beleid: 
+5. Typ in het menu **Back-upbeleid** voor **Beleidsnaam** de tekst *Financiën*. Voer de volgende wijzigingen in voor het backup-beleid:
     - Stel voor **Back-upfrequentie** de tijdzone in op *Central Time*. Omdat het sportcomplex zich in Texas bevindt, wil de eigenaar de tijd op de lokale tijd instellen. Laat de back-upfrequentie ingesteld op elke dag om 03:30 uur.
     - Stel voor **Dagelijks back-uppunt bewaren** de periode in op 90 dagen.
     - Gebruik voor **Wekelijks back-uppunt bewaren** de *Maandag* als herstelpunt en behoudt deze gedurende 52 weken.
@@ -84,21 +84,21 @@ Nadat de Recovery Services-kluis is gemaakt, bestaat de volgende stap uit het co
     - Schakel de optie **Jaarlijks back-uppunt bewaren** uit. De financieel manager wil gegevens niet langer bewaren dan 36 maanden.
     - Klik op **OK** om het back-upbeleid te maken.
 
-    ![Workload selecteren](./media/tutorial-backup-vm-at-scale/set-new-policy.png) 
+    ![Workload selecteren](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
     Nadat het back-upbeleid is gemaakt, koppelt u het beleid aan de virtuele machines.
 
-6. Selecteer in het dialoogvenster **Virtuele machines selecteren** de optie *myVM* en klik op **OK** om het back-upbeleid op de virtuele machines te implementeren. 
+6. Selecteer in het dialoogvenster **Virtuele machines selecteren** de optie *myVM* en klik op **OK** om het back-upbeleid op de virtuele machines te implementeren.
 
     Alle virtuele machines die zich op dezelfde locatie bevinden en waaraan nog geen back-upbeleid is gekoppeld, worden weergegeven. *myVMH1* en *myVMR1* zijn geselecteerd om aan het beleid *Financiën* te worden gekoppeld.
 
-    ![Workload selecteren](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png) 
+    ![Workload selecteren](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
 
     Wanneer de implementatie is voltooid, ontvangt u een melding dat de implementatie is voltooid.
 
 ## <a name="initial-backup"></a>Eerste back-up
 
-U hebt back-ups ingeschakeld voor de Recovery Services-kluizen, maar er is geen eerste back-up gemaakt. Het is een aanbevolen procedure voor herstel na noodgevallen om de eerste back-up te activeren, zodat uw gegevens beveiligd zijn. 
+U hebt back-ups ingeschakeld voor de Recovery Services-kluizen, maar er is geen eerste back-up gemaakt. Het is een aanbevolen procedure voor herstel na noodgevallen om de eerste back-up te activeren, zodat uw gegevens beveiligd zijn.
 
 Ga als volgt te werk om een on-demand back-uptaak uit te voeren:
 
@@ -130,10 +130,10 @@ Ga als volgt te werk om een on-demand back-uptaak uit te voeren:
 
     Implementatiemeldingen laten u weten dat de back-uptaak is geactiveerd en dat u de voortgang van de taak op de pagina Back-uptaken kunt controleren. Afhankelijk van de grootte van de virtuele machine kan het maken van de eerste back-up even duren.
 
-    Wanneer de eerste back-uptaak is voltooid, ziet u de status ervan in het menu Back-uptaak. Door de on-demand back-uptaak is het eerste herstelpunt voor *myVM* gemaakt. Als u een back-up wilt maken van andere virtuele machines, herhaalt u deze stappen voor elke virtuele machine. 
+    Wanneer de eerste back-uptaak is voltooid, ziet u de status ervan in het menu Back-uptaak. Door de on-demand back-uptaak is het eerste herstelpunt voor *myVM* gemaakt. Als u een back-up wilt maken van andere virtuele machines, herhaalt u deze stappen voor elke virtuele machine.
 
     ![Tegel Back-uptaken](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
-  
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Als u door wilt gaan met andere zelfstudies, verwijdert u de resources die u in deze zelfstudie hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze zelfstudie in Azure Portal zijn gemaakt.
@@ -153,15 +153,15 @@ Als u door wilt gaan met andere zelfstudies, verwijdert u de resources die u in 
 
     ![Het pictogram Instellingen](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. Selecteer in het contextmenu **Back-up stoppen** om het menu Back-up stoppen te openen. 
+4. Selecteer in het contextmenu **Back-up stoppen** om het menu Back-up stoppen te openen.
 
     ![Het pictogram Instellingen](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
 5. Selecteer in het menu **Back-up stoppen** het bovenste vervolgkeuzemenu en kies **Back-upgegevens verwijderen**.
 
 6. Typ in het dialoogvenster **Typ de naam van het back-upitem** de tekst *myVM*.
- 
-7. Zodra het back-upitem is geverifieerd (er wordt een vinkje weergegeven), wordt de knop **Back-up stoppen** ingeschakeld. Klik op **Back-up stoppen** om het beleid te stoppen en de herstelpunten te verwijderen. 
+
+7. Zodra het back-upitem is geverifieerd (er wordt een vinkje weergegeven), wordt de knop **Back-up stoppen** ingeschakeld. Klik op **Back-up stoppen** om het beleid te stoppen en de herstelpunten te verwijderen.
 
     ![klik op Back-up stoppen om de kluis te verwijderen](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
@@ -183,7 +183,7 @@ In deze zelfstudie hebt u Azure Portal gebruikt voor het volgende:
 > * Het beleid toepassen voor de beveiliging van meerdere virtuele machines
 > * Een on-demand back-up activeren voor virtuele machines
 
-Ga verder met de volgende zelfstudie in Azure om een virtuele machine te herstellen vanaf schijf. 
+Ga verder met de volgende zelfstudie in Azure om een virtuele machine te herstellen vanaf schijf.
 
 > [!div class="nextstepaction"]
 > [Virtuele machines herstellen met CLI](./tutorial-restore-disk.md)

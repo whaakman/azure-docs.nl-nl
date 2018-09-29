@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 09/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a6c9d4ad27eb6dc6b0aba24f32a4a0dfde3c784
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: db2d7fbe395a6d7e332d79183a331b45f7767f51
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163309"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434055"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -168,6 +168,8 @@ De schijven die zijn aanbevolen voor de kleinere virtuele machine van het type m
 Controleer of de opslagdoorvoer van de voor de verschillende voorgestelde volumes voldoet aan de werkbelasting die u wilt uitvoeren. Als de workload grotere volumes voor **/hana/gegevens** en **/hana/log**, moet u het aantal Azure Premium Storage-VHD's verhogen. Formaat van een volume met meer VHD's dan vermeld verhoogt de IOPS en i/o-doorvoer binnen de grenzen van het type virtuele machine van Azure. 
 
 
+
+
 #### <a name="storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Opslagoplossing met Azure Write Accelerator voor virtuele machines van Azure-M-serie
 Azure Write Accelerator is een functie die wordt ophalen uitgerold voor M-serie virtuele machines uitsluitend. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van i/o-latentie van schrijfbewerkingen ten opzichte van de Azure Premium Storage. Voor SAP HANA, Write Accelerator moet worden gebruikt voor de **/hana/log** alleen volume. Daarom moeten de configuraties die wordt weergegeven tot nu toe om te worden gewijzigd. De belangrijkste wijziging wordt de verdeling tussen de **/hana/gegevens** en **/hana/log** om te kunnen gebruiken Azure Write Accelerator op basis van de **/hana/log** alleen volume. 
 
@@ -203,7 +205,9 @@ Meer gedetailleerde instructies over het inschakelen van Azure Write Accelerator
 
 Details en -beperkingen voor Azure Write Accelerator kunnen worden gevonden in de documentatie van dezelfde.
 
-
+> [!NOTE]
+> Vermeld aanbevelingen voor de configuratie van de schijf zijn die zijn gericht op minimumvereisten die SAP uitdrukking naar hun leveranciers van infrastructuur. In implementaties van echte klanten en -workloadscenario's, er zijn situaties waarin deze aanbevelingen nog steeds gaf geen voldoende mogelijkheden opgetreden. Dit kunnen zijn situaties waarin een klant een snellere opnieuw laden van de gegevens na het opnieuw opstarten HANA vereist of waarbij back-up maken van configuraties vereist meer bandbreedte naar de opslag. Andere gevallen opgenomen **/hana/log** waar 5000 IOP's is niet voldoende voor de specifieke werkbelasting. Dus nemen deze aanbevelingen als een punt en aan te passen op basis van de vereisten van de werkbelasting.
+>  
 
 ### <a name="set-up-azure-virtual-networks"></a>Virtuele Azure-netwerken instellen
 Als u site-naar-site-verbinding naar Azure via VPN of ExpressRoute hebt, moet u ten minste één Azure-netwerk dat is verbonden via een virtuele Gateway naar het VPN of ExpressRoute-circuit hebben. In eenvoudige implementaties kan de virtuele Gateway worden geïmplementeerd in een subnet van de Azure-netwerk (VNet) dat als host fungeert voor de SAP HANA-instanties. Voor het installeren van SAP HANA, maakt u twee extra subnetten binnen het Azure-netwerk. Eén subnet als host fungeert voor de virtuele machines om uit te voeren van de SAP HANA-instanties. Het andere subnet voert Jumpbox of beheer-VM's voor het hosten van SAP HANA Studio of andere software voor beheer van de toepassingssoftware van uw.
@@ -359,7 +363,7 @@ Na deze routine setup gaat de configuratie van de scale-out die u hebt geïnstal
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA dynamische Opslaglagen 2.0 voor virtuele machines van Azure
 
-Naast de certificeringen die SAP HANA op Azure uit de M-serie VM's, ook SAP HANA dynamische Opslaglagen 2.0 wordt ondersteund op Microsoft Azure (Zie documentatie linsk SAP HANA dynamische Opslaglagen verder omlaag). Hoewel er geen verschil in het product installeert of het besturingssysteem, bijvoorbeeld zijn via SAP HANA Cockpit binnen een Azure-Machine, er enkele belangrijke items, die verplicht voor officiële ondersteuning op Azure zijn. Deze belangrijke punten worden hieronder beschreven. In het artikel wordt de afkorting van "IT 2.0" worden gebruikt in plaats van de volledige naam dynamische 2.0 met meerdere lagen.
+Naast de certificeringen die SAP HANA op Azure uit de M-serie VM's, ook SAP HANA dynamische Opslaglagen 2.0 wordt ondersteund op Microsoft Azure (Zie de documentatie van SAP HANA dynamische Opslaglagen koppelingen verder naar beneden). Hoewel er geen verschil in het product installeert of het besturingssysteem, bijvoorbeeld zijn via SAP HANA Cockpit binnen een Azure-Machine, er enkele belangrijke items, die verplicht voor officiële ondersteuning op Azure zijn. Deze belangrijke punten worden hieronder beschreven. In het artikel wordt de afkorting van "IT 2.0" worden gebruikt in plaats van de volledige naam dynamische 2.0 met meerdere lagen.
 
 SAP HANA dynamische Opslaglagen 2.0 wordt niet ondersteund door SAP BW of S4HANA. Belangrijkste use-cases zijn nu systeemeigen HANA-toepassingen.
 
@@ -490,4 +494,4 @@ Zorg ervoor dat SAProuter installeren in een afzonderlijke virtuele machine en n
 Zie voor meer informatie over het instellen en onderhouden van ondersteuning voor externe verbindingen via SAProuter de [SAP-documentatie](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hoge beschikbaarheid met SAP HANA op Azure systeemeigen VM 's
-Als u bij het uitvoeren van SUSE Linux 12 SP1 of hoger, u een Pacemaker-cluster met stonith instellen-apparaten maken kunt. U kunt de apparaten gebruiken voor het instellen van een SAP HANA-configuratie die gebruikmaakt van synchrone replicatie met HANA-Systeemreplicatie en automatische failover. Zie voor meer informatie over de installatieprocedure [hoge beschikbaarheid van SAP HANA-handleiding voor Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+Als u SUSE Linux Enterprise Server voor SAP-toepassingen 12 SP1 of hoger uitvoert, kunt u een cluster Pacemaker kunt maken met stonith instellen-apparaten. U kunt de apparaten gebruiken voor het instellen van een SAP HANA-configuratie die gebruikmaakt van synchrone replicatie met HANA-Systeemreplicatie en automatische failover. Zie voor meer informatie over de installatieprocedure [hoge beschikbaarheid van SAP HANA-handleiding voor Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

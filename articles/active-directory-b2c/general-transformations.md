@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a13cb0360a33c301129f2975ce67580204602d9a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381299"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431323"
 ---
 # <a name="general-claims-transformations"></a>Algemene claimtransformaties
 
@@ -29,7 +29,7 @@ Controleert of de **inputClaim** of niet bestaat en stelt **outputClaim** op waa
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |Alle | De invoer claim waarvan het bestaan moet worden bevestigd. |
+| InputClaim | InputClaim |Alle | De invoer claim waarvan het bestaan moet worden bevestigd. |
 | outputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
 
 Gebruik die dit claims transformatie om te controleren of als een claim bestaat, en een waarde bevat. De geretourneerde waarde is een Booleaanse waarde die aangeeft of de claim bestaat. Volgende voorbeeld wordt gecontroleerd of het e-mailadres bestaat.
@@ -61,7 +61,7 @@ De opgegeven tekst zonder opmaak, met behulp van de salt en een geheim hash.
 | InputClaim | Als tekst zonder opmaak | tekenreeks | De invoer claim moeten worden versleuteld |
 | InputClaim | Salt | tekenreeks | De salt-parameter. U kunt maken als een willekeurige waarde, met behulp van `CreateRandomString` transformatie claims. |
 | Invoerparameters | randomizerSecret | tekenreeks | Verwijst naar een bestaande Azure AD B2C **Beleidssleutels**. Maken van een nieuwe: Selecteer In uw Azure AD B2C-tenant, **B2C-instellingen > Identity-Ervaringsframework**. Selecteer **Beleidssleutels** om de sleutels die beschikbaar in uw tenant zijn weer te geven. Selecteer **Toevoegen**. Voor **opties**, selecteer **handmatig**. Geef een naam (het voorvoegsel B2C_1A_ mogelijk automatisch worden toegevoegd.). Voer een geheim dat u gebruiken wilt, zoals 1234567890 het geheim in. Selecteer voor sleutelgebruik, **geheim**. Selecteer **Maken**. |
-| outputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. De claim die is geconfigureerd in de `plaintext` inputClaim. |
+| outputClaim | Hash | tekenreeks | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. De claim die is geconfigureerd in de `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

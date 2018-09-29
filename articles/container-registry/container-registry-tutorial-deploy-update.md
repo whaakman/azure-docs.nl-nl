@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031200"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Zelfstudie: een bijgewerkte installatiekopie naar regionale implementaties pushen
 
@@ -79,7 +79,7 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Installatiekopie pushen naar Azure Container Registry
 
-Push hierna de bijgewerkte containerinstallatiekopie *acr-helloworld* naar het geo-gerepliceerde register. Hier voert u een enkele `docker push`-opdracht uit om de bijgewerkte installatiekopie naar de registerreplica's in de regio's *VS West* en *VS Oost* te implementeren.
+Push hierna de bijgewerkte containerinstallatiekopie *acr-helloworld* naar het geo-gerepliceerde register. Hier voert u een enkele `docker push`-opdracht uit om de bijgewerkte installatiekopie naar de registerreplica's in de regio's *US - west* en *US - oost* te implementeren.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -108,9 +108,9 @@ Als u de regionale webhooks wilt bekijken die zijn gemaakt tijdens de implementa
 
 ![Webhooks van containerregisters in Azure Portal][tutorial-portal-01]
 
-Selecteer elke webhook om de geschiedenis van de bijbehorende aanroepen en antwoorden te bekijken. U zou een rij moeten zien voor de actie **push** in de logboeken van beide webhooks. Hier toont het logboek voor de webhook in de regio *VS West* de actie **push** die is geactiveerd door de `docker push` in de vorige stap:
+Selecteer elke webhook om de geschiedenis van de bijbehorende aanroepen en antwoorden te bekijken. U zou een rij moeten zien voor de actie **push** in de logboeken van beide webhooks. Hier toont het logboek voor de webhook in de regio *US - west* de actie **push** die is geactiveerd door de `docker push` in de vorige stap:
 
-![Logboek voor containerregister-webhook in Azure Portal (VS West)][tutorial-portal-02]
+![Logboek voor containerregister-webhook in Azure Portal (US - west)][tutorial-portal-02]
 
 ## <a name="view-the-updated-web-app"></a>Bijgewerkte web-app weergeven
 
@@ -120,13 +120,13 @@ Controleer of de app in beide implementaties is bijgewerkt door naar beide regio
 
 ![App Service-overzicht in Azure Portal][tutorial-portal-03]
 
-Selecteer de link in het App Service-overzicht om de bijgewerkte app te bekijken. Hier volgt een voorbeeldweergave van de app die wordt uitgevoerd in *VS West*:
+Selecteer de link in het App Service-overzicht om de bijgewerkte app te bekijken. Hier volgt een voorbeeldweergave van de app die wordt uitgevoerd in *US - west*:
 
-![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio VS West][deployed-app-westus-modified]
+![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio US - west][deployed-app-westus-modified]
 
-Controleer of de bijgewerkte containerinstallatiekopie ook is geïmplementeerd naar *VS Oost* door deze in uw browser weer te geven.
+Controleer of de bijgewerkte containerinstallatiekopie ook is geïmplementeerd naar *US - oost* door deze in uw browser weer te geven.
 
-![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio VS Oost][deployed-app-eastus-modified]
+![Browserweergave van gewijzigde web-app die wordt uitgevoerd in de regio US - oost][deployed-app-eastus-modified]
 
 Met één `docker push` hebt u automatisch de webtoepassing bijgewerkt die wordt uitgevoerd in beide regionale web-app-implementaties. En Azure Container Registry leverde de containerinstallatiekopieën uit de opslagplaatsen het dichtst bij elke implementatie.
 
@@ -138,7 +138,7 @@ In deze zelfstudie hebt u een nieuwe versie van de web-app-container bijgewerkt 
 
 Naast geo-replicatie is ACR Build nog een functie van Azure Container Registry waarmee u de implementatiepijplijn van uw container kunt optimaliseren. Bekijk eerst het ACR Build-overzicht om een idee te krijgen van de mogelijkheden:
 
-[OS- en frameworkpatching automatiseren met ACR Build](container-registry-build-overview.md)
+[OS- en frameworkpatching automatiseren met ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

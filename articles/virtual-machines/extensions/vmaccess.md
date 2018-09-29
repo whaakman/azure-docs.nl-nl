@@ -3,7 +3,7 @@ title: Toegang opnieuw instellen met een Azure Linux-VM | Microsoft Docs
 description: Over het beheren van gebruikers met beheerdersrechten en op virtuele Linux-machines met behulp van de VMAccess-extensie en de Azure CLI-toegang opnieuw instellen
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998624"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452051"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI
 ## <a name="overview"></a>Overzicht
 De schijf op uw Linux-VM worden fouten weergegeven. U loopt de toepassing het root-wachtwoord opnieuw instellen voor uw Linux-VM of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in de dagen van het datacenter, moet u zou er station en open vervolgens de KVM om op te halen op de serverconsole. De Azure VMAccess-extensie beschouwen als die KVM-switch waarmee u toegang tot de console voor het opnieuw instellen van toegang tot Linux of schijf niveau onderhoud uit te voeren.
 
 Dit artikel ziet u hoe u de Azure VMAccess-extensie gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van de gebruiker met beheerdersrechten accounts of de SSH-configuratie op Linux bijwerken wanneer ze worden uitgevoerd als virtuele machines van Azure Resource Manager. Als u nodig hebt voor het beheren van klassieke virtuele machines - kunt u Volg de instructies in de [documentatie voor klassieke VM's](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> Als de VMAccess-extensie u het wachtwoord van uw virtuele machine opnieuw instellen kunt na de installatie van de AAD-aanmelding-extensie u moet de extensie van de AAD-aanmelding voor AAD-aanmelding opnieuw inschakelen voor uw computer opnieuw uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 ### <a name="operating-system"></a>Besturingssysteem

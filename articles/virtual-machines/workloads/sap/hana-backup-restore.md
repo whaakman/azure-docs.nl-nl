@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985878"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452544"
 ---
 # <a name="backup-and-restore"></a>Back-ups en herstellen
 
@@ -68,7 +68,7 @@ U kunt storage-momentopnamen die zijn gericht op drie soorten volumes uitvoeren:
 - Een momentopname van een afzonderlijke via/hana/logbackups.
 - De partitie van een besturingssysteem.
 
-Lees het laatste momentopname scripts en documentatie van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Lees het laatste momentopname scripts en documentatie van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Wanneer het downloaden van de momentopname-script-pakket van de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), krijgt u ook de PDF-documentatie voor de scripts als onderdeel van het scriptpakket. Elk scriptpakket heeft een eigen PDF-documentatie.
 
 ## <a name="storage-snapshot-considerations"></a>Overwegingen met betrekking tot opslag-momentopname
 
@@ -114,7 +114,7 @@ Als u de storage-momentopnamen met HANA grote instanties instelt, de volgende st
 1. Kopieer de scripts en het configuratiebestand van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) naar de locatie van **hdbsql** in de SAP HANA-installatie.
 1. Wijzig de *HANABackupDetails.txt* bestand zo nodig voor de betreffende klant-specificaties.
 
-Lees het laatste momentopname scripts en documentatie van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Lees het laatste momentopname scripts en documentatie van [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Wanneer het downloaden van de momentopname-script-pakket van de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), krijgt u ook de PDF-documentatie voor de scripts als onderdeel van het scriptpakket. Elk scriptpakket heeft een eigen PDF-documentatie.
 
 ### <a name="consideration-for-mcod-scenarios"></a>Overweging voor MCOD scenario 's
 Als u werkt met een [MCOD scenario](https://launchpad.support.sap.com/#/notes/1681092) met meerdere instanties van SAP HANA op één HANA grote instantie-eenheid, hebt u afzonderlijke opslagvolumes die zijn ingericht voor elk van de SAP HANA-instanties. U kunt geen afzonderlijke momentopnamen op elk systeem dat HANA-exemplaar-ID (SID) te starten in de huidige versie van de momentopname van selfservice-automatisering. De functionaliteit voorziet in controles voor de geregistreerde SAP HANA-instanties van de server in het configuratiebestand (Zie verderop in dit artikel), en voert een gelijktijdige momentopname van de volumes van de exemplaren die zijn geregistreerd op de eenheid.

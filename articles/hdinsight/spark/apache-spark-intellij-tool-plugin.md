@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042588"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433355"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit voor IntelliJ gebruiken voor het maken van Spark-toepassingen voor een HDInsight-cluster
 
@@ -181,8 +181,12 @@ U kunt een normale HDInsight-cluster koppelen met behulp van de gebruikersnaam v
 
         ![Het dialoogvenster Main-klasse selecteren](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Omdat de toepassingscode in dit voorbeeld argumenten voor de opdrachtregel vereist of verwijzen naar JAR-bestanden of bestanden, kunt u de resterende selectievakjes leeg laten. Nadat u de informatie te verstrekken, moet de volgende afbeelding eruitzien als in het dialoogvenster.
+      * U kunt de informatie die u wilt opgeven. Over de **taak configuraties**, hebben we de standaardwaarde. En u kunt verwijzen naar [Apache Livy REST-API](http://livy.incubator.apache.org./docs/latest/rest-api.html) voor meer informatie over de sleutels. De **opdrachtregelargumenten**, **waarnaar wordt verwezen JARs** en **bestanden waarnaar wordt verwezen** moet eruitzien als de onderstaande afbeelding. U kunt verwijzen naar [configuratie van een Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) voor meer informatie over **waarnaar wordt verwezen JARs** en **waarnaar wordt verwezen bestanden**. Om **waarnaar wordt verwezen JARs** en **bestanden waarnaar wordt verwezen** goed werken, moet u de resources uploaden naar het cluster dat u eerst indienen. Raadpleeg [over het uploaden van resources aan het cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Het dialoogvenster verzenden moet lijken op de volgende afbeelding.
         
+        ![De verzending van Spark dialoogvenster vak taak configuratie betekenis](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![Betekenis van de verzending van Spark dialoogvenster vak jar-bestanden](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![Het dialoogvenster voor het indienen van Spark](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. De **Spark inzending** tabblad aan de onderkant van het venster moet beginnen met het weergeven van de voortgang. U kunt ook de toepassing stoppen door het selecteren van de rode knop in de **Spark inzending** venster.

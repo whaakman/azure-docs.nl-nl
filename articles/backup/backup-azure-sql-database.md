@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433561"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434242"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -823,6 +823,10 @@ Activeer een volledige back-up. Logboekback-ups begint zoals verwacht.
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Ik kan SQL Always On Availability Groups waar de primaire replica on-premises is beveiligen
 
 Nee. Azure Backup beschermt SQL-Servers die worden uitgevoerd in Azure. Als een beschikbaarheid van groep (AG) wordt verdeeld tussen Azure en on-premises machines, kan de AG worden beveiligd, alleen als de primaire replica wordt uitgevoerd in Azure. Azure Backup beveiligt alleen de knooppunten die worden uitgevoerd in dezelfde Azure-regio als de Recovery Services-kluis.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Ik kan beveiligen met SQL Always On Availability Groups die worden verdeeld over Azure-regio's
+Azure Backup Recovery Services-kluis kunt detecteren en alle knooppunten die zich in dezelfde regio als de Recovery Services-kluis beveiligen. Als u een SQL altijd op beschikbaarheidsgroep die meerdere Azure-regio's omvatten hebt, moet u back-up van de regio waaraan het primaire knooppunt configureren. Azure Backup is mogelijk om te detecteren en beveiligen van alle databases in de beschikbaarheidsgroep aan de hand van back-upvoorkeur. Als de back-upvoorkeur niet wordt voldaan, back-ups mislukken en krijgt u de waarschuwing voor fout.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

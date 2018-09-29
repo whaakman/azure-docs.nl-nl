@@ -1,61 +1,59 @@
 ---
 title: Implementatiebewerkingen met Azure Resource Manager | Microsoft Docs
-description: Hierin wordt beschreven hoe u Azure Resource Manager deployment bewerkingen met de portal, PowerShell, Azure CLI en REST-API.
+description: Beschrijft hoe u Azure Resource Manager-implementatiebewerkingen met de portal, PowerShell, Azure CLI en REST-API bekijken.
 services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 04/23/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 523ea3bf5d41231ab3281f9d8eb1fac8c3dfb55f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9320e3089e02e1ca6b6bcce0287946baaf0558d9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359142"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452034"
 ---
-# <a name="view-deployment-operations-with-azure-resource-manager"></a>Bewerkingen van de implementatie weergeven met Azure Resource Manager
+# <a name="view-deployment-operations-with-azure-resource-manager"></a>Implementatiebewerkingen bekijken met Azure Resource Manager
 
-U kunt de bewerkingen voor een implementatie via de Azure portal bekijken. Hebt u mogelijk de meest geïnteresseerd in de bewerkingen weer te geven wanneer u een fout opgetreden tijdens de implementatie ontvangen hebt zodat dit artikel is gericht op het weergeven van bewerkingen die zijn mislukt. De portal biedt een interface waarmee u eenvoudig zoeken van de fouten en mogelijke oplossingen te bepalen.
+U kunt de bewerkingen voor een implementatie via de Azure-portal weergeven. Het is mogelijk dat u meest geïnteresseerd zijn in de bewerkingen weer te geven wanneer u een fout tijdens de implementatie ontvangen hebt, zodat in dit artikel is gericht op het weergeven van bewerkingen die zijn mislukt. De portal biedt een interface waarmee u eenvoudig vinden van de fouten en mogelijke oplossingen te bepalen.
 
-U kunt uw implementatie oplossen door te kijken naar de controlelogboeken of de implementatiebewerkingen. Dit artikel ziet beide methoden. Zie voor meer informatie over het oplossen van fouten voor bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources in Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
+U kunt uw implementatie oplossen door te kijken naar de logboeken voor controle of de implementatiebewerkingen. In dit artikel ziet u beide methoden. Zie voor hulp bij het oplossen van fouten van bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources naar Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
-1. U ziet de status van de laatste implementatie voor de resourcegroep die zijn betrokken bij de implementatie. U kunt deze status voor meer informatie.
+1. U ziet de status van de laatste implementatie voor de resourcegroep die betrokken zijn bij de implementatie. U kunt deze status voor meer informatie.
    
     ![Implementatiestatus](./media/resource-manager-deployment-operations/deployment-status.png)
-2. Ziet u de recente implementatiegeschiedenis van de. Selecteer de implementatie die is mislukt.
+2. U ziet de recente implementatiegeschiedenis. Selecteer de implementatie die is mislukt.
    
     ![Implementatiestatus](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Selecteer de koppeling voor een beschrijving van waarom de implementatie is mislukt. De DNS-record is niet uniek in de onderstaande afbeelding.  
+3. Selecteer de koppeling voor een beschrijving van waarom de implementatie is mislukt. In de onderstaande afbeelding is de DNS-record niet uniek.  
    
     ![mislukte implementatie weergeven](./media/resource-manager-deployment-operations/view-error.png)
    
-    Dit foutbericht moeten voldoende voor u om te beginnen met het oplossen van problemen. Als u meer informatie nodig over welke taken zijn voltooid, kunt u de bewerkingen weergeven zoals weergegeven in de volgende stappen uit.
+    Dit foutbericht moet voldoende zijn voor u om te beginnen met het oplossen van problemen. Als u meer informatie over welke taken zijn voltooid, ziet u de bewerkingen zoals wordt weergegeven in de volgende stappen uit.
 4. U kunt alle implementatiebewerkingen weergeven. Selecteer een bewerking voor meer informatie.
    
     ![bewerkingen weergeven](./media/resource-manager-deployment-operations/view-operations.png)
    
-    In dit geval zien u dat de storage-account, het virtuele netwerk en de beschikbaarheidsset zijn gemaakt. Het openbare IP-adres is mislukt en andere resources zijn niet is uitgevoerd.
-5. U kunt gebeurtenissen voor de implementatie weergeven door **gebeurtenissen**.
+    In dit geval ziet u dat de storage-account, het virtuele netwerk en de beschikbaarheidsset met succes zijn gemaakt. Het openbare IP-adres is mislukt en andere resources zijn niet uitgevoerd.
+5. U kunt gebeurtenissen voor de implementatie bekijken door te selecteren **gebeurtenissen**.
    
-    ![gebeurtenissen weergeven](./media/resource-manager-deployment-operations/view-events.png)
-6. U selecteert een voor meer informatie en Zie de gebeurtenissen voor de implementatie. U ziet de correlatie-id's. Deze waarde kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+    ![Gebeurtenissen weergeven](./media/resource-manager-deployment-operations/view-events.png)
+6. U ziet alle gebeurtenissen voor de implementatie en selecteert u een voor meer informatie. U ziet de correlatie-id's. Deze waarde kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
    
-    ![Zie gebeurtenissen](./media/resource-manager-deployment-operations/see-all-events.png)
+    ![evenementen weergeven](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. Als u de algehele status van een implementatie, gebruikt de **Get-AzureRmResourceGroupDeployment** opdracht. 
+1. Als u de algemene status van een implementatie, gebruikt de **Get-AzureRmResourceGroupDeployment** opdracht. 
 
   ```powershell
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
@@ -67,13 +65,19 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces. Om te ontdekken wat is een fout opgetreden bij een implementatie, moet u doorgaans om details over de implementatiebewerkingen te bekijken. U ziet de status van de bewerkingen met **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Voor de correlatie-ID, gebruikt u:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  ```
+
+1. Elke implementatie bevat meerdere bewerkingen. Elke bewerking vertegenwoordigt een stap in het implementatieproces. Voor het detecteren van wat is een fout opgetreden bij een implementatie, moet u doorgaans informatie over de implementaties. U ziet de status van de bewerkingen met **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
-    Dit retourneert meerdere bewerkingen met elkaar in de volgende indeling:
+    Deze retourneert meerdere bewerkingen met elkaar in de volgende indeling:
 
   ```powershell
   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
@@ -85,13 +89,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. Als u meer informatie over mislukte bewerkingen, halen de eigenschappen voor bewerkingen met **mislukt** status.
+1. Meer informatie over mislukte bewerkingen ophalen van de eigenschappen voor bewerkingen met **mislukt** staat.
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
-    Dit retourneert alle mislukte bewerkingen met elkaar in de volgende indeling:
+    Deze retourneert alle mislukte bewerkingen met elkaar in de volgende indeling:
 
   ```powershell
   provisioningOperation : Create
@@ -107,23 +111,23 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
   ```
 
-    Noteer de serviceRequestId en de trackingId voor de bewerking. De serviceRequestId kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie. U gebruikt de trackingId in de volgende stap om zich te richten op een bepaalde bewerking.
-4. Als u het statusbericht dat van een bepaalde bewerking is mislukt, gebruikt u de volgende opdracht:
+    Houd er rekening mee de serviceRequestId en de trackingId voor de bewerking. De serviceRequestId kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie. U gebruikt de trackingId in de volgende stap om zich te richten op een bepaalde bewerking.
+1. Als u het statusbericht van een bepaalde bewerking is mislukt, gebruikt u de volgende opdracht uit:
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
-    Die wordt geretourneerd:
+    Dat geeft als resultaat:
 
   ```powershell
   code           message                                                                        details
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Elke implementatiebewerking in Azure bevat-aanvraag en antwoord-inhoud. Inhoud van de aanvraag is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld: Maak een VM besturingssysteemschijf en andere bronnen). De antwoordinhoud is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter om op te geven dat de aanvraag en/of antwoord in het logboek behouden blijven. 
+1. Elke implementatiebewerking in Azure bevat inhoud voor aanvragen en reacties. De aanvraaginhoud is wat u hebt verzonden naar Azure tijdens de implementatie (bijvoorbeeld een virtuele machine, maken de schijf met besturingssysteem en andere resources). De inhoud van de reactie is wat Azure van uw implementatieaanvraag teruggestuurd. Tijdens de implementatie, kunt u **DeploymentDebugLogLevel** parameter om op te geven dat de aanvraag en/of het antwoord worden bewaard in het logboek. 
 
-  U die informatie ophalen van het logboek, en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
+  U die gegevens ophalen uit het logboek en sla het lokaal met behulp van de volgende PowerShell-opdrachten:
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
@@ -133,7 +137,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
 ## <a name="azure-cli"></a>Azure-CLI
 
-1. Ophalen van de algehele status van een implementatie met de **azure-groep implementatie weergeven** opdracht.
+1. Ophalen van de algehele status van een implementatie met de **azure group deployment show** opdracht.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment
@@ -153,13 +157,13 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
 ## <a name="rest"></a>REST
 
-1. Informatie ophalen over een implementatie met de [informatie ophalen over de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) bewerking.
+1. Informatie ophalen over een implementatie met de [informatie over de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) bewerking.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
   ```
 
-    In het antwoord, houd er rekening mee met name de **provisioningState**, **correlationId**, en **fout** elementen. De **correlationId** wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
+    Let met name in het antwoord op de **provisioningState**, **correlationId**, en **fout** elementen. De **correlationId** wordt gebruikt voor het bijhouden van gerelateerde gebeurtenissen en kan nuttig zijn bij het werken met de technische ondersteuning voor het oplossen van een implementatie.
 
   ```json
   { 
@@ -182,7 +186,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
   ```
    
-    Het antwoord bevat de aanvraag en/of antwoord informatie op basis van wat u hebt opgegeven in de **debugSetting** eigenschap tijdens de implementatie.
+    Het antwoord bevat aanvraag en/of antwoord informatie op basis van wat u hebt opgegeven in de **debugSetting** eigenschap tijdens de implementatie.
 
   ```json
   {
@@ -211,7 +215,7 @@ Als de implementatiebewerkingen weergeven, gebruikt u de volgende stappen uit:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het oplossen van fouten voor bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources in Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Zie voor meer informatie over het gebruik van de activiteitenlogboeken van de voor het bewaken van andere soorten acties, [activiteitenlogboeken voor het beheren van Azure-resources bekijken](resource-group-audit.md).
-* Zie voor het valideren van uw implementatie voordat deze wordt uitgevoerd, [een resourcegroep implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Zie voor hulp bij het oplossen van fouten van bepaalde implementatie, [oplossen van veelvoorkomende fouten bij het implementeren van resources naar Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Zie voor meer informatie over het gebruik van de activiteitenlogboeken voor het bewaken van andere typen acties, [activiteitenlogboeken voor het beheren van Azure-resources bekijken](resource-group-audit.md).
+* Zie voor het valideren van uw implementatie voordat deze wordt uitgevoerd, [implementeren van een resourcegroep met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
 

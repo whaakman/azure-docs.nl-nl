@@ -1,7 +1,5 @@
 # Overzicht
 ## [Over Azure Portal](../azure-portal-overview.md)
-# Zelfstudies
-## [DevOps met Azure Portal](tutorial-azureportal-devops.md)
 # Concepten
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Sneltoetsen](azure-portal-keyboard-shortcuts.md)

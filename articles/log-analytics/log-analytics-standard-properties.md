@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 7282734b3524d7dfa80c54d074aac2268e38c5ab
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419386"
+ms.locfileid: "47432083"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standaardeigenschappen in Log Analytics-records
 Gegevens in [Log Analytics](../log-analytics/log-analytics-queries.md) wordt opgeslagen als een set records, elk met een bepaald type met een unieke set eigenschappen. Veel gegevenstypen heeft standaard-eigenschappen die betrekking hebben op meerdere typen. Dit artikel worden deze eigenschappen en voorbeelden van hoe u ze in query's gebruiken kunt.
@@ -53,8 +53,8 @@ search *
 | summarize count() by Type 
 ```
 
-## <a name="resourceid"></a>_ResourceId
-De **_ResourceId** eigenschap bevat een unieke id voor de resource die de record is gekoppeld. Dit biedt u een standard-eigenschap gebruikt als bereik voor de query alleen records uit een bepaalde resource, of voor gerelateerde gegevens tussen meerdere tabellen samenvoegen.
+## <a name="resourceid"></a>\_ResourceId
+De  **\_ResourceId** eigenschap bevat een unieke id voor de resource die de record is gekoppeld. Dit biedt u een standard-eigenschap gebruikt als bereik voor de query alleen records uit een bepaalde resource, of voor gerelateerde gegevens tussen meerdere tabellen samenvoegen.
 
 Voor Azure-resources, de waarde van **_ResourceId** is de [Azure-resource-ID URL](../azure-resource-manager/resource-group-template-functions-resource.md). De eigenschap is momenteel beperkt tot Azure-resources, maar dit zal worden uitgebreid tot resources buiten Azure, zoals on-premises computers.
 

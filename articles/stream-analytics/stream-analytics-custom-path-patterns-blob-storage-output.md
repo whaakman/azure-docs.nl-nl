@@ -8,18 +8,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6945e31825af46628c0945cdf579382b20bdcd68
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413626"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452561"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Aangepaste datum/tijd-padpatronen voor Azure Stream Analytics blob storage-uitvoer (Preview)
 
 Azure Stream Analytics biedt ondersteuning voor aangepaste datum en tijd-indeling weergaven in het pad voor blob storage-uitvoer. Aangepaste datum/tijd-padpatronen kunnen u opgeven de indeling van een uitvoer die overeenstemt met Hive-Streaming-conventies, waardoor Azure Stream Analytics om gegevens te verzenden naar Azure HDInsight en Azure Databricks voor downstream verwerken. Aangepaste datum/tijd-padpatronen eenvoudig worden geïmplementeerd met behulp van de `datetime` sleutelwoord in het veld pad naar het voorvoegsel van de uitvoer, samen met de indelingsopgave blob. Bijvoorbeeld `{datetime:yyyy}`.
 
-Gebruik deze koppeling voor [Azure Portal](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) om uit te schakelen van de functievlag waarmee de aangepaste datum/tijd-padpatronen voor blob storage-Uitvoervoorbeeld. Deze functie zal binnenkort worden ingeschakeld in de belangrijkste portal.
+Gebruik deze koppeling voor [Azure Portal](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) om uit te schakelen van de functievlag waarmee de aangepaste datum/tijd-padpatronen voor blob storage-Uitvoervoorbeeld. Deze functie zal binnenkort worden ingeschakeld in de belangrijkste portal.
 
 ## <a name="supported-tokens"></a>Ondersteunde tokens
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 43cf75d875b2f5fbfea46fb2c8fbae809668057d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161540"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405169"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Aan de slag in Azure Dev Spaces met behulp van .NET Core en Visual Studio
 
@@ -29,9 +29,39 @@ In deze handleiding leert u het volgende:
 - Twee afzonderlijke services ontwikkelen en de DNS-servicedetectie van Kubernetes gebruiken om een andere service aan te roepen.
 - Uw code op een productieve manier ontwikkelen en testen in een teamomgeving.
 
-[!INCLUDE [](includes/see-troubleshooting.md)]
+> [!Note]
+> **Als u op enig moment niet verder kunt**, kunt u de [probleemoplossingssectie](troubleshooting.md) raadplegen of een opmerking op deze pagina plaatsen.
 
-[!INCLUDE [](includes/portal-aks-cluster.md)]
+
+## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
+
+1. Meld u aan bij Azure Portal op http://portal.azure.com.
+1. Kies **Een resource maken** > ga naar **Kubernetes** > selecteer **Kubernetes-service** > **Maken**.
+
+   Voer de volgende stappen uit onder elke kop van het formulier AKS-cluster maken.
+
+    - **PROJECTDETAILS**: selecteer een Azure-abonnement en een nieuwe of bestaande Azure-resourcegroep.
+    - **CLUSTERDETAILS**: voer een naam, regio (momenteel moet u EastUS, Central US, WestEurope, WestUS2, CanadaCentral of CanadaEast), versie en DNS-voorvoegsel in voor het AKS-cluster.
+    - **SCHAAL**: selecteer een VM-grootte voor de AKS-agentknooppunten en het aantal knooppunten. Als u begint met Azure Dev Spaces, is één knooppunt voldoende voor het verkennen van alle functies. Het aantal knooppunten kan op elk gewenst moment na de implementatie van het cluster gemakkelijk worden aangepast. Let op: de VM-grootte kan niet meer worden gewijzigd als een AKS-cluster eenmaal is gemaakt. Zodra een AKS-cluster is geïmplementeerd, kunt u echter eenvoudig een nieuw AKS-cluster met grotere virtuele machines maken en Dev Spaces gebruiken om dat grotere cluster opnieuw te implementeren als u wilt opschalen.
+
+   Zorg ervoor dat u Kubernetes versie 1.9.6 of hoger kiest.
+
+   ![Configuratie-instellingen voor Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   Selecteer **Volgende: verificatie** wanneer u klaar bent.
+
+1. Kies de gewenste instelling voor RBAC (op rollen gebaseerd toegangsbeheer). Azure Dev Spaces biedt ondersteuning voor clusters waarop RBAC is ingeschakeld of uitgeschakeld.
+
+    ![RBAC-instelling](media/common/k8s-RBAC.PNG)
+
+1. Zorg ervoor dat routering van HTTP-toepassingen is ingeschakeld.
+
+   ![Routering van HTTP-toepassingen inschakelen](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > Om [Routering van HTTP-toepassingen](/azure/aks/http-application-routing) in te schakelen op een bestaande cluster, gebruikt u de opdracht: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
+1. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio-hulpprogramma's downloaden
 1. Installeer de nieuwste versie van [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -52,7 +82,6 @@ Maak een nieuw project in Visual Studio 2017. Op dit moment moet het project een
 Selecteer de sjabloon **Web Application (Model-View-Controller)** en selecteer **.NET Core** en **ASP.NET Core 2.0** in de twee vervolgkeuzelijsten boven in het dialoogvenster. Klik op **OK** om het project aan te maken.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Dev Spaces inschakelen voor een AKS-cluster
 

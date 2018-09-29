@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986996"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434922"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Verzenden van de Gast OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
 
@@ -83,7 +83,7 @@ In de virtuele machine schaalset bron, vinden de **virtualMachineProfile** secti
 
 In de **extensionProfile**, een nieuwe extensie toevoegen aan de sjabloon, zoals aangegeven in de **VMSS-WAD-extensie sectie**.  Deze sectie is het Managed Service Identity (MSI)-extensie die ervoor zorgt de metrische gegevens worden verzonden dat, worden geaccepteerd door Azure Monitor. De **naam** veld kan een willekeurige naam bevatten. 
 
-De code hieronder onder de MSI-extensie ook wordt toegevoegd de extensie voor diagnostische gegevens en configuratie als een extensie-resource met de virtuele machine scale set-bron. U kunt prestatiemeteritems behoefte toevoegen/verwijderen. 
+De volgende code uit de MSI-extensie ook wordt toegevoegd de extensie voor diagnostische gegevens en configuratie als een extensie-resource met de virtuele machine scale set bron. U kunt prestatiemeteritems behoefte toevoegen/verwijderen. 
 
 ```json
           "extensionProfile": { 

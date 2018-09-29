@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971003"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434027"
 ---
 # <a name="introduction-to-azure-security"></a>Inleiding tot Azure-beveiliging
 ## <a name="overview"></a>Overzicht
@@ -100,7 +100,7 @@ Als er crashes, fouten of prestatieproblemen, kunt u zoeken via de telemetrische
 Log Analytics is een handig hulpmiddel in forensische en andere beveiligingsanalyse, zoals het hulpprogramma kunt u snel zoeken in grote hoeveelheden beveiliging gerelateerde items met een flexibele querymogelijkheden benadering. Bovendien on-premises [firewall en proxy logboeken kunnen worden geëxporteerd naar Azure en beschikbaar gesteld voor analyse met behulp van Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) is een persoonlijke cloudconsultant die u helpt bij het optimaliseren van uw Azure-implementaties. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens raadt het programma in oplossingen om u te helpen verbeteren de [prestaties](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), en [hoge beschikbaarheid](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) van uw resources tijdens het zoeken naar mogelijkheden om [verlagen van uw totale Azure besteden](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor biedt aanbevelingen voor beveiliging, kan aanzienlijke verbetering van uw algehele beveiligingsstatus voor oplossingen die u in Azure implementeren. Deze aanbevelingen zijn afkomstig van beveiligingsanalyse uitgevoerd door [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) is een persoonlijke cloudconsultant die u helpt bij het optimaliseren van uw Azure-implementaties. Advisor analyseert de configuratie van uw resources en de gebruiksgerelateerde telemetrie. Vervolgens raadt het programma in oplossingen om u te helpen verbeteren de [prestaties](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), en [hoge beschikbaarheid](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) van uw resources tijdens het zoeken naar mogelijkheden om [verlagen van uw totale Azure besteden](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor biedt aanbevelingen voor beveiliging, waarmee u kunnen uw algehele beveiligingsstatus voor oplossingen die u in Azure implementeert aanzienlijk verbeteren. Deze aanbevelingen zijn afkomstig van beveiligingsanalyse uitgevoerd door [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 ### <a name="azure-security-center"></a>Azure Security Center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw Azure-abonnementen, helpt bedreigingen te detecteren die anders onopgemerkt zouden blijven, en werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
@@ -272,7 +272,7 @@ Een gecentraliseerde Web Application Firewall ter bescherming tegen aanvallen vi
 ### <a name="traffic-manager"></a>Traffic Manager
 Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) kunt u de distributie van gebruikersverkeer voor service-eindpunten in verschillende datacenters te bepalen. Ondersteund door Traffic Manager-service-eindpunten zijn Azure-VM's, Web-Apps en cloudservices. U kunt Traffic Manager ook gebruiken met externe eindpunten die niet van Azure zijn. Traffic Manager maakt gebruik van de Domain Name System (DNS) om te leiden aanvragen van clients op het meest geschikte eindpunt op basis van een [verkeersrouteringsmethode](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) en de status van de eindpunten.
 
-Traffic Manager biedt een aantal methoden routering van verkeer op basis van behoeften van de andere toepassing, de gezondheid van eindpunt [bewaking](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring), en automatische failover. Traffic Manager is tegen storing, inclusief het uitvallen van een hele Azure-regio.
+Traffic Manager biedt een aantal methoden routering van verkeer op basis van behoeften van de andere toepassing, de gezondheid van eindpunt [bewaking](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring), en automatische failover. Traffic Manager is bestand tegen storingen, waaronder het uitvallen van een hele Azure-regio.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) zorgt dat uw toepassingen een hoge beschikbaarheid hebben en goede netwerkprestaties leveren. Het is een Layer 4 (TCP, UDP) load balancer die inkomend verkeer over gezonde exemplaren van services die zijn gedefinieerd in een load balancer-set distribueert. Azure Load Balancer kan worden geconfigureerd om:
 
@@ -364,7 +364,7 @@ Microsoft maakt gebruik van meerdere procedures voor beveiliging en -technologie
 -   [Geïntegreerd identiteitsbeheer (hybride identiteit)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) kunt u beheer van toegang van gebruikers voor interne-datacenters en cloud platformen, het maken van een enkele gebruikers-id voor verificatie en autorisatie om alle resources te onderhouden.
 
 ### <a name="secure-apps-and-data"></a>Apps en gegevens beveiligen
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), een uitgebreide identiteits- en toegangsbeheer cloudoplossing, wordt de beveiligde toegang tot gegevens in toepassingen op de site en in de cloud en vereenvoudigt het beheer van gebruikers en groepen. Het kernadreslijstservices, Geavanceerd identiteitsbestuur, beveiliging en toegangsbeheer voor toepassingen, en kunt u eenvoudig voor ontwikkelaars voor het bouwen van identiteitsbeheer in hun apps op basis van beleid. Ter verbetering van uw Azure Active Directory, kunt u betaalde mogelijkheden met behulp van de Azure Active Directory Basic, Premium P1 en Premium P2-edities toevoegen.
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), een uitgebreide identiteits- en toegangsbeheer cloudoplossing, wordt de beveiligde toegang tot gegevens in toepassingen op de site en in de cloud en vereenvoudigt het beheer van gebruikers en groepen. Het kernadreslijstservices, Geavanceerd identiteitsbestuur, beveiliging en toegangsbeheer voor toepassingen, en kunt u eenvoudig voor ontwikkelaars voor het bouwen van identiteitsbeheer in hun apps op basis van beleid. Om uw Azure Active Directory te verbeteren, kunt u betaalde mogelijkheden toevoegen met de Azure Active Directory Basic-, Premium P1- en Premium P2-edities.
 
 | Gratis / algemene functies     | Basic-functies    |Premium P1-functies |Premium P2-functies | Azure Active Directory Join: Windows 10 alleen gerelateerde functies|
 | :------------- | :------------- |:------------- |:------------- |:------------- |

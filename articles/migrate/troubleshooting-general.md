@@ -4,14 +4,14 @@ description: Biedt een overzicht van bekende problemen in de Azure Migrate-servi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165294"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433494"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
@@ -92,9 +92,11 @@ Azure Migrate collector PowerCLI downloadt en installeert deze op het apparaat. 
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Er is een interne fout UnhandledException opgetreden: System.IO.FileNotFoundException
 
-Dit is een probleem met Collector-versies lager dan 1.0.9.5. Als u werkt met Collector-versie 1.0.9.2 of pre-GA-versies zoals 1.0.8.59, hebt u met dit probleem te maken. Volg de [hier opgegeven koppeling naar de forums voor een uitgebreid antwoord](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Dit probleem kan optreden vanwege een probleem met de installatie van VMware PowerCLI. Volg de onderstaande stappen om het probleem te verhelpen:
 
-[Voer een upgrade van uw Collector uit om het probleem te verhelpen](https://aka.ms/migrate/col/checkforupdates).
+1. Als u niet op de nieuwste versie van het collector-apparaat, [uw Collector upgraden naar de nieuwste versie](https://aka.ms/migrate/col/checkforupdates) en controleer of het probleem opgelost is.
+2. Als u de meest recente versie van de collector al hebt, handmatig installeren [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) en controleer of het probleem opgelost is.
+3. Als de bovenstaande niet los het probleem, navigeer naar de map C:\Program Files\ProfilerService en verwijderen van de VMware.dll en VimService65.dll bestanden die aanwezig zijn in de map en start de 'Azure Migrate Collector-service in Windows-Services beheren (Open ' Voer ' en het type 'services.msc' om Windows Service Manager te openen).
 
 ### <a name="error-unabletoconnecttoserver"></a>Fout UnableToConnectToServer
 

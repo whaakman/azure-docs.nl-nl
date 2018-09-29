@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520799"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47430978"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Openbare IP (klassiek) overzicht's op exemplaarniveau
 Een instantie level public IP (ILPIP) is een openbare IP-adres dat u rechtstreeks naar een exemplaar van de rol virtuele machine of Cloud Services, in plaats van met de cloudservice die uw rol of VM-exemplaar zich bevinden in kunt toewijzen. Een ILPIP ter niet vervanging van het virtuele IP (VIP) die is toegewezen aan uw cloudservice. Het is in plaats daarvan een extra IP-adres dat u kunt rechtstreeks verbinding maken met uw rol of VM-exemplaar.
@@ -31,10 +31,13 @@ Een instantie level public IP (ILPIP) is een openbare IP-adres dat u rechtstreek
 
 Zoals weergegeven in afbeelding 1, de cloudservice wordt geopend met behulp van een VIP-adres, terwijl de afzonderlijke virtuele machines normaal gesproken worden geopend met behulp van VIP:&lt;poortnummer&gt;. Door een ILPIP toewijzen aan een specifieke virtuele machine, is die virtuele machine toegankelijk via dit IP-adres.
 
-Wanneer u een cloudservice in Azure maakt, worden bijbehorende DNS A-records automatisch gemaakt voor toegang tot de service via een volledig gekwalificeerde domeinnaam (FQDN), in plaats van de werkelijke VIP. Hetzelfde proces gebeurt voor een ILPIP, zodat toegang tot de rol of VM-exemplaar met FQDN-naam in plaats van de ILPIP. Bijvoorbeeld, als u een cloudservice met de naam *contosoadservice*, en het configureren van een Webrol die met de naam *contosoweb* met twee instanties, Azure registreert de volgende A-records voor de exemplaren:
+Wanneer u een cloudservice in Azure maakt, worden bijbehorende DNS A-records automatisch gemaakt voor toegang tot de service via een volledig gekwalificeerde domeinnaam (FQDN), in plaats van de werkelijke VIP. Hetzelfde proces gebeurt voor een ILPIP, zodat toegang tot de rol of VM-exemplaar met FQDN-naam in plaats van de ILPIP. Bijvoorbeeld, als u een cloudservice met de naam *contosoadservice*, en het configureren van een Webrol die met de naam *contosoweb* met twee exemplaren en in cscfg `domainNameLabel` is ingesteld op  *WebPublicIP*, Azure registreert de volgende A-records voor de exemplaren:
 
-* contosoweb\_IN_0.contosoadservice.cloudapp.net
-* contosoweb\_IN_1.contosoadservice.cloudapp.net 
+
+* WebPublicIP.0.contosoadservice.cloudapp.net
+* WebPublicIP.1.contosoadservice.cloudapp.net
+* ...
+
 
 > [!NOTE]
 > U kunt slechts één ILPIP voor elk exemplaar van de virtuele machine of rol kunt toewijzen. U kunt maximaal 5 ILPIPs per abonnement gebruiken. ILPIPs worden niet ondersteund voor virtuele machines meerdere NIC's.
@@ -152,7 +155,7 @@ Een ILPIP toevoegen aan een exemplaar van Cloud Services, voert u de volgende st
         <AddressAssignments>
           <InstanceAddress roleName="WebRole1">
         <PublicIPs>
-          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <PublicIP name="MyPublicIP" domainNameLabel="WebPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
@@ -162,14 +165,22 @@ Een ILPIP toevoegen aan een exemplaar van Cloud Services, voert u de volgende st
 3. Uploaden van het cscfg-bestand voor de cloudservice via de stappen in de [over het configureren van Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) artikel.
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Het ophalen van gegevens voor een Cloudservice ILPIP
-Als u de informatie ILPIP per rolexemplaar, de volgende PowerShell-opdracht uit en bekijk de waarden voor *PublicIPAddress* en *PublicIPName*:
+Als u de informatie ILPIP per rolexemplaar, de volgende PowerShell-opdracht uit en bekijk de waarden voor *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* en *PublicIPFqdns*:
 
 ```powershell
-$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+Add-AzureAccount
+
+$roles = Get-AzureRole -ServiceName <Cloud Service Name> -Slot Production -RoleName WebRole1 -InstanceDetails
 
 $roles[0].PublicIPAddress
 $roles[1].PublicIPAddress
 ```
+
+U kunt ook `nslookup` de record het subdomein query:
+
+```batch
+nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
+``` 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Begrijpen hoe [IP-adressering](virtual-network-ip-addresses-overview-classic.md) werkt in het klassieke implementatiemodel.

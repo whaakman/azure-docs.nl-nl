@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952406"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452295"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecteer en gebruik een compute-doel aan uw model te trainen
 
@@ -23,7 +23,7 @@ Met de Azure Machine Learning-service, kunt u uw model in verschillende omgeving
 
 Een compute-doel is de resource die wordt uitgevoerd de trainingsscript of hosts uw model wanneer deze geïmplementeerd als een webservice. Ze kunnen worden gemaakt en beheerd met de Azure Machine Learning-SDK of de CLI. Als u de compute-doelen die zijn gemaakt door een ander proces (bijvoorbeeld, de Azure portal of Azure CLI) hebt, kunt u ze kunt gebruiken door ze te koppelen aan uw werkruimte van Azure Machine Learning-service.
 
-U kunt beginnen met lokaal wordt uitgevoerd op uw computer en vervolgens schalen en uitbreiden naar andere omgevingen zoals externe Data Science virtual machines met GPU of Azure Batch AI. 
+U kunt beginnen met lokaal wordt uitgevoerd op uw computer en klik vervolgens in andere omgevingen zoals externe Data Science virtual machines met GPU of Azure Batch AI opschalen en uitbreiden. 
 
 ## <a name="supported-compute-targets"></a>Ondersteunde compute-doelen
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+Zie voor een Jupyter-Notebook die laat training in een door de gebruiker beheerde omgeving zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Systeem-beheerde omgeving
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+Zie voor een Jupyter-Notebook die laat training in een systeem-beheerde omgeving zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Virtuele Machine voor Datatechnologie
 
 Uw lokale computer mogelijk niet de compute of GPU-resources die zijn vereist voor het model te trainen. In dit geval kunt u omhoog schalen of scale-out de trainingsproces door toe te voegen extra compute-doelen, zoals een Data Science Virtual Machines (DSVM).
@@ -190,6 +195,8 @@ De volgende stappen uit de SDK gebruiken om een Data Science Virtual Machine (DS
     dsvm_compute.delete()
     ```
 
+Zie voor een Jupyter-Notebook die laat training op een virtuele Machine voor Datatechnologie zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch AI
 
 Als het duurt lang uw model te trainen, kunt u Azure Batch AI gebruiken voor het distribueren van de training in een cluster van rekenbronnen in de cloud. Batch AI kan ook worden geconfigureerd om in te schakelen van een GPU-resource.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-Als u wilt koppelen van een bestaande Batch AI-cluster als een compute-doel, moet u de Azure-resource-id opgeven. Voor de resource-id van de Azure-portal, moet u naar:
+Als u wilt koppelen van een bestaande Batch AI-cluster als een compute-doel, moet u de Azure-resource-ID. Voor de resource-ID van de Azure-portal, gebruikt u de volgende stappen uit:
 1. Zoeken naar `Batch AI` service onder **alle Services**
 1. Klik op de naam van de werkruimte waarin het cluster behoort
 1. Selecteer het cluster
 1. Klik op **eigenschappen**
-1. Kopieer de **Id**
+1. Kopieer de **ID**
 
-Het volgende voorbeeld wordt de SDK te koppelen van een cluster aan uw werkruimte. Vervang in het voorbeeld `<name>` met een willekeurige naam voor de rekenkracht. Dit hoeft niet overeen met de naam van het cluster. Vervang `<resource-id>` met de Azure-resource-id hierboven:
+Het volgende voorbeeld wordt de SDK te koppelen van een cluster aan uw werkruimte. Vervang in het voorbeeld `<name>` met een willekeurige naam voor de rekenkracht. De naam hoeft niet overeenkomt met de naam van het cluster. Vervang `<resource-id>` met de Azure-resource ID hierboven:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ U kunt ook controleren de Batch AI-cluster en de status van de volgende Azure CL
 - Clusterstatus controleren. U kunt zien hoeveel knooppunten worden uitgevoerd met behulp van `az batchai cluster list`.
 - Controleer de status van taak. U kunt zien hoeveel taken worden uitgevoerd met behulp van `az batchai job list`.
 
-Het duurt ongeveer vijf minuten om de Batch AI-cluster te maken
+Het duurt ongeveer vijf minuten om de Batch AI-cluster te maken.
+
+Zie voor een Jupyter-Notebook die laat training in een Batch AI-cluster zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container Instance (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 Duurt een paar seconden met een paar minuten een ACI-compute-doel maken.
+
+Zie voor een Jupyter-Notebook die laat training voor Azure Container Instances zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Een HDInsight-cluster koppelen 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Zie voor een Jupyter-Notebook die laat training met Spark in HDInsight zien, [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Weergeven en compute met behulp van de Azure-portal instellen
 
 U kunt bekijken wat compute-doelen zijn gekoppeld aan uw werkruimte vanuit Azure portal. Als u aan de lijst, gebruikt u de volgende stappen uit:
@@ -403,6 +416,7 @@ Volg de bovenstaande stappen voor het weergeven van de lijst met compute-doelen 
 De volgende notebooks illustratie van concepten in dit artikel:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

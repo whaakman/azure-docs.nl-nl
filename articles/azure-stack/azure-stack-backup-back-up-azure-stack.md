@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025307"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432967"
 ---
 # <a name="back-up-azure-stack"></a>Back-up van Azure Stack
 
@@ -38,15 +38,48 @@ Start-AzSBackup gebruiken een nieuwe back-up direct starten met geen taakvoortga
 ```
 
 ### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Azure Stack back-up starten met de voortgang van de taak volgen
-Start AzSBackup gebruiken om te starten van een nieuwe back-up met de variabele is - AsJob om bij te houden van back-uptaak wordt uitgevoerd.
+Start-AzSBackup gebruiken voor het starten van een nieuwe back-up met de **is - AsJob** parameter en sla deze op als een variabele voor het bijhouden van back-uptaak wordt uitgevoerd.
+
+> [!NOTE]
+> Back-uptaak wordt weergegeven, zoals is uitgevoerd in de beheerportal van ongeveer 10-15 minuten voordat de taak wordt voltooid.
+>
+> De huidige status is daarom beter waargenomen via de onderstaande code.
+
+> [!IMPORTANT]
+> De eerste 1 milliseconde vertraging wordt geïntroduceerd, omdat de code te snel voor het registreren van de taak correct is en deze weer zonder **PSBeginTime** op zijn beurt zonder **status** van de taak.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob 
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
-    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
-    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+    $BackupJob = Start-AzsBackup -Force -AsJob
+    While (!$BackupJob.PSBeginTime) {
+        Start-Sleep -Milliseconds 1
+    }
+    Write-Host "Start time: $($BackupJob.PSBeginTime)"
+    While ($BackupJob.State -eq "Running") {
+        Write-Host "Job is currently: $($BackupJob.State) - Duration: $((New-TimeSpan -Start ($BackupJob.PSBeginTime) -End (Get-Date)).ToString().Split(".")[0])"
+        Start-Sleep -Seconds 30
+    }
 
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+    If ($BackupJob.State -eq "Completed") {
+        Get-AzsBackup | Where-Object {$_.BackupId -eq $BackupJob.Output.BackupId}
+        $Duration = $BackupJob.Output.TimeTakenToCreate
+        $Pattern = '^P?T?((?<Years>\d+)Y)?((?<Months>\d+)M)?((?<Weeks>\d+)W)?((?<Days>\d+)D)?(T((?<Hours>\d+)H)?((?<Minutes>\d+)M)?((?<Seconds>\d*(\.)?\d*)S)?)$'
+        If ($Duration -match $Pattern) {
+            If (!$Matches.ContainsKey("Hours")) {
+                $Hours = ""
+            } 
+            Else {
+                $Hours = ($Matches.Hours).ToString + 'h '
+            }
+            $Minutes = ($Matches.Minutes)
+            $Seconds = [math]::round(($Matches.Seconds))
+            $Runtime = '{0}{1:00}m {2:00}s' -f $Hours, $Minutes, $Seconds
+        }
+        Write-Host "BackupJob: $($BackupJob.Output.BackupId) - Completed with Status: $($BackupJob.Output.Status) - It took: $($Runtime) to run" -ForegroundColor Green
+    }
+    ElseIf ($BackupJob.State -ne "Completed") {
+        $BackupJob
+        $BackupJob.Output
+    }
 ```
 
 ## <a name="confirm-backup-has-completed"></a>Controleer of de back-up is voltooid

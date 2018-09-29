@@ -62,8 +62,6 @@ items:
         href: troubleshooting-creating-ml-workspace.md
       - name: Implementeren met ARM
         href: deploy-with-resource-manager-template.md
-      - name: Maken in een andere regio
-        href: multi-geo.md
       - name: Studio-accountgegevens weergeven en verwijderen
         href: export-delete-personal-data-dsr.md
   - name: Gegevens ophalen en begrijpen
@@ -240,9 +238,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: 8af59602ef134089444279a6234038095c70b59c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b7c5cea35e8b1441bc8a08e8d8582141cd430868
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037004"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431522"

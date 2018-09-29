@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221755"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434024"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -64,7 +64,7 @@ In Azure Search capaciteit is gestructureerd als *replica's* en *partities*.
 + Partities indexen opslaan en doorzoekbare gegevens automatisch splitsen: twee partities uw index in de helft, drie partities splitsen in derde, enzovoort. Wat betreft de capaciteit, *partitie grootte* is van de primaire functie van de onderscheidende voor lagen.
 
 > [!NOTE]
-> Alle **Standard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het veranderen van de balans. **Basic** biedt u drie replica's voor hoge beschikbaarheid, maar slechts één partitie heeft. **Gratis** lagen bieden geen toegewezen resources: computing resources worden gedeeld door meerdere gratis services.
+> Alle **Standard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het veranderen van de balans. **Basic** biedt u drie replica's voor hoge beschikbaarheid, maar slechts één partitie heeft. **Gratis** lagen bieden geen toegewezen resources: computing resources worden gedeeld door meerdere abonnees.
 
 ### <a name="more-about-service-limits"></a>Meer informatie over Servicelimieten
 

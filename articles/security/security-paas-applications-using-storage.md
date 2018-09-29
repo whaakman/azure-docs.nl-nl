@@ -1,6 +1,6 @@
 ---
-title: Beveiliging van PaaS-toepassingen met behulp van Azure Storage | Microsoft Docs
-description: " Meer informatie over Azure Storage security best practices voor het beveiligen van uw PaaS-web- en mobiele toepassingen. "
+title: PaaS-toepassingen beveiligen met Azure Storage | Microsoft Docs
+description: Meer informatie over de beveiliging voor Azure Storage aanbevolen procedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,96 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295292"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451864"
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure Storage
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Aanbevolen procedures voor het beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure Storage
+In dit artikel wordt besproken hoe een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw platform-as-a-service (PaaS) web en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
 
-In dit artikel bespreken we een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
+Azure maakt het mogelijk om te implementeren en gebruiken van opslag op een manier niet eenvoudig haalbare on-premises. Met Azure storage, kunt u de hoge mate van schaalbaarheid en beschikbaarheid met relatief veel moeite bereiken. Azure Storage niet alleen vormt de basis voor Windows en Linux Azure Virtual Machines, kan deze ook grote gedistribueerde toepassingen ondersteunen.
 
-De [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) bevat een schat voor gedetailleerde informatie over Azure Storage en beveiliging.  Dit artikel heeft betrekking op een hoog niveau enkele concepten gevonden in de handleiding voor beveiliging en koppelingen naar de beveiligingshandleiding, evenals andere bronnen voor meer informatie.
+Azure Storage biedt de volgende vier services: Blob storage, Table storage, Queue storage en File storage. Zie voor meer informatie, [Inleiding tot Microsoft Azure Storage](../storage/storage-introduction.md).
 
-## <a name="azure-storage"></a>Azure Storage
+De [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) is een fantastische bron voor gedetailleerde informatie over Azure Storage en beveiliging. Aanbevolen procedures voor deze adressen op hoog niveau enkele concepten gevonden in de handleiding voor beveiliging en koppelingen naar de beveiligingshandleiding, evenals andere bronnen, voor meer informatie.
 
-Azure maakt het mogelijk te implementeren en gebruiken van opslag op manieren niet eenvoudig haalbare lokale. U kunt een hoge mate van schaalbaarheid en beschikbaarheid met relatief weinig moeite bereiken met Azure storage. Niet alleen Azure storage vormt de basis voor Windows en Linux Azure Virtual Machines, kan het ook grote gedistribueerde toepassingen ondersteunen.
+In dit artikel komen de volgende aanbevolen procedures:
 
-Azure Storage biedt de volgende vier services: Blob Storage, Table Storage, Queue Storage en File Storage. Zie voor meer informatie, [Inleiding tot Microsoft Azure Storage](../storage/storage-introduction.md).
+- Shared Access Signatures (SAS)
+- Toegangsbeheer op basis van rollen (RBAC)
+- Versleuteling aan de clientzijde voor hoge waarde-gegevens
+- Storage Service-versleuteling
 
-## <a name="best-practices"></a>Aanbevolen procedures
 
-In dit artikel worden de volgende aanbevolen procedures:
+## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>Een shared access signature gebruiken in plaats van een opslagaccountsleutel
+Toegangsbeheer is essentieel. Toegang tot Azure Storage, Azure genereert twee 512-bits sleutels van opslagaccount (SAKs) om u te helpen bij het maken van een storage-account. Het niveau van de belangrijkste redundantie maakt het mogelijk voor u om serviceonderbrekingen te voorkomen tijdens routinematige rouleren van de sleutel. 
 
-- Beveiliging:
-   - Shared Access Signatures (SAS)
-   - RBAC (op rollen gebaseerd toegangsbeheer)
+Toegangssleutels voor opslag zijn essentiële geheimen en moeten alleen toegankelijk is voor die verantwoordelijk is voor toegangsbeheer voor opslag. Als de juiste personen toegang tot deze sleutels krijgen, kan ze hebben volledige controle over opslag en vervangen, verwijderen, of bestanden toevoegen aan opslag. Dit omvat malware en andere typen inhoud die u mogelijk in gevaar van uw organisatie of voor uw klanten brengen kunt.
 
-- Versleuteling van opslag:
-   - Versleuteling aan de clientzijde voor waardevolle gegevens
-   - Storage Service-versleuteling
+U moet wel een manier om toegang tot objecten in de opslag te bieden. Voor gedetailleerdere toegang kunt u profiteren van de handtekening voor gedeelde toegang (SAS). De SAS maakt het mogelijk dat u specifieke objecten in de opslag voor een vooraf gedefinieerde periode en met specifieke machtigingen delen. Een shared access signature kunt u definiëren:
 
-## <a name="access-protection"></a>Netwerktoegangsbeveiliging
+- Het interval op waarover de SAS geldig is, met inbegrip van de begin- en het verlooptijdstip is.
+- De machtigingen verleend door de SAS. Bijvoorbeeld kan een SAS voor een blob verlenen van een gebruiker lezen en schrijfmachtigingen heeft tot de blob, maar de machtigingen niet verwijderen.
+- Een optionele IP-adres of het bereik van IP-adressen van waaruit de Azure Storage de SAS accepteert. Bijvoorbeeld, kunt u een bereik van IP-adressen die horen bij uw organisatie opgeven. Dit biedt een andere mate van beveiliging voor uw SAS.
+- Het protocol waarvoor Azure Storage de SAS accepteert. U kunt deze optionele parameter gebruiken om toegang te beperken met clients met behulp van HTTPS.
 
-### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Shared Access Signature gebruiken in plaats van de sleutel van een opslagaccount
+SAS kunt u de manier waarop u wilt delen zonder uw storage-accountsleutels weggeven van inhoud delen. Altijd met behulp van SAS in uw toepassing is een veilige manier voor het delen van uw opslagresources zonder verlies van de sleutels van uw storage-account.
 
-In een IaaS-oplossing, meestal met Windows Server of Linux virtuele machines met bestanden beveiligd tegen openbaarmaking en beveiligingsactiviteiten bedreigingen met behulp van de toegangsmechanismen. U wilt gebruiken op Windows [toegangsbeheerlijsten (ACL)](../virtual-network/virtual-networks-acl.md) en op Linux, u waarschijnlijk gebruikt [type chmod](https://en.wikipedia.org/wiki/Chmod). In wezen, dit is precies wat u zou doen als u bestanden op een server in uw eigen datacenter vandaag zijn beveiligt.
+Zie voor meer informatie over de handtekening voor gedeelde toegang, [voor gedeelde toegangshandtekeningen](../storage/common/storage-dotnet-shared-access-signature-part-1.md). 
 
-PaaS verschilt. Een van de meest voorkomende manieren voor het opslaan van bestanden in Microsoft Azure is het gebruik [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). Een verschil tussen de Blob storage en andere opslag van bestanden is het bestand i/o- en beveiligingsmethoden die worden geleverd met i/o bestand.
+## <a name="use-role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer gebruiken
+Een andere manier om toegang te beheren, is met [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC). Met RBAC u richten op uw werknemers de exacte machtigingen die ze nodig hebben, op basis van de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes. Te veel machtigingen kunnen een account voor aanvallen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënter kunnen niet ophalen. Met RBAC kunt dit probleem oplossen door het aanbieden van verfijnd toegangsbeheer voor Azure. Dit is van cruciaal belang voor organisaties die willen beveiligingsbeleid voor toegang tot gegevens afdwingen.
 
-Toegangsbeheer is essentieel. Om u te helpen toegang tot Azure-opslag, het systeem wordt gegenereerd twee 512-bits opslagaccountsleutels (SAKs) wanneer u [een opslagaccount maken](../storage/common/storage-create-storage-account.md). Het niveau van redundantie voor belangrijke maakt het mogelijk is voor u om te voorkomen dat de interrupt service tijdens het routinematig sleutel draaien.
+U kunt ingebouwde RBAC-rollen in Azure machtigingen toewijzen aan gebruikers. Inzender voor Opslagaccounts bijvoorbeeld gebruiken voor cloudoperators die nodig hebt voor het beheren van storage-accounts en de rol Inzender voor klassieke Storage-Account voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig hebt voor het beheren van virtuele machines, maar niet het virtuele netwerk of opslagaccount waarmee ze zijn verbonden, kunt u ze toevoegen aan de rol Inzender voor virtuele machines.
 
-Toegangssleutels voor opslag moeten hoge prioriteit geheimen zijn en alleen toegankelijk is voor die verantwoordelijk is voor toegangsbeheer voor opslag. Als de juiste mensen toegang tot deze sleutels krijgen, kan ze hebben volledige controle over opslag en vervangen, verwijderen of bestanden toevoegen aan opslag. Dit omvat malware en andere typen inhoud die u kunt niet optimaal van uw organisatie of voor uw klanten.
-
-U moet nog steeds een manier om toegang tot objecten in de opslag te bieden. Voor meer gedetailleerd toegang kunt u profiteren van [Shared Access Signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). De SAS maakt het mogelijk dat u specifieke objecten in de opslag voor een vooraf gedefinieerde tijdsinterval en met specifieke machtigingen delen. Een Shared Access Signature kunt u definiëren:
-
-- De tijdsinterval waarover de SAS geldig zijn, inclusief de begintijd en de verlooptijd is.
-- De machtigingen verleend door de SAS. Een SAS voor een blob kan bijvoorbeeld, verleent u een gebruiker lees en schrijfmachtigingen voor blob maar niet verwijderen machtigingen.
-- Een optionele IP-adres of het bereik van IP-adressen waaruit Azure Storage de SAS accepteert. U kunt bijvoorbeeld een bereik met IP-adressen die horen bij uw organisatie opgeven. Dit biedt een andere meting van beveiliging voor uw SAS.
-- Het protocol waarvoor Azure Storage de SAS accepteert. U kunt deze optionele parameter gebruiken om toegang te beperken op clients met behulp van HTTPS.
-
-SAS kunt u de manier waarop u wilt delen zonder dat opslag uw toegangscodes voor opslag van inhoud delen. Altijd via SAS in uw toepassing is een veilige manier voor het delen van uw opslagresources uw toegangscodes voor opslag in gevaar.
-
-Zie voor meer informatie, [handtekeningen voor gedeelde toegang met behulp van](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Zie voor meer informatie over mogelijke risico's en aanbevelingen die risico's te beperken, [Best practices wanneer via SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
-
-### <a name="use-role-based-access-control"></a>Op rollen gebaseerde toegangsbeheer gebruiken
-
-Eerder besproken Shared Access Signature (SAS) met beperkte toegang tot objecten in uw opslagaccount verlenen aan andere clients zonder dat de sleutel van uw account-opslagaccount. Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van SAS. Soms is het eenvoudiger om toegang op een andere manier te beheren.
-
-Een andere manier om toegang te beheren is met [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC). Met RBAC, richten op uw werknemers de exacte machtigingen die ze nodig hebben, op basis van de noodzaak om te weten en minimale bevoegdheden beveiligingsprincipes. Te veel machtigingen kunnen een account dat kwaadwillende personen worden blootgesteld. Te weinig machtigingen betekent dat werknemers hun werk efficiënt kunnen niet ophalen. RBAC kunt u dit probleem oplossen door het aanbieden van Geavanceerd toegangsbeheer voor Azure. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens.
-
-U kunt gebruikmaken van ingebouwde RBAC-rollen in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van Storage Account Inzender voor cloudoperators die nodig zijn voor het beheren van storage-accounts en de rol Inzender van de Account klassieke opslag voor het beheren van klassieke opslagaccounts. Voor cloudoperators die moeten beheren van virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden, kunt u deze toevoegt aan de rol Inzender van de virtuele Machine.
-
-Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebruik van mogelijkheden, zoals RBAC mogelijk meer bevoegdheden beschikt dan nodig is voor hun gebruikers geven. Dit kan leiden tot inbreuk op gegevens doordat sommige gebruikers toegang tot gegevens die ze in eerste instantie mag geen.
+Organisaties die gegevenstoegangsbeheer niet afdwingen met behulp van mogelijkheden zoals RBAC mogelijk meer bevoegdheden dan nodig is voor hun gebruikers geven. Dit kan leiden tot inbreuk op gegevens door toe te staan van sommige gebruikers toegang tot gegevens die ze in de eerste plaats al dan niet mogen hebben.
 
 Zie voor meer informatie over RBAC:
 
-- [Op rollen gebaseerde toegangsbeheer van Azure](../role-based-access-control/role-assignments-portal.md)
-- [Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md)
-- [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) voor details over het beveiligen van uw opslagaccount met RBAC
+- [Toegang beheren met op rollen gebaseerd toegangsbeheer en Azure Portal](../role-based-access-control/role-assignments-portal.md)
+- [Ingebouwde rollen voor Azure-resources](../role-based-access-control/built-in-roles.md)
+- [Veiligheidsgids voor Azure Storage](../storage/common/storage-security-guide.md) 
 
-## <a name="storage-encryption"></a>Storage-versleuteling
+## <a name="use-client-side-encryption-for-high-value-data"></a>Client-side-versleuteling gebruiken voor hoge waarde-gegevens
+Client-side encryption kunt u de gegevens die onderweg zijn programmatisch te versleutelen voordat u uploadt naar Azure Storage en ontsleutelen van gegevens via een programma bij het ophalen van het. Dit biedt versleuteling van gegevens die onderweg zijn, maar het biedt ook versleuteling van data-at-rest. Clientversleuteling is de veiligste methode van het versleutelen van uw gegevens, maar het vereist dat u programmatische wijzigingen aanbrengen in uw toepassing en sleutelbeheer processen opstellen.
 
-### <a name="use-client-side-encryption-for-high-value-data"></a>Client-side '-versleuteling gebruiken voor waardevolle gegevens
+Clientversleuteling kunt u hebt enige controle over uw versleutelingssleutels. U kunt genereren en beheren van uw eigen versleutelingssleutels. Het maakt gebruik van een techniek envelop waar de Azure storage-clientbibliotheek genereert een versleuteling van inhoud sleutel (CEK) dat vervolgens is verpakt (versleuteld) met behulp van de sleutel van versleutelingssleutel (KEK-sleutel). De KEK wordt aangeduid met een sleutel-id en kunt een asymmetrisch sleutelpaar of een symmetrische sleutel en kan worden lokaal beheerd of die zijn opgeslagen in [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-Versleuteling aan clientzijde kunt u programmatisch gegevens onderweg voordat u uploadt naar Azure Storage te versleutelen en ontsleutelen van gegevens via een programma bij het ophalen van het uit de opslag.  Dit biedt versleuteling van gegevens die worden verzonden, maar het biedt ook versleuteling van gegevens in rust.  Versleuteling aan clientzijde is de veiligste methode van het versleutelen van uw gegevens, maar hoeft u programmatische wijzigingen aanbrengen in uw toepassing en processen voor sleutelbeheer plaatsen in plaats.
+Clientversleuteling is ingebouwd in de Java en de opslagclientbibliotheken voor .NET. Zie [Client-side-versleuteling en Microsoft Azure Storage in Azure Key Vault](../storage/storage-client-side-encryption.md) voor meer informatie over versleuteling van gegevens binnen clienttoepassingen en genereren en beheren van uw eigen versleutelingssleutels.
 
-Versleuteling aan clientzijde ook kunt u enige controle over uw versleutelingssleutels.  U kunt genereren en beheren van uw eigen versleutelingssleutels.  Versleuteling aan clientzijde gebruikt een techniek envelop waarin de Azure storage-clientbibliotheek genereert een inhoud versleutelingssleutel (CEK) die wordt vervolgens verpakt (versleuteld) met behulp van de belangrijkste versleutelingssleutel (KEK-sleutel). De KEK wordt aangeduid met een sleutel-id en kan een asymmetrisch sleutelpaar of een symmetrische sleutel en kunnen worden beheerd lokaal of opgeslagen [Azure Key Vault](../key-vault/key-vault-whatis.md).
-
-Versleuteling aan clientzijde is ingebouwd in de Java en de opslagclientbibliotheken voor .NET.  Zie [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](../storage/storage-client-side-encryption.md) voor informatie over het coderen van gegevens binnen clienttoepassingen en genereren en beheren van uw eigen versleutelingssleutels.
-
-### <a name="storage-service-encryption"></a>Storage Service-versleuteling
-
-Wanneer [Service Opslagversleuteling](../storage/storage-service-encryption.md) voor File storage is ingeschakeld, worden de gegevens versleuteld automatisch met AES-256-versleuteling. Microsoft verwerkt de versleuteling, ontsleuteling en sleutelbeheer. Deze functie is beschikbaar voor LRS- en GRS redundantie typen.
+## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Inschakelen van Storage-Serviceversleuteling voor data-at-rest
+Wanneer [Storage Service Encryption](../storage/storage-service-encryption.md) voor File storage is ingeschakeld, worden de gegevens versleuteld automatisch met behulp van AES-256-codering. Microsoft verwerkt alle versleuteling, ontsleuteling en sleutelbeheer. Deze functie is beschikbaar voor LRS- als GRS redundantietypen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel is geïntroduceerd aan een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Zie voor meer informatie over het beveiligen van uw PaaS-implementaties:
+In dit artikel hebt u kennisgemaakt met een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Zie voor meer informatie over het beveiligen van uw PaaS-implementaties:
 
 - [PaaS-implementaties beveiligen](security-paas-deployments.md)
-- [PaaS-webtoepassingen en mobiele toepassingen met Azure App Services beveiligen](security-paas-applications-using-app-services.md)
+- [Beveiliging van de PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure App Services](security-paas-applications-using-app-services.md)
 - [PaaS-databases in Azure beveiligen](security-paas-applications-using-sql.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393278"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452153"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -196,6 +196,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * DNS
 * Event Grid
 * Event Hubs
+* Voordeur
 * HDInsight-clusters - Zie [HDInsight beperkingen](#hdinsight-limitations)
 * IoT Central
 * IoT Hubs
@@ -207,7 +208,6 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines voor beperkingen](#virtual-machines-limitations)
 * Beheerde identiteit - gebruiker toegewezen
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -267,37 +267,39 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
 
-Beheerde schijven worden ondersteund voor de verplaatsing vanaf September 24 mei 2018. Hebt u te registreren als deze functie wilt inschakelen.
+Beheerde schijven worden ondersteund voor de verplaatsing vanaf September 24 mei 2018. 
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. Hebt u te registreren als deze functie wilt inschakelen.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-In eerste instantie retourneert een status van de aanvraag voor functieregistratie `Registering`. U kunt de huidige status met controleren:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. In eerste instantie retourneert een status van de aanvraag voor functieregistratie `Registering`. U kunt de huidige status met controleren:
 
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Wacht enkele minuten voor de status gewijzigd in `Registered`.
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-Nadat de functie is geregistreerd, registreert de `Microsoft.Compute` resourceprovider. Deze stap uitvoeren, zelfs als de resourceprovider eerder is geregistreerd.
+1. Wacht enkele minuten voor de status gewijzigd in `Registered`.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
+1. Nadat de functie is geregistreerd, registreert de `Microsoft.Compute` resourceprovider. Deze stap uitvoeren, zelfs als de resourceprovider eerder is geregistreerd.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
 
 Deze ondersteuning betekent dat u kunt ook verplaatsen:
 

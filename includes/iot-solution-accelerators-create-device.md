@@ -5,15 +5,15 @@ services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44754435"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47435109"
 ---
 In het eerste scenario, voegt u een nieuw telemetrietype naar Contoso de bestaande **Koelunit** apparaattype.
 
@@ -90,7 +90,9 @@ De instructies in dit artikel wordt ervan uitgegaan dat u gebruikmaakt van Windo
 
 ### <a name="download-the-microservices"></a>Download de microservices
 
-Downloaden en pak deze uit de [voor externe controle van microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) vanuit GitHub naar een geschikte locatie op uw lokale computer.
+Downloaden en pak deze uit de [voor externe controle van microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) vanuit GitHub naar een geschikte locatie op uw lokale computer. Het artikel wordt ervan uitgegaan dat de naam van deze map is **remote-monitoring-services-dotnet-master**.
+
+Downloaden en pak deze uit de [apparaat simulatie microservice](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) vanuit GitHub naar een geschikte locatie op uw lokale computer. Het artikel wordt ervan uitgegaan dat de naam van deze map is **apparaat-simulatie-dotnet-master**.
 
 ### <a name="run-the-storage-adapter-microservice"></a>De opslag-adapter microservice uitvoeren
 
@@ -116,20 +118,14 @@ In deze sectie maakt u een nieuwe toevoegen **interne temperatuur** telemetriety
 
     | Bron | Doel |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\Data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\Data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
+    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
+    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
 
 1. Open de **C:\temp\devicemodels\chiller-01.json** bestand.
-
-1. Update de **SchemaVersion** waarde als volgt:
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. In de **InitialState** sectie, voegt u de volgende twee definities:
 
@@ -419,9 +415,9 @@ In deze sectie maakt testen u de typen apparaten die u hebt gemaakt in de vorige
 
 ### <a name="run-the-device-simulation-microservice"></a>De simulatie apparaat microservice uitvoeren
 
-Open de **remote-monitoring-services-dotnet-master\device-simulation** map die u hebt gedownload van GitHub in een nieuw exemplaar van Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
+Open de **apparaat-simulatie-dotnet-master** map die u hebt gedownload van GitHub in een nieuw exemplaar van Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
 
-Open de **.vscode/launch.json** bestands- en toewijzen van uw IoT Hub-verbindingsreeks voor de **PCS_IOTHUB_CONNSTRING** omgevingsvariabele.
+Open de **.vscode/launch.json** bestands- en toewijzen van uw IoT Hub-verbindingsreeks voor de **PCS_IOTHUB_CONNSTRING** omgevingsvariabele. Voeg in hetzelfde bestand, de **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** omgevingsvariabele en de verbindingsreeks voor uw Cosmos DB-database toewijzen.
 
 Open de **WebService/Properties/launchSettings.json** bestands- en toewijzen van uw IoT Hub-verbindingsreeks voor de **PCS_IOTHUB_CONNSTRING** omgevingsvariabele.
 
@@ -465,7 +461,7 @@ Postman instellen:
 
 1. Klik op **bestand > importeren**. Klik vervolgens op **bestanden kiezen**.
 
-1. Navigeer naar de **apparaat-simulatie-dotnet/docs/postman** map. Selecteer **Apparaatsimulatie voor Azure IoT-oplossing accelerator.postman_collection** en **Apparaatsimulatie voor Azure IoT-oplossing accelerator.postman_environment** en klikt u op **openen**.
+1. Navigeer naar de **apparaat-simulatie-dotnet-master/docs/postman** map. Selecteer **Apparaatsimulatie voor Azure IoT-oplossing accelerator.postman_collection** en **Apparaatsimulatie voor Azure IoT-oplossing accelerator.postman_environment** en klikt u op **openen**.
 
 1. Vouw de **Apparaatsimulatie voor Azure IoT-oplossingsversnellers** op de aanvragen die u kunt verzenden.
 

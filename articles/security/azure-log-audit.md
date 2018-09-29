@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576099"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434004"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -351,7 +351,7 @@ Er zijn vier manieren om [verzamelen van Logboeken en metrische gegevens voor Az
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integratie met on-premises SIEM-systemen
-Met [Azure-Logboekintegratie](https://www.microsoft.com/download/details.aspx?id=53324), kunt u de onbewerkte logboeken integreren in uw Azure-resources met uw on-premises SIEM-systeem.
+Met [Azure-Logboekintegratie](https://www.microsoft.com/download/details.aspx?id=53324), kunt u de onbewerkte logboeken integreren van uw Azure-resources met uw on-premises SIEM-systeem (Security information en event management system).
 
 ![Meld u integratie-diagram](./media/azure-log-audit/azure-log-audit-fig9.png)
 

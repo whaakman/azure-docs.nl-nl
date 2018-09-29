@@ -15,20 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: 1f7991ff1b0c5a29b002818bc4dc5d9106ba5bfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974762"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451389"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Beheren van DNS-records en recordsets met behulp van Azure portal
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [CLI van Azure classic](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure-CLI](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
 
 In dit artikel wordt beschreven hoe u voor het beheren van recordsets en records voor uw DNS-zone met behulp van de Azure-portal.
 
@@ -95,7 +89,7 @@ U kunt de Azure-portal gebruiken om records te verwijderen van een recordset. Ho
 
 1. Op de **eigenschappen van de recordset** blade voor de recordset, klikt u op **verwijderen**.
 
-    ![Een recordset verwijderen](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![Een recordset verwijderen](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. Er verschijnt een bericht waarin wordt gevraagd als u wilt verwijderen van de recordset.
 3. Verifieer dat de naam overeenkomt met de recordset die u wilt verwijderen, en klik vervolgens op **Ja**.

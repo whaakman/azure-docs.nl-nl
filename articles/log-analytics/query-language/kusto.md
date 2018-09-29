@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics en Kusto taalverschillen | Microsoft Docs
-description: Hierin wordt beschreven verschillen tussen Log Analytics-query's en core Kusto-taal.
+title: Naslaggids voor Azure Monitor Log Analytics | Microsoft Docs
+description: Referentie-informatie voor Kusto-taal die wordt gebruikt door Log Analytics. Bevat aanvullende elementen die specifiek zijn voor Log Analytics en elementen in Log Analytics-query's niet ondersteund.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,25 +15,27 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 109ffa6abb34dad6a00210a5c2c726bdfdde094f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5173790436a29fa9947346d711da1a2ddb32bf62
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184787"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451065"
 ---
-# <a name="log-analytics-and-kusto-language-differences"></a>Verschillen in log Analytics en Kusto taal
-[Meld u Analytics-query's](../log-analytics-queries.md) zijn geschreven met de [Kusto-taal](/azure/kusto/query). Er zijn enkele verschillen van de standaard taal en de Log Analytics-implementatie echter zoals beschreven in dit artikel.
+# <a name="log-analytics-query-language-reference"></a>Meld u Analytics query language-referentie
+[Meld u Analytics-query's](../log-analytics-queries.md) gebruik de dezelfde querytaal en -engine die worden gebruikt door [Azure Data Explorer](/azure/data-explorer/). U kunt toegang krijgen tot de taalverwijzing en andere details weer over de taal van de volgende locatie: [Kusto-taalverwijzing](/azure/kusto/query)
 
 
-## <a name="statements-not-supported-in-log-analytics"></a>Instructies worden niet ondersteund in Log Analytics
-De volgende instructies worden niet ondersteund in Log Analytics.
+
+## <a name="kusto-elements-not-support-in-log-analytics"></a>Kusto-elementen worden niet ondersteund in Log Analytics
+Log Analytics-query's gebruik van een implementatie van Kusto, maar er zijn enkele Kusto-elementen die biedt geen ondersteuning voor zoals beschreven in de volgende secties.
+
+### <a name="statements-not-supported-in-log-analytics"></a>Instructies worden niet ondersteund in Log Analytics
 
 * [Alias](/kusto/query/aliasstatement)
 * [Queryparameters](/azure/kusto/query/queryparametersstatement)
 
-## <a name="functions-not-supported-in-log-analytics"></a>Niet ondersteunde functies in Log Analytics
-De volgende functies worden niet ondersteund in Log Analytics.
+### <a name="functions-not-supported-in-log-analytics"></a>Niet ondersteunde functies in Log Analytics
 
 * [cluster()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
@@ -44,18 +46,19 @@ De volgende functies worden niet ondersteund in Log Analytics.
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-## <a name="operators-not-supported-in-log-analytics"></a>Operatoren niet ondersteund in Log Analytics
-De volgende operators worden niet ondersteund in Log Analytics.
+### <a name="operators-not-supported-in-log-analytics"></a>Operatoren niet ondersteund in Log Analytics
 
 * [Cross-Cluster koppelen](/azure/kusto/query/joincrosscluster)
 * [externaldata operator](/azure/kusto/query/externaldata-operator)
 
-## <a name="plugins-not-supported-in-log-analytics"></a>Invoegtoepassingen die niet wordt ondersteund in Log Analytics
-De volgende invoegtoepassingen worden niet ondersteund in Log Analytics.
+### <a name="plugins-not-supported-in-log-analytics"></a>Invoegtoepassingen die niet wordt ondersteund in Log Analytics
+
 * [sql_request-invoegtoepassing](/azure/kusto/query/sqlrequestplugin)
 
 
-## <a name="log-analytics-specific-operators"></a>Log Analytics-specifieke operators
+## <a name="additional-operators-in-log-analytics"></a>Aanvullende operatoren in Log Analytics
+Ter ondersteuning van specifieke functies van de Log Analytics, zijn de volgende aanvullende Kusto-operators opgegeven die niet buiten Log Analytics beschikbaar zijn. 
+
 * [App()](app-expression.md)
 * [Workspace()](workspace-expression.md)
 

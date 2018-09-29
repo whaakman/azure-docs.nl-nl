@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024106"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434939"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -45,9 +45,9 @@ Enterprise State Roaming gegevens worden gehost in een of meer [Azure-regio's](h
 
 Land/regio waarde | heeft de gegevens die worden gehost in
 ---------------------|-------------------------
-Een EMEA-land, zoals "Frankrijk" of "Zambia" | een of van de Azure-regio's in Europa 
-Een Noord-Amerikaanse land/regio, zoals 'VS' of "Canada" | een of meer van de Azure-regio's binnen de VS
-Een land APAC, zoals "Australië" of "Nieuw-Zeeland" | een of meer van de Azure-regio's in Azië
+Een land EMEA zoals Frankrijk of Zambia | Een of meer van de Azure-regio's in Europa 
+Een Noord-Amerikaanse land/regio, zoals de Verenigde Staten of Canada | een of meer van de Azure-regio's binnen de VS
+Een land APAC zoals Australië en Nieuw-Zeeland | een of meer van de Azure-regio's in Azië
 Regio's Zuid-Amerika en Antarctica | een of meer Azure-regio's binnen de VS
 
 De waarde van het land/regio is ingesteld als onderdeel van het proces voor het maken van Azure AD directory en vervolgens kan niet worden gewijzigd. Als u meer informatie op uw locatie voor de gegevensopslag, een ticket indienen bij [ondersteuning van Azure](https://azure.microsoft.com/support/options/).

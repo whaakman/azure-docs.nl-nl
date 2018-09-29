@@ -1,9 +1,9 @@
 ---
-title: OpenShift op Azure taken voor na de implementatie van | Microsoft Docs
+title: OpenShift op Azure na de implementatie-taken | Microsoft Docs
 description: Extra taken voor na een OpenShift-cluster is geïmplementeerd.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: ''
 tags: azure-resource-manager
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796156"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434888"
 ---
 # <a name="post-deployment-tasks"></a>Taken na de implementatie
 
-Nadat u een cluster OpenShift implementeert, kunt u extra items configureren. In dit artikel bevat informatie over het volgende:
+Nadat u een OpenShift-cluster implementeert, kunt u extra items configureren. In dit artikel bevat informatie over het volgende:
 
 - Het configureren van eenmalige aanmelding met behulp van Azure Active Directory (Azure AD)
-- Het configureren van logboekanalyse voor het bewaken van OpenShift
+- Het configureren van Log Analytics voor het controleren van OpenShift
 - Metrische gegevens en logboekregistratie configureren
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Eenmalige aanmelding configureren met behulp van Azure Active Directory
 
-Voor het gebruik van Azure Active Directory voor verificatie, moet u eerst de registratie van een Azure AD-app maken. Dit proces verloopt in twee stappen: de registratie van de app maken en configureren van machtigingen.
+Voor het gebruik van Azure Active Directory voor verificatie, moet u eerst de registratie van een Azure AD-app maken. Dit proces bestaat uit twee stappen: het maken van de app-registratie en het configureren van machtigingen.
 
-### <a name="create-an-app-registration"></a>De registratie van een app maken
+### <a name="create-an-app-registration"></a>Maken van een app-registratie
 
-Deze stappen de Azure CLI gebruiken voor het maken van de app-registratie en de gebruikersinterface (portal) van de machtigingen worden ingesteld. Voor het maken van de registratie van de app, moet u de volgende vijf stukjes informatie:
+Deze stappen wordt de Azure CLI gebruiken om de app-registratie en de grafische gebruikersinterface (portal) om in te stellen de machtigingen te maken. Voor het maken van de app-registratie, moet u de volgende vijf stukjes informatie:
 
 - Weergavenaam: naam van App-registratie (bijvoorbeeld OCPAzureAD)
 - Startpagina: OpenShift console URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URI-id: OpenShift console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- URL van antwoord: De hoofdsleutel van de openbare URL en de naam van de app-registratie (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Id-URI: OpenShift-console-URL (bijvoorbeeld: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Antwoord-URL: Openbare URL en de naam van de app-registratie (bijvoorbeeld Master https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Wachtwoord: Beveiligd wachtwoord (gebruik een sterk wachtwoord)
 
-Het volgende voorbeeld maakt een app te registreren met behulp van de genoemde informatie:
+Het volgende voorbeeld wordt een app-registratie met behulp van de voorgaande informatie:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
-Als de opdracht geslaagd is, krijgt u een JSON-uitvoer lijkt op:
+Als de opdracht geslaagd is, krijgt u een JSON-uitvoer die vergelijkbaar is met:
 
 ```json
 {
@@ -65,36 +65,36 @@ Als de opdracht geslaagd is, krijgt u een JSON-uitvoer lijkt op:
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```
 
-Let op de toepassings-id-eigenschap geretourneerd van de opdracht voor een latere stap.
+Noteer de toepassings-id-eigenschap geretourneerd door de opdracht voor een latere stap.
 
 In Azure Portal:
 
 1.  Selecteer **Azure Active Directory** > **App-registratie**.
 2.  Zoeken naar uw app-registratie (bijvoorbeeld OCPAzureAD).
-3.  Klik op de registratie van de app in de resultaten.
-4.  Onder **instellingen**, selecteer **vereist machtigingen**.
-5.  Onder **Required Permissions**, selecteer **toevoegen**.
+3.  Klik in de resultaten op de app-registratie.
+4.  Onder **instellingen**, selecteer **vereiste machtigingen**.
+5.  Onder **vereiste machtigingen**, selecteer **toevoegen**.
 
   ![App-registratie](media/openshift-post-deployment/app-registration.png)
 
-6.  Klik op stap 1: Selecteer API en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** onderaan.
+6.  Klik op stap 1: Selecteer API en klik vervolgens op **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klik op **Selecteer** aan de onderkant.
 
-  ![App-registratie selectie-API](media/openshift-post-deployment/app-registration-select-api.png)
+  ![Selecteer API App-registratie](media/openshift-post-deployment/app-registration-select-api.png)
 
 7.  In stap 2: Machtigingen selecteert, selecteert u **aanmelden en gebruikersprofiel lezen** onder **gedelegeerde machtigingen**, en klik vervolgens op **Selecteer**.
 
-  ![Registratie van de App-toegang](media/openshift-post-deployment/app-registration-access.png)
+  ![Toegang tot de App-registratie](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Selecteer **gedaan**.
+8.  Selecteer **Done**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>OpenShift configureren voor Azure AD-verificatie
 
-Als u wilt configureren OpenShift voor het gebruik van Azure AD als een verificatieprovider, moet het bestand /etc/origin/master/master-config.yaml op alle hoofdknooppunten worden bewerkt.
+Voor het configureren van OpenShift voor het gebruik van Azure AD als een verificatieprovider, moet het bestand /etc/origin/master/master-config.yaml op alle hoofdknooppunten worden bewerkt.
 
 De tenant-ID vinden met behulp van de volgende CLI-opdracht:
 
@@ -102,7 +102,7 @@ De tenant-ID vinden met behulp van de volgende CLI-opdracht:
 az account show
 ```
 
-In het bestand yaml vinden de volgende regels:
+In het yaml-bestand, vinden de volgende regels:
 
 ```yaml
 oauthConfig:
@@ -120,7 +120,7 @@ oauthConfig:
       kind: HTPasswdPasswordIdentityProvider
 ```
 
-Voeg de volgende regels onmiddellijk na de voorgaande regels:
+Voeg de volgende regels onmiddellijk na de vorige regels:
 
 ```yaml
   - name: <App Registration Name>
@@ -170,13 +170,13 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
-In de console OpenShift ziet u nu twee opties voor verificatie: htpasswd_auth en [App-registratie].
+In de console van OpenShift ziet u nu twee opties voor verificatie: htpasswd_auth en [App-registratie].
 
-## <a name="monitor-openshift-with-log-analytics"></a>Monitor OpenShift met logboekanalyse
+## <a name="monitor-openshift-with-log-analytics"></a>OpenShift bewaken met Log Analytics
 
-Als u wilt bewaken OpenShift met Log Analytics, kunt u een van twee opties: installatie van de OMS-Agent op de VM-host of OMS-Container. Dit artikel bevat instructies voor het implementeren van de OMS-Container.
+Voor het controleren van OpenShift met Log Analytics, kunt u een van twee opties: de installatie van de OMS-Agent op de VM-host of OMS-Container. In dit artikel vindt u instructies voor het implementeren van de OMS-Container.
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Maken van een project OpenShift voor logboekanalyse en gebruikerstoegang instellen
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Een OpenShift-project maken voor Log Analytics en gebruikerstoegang instellen
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -245,9 +245,9 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Een geheim yaml-bestand maken
 
-Als u wilt de geheime yaml-bestand maakt, moet u twee soorten informatie: Log Analytics-werkruimte-ID en Log Analytics werkruimte gedeelde sleutel. 
+Voor het maken van de geheime yaml-bestand, moet u twee soorten informatie: Log Analytics-werkruimte-ID en de gedeelde sleutel van Log Analytics-werkruimte. 
 
-Hier volgt een voorbeeld van een ocp-secret.yml-bestand: 
+Hier volgt een voorbeeld ocp-secret.yml-bestand: 
 
 ```yaml
 apiVersion: v1
@@ -259,7 +259,7 @@ data:
   KEY: key_data
 ```
 
-Vervang wsid_data met de Base64-gecodeerd Log Analytics-werkruimte-ID. Vervolgens vervangen door key_data Base64-gecodeerd Log Analytics gedeelde sleutel voor de werkruimte.
+Vervang wsid_data met de met Base64 gecodeerde Log Analytics-werkruimte-ID. Vervang vervolgens key_data door de met Base64 gecodeerde Log Analytics-werkruimte gedeelde sleutel.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -268,15 +268,15 @@ echo $wsid_data | base64 | tr -d '\n'
 echo $key_data | base64 | tr -d '\n'
 ```
 
-## <a name="create-the-secret-and-daemon-set"></a>De set geheim en de daemon maken
+## <a name="create-the-secret-and-daemon-set"></a>Het geheim en de daemon-set maken
 
-Implementeer het geheime bestand:
+Het geheime bestand implementeren:
 
 ```bash
 oc create -f ocp-secret.yml
 ```
 
-De daemon-set OMS-Agent implementeren:
+De OMS-Agent-daemon set implementeren:
 
 ```bash
 oc create -f ocp-omsagent.yml
@@ -284,13 +284,13 @@ oc create -f ocp-omsagent.yml
 
 ## <a name="configure-metrics-and-logging"></a>Metrische gegevens en logboekregistratie configureren
 
-De Azure Resource Manager-sjabloon voor OpenShift Container Platform biedt invoerparameters voor het inschakelen van metrische gegevens en logboekregistratie. De OpenShift Container Platform Marketplace-aanbieding en de OpenShift Origin Resource Manager-sjabloon niet.
+De Azure Resource Manager-sjabloon voor OpenShift Container Platform biedt invoerparameters die zijn opgegeven voor het inschakelen van metrische gegevens en logboekregistratie. De OpenShift Container Platform Marketplace-aanbieding en de OpenShift Origin-Resource Manager-sjabloon niet.
 
-Als u de OCP Resource Manager-sjabloon en metrische gegevens gebruikt en logboekregistratie zijn niet ingeschakeld tijdens de installatie of als u de OCP Marketplace-aanbieding gebruikt, u kunt eenvoudig kunnen worden schakelt u deze achteraf. Als u de OpenShift Origin Resource Manager-sjabloon gebruikt, is enkele vooraf werk vereist.
+Als u de OCP Resource Manager-sjabloon en de metrische gegevens gebruikt en logboekregistratie zijn niet ingeschakeld tijdens de installatie of als u de OCP Marketplace-aanbieding hebt gebruikt, kunt u eenvoudig kunt zich schakelt u deze na de gebeurtenis. Als u de OpenShift Origin-Resource Manager-sjabloon gebruikt, zijn werk dat vooraf is vereist.
 
-### <a name="openshift-origin-template-pre-work"></a>OpenShift oorsprong sjabloon vooraf werk
+### <a name="openshift-origin-template-pre-work"></a>OpenShift Origin sjabloon vooraf werk
 
-1. SSH kunt uitvoeren naar de eerste master node met behulp van poort 2200.
+1. SSH naar het eerste hoofdknooppunt met behulp van poort 2200.
 
    Voorbeeld:
 
@@ -298,7 +298,7 @@ Als u de OCP Resource Manager-sjabloon en metrische gegevens gebruikt en logboek
    ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
    ```
 
-2. Bewerk het bestand /etc/ansible/hosts en voeg de volgende regels toe na de sectie Identity-Provider (# HTPasswdPasswordIdentityProvider inschakelen):
+2. Bewerk het bestand /etc/ansible/hosts en voeg de volgende regels toe na de sectie id-Provider (# HTPasswdPasswordIdentityProvider inschakelen):
 
    ```yaml
    # Setup metrics
@@ -324,7 +324,7 @@ Als u de OCP Resource Manager-sjabloon en metrische gegevens gebruikt en logboek
 
 ### <a name="azure-cloud-provider-in-use"></a>Azure Cloud-Provider in gebruik
 
-Op de eerste master knooppunt (oorsprong) of bastionomgeving knooppunt (OCP) SSH met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht:
+Op de eerste hoofdknooppunt (oorsprong) of bastionhost knooppunt (OCP), SSH met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
 
 ```bash
 ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -338,7 +338,7 @@ ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshi
 
 ### <a name="azure-cloud-provider-not-in-use"></a>Azure Cloud-Provider niet in gebruik
 
-Op de eerste master knooppunt (oorsprong) of bastionomgeving knooppunt (OCP) SSH met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht:
+Op de eerste hoofdknooppunt (oorsprong) of bastionhost knooppunt (OCP), SSH met behulp van de referenties die zijn opgegeven tijdens de implementatie. Geef de volgende opdracht uit:
 
 ```bash
 ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \

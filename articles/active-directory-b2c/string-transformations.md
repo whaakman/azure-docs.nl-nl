@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159887"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433443"
 ---
 # <a name="string-claims-transformations"></a>Tekenreeks claims transformaties
 
@@ -156,7 +156,7 @@ Bepalen of een tekenreeks-claim gelijk aan een andere is. Het resultaat is een n
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | tekenreeks | Eerst claimtype, die moet worden vergeleken. |
 | InputClaim | inputClaim2 | tekenreeks | Ten tweede claimtype, die moet worden vergeleken. |
-| Invoerparameters | Operator | tekenreeks | Mogelijke waarden: `Equal` of `Not Equal`. |
+| Invoerparameters | Operator | tekenreeks | Mogelijke waarden: `EQUAL` of `NOT EQUAL`. |
 | Invoerparameters | ignoreCase | booleaans | Hiermee geeft u op of de aanvraag van de tekenreeksen met elkaar worden vergeleken moet worden genegeerd door deze vergelijking. |
 | outputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
 
@@ -196,7 +196,7 @@ Bepaalt of een claimwaarde gelijk aan de waarde van de invoerparameter is.
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | tekenreeks | Type van de claim, die moet worden vergeleken. |
-| Invoerparameters | Operator | tekenreeks | Mogelijke waarden: `Equal` of `Not Equal`. |
+| Invoerparameters | Operator | tekenreeks | Mogelijke waarden: `EQUAL` of `NOT EQUAL`. |
 | Invoerparameters | compareTo | tekenreeks | tekenreeksvergelijking, een van de waarden: het rangtelwoord voor, OrdinalIgnoreCase. |
 | Invoerparameters | ignoreCase | booleaans | Hiermee geeft u op of de aanvraag van de tekenreeksen met elkaar worden vergeleken moet worden genegeerd door deze vergelijking. |
 | outputClaim | outputClaim | booleaans | Het ClaimType dat wordt gegenereerd nadat deze transformatie claims is aangeroepen. |
@@ -235,11 +235,11 @@ Hiermee maakt u een willekeurige tekenreeks met behulp van de generator van will
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| Invoerparameters | randomGeneratorType | tekenreeks | Hiermee geeft u de willekeurige waarde die moet worden gegenereerd, `GUID` (globaal unieke ID) of `integer` (een getal). |
+| Invoerparameters | randomGeneratorType | tekenreeks | Hiermee geeft u de willekeurige waarde die moet worden gegenereerd, `GUID` (globaal unieke ID) of `INTEGER` (een getal). |
 | Invoerparameters | stringFormat | tekenreeks | [Optioneel] Indeling van de willekeurige waarde. |
 | Invoerparameters | met base64 | booleaans | [Optioneel] De willekeurige waarde converteren naar base64. Als de indeling van tekenreeks wordt toegepast, wordt de waarde na de indeling van tekenreeks naar base64 gecodeerd. |
-| Invoerparameters | maximumNumber | int | [Optioneel] Voor `Integer` randomGeneratorType alleen. Geef het aantal maximute. |
-| Invoerparameters | seed  | int | [Optioneel] Voor `Integer` randomGeneratorType alleen. Geef de seed voor de willekeurige waarde. Opmerking: dezelfde seed resulteert in dezelfde volgorde van willekeurige getallen. |
+| Invoerparameters | maximumNumber | int | [Optioneel] Voor `INTEGER` randomGeneratorType alleen. Geef het aantal maximute. |
+| Invoerparameters | seed  | int | [Optioneel] Voor `INTEGER` randomGeneratorType alleen. Geef de seed voor de willekeurige waarde. Opmerking: dezelfde seed resulteert in dezelfde volgorde van willekeurige getallen. |
 | outputClaim | outputClaim | tekenreeks | De ClaimTypes die worden geproduceerd nadat deze transformatie claims is aangeroepen. De willekeurige waarde. |
 
 Voorbeeld van de volgende genereert een globale unieke ID. Dit claims transformatie wordt gebruikt om de willekeurige UPN (principal-naam van gebruiker).
@@ -266,7 +266,7 @@ Voorbeeld van de volgende genereert een willekeurige waarde van geheel getal tus
 ```XML
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
-    <InputParameter Id="randomGeneratorType" DataType="string" Value="integer" />
+    <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
     <InputParameter Id="maximumNumber" DataType="int" Value="1000" />
     <InputParameter Id="stringFormat" DataType="string" Value="OTP_{0}" />
     <InputParameter Id="base64" DataType="boolean" Value="false" />

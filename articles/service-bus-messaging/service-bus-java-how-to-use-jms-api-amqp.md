@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: a3274053e772cbdf120be15a385c84d5ae37d610
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b369f169fca903575ea4ae3f2ae04f6cd770e488
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392649"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433647"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>De Java Message Service (JMS) API gebruiken met Service Bus en AMQP 1.0
 Het Advanced Message Queuing Protocol (AMQP 1.0) is een efficiënte, betrouwbare, wire-level berichtenprotocol dat u gebruiken kunt om robuuste, platformonafhankelijke berichten toepassingen te bouwen.
@@ -45,6 +45,8 @@ U moet de volgende vier JAR-bestanden uit het archief van de Apache Qpid JMS AMQ
 * qpid-amqp-1-0-client-[Version].jar
 * qpid-amqp-1-0-client-jms-[Version].jar
 * qpid-amqp-1-0-Common-[Version].jar
+
+> ! [OPMERKING] JMS JAR namen en versies is mogelijk gewijzigd. Zie voor meer informatie, [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## <a name="coding-java-applications"></a>Codering van Java-toepassingen
 ### <a name="java-naming-and-directory-interface-jndi"></a>Naamgeving van Java en Directory-Interface (JNDI)
@@ -121,14 +123,17 @@ Er zijn geen speciale API's of -opties die vereist als u de JMS voor Service Bus
 De JNDI-omgeving is geconfigureerd door een hashtabel van configuratie-informatie wordt doorgegeven aan de constructor van de klasse javax.naming.InitialContext. De twee vereiste elementen in de hashtabel zijn de naam van de klasse van de eerste Context Factory en de URL van de Provider. De volgende code laat zien hoe het configureren van de omgeving JNDI voor het gebruik van de eigenschappen op basis van bestanden JNDI Provider met een eigenschappenbestand met de naam Qpid **servicebus.properties**.
 
 ```java
-Hashtable<String, String> env = new Hashtable<String, String>(); 
-env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-InitialContext context = new InitialContext(env);
+Hashtable<String, String> env = new Hashtable<>();
+env.put("connectionfactory.SBCF", "amqps://[namespace].servicebus.windows.net?amqp.idleTimeout=120000");
+env.put("queue.QUEUE", "queue");
+
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
+Context context = new InitialContext(env);
 ``` 
 
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Een eenvoudige JMS-toepassing met behulp van een Service Bus-wachtrij
 Het volgende voorbeeldprogramma JMS TextMessages verzendt naar een Service Bus-wachtrij met de logische naam JNDI van wachtrij en ontvangt de berichten weer.
+
 
 ```java
 // SimpleSenderReceiver.java
@@ -152,10 +157,12 @@ public class SimpleSenderReceiver implements MessageListener {
 
     public SimpleSenderReceiver() throws Exception {
         // Configure JNDI environment
-        Hashtable<String, String> env = new Hashtable<String, String>();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, 
-                   "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-        env.put(Context.PROVIDER_URL, "servicebus.properties");
+        Hashtable<String, String> env = new Hashtable<>();
+        // Specify the name of your namespace. Idle timeout value is set as Service Bus enforces timeout.         
+        env.put("connectionfactory.SBCF", "amqps://[namespace].servicebus.windows.net?amqp.idleTimeout=120000");
+        env.put("queue.QUEUE", "queue");
+
+        env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
         Context context = new InitialContext(env);
 
         // Look up ConnectionFactory and Queue
@@ -243,6 +250,17 @@ Received message with JMSMessageID = ID:7578408152750301483
 Sent message with JMSMessageID = ID:956102171969368961
 Received message with JMSMessageID = ID:956102171969368961
 exit
+```
+
+## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>AMQP toestand en toewijzing van Service Bus-bewerking
+Hier ziet u hoe een AMQP-bestemming wordt omgezet in een Service Bus-bewerking:
+
+```
+ACCEPTED = 1; -> Complete()
+REJECTED = 2; -> DeadLetter()
+RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
+MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
+MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Platformonafhankelijke berichtenverzending tussen JMS en .NET

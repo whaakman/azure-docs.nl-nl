@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181575"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431973"
 ---
 # <a name="known-issues"></a>Bekende problemen
 U kunt de volgende bekende problemen kan optreden bij het gebruik van de Designer-Preview voor Project akoestische.
@@ -27,7 +27,7 @@ Als u de naam van een scène, worden de akoestische parameters die deel uitmaken
 
 Dit moet standaard terugvallen op een relatief pad naar het eenvoudiger om te delen tussen de deelnemers een project. Als tijdelijke oplossing, moet u het pad ten opzichte van de projectmap te wijzigen.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Runtime-voxels zijn een ander formaat dan moment van ontwerp voxels
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Runtime-voxels zijn een ander formaat dan scène preview voxels
 
 Als u een **berekenen** op de **tests** tabblad en bekijk de voxels, voert u een voxels bake en de weergave tijdens runtime voor de dezelfde scène, de voxels zich verschillende formaten. De voxels vooraf bake weergegeven, zijn de voxels gebruikt in de simulatie. De voxels weergegeven tijdens runtime worden gebruikt voor interpolatie tussen de test-punten. Dit kan ertoe leiden dat een inconsistentie waar portals open tijdens runtime die daadwerkelijk open niet wordt weergegeven.
 
@@ -51,5 +51,5 @@ Zorg ervoor dat de Runtime-versie uitvoeren van scripts in de instellingen van d
 Controleer u de juiste referenties hebt gebruikt voor uw Azure-account, dat het type knooppunt in de bake aangevraagd ondersteuning biedt voor uw account en dat de systeemklok van uw nauwkeurig is.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Aan de slag [integreren akoestische in uw Unity-project](getting-started.md)
+* Aan de slag met het [integreren van akoestiek in uw Unity-project](getting-started.md)
 

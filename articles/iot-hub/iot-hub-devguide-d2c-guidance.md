@@ -1,49 +1,44 @@
 ---
 title: Opties voor Azure IoT Hub apparaat-naar-cloud | Microsoft Docs
-description: Handleiding voor ontwikkelaars - hulp bij het apparaat-naar-cloud-berichten, gemelde eigenschappen of uploaden bestand gebruiken voor communicatie van cloud-naar-apparaat.
+description: Handleiding voor ontwikkelaars - richtlijnen over het gebruik van apparaat-naar-cloud-berichten, gerapporteerde eigenschappen of bestand uploaden voor cloud-naar-apparaat-berichten.
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a1881b74ba3f4f66e9e47b24d2ee8c8c17c5f05d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cd20c835fbb08ca0d44f6c77374ba52e19536d63
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634213"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452187"
 ---
-# <a name="device-to-cloud-communications-guidance"></a>Richtlijnen voor apparaat-naar-cloud-communicatie
-Bij het verzenden van informatie van de app voor het apparaat naar de oplossing voor back beschrijft-end, IoT-Hub de drie opties:
+# <a name="device-to-cloud-communications-guidance"></a>Richtlijnen voor communicatie van apparaat-naar-cloud
 
-* [Apparaat-naar-cloudberichten] [ lnk-d2c] voor tijd reeks Telemetrie en waarschuwingen.
-* [Apparaat-twin eigenschappen de gerapporteerd] [ lnk-twins] voor het melden van apparaat staat informatie zoals de beschikbare mogelijkheden voorwaarden of de status van langlopende werkstromen. Bijvoorbeeld, configuratie en software-updates.
-* [Bestand uploaden] [ lnk-fileupload] voor media-bestanden en grote telemetrie batches geüpload door afwisselend verbonden apparaten of gecomprimeerd om bandbreedte besparen.
+Bij het verzenden van informatie van de apparaat-app op de oplossing voor back-end, IoT Hub wordt aangegeven dat drie opties:
+
+* [Apparaat-naar-cloud-berichten](iot-hub-devguide-messages-d2c.md) voor time series telemetriegegevens en waarschuwingen.
+
+* [Apparaatdubbel de gerapporteerde eigenschappen](iot-hub-devguide-device-twins.md) voor het melden van informatie over de apparaatstatus, zoals de beschikbare mogelijkheden voorwaarden of de status van langlopende werkstromen. Bijvoorbeeld, configuratie en software-updates.
+
+* [Bestand uploaden](iot-hub-devguide-file-upload.md) voor media-bestanden en grote telemetrie batches geüpload door tijdelijk verbonden apparaten of gecomprimeerd om bandbreedte te sparen.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Hier volgt een gedetailleerde vergelijking van de verschillende communicatieopties voor apparaat-naar-cloud.
+Hier volgt een gedetailleerde vergelijking van de verschillende opties voor de communicatie van apparaat-naar-cloud.
 
-|  | Apparaat-naar-cloud-berichten | De apparaat-twin gemelde eigenschappen | Uploaden van bestanden |
+|  | Apparaat-naar-cloud-berichten | Gerapporteerde eigenschappen van de apparaatdubbel | Uploaden van bestanden |
 | ---- | ------- | ---------- | ---- |
-| Scenario | Telemetrie tijdreeks en waarschuwingen. Bijvoorbeeld, 256 KB sensor gegevensbatches verzonden om de 5 minuten. | Beschikbare mogelijkheden en voorwaarden. Bijvoorbeeld, de huidige apparaat connectiviteitsmodus zoals Mobiel of Wi-Fi. Langlopende werkstromen, zoals configuratie en software-updates synchroniseren. | Media-bestanden. Grote (meestal gecomprimeerde) telemetrie batches. |
-| Opslaan en ophalen | Tijdelijk opgeslagen door de IoT Hub maximaal 7 dagen. Alleen opeenvolgende lezen. | In de apparaat-twin opgeslagen door de IoT Hub. Ophalen mogelijk gebruik van de [IoT Hub-querytaal][lnk-query]. | Opgeslagen in Azure Storage-account van gebruiker. |
-| Grootte | Maximaal 256 KB-berichten. | Maximum aantal gemelde eigenschappen grootte is 8 KB. | Maximale bestandsgrootte die wordt ondersteund door Azure Blob Storage. |
-| Frequentie | Hoog. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Gemiddeld. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. | Laag. Zie voor meer informatie [IoT Hub beperkt][lnk-quotas]. |
-| Protocol | Beschikbaar op alle protocollen. | Beschikbaar met MQTT of AMQP. | Beschikbaar zijn wanneer u elk protocol voor, maar vereist HTTPS op het apparaat. |
+| Scenario | Tijdreeks Telemetrie en waarschuwingen. Bijvoorbeeld, 256 KB sensor gegevensbatches verzonden om de 5 minuten. | Beschikbare mogelijkheden en voorwaarden. Bijvoorbeeld, de huidige apparaat connectiviteitsmodus zoals Mobiel of Wi-Fi. Langlopende werkstromen, zoals configuratie- en software-updates synchroniseren. | Mediabestanden. Groot (meestal gecomprimeerde) telemetrie batches. |
+| Opslaan en ophalen | Tijdelijk opgeslagen door IoT Hub, maximaal 7 dagen. Alleen sequentieel lezen. | Opgeslagen door de IoT Hub in de apparaatdubbel. Met behulp van ophalen mogelijk de [IoT Hub-querytaal](iot-hub-devguide-query-language.md). | Opgeslagen in Azure Storage-account van gebruiker. |
+| Grootte | Maximaal 256 KB-berichten. | Gerapporteerde eigenschappen maximale grootte is 8 KB. | Maximale bestandsgrootte die wordt ondersteund door Azure Blob Storage. |
+| Frequentie | Hoog. Zie voor meer informatie, [IoT-Hub beperkt](iot-hub-devguide-quotas-throttling.md). | Gemiddeld. Zie voor meer informatie, [IoT-Hub beperkt](iot-hub-devguide-quotas-throttling.md). | Laag. Zie voor meer informatie, [IoT-Hub beperkt](iot-hub-devguide-quotas-throttling.md). |
+| Protocol | Beschikbaar op alle protocollen. | Beschikbaar met behulp van MQTT- of AMQP. | Beschikbaar zijn wanneer u elk protocol voor, maar vereist HTTPS op het apparaat. |
 
-Een toepassing moet mogelijk voor het verzenden van gegevens als een tijdreeks telemetrie of waarschuwing en het beschikbaar maken in de apparaat-twin. In dit scenario kunt u een van de volgende opties kiezen:
+Een toepassing mogelijk nodig voor het verzenden van gegevens als een tijdreeks telemetrie of waarschuwing en het beschikbaar maken in de apparaatdubbel. In dit scenario kunt u een van de volgende opties kiezen:
 
-* De app apparaat verzendt een bericht apparaat-naar-cloud en rapporten van een wijziging van de eigenschap.
-* De back-end oplossing kunt de gegevens opslaan in de apparaat-twin labels wanneer het bericht wordt ontvangen.
+* De apparaat-app verzendt een bericht apparaat-naar-cloud en rapporten van een eigenschap wijzigen.
+* De back-end oplossing kunt de gegevens opslaan in de apparaatdubbel-tags wanneer wordt het bericht ontvangen.
 
-Aangezien de apparaat-naar-cloud-berichten inschakelen veel hogere doorvoer dan apparaat twin updates, is het soms wenselijk is om te voorkomen dat de apparaat-twin voor elk apparaat-naar-cloud bericht bijwerken.
-
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-fileupload]: iot-hub-devguide-file-upload.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messages-d2c.md
+Sinds de apparaat-naar-cloud-berichten inschakelen voor een veel hogere doorvoer dan apparaatdubbel werkt, is het soms wenselijk is om te voorkomen dat het bijwerken van de apparaatdubbel voor elk bericht dat apparaat-naar-cloud.

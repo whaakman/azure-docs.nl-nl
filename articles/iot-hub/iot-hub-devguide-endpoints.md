@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: e6b4ee3425f6a490f33f998cab4f33734b23df22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982100"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452663"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referentie - IoT-Hub-eindpunten
 
@@ -29,35 +29,47 @@ Azure DNS kunt u een aangepaste DNS-naam voor uw IoT-hub maken. Zie [Use Azure D
 
 Azure IoT Hub is een multitenant-service waarmee wordt aangegeven dat de functionaliteit ervan naar verschillende actoren. Het volgende diagram toont de verschillende eindpunten die IoT-Hub toont.
 
-![IoT Hub-eindpunten][img-endpoints]
+![IoT Hub-eindpunten](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 De volgende lijst beschrijft de eindpunten:
 
-* **Resourceprovider**. De resourceprovider van IoT-Hub toont een [Azure Resource Manager] [ lnk-arm] interface. Deze interface kunnen eigenaren van Azure-abonnement maken en verwijderen van IoT-hubs en bijwerken van eigenschappen van de IoT hub. Eigenschappen van de IoT Hub regelen [niveau van de hub beveiligingsbeleid][lnk-accesscontrol], in plaats van op apparaatniveau, toegangsbeheer en functionele opties voor cloud-naar-apparaat- en apparaat-naar-cloud-berichten. De resourceprovider van IoT Hub kunt u ook [exporteren van apparaat-id's][lnk-importexport].
-* **Apparaat-identiteitsbeheer**. Elke IoT-hub toont een set REST voor HTTPS-eindpunten voor het beheren van apparaat-id's (maken, ophalen, bijwerken en verwijderen). [Apparaat-id's] [ lnk-device-identities] worden gebruikt voor verificatie en toegangsbeheer van apparaat.
-* **Dubbele Apparaatbeheer**. Elke IoT-hub toont een set van gerichte service HTTPS REST-eindpunt voor de query- en [apparaatdubbels] [ lnk-twins] (update voor labels en eigenschappen).
-* **Taken management**. Elke IoT-hub toont een set van gerichte service HTTPS REST-eindpunt voor query's uitvoeren en beheren van [taken][lnk-jobs].
+* **Resourceprovider**. De resourceprovider van IoT-Hub toont een [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) interface. Deze interface kunnen eigenaren van Azure-abonnement maken en verwijderen van IoT-hubs en bijwerken van eigenschappen van de IoT hub. Eigenschappen van de IoT Hub regelen [niveau van de hub beveiligingsbeleid](iot-hub-devguide-security.md#access-control-and-permissions), in plaats van op apparaatniveau, toegangsbeheer en functionele opties voor cloud-naar-apparaat- en apparaat-naar-cloud-berichten. De resourceprovider van IoT Hub kunt u ook [apparaat-id's exporteren](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+
+* **Apparaat-identiteitsbeheer**. Elke IoT-hub toont een set REST voor HTTPS-eindpunten voor het beheren van apparaat-id's (maken, ophalen, bijwerken en verwijderen). [Apparaat-id's](iot-hub-devguide-identity-registry.md) worden gebruikt voor verificatie en toegangsbeheer van apparaat.
+
+* **Dubbele Apparaatbeheer**. Elke IoT-hub toont een set van gerichte service HTTPS REST-eindpunt voor de query- en [apparaatdubbels](iot-hub-devguide-device-twins.md) (update voor labels en eigenschappen).
+
+* **Taken management**. Elke IoT-hub toont een set van gerichte service HTTPS REST-eindpunt voor query's uitvoeren en beheren van [taken](iot-hub-devguide-jobs.md).
+
 * **Apparaat-eindpunten**. Voor elk apparaat in het id-register toont IoT-Hub een set met eindpunten:
 
-  * *Apparaat-naar-cloud-berichten verzenden*. Een apparaat maakt gebruik van dit eindpunt naar [apparaat-naar-cloud-berichten verzenden][lnk-d2c].
-  * *Cloud-naar-apparaat-berichten ontvangen*. Een apparaat maakt gebruik van dit eindpunt voor het ontvangen van gerichte [cloud-naar-apparaatberichten][lnk-c2d].
-  * *Starten van het uploaden van bestanden*. Een apparaat maakt gebruik van dit eindpunt voor het ontvangen van een Azure Storage SAS-URI van IoT Hub kunt u [uploaden van een bestand][lnk-upload].
-  * *Ophalen en bijwerken van apparaatdubbeleigenschappen*. Een apparaat dit eindpunt gebruikt voor toegang tot de [apparaatdubbel][lnk-twins]van eigenschappen.
-  * *Ontvangen aanvragen van de directe methode*. Een apparaat maakt gebruik van dit eindpunt om te luisteren naar [directe methode][lnk-methods]van aanvragen.
+  * *Apparaat-naar-cloud-berichten verzenden*. Een apparaat maakt gebruik van dit eindpunt naar [apparaat-naar-cloud-berichten verzenden](iot-hub-devguide-messages-d2c.md).
 
-    Deze eindpunten worden beschikbaar gesteld met [MQTT v3.1.1][lnk-mqtt], HTTPS 1.1, en [AMQP 1.0] [ lnk-amqp] protocollen. AMQP is ook beschikbaar via [WebSockets] [ lnk-websockets] op poort 443.
+  * *Cloud-naar-apparaat-berichten ontvangen*. Een apparaat maakt gebruik van dit eindpunt voor het ontvangen van gerichte [cloud-naar-apparaatberichten](iot-hub-devguide-messages-c2d.md).
 
-* **Service-eindpunten**. Elke IoT-hub toont een set met eindpunten voor uw back-end oplossing om te communiceren met uw apparaten. Met één uitzondering, deze eindpunten zijn alleen toegankelijk met behulp van de [AMQP] [ lnk-amqp] protocol. Het eindpunt van de methode aanroepen is toegankelijk via het HTTPS-protocol.
+  * *Starten van het uploaden van bestanden*. Een apparaat maakt gebruik van dit eindpunt voor het ontvangen van een Azure Storage SAS-URI van IoT Hub kunt u [uploaden van een bestand](iot-hub-devguide-file-upload.md).
+
+  * *Ophalen en bijwerken van apparaatdubbeleigenschappen*. Een apparaat dit eindpunt gebruikt voor toegang tot de [apparaatdubbel](iot-hub-devguide-device-twins.md)van eigenschappen.
+
+  * *Ontvangen aanvragen van de directe methode*. Een apparaat maakt gebruik van dit eindpunt om te luisteren naar [directe methode](iot-hub-devguide-direct-methods.md)van aanvragen.
+
+    Deze eindpunten worden beschikbaar gesteld met [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1, en [AMQP 1.0](https://www.amqp.org/) protocollen. AMQP is ook beschikbaar via [WebSockets](https://tools.ietf.org/html/rfc6455) op poort 443.
+
+* **Service-eindpunten**. Elke IoT-hub toont een set met eindpunten voor uw back-end oplossing om te communiceren met uw apparaten. Met één uitzondering, deze eindpunten zijn alleen toegankelijk met behulp van de [AMQP](https://www.amqp.org/) protocol. Het eindpunt van de methode aanroepen is toegankelijk via het HTTPS-protocol.
   
-  * *Apparaat-naar-cloud-berichten ontvangen*. Dit eindpunt is compatibel met [Azure Event Hubs][lnk-event-hubs]. Een back-end-service kunt gebruiken om te lezen de [apparaat-naar-cloud-berichten] [ lnk-d2c] verzonden door uw apparaten. U kunt aangepaste eindpunten op uw IoT-hub naast deze ingebouwde eindpunt maken.
-  * *Cloud-naar-apparaat-berichten verzenden en ontvangen van bevestigingen voor levering*. Deze eindpunten kunt u uw back-end oplossing voor het verzenden van betrouwbare [cloud-naar-apparaatberichten][lnk-c2d], en de bijbehorende levering of verlopen bevestigingen ontvangen.
+  * *Apparaat-naar-cloud-berichten ontvangen*. Dit eindpunt is compatibel met [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/). Een back-end-service kunt gebruiken om te lezen de [apparaat-naar-cloud-berichten](iot-hub-devguide-messages-d2c.md) verzonden door uw apparaten. U kunt aangepaste eindpunten op uw IoT-hub naast deze ingebouwde eindpunt maken.
+  
+  * *Cloud-naar-apparaat-berichten verzenden en ontvangen van bevestigingen voor levering*. Deze eindpunten kunt u uw back-end oplossing voor het verzenden van betrouwbare [cloud-naar-apparaatberichten](iot-hub-devguide-messages-c2d.md), en de bijbehorende levering of verlopen bevestigingen ontvangen.
+  
   * *Bestand ontvangen*. Dit eindpunt berichten kunt u meldingen ontvangen wanneer uw apparaten is een bestand uploadt. 
-  * *Directe aanroepen van de methode*. Dit eindpunt kan een back-end-service om aan te roepen een [directe methode] [ lnk-methods] op een apparaat.
-  * *Bewerkingen controleren gebeurtenissen ontvangen*. Dit eindpunt kunt u voor het ontvangen van gebeurtenissen controleren als uw IoT-hub is geconfigureerd voor het verzenden van deze bewerkingen. Zie voor meer informatie, [IoT Hub-bewerkingen controleren][lnk-operations-mon].
+  
+  * *Directe aanroepen van de methode*. Dit eindpunt kan een back-end-service om aan te roepen een [directe methode](iot-hub-devguide-direct-methods.md) op een apparaat.
+  
+  * *Bewerkingen controleren gebeurtenissen ontvangen*. Dit eindpunt kunt u voor het ontvangen van gebeurtenissen controleren als uw IoT-hub is geconfigureerd voor het verzenden van deze bewerkingen. Zie voor meer informatie, [IoT Hub-bewerkingen controleren](iot-hub-operations-monitoring.md).
 
-De [Azure IoT SDK's] [ lnk-sdks] artikel beschrijft de verschillende manieren toegang hebben tot deze eindpunten.
+De [Azure IoT SDK's](iot-hub-devguide-sdks.md) artikel beschrijft de verschillende manieren toegang hebben tot deze eindpunten.
 
-Alle IoT Hub-eindpunten gebruiken de [TLS] [ lnk-tls] -protocol en er is geen eindpunt ooit wordt weergegeven op niet-versleutelde/niet-beveiligde kanalen.
+Alle IoT Hub-eindpunten gebruiken de [TLS](https://tools.ietf.org/html/rfc5246) -protocol en er is geen eindpunt ooit wordt weergegeven op niet-versleutelde/niet-beveiligde kanalen.
 
 ## <a name="custom-endpoints"></a>Aangepaste eindpunten
 
@@ -70,48 +82,18 @@ IoT Hub ondersteunt momenteel de volgende Azure-services als extra eindpunten:
 * Service Bus-wachtrijen
 * Service Bus-onderwerpen
 
-Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota en beperkingen][lnk-devguide-quotas].
+Zie voor de grenzen van het aantal eindpunten die u kunt toevoegen, [quota en beperkingen](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="field-gateways"></a>Veldgateways
 
 In een IoT-oplossing een *veldgateway* tussen uw apparaten en uw IoT Hub-eindpunten. Deze bevindt zich doorgaans dicht bij uw apparaten. Uw apparaten communiceren rechtstreeks met de veldgateway met behulp van een protocol dat wordt ondersteund door de apparaten. De veldgateway verbindt met een IoT Hub-eindpunt met behulp van een protocol dat wordt ondersteund door IoT Hub. Een veldgateway mogelijk op een specifiek apparaat of een stand-by-computer waarop aangepaste gateway-software wordt uitgevoerd.
 
-U kunt [Azure IoT Edge] [ lnk-iot-edge] voor het implementeren van een veldgateway. IoT Edge biedt de functionaliteit, zoals multiplexing communicatie van meerdere apparaten op dezelfde IoT Hub-verbinding.
+U kunt [Azure IoT Edge](/azure/iot-edge/) voor het implementeren van een veldgateway. IoT Edge biedt de functionaliteit, zoals multiplexing communicatie van meerdere apparaten op dezelfde IoT Hub-verbinding.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Er zijn andere onderwerpen met naslaginformatie in deze IoT Hub developer guide:
 
-* [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering][lnk-devguide-query]
-* [Quota en beperkingen][lnk-devguide-quotas]
-* [IoT Hub MQTT-ondersteuning][lnk-devguide-mqtt]
-
-[lnk-iot-edge]: https://github.com/Azure/iot-edge
-
-[img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
-[lnk-amqp]: https://www.amqp.org/
-[lnk-mqtt]: http://mqtt.org/
-[lnk-websockets]: https://tools.ietf.org/html/rfc6455
-[lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-
-[lnk-tls]: https://tools.ietf.org/html/rfc5246
-
-
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-accesscontrol]: iot-hub-devguide-security.md#access-control-and-permissions
-[lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[lnk-device-identities]: iot-hub-devguide-identity-registry.md
-[lnk-upload]: iot-hub-devguide-file-upload.md
-[lnk-c2d]: iot-hub-devguide-messages-c2d.md
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-[lnk-operations-mon]: iot-hub-operations-monitoring.md
+* [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering](iot-hub-devguide-query-language.md)
+* [Quota en beperkingen](iot-hub-devguide-quotas-throttling.md)
+* [IoT Hub MQTT-ondersteuning](iot-hub-mqtt-support.md)

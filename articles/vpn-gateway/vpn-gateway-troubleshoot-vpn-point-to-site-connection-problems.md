@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 72cf094dc6206fcb156a3e4dae6e89662e2085d8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857327"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434854"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Oplossen van problemen: Problemen met Azure punt-naar-site-verbinding
 
@@ -51,7 +51,7 @@ U lost dit probleem, de volgende stappen uit:
     | Azuregateway-*GUID*.cloudapp.net  | Huidige User\Trusted Root Certification Authorities|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Lokale Computer\Trusted Root Certification Authorities|
 
-3. Ga naar gebruikers\<gebruikersnaam > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, handmatig het certificaat (*.cer-bestand) op de gebruiker en archief van de computer installeren.
+3. Ga naar C:\Users\<gebruikersnaam > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, handmatig het certificaat (*.cer-bestand) op de gebruiker en archief van de computer installeren.
 
 Zie voor meer informatie over het installeren van het clientcertificaat [genereren en exporteren van certificaten voor punt-naar-site-verbindingen](vpn-gateway-certificates-point-to-site.md).
 
@@ -276,7 +276,7 @@ U verwijdert de punt-naar-site VPN-verbinding en vervolgens opnieuw de VPN-clien
 
 ### <a name="solution"></a>Oplossing
 
-Het probleem op te lossen de oude VPN client configuratiebestanden verwijderen van **C:\users\username\AppData\Microsoft\Network\Connections\<id >**, en voer het installatieprogramma van de VPN-client opnieuw uit.
+Het probleem op te lossen de oude VPN client configuratiebestanden verwijderen van **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<id >**, en voer het installatieprogramma van de VPN-client opnieuw uit .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punt-naar-site VPN-client de FQDN-naam van de resources in het lokale domein kan niet worden omgezet
 
@@ -361,7 +361,7 @@ Dit probleem kan worden veroorzaakt door de vorige installatie van de VPN-client
 
 ### <a name="solution"></a>Oplossing
 
-Verwijder de oude configuratiebestanden van een VPN-client van **C:\users\username\AppData\Microsoft\Network\Connections\<id >** en voer het installatieprogramma van de VPN-client opnieuw uit. 
+Verwijder de oude configuratiebestanden van een VPN-client van **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<id >** en voer het installatieprogramma van de VPN-client opnieuw uit. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>De VPN-client in de slaapstand of slaapstand na enige tijd
 

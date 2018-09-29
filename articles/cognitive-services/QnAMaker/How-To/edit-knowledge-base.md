@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ca35e13c502efadad07ef78077271923951ae4b1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038218"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451881"
 ---
 # <a name="edit-a-knowledge-base"></a>Een knowledge base bewerken
 
@@ -30,8 +30,24 @@ QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van ee
     ![Mijn Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Selecteer een bepaalde kennisdatabase wijzigingen aanbrengen.
+ 
+3. Klik op **Instellingen**.
 
-3. Als u klaar bent met het aanbrengen van wijzigingen in de Knowledge base, klikt u op **opslaan en trainen** in de rechterbovenhoek van de pagina om de wijzigingen te behouden.    
+   Hier kunt u verplicht veld zijn servicenaam bewerken.
+  
+   U kunt nieuwe URL's om toe te voegen nieuwe veelgestelde vragen-inhoud naar Knowledgebase door te klikken op toevoegen **beheren Knowledge Base -> ' + -URL toevoegen '** koppeling.
+   
+   U kunt bestaande URL's verwijderen door te klikken op **verwijderpictogram**.
+   
+   Als u wilt de Knowledge Base voor het verkennen van de meest recente inhoud van bestaande URL's, Vink het selectievakje in de naam **'Vernieuwen'**, dit wordt de Knowledgebase bijgewerkt met de meest recente inhoud van de URL.
+   
+U kunt toevoegen ondersteund bestand document als onderdeel van de Knowledge Base, door te klikken op **beheren Knowledge Base -> ' + -bestand toevoegen '**
+
+U kunt ook een bestaande knowledgebase importeren door te klikken op **Knowledge Base Ímport** knop. 
+   
+Afhankelijk van bijgewerkt van Knowledge Base **management prijscategorie** wordt gebruikt tijdens het maken van QnA Maker-service die is gekoppeld aan uw knowledgbase. U kunt ook de beheerlaag van Azure-portal bijwerken indien nodig.
+
+4. Als u klaar bent met het aanbrengen van wijzigingen in de Knowledge base, klikt u op **opslaan en trainen** in de rechterbovenhoek van de pagina om de wijzigingen te behouden.    
 
     ![Opslaan en trainen](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

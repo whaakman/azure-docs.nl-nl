@@ -10,26 +10,26 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 717d02947c4ea74d5805749157d6a691888be72c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031327"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434480"
 ---
 # <a name="data-extraction"></a>Ophalen van gegevens
-LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON. 
+LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of bot chatten om actie te ondernemen. In de volgende secties meer informatie over welke gegevens worden geretourneerd door intenties en entiteiten met voorbeelden van JSON.
 
-De moeilijkst gegevens om op te halen zijn de gegevens hebt geleerd van een machine omdat deze niet een overeenkomst exact overeenkomende tekst. Ophalen van gegevens van de machine geleerd [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerpen cyclus](luis-concept-app-iteration.md) totdat u er zeker van te zijn ontvangen van de gegevens die u verwacht. 
+De moeilijkst gegevens om op te halen zijn de gegevens hebt geleerd van een machine omdat deze niet een overeenkomst exact overeenkomende tekst. Ophalen van gegevens van de machine geleerd [entiteiten](luis-concept-entity-types.md) moet deel uitmaken van de [ontwerpen cyclus](luis-concept-app-iteration.md) totdat u er zeker van te zijn ontvangen van de gegevens die u verwacht.
 
 ## <a name="data-location-and-key-usage"></a>Locatie en de sleutel gegevensgebruik
-LUIS, biedt de gegevens van de gepubliceerde [eindpunt](luis-glossary.md#endpoint). De **HTTPS-aanvraag** (POST of GET) bevat de utterance, evenals van sommige optionele configuraties, zoals fasering of productie-omgevingen. 
+LUIS, biedt de gegevens van de gepubliceerde [eindpunt](luis-glossary.md#endpoint). De **HTTPS-aanvraag** (POST of GET) bevat de utterance, evenals van sommige optionele configuraties, zoals fasering of productie-omgevingen.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
 De `appID` is beschikbaar op de **instellingen** pagina van uw LUIS-app als onderdeel van de URL (nadat `/apps/`) wanneer u die LUIS-app wilt bewerken. De `subscription-key` is de eindpuntsleutel die wordt gebruikt voor query's in uw app. U kunt uw gratis ontwerpen/starter-sleutel gebruiken tijdens de zelfstudie LUIS, is het belangrijk om te wijzigen van de eindpuntsleutel in een sleutel die ondersteuning biedt voor uw [verwacht gebruik van LUIS](luis-boundaries.md#key-limits). De `timezoneOffset` eenheid minuten is.
 
-De **HTTPS-antwoord** bevat alle de intentie en entiteit informatie LUIS kunt bepalen op basis van de huidige gepubliceerde model van een eindpunt van de fasering of productie. Het eindpunt van de URL die is gevonden op de [LUIS](luis-reference-regions.md) website in de **beheren** sectie, op de **sleutels en eindpunten** pagina. 
+De **HTTPS-antwoord** bevat alle de intentie en entiteit informatie LUIS kunt bepalen op basis van de huidige gepubliceerde model van een eindpunt van de fasering of productie. Het eindpunt van de URL die is gevonden op de [LUIS](luis-reference-regions.md) website in de **beheren** sectie, op de **sleutels en eindpunten** pagina.
 
 ## <a name="data-from-intents"></a>Gegevens van intenties
 De primaire gegevens is de hoogste score **intentie naam**. Met behulp van de `MyStore` [snelstartgids](luis-quickstart-intents-only.md), het eindpunt-antwoord is:
@@ -104,7 +104,7 @@ Als u vooraf gemaakte domeinen toevoegt, geeft de naam van de intentie het domei
   "entities": []
 }
 ```
-    
+
 |Domain|Data-Object|Gegevenstype|Gegevenslocatie|Waarde|
 |--|--|--|--|--|
 |Nutsbedrijven|Intentie|Reeks|intents [0] .intent|"<b>Hulpprogramma's voor</b>. ShowNext"|
@@ -113,9 +113,9 @@ Als u vooraf gemaakte domeinen toevoegt, geeft de naam van de intentie het domei
 
 
 ## <a name="data-from-entities"></a>Gegevens van entiteiten
-De meeste chatbots en toepassingen moeten meer dan de naam van de intentie. Deze aanvullende, optionele gegevens afkomstig van entiteiten in de utterance gedetecteerd. Elk type entiteit retourneert verschillende gegevens over de overeenkomst. 
+De meeste chatbots en toepassingen moeten meer dan de naam van de intentie. Deze aanvullende, optionele gegevens afkomstig van entiteiten in de utterance gedetecteerd. Elk type entiteit retourneert verschillende gegevens over de overeenkomst.
 
-Een bepaald woord of zinsdeel in een utterance kan overeenkomen met meer dan één entiteit. In dat geval wordt elke overeenkomende entiteit geretourneerd met de score. 
+Een bepaald woord of zinsdeel in een utterance kan overeenkomen met meer dan één entiteit. In dat geval wordt elke overeenkomende entiteit geretourneerd met de score.
 
 Alle entiteiten worden geretourneerd in de **entiteiten** matrix van het antwoord van het eindpunt:
 
@@ -141,13 +141,13 @@ Alle entiteiten worden geretourneerd in de **entiteiten** matrix van het antwoor
 ```
 
 ## <a name="tokenized-entity-returned"></a>tokens entiteit geretourneerd
-Verschillende [culturen](luis-supported-languages.md#tokenization) retourneren van de entiteit met de `entity` waarde [tokenized](luis-glossary.md#token). De startIndex en endIndex die zijn geretourneerd door LUIS in de entiteitsobject toewijzen niet aan de nieuwe, tokens waarde, maar in plaats daarvan naar de oorspronkelijke query zodat u de onbewerkte entiteit via een programma ophalen. 
+Verschillende [culturen](luis-language-support.md#tokenization) retourneren van de entiteit met de `entity` waarde [tokenized](luis-glossary.md#token). De startIndex en endIndex die zijn geretourneerd door LUIS in de entiteitsobject toewijzen niet aan de nieuwe, tokens waarde, maar in plaats daarvan naar de oorspronkelijke query zodat u de onbewerkte entiteit via een programma ophalen. 
 
 Bijvoorbeeld, in het Duits, het woord `das Bauernbrot` is tokenized in `das bauern brot`. De waarde van tokens, `das bauern brot`, wordt geretourneerd en de oorspronkelijke waarde kan via een programma kan worden bepaald uit het startIndex en endIndex van de oorspronkelijke query, zodat u `das Bauernbrot`.
 
 ## <a name="simple-entity-data"></a>Eenvoudige entiteitsgegevens
 
-Een [eenvoudige entiteit](luis-concept-entity-types.md) is een waarde hebt geleerd van een machine. Een woord of woordgroep kan het zijn. 
+Een [eenvoudige entiteit](luis-concept-entity-types.md) is een waarde hebt geleerd van een machine. Een woord of woordgroep kan het zijn.
 
 `Bob Jones wants 3 meatball pho`
 
@@ -173,13 +173,13 @@ De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entit
 
 ## <a name="hierarchical-entity-data"></a>Hiërarchische entiteitsgegevens
 
-[Hiërarchische](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Onderliggende items worden aangeduid met context. Als u naar een bovenliggende / onderliggende relatie met exact overeenkomende tekst overeenkomst zoekt, gebruikt u een [lijst](#list-entity-data) entiteit. 
+[Hiërarchische](luis-concept-entity-types.md) entiteiten zijn machine geleerd en een woord of woordgroep kan bevatten. Onderliggende items worden aangeduid met context. Als u naar een bovenliggende / onderliggende relatie met exact overeenkomende tekst overeenkomst zoekt, gebruikt u een [lijst](#list-entity-data) entiteit.
 
 `book 2 tickets to paris`
 
-In de vorige utterance `paris` heet een `Location::ToLocation` onderliggende lid van de `Location` hiërarchische entiteit. 
+In de vorige utterance `paris` heet een `Location::ToLocation` onderliggende lid van de `Location` hiërarchische entiteit.
 
-De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entiteit en naam van de onderliggende, de gedetecteerde tekst van de utterance, de locatie van de gedetecteerde tekst en de score is: 
+De gegevens die worden geretourneerd van het eindpunt bevat de naam van de entiteit en naam van de onderliggende, de gedetecteerde tekst van de utterance, de locatie van de gedetecteerde tekst en de score is:
 
 ```JSON
 "entities": [
@@ -259,9 +259,9 @@ Samengestelde entiteiten worden geretourneerd in een `compositeEntities` matrix 
 
 ## <a name="list-entity-data"></a>Lijst met entiteitsgegevens
 
-Een [lijst](luis-concept-entity-types.md) entiteit is niet machine-hebt geleerd. Het is een overeenkomst exact overeenkomende tekst. Een lijst met vertegenwoordigt items in de lijst samen met synoniemen voor die items. LUIS markeert een overeenkomst aan een item in een lijst als een entiteit in het antwoord. Een synoniem kan zich in meer dan één lijst. 
+Een [lijst](luis-concept-entity-types.md) entiteit is niet machine-hebt geleerd. Het is een overeenkomst exact overeenkomende tekst. Een lijst met vertegenwoordigt items in de lijst samen met synoniemen voor die items. LUIS markeert een overeenkomst aan een item in een lijst als een entiteit in het antwoord. Een synoniem kan zich in meer dan één lijst.
 
-Stel dat de app heeft een lijst met de naam `Cities`, zodat voor variaties in plaats van luchthaven (Sea-tac), luchthaven code (SEA), postcode (98101) en het netnummer telefoon (206) zoals plaatsnamen. 
+Stel dat de app heeft een lijst met de naam `Cities`, zodat voor variaties in plaats van luchthaven (Sea-tac), luchthaven code (SEA), postcode (98101) en het netnummer telefoon (206) zoals plaatsnamen.
 
 |Lijstitem|Item synoniemen|
 |---|---|
@@ -270,7 +270,7 @@ Stel dat de app heeft een lijst met de naam `Cities`, zodat voor variaties in pl
 
 `book 2 tickets to paris`
 
-In de vorige utterance, het woord `paris` is toegewezen aan het item Parijs als onderdeel van de `Cities` lijst van de entiteit. De entiteit lijst komt overeen met zowel genormaliseerde naam van het item als het item synoniemen. 
+In de vorige utterance, het woord `paris` is toegewezen aan het item Parijs als onderdeel van de `Cities` lijst van de entiteit. De entiteit lijst komt overeen met zowel genormaliseerde naam van het item als het item synoniemen.
 
 ```JSON
 "entities": [
@@ -390,7 +390,7 @@ Een ander voorbeeld-utterance, met behulp van een synoniem voor Parijs:
       }
     }
   ]
-``` 
+```
 
 ## <a name="regular-expression-entity-data"></a>Entiteitsgegevens reguliere expressie
 [Reguliere expressie](luis-concept-entity-types.md) entiteiten worden gedetecteerd op basis van een komt overeen met de reguliere expressie met behulp van een expressie die u opgeeft wanneer u de entiteit is gemaakt. Bij het gebruik van `kb[0-9]{6}` als de definitie van de reguliere expressie entiteit is het volgende JSON-antwoord een utterance voorbeeld met de entiteiten geretourneerde reguliere expressie voor de query `When was kb123456 published?`:
@@ -424,19 +424,19 @@ Een ander voorbeeld-utterance, met behulp van een synoniem voor Parijs:
 ```
 
 ## <a name="extracting-names"></a>Uitpakken van namen
-Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van welk type de naam die u uitpakken wilt, hebt u verschillende mogelijkheden. Dit zijn geen regels, maar meer richtlijnen. 
+Namen ophalen uit een utterance is moeilijk, omdat een naam mag bestaan uit vrijwel elke combinatie van letters en woorden. Afhankelijk van welk type de naam die u uitpakken wilt, hebt u verschillende mogelijkheden. Dit zijn geen regels, maar meer richtlijnen.
 
 ### <a name="names-of-people"></a>Namen van personen
-De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een hiërarchische entiteit met voor- en achternamen als onderliggende items of een enkele entiteit met de rol van de voornaam en achternaam. Zorg ervoor dat u voorbeelden gegeven die gebruikmaken van de naam van de eerste en laatste in de verschillende onderdelen van de utterance, in uitingen van verschillende lengtes en uitingen over alle intents, met inbegrip van de geen intentie. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
+De naam van mensen kan een lichte indeling, afhankelijk van de taal en cultuur hebben. Gebruik een hiërarchische entiteit met voor- en achternamen als onderliggende items of een enkele entiteit met de rol van de voornaam en achternaam. Zorg ervoor dat u voorbeelden gegeven die gebruikmaken van de naam van de eerste en laatste in de verschillende onderdelen van de utterance, in uitingen van verschillende lengtes en uitingen over alle intents, met inbegrip van de geen intentie. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ### <a name="names-of-places"></a>Namen van plaatsen
-Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen. Als uw app gebruikmaakt van een bekende set locaties, kunt u een lijst met entiteit. Als u vinden dat alle namen plaatsen wilt, een eenvoudige entiteit maken en bieden een aantal voorbeelden. Een woordgroepenlijst van het geocoderen van plaatsnamen te versterken welke plaats namen eruit in uw app toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
+Locatienamen zijn ingesteld en bekend zijn, zoals steden, regio's, Staten, provincies en landen. Als uw app gebruikmaakt van een bekende set locaties, kunt u een lijst met entiteit. Als u vinden dat alle namen plaatsen wilt, een eenvoudige entiteit maken en bieden een aantal voorbeelden. Een woordgroepenlijst van het geocoderen van plaatsnamen te versterken welke plaats namen eruit in uw app toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ### <a name="new-and-emerging-names"></a>Nieuwe en opkomende namen
-Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Dit is het moeilijkste type ophalen van gegevens. Beginnen met een enkele entiteit en een woordgroepenlijst met toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld. 
+Sommige apps moeten kunnen om nieuwe en opkomende namen, zoals producten of bedrijven te vinden. Dit is het moeilijkste type ophalen van gegevens. Beginnen met een enkele entiteit en een woordgroepenlijst met toevoegen. [Beoordeling](luis-how-to-review-endoint-utt.md) eindpunt uitingen regelmatig naar elke labelnamen zijn niet correct voorspeld.
 
 ## <a name="pattern-roles-data"></a>Patroon rollen gegevens
-Rollen zijn contextuele verschillen van entiteiten. 
+Rollen zijn contextuele verschillen van entiteiten.
 
 ```JSON
 {
@@ -497,7 +497,7 @@ Rollen zijn contextuele verschillen van entiteiten.
 ```
 
 ## <a name="patternany-entity-data"></a>Entiteitsgegevens Pattern.any
-Pattern.any entiteiten zijn variabele lengte-entiteiten die worden gebruikt in de sjabloon-uitingen van een [patroon](luis-concept-patterns.md). 
+Pattern.any entiteiten zijn variabele lengte-entiteiten die worden gebruikt in de sjabloon-uitingen van een [patroon](luis-concept-patterns.md).
 
 ```JSON
 {
@@ -606,7 +606,7 @@ LUIS retourneert alle entiteiten in de utterance gedetecteerd. Als gevolg hierva
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-Het eindpunt LUIS kan dezelfde gegevens in verschillende entiteiten detecteren: 
+Het eindpunt LUIS kan dezelfde gegevens in verschillende entiteiten detecteren:
 
 ```JSON
 {

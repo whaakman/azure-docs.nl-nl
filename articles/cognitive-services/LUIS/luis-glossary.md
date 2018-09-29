@@ -10,23 +10,23 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4e14c666401d5e494d924889a8bba957be232c12
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036827"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434803"
 ---
 # <a name="glossary"></a>Woordenlijst
 De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
 
 ## <a name="active-version"></a>Actieve versie
 
-De actieve LUIS-versie is de versie die wijzigingen in het model ontvangt. In de [LUIS](luis-reference-regions.md) website, als u wijzigingen wilt aanbrengen in een versie die is niet de versie van het actieve, moet u eerst die versie instellen als actief. 
+De actieve LUIS-versie is de versie die wijzigingen in het model ontvangt. In de [LUIS](luis-reference-regions.md) website, als u wijzigingen wilt aanbrengen in een versie die is niet de versie van het actieve, moet u eerst die versie instellen als actief.
 
 ## <a name="authoring"></a>Ontwerpen
 
-Schrijven is de mogelijkheid om te maken, beheren en implementeren van een [LUIS-app](#luis-app), mogelijk maken via de [LUIS](luis-reference-regions.md) website of de [API's ontwerpen](https://aka.ms/luis-authoring-api). 
+Schrijven is de mogelijkheid om te maken, beheren en implementeren van een [LUIS-app](#luis-app), mogelijk maken via de [LUIS](luis-reference-regions.md) website of de [API's ontwerpen](https://aka.ms/luis-authoring-api).
 
 ## <a name="authoring-key"></a>Sleutel ontwerpen
 
@@ -70,7 +70,7 @@ Hetzelfde als [actieve versie](#active-version)
 
 ## <a name="domain"></a>Domein
 
-In de context van LUIS, een **domein** is een gebied van kennis. Uw domein is specifiek voor uw app-gebied van kennis. Dit is een algemeen gebied, zoals de agent van de reis-app. Een agent van de reis-app kan ook zijn specifiek voor alleen de delen van gegevens voor uw bedrijf, zoals specifieke geografische locaties, talen en services. 
+In de context van LUIS, een **domein** is een gebied van kennis. Uw domein is specifiek voor uw app-gebied van kennis. Dit is een algemeen gebied, zoals de agent van de reis-app. Een agent van de reis-app kan ook zijn specifiek voor alleen de delen van gegevens voor uw bedrijf, zoals specifieke geografische locaties, talen en services.
 
 ## <a name="endpoint"></a>Eindpunt
 
@@ -90,7 +90,7 @@ Een eindpunt voorbeeld lijkt:
 
 ## <a name="entity"></a>Entiteit
 
-[Entiteiten](luis-concept-entity-types.md) zijn belangrijk woorden in [uitingen](luis-concept-utterance.md) beschrijvende informatie die relevant zijn voor de [bedoeling](luis-concept-intent.md), en soms zijn essentieel voor het. Een entiteit is in feite een gegevenstype in LUIS. 
+[Entiteiten](luis-concept-entity-types.md) zijn belangrijk woorden in [uitingen](luis-concept-utterance.md) beschrijvende informatie die relevant zijn voor de [bedoeling](luis-concept-intent.md), en soms zijn essentieel voor het. Een entiteit is in feite een gegevenstype in LUIS.
 
 ## <a name="f-measure"></a>F-meting
 
@@ -114,7 +114,7 @@ Een [bedoeling](luis-concept-intent.md) vertegenwoordigt een taak of een actie d
 
 ## <a name="labeling"></a>Labels
 
-Labels is het proces van het koppelen van een woord of zinsdeel in van een doel [utterance](#utterance) met een [entiteit](#entity) (gegevenstype). 
+Labels is het proces van het koppelen van een woord of zinsdeel in van een doel [utterance](#utterance) met een [entiteit](#entity) (gegevenstype).
 
 ## <a name="luis-app"></a>LUIS-app
 
@@ -125,26 +125,26 @@ Een LUIS-app is een getraind gegevensmodel voor het opnemen van de verwerking va
 Elke app heeft een eigenaar op die de persoon die de app hebt gemaakt. Kan de eigenaar toevoegen [samenwerkers](#collaborator).
 
 ## <a name="pattern"></a>Patronen
-De functie van de vorige patroon wordt vervangen door [patronen](luis-concept-patterns.md). Patronen voor het verbeteren van nauwkeurigheid door minder training voorbeelden gebruiken. 
+De functie van de vorige patroon wordt vervangen door [patronen](luis-concept-patterns.md). Patronen voor het verbeteren van nauwkeurigheid door minder training voorbeelden gebruiken.
 
 ## <a name="phrase-list"></a>Woordgroepenlijst met
 
-Een [woordgroepenlijst](luis-concept-feature.md#what-is-a-phrase-list-feature) bevat een aantal waarden (woorden of zinsdelen) die deel uitmaken van dezelfde klasse en op dezelfde manier (bijvoorbeeld de namen van steden of producten) moet worden behandeld. Een lijst met uitwisselbaar wordt beschouwd als synoniemen. 
+Een [woordgroepenlijst](luis-concept-feature.md#what-is-a-phrase-list-feature) bevat een aantal waarden (woorden of zinsdelen) die deel uitmaken van dezelfde klasse en op dezelfde manier (bijvoorbeeld de namen van steden of producten) moet worden behandeld. Een lijst met uitwisselbaar wordt beschouwd als synoniemen.
 
 ## <a name="prebuilt-domains"></a>Vooraf gedefinieerde domein
 
-Een [vooraf gemaakte domein](luis-how-to-use-prebuilt-domains.md) is een LUIS-app die is geconfigureerd voor een specifiek domein, zoals thuis automation (HomeAutomation) of restaurant reserveringen (RestaurantReservation). De intenties, uitingen en entiteiten zijn geconfigureerd voor dit domein. 
+Een [vooraf gemaakte domein](luis-how-to-use-prebuilt-domains.md) is een LUIS-app die is geconfigureerd voor een specifiek domein, zoals thuis automation (HomeAutomation) of restaurant reserveringen (RestaurantReservation). De intenties, uitingen en entiteiten zijn geconfigureerd voor dit domein.
 
 ## <a name="prebuilt-entity"></a>Vooraf gemaakte entiteiten
 
-Een [vooraf gedefinieerde entiteit](luis-prebuilt-entities.md) is een entiteit LUIS voor algemene typen gegevens, zoals, de URL en de e-mailbericht biedt. U wilt een vooraf gedefinieerde entiteit toevoegen aan uw toepassing. 
+Een [vooraf gedefinieerde entiteit](luis-prebuilt-entities.md) is een entiteit LUIS voor algemene typen gegevens, zoals, de URL en de e-mailbericht biedt. U wilt een vooraf gedefinieerde entiteit toevoegen aan uw toepassing.
 
 ## <a name="precision"></a>Precisie
 In [batch testen](luis-interactive-test.md#batch-testing), precisie (ook wel een positieve waarde voor de voorspellende genoemd) is het gedeelte van de relevante uitingen onder de opgehaalde uitingen.
 
 ## <a name="programmatic-key"></a>Programmatische sleutel
 
-Hernoemd [ontwerpen sleutel](#authoring-key). 
+Hernoemd [ontwerpen sleutel](#authoring-key).
 
 ## <a name="publish"></a>Publiceren
 
@@ -152,24 +152,24 @@ Publiceren van betekent dat het maken van een LUIS [actieve versie](#active-vers
 
 ## <a name="quota"></a>Quotum
 
-LUIS quotum is de beperking van de [laag van Azure-abonnement](https://aka.ms/luis-price-tier). Het quotum LUIS kan worden beperkt door beide aanvragen per seconde (http-Status 429) en het totale aantal aanvragen in een maand (http-Status 403). 
+LUIS quotum is de beperking van de [laag van Azure-abonnement](https://aka.ms/luis-price-tier). Het quotum LUIS kan worden beperkt door beide aanvragen per seconde (http-Status 429) en het totale aantal aanvragen in een maand (http-Status 403).
 
 ## <a name="recall"></a>Intrekken
-In [batch testen](luis-interactive-test.md#batch-testing), intrekken (ook bekend als gevoeligheid), is de mogelijkheid voor LUIS om te generaliseren. 
+In [batch testen](luis-interactive-test.md#batch-testing), intrekken (ook bekend als gevoeligheid), is de mogelijkheid voor LUIS om te generaliseren.
 
 ## <a name="semantic-dictionary"></a>Semantische woordenlijst
 Een semantische woordenlijst is beschikbaar op de pagina van de entiteit lijst, evenals de pagina van de lijst met woorden. De functionaliteit voor semantische woordenlijst bevat suggesties van woorden op basis van het huidige bereik.
 
 ## <a name="sentiment-analysis"></a>Sentimentanalyse
-Sentimentanalyse biedt positieve of negatieve waarden van de uitingen geleverd door [Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
+Sentimentanalyse biedt positieve of negatieve waarden van de uitingen geleverd door [Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
 
 ## <a name="speech-priming"></a>Spraak voorbereiden
 
-Spraak voorbereiden kan uw spraakherkenning service gereed worden gemaakt met uw LUIS-model. 
+Spraak voorbereiden kan uw spraakherkenning service gereed worden gemaakt met uw LUIS-model.
 
 ## <a name="spelling-correction"></a>Correctie
 
-Schakel de spellingcontrole van Bing om te corrigeren van verkeerd gespelde woorden in de uitingen voordat voorspelling. 
+Schakel de spellingcontrole van Bing om te corrigeren van verkeerd gespelde woorden in de uitingen voordat voorspelling.
 
 ## <a name="starter-key"></a>Starter-sleutel
 
@@ -177,7 +177,7 @@ Hetzelfde als [programmatische sleutel](#programmatic-key), hernoemd in Authorin
 
 ## <a name="subscription-key"></a>Abonnementssleutel
 
-De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [ontwerpen sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor een eindpunt-aanvragen in plaats van de sleutel van de ontwerphandleiding. U kunt uw huidige eindpuntsleutel binnen de eindpunt-URL aan de onderkant van zien [ **sleutels en eindpunten** pagina](luis-how-to-manage-keys.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **-abonnementssleutel** naam/waarde-paar. 
+De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [ontwerpen sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor een eindpunt-aanvragen in plaats van de sleutel van de ontwerphandleiding. U kunt uw huidige eindpuntsleutel binnen de eindpunt-URL aan de onderkant van zien [ **sleutels en eindpunten** pagina](luis-how-to-manage-keys.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **-abonnementssleutel** naam/waarde-paar.
 
 ## <a name="test"></a>Test
 
@@ -185,12 +185,12 @@ De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service
 
 ## <a name="timezoneoffset"></a>Verschuiving van de tijdzone
 
-Het eindpunt bevat timezoneOffset. Dit is het aantal minuten dat u wilt toevoegen of verwijderen uit de datetimeV2 vooraf gedefinieerde entiteit. Bijvoorbeeld, als de utterance is 'welk moment is het nu?', de datetimeV2 geretourneerd de huidige tijd voor de clientaanvraag. Als uw clientaanvraag afkomstig is van een bot of andere toepassingen die niet is hetzelfde als de gebruiker van uw bot, moet u tussen de bot en de gebruiker in de verschuiving doorgeven. 
+Het eindpunt bevat timezoneOffset. Dit is het aantal minuten dat u wilt toevoegen of verwijderen uit de datetimeV2 vooraf gedefinieerde entiteit. Bijvoorbeeld, als de utterance is 'welk moment is het nu?', de datetimeV2 geretourneerd de huidige tijd voor de clientaanvraag. Als uw clientaanvraag afkomstig is van een bot of andere toepassingen die niet is hetzelfde als de gebruiker van uw bot, moet u tussen de bot en de gebruiker in de verschuiving doorgeven.
 
 Zie [tijdzone wijzigen van vooraf gedefinieerde datetimeV2 entiteit](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## <a name="token"></a>Token
-Een token is de kleinste eenheid die kan worden voorzien in een entiteit. Tokeniseren is gebaseerd op van de toepassing [cultuur](luis-supported-languages.md#tokenization).
+Een token is de kleinste eenheid die kan worden voorzien in een entiteit. Tokeniseren is gebaseerd op van de toepassing [cultuur](luis-language-support.md#tokenization).
 
 ## <a name="train"></a>Train
 
@@ -206,7 +206,7 @@ In [batch testen](luis-interactive-test.md#batch-testing), de gegevenspunten ver
 
 ## <a name="utterance"></a>Utterance
 
-Een utterance is een woordgroep natuurlijke taal, zoals 'book 2 tickets naar de volgende dinsdag Seattle'. Voorbeeld-uitingen worden toegevoegd aan het doel. 
+Een utterance is een woordgroep natuurlijke taal, zoals 'book 2 tickets naar de volgende dinsdag Seattle'. Voorbeeld-uitingen worden toegevoegd aan het doel.
 
 ## <a name="version"></a>Versie
 

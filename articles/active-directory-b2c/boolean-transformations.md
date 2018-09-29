@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1e56e9126b1dd93ed790da1526b64c49524149d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381275"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432559"
 ---
 # <a name="boolean-claims-transformations"></a>Booleaanse claimtransformaties
 
@@ -62,7 +62,7 @@ Controleert of Booleaanse waarden van twee claims gelijk zijn, en een uitzonderi
 
 | Item | TransformationClaimType  | Gegevenstype  | Opmerkingen |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | booleaans | Het ClaimType moeten worden gecontroleerd. |
+| InputClaim | InputClaim | booleaans | Het ClaimType moeten worden gecontroleerd. |
 | Invoerparameters |valueToCompareTo | booleaans | De waarde om te vergelijken (waar of ONWAAR). |
 
 De **AssertBooleanClaimIsEqualToValue** claimtransformatie wordt altijd uitgevoerd vanuit een [validatie technisch profiel](validation-technical-profile.md) die wordt aangeroepen door een [door zelf bevestigde technisch profiel](self-asserted-technical-profile.md). De **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** metagegevens van de zelf-gecontroleerde technisch profiel bepaalt het foutbericht dat het technische profiel aan de gebruiker biedt.
@@ -119,13 +119,13 @@ Voert een niet-bewerking van de Booleaanse inputClaim en stelt de outputClaim me
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | booleaans | De claim te worden uitgevoerd. |
+| InputClaim | InputClaim | booleaans | De claim te worden uitgevoerd. |
 | outputClaim | outputClaim | booleaans | De ClaimTypes die worden gegenereerd nadat deze ClaimsTransformation is aangeroepen (waar of ONWAAR). |
 
 Deze claimtransformatie gebruiken om uit te voeren logische onderhandeling op een claim.
 
 ```XML
-<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
+<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
   <OutputClaims>

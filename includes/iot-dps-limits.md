@@ -16,7 +16,8 @@ De volgende tabel bevat de limieten die betrekking hebben op IoT Hub Device Prov
 
 De Device Provisioning Service vertraagt aanvragen wanneer de volgende quota worden overschreden:
 
-| Vertragen | Waarde per service |
+| Vertragen | Waarde per eenheid |
 | --- | --- |
-| Bewerkingen | 100/min |
-| Apparaatregistraties | 100/min |
+| Bewerkingen | 200/min/service |
+| Apparaatregistraties | 200/min/service |
+| Pollingbewerking van apparaat | 5 / 10sec/apparaat |

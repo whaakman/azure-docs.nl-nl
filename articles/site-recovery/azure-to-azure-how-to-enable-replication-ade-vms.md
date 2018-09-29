@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 828e75a61b7f5d6d747b13069d25503b43b65222
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d276098c951cb26a97906e6ac7e23c0ab2e4d137
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311932"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432576"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk encryption (ADE) ingeschakeld virtuele machines repliceren naar een andere Azure-regio
 
@@ -122,6 +122,15 @@ U kunt de standaardinstellingen van de doel-gebruikt door Site Recovery kunt wij
 >Tijdens de eerste replicatie kan de status even om te vernieuwen, zonder dat wordt uitgevoerd. Klik op de **vernieuwen** knop, de meest recente status ophalen.
 >
 
-# <a name="next-steps"></a>Volgende stappen
+## <a name="update-target-vm-encryption-settings"></a>Versleutelingsinstellingen voor doel-VM bijwerken
+In de onderstaande scenario's, moet u de versleutelingsinstellingen van de doel-VM bijwerken.
+  - U Site recovery-replicatie op de virtuele machine ingeschakeld en Azure Disk Encryption (ADE) op de bron-VM op een later tijdstip ingeschakeld
+  - U Site recovery-replicatie op de virtuele machine ingeschakeld en de versleutelingssleutel en/of de sleutel van versleutelingssleutel op de bron-VM op een later tijdstip worden gewijzigd
+
+U kunt [het script](#copy-ade-keys-to-dr-region-using-powerShell-script) te kopiëren van de versleutelingssleutels naar doelregio en werk vervolgens de instellingen van de doel-codering in **Recovery services-kluis -> gerepliceerd item -> Eigenschappen -> Compute en netwerk.**
+
+![Update-ade-instellingen](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="next-steps"></a>Volgende stappen
 
 [Meer informatie](site-recovery-test-failover-to-azure.md) over het uitvoeren van een testfailover.

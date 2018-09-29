@@ -8,18 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: e8d12320eea1d0fa2dad7fffb8d29ae8b53cee14
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369195"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454408"
 ---
 Opslag geoptimaliseerde VM-grootten bieden een snelle doorvoer van schijfgegevens en IO- en zijn ideaal voor Big Data, SQL en NoSQL-databases. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
 De Ls-serie biedt maximaal 32 vCPU's en maakt gebruik van een [Intel Xeon®-processor uit de E5 v3-familie](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). De Ls-serie heeft dezelfde CPU-prestaties als de G/GS-serie en wordt geleverd met 8 GiB geheugen per vCPU.  Virtuele machines uit de ls-serie zijn ideaal voor toepassingen die een lage latentie, hoge doorvoer en grote lokale schijfopslag vereisen. 
 
 Voorbeelden van use cases zijn NoSQL-databases zoals Cassandra, MongoDB, Cloudera en Redis, gegevensopslag en grote transactionele databases.
+
+> [!NOTE]
+> De Ls-serie is geoptimaliseerd voor het gebruik van de tijdelijke schijf die is gekoppeld aan de VM-machine in plaats van duurzame gegevensschijven. De hoge doorvoer en IOPS van de tijdelijke schijf maakt de Ls-serie ideaal voor NoSQL-archieven, zoals Apache Cassandra en MongoDB waarmee gegevens worden gerepliceerd op meerdere virtuele machines voor persistentie in het geval van het uitvallen van één virtuele machine. De Ls-serie biedt geen ondersteuning voor het maken van een lokale cache voor het verhogen van de IOPS haalbare door duurzame gegevensschijven.
 
 ## <a name="ls-series"></a>Ls-serie
 

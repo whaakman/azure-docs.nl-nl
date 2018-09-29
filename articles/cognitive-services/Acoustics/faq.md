@@ -9,26 +9,26 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181560"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431785"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-## <a name="what-is-project-acoustics"></a>Wat is Project akoestische?
+## <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
 
-De Project akoestische Unity-invoegtoepassing is een akoestische-systeem dat geluid wave gedrag voorafgaand aan de runtime, cloudbeheer statische belichting berekent. De cloud heeft het zware werk van wave physics tijdens de ontwerpfase, zodat de runtimekosten CPU laag is.  
+De Project akoestische Unity-invoegtoepassing is een akoestische-systeem dat geluid wave gedrag voorafgaand aan de runtime, cloudbeheer statische belichting berekent. De cloud heeft het zware werk van wave physics berekeningen, zodat de runtimekosten CPU laag is.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Waar kan ik de invoegtoepassing downloaden?
 
-Als u geïnteresseerd bent in de invoegtoepassing akoestische evalueren, registreren [hier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) voor deelname aan het Designer-Preview.
+Als u een beoordeling wilt geven van de akoestische invoegtoepassing, kunt u zich [hier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) registreren om deel te nemen aan de Designer Preview.
 
 ## <a name="is-azure-used-at-runtime"></a>Is Azure tijdens runtime gebruikt?
 
-Nee, cloudintegratie wordt alleen gebruikt tijdens de precompute fase in de ontwerpfase.
+Nee, wordt alleen tijdens de fase precompute cloudintegratie gebruikt als onderdeel van de scène-instellingen.
  
 ## <a name="what-is-simulation-input"></a>Wat is de simulatie invoer? 
 

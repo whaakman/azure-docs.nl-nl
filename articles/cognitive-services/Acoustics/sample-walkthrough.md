@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227500"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434089"
 ---
 # <a name="unity-sample-walkthrough"></a>Walkthrough voor voorbeeld van Unity
 Dit is een overzicht van het Project akoestische-voorbeeld. Voor meer informatie over welke akoestische Project is, bekijk de [Inleiding tot Project akoestische](what-is-acoustics.md). Als u hulp nodig hebt in het Project akoestische-pakket toe te voegen aan een bestaande Unity-project, gebruikt de [introductiehandleiding](getting-started.md).
@@ -29,13 +29,13 @@ Dit is een overzicht van het Project akoestische-voorbeeld. Voor meer informatie
 Download en importeer het **MicrosoftAcoustics.Sample.unitypackage**. Tijdens het importeren, projectinstellingen inclusief **ruimtelijk** en **runtimeversie Scripting** worden bijgewerkt om te voldoen aan de vereisten van de invoegtoepassing. Wanneer dit voltooid is, ziet u een fout in de Unity-console van **AcousticsGeometry.cs** over het wijzigen van de Runtime-versie uitvoeren van scripts op **.NET 4.x Equivalent**. Deze wijziging van de instellingen wordt uitgevoerd als onderdeel van het importeren van het pakket, maar vereist een herstart Unity moet zijn van kracht. Unity nu opnieuw opstarten.
 
 ## <a name="running-the-sample"></a>Het voorbeeld uitvoeren
-Het voorbeeld bevat een scène demo **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Deze scène heeft een enkel spatialized audiobron afspelen van een zwevende kubus (met de naam **AudioHolder** in de **hiërarchie**). Als u een algemene navigatie-script, wordt de Camera van het hoofdvenster een onderliggend element van het object CameraHolder. 
+Het voorbeeld bevat een scène demo **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Deze scène heeft drie geluid bronnen. Standaard, slechts één bron van geluid wordt afgespeeld en de andere twee zijn onderbroken. Deze bevinden zich in **geluid bronnen** in de **hiërarchie**. Als u een algemene navigatie-script, wordt de Camera van het hoofdvenster een onderliggend element van het object CameraHolder. 
 
 ![Hiërarchie weergeven](media/SampleHierarchyView.png)
 
 De scène al is sparen en een ACE-bestand is gekoppeld aan de **MicrosoftAcoustics** prefab in de **hiërarchie**. 
 
-Luister naar hoe de scène geluiden door te klikken op de knop afspelen in de Unity-editor. Gebruik W, A, S, D- en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder akoestische klinkt, klikt u op de knop linkermuisknop of de primaire controller. Als u wilt bladeren door de verschillende bronnen geluid, klikt u op de rechter muisknop of de knop terug op uw domeincontroller.
+Luister naar hoe de scène geluiden door te klikken op de knop afspelen in de Unity-editor. Gebruik op het bureaublad, W, A, S, D en de muis om te navigeren. Als u wilt vergelijken hoe de scène met en zonder akoestische klinkt, drukt u op de **R** knop totdat de overlaytekst verandert in rood en zegt "akoestische: uitgeschakeld." Als u wilt zien sneltoetsen voor meer besturingselementen, drukt u op **F1**. Alle besturingselementen zijn ook bruikbaar met de rechtermuisknop te klikken om te selecteren van de actie uit te voeren, vervolgens links te klikken op als de bewerking wilt uitvoeren.
 
 ## <a name="targeting-other-platforms"></a>Die gericht is op andere platforms
 Het voorbeeld bevat de instellingen uit te voeren op Windows-bureaublad-, UWP-, Windows Mixed Reality-, Android- en Oculus Go. Het project is standaard geconfigureerd voor Windows-bureaublad. Als u wilt een VR-platform als doel, gaat u naar de player-instellingen (**bewerken > Projectinstellingen > Player**), vinden de **XR instellingen**, en controleer de **Virtual Reality ondersteund** selectievakje.
