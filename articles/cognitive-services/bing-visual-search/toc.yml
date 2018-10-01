@@ -1,77 +1,84 @@
+items:
 - name: Documentatie voor Bing Visual Search
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Bing Visual Search-API?
-      href: overview.md
+  - name: Wat is Bing Visual Search-API?
+    href: overview.md
 - name: Snelstarts voor REST API
-  expanded: true
   items:
-    - name: 'Eerste query in C#'
-      href: quickstarts/csharp.md
-    - name: Eerste query in Java
-      href: quickstarts/java.md
-    - name: Eerste query voor Node.js
-      href: quickstarts/nodejs.md
-    - name: Eerste query in Python
-      href: quickstarts/python.md
+  - name: Eerste query in C#
+    href: quickstarts/csharp.md
+  - name: Eerste query in Java
+    href: quickstarts/java.md
+  - name: Eerste query voor Node.js
+    href: quickstarts/nodejs.md
+  - name: Eerste query in Python
+    href: quickstarts/python.md
+  expanded: true
 - name: SDK
-  expanded: true
   items:
-    - name: Overzicht van SDK-voorbeelden
-      href: sdk.md
-    - name: 'SDK in C#'
-      href: visual-search-sdk-c-sharp.md
-    - name: SDK in Node
-      href: visual-search-sdk-node.md
-    - name: SDK in Python
-      href: visual-search-sdk-python.md
+  - name: Overzicht van SDK-voorbeelden
+    href: sdk.md
+  - name: SDK in C#
+    href: visual-search-sdk-c-sharp.md
+  - name: SDK in Node
+    href: visual-search-sdk-node.md
+  - name: SDK in Python
+    href: visual-search-sdk-python.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Web-app voor het uploaden van afbeeldingen
-      href: tutorial-visual-search-image-upload.md
-    - name: Web-app van één pagina
-      href: tutorial-bing-visual-search-single-page-app.md
-    - name: Web-app van één pagina (broncode)
-      href: tutorial-bing-visual-search-single-page-app-source.md
-    - name: Gebied voor bijsnijden afbeelding en resultaten van Bing Visual Search SDK
-      href: tutorial-visual-search-crop-area-results.md
-    - name: ImageInsightsToken en resultaten van Bing Visual Search SDK
-      href: tutorial-visual-search-insights-token.md
+  - name: Web-app voor het uploaden van afbeeldingen
+    href: tutorial-visual-search-image-upload.md
+  - name: Web-app van één pagina
+    href: tutorial-bing-visual-search-single-page-app.md
+  - name: Web-app van één pagina (broncode)
+    href: tutorial-bing-visual-search-single-page-app-source.md
+  - name: Gebied voor bijsnijden afbeelding en resultaten van Bing Visual Search SDK
+    href: tutorial-visual-search-crop-area-results.md
+  - name: ImageInsightsToken en resultaten van Bing Visual Search SDK
+    href: tutorial-visual-search-insights-token.md
 - name: Voorbeelden
   items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Concepten
   items:
-    - name: Standaardafbeeldingsinzichten
-      href: default-insights-tag.md
-    - name: Gebruik van Bing-inzichten
-      href: bing-insights-usage.md
-    - name: Ondersteunde landen en markten
-      href: supported-countries-markets.md
-    - name: Analytische gegevens voor Visual zoeken-API
-      href: bing-visual-search-stats.md
+  - name: Standaardafbeeldingsinzichten
+    href: default-insights-tag.md
+  - name: Gebruik van Bing-inzichten
+    href: bing-insights-usage.md
+  - name: Analytische gegevens voor Visual zoeken-API
+    href: bing-visual-search-stats.md
 - name: Handleidingen
   items:
-    - name: Inzichten verkrijgen met token
-      href: use-insights-token.md
-    - name: Vereisten voor gebruik en weergave
-      href: use-and-display-requirements.md
-    - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-      href: resize-and-crop-thumbnails.md
+  - name: Inzichten verkrijgen met token
+    href: use-insights-token.md
+  - name: Vereisten voor gebruik en weergave
+    href: use-and-display-requirements.md
+  - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
+    href: resize-and-crop-thumbnails.md
 - name: Naslaginformatie
-  expanded: true
   items:
-    - name: REST v7-API
-      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+  - name: REST v7-API
+    href: https://aka.ms/bingvisualsearchreferencedoc
+  expanded: true
 - name: Resources
   items:
-    - name: Vrije toegangssleutel verkrijgen
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
-    - name: Probeer het nu!
-      href: 'https://aka.ms/bingvisualsearchtryforfree'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/bing-search'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
+  - name: Ondersteuning voor taal en regio
+    href: language-support.md
+  - name: Vrije toegangssleutel verkrijgen
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
+  - name: Probeer het nu!
+    href: https://aka.ms/bingvisualsearchtryforfree
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
+ms.openlocfilehash: f33e0fe7c13a7686c244d10297fd23e7ca59d452
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432423"
