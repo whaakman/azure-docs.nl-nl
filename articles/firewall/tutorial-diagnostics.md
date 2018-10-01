@@ -1,27 +1,22 @@
 ---
-title: 'Zelfstudie: Azure Firewall-logboeken bewaken'
-description: In deze zelfstudie leert u hoe u Azure Firewall-logboeken inschakelt en beheert.
+title: Zelfstudie - Azure Firewall-logboeken en metrische gegevens bewaken
+description: In deze zelfstudie leert u hoe u Azure Firewall-logboeken en metrische gegevens inschakelt en beheert.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991042"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>Zelfstudie: Azure Firewall-logboeken bewaken
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Zelfstudie: Azure Firewall-logboeken en metrische gegevens bewaken
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Bij de voorbeelden in de Azure Firewall-artikelen wordt ervan uitgegaan dat u de openbare preview van Azure Firewall al hebt ingeschakeld. Zie [De openbare preview van Azure Firewall inschakelen](public-preview.md) voor meer informatie.
-
-U kunt Azure Firewall bewaken met behulp van firewall-logboeken. U kunt ook activiteitenlogboeken gebruiken om bewerkingen in Azure Firewall-resources te controleren.
+U kunt Azure Firewall bewaken met behulp van firewall-logboeken. U kunt ook activiteitenlogboeken gebruiken om bewerkingen in Azure Firewall-resources te controleren. Met metrische gegevens kunt u prestatiemeteritems in de portal zien. 
 
 Via de portal kunt u toegang verkrijgen tot sommige van deze logboeken. Logboeken kunnen worden verzonden naar [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage en Event Hubs en kunnen worden geanalyseerd in Log Analytics of door verschillende hulpprogramma’s zoals Excel en Power BI.
 
@@ -32,69 +27,12 @@ In deze zelfstudie leert u het volgende:
 > * Logboekregistratie inschakelen met PowerShell
 > * Het activiteitenlogboek bekijken en analyseren
 > * De logboeken voor netwerk- en toepassingsregels bekijken en analyseren
+> * Metrische gegevens bekijken
 
-## <a name="diagnostic-logs"></a>Diagnostische logboeken
+## <a name="prerequisites"></a>Vereisten
 
- De volgende diagnostische logboeken zijn beschikbaar voor Azure Firewall:
+Voordat u met deze zelfstudie begint, leest u de [Azure Firewall-logboeken en metrische gegevens](logs-and-metrics.md) voor een overzicht van de diagnostische logboek en metrische gegevens voor Azure Firewall.
 
-* **Logboek voor toepassingsregels**
-
-   Het logboek voor toepassingsregels wordt alleen in een opslagaccount opgeslagen, naar Event Hubs gestreamd en/of naar Log Analytics verzonden als u het voor elke Azure Firewall hebt ingeschakeld. Elke nieuwe verbinding die overeenkomt met een van uw geconfigureerde toepassingsregels, resulteert in een logboek voor de geaccepteerde/geweigerde verbinding. De gegevens worden geregistreerd in JSON-indeling, zoals weergegeven in het volgende voorbeeld:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Logboek voor netwerkregels**
-
-   Het logboek voor netwerkregels wordt alleen in een opslagaccount opgeslagen, naar Event Hubs gestreamd en/of naar Log Analytics verzonden als u het voor elke Azure Firewall hebt ingeschakeld. Elke nieuwe verbinding die overeenkomt met een van uw geconfigureerde netwerkregels, resulteert in een logboek voor de geaccepteerde/geweigerde verbinding. De gegevens worden geregistreerd in JSON-indeling, zoals weergegeven in het volgende voorbeeld:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-U hebt drie opties voor het opslaan van uw logboeken:
-
-* **Opslagaccount**: opslagaccounts kunnen het best worden gebruikt wanneer logboeken voor een langere periode worden opgeslagen en moeten kunnen worden bekeken wanneer dat nodig is.
-* **Event Hubs**: Event Hubs zijn een geweldige optie voor integratie met andere SIEM-hulpprogramma’s (Security Information and Event Management) om waarschuwingen over uw resources te krijgen.
-* **Log Analytics**: Log Analytics kan het best worden gebruikt voor algemene realtime bewaking van uw toepassing of voor het bekijken van trends.
-
-## <a name="activity-logs"></a>Activiteitenlogboeken
-
-   Activiteitenlogboekitems worden standaard verzameld en kunnen in de Azure-portal worden bekeken.
-
-   U kunt [Azure-activiteitenlogboeken](../azure-resource-manager/resource-group-audit.md) (voorheen bekend als operationele logboeken en auditlogboeken) gebruiken om alle bewerkingen te bekijken die naar uw Azure-abonnement worden verzonden.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Diagnostische logboekregistratie inschakelen via de Azure-portal
 
@@ -105,8 +43,8 @@ Nadat u deze procedure voor het inschakelen van diagnostische logboekregistratie
 
    Voor Azure Firewall zijn er twee servicespecifieke logboeken beschikbaar:
 
-   * Logboek voor toepassingsregels
-   * Logboek voor netwerkregels
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. Klik op **Diagnostische gegevens inschakelen** om te beginnen met het verzamelen van gegevens.
 4. Op de pagina **Diagnostische instellingen** staan de instellingen voor de diagnostische logboeken. 
@@ -163,6 +101,8 @@ U kunt ook verbinding maken met uw opslagaccount en de JSON-logboekitems voor to
 > [!TIP]
 > Als u bekend bent met Visual Studio en de basisconcepten van het wijzigen van waarden voor constanten en variabelen in C#, kunt u de [logboekconversieprogramma’s](https://github.com/Azure-Samples/networking-dotnet-log-converter) gebruiken die beschikbaar zijn in GitHub.
 
+## <a name="view-metrics"></a>Metrische gegevens bekijken
+Ga naar een Azure Firewall via **Bewaking** en klik op **Metrische gegevens**. Om de beschikbare waarden te zien, selecteert u de vervolgkeuzelijst **METRISCH**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

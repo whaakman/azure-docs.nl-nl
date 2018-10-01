@@ -1,6 +1,6 @@
 ---
-title: Azure AD-Android aan de slag | Microsoft Docs
-description: Over het bouwen van een Android-toepassing die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-aanroepen beveiligd met behulp van OAuth 2.0 API's.
+title: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app | Microsoft Docs
+description: Informatie over hoe u gebruikers aanmeldt en de Microsoft Graph API aanroept vanuit uw eigen Android-app.
 services: active-directory
 documentationcenter: android
 author: CelesteDG
@@ -12,41 +12,46 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c548f9287ce1326de3322950f297176b67ae61c6
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: MT
+ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970164"
 ---
-# <a name="azure-ad-android-getting-started"></a>Azure AD-Android aan de slag
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snelstart: Gebruikers aanmelden en de Microsoft Graph API aanroepen vanuit een Android-app
 
-Als u een Android-toepassing ontwikkelt, maakt Microsoft het eenvoudig en snel te melden bij Azure Active Directory (Azure AD)-gebruikers. Azure AD kan uw toepassing toegang tot gebruikersgegevens via de Microsoft Graph of uw eigen beveiligde web-API. 
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-De Azure AD Authentication Library (ADAL) Android-bibliotheek biedt uw app de mogelijkheid om te beginnen met behulp van de [Microsoft Azure-Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) door ondersteuning te [ Microsoft Azure Active Directory-accounts](https://azure.microsoft.com/services/active-directory/) met behulp van de bedrijfstak standard OAuth2 en OpenID Connect. In dit voorbeeld ziet u de normale levenscycli die uw toepassing optreden moet, met inbegrip van:
+Als u een Android-toepassing ontwikkelt, maakt Microsoft het voor u eenvoudig om Azure Active Directory (Azure AD) gebruikers in te laten loggen. Met Azure Active Directory heeft uw toepassing toegang tot gebruikergegevens via Microsoft Graph of uw eigen beschermde web-API.
 
-* Een token verkrijgen voor de Microsoft Graph
-* Een token vernieuwen
-* De Microsoft Graph aanroepen
-* De gebruiker afmelden
+De Azure AD Authentication Library (ADAL) Android bibltioheek geeft uw app de mogelijkheid om de [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) te gebruiken door [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) te ondersteunen die de industriestandaard OAuth 2.0 en OpenID Connect gebruiken.
 
-Als u wilt beginnen, moet u een Azure AD-tenant waar u kunt gebruikers maken en registreren van een toepassing. Als u nog een tenant hebt [informatie over het verkrijgen van een](quickstart-create-new-tenant.md).
+In deze snelstart leert u het volgende:
 
-## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: Meld u aan gebruikers en de Microsoft Graph aanroepen
+* Een token krijgen voor de Microsoft Graph
+* Een token verversen
+* Microsoft Graph aanroepen
+* De gebruiker uitloggen
+
+## <a name="prerequisites"></a>Vereisten
+
+U hebt een Azure Active Directory tenant nodig om van start te gaan waar u gebruikers kunt aanmaken en een toepassing kunt registreren. [Lees hier hoe u een tenant kunt verkrijgen](quickstart-create-new-tenant.md) als u er nog geen hebt.
+
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scenario: gebruikers inloggen en Microsoft Graph aanroepen
 
 ![Topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
 
-Deze app kan worden gebruikt voor alle Azure AD-accounts. Het ondersteunt zowel één als meerdere organisatie-scenario's (in de stappen besproken). Hierin wordt beschreven hoe een ontwikkelaar bouwen van apps voor de verbinding met zakelijke gebruikers en toegang tot hun Azure + O365 gegevens via de Microsoft Graph. Tijdens de verificatiestroom eindgebruikers moeten zich aanmelden en instemming met de machtigingen van de toepassing en in sommige gevallen kan een beheerder akkoord gaan met de app vereisen. Het merendeel van de logica in dit voorbeeld laat zien hoe auth een eindgebruiker en maken een eenvoudige aanroepen naar de Microsoft Graph.
+U kunt deze app gebruiken voor alle Azure Active Directory accounts. Het ondersteunt single-tenant en multi-tenant scenario’s (wordt in stappen besproken). Het laat zien hoe u apps kunt bouwen om met enterprise-gebruikers in contact te komen en toegang te krijgen tot hun Azure + O365-gegevens via de Microsoft Graph. Tijdens de auth-flow, dienen eindgebruikers in te loggen en akkoord te gaan met de machtigingen van de toepassing, en in sommige gevallen dient een beheerder met de app akkoord te gaan. Het merendeel van de logica in dit voorbeeld laat zien hoe een eindgebruiker te autoriseren en een basisaanroep uit te voeren naar de Microsoft Graph.
 
-## <a name="example-code"></a>Voorbeeldcode
+## <a name="sample-code"></a>Voorbeeldcode
 
-U vindt de volledige voorbeeldcode [op Github](https://github.com/Azure-Samples/active-directory-android). 
+U vindt de volledige code [op Github](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
@@ -71,66 +76,65 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="steps-to-run"></a>Stappen om uit te voeren
+## <a name="step-1-register-and-configure-your-app"></a>Stap 1: Registeer en configureer uw app
 
-### <a name="register-and-configure-your-app"></a>Registreren en uw app configureren 
-U moet een systeemeigen clienttoepassing die zijn geregistreerd bij Microsoft met behulp van de [Azure-portal](https://portal.azure.com). 
+U dient een native client-toepassing geregistreerd te hebben bij Microsoft via het [Azure Portal](https://portal.azure.com).
 
-1. Kennismaking met app-registratie
-    - Navigeer naar [Azure Portal](https://aad.portal.azure.com). 
-    - Selecteer ***Azure Active Directory*** > ***App-registraties***. 
+1. De app registreren
+    - Navigeer naar [Azure Portal](https://aad.portal.azure.com).
+    - Selecteer ***Azure Active Directory*** > ***App-registraties***.
 
 2. De app maken
-    - Selecteer **Nieuwe toepassing registreren**. 
-    - Voer de naam van een app in de **naam** veld. 
-    - In **toepassingstype** Selecteer **systeemeigen**. 
-    - In **omleidings-URI**, voer `http://localhost`. 
+    - Selecteer **Nieuwe toepassing registreren**.
+    - Voer een app-naam in het veld **Naam** in.
+    - In **Soort toepassing** selecteer **Native**.
+    - In **URI omleiding**, voert u `http://localhost` in.
 
-3. Configureren van Microsoft Graph
-    - Selecteer **instellingen > vereiste machtigingen**.
-    - Selecteer **toevoegen**, in **Select an API** Selecteer ***Microsoft Graph***. 
-    - Selecteer de machtiging **aanmelden en gebruikersprofiel lezen**, drukt u op **Selecteer** om op te slaan. 
-        - Deze machtiging wordt toegewezen aan de `User.Read` bereik. 
-    - Optioneel: Binnen **vereiste machtigingen > Windows Azure Active Directory**, verwijder de geselecteerde machtiging **aanmelden en gebruikersprofiel lezen**. Dit voorkomt dat de gebruiker toestemming pagina met de machtiging twee keer. 
+3. Microsoft Graph configureren
+    - Selecteer **Instellingen > Vereiste machtigingen**.
+    - Selecteer **Toevoegen**, in **Selecteer een API** selecteer ***Microsoft Graph***.
+    - Selecteer de machtiging **Inloggen en gebruikersprofiel lezen**, en klik dan op **Selecteren** om op te slaan.
+        - Deze machtiging gaat over de `User.Read` omvang.
+    - Optioneel: In **Vereiste machtigingen > Windows Azure Active Directory**, verwijder de geselecteerde machtiging **Inloggen en gebruikerprofiel lezen**. Daarmee wordt voorkomen dat de pagina gebruikerstoestemming de machtiging twee keer laat zien.
 
-4. Gefeliciteerd. Uw app is geconfigureerd. In de volgende sectie, hebt u het volgende nodig:
+4. Gefeliciteerd! Uw app is geconfigureerd. In het volgende deel dient u:
     - `Application ID`
     - `Redirect URI`
 
-### <a name="get-the-sample-code"></a>De voorbeeldcode halen
+## <a name="step-2-get-the-sample-code"></a>Stap 2: De voorbeeldcode ophalen
 
-1. Kloon de code.
+1. De code klonen.
     ```
     git clone https://github.com/Azure-Samples/active-directory-android
     ```
-2. Open het voorbeeld in Android Studio.
-    - Selecteer **een bestaand Android Studio-project openen**.
+2. Het voorbeeld in Android Studio openen.
+    - Selecteer **Open een bestaand Android Studio project**.
 
-### <a name="configure-your-code"></a>Uw code configureren
+## <a name="step-3-configure-your-code"></a>Stap 3: Configureer uw code
 
-U vindt de configuratie voor dit codevoorbeeld in de ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** bestand. 
+U vindt alle configuratiegegevens voor deze code in het bestand ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java***.
 
-1. Vervang de constante `CLIENT_ID` met de `ApplicationID`.
-2. Vervang de constante `REDIRECT URI` met de `Redirect URI` u eerder hebt geconfigureerd (`http://localhost`). 
+1. Vervang de constante factor `CLIENT_ID` met de `ApplicationID`.
+2. Vervang de constante factor `REDIRECT URI` met de `Redirect URI` die u eerder hebt geconfigureerd (`http://localhost`).
 
-### <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
+## <a name="step-4-run-the-sample"></a>Stap 4: Voer het voorbeeld uit
 
-1. Selecteer **bouwen > Project opschonen**. 
-2. Selecteer **uitvoeren > app uitvoeren**. 
-3. De app te bouwen en enkele eenvoudige UX. weergeven Wanneer u klikt op de `Call Graph API` knop klikt, wordt gevraagd om een aanmelding en roep vervolgens de Microsoft Graph-API met het nieuwe token op de achtergrond. 
+1. Selecteer **Bouw > Schoon project**.
+2. Selecteer **Run > Run app**.
+3. De app moet gaan bouwen en standaard UX tonen. Wanneer u op de knop `Call Graph API` klikt, wordt u gevraagd zich aan te melden en dan stil de Microsoft Graph API met het nieuwe token aanroepen.
 
-## <a name="important-info"></a>Belangrijke informatie
+## <a name="next-steps"></a>Volgende stappen
 
-1. Bekijk de [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) voor meer informatie over de bibliotheek mechanics en het configureren van nieuwe scenario's en mogelijkheden. 
-2. In systeemeigen scenario's, de app een ingesloten webweergave wordt gebruikt en wordt de app niet verlaten. De `Redirect URI` mag willekeurige. 
-3. Geen problemen voor het zoeken of aanvragen hebben? U kunt maken van een probleem of posten op Stackoverflow met de tag `azure-active-directory`. 
+1. Controleer [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) voor meer info over de bibliotheekmechanismen en hoe nieuwe scenario’s en mogelijkheden te configureren.
+2. In Native scenario’s, zal de app een ingebed Webview gebruiken en de app niet verlaten. De `Redirect URI` kan willekeurig zijn.
+3. Ondervindt u problemen of hebt u vragen? U kunt een ticket aanmaken of op Stackoverflow een melding plaatsen met het label `azure-active-directory`.
 
-### <a name="cross-app-sso"></a>SSO voor cross-app
-Informatie over [hoe u verschillende Apps SSO inschakelen op Android met behulp van ADAL](howto-v1-enable-sso-android.md). 
+### <a name="cross-app-sso"></a>Cross-app SSO
 
-### <a name="auth-telemetry"></a>Auth-telemetrie
-auth-telemetrie om te helpen app-ontwikkelaars inzicht in hoe hun apps zich gedragen en betere ervaringen ontwikkeling wordt aangegeven dat de ADAL-bibliotheek. Hiermee kunt u om vast te leggen van de aanmelding geslaagd, actieve gebruikers en verschillende andere interessante inzichten. Met behulp van de telemetrie van de verificatie is vereist voor app-ontwikkelaars tot stand brengen van een telemetrieservice voor het aggregeren en opslaan van gebeurtenissen.
+Ontdek [hoe u cross-app SSO op Android inschakelt met ADAL](howto-v1-enable-sso-android.md).
 
-Voor meer informatie over verificatie telemetrie, afhandeling [ADAL Android auth telemetrie](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry). 
+### <a name="auth-telemetry"></a>Auth telemetry
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+De ADAL-bibliotheek toont auth telemetry zodat app-ontwikkelaars inzicht krijgen in hoe hun apps het doen en om betere ervaringen te creëren. Hiermee kunt u een succesvolle inlog vastleggen, actieve gebruikers en andere interessante inzichten. Met auth telemetry dienen app-ontwikkelaars een telemetry-service op te zetten om evenementen te genereren en op te slaan.
+
+Om meer te lezen over auth telemetry, ga naar [ADAL Android auth telemetry](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry).
