@@ -1,6 +1,6 @@
 ---
 title: Verbinding maken met Azure Stack | Microsoft Docs
-description: Informatie over het verbinding maken met Azure-Stack.
+description: Leer hoe u verbinding maken met Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,47 +12,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/06/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: c1932f2ed0486fb56e467466c0fed53702e8f9b0
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 1cdf013325afe4b217f5f56043e06f60a4933419
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248683"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585625"
 ---
 # <a name="connect-to-azure-stack-development-kit"></a>Verbinding maken met Azure Stack Development Kit
 
-*Van toepassing op: Azure stapelen Development Kit*
+*Is van toepassing op: Azure Stack Development Kit*
 
-Voor het beheren van resources, moet u eerst verbinding met de Azure-Stack Development Kit. In dit artikel wordt beschreven welke stappen u verbinding maken met de development kit uitvoeren. U kunt een van de volgende verbindingsopties:
+Voor het beheren van resources, moet u eerst verbinding maken met de Azure Stack Development Kit. In dit artikel wordt beschreven welke stappen u ondernemen om te verbinden met de development kit. U kunt een van de volgende verbindingsopties:
 
-* [Verbinding met extern bureaublad](#connect-with-remote-desktop). Wanneer u verbinding maakt met behulp van de verbinding met extern bureaublad, één gebruiker kan snel verbinding maken met de development kit.
-* [Virtueel particulier netwerk (VPN)](#connect-with-vpn). Wanneer u verbinding maakt met behulp van een VPN, meerdere gebruikers kunnen gelijktijdig verbinding maken via clients buiten de Azure-Stack-infrastructuur. Een VPN-verbinding, moet u instellingen.
+* [Verbinding met extern bureaublad](#connect-with-remote-desktop). Wanneer u verbinding maakt met behulp van de verbinding met extern bureaublad, een enkele gebruiker kan snel verbinding maken met de development kit.
+* [Virtueel particulier netwerk (VPN)](#connect-with-vpn). Wanneer u verbinding maakt met behulp van een VPN, meerdere gebruikers kunnen gelijktijdig verbinding maken van clients buiten de Azure Stack-infrastructuur. Een VPN-verbinding, moet u instellingen.
 
 <a name="connect-to-azure-stack-with-remote-desktop"></a>
-##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Verbinding maken met Azure-Stack via verbinding met extern bureaublad
+##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Verbinding maken met Azure Stack met behulp van de verbinding met extern bureaublad
 
-Meerdere gelijktijdige gebruikers kan resources in de portal operator of de gebruikersportal via de verbinding met extern bureaublad beheren.
+Meerdere gelijktijdige gebruikers kan resources in de operator-portal of de gebruikersportal via verbinding met extern bureaublad beheren.
 
-1. Verbinding met extern bureaublad openen en verbinding maken met de development kit. Voer voor de gebruikersnaam, **AzureStack\AzureStackAdmin**. Gebruik de operator wachtwoord die u hebt opgegeven bij het instellen van Azure-Stack.  
+1. Verbinding met extern bureaublad openen en verbinding maken met de development kit. Voer voor de naam van de gebruiker, **AzureStack\AzureStackAdmin**. Gebruik de operator-wachtwoord die u hebt opgegeven bij het instellen van Azure Stack.  
 
-2. Open Serverbeheer op de ontwikkelcomputer kit. Selecteer **lokale Server**, schakelt de **verbeterde beveiliging van Internet Explorer** selectievakje en sluit u Server Manager.
+2. Open Serverbeheer op de ontwikkelcomputer kit. Selecteer **lokale Server**, schakel de **verbeterde beveiliging van Internet Explorer** selectievakje en sluit Serverbeheer.
 
-3. Openen van de [gebruikersportal](azure-stack-key-features.md#portal), gaat u naar https://portal.local.azurestack.external/. Meld u met behulp van gebruikersreferenties. Openen van de Azure-Stack [operator portal](azure-stack-key-features.md#portal), gaat u naar https://adminportal.local.azurestack.external/. Meld u met de Azure Active Directory (Azure AD)-referenties die u hebt opgegeven tijdens de installatie.
+3. Om te openen de [gebruikersportal](azure-stack-key-features.md#portal), gaat u naar https://portal.local.azurestack.external/. Meld u aan met behulp van de referenties van gebruiker. Openen van de Azure Stack [operator portal](azure-stack-key-features.md#portal), gaat u naar https://adminportal.local.azurestack.external/. Meld u aan met behulp van de Azure Active Directory (Azure AD)-referenties die u hebt opgegeven tijdens de installatie.
 
 <a name="connect-to-azure-stack-with-vpn"></a>
-## <a name="connect-to-azure-stack-by-using-vpn"></a>Verbinding maken met Azure-Stack met behulp van VPN
+## <a name="connect-to-azure-stack-by-using-vpn"></a>Verbinding maken met Azure Stack met VPN
 
-U kunt een gesplitste tunnel VPN-verbinding met een Azure-Stack Development Kit maken. U kunt een VPN-verbinding gebruiken voor toegang tot de Azure-Stack operator-portal, de gebruikersportal en lokaal geïnstalleerde hulpmiddelen zoals Visual Studio en PowerShell om Azure-Stack-resources te beheren. VPN-connectiviteit wordt ondersteund in Azure AD en implementaties van Active Directory Federation Services (AD FS). VPN-verbindingen maken het mogelijk dat meerdere clients verbinding maken met Azure-Stack op hetzelfde moment.
+U kunt een split-tunnel VPN-verbinding met een Azure Stack Development Kit maken. U kunt een VPN-verbinding gebruiken voor toegang tot de portal voor Azure Stack-operator, de gebruikersportal en de lokaal geïnstalleerde programma's zoals Visual Studio en PowerShell om Azure Stack-resources te beheren. VPN-connectiviteit wordt ondersteund in Azure AD en implementaties van Active Directory Federation Services (AD FS). VPN-verbindingen maken het mogelijk dat meerdere clients verbinding maken met Azure Stack op hetzelfde moment.
 
 > [!NOTE]
-> Een VPN-verbinding biedt geen verbinding met Azure-Stack infrastructuur virtuele machines.
+> Een VPN-verbinding biedt geen verbinding met Azure Stack-infrastructuur virtuele machines.
 
 ### <a name="prerequisites"></a>Vereisten
 
-1. Installeer [Azure Stack-compatibele Azure PowerShell](azure-stack-powershell-install.md) op uw lokale computer.  
-2. Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md).
+1. Installeer [Azure Stack-compatibel is met Azure PowerShell](azure-stack-powershell-install.md) op uw lokale computer.  
+2. In het [Azure Stack development Kit, worden de blobEndpoint](azure-stack-powershell-download.md) .
 
 ### <a name="set-up-vpn-connectivity"></a>VPN-verbinding instellen
 
@@ -93,7 +93,7 @@ Als setup is voltooid, **azurestack** wordt weergegeven in de lijst met VPN-verb
 
 ### <a name="connect-to-azure-stack"></a>Verbinding maken met Azure Stack
 
-Verbinding maken met de Azure-Stack-exemplaar met behulp van een van de volgende methoden:  
+Maak verbinding met de Azure Stack-exemplaar met behulp van een van de volgende methoden:  
 
 * Gebruik de `Connect-AzsVpn ` opdracht:
     
@@ -102,14 +102,14 @@ Verbinding maken met de Azure-Stack-exemplaar met behulp van een van de volgende
     -Password $Password
   ```
 
-  Wanneer u wordt gevraagd, vertrouwt de Azure-Stack-host en installeer het certificaat van **AzureStackCertificateAuthority** in het certificaatarchief van de lokale computer. (U kunt de prompt mogelijk verborgen door het PowerShell-venster.)
+  Wanneer u hierom wordt gevraagd, vertrouwt de Azure Stack-host en installeert u het certificaat van **AzureStackCertificateAuthority** in het certificaatarchief van de lokale computer. (U kunt de prompt mogelijk verborgen door het PowerShell-venster.)
 
-* Selecteer op de lokale computer **netwerkinstellingen** > **VPN** > **azurestack** > **verbinding**. Geef de gebruikersnaam bij de prompt aanmelden (**AzureStack\AzureStackAdmin**) en uw wachtwoord.
+* Selecteer op de lokale computer **netwerkinstellingen** > **VPN** > **azurestack** > **verbinding**. Voer de gebruikersnaam in bij de prompt aanmelden (**AzureStack\AzureStackAdmin**) en het wachtwoord.
 
-### <a name="test-vpn-connectivity"></a>VPN-verbindingen testen
+### <a name="test-vpn-connectivity"></a>VPN-connectiviteit testen
 
-De portal om verbinding te testen, open een webbrowser en gaat u naar de gebruikersportal (https://portal.local.azurestack.external/) of de operator-portal (https://adminportal.local.azurestack.external/). Meld u aan en resources maken.  
+De portal om verbinding te testen, open een webbrowser en ga vervolgens naar de gebruikersportal (https://portal.local.azurestack.external/) of de operator-portal (https://adminportal.local.azurestack.external/). Meld u aan en resources maken.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Virtuele machines beschikbaar maken voor uw Azure-Stack-gebruikers](azure-stack-tutorial-tenant-vm.md)
+[Virtuele machines beschikbaar maken voor uw Azure Stack-gebruikers](azure-stack-tutorial-tenant-vm.md)

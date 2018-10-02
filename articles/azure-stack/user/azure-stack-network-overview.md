@@ -1,45 +1,45 @@
 ---
-title: Inleiding tot Azure-Stack netwerken | Microsoft Docs
-description: Meer informatie over Azure-Stack-netwerken
+title: Inleiding tot Azure Stack-netwerken | Microsoft Docs
+description: Meer informatie over Azure Stack-netwerken
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: ee94fd8a9dac17e4db180b05208df66f3d33b901
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ac842507cc52c9677e755d32b09758f787c5a1fb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604563"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584557"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Kennismaking met Azure Stack-netwerken
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure Stack biedt tal van netwerkmogelijkheden die samen of afzonderlijk kunnen worden gebruikt:
+Azure Stack biedt een aantal netwerkmogelijkheden die gezamenlijk of apart kunnen worden gebruikt:
 
-- **Connectiviteit tussen Azure-Stack-bronnen**  
-    Verbinding maken met Azure-resources samen in een beveiligd, persoonlijk virtueel netwerk in de cloud.
+- **Connectiviteit tussen Azure Stack-resources**  
+    Verbinding maken met Azure-resources samen in een beveiligde, persoonlijke virtueel netwerk in de cloud.
 - **Verbinding met internet**  
-    Naar en van de Stack van Azure-resources via Internet communiceren.
+    Naar en van Azure Stack-resources communiceren via Internet.
 - **On-premises connectiviteit**  
-    Verbinding met het maken van een on-premises netwerk met Azure-Stack-resources via een virtueel particulier netwerk (VPN) via Internet of een specifieke verbinding met Azure-Stack.
-- **Load balancing en verkeer richting**  
-    Laden saldo verkeer naar servers op dezelfde locatie en direct op de servers in verschillende locaties.
+    Een on-premises netwerk verbinden met Azure Stack-resources via een virtueel particulier netwerk (VPN) via Internet of via een speciale verbinding met Azure Stack.
+- **Taakverdeling en verkeersbeheer richting laden**  
+    Verkeer met gelijke taakverdeling met servers in de dezelfde locatie en het verkeer naar servers op verschillende locaties.
 - **Beveiliging**  
-    Filteren van netwerkverkeer tussen subnetten of afzonderlijke virtuele machines (VM).
+    Netwerkverkeer filteren tussen subnetten of afzonderlijke virtuele machines (VM).
 - **Routering**  
-    Gebruik standaardroutering of volledig beheren routering tussen uw Azure-Stack en lokale bronnen.
+    Gebruik standaardroutering of volledige controle over routering tussen uw Azure Stack- en on-premises bronnen.
 - **Beheerbaarheid**  
-    Bewaken en beheren van uw Azure-Stack netwerkresources.
+    Controleren en beheren van uw Azure Stack netwerkresources.
 - **Hulpprogramma's voor implementatie en configuratie**  
-    Een webportal of platformoverschrijdende opdrachtregelprogramma's gebruiken om te implementeren en configureren van netwerkbronnen.
+    Een webportal of platformonafhankelijke opdrachtregelprogramma's gebruiken om te implementeren en configureren van netwerkbronnen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Overwegingen voor het Azure-Stack-netwerken](azure-stack-network-differences.md)
+* [Overwegingen voor Azure Stack-netwerken](azure-stack-network-differences.md)

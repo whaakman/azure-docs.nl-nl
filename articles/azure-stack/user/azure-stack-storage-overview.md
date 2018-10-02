@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure-Stack storage
-description: Meer informatie over Azure-Stack-opslag
+title: Inleiding tot Azure Stack-opslag
+description: Meer informatie over Azure Stack-opslag
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: d97a5f8aff57f4bbfd7d5222a87d258fa5c92da8
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 13fdf3257ed44212f45eeb3d2820a2022f54d777
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604383"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585235"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Inleiding tot Azure-Stack storage
+# <a name="introduction-to-azure-stack-storage"></a>Inleiding tot Azure Stack-opslag
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 ## <a name="overview"></a>Overzicht
 
-Stack aan Azure Storage is een set van services voor cloudopslag met Blobs, tabellen en wachtrijen die consistent met Azure Storage-services zijn.
+Azure Stack-opslag is een set van cloud storage services met Blobs, tabellen en wachtrijen die consistent met Azure Storage-services zijn.
 
-## <a name="azure-stack-storage-services"></a>Azure Storage-Stack-services
+## <a name="azure-stack-storage-services"></a>Azure Stack-Storage-services
 
 Azure Stack-opslag biedt de volgende drie services:
 
@@ -42,15 +42,15 @@ Azure Stack-opslag biedt de volgende drie services:
 
 - **Queue Storage**
 
-    Queue storage biedt betrouwbare berichten voor de verwerking van de werkstroom en voor communicatie tussen onderdelen van cloud-services.
+    Queue storage biedt betrouwbare berichten voor werkstroomverwerking en voor communicatie tussen onderdelen van cloudservices.
 
-Een Azure-Stack storage-account is een veilig account waarmee u toegang tot services in Azure Stack Storage. Uw opslagaccount biedt een unieke naamruimte voor uw opslagresources. Het volgende diagram toont de relaties tussen de Stack van Azure storage-resources in een opslagaccount:
+Een storage-account van Azure Stack is een veilig account waarmee u toegang tot services in Azure Stack-opslag. Uw opslagaccount biedt een unieke naamruimte voor uw opslagresources. Het volgende diagram toont de relaties tussen de Azure Stack-storage-resources in een storage-account:
 
-![Overzicht van Azure Storage-Stack](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Overzicht van Azure Stack-Storage](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 ### <a name="blob-storage"></a>Blob Storage
 
-Blob-opslag biedt een effectieve en schaalbare oplossing voor gebruikers met een grote hoeveelheid ongestructureerde objectgegevens op te slaan in de cloud. U kunt blob storage gebruiken voor het opslaan van inhoud, zoals:
+Blob-opslag biedt voor gebruikers met een grote hoeveelheid ongestructureerde objectgegevens op te slaan in de cloud, een doeltreffende en schaalbare oplossing. U kunt blob storage gebruiken voor het opslaan van inhoud, zoals:
 
 - Documenten
 - Sociale gegevens, zoals foto's, video's, muziek en blogs
@@ -59,13 +59,13 @@ Blob-opslag biedt een effectieve en schaalbare oplossing voor gebruikers met een
 - Configuratiegegevens voor cloudtoepassingen
 - Big data, zoals logboeken en andere grote gegevenssets
 
-Elke blob is georganiseerd in een container. Containers bieden ook een handige manier om beveiligingsbeleid toe te wijzen aan groepen objecten. Een opslagaccount kan een onbeperkt aantal containers bevatten en een container kan een onbeperkt aantal blobs, tot de limiet van opslagaccount bevatten.
+Elke blob is georganiseerd in een container. Containers bieden ook een handige manier om beveiligingsbeleid toe te wijzen aan groepen objecten. Een opslagaccount kan een onbeperkt aantal containers bevatten en een container kan een onbeperkt aantal blobs, tot de limiet van storage-account bevatten.
 
 BLOB storage biedt drie typen blobs:
 
 - **Blok-blobs**
 
-    Blok-blobs zijn geoptimaliseerd voor streaming en opslag van cloudobjecten en zijn een goede keuze voor het opslaan van documenten, mediabestanden, back-ups en enzovoort.
+    Blok-blobs zijn geoptimaliseerd voor het streamen en opslag van cloudobjecten en zijn een goede keuze voor het opslaan van documenten, mediabestanden, back-ups en enzovoort.
 
 - **Toevoeg-blobs**
 
@@ -73,26 +73,26 @@ BLOB storage biedt drie typen blobs:
 
 - **Pagina-blobs**
 
-    Pagina-blobs zijn geoptimaliseerd voor de vertegenwoordiging van IaaS-schijven en ondersteuning van willekeurige schrijfbewerkingen die maximaal 1 TB groot is. Een virtuele machine van Azure-Stack aangesloten IaaS-schijf een VHD die is opgeslagen als een pagina-blob is.
+    Pagina-blobs zijn geoptimaliseerd voor de vertegenwoordiging van IaaS-schijven en ondersteuning van willekeurige schrijfbewerkingen die maximaal 1 TB groot is. Een virtuele machine van Azure Stack aangesloten IaaS-schijf een VHD die is opgeslagen als pagina-blob is.
 
 ### <a name="table-storage"></a>Table Storage
 
-Moderne toepassingen vereisen vaak gegevensopslag met meer schaalbaarheid en flexibiliteit dan vorige softwaregeneraties vereisten. Table Storage biedt maximaal beschikbare, sterk schaalbare opslag, zodat uw toepassing automatisch kan schalen om aan de behoeften van de gebruiker te voldoen. Table storage is van Microsoft NoSQL-sleutel/kenmerkopslag--heeft een schemaloos ontwerp, zodat u verschillende van traditionele relationele databases. Met een schemaloze gegevensopslag kunt u uw gegevens eenvoudig aanpassen als de behoeften van uw toepassing veranderen. Table Storage is eenvoudig te gebruiken, zodat ontwikkelaars snel toepassingen kunnen maken.
+Moderne toepassingen vereisen vaak gegevensopslag met meer schaalbaarheid en flexibiliteit dan vorige softwaregeneraties vereisten. Table Storage biedt maximaal beschikbare, sterk schaalbare opslag, zodat uw toepassing automatisch kan schalen om aan de behoeften van de gebruiker te voldoen. Tabelopslag is van Microsoft NoSQL-sleutel/kenmerkopslag--deze heeft een schemaloos ontwerp, wat deze verschillende van traditionele relationele databases. Met een schemaloze gegevensopslag kunt u uw gegevens eenvoudig aanpassen als de behoeften van uw toepassing veranderen. Table Storage is eenvoudig te gebruiken, zodat ontwikkelaars snel toepassingen kunnen maken.
 
-Table storage is een sleutelkenmerkopslag, wat betekent dat elke waarde in een tabel met een getypeerde eigenschapsnaam is opgeslagen. De naam van de eigenschap kan worden gebruikt om te filteren en selectiecriteria op te geven. Een verzameling eigenschappen en hun waarden vormen samen een entiteit. Omdat table storage schemaloos is, twee entiteiten in dezelfde tabel verschillende verzamelingen eigenschappen kunnen bevatten en deze eigenschappen van verschillende typen kunnen zijn.
+Tabelopslag is een sleutelkenmerkopslag, wat betekent dat elke waarde in een tabel met een getypeerde eigenschapsnaam is opgeslagen. De naam van de eigenschap kan worden gebruikt om te filteren en selectiecriteria op te geven. Een verzameling eigenschappen en hun waarden vormen samen een entiteit. Omdat table storage schemaloos is, twee entiteiten in dezelfde tabel verschillende verzamelingen eigenschappen kunnen bevatten en de eigenschappen van verschillende typen kunnen worden.
 
-U kunt table storage gebruiken voor het opslaan van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens en alle overige typen metagegevens die uw service nodig. Voor de huidige internetgebaseerde toepassingen bieden NoSQL-databases zoals table storage een populaire alternatief voor traditionele relationele databases.
+U kunt table storage gebruiken voor het opslaan van flexibele gegevenssets, zoals gebruikersgegevens voor webtoepassingen, adresboeken, apparaatgegevens en alle overige typen metagegevens die uw service nodig heeft. Voor huidige internetgebaseerde toepassingen bieden NoSQL-databases zoals table storage een populaire alternatief voor traditionele relationele databases.
 
-Een opslagaccount kan een onbeperkt aantal tabellen bevatten en een tabel kan een willekeurig aantal entiteiten, tot de capaciteitslimiet van het opslagaccount bevatten.
+Een opslagaccount kan een onbeperkt aantal tabellen bevatten en een tabel mag een willekeurig aantal entiteiten, tot de capaciteitslimiet van het opslagaccount.
 
 ### <a name="queue-storage"></a>Queue Storage
 
-Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue storage biedt een betrouwbare berichtenoplossing voor asynchrone communicatie tussen toepassingsonderdelen, of ze in de cloud, op het bureaublad, op een on-premises server of op een mobiel apparaat uitvoert. Queue Storage biedt ook ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
+Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue storage biedt een betrouwbare berichtenoplossing voor asynchrone communicatie tussen toepassingsonderdelen, ongeacht of ze worden uitgevoerd in de cloud, op het bureaublad, op een on-premises server of op een mobiel apparaat. Queue Storage biedt ook ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
 
 Een opslagaccount kan een onbeperkt aantal wachtrijen bevatten en een wachtrij kan een onbeperkt aantal berichten, tot de capaciteitslimiet van het opslagaccount bevatten. Afzonderlijke berichten kunnen maximaal 64 kB groot zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Consistent zijn met Azure storage: verschillen en overwegingen](azure-stack-acs-differences.md)
+- [Azure consistente: verschillen en overwegingen](azure-stack-acs-differences.md)
 
 - Zie voor meer informatie over Azure Storage, [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
