@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: true
+hide_bc: false
 title: Documentatie voor Azure Active Directory - zelfstudies, API-verwijzing | Microsoft Docs
 description: Azure Active Directory (Azure AD) is de multi-tenant directory- en identiteitsbeheerservice van Microsoft in de cloud die belangrijke directory services, toegangsbeheer voor toepassingen en identiteitsbeveiliging in één oplossing combineert.
 services: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: bf72b8fbe437971e6d621208c93c239c3c557f55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 646d1639c7cdd4f9a21ec1c8ac65587cab4f4e12
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165055"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585200"
 ---
 <div id="main" class="v2">
     <div class="container">
