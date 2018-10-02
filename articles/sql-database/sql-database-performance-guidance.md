@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 283d27e330b7e1defb34196279693b5b5a7221df
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/24/2018
+ms.openlocfilehash: 09238b75680658e9efef3a6a9aaa3c288d3d91a4
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160584"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585846"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Afstemmen van prestaties in Azure SQL Database
 
@@ -30,29 +30,18 @@ U geen toepasselijke aanbevelingen, en u hebt nog steeds problemen met prestatie
 
 Dit zijn handmatige methodes omdat u nodig hebt om te bepalen van de hoeveelheid resources voldoen aan uw behoeften. Anders moet u voor het herschrijven van de toepassing of databasecode en de wijzigingen implementeren.
 
-## <a name="increasing-servicce-tier-of-your-database"></a>Toenemende servicce laag van uw database
+## <a name="increasing-service-tier-of-your-database"></a>Vergroten van de servicelaag van de database
 
-Azure SQL Database biedt twee modellen van aankopen, een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) die u kunt kiezen uit. Elke servicelaag isoleert alleen de resources die uw SQL-database gebruiken kunt en voorspelbare prestaties voor dat serviceniveau waarborgt. In dit artikel bieden wij richtlijnen waarmee u de servicelaag voor uw toepassing kiezen. We bespreken ook manieren dat u uw toepassing het meeste halen uit Azure SQL Database kunt afstemmen.
+Azure SQL Database biedt [twee aankopen modellen](sql-database-service-tiers.md), een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) die u kunt kiezen uit. Elke servicelaag isoleert alleen de resources die uw SQL-database gebruiken kunt en voorspelbare prestaties voor dat serviceniveau waarborgt. In dit artikel bieden wij richtlijnen waarmee u de servicelaag voor uw toepassing kiezen. We bespreken ook manieren dat u uw toepassing het meeste halen uit Azure SQL Database kunt afstemmen. Elke servicelaag heeft een eigen [resourcelimieten](sql-database-resource-limits.md). Zie voor meer informatie, [vCore gebaseerde resourcelimieten](sql-database-vcore-resource-limits-single-databases.md) en [DTU gebaseerde resourcelimieten](sql-database-dtu-resource-limits-single-databases.md).
 
 > [!NOTE]
 > In dit artikel richt zich op informatie over de prestaties voor individuele databases in Azure SQL Database. Zie voor instructies prestaties met betrekking tot elastische pools [prijs- en Prestatieoverwegingen voor elastische pools](sql-database-elastic-pool-guidance.md). Houd er rekening mee, maar u kunt veel van de aanbevelingen voor afstemming in dit artikel zijn van toepassing op databases in een elastische pool en vergelijkbare prestatievoordelen ophalen.
-> 
-
-* **Basic**: de Basic-service-laag biedt goede prestaties voorspelbaarheid voor elke database, uur over uur. In een Basic-database ondersteunen voldoende bronnen zijn goede prestaties in een kleine database die geen meerdere gelijktijdige aanvragen. Er zijn typische gebruiksvoorbeelden wanneer u basis-servicelaag gebruiken:
-  * **U net aan de slag met Azure SQL Database**. Toepassingen die in ontwikkeling vaak zijn niet moet hoog-compute grootten. Basic-databases zijn een ideale omgeving voor databaseontwikkeling en testen, tegen een lage prijs.
-  * **U hebt een database met een enkele gebruiker**. Toepassingen die doorgaans een enkele gebruiker aan een database koppelt hebt geen hoge eisen voor gelijktijdigheid en prestaties. Deze toepassingen zijn kandidaten voor de basis-servicelaag.
-* **Standard**: de Standard-servicelaag biedt verbeterde prestaties, voorspelbaarheid en biedt goede prestaties voor databases waarvoor meerdere gelijktijdige aanvragen, zoals werkgroep-en webtoepassingen. Als u een database van de laag Standard service kiest, u kunt het formaat van de databasetoepassing van uw op basis van de voorspelbare prestaties, minuut boven minuut.
-  * **Uw database heeft meerdere gelijktijdige aanvragen**. Toepassingen die meer dan één gebruiker op een tijdstip meestal moeten hoger compute-grootten. Werkgroep- of web-toepassingen die hebben lage tot gemiddelde i/o-verkeersvereisten voor ondersteuning van meerdere gelijktijdige query's zijn bijvoorbeeld geschikt voor de servicelaag Standard.
-* **Premium**: de Premium-servicelaag biedt voorspelbare prestaties, tweede via ten tweede voor elke database Premium en bedrijfskritiek. Als u de Premium-servicelaag kiest, kunt u het formaat van de databasetoepassing van uw op basis van de piekbelasting voor die database. Het plan wordt verwijderd gevallen in welke prestaties afwijking kleine query's langer duren dan verwacht in latentiegevoelige bewerkingen kan veroorzaken. Dit model kunt vereenvoudigen de ontwikkelings- en product validatie-cycli voor toepassingen die moeten sterke verklaringen over piek resource nodig heeft, afwijking van prestaties of latentie van query. De meeste Premium-laag service gebruiksvoorbeelden hebben een of meer van deze kenmerken:
-  * **Hoge piekbelasting**. Een toepassing die moet ingrijpende CPU, geheugen of input/output (I/O) om de bewerkingen te voltooien moet een speciale, hoog-compute-grootte. Een databasebewerking bekend is bij het gebruiken van verschillende CPU-kernen voor een langere periode is bijvoorbeeld een kandidaat voor de Premium-servicelaag.
-  * **Veel gelijktijdige aanvragen**. Sommige databasetoepassingen service veel gelijktijdige aanvragen, bijvoorbeeld bij het ophalen van een website die een volume met veel verkeer heeft. Basic en Standard-Servicelagen Beperk het aantal gelijktijdige aanvragen per database. Toepassingen waarvoor meer verbindingen moet een juiste reserveringsgrootte voor het afhandelen van het maximum aantal aanvragen voor benodigde kiezen.
-  * **Lage latentie**. Sommige toepassingen moeten garanderen dat een reactie van de database in een minimale tijd. Als een specifieke opgeslagen procedure wordt aangeroepen als onderdeel van een bredere klant-bewerking, wellicht u een vereiste om een retour-aanroep die in 99 procent van de tijd niet meer dan 20 milliseconden. Dit type toepassing profiteren van de Premium-servicelaag, om ervoor te zorgen dat de vereiste rekenkracht beschikbaar is.
 
 De servicelaag die u nodig hebt voor uw SQL-database, is afhankelijk van de vereisten voor het laden van piek voor elke resourcedimensie. Sommige toepassingen een trivial bedrag van één resource gebruiken, maar belangrijke vereisten voor andere resources.
 
 ### <a name="service-tier-capabilities-and-limits"></a>Service tier mogelijkheden en beperkingen
 
-Op elke servicelaag instelt u de compute-grootte, zodat u de flexibiliteit om te betalen alleen voor de capaciteit die u nodig hebt. U kunt [capaciteit aanpassen](sql-database-service-tiers-dtu.md), omhoog of omlaag, als de workload wordt gewijzigd. Als de werkbelasting van uw database tijdens de back-naar-school winkelwagen seizoen hoog is, kunt u de compute-grootte voor de database verhogen voor een bepaalde tijd, juli tot en met September. U kunt deze beperken wanneer uw seizoen piek is beëindigd. U betaalt door het optimaliseren van uw cloudomgeving de periodieke variatie van uw bedrijf, kunt u minimaliseren. Dit model werkt ook goed voor introductiecycli voor software-product. Een testteam kan capaciteit toewijzen tijdens deze wordt uitgevoerd test en laat u deze capaciteit wanneer ze klaar bent met testen. In een model van de aanvraag capaciteit betaalt u voor capaciteit als u dit nodig hebt, en besparen op specifieke resources die u zelden gebruikt.
+Op elke servicelaag instelt u de compute-grootte, zodat u de flexibiliteit om te betalen alleen voor de capaciteit die u nodig hebt. U kunt [capaciteit aanpassen](sql-database-single-database-scale.md), omhoog of omlaag, als de workload wordt gewijzigd. Als de werkbelasting van uw database tijdens de back-naar-school winkelwagen seizoen hoog is, kunt u de compute-grootte voor de database verhogen voor een bepaalde tijd, juli tot en met September. U kunt deze beperken wanneer uw seizoen piek is beëindigd. U betaalt door het optimaliseren van uw cloudomgeving de periodieke variatie van uw bedrijf, kunt u minimaliseren. Dit model werkt ook goed voor introductiecycli voor software-product. Een testteam kan capaciteit toewijzen tijdens deze wordt uitgevoerd test en laat u deze capaciteit wanneer ze klaar bent met testen. In een model van de aanvraag capaciteit betaalt u voor capaciteit als u dit nodig hebt, en besparen op specifieke resources die u zelden gebruikt.
 
 ### <a name="why-service-tiers"></a>Waarom Servicelagen?
 Hoewel elke databaseworkload van een verschillen kan, is het doel van service-lagen voor voorspelbare prestaties op verschillende compute-grootten. Klanten met grootschalige database resourcevereisten kunnen werken in een meer specifieke omgeving.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 94e18b6a4fc367a9697078f8e0c1a307ae15d4be
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452680"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017938"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -137,7 +137,7 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md). 
-- [KB 4464226 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.1.99]( https://support.microsoft.com/help/4464226)
+- [KB 4465859 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.2.104](https://support.microsoft.com/help/4465859/)
 
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
@@ -230,8 +230,6 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - <!-- 2724873 - IS --> Bij het gebruik van de PowerShell-cmdlets **Start AzsScaleUnitNode** of **Stop-AzsScaleunitNode** voor het beheren van schaaleenheden, de eerste poging om te starten of stoppen van de schaaleenheid kan mislukken. Als de cmdlet voor de eerste keer uitvoert mislukt, wordt de cmdlet nogmaals uitvoeren. De tweede uitvoering moet slagen om de bewerking te voltooien. 
 
 - <!-- TBD - IS ASDK --> Wanneer u virtuele machines op de gebruikersportal van Azure Stack maakt, wordt een onjuist aantal gegevensschijven die aan een virtuele machine uit de DS-serie kunt koppelen door de portal weergegeven. DS-serie VM's kan zo veel gegevensschijven bevatten als de Azure-configuratie.
-
-- <!-- TBD - IS ASDK --> Als u een omgeving met meerdere tenants, inrichten van een virtuele machine met een beheerde schijf in een abonnement niet behoren tot de standaardtenant is mislukt met de volgende fout: *de resourcebewerking is voltooid met afgesloten Inrichtingsstatus 'Mislukt'.*
 
 - <!-- TBD - IS ASDK --> Als een uitbreiding op een VM-implementatie de inrichting te lang duurt, laat gebruikers de time-out van de inrichting in plaats van bij stoppen van de procedure voor de toewijzing ongedaan of verwijder de virtuele machine.  
 

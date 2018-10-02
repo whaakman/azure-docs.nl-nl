@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 4b418db3c4d9876a739ce94539a6f48402332a86
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394893"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585744"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informatie over Azure-reservering gebruik voor uw Enterprise-inschrijving
 
@@ -51,9 +51,11 @@ U kunt het zakelijke gebruik van CSV-bestand downloaden van de Enterprise portal
 3. **ID meten** is de meter reservering met de kosten van $0. De kosten van de actieve virtuele machine wordt betaald door de gereserveerde VM-instantie.
 4. Standard_D1 is één vCPU VM en de virtuele machine wordt geïmplementeerd zonder Azure Hybrid Benefit. Zodat deze meter bevat informatie over de extra kosten in rekening gebracht van de Windows-software. De meter die overeenkomt met de D-serie 1-core VM Zie [softwarekosten voor Azure gereserveerde VM-exemplaren Windows](billing-reserved-instance-windows-software-costs.md).  Hebt u Azure Hybrid Benefit, worden deze extra kosten wordt niet toegepast.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Gebruik voor SQL-Database gereserveerde capaciteitsreserveringen
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Gebruik voor SQL-Database en Cosmos DB gereserveerde capaciteitsreserveringen
 
-Voor de volgende secties wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
+De volgende secties voor het gebruik van Azure SQL Database als voorbeeld voor het beschrijven van het gebruiksrapport. U kunt dezelfde stappen voor het ophalen van gebruik van Azure Cosmos DB is het ook gebruiken. 
+
+Wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
 
 | Veld | Waarde |
 |---| --- |
@@ -62,9 +64,9 @@ Voor de volgende secties wordt ervan uitgegaan dat u een SQL-Database Gen 4 word
 |Product| SQL Database Gen 4 (2 Kerngeheugens)|
 |Regio | eastus |
 
-### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>Gebruik in CSV-bestand voor SQL-Database gereserveerde capaciteit
+### <a name="usage-in-csv-file"></a>Gebruik in CSV-bestand 
 
-Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De volgende schermafbeelding ziet u de velden met betrekking tot de reservering.
+Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**, en kies de vereiste **Metercategorie** -Azure SQL database of Azure Cosmos DB. De volgende schermafbeelding ziet u de velden met betrekking tot de reservering.
 
 ![Enterprise Agreement (EA)-csv voor SQL-Database gereserveerde capaciteit](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
@@ -94,3 +96,4 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.
+

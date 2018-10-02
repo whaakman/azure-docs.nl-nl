@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 3989ff6e8ef600500f1c3dcc292d4385d6fb4a8b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 377f28f4798a1ffb6423c1f4d9f4e34b4fc60234
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162560"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018839"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
 ## <a name="quotas-and-throttling"></a>Quota en beperkingen
+
 Elk Azure-abonnement zijn maximaal 50 IoT-hubs en maximaal 1 gratis hub.
 
-Elke IoT-hub is ingericht met een bepaald aantal eenheden in een bepaalde laag. De laag en het aantal eenheden bepalen de maximale dagelijkse quotum voor berichten die u kunt verzenden. De grootte van het bericht gebruikt voor het berekenen van dat het dagelijkse quotum is 0,5 KB voor een gratis laag-hub en 4KB voor alle andere lagen. Zie voor meer informatie, [prijzen van Azure IoT Hub][lnk-pricing].
+Elke IoT-hub is ingericht met een bepaald aantal eenheden in een bepaalde laag. De laag en het aantal eenheden bepalen de maximale dagelijkse quotum voor berichten die u kunt verzenden. De grootte van het bericht gebruikt voor het berekenen van dat het dagelijkse quotum is 0,5 KB voor een gratis laag-hub en 4KB voor alle andere lagen. Zie voor meer informatie, [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 De laag bepaalt ook de bandbreedteregeling limieten die IoT Hub wordt afgedwongen op alle bewerkingen.
 
 ## <a name="operation-throttles"></a>Vertragingen in bewerking
+
 Bewerking vertragingen zijn tarief beperkingen die worden toegepast in minuut bereiken en zijn bedoeld om misbruik te voorkomen. IoT-Hub probeert om te voorkomen dat fouten indien mogelijk worden geretourneerd, maar begint retourneren `429 ThrottlingException` als de vertraging wordt geschonden te lang.
 
 Op elk moment kunt u quota's of beperkingslimieten verhogen door het aantal ingerichte eenheden in een IoT-hub.
@@ -53,10 +55,10 @@ De *apparaatverbindingen* vertraging bepaalt de snelheid waarmee nieuwe apparaat
 
 Bijvoorbeeld, als u één S1-eenheid koopt, krijgt u een vertraging van 100 verbindingen per seconde. Dus als u wilt verbinding maken met 100.000 apparaten, duurt het ten minste 1000 seconden (ongeveer 16 minuten). U kunt echter zo veel gelijktijdig verbonden apparaten als er apparaten zijn geregistreerd in uw register-id's hebben.
 
-Voor een uitgebreide beschrijving van IoT-Hub beperkingsgedrag, Zie het blogbericht [beperking IoT-Hub en u][lnk-throttle-blog].
+Voor een uitgebreide beschrijving van IoT-Hub beperkingsgedrag, Zie het blogbericht [beperking IoT-Hub en u](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 
 > [!IMPORTANT]
-> Registerbewerkingen voor identiteit zijn bedoeld voor gebruik tijdens runtime in Apparaatbeheer en de inrichting van scenario's. Lezen of bijwerken van een groot aantal apparaat-id's wordt ondersteund door [importeren en exporteren van taken][lnk-importexport].
+> Registerbewerkingen voor identiteit zijn bedoeld voor gebruik tijdens runtime in Apparaatbeheer en de inrichting van scenario's. Lezen of bijwerken van een groot aantal apparaat-id's wordt ondersteund door [importeren en exporteren van taken](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 > 
 > 
 
@@ -90,19 +92,11 @@ IoT Hub streeft ernaar voor lage latentie voor alle bewerkingen. Echter, vanwege
 * Overweeg het gebruik van Azure IoT Edge latentiegevoelige bewerkingen uitvoeren op het apparaat of op een gateway dicht bij het apparaat.
 
 Meerdere IoT Hub-eenheden van invloed zijn op beperking zoals eerder beschreven, maar niet beschikken over alle voordelen van de extra latentie of garanties.
+
 Als u onverwachte verhogingen in operationele latentie wordt weergegeven, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Er zijn andere onderwerpen met naslaginformatie in deze IoT Hub developer guide:
 
-* [IoT Hub-eindpunten][lnk-devguide-endpoints]
-* [IoT Hub-querytaal voor apparaatdubbels, taken en berichtroutering][lnk-devguide-query]
-* [IoT Hub MQTT-ondersteuning][lnk-devguide-mqtt]
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+* [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md)

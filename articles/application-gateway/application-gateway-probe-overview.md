@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531096"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018705"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway overzicht van statuscontrole
 
@@ -96,7 +96,7 @@ De volgende tabel bevat de definities voor de eigenschappen van een aangepaste s
 
 Als er een netwerkbeveiligingsgroep (NSG) op het subnet van een toepassingsgateway, moeten poortbereiken 65503 65534 worden geopend op het subnet van de gateway voor binnenkomend verkeer. Deze poorten zijn vereist voor de status van de back-end-API voor het werken.
 
-Bovendien uitgaande verbinding met Internet kan niet worden geblokkeerd en verkeer van de tag AzureLoadBalancer moet worden toegestaan.
+Bovendien uitgaande verbinding met Internet kan niet worden geblokkeerd en binnenkomend verkeer die afkomstig zijn van de tag AzureLoadBalancer moet worden toegestaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u meer over Application Gateway-statuscontrole, kunt u een [aangepaste statustest](application-gateway-create-probe-portal.md) in Azure portal of een [aangepaste statustest](application-gateway-create-probe-ps.md) met behulp van PowerShell en Azure Resource Manager implementatiemodel.

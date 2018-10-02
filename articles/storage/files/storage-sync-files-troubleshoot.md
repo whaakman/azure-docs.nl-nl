@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ef70d3d3dd2a806ea978be8e996b7d5ba0fbc96b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409470"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586356"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -236,7 +236,7 @@ Als u wilt zien deze fouten, voer de **FileSyncErrorsReport.ps1** PowerShell-scr
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Een bestand is gewijzigd tijdens de synchronisatie; dit bestand moet daarom opnieuw worden gesynchroniseerd. | Er is geen actie vereist. |
 
 #### <a name="handling-unsupported-characters"></a>Verwerking van niet-ondersteunde tekens
-Als de **FileSyncErrorsReport.ps1** PowerShell-script bevat fouten vanwege niet-ondersteunde tekens (0x7b-foutcodes en 0x8007007b), moet u Verwijder of wijzig de naam van de tekens op fouten van de betreffende bestanden. PowerShell wordt deze tekens als vraagtekens of lege rechthoeken waarschijnlijk afdrukken, omdat de meeste van deze tekens geen standaard visuele codering hebben. De [evaluatiecriteria hulpprogramma](storage-sync-files-planning.md#evaluation-tool) kan worden gebruikt voor het identificeren van de tekens die niet worden ondersteund.
+Als de **FileSyncErrorsReport.ps1** PowerShell-script bevat fouten vanwege niet-ondersteunde tekens (0x7b-foutcodes en 0x8007007b), moet u Verwijder of wijzig de naam van de tekens op fouten van de respectieve bestandsnamen. PowerShell wordt deze tekens als vraagtekens of lege rechthoeken waarschijnlijk afdrukken, omdat de meeste van deze tekens geen standaard visuele codering hebben. De [evaluatieprogramma](storage-sync-files-planning.md#evaluation-tool) kan worden gebruikt voor het identificeren van de tekens die niet worden ondersteund.
 
 De onderstaande tabel bevat alle van de Azure File Sync biedt nog geen ondersteuning voor unicode-tekens.
 

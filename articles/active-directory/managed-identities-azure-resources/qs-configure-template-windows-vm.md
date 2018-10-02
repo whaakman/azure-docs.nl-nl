@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223426"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018482"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van een sjablonen
 
@@ -188,7 +188,7 @@ Als u een virtuele machine die een door het systeem toegewezen beheerde identite
 
    Als uw virtuele machine zowel de systeem- en de gebruiker toegewezen beheerde identiteiten is, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `userAssignedIdentities` woordenlijst waarden.
 
-   **Microsoft.Compute/virtualMachines API-versie 2018-06-01 en oudere versies**
+   **Microsoft.Compute/virtualMachines API-versie 2018-06-01**
    
    Als uw `apiVersion` is `2017-12-01` en uw virtuele machine heeft zowel system en beheerde identiteiten gebruiker toegewezen verwijderen `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten beheerd.  
    
@@ -235,7 +235,7 @@ In deze sectie maakt u een gebruiker toegewezen beheerde identiteit met een Azur
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API-versie 2017-12-01 en oudere versies**
+   **Microsoft.Compute/virtualMachines API-versie 2017-12-01**
     
    Als uw `apiVersion` is `2017-12-01`, uw beheerde gebruiker toegewezen identiteiten worden opgeslagen in de `identityIds` matrix en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de `variables` gedeelte van uw sjabloon.
     
@@ -316,7 +316,7 @@ In deze sectie maakt u een gebruiker toegewezen beheerde identiteit met een Azur
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API-versie 2017-12-01 en oudere versies**
+   **Microsoft.Compute/virtualMachines API-versie 2017-12-01**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Als u een virtuele machine die een gebruiker toegewezen beheerde identiteit niet
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API-versie 2018-06-01 en oudere versies**
+   **Microsoft.Compute/virtualMachines API-versie 2018-06-01**
     
    Als u een enkele gebruiker toegewezen beheerde identiteit van een virtuele machine, wilt verwijderen uit de `useraAssignedIdentities` woordenlijst.
 

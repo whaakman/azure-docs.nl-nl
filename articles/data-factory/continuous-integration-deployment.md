@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: douglasl
-ms.openlocfilehash: ff112459ef23930329fc1959a633bd6f505893a1
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: aa8572ea0195891657baf3df1916ce0b4f36f788
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419592"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018805"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
@@ -112,6 +112,11 @@ Hier volgen de stappen voor het instellen van een Azure-pijplijnen release, zoda
     f.  Selecteer **...** naast de **overschrijven Sjabloonparameters** veld en vul de gegevens voor het doel van Data Factory. Voor de referenties die worden geleverd vanuit key vault, gebruikt u dezelfde naam voor het geheim in de volgende indeling: ervan uitgaande dat de naam van het geheim is `cred1`, voer `"$(cred1)"` (tussen aanhalingstekens).
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
+
+    g. Selecteer de **incrementele** Implementatiemodus.
+
+    > [!WARNING]
+    > Als u selecteert **voltooid** implementatiemodus, bestaande bronnen kan worden verwijderd, met inbegrip van de doelresourcegroep.
 
 1.  Sla de release-pijplijn.
 

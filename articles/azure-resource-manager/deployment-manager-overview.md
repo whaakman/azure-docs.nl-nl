@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8bc1165d131c593d5f4697b20166b72605ad488
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228416"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585795"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Implementatie van veilige procedures met Azure Deployment Manager (openbare Preview) inschakelen
 
@@ -220,7 +220,7 @@ Zie voor meer informatie, [stappen sjabloonverwijzing](/azure/templates/Microsof
 
 ### <a name="rollouts"></a>Implementaties
 
-Als u wilt controleren of dat de bron-artefact beschikbaar is, de implementatie is afhankelijk van het. De implementatie definieert groepen van stappen voor elke service-eenheid die is geïmplementeerd. Hier kunt u acties moet uitvoeren vóór of na de implementatie. U kunt bijvoorbeeld opgeven dat de implementatie wordt gewacht nadat de service-eenheid is geïmplementeerd. 
+Als u wilt controleren of dat de bron-artefact beschikbaar is, de implementatie is afhankelijk van het. De implementatie definieert groepen van stappen voor elke service-eenheid die is geïmplementeerd. Hier kunt u acties moet uitvoeren vóór of na de implementatie. U kunt bijvoorbeeld opgeven dat de implementatie wordt gewacht nadat de service-eenheid is geïmplementeerd. U kunt de volgorde van de groepen stap definiëren.
 
 Hiermee geeft u op het object identiteit het [gebruiker toegewezen beheerde identiteit](#identity-and-access) die acties voor de implementatie wordt uitgevoerd.
 
@@ -248,6 +248,7 @@ Het volgende voorbeeld ziet de algemene indeling van de implementatie.
         "stepGroups": [
             {
                 "name": "stepGroup1",
+                "dependsOnStepGroups": ["<step-group-name>"],
                 "preDeploymentSteps": ["<step-ID>"],
                 "deploymentTargetId":
                     "<service-unit-ID>",

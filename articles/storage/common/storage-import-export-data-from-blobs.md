@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735083"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585710"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>De Azure Import/Export-service gebruiken voor het exporteren van gegevens uit Azure Blob storage
 In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Import/Export-service veilig grote hoeveelheden gegevens exporteren uit Azure Blob-opslag. De service vereist dat u voor het verzenden van lege stations in de Azure-datacenter. De service exporteert gegevens van uw opslagaccount naar de stations en wordt vervolgens geleverd de schijven terug.
@@ -60,7 +60,7 @@ Voer de volgende stappen uit voor het maken van een exporttaak bekijken in Azure
 3. In **taakgegevens**:
 
     - Selecteer het opslagaccount waarin de gegevens worden geëxporteerd zich bevindt. Gebruik een opslagaccount dicht bij waar u zich bevinden.
-    - De afgiftelocatie wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd. 
+    - De locatie dropoff wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd. 
     - Geef de blob-gegevens die u wilt exporteren uit uw opslagaccount naar de lege schijf of schijven. 
     - Kies aan **exporteren alle** blob-gegevens in de storage-account.
     

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: eebe41ea879ad34defadd08ce3095f7f6edca4d8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4dafab089e6ac4bbf4fb9441d995983ce5b58150
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719797"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016871"
 ---
 # <a name="about-the-text-to-speech-api"></a>Over de Text to Speech-API
 
@@ -34,13 +34,13 @@ In welke spraak synthese wordt toegepast scenario's omvatten:
 
 ## <a name="voice-support"></a>Voice-ondersteuning
 
-De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor de details van de stemmen wordt ondersteund, [ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
+De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor de details van de stemmen wordt ondersteund, [ondersteunde talen](language-support.md#text-to-speech). 
 
 Als u een unieke stem voor uw toepassing wilt, kunt u [aangepaste spraakstijlen](how-to-customize-voice-font.md) uit uw eigen voorbeelden van spraak.
 
 ## <a name="api-capabilities"></a>API-functies
 
-Veel van de mogelijkheden van de **tekst naar spraak** API - met name wat betreft aanpassing - zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Voor een volledige lijst van de mogelijkheden en -API. Raadpleeg details [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Veel van de mogelijkheden van de **tekst naar spraak** API, met name wat betreft de aanpassing, zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Raadpleeg voor een volledige lijst van de mogelijkheden en API-details, [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/),
 
 | Use-case | REST | SDK's |
 |-----|-----|-----|----|

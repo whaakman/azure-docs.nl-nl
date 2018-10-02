@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055536"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018975"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpassen voor uw Service Fabric-cluster. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Voor zelfstandige clusters, kunt u instellingen aanpassen door het bijwerken van het bestand ClusterConfig.json en een configuratie-upgrade uitvoert op uw cluster. 
@@ -352,6 +352,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ApplicationUpgradeTimeout| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(360)|Dynamisch| Interval in seconden opgeven. De time-out voor upgrade van de toepassing. Als de time-out minder is dan de deployer "ActivationTimeout" mislukken. |
 |ContainerServiceArguments|tekenreeks, standaardwaarde is "-H localhost: 2375 -H npipe: / /"|Statisch|Service Fabric (SF) beheert docker-daemon (behalve op windows-clientcomputers, zoals Win10). Deze configuratie kan de gebruiker om op te geven van de aangepaste argumenten die moeten worden doorgegeven aan docker-daemon bij het starten van het. Wanneer er aangepaste argumenten zijn opgegeven, Service Fabric niet een van de andere argumenten doorgegeven aan Docker-engine, behalve '--pidfile' argument. Daarom mag geen gebruikers opgegeven '--pidfile' argument als onderdeel van de argumenten van de klant. De aangepaste argumenten moeten zorg er ook voor dat docker daemon luistert op de standaard benoemde pipe voor Windows (of Unix-domeinsocket voor Linux) voor Service Fabric om te communiceren met het.|
 |ContainerServiceLogFileMaxSizeInKb|int, standaard is 32768|Statisch|Maximale bestandsgrootte van logboekbestand gegenereerd door de docker-containers.  Alleen Windows.|
+|ContainerImagesToSkip|tekenreeks, afbeelding-namen gescheiden door verticale lijn teken, de standaardwaarde is ""|Statisch|De naam van een of meer containerinstallatiekopieën die niet moeten worden verwijderd.  Met de parameter PruneContainerImages gebruikt.|
 |ContainerServiceLogFileNamePrefix|tekenreeks, standaard is "sfcontainerlogs"|Statisch|Voorvoegsel van bestandsnaam voor de logboekbestanden die worden gegenereerd door de docker-containers.  Alleen Windows.|
 |ContainerServiceLogFileRetentionCount|Int, de standaardwaarde is 10|Statisch|Aantal logboekbestanden die worden gegenereerd door de docker-containers voordat de logboekbestanden worden overschreven.  Alleen Windows.|
 |CreateFabricRuntimeTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. De time-outwaarde voor de synchronisatie FabricCreateRuntime aanroepen |
@@ -375,6 +376,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |NTLMAuthenticationPasswordSecret|SecureString, de standaardwaarde is Common::SecureString("")|Statisch|Is dat een versleutelde heeft die wordt gebruikt voor het genereren van het wachtwoord voor NTLM-gebruikers. Moet worden ingesteld als NTLMAuthenticationEnabled ingesteld op true is. Gevalideerd door de implementatie. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(3)|Dynamisch|Interval in seconden opgeven. Omgeving-specifieke instellingen voor het periodiek interval op welke Hosting scant op nieuwe certificaten worden gebruikt voor de configuratie van FileStoreService NTLM. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(4)|Dynamisch| Interval in seconden opgeven. De time-out voor het configureren van NTLM-gebruikers met behulp van de algemene naam van het certificaat. De NTLM-gebruikers nodig zijn voor FileStoreService shares. |
+|PruneContainerImages|BOOL, standaard is ingesteld op FALSE|Dynamisch| Niet-gebruikte toepassing containerinstallatiekopieën uit knooppunten verwijderen. Wanneer een ApplicationType bij de Service Fabric-cluster ongedaan gemaakt wordt, wordt de containerinstallatiekopieën die zijn gebruikt door deze toepassing op waar het is gedownload door de Service Fabric-knooppunten worden verwijderd. De verwijdering per uur wordt uitgevoerd, zodat het duurt maximaal één uur (plus tijd te verwijderen van de installatiekopie) voor installatiekopieën worden verwijderd uit het cluster.<br>Service Fabric wordt nooit downloaden of verwijderen van installatiekopieën die niet gerelateerd aan een toepassing.  Niet-gerelateerde afbeeldingen die zijn gedownload handmatig of anderszins moeten expliciet worden verwijderd.<br>Installatiekopieën die niet moeten worden verwijderd, kunnen worden opgegeven in de parameter ContainerImagesToSkip.| 
 |RegisterCodePackageHostTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. De time-outwaarde voor de FabricRegisterCodePackageHost sync-aanroep. Dit is van toepassing voor alleen meerdere code pakket application hosts, zoals FWP |
 |RequestTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Dynamisch| Interval in seconden opgeven. Hiermee wordt de time-out voor de communicatie tussen de toepassingshost en Fabric-proces voor verschillende hosting gerelateerde bewerkingen, zoals factory registratie; van de gebruiker Runtime-registratie. |
 |RunAsPolicyEnabled| BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee schakelt u de codepakketten uitvoeren als lokale gebruiker dan de gebruiker onder welke infrastructuur proces wordt uitgevoerd. Om in te schakelen van dit beleid de Fabric moet worden uitgevoerd als systeem of als de gebruiker die SeAssignPrimaryTokenPrivilege heeft. |

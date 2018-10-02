@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5b5a13c5a655260bde0496cb2289aec8a55e4b21
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165531"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017034"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Een aangepaste wake-woord maken met behulp van de Speech-service
 
@@ -49,30 +49,29 @@ Voordat u een aangepaste wake word met uw apparaat gebruiken kunt, moet u het wo
 
 1. Ga naar de [Custom Speech serviceportal](https://cris.ai/).
 
-2. Een nieuw account maken met het e-mailadres waarmee u de uitnodiging voor Azure Active Directory ontvangen. 
+1. Een nieuw account maken met het e-mailadres waarmee u de uitnodiging voor Azure Active Directory ontvangen. 
 
     ![Een nieuw account maken](media/speech-devices-sdk/wake-word-1.png)
  
-3.  Nadat u zich hebt aangemeld, vul het formulier in en selecteer vervolgens **Start Mijn reis**.
+1.  Nadat u zich hebt aangemeld, vul het formulier in en selecteer vervolgens **Start Mijn reis**.
 
     ![aangemeld](media/speech-devices-sdk/wake-word-3.png)
  
-4. De **aangepaste Wake Word** pagina is niet beschikbaar voor het publiek, dus er is geen directe koppeling waarmee u er gaat. De functie voor aangepaste spraak vereist een Azure-abonnementen, maar de functie aangepaste Wake Word niet. Als u de **geen abonnementen gevonden.** foutpagina, alleen vervangen de **"abonnementen? errorMessage = geen % 20Subscriptions % 20found"** met '**customkws**' in de URL en op ENTER. De URL moet een van de volgende: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws of https://northeurope.cris.ai/customkws, afhankelijk van waar uw regio is.   
-
+1. De **aangepaste Wake Word** pagina is niet beschikbaar voor het publiek, dus er is geen directe koppeling waarmee u er gaat. De functie voor aangepaste spraak vereist een Azure-abonnementen, maar de functie aangepaste Wake Word niet. Als u de **geen abonnementen gevonden.** foutpagina, alleen vervangen de **"abonnementen? errorMessage = geen % 20Subscriptions % 20found"** met '**customkws**' in de URL en op ENTER. De URL moet een van de volgende: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws of https://northeurope.cris.ai/customkws, afhankelijk van waar uw regio is.
 
     ![De pagina aangepaste Wake Word is verborgen](media/speech-devices-sdk/wake-word-4.png)
  
-6. Typ in het woord wake van uw keuze, en selecteer vervolgens **verzenden van het woord**.
+1. Typ in het woord wake van uw keuze, en selecteer vervolgens **verzenden van het woord**.
 
     ![Voer uw wake-woord](media/speech-devices-sdk/wake-word-5.png)
  
-7. Het duurt een paar minuten de bestanden die worden gegenereerd. Hier ziet u een draaiende cirkel in het browservenster. Kort daarna een informatiebalk wordt weergegeven waarin u een zipbestand te downloaden.
+1. Het duurt een paar minuten de bestanden die worden gegenereerd. Hier ziet u een draaiende cirkel in het browservenster. Kort daarna een informatiebalk wordt weergegeven waarin u een zipbestand te downloaden.
 
     ![Ontvangen van het ZIP-bestand](media/speech-devices-sdk/wake-word-6.png)
 
-8. Sla het ZIP-bestand op uw computer. U moet dit bestand op het woord aangepaste wake development kit implementeren. Volg de instructies in voor het implementeren van het woord aangepaste wake [aan de slag met de SDK van de apparaten spraak](speech-devices-sdk-qsg.md).
+1. Sla het ZIP-bestand op uw computer. U moet dit bestand op het woord aangepaste wake development kit implementeren. Volg de instructies in voor het implementeren van het woord aangepaste wake [aan de slag met de SDK van de apparaten spraak](speech-devices-sdk-qsg.md).
 
-9. Selecteer **Meld u af.**
+1. Selecteer **Meld u af.**
 
 ## <a name="next-steps"></a>Volgende stappen
 

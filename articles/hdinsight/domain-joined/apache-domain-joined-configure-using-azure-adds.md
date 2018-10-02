@@ -8,12 +8,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eb24aa0471604696de99f4878baef764cfef0a8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6cfe587abadf8350fecc497b1af1cea9700f4f28
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408351"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018715"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster configureren met Enterprise-beveiligingspakket met behulp van Azure Active Directory Domain Services
 
@@ -44,6 +44,10 @@ De status van uw Azure Active Directory Domain Services weergeven door te select
 ![Azure Active Directory Domain Services-status](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
 ## <a name="add-managed-identity"></a>Beheerde identiteit toevoegen
+
+Maak een beheerde identiteit voor de gebruiker toegewezen als u er nog geen hebt. Zie [maken, lijst, verwijderen of wijs een rol aan een gebruiker toegewezen beheerde identiteit met Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) voor instructies. 
+
+De beheerde identiteit wordt gebruikt om domain services-bewerkingen te vereenvoudigen. Deze identiteit heeft toegang tot het lezen, maken, wijzigen en verwijderen van domain services-bewerkingen die nodig zijn voor de HDInsight Enterprise-beveiligingspakket, zoals het maken van de organisatie-eenheden en principes van de service.
 
 Nadat u Azure AD DS-hebt ingeschakeld, maken van een gebruiker toegewezen beheerde identiteit en wijs deze toe aan de **HDInsight Domain Services Inzender** rol in Azure AD DS-toegangsbeheer.
 

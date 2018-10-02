@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c30d531876ae7c69c164bc1d73103e493aaaa8fa
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165173"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018299"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Record stem voorbeelden voor het maken van een aangepaste spraak
 
@@ -38,7 +38,7 @@ Opname-engineer  |Houdt toezicht op de technische aspecten van de opname en werk
 Directeur            |Het script wordt voorbereid en prestaties van de stem-talent coaches.
 Editor              |Hiermee wordt de audio-bestanden en bereidt u deze voor het uploaden naar de portal voor aangepaste spraak.
 
-Een individu kan meer dan één rol vult. Deze handleiding wordt ervan uitgegaan dat u wordt worden voornamelijk invullen van de rol van de directeur inhuren van zowel een stem talent en een technicus opnemen. Als u wilt maken van de opnamen zelf, in dit artikel bevat informatie over de rol van de technicus opnemen. De rol van editor is niet pas na de sessie, dus kunnen worden uitgevoerd door de engineer van de opname director nodig.
+Een individu kan meer dan één rol vult. Deze handleiding wordt ervan uitgegaan dat u wordt worden voornamelijk invullen van de rol van de directeur inhuren van zowel een stem talent en een technicus opnemen. Als u wilt maken van de opnamen zelf, in dit artikel bevat informatie over de rol van de technicus opnemen. De rol van editor is niet pas na de sessie, dus kunnen worden uitgevoerd door de directeur of de opname-engineer nodig.
 
 ## <a name="choose-your-voice-talent"></a>Kies uw stem talent
 

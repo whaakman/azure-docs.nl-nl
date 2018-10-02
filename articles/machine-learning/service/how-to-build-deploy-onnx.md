@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1350c543990963f8f860d9dd1da5670d3a1e990c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434069"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585557"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX- en Azure Machine Learning: maken en interoperabele AI-modellen implementeren
 
@@ -28,7 +28,7 @@ Microsoft biedt ondersteuning voor ONNX voor de producten, waaronder Azure en Wi
 ## <a name="why-choose-onnx"></a>Waarom kiezen voor ONNX?
 De interoperabiliteit waarover u met ONNX beschikt maakt het mogelijk is om op te halen van de briljante ideeën sneller naar productie. Gegevenswetenschappers kunnen ONNX, hun favoriete framework voor de taak kiezen. Ontwikkelaars kunnen op dezelfde manier besteed minder tijd aan modellen gereed voor productie aan en implementeer in de cloud en edge.  
 
-U kunt ONNX-modellen uit veel frameworks, waaronder PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet en ML.Net exporteren. Conversieprogramma's bestaan voor andere frameworks, zoals TensorFlow, Keras, SciKit meer en meer.
+U kunt ONNX-modellen maken van veel frameworks, waaronder PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit meer en meer.
 
 Er is ook een ecosysteem van hulpprogramma's voor het visualiseren en aan het verkorten van ONNX-modellen. Een aantal vooraf getrainde ONNX-modellen zijn ook beschikbaar voor algemene scenario's.
 
@@ -36,18 +36,17 @@ Er is ook een ecosysteem van hulpprogramma's voor het visualiseren en aan het ve
 
 [ ![ONNX flow diagram van training, conversieprogramma's en implementatie](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
 
-## <a name="create-onnx-models-in-azure"></a>U kunt ONNX-modellen maken in Azure
+## <a name="get-onnx-models"></a>U kunt ONNX-modellen
 
-U kunt ONNX-modellen maken op verschillende manieren:
-+ Een model in de service Azure Machine Learning te trainen en converteren of exporteren naar de ONNX (Zie het voorbeeld onder aan dit artikel)
+U kunt ONNX-modellen op verschillende manieren verkrijgen:
++ Ophalen van een vooraf getrainde ONNX-model van de [ONNX Model Zoo](https://github.com/onnx/models) (Zie het voorbeeld onder aan dit artikel)
++ Genereren van een aangepaste ONNX-model van [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Bestaande model vanuit een andere indeling converteren naar ONNX (Zie het voorbeeld onder aan dit artikel) 
++ Traint u een nieuwe ONNX-model in Azure Machine Learning-service (Zie het voorbeeld onder aan dit artikel)
 
-+ Ophalen van een vooraf getrainde ONNX-model van de [ONNX Model Zoo](https://github.com/onnx/models)
+## <a name="saveconvert-your-models-to-onnx"></a>Uw ONNX-modellen opslaan/converteren
 
-+ Genereren van een aangepaste ONNX-model van [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
-
-## <a name="exportconvert-your-models-to-onnx"></a>Uw ONNX-modellen exporteren/converteren
-
-U kunt ook uw bestaande modellen converteren naar de ONNX.
+U kunt bestaande modellen converteren naar ONNX of opslaat als ONNX aan het einde van uw training.
 
 |Framework voor model|Conversievoorbeeld van de of hulpprogramma|
 |-----|-------|
@@ -172,10 +171,11 @@ Hier volgt een voorbeeld voor het implementeren van een ONNX-model:
 
    Het bestand `myenv.yml` beschrijft de afhankelijkheden die nodig zijn voor de installatiekopie. Raadpleeg deze [zelfstudie](tutorial-deploy-models-with-aml.md#create-environment-file) voor instructies over het maken van een omgevingsbestand, zoals dit voorbeeldbestand:
 
-   ```
+   ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
    myenv = CondaDependencies()
+   myenv.add_pip_package("numpy")
    myenv.add_pip_package("azureml-core")
    myenv.add_pip_package("onnxruntime")
 
@@ -191,9 +191,13 @@ Hier volgt een voorbeeld voor het implementeren van een ONNX-model:
 
 ## <a name="examples"></a>Voorbeelden
  
-De volgende notebooks laten zien hoe u kunt ONNX-modellen met Azure Machine Learning implementeren: 
-+ `/onnx/onnx-inference-mnist.ipynb`
- 
+De volgende notebooks laten zien hoe u kunt ONNX-modellen maken en deze implementeren met Azure Machine Learning: 
++ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
++ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
++ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
+
+De volgende notebooks laten zien hoe u bestaande ONNX-modellen met Azure Machine Learning implementeren: 
++ `/onnx/onnx-inference-mnist.ipynb` 
 + `/onnx/onnx-inference-emotion-recognition.ipynb`
  
 Dit notitieblok ophalen:

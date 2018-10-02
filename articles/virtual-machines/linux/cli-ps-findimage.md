@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/28/2018
+ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33ffb9d1685f3d76e884ae0d90545f659b5ec87c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953342"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018822"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Het Linux-VM-installatiekopieën zoeken in de Azure Marketplace met de Azure CLI
 In dit onderwerp wordt beschreven hoe u de Azure CLI gebruiken voor het VM-installatiekopieën zoeken in de Azure Marketplace. Deze informatie gebruiken om een Marketplace-installatiekopie opgeven wanneer u een virtuele machine via een programma met de CLI maken, Resource Manager-sjablonen of andere hulpprogramma's.
@@ -49,7 +49,7 @@ Offer          Publisher               Sku                 Urn                  
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
-openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+openSUSE-Leap  SUSE                    42.3                SUSE:openSUSE-Leap:42.3:latest                                  openSUSE-Leap        latest
 RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
@@ -71,6 +71,7 @@ Gedeeltelijke uitvoer:
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
+...
 Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
 Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
 Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
@@ -95,7 +96,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-Toepassen van vergelijkbare filters met de `--location`, `--publisher`, en `--sku` opties. U kunt gedeeltelijke overeenkomsten zelfs uitvoeren op een filter, zoals het zoeken naar `--offer Deb` alle Debian installatiekopieën vinden.
+Toepassen van vergelijkbare filters met de `--location`, `--publisher`, en `--sku` opties. U kunt gedeeltelijke overeenkomsten uitvoeren op een filter, zoals het zoeken naar `--offer Deb` alle Debian installatiekopieën vinden.
 
 Als u geen dat een bepaalde locatie met opgeeft de `--location` optie, de waarden voor de standaardlocatie worden geretourneerd. (Een andere standaardlocatie ingesteld door te voeren `az configure --defaults location=<location>`.)
 
@@ -146,21 +147,31 @@ Gedeeltelijke uitvoer:
 ```
 Location    Name
 ----------  ----------------------------------------------------
+westus      128technology
 westus      1e
 westus      4psa
+westus      5nine-software-inc
 westus      7isolutions
 westus      a10networks
 westus      abiquo
 westus      accellion
+westus      accessdata-group
+westus      accops
 westus      Acronis
 westus      Acronis.Backup
+westus      actian-corp
 westus      actian_matrix
 westus      actifio
 westus      activeeon
-westus      adatao
+westus      advantech-webaccess
+westus      aerospike
+westus      affinio
+westus      aiscaler-cache-control-ddos-and-url-rewriting-
+westus      akamai-technologies
+westus      akumina
 ...
 ```
-Gebruik deze informatie om aanbiedingen vinden van een bepaalde uitgever. Bijvoorbeeld, als *Canonical* uitgever van installatiekopieën is op de locatie VS-West, hun aanbiedingen vinden door te voeren `azure vm image list-offers`. Geef de locatie en de uitgever zoals in het volgende voorbeeld:
+Gebruik deze informatie om aanbiedingen vinden van een bepaalde uitgever. Bijvoorbeeld: voor de *Canonical* publisher op de locatie VS-West-aanbiedingen vinden door te voeren `azure vm image list-offers`. Geef de locatie en de uitgever zoals in het volgende voorbeeld:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -176,8 +187,6 @@ westus      Ubuntu15.04SnappyDocker
 westus      UbunturollingSnappy
 westus      UbuntuServer
 westus      Ubuntu_Core
-westus      Ubuntu_Snappy_Core
-westus      Ubuntu_Snappy_Core_Docker
 ```
 U ziet dat in de regio VS-West Canonical publiceert de *UbuntuServer* bieden op Azure. Maar welke SKU's? Uitvoeren als u deze waarden, `azure vm image list-skus` en stel de locatie, uitgever en aanbieding die u gedetecteerd:
 
@@ -192,9 +201,7 @@ Location    Name
 ----------  -----------------
 westus      12.04.3-LTS
 westus      12.04.4-LTS
-westus      12.04.5-DAILY-LTS
 westus      12.04.5-LTS
-westus      12.10
 westus      14.04.0-LTS
 westus      14.04.1-LTS
 westus      14.04.2-LTS
@@ -202,15 +209,14 @@ westus      14.04.3-LTS
 westus      14.04.4-LTS
 westus      14.04.5-DAILY-LTS
 westus      14.04.5-LTS
-westus      16.04-beta
 westus      16.04-DAILY-LTS
 westus      16.04-LTS
 westus      16.04.0-LTS
-westus      16.10
-westus      16.10-DAILY
-westus      17.04
-westus      17.04-DAILY
+westus      17.10
 westus      17.10-DAILY
+westus      18.04-DAILY-LTS
+westus      18.04-LTS
+westus      18.10-DAILY
 ```
 
 Gebruik tot slot de `az vm image list` opdracht om te bepalen van een specifieke versie van de SKU die u wilt, bijvoorbeeld *16.04-LTS*:
@@ -219,7 +225,7 @@ Gebruik tot slot de `az vm image list` opdracht om te bepalen van een specifieke
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
 ```
 
-Uitvoer:
+Gedeeltelijke uitvoer:
 
 ```
 Offer         Publisher    Sku        Urn                                               Version
@@ -238,17 +244,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703280  16.04.201703280
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703300  16.04.201703300
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705080  16.04.201705080
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707210  16.04.201707210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707270  16.04.201707270
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708030  16.04.201708030
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
+...
 ```
 
 U kunt nu precies de installatiekopie die u gebruiken wilt door de URN-waarde. Deze wordt doorgegeven met de `--image` parameter bij het maken van een virtuele machine met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. Houd er rekening mee dat u eventueel het versienummer in de URN door 'nieuwste vervangen kunt'. Deze versie is altijd de meest recente versie van de installatiekopie. 
@@ -258,12 +254,13 @@ Als u een virtuele machine met een Resource Manager-sjabloon implementeert, u in
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
 ### <a name="view-plan-properties"></a>Schema-eigenschappen weergeven
+
 Als u wilt weergeven van een installatiekopie aankoop plangegevens, voer de [az vm image show](/cli/azure/image#az_image_show) opdracht. Als de `plan` eigenschap in de uitvoer is niet `null`, de installatiekopie heeft voorwaarden moet u accepteren voordat u programmatische implementatie.
 
 Bijvoorbeeld, de Canonical Ubuntu Server 16.04 LTS-installatiekopie geen aanvullende voorwaarden, omdat de `plan` informatie `null`:
 
 ```azurecli
-az vm image show --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
 ```
 
 Uitvoer:
@@ -273,7 +270,7 @@ Uitvoer:
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
   "location": "westus",
-  "name": "16.04.201801260",
+  "name": "16.04.201809120",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -285,7 +282,7 @@ Uitvoer:
 Uitvoeren van een vergelijkbare opdracht voor het RabbitMQ Certified door Bitnami afbeelding ziet u de volgende `plan` eigenschappen: `name`, `product`, en `publisher`. (Sommige afbeeldingen hebben ook een `promotion code` eigenschap.) Zie de volgende secties aan de voorwaarden accepteren en programmatische implementatie inschakelen voor het implementeren van deze installatiekopie.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
+az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 Uitvoer:
 
@@ -294,7 +291,7 @@ Uitvoer:
   "dataDiskImages": [],
   "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1807171506",
+  "name": "3.7.1809211005",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -308,6 +305,7 @@ Uitvoer:
 ```
 
 ### <a name="accept-the-terms"></a>De voorwaarden accepteren
+
 Als u wilt weergeven en accepteer de licentievoorwaarden, gebruikt u de [az vm image accepteren-voorwaarden](/cli/azure/vm/image?#az_vm_image_accept_terms) opdracht. Wanneer u de voorwaarden accepteert, kunt u programmatische implementatie inschakelen in uw abonnement. U hoeft alleen te accepteren één keer per abonnement voor de installatiekopie. Bijvoorbeeld:
 
 ```azurecli
@@ -328,12 +326,13 @@ De uitvoer bevat een `licenseTextLink` aan de licentie voorwaarden en geeft aan 
   "product": "rabbitmq",
   "publisher": "bitnami",
   "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
-  "signature": "WVIEA3LAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNKLNLWI",
+  "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
 ```
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Implementeren met behulp van aankoop planning parameters
+
 Na de voorwaarden voor de installatiekopie te accepteren, kunt u een virtuele machine in het abonnement implementeren. De installatiekopie te implementeren met behulp van de `az vm create` opdracht, parameters voor het inkoopabonnement Daarnaast bieden aan een URN voor de installatiekopie. Als u bijvoorbeeld een virtuele machine met de RabbitMQ gecertificeerd door Bitnami-installatiekopie implementeren:
 
 ```azurecli
@@ -342,8 +341,6 @@ az group create --name myResourceGroupVM --location westus
 az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
 
 ```
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u wilt snel een virtuele machine maken met behulp van de informatie over de installatiekopie, Zie [maken en beheren van virtuele Linux-machines met de Azure CLI](tutorial-manage-vm.md).

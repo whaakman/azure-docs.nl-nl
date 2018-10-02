@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452527"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586050"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -99,7 +99,7 @@ Uw Azure Stack-implementatie mogelijk *verbonden* of *verbroken*.
 Wanneer u Azure Stack met Azure hebt geregistreerd, moet u een unieke registratie-naam opgeven. Een eenvoudige manier om uw Azure Stack-abonnement koppelen aan een registratie van Azure, is met uw Azure Stack **Cloud-ID**. 
 
 > [!NOTE]
-> Azure Stack-registraties met behulp van het factureringsmodel op basis van capaciteit moet de unieke naam wijzigen wanneer opnieuw te registreren nadat deze jaarlijkse abonnementen zijn verlopen.
+> Azure Stack-registraties met behulp van het factureringsmodel op basis van capaciteit, moet de unieke naam wijzigen bij het opnieuw registreren nadat deze jaarlijkse abonnementen zijn verlopen, tenzij u [verwijderen van de registratie van de verlopen](azure-stack-registration.md#change-the-subscription-you-use) en opnieuw te registreren bij Azure.
 
 Om te bepalen van de Cloud-ID voor uw Azure Stack-implementatie, opent u PowerShell als beheerder op een computer dan toegang tot de bevoorrechte eindpunt, voer de volgende opdrachten, en noteer de **CloudID** waarde: 
 
@@ -318,12 +318,12 @@ U moet bijwerken of vernieuwen van de inschrijving in de volgende omstandigheden
 
 #### <a name="change-the-subscription-you-use"></a>Wijzigen van het abonnement dat u gebruikt
 
-Als u wilt wijzigen van het abonnement dat u gebruikt, moet u eerst uitvoeren de **Remove-AzsRegistration** cmdlet, zorg er dan voor u zijn aangemeld bij de juiste context van Azure PowerShell en voer ten slotte **Set AzsRegistration**  met een gewijzigd parameters:
+Als u wilt wijzigen van het abonnement dat u gebruikt, moet u eerst uitvoeren de **Remove-AzsRegistration** cmdlet, zorg er dan voor u zijn aangemeld bij de juiste context van Azure PowerShell en voer ten slotte **Set AzsRegistration**  met een gewijzigde parameters waaronder \<factureringsmodel\>:
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>Wijzig het factureringsmodel of hoe u functies bieden
@@ -331,7 +331,7 @@ Als u wilt wijzigen van het abonnement dat u gebruikt, moet u eerst uitvoeren de
 Als u wilt wijzigen van de facturering van maandabonnementen of hoe u functies voor uw installatie bieden, kunt u de registratiefunctie om in te stellen de nieuwe waarden kunt aanroepen. U hoeft niet verwijdert u eerst de huidige registratie:
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Vernieuwen of wijzigen van de registratie in niet-verbonden omgevingen

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: c2d4317bcbf70a0cebf6ab1915968eeb9ef8b4c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b436336a3484ec27e4b90785d668ba905281f158
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992623"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018590"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor resource organisatie en beheer maken
 
@@ -48,7 +48,7 @@ U kunt de beheergroep maken met behulp van de portal, PowerShell of Azure CLI. O
 
 ### <a name="create-in-powershell"></a>Maken in PowerShell
 
-In PowerShell, moet u de cmdlets Add-AzureRmManagementGroups gebruiken:
+In PowerShell, moet u de cmdlets New-AzureRmManagementGroups gebruiken:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -77,7 +77,7 @@ az account management-group create --group-name 'Contoso'
 Zie voor meer informatie over de beheergroepen:
 
 - [Resources organiseren met beheergroepen voor Azure](overview.md)
-- [Wijzigen, verwijderen of uw beheergroepen beheren](manage.md)
+- [Uw beheergroepen wijzigen, verwijderen of beheren](manage.md)
 - [De Azure Powershell-module installeren](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Controleer de REST API-specificatie](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [De REST API-specificaties bekijken](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [De Azure CLI-extensie installeren](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

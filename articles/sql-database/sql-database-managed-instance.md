@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/01/2018
+ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392819"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018278"
 ---
 # <a name="what-is-a-managed-instance"></a>Wat is een beheerd exemplaar?
 
@@ -75,7 +75,7 @@ Managed Instance is beschikbaar in twee Servicelagen:
 Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van Azure SQL Database, [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
-> Het wijzigen van de servicelaag van algemeen naar bedrijfskritiek of vice versa wordt niet ondersteund in openbare Preview. Als u uw databases migreren naar een exemplaar in verschillende servicelaag wilt, kunt u maken van nieuwe instantie, databases met een punt in tijd herstel herstellen uit het oorspronkelijke exemplaar en zet vervolgens neer oorspronkelijk exemplaar als het is niet meer nodig. 
+> Het wijzigen van de servicelaag van algemeen naar bedrijfskritiek of vice versa wordt niet ondersteund in openbare Preview. Als u uw databases migreren naar een exemplaar in verschillende servicelaag wilt, kunt u maken van nieuwe instantie, databases met een punt in tijd herstel herstellen uit het oorspronkelijke exemplaar en zet vervolgens neer oorspronkelijk exemplaar als het is niet meer nodig. U kunt echter het aantal vCores en opslag omhoog of omlaag in een servicelaag zonder uitvaltijd schalen.
 
 ### <a name="general-purpose-service-tier"></a>Categorie van de service Algemeen gebruik
 
@@ -108,7 +108,7 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de cate
 
 \* Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) processors van 2,4 GHz en Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz. 
 
-Zie voor meer informatie [Standard/voor algemeen gebruik, beschikbaarheid en architectuur](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database.
+Zie voor meer informatie, [Standard/voor algemeen gebruik, beschikbaarheid en architectuur](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database en [Storage aanbevolen procedures voor prestaties en overwegingen voor Azure SQL database Managed Instance (Algemeen Doel)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
 ### <a name="business-critical-service-tier-preview"></a>Zakelijke kritieke-laag (preview)
 

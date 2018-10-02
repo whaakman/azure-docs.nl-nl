@@ -9,16 +9,16 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 068f0a0d9202174faf5d54bebf5cf5f8fae86766
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: def8d8f9fc55aa6491799a134a554a8a7fe2884a
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720993"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017192"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
-In dit artikel wordt beschreven hoe u uw PC-ontwikkeling en spraak apparaat development kit voor het ontwikkelen van spraak ingeschakelde apparaten met behulp van de SDK van spraak apparaten configureren. Vervolgens kunt u bouw en implementeer een voorbeeld van toepassing op het apparaat. 
+In dit artikel wordt beschreven hoe u uw PC-ontwikkeling en spraak apparaat development kit voor het ontwikkelen van spraak ingeschakelde apparaten met behulp van de SDK van spraak apparaten configureren. Vervolgens u bouw en implementeer een voorbeeld van toepassing op het apparaat. 
 
 De broncode voor de voorbeeldtoepassing is opgenomen in de SDK van de apparaten spraak. Het is ook [beschikbaar op GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -45,7 +45,7 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
 
-1. Verbinding maken met de dev kit op een PC of het samenstellen van de adapter met behulp van een miniwerkbalk USB-kabel. Wanneer de dev kit is verbonden, beschikbaar een groene power-indicator onder het bovenste bord.
+1. Verbinding maken met de development kit op een PC of het samenstellen van de adapter met behulp van een miniwerkbalk USB-kabel. Wanneer de kit is verbonden, beschikbaar een groene power-indicator onder het bovenste bord.
 
 1. De development kit verbinden met een computer met behulp van een tweede mini USB-kabel.
 
@@ -72,7 +72,7 @@ Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de
    ```
 
     > [!NOTE]
-    > Deze opdrachten gebruiken de brug in Android foutopsporing, adb.exe, deze maakt deel uit van de Android Studio-installatie. Dit hulpprogramma bevindt zich in C:\Users\[gebruikersnaam] \AppData\Local\Android\Sdk\platform-hulpprogramma's. U kunt deze map toevoegen aan het pad naar het eenvoudig om aan te roepen kunnen `adb`. Anders moet u het volledige pad naar uw installatie van adb.exe in elke opdracht die wordt aangeroepen `adb`.
+    > Deze opdrachten gebruiken de brug Android foutopsporing `adb.exe`, deze maakt deel uit van de Android Studio-installatie. Dit hulpprogramma bevindt zich in C:\Users\[gebruikersnaam] \AppData\Local\Android\Sdk\platform-hulpprogramma's. U kunt deze map toevoegen aan het pad naar het eenvoudig om aan te roepen kunnen `adb`. Anders moet u het volledige pad naar uw installatie van adb.exe in elke opdracht die wordt aangeroepen `adb`.
 
     > [!TIP]
     > De microfoon van uw PC en de spreker om ervoor te zorgen dat u werkt met de development kit microfoons dempen. Op deze manier wordt niet u per ongeluk het apparaat met audio van de PC activeren.
@@ -110,7 +110,7 @@ De ROOBO tests uitvoeren en uw development kit valideren, bouwen en installeren 
 
 1.  Android Studio starten.
 
-1.  Selecteer **een bestaand Android Studio-project openen**.
+1.  Selecteer **Open een bestaand Android Studio project**.
 
     ![Android Studio - een bestaand project openen](media/speech-devices-sdk/qsg-5.png)
  

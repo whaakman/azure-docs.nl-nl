@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059513"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586118"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Het Team Data Science Process in actie: gebruik Azure HDInsight Hadoop-clusters
 In dit scenario gebruiken we de [Team Data Science Process (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) wilt opslaan, verkennen, en de functie-engineering gegevens uit de openbaar beschikbare [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset, en down-sampling van de gegevens. Voor het afhandelen van binaire en multiklassen classificatie en de voorspellende taken regressie, bouwen we modellen van de gegevens met Azure Machine Learning. 
@@ -30,9 +30,9 @@ Zie voor een overzicht waarin wordt getoond hoe u voor het afhandelen van een gr
 U kunt ook een IPython notebook gebruiken de taken die zijn gepresenteerd in deze stapsgewijze Kennismaking die gebruikmaakt van de gegevensset van 1 TB. Zie voor meer informatie, [Criteo scenario met behulp van een Hive ODBC-verbinding](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>Beschrijving van de gegevensset NYC Taxi Trips
-De reisgegevens NYC over taxi's is ongeveer 20 GB gecomprimeerde door komma's gescheiden waarden (CSV)-bestanden (~ 48 GB niet-gecomprimeerd). Het heeft meer dan 173 miljoen afzonderlijke trips en bevat de tarieven voor elke reis betaald. Elke record van de fietstocht bevat de locatie op te halen en inleverbibliotheek en tijd, geanonimiseerde hack (van het stuurprogramma) licentienummer en straten nummer (unieke ID van de taxi). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
+De reisgegevens NYC over taxi's is ongeveer 20 GB gecomprimeerde door komma's gescheiden waarden (CSV)-bestanden (~ 48 GB niet-gecomprimeerd). Het heeft meer dan 173 miljoen afzonderlijke trips en bevat de tarieven voor elke reis betaald. Elke record van de fietstocht bevat de locatie op te halen en dropoff en tijd, geanonimiseerde hack (van het stuurprogramma) licentienummer en straten nummer (unieke ID van de taxi). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
 
-- De CSV-bestanden trip_data bevatten reis details. Dit omvat het aantal personen, op te halen en inleverpunt, duur van de tocht en lengte van de fietstocht. Hier volgen enkele voorbeeldrecords:
+- De CSV-bestanden trip_data bevatten reis details. Dit omvat het aantal personen, op te halen en dropoff punten, duur van de tocht en lengte van de fietstocht. Hier volgen enkele voorbeeldrecords:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -587,7 +587,7 @@ De query is van toepassing standaardfuncties Hive rechtstreeks voor het generere
 - week van jaar
 - dag van de week (1 staat voor maandag en 7 staat voor zondag)
 
-De query ook de directe afstand tussen de locaties op te halen en inleverbibliotheek gegenereerd. Zie voor een volledige lijst van dergelijke functies, [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+De query ook de directe afstand tussen de locaties op te halen en dropoff gegenereerd. Zie voor een volledige lijst van dergelijke functies, [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
 De query vervolgens omlaag-voorbeelden van de gegevens zodat de queryresultaten in Azure Machine Learning Studio inpassen kunnen. Alleen ongeveer 1 procent van de oorspronkelijke gegevensset is geïmporteerd in de studio.
 

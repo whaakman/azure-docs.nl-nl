@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714612"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585893"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -39,7 +39,7 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Uw Azure Stack-infrastructuur moet toegang tot het netwerk hebben tot de locatie van de certificeringsinstantie certificaat certificaatintrekkingslijst (CRL) gepubliceerd in het certificaat. Dit CRL moet een http-eindpunt
 - Wanneer u certificaten, moeten certificaten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten op de implementatie of een openbare certificeringsinstantie van bovenstaande
 - Het gebruik van zelfondertekende certificaten worden niet ondersteund.
-- Voor implementatie en rotatie kunt u één certificaat die betrekking hebben op alle naamruimten in de naam van het onderwerp en SAN Subject Alternative Name () velden van het certificaat gebruiken of kunt u afzonderlijke-certificaten van elk van de naamruimten hieronder die de Azure Stack Services die u van plan bent om te gebruiken is vereist. Opmerking: beide benaderingen vereisen het gebruik van jokertekens voor eindpunten, waar ze zijn vereist, zoals **KeyVault** en **KeyVaultInternal**. 
+- Voor implementatie en rotatie kunt u één certificaat die betrekking hebben op alle naamruimten in de naam van het onderwerp en SAN Subject Alternative Name () velden van het certificaat gebruiken of kunt u afzonderlijke-certificaten van elk van de naamruimten hieronder die de Azure Stack Services die u van plan bent om te gebruiken is vereist. Beide benaderingen vereisen het gebruik van jokertekens voor eindpunten, waar ze zijn vereist, zoals **KeyVault** en **KeyVaultInternal**. 
 - Het certificaat handtekeningalgoritme moet 3DES. Het algoritme mag niet SHA1, zoals het moet sterkere. 
 - Opmaak van het certificaat moet PFX, als de openbare en persoonlijke sleutels vereist voor Azure Stack-installatie zijn. 
 - De certificaat-pfx-bestanden moeten een waarde 'Digitale handtekening' en 'Keyencipherment-bit' in het veld 'Sleutelgebruik' hebben.

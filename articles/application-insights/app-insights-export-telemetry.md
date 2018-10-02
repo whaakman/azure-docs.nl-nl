@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058444"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585472"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Telemetrie exporteren vanuit Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een bepaalde gespecialiseerde manier te verwerken? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar de opslag in Microsoft Azure in JSON-indeling. Van daaruit kunt u uw gegevens downloaden en wat u code schrijven moet verwerken.  
@@ -37,11 +37,9 @@ Nadat de continue Export uw gegevens worden gekopieerd naar de opslag (waar deze
 ## <a name="setup"></a> Maken van een continue Export
 1. Open continue Export in de Application Insights-resource voor uw app, en kies **toevoegen**:
 
-    ![Schuif naar beneden en klik op de continue Export](./media/app-insights-export-telemetry/01-export.png)
-
 2. Kies de telemetrie gegevenstypen die u wilt exporteren.
 
-3. Maak of Selecteer een [Azure storage-account](../storage/common/storage-introduction.md) waar u de gegevens worden opgeslagen.
+3. Maak of Selecteer een [Azure storage-account] (.. / storage/common/storage-introduction.md) waar u de gegevens worden opgeslagen. Ga voor meer informatie over prijsopties opslag naar de [officiële pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Standaard wordt de opslaglocatie worden ingesteld op dezelfde geografische regio als uw Application Insights-resource. Als u in een andere regio opslaat, worden er kosten voor gegevensoverdracht.

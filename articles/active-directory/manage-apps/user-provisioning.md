@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356812"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018686"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -90,7 +90,7 @@ Configuratie van de Azure AD-inrichtingsservice voor een geselecteerde toepassin
 
 * Gebruik de optie 'buiten de galerie application' voor aangepaste SCIM integraties
 
-![Galerie](./media/user-provisioning/gallery.png)
+![Gallery](./media/user-provisioning/gallery.png)
 
 In het scherm voor het beheren van toepassing inrichting is geconfigureerd in de **Provisioning** tabblad.
 
@@ -129,8 +129,8 @@ Wanneer de provisioning-service wordt gestart, wordt de eerste synchronisatie he
 1. Query uitvoeren op alle gebruikers en groepen uit het bronsysteem bij het ophalen van alle kenmerken die zijn gedefinieerd de [kenmerktoewijzingen](customize-application-attributes.md).
 2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](assign-user-or-group-access-portal.md) of [op kenmerken gebaseerde bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Wanneer een gebruiker worden toegewezen is geconstateerd of binnen het bereik voor het inrichten van de service zoekopdrachten uit op het doelsysteem voor een overeenkomende gebruiker met behulp van de aangewezen [die overeenkomt met de kenmerken](customize-application-attributes.md#understanding-attribute-mapping-properties). Voorbeeld: Als de naam van de userPrincipal in het bronsysteem het overeenkomende kenmerk is en toegewezen aan vraagt gebruikersnaam in het doelsysteem en vervolgens de provisioning-service het doelsysteem voor gebruikersnamen die overeenkomen met de naam userPrincipal waarden in het bronsysteem.
-4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken die door het bronsysteem geretourneerd.
-5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die is geleverd door het bronsysteem.
+4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken die door het bronsysteem geretourneerd. Nadat het gebruikersaccount dat is gemaakt, wordt de provisioning-service detecteert en het doelsysteem-ID voor de nieuwe gebruiker, dat wordt gebruikt voor het uitvoeren van alle toekomstige bewerkingen op die gebruiker in de cache opslaat.
+5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die is geleverd door het bronsysteem. Nadat het gebruikersaccount dat is gekoppeld, wordt de provisioning-service detecteert en het doelsysteem-ID voor de nieuwe gebruiker, dat wordt gebruikt voor het uitvoeren van alle toekomstige bewerkingen op die gebruiker in de cache opslaat.
 6. Als de kenmerktoewijzingen 'verwijzing' kenmerken bevatten, uitvoert de service extra updates op het doelsysteem te maken en koppelen van de objecten waarnaar wordt verwezen. Een gebruiker kan bijvoorbeeld een 'Manager'-kenmerk hebben in het doelsysteem, die is gekoppeld aan een andere gebruiker hebt gemaakt in het doelsysteem.
 7. Een watermerk aan het einde van de initiële synchronisatie, waarmee het beginpunt voor de volgende incrementele synchronisaties behouden.
 
@@ -142,8 +142,8 @@ Na de initiële synchronisatie zullen alle volgende synchronisaties:
 1. Query uitvoeren op het bronsysteem voor alle gebruikers en groepen die zijn bijgewerkt sinds de laatste watermerk is opgeslagen.
 2. Filteren van de gebruikers en groepen die zijn geretourneerd, met behulp van een geconfigureerd [toewijzingen](assign-user-or-group-access-portal.md) of [op kenmerken gebaseerde bereikfilters](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Wanneer een gebruiker worden toegewezen is geconstateerd of binnen het bereik voor het inrichten van de service zoekopdrachten uit op het doelsysteem voor een overeenkomende gebruiker met behulp van de aangewezen [die overeenkomt met de kenmerken](customize-application-attributes.md#understanding-attribute-mapping-properties).
-4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken die door het bronsysteem geretourneerd.
-5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die is geleverd door het bronsysteem.
+4. Als een overeenkomende gebruiker niet in het doelsysteem gevonden is, wordt deze gemaakt met behulp van de kenmerken die door het bronsysteem geretourneerd. Nadat het gebruikersaccount dat is gemaakt, wordt de provisioning-service detecteert en het doelsysteem-ID voor de nieuwe gebruiker, dat wordt gebruikt voor het uitvoeren van alle toekomstige bewerkingen op die gebruiker in de cache opslaat.
+5. Als een overeenkomende gebruiker wordt gevonden, wordt deze bijgewerkt met behulp van de kenmerken die is geleverd door het bronsysteem. Als het een zojuist toegewezen account dat is gekoppeld, wordt de provisioning-service detecteert en het doelsysteem-ID voor de nieuwe gebruiker, dat wordt gebruikt voor het uitvoeren van alle toekomstige bewerkingen op die gebruiker in de cache opslaat.
 6. Als de kenmerktoewijzingen 'verwijzing' kenmerken bevatten, uitvoert de service extra updates op het doelsysteem te maken en koppelen van de objecten waarnaar wordt verwezen. Een gebruiker kan bijvoorbeeld een 'Manager'-kenmerk hebben in het doelsysteem, die is gekoppeld aan een andere gebruiker hebt gemaakt in het doelsysteem.
 7. Wanneer een gebruiker die eerder in het bereik vallen voor inrichting van bereik (inclusief wordt niet-toegewezen) wordt verwijderd, wordt de gebruiker uitgeschakeld in het doelsysteem via een update van de service.
 8. Als een gebruiker die eerder in het bereik vallen voor inrichting is uitgeschakeld of voorlopig in het bronsysteem verwijderde, wordt de gebruiker uitgeschakeld in het doelsysteem via een update van de service.
@@ -237,6 +237,31 @@ Zie voor instructies over het automatisch inrichten van gebruikers oplossen scen
 
 Zie voor een voorbeeld van stapsgewijze implementatie-plan voor het inrichten van uitgaande gebruikers naar een toepassing, de [identiteit Deployment Guide voor het inrichten van gebruikers](https://aka.ms/userprovisioningdeploymentplan).
 
+##<a name="more-frequenty-asked-questions"></a>Meer frequenty Veelgestelde vragen
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met B2B-gebruikers in Azure AD?
+
+Ja, is het mogelijk om te gebruiken van de Azure AD-gebruiker inrichten van gebruikers van B2B inrichten (of Gast)-service in Azure AD SaaS-toepassingen.
+
+De SaaS-toepassing moet echter voor B2B-gebruikers kunnen aanmelden op de SaaS-toepassing met behulp van Azure AD, hebben de SAML gebaseerde eenmalige aanmeldings-mogelijkheid geconfigureerd op een specifieke manier. Zie voor meer informatie over het configureren van SaaS-toepassingen voor de ondersteuning van aanmeldingen van gebruikers van B2B [configureren SaaS-apps voor B2B-samenwerking]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met dynamische groepen in Azure AD?
+
+Ja. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', de Azure AD-gebruiker inrichtingsservice kunt inrichten of gebruikers in een SaaS-toepassing op basis van of ze lid van zijn de inrichting een [dynamische groep](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamische groepen werken ook met de optie 'alle gebruikers en groepen synchroniseren'.
+
+Gebruik van dynamische groepen kan echter van invloed op de algehele prestaties van end-to-end gebruikersinrichting van de Azure AD met SaaS-toepassingen. Wanneer u dynamische groepen, houd deze beperkingen en aanbevelingen in gedachten:
+
+* Hoe snel een gebruiker in een dynamische groep is ingericht of de inrichting ongedaan gemaakt in een SaaS-toepassing afhankelijk van hoe snel de dynamische groep wijzigingen in het lidmaatschap kunt evalueren. Zie voor meer informatie over het controleren van de verwerkingsstatus van een dynamische groep [Controleer de verwerkingsstatus voor een lidmaatschapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* Wanneer u dynamische groepen, moeten de regels zorgvuldig worden nagedacht met gebruiker inrichting en ongedaan maken van inrichting in gedachten, omdat een verlies van het lidmaatschap van een opheffen van inrichtingen gebeurtenis leidt.
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met geneste groepen in Azure AD?
+
+Nee. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', is de Azure AD-gebruiker inrichtingsservice niet kunnen lezen of het inrichten van gebruikers die zich in de geneste groepen. Het is alleen kan lezen en inrichten van gebruikers die directe leden van de groep expliciet toegewezen.
+
+Dit is een beperking van '-groep op basis van toewijzingen voor toepassingen', die ook van toepassing op eenmalige aanmelding en wordt beschreven in [met behulp van een groep voor het beheren van toegang tot SaaS-toepassingen](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+Als tijdelijke oplossing, u moet expliciet toewijzen (of anderszins [in het bereik van](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de groepen met de gebruikers die moeten worden ingericht.
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](../saas-apps/tutorial-list.md)

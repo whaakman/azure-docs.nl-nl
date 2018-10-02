@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c2ff5272fc6cdc4cc18b8d461a8fb7edeee9878
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971447"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017984"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 en de OpenID Connect-protocol
 
@@ -111,7 +111,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | tenant |Vereist |U kunt de `{tenant}` waarde in het pad van de aanvraag om te bepalen wie kan zich aanmelden bij de toepassing. De toegestane waarden zijn `common`, `organizations`, `consumers`, en tenant-id's. Zie voor meer informatie, [protocol basisbeginselen](active-directory-v2-protocols.md#endpoints). |
 | client_id |Vereist |De aanvraag-ID die de [Portal voor Appregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere omvatten `response_types` waarden, zoals `code`. |
+| response_type |Vereist |Moet bevatten `id_token` voor aanmelding OpenID Connect. Het kan ook andere omvatten `response_type` waarden, zoals `code`. |
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het URL-codering moet worden. |
 | scope |Vereist |Een door spaties gescheiden lijst met bereiken. Voor de OpenID Connect, moet deze het bereik bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden' in de gebruikersinterface voor toestemming. U kunt ook andere bereiken opnemen in deze aanvraag voor het aanvragen van toestemming. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die worden opgenomen in de resulterende waarde id_token als een claim. De app kunt controleren of deze waarde token opnieuw afspelen aanvallen te verkleinen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |

@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423134"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017701"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Eigenschappen van de Edge agent en Edge hub moduledubbels
 
@@ -46,6 +46,7 @@ De moduledubbel voor de Edge agent heet `$edgeAgent` en coördineert de communic
 | systemModules.edgeHub.configuration.id | De ID van de implementatie die deze module wordt geïmplementeerd. | Deze eigenschap is ingesteld door de IoT Hub wanneer deze het manifest wordt toegepast met behulp van een implementatie. Geen deel uitmaakt van een manifest van de implementatie. |
 | modules. {moduleId} .version | Een gebruiker gedefinieerde tekenreeks voor de versie van deze module. | Ja |
 | modules. {moduleId} .type | Moet "docker" | Ja |
+| modules. {moduleId} .status | {'running' \| 'stopped'} | Ja |
 | modules. {moduleId} .restartPolicy | {"nooit" \| 'op-is mislukt' \| 'van-niet in orde' \| "altijd"} | Ja |
 | modules.{moduleId}.settings.image | De URI naar de installatiekopie van de module. | Ja |
 | modules. {moduleId}.settings.createOptions | Een stringified JSON met de opties voor het maken van de module-container. [Opties voor docker maken][lnk-docker-create-options] | Nee |

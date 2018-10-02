@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997434"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018381"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in JavaScript in een browser met behulp van de Cognitive Services spraak-SDK
 
@@ -36,6 +36,8 @@ De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK ([downl
 Maak een nieuwe, lege map. Als u wilt hosten van de steekproef op een webserver, en zorg ervoor dat de webserver, toegang heeft tot de map.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>De spraak-SDK voor JavaScript in die map uitpakken
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Download de SDK spraak als een [-ZIP-pakket](https://aka.ms/csspeech/jsbrowserpackage) en pak het uit in de zojuist gemaakte map. Dit moet resulteren in twee bestanden wordt uitgepakt, dat wil zeggen, `microsoft.cognitiveservices.speech.sdk.bundle.js` en `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 Het laatste bestand is optioneel en wordt gebruikt om u te helpen bij foutopsporing in SDK-code, indien nodig.

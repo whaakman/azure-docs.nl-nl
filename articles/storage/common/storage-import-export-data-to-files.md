@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732444"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584163"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Files
 
@@ -139,7 +139,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
     
     - De logboekbestanden die u hebt gemaakt tijdens de voorgaande uploaden [stap 1: voorbereiden van de schijven](#step-1-prepare-the-drives). 
     - Selecteer het opslagaccount waarin de gegevens worden geïmporteerd. 
-    - De afgiftelocatie wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd.
+    - De locatie dropoff wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd.
    
        ![Importeren van een taak maken - stap 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

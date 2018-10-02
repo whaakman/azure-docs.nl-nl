@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX
-ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0fa11633efc610407755ebc109649f3fefdcb55
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948135"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585812"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Aan de slag met de Bing Speech-Service-clientbibliotheken
 
@@ -35,7 +35,7 @@ Op dit moment zijn de volgende Bing Speech-clientbibliotheken beschikbaar:
 - [Objective-C-bibliotheek voor iOS](Get-Started-ObjectiveC-iOS.md)
 
 > [!NOTE] 
-In mei 2018, wij hebben ook uitgegeven de nieuwe [Spraakservice](../../speech-service/index.yml) in openbare preview. We raden u aan [het gratis proberen](../../speech-service/get-started.md). 
+Sinds September 2018, de nieuwe [Spraakservice](../../speech-service/index.yml) algemeen beschikbaar is geworden. We raden u aan [het gratis proberen](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842444"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018771"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
 
@@ -101,7 +101,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 
 ## <a name="install-data-gateway"></a>Een gegevensgateway installeren
 
-1. [Downloaden, opslaan en uitvoeren van het installatieprogramma van de gateway op een lokale computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Downloaden, opslaan en uitvoeren van het installatieprogramma van de gateway op een lokale computer](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Accepteer het standaardpad voor installatie, of geef de locatie op de computer waar u de gateway te installeren.
 
@@ -182,7 +182,7 @@ Als u moet de locatie van uw gateway wijzigen, de gatewayinstallatie verplaatst 
 
 1. Uit van uw computer **Configuratiescherm**, gaat u naar **programma's en onderdelen**. Selecteer in de lijst met programma's, **On-premises gegevensgateway**, en kies vervolgens **verwijderen**.
 
-2. [De on-premises gegevensgateway installeren](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [De on-premises gegevensgateway installeren](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Nadat het installatieprogramma wordt geopend, kunt u aanmelden met hetzelfde werk- of schoolaccount dat eerder werd gebruikt voor het installeren van de gateway.
 

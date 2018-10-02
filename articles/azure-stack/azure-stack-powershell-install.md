@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 3603ec1aa8fa6f76cb6b7a75fa7df334b4102aec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f6644d8a2e01242937943f8139059abbd65d1913
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367744"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017396"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
@@ -27,7 +27,7 @@ ms.locfileid: "46367744"
 
 Als u wilt werken met uw cloud, moet u Azure Stack-compatibele PowerShell-modules installeren. Compatibiliteit wordt ingeschakeld via een functie, genaamd *API profielen*.
 
-API-profielen bieden een manier voor het beheren van versieverschillen tussen Azure en Azure Stack. Een API-versie-profiel is een set met Azure Resource Manager PowerShell-modules met specifieke API-versies. Elk cloudplatform bevat een set ondersteunde API-versieprofielen. Bijvoorbeeld, Azure Stack biedt ondersteuning voor een specifieke datum Profielversie zoals **2018-03-01-hybride**, en biedt ondersteuning voor Azure de **nieuwste** API-versie-profiel. Wanneer u een profiel installeert, worden de Azure Resource Manager PowerShell-modules die met het opgegeven profiel overeenkomen geïnstalleerd.  
+API-profielen bieden een manier voor het beheren van versieverschillen tussen Azure en Azure Stack. Een API-versie-profiel is een set met Azure Resource Manager PowerShell-modules met specifieke API-versies. Elk cloudplatform bevat een set ondersteunde API-versieprofielen. Bijvoorbeeld, Azure Stack biedt ondersteuning voor een specifieke datum Profielversie zoals **2018-03-01-hybride**, en biedt ondersteuning voor Azure de **nieuwste** API-versie-profiel. Wanneer u een profiel installeert, worden de Azure Resource Manager PowerShell-modules die met het opgegeven profiel overeenkomen geïnstalleerd.
 
 U kunt Azure Stack compatibel PowerShell-modules op Internet verbonden, gedeeltelijk verbonden of niet verbonden scenario's kunt installeren. Dit artikel helpt bij de gedetailleerde instructies voor het installeren van PowerShell voor Azure Stack voor deze scenario's.
 
@@ -35,29 +35,26 @@ U kunt Azure Stack compatibel PowerShell-modules op Internet verbonden, gedeelte
 
 Voordat u aan de slag met Azure Stack en PowerShell, hebt u de volgende vereisten:
 
-- **PowerShell-versie 5.0**  
-Uitvoeren om te controleren of uw versie, **$PSVersionTable.PSVersion** en vergelijkt u de **belangrijke** versie. Als u geen PowerShell 5.0 hebt, volgt u de [Windows PowerShell installeren](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+- **PowerShell-versie 5.0** uitvoeren om te controleren of uw versie, **$PSVersionTable.PSVersion** en vergelijkt u de **belangrijke** versie. Als u geen PowerShell 5.0 hebt, volgt u de [Windows PowerShell installeren](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-  > [!Note]  
+  > [!Note]
   > PowerShell 5.0 vereist een Windows-machine.
 
-- **Voer Powershell uit in een opdrachtprompt met verhoogde bevoegdheid**  
-  U moet PowerShell ook uitvoeren met administratorbevoegdheden.
+- **Voer Powershell uit in een opdrachtprompt met verhoogde bevoegdheid** moet u PowerShell uitvoeren met administratorbevoegdheden.
 
-- **PowerShell Gallery-toegang**  
-  U hebt toegang tot de [PowerShell Gallery](https://www.powershellgallery.com). De galerie is de centrale opslagplaats voor PowerShell-inhoud. De **PowerShellGet** -module bevat cmdlets voor het detecteren, installeren, bijwerken en PowerShell-artefacten, zoals modules, DSC-resources, rolmogelijkheden en scripts vanaf de PowerShell Gallery en andere persoonlijke publiceren opslagplaatsen. Als u PowerShell in een niet-verbonden scenario gebruikt, moet u resources ophalen van een virtuele machine met een verbinding met Internet en sla ze op een locatie die toegankelijk is voor uw niet-verbonden machine.
+- **Toegang tot de PowerShell Gallery** moet u toegang tot de [PowerShell Gallery](https://www.powershellgallery.com). De galerie is de centrale opslagplaats voor PowerShell-inhoud. De **PowerShellGet** -module bevat cmdlets voor het detecteren, installeren, bijwerken en PowerShell-artefacten, zoals modules, DSC-resources, rolmogelijkheden en scripts vanaf de PowerShell Gallery en andere persoonlijke publiceren opslagplaatsen. Als u PowerShell in een niet-verbonden scenario gebruikt, moet u resources ophalen van een virtuele machine met een verbinding met Internet en sla ze op een locatie die toegankelijk is voor uw niet-verbonden machine.
 
 
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. Valideren van de PowerShell Gallery toegankelijkheid
 
 Valideren of PSGallery is geregistreerd als een opslagplaats.
 
-> [!Note]  
-> Deze stap is vereist voor toegang tot Internet. 
+> [!Note]
+> Deze stap is vereist voor toegang tot Internet.
 
 Open een verhoogde PowerShell-prompt en voer de volgende cmdlets:
 
-````PowerShell  
+````PowerShell
 Import-Module -Name PowerShellGet -ErrorAction Stop
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
@@ -76,11 +73,11 @@ Voordat u de vereiste versie installeert, zorg ervoor dat alle eerder geïnstall
 
 1. Voor het verwijderen van de bestaande AzureRM PowerShell-modules, sluit alle actieve PowerShell-sessies en voer de volgende cmdlets:
 
-  ````PowerShell  
-    Uninstall-Module AzureRM.AzureStackAdmin -Force
-    Uninstall-Module AzureRM.AzureStackStorage -Force
+  ````PowerShell
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force
     Uninstall-Module -Name AzureStack -Force
-    Get-Module Azs.* -ListAvailable | Uninstall-Module -Force
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force
   ````
 
 2. Verwijder de mappen die met beginnen `Azure` uit de `C:\Program Files\WindowsPowerShell\Modules` en `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden alle bestaande PowerShell-modules.
@@ -93,8 +90,8 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
 
   - Azure Stack 1808 of hoger.
 
-    ```PowerShell  
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+    ```PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRm.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -103,12 +100,12 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
-> [!Note]  
+> [!Note]
 > Upgrade uitvoeren van Azure PowerShell via de **2017-03-09-profiel** naar **2018-03-01-hybride**, raadpleegt u de [Migratiehandleiding](https://github.com/bganapa/azure-powershell/blob/migration-guide/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
   - Azure Stack 1807 of een eerdere versie.
 
-    ```PowerShell  
+    ```PowerShell
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
     Install-Module -Name AzureStack -RequiredVersion 1.4.0
@@ -116,7 +113,7 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
 
   - Azure Stack 1804 of een eerdere versie.
 
-    ```PowerShell  
+    ```PowerShell
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
     Install-Module -Name AzureStack -RequiredVersion 1.2.11
@@ -124,9 +121,9 @@ Voer het volgende PowerShell-script voor het installeren van deze modules op uw 
 
 Bevestig de installatie door het uitvoeren van de volgende opdracht uit:
 
-```PowerShell  
-Get-Module "Azure*" -ListAvailable
-Get-Module "Azs*" -ListAvailable
+```PowerShell
+Get-Module -Name "Azure*" -ListAvailable
+Get-Module -Name "Azs*" -ListAvailable
 ```
 
 Als de installatie geslaagd is, wordt de azurerm-module en AzureStack-modules worden weergegeven in de uitvoer.
@@ -139,7 +136,7 @@ Aanmelden bij een computer met een internetverbinding en de volgende scripts geb
 
   - Azure Stack 1808 of hoger.
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -150,10 +147,10 @@ Aanmelden bij een computer met een internetverbinding en de volgende scripts geb
 
   - Azure Stack 1807 of een eerdere versie.
 
-    > [!Note]  
+    > [!Note]
     Een upgrade van de 1.2.11 versie, Zie de [Migratiehandleiding](https://aka.ms/azspowershellmigration).
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -164,7 +161,7 @@ Aanmelden bij een computer met een internetverbinding en de volgende scripts geb
 
   - Azure Stack 1804 of een eerdere versie.
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -190,9 +187,9 @@ Aanmelden bij een computer met een internetverbinding en de volgende scripts geb
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM -Repository $RepoName
+   Install-Module -Name AzureRM -Repository $RepoName
 
-   Install-Module AzureStack -Repository $RepoName 
+   Install-Module -Name AzureStack -Repository $RepoName
    ```
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. PowerShell voor het gebruik van een proxyserver configureren
@@ -202,7 +199,7 @@ In scenario's waarin een proxyserver voor toegang tot het Internet, moet u eerst
 1. Open een verhoogde PowerShell-prompt.
 2. Voer de volgende opdrachten uit:
 
-   ```PowerShell  
+   ```PowerShell
    #To use Windows credentials for proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
@@ -213,6 +210,6 @@ In scenario's waarin een proxyserver voor toegang tot het Internet, moet u eerst
 ## <a name="next-steps"></a>Volgende stappen
 
  - [Hulpprogramma's voor Azure Stack downloaden vanuit GitHub](azure-stack-powershell-download.md)
- - [PowerShell-omgeving van de Azure Stack-gebruiker configureren](user/azure-stack-powershell-configure-user.md)  
- - [De Azure Stack-operators PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md) 
- - [Beheren van API-versieprofielen in Azure Stack](user/azure-stack-version-profiles.md)  
+ - [PowerShell-omgeving van de Azure Stack-gebruiker configureren](user/azure-stack-powershell-configure-user.md)
+ - [De Azure Stack-operators PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md)
+ - [Beheren van API-versieprofielen in Azure Stack](user/azure-stack-version-profiles.md)

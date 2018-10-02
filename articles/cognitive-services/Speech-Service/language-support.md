@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435483"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018550"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
 
@@ -161,8 +161,6 @@ Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees
 ## <a name="speech-translation"></a>Spraakomzetting
 
 De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd in de volgende tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is.
-
-U kunt de lijst met talen via een programma verkrijgen met behulp van de REST-API-eindpunt voor talen. De lijst bevat de taalcode voor elke, evenals de naam van de taal in het Engels of in een andere ondersteunde taal. Deze lijst wordt bijgewerkt door de Microsoft Translator-service wanneer een nieuwe taal beschikbaar.
 
 ### <a name="speech-languages"></a>Talen voor spraak
 

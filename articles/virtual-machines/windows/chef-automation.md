@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058669"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585371"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Implementatie van virtuele Azure-machine automatiseren met Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef is een uitstekend hulpprogramma voor het leveren van automation en desired state-configuraties.
 
-Cloud-api met de meest recente release, Chef biedt naadloze integratie met Azure, zodat u de mogelijkheid om u te richten en te implementeren configuratiestatussen via één opdracht.
+Met de meest recente versie van de cloud-API biedt Chef naadloze integratie met Azure, zodat u de mogelijkheid om u te richten en te implementeren configuratiestatussen via één opdracht.
 
 In dit artikel, moet u uw Chef-omgeving voor het inrichten van virtuele machines van Azure en helpt bij het maken van een beleid of "CookBook" en vervolgens implementeert deze handleiding op een virtuele machine van Azure instellen.
 
@@ -42,7 +42,7 @@ Het volgende diagram illustreert de Chef-architectuur op hoog niveau.
 
 Chef heeft drie belangrijkste architectuuronderdelen: Chef-Server, Chef-Client (knooppunt) en Chef-werkstation.
 
-De Chef-Server is het beheerpunt en er zijn twee opties voor de Chef-Server: een gehoste oplossing of een on-premises-oplossing. We gebruiken een gehoste oplossing.
+De Chef-Server is het beheerpunt en er zijn twee opties voor de Chef-Server: een gehoste oplossing of een on-premises-oplossing. We gebruiken een gehoste oplossing voor deze zelfstudie.
 
 De Chef-Client (node) is de agent die bevindt zich op de servers die u beheert.
 
@@ -75,7 +75,7 @@ Als uw organisatie is gemaakt, downloadt u de starterskit.
 ![][4]
 
 > [!NOTE]
-> Als u een waarschuwing dat uw sleutels worden opnieuw ingesteld op prompt ontvangt, is het ok om door te gaan als er geen bestaande infrastructuur zo nog geconfigureerd.
+> Als u een waarschuwing dat uw sleutels worden opnieuw ingesteld op prompt krijgt, is het goed om door te gaan als er geen bestaande infrastructuur zo nog geconfigureerd.
 > 
 > 
 
@@ -94,7 +94,7 @@ U hebt nu vier bestanden, met inbegrip van het Azure publishing-bestand in de ho
 
 Het PEM-bestanden bevatten van uw organisatie en persoonlijke sleutels van de beheerder voor de communicatie, terwijl het bestand knife.rb de configuratie van de mes bevat. We moeten het bestand knife.rb bewerken.
 
-Open het bestand in uw editor naar keuze en de 'cookbook_path' wijzigen door het verwijderen van de /... / van het pad, zodat deze wordt weergegeven zoals volgende.
+Open het bestand in uw editor naar keuze en de 'cookbook_path' wijzigen door het verwijderen van de /... / van het pad, zodat deze wordt weergegeven als:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -119,7 +119,9 @@ Controleer of dat uw padomgevingsvariabele bevat vermeldingen voor C:\opscode\ch
 
 Als ze niet er zijn, zorg er dan voor dat u deze paden hebt toegevoegd.
 
-*HOUD ER REKENING MEE DAT DE VOLGORDE VAN HET PAD IS BELANGRIJK.* Als uw opscode paden niet in de juiste volgorde hebt u problemen.
+> [!NOTE]
+> De volgorde van het pad is belangrijk. Als uw opscode paden niet in de juiste volgorde hebt u problemen. 
+> 
 
 Start opnieuw op uw werkstation voordat u doorgaat.
 

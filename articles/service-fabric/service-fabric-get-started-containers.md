@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0782b50662d1d49ec79aebbf7a5f889471f11283
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700168"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018449"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -575,7 +575,7 @@ Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>De runtime configureren voor het verwijderen van ongebruikte containerinstallatiekopieën
 
-U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt. Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
+U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt. Als u wilt deze functie inschakelt, werken de [Hosting](service-fabric-cluster-fabric-settings.md#hosting) sectie in het clustermanifest, zoals wordt weergegeven in het volgende codefragment: 
 
 
 ```json
@@ -596,7 +596,7 @@ U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebrui
 } 
 ```
 
-De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`. 
+De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de parameter `ContainerImagesToSkip`.  
 
 
 ## <a name="configure-container-image-download-time"></a>Downloadtijd van de containerinstallatiekopie configureren

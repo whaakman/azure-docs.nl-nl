@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452295"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018499"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecteer en gebruik een compute-doel aan uw model te trainen
 
@@ -372,7 +372,7 @@ U kunt bekijken wat compute-doelen zijn gekoppeld aan uw werkruimte vanuit Azure
 1. Ga naar de [Azure-portal](https://portal.azure.com) en navigeer naar uw werkruimte.
 2. Klik op de __Compute__ koppeling onder de __toepassingen__ sectie.
 
-    ![Compute-tabblad weergave](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![Compute-tabblad weergave](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### <a name="create-a-compute-target"></a>Een compute-doel maken
 
@@ -380,7 +380,7 @@ Volg de bovenstaande stappen voor het weergeven van de lijst met compute-doelen 
 
 1. Klik op de __+__ zich bij het toevoegen van een compute-doel.
 
-    ![Compute toevoegen ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![Compute toevoegen ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Voer een naam voor de compute-doel.
 1. Selecteer het type compute koppelen voor __Training__. 

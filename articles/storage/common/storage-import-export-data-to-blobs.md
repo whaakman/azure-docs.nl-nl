@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737053"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585727"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -107,7 +107,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
     - Upload de logboekbestanden van de schijf die u hebt verkregen tijdens de voorbereiding van het station. Als `waimportexport.exe version1` is gebruikt, upload een bestand voor elke schijf die u hebt voorbereid. Als de grootte van het logboek is groter dan 2 MB, dan kunt u de `<Journal file name>_DriveInfo_<Drive serial ID>.xml` ook die zijn gemaakt met het logboekbestand. 
     - Selecteer het doelopslagaccount waar de gegevens zich bevinden. 
-    - De afgiftelocatie wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd.
+    - De locatie dropoff wordt automatisch ingevuld op basis van de regio van het opslagaccount dat is geselecteerd.
    
    ![Importeren van een taak maken - stap 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

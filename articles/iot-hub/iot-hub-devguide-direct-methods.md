@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: f2e04c793f5c238716930bcbdcaa090e6a133588
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: f9476d42bbdb9d2a499c08d83eed6696fbbed469
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452582"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585999"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Begrijpen en directe methoden uit IoT Hub aanroepen
 
@@ -33,7 +33,7 @@ Raadpleeg [Cloud-naar-apparaat communicatie richtlijnen](iot-hub-devguide-c2d-gu
 Directe methoden zijn geïmplementeerd op het apparaat en mogelijk nul of meer van de invoervermeldingen in de nettolading van de methode correct wordt gestart. Aanroepen van een rechtstreekse methode via een gerichte service-URI (`{iot hub}/twins/{device id}/methods/`). Een apparaat ontvangt directe methoden via een apparaat-specifieke MQTT-onderwerp (`$iothub/methods/POST/{method name}/`) of via AMQP-koppelingen (de `IoThub-methodname` en `IoThub-status` toepassingseigenschappen). 
 
 > [!NOTE]
-> Wanneer u een rechtstreekse methode op een apparaat aanroepen, namen en waarden mag alleen US-ASCII-afdrukbare uit alfanumerieke tekens, met uitzondering in de volgende set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Wanneer u een rechtstreekse methode op een apparaat aanroepen, namen en waarden mag alleen US-ASCII-afdrukbare uit alfanumerieke tekens, behalve in het volgende instellen: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
 Directe methoden zijn synchrone en een slagen of mislukken na de time-outperiode (standaard: 30 seconden, instelbare van 3600 seconden). Directe methoden zijn handig in interactieve scenario's waar u een apparaat om te fungeren en alleen als het apparaat online en ontvangende opdrachten is. Bijvoorbeeld inschakelen een lichte op een telefoon. In deze scenario's die u wilt zien van een directe slagen of mislukken, zodat de service in de cloud kan worden uitgevoerd op het resultaat zo snel mogelijk. Het apparaat kan sommige berichttekst als gevolg van de methode retourneren, maar het is niet vereist voor de methode om dit te doen. Er is geen garantie op volgorde of een gelijktijdigheid-semantiek op methodeaanroepen.

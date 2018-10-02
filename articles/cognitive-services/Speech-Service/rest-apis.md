@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032424"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018516"
 ---
 # <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
@@ -36,7 +36,7 @@ De volgende parameters kunnen worden opgenomen in de querytekenreeks van de REST
 
 |Parameternaam|Vereist/optioneel|Betekenis|
 |-|-|-|
-|`language`|Vereist|De id van de taal die moet worden herkend. Zie [ondersteunde talen](supported-languages.md#speech-to-text).|
+|`language`|Vereist|De id van de taal die moet worden herkend. Zie [ondersteunde talen](language-support.md#speech-to-text).|
 |`format`|Optioneel<br>Standaard: `simple`|Resultaat opmaken, `simple` of `detailed`. Eenvoudige tot de resultaten behoren `RecognitionStatus`, `DisplayText`, `Offset`, en de duur. Gedetailleerde resultaten bevatten meerdere kandidaten met vertrouwen waarden en vier verschillende manieren.|
 |`profanity`|Optioneel<br>Standaard: `masked`|Klik hier voor meer informatie over het afhandelen van grof taalgebruik in herkenningsresultaten. Mogelijk `masked` (grof taalgebruik vervangen door sterretjes), `removed` (Hiermee verwijdert u alle grof taalgebruik,) of `raw` (inclusief grof taalgebruik).
 
@@ -195,9 +195,6 @@ Hieronder vindt u de REST-eindpunten voor de spraakservice Text to Speech-API. G
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Als u een aangepaste spraakstijl hebt gemaakt, kunt u de bijbehorende aangepast eindpunt gebruiken.
-
 De spraak-service ondersteunt 24-KHz audio-uitvoer naast de 16-Khz uitvoer door Bing Speech ondersteund. Vier 24-KHz uitvoerindelingen zijn beschikbaar voor gebruik in de `X-Microsoft-OutputFormat` HTTP-header, twee 24-KHz stemmen, zijn `Jessa24kRUS` en `Guy24kRUS`.
 
 Landinstelling | Taal   | Geslacht | De toewijzing van service
@@ -205,7 +202,7 @@ Landinstelling | Taal   | Geslacht | De toewijzing van service
 nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
 nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
 
-Een volledige lijst met beschikbare stemmen is beschikbaar in [ondersteunde talen](supported-languages.md#text-to-speech).
+Een volledige lijst met beschikbare stemmen is beschikbaar in [ondersteunde talen](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>Aanvraagheaders
 
@@ -265,7 +262,8 @@ HTTP-code|Betekenis|Mogelijke oorzaak
 400 |Onjuiste aanvraag |Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn. Of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Een veelvoorkomend probleem is een header die te lang is.
 401|Niet geautoriseerd |De aanvraag is niet gemachtigd. Controleer of dat uw abonnementssleutel of token geldig is en in de juiste regio.
 413|Aanvraagentiteit te groot|De invoer SSML is langer dan 1024 tekens.
-|502|Ongeldige gateway    | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
+429|Te veel aanvragen|U hebt het quotum of het aantal aanvragen dat is toegestaan voor uw abonnement overschreden.
+502|Ongeldige gateway | Netwerk- of serverzijde probleem. Kan ook duiden op ongeldige kopteksten.
 
 Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, overgedragen of opgeslagen in een buffer of het bestand later afspelen of ander gebruik.
 

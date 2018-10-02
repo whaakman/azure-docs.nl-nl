@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8e9321e72727c1a3149ff2e78b8cb1248734cb88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978502"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018533"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-berichtroutering query-syntaxis
 
-Berichtroutering kan gebruikers voor het routeren van verschillende gegevenstypen namelijk, telemetrieberichten van apparaten, levenscyclusgebeurtenissen voor het apparaat en dubbele apparaat wijzigt gebeurtenissen naar verschillende eindpunten. U kunt ook uitgebreide query's toepassen op deze gegevens voordat u deze voor het ontvangen van de gegevens die voor u belangrijk is. In dit artikel beschrijft de querytaal van IoT-Hub bericht Routering en biedt enkele veelvoorkomende querypatronen 
+Berichtroutering kan gebruikers voor het routeren van verschillende gegevenstypen namelijk, telemetrieberichten van apparaten, levenscyclusgebeurtenissen voor het apparaat en dubbele apparaat wijzigt gebeurtenissen naar verschillende eindpunten. U kunt ook uitgebreide query's toepassen op deze gegevens voordat u deze voor het ontvangen van de gegevens die voor u belangrijk is. In dit artikel beschrijft de querytaal van IoT-Hub bericht routering, en biedt enkele veelvoorkomende querypatronen.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,7 +25,7 @@ Berichtroutering, kunt u een query uitvoeren op de eigenschappen van berichten e
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Bericht routering query op basis van eigenschappen van berichten 
 
-De IoT-Hub definieert een [algemene indeling](../iot-hub/iot-hub-devguide-messages-construct.md) voor alle apparaat-naar-cloud-berichten voor interoperatbility alle protocollen. IoT Hub-bericht wordt ervan uitgegaan dat de volgende JSON-weergave van het bericht. Eigenschappen voor alle gebruikers worden toegevoegd en inhoud van het bericht te identificeren. Gebruikers kunnen eigenschappen van toepassingen selectief toevoegen aan het bericht. Het is raadzaam om met behulp van de namen van de unieke eigenschappen zoals IoT Hub apparaat-naar-cloud-berichten niet hoofdlettergevoelig is. Bijvoorbeeld, als u meerdere eigenschappen met dezelfde naam hebben, verzendt IoT-Hub alleen een van de eigenschappen.  
+De IoT-Hub definieert een [algemene indeling](iot-hub-devguide-messages-construct.md) voor alle apparaat-naar-cloud-berichten voor interoperatbility alle protocollen. IoT Hub-bericht wordt ervan uitgegaan dat de volgende JSON-weergave van het bericht. Eigenschappen voor alle gebruikers worden toegevoegd en inhoud van het bericht te identificeren. Gebruikers kunnen eigenschappen van toepassingen selectief toevoegen aan het bericht. Het is raadzaam om met behulp van de namen van de unieke eigenschappen zoals IoT Hub apparaat-naar-cloud-berichten niet hoofdlettergevoelig is. Bijvoorbeeld, als u meerdere eigenschappen met dezelfde naam hebben, verzendt IoT-Hub alleen een van de eigenschappen.  
 
 ```json
 { 
@@ -46,6 +46,7 @@ De IoT-Hub definieert een [algemene indeling](../iot-hub/iot-hub-devguide-messag
   } 
 } 
 ```
+
 ### <a name="system-properties"></a>Systeemeigenschappen
 
 Systeemeigenschappen te identificeren van de inhoud en de bron van de berichten. 
@@ -55,9 +56,9 @@ Systeemeigenschappen te identificeren van de inhoud en de bron van de berichten.
 | contentType | tekenreeks | De gebruiker geeft het type inhoud van het bericht. Als u wilt toestaan dat query op de berichttekst, moet deze waarde application/JSON worden ingesteld. |
 | contentEncoding | tekenreeks | De gebruiker Hiermee geeft u het coderingstype van het bericht. Toegestane waarden zijn UTF-8, UTF-16, UTF-32 als de contentType is ingesteld op application/JSON. |
 | ConnectionDeviceId | tekenreeks | Deze waarde is ingesteld door de IoT Hub en geeft de bron van de berichten. Dit wordt mogelijk telemetrieberichten van apparaten, device twin wijzigingsmeldingen of levenscyclusgebeurtenissen voor het apparaat. Dit kan niet worden opgevraagd. |
-| iothub-enqueuedtime | tekenreeks | Deze waarde is ingesteld door de IoT Hub en de werkelijke tijd van het bericht in UTC enqueuing vertegenwoordigt. Gebruiken om te vragen, `'enqueuedTime'`. |
+| iothub-enqueuedtime | tekenreeks | Deze waarde is ingesteld door de IoT Hub en de werkelijke tijd van het bericht in UTC enqueuing vertegenwoordigt. Gebruiken om te vragen, `enqueuedTime`. |
 
-Zoals beschreven in de [IoT Hub-berichten](iot-hub-devguide-messages-construct.md), er zijn aanvullende eigenschappen in een bericht. Naast **contentType**, **contentEncoding** en **enqueuedTime**, wordt de **connectionDeviceId** en  **connectionModuleId** kunnen ook worden opgevraagd.
+Zoals beschreven in de [IoT Hub-berichten](iot-hub-devguide-messages-construct.md), er zijn aanvullende eigenschappen in een bericht. Naast **contentType**, **contentEncoding**, en **enqueuedTime**, wordt de **connectionDeviceId** en  **connectionModuleId** kunnen ook worden opgevraagd.
 
 ### <a name="application-properties"></a>Toepassingseigenschappen
 
@@ -65,7 +66,7 @@ Eigenschappen voor de toepassing zijn zelfgedefinieerde tekenreeksen die kunnen 
 
 ### <a name="query-expressions"></a>Query-expressies
 
-Een query op berichteigenschappen moet worden voorafgegaan door de `'$'` symbool. Query's op de eigenschappen voor de toepassing worden geopend met de naam en moet niet worden voorafgegaan door de `'$'`symbool. Als de naam van een toepassing eigenschap met begint `'$'`, klikt u vervolgens IoT Hub wordt ernaar zoeken in de eigenschappen, en niet is gevonden en vervolgens ziet het er in de toepassingseigenschappen van de. Bijvoorbeeld: 
+Een query op berichteigenschappen moet worden voorafgegaan door de `$` symbool. Query's op de eigenschappen voor de toepassing worden geopend met de naam en moet niet worden voorafgegaan door de `$`symbool. Als de naam van een toepassing eigenschap met begint `$`, klikt u vervolgens IoT Hub wordt ernaar zoeken in de eigenschappen, en niet is gevonden en vervolgens ziet het er in de toepassingseigenschappen van de. Bijvoorbeeld: 
 
 Query uitvoeren op systeem eigenschap contentEncoding 
 
@@ -73,18 +74,19 @@ Query uitvoeren op systeem eigenschap contentEncoding
 $contentEncoding = 'UTF-8'
 ```
 
-Query uitvoeren op de toepassing de eigenschap processingPath
+Query uitvoeren op de toepassing de eigenschap processingPath:
+
 ```sql
 processingPath = 'hot'
 ```
 
-Als u wilt combineren deze query's, kunt u Booleaanse expressies en functies 
+Als u wilt combineren deze query's, kunt u Booleaanse expressies en functies:
+
 ```sql
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-Een volledige lijst met ondersteunde operatoren en functies worden vermeld [expressie en voorwaarden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language#expressions-and-conditions
-)
+Een volledige lijst met ondersteunde operatoren en functies worden vermeld [expressie en voorwaarden](iot-hub-devguide-query-language.md#expressions-and-conditions)
 
 ## <a name="message-routing-query-based-on-message-body"></a>Bericht routering query op basis van de hoofdtekst van bericht 
 
@@ -146,19 +148,22 @@ Een query op de hoofdtekst van het bericht moet worden voorafgegaan door de `$bo
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $body.Weather.IsEnabled 
 ```
+
 ```sql
 length($body.Weather.Location.State) = 2 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Bericht routering query op basis van apparaatdubbel 
 
-Berichtroutering, kunt u een query uitvoeren op [Apparaatdubbel](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) tags en eigenschappen die JSON-objecten zijn. Houd er rekening mee dat voor het uitvoeren van query's op moduledubbel niet wordt ondersteund. Hieronder ziet u een voorbeeld van Apparaatdubbel-tags en eigenschappen.
+Berichtroutering, kunt u een query uitvoeren op [Apparaatdubbel](iot-hub-devguide-device-twins.md) tags en eigenschappen die JSON-objecten zijn. Houd er rekening mee dat voor het uitvoeren van query's op moduledubbel niet wordt ondersteund. Hieronder ziet u een voorbeeld van Apparaatdubbel-tags en eigenschappen.
 
 ```JSON
 {
@@ -191,19 +196,21 @@ Berichtroutering, kunt u een query uitvoeren op [Apparaatdubbel](https://docs.mi
 
 ### <a name="query-expressions"></a>Query-expressies
 
-Een query op de hoofdtekst van het bericht moet worden voorafgegaan door de `$twin`. Uw query-expressie kunt ook een dubbele eigenschap of tag verwijzing combineren met een verwijzing hoofdtekst, bericht Systeemeigenschappen en naslaginformatie over eigenschappen van toepassing. Het is raadzaam om met behulp van unieke namen in labels en eigenschappen als de query niet hoofdlettergevoelig is. Ook met behulp van weerhouden `twin`, `$twin`, `body` of `$body`, aan de eigenschapnamen van een. De volgende zijn bijvoorbeeld alle geldige query-expressies: 
+Een query op de hoofdtekst van het bericht moet worden voorafgegaan door de `$twin`. Uw query-expressie kunt ook een dubbele eigenschap of tag verwijzing combineren met een verwijzing hoofdtekst, bericht Systeemeigenschappen en naslaginformatie over eigenschappen van toepassing. Het is raadzaam om met behulp van unieke namen in labels en eigenschappen als de query niet hoofdlettergevoelig is. Ook met behulp van weerhouden `twin`, `$twin`, `body`, of `$body`, aan de eigenschapnamen van een. De volgende zijn bijvoorbeeld alle geldige query-expressies: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [berichtroutering](iot-hub-devguide-messages-d2c.md)
-* Probeer de [message routing zelfstudie](tutorial-routing.md)
+* Meer informatie over [berichtroutering](iot-hub-devguide-messages-d2c.md).
+* Probeer de [message routing zelfstudie](tutorial-routing.md).

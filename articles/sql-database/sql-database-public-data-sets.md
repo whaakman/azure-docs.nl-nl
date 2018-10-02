@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160414"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586254"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Openbare gegevenssets voor het testen en ontwikkelen van prototypen
 
@@ -40,7 +40,7 @@ Deze lijst van openbare gegevenssets voor gegevens die u om prototype en test op
 
 | Gegevensbron | Over de gegevens | Over de bestanden |
 |---|---|---|
-| [New York City taxi gegevens](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi reis records bevatten velden vast te leggen op te halen en inleverbibliotheek datums/tijden, ophaal- en inleverbibliotheek locaties, reis afstanden, gespecificeerde tarieven, typen, betaalmethoden, en personenverkeer stuurprogramma gerapporteerd telt." | Gegevenssets zijn in CSV-bestanden per maand. |
+| [New York City taxi gegevens](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi reis records bevatten velden vast te leggen op te halen en dropoff datums/tijden, ophaal- en dropoff locaties, reis afstanden, gespecificeerde tarieven, typen, betaalmethoden, en personenverkeer stuurprogramma gerapporteerd telt." | Gegevenssets zijn in CSV-bestanden per maand. |
 | [Microsoft Research-gegevenssets - "Data Science voor onderzoek"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Meerdere gegevenssets die betrekking hebben op tussenkomst van de mensen en computers, audio/video, gegevensanalyse/informatie ophalen van gegevens, Georuimtelijke /-locatie, verwerking van natuurlijke taal en robotiek/computer vision. | Gegevenssets zijn in verschillende indelingen, zip downloaden. |
 | [Openbare genoom-gegevens](http://www.completegenomics.com/public-data/) | "Een diverse gegevensset van hele menselijke genomen zijn vrijelijk beschikbaar zijn voor openbaar gebruik voor het verbeteren van eventuele genetische studie..." De provider, volledige Genomics is een persoonlijke for-profit corporation. | Data-sets, zijn na extractie, in de indeling van de UNIX-tekst. Analyseprogramma's zijn ook beschikbaar. |
 | [Open data-Science gegevens Cloud](https://www.opensciencedatacloud.org/) | "Open wetenschappelijke gegevens biedt de Cloud de wetenschappelijke community met resources voor het opslaan, delen en terabyte en petabyte-schaal wetenschappelijke gegevenssets analyseren."| Gegevenssets zijn in verschillende indelingen. |

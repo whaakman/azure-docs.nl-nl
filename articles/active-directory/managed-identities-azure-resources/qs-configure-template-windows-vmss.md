@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220916"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017513"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configureren van beheerde identiteiten voor Azure-resources op een virtuele machine van Azure-schaal met behulp van een sjabloon
 
@@ -146,7 +146,7 @@ Als u een virtuele-machineschaalset die een door het systeem toegewezen beheerde
 
    Als uw apiVersion `2018-06-01` en uw virtuele machine heeft zowel system en beheerde identiteiten gebruiker toegewezen verwijderen `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de waarden van de woordenlijst userAssignedIdentities.
 
-   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01 en oudere versies**
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**
 
    Als uw apiVersion `2017-12-01` en uw virtuele-machineschaalset is zowel system als beheerde identiteiten gebruiker toegewezen verwijderen `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen beheerd identiteiten. 
    
@@ -279,7 +279,7 @@ In deze sectie maakt toewijzen u een gebruiker toegewezen beheerde identiteit aa
     ]
    ```
 
-   **Eerder Microsoft.Compute/virtualMachines API-versie 2017-12-01-eand**
+   **Microsoft.Compute/virtualMachines API-versie 2017-12-01**
 
    ```json
    "resources": [

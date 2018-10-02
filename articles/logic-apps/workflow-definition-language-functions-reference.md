@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0f2543ff10f19d6f1ccd656855dbb41cf42e6ae2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307110"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018992"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -82,7 +82,7 @@ Als u wilt werken met tekenreeksen, kunt u deze tekenreeksfuncties en ook enkele
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retourneert de beginpositie voor een subtekenreeks. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de beginpositie voor het laatste exemplaar van een subtekenreeks. | 
 | [vervangen](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervangen door de opgegeven tekenreeks een subtekenreeks en retourneert de bijgewerkte tekenreeks. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix die alle tekens uit een tekenreeks en gescheiden van elkaar gehaald met de specifieke scheidingsteken. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix met subtekenreeksen, gescheiden door komma's, uit een grotere tekenreeks op basis van een opgegeven scheidingsteken in de oorspronkelijke reeks. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Controleren of een tekenreeks met een specifieke subtekenreeks begint. | 
 | [de subtekenreeks](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourneert een tekenreeks in kleine letters indeling. | 
@@ -3016,32 +3016,32 @@ En retourneert deze matrix met de resterende items: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Geretourneerd die een matrix die alle tekens uit een tekenreeks heeft en elk teken gescheiden door een *scheidingsteken*.
+Retourneert een matrix met subtekenreeksen, gescheiden door komma's, op basis van het opgegeven scheidingsteken teken in de oorspronkelijke reeks. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
-| <*Tekst*> | Ja | Reeks | De tekenreeks met de tekens dat moet worden gesplitst |  
-| <*scheidingsteken voor duizendtallen*> | Ja | Reeks | Het scheidingsteken dat wordt weergegeven tussen elk teken in de resulterende matrix | 
+| <*Tekst*> | Ja | Reeks | De tekenreeks te splitsen in subtekenreeksen op basis van het opgegeven scheidingsteken in de oorspronkelijke reeks |  
+| <*scheidingsteken*> | Ja | Reeks | Het teken in de oorspronkelijke tekenreeks die moet worden gebruikt als het scheidingsteken | 
 ||||| 
 
 | Retourwaarde | Type | Beschrijving | 
 | ------------ | ---- | ----------- | 
-| [<*Tekens1 voor*><*scheidingsteken*><*char2*><*scheidingsteken*>...] | Matrix | De resulterende matrix gemaakt op basis van de items in de opgegeven tekenreeks |
+| [<*substring1*>, <*substring2*>,...] | Matrix | Een matrix met subtekenreeksen uit de oorspronkelijke reeks, gescheiden door komma 's |
 |||| 
 
 *Voorbeeld* 
 
-In dit voorbeeld maakt u een matrix van de opgegeven tekenreeks, die elk teken scheiden met een komma als scheidingsteken:
+In dit voorbeeld wordt een matrix gemaakt met subtekenreeksen uit de opgegeven tekenreeks op basis van het opgegeven teken als scheidingsteken: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-En dit resultaat wordt weergegeven: `[a, b, c]`
+En worden deze matrix geretourneerd als het resultaat: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226223"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586101"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Het Team Data Science Process in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar beschikbare gegevensset--de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De binaire classificeringsmodel samengesteld voorspelt al dan niet een tip wordt betaald voor een reis, en modellen voor multiklassen classificatie- en regressiemodellen worden ook besproken die het distributiepunt voor de betaalde bedragen tip voorspellen.
@@ -28,7 +28,7 @@ In deze zelfstudie, we begeleidt u bij het bouwen en implementeren van een machi
 De procedure volgt de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) werkstroom. Laten we zien over het instellen van een data science-omgeving, hoe u de gegevens laden in SQL DW en hoe SQL DW of een IPython Notebook gebruiken voor het verkennen van de gegevens en engineer functies model. Vervolgens laten we zien hoe u kunt bouwen en implementeren van een model met Azure Machine Learning.
 
 ## <a name="dataset"></a>De gegevensset NYC Taxi Trips
-De reisgegevens NYC Taxi bestaat uit ongeveer 20GB gecomprimeerde CSV-bestanden (~ 48GB niet-gecomprimeerd), voor elke reis vastleggen van meer dan 173 miljoen afzonderlijke trips en de tarieven betalen. Elke record van de fietstocht bevat de locaties ophalen en inleverbibliotheek en tijden, geanonimiseerde hack (van het stuurprogramma) licentienummer en het nummer van de straten (taxi van de unieke id). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
+De reisgegevens NYC Taxi bestaat uit ongeveer 20GB gecomprimeerde CSV-bestanden (~ 48GB niet-gecomprimeerd), voor elke reis vastleggen van meer dan 173 miljoen afzonderlijke trips en de tarieven betalen. Elke record van de fietstocht bevat de locaties ophalen en dropoff en tijden, geanonimiseerde hack (van het stuurprogramma) licentienummer en het nummer van de straten (taxi van de unieke id). De gegevens bevat informatie over alle gegevens in het jaar 2013 en is beschikbaar in de volgende twee gegevenssets voor elke maand:
 
 1. De **trip_data.csv** bestand reis details, zoals het aantal personen, ophalen en dropoff punten duur van de tocht en lengte van de fietstocht bevat. Hier volgen enkele voorbeeldrecords:
    
@@ -442,7 +442,7 @@ In dit voorbeeld berekent de verdeling van de tip bereiken in een bepaalde perio
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Verkennen: Berekenen en vergelijken van de fietstocht afstand
-In dit voorbeeld zet de ophalen en inleverbibliotheek lengtegraad en breedtegraad in SQL-geo verwijst, de reis afstand met behulp van SQL Geografie punten verschil berekent en retourneert een steekproef van de resultaten voor vergelijking. Het voorbeeld de resultaten beperkt tot geldig coördinaten alleen met behulp van de kwaliteit evaluatie van de query die eerder besproken.
+In dit voorbeeld zet de ophalen en dropoff lengtegraad en breedtegraad in SQL-geo verwijst, de reis afstand met behulp van SQL Geografie punten verschil berekent en retourneert een steekproef van de resultaten voor vergelijking. Het voorbeeld de resultaten beperkt tot geldig coördinaten alleen met behulp van de kwaliteit evaluatie van de query die eerder besproken.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON

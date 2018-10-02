@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d156d3cfd0afa463cdc18b73ad05d09e4159dae
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129485"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018618"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text-API 3.0: transliteratie
 
@@ -41,16 +41,16 @@ Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
     <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
   <tr>
-    <td>Taal</td>
+    <td>language</td>
     <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de tekst die moet worden geconverteerd van een script naar een andere. Mogelijke talen worden vermeld in de `transliteration` bereik verkregen door het opvragen van de service voor de [ondersteunde talen](.\v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u het script dat wordt gebruikt door de invoertekst. Lookup [ondersteunde talen](.\v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken invoer scripts beschikbaar voor de geselecteerde taal.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u het script dat wordt gebruikt door de invoertekst. Opzoeken [ondersteunde talen](.\v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken invoer scripts beschikbaar voor de geselecteerde taal.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u het uitvoerscript. Lookup [ondersteunde talen](.\v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken naar uitvoer-scripts die beschikbaar zijn voor de geselecteerde combinatie van taal- en invoer-script.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u het uitvoerscript. Opzoeken [ondersteunde talen](.\v3-0-languages.md) met behulp van de `transliteration` bereik, zoeken naar uitvoer-scripts die beschikbaar zijn voor de geselecteerde combinatie van taal- en invoer-script.</td>
   </tr>
 </table> 
 
@@ -171,7 +171,7 @@ De JSON-nettolading voor de aanvraag in dit voorbeeld:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Als u van cUrl in een opdrachtregelvenster die geen ondersteuning biedt voor Unicode-tekens gebruikmaakt, worden de volgende JSON-nettolading en sla deze op in een bestand met de naam `request.txt`. Zorg ervoor dat u het bestand met de `UTF-8` codering.
+Als u van cURL in een opdrachtregelvenster die geen ondersteuning biedt voor Unicode-tekens gebruikmaakt, worden de volgende JSON-nettolading en sla deze op in een bestand met de naam `request.txt`. Zorg ervoor dat u het bestand met de `UTF-8` codering.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

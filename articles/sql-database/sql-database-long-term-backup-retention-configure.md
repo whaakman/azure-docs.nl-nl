@@ -7,24 +7,22 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/19/2018
+ms.openlocfilehash: 68746874ec01f44055421f0033acd0d485e1d230
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164987"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586084"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Langetermijnretentie voor Azure SQL Database beheren
 
 U kunt configureren dat Azure SQL-database met een [langetermijnretentie](sql-database-long-term-retention.md) beleid (LTR) automatisch back-ups in Azure blob-opslag maximaal 10 jaar bewaren. U kunt vervolgens deze back-ups met behulp van de Azure portal of PowerShell met een database herstellen.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>De Azure portal gebruiken om te configureren op de lange termijn voor het bewaren en herstellen van back-ups
-
 De volgende secties laten zien hoe u de Azure portal gebruiken voor het configureren van de langetermijnretentie, back-ups langetermijnretentie weergeven en back-up herstellen vanuit een langetermijnretentie.
 
 ### <a name="configure-long-term-retention-policies"></a>Op de lange termijn bewaarbeleid configureren
@@ -78,6 +76,24 @@ De volgende secties laten zien hoe u PowerShell gebruiken voor het configureren 
 - [AzureRM.Sql 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) of hoger
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) of hoger
 > 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>RBAC-rollen beheren met een langetermijnbewaarperiode
+
+Als u wilt LTR-back-ups beheren, moet u zijn 
+- De eigenaar van het abonnement of
+- Inzender voor SQL Server-rol in **abonnement** bereik of
+- De rol Inzender voor SQL-Database in **abonnement** bereik
+
+Als u meer gedetailleerde controle vereist is, kunt u aangepaste RBAC-rollen maken en toewijzen in **abonnement** bereik. 
+
+Voor **Get-AzureRmSqlDatabaseLongTermRetentionBackup** en **Restore-AzureRmSqlDatabase** de rol moet de volgende bevoegdheden hebben:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups leestijd
+ 
+Voor **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** moet de rol van de volgende bevoegdheden hebben:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>Een LTR-beleid maken
 

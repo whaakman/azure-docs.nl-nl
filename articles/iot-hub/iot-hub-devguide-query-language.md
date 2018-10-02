@@ -2,22 +2,21 @@
 title: Inzicht in de Azure IoT Hub-querytaal | Microsoft Docs
 description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT-Hub query language gebruikt voor het ophalen van informatie over het apparaat/module dubbels en taken van uw IoT-hub.
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4aa4a3b1e617009d88c581966f791569322d967f
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952474"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018432"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
-IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betrekking tot [apparaatdubbels] [ lnk-twins] en [taken][lnk-jobs], en [berichtroutering][lnk-devguide-messaging-routes]. In dit artikel geeft:
+IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betrekking tot [apparaatdubbels](iot-hub-devguide-device-twins.md) en [taken](iot-hub-devguide-jobs.md), en [berichtroutering](iot-hub-devguide-messages-d2c.md). In dit artikel geeft:
 
 * Een inleiding tot de belangrijkste functies van de IoT Hub-querytaal en
 * De gedetailleerde beschrijving van de taal. Zie voor meer informatie over de querytaal voor het routeren van berichten, [query's in berichtroutering](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +24,9 @@ IoT Hub biedt een krachtige SQL-achtige taal verkrijgen van informatie met betre
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Apparaat- en -module apparaatdubbel-query 's
-[Apparaatdubbels] [ lnk-twins] en moduledubbels willekeurige JSON-objecten als zowel labels en eigenschappen kunnen bevatten. IoT Hub kunt u query apparaatdubbels en moduledubbels als een enkel JSON-document met alle dubbele gegevens.
+
+[Apparaatdubbels](iot-hub-devguide-device-twins.md) en moduledubbels willekeurige JSON-objecten als zowel labels en eigenschappen kunnen bevatten. IoT Hub kunt u query apparaatdubbels en moduledubbels als een enkel JSON-document met alle dubbele gegevens.
+
 Stel bijvoorbeeld dat de apparaatdubbels van uw IoT-hub de volgende structuur hebben (moduledubbel zouden zijn vergelijkbaar met een extra moduleId alleen):
 
 ```json
@@ -80,15 +81,14 @@ Stel bijvoorbeeld dat de apparaatdubbels van uw IoT-hub de volgende structuur he
 
 ### <a name="device-twin-queries"></a>Apparaatdubbel-query 's
 
-IoT-Hub toont de apparaatdubbels als een documentverzameling met de naam **apparaten**.
-Dus haalt de volgende query de hele set dubbele apparaten:
+IoT-Hub toont de apparaatdubbels als een documentverzameling met de naam **apparaten**. Bijvoorbeeld, haalt de volgende query de hele set dubbele apparaten:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK's] [ lnk-hub-sdks] ondersteuning voor paginering van veel resultaten.
+> [Azure IoT SDK's](iot-hub-devguide-sdks.md) ondersteuning voor paginering van veel resultaten.
 
 IoT Hub kunt u om op te halen van apparaatdubbels filteren met willekeurig voorwaarden. Bijvoorbeeld voor het ontvangen van device twins waar de **location.region** label is ingesteld op **VS** gebruik de volgende query:
 
@@ -97,11 +97,11 @@ SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Booleaanse operators en rekenkundige vergelijkingen worden ook ondersteund. Om op te halen van apparaat bijvoorbeeld, gebruik dubbele zich in de Verenigde Staten en geconfigureerd voor het verzenden van telemetrie minder dan elke minuut de volgende query:
+Booleaanse operators en rekenkundige vergelijkingen worden ook ondersteund. Bijvoorbeeld, om op te halen apparaatdubbels zich in de Verenigde Staten en geconfigureerd voor het verzenden van telemetrie minder dan elke minuut, gebruikt u de volgende query uit:
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ Uw gemak, het is ook mogelijk met gebruik van de matrixconstanten met de **IN** 
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 Het is vaak nodig om u te identificeren van alle dubbele apparaten die een bepaalde eigenschap bevatten. IoT Hub biedt ondersteuning voor de functie `is_defined()` voor dit doel. Bijvoorbeeld, voor apparaatdubbels ophalen die definieert de `connectivity` eigenschap gebruik de volgende query:
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-Raadpleeg de [WHERE-component] [ lnk-query-where] sectie voor de volledige verwijzing van de filters gebruiken om mogelijkheden.
+Raadpleeg de [WHERE-component](iot-hub-devguide-query-language.md#where-clause) sectie voor de volledige verwijzing van de filters gebruiken om mogelijkheden.
 
-Groeperen en aggregaties worden ook ondersteund. Informatie over het aantal apparaten in elke telemetrie configuratiestatus bijvoorbeeld, gebruik de volgende query:
+Groeperen en aggregaties worden ook ondersteund. Bijvoorbeeld, als u wilt het aantal apparaten in de status van elk telemetrie-configuratie kunt vinden, gebruik de volgende query:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 Deze groepering query retourneert een resultaat vergelijkbaar met het volgende voorbeeld:
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Module apparaatdubbel-query 's
 
-Query's over moduledubbels is vergelijkbaar met de query op dubbele apparaten, maar met behulp van een andere verzameling/naamruimte, dat wil zeggen in plaats van 'van apparaten' u kunt een query
+Query's over moduledubbels is vergelijkbaar met het uitvoeren van query's op dubbele apparaten, maar met behulp van een andere verzameling/naamruimte, dat wil zeggen in plaats van 'van apparaten' u kunt een query device.modules:
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ We kunnen geen koppeling tussen de apparaten en devices.modules verzamelingen. A
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-Deze query retourneert alle moduledubbels met de status van de scans, maar alleen op het opgegeven aantal apparaten.
+Deze query retourneert alle moduledubbels met de status van de scans, maar alleen op het opgegeven aantal apparaten:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C#-voorbeeld
-De queryfunctionaliteit van de wordt weergegeven door de [C# service-SDK] [ lnk-hub-sdks] in de **RegistryManager** klasse.
+
+De queryfunctionaliteit van de wordt weergegeven door de [C# service-SDK](iot-hub-devguide-sdks.md) in de **RegistryManager** klasse.
+
 Hier volgt een voorbeeld van een eenvoudige query:
 
 ```csharp
@@ -198,7 +202,9 @@ De **query** object is gemaakt met een paginagrootte (maximaal 100). Klik meerde
 De query-object wordt aangegeven dat meerdere **volgende** waarden, afhankelijk van de deserialisatie-optie vereist door de query. Bijvoorbeeld, apparaatobjecten dubbel of de taak, of gewoon JSON bij het gebruik van projecties.
 
 ### <a name="nodejs-example"></a>Node.js-voorbeeld
-De queryfunctionaliteit van de wordt weergegeven door de [Azure IoT service SDK voor Node.js] [ lnk-hub-sdks] in de **register** object.
+
+De queryfunctionaliteit van de wordt weergegeven door de [Azure IoT service SDK voor Node.js](iot-hub-devguide-sdks.md) in de **register** object.
+
 Hier volgt een voorbeeld van een eenvoudige query:
 
 ```nodejs
@@ -233,8 +239,7 @@ Op dit moment vergelijkingen bijvoorbeeld alleen tussen primitieve typen (geen o
 
 ## <a name="get-started-with-jobs-queries"></a>Aan de slag met taken query 's
 
-[Taken] [ lnk-jobs] bieden een manier voor het uitvoeren van bewerkingen voor sets met apparaten. Elke apparaatdubbel bevat de informatie van de taken die het onderdeel in een verzameling met de naam is **taken**.
-Logisch gezien
+[Taken](iot-hub-devguide-jobs.md) bieden een manier voor het uitvoeren van bewerkingen voor sets met apparaten. Elke apparaatdubbel bevat de informatie van de taken die het onderdeel in een verzameling met de naam is **taken**.
 
 ```json
 {
@@ -276,16 +281,18 @@ Bijvoorbeeld, als u alle taken (afgelopen en geplande) die invloed hebben op Ã©Ã
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 Houd er rekening mee hoe deze query geeft de status van de apparaat-specifieke (en eventueel ook het antwoord van de directe methode) van elke taak die wordt geretourneerd.
+
 Het is ook mogelijk om te filteren met willekeurig Booleaanse voorwaarden op alle eigenschappen van het object in de **devices.jobs** verzameling.
+
 Bijvoorbeeld, om op te halen van alle voltooide device twin update taken die na September 2016 zijn gemaakt voor een specifiek apparaat, gebruikt u de volgende query uit:
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ U kunt ook de resultaten per apparaat van een enkele taak ophalen.
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>Beperkingen
+
 Op dit moment een query uitgevoerd op **devices.jobs** bieden geen ondersteuning voor:
 
 * Projecties, daarom alleen `SELECT *` is mogelijk.
@@ -306,24 +314,28 @@ Op dit moment een query uitgevoerd op **devices.jobs** bieden geen ondersteuning
 * Uitvoeren van de aggregaties, zoals het aantal, gemiddelde, groeperen op.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Basisprincipes van een IoT Hub-query
+
 Elke IoT Hub query bestaat van selecteren en van de EU, met optionele waar en GROUP BY-componenten. Elke query wordt uitgevoerd op een verzameling van JSON-documenten, bijvoorbeeld apparaatdubbels. De component FROM geeft aan dat de documentenverzameling om te worden herhaald op (**apparaten** of **devices.jobs**). Het filter in de component WHERE wordt vervolgens toegepast. Met aggregaties, worden de resultaten van deze stap zijn gegroepeerd zoals opgegeven in de component GROUP BY. Voor elke groep een rij wordt gegenereerd zoals opgegeven in de component SELECT.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>FROM-component
+
 De **van < from_specification >** component kunt ervan uitgaan dat slechts twee waarden: **van apparaten** naar query apparaatdubbels, of **van devices.jobs** op query-taakdetails per apparaat.
+
 
 ## <a name="where-clause"></a>WHERE-component
 De **waarbij < filter_condition >** component is optioneel. Hiermee geeft u een of meer voorwaarden dat de JSON-in de verzameling van documenten moeten voldoen om te worden opgenomen als onderdeel van het resultaat. Elk JSON-document moet de opgegeven voorwaarden op "true" moet worden opgenomen in het resultaat opleveren.
 
-De toegestane voorwaarden worden beschreven in de sectie [expressies en voorwaarden][lnk-query-expressions].
+De toegestane voorwaarden worden beschreven in de sectie [expressies en voorwaarden](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>SELECT-component
+
 De **Selecteer < select_list >** is verplicht en Hiermee geeft u de waarden die worden opgehaald uit de query. Het geeft de JSON-waarden moet worden gebruikt voor het genereren van nieuwe JSON-objecten.
 De Projectiefase wordt voor elk element van de gefilterde (en eventueel gegroepeerde) subset van de verzameling van een nieuwe JSON-object gegenereerd. Dit object is gemaakt met de opgegeven waarden in de component SELECT.
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**%{Attribute_name/** verwijst naar een eigenschap van het JSON-document in de verzameling van. Enkele voorbeelden van SELECT-component kunnen worden gevonden in de [aan de slag met query's voor apparaattwins] [ lnk-query-getstarted] sectie.
+**%{Attribute_name/** verwijst naar een eigenschap van het JSON-document in de verzameling van. Enkele voorbeelden van SELECT-component kunnen worden gevonden in de [aan de slag met query's voor apparaattwins](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) sectie.
 
 Op dit moment selectie van de EU anders dan **Selecteer*** worden alleen ondersteund in statistische query's op dubbele apparaten.
 
@@ -483,18 +495,5 @@ In situaties, routes, worden de volgende reeks functies ondersteund:
 | CONTAINS(x,y) | Retourneert een Booleaanse waarde die aangeeft of de eerste expressie tekenreeks de tweede bevat. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het uitvoeren van query's in uw apps met behulp van [Azure IoT SDK's][lnk-hub-sdks].
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+Meer informatie over het uitvoeren van query's in uw apps met behulp van [Azure IoT SDK's](iot-hub-devguide-sdks.md).

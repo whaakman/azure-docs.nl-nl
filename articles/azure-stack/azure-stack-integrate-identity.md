@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5d002ae84334219d636448e8c78a791fa9c230e7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059099"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586135"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -173,9 +173,9 @@ Voor de volgende procedure, moet u een computer die een netwerkverbinding heeft 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit, met behulp van de parameters die geschikt is voor uw omgeving:
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
 2. Kopieer het bestand met metagegevens op een computer die met de bevoorrechte eindpunt communiceren kan.
@@ -240,24 +240,27 @@ Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
    => issue(claim = c);
    ```
 
-2. Om in te schakelen op basis van formulieren voor Windows-verificatie, open een Windows PowerShell-sessie als een gebruiker met verhoogde bevoegdheid en voer de volgende opdracht uit:
+2. Valideren dat de Windows op formulieren gebaseerde verificatie voor extranet en intranet is ingeschakeld. Controleer eerst of de al is ingeschakeld door de volgende cmdlet:
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > De Windows geïntegreerde verificatie (WIA) ondersteunde gebruikersagent tekenreeksen kunnen voor u AD FS-implementatie verouderde mogelijk worden bijgewerkt om de meest recente clients ondersteunen. Meer informatie over het bijwerken van de WIA gebruiker agent tekenreeksen worden ondersteund in het artikel [intranet formulieren gebaseerde verificatie configureren voor apparaten die geen ondersteuning voor WIA bieden](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>De stappen voor het inschakelen van formulier-gebaseerde authenticatie-beleid worden beschreven in het artikel [verificatiebeleid configureren](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Als wilt toevoegen de relying party trust, voert u de volgende Windows PowerShell-opdracht op uw exemplaar van AD FS of een Farmlid. Zorg ervoor dat u het bijwerken van de AD FS-eindpunt en verwijzen naar het bestand dat in stap 1 hebt gemaakt.
 
    **Voor AD FS 2016**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **Voor AD FS 2012/2012 R2**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -270,12 +273,6 @@ Als u besluit de opdrachten handmatig uitvoeren, volgt u deze stappen:
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. De Azure Stack-portals en hulpprogramma's (Visual Studio) vereisen vernieuwingstokens. Deze moeten worden geconfigureerd door een vertrouwensrelatie van. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht uit:
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## <a name="spn-creation"></a>SPN maken

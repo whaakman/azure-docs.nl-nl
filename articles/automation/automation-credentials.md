@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057282"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585337"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 
@@ -77,6 +77,9 @@ De functie in de volgende tabel wordt gebruikt voor toegang tot de referenties i
 2. Klik op de **referenties** onderdeel om te openen de **referenties** blade.
 3. Klik op **een referentie toevoegen** aan de bovenkant van de blade.
 4. Vul het formulier in en klikt u op **maken** om op te slaan van de nieuwe referentie.
+
+> [!NOTE]
+> Gebruikersaccounts die gebruikmaken van meerdere factoren verificatie worden niet ondersteund voor gebruik in Azure Automation.
 
 ### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Een nieuwe referentieasset maken met Windows PowerShell
 
