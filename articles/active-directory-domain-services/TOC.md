@@ -22,6 +22,8 @@
 ## [De status van een beheerd domein controleren](active-directory-ds-check-health.md)
 ## [Azure AD Domain Services gebruiken in Azure CSP-abonnementen](active-directory-ds-csp.md)
 ## [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Bereik voor synchronisatie van Azure AD naar een beheerd domein configureren](active-directory-ds-scoped-synchronization.md)
+## [Uw beheerde domein beveiligen](active-directory-ds-secure-your-domain.md)
 ## Een beheerd domein koppelen
 ### [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)
@@ -44,7 +46,6 @@
 ### [Een beheerd serviceaccount voor groepen maken in een beheerd domein](active-directory-ds-create-gmsa.md)
 ### [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Wachtwoordbeleid op een beheerd domein configureren](active-directory-ds-password-policy.md)
-### [Bereik voor synchronisatie van Azure AD naar een beheerd domein configureren](active-directory-ds-scoped-synchronization.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
 ## Toepassingen implementeren
 ### [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045342"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017650"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Uw resources organiseren met Azure-beheergroepen
 
@@ -47,7 +47,7 @@ Eén toewijzing in de beheergroep kan gebruikers toegang geven tot alles wat ze 
 ## <a name="root-management-group-for-each-directory"></a>Hoofdbeheergroep voor elke map
 
 Elke map krijgt één beheergroep op het hoogste niveau, de 'hoofdbeheergroep'.
-Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn samengevouwen. Met deze hoofdbeheergroep kunt u algemene beleidsregels en RBAC-toewijzingen toepassen op mapniveau. De [Active Directory-beheerder moet zichzelf eerst instellen](../../role-based-access-control/elevate-access-global-admin.md) als eigenaar van deze hoofdgroep. Zodra de beheerder de eigenaar van de groep is, kan hij alle RBAC-rollen toewijzen aan andere Active Directory-gebruikers of -groepen om de hiërarchie te beheren.
+Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen en abonnementen hierin zijn opgevouwen. Met deze hoofdbeheergroep kunt u algemene beleidsregels en RBAC-toewijzingen toepassen op mapniveau. De [Active Directory-beheerder moet zichzelf eerst instellen](../../role-based-access-control/elevate-access-global-admin.md) als eigenaar van deze hoofdgroep. Zodra de beheerder de eigenaar van de groep is, kan hij alle RBAC-rollen toewijzen aan andere Active Directory-gebruikers of -groepen om de hiërarchie te beheren.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Belangrijke feiten over de hoofdbeheergroep
 
@@ -62,19 +62,30 @@ Deze hoofdbeheergroep is zo in de hiërarchie ingebouwd dat alle beheergroepen e
   - Iedereen die toegang heeft tot een abonnement, kan de context zien van waar dat abonnement zich in de hiërarchie bevindt.  
   - Niemand krijgt standaard toegang tot de hoofdbeheergroep. Globale beheerders van Active Directory zijn de enige gebruikers die zichzelf toegang kunnen verschaffen.  Wanneer ze toegang hebben, kunnen beheerders van Active Directory elke RBAC-rol toewijzen aan andere gebruikers, zodat deze het beheer daarover hebben.  
 
-> [!NOTE]
-> Als uw map de beheergroepservice voor het eerst gebruikte vóór 25-06-2018, zijn mogelijk niet alle abonnementen ingesteld in de hiërarchie voor uw map. Het managementgroep-team werkt in juli/augustus 2018 met terugwerkende kracht alle mappen bij die voor deze datum begonnen met het gebruik van beheergroepen in de Openbare preview. Van alle abonnementen in de mappen worden onderliggende items gemaakt onder de hoofdbeheergroep.
->
-> Als u vragen hebt over de terugwerkende kracht waarmee dit proces werkt, neemt u contact op met: managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Eerste installatie van beheergroepen
-
-Wanneer een gebruiker start met het gebruik van beheergroepen, vindt er een proces plaats voor de eerste installatie. Eerst wordt er een hoofdbeheergroep gemaakt in de map. Zodra deze groep klaar is, worden alle bestaande abonnementen die in de map zijn opgenomen gemaakt tot onderliggende items van de hoofdbeheergroep. De reden dat dit proces zo werkt, is om er zeker van te zijn dat er binnen een map slechts één beheergroephiërarchie is. Die ene hiërarchie in de map zorgt ervoor dat klanten met een beheerdersrol globale toegang en beleidsregels kunnen toepassen waar andere klanten in de map niet omheen kunnen. Doordat er één hiërarchie is in de map, zijn alle zaken die in de hoofdmap zijn toegewezen, van toepassing op alle beheergroepen, abonnementen, resourcegroepen en resources in de map.
-
 > [!IMPORTANT]
 > Toewijzingen voor gebruikerstoegang of beleidstoewijzingen in de hoofdbeheergroep **zijn van toepassing op alle resources in de map**.
 > Daarom moeten alle klanten goed nadenken over de noodzaak om items op dit niveau toe te wijzen.
 > Op dit niveau mogen alleen toewijzingen voor gebruikerstoegang of beleid de aanduiding ‘Must have’ (Strikt noodzakelijk) hebben.  
+
+## <a name="initial-setup-of-management-groups"></a>Eerste installatie van beheergroepen
+
+Wanneer een gebruiker start met het gebruik van beheergroepen, vindt er een proces plaats voor de eerste installatie. Eerst wordt er een hoofdbeheergroep gemaakt in de map. Zodra deze groep klaar is, worden alle bestaande abonnementen die in de map zijn opgenomen gemaakt tot onderliggende items van de hoofdbeheergroep. De reden dat dit proces zo werkt, is om er zeker van te zijn dat er binnen een map slechts één beheergroephiërarchie is. Die ene hiërarchie in de map zorgt ervoor dat klanten met een beheerdersrol globale toegang en beleidsregels kunnen toepassen waar andere klanten in de map niet omheen kunnen. Doordat er één hiërarchie is in de map, zijn alle zaken die in de hoofdmap zijn toegewezen, van toepassing op alle beheergroepen, abonnementen, resourcegroepen en resources in de map.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Problemen met de weergave van alle abonnementen
+
+Een aantal directory’s die vroeg in de preview (vóór 25 juni 2018) met managementgroepen zijn gaan werken, kunnen een probleem ervaren waarbij niet van alle abonnementen opname in de hiërarchie wordt gedwongen.  De reden hiervoor is dat de processen voor het afdwingen van opname van abonnementen in de hiërarchie zijn geïmplementeerd nadat een rol- of beleidstoewijzing is uitgevoerd in de hoofdbeheergroep in de directory.
+
+### <a name="how-to-resolve-the-issue"></a>Het probleem oplossen
+
+Er zijn twee opties om dit in eigen beheer op te lossen.
+
+1. Alle rol- en beleidstoewijzingen uit de hoofdbeheergroep verwijderen
+    1. Door alle beleids- en roltoewijzingen van de hoofdbeheergroep te verwijderen, zal de service alle abonnementen in de hiërarchie aanvullen tijdens de volgende nachtelijke cyclus.  De reden voor deze controle is om ervoor te zorgen dat er geen onopzettelijke toegang wordt gegeven of beleid toegewezen aan alle abonnementen van de tenant.
+    1. De beste manier om dit proces uit te voeren zonder uw services te beïnvloeden, is de rol- of beleidstoewijzingen één niveau onder de hoofdbeheergroep toe te passen. Vervolgens kunt u alle toewijzingen van het hoofdbereik verwijderen.
+1. De API rechtstreeks aanroepen om het backfill-proces te starten
+    1. Elke geautoriseerde klant in de directory kan de API's *TenantBackfillStatusRequest* of *StartTenantBackfillRequest* aanroepen. Wanneer de API StartTenantBackfillRequest wordt aangeroepen, wordt hiermee het initiële instellingsproces gestart voor het verplaatsen van alle abonnementen naar de hiërarchie. Met dit proces wordt ook afgedwongen dat alle nieuwe abonnementen een onderliggend element van de hoofdbeheergroep worden gemaakt. Dit proces kan worden uitgevoerd zonder toewijzingen op het hoofdniveau te wijzigen, omdat u aangeeft dat elke beleid- of toegangstoewijzing in de hoofdmap mag worden toegepast op alle abonnementen.
+
+Als u vragen hebt over dit backfill-proces, neemt u contact op met: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Toegang tot beheergroepen
 
