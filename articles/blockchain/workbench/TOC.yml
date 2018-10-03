@@ -1,0 +1,77 @@
+items:
+- name: Azure Blockchain Workbench (openbare review)
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Over Azure Blockchain Workbench
+    href: overview.md
+  expanded: true
+- name: Concepten
+  items:
+  - name: Architectuur
+    href: architecture.md
+  - name: Integratiepatronen
+    href: integration-patterns.md
+- name: Handleidingen
+  items:
+  - name: Workbench implementeren
+    href: deploy.md
+  - name: Een blockchain-app maken
+    href: create-app.md
+  - name: Workbench-gebruikers beheren
+    href: manage-users.md
+  - name: Een blockchain-app gebruiken
+    href: use.md
+  - name: Workbench-API gebruiken
+    href: use-api.md
+  - name: Problemen oplossen met apps
+    href: troubleshooting.md
+  - name: Workbench-gegevens gebruiken
+    items:
+    - name: DB-firewall configureren
+      href: database-firewall.md
+    - name: DB-gegevens ophalen
+      href: getdb-details.md
+    - name: Gegevens in Excel gebruiken
+      href: data-excel.md
+    - name: Gegevens in Power BI gebruiken
+      href: data-powerbi.md
+    - name: Gegevens in SQL Management Studio gebruiken
+      href: data-sql-management-studio.md
+  expanded: true
+- name: Naslaginformatie
+  items:
+  - name: Configuratie
+    href: configuration.md
+  - name: Databaseweergaven
+    href: database-views.md
+  - name: Berichten-API
+    href: messages-overview.md
+  - name: REST-API
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+- name: Resources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Codevoorbeelden
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Community
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Forum
+    href: https://aka.ms/workbenchforum
+  - name: Productfeedback
+    href: https://aka.ms/blockchainuservoice
+- name: Oplossingssjablonen
+  items:
+  - name: Ethereum Proof-of-Authority-consortium
+    href: ../templates/ethereum-poa-deployment.md
+  - name: Ethereum Proof-of-Work-consortium
+    href: ../templates/ethereum-deployment.md
+  - name: Hyperledger Fabric-consortium
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+ms.openlocfilehash: de9b0906450f3ba26ebfac6699c07d93039db6a7
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239763"

@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a42db3dd4af0e02e001b3a4fbcc5f3b126606a6f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239770"
+documentType: LandingData
+title: Documentatie voor Azure Blockchain Workbench
+metadata:
+  title: Documentatie voor Azure Blockchain Workbench - zelfstudies, API-verwijzing | Microsoft Docs
+  description: Informatie over het maken van blockchain-toepassingen. Zelfstudies, API-verwijzingen en andere documentatie beschrijven hoe u Azure Blockchain Workbench kunt implementeren en blockchain-toepassingen in Azure kunt maken en beheren.
+  services: blockchain-workbench
+  author: patricka
+  manager: femila
+  ms.service: blockchain-workbench
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/17/2018
+  ms.author: patricka
+abstract:
+  description: Informatie over het maken van blockchain-toepassingen. Zelfstudies, API-verwijzingen en andere documentatie beschrijven hoe u Azure Blockchain Workbench kunt implementeren om blockchain-toepassingen in Azure te maken en te gebruiken.
+sections:
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Informatie over het implementeren, maken en gebruiken van blockchain-toepassingen in Azure.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Azure Blockchain Workbench implementeren</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Een blockchain-app maken</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Een blockchain-app gebruiken</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p>
