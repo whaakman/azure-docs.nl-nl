@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ab759d731f8bac674435e48b0f7af67331ce03d2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160448"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236447"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Inzicht krijgen in de querytaal van Azure Resource Graph
 
@@ -35,7 +35,7 @@ Hier volgt de lijst met ondersteunde in tabelvorm operators in Resource-grafiek:
 - [Voorbeeld](/azure/kusto/query/sampleoperator)
 - [Voorbeeld van afzonderlijke](/azure/kusto/query/sampledistinctoperator)
 - [sorteren op](/azure/kusto/query/sortoperator)
-- [samenvatten](/azure/kusto/query/summerizeoperator)
+- [samenvatten](/azure/kusto/query/summarizeoperator)
 - [toets maken](/azure/kusto/query/takeoperator)
 - [Boven](/azure/kusto/query/topoperator)
 - [Top-geneste](/azure/kusto/query/topnestedoperator)

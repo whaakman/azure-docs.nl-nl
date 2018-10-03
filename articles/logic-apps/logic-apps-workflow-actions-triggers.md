@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093615"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044770"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Documentatie over de trigger en actie typen voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -62,7 +62,7 @@ Triggers hebben deze elementen op het hoogste niveau, hoewel sommige optioneel z
 
 | Waarde | Type | Beschrijving | 
 |-------|------|-------------| 
-| <*matrix met voorwaarden*> | Matrix | Een matrix met een of meer [voorwaarden](#trigger-conditions) die bepalen of de werkstroom uitvoeren | 
+| <*matrix met voorwaarden*> | Matrix | Een matrix met een of meer [voorwaarden](#trigger-conditions) die bepalen of de werkstroom uitvoert. Alleen beschikbaar voor triggers. | 
 | <*Runtime-configuratie-opties*> | JSON-Object | U kunt trigger runtimegedrag wijzigen door in te stellen `runtimeConfiguration` eigenschappen. Zie voor meer informatie, [Runtime-configuratie-instellingen](#runtime-config-options). | 
 | <*splitOn-expressie*> | Reeks | Voor triggers die een matrix retourneert, kunt u een expressie opgeven die [splitst of *debatches* ](#split-on-debatch) items in meerdere werkstroomexemplaren voor de verwerking van een matrix. | 
 | <*bewerking-optie*> | Reeks | U kunt het standaardgedrag wijzigen door in te stellen de `operationOptions` eigenschap. Zie voor meer informatie, [bewerkingsopties](#operation-options). | 
@@ -657,7 +657,7 @@ Deze trigger geeft aan dat een binnenkomende aanvraag de HTTP POST-methode gebru
 
 ## <a name="trigger-conditions"></a>Activeringsvoorwaarden
 
-Voor een trigger, kunt u een matrix met een of meer expressies voor voorwaarden vaststelt die bepalen of de werkstroom moet worden uitgevoerd opnemen. Om toe te voegen de `conditions` eigenschap aan uw logische app, opent u uw logische app in de weergave-editor.
+Voor een trigger, en alleen triggers, kunt u een matrix met een of meer expressies voor voorwaarden vaststelt die bepalen of de werkstroom moet worden uitgevoerd opnemen. Om toe te voegen de `conditions` eigenschap met een trigger in uw logische app, opent u uw logische app in de weergave-editor.
 
 U kunt bijvoorbeeld opgeven dat een trigger wordt geactiveerd wanneer een website retourneert alleen een interne serverfout door te verwijzen naar de statuscode van de trigger in de `conditions` eigenschap:
 
@@ -1340,7 +1340,7 @@ Deze actie wordt een matrix van items in een andere matrix op basis van een opge
 | Waarde | Type | Beschrijving | 
 |-------|------|-------------| 
 | <*Matrix*> | Matrix | De ingevoerde matrix of een expressie waarmee de bronitems. Als u een expressie opgeven, plaatst u deze expressie met dubbele aanhalingstekens. |
-| <*voorwaarde-of-filter*> | Reeks | De voorwaarde die wordt gebruikt voor het filteren van items in de bronmatrix <p>**Houd er rekening mee**: als er geen waarden voldoen aan de voorwaarde, de actie wordt een lege matrix gemaakt. |
+| <*voorwaarde-of-filter*> | Reeks | De voorwaarde die wordt gebruikt voor het filteren van items in de bronmatrix <p>**Houd er rekening mee**: als er geen waarden voldoen aan de voorwaarde, wordt de actie wordt een lege matrix gemaakt. |
 |||| 
 
 *Voorbeeld*
@@ -1959,7 +1959,7 @@ Deze actie wordt een *voorwaardelijke statement*, evalueert een expressie die ee
 
 | Waarde | Type | Beschrijving | 
 |-------|------|-------------| 
-| <*voorwaarde*> | JSON-Object | De voorwaarde, dit kan een expressie om te evalueren | 
+| <*Voorwaarde*> | JSON-Object | De voorwaarde, dit kan een expressie om te evalueren | 
 | <*actie-1*> | JSON-Object | De actie om uit te voeren wanneer <*voorwaarde*> resulteert in waar | 
 | <*actie-definitie*> | JSON-Object | De definitie voor de actie | 
 | <*actie-2*> | JSON-Object | De actie om uit te voeren wanneer <*voorwaarde*> wordt geëvalueerd als onwaar | 
@@ -2219,7 +2219,7 @@ Deze lusactie bevat acties die worden uitgevoerd totdat de opgegeven voorwaarde 
 | <*naam van de actie*> | Reeks | De naam voor de actie die u wilt uitvoeren binnen de lus | 
 | <*actie-type*> | Reeks | Het actietype dat uit te voeren | 
 | <*actie-invoer*> | Verschillende | De invoer voor de actie om uit te voeren | 
-| <*voorwaarde*> | Reeks | De voorwaarde of expressie om te evalueren nadat alle acties in de lus uitgevoerd | 
+| <*Voorwaarde*> | Reeks | De voorwaarde of expressie om te evalueren nadat alle acties in de lus uitgevoerd | 
 | <*lus: aantal*> | Geheel getal | De limiet op het hoogste aantal lussen die de actie kan worden uitgevoerd. De standaardwaarde `count` waarde is 60. | 
 | <*time-out van de lus*> | Reeks | De limiet voor de meeste tijd die de lus kan worden uitgevoerd. De standaardwaarde `timeout` waarde `PT1H`, dit is de vereiste [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
@@ -2318,7 +2318,7 @@ U kunt het standaardgedrag voor triggers en acties met de `operationOptions` eig
 
 ### <a name="change-trigger-concurrency"></a>Gelijktijdigheid van de trigger wijzigen
 
-Standaard logic app-exemplaren worden uitgevoerd op hetzelfde moment, gelijktijdig of parallel tot de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Er wordt dus elk exemplaar van de trigger geactiveerd voordat het eerder active logic app-exemplaar is voltooid. Deze limiet helpt te bepalen het aantal aanvragen dat back-endsystemen ontvangen. 
+Standaard logic app-exemplaren worden uitgevoerd op hetzelfde moment, gelijktijdig of parallel tot de [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Er wordt dus elk exemplaar van de trigger geactiveerd voordat het voorgaande logic app-exemplaar is voltooid. Deze limiet helpt te bepalen het aantal aanvragen dat back-endsystemen ontvangen. 
 
 Als u wilt de standaardlimiet wijzigen, kunt u de code-editor voor weergave of de ontwerper van logische Apps omdat wijzigen van de instelling voor gelijktijdigheid via de ontwerpfunctie wordt toegevoegd of bijgewerkt omdat de `runtimeConfiguration.concurrency.runs` eigenschap in de onderliggende definitie van de trigger en vice versa. Deze eigenschap bepaalt het maximum aantal logic app-exemplaren die gelijktijdig kunnen worden uitgevoerd. 
 
@@ -2385,7 +2385,7 @@ Hier volgt een voorbeeld dat gelijktijdige uitvoeringen naar 10 iteraties beperk
 
 #### <a name="edit-in-logic-apps-designer"></a>Bewerken in de ontwerper van logische Apps
 
-1. In de **voor elk** rechterbovenhoek van de actie, kiest u de knop met weglatingstekens (...) en kies vervolgens **instellingen**.
+1. In de **voor elk** actie in de rechterbovenhoek, kiest u de knop met weglatingstekens (...) en kies vervolgens **instellingen**.
 
 2. Onder **gelijktijdigheidsbeheer**, stel **overschrijven standaard** naar **op**. 
 
@@ -2399,7 +2399,7 @@ Standaard logic app-exemplaren worden uitgevoerd op hetzelfde moment, gelijktijd
 
 Het aantal uitvoeringen dat aanvragen kan wachten heeft ook een [standaardlimiet](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), die u kunt wijzigen. Echter, nadat uw logische app de limiet voor het wachten wordt uitgevoerd bereikt, de Logic Apps-engine niet meer accepteert nieuwe wordt uitgevoerd. Aanvraag- en webhook-triggers 429-fouten retourneren en terugkerende triggers gestart polling pogingen wordt overgeslagen.
 
-Als u wilt wijzigen van de standaardlimiet voor het wachten wordt uitgevoerd, in de onderliggende definitie, voeg toe en stel de `runtimeConfiguration.concurency.maximumWaitingRuns` eigenschap een waarde tussen `0` en `100`. 
+Als u wilt wijzigen van de standaardlimiet voor het wachten wordt uitgevoerd, in de onderliggende definitie activeren, voegt de `runtimeConfiguration.concurency.maximumWaitingRuns` eigenschap met een waarde tussen `0` en `100`. 
 
 ```json
 "<trigger-name>": {

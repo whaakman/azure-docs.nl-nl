@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 412871c0c692f60e690f61fa4e6f67f836cd3ef7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 61776c5122abb73dd34ef2ad11f6a44ab22f6a6b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158204"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238835"
 ---
 # <a name="collect-data-for-models-in-production"></a>Verzamelen van gegevens voor modellen in productie
 
@@ -50,7 +50,7 @@ Het pad naar de uitvoergegevens in de blob met de volgende deze syntaxis:
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-- Een Azure Machine Learning-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
+- Een Azure Machine Learning-service-werkruimte en een lokale map met uw scripts en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
 
 - Een getraind model voor machine learning om te worden geïmplementeerd naar Azure Kubernetes Service (AKS). Als u niet hebt, raadpleegt u de [classificeringsmodel voor de installatiekopie van de trein](tutorial-train-models-with-aml.md) zelfstudie.
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018550"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237735"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Ondersteuning voor spraak-API voor Service taal en regio
 
@@ -31,16 +31,16 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
  CA-ES | Catalaans | Nee | Nee | Nee
  da-DK | Deens (Denemarken) | Nee | Nee | Nee
  de-DE | Duits (Duitsland) | Ja | Ja | Nee
- en-AU | Engels (Australië) | Ja | Ja | Ja
- NL-CA | Engels (Canada) | Ja | Ja | Ja
- en-GB | Engels (Verenigd Koninkrijk) | Ja | Ja | Ja
- NL-IN | English (India) | Nee | Ja | Ja
- NL-NZ | Engels (Nieuw-Zeeland) | Ja | Ja | Ja  
+ en-AU | Engels (Australië) | Nee | Ja | Ja
+ NL-CA | Engels (Canada) | Nee | Ja | Ja
+ en-GB | Engels (Verenigd Koninkrijk) | Nee | Ja | Ja
+ NL-IN | English (India) | Ja | Ja | Ja
+ NL-NZ | Engels (Nieuw-Zeeland) | Nee | Ja | Ja  
  nl-NL | Engels (Verenigde Staten) | Ja | Ja | Ja
- es-ES | Spaans (Spanje) | Ja | Ja | Nee
- es-MX | Spaans (Mexico) | Ja | Ja | Nee
+ es-ES | Spaans (Spanje) | Nee | Ja | Nee
+ es-MX | Spaans (Mexico) | Nee | Ja | Nee
  fi-FI | Fins (Finland) | Nee | Nee | Nee
- fr-CA | Frans (Canada) | Ja | Ja | Nee
+ fr-CA | Frans (Canada) | Nee | Ja | Nee
  fr-FR | Frans (Frankrijk) | Ja | Ja | Nee
  hi-IN | Hindi (India) | Nee | Ja | Nee
  IT-IT | Italiaans (Italië) | Ja | Ja | Nee
@@ -51,7 +51,7 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen. Verschillende n
  pl-PL | Pools (Polen) | Nee | Nee | Nee
  pt-BR | Portugees (Brazilië) | Nee | Ja | Nee
  pt-PT | Portugees (Portugal) | Nee | Ja | Nee
- ru-RU | Russisch (Rusland) | Nee | Ja | Nee
+ ru-RU | Russisch (Rusland) | Ja | Ja | Nee
  SV-SE | Zweeds (Zweden) | Nee | Nee | Nee
  zh-CN | Chinees (Mandarijn, vereenvoudigd) | Ja | Ja | Nee
  zh-HK | Chinees (Mandarijn, traditionele) | Nee | Ja | Nee

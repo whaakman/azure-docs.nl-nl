@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a79c09df7d5fec5884a6810b82b7c174042a4c93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054560"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041693"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Hoe het werkt: Azure multi-factor Authentication
 
@@ -57,8 +57,7 @@ Omdat de meeste gebruikers gewend zijn om te verifiëren met behulp van alleen w
 
 * Trainen van uw medewerkers voor het afhandelen van scenario's waarin de gebruiker kan niet aanmelden omdat ze geen toegang tot hun verificatiemethoden of ze niet correct werken.
    * Met behulp van beleid voor voorwaardelijke toegang voor Azure MFA-Service, uw ondersteuningsmedewerkers een gebruiker kunt toevoegen aan een groep die is uitgesloten van een beleid MFA vereisen.
-   * Ondersteunend personeel kan een tijdelijke eenmalig overslaan voor gebruikers van Azure MFA-Server waarmee een gebruiker verifiëren zonder verificatie in twee stappen inschakelen. De bypass is tijdelijk en verloopt na een opgegeven aantal seconden.
-   * Met behulp van beleid voor voorwaardelijke toegang voor Azure MFA-Service uw ondersteuningsmedewerkers een gebruiker kunt toevoegen aan een groep die is uitgesloten van een beleid MFA vereisen.
+   * Ondersteunend personeel kan een tijdelijke eenmalig overslaan voor gebruikers van Azure MFA-Server waarmee een gebruiker verifiëren zonder verificatie in twee stappen inschakelen. De bypass is tijdelijk en verloopt na een opgegeven aantal seconden.   
 * Overweeg het gebruik van goedgekeurde IP-adressen of benoemde locaties als een manier om te minimaliseren verificatie in twee stappen verificatie wordt gevraagd. Met deze functie kunnen beheerders van een tenant beheerd of federatieve verificatie in twee stappen voor gebruikers die vanaf een vertrouwde netwerklocatie zoals van hun organisatie intranet aanmelden zich omzeilen.
 * Implementeer [Azure AD Identity Protection](../active-directory-identityprotection.md) en verificatie op basis van gebeurtenissen van de risico's te activeren.
 

@@ -8,18 +8,27 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: d84040dc440c373ae9bae6dbac7a95109a387ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: d4910eb3dfacb46efe3f85aea3a441bdaaeb1392
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162743"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236409"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
  
 Dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten opgetreden bij het gebruik van de Azure Machine Learning-service. 
 
+## <a name="image-building-failure"></a>Installatiekopie samenstellen fout
+
+De installatiekopie van het bouwen van fout bij het implementeren van web-service. Tijdelijke oplossing is om toe te voegen ' pynacl 1.2.1 == "als een afhankelijkheid pip Conda-bestand voor de configuratie van installatiekopie.  
+
+## <a name="pipelines"></a>Pijplijnen
+Een fout optreedt bij het aanroepen van PythonScriptStep meerdere keren in een rij zonder te hoeven wijzigen van het script of de parameters. Tijdelijke oplossing is het object PipelineData opnieuw opbouwen.
+
+## <a name="fpgas"></a>FPGA 's
+Niet mogelijk om te implementeren van modellen op FPGA's totdat u hebt aangevraagd en goedgekeurd voor FPGA quotum. Vul het aanvraagformulier voor de quota voor het aanvragen van toegang: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 

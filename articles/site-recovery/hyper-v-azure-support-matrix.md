@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/02/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 8c943b9ec8114699a7fad487c7d669b58942c019
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055468"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042526"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -59,16 +59,16 @@ Schijf toevoegen op gerepliceerde Hyper-V-VM | Wordt niet ondersteund. Replicati
 
 **Onderdeel** | **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
 --- | --- | ---
-Hostnetwerk: NIC-team | Ja
-Hostnetwerk: VLAN | Ja
-Hostnetwerk: IPv4 | Ja
-Hostnetwerk: IPv6 | Nee
-Gast-VM-netwerk: NIC-team | Nee
-Gast-VM-netwerk: IPv4 | Ja
-Gast-VM-netwerk: IPv6 | Nee
-Gast-VM-netwerk: statisch IP-adres (Windows) | Ja
-Gast-VM-netwerk: statisch IP-adres (Linux) | Nee
-Gast-VM-netwerk: Multi-NIC | Ja
+Hostnetwerk: NIC-team | Ja | Ja
+Hostnetwerk: VLAN | Ja | Ja
+Hostnetwerk: IPv4 | Ja | Ja
+Hostnetwerk: IPv6 | Nee | Nee
+Gast-VM-netwerk: NIC-team | Nee | Nee
+Gast-VM-netwerk: IPv4 | Ja | Ja
+Gast-VM-netwerk: IPv6 | Nee | Ja
+Gast-VM-netwerk: statisch IP-adres (Windows) | Ja | Ja
+Gast-VM-netwerk: statisch IP-adres (Linux) | Nee | Nee
+Gast-VM-netwerk: Multi-NIC | Ja | Ja
 
 
 
