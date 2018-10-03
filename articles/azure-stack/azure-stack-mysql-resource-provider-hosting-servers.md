@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408875"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237261"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hosting-servers voor de MySQL-resourceprovider toevoegen
 
 U kunt een MySQL-exemplaar op een virtuele machine (VM) hosten [Azure Stack](azure-stack-poc.md), of op een virtuele machine buiten uw Azure Stack-omgeving, zolang de MySQL-resourceprovider kunt verbinding maken met het exemplaar.
 
 > [!NOTE]
-> MySQL-databases moet worden worden gemaakt op de server van de MySQL-resource-provider. De MySQL-resourceprovider moet worden gemaakt in het abonnement van de provider standaard terwijl hosting MySQL-servers moeten worden gemaakt in een factureerbare, gebruikersabonnement. De server van de resource provider moet niet worden gebruikt om host gebruikersdatabases.
+> MySQL-databases moeten worden gemaakt op de server van de MySQL-resource-provider. De MySQL-resourceprovider moet worden gemaakt in het abonnement van de provider standaard terwijl hosting MySQL-servers moeten worden gemaakt in een factureerbare, gebruikersabonnement. De server van de resource provider moet niet worden gebruikt om host gebruikersdatabases.
 
 MySQL-versie 5.6, 5.7 en 8.0 kunnen worden gebruikt voor de hosting-servers. De RP MySQL biedt geen ondersteuning voor caching_sha2_password-authenticatie. die wordt toegevoegd in de volgende release. MySQL 8.0 servers moeten worden geconfigureerd voor het gebruik van mysql_native_password. MariaDB wordt ook ondersteund.
 

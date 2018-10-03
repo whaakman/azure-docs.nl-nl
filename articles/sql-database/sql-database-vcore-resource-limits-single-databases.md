@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9ad43ecf2aa5649e582f1aa4159352edf9c8fa5b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166351"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042594"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
 In dit artikel bevat de gedetailleerde resourcelimieten voor individuele databases van Azure SQL Database met behulp van het op vCore gebaseerde aankoopmodel.
 
-Zie voor DTU gebaseerde aankopen model limieten, [SQL Database DTU gebaseerde resourcelimieten](sql-database-dtu-resource-limits.md).
+Zie voor DTU gebaseerde aankopen model limieten voor individuele databases op een logische server, [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md).
 
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
@@ -51,7 +51,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica 's|1|1|1|1|1|1|
+|Aantal replica's|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|000
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -73,7 +73,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica 's|1|1|1|1|1|1|1|1|
+|Aantal replica's|1|1|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -97,7 +97,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica 's|3|3|3|3|3|3|
+|Aantal replica's|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -119,7 +119,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Doel-IOPS (van 64 KB)|5000|10.000|20000|40000|60000|80000|100000|200000
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica 's|3|3|3|3|3|3|3|3|
+|Aantal replica's|3|3|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -143,7 +143,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |I/o-latentie (bij benadering)|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|Vast te stellen|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Aantal replica 's|2|2|2|2|2|2|
+|Aantal replica's|2|2|2|2|2|2|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|7|7|7|7|7|7|

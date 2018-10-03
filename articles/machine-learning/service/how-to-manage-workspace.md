@@ -1,6 +1,6 @@
 ---
-title: Maken en beheren van Azure Machine Learning-werkruimten
-description: Informatie over het maken, weergeven en verwijderen van Azure Machine Learning-werkruimten in Azure portal.
+title: Maken en beheren van Azure Machine Learning-service werkruimten
+description: Informatie over het maken, weergeven en verwijderen van Azure Machine Learning-service toegang tot werkruimten in Azure portal.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d01a2e3ebd46315966c82a43a17ffc5b329b829
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954344"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238669"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Maken en beheren van Azure Machine Learning-werkruimten
+# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Maken en beheren van Azure Machine Learning-service werkruimten
 
-In dit artikel, zult u maken, weergeven en verwijderen [ **Azure Machine Learning-werkruimten** ](concept-azure-machine-learning-architecture.md#workspace) in Azure portal voor [Azure Machine Learning-service](overview-what-is-azure-ml.md).  U kunt ook maken en verwijderen van werkruimten [met behulp van de CLI](reference-azure-machine-learning-cli.md) of [met Python-code](http://aka.ms/aml-sdk).
+In dit artikel, zult u maken, weergeven en verwijderen [ **Azure Machine Learning-service werkruimten** ](concept-azure-machine-learning-architecture.md#workspace) in Azure portal voor [Azure Machine Learning-service](overview-what-is-azure-ml.md).  U kunt ook maken en verwijderen van werkruimten [met behulp van de CLI](reference-azure-machine-learning-cli.md) of [met Python-code](http://aka.ms/aml-sdk).
 
 Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -30,13 +30,13 @@ Een werkruimte te maken, moet u een Azure-abonnement. Als u nog geen abonnement 
 
 1. Selecteer in de linkerbovenhoek van de portal, **alle services**. 
 
-1. In de **alle services** filterveld, type **Machine Learning-werkruimte**.  
+1. In de **alle services** filterveld, type **werkruimte van Machine Learning-service**.  
 
-   ![zoeken naar Azure Machine Learning-werkruimte](media/how-to-manage-workspace/allservices-search1.png)
+   ![zoeken naar de werkruimte van Azure Machine Learning-service](media/how-to-manage-workspace/allservices-search1.png)
 
-1. Selecteer in de filterresultaten **Machine Learning-werkruimte** om een lijst met uw werkruimten weer te geven. 
+1. Selecteer in de filterresultaten **werkruimte van Machine Learning-service** om een lijst met uw werkruimten weer te geven. 
 
-   ![zoeken naar Azure Machine Learning-werkruimte](media/how-to-manage-workspace/allservices-search.PNG)
+   ![zoeken naar de werkruimte van Azure Machine Learning-service](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Bekijk de lijst met werkruimten die zijn gevonden. U kunt filteren op basis van abonnement, resourcegroepen en locaties.  
 

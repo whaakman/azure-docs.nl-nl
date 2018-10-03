@@ -2,17 +2,18 @@
 title: Voor het repliceren en failover van virtuele VMware-machines naar Azure met behulp van PowerShell in Azure Site Recovery | Microsoft Docs
 description: Meer informatie over het instellen van replicatie en failover naar Azure voor VMware-VM's met behulp van PowerShell in Azure Site Recovery.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917809"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042799"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Voor het repliceren en failover van virtuele VMware-machines naar Azure met PowerShell
 
@@ -335,7 +336,7 @@ U moet de volgende informatie om een gedetecteerde virtuele machine te beveilige
 
 * Het beveiligbare item dat moet worden gerepliceerd.
 * Het opslagaccount voor het repliceren van de virtuele machine. Bovendien is een logboekopslag vereist voor het beveiligen van virtuele machines naar een premium storage-account.
-* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut-surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.
+* De processerver moet worden gebruikt voor replicatie. De lijst met beschikbare processervers zijn opgehaald en opgeslagen in de ***$ProcessServers [0]****(ScaleOut-surrogaatbestand)* en ***$ProcessServers [1]*** *(ConfigurationServer)* variabelen.  
 * Het account moet worden gebruikt voor de software voor de Mobility-service op de machines push-installatie. De lijst met beschikbare accounts zijn opgehaald en opgeslagen de ***$AccountHandles*** variabele.
 * De toewijzing van beveiligingscontainer voor het replicatiebeleid moet worden gebruikt voor replicatie.
 * De resourcegroep waarin de virtuele machines bij failover moet worden gemaakt.

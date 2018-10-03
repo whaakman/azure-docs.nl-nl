@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d5bc6877aa353ae37ba3ada53ee620a0230357e9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585166"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041152"
 ---
 # <a name="reliable-actors-state-management"></a>Statusbeheer van betrouwbare actoren
 Reliable Actors zijn single-threaded objecten die zowel de logica en de status kunnen inkapselen. Omdat actoren op Reliable Services worden uitgevoerd, kunnen deze status op betrouwbare wijze onderhouden met behulp van dezelfde persistentie en replicatiemechanismen voor. Op deze manier actoren dat u geen hun status na fouten bij het reactiveren na de garbagecollection, of wanneer ze worden verplaatst tussen knooppunten in een cluster vanwege de bron-balancing of upgrades worden uitgevoerd.
@@ -121,7 +121,7 @@ Hier volgen enkele aanbevolen procedures en tips voor probleemoplossing voor het
 Dit is essentieel voor prestaties en het Resourcegebruik van uw toepassing. Wanneer er sprake is van schrijven/updates moet uitvoeren op de 'met de naam status' van een actor, wordt de hele waarde die overeenkomt met die "naam"staat geserialiseerd en via het netwerk worden verzonden naar de secundaire replica's.  De secundaire replica's schrijven naar de lokale schijf en antwoord terug naar de primaire replica. Wanneer de primaire bevestigingen van een quorum van secundaire replica's ontvangt, worden de status van de geschreven naar de lokale schijf. Stel bijvoorbeeld dat de waarde is een klasse die 20 leden en een grootte van 1 MB is. Zelfs als u een van de klasseleden die alleen gewijzigd formaat van 1 KB, einde van het betalen van de kosten van serialisatie en netwerk- en schrijfbewerkingen voor de volledige 1 MB. Op dezelfde manier als de waarde is een verzameling (zoals een lijst, een matrix of een woordenlijst), betaalt u de kosten voor de volledige verzameling, zelfs als u een van de leden wijzigen. De StateManager-interface van de actorklasse is vergelijkbaar met een woordenlijst. U moet altijd de gegevensstructuur actorstatus boven op deze woordenlijst voor het model.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Levenscyclus van de actor correct beheren
-U hebt duidelijk beleid over het beheren van de grootte van status in elke partitie van een actor-service. De actor-service moet een vast aantal actoren en een zeer mogelijk opnieuw gebruiken. Als u voortdurend nieuwe actoren maakt, moet u ze verwijderen wanneer ze klaar bent met hun werk. Het actorframework slaat enkele metagegevens voor elke acteur aanwezig is. Verwijderen van de status van een actor verwijderd metagegevens over die actor niet. U moet de actor verwijderen (Zie [actoren en hun status verwijderen](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) verwijderen van alle informatie over deze opgeslagen in het systeem. Als een extra controle, moet u een query de actor-service (Zie [actoren opsommen](service-fabric-reliable-actors-enumerate.md)) en één keer te controleren of het aantal actors zijn binnen het verwachte bereik.
+U hebt duidelijk beleid over het beheren van de grootte van status in elke partitie van een actor-service. De actor-service moet een vast aantal actoren en ze zo veel mogelijk opnieuw te gebruiken. Als u voortdurend nieuwe actoren maakt, moet u ze verwijderen wanneer ze klaar bent met hun werk. Het actorframework slaat enkele metagegevens voor elke acteur aanwezig is. Verwijderen van de status van een actor verwijderd metagegevens over die actor niet. U moet de actor verwijderen (Zie [actoren en hun status verwijderen](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) verwijderen van alle informatie over deze opgeslagen in het systeem. Als een extra controle, moet u een query de actor-service (Zie [actoren opsommen](service-fabric-reliable-actors-enumerate.md)) en één keer te controleren of het aantal actors zijn binnen het verwachte bereik.
  
 Als u ooit ziet dat de grootte van database van een Actor-Service worden steeds groter dan het verwachte, zorg ervoor dat u de voorgaande richtlijnen volgt. Als u deze richtlijnen volgt en nog steeds database problemen met de grootte van bestand zijn, moet u [open een ondersteuningsticket](service-fabric-support.md) met het productteam om hulp te krijgen.
 

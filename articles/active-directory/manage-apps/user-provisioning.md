@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018686"
+ms.locfileid: "48042782"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -237,29 +237,29 @@ Zie voor instructies over het automatisch inrichten van gebruikers oplossen scen
 
 Zie voor een voorbeeld van stapsgewijze implementatie-plan voor het inrichten van uitgaande gebruikers naar een toepassing, de [identiteit Deployment Guide voor het inrichten van gebruikers](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequenty-asked-questions"></a>Meer frequenty Veelgestelde vragen
+##<a name="more-frequently-asked-questions"></a>Meer veelgestelde vragen
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met B2B-gebruikers in Azure AD?
 
 Ja, is het mogelijk om te gebruiken van de Azure AD-gebruiker inrichten van gebruikers van B2B inrichten (of Gast)-service in Azure AD SaaS-toepassingen.
 
-De SaaS-toepassing moet echter voor B2B-gebruikers kunnen aanmelden op de SaaS-toepassing met behulp van Azure AD, hebben de SAML gebaseerde eenmalige aanmeldings-mogelijkheid geconfigureerd op een specifieke manier. Zie voor meer informatie over het configureren van SaaS-toepassingen voor de ondersteuning van aanmeldingen van gebruikers van B2B [configureren SaaS-apps voor B2B-samenwerking]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+De SaaS-toepassing moet echter voor B2B-gebruikers kunnen zich aanmelden bij de SaaS-toepassing met behulp van Azure AD, hebben de SAML gebaseerde eenmalige aanmeldings-mogelijkheid geconfigureerd op een specifieke manier. Zie voor meer informatie over het configureren van SaaS-toepassingen voor de ondersteuning van aanmeldingen van gebruikers van B2B [configureren SaaS-apps voor B2B-samenwerking]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met dynamische groepen in Azure AD?
 
-Ja. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', de Azure AD-gebruiker inrichtingsservice kunt inrichten of gebruikers in een SaaS-toepassing op basis van of ze lid van zijn de inrichting een [dynamische groep](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamische groepen werken ook met de optie 'alle gebruikers en groepen synchroniseren'.
+Ja. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', de Azure AD-gebruiker inrichtingsservice kunt inrichten of ongedaan maken inrichting gebruikers in een SaaS-toepassing is afhankelijk van of ze lid van zijn een [dynamische groep](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamische groepen werken ook met de optie 'alle gebruikers en groepen synchroniseren'.
 
 Gebruik van dynamische groepen kan echter van invloed op de algehele prestaties van end-to-end gebruikersinrichting van de Azure AD met SaaS-toepassingen. Wanneer u dynamische groepen, houd deze beperkingen en aanbevelingen in gedachten:
 
 * Hoe snel een gebruiker in een dynamische groep is ingericht of de inrichting ongedaan gemaakt in een SaaS-toepassing afhankelijk van hoe snel de dynamische groep wijzigingen in het lidmaatschap kunt evalueren. Zie voor meer informatie over het controleren van de verwerkingsstatus van een dynamische groep [Controleer de verwerkingsstatus voor een lidmaatschapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
 
-* Wanneer u dynamische groepen, moeten de regels zorgvuldig worden nagedacht met gebruiker inrichting en ongedaan maken van inrichting in gedachten, omdat een verlies van het lidmaatschap van een opheffen van inrichtingen gebeurtenis leidt.
+* Wanneer u dynamische groepen, moeten de regels zorgvuldig worden nagedacht met gebruiker inrichting en ongedaan maken inrichting in gedachten, omdat een verlies van het lidmaatschap van een opheffen van inrichtingen gebeurtenis leidt.
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met geneste groepen in Azure AD?
 
 Nee. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', is de Azure AD-gebruiker inrichtingsservice niet kunnen lezen of het inrichten van gebruikers die zich in de geneste groepen. Het is alleen kan lezen en inrichten van gebruikers die directe leden van de groep expliciet toegewezen.
 
-Dit is een beperking van '-groep op basis van toewijzingen voor toepassingen', die ook van toepassing op eenmalige aanmelding en wordt beschreven in [met behulp van een groep voor het beheren van toegang tot SaaS-toepassingen](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Dit is een beperking van '-groep op basis van toewijzingen voor toepassingen', die ook van invloed is op eenmalige aanmelding en wordt beschreven in [met behulp van een groep voor het beheren van toegang tot SaaS-toepassingen](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Als tijdelijke oplossing, u moet expliciet toewijzen (of anderszins [in het bereik van](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de groepen met de gebruikers die moeten worden ingericht.
 

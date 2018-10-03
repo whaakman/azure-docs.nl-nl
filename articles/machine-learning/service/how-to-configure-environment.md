@@ -9,16 +9,16 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220292"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239231"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Een ontwikkelomgeving voor de Azure Machine Learning-service configureren
 
-Informatie over het configureren van uw ontwikkelomgeving, zodat het werken met de Azure Machine Learning-service. U leert hoe u een configuratiebestand dat wordt gekoppeld aan uw omgeving met een Azure Machine Learning-werkruimte te maken. Ook leert u hoe u de volgende ontwikkelomgevingen configureren:
+Informatie over het configureren van uw ontwikkelomgeving, zodat het werken met de Azure Machine Learning-service. U leert hoe u een configuratiebestand dat uw omgeving worden gekoppeld aan een werkruimte van Azure Machine Learning-service maken. Ook leert u hoe u de volgende ontwikkelomgevingen configureren:
 
 * Jupyter-Notebooks in uw eigen computer
 * Visual Studio Code
@@ -35,6 +35,9 @@ De aanbevolen aanpak is het gebruik van Zorgcontinuüm Anaconda [conda virtuele 
 
  * Voor Visual Studio Code-omgeving, de [Python-extensie](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Shell-opdrachten gebruikt in dit document worden getest met bash op Linux en macOS. De opdrachten zijn ook getest met cmd.exe op Windows.
+
 ## <a name="create-workspace-configuration-file"></a>Werkruimte-configuratiebestand maken
 
 Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te communiceren met uw werkruimte van Azure Machine Learning-service.  Er zijn twee manieren om dit bestand:
@@ -49,7 +52,8 @@ Het configuratiebestand van de werkruimte wordt gebruikt door de SDK om te commu
         ![Azure Portal](./media/how-to-configure-environment/configure.png) 
     
     1. Maak het bestand met deze code voor Python. Voer de code uit in dezelfde map als de scripts of laptops die verwijzen naar de werkruimte:
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'

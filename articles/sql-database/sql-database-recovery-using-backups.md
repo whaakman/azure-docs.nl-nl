@@ -11,26 +11,28 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 31a423714154537cfc8d801b972869035aa61035
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161332"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042203"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
-SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups met langetermijnretentie](sql-database-long-term-retention.md). U kunt van een databaseback-up te herstellen:
+Back-ups van SQL-Database worden standaard opgeslagen in geo-replicatie blob-opslag (RA-GRS). De volgende opties zijn beschikbaar voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md):
 
-* Een nieuwe database op dezelfde logische server hersteld naar een opgegeven punt in tijd binnen de bewaarperiode liggen. 
-* Een database op dezelfde logische server op het tijdstip van verwijdering van een verwijderde database kunt herstellen.
-* Een nieuwe database op een logische server in een willekeurige regio hersteld tot het tijdstip waarop de meest recente dagelijkse back-ups in de geo-replicatie blobopslag (RA-GRS).
+* Maak een nieuwe database op dezelfde logische server hersteld naar een opgegeven punt in tijd binnen de bewaarperiode liggen. 
+* Maak een database in dezelfde logische server op het tijdstip van verwijdering van een verwijderde database kunt herstellen.
+* Maak een nieuwe database op een logische server in een willekeurige regio hersteld tot het tijdstip waarop de meest recente back-ups.
+
+Als u hebt geconfigureerd [back-up maken met een langetermijnbewaarperiode](sql-database-long-term-retention.md) u kunt ook een nieuwe database maken van alle LTR back-up op een logische server in elke regio.  
 
 > [!IMPORTANT]
 > U kunt een bestaande database tijdens het terugzetten niet overschrijven.
 >
 
-Een herstelde database maakt een kosten extra opslagruimte in de volgende omstandigheden: 
+Bij het gebruik van Standard of Premium-servicelaag, maakt een herstelde database een kosten extra opslagruimte in de volgende omstandigheden: 
 - Herstellen van P11-P15 S4-S12 of P1 – P6 als de maximale databasegrootte groter is dan 500 GB.
 - Herstellen van P1 – P6 voor S4-S12 als de maximale grootte van de database groter dan 250 GB is.
 

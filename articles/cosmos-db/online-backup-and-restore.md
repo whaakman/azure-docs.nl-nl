@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: a2c52844e09daf42418b4e548f7185e31dcf4ae9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053530"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043223"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatische online back-up en herstel met Azure Cosmos DB
 Azure Cosmos DB maakt back-ups van al uw gegevens automatisch met regelmatige intervallen. De automatische back-ups worden zonder gevolgen voor de prestaties of beschikbaarheid van uw databasebewerkingen genomen. Uw back-ups apart zijn opgeslagen in een andere storage-service, en deze back-ups wereldwijd voor bescherming tegen regionale rampen zijn gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's wanneer u uw Cosmos DB-container per ongeluk verwijdert en later nodig hebt voor herstel van gegevens of een oplossing voor noodherstel.  
@@ -53,11 +53,15 @@ Voor SQL-API, als u wilt behouden, uw eigen momentopnamen, kunt u het exporteren
 > Als u "Inrichten doorvoer voor een set van containers op databaseniveau" – Houd er rekening mee wordt de terugzetbewerking gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat contact binnen acht uur het ondersteuningsteam als u per ongeluk verwijderd van de container. Gegevens kan niet worden hersteld als u geen contact opnemen met het ondersteuningsteam binnen acht uur. 
 
 
+
 ## <a name="restoring-a-database-from-an-online-backup"></a>Herstellen van een database vanuit een online back-up
 
 Als u uw database of de container per ongeluk verwijdert, kunt u [een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact opnemen met ondersteuning voor Azure](https://azure.microsoft.com/support/options/) de gegevens van de laatste automatische back-up wilt terugzetten. Azure-ondersteuning is beschikbaar voor de geselecteerde abonnementen alleen zoals Standard, ontwikkelaar, wordt niet ondersteund bij Basic-abonnement. Zie voor meer informatie over de verschillende ondersteuningsplannen, [ondersteuningsabonnementen voor Azure](https://azure.microsoft.com/support/plans/) pagina. 
 
 Als u wilt herstellen van uw database vanwege een probleem met gegevens (inclusief gevallen waar de documenten in een container worden verwijderd), raadpleegt u [beschadigde gegevens verwerken](#handling-data-corruption) behoefte aanvullende stappen uitvoeren om te voorkomen dat de beschadigde gegevens overschrijft de bestaande back-ups. Voor een specifieke momentopname van de back-up kunnen worden hersteld, vereist Cosmos DB dat de gegevens beschikbaar voor de duur van de back-cyclus die momentopname te maken is.
+
+> [!NOTE]
+> Databases of verzamelingen kunnen worden hersteld na een klantaanvragen voor het herstellen. Het is van de klant responsbility te verwijderen van de container of de database direct na het herstellen van de gegevens. Als u niet de herstelde databases of verzamelingen verwijdert, worden deze kosten tegen het tarief van herstelde verzameling of een database in rekening gebracht. Het is dus heel belangrijk dat u ze onmiddellijk te verwijderen. 
 
 ## <a name="handling-data-corruption"></a>Beschadigde gegevens verwerken
 

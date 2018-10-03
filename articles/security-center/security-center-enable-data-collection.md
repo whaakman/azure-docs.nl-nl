@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127088"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044073"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -62,8 +62,8 @@ Automatische inrichting van de MMA inschakelen:
 > - Zie voor instructies over het inrichten van een bestaande installatie [automatische inrichting in geval van een bestaande installatie van de agent](#preexisting).
 > - Zie voor instructies over het inrichten van handmatige [handmatig installeren van de Microsoft Monitoring Agent-extensie](#manualagent).
 > - Zie voor instructies voor automatische inrichting uitschakelen, [automatische inrichting uitschakelen](#offprovisioning).
+> - Voor instructies over hoe onboarding Security Center met behulp van PowerShell, Zie [automatiseren onboarding van Azure Security Center met behulp van PowerShell](security-center-powershell-onboarding.md).
 >
-
 
 ## <a name="workspace-configuration"></a>Configuratie van de werkruimte
 Gegevens die zijn verzameld door Security Center wordt opgeslagen in Log Analytics-werkruimte.  U kunt gegevens die worden verzameld van Azure VM's die zijn opgeslagen in werkruimten die zijn gemaakt door Security Center of in een bestaande werkruimte die u hebt gemaakt. 
@@ -147,12 +147,17 @@ Wanneer u een werkruimte waarin u uw gegevens kunt opslaan selecteert, worden al
 
 
 ## <a name="data-collection-tier"></a>Verzameling gegevenslaag
-Security Center kan het aantal gebeurtenissen verminderen terwijl voldoende gebeurtenissen voor onderzoek, controle en detectie van bedreigingen. U kunt het recht filterbeleid voor uw abonnementen en werkruimten op vier sets gebeurtenissen moeten worden verzameld door de agent.
+Een verzameling gegevenslaag selecteren in Azure Security Center heeft alleen invloed op de opslag van beveiligingsgebeurtenissen in uw Log Analytics-werkruimte. De Microsoft Monitoring Agent wordt nog steeds verzamelen en analyseren van de beveiligingsgebeurtenissen die vereist zijn voor Azure Security Center bedreigingen detecties, ongeacht welke laag van beveiligingsgebeurtenissen die u kiest voor het opslaan in uw Log Analytics-werkruimte (indien aanwezig). Voor het opslaan van beveiligingsgebeurtenissen in uw werkruimte te kiezen kunt voor onderzoek, zoeken en controle van de gebeurtenissen die in uw werkruimte. 
+> [!NOTE]
+> Opslaan van gegevens in Log Analytics mogelijk extra kosten voor gegevensopslag, Zie de pagina met prijzen voor meer informatie.
+>
+U kunt het recht filterbeleid voor uw abonnementen en werkruimten op vier sets gebeurtenissen worden opgeslagen in uw werkruimte kiezen: 
 
-- **Alle gebeurtenissen** – voor klanten die willen Zorg ervoor dat alle gebeurtenissen verzameld worden. Dit is de standaardinstelling.
-- **Algemene** : dit is een set van gebeurtenissen die voldoet aan de meeste klanten en kan ze een volledige audittrail.
+- **Geen** – gebeurtenisopslag beveiliging uitschakelen. Dit is de standaardinstelling.
 - **Minimale** – een kleiner aantal gebeurtenissen voor klanten die willen minimaliseren van het volume van de gebeurtenis.
-- **Geen** – beveiligingsgebeurtenissen te verzamelen van het AppLocker-logboeken en beveiliging uitschakelen. Voor klanten die deze optie kiest, hebben hun dashboards beveiliging alleen Windows Firewall-logboeken en proactieve evaluaties zoals antimalware, basislijn en update.
+- **Algemene** : dit is een set van gebeurtenissen die voldoet aan de meeste klanten en kan ze een volledige audittrail.
+- **Alle gebeurtenissen** – voor klanten die willen Zorg ervoor dat alle gebeurtenissen worden opgeslagen.
+
 
 > [!NOTE]
 > Deze gebeurtenissen security sets zijn alleen beschikbaar op Standard-laag van Security Center bevinden. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
@@ -261,7 +266,7 @@ U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center 
   > [!NOTE]
   > De sectie **gebeurtenissen en prestatiegegevens verzamelen** is optioneel.
   >
-6. PowerShell gebruiken voor het implementeren van de extensie: gebruik het volgende PowerShell-voorbeeld:
+6. Als u PowerShell wilt implementeren de extensie, gebruik de volgende PowerShell-voorbeeld:
     1.  Ga naar **Log Analytics** en klikt u op **geavanceerde instellingen**.
     
         ![Set-logboekanalyse][11]
@@ -289,8 +294,8 @@ U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center 
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Voor instructies over hoe onboarding Security Center met behulp van PowerShell, Zie [automatiseren onboarding van Azure Security Center met behulp van PowerShell](security-center-powershell-onboarding.md).
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

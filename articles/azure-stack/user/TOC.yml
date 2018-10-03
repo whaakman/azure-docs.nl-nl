@@ -22,28 +22,32 @@ items:
   expanded: true
 - name: Zelfstudies
   items:
-  - name: Maximaal beschikbare SQL-databases maken
-    href: azure-stack-tutorial-sql.md
-  - name: MySQL-databases met hoge beschikbaarheid maken
-    href: azure-stack-tutorial-mysql.md
-  - name: Apps implementeren in Azure en Azure Stack
-    href: azure-stack-solution-pipeline.md
-  - name: Configureren van hybride cloud-identiteit
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Hybride cloud-connectiviteit configureren
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Abonneren op een aanbieding
-    href: azure-stack-subscribe-services.md
-  - name: Een virtuele machine maken van een sjabloon
-    href: azure-stack-create-vm-template.md
-  - name: Een edge-machine learning-oplossing maken
-    href: azure-stack-solution-machine-learning.md
-  - name: Een gefaseerde data analytics-oplossing maken
-    href: azure-stack-solution-staged-data-analytics.md
-  - name: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
-    href: azure-stack-solution-cloud-burst.md
-  - name: Een geografisch gedistribueerde app-oplossing maken
-    href: azure-stack-solution-geo-distributed.md
+  - name: Algemene taken
+    items:
+    - name: Abonneren op een aanbieding
+      href: azure-stack-subscribe-services.md
+    - name: Een virtuele machine maken van een sjabloon
+      href: azure-stack-create-vm-template.md
+    - name: Maximaal beschikbare SQL-databases maken
+      href: azure-stack-tutorial-sql.md
+    - name: MySQL-databases met hoge beschikbaarheid maken
+      href: azure-stack-tutorial-mysql.md
+  - name: Hybride cloud-patronen
+    items:
+    - name: Apps implementeren in Azure en Azure Stack
+      href: azure-stack-solution-pipeline.md
+    - name: Configureren van hybride cloud-identiteit
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Hybride cloud-connectiviteit configureren
+      href: azure-stack-solution-hybrid-connectivity.md
+    - name: Een edge-machine learning-oplossing maken
+      href: azure-stack-solution-machine-learning.md
+    - name: Een gefaseerde data analytics-oplossing maken
+      href: azure-stack-solution-staged-data-analytics.md
+    - name: Cross-cloud vergroten/verkleinen oplossingen maken met Azure
+      href: azure-stack-solution-cloud-burst.md
+    - name: Een geografisch gedistribueerde app-oplossing maken
+      href: azure-stack-solution-geo-distributed.md
 - name: Handleidingen
   items:
   - name: Azure Stack-portal gebruiken
@@ -208,9 +212,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training en certificering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 52dbfaf7b7ea7b6f264dcb9ac3d75aec782c8bff
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405407"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239401"

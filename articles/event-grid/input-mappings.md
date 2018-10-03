@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578914"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043389"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Aangepaste velden toewijzen aan Event Grid-schema
 
-Als uw gebeurtenisgegevens niet overeenkomt met de verwachte [Event Grid schema](event-schema.md), u kunt nog steeds Event Grid op route-gebeurtenis voor abonnees. In dit artikel wordt beschreven hoe u uw schema toegewezen aan het Event Grid-schema.
+Als uw gebeurtenisgegevens komt niet overeen met de verwachte [Event Grid schema](event-schema.md), u kunt nog steeds Event Grid op route-gebeurtenis voor abonnees. In dit artikel wordt beschreven hoe u uw schema toegewezen aan het Event Grid-schema.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -43,9 +43,9 @@ Bij het maken van een aangepast onderwerp, Geef op hoe velden van uw oorspronkel
 
 * De `--input-schema` parameter geeft u het type van het schema. De beschikbare opties zijn *cloudeventv01schema*, *customeventschema*, en *eventgridschema*. De standaardwaarde is eventgridschema. Gebruik customeventschema bij het maken van aangepaste toewijzing tussen het schema en het event grid-schema. Wanneer gebeurtenissen zich in een CloudEvents-schema, gebruikt u cloudeventv01schema.
 
-* De `--input-mapping-default-values` parameter bepaalt de standaardwaarden voor de velden in het schema voor Event Grid. U kunt standaardwaarden instellen voor *onderwerp*, *type gebeurtenis*, en *dataversion*. Meestal gebruikt u deze parameter wanneer uw aangepaste schema bevat geen een veld dat overeenkomt met een van deze drie velden. U kunt bijvoorbeeld opgeven dat dataversion is altijd ingesteld op **1.0**.
+* De `--input-mapping-default-values` parameter bepaalt de standaardwaarden voor de velden in het schema voor Event Grid. U kunt standaardwaarden instellen voor `subject`, `eventtype`, en `dataversion`. Meestal gebruikt u deze parameter wanneer uw aangepaste schema bevat geen een veld dat overeenkomt met een van deze drie velden. U kunt bijvoorbeeld opgeven die gegevensversie is altijd ingesteld op **1.0**.
 
-* De `--input-mapping-fields` parameter toegewezen velden uit uw schema naar het event grid-schema. Geeft u waarden in een door spaties gescheiden sleutel/waarde-paren. Gebruik de naam van het event grid-veld voor de naam van de sleutel. Gebruik de naam van het veld voor de waarde. U kunt de namen van de sleutels voor *id*, *onderwerp*, *eventtime*, *onderwerp*, *type gebeurtenis*, en *dataversion*.
+* De `--input-mapping-fields` parameter toegewezen velden uit uw schema naar het event grid-schema. Geeft u waarden in een door spaties gescheiden sleutel/waarde-paren. Gebruik de naam van het event grid-veld voor de naam van de sleutel. Gebruik de naam van het veld voor de waarde. U kunt de namen van de sleutels voor `id`, `topic`, `eventtime`, `subject`, `eventtype`, en `dataversion`.
 
 Het volgende voorbeeld maakt u een aangepast onderwerp met een aantal toegewezen en standaardvelden:
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ Wanneer u zich abonneert op het aangepaste onderwerp, geeft u het schema dat u g
 
 De voorbeelden in deze sectie gebruiken een Queue storage voor de gebeurtenis-handler. Zie voor meer informatie, [aangepaste gebeurtenissen routeren naar Azure Queue storage](custom-event-to-queue-storage.md).
 
-Het volgende voorbeeld zich abonneert op een event grid-onderwerp en gebruikt het standaardschema voor event grid:
+Het volgende voorbeeld zich abonneert op een event grid-onderwerp en de event grid-schema wordt gebruikt:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -94,15 +95,15 @@ az eventgrid event-subscription create \
 
 ## <a name="publish-event-to-topic"></a>Gebeurtenis publiceren naar onderwerp
 
-U bent nu klaar voor een gebeurtenis verzenden naar het aangepaste onderwerp en het resultaat van de toewijzing te bekijken. Het volgende script voor het plaatsen van een gebeurtenis in de [voorbeeldschema](#original-event-schema):
+U kunt nu een gebeurtenis verzenden naar het aangepaste onderwerp en het resultaat van de toewijzing te bekijken. Het volgende script voor het plaatsen van een gebeurtenis in de [voorbeeldschema](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Bekijk nu uw Queue storage. De twee abonnementen gebeurtenissen in verschillende schema's geleverd.

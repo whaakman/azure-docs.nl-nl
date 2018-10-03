@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 96feb52bd5702c899faa8d845969ae8ba0995504
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: 43f077ef07597604eaf42cb4af47cbc2f0e6c524
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495353"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042000"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Gegevens verzamelen in een hybride omgeving met Log Analytics-agent
 
@@ -89,7 +89,7 @@ Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na
 |Eigenschap| Beschrijving |
 |--------|-------------|
 |Protocol | https |
-|gebruiker | Optioneel de gebruikersnaam voor proxy-verificatie |
+|Gebruiker | Optioneel de gebruikersnaam voor proxy-verificatie |
 |wachtwoord | Optionele wachtwoord voor proxy-verificatie |
 |proxyhost | Adres of FQDN-naam van de proxy-server/OMS-Gateway |
 |poort | Optionele poortnummer voor de proxy-server/OMS-Gateway |
@@ -102,7 +102,7 @@ Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Agent installeren en configureren 
 Verbinden van uw on-premises computers rechtstreeks met Log Analytics kan worden bewerkstelligd met verschillende methoden, afhankelijk van uw vereisten. De volgende tabel ziet u elke methode om te bepalen welke het beste werkt in uw organisatie.
 
-|Bron | Wijze | Beschrijving|
+|Bron | Methode | Beschrijving|
 |-------|-------------|-------------|
 | Windows-computer|- [Handmatige installatie](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-sjabloon met Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |De Microsoft Monitoring agent installeren vanaf de opdrachtregel of met behulp van een geautomatiseerde methode, zoals Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), of met een Azure Resource Manager-sjabloon als u Microsoft hebt geïmplementeerd Azure Stack in uw datacenter.| 
 |Linux-computer| [Handmatige installatie](log-analytics-quick-collect-linux-computer.md)|Installeer de agent voor Linux aanroepen van een wrapper-scripts die worden gehost op GitHub. | 

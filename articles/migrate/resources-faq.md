@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161859"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239214"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -54,7 +54,7 @@ Azure Migrate ondersteunt momenteel VS-Oost en West-Centraal VS als de locaties 
 
 De verbinding kan worden via internet of het gebruik van ExpressRoute met openbare peering.
 
-### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
 
 Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. OVA-sjabloon is, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate werken worden gehandhaafd.   
 
@@ -130,7 +130,7 @@ Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren
 
 U kunt 1500 virtuele machines in een enkele migratieproject detecteren. Als u meer computers in uw on-premises-omgeving hebt [meer](how-to-scale-assessment.md) over hoe u een grote omgeving in Azure Migrate kunt detecteren.
 
-## <a name="assessment"></a>Beoordeling
+## <a name="assessment"></a>Evaluatie
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Ondersteuning voor Azure Migrate Enterprise Agreement (EA) op basis van kostenraming?
 

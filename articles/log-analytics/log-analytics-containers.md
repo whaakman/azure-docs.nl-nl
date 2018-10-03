@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 9e00e9c3f90d668458d692db88570dac7e8df5a3
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.component: ''
+ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359061"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043257"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -595,7 +595,7 @@ Elk gebied van het dashboard is een visuele representatie van een zoekopdracht d
 
 In de **containerstatus** gebied, klikt u op het bovenste gedeelte, zoals hieronder wordt weergegeven.
 
-![containersstatus van](./media/log-analytics-containers/containers-status.png)
+![Containersstatus van](./media/log-analytics-containers/containers-status.png)
 
 Zoeken in Logboeken met de informatie over de status van uw containers wordt geopend.
 
@@ -609,7 +609,7 @@ Log Analytics markeert een container als **mislukt** als deze is afgesloten met 
 
 ### <a name="to-find-failed-containers"></a>Mislukte containers vinden
 1. Klik op de **containerstatus** gebied.  
-   ![containersstatus van](./media/log-analytics-containers/containers-status.png)
+   ![Containersstatus van](./media/log-analytics-containers/containers-status.png)
 2. Zoeken in Logboeken wordt geopend en wordt de status van uw containers, de volgende strekking weergegeven.  
    ![status van containers](./media/log-analytics-containers/containers-log-search.png)
 3. Klik vervolgens op de geaggregeerde waarde van de mislukte containers om aanvullende informatie weer te geven. Vouw **meer weergeven** om weer te geven van de installatiekopie-ID.  

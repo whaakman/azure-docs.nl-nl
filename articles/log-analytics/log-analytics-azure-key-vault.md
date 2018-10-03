@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: na
-ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: ''
+ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309336"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043553"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault-analyse-oplossing in Log Analytics
 
@@ -108,7 +108,7 @@ De oplossing Azure Key Vault analyseert records met het type van **KeyVaults** d
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | callerIpAddress |IP-adres van de client die de aanvraag heeft ingediend |
-| Category | *AuditEvent* |
+| Categorie | *AuditEvent* |
 | CorrelationId |Een optionele GUID die de client kan doorgeven om de logboeken aan de clientzijde te relateren aan (Sleutelkluis-)logboeken aan de servicezijde. |
 | durationMs |De tijd die nodig was om de REST-API-aanvraag af te handelen in milliseconden. Deze tijd omvat niet de netwerklatentie, zodat de tijd die u aan de clientzijde meet mogelijk niet overeenkomt met de tijd. |
 | httpStatusCode_d |HTTP-statuscode is geretourneerd door de aanvraag (bijvoorbeeld *200*) |

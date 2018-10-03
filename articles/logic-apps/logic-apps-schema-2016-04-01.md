@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126199"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043198"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Schema-updates voor Azure Logic Apps - 1 juni 2016
 
@@ -33,23 +33,23 @@ Upgraden van uw logische apps van het schema van de Preview-versie 1 augustus 20
 
 Dit schema bevat bereiken, waarmee u groep samen of geneste acties binnen elkaar worden verbonden kunnen. Een voorwaarde kan bijvoorbeeld een voorwaarde bevatten. Meer informatie over [syntaxis van de scope](../logic-apps/logic-apps-loops-and-scopes.md), of bekijk dit voorbeeld basic bereik:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Dit schema bevat bereiken, waarmee u groep samen of geneste acties binnen elkaar
 
 ## <a name="conditions-and-loops-changes"></a>Voorwaarden en lussen wijzigingen
 
-Zijn parameters die zijn gekoppeld aan één actie in het schema van vorige versies, voorwaarden en lussen. Dit schema omhoog worden getild deze beperking, zodat de voorwaarden en lussen worden weergegeven als actietypen. Meer informatie over [lussen en scopes](../logic-apps/logic-apps-loops-and-scopes.md), of dit eenvoudige voorbeeld voor een actie voorwaarde controleren:
+Zijn parameters die zijn gekoppeld aan één actie in het schema van vorige versies, voorwaarden en lussen. Dit schema omhoog worden getild deze beperking, zodat de voorwaarden en lussen nu beschikbaar als actietypen zijn. Meer informatie over [lussen en scopes](../logic-apps/logic-apps-loops-and-scopes.md), [voorwaarden](../logic-apps/logic-apps-control-flow-conditional-statement.md), of bekijk dit eenvoudige voorbeeld waarin een voorwaarde-actie:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ Zijn parameters die zijn gekoppeld aan één actie in het schema van vorige vers
 
 ## <a name="runafter-property"></a>de eigenschap 'runAfter'
 
-De `runAfter` vervangt de eigenschap `dependsOn`, hiervoor bieden meer nauwkeurigheid wanneer u de volgorde voor acties op basis van de status van vorige acties.
+De `runAfter` vervangt de eigenschap `dependsOn`, hiervoor bieden meer nauwkeurigheid wanneer u de volgorde voor acties op basis van de status van vorige acties. De `dependsOn` eigenschap wordt aangegeven of 'de actie is uitgevoerd en is voltooid', op basis van de vorige actie is geslaagd, mislukt of overgeslagen - niet het aantal keren dat u wilt uitvoeren. De `runAfter` eigenschap biedt flexibiliteit als een object dat Hiermee geeft u alle actie namen nadat het object wordt uitgevoerd. Deze eigenschap ook een matrix van statussen die geaccepteerd als triggers zijn gedefinieerd. Bijvoorbeeld, als u een actie uit te voeren wilt nadat een actie is geslaagd en ook na actie B is geslaagd of mislukt, instellen van dit `runAfter` eigenschap:
 
-De `dependsOn` eigenschap is gelijk aan 'in de actie is uitgevoerd en het is voltooid', niet van belang hoe vaak u wilt uitvoeren van een actie, afhankelijk van of de vorige bewerking geslaagd is, mislukt of overgeslagen. De `runAfter` eigenschap die flexibel als een object dat Hiermee geeft u alle van de actienamen waarna het object wordt uitgevoerd. Deze eigenschap ook een matrix van statussen die geaccepteerd als triggers zijn gedefinieerd. Bijvoorbeeld, als u uitvoeren wilt nadat u stap voor stap een is geslaagd en ook na stap B is geslaagd of mislukt, u maakt dit `runAfter` eigenschap:
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Upgrade uitvoeren naar de [meest recente schema](https://schema.management.azure
 
 2. Ga naar **overzicht**. Kies op de werkbalk van de logische app **Schema bijwerken**.
    
-    ![Kies Schema bijwerken][1]
+   ![Kies Schema bijwerken][1]
    
-    De definitie van de bijgewerkte wordt geretourneerd, die u kunt kopiëren en plakken in de resourcedefinitie van een, indien nodig. 
-    Echter, we **wordt ten zeerste aangeraden** u **OpslaanAls** om ervoor te zorgen dat alle verbindingsreferenties geldig in de bijgewerkte logische app zijn.
+   De definitie van de bijgewerkte wordt geretourneerd, die u kunt kopiëren en plakken in de resourcedefinitie van een, indien nodig. 
+
+   > [!IMPORTANT]
+   > *Zorg ervoor dat* u **OpslaanAls** zodat alle verbindingsreferenties geldig in de bijgewerkte logische app blijven.
 
 3. Kies in de werkbalk upgrade blade **OpslaanAls**.
 
@@ -125,17 +125,17 @@ Upgrade uitvoeren naar de [meest recente schema](https://schema.management.azure
 
 6. *Optionele* kiezen als u wilt uw vorige logische app te overschrijven met de nieuwe schemaversie op de werkbalk **kloon**, naast **Schema bijwerken**. Deze stap is alleen nodig als u wilt behouden dezelfde resource-ID of aanvraag-URL van de trigger van uw logische app.
 
-### <a name="upgrade-tool-notes"></a>Opmerkingen bij de upgrade hulpprogramma
+## <a name="upgrade-tool-notes"></a>Opmerkingen bij de upgrade hulpprogramma
 
-#### <a name="mapping-conditions"></a>Toewijzen van voorwaarden
+### <a name="mapping-conditions"></a>Toewijzen van voorwaarden
 
-In de definitie van de upgrade is uitgevoerd maakt het hulpprogramma een best-effort op true en false vertakking acties groeperen als een bereik. Met name de ontwerpfunctie patroon van `@equals(actions('a').status, 'Skipped')` moet worden weergegeven als een `else` actie. Als het hulpprogramma onherkenbare patronen detecteert, kan het hulpprogramma echter verschillende voorwaarden voor zowel de true als de waarde false vertakking maken. U kunt acties opnieuw toewijzen na de upgrade, indien nodig.
+In de definitie van de upgrade is uitgevoerd maakt het hulpprogramma de best-effort op true en false vertakking acties groeperen als een bereik. Met name de ontwerpfunctie patroon van `@equals(actions('a').status, 'Skipped')` wordt weergegeven als een `else` actie. Als het hulpprogramma onherkenbare patronen detecteert, kan het hulpprogramma echter verschillende voorwaarden voor zowel de true als de waarde false vertakking maken. U kunt acties opnieuw toewijzen na de upgrade, indien nodig.
 
 #### <a name="foreach-loop-with-condition"></a>'foreach-lus met voorwaarde
 
-In het nieuwe schema, kunt u de filteractie gebruiken voor het repliceren van het patroon van een `foreach` lus met een voorwaarde per item, maar deze wijziging automatisch moet gebeuren wanneer u een upgrade uitvoert. De voorwaarde wordt een filteractie voordat de foreach-lus voor het retourneren van alleen een matrix met items die overeenkomen met de voorwaarde en deze reeks wordt doorgegeven in de foreach-actie. Zie voor een voorbeeld [lussen en scopes](../logic-apps/logic-apps-loops-and-scopes.md).
+In het nieuwe schema, kunt u de filteractie gebruiken voor het repliceren van het patroon die gebruikmaakt van een **voor elk** lus met één voorwaarde per item. De wijziging gebeurt echter automatisch wanneer u een upgrade uitvoert. De voorwaarde wordt een actie die wordt weergegeven vóór de **voor elk** lus retourneert alleen een matrix met items die overeenkomen met de voorwaarde, en door te geven die matrix **voor elk** actie. Zie voor een voorbeeld [lussen en scopes](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Resourcetags
+### <a name="resource-tags"></a>Resourcetags
 
 Na de upgrade, worden resourcetags verwijderd, zodat u ze voor de bijgewerkte werkstroom moet opnieuw ingesteld.
 
@@ -157,20 +157,20 @@ De `foreach` en `until` lus zijn beperkt tot één actie.
 
 Acties hebt nu een extra eigenschap, genaamd `trackedProperties`, die op hetzelfde niveau aan is de `runAfter` en `type` eigenschappen. Dit object bevat een bepaalde actie-invoer of uitvoer die u opnemen in de Azure diagnostische telemetrie wilt, verzonden als onderdeel van een werkstroom. Bijvoorbeeld:
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

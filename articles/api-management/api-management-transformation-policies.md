@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f3dddd72ab8858a1e60389417cc0c7630df302f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621650"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044719"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
@@ -652,7 +652,7 @@ OriginalUrl.
 
 -   **Beleid secties:** inkomend
 
--   **Beleid bereiken:** product, API-bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ##  <a name="XSLTransform"></a> Met behulp van een XSLT XML transformeren
  De `Transform XML using an XSLT` beleid geldt een XSL-transformatie voor XML in de hoofdtekst van de aanvraag of antwoord.

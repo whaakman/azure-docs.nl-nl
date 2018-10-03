@@ -2,21 +2,21 @@
 title: Azure Site Recovery - instellingen en testen van herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell | Microsoft Docs
 description: Meer informatie over het instellen van herstel na noodgevallen voor Azure-machines met Azure Site Recovery met behulp van Azure PowerShell.
 services: site-recovery
-author: bsiva
-manager: abhemraj
-editor: raynew
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/02/2018
+ms.author: sutalasi
+ms.openlocfilehash: 9b7200dab0351b6cd00aef05bf27c5c71a049d76
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433426"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044499"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Instellen van herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell
+
 
 In dit artikel ziet u hoe u kunt instellen en testen herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell.
 
@@ -159,12 +159,15 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>De kluis om te beginnen met het repliceren van virtuele Azure-machines voorbereiden
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Een Site Recovery-infrastructuur-object om weer te geven van de regio primary(source) maken
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Een Site Recovery-infrastructuur-object om weer te geven van de regio van de primaire (bron) maken
 
-De fabric-object in de kluis vertegenwoordigt een Azure-regio. Het primaire fabric-object, is het fabric-object gemaakt voor de Azure-regio die deel uitmaken van virtuele machines die wordt beveiligd op de kluis op. In het voorbeeld in dit artikel is de virtuele machine die wordt beveiligd in de regio VS-Oost.
+De fabric-object in de kluis vertegenwoordigt een Azure-regio. Het primaire fabric-object is gemaakt om weer te geven van de Azure-regio die deel uitmaken van virtuele machines die wordt beveiligd op de kluis op. In het voorbeeld in dit artikel is de virtuele machine die wordt beveiligd in de regio VS-Oost.
 
-> [!NOTE]
-> Azure Site Recovery-bewerkingen worden asynchroon uitgevoerd. Wanneer u een bewerking hebt gestart, wordt een Azure Site Recovery-taak wordt verzonden en wordt een taak voor het bijhouden van object wordt geretourneerd. De taak voor het bijhouden van object gebruiken om op te halen van de meest recente status voor de taak (Get-ASRJob) en het controleren van de status van de bewerking.
+- Slechts één fabric object kan per regio worden gemaakt. 
+- Als u Site Recovery-replicatie voor een virtuele machine in Azure portal eerder hebt ingeschakeld, maakt Site Recovery automatisch een fabric-object. Als een object fabric voor een regio bestaat, kunt u een nieuw wachtwoord kan niet maken.
+
+
+Voordat u begint, houd er rekening mee dat Site Recovery-bewerkingen asynchroon worden uitgevoerd. Wanneer u een bewerking hebt gestart, wordt een Azure Site Recovery-taak wordt verzonden en wordt een taak voor het bijhouden van object wordt geretourneerd. De taak voor het bijhouden van object gebruiken om op te halen van de meest recente status voor de taak (Get-ASRJob) en het controleren van de status van de bewerking.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -184,7 +187,7 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 Als u virtuele machines van Azure-regio's bij dezelfde kluis worden beveiligd, moet u één fabric-object voor elke bron Azure-regio maken.
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Maken van een Site Recovery-infrastructuur-object om weer te geven van de herstelregio
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Maken van een Site Recovery-infrastructuur-object om weer te geven van de herstelregio
 
 De recovery-infrastructuur-object vertegenwoordigt het herstel van Azure-locatie. Virtuele machines worden gerepliceerd naar en hersteld (in het geval van een failover) de herstelregio vertegenwoordigd door de recovery-infrastructuur. Het herstel van Azure-regio die wordt gebruikt in dit voorbeeld is VS-West 2.
 
@@ -205,7 +208,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Een Site Recovery-beveiliging-container maken in de primaire-infrastructuur
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Een Site Recovery-beveiliging-container maken in de primaire-infrastructuur
 
 De beveiligingscontainer is een container die wordt gebruikt om gerepliceerde items binnen een infrastructuur te groeperen.
 
@@ -223,7 +226,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Een Site Recovery-beveiliging-container maken in de recovery-infrastructuur
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Een Site Recovery-beveiliging-container maken in de recovery-infrastructuur
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -242,7 +245,7 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####<a name="5-create-a-replication-policy"></a>5. Een replicatiebeleid maken
+### <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
 ```azurepowershell
 #Create replication policy
@@ -259,7 +262,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Een toewijzing van beveiligingscontainer tussen de primaire en beveiligingscontainer maken
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Een toewijzing van beveiligingscontainer tussen de primaire en beveiligingscontainer maken
 
 Een toewijzing van beveiligingscontainer wijst de primaire beveiliging-container met een beveiligingscontainer herstel en beleid voor replicatie. Maak een toewijzing voor elke replicatiebeleid dat u gebruikt voor het repliceren van virtuele machines tussen twee container beveiliging.
 
@@ -279,7 +282,7 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7. Maken van een toewijzing van beveiligingscontainer voor failback (omgekeerde replicatie na een failover)
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Maken van een toewijzing van beveiligingscontainer voor failback (omgekeerde replicatie na een failover)
 
 Na een failover, wanneer u klaar bent om te worden overgebracht naar de virtuele machine terug naar de oorspronkelijke Azure-regio u failback. Failback-proces, de virtuele machine is omgekeerde gerepliceerd van de mislukte via regio naar de oorspronkelijke regio. Omgekeerde replicatie overschakelen de rollen van de oorspronkelijke regio en de herstelregio. De oorspronkelijke regio wordt nu de nieuwe herstelregio en wat oorspronkelijk was de herstelregio nu wordt de primaire regio. De toewijzing van beveiligingscontainer voor omgekeerde replicatie geeft de geschakelde rollen van de oorspronkelijke en recovery-regio's.
 

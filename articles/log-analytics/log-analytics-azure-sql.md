@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: cc7dccd52bf5d3af383f807a5edfcb9c1088c5bf
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181988"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237090"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Database controleren met Azure SQL Analytics (Preview)
 
@@ -251,7 +251,7 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> - Vooraf vereiste van het instellen van deze waarschuwing is dat bewaakte Managed Instance is de het streamen van ResourceUsageStats logboek is ingeschakeld op de oplossing.
+> - Vooraf vereiste van het instellen van deze waarschuwing is dat bewaakte beheerd exemplaar voor het streamen van ResourceUsageStats logboek is ingeschakeld op de oplossing.
 > - Deze query vereist een waarschuwingsregel om te worden ingesteld voor het uitschakelen van een waarschuwing wordt geactiveerd wanneer er resultaten (> 0 resultaten) van de query, die aangeeft of de voorwaarde op het beheerde exemplaar bestaat. De uitvoer is percentage het opslagverbruik van het beheerde exemplaar.
 
 ## <a name="next-steps"></a>Volgende stappen

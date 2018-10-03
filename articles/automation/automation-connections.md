@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d9dbf816d4fd0d9f6044ebeea9a23a60adcc5bc8
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919099"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044600"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -45,7 +45,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot verbinding
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hiermee haalt u een verbinding moet worden gebruikt. Retourneert een hashtabel met de eigenschappen van de verbinding.|
 
 >[!NOTE] 
->Vermijd het gebruik van variabelen met de parameter-Name van **Get - AutomationConnection** omdat dit detecteren van afhankelijkheden tussen runbooks of DSC-configuraties en verbindingsassets tijdens de ontwerpfase bemoeilijken kan.
+>Vermijd het gebruik van variabelen met de parameter-Name van **Get-AutomationConnection** omdat dit detecteren van afhankelijkheden tussen runbooks of DSC-configuraties en verbindingsassets tijdens de ontwerpfase bemoeilijken kan.
 
  
 ## <a name="python2-functions"></a>Python2-functies 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ee03d8dc8dba08994715ace940875980c4f21bb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998918"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041540"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Enterprise-beveiligingspakket gebruiken in HDInsight
 
@@ -26,26 +26,20 @@ HDInsight is afhankelijk van een populaire id-provider: Active Directory, op een
 
 De virtuele machines (VM's) in HDInsight zijn van een domein is toegevoegd aan het opgegeven domein. Dus alle services die worden uitgevoerd op HDInsight (Ambari, Hive-server, Ranger, Spark thrift-server en andere) werken naadloos voor de geverifieerde gebruiker. Beheerders kunnen vervolgens met het maken van sterke autorisatiebeleid met behulp van Apache Ranger voor op rollen gebaseerd toegangsbeheer voor bronnen in het cluster.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight integreren met Active Directory
 
 Open source Hadoop is afhankelijk van Kerberos voor verificatie en beveiliging. Daarom zijn HDInsight-clusterknooppunten met Enterprise Security Package (ESP) gekoppeld aan een domein dat wordt beheerd door Azure AD DS. Kerberos-beveiliging is geconfigureerd voor het Hadoop-componenten op het cluster. 
 
-Voor elk onderdeel Hadoop is een service-principal automatisch gemaakt. Een principal bijbehorende machine wordt ook gemaakt voor elke machine die gekoppeld aan het domein. Voor het opslaan van deze service en beveiligings-principals van de computer, moet u een organisatie-eenheid (OE) opgeven in de domeincontroller (Azure AD DS), waar deze beveiligings-principals zijn geplaatst. 
+De volgende bewerkingen worden automatisch gemaakt:
+- een service-principal voor elk onderdeel Hadoop 
+- een machine-principal voor elke machine die gekoppeld aan het domein
+- een organisatie-eenheid (OE) voor elk cluster voor het opslaan van deze service en machine-principals 
 
 Om samen te vatten, moet u voor het instellen van een omgeving met:
 
 - Active Directory-domein (beheerd door Azure AD DS).
 - Secure LDAP (LDAPS) ingeschakeld in Azure AD DS.
 - Juiste netwerken connectiviteit van het virtuele netwerk van HDInsight met de Azure AD DS virtueel netwerk, als u afzonderlijke virtuele netwerken voor hen kiest. Een virtuele machine binnen het virtuele netwerk van HDInsight moet een verbinding met Azure AD DS via peering op virtueel netwerk hebben. Als HDInsight en Azure AD DS zijn geïmplementeerd in hetzelfde virtuele netwerk, de verbinding automatisch wordt geleverd en is geen verdere actie nodig.
-- Een organisatie-eenheid [gemaakt op Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Een service-account met toegangsmachtigingen voor:
-    - Service-principals in de organisatie-eenheid maken.
-    - Computers toevoegen aan het domein en machine-principals in de organisatie-eenheid maken.
-
-De volgende schermafbeelding ziet u een organisatie-eenheid hebt gemaakt in contoso.com. Ook ziet u enkele van de service-principals en machine-principals.
-
-![Organisatie-eenheid voor HDInsight-clusters met ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Instellen van de verschillende domeincontrollers
 HDInsight ondersteunt momenteel alleen Azure AD DS als de primaire domeincontroller die het cluster voor communicatie van Kerberos gebruikt. Maar andere complexe Active Directory-instellingen zijn mogelijk, zolang dergelijke installatie leidt tot het inschakelen van Azure AD DS voor HDInsight-toegang.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 74da7e96ed52b441bc63d5fb5a032db9c6d57774
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494273"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042824"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway
 Dit document wordt beschreven hoe u communicatie configureren met Azure Automation en Log Analytics met behulp van de OMS-Gateway als direct verbonden of Operations Manager bewaakt computers geen toegang tot Internet hebben.  De OMS-Gateway, die een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding maken, kunnen gegevens verzamelen en te verzenden naar Azure Automation en Log Analytics namens hen.  
@@ -50,7 +50,7 @@ Het volgende diagram toont de gegevensstroom van een Operations Manager-beheergr
 
 ![Operations Manager-communicatie met Log Analytics-diagram](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Bij het toewijzen van een computer voor het uitvoeren van de OMS-Gateway, moet deze computer hebben het volgende:
 
@@ -64,11 +64,11 @@ Bij het toewijzen van een computer voor het uitvoeren van de OMS-Gateway, moet d
 
 De OMS-Gateway is beschikbaar in de volgende talen:
 
-- Chinees (Vereenvoudigd)
-- Chinees (Traditioneel)
+- Chinees (vereenvoudigd)
+- Chinees (traditioneel)
 - Tsjechisch
 - Nederlands
-- Engels
+- Nederlands
 - Frans
 - Duits
 - Hongaars
@@ -210,13 +210,13 @@ Gebruik de volgende tabellen in de URL voor elke locatie te identificeren:
 | **location** | **URL** |
 | --- | --- |
 | US - noord-centraal |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| Europa - west |we-jobruntimedata-prod-su1.azure-automation.net |
+| Europa -west |we-jobruntimedata-prod-su1.azure-automation.net |
 | US - zuid-centraal |scus-jobruntimedata-prod-su1.azure-automation.net |
 | US - oost 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Canada centraal |cc-jobruntimedata-prod-su1.azure-automation.net |
 | Europa - noord |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Azië - zuidoost |sea-jobruntimedata-prod-su1.azure-automation.net |
-| India Centraal |cid-jobruntimedata-prod-su1.azure-automation.net |
+| India - centraal |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japan |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australië |ase-jobruntimedata-prod-su1.azure-automation.net |
 
@@ -225,13 +225,13 @@ Gebruik de volgende tabellen in de URL voor elke locatie te identificeren:
 | **location** | **URL** |
 | --- | --- |
 | US - noord-centraal |ncus-agentservice-prod-1.azure-automation.net |
-| Europa - west |we-agentservice-prod-1.azure-automation.net |
+| Europa -west |we-agentservice-prod-1.azure-automation.net |
 | US - zuid-centraal |scus-agentservice-prod-1.azure-automation.net |
 | US - oost 2 |eus2-agentservice-prod-1.azure-automation.net |
 | Canada centraal |cc-agentservice-prod-1.azure-automation.net |
 | Europa - noord |ne-agentservice-prod-1.azure-automation.net |
 | Azië - zuidoost |sea-agentservice-prod-1.azure-automation.net |
-| India Centraal |cid-agentservice-prod-1.azure-automation.net |
+| India - centraal |cid-agentservice-prod-1.azure-automation.net |
 | Japan |jpe-agentservice-prod-1.azure-automation.net |
 | Australië |ase-agentservice-prod-1.azure-automation.net |
 
@@ -271,7 +271,7 @@ Als u een fout optreedt in stap 3, wordt de module is niet geïmporteerd. De fou
 | `Remove-OMSGatewayAllowedClientCertificate` |Subject (vereist) |Hiermee verwijdert u het certificaatonderwerp client uit de lijst met toegestane |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Haalt de client op dit moment toegestane certificaat onderwerpen (alleen de lokaal geconfigureerde onderwerpen mogen, bevat geen toegestane onderwerpen die automatisch gedownload) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 Voor het verzamelen van gebeurtenissen vastgelegd door de gateway, moet u ook beschikken over de OMS-agent is geïnstalleerd.<br><br> ![Event Viewer-logboeken van OMS-Gateway](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **OMS-Gateway gebeurtenis-id's en beschrijvingen**
@@ -311,7 +311,7 @@ De volgende tabel bevat de beschikbare prestatiemeteritems voor de OMS-Gateway. 
 Wanneer u bent aangemeld bij Azure portal, maakt u een verzoek om hulp op met de OMS-Gateway of een andere Azure-service of functie van een service.
 Om hulp vragen, klik op het vraagteken symbool in de rechterbovenhoek van de portal en klik vervolgens op **nieuwe ondersteuningsaanvraag**. Voltooi nieuw aanvraagformulier voor de ondersteuning.
 
-![Nieuwe ondersteuningsaanvraag](./media/log-analytics-oms-gateway/support.png)
+![Nieuw ondersteuningsverzoek](./media/log-analytics-oms-gateway/support.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Gegevensbronnen toevoegen](log-analytics-data-sources.md) te verzamelen van gegevens van uw verbonden bronnen en op te slaan in uw Log Analytics-werkruimte.

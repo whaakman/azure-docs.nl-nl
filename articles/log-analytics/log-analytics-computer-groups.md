@@ -1,6 +1,6 @@
 ---
-title: Computergroepen in Azure-logboekanalyse Meld zoekopdrachten | Microsoft Docs
-description: Computergroepen in Log Analytics kunnen u bereik logboek zoekopdrachten aan een bepaalde set van computers.  In dit artikel beschrijft de verschillende methoden die u gebruiken kunt om computergroepen en hoe ze te gebruiken in een zoekopdracht logboek te maken.
+title: Computergroepen in Azure Log Analytics-Logboeken | Microsoft Docs
+description: Computergroepen in Log Analytics kunnen u zoekopdrachten bereik voor een bepaalde set computers.  Dit artikel beschrijft de verschillende methoden die u gebruiken kunt om te maken van computergroepen en hoe u deze kunt gebruiken in een zoeken in Logboeken.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 23ac75b4afb07c3f8d5f0d90755a5cf2087087e1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130672"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044294"
 ---
-# <a name="computer-groups-in-log-analytics-log-searches"></a>Meld u zoekopdrachten computergroepen in Log Analytics
+# <a name="computer-groups-in-log-analytics-log-searches"></a>Computergroepen in Log Analytics-zoekopdrachten
 
-Computergroepen in Log Analytics kunnen u bereik [Meld zoekopdrachten](log-analytics-log-search-new.md) aan een bepaalde set van computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of groepen importeren uit verschillende bronnen.  Wanneer de groep is opgenomen in een zoekopdracht in de logboekbestanden, zijn de resultaten beperkt tot records die overeenkomen met de computers in de groep.
+Computergroepen in Log Analytics kunnen u aan het bereik [zoekopdrachten](log-analytics-log-search-new.md) aan een bepaalde set computers.  Elke groep wordt gevuld met computers met behulp van een query die u definieert of door het importeren van groepen van verschillende bronnen.  Wanneer de groep is opgenomen in een zoeken in Logboeken, zijn de resultaten beperkt tot de records die voldoen aan de computers in de groep.
 
-## <a name="creating-a-computer-group"></a>Een computergroep maken
-U kunt een computergroep maken in een van de methoden in de volgende tabel met logboekanalyse.  In de onderstaande secties vindt u meer informatie over elke methode. 
+## <a name="creating-a-computer-group"></a>Het maken van een computergroep
+U kunt een computergroep maken in Log Analytics met behulp van een van de methoden in de volgende tabel.  In de onderstaande secties vindt u meer informatie over elke methode. 
 
 | Methode | Beschrijving |
 |:--- |:--- |
-| Zoekopdrachten in logboeken |Maak een logboek zoekquery waarmee een lijst met computers. |
-| API voor zoeken in logboeken |Het logboek zoeken-API maken op een computergroep op basis van de resultaten van een zoekopdracht logboek gebruiken. |
-| Active Directory |Automatisch scannen van het groepslidmaatschap van de agentcomputers die lid zijn van een Active Directory-domein en een groep maken in Log Analytics voor elke beveiligingsgroep. |
+| Zoekopdrachten in logboeken |Maak een logboekzoekopdracht die als resultaat een lijst van computers geeft. |
+| API voor zoeken in logboeken |De Log Search-API gebruiken om via een programma maakt een computergroep op basis van de resultaten van een logboekzoekopdracht. |
+| Active Directory |Automatisch scannen op het groepslidmaatschap van de agentcomputers die lid zijn van een Active Directory-domein en een groep in Log Analytics maken voor elke beveiligingsgroep. |
 | Configuratiebeheer | Verzamelingen importeren uit System Center Configuration Manager en maak een groep in Log Analytics voor elk. |
-| Windows Server updateservices |Automatisch scannen van WSUS-servers of clients gebruiken om groepen en maakt u een groep in Log Analytics voor elk. |
+| Windows Server updateservices |Automatisch scannen van WSUS-servers of clients die zijn gericht op groepen en voor elk een groep maken in Log Analytics. |
 
 ### <a name="log-search"></a>Zoekopdrachten in logboeken
-Gemaakt op basis van een zoekopdracht logboek computergroepen bevatten alle computers geretourneerd door een query die u definieert.  Deze query wordt uitgevoerd telkens wanneer de computergroep wordt gebruikt zodat alle wijzigingen die sinds de groep is gemaakt wordt weergegeven.  
+Gemaakt op basis van een Logboekzoekopdracht computergroepen bevatten alle van de computers die zijn geretourneerd door een query die u definieert.  Deze query wordt uitgevoerd telkens als groep op de computer wordt gebruikt, zodat alle wijzigingen die sinds de groep is gemaakt is doorgevoerd.  
 
-U kunt een query voor de groep van een computer, maar er moet een unieke set computers geretourneerd met behulp van `distinct Computer`.  Hier volgt een typisch voorbeeld zoeken die u voor als een computergroep gebruiken kunt.
+U kunt een query voor een computergroep, maar er moet een afzonderlijke set computers geretourneerd met behulp van `distinct Computer`.  Hieronder volgt een typisch voorbeeld zoeken die u voor als een computergroep gebruiken kunt.
 
     Heartbeat | where Computer contains "srv" | distinct Computer
 
@@ -48,69 +48,69 @@ De volgende tabel beschrijft de eigenschappen die een computergroep definiëren.
 
 | Eigenschap | Beschrijving |
 |:---|:---|
-| Weergavenaam   | De naam van de zoekopdracht wilt weergeven in de portal. |
-| Category       | De categorie te organiseren de zoekopdrachten die in de portal. |
-| Query’s uitvoeren          | De query voor de computergroep. |
+| Weergavenaam   | Naam van de zoekopdracht wilt weergeven in de portal. |
+| Categorie       | De categorie te organiseren van de zoekopdrachten in de portal. |
+| Query’s uitvoeren          | De query voor de groep van de computer. |
 | Functiealias | Een unieke alias die wordt gebruikt voor het identificeren van de groep van de computer in een query. |
 
-Gebruik de volgende procedure een computergroep maken van een zoekopdracht logboek in de Azure portal.
+Gebruik de volgende procedure een computergroep maken vanuit een zoeken in Logboeken in Azure portal.
 
-2. Open **logboek zoeken** en klik vervolgens op **opgeslagen zoekacties** aan de bovenkant van het scherm.
-3. Klik op **toevoegen** en geef waarden op voor elke eigenschap voor de computergroep.
-4. Selecteer **deze query opslaan als een computergroep** en klik op **OK**.
+2. Open **zoeken in logboeken** en klik vervolgens op **opgeslagen zoekopdrachten** aan de bovenkant van het scherm.
+3. Klik op **toevoegen** en geef waarden op voor elke eigenschap voor de groep van de computer.
+4. Selecteer **deze query opslaan als een computergroep** en klikt u op **OK**.
 
 
 
 ### <a name="active-directory"></a>Active Directory
-Wanneer u Log Analytics Active Directory-groepslidmaatschappen importeren configureert, wordt het groepslidmaatschap van computers met de OMS-agent lid van domein geanalyseerd.  Een computergroep in logboekanalyse gemaakt voor elke beveiligingsgroep in Active Directory en elke computer is toegevoegd aan de overeenkomt met de beveiligingsgroepen waarvan die ze lid van zijn computergroepen.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
+Als u Log Analytics configureren om Active Directory-groepslidmaatschappen importeren, wordt het groepslidmaatschap van computers met de OMS-agent toegevoegd aan een domein geanalyseerd.  Een computergroep in Log Analytics is gemaakt voor elke beveiligingsgroep in Active Directory en elke computer wordt toegevoegd aan de computergroepen die overeenkomt met de beveiligingsgroepen die ze lid van zijn.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur.  
 
-Configureren van logboekanalyse voor het importeren van Active Directory-beveiligingsgroepen uit logboekanalyse **geavanceerde instellingen** in de Azure portal.  Selecteer **computergroepen**, **Active Directory**, en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
+Configureren van Log Analytics voor het importeren van Active Directory-beveiligingsgroepen van Log Analytics **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **Active Directory**, en vervolgens **importeren Active Directory-groepslidmaatschappen van computers**.  Er is geen verdere configuratie nodig.
 
 ![Computergroepen uit Active Directory](media/log-analytics-computer-groups/configure-activedirectory.png)
 
-Wanneer u groepen zijn geïmporteerd, worden in het menu het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd worden.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
+Wanneer groepen zijn geïmporteerd, wordt het menu geeft het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Wanneer u Log Analytics WSUS-groepslidmaatschappen importeren configureert, wordt het lidmaatschap van de toewijzing van alle computers met de OMS-agent geanalyseerd.  Als u aan de clientzijde heeft ontwikkelt, elke computer die is verbonden met logboekanalyse en maakt deel uit van een WSUS het groepslidmaatschap geïmporteerd met logboekanalyse groepen als doel. Als u van server side gebruikmaakt moet ontwikkelt, de OMS agent worden geïnstalleerd op de WSUS-server om de gegevens moeten worden geïmporteerd met logboekanalyse.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur. 
+Als u Log Analytics configureren om WSUS-groepslidmaatschappen importeren, wordt het lidmaatschap van de toewijzing van alle computers met de OMS-agent geanalyseerd.  Als u van client-side gebruikmaakt heeft doelen, elke computer die is verbonden met Log Analytics en maakt deel uit van een WSUS het groepslidmaatschap geïmporteerd naar Log Analytics die gericht is op groepen. Als u van server-side gebruikmaakt moet doelen, de OMS agent worden geïnstalleerd op de WSUS-server om de gegevens van het groepslidmaatschap naar Log Analytics worden geïmporteerd.  Dit lidmaatschap wordt voortdurend bijgewerkt voor elke 4 uur. 
 
-Configureren van logboekanalyse voor het importeren van de WSUS-groepen van logboekanalyse **geavanceerde instellingen** in de Azure portal.  Selecteer **computergroepen**, **WSUS**, en vervolgens **importeren WSUS-groepslidmaatschappen**.  Er is geen verdere configuratie nodig.
+Configureren van Log Analytics voor het importeren van WSUS-groepen van Log Analytics **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **WSUS**, en vervolgens **importeren WSUS-groepslidmaatschappen**.  Er is geen verdere configuratie nodig.
 
 ![Computergroepen van WSUS](media/log-analytics-computer-groups/configure-wsus.png)
 
-Wanneer u groepen zijn geïmporteerd, worden in het menu het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd worden.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
+Wanneer groepen zijn geïmporteerd, wordt het menu geeft het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
 
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
-Wanneer u logboekanalyse voor het importeren van Configuration Manager-verzamelinglidmaatschappen configureert, maakt u een computergroep voor elke verzameling.  De lidmaatschapsgegevens van de verzameling wordt elke drie uur zodat de computergroepen huidige opgehaald. 
+Als u Log Analytics voor het importeren van Configuration Manager-verzamelingslidmaatschappen configureert, maakt u een computergroep voor elke verzameling.  De lidmaatschapsgegevens van de verzameling wordt elke drie uur zodat de computergroepen huidige opgehaald. 
 
-Voordat u Configuration Manager-verzamelingen importeren kunt, moet u [Configuration Manager verbinden met logboekanalyse](log-analytics-sccm.md).  Vervolgens kunt u het importeren van logboekanalyse **geavanceerde instellingen** in de Azure portal.  Selecteer **computergroepen**, **SCCM**, en vervolgens **Import Configuration Manager-verzamelinglidmaatschappen**.  Er is geen verdere configuratie nodig.
+Voordat u Configuration Manager-verzamelingen importeren kunt, moet u [Configuration Manager koppelen aan Log Analytics](log-analytics-sccm.md).  Vervolgens kunt u het importeren van Log Analytics configureren **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen**, **SCCM**, en vervolgens **Import Configuration Manager-verzamelingslidmaatschappen**.  Er is geen verdere configuratie nodig.
 
 ![Computergroepen uit SCCM](media/log-analytics-computer-groups/configure-sccm.png)
 
-Wanneer u verzamelingen zijn geïmporteerd, worden in het menu het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd worden.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
+Wanneer verzamelingen zijn geïmporteerd, wordt het menu geeft het aantal computers met groepslidmaatschappen gedetecteerd en het aantal groepen geïmporteerd.  U kunt klikken op een van deze koppelingen om terug te keren de **ComputerGroup** records met deze informatie.
 
 ## <a name="managing-computer-groups"></a>Computergroepen beheren
-U kunt computergroepen die zijn gemaakt van een zoekopdracht logboek of de Search-API van het logboek van logboekanalyse weergeven **geavanceerde instellingen** in de Azure portal.  Selecteer **computergroepen** en vervolgens **opgeslagen groepen**.  
+U kunt computergroepen die zijn gemaakt op basis van een zoeken in Logboeken of de Log Search-API van Log Analytics weergeven **geavanceerde instellingen** in Azure portal.  Selecteer **computergroepen** en vervolgens **opgeslagen groepen**.  
 
-Klik op de **x** in de **verwijderen** kolom te verwijderen van de computergroep.  Klik op de **leden weergeven** pictogram voor een groep voor het uitvoeren van de groep logboek zoekquery waarmee de leden ervan.  Een computergroep niet wijzigen, maar in plaats daarvan moet verwijderen en vervolgens opnieuw te maken met de gewijzigde instellingen.
+Klik op de **x** in de **verwijderen** kolom te verwijderen van de groep op de computer.  Klik op de **leden weergeven** pictogram voor een groep voor het uitvoeren van zoeken in Logboeken van de groep die de leden als resultaat geeft.  U een computergroep niet wijzigen, maar in plaats daarvan moet verwijderen en vervolgens opnieuw te maken met de gewijzigde instellingen.
 
 ![Opgeslagen computergroepen](media/log-analytics-computer-groups/configure-saved.png)
 
 
-## <a name="using-a-computer-group-in-a-log-search"></a>Met behulp van de groep van een computer in een logboek zoekopdracht
-U een computergroep gemaakt op basis van een zoekopdracht logboek in een query door de alias behandelen als een functie, meestal met de volgende syntaxis gebruiken:
+## <a name="using-a-computer-group-in-a-log-search"></a>Met behulp van de groep van een computer in een zoeken in Logboeken
+U een computergroep gemaakt op basis van een logboekzoekopdracht in een query door de alias te behandelen als een functie, meestal met de volgende syntaxis gebruiken:
 
   `Table | where Computer in (ComputerGroup)`
 
-U kunt bijvoorbeeld het volgende om terug te keren UpdateSummary records voor alleen computers in een computergroep mycomputergroup aangeroepen.
+U kunt bijvoorbeeld het volgende om terug te keren UpdateSummary records voor alleen computers in een computergroep mycomputergroup genoemd.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
 
 
-Geïmporteerde computergroepen en hun computers opgenomen worden opgeslagen in de **ComputerGroup** tabel.  De volgende query zou bijvoorbeeld een lijst met computers in de groep Computers in het domein van Active Directory. 
+Geïmporteerde computergroepen en hun opgenomen computers worden opgeslagen in de **ComputerGroup** tabel.  Bijvoorbeeld, retourneert de volgende query een lijst van computers in de groep Domeincomputers uit Active Directory. 
 
   `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
 
-De volgende query zou UpdateSummary records voor alleen computers in Domeincomputers retourneren.
+De volgende query retourneert UpdateSummary records voor alleen computers in domeincomputers.
 
   ```
   let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
@@ -120,21 +120,21 @@ De volgende query zou UpdateSummary records voor alleen computers in Domeincompu
 
 
 
-## <a name="computer-group-records"></a>Groeperen van computerrecords
-Een record gemaakt in de werkruimte voor logboekanalyse voor elke computer groepslidmaatschap gemaakt op basis van Active Directory of WSUS.  Deze records zijn een type **ComputerGroup** en de eigenschappen in de volgende tabel hebben.  Records worden niet gemaakt voor computergroepen op basis van het logboek zoekopdrachten.
+## <a name="computer-group-records"></a>Computer groeperen van records
+Een record wordt gemaakt in de werkruimte voor logboekanalyse voor elke computer groepslidmaatschap gemaakt op basis van Active Directory of WSUS.  Deze records zijn een type **ComputerGroup** en hebben de eigenschappen in de volgende tabel.  Records worden niet gemaakt voor computergroepen op basis van zoekopdrachten in Logboeken.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Type |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
-| Computer |Naam van de computer die lid is. |
-| Groep |De naam van de groep. |
-| GroupFullName |Volledig pad naar de groep met inbegrip van de bron en de naam van de gegevensbron. |
-| GroupSource |Bron van die groep die is verzameld van is. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |De naam van de bron waarvan de groep is verzameld.  Dit is de domeinnaam voor Active Directory. |
-| ManagementGroupName |Naam van de beheergroep voor SCOM-agents.  Dit is voor andere agents AOI -\<werkruimte-ID\> |
-| TimeGenerated |Datum en tijd van de computergroep is gemaakt of bijgewerkt. |
+| Computer |De naam van de computer die lid is. |
+| Groep |Naam van de groep. |
+| GroupFullName |Het volledige pad naar de groep met inbegrip van de bron en de naam van de gegevensbron. |
+| GroupSource |Bron van die groep is verzameld uit. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| GroupSourceName |Naam van de bron die is verzameld, de groep.  Dit is de domeinnaam voor Active Directory. |
+| ManagementGroupName |Naam van de beheergroep voor SCOM-agents.  Voor andere agents is dit AOI -\<werkruimte-ID\> |
+| TimeGenerated |Datum en tijd groep op de computer is gemaakt of bijgewerkt. |
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) om de gegevens verzameld van gegevensbronnen en oplossingen te analyseren.  
+* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) om de gegevens die worden verzameld van gegevensbronnen en oplossingen te analyseren.  
 

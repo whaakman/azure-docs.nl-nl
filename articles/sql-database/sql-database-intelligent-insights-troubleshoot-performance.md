@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bbf94d53b24c4087e7212d56bd51131034e39212
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222451"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042974"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -73,7 +73,7 @@ De logboekbestanden met diagnostische gegevens voert query-hashes van query's di
 
 Als u de beschikbare limieten zijn bereikt, kunt u uw toepassingen optimaliseren door het aantal aanmeldingen die zijn aangebracht in de database te verminderen. Als u niet te verminderen van het aantal aanmeldingen van uw toepassingen met de database, houd rekening met de prijscategorie van uw database te verhogen. Of u kunt splitsen en verplaatsen van uw database in meerdere databases voor een meer evenwichtige verdeling van de werkbelasting.
 
-Zie voor meer suggesties voor het oplossen van sessielimieten, [omgaan met de beperkingen van de SQL-Database maximale aanmeldingen](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). De beschikbare resource-limieten voor de laag van uw abonnement, Zie [SQL Database-resourcebeperkingen](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Zie voor meer suggesties voor het oplossen van sessielimieten, [omgaan met de beperkingen van de SQL-Database maximale aanmeldingen](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 
 ## <a name="workload-increase"></a>Toename van de werkbelasting
 

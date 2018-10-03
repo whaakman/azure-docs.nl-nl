@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/20/2018
+ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4664a9f84a92b7a223409d764971fda81317bbf0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 756aadfb015ada8ea642e9e4893664eed3f6c9b2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222247"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042545"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Onboarding van Azure Security Center met behulp van PowerShell automatiseren
 
 U kunt uw Azure-workloads via een programma, beveiligen met behulp van de Azure Security Center PowerShell-module.
-Met behulp van PowerShell kunt u taken automatiseren en te voorkomen dat de intrinsieke handmatige taken, die dit vooral nuttig in grootschalige implementaties die betrekking hebben op tientallen abonnementen met honderden en duizenden resources is: die allemaal moeten worden beveiligd is tegen menselijke fouten het begin.
+Met behulp van PowerShell, kunt u taken automatiseren en te voorkomen dat de intrinsieke handmatige taken menselijke fouten. Dit is vooral nuttig in grootschalige implementaties die betrekking hebben op tientallen abonnementen met honderden en duizenden resources: die allemaal moeten worden beveiligd vanaf het begin.
 
 Onboarding van Azure Security Center met behulp van PowerShell kunt u programmatisch onboarding en het beheer van uw Azure-resources automatiseren en de nodige maatregelen toevoegen.
 
@@ -52,7 +52,6 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
         Install-Module -Name PowerShellGet -Force
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
         Import-Module PowerShellGet
-        Install-Module -Name AzureRM.profile -RequiredVersion 5.5.0
 6.  PowerShell starten
 
 7. Voer in PowerShell de volgende opdrachten:
@@ -63,12 +62,12 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
 
 1.  Registreer uw abonnementen bij de Resourceprovider van Security Center:
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
-        Register-AzureRmResourceProvider -ProviderNamespace ‘Microsoft.Security’ 
+        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
 2.  Optioneel: Het dekkingsniveau (prijscategorie) van de abonnementen instellen (als niet is gedefinieerd, de prijscategorie is ingesteld op gratis):
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
+        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
         Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
 
 3.  Configureer een Log Analytics-werkruimte waarop de agents rapporteren. U moet een Log Analytics-werkruimte die u al hebt gemaakt, dat virtuele machines van het abonnement rapporteren aan hebben. U kunt meerdere abonnementen om te rapporteren aan dezelfde werkruimte definiëren. Als niet is gedefinieerd, kunt u de standaardwerkruimte wordt gebruikt.
@@ -78,7 +77,7 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
 
 4.  De installatie van het automatisch inrichten van de Microsoft Monitoring Agent op uw Azure Virtual machines:
     
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c”
+        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
         Set-AzureRmSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
@@ -94,7 +93,7 @@ Deze stappen moeten worden uitgevoerd voordat u de Security Center-cmdlets uitvo
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
         $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
-        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope ‘/subscriptions/d07c0080-170c-4c24-861d-9c817742786c’
+        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 U nu is toegevoegd Azure Security Center met PowerShell.
 
@@ -108,7 +107,7 @@ U kunt nu deze PowerShell-cmdlets met automatiseringsscripts gebruiken om via ee
 ## <a name="see-also"></a>Zie ook
 Zie het volgende artikel voor meer informatie over hoe u PowerShell gebruiken kunt voor het automatiseren van onboarding naar Security Center:
 
-* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.1.0-preview).
+* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.2.0-preview).
 
 Zie het volgende artikel voor meer informatie over Security Center:
 

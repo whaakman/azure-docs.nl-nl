@@ -5,25 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d357a9a7f249127289a256685d9555f777742b68
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356662"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044481"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Gebruikers en groepen toewijzen aan een toepassing
-
-Voordat uw gebruikers een van de volgende onderwerpen voor een bepaalde toepassing uitvoeren kunnen, moet u eerst **toewijzen aan de toepassing** ze om toegang te verlenen:
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Gebruikers en groepen toewijzen aan een toepassing in Azure Active Directory
+Dit artikel leest u hoe gebruikers of groepen toewijzen aan een toepassing in Azure Active Directory (Azure AD). Gebruikers moeten eerst worden toegewezen aan een toepassing voordat u een beheerder kan hun toegang wordt verleend om het volgende doen:
 
 -   Toegang tot een toepassing door **te navigeren naar de URL van de toepassing rechtstreeks** (ook wel bekend als Serviceprovider geïnitieerde eenmalige aanmelding).
 
@@ -33,17 +31,19 @@ Voordat uw gebruikers een van de volgende onderwerpen voor een bepaalde toepassi
 
 -   Zie een toepassing worden weergegeven op hun [startprogramma voor toepassingen van Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Methoden voor het toewijzen van toepassingen met Azure Active Directory 
+## <a name="prerequisties"></a>Prerequisties
+Voordat u gebruikers en groepen aan een toepassing toewijzen kunt, moet u de Gebruikerstoewijzing vereisen. Gebruikerstoewijzing vereist:
 
-Er zijn 3 manieren kunt u toepassingen met Azure Active Directory toewijzen:
+1. Meld u aan bij Azure portal met een administrator-account.
+2. Klik op de **alle services** item in het hoofdmenu.
+3. Kies de map die u voor de toepassing gebruikt.
+4. Klik op de **bedrijfstoepassingen** tabblad.
+5. Selecteer de toepassing uit de lijst met toepassingen die zijn gekoppeld aan deze map.
+6. Klik op de **eigenschappen** tabblad.
+7. Wijzig de **Gebruikerstoewijzing vereist?** in-/ uitschakelen op Ja.
+8. Klik op de **opslaan** knop aan de bovenkant van het scherm.
 
--   [Een gebruiker toewijzen rechtstreeks aan een toepassing als een beheerder](#assign-a-user-directly-as-an-administrator)
-
--   [Een groep worden toegewezen om rechtstreeks naar een toepassing als een beheerder](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Self-servicetoepassingen toegang tot toestaan dat gebruikers hun eigen toepassingen zoeken inschakelen](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>Een gebruiker toewijzen rechtstreeks als een beheerder
+## <a name="assign-users"></a>Gebruikers toewijzen
 
 Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de volgende stappen uit te voeren:
 
@@ -81,7 +81,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 Na een korte periode, de gebruikers die u hebt geselecteerd mogelijk om deze toepassingen met behulp van de methoden die worden beschreven in de sectie oplossing beschrijving te starten.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Een groep worden toegewezen om rechtstreeks naar een toepassing als een beheerder
+## <a name="assign-groups"></a>Groepen toewijzen
 
 Als u wilt toewijzen een of meer groepen rechtstreeks aan een toepassing, de volgende stappen uit te voeren:
 
@@ -119,7 +119,7 @@ Als u wilt toewijzen een of meer groepen rechtstreeks aan een toepassing, de vol
 
 Na een korte periode, de gebruikers binnen de groepen die u hebt geselecteerd mogelijk om deze toepassingen met behulp van de methoden die worden beschreven in de sectie oplossing beschrijving te starten. Als dit dynamische groepen zijn, mogelijk zijn er enkele aanvullende verwerkingsvertraging in deze toewijzingen worden weergegeven voor gebruikers binnen deze groepen toegewezen.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Self-servicetoepassingen toegang tot toestaan dat gebruikers hun eigen toepassingen zoeken inschakelen
+## <a name="enable-self-service-application-access"></a>Toegang tot Self-servicetoepassingen inschakelen
 
 Toegang tot Self-servicetoepassingen is een uitstekende manier om toe te staan gebruikers voor het zelf detecteren van toepassingen, toestaan de groep bedrijven voor het goedkeuren van toegang tot deze toepassingen. U kunt de bedrijfsgroep voor het beheren van de referenties die zijn toegewezen aan gebruikers voor eenmalige aanmelding op toepassingen wachtwoord rechts van hun toegangsvensters.
 

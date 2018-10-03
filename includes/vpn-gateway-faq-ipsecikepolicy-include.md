@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198227"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240069"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Wordt het aangepaste beleid voor IPsec/IKE op alle Azure VPN Gateway-SKU's ondersteund?
 Het aangepaste beleid voor IPsec/IKE wordt ondersteund op Azure VPN-gateways **VpnGw1, VpnGw2, VpnGw3, Standard** en **HighPerformance**. De **basis**-SKU wordt **niet** ondersteund.
@@ -76,7 +76,7 @@ De volgende tabel bevat de ondersteunde Diffie-Hellman-groepen voor IKE (DHGroup
 | 2                         | DHGroup2                 | PFS2         | 1024-bits MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bits MODP  |
 | 19                        | ECP256                   | ECP256       | 256-bits ECP    |
-| 20                        | ECP384                   | ECP284       | 384-bits ECP    |
+| 20                        | ECP384                   | ECP384       | 384-bits ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bits MODP  |
 |                           |                          |              |                |
 

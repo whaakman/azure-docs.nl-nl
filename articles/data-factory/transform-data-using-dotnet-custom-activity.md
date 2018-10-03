@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/01/2018
 ms.author: douglasl
-ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144351"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043071"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ De volgende tabel beschrijft de namen en beschrijvingen van eigenschappen die sp
 | linkedServiceName     | Gekoppelde Azure Batch-Service. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.  | Ja      |
 | command               | Opdracht van de aangepaste toepassing moet worden uitgevoerd. Als de toepassing al beschikbaar op de Azure Batch Pool Node, de resourceLinkedService is en folderPath worden overgeslagen. Bijvoorbeeld, kunt u de opdracht om te worden `cmd /c dir`, systeemeigen worden ondersteund door de Batch-Pool van Windows-knooppunt. | Ja      |
 | resourceLinkedService | Azure Storage gekoppelde Service naar het opslagaccount waarin de aangepaste toepassing is opgeslagen | Nee       |
-| folderPath            | Pad naar de map van de aangepaste toepassing en alle bijbehorende afhankelijkheden | Nee       |
+| folderPath            | Pad naar de map van de aangepaste toepassing en alle bijbehorende afhankelijkheden<br/><br/>Als u beschikt over afhankelijkheden in submappen - dat wil zeggen, opgeslagen in een hiërarchische mapstructuur onder *folderPath* -de mapstructuur wordt momenteel afgevlakt wanneer de bestanden zijn gekopieerd naar de Azure Batch. Dat wil zeggen, worden alle bestanden gekopieerd naar één map zonder submappen. Als tijdelijke oplossing voor dit gedrag, houd rekening met de bestanden te comprimeren, het gecomprimeerde bestand kopiëren en deze vervolgens uitpakken met aangepaste code in de gewenste locatie. | Nee       |
 | referenceObjects      | Een matrix van bestaande gekoppelde Services en gegevenssets. De waarnaar wordt verwezen, gekoppelde Services en gegevenssets worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar resources van de Data Factory | Nee       |
 | ExtendedProperties    | Gebruiker gedefinieerde eigenschappen die kunnen worden doorgegeven aan de aangepaste toepassing in JSON-indeling, zodat uw aangepaste code kan verwijzen naar aanvullende eigenschappen | Nee       |
 

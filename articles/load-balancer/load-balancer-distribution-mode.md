@@ -4,21 +4,21 @@ description: Klik hier voor meer informatie over het configureren van de distrib
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
+manager: timlt
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 776621f9ef95867c6e3c25dd11c656d451b6730e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: cfca7361831734baaf150b3e19b14c7dc88def36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018125"
+ms.locfileid: "48043568"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>De distributiemodus configureren voor Azure Load Balancer
 
@@ -48,13 +48,13 @@ Een andere use-casescenario is media uploaden. Het uploaden van gegevens gebeurt
 
 ## <a name="configure-source-ip-affinity-settings"></a>Bron-IP-affiniteit-instellingen configureren
 
-Voor virtuele machines geïmplementeerd met Resource Manager, moet u PowerShell gebruiken om te wijzigen van de load balancer-distributie-instellingen op de load-balancingregel van de load balancer.  Hiermee wordt de distributiemodus van een bestaande load balancer-regel:
+Voor virtuele machines geïmplementeerd met Resource Manager, moet u PowerShell gebruiken om te wijzigen van de load balancer-distributie-instellingen op een bestaande regel voor taakverdeling. Hiermee wordt de distributiemodus: 
 
 ```powershell 
 $lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
 Set-AzureRmLoadBalancer -LoadBalancer $lb 
-``` 
+```
 
 Voor klassieke virtuele machines, gebruikt u Azure PowerShell om de distributie-instellingen te wijzigen. Een Azure-eindpunt toevoegen aan een virtuele machine en de distributiemodus voor load balancer configureren:
 

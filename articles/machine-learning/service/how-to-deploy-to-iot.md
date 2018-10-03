@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225222"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239197"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Voorbereidingen voor het implementeren van modellen op IoT Edge
 
@@ -43,7 +43,7 @@ Voor meer informatie over het registreren van uw apparaat en het installeren van
 
 ## <a name="register-the-model"></a>Registreer het model
 
-Azure IoT Edge-modules zijn gebaseerd op containerinstallatiekopieën. Als u wilt uw model implementeert naar een IoT Edge-apparaat, gebruik de volgende stappen voor het registreren van uw model op een Azure Machine Learning-werkruimte en een Docker-installatiekopie te maken. 
+Azure IoT Edge-modules zijn gebaseerd op containerinstallatiekopieën. Als u wilt uw model implementeert naar een IoT Edge-apparaat, gebruik de volgende stappen voor het registreren van uw model in de werkruimte van een Azure Machine Learning-service en een Docker-installatiekopie te maken. 
 
 > [!IMPORTANT]
 > Als u Azure Machine Learning gebruikt met het trainen van uw model die mogelijk al zijn geregistreerd in uw werkruimte, slaat u stap 3 in dit geval.
@@ -122,7 +122,7 @@ Azure IoT moet de referenties voor de container registry om docker-installatieko
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/signin/index).
 
-1. Ga naar uw Azure Machine Learning-werkruimte en selecteer __overzicht__. Om te gaan naar de container registry-instellingen, selecteer de __register__ koppeling.
+1. Ga naar de werkruimte van uw Azure Machine Learning-service en selecteer __overzicht__. Om te gaan naar de container registry-instellingen, selecteer de __register__ koppeling.
 
     ![Een afbeelding van de container-register-item](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

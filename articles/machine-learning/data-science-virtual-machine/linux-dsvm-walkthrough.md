@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116160"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044651"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Gegevenswetenschap met een Linux Data Science Virtual Machine in Azure
 Deze procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM uitvoert. De Linux Data Science Virtual Machine (DSVM) is een installatiekopie van een virtuele machine op Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning is beschikbaar. De belangrijke software-componenten zijn ingedeeld de [Linux Data Science Virtual Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie maakt het gemakkelijk om te beginnen gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk. U kunt eenvoudig opschalen van de virtuele machine, indien nodig, en stoppen wanneer deze niet in gebruik. Deze resource is zo flexibel en kostenefficiënt.
@@ -483,7 +483,7 @@ Als u wilt beginnen, start u Squirrel SQL in het menu toepassingen. Het stuurpro
 * Met de rechtermuisknop op **PostgreSQL** en selecteer **stuurprogramma wijzigen**.
 * Selecteer **Extra klasse pad**, klikt u vervolgens **toevoegen**.
 * Voer ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** voor de **bestandsnaam** en
-* Selecteer **Open**.
+* Selecteer **Openen**.
 * Kies lijst van stuurprogramma's, en selecteer vervolgens **org.postgresql.Driver** in **klassenaam**, en selecteer **OK**.
 
 De verbinding met de lokale server instellen:
@@ -544,6 +544,6 @@ En query's uitvoeren met sqlcmd:
 U kunt ook een query met Squirrel SQL. Uitvoeren van gelijksoortige stappen voor PostgreSQL, met de Microsoft MSSQL Server JDBC-stuurprogramma die kan worden gevonden in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een overzicht van onderwerpen waarin wordt uitgelegd dat u de taken die deel uitmaken van de Data Science process in Azure, [Team Data Science Process](http://aka.ms/datascienceprocess).
+Zie voor een overzicht van onderwerpen waarin wordt uitgelegd dat u de taken die deel uitmaken van de Data Science process in Azure, [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 Zie voor een beschrijving van andere end-to-end-scenario's die laten zien van de stappen in het Team Data Science Process voor specifieke scenario's, [Team Data Science Process walkthroughs](../team-data-science-process/walkthroughs.md). De scenario's laten ook zien hoe u cloud en on-premises hulpprogramma's en services combineren in een werkstroom of een pijplijn te maken van een intelligente toepassingen.

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99d85c769b876baa360628bfc20ad5b1563a0a3f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018499"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237327"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecteer en gebruik een compute-doel aan uw model te trainen
 
@@ -27,7 +27,7 @@ U kunt beginnen met lokaal wordt uitgevoerd op uw computer en klik vervolgens in
 
 ## <a name="supported-compute-targets"></a>Ondersteunde compute-doelen
 
-Azure Machine Learning ondersteunt de volgende compute-doelen:
+Azure Machine Learning-service ondersteunt de volgende compute-doelen:
 
 |COMPUTE-doel| GPU-versnelling | Geautomatiseerde hyperparameter afstemmen | Geautomatiseerde modelselectie | Kan worden gebruikt in pijplijnen|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +41,8 @@ __[Azure Container Instances (ACI)](#aci)__  kan ook worden gebruikt voor het tr
 De belangrijkste verschillen tussen de compute-doelen zijn:
 * __GPU-versnelling__: GPU's zijn beschikbaar met de virtuele Machine voor Datatechnologie en de Azure Batch AI. U mogelijk de toegang tot een GPU die op uw lokale computer, afhankelijk van de hardware, stuurprogramma's en frameworks die zijn geïnstalleerd.
 * __Automatische afstemming van hyperparameter__: Azure Machine Learning geautomatiseerde hyperparameter optimalisatie helpt u bij het vinden van de beste hyperparameters voor uw model.
-* __Geautomatiseerde modelselectie__: Azure Machine Learning kan op intelligente wijze kunt het beste algoritme en hyperparameter selectie bij het bouwen van een model. Geautomatiseerde modelselectie helpt u bij naar een model met hoge kwaliteit sneller dan handmatig probeert verschillende combinaties worden geconvergeerd. Zie voor meer informatie de [zelfstudie: automatisch een classificatie model trainen met Azure geautomatiseerde Machine Learning](tutorial-auto-train-models.md) document.
-* __Pijplijnen__: Azure Machine Learning kunt u verschillende taken, zoals training en de implementatie in een pijplijn te combineren. Pijplijnen kunnen worden uitgevoerd parallel of op volgorde en bieden een betrouwbare automation-mechanisme. Zie voor meer informatie de [machine learning-pijplijnen met Azure Machine Learning-service bouwen](concept-ml-pipelines.md) document.
+* __Geautomatiseerde modelselectie__: Azure Machine Learning-service kan op intelligente wijze kunt het beste algoritme en hyperparameter selectie bij het bouwen van een model. Geautomatiseerde modelselectie helpt u bij naar een model met hoge kwaliteit sneller dan handmatig probeert verschillende combinaties worden geconvergeerd. Zie voor meer informatie de [zelfstudie: automatisch een classificatie model trainen met Azure geautomatiseerde Machine Learning](tutorial-auto-train-models.md) document.
+* __Pijplijnen__: Azure Machine Learning-service kunt u verschillende taken, zoals training en de implementatie in een pijplijn te combineren. Pijplijnen kunnen worden uitgevoerd parallel of op volgorde en bieden een betrouwbare automation-mechanisme. Zie voor meer informatie de [machine learning-pijplijnen met Azure Machine Learning-service bouwen](concept-ml-pipelines.md) document.
 
 U kunt de SDK van Azure Machine Learning, Azure CLI of Azure-portal gebruiken om te maken van de compute-doelen. U kunt ook bestaande compute-doelen door toe te voegen (koppelen) deze naar uw werkruimte.
 

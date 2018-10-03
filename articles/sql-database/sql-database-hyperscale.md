@@ -12,16 +12,19 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: 314a2182c3be5c5f10e075cdbda27f4a716f2536
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 18f354f931995731bf4f0da47e830a575e96fc7c
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160397"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237769"
 ---
 # <a name="what-is-the-hyperscale-service-tier-preview-in-azure-sql-database"></a>Wat is het zeer grootschalige-laag (preview) in Azure SQL Database?
 
 De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier in het op vCore gebaseerde aankoopmodel. Deze servicelaag is een zeer schaalbare opslag en compute-prestatielaag die gebruikmaakt van de Azure-architectuur om te schalen om de opslag en rekenresources voor een Azure SQL-Database aanzienlijk buiten de grenzen beschikbaar voor de algemeen gebruik en het bedrijf Kritieke Servicelagen.
+
+> [!IMPORTANT]
+> Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service tier beschikbare regio's](#hyperscale-regions)
 
 ## <a name="what-are-the-capabilities-of-the-hyperscale-service-tier"></a>Wat zijn de mogelijkheden van de servicelaag grootschalige
 
@@ -83,9 +86,12 @@ Back-ups base momentopname van de bestanden en ze zijn daarom nagenoeg onmiddell
 
 Met de mogelijkheid om snel automatisch instellen/uitschakelen als u meer alleen-lezen-compute-knooppunten, de architectuur kan aanzienlijke grootschalige mogelijkheden voor lezen en kan ook het primaire knooppunt voor het uitvoeren van meer schrijfaanvragen vrij. Ook kunnen de compute-knooppunten worden geschaald omhoog/omlaag snel vanwege de gedeelde opslag-architectuur van de grootschalige-architectuur. 
 
+### <a name="a-namehyperscale-regions-hyperscale-service-tier-available-regions"></a><a name="hyperscale-regions"> Zeer grootschalige service tier beschikbare regio 's
+Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar zijn in de volgende Azure-regio's: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, Europa West, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over Servicelagen [Servicelagen](sql-database-service-tiers.md)
-- Zie voor meer informatie met betrekking tot de resourcelimieten [resourcelimieten vCore](sql-database-resource-limits.md)
+- Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
+- Zie voor het aanschaffen van model-limieten voor één database [Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen](sql-database-vcore-resource-limits-single-databases.md).
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).

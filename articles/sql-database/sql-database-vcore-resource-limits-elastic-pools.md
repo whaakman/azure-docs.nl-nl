@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7459ae5153434887ade74f841a2239c76a7caef9
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161564"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043709"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen
 
@@ -55,7 +55,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|500|500|500|500|
 |Min./Max. elastische pool vcore-opties per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
-|Aantal replica 's|1|1|1|1|1|1|
+|Aantal replica's|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -79,7 +79,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|500|500|500|500|500|500|
 |Min./Max. elastische pool vcore-opties per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
-|Aantal replica 's|1|1|1|1|1|1|1|1|
+|Aantal replica's|1|1|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -105,7 +105,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|
 |Min./Max. elastische pool vcore-opties per database|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
-|Aantal replica 's|3|3|3|3|3|3|
+|Aantal replica's|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
@@ -151,5 +151,5 @@ De volgende tabel beschrijft de eigenschappen voor databases in pools.
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
-- Zie [overzicht van Azure SQL Database-resourcebeperkingen](sql-database-resource-limits.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
+- Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).

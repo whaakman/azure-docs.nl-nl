@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978825"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237894"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een gefaseerde data analytics-oplossing maken met Azure en Azure Stack 
 
@@ -55,7 +55,7 @@ Voorbereiding is vereist om deze oplossing te bouwen:
 
 -   De [Microsoft Azure Storage Explorer](http://storageexplorer.com/) downloaden en installeren.
 
--   De gegevens verwerkt door deze functies zijn niet opgegeven. Gegevens moet worden gegenereerd en beschikbaar om te uploaden naar de Azure Stack-blob-opslagcontainer.
+-   U moet uw eigen gegevens die moeten worden verwerkt door de functies bieden. Gegevens moet worden gegenereerd en beschikbaar om te uploaden naar de Azure Stack-blob-opslagcontainer.
 
 ## <a name="issues-and-considerations"></a>Problemen en overwegingen
 
@@ -123,17 +123,11 @@ De storage-account en blob-container wordt alle oorspronkelijke gegevens die wor
 
 Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure Stack in Azure.
 
-1.  Maak een nieuwe functie door te klikken op **functies**, dan zal de **+ nieuwe functie** knop.
+### <a name="create-the-azure-stack-function-app"></a>De Azure Stack-functie-app maken
 
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  Selecteer **Timertrigger**.
-
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  Selecteer **C\#**  als de taal en de naam van de functie: `upload-to-azure` ingesteld van de planning op `0 0 * * * *`, die in de CRON-notatie is één keer per uur.
-
-    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. Meld u aan bij de [Azure Stack-portal](https://portal.local.azurestack.external).
+2. Selecteer **Alle services**.
+3. Selecteer **functie-Apps** in de **Web en mobiel** groep.
 
 4.  De functie-app maken met de instellingen die zijn opgegeven in de tabel onder de afbeelding.
 
@@ -148,7 +142,7 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
     | Verbruiksabonnement | Hostingabonnement dat definieert hoe resources worden toegewezen aan uw functie-app. Resources worden in de standaard Verbruiksabonnement behoefte dynamisch door uw functies toegevoegd. In deze zonder server die als host fungeert, betaalt u alleen voor de uitvoering van uw functies. |  |
     | Locatie | Regio dichtstbijzijnde | Kies een regio bij u in de buurt of in de buurt van andere services uw functions-toegang. |
     | **Opslagaccount** |  |  |
-    | \<Storage-account dat eerder is gemaakt > | Naam van het nieuwe opslagaccount dat door uw functie-app wordt gebruikt. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. U kunt ook een bestaand account gebruiken. |  |
+    | \<Storage-account dat eerder is gemaakt > | Naam van het nieuwe opslagaccount dat door uw functie-app wordt gebruikt. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn. De naam mag alleen cijfers en kleine letters gebruiken. U kunt ook een bestaand account gebruiken. |  |
 
     **Voorbeeld:**
 
@@ -164,13 +158,25 @@ Maak een nieuwe Azure Stack-functie schone om gegevens te verplaatsen van Azure 
 
 ![De functie-app is gemaakt.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Een functie toevoegen aan de functie-app van Azure Stack
+
+1.  Maak een nieuwe functie door te klikken op **functies**, dan zal de **+ nieuwe functie** knop.
+
+    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  Selecteer **Timertrigger**.
+
+    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  Selecteer **C\#**  als de taal en de naam van de functie: `upload-to-azure` ingesteld van de planning op `0 0 * * * *`, die in de CRON-notatie is één keer per uur.
+
+    ![Alternatieve tekst](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Een door Blob Storage geactiveerde functie maken
 
-1.  Vouw de functie-app en selecteer de **+** naast **functies**. Als dit de eerste functie in de functie-app, selecteer **aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
+1.  Vouw de functie-app en selecteer de **+** naast **functies**.
 
-  ![De Quick Start-pagina van Functions in Azure Portal](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  Blob typt in het zoekveld en kies vervolgens de gewenste taal voor de trigger-sjabloon voor Blob storage.
+2.  Typ in het zoekveld `blob` en kies vervolgens de gewenste taal voor de **blobtrigger** sjabloon.
 
   ![Kies de trigger-sjabloon voor blob-opslag.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

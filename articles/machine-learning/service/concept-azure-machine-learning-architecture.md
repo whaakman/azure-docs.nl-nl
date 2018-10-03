@@ -9,18 +9,18 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952123"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237973"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Architectuur en -concepten: hoe werkt Azure Machine Learning-service? 
 
 Dit document beschrijft de architectuur en concepten voor de Azure Machine Learning-service. Het volgende diagram ziet u de belangrijkste onderdelen van de service en de algemene werkstroom ziet u bij het gebruik van de service: 
 
-[![Azure Machine Learning-architectuur en werkstroom](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning-Service-architectuur en werkstroom](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 De werkstroom in het algemeen als volgt:
 
@@ -41,7 +41,7 @@ De werkstroom in het algemeen als volgt:
 
 ## <a name="workspace"></a>Werkruimte
 
-De werkruimte is de resource op het hoogste niveau voor de Azure Machine Learning-service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt bij het gebruik van Azure Machine Learning.
+De werkruimte is de resource op het hoogste niveau voor de Azure Machine Learning-service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt bij het gebruik van Azure Machine Learning-Service.
 
 De werkruimte houdt een lijst met compute-doelen die kan worden gebruikt om uw model te trainen. Het houdt ook een geschiedenis bij van de training wordt uitgevoerd, met inbegrip van Logboeken, metrische gegevens, uitvoer en een momentopname van uw scripts. Deze informatie wordt gebruikt om te bepalen welke run training levert het beste model.
 
@@ -71,15 +71,15 @@ Het volgende diagram wordt een taxonomie van de werkruimte:
 
 De eenvoudigste is een model een stukje code dat een invoer en uitvoer wordt geproduceerd. Het maken van een machine learning-model omvat het selecteren van een algoritme, voorzien van deze gegevens en afstemmen van hyperparameters. Training is een iteratief proces dat een getraind model produceert, wat het model hebt geleerd tijdens de training ingekapseld.
 
-Een model wordt geproduceerd door een uitvoering in Azure Machine Learning. U kunt ook een getraind buiten Azure Machine Learning-model gebruiken. Een model kan worden geregistreerd bij een Azure Machine Learning-werkruimte.
+Een model wordt geproduceerd door een uitvoering in Azure Machine Learning. U kunt ook een getraind buiten Azure Machine Learning-model gebruiken. Een model kan worden geregistreerd onder een werkruimte van Azure Machine Learning-service.
 
-Azure Machine Learning is framework-agnostische. U kunt elk gewenst framework populaire machine learning kunt gebruiken bij het maken van een model, zoals scikit-informatie, xgboost, PyTorch, TensorFlow, Chainer en CNTK.
+Azure Machine Learning-Service is framework-agnostische. U kunt elk gewenst framework populaire machine learning kunt gebruiken bij het maken van een model, zoals scikit-informatie, xgboost, PyTorch, TensorFlow, Chainer en CNTK.
 
-Zie voor een voorbeeld van een model te trainen, de [Snelstartgids: een machine learning-werkruimte maken](quickstart-get-started.md) document.
+Zie voor een voorbeeld van een model te trainen, de [Quickstart: maken van een machine learning-werkruimte Service](quickstart-get-started.md) document.
 
 ### <a name="model-registry"></a>Model-register
 
-Het register model houdt van alle modellen in de Azure Machine Learning-werkruimte. 
+Het register model houdt van alle modellen in de werkruimte van uw Azure Machine Learning-service. 
 
 Modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren het register wordt ervan uitgegaan dat er een nieuwe versie beschikbaar is. De versie wordt verhoogd en het nieuwe model is geregistreerd onder de naam.
 

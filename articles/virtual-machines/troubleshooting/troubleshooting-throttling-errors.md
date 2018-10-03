@@ -13,16 +13,16 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 53d94d8674a064960b3447374f68af0d3fdf6e0c
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7a1c283820b1ddef0c85899d9b56b6dcc3ea4b95
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413657"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043132"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Oplossen van problemen met API beperkingsfouten 
 
-Azure Compute-aanvragen kunnen worden beperkt op een abonnement en op basis van per regio om te helpen bij de algehele prestaties van de service. Wij garanderen dat alle aanroepen naar de Azure Compute Resource Provider (CRP) die u, resources onder Microsoft.Compute-naamruimte beheert niet langer zijn dan de maximale toegestane snelheid voor API. Dit document beschrijft de beperking, meer informatie over het oplossen van problemen, beperking, API en de aanbevolen procedures om te voorkomen dat wordt beperkt.  
+Azure Compute-aanvragen kunnen worden beperkt op een abonnement en op basis van per regio om te helpen bij de algehele prestaties van de service. Wij garanderen dat alle aanroepen naar de Azure Compute Resourceprovider (CRP), die u beheert, resources onder Microsoft.Compute-naamruimte niet langer zijn dan de maximale toegestane snelheid voor API. Dit document beschrijft de beperking, meer informatie over het oplossen van problemen, beperking, API en de aanbevolen procedures om te voorkomen dat wordt beperkt.  
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Beperking van Azure Resource Manager vs Resourceproviders  
 
@@ -40,7 +40,7 @@ Wanneer een Azure API App client een beperking-fout ontvangt, wordt de HTTP-stat
 
 Houd er rekening mee dat een API-aanvraag kan worden onderworpen aan beleid voor meerdere aanvragen worden beperkt. Er is een afzonderlijke `x-ms-ratelimit-remaining-resource` koptekst voor elk beleid. 
 
-Hier volgt een voorbeeldantwoord om te verwijderen van een virtuele machine in een virtuele machine-aanvraag voor het instellen van schaal.
+Hier volgt een voorbeeld-reactie op de virtual machine scale set aanvraag verwijderen.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -73,17 +73,18 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-Het beleid met het aantal resterende aanroepen van 0 is dit de bandbreedteregeling fout wordt geretourneerd. In dit geval is dat `HighCostGet30Min`. De algemene indeling van de antwoordtekst is de algemene indeling Azure Resource Manager API-fout (in overeenstemming met OData). De belangrijkste foutcode `OperationNotAllowed`, is een Compute Resource Provider wordt gebruikt voor het rapporteren van beperkingsfouten optreden (onder andere typen clientfouten). 
+Het beleid met het aantal resterende aanroepen van 0 is dit de bandbreedteregeling fout wordt geretourneerd. In dit geval is dat `HighCostGet30Min`. De algemene indeling van de antwoordtekst is de algemene indeling Azure Resource Manager API-fout (in overeenstemming met OData). De belangrijkste foutcode `OperationNotAllowed`, is een Compute Resource Provider wordt gebruikt voor het rapporteren van beperkingsfouten optreden (onder andere typen clientfouten). De `message` eigenschap van de interne fouten bevat een geserialiseerde JSON-structuur met de details van de schending van beperking.
 
 Zoals hierboven geïllustreerd, elke beperking fout bevat de `Retry-After` koptekst, die voorziet de client van het minimum aantal seconden moet worden gewacht voordat opnieuw wordt geprobeerd de aanvraag. 
 
 ## <a name="best-practices"></a>Aanbevolen procedures 
 
-- Fouten van de Azure service API niet onvoorwaardelijk opnieuw. Vaak het geval is voor de clientcode toegang te krijgen tot een snelle herhalingslus wanneer er een fout optreedt die is niet mogelijk zijn voor het opnieuw proberen. Nieuwe pogingen wordt uiteindelijk tot uitputting van de aanroep van de toegestane limiet voor de doel-bewerking groep en van invloed zijn op andere clients van het abonnement. 
+- Probeer Azure-service API fouten niet opnieuw onvoorwaardelijk en/of direct. Vaak het geval is voor de clientcode toegang te krijgen tot een snelle herhalingslus wanneer er een fout optreedt die is niet mogelijk zijn voor het opnieuw proberen. Nieuwe pogingen wordt uiteindelijk tot uitputting van de aanroep van de toegestane limiet voor de doel-bewerking groep en van invloed zijn op andere clients van het abonnement. 
 - In grote volumes API automation gevallen kunt u proactieve clientzijde zelf beperking implementeren wanneer het aantal beschikbare aanroep voor een bewerking doelgroep onder sommige lage drempelwaarde komt. 
 - Wanneer het bijhouden van asynchrone bewerkingen, met inachtneming van de hints Retry-After-header. 
-- Als de clientcode moet u informatie over een bepaalde virtuele Machine, een query die virtuele machine rechtstreeks in plaats van de lijst van alle virtuele machines in de resourcegroep of het hele abonnement en klikt u vervolgens de benodigde VM verzamelen op de client. 
-- Als clientcode nodig heeft voor virtuele machines, schijven en momentopnamen van een specifieke Azure-locatie, op basis van locatie vorm van de query gebruiken in plaats van query's alle abonnement VM's en vervolgens te filteren op locatie aan de clientzijde: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` en `/subscriptions/<subId>/providers/Microsoft.Compute/virtualMachines` query Computing Resource Provider regionale eindpunten. • Wanneer het maken of bijwerken van de API-resources in het bijzonder, virtuele machines en virtuele machine-schaalsets, het is veel efficiënter om bij te houden van de geretourneerde asynchrone bewerking voltooid dan polling voor gebruikersbeleid op de bron-URL zelf (op basis van de `provisioningState`).
+- Als de clientcode informatie over een bepaalde virtuele Machine moet, een query die virtuele machine rechtstreeks in plaats van alle virtuele machines in de resourcegroep die of het hele abonnement weergeven en vervolgens de benodigde VM verzamelen op de client. 
+- Als clientcode nodig heeft voor virtuele machines, schijven en momentopnamen van een specifieke Azure-locatie, op basis van locatie vorm van de query gebruiken in plaats van query's alle abonnement VM's en vervolgens te filteren op locatie aan de clientzijde: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` query naar de landinstellingen van de Resourceprovider voor Compute eindpunten. 
+-   Bij het maken of bijwerken van de API-resources in het bijzonder, virtuele machines en virtuele-machineschaalsets, het is veel efficiënter om bij te houden van de geretourneerde asynchrone bewerking voltooid dan polling voor gebruikersbeleid op de bron-URL zelf (op basis van de `provisioningState`).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158561"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236581"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migreren naar de nieuwste versie van Azure Machine Learning-service 
 
@@ -52,7 +52,7 @@ Meer informatie over [wat gewijzigd in deze release](overview-what-happened-to-w
 
 Resources, zoals uw experimenten-accounts, Modelbeheer-accounts en machine learning compute-omgeving kunnen niet worden gemigreerd naar de nieuwste versie van Azure Machine Learning-service. Zie de [tijdlijn](overview-what-happened-to-workbench.md#timeline) op hoe lang de activa blijven werken.
 
-Aan de slag met de meest recente versie van het maken van een Azure Machine Learning-werkruimte in de [Azure-portal](quickstart-get-started.md). Werkruimte-dashboard van de portal wordt ondersteund op Edge, Chrome en Firefox-browser.
+Aan de slag met de meest recente versie van het maken van een werkruimte van Azure Machine Learning-service in de [Azure-portal](quickstart-get-started.md). Werkruimte-dashboard van de portal wordt ondersteund op Edge, Chrome en Firefox-browser.
 
 Deze nieuwe werkruimte is de Serviceresource op het hoogste niveau en kunt u alle van de nieuwste functies van Azure Machine Learning-service gebruiken. Meer informatie over dit [werkruimte en architectuur](concept-azure-machine-learning-architecture.md).
 

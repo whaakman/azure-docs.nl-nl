@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d06d29fb43ea8d8971c3f013c1e66406a30798d3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064251"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043599"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -105,7 +105,7 @@ U kunt de Azure SQL-Database voor het implementeren van aanbevelingen automatisc
     ![Aanbevolen indexen](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Houd er rekening mee dat **DROP_INDEX** optie op dit moment is niet compatibel met toepassingen die gebruikmaken van partitie schakelen en de index-hints en mag niet worden ingeschakeld in deze gevallen.
+> Houd er rekening mee dat **DROP_INDEX** optie is momenteel niet compatibel is met toepassingen die gebruikmaken van partitie schakelen en de index-hints. 
 >
 
 Nadat u de gewenste configuratie hebt geselecteerd, klikt u op toepassen.

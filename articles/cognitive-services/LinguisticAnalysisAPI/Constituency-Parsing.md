@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: 83ea72e7c5c880ecab7d165e029f948144506271
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127689"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238621"
 ---
 # <a name="constituency-parsing"></a>Frasestructuur parseren
+
+> [!IMPORTANT]
+> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
 
 Het doel van frasestructuur parseren (ook wel bekend als ' woordgroep structuur parseren') is het identificeren van de items in de tekst.
 Dit kan nuttig zijn bij het uitpakken van informatie uit tekst.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393924"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041184"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Meerdere masters conflictoplossing in Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ De procedure heeft vier parameters:
 
 * **conflictingDocuments:** Hiermee geeft u een verzameling van de toegezegde versie van alle documenten in de database, die conflicteren met incomingDocument op kolom-ID of een andere unieke index-velden. Deze documenten worden verschillende 'verwijderen'-waarde in vergelijking met de incomingDocument hebben.
 
-De gebruiker gedefinieerde procedure heeft volledige toegang tot de partitiesleutel Cosmos DB en store bewerkingen voor het oplossen van conflicten kan uitvoeren. Als de gebruiker gedefinieerde procedure biedt de versie van het conflict niet worden doorgevoerd, het systeem wordt het conflict verwijderen en de existingDocument blijven doorgevoerd. Als de gebruiker gedefinieerde procedure mislukt of niet bestaat, Azure Cosmos DB wordt toe te voegen het conflict in de alleen-lezen conflicten feed waar de gegevens kan worden verwerkt asynchroon zoals wordt weergegeven in de [modus voor het oplossen van asynchrone conflict](). 
+De gebruiker gedefinieerde procedure heeft volledige toegang tot de partitiesleutel Cosmos DB en store bewerkingen voor het oplossen van conflicten kan uitvoeren. Als de gebruiker gedefinieerde procedure biedt de versie van het conflict niet worden doorgevoerd, het systeem wordt het conflict verwijderen en de existingDocument blijven doorgevoerd. Als de gebruiker gedefinieerde procedure mislukt of niet bestaat, Azure Cosmos DB wordt toe te voegen het conflict in de alleen-lezen conflicten feed waar de gegevens kan worden verwerkt asynchroon zoals wordt weergegeven in de [modus voor het oplossen van asynchrone conflict](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Aangepast – asynchrone  
 

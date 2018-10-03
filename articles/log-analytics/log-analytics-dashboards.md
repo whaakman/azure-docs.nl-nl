@@ -1,6 +1,6 @@
 ---
-title: Een aangepaste dashboard maken in Azure Log Analytics | Microsoft Docs
-description: Deze handleiding helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
+title: Een aangepast dashboard maken in Azure Log Analytics | Microsoft Docs
+description: Deze handleiding helpt u begrijpen hoe Log Analytics-dashboards al uw opgeslagen logboekzoekopdrachten kunnen visualiseren zodat u een één lens naar uw omgeving.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: bf5b37bfa2cb103ef8151203359041fa4bd10f0b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129309"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043325"
 ---
-# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Maken van een aangepast dashboard voor gebruik in Log Analytics
+# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Een aangepast dashboard voor gebruik in Log Analytics maken
 
-Deze handleiding helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
+Deze handleiding helpt u begrijpen hoe Log Analytics-dashboards al uw opgeslagen logboekzoekopdrachten kunnen visualiseren zodat u een één lens naar uw omgeving.
 
 >[!NOTE]
-> U kunt niet meer bewerken voor uw bestaande **mijn Dashboard**. Deze functie is momenteel wordt afgeschaft.
+> U kunt niet meer bewerken voor uw bestaande **mijn Dashboard**. Deze functie wordt momenteel wordt afgeschaft.
 
 ![Voorbeeld van Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
-De aangepaste dashboards die u in de OMS-portal maakt zijn ook beschikbaar in de OMS mobiele App. Zie de volgende pagina's voor meer informatie over de apps.
+De aangepaste dashboards die u in de OMS-portal maakt zijn ook beschikbaar in de mobiele OMS-App. Zie de volgende pagina's voor meer informatie over de apps.
 
-* [OMS mobiele app van de Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
-* [Mobiele app van Apple iTunes OMS](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
+* [Mobiele OMS-app uit de Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [Mobiele OMS-app vanuit iTunes van Apple](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![mobiele dashboard](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard"></a>Hoe maak ik mijn dashboard
-Ga naar de pagina overzicht van OMS. U ziet de **mijn Dashboard** tegel aan de linkerkant. Klik op het inzoomen op uw dashboard.
+## <a name="how-do-i-create-my-dashboard"></a>Hoe maak ik mijn dashboard?
+Als u wilt beginnen, gaat u naar de pagina overzicht van OMS. U ziet de **mijn Dashboard** tegel aan de linkerkant. Klik op het inzoomen op uw dashboard.
 
 ![Overzicht](./media/log-analytics-dashboards/oms-dashboards-overview.png)
 
-## <a name="adding-a-tile"></a>Toevoegen van een tegel
-Dashboards, worden de tegels aangedreven door uw zoekopdrachten opgeslagen logboek. OMS wordt geleverd met veel en-klare opgeslagen logboek zoekopdrachten, zodat u meteen kunt beginnen. Gebruik de volgende stappen uit die een overzicht van hoe u om te beginnen.
+## <a name="adding-a-tile"></a>Een tegel wordt toegevoegd
+In dashboards, worden tegels aangestuurd door uw opgeslagen logboekzoekopdrachten. OMS wordt geleverd met veel vooraf samengestelde opgeslagen zoekopdrachten, zodat u meteen kunt beginnen. Gebruik de volgende stappen uit die wordt beschreven hoe om te beginnen.
 
-Klik in de weergave Mijn Dashboard **aanpassen** invoeren modus aanpassen.
+Klik in de weergave Mijn Dashboard **aanpassen** in te voeren modus aanpassen.
 
-![Afbeeldingen](./media/log-analytics-dashboards/oms-dashboards-pictorial01.png)
+![Pictogrammen](./media/log-analytics-dashboards/oms-dashboards-pictorial01.png)
 
- Het deelvenster dat wordt geopend aan de rechterkant van de pagina geeft alle uw werkruimte opgeslagen logboek zoekopdrachten. Beweeg de muisaanwijzer over een opgeslagen zoekopdracht om te visualiseren een zoekopdracht opgeslagen logboek als tegel, en klik vervolgens op de **plus** symbool.
+ Het deelvenster dat wordt geopend aan de rechterkant van de pagina worden alle opgeslagen zoekopdrachten in Logboeken van uw werkruimte. Beweeg de muisaanwijzer over een opgeslagen zoekopdracht om te zoeken in een opgeslagen logboeken als een tegel visualiseren, en klik vervolgens op de **plus** symbool.
 
-![1 tegels toevoegen](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
+![Tegels 1 toevoegen](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
 
 Wanneer u klikt op de **plus** een symbool, een nieuwe tegel wordt weergegeven in de weergave Mijn Dashboard.
 
-![2 tegels toevoegen](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
+![Tegels 2 toevoegen](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
 
 ## <a name="edit-a-tile"></a>Een tegel bewerken
-Klik in de weergave Mijn Dashboard **aanpassen** invoeren modus aanpassen. Klik op de tegel die u wilt bewerken. De wijzigingen aan de rechterkant te bewerken, en biedt een aantal opties:
+Klik in de weergave Mijn Dashboard **aanpassen** in te voeren modus aanpassen. Klik op de tegel die u wilt bewerken. De wijzigingen deelvenster aan de rechterkant om te bewerken, en biedt een aantal opties:
 
 ![Tegel bewerken](./media/log-analytics-dashboards/oms-dashboards-pictorial04.png)
 
 ![Tegel bewerken](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations"></a>Tegel visualisaties
-Er zijn drie soorten tegel visualisaties kunt kiezen uit:
+### <a name="tile-visualizations"></a>Tegelvisualisaties
+Er zijn drie soorten tegelvisualisaties kiezen uit:
 
-| grafiektype | Wat het programma doet |
+| grafiektype | Wat het doet |
 | --- | --- |
-| ![Staafdiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Geeft een tijdlijn met uw opgeslagen logboek zoekresultaten weer als een staafdiagram of een lijst met resultaten in een veld afhankelijk van als uw zoekopdracht logboek resultaten door een veld of niet aggregeert. |
-| ![metrische waarde](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Worden uw totale logboek zoeken resultaat treffers weergegeven als een getal in een tegel. Metrische tegels kunnen u een drempelwaarde die de tegel wordt gemarkeerd als de drempelwaarde is bereikt. |
-| ![Regel](./media/log-analytics-dashboards/oms-dashboards-line.png) |Hiermee geeft u een tijdlijn van uw opgeslagen logboek resultaat gevonden in de zoekopdracht met waarden weer als een lijndiagram. |
+| ![Staafdiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Weergegeven als een staafdiagram, of een lijst met resultaten op basis van een veld, afhankelijk van een tijdlijn van uw opgeslagen logboek zoekresultaten indien uw zoeken in Logboeken resultaten op basis van een veld of niet samenvoegt. |
+| ![metrische waarde](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Geeft het totaal aantal log search resultaat treffers weer als een getal in een tegel. Metrische tegels kunnen u een drempelwaarde die de tegel wordt gemarkeerd als de drempelwaarde is bereikt. |
+| ![Regel](./media/log-analytics-dashboards/oms-dashboards-line.png) |Geeft een tijdlijn van uw opgeslagen log search resultaat treffers met waarden weer als een lijndiagram. |
 
 ### <a name="threshold"></a>Drempelwaarde
-U kunt een drempelwaarde maken op een tegel met behulp van de metrische visualisatie. Selecteer op het maken van een drempelwaarde in op de tegel. Kies of u de tegel markeren als de waarde boven of onder de gekozen drempelwaarde, wordt de onderstaande drempelwaarde ingesteld.
+U kunt een drempelwaarde maken op een tegel met behulp van de visualisatie van de metrische gegevens. Selecteer op het maken van een drempelwaarde op de tegel. Kies of u wilt markeren de tegel wanneer de waarde boven of onder de gekozen drempelwaarde is en stel vervolgens de onderstaande drempelwaarde.
 
 ## <a name="organizing-the-dashboard"></a>Het dashboard ordenen
-Voor het ordenen van uw dashboard, gaat u naar de weergave Mijn Dashboard en klik op **aanpassen** invoeren modus aanpassen. Klik en sleep de tegel die u wilt verplaatsen en verplaatsen naar waar u uw tegel te zijn.
+Om te organiseren uw dashboard, gaat u naar de weergave van mijn Dashboard en klik op **aanpassen** in te voeren modus aanpassen. Klik en sleep de tegel die u wilt verplaatsen en verplaatsen naar waar u de tegel om te worden.
 
-![Uw Dashboard ordenen](./media/log-analytics-dashboards/oms-dashboards-organize.png)
+![Uw Dashboard delen](./media/log-analytics-dashboards/oms-dashboards-organize.png)
 
 ## <a name="remove-a-tile"></a>Een tegel verwijderen
-Als u een tegel, gaat u naar de weergave Mijn Dashboard en op **aanpassen** invoeren modus aanpassen. Selecteer de tegel die u verwijderen wilt, selecteert in het rechterpaneel **verwijderen tegel**.
+Als u wilt verwijderen van een tegel, gaat u naar de weergave van mijn Dashboard en klik op **aanpassen** in te voeren modus aanpassen. Selecteer de tegel die u verwijderen, in het rechterdeelvenster wilt en selecteer vervolgens **verwijderen tegel**.
 
 ![Een tegel verwijderen](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Maak [waarschuwingen](log-analytics-alerts.md) in Log Analytics om meldingen te genereren en oplossen van problemen.
+* Maak [waarschuwingen](log-analytics-alerts.md) in Log Analytics om meldingen te genereren en problemen kunt oplossen.

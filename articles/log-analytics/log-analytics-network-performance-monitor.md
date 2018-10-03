@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.component: ''
+ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626869"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044090"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -59,7 +59,7 @@ De lijst met ondersteunde regio's voor ExpressRoute-bewaking is beschikbaar in d
 
 ## <a name="set-up-and-configure"></a>Instellen en configureren
 
-### <a name="install-and-configure-agents"></a>Installeren en configureren van agents 
+### <a name="install-and-configure-agents"></a>Agents installeren en configureren 
 
 Gebruik de basic-processen voor het installeren van agents op [verbinding maken met Windows-computers met Azure Log Analytics](log-analytics-windows-agents.md) en [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
 

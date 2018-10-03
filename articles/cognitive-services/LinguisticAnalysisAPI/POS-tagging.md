@@ -9,19 +9,23 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 636b8bc4ef41674d1e9ca12111aecee05870f381
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124565"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238508"
 ---
 # <a name="part-of-speech-tagging"></a>Part-of-Speech Tagging
+
+> [!IMPORTANT]
+> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
 
 ## <a name="background-and-motivation"></a>Achtergrond en motivatie
 
 Zodra een SMS-bericht is gescheiden in zinnen en tokens, wordt de volgende stap van de analyse is het identificeren van de categorie of part-of-speech van elk woord.
-Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mensen, plaatsen, dingen, ideeën, enz.) en *term* (algemeen die acties, verandert van status, enzovoort. Voor sommige woorden, de part-of-speech eenduidig is (bijvoorbeeld *quagmire* is eigenlijk alleen een zelfstandig naamwoord), maar voor nog veel meer, is het moeilijk te zien.
+Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mensen, plaatsen, dingen, ideeën, enz.) en *term* (algemeen die acties, verandert van status, enzovoort. Voor sommige woorden, de part-of-speech eenduidig is (bijvoorbeeld *quagmire* is alleen een zelfstandig naamwoord), maar voor nog veel meer, is het moeilijk te zien.
 *Tabel* kan moet een plaats waar u zich bevinden (of 2D-indeling van de getallen), maar u kunt ook 'tabel een discussie'.
 
 ## <a name="list-of-part-of-speech-tags"></a>Lijst met Part-of-Speech Tags
@@ -45,10 +49,10 @@ Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mense
 | IN | voorzetsel of samen te brengen| in binnen als bij of |
 | JJ | bijvoeglijk naamwoord of cijfer, volgnummer | achtste vrij execrable multimodale |
 | JJR | bijvoeglijk naamwoord, vergelijkende | sneller beter goedkoper |
-| JJS | bijvoeglijk naamwoord, superlative | beste snelste goedkoopste | 
+| JJS | bijvoeglijk naamwoord, superlative | beste snelste goedkoopste |
 | LS | lijst met item-markering | (a) (b) 1 2 A B A. B. |
 | MD | modale assistent | kan mogelijk moeten wordt kan mogelijk moeten zou |
-| NN | zelfstandig naamwoord, algemene, rapportgebruiker of massaopslag | achtergebleven geld schoen |
+| NN | zelfstandig naamwoord, algemene, singuliere of voor massaopslag | achtergebleven geld schoen |
 | NNP | de juiste, singuliere zelfstandig naamwoord, | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | de juiste, plural zelfstandig naamwoord, | Springfields struiken |
 | NNS | zelfstandig naamwoord, algemene, plural | onderdelen muizen velden |

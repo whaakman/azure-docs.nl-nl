@@ -5,17 +5,16 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 08/09/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 5a93cb7b2abbf0eaa25304f61a8a422edf209959
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091166"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042118"
 ---
-# <a name="integrate-azure-active-directory-with-aks"></a>Azure Active Directory integreren met AKS
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Active Directory integreren met Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. In deze configuratie kunt u zich aanmelden bij een AKS-cluster met behulp van uw Azure Active Directory-verificatietoken. Bovendien, clusterbeheerders kunnen Kubernetes op rollen gebaseerd toegangsbeheer (RBAC) op basis van lidmaatschap van een gebruikers-id of de map configureren.
 
@@ -120,13 +119,16 @@ Selecteer in de Azure-portal **Azure Active Directory** > **eigenschappen** en n
 Gebruik de [az-groep maken] [ az-group-create] opdracht om een resourcegroep voor het AKS-cluster te maken.
 
 ```azurecli
-az group create --name myAKSCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 Implementeer het cluster met de [az aks maken] [ az-aks-create] opdracht. Vervang de waarden in de voorbeeldopdracht hieronder door de waarden die worden verzameld bij het maken van de Azure AD-toepassingen.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --generate-ssh-keys \
   --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
@@ -140,7 +142,7 @@ Voordat u een Azure Active Directory-account kan worden gebruikt met het AKS-clu
 Gebruik eerst de [az aks get-credentials] [ az-aks-get-credentials] opdracht met de `--admin` argument voor aanmelding bij het cluster met beheerderstoegang.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
 Gebruik vervolgens de volgende manifest te maken van een ClusterRoleBinding voor een Azure AD-account. Werk de naam van de gebruiker met een van uw Azure AD-tenant. In dit voorbeeld geeft de account volledige toegang tot alle naamruimten van het cluster:
@@ -184,7 +186,7 @@ Zie voor meer informatie over het beveiligen van een Kubernetes-cluster met RBAC
 Vervolgens halen de context voor de niet-beheerder-gebruiker met de [az aks get-credentials] [ az-aks-get-credentials] opdracht.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Nadat een kubectl-opdracht is uitgevoerd, wordt u gevraagd om te verifiëren met Azure. Volg de aanwijzingen op het scherm instructies.
@@ -195,18 +197,18 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 ```
 
 Als u klaar bent, wordt het verificatietoken in cache opgeslagen. U wordt alleen reprompted om aan te melden wanneer het token is verlopen of het Kubernetes-configuratiebestand opnieuw wordt gemaakt.
 
 Als u een autorisatiefoutbericht ziet nadat aangemeld, moet u controleren dat de gebruiker u aanmeldt zich is niet een gast in de Azure AD (dit is vaak het geval als u van een federatieve aanmelding vanuit een andere map gebruikmaakt).
+
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

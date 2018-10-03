@@ -1,6 +1,6 @@
 ---
-title: Wat is een FPGA en Project Brainwave? -Azure Machine Learning
-description: Informatie over het versnellen van modellen en deep neural networks met FPGA's op Azure. Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe Azure Machine Learning biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
+title: Wat is een FPGA en Project Brainwave? -Azure Machine Learning-webservice
+description: Informatie over het versnellen van modellen en deep neural networks met FPGA's op Azure. Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe Azure Machine Learning-Service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,22 +9,22 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158682"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238852"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>Wat is FPGA en Project Brainwave?
 
-Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe Azure Machine Learning biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
+Dit artikel bevat een inleiding tot veld-programmable gate arrays (FPGA) en hoe Azure Machine Learning-service biedt realtime kunstmatige intelligentie (AI) wanneer u uw model naar een Azure-FPGA implementeert.
 
 FPGA's bevatten een matrix van programmeerbare logische blokken en een hiërarchie van herconfigureerbare koppelt. De verbindingen toestaan deze blokken worden geconfigureerd in de verschillende manieren na productie. FPGA's bieden een combinatie van programmeren en prestaties in vergelijking met andere chips.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA's vs. CPU, GPU en ASIC
 
-![Vergelijking van Azure Machine Learning FPGA](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![FPGA vergelijking van Azure Machine Learning-service](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processor||Beschrijving|
 |---|:-------:|------|

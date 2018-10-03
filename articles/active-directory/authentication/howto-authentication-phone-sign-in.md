@@ -1,5 +1,5 @@
 ---
-title: De configuratie van de Azure AD-aanmelding met de Microsoft Authenticator-app (preview-versie)
+title: Geen wachtwoord meer Azure AD-aanmelding met de Microsoft Authenticator-app (preview-versie)
 description: Aanmelden bij Azure AD met behulp van de Microsoft Authenticator-app zonder uw wachtwoord (openbare preview)
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: af5fe7c00b2dedd6b3447cd0919bdce3ac38ae5d
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047625"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237004"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>De configuratie aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Zonder wachtwoord aanmelden via telefoon met de Microsoft Authenticator-app (preview-versie)
 
 De Microsoft Authenticator-app kan worden gebruikt voor aanmelding bij een Azure AD-account zonder een wachtwoord te gebruiken. Vergelijkbaar met de technologie van [Windows Hello voor bedrijven](/windows/security/identity-protection/hello-for-business/hello-identity-verification), de Microsoft Authenticator gebruikmaakt van verificatie op basis van een sleutel waarmee de referenties van een gebruiker die is gekoppeld aan een apparaat en maakt gebruik van een biometrische of PINCODE.
 
@@ -45,7 +45,7 @@ Voor preview-versie, moet een beheerder eerst via powershell om gebruik van de r
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hoe kan mijn eindgebruikers aanmelden via telefoon inschakelen?
 
-Er is geen manier om af te dwingen van gebruikers om te maken of gebruiken van deze nieuwe referentie voor de openbare preview. Een eindgebruiker wordt alleen zonder wachtwoord uitproberen aanmelding optreden als een beheerder als hun tenant ingeschakeld en de Microsoft Authenticator-app als u wilt aanmelden via telefoon inschakelen door de gebruiker is bijgewerkt.
+Er is geen manier om af te dwingen van gebruikers om te maken of gebruiken van deze nieuwe referentie voor de openbare preview. Een eindgebruiker wordt alleen aanmelding zonder wachtwoord optreden wanneer een beheerder als hun tenant ingeschakeld en de Microsoft Authenticator-app als u wilt aanmelden via telefoon inschakelen door de gebruiker is bijgewerkt.
 
 > [!NOTE]
 > Deze mogelijkheid is in de app sinds maart 2017, dus er is een mogelijkheid is dat wanneer het beleid is ingeschakeld voor een tenant, kunt u de volgende deze stroom onmiddellijk. Houd er rekening mee en bereid uw gebruikers om deze wijziging.
@@ -61,11 +61,11 @@ Zodra de gebruiker de MFA-account met pushmeldingen in de Microsoft Authenticato
 
 ### <a name="ad-fs-integration"></a>AD FS-integratie
 
-Wanneer een gebruiker heeft de Microsoft Authenticator zonder wachtwoord uitproberen referentie ingeschakeld, wordt altijd verificatie voor die gebruiker standaard een melding voor goedkeuring verzonden. Deze logica wordt voorkomen dat gebruikers in een hybride-tenant niet worden doorgestuurd naar AD FS voor aanmelding bij verificatie zonder dat de gebruiker een extra stap te klikken op "Uw wachtwoord gebruiken in plaats daarvan." Dit proces wordt ook een on-premises-beleid voor voorwaardelijke toegang en stromen van Pass through-verificatie overslaan. De uitzondering op dit proces is als een login_hint is opgegeven, een gebruiker wordt automatisch doorgestuurd naar AD FS en overslaan van de optie voor het gebruik van de referentie op die de configuratie.
+Wanneer een gebruiker heeft de referentie op die geen wachtwoord meer Microsoft Authenticator ingeschakeld, wordt altijd verificatie voor die gebruiker standaard een melding voor goedkeuring verzonden. Deze logica wordt voorkomen dat gebruikers in een hybride-tenant niet worden doorgestuurd naar AD FS voor aanmelding bij verificatie zonder dat de gebruiker een extra stap te klikken op "Uw wachtwoord gebruiken in plaats daarvan." Dit proces wordt ook een on-premises-beleid voor voorwaardelijke toegang en stromen van Pass through-verificatie overslaan. De uitzondering op dit proces is als een login_hint is opgegeven, een gebruiker wordt automatisch doorgestuurd naar AD FS en overslaan van de optie voor het gebruik van de referentie zonder wachtwoord.
 
 ### <a name="azure-mfa-server"></a>Azure MFA-server
 
-Eindgebruikers die zijn ingeschakeld voor MFA via on-premises Azure MFA-server van een organisatie kan nog steeds maken en gebruiken van een eenmalige configuratie telefoon aanmelden referentie. Als de gebruiker probeert om meerdere installaties (5 +) van de Microsoft Authenticator met de referenties van een upgrade uitvoert, kan deze wijziging resulteert in een fout.  
+Eindgebruikers die zijn ingeschakeld voor MFA via on-premises Azure MFA-server van een organisatie kan nog steeds maken en een eenmalige aanmelding telefoon aanmelden referentie gebruiken. Als de gebruiker probeert om meerdere installaties (5 +) van de Microsoft Authenticator met de referenties van een upgrade uitvoert, kan deze wijziging resulteert in een fout.  
 
 ### <a name="device-registration"></a>Apparaatregistratie
 

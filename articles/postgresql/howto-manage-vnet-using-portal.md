@@ -4,17 +4,16 @@ description: Maken en beheren van Azure Database voor PostgreSQL-VNet-service-ei
 services: postgresql
 author: mbolz
 ms.author: mbolz
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql-database
-ms.topic: article
+ms.reviewer: jasonwhowell
+ms.service: postgresql
+ms.topic: conceptual
 ms.date: 08/15/2018
-ms.openlocfilehash: af5df507bd7a825ddfaaa7518691cb5fbec34d47
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3884b594c903c234ce83c0752f92ddc34b24cd5a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054691"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239316"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure Database voor PostgreSQL-VNet-service-eindpunten en VNet-regels met behulp van Azure portal
 Virtueel netwerk (VNet) services-eindpunten en regels uitbreiden privé-adresruimte van een Virtueelnetwerk met uw Azure Database for PostgreSQL-server. Zie voor een overzicht van Azure Database voor PostgreSQL-VNet-service-eindpunten, met inbegrip van beperkingen, [Azure Database for PostgreSQL-Server VNet-service-eindpunten](concepts-data-access-and-security-vnet.md). VNet-service-eindpunten zijn beschikbaar in alle ondersteunde regio's voor Azure Database for PostgreSQL.

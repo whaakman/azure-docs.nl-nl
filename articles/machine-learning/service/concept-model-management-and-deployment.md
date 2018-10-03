@@ -1,6 +1,6 @@
 ---
-title: Beheren en implementeren van modellen in Azure Machine Learning
-description: Informatie over het gebruik van Azure Machine Learning te implementeren, beheren en bewaken van uw modellen voor het continu te verbeteren. U kunt de modellen die u met Azure Machine Learning, getraind op uw lokale computer of uit andere bronnen kunt implementeren.
+title: Beheren en implementeren van modellen in Azure Machine Learning-Service
+description: Informatie over het gebruik van Azure Machine Learning-Service te implementeren, beheren en bewaken van uw modellen voor het continu te verbeteren. U kunt de modellen die u met Azure Machine Learning-Service is getraind op uw lokale computer of uit andere bronnen kunt implementeren.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: afba483172bc34b9d54afc3af755f0967affc875
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166534"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239163"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
-In dit artikel leert u hoe u met Azure Machine Learning kunt implementeren, beheren en bewaken van uw modellen voor het continu te verbeteren. U kunt de modellen die u met Azure Machine Learning, getraind op uw lokale computer of uit andere bronnen kunt implementeren. 
+In dit artikel leert u hoe u Azure Machine Learning-Service te implementeren, beheren en bewaken van uw modellen voor het continu te verbeteren. U kunt de modellen die u met Azure Machine Learning, getraind op uw lokale computer of uit andere bronnen kunt implementeren. 
 
 Het volgende diagram illustreert de werkstroom van de volledige implementatie: [ ![implementatiewerkstroom voor Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 De implementatiewerkstroom bevat de volgende stappen uit:
-1. **Registreer het model** in een register, gehost in uw Azure Machine Learning-werkruimte
+1. **Registreer het model** in een register, gehost in uw Service voor Azure Machine Learning-werkruimte
 1. **Registreren van een installatiekopie van een** die een model met een scoring-script en de afhankelijkheden in een container draagbaar paren 
 1. **Implementeer** de afbeelding als een webservice in de cloud of naar edge-apparaten
 1. **Controleren en verzamelen van gegevens**
@@ -35,7 +35,7 @@ Elke stap kan worden uitgevoerd, onafhankelijk van elkaar of als onderdeel van e
 
 ## <a name="step-1-register-model"></a>Stap 1: Registreren model
 
-Het register model houdt van alle modellen in de Azure Machine Learning-werkruimte.
+Het register model houdt van alle modellen in de Service van Azure Machine Learning-werkruimte.
 Modellen worden aangeduid met de naam en versie. Telkens wanneer die u een model met dezelfde naam als een bestaande resourcegroep registreren in het register wordt het versienummer verhoogd. U kunt ook aanvullende metagegevenstags opgeven tijdens de registratie die kan worden gebruikt bij het zoeken naar voor modellen.
 
 U kunt modellen die worden gebruikt door een installatiekopie niet verwijderen.

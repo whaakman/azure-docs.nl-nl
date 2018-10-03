@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221318"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237582"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Laden en lezen van gegevens met Azure Machine Learning
 
 Gebruik de [SDK van Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) laden van verschillende typen invoergegevens. 
 
-Voor het laden van uw gegevens, hebt u twee methoden:
-+ Het gegevenstype van het bestand en de bijbehorende parameters opgeven
-+ De SDK slimme lezen-functionaliteit gebruiken voor het automatisch detecteren van het type van een bestand
+Als u wilt uw gegevens laadt, geef het gegevenstype van het bestand en de bijbehorende parameters
 
 ## <a name="use-text-line-data"></a>Gebruik de gegevens van de tekst 
 Een van de eenvoudigste manieren om gegevens te laden is te lezen als tekstregels.
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 mijl markt|http://www.pfcmarkets.com |507 Harrison St|Verweggistan|Verweggistan|
 |3|1009364|106 S. Main straat landbouwers markt|http://thetownofsixmile.wordpress.com/ |106 S. Main straat|Zes mijl|||
 |4|1010691|10th Steet Community landbouwers markt|http://agrimissouri.com/mo-grown/grodetail.php... |10e straat en populieren|Lamar|Barton|
-
-## <a name="use-smart-reading"></a>Gebruik 'slimme lezen'
-
-Gebruik de SDK slimme lezen-functionaliteit voor het automatisch detecteren van het type van een bestand.

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 09/24/2018
-ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/01/2018
+ms.openlocfilehash: df6637f1a52b679ba9ad0a49fb37d4e4b72f35e4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971481"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237820"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning
 
@@ -24,7 +24,9 @@ U kunt een model implementeren als een webservice op [programmable gate arrays (
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
-- Een Azure Machine Learning-werkruimte en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
+- U moet aanvragen en worden goedgekeurd voor FPGA quotum. Vul het aanvraagformulier voor de quota voor het aanvragen van toegang: https://aka.ms/aml-real-time-ai
+
+- Een werkruimte van Azure Machine Learning-service en de Azure Machine Learning-SDK voor Python geïnstalleerd. Informatie over het verkrijgen van deze vereisten met behulp van de [het configureren van een ontwikkelomgeving](how-to-configure-environment.md) document.
  
   - Uw werkruimte moet zich in de *VS-Oost 2* regio.
 
@@ -47,11 +49,7 @@ Volg de instructies voor:
 > [!IMPORTANT]
 > Voor het optimaliseren van latentie en doorvoer, moet uw client zich in dezelfde Azure-regio als het eindpunt.  Op dit moment worden de API's gemaakt in de oostelijke VS Azure-regio.
 
-### <a name="get-the-notebook"></a>De notebook ophalen
 
-Deze zelfstudie is beschikbaar als een Jupyter-notebook voor uw gemak. Een van deze methoden gebruiken om uit te voeren de `project-brainwave/project-brainwave-quickstart.ipynb` laptop:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### <a name="preprocess-image"></a>Afbeelding voorverwerken
 De eerste fase van de pijplijn is met de voorverwerking van de installatiekopieën.
@@ -66,6 +64,7 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
+
 ### <a name="add-featurizer"></a>Featurizer toevoegen
 Initialiseren van het model en een TensorFlow-controlepunt van de quantized versie van ResNet50 moet worden gebruikt als een featurizer downloaden.
 
@@ -317,3 +316,11 @@ Met behulp van een van beide methoden zorgt ervoor dat de gRPC gebruik van het c
 
 > [!IMPORTANT]
 > gRPC accepteert geen niet-vertrouwde certificaten. Met behulp van een niet-vertrouwd certificaat mislukken met een `Unavailable` statuscode. De details van de fout bevatten `Connection Failed`.
+
+## <a name="sample-notebook"></a>Voorbeeld-notebook
+
+Concepten in dit artikel wordt uitgelegd in de `project-brainwave/project-brainwave-quickstart.ipynb` notebook.
+
+Dit notitieblok ophalen:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

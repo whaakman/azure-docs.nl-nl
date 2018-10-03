@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: b31ca8f88d1e8d5710c3a6a6cfccbb167fdd762a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126272"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237871"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Scheiding van zinnen en tokeniseren
+
+> [!IMPORTANT]
+> De Preview-versie voor de linguïstische analyse uit gebruik is genomen op 9 augustus 2018. Wordt u aangeraden [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) voor tekst-verwerking en analyse.
 
 ## <a name="background-and-motivation"></a>Achtergrond en motivatie
 
@@ -39,7 +43,7 @@ Deze tekst bevat drie zinnen:
 - Het is belangrijk voor Dhr. en Mevr Smith.
 
 Houd er rekening mee hoe het einde van zinnen op heel verschillende manieren worden gemarkeerd.
-De eerste eindigt met een combinatie van vraagtekens en uitroeptekens (ook wel een interrobang genoemd).
+De eerste eindigt in een combinatie van vraagtekens en uitroeptekens (ook wel een interrobang genoemd).
 De tweede eindigt met een punt of volledige stoppen, maar de volgende aanhalingsteken moeten worden opgehaald in de voorgaande zin.
 In de derde zin, kunt u zien hoe dat dezelfde periode teken markeren afkortingen ook kan worden gebruikt.
 Biedt een goede kandidaat alleen kijken naar interpunctie, maar verdere werk is vereist voor het identificeren van de grenzen van de zin ' True '.
@@ -53,7 +57,8 @@ De eerste zin kan worden geschreven als "Whatdidyousay?")
 
 Er zijn een paar moeilijk gevallen.
 Eerst, interpunctie vaak (maar niet altijd) moet worden gesplitst vandaan lopen rond context.
-Ten tweede Engels is *Samentrekkingen*, zoals "niet" of "het is", waarbij de woorden zijn gecomprimeerd en afgekort in kleinere delen. Het doel van het tokenizer is om de tekenreeks in woorden.
+Ten tweede Engels is *Samentrekkingen*, zoals "niet" of "het is", waarbij de woorden zijn gecomprimeerd en afgekort in kleinere delen.
+Het doel van het tokenizer is om de tekenreeks in woorden.
 
 We gaan terug naar de voorbeeldzinnen hierboven.
 Nu we een 'center-punt' hebt geplaatst (&middot;) tussen elke afzonderlijke token.
@@ -64,7 +69,8 @@ Nu we een 'center-punt' hebt geplaatst (&middot;) tussen elke afzonderlijke toke
 
 Houd er rekening mee hoe de meeste tokens zijn woorden die u in de woordenlijst vinden wilt (bijvoorbeeld *belangrijk*, *director*).
 Anderen bestaat uitsluitend uit leestekens.
-Ten slotte zijn er meer ongebruikelijke tokens vertegenwoordigt verkorte formuleringen *zoals* voor *niet*, bezittelijke voornaamwoorden, zoals *van*, enzovoort. Deze tokeniseren kan we voor het afhandelen van het woord *niet* en de woorden *niet* in een consistente manier, bijvoorbeeld.
+Ten slotte zijn er meer ongebruikelijke tokens voor voornaamwoorden, *zoals* voor *niet*, en bezittelijke voornaamwoorden, zoals *van*.
+Deze tokeniseren kan we voor het afhandelen van het woord *niet* en de woorden *niet* op een consistente manier.
 
 ## <a name="specification"></a>Specificatie
 

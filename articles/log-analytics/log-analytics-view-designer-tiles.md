@@ -1,6 +1,6 @@
 ---
-title: Een Naslaggids voor de tegels Designer bekijken in de Azure Log Analytics | Microsoft Docs
-description: Ontwerp weergeven in Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties weergeven in de werkruimte voor logboekanalyse. Dit artikel is een handleiding met de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
+title: Een Snelzoekgids voor in de tegels Designer bekijken in Azure Log Analytics | Microsoft Docs
+description: Met behulp van ontwerper in Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte worden weergegeven. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: fc5dc00a05486c1f781016df63877f40d21b0205
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131267"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042175"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor de ontwerper tegels in Log Analytics
-Ontwerp weergeven in Azure Log Analytics gebruikt, kunt u aangepaste weergaven maken in de Azure portal die tal van gegevensvisualisaties in uw werkruimte voor logboekanalyse. Dit artikel is een handleiding met de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
+# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Naslaggids voor tegels in Log Analytics-ontwerper
+Met behulp van Designer bekijken in Azure Log Analytics, kunt u aangepaste weergaven maken in Azure portal die tal van gegevensvisualisaties in uw Log Analytics-werkruimte. In dit artikel is een referentie-handleiding voor de instellingen voor de tegels die beschikbaar in uw aangepaste weergaven zijn.
 
 Zie voor meer informatie over Designer bekijken:
 
-* [Designer bekijken](log-analytics-view-designer.md): biedt een overzicht van Designer bekijken en -procedures voor het maken en bewerken van aangepaste weergaven.
-* [Visualisatie onderdeelverwijzing](log-analytics-view-designer-parts.md): biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
+* [Designer weergeven](log-analytics-view-designer.md): biedt een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
+* [Naslaginformatie voor visualisatieonderdelen](log-analytics-view-designer-parts.md): biedt een Naslaggids voor de instellingen voor de visualisatie-onderdelen die beschikbaar in uw aangepaste weergaven zijn.
 
 
-De beschikbare ontwerper tegels worden in de volgende tabel beschreven:  
+De beschikbare Weergaveontwerper-tegels worden in de volgende tabel beschreven:  
 
 | Tegel | Beschrijving |
 |:--- |:--- |
 | [Aantal](#number-tile) |Het aantal records uit een query. |
 | [Twee getallen](#two-numbers-tile) |Het aantal records uit twee verschillende query's. |
-| [Ring](#donut-tile) | Een grafiek die gebaseerd op een query met een totale waarde in het midden. |
-| [Lijndiagram en toelichting](#line-chart-amp-callout-tile) | Een lijndiagram dat gebaseerd op een query en een toelichting met een totale waarde. |
+| [ringdiagram](#donut-tile) | Een grafiek die gebaseerd op een query, met een totale waarde in het midden. |
+| [Lijndiagram en bijschrift](#line-chart-amp-callout-tile) | Een lijndiagram dat gebaseerd op een query en een toelichting bij een totale waarde. |
 | [Lijndiagram](#line-chart-tile) |Een lijndiagram dat gebaseerd op een query. |
-| [Twee tijdlijnen](#two-timelines-tile) | Een kolomdiagram met twee reeksen, elk op basis van een afzonderlijke query. |
+| [Twee tijdlijnen](#two-timelines-tile) | Een kolomdiagram met twee reeksen, elk op basis van een afzonderlijke query te maken. |
 
-De volgende secties worden de typen tegel en hun eigenschappen in detail beschreven.
+De volgende secties beschrijven de tegeltypen en de bijbehorende eigenschappen in detail.
 
-## <a name="number-tile"></a>Aantal tegel
-De **getal** tegel worden weergegeven voor zowel het aantal records uit een query logboek en een label.
+## <a name="number-tile"></a>Een tegel getal
+De **getal** tegel zowel het aantal records uit een logbestand-query en een label wordt weergegeven.
 
-![Aantal tegel](media/log-analytics-view-designer/tile-number.png)
+![Een tegel getal](media/log-analytics-view-designer/tile-number.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
@@ -55,15 +55,15 @@ De **getal** tegel worden weergegeven voor zowel het aantal records uit een quer
 | Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
-| Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal records dat wordt geretourneerd door de query wordt weergegeven. |
-| **Geavanceerde** |**> Gegevensstroom verificatie** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
-| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
-| Bericht |Het bericht dat wordt weergegeven als de verificatie-gegevensstroom query geen gegevens geretourneerd. Als u geen bericht, bieden een *uitvoeren Assessment* statusbericht wordt weergegeven. |
+| Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
+| **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
+| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
+| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="two-numbers-tile"></a>Twee getallen tegel
-Deze tegel wordt het aantal records uit twee verschillende logboek-query's en een label voor elk weergegeven.
+Deze tegel toont het aantal records uit twee verschillende logboeken-query's en een label voor elke.
 
 ![Twee getallen tegel](media/log-analytics-view-designer/tile-two-numbers.png)
 
@@ -73,88 +73,88 @@ Deze tegel wordt het aantal records uit twee verschillende logboek-query's en ee
 | Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Eerste tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
-| Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal records dat wordt geretourneerd door de query wordt weergegeven. |
+| Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
 | **Tweede tegel** | |
 | Legenda |De tekst die wordt weergegeven onder de waarde. |
-| Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal records dat wordt geretourneerd door de query wordt weergegeven. |
-| **Geavanceerde** |**> Gegevensstroom verificatie** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
-| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
-| Bericht |Het bericht dat wordt weergegeven als de verificatie-gegevensstroom query geen gegevens geretourneerd. Als u geen bericht, bieden een *uitvoeren Assessment* statusbericht wordt weergegeven. |
+| Query’s uitvoeren |De query die wordt uitgevoerd. Het aantal van de records die worden geretourneerd door de query wordt weergegeven. |
+| **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
+| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
+| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
-## <a name="donut-tile"></a>Tegel ring
-De **ring** tegel één getal overzicht van de kolom van een waarde in een logboek-query wordt weergegeven. De Ring worden de resultaten van de eerste drie records grafisch weergegeven.
+## <a name="donut-tile"></a>Ring-tegel
+De **ring** tegel geeft één getal met een overzicht van de kolom van een waarde in een logboekquery. De Ring worden de resultaten van de top drie records grafisch weergegeven.
 
-![Tegel ring](media/log-analytics-view-designer/tile-donut.png)
+![Ring-tegel](media/log-analytics-view-designer/tile-donut.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
 | Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
-| **Ring** | |
+| **ringdiagram** | |
 | Query’s uitvoeren |De query die wordt uitgevoerd voor de ring. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. |
-| **Ring** |**> Center** |
+| **ringdiagram** |**> Center** |
 | Tekst |De tekst die wordt weergegeven onder de waarde binnen de ring. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: De waarden van alle records met de waarde van eigenschap toevoegen.</li><li>Percentage: Percentage van de opgetelde waarden van records met de waarde van de eigenschap vergeleken met de opgetelde waarden van alle records.</li></ul> |
-| Resultaatwaarden gebruikt in middenbewerking |Selecteer desgewenst het plusteken (+) toevoegen van een of meer waarden. De resultaten van de query zijn beperkt tot records met de waarden van de eigenschappen die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records opgenomen in de query. |
-| **Ring** |**> Aanvullende opties** |
-| Kleuren |De kleur die wordt weergegeven voor elk van de drie belangrijkste eigenschappen. Gebruik opgeven van alternatieve kleuren voor specifieke eigenschapswaarden *geavanceerde kleur toewijzing*. |
-| Geavanceerde kleurtoewijzing |Geeft een kleur die specifieke eigenschapswaarden vertegenwoordigt. Als de waarde die u opgeeft in de belangrijkste drie is, wordt de kleur van de alternatieve in plaats van de standaard kleur weergegeven. Als de eigenschap niet in de belangrijkste drie is, wordt de kleur niet weergegeven. |
-| **Geavanceerde** |**> Gegevensstroom verificatie** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
-| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
-| Bericht |Het bericht dat wordt weergegeven als de verificatie-gegevensstroom query geen gegevens geretourneerd. Als u geen bericht, bieden een *uitvoeren Assessment* statusbericht wordt weergegeven. |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde.<ul><li>Som: De waarden van alle records met de waarde van eigenschap toevoegen.</li><li>Percentage: Percentage van de opgetelde waarden van records met de waarde van de eigenschap in vergelijking met de opgetelde waarden van alle records.</li></ul> |
+| Resultaatwaarden gebruikt in middenbewerking |(Optioneel) Selecteer het plusteken (+) om toe te voegen een of meer waarden. De resultaten van de query zijn beperkt tot records met de eigenschapswaarden die u opgeeft. Als er geen waarden worden toegevoegd, worden alle records worden opgenomen in de query. |
+| **ringdiagram** |**> Aanvullende opties** |
+| Kleuren |De kleur die wordt weergegeven voor elk van de drie belangrijkste eigenschappen. Gebruik het opgeven van alternatieve kleuren voor specifieke eigenschapswaarden *geavanceerde kleur toewijzing*. |
+| Geavanceerde kleurtoewijzing |Geeft een kleur die specifieke eigenschapswaarden vertegenwoordigt. Als de waarde die u opgeeft in de rechterbovenhoek drie is, wordt de alternatieve kleur weergegeven in plaats van de standaard kleur. Als de eigenschap niet in de rechterbovenhoek drie is, wordt de kleur niet weergegeven. |
+| **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
+| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
+| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="line-chart-tile"></a>Regel grafiek tegel
-Deze tegel is een lijndiagram waarin meerdere reeksen door een query logboek gedurende een bepaalde periode. 
+Deze tegel is een lijndiagram met meerdere reeksen uit een logboekquery na verloop van tijd. 
 
-![De grafiek en toelichting tegel regel](media/log-analytics-view-designer/tile-line-chart.png)
-
-| Instelling | Beschrijving |
-|:--- |:--- |
-| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
-| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
-| **Lijndiagram** | |
-| Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* sleutelwoord, de x-as worden gebruikt voor dit tijdsinterval blijft. Als de query geen gebruik maakt van de *interval* sleutelwoord, het uur van de x-as gebruikt. |
-| **Lijndiagram** |**> Y-as** |
-| Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
-| Eenheden |Geef de eenheden voor de waarden die zijn geretourneerd door de query. Deze informatie wordt gebruikt voor de labels worden weergegeven in de grafiek die wijzen op de waardetypen en desgewenst voor het converteren van de waarden. De **eenheidstype** geeft de categorie van de eenheid en definieert de **huidige eenheidstype** waarden die beschikbaar zijn. Als u een waarde in selecteert **converteren naar** en vervolgens de numerieke waarden worden geconverteerd van de **huidige eenheid** type de **converteren naar** type. |
-| Aangepast etiket |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen naam is opgegeven, alleen de *eenheid* type wordt weergegeven. |
-| **Geavanceerde** |**> Gegevensstroom verificatie** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
-| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
-| Bericht |Het bericht dat wordt weergegeven als de verificatie-gegevensstroom query geen gegevens geretourneerd. Als u geen bericht, bieden een *uitvoeren Assessment* statusbericht wordt weergegeven. |
-
-
-## <a name="line-chart-and-callout-tile"></a>De grafiek en toelichting tegel regel
-Deze tegel heeft zowel een lijn grafiek die gedurende een bepaalde tijd een toelichting bij een samenvattingswaarde query uitvoeren op meerdere reeksen in een logboek weergegeven. 
-
-![De grafiek en toelichting tegel regel](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Regel grafiek en een bijschrift tegel](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Instelling | Beschrijving |
 |:--- |:--- |
 | Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
 | Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
 | **Lijndiagram** | |
-| Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* sleutelwoord, de x-as worden gebruikt voor dit tijdsinterval blijft. Als de query geen gebruik maakt van de *interval* sleutelwoord, het uur van de x-as gebruikt. |
-| **Lijndiagram** |**> Toelichting** |
-| Titel van de toelichting | De tekst die wordt weergegeven boven de waarde van de toelichting. |
-| Naam van de gegevensreeks |De waarde van de eigenschap series moet worden gebruikt als de waarde van de toelichting. Als geen reeksen is opgegeven, worden alle records in de query gebruikt. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als een enkelvoudige waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die zijn geretourneerd door de query.</li><li>Laatste steekproef: de waarde van het laatste interval dat opgenomen in de grafiek.</li><li>Max: De maximale waarde van de intervallen die zijn opgenomen in de grafiek.</li><li>Min: De minimale waarde van de intervallen die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
+| Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* de x-as-trefwoord wordt gebruikt voor dit tijdsinterval. Als de query geen gebruik maakt van de *interval* #trefwoord, de x-as wordt per uur intervallen. |
 | **Lijndiagram** |**> Y-as** |
 | Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
-| Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de waardetypen en, desgewenst, aan de waarden te converteren. De *eenheid* type geeft de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in selecteert *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
-| Aangepast etiket |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen naam is opgegeven, alleen de *eenheid* type wordt weergegeven. |
-| **Geavanceerde** |**> Gegevensstroom verificatie** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
-| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
-| Bericht |Het bericht dat wordt weergegeven als de verificatie-gegevensstroom query geen gegevens geretourneerd. Als u geen bericht, bieden een *uitvoeren Assessment* statusbericht wordt weergegeven. |
+| Eenheden |Geef de eenheden voor de waarden die zijn geretourneerd door de query. Deze informatie wordt gebruikt om de labels worden weergegeven in de grafiek die aangeeft welke waarde en eventueel om de waarden te converteren. De **eenheidstype** Hiermee geeft u de categorie van de eenheid en definieert de **huidige eenheidstype** waarden die beschikbaar zijn. Als u een waarde in **converteren naar** en vervolgens de numerieke waarden worden geconverteerd van de **huidige eenheid** type de **converteren naar** type. |
+| Aangepast label |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen label is opgegeven, alleen de *eenheid* type weergegeven. |
+| **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
+| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
+| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
+
+
+## <a name="line-chart-and-callout-tile"></a>Regel grafiek en een bijschrift tegel
+Deze tegel is zowel een regel die meerdere reeksen uit een logbestand query's uitvoeren voor tijd en een toelichting met de samengevatte waarde weergegeven grafiek. 
+
+![Regel grafiek en een bijschrift tegel](media/log-analytics-view-designer/tile-line-chart-callout.png)
+
+| Instelling | Beschrijving |
+|:--- |:--- |
+| Naam |De tekst die wordt weergegeven aan de bovenkant van de tegel. |
+| Beschrijving |De tekst die wordt weergegeven onder de naam van de tegel. |
+| **Lijndiagram** | |
+| Query’s uitvoeren |De query die wordt uitgevoerd voor het lijndiagram. De eerste eigenschap een tekstwaarde is en de tweede eigenschap is een numerieke waarde. Deze query gebruikt normaal gesproken de *meting* trefwoord om samen te vatten resultaten. Als de query gebruikt de *interval* de x-as-trefwoord wordt gebruikt voor dit tijdsinterval. Als de query geen gebruik maakt van de *interval* #trefwoord, de x-as wordt per uur intervallen. |
+| **Lijndiagram** |**> Bijschrift** |
+| Titel van bijschrift | De tekst die wordt weergegeven boven de waarde van bijschrift. |
+| Reeksnaam |De eigenschapswaarde voor de reeks moet worden gebruikt als de waarde van bijschrift. Als er geen reeks is opgegeven, worden alle records van de query worden gebruikt. |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de intervallen die zijn opgenomen in de grafiek.</li><li>Min.: De minimale waarde van de tijden die zijn opgenomen in de grafiek.</li><li>Som: De som van de waarden van alle records.</li></ul> |
+| **Lijndiagram** |**> Y-as** |
+| Logaritmische schaal gebruiken |Selecteer deze koppeling naar een logaritmische schaal gebruiken voor de y-as. |
+| Eenheden |Geef de eenheden voor de waarden moeten worden geretourneerd door de query. Deze informatie wordt gebruikt op gegevenslabels weergegeven die wijzen op de typen en, optioneel, om te converteren van de waarden. De *eenheid* type Hiermee geeft u de categorie van de eenheid en definieert de beschikbare *huidige eenheid* waarden. Als u een waarde in *converteren naar*, de numerieke waarden worden geconverteerd van de *huidige eenheid* type de *converteren naar* type. |
+| Aangepast label |De tekst die wordt weergegeven voor de y-as naast het label voor de *eenheid* type. Als er geen label is opgegeven, alleen de *eenheid* type weergegeven. |
+| **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
+| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
+| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="two-timelines-tile"></a>Twee tijdlijnen tegel
-De **twee tijdlijnen** tegel geeft de resultaten van twee logboek-query's na verloop van tijd als kolomdiagrammen. Een toelichting wordt weergegeven voor elke reeks. 
+De **twee tijdlijnen** tegel toont de resultaten van de twee logboeken-query's na verloop van tijd als kolomdiagrammen. Een bijschrift wordt weergegeven voor elke reeks. 
 
 ![Twee tijdlijnen tegel](media/log-analytics-view-designer/tile-two-timelines.png)
 
@@ -165,19 +165,19 @@ De **twee tijdlijnen** tegel geeft de resultaten van twee logboek-query's na ver
 | Eerste grafiek | |
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de eerste reeks. |
 | Kleur |De kleur die wordt gebruikt voor de kolommen in de eerste reeks. |
-| Grafiek-query |De query die wordt uitgevoerd voor de eerste reeks. Het aantal records over elk tijdsinterval wordt vertegenwoordigd door de kolommen van de grafiek. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als een enkelvoudige waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die zijn geretourneerd door de query.</li><li>Laatste steekproef: de waarde van het laatste interval dat opgenomen in de grafiek.</li><li>Max: De maximale waarde van de intervallen die zijn opgenomen in de grafiek.</li></ul> |
+| Grafiekquery |De query die wordt uitgevoerd voor de eerste reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de intervallen die zijn opgenomen in de grafiek.</li></ul> |
 | **Tweede grafiek** | |
 | Legenda |De tekst die wordt weergegeven onder het bijschrift voor de tweede reeks. |
 | Kleur |De kleur die wordt gebruikt voor de kolommen in de tweede reeks. |
-| Grafiekquery |De query die wordt uitgevoerd voor de tweede reeks. Het aantal records over elk tijdsinterval wordt vertegenwoordigd door de kolommen van de grafiek. |
-| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als een enkelvoudige waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die zijn geretourneerd door de query.</li><li>Laatste steekproef: de waarde van het laatste interval dat opgenomen in de grafiek.</li><li>Max: De maximale waarde van de intervallen die zijn opgenomen in de grafiek. |
-| **Geavanceerde** |**> Gegevensstroom verificatie** |
-| Ingeschakeld |Selecteer deze koppeling als gegevensstroom verificatie moet zijn ingeschakeld voor de tegel. Deze aanpak biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken de benadering gebruiken om een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
-| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de belangrijkste query. |
-| Bericht |Het bericht dat wordt weergegeven als de verificatie-gegevensstroom query geen gegevens geretourneerd. Als u geen bericht, bieden een *uitvoeren Assessment* statusbericht wordt weergegeven. |
+| Grafiekquery |De query die wordt uitgevoerd voor de tweede reeks. Het aantal records via elk tijdsinterval wordt vertegenwoordigd door de grafiekkolommen. |
+| Bewerking |De bewerking die wordt uitgevoerd op de eigenschap value om samen te vatten het als één waarde voor de toelichting.<ul><li>Gemiddelde: Het gemiddelde van de waarden van alle records.</li><li>Aantal: De telling van alle records die worden geretourneerd door de query.</li><li>Laatste voorbeeld: de waarde van het afgelopen interval dat opgenomen in de grafiek.</li><li>Maximale: De maximumwaarde van de intervallen die zijn opgenomen in de grafiek. |
+| **Geavanceerde** |**> Gegevensstroom niet verifiëren** |
+| Ingeschakeld |Selecteer deze koppeling als gegevensstroom niet verifiëren voor de tegel moet worden ingeschakeld. Deze benadering biedt een alternatieve bericht als gegevens niet beschikbaar is. U normaal gesproken benadering gebruiken voor een bericht in de tijdelijke periode wanneer de weergave is geïnstalleerd en de gegevens beschikbaar. |
+| Query’s uitvoeren |De query die wordt uitgevoerd om te bepalen of gegevens beschikbaar voor de weergave zijn. Als de query geen resultaten oplevert, wordt een bericht weergegeven in plaats van de waarde van de hoofdquery. |
+| Bericht |Het bericht dat wordt weergegeven als de gegevens voor de gegevensstroom verificatie-query geen gegevens retourneert. Als u geen bericht, bieden een *evaluatie uitvoeren* statusbericht wordt weergegeven. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) ter ondersteuning van de query's in de tegels.
+* Meer informatie over [zoekopdrachten](log-analytics-log-searches.md) ter ondersteuning van de query's in tegels.
 * Voeg [visualisatie delen](log-analytics-view-designer-parts.md) aan uw aangepaste weergave.

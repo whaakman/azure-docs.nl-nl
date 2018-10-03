@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716114"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043562"
 ---
 # <a name="using-gpus-on-aks"></a>GPU's in AKS gebruiken
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Een van de knooppunten om te bevestigen dat de GPU's zijn Planbare beschreven. Hiermee kunt u vinden onder de `Capacity` sectie. Bijvoorbeeld `alpha.kubernetes.io/nvidia-gpu:  1`.
+Een van de knooppunten om te bevestigen dat de GPU's zijn Planbare beschreven. Hiermee kunt u vinden onder de `Capacity` sectie. Bijvoorbeeld `nvidia.com/gpu:  1`. Als u de GPU's niet ziet, raadpleegt u de **oplossen** onderstaande sectie.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -96,12 +96,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -135,7 +135,7 @@ Events:         <none>
 
 Schema een GPU ingeschakeld om te kunnen demonstreren dat de GPU's inderdaad werkt, workload met behulp van de juiste resourceaanvraag. In dit voorbeeld wordt uitgevoerd een [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) taak op basis van de [MNIST gegevensset](http://yann.lecun.com/exdb/mnist/).
 
-De volgende taak manifest bevat een resourcelimiet van `alpha.kubernetes.io/nvidia-gpu: 1`. De juiste CUDA-bibliotheken en hulpprogramma's voor foutopsporing beschikbaar zullen zijn op het knooppunt op `/usr/local/nvidia` en moet worden gekoppeld in de schil met behulp van de specificatie van het juiste volume, zoals hieronder wordt weergegeven.
+De volgende taak manifest bevat een resourcelimiet van `nvidia.com/gpu: 1`. 
 
 Het manifest kopiëren en opslaan als **voorbeelden-tf-mnist-demo.yaml**.
 ```
@@ -158,15 +158,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 Gebruik de [kubectl toepassen] [ kubectl-apply] opdracht wordt uitgevoerd. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.

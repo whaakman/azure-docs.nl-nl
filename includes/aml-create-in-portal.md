@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 6d6e6a2aea867c5b603d950a4bbaa33f14695f45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4b4f926009f94162b43dcbb8934e44c1924e91df
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010919"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239524"
 ---
 Meld u aan bij [Azure portal](https://portal.azure.com/) met de gegevens van het Azure-abonnement dat u gaat gebruiken. Als u nog geen abonnement op Azure hebt, maak dan nu een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -26,15 +26,15 @@ Selecteer de knop **Een resource maken** (+) in de linkerbovenhoek van de portal
 
    ![Een resource maken in Azure Portal](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Voer **Machine Learning** in de zoekbalk in. Selecteer het zoekresultaat met de naam **Machine Learning-werkruimte**.
+Voer **Machine Learning** in de zoekbalk in. Selecteer het zoekresultaat met de naam **werkruimte van Machine Learning-service**.
 
    ![zoeken naar werkruimte](./media/aml-create-in-portal/allservices-search.PNG)
 
-In de **Machine Learning-werkruimte** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
+In de **werkruimte van Machine Learning-service** deelvenster, schuif naar beneden en selecteer **maken** om te beginnen.
 
    ![maken](./media/aml-create-in-portal/portal-create-button.png)
 
-In de **ML-Workspace** in het deelvenster voor het configureren van uw werkruimte.
+In de **ML service werkruimte** in het deelvenster voor het configureren van uw werkruimte.
 
    Veld|Beschrijving
    ---|---
