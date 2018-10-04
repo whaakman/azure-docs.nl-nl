@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0e23f5ac8dcce940389f62097fef7de36abe2387
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064353"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269203"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Hoe zorgen voor onboarding Azure controleren voor virtuele machines 
 In dit artikel wordt beschreven hoe het instellen van Azure Monitor voor virtuele machines om te controleren van de status van het besturingssysteem van uw Azure virtual machines en detecteren en afhankelijkheden voor toepassingen die kunnen worden gehost op deze worden toegewezen.  
@@ -35,7 +35,7 @@ Voordat u begint, zorg ervoor dat u de volgende hebt zoals beschreven in de volg
 
 ### <a name="log-analytics"></a>Log Analytics 
 
-Een Log Analytics-werkruimte in de volgende regio's worden momenteel ondersteund:
+Een Log Analytics-werkruimte in de volgende regio's wordt momenteel ondersteund:
 
   - US - west-centraal  
   - US - oost  
@@ -44,11 +44,18 @@ Een Log Analytics-werkruimte in de volgende regio's worden momenteel ondersteund
 
 <sup>1</sup> deze regio biedt momenteel geen ondersteuning de Health-functie van Azure Monitor voor virtuele machines   
 
-Als u een werkruimte hebt, kunt u kunt maken via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), tot en met [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).  
+Als u een werkruimte hebt, kunt u het maken via [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), tot en met [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md), of met [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  Als u voor een enkele Azure-VM vanuit de Azure-portal bewaken inschakelen wilt, hebt u de optie voor het maken van een werkruimte tijdens dit proces.  
 
 Om in te schakelen van de oplossing, moet u lid zijn van de inzendersrol van Log Analytics. Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
+Inschakelen van de oplossing voor het op schaal scenario moet u eerst het volgende configureren in uw Log Analytics-werkruimte:
+
+* Installeer de **ServiceMap** en **InfrastructureInsights** oplossingen
+* Configureren van de werkruimte voor logboekanalyse voor het verzamelen van prestatiemeteritems
+
+Zie configureren van uw werkruimte voor dit scenario [Setup Log Analytics-werkruimte](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
 
@@ -138,7 +145,7 @@ De volgende tabel bevat de Windows- en Linux-besturingssystemen die worden onder
 |12 SP3 | 4.4. * |
 
 ### <a name="hybrid-environment-connected-sources"></a>Hybride omgeving verbonden bronnen
-De gegevens worden opgehaald van de agent voor Microsoft Dependency van Azure Monitor voor virtuele machines toewijzen. De agent voor afhankelijkheden, is afhankelijk van de Log Analytics-agent voor de verbinding met Log Analytics. Dit betekent dat een systeem de Log Analytics-agent geïnstalleerd en geconfigureerd met de agent voor afhankelijkheden moet hebben.  De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de kaart-functie in een hybride omgeving.
+De gegevens worden opgehaald van de agent voor Microsoft Dependency van Azure Monitor voor virtuele machines toewijzen. De agent voor afhankelijkheden, is afhankelijk van de Log Analytics-agent voor de verbinding met Log Analytics en daarom een systeem moet de Log Analytics-agent geïnstalleerd en geconfigureerd met de agent voor afhankelijkheden hebben. De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de kaart-functie in een hybride omgeving.
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
@@ -206,6 +213,9 @@ Azure Monitor voor virtuele machines configureert u een Log Analytics-werkruimte
 |Netwerk |Totaal aantal verzonden Bytes |  
 |Processor |% Processortijd |  
 
+## <a name="sign-in-to-azure-portal"></a>Meld u aan bij Azure Portal
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+
 ## <a name="enable-from-the-azure-portal"></a>Inschakelen van de Azure-portal
 Voor bewaking van uw Azure-VM in Azure portal, het volgende doen:
 
@@ -225,76 +235,183 @@ Wanneer u bewaking inschakelt, is het duurt ongeveer 10 minuten voordat u de gez
 
 ![Azure Monitor inschakelen voor virtuele machines verwerking van de implementatie controleren](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-using-azure-policy"></a>Inschakelen met behulp van Azure Policy
-Voor het inschakelen van de oplossing voor meerdere Azure-VM's die ervoor zorgt dat consistent naleving en automatische activering voor nieuwe virtuele machines die zijn ingericht, [Azure Policy](../azure-policy/azure-policy-introduction.md) wordt aanbevolen.  Met behulp van Azure Policy aan het beleid dat is opgegeven, biedt de volgende voordelen voor nieuwe virtuele machines:
 
-* Azure Monitor inschakelen voor virtuele machines voor elke virtuele machine in het bereik zijn gedefinieerd
-* Log Analytics-Agent implementeren 
-* Agent voor afhankelijkheden voor toepassingsafhankelijkheden detecteren en weergeven in de kaart implementeren
-* Als uw Azure VM-installatiekopie in een vooraf gedefinieerde lijst in de beleidsdefinitie controleren  
-* Als uw Azure-VM is logboekregistratie naar werkruimte dan een opgegeven controleren
-* Een rapport over nalevingsresultaten 
-* Ondersteuning voor herstel voor niet-compatibele VM 's
+## <a name="on-boarding-at-scale"></a>Bepalen op schaal
+In deze sectie instructies voor het uitvoeren van de bij de implementatie van de schaal van Azure Monitor voor virtuele machines met behulp van een Azure-beleid of met Azure PowerShell.  De eerste stap vereist is voor het configureren van uw Log Analytics-werkruimte.  
 
-Om deze te activeren voor uw tenant, is dit proces vereist:
+### <a name="setup-log-analytics-workspace"></a>Log Analytics-werkruimte instellen
+Als u een Log Analytics-werkruimte hebt, raadpleegt u de beschikbare methoden voorgesteld onder de [vereisten](#log-analytics) sectie een te maken.  
 
-- Een Log Analytics-werkruimte met behulp van de hier vermelde stappen hier configureren
-- De initiatiefdefinitie importeren in uw tenant (op het niveau van de beheergroep of een nieuw abonnement)
-- Wijs het beleid toe aan het gewenste bereik
-- Bekijk de nalevingsresultaten van de
+#### <a name="enable-performance-counters"></a>Inschakelen van prestatiemeteritems
+Als de Log Analytics-werkruimte waarnaar wordt verwezen door de oplossing niet is geconfigureerd voor het verzamelen van al de prestatiemeteritems die is vereist voor de oplossing, moet deze worden ingeschakeld. Dit zo beschreven handmatig kan worden bewerkstelligd [hier](../log-analytics/log-analytics-data-sources-performance-counters.md), of door te downloaden en uitvoeren van een PowerShell-script beschikbaar is via [Azure Powershell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+ 
+#### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installeer de ServiceMap en InfrastructureInsights oplossingen
+Deze methode bevat een JSON-sjabloon waarmee de configuratie voor het inschakelen van de onderdelen van de oplossing aan uw Log Analytics-werkruimte.  
 
-### <a name="add-the-policies-and-initiative-to-your-subscription"></a>Het beleid en de initiatief aan uw abonnement toevoegen
-Voor het gebruik van het beleid, kunt u een opgegeven PowerShell-script - [toevoegen VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2) beschikbaar is via de galerie met Azure PowerShell om deze taak te voltooien. Het script wordt het beleid en een initiatief toegevoegd aan uw abonnement.  Voer de volgende stappen uit om Azure-beleid configureren in uw abonnement. 
+Als u niet bekend met het concept bent van het implementeren van resources met behulp van een sjabloon, Zie:
+* [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
-1. De PowerShell-script downloaden naar uw lokale bestandssysteem.
+Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-2. Gebruik de volgende PowerShell-opdracht in de map om toe te voegen, beleidsregels. Het script ondersteunt de volgende optionele parameters: 
+1. Kopieer en plak de volgende JSON-syntaxis in het bestand:
+
+    ```json
+    {
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "WorkspaceName": {
+            "type": "string"
+        },
+        "WorkspaceLocation": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-03-15-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('WorkspaceName')]",
+            "location": "[parameters('WorkspaceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+
+                    "plan": {
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                        "promotionCode": ""
+                    }
+                },
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        }
+    ]
+    ```
+
+2. Sla dit bestand als **installsolutionsforvminsights.json** naar een lokale map.
+3. Bewerk de waarden voor **WorkspaceName**, **ResourceGroupName**, en **WorkspaceLocation**.  De waarde voor **WorkspaceName** is de volledige resource-ID van uw Log Analytics-werkruimte, met inbegrip van de naam van de werkruimte en de waarde voor **WorkspaceLocation** is de regio in de werkruimte is gedefinieerd.
+4. U bent klaar om te implementeren met deze sjabloon met de volgende PowerShell-opdracht:
 
     ```powershell
-    -UseLocalPolicies [<SwitchParameter>]
-      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    ```
 
-    -SubscriptionId <String>
-      <Optional> SubscriptionId to add the Policies/Initiatives to
-    -ManagementGroupId <String>
-      <Optional> Management Group Id to add the Policies/Initiatives to
+    Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
 
-    -Approve [<SwitchParameter>]
-      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
-    ```  
+    ```powershell
+    provisioningState       : Succeeded
+    ```
+
+### <a name="enable-using-azure-policy"></a>Inschakelen met behulp van Azure Policy
+Azure Monitor inschakelen voor VM's op grote schaal die ervoor zorgt dat consistent naleving en automatische activering voor nieuwe virtuele machines die zijn ingericht, [Azure Policy](../azure-policy/azure-policy-introduction.md) wordt aanbevolen. Deze beleidsregels:
+
+* Log Analytics-agent en de agent voor afhankelijkheden implementeren 
+* Een rapport over nalevingsresultaten 
+* Voor niet-compatibele virtuele machines herstellen
+
+Azure Monitor inschakelen voor virtuele machines via het beleid aan uw tenant is vereist: 
+
+- Het initiatief toewijzen aan een bereik-beheergroep, abonnement of resourcegroep 
+- Controle en het doorvoeren van de nalevingsresultaten  
+
+Zie voor meer informatie over Azure Policy-toewijzing [overzicht van Azure Policy](../governance/policy/overview.md#policy-assignment) en bekijk de [overzicht van beheergroepen](../governance/management-groups/index.md) voordat u doorgaat.  
+
+De volgende tabel bevat de beleidsdefinities die is opgegeven.  
+
+|Naam |Beschrijving |Type |  
+|-----|------------|-----|  
+|[Preview]: Azure Monitor voor virtuele machines inschakelen |Azure Monitor inschakelen voor de virtuele Machines (VM's) in het opgegeven bereik (beheergroep, abonnement of resourcegroep). Log Analytics-werkruimte wordt als parameter. |Initiatief |  
+|[Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) zich niet in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Audit Log Analytics-agentimplementatie – VM-installatiekopie (OS) niet-vermelde |Rapporten VM's als niet-compatibel als de VM-installatiekopie (OS) zich niet in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Agent voor afhankelijkheden voor virtuele Linux-machines implementeren |Agent voor afhankelijkheden implementeren voor Linux-VM's als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Agent voor afhankelijkheden voor Windows-VM's implementeren |Afhankelijkheid Agent voor de Windows VM's implementeren als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Log Analytics-Agent voor Linux-VM's implementeren |Implementeer Log Analytics-Agent voor Linux-VM's als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+|[Preview]: Log Analytics-Agent voor Windows-VM's implementeren |Log Analytics-Agent voor Windows-VM's implementeren als de VM-installatiekopie (OS) in de lijst die is gedefinieerd en de agent is niet geïnstalleerd. |Beleid |  
+
+Zelfstandige beleid (niet opgenomen in het initiatief) 
+
+|Naam |Beschrijving |Type |  
+|-----|------------|-----|  
+|[Preview]: Audit Log Analytics-werkruimte voor VM - probleem melden |Rapporteren als niet-compatibele VM's als ze zich niet in de werkruimte LA is opgegeven in de toewijzing van beleid/initiatief. |Beleid |
+
+#### <a name="assign-azure-monitor-initiative"></a>Azure Monitor-initiatief toewijzen
+Met deze eerste release kunt u alleen de beleidstoewijzing maken vanuit Azure portal. Zie voor meer informatie over hoe u deze stappen hebt voltooid, [een beleidstoewijzing maken vanuit Azure portal](../governance/policy/assign-policy-portal.md). 
+
+1. Start de Azure Policy-service in Azure Portal door **Alle services** te selecteren en dan **Beleid** te zoeken en te selecteren. 
+2. Selecteer **Toewijzingen** in het linkerdeelvenster van de Azure Policy-pagina. Een toewijzing is een beleid dat is toegewezen om te worden toegepast binnen een bepaald bereik.
+3. Selecteer **initiatief toewijzen** vanaf de bovenkant van de **beleid - toewijzingen** pagina.
+4. Op de **initiatief toewijzen** weergeeft, schakelt de **bereik** door te klikken op het beletselteken en selecteert u ofwel een beheergroep, of -abonnement en desgewenst een resourcegroep. Een scope beperkt de beleidstoewijzing in ons geval naar een groepering van virtuele machines voor afdwinging. Klik op **Selecteer** aan de onderkant van de **bereik** pagina uw wijzigingen op te slaan.
+5. **Uitsluitingen** kunt u een of meer resources uit het bereik, de optionele weglaten. 
+6. Selecteer de **initiatiefdefinitie** weglatingsteken aan de lijst met beschikbare definities te openen en selecteer  **[Preview] Azure Monitor inschakelen voor virtuele machines** in de lijst en klik vervolgens op **Selecteer**.
+7. De **opdrachtnaam** wordt automatisch ingevuld met de naam van het initiatief dat u hebt geselecteerd, maar u kunt deze wijzigen. U kunt ook een optionele **Beschrijving** opgeven. **Toegewezen door** wordt automatisch ingevuld op basis van die zich heeft aangemeld, en dit veld is optioneel.
+8. Selecteer een **Log Analytics-werkruimte** in de vervolgkeuzelijst die beschikbaar is in de ondersteunde regio.
 
     >[!NOTE]
-    >Opmerking: Als u van plan bent het initiatief/beleid toewijzen aan meerdere abonnementen, de definities moeten worden opgeslagen in de beheergroep met de abonnementen die u het beleid toewijst. Daarom moet u de parameter - ManagementGroupID gebruiken.
+    >Als de werkruimte buiten het bereik van de toewijzing is, moet u verlenen **Inzender van Log Analytics** machtigingen voor de beleidstoewijzing Principal-ID. Als u dit niet doet ziet u mogelijk een implementatiefout zoals: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` revisie [het handmatig configureren van de beheerde identiteit](../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity) om toegang te verlenen.
     >
-   
-    Voorbeeld zonder parameters:  `.\Add-VMInsightsPolicy.ps1`
 
-### <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
-Nadat u de `Add-VMInsightsPolicy.ps1` PowerShell-script, de volgende initiatief en het beleid worden toegevoegd:
+9. U ziet dat de **beheerde identiteit** optie is ingeschakeld. Deze optie is ingeschakeld wanneer het initiatief wordt toegewezen een beleid met het deployIfNotExists-effect bevat. Uit de **identiteit beheren locatie** vervolgkeuzelijst, selecteert u de juiste regio.  
+10. Klik op **Toewijzen**.
 
-* **Implementeren van Log Analytics-Agent voor Windows-VM's - Preview**
-* **Implementeren van Log Analytics-Agent voor Linux-VM's - Preview**
-* **Agent voor afhankelijkheden voor virtuele machines van Windows - voorbeeld implementeren**
-* **Agent voor afhankelijkheden voor virtuele machines van Linux - voorbeeld implementeren**
-* **Audit Log Analytics-Agent implementatie - VM Image (OS) niet-vermelde - Preview**
-* **Audit afhankelijkheid Agent implementatie - VM Image (OS) niet-vermelde - Preview**
+#### <a name="review-and-remediate-the-compliance-results"></a>Controleren en herstellen van de compliantieresultaten 
 
-De volgende initiatiefparameter is toegevoegd:
+U kunt leren hoe u nalevingsresultaten controleren door te lezen [identificeren van niet-naleving resultaten](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Selecteer **naleving** in aan de linkerkant van de pagina en zoek de  **[Preview] Azure Monitor inschakelen voor virtuele machines** initiatief die niet compatibel zijn per de toewijzing die u hebt gemaakt.
 
-- **Meld u Analytice werkruimte** (u moet de ResourceID van de werkruimte opgeven als het toepassen van een toewijzing met PowerShell of CLI)
+![Naleving van het beleid voor virtuele Azure-machines](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
 
-    Voor virtuele machines als niet-compatibel van het controlebeleid gevonden **VM's niet binnen het bereik van de OS...**  de criteria van het implementatiebeleid voor de bevat alleen virtuele machines die zijn geïmplementeerd vanuit een bekende Azure VM-installatiekopieën. Raadpleeg de documentatie als het besturingssysteem van de virtuele machine of niet wordt ondersteund.  Als dat niet het geval is, vervolgens moet u de implementatie dupliceerbeleid en update/wijzigen, zodat de afbeelding in het bereik.
+Op basis van de resultaten van de beleidsregels die zijn opgenomen in het initiatief, worden VM's gerapporteerd als niet-compatibel in de volgende scenario's:  
+  
+1. Log Analytics of de Agent voor afhankelijkheden is niet geïmplementeerd.  
+   Dit is gebruikelijk voor een bereik met bestaande virtuele machines. Om te beperken, [herstel taken maken](../governance/policy/how-to/remediate-resources.md) op een niet-compatibele beleid voor het implementeren van de agents vereist.    
+ 
+    - [Preview]: Deploy Dependency Agent for Linux VMs   
+    - [Preview]: Deploy Dependency Agent for Windows VMs  
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs  
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs  
 
-De volgende zelfstandige optioneel beleid is toegevoegd:
+2. VM-installatiekopie (OS) is niet in de lijst vermeld in de beleidsdefinitie.  
+   Criteria van het implementatiebeleid voor de bevat alleen virtuele machines die zijn geïmplementeerd vanuit een bekende Azure VM-installatiekopieën. Raadpleeg de documentatie als het besturingssysteem van de virtuele machine of niet wordt ondersteund. Als dat niet het geval is, moet u de implementatie dupliceerbeleid en update/aanpassen, zodat de installatiekopie van het voldoen aan het beleid. 
+  
+    - [Preview]: implementatie van de Audit afhankelijkheid Agent-VM-installatiekopie (OS) niet-vermelde  
+    - [Preview]: Audit Log Analytics-agentimplementatie – VM-installatiekopie (OS) niet-vermelde
 
-- **Virtuele machine is geconfigureerd voor niet-overeenkomende Log Analytics-werkruimte - Preview**
+3. VM's zich niet aan de opgegeven LA-werkruimte.  
+Het is mogelijk dat sommige virtuele machines binnen het initiatief bereik met een werkruimte LA verschilt van de één keer aanmeldt zich opgegeven in de toewijzing van configuratiebeleid. Dit beleid is een hulpprogramma om te bepalen uit welke VM's rapporteren aan een niet-compatibele werkruimte.  
+ 
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
-    Dit kan worden gebruikt voor het identificeren van virtuele machines die al zijn geconfigureerd met de [Log Analytics VM-extensie](../virtual-machines/extensions/oms-windows.md), maar zijn geconfigureerd met een andere werkruimte dan bedoeld (zoals aangegeven door de beleidstoewijzing). Dit heeft een parameter voor de werkruimte-id.
-
-Met deze eerste release kunt u alleen de beleidstoewijzing maken vanuit Azure portal. Zie voor meer informatie over hoe u deze stappen hebt voltooid, [een beleidstoewijzing maken vanuit Azure portal](../azure-policy/assign-policy-definition.md).
-
-## <a name="enable-with-powershell"></a>Inschakelen met PowerShell
-Als u wilt inschakelen voor virtuele machines Azure Monitor voor meerdere VM's of VM-schaalsets, kunt u een opgegeven PowerShell-script - [installeren VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) beschikbaar is via de galerie met Azure PowerShell om deze taak te voltooien.  Met dit script wordt herhaald voor elke virtuele machine en de VM-schaalset in uw abonnement, in de scope die is opgegeven door *ResourceGroup*, of op een enkele virtuele machine of schaalset opgegeven door *naam*.  Voor elke virtuele machine of virtuele machine controleert schaalset het script of als de VM-extensie is al geïnstalleerd en niet geprobeerd deze opnieuw installeren.  Anders wordt de voortgezet voor het installeren van de Log Analytics en afhankelijkheid Agent VM-extensies.   
+### <a name="enable-with-powershell"></a>Inschakelen met PowerShell
+Om in te schakelen Azure Monitor voor VM's voor meerdere virtuele machines of virtuele-machineschaalsets, kunt u een opgegeven PowerShell-script - [installeren VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) beschikbaar is via de galerie met Azure PowerShell om deze taak te voltooien.  Met dit script wordt herhaald voor elke virtuele machine en de virtuele machine schaalset in uw abonnement, in de scope die is opgegeven door *ResourceGroup*, of één virtuele machine of virtuele machine schaalset opgegeven door *Naam*.  Voor elke virtuele machine of VM-schaalset controleert het script of als de VM-extensie is al geïnstalleerd en niet geprobeerd deze opnieuw installeren.  Anders wordt de voortgezet voor het installeren van de Log Analytics en afhankelijkheid Agent VM-extensies.   
 
 Dit script moet Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
@@ -588,7 +705,7 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
     ```
 
 2. Sla dit bestand als **installsolutionsforvminsights.json** naar een lokale map.
-3. Bewerk de waarden voor **WorkspaceName**, **ResourceGroupName**, en **WorkspaceLocation**.  De waarde voor **WorkspaceName** is de is de volledige resource-ID van uw Log Analytics-werkruimte, met inbegrip van de naam van de werkruimte en de waarde voor **WorkspaceLocation** de regio is de werkruimte is gedefinieerd in.
+3. Bewerk de waarden voor **WorkspaceName**, **ResourceGroupName**, en **WorkspaceLocation**.  De waarde voor **WorkspaceName** is de volledige resource-ID van uw Log Analytics-werkruimte, met inbegrip van de naam van de werkruimte en de waarde voor **WorkspaceLocation** is de regio in de werkruimte is gedefinieerd.
 4. U bent klaar om te implementeren met deze sjabloon met de volgende PowerShell-opdracht:
 
     ```powershell

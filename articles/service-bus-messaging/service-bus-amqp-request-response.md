@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: e4dda534fd50c634f621558fa7d7821302c73979
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395098"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269340"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-reactie-bewerkingen
 
@@ -369,7 +369,7 @@ Het aanvraagbericht moet de volgende toepassingseigenschappen bevatten:
   
 |Sleutel|Waardetype|Vereist|De inhoud van waarde|  
 |---------|----------------|--------------|--------------------|  
-|bewerking|tekenreeks|Ja|`com.microsoft:peek-message`|  
+|bewerking|tekenreeks|Ja|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Nee|Time-out van de bewerking server in milliseconden.|  
   
 De berichttekst van de aanvraag moet bestaan uit een **amqp-waarde** een sectie met een **kaart** met de volgende items:  
