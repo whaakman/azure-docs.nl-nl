@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8f1c16aba3a3c082091707e33d3341e6eb6dc31e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/02/2018
+ms.openlocfilehash: 99914fd1fbfb2647f54c8257145132db2c7bf045
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158716"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249108"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database-modellen en -bronnen aanschaffen 
 
@@ -26,7 +26,7 @@ Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die
  - [Beheerde exemplaren](sql-database-managed-instance.md) in enige aanbieding van Azure SQL Database de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Zeer grootschalige databases (preview)](sql-database-hyperscale.md) zijn alleen beschikbaar in het op vCore gebaseerde aankoopmodel voor individuele databases met een logische server of in een beheerd exemplaar. 
+> [Zeer grootschalige databases (preview)](sql-database-hyperscale.md) nu in openbare preview, alleen voor individuele databases met behulp van de vCore model kopen. 
 
 De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contrast.
 

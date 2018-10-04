@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d9ac3334d790c1844993c7d95bc24ce6690bed19
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056690"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248497"
 ---
 # <a name="read-before-you-scale"></a>Lees voordat u de schaal
 Schaal rekenresources zdroji de werkbelasting van uw toepassing vereist opzettelijke planning, bijna altijd duurt langer dan een uur om uit te voeren voor een productie-omgeving en vereist dat u meer informatie over uw werkbelasting bedrijfscontext; zelfs als u deze activiteit voordat u nooit eerder hebt gedaan, het raadzaam u starten door te lezen en te begrijpen [Service Fabric-cluster overwegingen voor capaciteitsplanning](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), voordat u doorgaat met de rest van dit document. Deze aanbeveling is om te voorkomen dat onbedoelde LiveSite problemen en u kunt het beste testen is de bewerkingen die u besluit om uit te voeren op basis van een niet-productieomgeving. U kunt op elk gewenst moment [productieproblemen melden of betaalde ondersteuning aanvragen voor Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Voor technici toegewezen voor het uitvoeren van deze bewerkingen die beschikken over de juiste context, moet vergroten / verkleinen in dit artikel wordt beschreven, maar u bepalen en weten welke bewerkingen zijn geschikt is voor uw situatie; zoals welke resources op schaal (CPU, opslag, geheugen), welke richting om te schalen (horizontaal of verticaal), en welke bewerkingen moeten worden uitgevoerd (Resource-sjabloon implementeren, Portal, PowerShell/CLI).
@@ -33,7 +33,7 @@ Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruiken kun
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Kies het type knooppunt/virtuele-machineschaalset in Windows om te schalen
-U bent momenteel niet kunnen de regels voor automatisch schalen voor virtuele-machineschaalsets met behulp van de portal opgeven, gebruikt u dus laat het ons Azure PowerShell (1.0 +) aan de lijst van de typen en vervolgens regels voor automatisch schalen toevoegen aan deze.
+U bent momenteel niet kunnen de regels voor automatisch schalen voor virtuele-machineschaalsets met behulp van de portal wilt maken van een Service Fabric-Cluster, gebruikt u dus laat het ons Azure PowerShell (1.0 +) aan de lijst van de typen en vervolgens regels voor automatisch schalen toevoegen aan deze op te geven.
 
 Als u de lijst met virtuele-machineschaalset waaruit het cluster, voert u de volgende cmdlets:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 003fb667177bbf7f532946d34a06da757646ade3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c513ef76174507f1ea78b265b1882266b8473737
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578579"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248938"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,7 +33,7 @@ U kunt gegevens van of naar Azure SQL Database kopiëren naar een ondersteunde s
 
 Specifiek, ondersteunt deze Azure SQL Database-connector deze functies:
 
-- Gegevens kopiëren met behulp van SQL-verificatie en tokenverificatie van Azure Active Directory (Azure AD)-toepassing met een service-principal of Managed Service Identity (MSI).
+- Gegevens kopiëren met behulp van SQL-verificatie en tokenverificatie van Azure Active Directory (Azure AD)-toepassing met een service-principal of beheerde identiteiten voor Azure-resources.
 - Als een bron ophalen van gegevens met behulp van een SQL-query of een opgeslagen procedure.
 - Als een sink, gegevens toevoegen aan een doeltabel of een opgeslagen procedure met aangepaste logica aanroepen tijdens het kopiëren.
 
@@ -64,7 +64,7 @@ Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voo
 
 - [SQL-verificatie](#sql-authentication)
 - [Azure AD-toepassing-tokenverificatie: Service-principal](#service-principal-authentication)
-- [Azure AD-toepassing-tokenverificatie: beheerde Service-identiteit](#managed-service-identity-authentication)
+- [Azure AD-toepassing-tokenverificatie: beheerde identiteiten voor een Azure-resources](#managed-service-identity-authentication)
 
 >[!TIP]
 >Als u fout met foutcode als "UserErrorFailedToConnectToSqlServer" bereikt en wordt weergegeven, zoals 'de sessielimiet voor de database is XXX en is bereikt.', toe te voegen `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
@@ -146,9 +146,9 @@ Volg deze stappen voor het gebruik van een tokenverificatie voor service-princip
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Beheerde Service-identiteit verificatie
+### <a name="managed-identities-for-azure-resources-authentication"></a>Beheerde identiteiten voor verificatie van de Azure-resources
 
-Een data factory, kan worden gekoppeld aan een [beheerde Service-identiteit](data-factory-service-identity.md) die staat voor de specifieke data factory. U kunt deze service-identiteit gebruiken voor Azure SQL Database-verificatie. Toegang heeft tot de aangewezen factory en gegevens kopiëren van of naar de database met behulp van deze identiteit.
+Een data factory, kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md) die staat voor de specifieke data factory. U kunt deze service-identiteit gebruiken voor Azure SQL Database-verificatie. Toegang heeft tot de aangewezen factory en gegevens kopiëren van of naar de database met behulp van deze identiteit.
 
 Volg deze stappen voor het gebruik van Azure AD MSI-gebaseerde toepassing tokenverificatie:
 

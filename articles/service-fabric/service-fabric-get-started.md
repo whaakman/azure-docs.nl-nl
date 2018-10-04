@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9bcbbdbfb961cc229bac11115c07c0ecd6c931e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9d287abf8963ba46cce42f101aecba31c9762c7a
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041268"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249533"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -48,6 +48,8 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 >
 
 ## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
+Webplatforminstallatieprogramma (WebPI) is de aanbevolen manier voor het installeren van de SDK en hulpprogramma's. Als u de runtime-fouten met WebPI ontvangt, kunt u ook directe koppelingen naar de installatieprogramma's vinden in de release-opmerkingen voor een specifieke release van Service Fabric. Opmerkingen bij de release kunnen u vinden in de verschillende aankondigingen op de [Service Fabric-teamblog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017 gebruiken
 De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
 Bovendien moet u de Microsoft Azure Service Fabric SDK en runtime installeren met behulp van het webplatforminstallatieprogramma.

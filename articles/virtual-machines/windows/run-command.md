@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128592"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267950"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
@@ -21,7 +21,7 @@ Opdracht wordt de VM-agent om te worden uitgevoerd binnen een Azure-VM Windows P
 
 ## <a name="benefits"></a>Voordelen
 
-Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Voer de opdracht kunt u scripts uitvoeren op uw virtuele machines die op afstand met behulp van de VM-agent. Voer de opdracht kan worden gebruikt via Azure portal, [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Er zijn meerdere opties die kunnen worden gebruikt voor toegang tot uw virtuele machines. Voer de opdracht kunt u scripts uitvoeren op uw virtuele machines die op afstand met behulp van de VM-agent. Voer de opdracht kan worden gebruikt via Azure portal, [REST-API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), of [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) voor Windows-VM's.
 
 Deze mogelijkheid is handig in alle scenario's waarin u wilt uitvoeren van een script in een virtuele machine en is een van de enige manieren om problemen op te herstellen van een virtuele machine die beschikt niet over de RDP of SSH-poort openen vanwege een onjuiste netwerk of de gebruiker met beheerdersrechten de configuratie.
 
@@ -33,6 +33,7 @@ De volgende beperkingen zijn van toepassing wanneer u de opdracht uitvoeren:
 * De minimale tijd voor het uitvoeren van een script is ongeveer 20 seconden
 * Scripts worden uitgevoerd als systeem op Windows
 * Een script tegelijk kan worden uitgevoerd
+* Scripts die voor meer informatie (interactieve modus vragen) worden niet ondersteund.
 * U kunt een script uit te voeren niet annuleren
 * De maximale tijd die kan worden uitgevoerd door een script is 90 minuten, na waarin het time-out wordt
 * Uitgaande connectiviteit van de virtuele machine is vereist om de resultaten van het script te retourneren.

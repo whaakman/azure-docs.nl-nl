@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 52dd9d0ab5a22b702ad7d55d91b860d57e81f607
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448608"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267763"
 ---
 # <a name="manage-analysis-services"></a>Analyseservices beheren
 Wanneer u een Analysis Services-server in Azure hebt gemaakt, worden sommige administratie en beheer taken die u wilt uitvoeren van direct of enige tijd in de weg. Bijvoorbeeld uitvoeren om de gegevens vernieuwen, bepalen wie toegang tot de modellen op uw server, of bewaak de status van uw server. Bepaalde beheertaken kunnen alleen worden uitgevoerd in Azure portal voor anderen in SQL Server Management Studio (SSMS), en sommige taken kunnen worden uitgevoerd in een.
@@ -46,7 +46,7 @@ Als u de nieuwste functies, samen met de meest vloeiende ervaring bij het verbin
     > Verificatietype, **Active Directory - Universal met ondersteuning voor MFA**, wordt aanbevolen.
 
     > [!NOTE]
-    > Als u zich aanmeldt met een Microsoft-Account, Live ID, Yanoo, Gmail, enz., laat u het wachtwoordveld leeg. U wordt gevraagd om een wachtwoord na op verbinden te klikken.
+    > Als u zich aanmeldt met een Microsoft-Account, Live ID, Yahoo, Gmail, enz., laat u het wachtwoordveld leeg. U wordt gevraagd om een wachtwoord na op verbinden te klikken.
 
     **Windows-verificatie** om uw Windows-referenties voor domein\gebruikersnaam en het wachtwoord te gebruiken.
 

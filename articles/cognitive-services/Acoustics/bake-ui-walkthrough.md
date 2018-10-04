@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181577"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249295"
 ---
 # <a name="bake-acoustics"></a>Akoestische maken
 
@@ -199,15 +199,19 @@ Zodra u tevreden met de preview-gegevens bent, gebruikt u de **verdient** tabbla
 1. De knop Tab verdient is gebruikt om deze pagina.
 2. Een korte beschrijving van wat te doen op deze pagina.
 3. Velden in te voeren van uw Azure-referenties wanneer uw Azure-account is gemaakt. Zie voor meer informatie, [Azure Batch-Account maken](create-azure-account.md).
-4. Azure batch compute-knooppunt dat moet worden gebruikt voor de berekening. Het knooppunttype moet worden ondersteund door de locatie van uw Azure data center. Als niet weet, laat u op **Standard_F8**.
-5. Het aantal knooppunten moet worden gebruikt voor deze berekening. Het getal dat u hier opgeeft, is van invloed op de tijd voor het voltooien van de bake en wordt beperkt door de toewijzing van uw Azure Batch-core. De standaard-toewijzing alleen kunt u twee 8-core knooppunten of het knooppunt van een 16-core, maar kan worden uitgebreid. Zie voor meer informatie over core toewijzing beperkingen [Azure Batch-Account maken](create-azure-account.md).
-6. Het aantal test voor uw scène berekend op de **tests** tabblad. Het aantal tests bepaalt het aantal simulaties die moeten worden uitgevoerd in de cloud. U kunt meer knooppunten dan er tests zijn niet opgeven.
-7. De hoeveelheid tijd die is het waarschijnlijk moet worden uitgevoerd voor de taak wordt uitgevoerd in de cloud. Dit omvat geen opstarttijd knooppunt. Zodra de taak uitgevoerd wordt, is dit over hoe lang moet zijn voordat u de resultaten teruggaan. Houd er rekening mee dat dit slechts een schatting te maken is.
-8. De totale hoeveelheid computertijd die nodig zijn voor de simulaties uitvoeren. Dit is de totale hoeveelheid tijd knooppunt dat wordt gebruikt in Azure. Zie [Estimating bake kosten](#Estimating-bake-cost) hieronder voor meer informatie over het gebruik van deze waarde.
-9. Dit bericht geeft aan waar de resultaten van de bake wordt opgeslagen als de taak is voltooid.
-10. (Alleen bij Geavanceerd gebruik) Als u om een bepaalde reden die u nodig hebt om af te dwingen van Unity tot te maken over een bake verzonden (bijv. u hebt gedownload de resultaten met behulp van een andere computer), klikt u op de **status wissen** knop om u te maken over de taak die is ingediend. Houd er rekening mee dat dit betekent dat het bestand met resultaten, wanneer u klaar bent, wordt **niet** worden gedownload, en **dit is niet hetzelfde als de taak annuleren**. De taak blijft als actief is, om uit te voeren in de cloud.
-11. Klik op de knop Bake om in te dienen de bake naar de cloud. Terwijl een taak wordt uitgevoerd, geeft dit **taak annuleren** in plaats daarvan.
-12. Dit gebied toont de status van de bake. Wanneer dit is voltooid, moet overeenkomen met **gedownloade**.
+4. Docker-installatiekopie tag voor de toolset akoestische.
+5. Start de Azure-portal voor het beheren van uw abonnementen, gebruik controleren en factureringsgegevens enzovoort weergeven. 
+6. Azure batch compute-knooppunt dat moet worden gebruikt voor de berekening. Het knooppunttype moet worden ondersteund door de locatie van uw Azure data center. Als niet weet, laat u op **Standard_F8s_v2**.
+7. Het aantal knooppunten moet worden gebruikt voor deze berekening. Het getal dat u hier opgeeft, is van invloed op de tijd voor het voltooien van de bake en wordt beperkt door de toewijzing van uw Azure Batch-core. De standaard-toewijzing alleen kunt u twee 8-core knooppunten of het knooppunt van een 16-core, maar kan worden uitgebreid. Zie voor meer informatie over core toewijzing beperkingen [Azure Batch-Account maken](create-azure-account.md).
+8. Schakel dit selectievakje in om te configureren van uw compute-toepassingen wilt gebruiken [knooppunten met lage prioriteit](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Rekenknooppunten met lage prioriteit hebben veel lagere kosten, maar ze mogelijk niet altijd beschikbaar of op elk gewenst moment kunnen worden verschoven.
+9. Het aantal test voor uw scène berekend op de **tests** tabblad. Het aantal tests bepaalt het aantal simulaties die moeten worden uitgevoerd in de cloud. U kunt meer knooppunten dan er tests zijn niet opgeven.
+10. De hoeveelheid tijd die is het waarschijnlijk moet worden uitgevoerd voor de taak wordt uitgevoerd in de cloud. Dit omvat geen opstarttijd knooppunt. Zodra de taak uitgevoerd wordt, is dit over hoe lang moet zijn voordat u de resultaten teruggaan. Houd er rekening mee dat dit slechts een schatting te maken is.
+11. De totale hoeveelheid computertijd die nodig zijn voor de simulaties uitvoeren. Dit is de totale hoeveelheid tijd knooppunt dat wordt gebruikt in Azure. Zie [Estimating bake kosten](#Estimating-bake-cost) hieronder voor meer informatie over het gebruik van deze waarde.
+12. Dit bericht geeft aan waar de resultaten van de bake wordt opgeslagen als de taak is voltooid.
+13. (Alleen bij Geavanceerd gebruik) Als u om een bepaalde reden die u nodig hebt om af te dwingen van Unity tot te maken over een bake verzonden (bijv. u hebt gedownload de resultaten met behulp van een andere computer), klikt u op de **status wissen** knop om u te maken over de taak die is ingediend. Houd er rekening mee dat dit betekent dat het bestand met resultaten, wanneer u klaar bent, wordt **niet** worden gedownload, en **dit is niet hetzelfde als de taak annuleren**. De taak blijft als actief is, om uit te voeren in de cloud.
+14. Klik op de knop Bake om in te dienen de bake naar de cloud. Terwijl een taak wordt uitgevoerd, geeft dit **taak annuleren** in plaats daarvan.
+15. Wordt voorbereid voor het verwerken van akoestische simulatie op een lokale virtuele machines. Zie [lokale bake](#Local-bake) voor meer informatie.  
+16. Dit gebied toont de status van de bake. Wanneer dit is voltooid, moet overeenkomen met **gedownloade**.
 
 U krijgt altijd volledige informatie over actieve taken, pools compute en opslag op de [Azure Portal](https://portal.azure.com).
 
@@ -217,13 +221,34 @@ Nadat u een bake hebt gestart, kunt u de Unity kunt sluiten. Afhankelijk van het
 
 De Azure-referenties zijn veilig opgeslagen op uw lokale computer en die zijn gekoppeld aan uw Unity-editor. Ze worden gebruikt uitsluitend tot stand brengen van een beveiligde verbinding met Azure.
 
-### <a name="Estimating-bake-cost"></a> Bake kosten schatten
+### <a name="Estimating-bake-cost"></a> Azure bake kosten schatten
 
-Voor een schatting van wat een bepaalde bake kost, nemen de waarde die wordt weergegeven voor **geschatte kosten voor Compute**, dit is een duur en vermenigvuldigen die door het elk uur kosten in uw lokale valuta van de **VM knooppunttype** u hebt geselecteerd. Het resultaat bevat niet de knooppunt tijd die nodig zijn aan de slag van de knooppunten en wordt uitgevoerd. Als u bijvoorbeeld **Standard_F8** voor uw knooppunttype heeft een prijs van $ 0,75/uur, en de geschatte kosten voor Compute 3 uur en 57 minuten, wordt de geschatte kosten voor het uitvoeren van de taak is $0,75 * ~ 4 uur = ~ $3,00. De werkelijke kosten wordt waarschijnlijk een enigszins hoger vanwege de extra tijd om op te halen van de knooppunten gestart. U vindt het uurtarief knooppunt kosten op de [Azure Batch-prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux) pagina (Selecteer 'Compute geoptimaliseerd' of 'High performance computing' voor de categorie).
+Voor een schatting van wat een bepaalde bake kost, nemen de waarde die wordt weergegeven voor **geschatte kosten voor Compute**, dit is een duur en vermenigvuldigen die door het elk uur kosten in uw lokale valuta van de **VM knooppunttype** u hebt geselecteerd. Het resultaat bevat niet de knooppunt tijd die nodig zijn aan de slag van de knooppunten en wordt uitgevoerd. Als u bijvoorbeeld **Standard_F8s_v2** voor uw knooppunttype heeft een prijs van $ 0,40/uur, en de geschatte kosten voor Compute 3 uur en 57 minuten, wordt de geschatte kosten voor het uitvoeren van de taak is $0,40 * ~ 4 uur = ~ $1,60. De werkelijke kosten wordt waarschijnlijk een enigszins hoger vanwege de extra tijd om op te halen van de knooppunten gestart. U vindt het uurtarief knooppunt kosten op de [Azure Batch-prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux) pagina (Selecteer 'Compute geoptimaliseerd' of 'High performance computing' voor de categorie).
 
 ### <a name="reviewing-the-bake-results"></a>De bake resultaten te bekijken
 
 Nadat de bake is voltooid, moet u controleren of de punten voxels en test in de verwachte locaties zijn door het uitvoeren van de runtime-invoegtoepassing. Meer informatie vindt u in [overzicht van het ontwerp voor akoestische](design-process.md).
+
+## <a name="Local-bake"></a>Lokale bake
+Lokale bake akoestische simulatie op uw eigen lokale PC in plaats van het offloaden naar de Azure Batch compute cluster wordt uitgevoerd. Dit kan een goede optie voor het experimenteren met akoestische zonder een Azure-abonnement, maar houd er rekening mee dat akoestische simulatie rekenintensief veeleisende is en lang, afhankelijk van de grootte van de scène, simulatie configuratie duren kan zijn en onbewerkte de rekenkracht van de computer verwerking.
+
+### <a name="minimum-hardware-requirements"></a>Minimale hardwarevereisten
+64-bits Intel-processor met ten minste 8 kerngeheugens en 32 GB aan RAM-geheugen of hoger.
+
+Een voorbeeld: op een 8-core-machine met Intel Xeon E5-1660 @ 3 GHz en 32 GB geheugen-
+* Kleine scène met 100 tests duurt ~ 2 uur voor een grof bake en een prima oplossing bake ~ 32 uur.
+* Grotere scène met 1000 tests kan maximaal ongeveer 20 uur voor een oplossing met behulp van abrupte en ~ 21 dagen voor een prima oplossing bake duren.
+
+### <a name="setup-docker"></a>Docker instellen
+Installeren en configureren van Docker op de computer die de simulatie - verwerkt
+1. Installeer de [Docker toolset](https://www.docker.com/products/docker-desktop).
+2. Instellingen voor Docker start, gaat u naar de opties 'Geavanceerd' en -resources configureren, zoals hieronder wordt weergegeven. ![Docker-resources](media/DockerSettings.png)
+3. Navigeer naar "Gedeelde stations" opties en delen van het station gebruikt voor de verwerking van inschakelen.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Lokale bake uitvoeren
+1. Klik op de knop op het tabblad Bake 'Voorbereiden lokale verdient' en selecteer de map waarin invoerbestanden en uitvoering van scripts worden opgeslagen. U kunt vervolgens de bake uitvoeren op elke computer, zolang deze voldoet aan de minimale hardwarevereisten en waarop Docker is geïnstalleerd door te kopiëren van de map op de computer.
+2. Start de simulatie met 'runlocalbake.bat'-script dat wordt opgehaald van het Project akoestische Docker-installatiekopie met de toolset die nodig zijn voor de verwerking van de simulatie en start de simulatie. 
+3. Nadat de simulatie is voltooid, moet u het resulterende .ace-bestand kopiëren naar uw Unity-project naar dezelfde locatie die is opgegeven in het tabblad tests. Controleer of de naam van het doelbestand voldoet aan de vereisten voor de Unity door '.bytes' toe te voegen aan de bestandsextensie. De gedetailleerde logboeken voor de simulatie worden opgeslagen in bestand 'AcousticsLog.txt'. Als u problemen ondervindt, kunt u dit bestand om te helpen bij diagnose delen.
 
 ## <a name="Data-Files"></a>Gegevensbestanden
 

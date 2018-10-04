@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: adcc0b741cac0ac5038243c80b3da2e0ff872c95
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466095"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268296"
 ---
-# <a name="how-to-administer-your-application"></a>Het beheren van uw toepassing
+# <a name="administer-your-iot-central-application"></a>Uw IOT Central-toepassing beheren
 
-Nadat u een Microsoft Azure IoT Central-toepassing hebt gemaakt, kunt u de **beheer** sectie van de Azure IoT Central gebruikersinterface om te beheren. Om te navigeren naar de **beheer** sectie **beheer** in het navigatiemenu links.
+Nadat u een Microsoft Azure IoT Central-toepassing hebt gemaakt, kunt u de **beheer** sectie van de Azure IoT Central gebruikersinterface om te beheren. Naar de **beheer** sectie, selecteer **beheer** in het navigatiemenu links.
 
 De **beheer** sectie kunt u naar:
 
@@ -29,17 +29,17 @@ De **beheer** sectie kunt u naar:
 
 - Toepassingsinstellingen beheren
 
-- Een gratis proefversie verlengen
+- Bieden een gratis proefversie
 
-In de **beheer** sectie, wordt er een secundaire navigatiemenu met koppelingen naar de verschillende beheertaken.
+In de **beheer** sectie, een secundaire navigatiemenu bevat koppelingen naar de verschillende beheertaken.
 
-Voor toegang tot en gebruik de **beheer** sectie die u moet zich in de **beheerder** rol in de Azure IoT Central-toepassing. Als u een Azure IoT Central-toepassing maakt, wordt u automatisch toegewezen aan de **beheerder** rol voor de toepassing. De *gebruikers beheren* sectie in dit artikel wordt uitgelegd meer over het toewijzen de **beheerder** rol aan andere gebruikers.
+Voor toegang tot en gebruik de **beheer** sectie die u moet zich in de **beheerder** rol voor een Azure IoT Central-toepassing. Als u een Azure IoT Central-toepassing maakt, wordt u automatisch toegewezen aan de **beheerder** rol voor de toepassing. De *gebruikers beheren* sectie in dit artikel wordt uitgelegd meer over het toewijzen de **beheerder** rol aan andere gebruikers.
 
 ## <a name="change-application-name"></a>Naam van de toepassing wijzigen
 
-Als u wilt de naam van uw toepassing wijzigen, gebruikt u de secundaire navigatiemenu om te navigeren naar de **toepassingsinstellingen** pagina in de **beheer** sectie.
+Als u wilt de naam van uw toepassing wijzigen, gebruikt u de secundaire navigatiemenu naar de **toepassingsinstellingen** pagina in de **beheer** sectie.
 
-Op de **toepassingsinstellingen** pagina, voer een naam in van uw keuze in de **toepassingsnaam** veld en kies vervolgens **opslaan**.
+Op de **toepassingsinstellingen** pagina, voer een naam in van uw keuze in de **toepassingsnaam** veld. Selecteer vervolgens **Opslaan**.
 
 ## <a name="change-the-application-url"></a>De URL van de toepassing wijzigen
 
@@ -47,10 +47,10 @@ Als u wilt wijzigen van de URL voor uw toepassing, gebruikt u de secundaire navi
 
 ![De instellingenpagina van toepassing](media\howto-administer\image0-a.png)
 
-Op de **toepassingsinstellingen** pagina, typ de URL van uw keuze in de **URL** veld en kies vervolgens **opslaan**. De URL mag maximaal 200 tekens. Als de URL niet beschikbaar is, ziet u een validatiefout
+Op de **toepassingsinstellingen** pagina, typ de URL van uw keuze in de **URL** veld en selecteer vervolgens **opslaan**. De URL mag maximaal 200 tekens. Als de URL niet beschikbaar is, ziet u een validatiefout.
 
 > [!Note]
-> Als u de URL van uw wijzigt, kan de URL van uw oude kan worden uitgevoerd door een andere Azure IoT Central klant. In dat geval is het niet meer beschikbaar voor gebruik. Wanneer u de URL van uw wijzigt, wordt de oude URL is niet meer werkt en u moet op de hoogte stellen uw gebruikers over de nieuwe URL te gebruiken.
+> Als u de URL van uw wijzigt, kan de URL van uw oude kan worden uitgevoerd door een andere Azure IoT Central klant. Als dit gebeurt, is het niet meer beschikbaar voor gebruik. Wanneer u de URL van uw wijzigt, de oude URL is niet meer werkt en u moet op de hoogte stellen uw gebruikers over de nieuwe URL te gebruiken.
 
 ## <a name="change-the-application-image"></a>Installatiekopie van de toepassing wijzigen
 
@@ -58,22 +58,22 @@ Zie voor meer informatie over het gebruik van afbeeldingen in een Azure IoT Cent
 
 ## <a name="copy-an-application"></a>Kopiëren van een toepassing
 
-U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de geschiedenis van apparaat en de gebruikersgegevens kunt maken. Het exemplaar is een betaalde toepassing die u in rekening gebracht. Kan geen maakt u een proefversie toepassing door een andere toepassing kopiëren.
+U kunt een kopie van een toepassing, verminderd met elk apparaatexemplaren, de geschiedenis van apparaat en de gebruikersgegevens kunt maken. Het exemplaar is een betaalde toepassing die u voor betaalt. Kan geen maakt u een proefversie toepassing door een andere toepassing kopiëren.
 
-Als u wilt kopiëren van een toepassing, gaat u naar de **toepassingsinstellingen** pagina en klik op de **kopie** knop.
+Als u wilt kopiëren van een toepassing, gaat u naar de **toepassingsinstellingen** pagina. Selecteer vervolgens de **kopie** knop.
 
-![De pagina instellingen van toepassing](media\howto-administer\appCopy1.png)
+![De instellingenpagina van toepassing](media\howto-administer\appCopy1.png)
 
-Te klikken op de **kopie** opent een dialoogvenster waarin u een naam, URL, AAD directory, abonnement en Azure-regio voor de nieuwe toepassing die wordt gemaakt door te kopiëren van uw toepassing kunt selecteren. Selecteer waarden voor elk van deze velden en klik vervolgens op de **kopie** knop om te bevestigen dat u wilt doorgaan. U kunt meer informatie over wat u moet invoeren voor deze waarden in het artikel over [over het maken van een toepassing](howto-create-application.md).
+Selecteren van de **kopie** knop opent u een dialoogvenster waarin u een naam, URL, Azure AD-directory, abonnement en Azure-regio voor de nieuwe toepassing die wordt gemaakt door te kopiëren van uw toepassing kunt selecteren. Selecteer waarden voor elk van deze velden. Selecteer vervolgens de **kopie** knop om te bevestigen dat u wilt doorgaan. U kunt meer informatie over wat u moet invoeren voor deze waarden in dit artikel over [over het maken van een toepassing](howto-create-application.md).
 
-![De pagina instellingen van toepassing](media\howto-administer\appCopy2.png)
+![De instellingenpagina van toepassing](media\howto-administer\appCopy2.png)
 
-Zodra de app-kopieerbewerking is geslaagd, kunt u zich om te navigeren naar de nieuwe toepassing die is gemaakt met het kopiëren van uw toepassing door te klikken op de koppeling die wordt weergegeven op de **toepassingsinstellingen** pagina.
+Nadat de app-kopieerbewerking is geslaagd, gaat u naar de nieuwe toepassing die is gemaakt door te kopiëren van uw toepassing. Als u de app, selecteer de koppeling die wordt weergegeven op de **toepassingsinstellingen** pagina.
 
-![De pagina instellingen van toepassing](media\howto-administer\appCopy3.png)
+![De instellingenpagina van toepassing](media\howto-administer\appCopy3.png)
 
 > [!Note]
-> Een toepassing kopiëren kopieert u de definitie van regels of acties. Echter, omdat gebruikers die toegang tot uw oorspronkelijke app hebben worden niet gekopieerd naar de gekopieerde app, hebt u handmatig gebruikers toevoegen aan acties zoals e-mailadres waarvan gebruikers een vereiste zijn.
+> Kopiëren van een toepassing, kopieert ook de definitie van regels of acties worden uitgevoerd. Maar omdat gebruikers die toegang tot uw oorspronkelijke app hebben worden niet gekopieerd naar de gekopieerde app, hebt u handmatig gebruikers toevoegen aan acties zoals e-mailadres waarvan gebruikers een vereiste zijn.
 
 ## <a name="delete-an-application"></a>Een toepassing verwijderen
 
@@ -82,17 +82,17 @@ Als u wilt verwijderen van uw toepassing, gebruikt u de secundaire navigatiemenu
 Kies **verwijderen**.
 
 > [!Note]
-> Als u een toepassing permanent verwijdert, verwijdert u alle gegevens die zijn gekoppeld aan de toepassing. Als u wilt verwijderen van een toepassing, hebt u ook de rechten om resources te verwijderen in het Azure-abonnement u hebt gekozen tijdens het maken van de toepassing. Zie voor meer informatie, [Use Role-Based toegangsbeheer voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> Een toepassing definitief verwijderen, verwijdert u alle gegevens die is gekoppeld aan deze toepassing.  Als u wilt verwijderen van een toepassing, moet u ook machtigingen om resources te verwijderen hebben in de Azure-abonnement u hebt gekozen tijdens het maken van de toepassing. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
 ## <a name="roles-in-azure-iot-central"></a>Rollen in Azure IoT Central
 
-Met functies kunt u om te bepalen wie binnen uw organisatie verschillende Azure IoT Central taken kunt uitvoeren. Azure IoT Central heeft drie rollen die u aan gebruikers van uw toepassing toewijzen kunt. Rollen zijn toegewezen door elke toepassing. Dezelfde gebruiker kan verschillende rollen hebben in verschillende toepassingen. U kunt de dezelfde gebruiker kan toewijzen aan meerdere rollen in een toepassing.
+Met functies kunt u om te bepalen wie binnen uw organisatie verschillende Azure IoT Central taken kunt uitvoeren. Azure IoT Central heeft drie rollen die u aan gebruikers van uw toepassing toewijzen kunt. Rollen zijn toegewezen door elke toepassing. Dezelfde gebruiker kan verschillende rollen hebben in verschillende toepassingen. U kunt dezelfde gebruiker toewijzen aan meerdere rollen in een toepassing.
 
 ### <a name="administrator"></a>Beheerder
 
 Gebruikers in de **beheerder** rol hebben toegang tot alle functionaliteit in een Azure IoT Central-toepassing.
 
-De gebruiker die het maken van een toepassing wordt automatisch toegewezen aan de **beheerder** rol. Er moet altijd zijn ten minste één gebruiker in de **beheerder** rol.
+De gebruiker die een toepassing maakt, wordt automatisch toegewezen aan de **beheerder** rol. Er moet altijd zijn ten minste één gebruiker in de **beheerder** rol.
 
 ### <a name="application-builder"></a>Application Builder
 
@@ -108,74 +108,74 @@ Beheerders kunnen gebruikers toewijzen aan de rollen in de toepassing.
 
 ### <a name="add-users"></a>Gebruikers toevoegen
 
-Elke gebruiker moet een gebruikersaccount hebben voordat ze kunnen zich aanmelden en toegang een Azure IoT Central-toepassing tot. Microsoft-Accounts (MSA's) en Azure Active Directory (AAD)-accounts worden ondersteund in Azure IoT Central. Azure Active Directory-groepen worden momenteel niet ondersteund in Azure IoT Central.
+Elke gebruiker moet een gebruikersaccount hebben voordat ze kunnen zich aanmelden en toegang een Azure IoT Central-toepassing tot. Microsoft-Accounts (MSA's) en Azure Active Directory (Azure AD)-accounts worden ondersteund in Azure IoT Central. Azure Active Directory-groepen worden momenteel niet ondersteund in Azure IoT Central.
 
 Zie voor meer informatie, [help voor Microsoft-account](https://support.microsoft.com/products/microsoft-account?category=manage-account) en [Quick Start: nieuwe gebruikers toevoegen aan Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
-1. Een gebruikersaccount toevoegen aan een Azure IoT Central-toepassing, gebruikt u de secundaire navigatiemenu om te navigeren naar de **gebruikers** pagina in de **beheer** sectie.
+1. Een gebruikersaccount toevoegen aan een Azure IoT Central-toepassing, gebruikt u de secundaire navigatiemenu naar de **gebruikers** pagina in de **beheer** sectie.
 
     ![Lijst met gebruikers](media\howto-administer\image1.png)
 
-1. Op de **gebruikers** pagina, kies **+ gebruiker toevoegen** een gebruiker toe te voegen.
+1. Toevoegen van een gebruiker op de **gebruikers** pagina, kies **+ gebruiker toevoegen**.
 
     ![Gebruiker toevoegen](media\howto-administer\image2.png)
 
-1. Wanneer u een gebruiker aan uw toepassing met Azure IoT Central toevoegen, kies een rol voor de gebruiker van de **rol** vervolgkeuzelijst. Meer informatie over functies in de *rollen in Azure IoT Central* sectie van dit artikel.
+1. Kies een rol voor de gebruiker van de **rol** vervolgkeuzelijst. Meer informatie over functies in de *rollen in Azure IoT Central* sectie van dit artikel.
 
     ![Een cloudrol kiezen](media\howto-administer\image3.png)
 
     > [!NOTE]
-    >  Gebruikers bulksgewijs toevoegen, typt u de gebruikers-id's van alle gebruikers die u wilt toevoegen van elkaar gescheiden door puntkomma's. Kies een rol van de **rol** vervolgkeuzelijst en kies **opslaan**.
+    >  Gebruikers bulksgewijs toevoegen, typt u de gebruikers-id van alle gebruikers die u wilt toevoegen van elkaar gescheiden door puntkomma's. Kies een rol van de **rol** vervolgkeuzelijst. Selecteer vervolgens **Opslaan**.
 
 1. Nadat u een gebruiker toevoegt, verschijnt er een vermelding voor die gebruiker op de **gebruikers** pagina.
 
-    ![Lijst met gebruikers](media\howto-administer\image4.png)
+    ![Gebruikerslijst](media\howto-administer\image4.png)
 
-### <a name="edit-the-roles-assigned-to-users"></a>De rollen die zijn toegewezen aan gebruikers bewerken
+### <a name="edit-the-roles-that-are-assigned-to-users"></a>De functies die zijn toegewezen aan gebruikers bewerken
 
-Worden rollen kunnen niet gewijzigd als assinged. Als u wilt wijzigen van de rol die is toegewezen aan een gebruiker, verwijder de gebruiker en de gebruiker opnieuw met een andere rol toevoegen.
+Rollen kunnen niet worden gewijzigd nadat ze zijn toegewezen. Als u wilt wijzigen van de rol die toegewezen aan een gebruiker, de gebruiker verwijderen en vervolgens de gebruiker opnieuw met een andere rol toevoegen.
 
 ### <a name="delete-users"></a>Gebruikers verwijderen
 
-Als u wilt verwijderen van gebruikers, controleren op een of meer selectievakjes in de **gebruikers** pagina en kies vervolgens **verwijderen**.
+Als u wilt verwijderen van gebruikers, selecteert u een of meer selectievakjes in op de **gebruikers** pagina. Selecteer vervolgens **Verwijderen**.
 
 ## <a name="view-your-bill"></a>Uw factuur weergeven
 
-Als u wilt uw factuur bekijken, gaat u naar de **facturering** pagina in de **beheer** sectie en kies **facturering**. De Azure facturering pagina in een nieuw tabblad geopend en ziet u de factuur voor elk van uw Azure IoT Central toepassingen.
+Als u wilt uw factuur bekijken, gaat u naar de **facturering** pagina in de **beheer** sectie. Selecteer vervolgens **facturering**. De Azure-facturering pagina wordt geopend in een nieuw tabblad, waar u de factuur voor elk van uw Azure IoT Central toepassingen kunt zien.
 
 ## <a name="convert-your-trial-to-a-paid-application"></a>Uw evaluatieversie converteren naar een betaalde toepassing
 
 Nadat u hebt vastgesteld dat IoT Central, kunt u uw evaluatieversie converteren naar een betaalde toepassing. Volg deze stappen voor het voltooien van deze Self-serviceproces:
 
-1. De secundaire navigatiemenu gebruiken om te navigeren naar de **facturering** pagina in de **beheer** sectie. Als u uw proefversie van nog niet hebt uitgebreid, ziet de pagina er als volgt uit:
+1. De secundaire navigatiemenu gebruiken om te gaan naar de **facturering** pagina in de **beheer** sectie. Als u uw proefversie van nog niet hebt uitgebreid, lijkt de pagina met de volgende schermafbeelding:
 
     ![Gratis proefversie status](media/howto-administer/freetrial.png)
 
-2. Klik op **converteren naar betaalde**. Als u uw proefversie van nog niet hebt uitgebreid, is het pop-upvenster ziet eruit als volgt uit:
-
-    Selecteer de juiste Azure Active Directory-tenant en het Azure-abonnement dat u wilt gebruiken voor uw IoT Central-toepassing in het pop-upvenster.
+2. Selecteer **converteren naar betaalde**. Als u uw proefversie van nog niet hebt uitgebreid, lijkt het pop-upvenster de volgende schermafbeelding:
 
     ![Gratis proefversie verlengen](media/howto-administer/extend.png)
 
-3. Nadat u op **converteren**, uw proefversie wordt geconverteerd naar een betaalde toepassing en u begint, wordt gefactureerd.
+3. Selecteer de juiste Azure Active Directory-tenant, en vervolgens het Azure-abonnement te gebruiken om uw IoT Central-toepassing in het pop-upvenster.
+
+3. Nadat u hebt geselecteerd **converteren**, uw proefversie Hashtable naar een betaalde toepassing en u start wordt gefactureerd.
 
 ## <a name="extend-your-free-trial"></a>Uw gratis proefversie verlengen
 
-Standaard zijn alle gratis proefversies beschikbaar voor zeven dagen. Als u uw proefversie van 30 dagen verhogen wilt, kunt u deze stappen volgen:
+Standaard zijn alle gratis proefversies beschikbaar voor de zeven dagen. Als u uw proefversie van 30 dagen verhogen wilt, volgt u deze stappen:
 
-1. De secundaire navigatiemenu gebruiken om te navigeren naar de **facturering** pagina in de **beheer** sectie:
+1. De secundaire navigatiemenu gebruiken om te gaan naar de **facturering** pagina in de **beheer** sectie.
 
-1. Klik op **proefversie verlengen**. Selecteer in het pop-upvenster de juiste Azure Active Directory-tenant en vervolgens op het Azure-abonnement moet worden gebruikt voor uw IoT Central-toepassing:
+1. Selecteer **proefversie verlengen**. Selecteer de juiste Azure Active Directory-tenant en vervolgens op het Azure-abonnement moet worden gebruikt voor uw IoT Central-toepassing in het pop-upvenster.
 
-1. Klik vervolgens op **uitbreiden**. Uw proefversie is nu geldig gedurende 30 dagen.
+1. Selecteer vervolgens **uitbreiden**. Uw proefversie is nu geldig gedurende 30 dagen.
 
-## <a name="utilize-the-azure-sdks-to-do-control-plane-operations"></a>Gebruikmaken van de Azure SDK's voor het beheren van bewerkingen voor de controlelaag
+## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Gebruik de Azure SDK's voor bewerkingen voor de controlelaag
 
-IoT Central Azure Resource Manager SDK-pakketten zijn beschikbaar voor Node, Python, C#, Ruby, Java en Go. Deze bibliotheken ondersteuning voor bewerkingen voor de controlelaag voor IoT Central, zodat u kunt maken, weergeven, bijwerken of verwijderen van IoT Central-toepassingen. Ze bieden ook hulpprogramma's voor het omgaan met verificatie en foutafhandeling die specifiek zijn voor elke taal is. 
+IoT Central Azure Resource Manager SDK-pakketten zijn beschikbaar voor Node, Python, C#, Ruby, Java en Go. Deze bibliotheken ondersteuning voor bewerkingen voor de controlelaag voor IoT Central, waarmee u kunt maken, weergeven, bijwerken of verwijderen van IoT Central-toepassingen. Ze bieden ook hulpprogramma's voor het omgaan met verificatie en foutafhandeling die specifiek zijn voor elke taal is. 
 
-Voorbeelden van het gebruik van de Azure Resource Manager-SDK's kunnen u vinden op [ https://github.com/emgarten/iotcentral-arm-sdk-examples ](https://github.com/emgarten/iotcentral-arm-sdk-examples).
+Vindt u voorbeelden van hoe u met de Azure Resource Manager-SDK's op [ https://github.com/emgarten/iotcentral-arm-sdk-examples ](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
-Voor meer dat informatie Kijk eens deze pakketten op GitHub.
+Voor meer informatie, bekijk deze pakketten op GitHub.
 
 | Taal | Opslagplaats | Pakket |
 | ---------| ---------- | ------- |
@@ -188,7 +188,7 @@ Voor meer dat informatie Kijk eens deze pakketten op GitHub.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat uw Azure IoT Central-toepassing beheren, hebt u geleerd, volgt de voorgestelde volgende stap:
+Nu dat u hebt geleerd hoe u uw Azure IoT Central toepassing beheert, volgt de voorgestelde volgende stap:
 
 > [!div class="nextstepaction"]
 > [De apparaat-sjabloon instellen](howto-set-up-template.md)

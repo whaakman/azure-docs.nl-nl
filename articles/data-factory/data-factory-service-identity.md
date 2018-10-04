@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055338"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249210"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-service-identiteit
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 Zie de volgende onderwerpen die introduceren wanneer en hoe u data factory-service-identiteit gebruiken:
 
 - [Store-referentie in Azure Key Vault](store-credentials-in-key-vault.md)
-- [Gegevens kopiëren van/naar Azure Data Lake Store met behulp van verificatie van de beheerde service-identiteit](connector-azure-data-lake-store.md)
+- [Gegevens kopiëren van/naar Azure Data Lake Store met behulp van beheerde identiteiten voor verificatie van de Azure-resources](connector-azure-data-lake-store.md)
 
-Zie [MSI overzicht](~/articles/active-directory/msi-overview.md) voor meer achtergrondinformatie over beheerde Service-identiteit die data factory-service-identiteit is gebaseerd op. 
+Zie [beheerde identiteiten voor een overzicht van Azure-Resources](~/articles/active-directory/msi-overview.md) voor meer achtergrondinformatie over beheerde identiteiten voor Azure-resources die data factory-service-identiteit is gebaseerd op. 

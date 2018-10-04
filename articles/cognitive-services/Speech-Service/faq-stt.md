@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 0a30cce92de4b96b7dc0d29ce12f409df3e895df
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d176c33a37b26b1e13d5b9beb7ac68d335cc7862
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721873"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249182"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Veelgestelde vragen over spraak naar tekst
 
@@ -57,6 +57,12 @@ U kunt implementeren basislijn en aangepaste modellen in de portal en vervolgens
 **Een**: een bestaand model kan niet worden bijgewerkt. Als een oplossing combineert de oude gegevensset met de nieuwe gegevensset en readapt.
 
 De oude gegevensset en de nieuwe gegevensset moeten worden gecombineerd in één ZIP-bestand (voor akoestische gegevens) of in een txt-bestand (voor taal gegevens). Wanneer de aanpassing is voltooid, moet de nieuwe, bijgewerkte model worden geïmplementeerd om te verkrijgen van een nieuw eindpunt
+
+**Vraag: wanneer een nieuwe versie van een basislijn beschikbaar is mijn implementatie automatisch bijgewerkt?**
+
+**Een**: implementaties wordt niet automatisch bijgewerkt. 
+
+Als u hebt aangepast en een model met basislijn V1.0 geïmplementeerd, blijft deze implementatie is. Klanten kunnen decommision het gedistribueerde model opnieuw aan te passen met behulp van de nieuwere versie van de basislijn en opnieuw implementeren.
 
 **V: Wat gebeurt er als ik hogere gelijktijdigheid nodig voor mijn geïmplementeerde model dan wat wordt aangeboden in de portal?** 
 

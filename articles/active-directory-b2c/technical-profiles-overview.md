@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 496f411224a8d7424f85fed6e5eb105369863791
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161247"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269425"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Over technische profielen in Azure Active Directory B2C aangepast beleid
 
@@ -55,7 +55,7 @@ Alle typen technische profielen delen hetzelfde concept. U invoer claims verzend
     - Een REST-API aanroepen tijdens het verzenden van parameters als InputClaims en het ophalen van gegevens weer als OutputClaims.
     - Maken of bijwerken van het gebruikersaccount.
     - Verzendt en verifieert u de MFA-SMS-bericht.
-4. **ValidationTechnicalProfiles** : voor een [bevestigde technisch profiel](self-asserted-technical-profile.md), kunt u een invoer aanroepen [validatie technisch profiel](validation-technical-profile.md). Het technische validatieprofiel valideert u de gegevens die door de gebruiker geprofileerd en retourneert een foutbericht of klik op Ok, met of zonder uitvoerclaims. Bijvoorbeeld, voordat Azure AD B2C een nieuw account maakt, wordt gecontroleerd of de gebruiker al in de directoryservices bestaat. U kunt een technisch profiel van de REST-API als u wilt toevoegen van uw eigen bedrijfslogica aanroepen.<p>De het bereik van de uitvoerclaims van een technische validatie-profiel is beperkt tot het technische profiel die de validatie van technisch profiel en andere technische validatie-profielen onder hetzelfde technisch profiel aanroept. Als u gebruikmaken van de uitvoerclaims in de volgende indelingsstap wilt, die u wilt toevoegen van de uitvoerclaims naar het technische profiel die het technische validatieprofiel aanroept.
+4. **ValidationTechnicalProfiles** : voor een [bevestigde technisch profiel](self-asserted-technical-profile.md), kunt u een invoer aanroepen [validatie technisch profiel](validation-technical-profile.md). Het technische validatieprofiel valideert u de gegevens die door de gebruiker geprofileerd en retourneert een foutbericht of klik op Ok, met of zonder uitvoerclaims. Bijvoorbeeld, voordat Azure AD B2C een nieuw account maakt, wordt gecontroleerd of de gebruiker al in de directoryservices bestaat. U kunt een technisch profiel van de REST-API als u wilt toevoegen van uw eigen bedrijfslogica aanroepen.<p>Het bereik van de uitvoerclaims van een technische validatie-profiel is beperkt tot het technische profiel die het technische validatieprofiel aanroept en andere technische validatie-profielen onder hetzelfde technisch profiel. Als u gebruikmaken van de uitvoerclaims in de volgende indelingsstap wilt, die u wilt toevoegen van de uitvoerclaims naar het technische profiel die het technische validatieprofiel aanroept.
 5. **OutputClaims** -Claims zijn retuned terug naar de eigenschappenverzameling claims. U kunt deze claims in de volgende indelingen stap, of de uitvoer claimtransformaties.
 6. **OutputClaimsTransformations** -claims van elke uitvoer invoer [transformatie claims](claimstransformations.md) zijn opgehaald uit de eigenschappenverzameling claims. De uitvoerclaims van het technische profiel van de vorige stappen is invoerclaims van een uitvoer claimtransformatie. Na de uitvoering, worden de uitvoerclaims teruggeplaatst in de eigenschappenverzameling claims. De uitvoerclaims van een uitvoer-claimtransformatie kunnen ook worden invoerclaims van een latere uitvoer claimtransformatie.
 7. **Eenmalige aanmelding (SSO) sessiebeheer** - [SSO sessiebeheer](active-directory-b2c-reference-sso-custom.md) interactie met een gebruiker beheert nadat de gebruiker is al geverifieerd. De beheerder kan bijvoorbeeld bepalen of de selectie van de id-providers wordt weergegeven, of dat lokale accountdetails moeten opnieuw worden ingevoerd.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999865"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269476"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen (FAQ) over virtuele Azure-netwerk
 
@@ -230,7 +230,7 @@ VNet-peering (of peering op virtueel netwerk), kunt u virtuele netwerken verbind
 Ja. Wereldwijde VNet-peering, kunt u peer-VNets in verschillende regio's. Wereldwijde VNet-peering is beschikbaar in alle Azure openbare regio's. U kan niet uit Azure openbare regio's wereldwijd koppelen met nationale clouds. Wereldwijde peering is momenteel niet beschikbaar in nationale clouds.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan ik inschakelen VNet-Peering als mijn virtuele netwerken deel uitmaken van abonnementen in verschillende Azure Active Directory-tenants?
-Het is momenteel niet mogelijk te maken van VNet-Peering (lokaal of globaal) als uw abonnementen tot verschillende Azure Active Directory-tenants behoren.
+Ja. Het is mogelijk te maken van VNet-Peering (lokaal of globaal) als uw abonnementen tot verschillende Azure Active Directory-tenants behoren. U kunt dit doen via PowerShell of CLI. Portal is nog niet ondersteund.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mijn VNet peering verbinding *gestart* staat, waarom kan ik geen verbinding?
 Als de peeringverbinding de status gestart is, betekent dit dat u hebt slechts één koppeling gemaakt. Een koppeling in twee richtingen moet worden gemaakt om te kunnen stellen een is verbinding. Bijvoorbeeld, als u wilt het peer-VNet A naar VNet B, moet een koppeling worden gemaakt van VNetA aan VNetB en als VNetB naar VNetA. Het maken van beide koppelingen, verandert de status om te *verbonden.*
@@ -259,7 +259,7 @@ Nee. Transitieve peering wordt niet ondersteund. U moet het peer-VNetA en c. voo
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Zijn er bandbreedtebeperkingen voor peering-verbindingen?
 Nee. VNet-peering, lokaal of globaal, legt bandbreedtebeperkingen voor. Bandbreedte wordt alleen beperkt door de virtuele machine of compute-resource.
 
-## <a name="virtual-network-tap"></a>Virtueel netwerk-TAP
+## <a name="virtual-network-tap"></a>Virtual Network TAP
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Welke Azure-regio's zijn beschikbaar voor het virtuele netwerk-TAP?
 Developer preview-versie, de mogelijkheid is beschikbaar in de regio West-Centraal VS. De bewaakte netwerkinterfaces, de bron van virtueel netwerk te TIKKEN en de collector of analytics-oplossing moeten worden geïmplementeerd in dezelfde regio.

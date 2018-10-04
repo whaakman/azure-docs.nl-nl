@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 932ddf5f377556e815205b7ad34a735815317ac0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338759"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249037"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen1 met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ U kunt gegevens kopiëren van een ondersteund brongegevensarchief naar Azure Dat
 
 Specifiek, ondersteunt deze Azure Data Lake Store-connector:
 
-- Het kopiëren van bestanden met behulp van **service-principal** of **managed service identity (MSI)** verificatie.
+- Het kopiëren van bestanden met behulp van **service-principal** of **beheerde identiteiten voor een Azure-resources** verificatie.
 - Kopiëren van bestanden als-is, of parsering/genereren van bestanden met de [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ De volgende eigenschappen worden ondersteund voor Azure Data Lake Store service 
 Raadpleeg de volgende secties over meer eigenschappen en voorbeelden van de JSON voor andere verificatietypen respectievelijk:
 
 - [Met behulp van service-principal verificatie](#using-service-principal-authentication)
-- [Met behulp van verificatie van de beheerde service-identiteit](#using-managed-service-identity-authentication)
+- [Met behulp van beheerde identiteiten voor verificatie van de Azure-resources](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Met behulp van service-principal verificatie
 
@@ -114,11 +114,11 @@ De volgende eigenschappen worden ondersteund:
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Met behulp van verificatie van de beheerde service-identiteit
+### <a name="managed-identity"></a> Met behulp van beheerde identiteiten voor verificatie van de Azure-resources
 
-Een data factory kan worden gekoppeld aan een [beheerde service-identiteit](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze service-identiteit rechtstreeks gebruiken voor de Data Lake Store-verificatie is vergelijkbaar met het gebruik van uw eigen service-principal. Kan deze aangewezen factory om gegevens te toegang en kopiëren van/naar uw Data Lake Store.
+Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze service-identiteit rechtstreeks gebruiken voor de Data Lake Store-verificatie is vergelijkbaar met het gebruik van uw eigen service-principal. Kan deze aangewezen factory om gegevens te toegang en kopiëren van/naar uw Data Lake Store.
 
-Beheerde service identity (MSI)-verificatie gebruiken:
+Beheerde om identiteiten te gebruiken voor verificatie van de Azure-resources:
 
 1. [Ophalen van data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren.
 2. De service-identiteit toegang verlenen tot Data Lake Store de dezelfde manier als voor de service principal volgende hieronder opmerkingen bij de.

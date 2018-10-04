@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865930"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269511"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beleid voor toegangsbeperking API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -216,7 +216,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |IP-filter|Root-element.|Ja|  
-|adres|Hiermee geeft u één IP-adres waarop u wilt filteren.|Ten minste één `address` of `address-range` element is vereist.|  
+|Adres|Hiermee geeft u één IP-adres waarop u wilt filteren.|Ten minste één `address` of `address-range` element is vereist.|  
 |adresbereik van = "adres" voor "adres" =|Hiermee geeft u een bereik van IP-adres waarop u wilt filteren.|Ten minste één `address` of `address-range` element is vereist.|  
   
 ### <a name="attributes"></a>Kenmerken  
@@ -268,7 +268,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|quotum|Root-element.|Ja|  
+|quota|Root-element.|Ja|  
 |api|Voeg een of meer van deze elementen te leggen van de aanroep van quota op API's binnen het product. Product- en API-aanroep quota worden afzonderlijk toegepast. API kan worden verwezen via de `name` of `id`. Als beide kenmerken zijn opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
 |bewerking|Een of meer van deze elementen te leggen van de aanroep van quota op bewerkingen binnen een API toevoegen. Product, API en bewerking aanroep quota's worden afzonderlijk toegepast. Bewerking kan worden verwezen via de `name` of `id`. Als beide kenmerken zijn opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
   
@@ -277,7 +277,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |naam|De naam van de API of bewerking waarvoor het quotum van toepassing.|Ja|N/A|  
-|bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
+|Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N/A|  
   
@@ -288,7 +288,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 -   **Beleid bereiken:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Gebruiksquotum instellen op sleutel  
- De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen moeten worden geteld naar het quotum.  
+ De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen moeten worden geteld naar het quotum. Wanneer dit beleid wordt geactiveerd de oproepende functie ontvangt een `403 Forbidden` antwoordstatuscode.
   
  Zie voor meer informatie en voorbeelden van dit beleid [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -329,13 +329,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|quotum|Root-element.|Ja|  
+|quota|Root-element.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
+|Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval dat is opgegeven in de `renewal-period`.|Een van beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |tegenpartij sleutel|De sleutel te gebruiken voor het quotumbeleid.|Ja|N/A|  
 |Increment-voorwaarde|De Boole-expressie op te geven als de aanvraag moet worden geteld naar het quotum (`true`)|Nee|N/A|  
@@ -508,7 +508,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 |vereisen dat verlopen tijd|Booleaanse waarde. Hiermee geeft u op of een expiration-claim is vereist in het token.|Nee|true|
 |vereisen dat schema|De naam van het token-schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N/A|
 |vereisen dat-ondertekend-tokens|Booleaanse waarde. Hiermee geeft u op of een token is vereist om te worden ondertekend.|Nee|true|  
-|scheidingsteken voor duizendtallen|De tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt om een set waarden uit een claim meerdere waarden.|Nee|N/A| 
+|scheidingsteken voor duizendtallen|tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt om een set waarden uit een claim meerdere waarden.|Nee|N/A| 
 |url|Open ID configuratie-eindpunt-URL van waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Het antwoord moet overeenkomen met de technische specificaties zoals gedefinieerd op de URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` bijvoorbeeld de naam van uw directory-tenant, waarbij `contoso.onmicrosoft.com`.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  

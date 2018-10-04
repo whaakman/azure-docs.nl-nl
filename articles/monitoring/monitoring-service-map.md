@@ -12,19 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 30a03fd5df9d4119e61698cfe1e5fc612e2cfd3f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 10/03/2018
+ms.author: magoedte
+ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297823"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269255"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Met behulp van de oplossing Serviceoverzicht in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met Service Map, kunt u uw servers weergeven in de manier waarop u kunt ze beschouwen: als onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen, binnenkomend en uitgaand verbinding latentie en poorten in alle via TCP verbonden architectuur, waarvoor geen configuratie vereist dan de installatie van een agent.
 
 Dit artikel beschrijft de details van onboarding- en het gebruik van Service-toewijzing. Zie voor meer informatie over het configureren van Serviceoverzicht en onboarding agents [oplossing Serviceoverzicht configureren in Azure]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>Als u Serviceoverzicht al hebt geïmplementeerd, kunt u nu ook bekijken uw kaarten in Azure Monitor voor virtuele machines, waaronder extra functies voor het bewaken van VM-status en prestaties. Zie voor meer informatie, [Azure Monitor voor virtuele machines overzicht](monitoring-vminsights-overview.md).
+
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
@@ -230,6 +234,7 @@ Het item in uw verbonden ITSM-oplossing, klikt u op **werkitem weergeven**.
 
 Als u wilt de details van het item weergeven in zoeken in Logboeken, klikt u op **weergeven in zoeken in logboeken**.
 Metrische verbindingsgegevens worden geschreven naar twee nieuwe tabellen in Log Analytics 
+
 ## <a name="change-tracking-integration"></a>Tracerings-integratie wijzigen
 Serviceoverzicht integratie met wijzigingen bijhouden is automatische wanneer beide oplossingen zijn ingeschakeld en geconfigureerd in uw Log Analytics-werkruimte.
 
@@ -359,16 +364,16 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 | Eigenschap | Beschrijving |
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
-|IndicatorThreadType | |
-|Beschrijving | |
-|TLPLevel | |
-|Betrouwbaarheid | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
+|Beschrijving |Beschrijving van de waargenomen bedreiging. |
+|TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
+|Betrouwbaarheid |Waarden zijn *0-100*. |
+|Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
+|FirstReportedDateTime |De eerste keer dat de provider meldt de indicator. |
+|LastReportedDateTime |De laatste keer dat de indicator is gezien door Interflow. |
+|IsActive |Geeft aan dat indicatoren zijn uitgeschakeld met *waar* of *False* waarde. |
+|ReportReferenceLink |Koppelingen naar rapporten met betrekking tot een bepaalde zichtbaar zijn. |
+|AdditionalInformation |Bevat aanvullende informatie, indien van toepassing, over de bedreiging waargenomen. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met Service Map agents hebt. Deze records hebben de eigenschappen in de volgende tabel:

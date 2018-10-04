@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd8ba47e8fb0d591fab7717117329357b74f907a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585965"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269522"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Toevoegen van Log Analytics opgeslagen zoekopdrachten en waarschuwingen in management-oplossing (Preview)
 
@@ -84,7 +84,7 @@ Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel besch
 | query | De query wilt uitvoeren. |
 
 > [!NOTE]
-> Mogelijk moet u het escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON.  Bijvoorbeeld, als uw query is **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, ze moet worden geschreven in het oplossingsbestand als **Type: AzureActivity OperationName:\\" Microsoft.Compute/virtualMachines/write\\"**.
+> Mogelijk moet u het escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON.  Bijvoorbeeld, als uw query is **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, ze moet worden geschreven in het oplossingsbestand als **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Waarschuwingen
 [Waarschuwingen voor Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) zijn gemaakt door Azure waarschuwingsregels die opgegeven logboeken-query's met regelmatige tussenpozen uitvoeren.  Als de resultaten van de query aan opgegeven criteria voldoen, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md).  

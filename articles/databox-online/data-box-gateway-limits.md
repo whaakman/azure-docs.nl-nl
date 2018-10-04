@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: edb4995b626055be830a7accb74d99f1db3ef8d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 946c045407b150a923d0067776bf80cbfab54c67
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962179"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268035"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box-Gateway-limieten (Preview)
 
@@ -28,12 +28,12 @@ ms.locfileid: "46962179"
 Houd rekening met deze limieten bij het implementeren en uw Microsoft Azure Data Box-Gateway-oplossing werken. 
 
 > [!IMPORTANT] 
-> Data Box-Gateway is in Preview. Controleer de [gebruiksvoorwaarden voor de Preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
+> Data Box Gateway is in de previewfase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Gegevens in het Gateway-service-limieten
 
-- In deze release is service alleen beschikbaar in bepaalde regio's in de VS, EU en Azië en Stille Oceaan. Ga voor meer informatie naar [beschikbaarheid in regio](#data-box-gateway-overview#region-availability). Het opslagaccount moet zich fysiek die het dichtst bij de regio waar het apparaat is geïmplementeerd (kan afwijken van de service geografische regio).
+- In deze release is service alleen beschikbaar in bepaalde regio's in de VS, EU en Azië en Stille Oceaan. Ga naar [Beschikbaarheid in de regio](#data-box-gateway-overview#region-availability) voor meer informatie. Het opslagaccount moet zich fysiek die het dichtst bij de regio waar het apparaat is geïmplementeerd (kan afwijken van de service geografische regio).
 - Een Data Box-Gateway-resource verplaatsen naar een ander abonnement of de resource-groep wordt niet ondersteund. Voor meer informatie gaat u naar [resources verplaatsen naar een nieuwe resourcegroep of abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Gegevens in het Gateway-apparaat-limieten
@@ -44,7 +44,7 @@ De volgende tabel beschrijft de limieten voor de gegevens in het Gateway-apparaa
 |---|---|
 |Nee. van bestanden per apparaat |100 miljoen <br> Limiet is ongeveer 25 miljoen bestanden voor elke 2 TB aan schijfruimte met maximale limiet op 100 miljoen |
 |Nee. van shares per apparaat |24 |
-|Maximale bestandsgrootte die zijn geschreven naar een share|5 TB |
+|Maximale bestandsgrootte die zijn geschreven naar een share|Maximale bestandsgrootte is voor een virtueel apparaat 2 TB 500 GB. <br> De maximale grootte wordt verhoogd met de grootte van de gegevensschijf in de voorgaande verhouding totdat een maximum van 5 TB is bereikt. |
 
 ## <a name="azure-storage-limits"></a>Limieten voor Azure-opslag
 
@@ -53,7 +53,7 @@ In deze sectie beschrijft de limieten voor Azure Storage-service en de vereiste 
 Voor de meest recente informatie over limieten voor Azure storage-service en aanbevolen procedures voor de naamgeving van shares, containers en -bestanden, gaat u naar:
 
 - [Naamgeving van en verwijzen naar containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Naamgeving van en verwijzen naar bestandsshares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Naamgeving van en verwijzing naar shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok-blobs en pagina-blob-conventies](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
@@ -89,4 +89,4 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Voorbereidingen voor het implementeren van Azure Data Box-Gateway](data-box-gateway-deploy-prep.md)
+- [Voorbereidingen voor de implementatie van Azure Data Box Gateway](data-box-gateway-deploy-prep.md)

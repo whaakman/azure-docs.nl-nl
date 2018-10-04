@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 4fa28e2d3f5d94d7ab47ec3b1e1e3240e5c770de
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042970"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269408"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Versnel de analyse van big data met behulp van de Apache Spark op Azure Cosmos DB-connector
  
@@ -179,7 +179,7 @@ Communicatie tussen Spark en Azure Cosmos DB is aanzienlijk sneller, omdat de ve
 
 4. Pak de inhoud van het voorbeeld van Twitter-feed en open het bestand config.py. Werk de waarden van de hoofdsleutel, host, collectionId, databaseId en preferredLocations.  
 
-5. Ga naar `http://apps.twitter.com/`, en de Twitter-feed van de toepassing te registreren. Nadat een naam voor uw toepassing is gekozen, ontvangt u met een **consumer key, consumer secret, toegangstoken en access token secret**. Kopieer deze waarden en werk deze bij in het bestand config.py voor de de Twitter-feed programmatische toegang tot toepassingen op Twitter.   
+5. Ga naar `http://apps.twitter.com/`, en de Twitter-feed van de toepassing te registreren. Nadat een naam voor uw toepassing is gekozen, ontvangt u met een **consumer key, consumer secret, toegangstoken en access token secret**. Kopieer deze waarden en werk ze in het bestand config.py voor dat de Twitter-feed programmatische toegang tot toepassingen op Twitter.   
 
 6. Sla het bestand config.py op. Open een opdrachtprompt en voer de Python-toepassing met behulp van de volgende opdracht uit:
 

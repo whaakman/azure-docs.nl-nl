@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 79bb3042af6a42b4a8c33e9a19c80d117c3216e7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444585"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248853"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Blob-opslag met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ U kunt gegevens uit een ondersteund brongegevensarchief kopiëren naar Blob-opsl
 Deze Blob storage-connector ondersteunt name:
 
 - Kopiëren van blobs en naar Azure-opslagaccounts voor algemeen gebruik en warme/koude blob-opslag. 
-- Blobs kopiëren met behulp van de sleutel, service-handtekening voor gedeelde toegang, service principal of managed service identity verificaties.
+- Blobs kopiëren met behulp van de sleutel, service-handtekening voor gedeelde toegang, service-principal of beheerde identiteiten van Azure-resources-verificaties.
 - Kopiëren blobs uit blokken, toevoegen of pagina-blobs en kopiëren van gegevens naar alleen blok-blobs. Azure Premium Storage wordt niet ondersteund als een sink omdat deze wordt ondersteund door de pagina-blobs.
 - Blobs kopiëren of parseren of genereren van blobs met [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ Azure Blob-connector ondersteunt de volgende verificatietypen, verwijzen naar de
 - [Verificatie van account-sleutel](#account-key-authentication)
 - [Shared access signature-verificatie](#shared-access-signature-authentication)
 - [Verificatie van service-principal](#service-principal-authentication)
-- [Verificatie van de beheerde service-identiteit](#managed-service-identity-authentication)
+- [Beheerde identiteiten voor verificatie van de Azure-resources](#managed-service-identity-authentication)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning en Azure SQL Data Warehouse PolyBase load alleen ondersteuning voor verificatie met Azure Blob storage-account sleutel.
@@ -191,13 +191,13 @@ Deze eigenschappen worden ondersteund voor een Azure Blob storage gekoppelde ser
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Verificatie van de beheerde service-identiteit
+### <a name="managed-identity"></a> Beheerde identiteiten voor verificatie van de Azure-resources
 
-Een data factory kan worden gekoppeld aan een [beheerde service-identiteit](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze service-identiteit rechtstreeks gebruiken voor Blob storage-verificatie zijn vergelijkbaar met het gebruik van uw eigen service-principal. Hiermee kunt deze aangewezen factory toegang en gegevens kopiëren van/naar de Blob-opslag.
+Een data factory kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md), die staat voor deze specifieke data factory. U kunt deze service-identiteit rechtstreeks gebruiken voor Blob storage-verificatie zijn vergelijkbaar met het gebruik van uw eigen service-principal. Hiermee kunt deze aangewezen factory toegang en gegevens kopiëren van/naar de Blob-opslag.
 
 Voor Azure Storage-MSI-verificatie in het algemeen, raadpleegt u [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Volg deze stappen voor het gebruik van beheerde service identity (MSI)-verificatie:
+Voor het gebruik van beheerde identiteiten voor verificatie van de Azure-resources, de volgende stappen uit:
 
 1. [Ophalen van data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van "SERVICE-identiteit TOEPASSINGS-ID gegenereerd samen met uw factory kopiëren.
 
@@ -214,8 +214,8 @@ Deze eigenschappen worden ondersteund voor een Azure Blob storage gekoppelde ser
 | serviceEndpoint | Geef het Azure Blob storage service-eindpunt met het patroon van `https://<accountName>.blob.core.windows.net/`. |Ja |
 | connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als uw gegevensopslag in een particulier netwerk is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
->[!NOTE]
->Verificatie van de beheerde service-identiteit wordt alleen ondersteund door "Azure BLOB Storage" type gekoppelde service, maar niet vorige "AzureStorage" type gekoppelde service. 
+> [!NOTE]
+> Beheerde identiteiten voor Azure-resources verificatie wordt alleen ondersteund door "Azure BLOB Storage" type gekoppelde service, maar niet vorige "AzureStorage" type gekoppelde service. 
 
 **Voorbeeld:**
 

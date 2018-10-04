@@ -12,16 +12,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 234fb5af55565602d283539c63076adebad1ed25
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576626"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248972"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Azure Active Directory-verificatie inschakelen voor de Azure-SSIS integratieruntime
 
-In dit artikel wordt beschreven hoe u een Azure-SSIS IR maken met Azure Data Factory-service-identiteit. Verificatie van Azure Active Directory (Azure AD) met de Managed Service Identity (MSI) voor de Azure-SSIS integratieruntime kunt u het Data Factory-MSI-bestand in plaats van SQL-verificatie gebruiken voor het maken van een Azure-SSIS integratieruntime.
+In dit artikel wordt beschreven hoe u een Azure-SSIS IR maken met Azure Data Factory-service-identiteit. Verificatie van Azure Active Directory (Azure AD) met de beheerde identiteit voor Azure-resources voor de Azure-SSIS integratieruntime kunt u het Data Factory-MSI-bestand in plaats van SQL-verificatie gebruiken voor het maken van een Azure-SSIS integratieruntime.
 
 Zie voor meer informatie over de Data Factory-MSI [Azure Data Factory-service-identiteit](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 

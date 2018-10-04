@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057912"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267467"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procedure: Sluit active risicogebeurtenissen
 
@@ -51,7 +51,7 @@ Door het configureren van de [voorwaardelijk beleid voor gebruikersrisico's](how
 
 ![Wachtwoord opnieuw instellen](./media/howto-close-active-risk-events/13.png)
 
-Een wachtwoord opnieuw instellen wordt gesloten gebeurtenissen voor alle actieve risico's van de gerelateerde gebruiker en voorziet in de identiteit weer in een veilige status heeft. Met behulp van een beleid voor gebruikersrisico's is de aanbevolen methode om te sluiten, actieve risicogebeurtenissen omdat deze methode is geautomatiseerd. Er is nu interactie tussen de betrokken gebruiker en de help helpdesk of beheerder vereist.
+Een wachtwoord opnieuw instellen wordt gesloten gebeurtenissen voor alle actieve risico's van de gerelateerde gebruiker en voorziet in de identiteit weer in een veilige status heeft. Met behulp van een beleid voor gebruikersrisico's is de aanbevolen methode om te sluiten, actieve risicogebeurtenissen omdat deze methode is geautomatiseerd. Er is geen tussenkomst vereist tussen de betrokken gebruiker en de help helpdesk of beheerder.
 
 Met behulp van een beleid voor gebruikersrisico's is echter niet altijd van toepassing. Dit is van toepassing, bijvoorbeeld op:
 

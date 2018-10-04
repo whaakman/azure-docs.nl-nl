@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967639"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269391"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Hoe u Logboeken voor query's van Azure Monitor voor virtuele machines
 Azure Monitor voor virtuele machines verzamelt metrische gegevens over prestaties en verbinding-, computer- en inventarisgegevens van proces- en informatie over de status en stuurt het naar de Log Analytics data store in Azure Monitor.  Deze gegevens zijn beschikbaar voor [zoeken](../log-analytics/log-analytics-log-searches.md) in Log Analytics. U kunt deze gegevens toepassen op scenario's met migratieplanning, analyse, detectie en het oplossen van prestaties op aanvraag.
@@ -39,7 +39,7 @@ Metrische verbindingsgegevens worden geschreven naar een nieuwe tabel in Log Ana
 
 Records in deze tabellen zijn gegenereerd op basis van gegevens die zijn gerapporteerd door de agent voor afhankelijkheden. Elke record vertegenwoordigt een waarneming gedurende een tijdsinterval van één minuut. De eigenschap TimeGenerated geeft het begin van het tijdsinterval. Elke record bevat informatie om te identificeren van de respectieve entiteit, dat wil zeggen, de verbinding of poort, evenals metrische gegevens die zijn gekoppeld aan die entiteit. Op dit moment wordt alleen netwerkactiviteit die wordt uitgevoerd met behulp van de TCP via IPv4 gerapporteerd.
 
-Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een interval van bepaalde één minuut worden samengevoegd in één logische record in *VMConnection*. 
+Voor het beheren van kosten en complexiteit, vertegenwoordigen verbinding records geen afzonderlijke fysieke netwerkverbindingen. Verbindingen van meerdere fysieke netwerk zijn gegroepeerd in een logische verbinding, die vervolgens wordt weergegeven in de bijbehorende tabel.  Betekenis, registreert in *VMConnection* tabel staan voor een logische groepering en niet de afzonderlijke fysieke verbindingen die zijn waargenomen. Fysieke netwerkverbinding delen dezelfde waarde voor de volgende kenmerken tijdens een opgegeven interval van één minuut worden samengevoegd in één logische record in *VMConnection*. 
 
 | Eigenschap | Beschrijving |
 |:--|:--|
@@ -69,9 +69,9 @@ Naast de verbinding aantal metrische gegevens, informatie over de hoeveelheid ge
 |BytesSent |Totaal aantal bytes dat is verzonden tijdens het rapportage venster |
 |BytesReceived |Totaal aantal bytes dat is ontvangen tijdens het rapportage venster |
 |Antwoorden |Het aantal antwoorden is waargenomen tijdens het rapportage venster. 
-|ResponseTimeMax |De grootste reactietijd (milliseconden) waargenomen tijdens het rapportage venster.  Als er geen waarde is de eigenschap leeg.|
-|ResponseTimeMin |De kleinste reactietijd (milliseconden) waargenomen tijdens het rapportage venster.  Als er geen waarde is de eigenschap leeg.|
-|ResponseTimeSum |De som van alle reactietijden (milliseconden) die is waargenomen tijdens het rapportage venster.  Als er geen waarde, is de eigenschap leeg|
+|ResponseTimeMax |De grootste reactietijd (milliseconden) waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
+|ResponseTimeMin |De kleinste reactietijd (milliseconden) waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
+|ResponseTimeSum |De som van alle reactietijden (milliseconden) die is waargenomen tijdens het rapportage venster. Als er geen waarde is de eigenschap leeg.|
 
 Het derde type gegevens dat wordt gerapporteerd reactietijd is: hoe lang bij een aanroeper wachten op een aanvraag die wordt verzonden via een verbinding moet worden verwerkt en beantwoord door het externe eindpunt uitgeven. De reactietijd gerapporteerd is een schatting van de waarde true reactietijd van de onderliggende toepassingsprotocol. Dit wordt berekend op basis van heuristiek op basis van de observatie van de stroom van gegevens tussen de bron en doel-end van een fysieke netwerkverbinding. Conceptueel gezien, is het verschil tussen het moment dat de laatste byte van een aanvraag verlaat de afzender, en de tijd wanneer de laatste byte van het antwoord terug naar het binnenkomt. Deze twee tijdstempels worden gebruikt om de aanvraag- en gebeurtenissen op een bepaalde fysieke verbinding afbakenen. Het verschil tussen deze vertegenwoordigt de reactietijd van een enkele aanvraag. 
 
@@ -93,8 +93,8 @@ Het IP-adres van het externe uiteinde van een verbinding is voor het gemak opgen
 | Eigenschap | Beschrijving |
 |:--|:--|
 |RemoteCountry |De naam van het betreffende land RemoteIp hosten.  Bijvoorbeeld, *Verenigde Staten* |
-|RemoteLatitude |De breedtegraad geolocatie.  Bijvoorbeeld, *47.68* |
-|RemoteLongitude |De lengtegraad geolocatie.  Bijvoorbeeld, *-122.12* |
+|RemoteLatitude |De breedtegraad geolocatie. Bijvoorbeeld, *47.68* |
+|RemoteLongitude |De lengtegraad geolocatie. Bijvoorbeeld, *-122.12* |
 
 #### <a name="malicious-ip"></a>Schadelijk IP
 Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is ingeschakeld met bekende schadelijke activiteiten. Als de RemoteIp wordt geïdentificeerd als schadelijk de volgende eigenschappen worden ingevuld (ze zijn leeg is, wanneer het IP-adres wordt niet als schadelijk beschouwd) in de volgende eigenschappen van de record:
@@ -102,16 +102,16 @@ Elke eigenschap RemoteIp in *VMConnection* tabel aan de hand van IP-adressen is 
 | Eigenschap | Beschrijving |
 |:--|:--|
 |MaliciousIp |Het adres RemoteIp |
-|IndicatorThreadType | |
-|Beschrijving | |
-|TLPLevel | |
-|Betrouwbaarheid | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Threat indicator gedetecteerd is een van de volgende waarden *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *pua's*, *Watchlist*.   |
+|Beschrijving |Beschrijving van de waargenomen bedreiging. |
+|TLPLevel |Niveau van stoplicht Protocol (TLP) is een van de gedefinieerde waarden, *wit*, *groen*, *oranje*, *Red*. |
+|Betrouwbaarheid |Waarden zijn *0-100*. |
+|Severity |Waarden zijn *0 – 5*, waarbij *5* is het meest ernstige en *0* is helemaal niet ernstig. Standaardwaarde is *3*.  |
+|FirstReportedDateTime |De eerste keer dat de provider meldt de indicator. |
+|LastReportedDateTime |De laatste keer dat de indicator is gezien door Interflow. |
+|IsActive |Geeft aan dat indicatoren zijn uitgeschakeld met *waar* of *False* waarde. |
+|ReportReferenceLink |Koppelingen naar rapporten met betrekking tot een bepaalde zichtbaar zijn. |
+|AdditionalInformation |Bevat aanvullende informatie, indien van toepassing, over de bedreiging waargenomen. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL records
 Records met een type *ServiceMapComputer_CL* inventarisgegevens voor servers met de agent voor afhankelijkheden hebben. Deze records hebben de eigenschappen in de volgende tabel:
@@ -166,34 +166,34 @@ Records met een type *ServiceMapProcess_CL* beschikken over inventarisgegevens v
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
 
 ### <a name="list-all-known-machines"></a>Lijst van alle bekende machines
-ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Een lijst van de capaciteit van het fysieke geheugen van alle beheerde computers.
-ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId | Project PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Computernaam van de lijst, DNS, IP- en OS.
-ServiceMapComputer_CL | samenvatten arg_max(TimeGenerated, *) door ResourceId | Project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Alle processen met 'sql' niet vinden in de opdrachtregel
-ServiceMapProcess_CL | waar CommandLine_s contains_cs 'sql' | samenvatten arg_max(TimeGenerated, *) door ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Een virtuele machine (meest recente record) vinden op resourcenaam
-zoeken in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | samenvatten arg_max(TimeGenerated, *) door ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Een virtuele machine (meest recente record) vinden door IP-adres
-zoeken in (ServiceMapComputer_CL) "10.229.243.232" | samenvatten arg_max(TimeGenerated, *) door ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lijst van alle bekende processen op een opgegeven computer
-ServiceMapProcess_CL | waar MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | samenvatten arg_max(TimeGenerated, *) door ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Lijst van alle computers met SQL
-ServiceMapComputer_CL | waar ResourceName_s in ((zoeken in (ServiceMapProcess_CL) "\*sql\*" | afzonderlijke MachineResourceName_s)) | afzonderlijke ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lijst van alle unieke productversies van curl in mijn datacenter
-ServiceMapProcess_CL | waar ExecutableName_s == "curl" | afzonderlijke ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Maak een computergroep van alle computers waarop CentOS wordt uitgevoerd
-ServiceMapComputer_CL | waar OperatingSystemFullName_s contains_cs "CentOS" | afzonderlijke ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Samenvatting van de uitgaande verbindingen van een groep machines
 ```

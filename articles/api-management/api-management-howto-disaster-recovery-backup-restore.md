@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046376"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268526"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
 
@@ -74,7 +74,7 @@ Alle taken die u doen op resources met behulp van Azure Resource Manager moeten 
 
 7. Klik op **gedelegeerde machtigingen** naast de zojuist toegevoegde toepassing, schakel het selectievakje voor **toegang tot Azure Service Management (preview)**.
 8. Druk op **Selecteer**.
-9. Klik op **verlenen inhoudt**.
+9. Klik op **machtigingen verlenen**.
 
 ### <a name="configuring-your-app"></a>Configureren van uw app
 
@@ -204,7 +204,7 @@ Terugzetten is een langdurige bewerking die op meer dan 30 minuten duren kan om 
 > **Wijzigingen** aangebracht aan de serviceconfiguratie (bijvoorbeeld API's, beleid, ontwikkelaarsportal) tijdens het herstel wordt uitgevoerd **kan worden overschreven**.
 
 > [!NOTE]
-> Back-up en herstelbewerkingen kunnen ook worden uitgevoerd met Powershell *back-up-AzureRmApiManagement* en *Restore-AzureRmApiManagement* respectievelijk-opdrachten.
+> Back-up en herstelbewerkingen kunnen ook worden uitgevoerd met PowerShell *back-up-AzureRmApiManagement* en *Restore-AzureRmApiManagement* respectievelijk-opdrachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

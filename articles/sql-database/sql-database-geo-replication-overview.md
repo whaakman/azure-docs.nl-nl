@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: e3296430cd58c8ba33f7cc9acd4cded2925b5be9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: bd224317ba777939a1db4edeb7cb5df728fc434c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166279"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249006"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Overzicht: Actieve geo-replicatie en automatische failover-groepen
 
@@ -90,6 +90,10 @@ De functie van actieve geo-replicatie biedt de volgende essentiële mogelijkhede
 ## <a name="auto-failover-group-capabilities"></a>Mogelijkheden voor automatische failover-groep
 
 Automatische failover-groepen functie biedt een krachtige abstractie van actieve geo-replicatie door de ondersteuning van de groep op replicatie en automatische failover. Bovendien wordt de noodzaak tot het wijzigen van de SQL-verbindingsreeks na een failover door te geven van de aanvullende listener-eindpunten verwijderd. 
+
+> [!NOTE]
+> Automatische failover is niet beschikbaar in het beheerde exemplaar.
+>  
 
 * **Failovergroep**: een of meer failover-groepen kunnen worden gemaakt tussen twee servers in verschillende regio's (primaire en secundaire servers). Elke groep kan een of meer databases die worden hersteld als een eenheid in het geval alle of een primaire databases niet beschikbaar vanwege een storing in de primaire regio bevatten.  
 * **Primaire server**: een server die als host fungeert voor de primaire databases in de failovergroep.

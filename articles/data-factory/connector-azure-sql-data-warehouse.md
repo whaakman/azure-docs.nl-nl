@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842332"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249618"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -33,7 +33,7 @@ U kunt gegevens uit Azure SQL Data Warehouse kopiëren naar een ondersteunde sin
 
 Specifiek, ondersteunt deze Azure SQL Data Warehouse-connector deze functies:
 
-- Gegevens kopiëren met behulp van SQL-verificatie en tokenverificatie van Azure Active Directory (Azure AD)-toepassing met een service-principal of Managed Service Identity (MSI).
+- Gegevens kopiëren met behulp van SQL-verificatie en tokenverificatie van Azure Active Directory (Azure AD)-toepassing met een service-principal of beheerde identiteiten voor Azure-resources.
 - Als een bron ophalen van gegevens met behulp van een SQL-query of een opgeslagen procedure.
 - Als een sink gegevens laden met behulp van PolyBase of een bulksgewijs invoegen. We raden PolyBase voor betere kopieerprestaties.
 
@@ -70,7 +70,7 @@ Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voo
 
 - [SQL-verificatie](#sql-authentication)
 - Azure AD-toepassing-tokenverificatie: [Service-principal](#service-principal-authentication)
-- Azure AD-toepassing-tokenverificatie: [beheerde Service-identiteit](#managed-service-identity-authentication)
+- Azure AD-toepassing-tokenverificatie: [beheerde identiteiten voor een Azure-resources](#managed-service-identity-authentication)
 
 >[!TIP]
 >Als u fout met foutcode als "UserErrorFailedToConnectToSqlServer" bereikt en wordt weergegeven, zoals 'de sessielimiet voor de database is XXX en is bereikt.', toe te voegen `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
@@ -152,9 +152,9 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Beheerde Service-identiteit verificatie
+### <a name="managed-identities-for-azure-resources-authentication"></a>Beheerde identiteiten voor verificatie van de Azure-resources
 
-Een data factory, kan worden gekoppeld aan een [beheerde Service-identiteit](data-factory-service-identity.md) die staat voor de specifieke factory. U kunt deze service-identiteit gebruiken voor verificatie van Azure SQL Data Warehouse. De aangewezen factory kunt openen en gegevens kopiëren van of naar uw data warehouse met behulp van deze identiteit.
+Een data factory, kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md) die staat voor de specifieke factory. U kunt deze service-identiteit gebruiken voor verificatie van Azure SQL Data Warehouse. De aangewezen factory kunt openen en gegevens kopiëren van of naar uw data warehouse met behulp van deze identiteit.
 
 > [!IMPORTANT]
 > Houd er rekening mee dat PolyBase wordt momenteel niet ondersteund voor MSI-verificatie.

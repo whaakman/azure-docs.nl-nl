@@ -9,16 +9,25 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: d4910eb3dfacb46efe3f85aea3a441bdaaeb1392
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236409"
+ms.locfileid: "48249414"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bekende problemen en oplossen van problemen met Azure Machine Learning-service
  
 Dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten opgetreden bij het gebruik van de Azure Machine Learning-service. 
+
+## <a name="sdk-installation-issues"></a>Problemen met de SDK-installatie
+
+**Foutmelding: 'PyYAML' niet verwijderen** 
+
+PyYAML is een geïnstalleerde distutils-project. We kan geen nauwkeurig bepalen welke bestanden deel uitmaken van deze in het geval van een gedeeltelijke verwijderen. Gebruik het volgende om door te gaan met het installeren van de SDK tijdens deze fout negeren:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
 
 ## <a name="image-building-failure"></a>Installatiekopie samenstellen fout
 
@@ -45,7 +54,7 @@ Problemen met Databricks en Azure Machine Learning.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>Verzamelen van diagnostische gegevens
+## <a name="diagnostic-logs"></a>Diagnostische logboeken
 Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Dit is waar de logboekbestanden bevinden:
 
 ## <a name="resource-quotas"></a>Resourcequota

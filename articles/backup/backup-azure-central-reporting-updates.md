@@ -1,6 +1,6 @@
 ---
-title: Azure Backup centrale rapportage inhoudspakket bijwerken
-description: Informatie over updates voor Azure Backup-inhoudspakket in Power BI
+title: De Azure Backup-centrale rapportage inhoudspakket bijwerken
+description: Informatie over updates voor de Azure Backup-inhoud, inpakken in Power BI
 services: backup
 documentationcenter: ''
 author: adigan
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan;
-ms.openlocfilehash: 07774234849d96b9a44678b68ca7b13b6b4830f9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265606"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267290"
 ---
-# <a name="updating-azure-backup-central-reporting-content-pack"></a>Azure Backup centrale rapportage inhoudspakket bijwerken 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>De Azure Backup-centrale rapportage inhoudspakket bijwerken 
 
-[Azure Backup-inhoudspakket](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) kan worden gebruikt om rapporten over back-up centraal weer te geven. Het inhoudspakket wordt regelmatig bijgewerkt als u wilt toevoegen van meer functies en oplossingen voor bugs. In dit artikel leidt u door de stappen voor het bijwerken van het inhoudspakket, als u wilt de update en de updates die zijn gemaakt na verloop van tijd uitstellen.
+De [Azure Backup-inhoudspakket](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) kan worden gebruikt om rapporten over centrale back-up weer te geven. Het inhoudspakket wordt regelmatig bijgewerkt voor het toevoegen van meer functies en het corrigeren van fouten. In dit artikel wordt uitgelegd hoe u het inhoudspakket bijwerken. Deze ook wordt uitgelegd hoe u de update uitstellen en bekijkt u de updates die zijn gemaakt na verloop van tijd.
 
-## <a name="how-to-get-updates-to-the-content-pack"></a>Over het verkrijgen van updates voor het inhoudspakket
+## <a name="get-updates-to-the-content-pack"></a>Updates aan het inhoudspakket ophalen
 
-### <a name="to-get-the-updated-content-pack"></a>Het bijgewerkte inhoudspakket ophalen
-Uw exemplaar van het inhoudspakket wordt automatisch bijgewerkt als u geen wijzigingen hebt aangebracht aan. Als het inhoudspakket is gewijzigd, wordt er een melding in Power BI en een e-mailmelding ongeveer hetzelfde. U kunt het bijgewerkte inhoudspakket aan de hand van uw gemak ophalen. 
+### <a name="get-the-updated-content-pack"></a>Het bijgewerkte inhoudspakket ophalen
+Als u dit nog niet hebt wijzigingen in uw exemplaar van het inhoudspakket aangebracht, wordt deze automatisch bijgewerkt. Wanneer het inhoudspakket wordt gewijzigd, ontvangt u een melding in Power BI en een e-mailmelding. U kunt het bijgewerkte inhoudspakket ophalen wanneer het u uitkomt. 
 
-### <a name="to-delay-the-update"></a>Vertraging van de update
-De aanbevolen procedure is voor het importeren van het inhoudspakket in een [aangepaste werkruimte](https://youtu.be/26zyOtyHPJM?t=1m57s). U hebt nu de mogelijkheid om te bewerken van de rapporten.
-Zoals hierboven vermeld als het inhoudspakket wordt gewijzigd, wordt er een melding in Power BI. U kunt het inhoudspakket later ophalen. 
+### <a name="postpone-the-update"></a>De update uitstellen
+De aanbevolen procedure is voor het importeren van het inhoudspakket in een [aangepaste werkruimte](https://youtu.be/26zyOtyHPJM?t=1m57s). U kunt nu de rapporten bewerken.
+Zoals eerder gezegd, als het inhoudspakket wordt gewijzigd, wordt er een melding in Power BI. U kunt het inhoudspakket later ophalen. 
 
 ## <a name="coming-soon"></a>Binnenkort beschikbaar
    
-Azure Backup-inhoudspakket wordt bijgewerkt ter ondersteuning van meer werkbelastingen, zoals SQL in IaaS-VM back-up en DPM SC, naast de huidige ondersteuning voor Microsoft Azure Backup en Azure VM Backup. Dit betekent dat u snel kunt weergeven en analyseren van gegevens uw back-upgegevens op één centrale locatie. De [rapporten kunnen ook worden aangepast](https://youtu.be/26zyOtyHPJM) op basis van de behoeften van uw organisatie.
+Het inhoudspakket van Azure Backup wordt bijgewerkt ter ondersteuning van meer werkbelastingen. Azure SQL Database omvatten werkbelastingen voor IaaS VM backup en System Center Data Protection Manager. Deze ondersteuning wordt toegevoegd aan de huidige ondersteuning voor Azure backup en Azure-VM back-ups. Deze ondersteuning betekent dat u kunt bekijken en analyseren van uw back-upgegevens op één centrale locatie. [Rapporten ook kunnen worden aangepast](https://youtu.be/26zyOtyHPJM) op basis van de behoeften van uw organisatie.
 
-Als u de rapporten meer betekenis voor workloads, wordt de set met rapporten die vooraf zijn geconfigureerd met Azure Backup-inhoudspakket wordt gewijzigd. Een voorproefje in de komende set met rapporten is hier beschikbaar:
+De vooraf geconfigureerde rapporten die worden geleverd met de Azure Backup-inhoudspakket wijzigt. De wijzigingen aanbrengt, de rapporten meer betekenis voor workloads. Een voorproefje van de toekomstige set met rapporten is hier beschikbaar.
 
 ### <a name="summary"></a>Samenvatting
    
@@ -56,8 +56,8 @@ Als u de rapporten meer betekenis voor workloads, wordt de set met rapporten die
 
 ![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
 
-### <a name="backup-items"></a>Back-Upitems
-![BackupItems](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+### <a name="backup-items"></a>Back-upitems
+![Back-upitems](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Waarschuwingen
 
@@ -70,5 +70,5 @@ Als u de rapporten meer betekenis voor workloads, wordt de set met rapporten die
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Rapporten in uw hele organisatie delen](https://youtu.be/26zyOtyHPJM)
+* [Rapporten delen in uw organisatie](https://youtu.be/26zyOtyHPJM)
 * [Veelgestelde vragen over Azure Backup](backup-azure-backup-faq.md)

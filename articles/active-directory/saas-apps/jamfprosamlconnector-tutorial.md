@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 94b8b935728110cd5dd07b2066e8320274e3b082
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d28e28a2c4f8144da16c4838f07c9b8bb5ce67f0
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428414"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Zelfstudie: Azure Active Directory-integratie met Jamf Pro
 
@@ -50,31 +50,34 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
+Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Jamf Pro uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-jamf-pro-from-the-gallery"></a>Jamf Pro uit de galerie toe te voegen
+
 Voor het configureren van de integratie van Jamf Pro in Azure AD, moet u Jamf Pro uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Jamf Pro uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![image](./media/jamfprosamlconnector-tutorial/selectazuread.png)
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![image](./media/jamfprosamlconnector-tutorial/a_select_app.png)
     
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![image](./media/jamfprosamlconnector-tutorial/a_new_app.png)
 
-1. Typ in het zoekvak **Jamf Pro**, selecteer **Jamf Pro** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Jamf Pro**, selecteer **Jamf Pro** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Jamf Pro in de lijst met resultaten](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_addfromgallery.png)
+     ![image](./media/jamfprosamlconnector-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
@@ -85,10 +88,10 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 Als u wilt configureren en Azure AD eenmalige aanmelding met Jamf Pro testen, moet u uitvoeren van de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maak een testgebruiker Jamf Pro](#create-a-jamf-pro-test-user)**  : als u wilt een equivalent van Britta Simon in Jamf Pro die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Jamf Pro](#create-a-jamf-pro-test-user)**  : als u wilt een equivalent van Britta Simon in Jamf Pro die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -96,50 +99,62 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Jamf Pro, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Jamf Pro** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Jamf Pro** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_select_sso.png)
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_samlbase.png)
+2. Klik op **modus voor één wijziging aanmelding** boven op het scherm selecteren de **SAML** modus.
 
-1. Op de **Jamf Pro domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+      ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_ssso.png)
 
-    ![Jamf Pro domein en URL's, eenmalige aanmelding informatie](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url.png)
+3. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
-    a. In de **id (entiteits-ID)** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_sso.png)
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.jamfcloud.com/saml/SSO`
+4. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
 
-1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+    ![image](./media/jamfprosamlconnector-tutorial/b1-domains_and_urlsedit.png)
 
-    ![Jamf Pro domein en URL's, eenmalige aanmelding informatie](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url1.png)
+5. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.jamfcloud.com`
-     
+    a. In de **id** tekstvak typt u een URL met behulp van het volgende patroon: `https://<subdomain>.jamfcloud.com/saml/metadata`.
+
+    b. In de **antwoord-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://<subdomain>.jamfcloud.com/saml/SSO`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b2-domains_and_urls.png)
+
+    c. Klik op **extra URL's instellen**.
+
+    d. In de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://<subdomain>.jamfcloud.com`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b4-domains_and_urls.png)
+
     > [!NOTE]
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. U krijgt de werkelijke id-waarde van **Single Sign-On** sectie in Jamf Pro-portal, die later in de zelfstudie wordt uitgelegd. U kunt de werkelijke uitpakken **subdomein** waarde uit de id-waarde en gebruikt u deze **subdomein** informatie in de aanmeldings-URL en antwoord-URL.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+6. Op de **instellen van eenmalige aanmelding met SAML** pagina, In de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en sla deze op uw computer.
 
-    ![De downloadkoppeling certificaat](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_certificate.png) 
+    ![image](./media/jamfprosamlconnector-tutorial/C2_certificate.png)
 
-1. Klik op **opslaan** knop.
+7. Voor het automatiseren van de configuratie in Jamf Pro, die u wilt installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/jamfprosamlconnector-tutorial/tutorial_general_400.png)
-    
-1. Meld u in een ander browservenster in uw bedrijf Jamf Pro site als beheerder.
+    ![image](./media/jamfprosamlconnector-tutorial/install_extension.png)
+ 
+8. Na het toevoegen van uitbreiding naar de browser, klikt u op **instellen-Jamf Pro** wordt u doorgeleid naar de toepassing Jamf Pro. Van daaruit, geef de referenties van de beheerder zich aanmelden bij Jamf Pro. De browserextensie wordt automatisch configureren van de toepassing voor u en stappen 9-12 automatiseren.
 
-1. Klik op de **Instellingenpictogram** in de rechterbovenhoek van de pagina.
+    ![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
+
+9. Als u Jamf Pro handmatig instellen wilt, opent u een nieuw browservenster en log in uw site van het bedrijf Jamf Pro als beheerder en voer de volgende stappen uit:
+
+10. Klik op de **Instellingenpictogram** in de rechterbovenhoek van de pagina.
 
     ![Jamf Pro-configuratie](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Klik op **eenmalige aanmelding**.
+11. Klik op **eenmalige aanmelding**.
 
     ![Jamf Pro-configuratie](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-1. Op de **Single Sign-On** pagina de volgende stappen uitvoeren:
+12. Op de **Single Sign-On** pagina de volgende stappen uitvoeren:
 
     ![Jamf Pro één](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -152,8 +167,8 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     d. Selecteer **e** voor **GEBRUIKERSTOEWIJZING: JAMF PRO**. Jamf Pro toegewezen SAML-kenmerken die zijn verzonden door de id-provider op de volgende manieren: door gebruikers en groepen. Wanneer een gebruiker probeert toegang te kunnen Jamf Pro standaard Jamf Pro Hiermee haalt u informatie over de gebruiker van de id-Provider en komt overeen met het tegen Jamf Pro-gebruikersaccounts. Als het binnenkomende gebruikersaccount niet in Jamf Pro bestaat, klikt u vervolgens optreedt groep namen matchen.
 
     e. Plak de waarde `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in de **KENMERK GROEPSNAAM** tekstvak.
- 
-1. Op de dezelfde pagina Schuif omlaag in maximaal **id-PROVIDER** onder de **Single Sign-On** sectie en voer de volgende stappen uit:
+
+13. Op de dezelfde pagina Schuif omlaag in maximaal **id-PROVIDER** onder de **Single Sign-On** sectie en voer de volgende stappen uit:
 
     ![Jamf Pro-configuratie](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -170,38 +185,31 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     e. Klik op **Opslaan**.
 
-### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD 
 
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Maak een testgebruiker Azure AD][100]
+1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 
-**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_users_and_groups.png)
 
-1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
+2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 
-    ![De Azure Active Directory-knop](./media/jamfprosamlconnector-tutorial/create_aaduser_01.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_adduser.png)
 
-1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/jamfprosamlconnector-tutorial/create_aaduser_02.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_userproperties.png)
 
-1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+    a. In de **naam** veld **BrittaSimon**.
+  
+    b. In de **gebruikersnaam** veldtype **brittasimon@yourcompanydomain.extension**  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    ![De knop toevoegen](./media/jamfprosamlconnector-tutorial/create_aaduser_03.png)
+    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
 
-1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+    d. Selecteer **Maken**.
 
-    ![Het dialoogvenster gebruiker](./media/jamfprosamlconnector-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
-
-    d. Klik op **Create**.
- 
 ### <a name="create-a-jamf-pro-test-user"></a>Maak een testgebruiker Jamf Pro
 
 Als u wilt dat Azure AD-gebruikers zich aanmelden bij Jamf Pro, moeten ze worden ingericht in Jamf Pro. In het geval van Jamf Pro is inrichten een handmatige taak.
@@ -210,30 +218,30 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Jamf Pro, moeten ze worden
 
 1. Meld u aan bij uw bedrijf Jamf Pro site aan als beheerder.
 
-1. Klik op de **Instellingenpictogram** in de rechterbovenhoek van de pagina.
+2. Klik op de **Instellingenpictogram** in de rechterbovenhoek van de pagina.
 
     ![Werknemer toevoegen](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Klik op **Jamf Pro-gebruikersaccounts en groepen**.
+3. Klik op **Jamf Pro-gebruikersaccounts en groepen**.
 
     ![Werknemer toevoegen](./media/jamfprosamlconnector-tutorial/user1.png)
 
-1. Klik op **Nieuw**.
+4. Klik op **Nieuw**.
 
     ![Werknemer toevoegen](./media/jamfprosamlconnector-tutorial/user2.png)
 
-1. Selecteer **van het type Standard maken**.
+5. Selecteer **van het type Standard maken**.
 
     ![Werknemer toevoegen](./media/jamfprosamlconnector-tutorial/user3.png)
 
-1. Op de **nieuw Account** dailog, voer de volgende stappen uit:
+6. Op de **nieuw Account** dailog, voer de volgende stappen uit:
 
     ![Werknemer toevoegen](./media/jamfprosamlconnector-tutorial/user4.png)
 
     a. In de **gebruikersnaam** tekstvak typt u de volledige naam van BrittaSimon.
 
     b. Selecteer opties aan de hand van uw organisatie voor **TOEGANGSNIVEAU**, **bevoegdheden instellen**, en voor **TOEGANGSSTATUS**.
-    
+
     c. In de **volledige naam** tekstvak typt u de volledige naam van Britta Simon.
 
     d. In de **e-MAILADRES** tekstvak typt u het e-mailadres van Britta Simon-account.
@@ -248,55 +256,34 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Jamf Pro, moeten ze worden
 
 In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding toegang verlenen tot Jamf Pro.
 
-![De de gebruikersrol toewijzen][200] 
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**en selecteer vervolgens **Jamf Pro**.
 
-**Als u wilt toewijzen Britta Simon met Jamf Pro, moet u de volgende stappen uitvoeren:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_applications.png)
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+2. Selecteer in de lijst met toepassingen, **Jamf Pro**.
 
-    ![Gebruiker toewijzen][201] 
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_proapplications.png)
 
-1. Selecteer in de lijst met toepassingen, **Jamf Pro**.
+3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
 
-    ![De Jamf Pro-koppeling in de lijst met toepassingen](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_app.png)  
+    ![image](./media/jamfprosamlconnector-tutorial/d_leftpaneusers.png)
 
-1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+    ![image](./media/jamfprosamlconnector-tutorial/d_assign_user.png)
 
-1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+4. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
 
-    ![Het deelvenster toewijzing toevoegen][203]
+5. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
 
-1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
-
-1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
-
-1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
-    
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u op de tegel Jamf Pro in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Jamf Pro.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-
-<!--Image references-->
-
-[1]: ./media/jamfprosamlconnector-tutorial/tutorial_general_01.png
-[2]: ./media/jamfprosamlconnector-tutorial/tutorial_general_02.png
-[3]: ./media/jamfprosamlconnector-tutorial/tutorial_general_03.png
-[4]: ./media/jamfprosamlconnector-tutorial/tutorial_general_04.png
-
-[100]: ./media/jamfprosamlconnector-tutorial/tutorial_general_100.png
-
-[200]: ./media/jamfprosamlconnector-tutorial/tutorial_general_200.png
-[201]: ./media/jamfprosamlconnector-tutorial/tutorial_general_201.png
-[202]: ./media/jamfprosamlconnector-tutorial/tutorial_general_202.png
-[203]: ./media/jamfprosamlconnector-tutorial/tutorial_general_203.png
-

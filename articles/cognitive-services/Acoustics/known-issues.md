@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e42a2f854d5d4fa72e17a0b75ffef55069ccb626
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431973"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267866"
 ---
 # <a name="known-issues"></a>Bekende problemen
 U kunt de volgende bekende problemen kan optreden bij het gebruik van de Designer-Preview voor Project akoestische.
@@ -23,17 +23,9 @@ U kunt de volgende bekende problemen kan optreden bij het gebruik van de Designe
 
 Als u de naam van een scène, worden de akoestische parameters die deel uitmaken van die scène niet automatisch overgedragen naar de nieuwe scène. Ze nog steeds aanwezig in het oude assetbestand echter. Zoek de **SceneName_AcousticParameters.asset** bestand in de **Editor** map naast uw scène-bestand. Wijzig de naam van het bestand om de naam van de nieuwe scène weer te geven.
 
-## <a name="the-default-path-for-the-acousticsdata-folder-in-probes-tab-is-an-absolute-path"></a>Het standaardpad voor de map AcousticsData in tests tabblad is een absoluut pad
-
-Dit moet standaard terugvallen op een relatief pad naar het eenvoudiger om te delen tussen de deelnemers een project. Als tijdelijke oplossing, moet u het pad ten opzichte van de projectmap te wijzigen.
-
 ## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Runtime-voxels zijn een ander formaat dan scène preview voxels
 
 Als u een **berekenen** op de **tests** tabblad en bekijk de voxels, voert u een voxels bake en de weergave tijdens runtime voor de dezelfde scène, de voxels zich verschillende formaten. De voxels vooraf bake weergegeven, zijn de voxels gebruikt in de simulatie. De voxels weergegeven tijdens runtime worden gebruikt voor interpolatie tussen de test-punten. Dit kan ertoe leiden dat een inconsistentie waar portals open tijdens runtime die daadwerkelijk open niet wordt weergegeven.
-
-## <a name="uwp-builds-not-working"></a>UWP bouwt werkt niet
-
-UWP-builds worden niet verwerkt op de meest recente versies van Unity (2018.2 +). De uitvoeringsfase van de build wordt achterstallige en krijgt u fouten 'Unity-extensies zijn nog niet geïnitialiseerd'. Dit wordt gevolgd door [dit probleem Unity](https://fogbugz.unity3d.com/default.asp?1070491_1rgf14bakv5u779d).
 
 ## <a name="unity-crashes-when-closing-project"></a>Unity loopt vast bij het sluiten van project
 
@@ -49,6 +41,9 @@ Zorg ervoor dat de Runtime-versie uitvoeren van scripts in de instellingen van d
 ## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Ik ondervind verificatieproblemen met bij het verbinden met Azure
 
 Controleer u de juiste referenties hebt gebruikt voor uw Azure-account, dat het type knooppunt in de bake aangevraagd ondersteuning biedt voor uw account en dat de systeemklok van uw nauwkeurig is.
+
+## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Het tabblad Bake status wordt 'verwijderd' verlaat annuleren van een bake
+Project akoestische wordt opgeruimd alle Azure-resources voor een taak voor de bewerking is voltooid of geannuleerd wat kan tot vijf minuten duren.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Aan de slag met het [integreren van akoestiek in uw Unity-project](getting-started.md)

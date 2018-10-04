@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008739"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249329"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Gegevens kopiëren van Azure Data Lake Storage Gen1 naar Gen2 (Preview) met Azure Data Factory
 
@@ -80,7 +80,7 @@ In dit artikel leest u hoe u het hulpprogramma Copy Data van Data Factory gegeve
    3. Selecteer **Volgende**.
    
    > [!IMPORTANT]
-   > In dit scenario maakt u een _beheerde service-identiteit_ om te verifiëren van uw Data Lake Storage Gen1e. Zorg ervoor dat u het MSI-bestand de juiste machtigingen in Azure Data Lake Storage Gen1 verlenen door [deze instructies](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In dit scenario maakt u een beheerde identiteit voor Azure-resources gebruikt voor verificatie van uw Data Lake Storage Gen1e. Zorg ervoor dat u het MSI-bestand de juiste machtigingen in Azure Data Lake Storage Gen1 verlenen door [deze instructies](connector-azure-data-lake-store.md#managed-identity).
    
    ![Gen1 van Azure Data Lake Storage-account opgeven](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

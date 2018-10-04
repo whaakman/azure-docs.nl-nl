@@ -1,6 +1,6 @@
 ---
-title: Een begeleide afbeelding maken in Azure | Microsoft Docs
-description: Maak een begeleide afbeelding van een gegeneraliseerde virtuele machine of VHD in Azure. Afbeeldingen kunnen worden gebruikt voor het maken van meerdere virtuele machines die gebruikmaken van beheerde schijven.
+title: Een beheerde installatiekopie maken in Azure | Microsoft Docs
+description: Maak een beheerde installatiekopie van een gegeneraliseerde virtuele machine of VHD in Azure. Installatiekopieën kunnen worden gebruikt om te maken van meerdere virtuele machines die gebruikmaken van beheerde schijven.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,66 +13,85 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4445787fd559c6d0a6dfc891910cb9a139a6907e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ac5ad9d0067205411c56562264aed81f8a5751bc
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602566"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267450"
 ---
-# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maken van een begeleide afbeelding van een gegeneraliseerde virtuele machine in Azure
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Maak een beheerde installatiekopie van een gegeneraliseerde VM in Azure
 
-Een beheerde Afbeeldingsbron kan worden gemaakt vanuit een gegeneraliseerde virtuele machine die wordt opgeslagen als een beheerde schijf of een niet-beheerde schijf in een opslagaccount. De installatiekopie kan vervolgens worden gebruikt voor het maken van meerdere virtuele machines. 
+De resource van een beheerde installatiekopie kan worden gemaakt van een gegeneraliseerde virtuele machine (VM) die is opgeslagen als een beheerde schijf of een niet-beheerde schijf in een storage-account. De installatiekopie kan vervolgens worden gebruikt om te maken van meerdere virtuele machines. 
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>De virtuele machine van Windows met behulp van Sysprep generalize
+## <a name="generalize-the-windows-vm-using-sysprep"></a>De Windows VM generaliseren met behulp van Sysprep
 
-Sysprep verwijdert alle persoonlijke gegevens over uw account, onder andere en voorbereiden van de machine moet worden gebruikt als een afbeelding. Zie voor meer informatie over Sysprep [hoe gebruik Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep verwijdert al uw persoonlijke account en informatie over beveiliging, en vervolgens bereidt de computer moet worden gebruikt als een afbeelding. Zie voor meer informatie over Sysprep [Sysprep overzicht](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Zorg ervoor dat de serverfuncties die op de computer uitgevoerd worden ondersteund door Sysprep. Zie voor meer informatie [Sysprep-ondersteuning voor serverfuncties](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Zorg ervoor dat de server-functies die worden uitgevoerd op de machine worden ondersteund door Sysprep. Zie voor meer informatie, [Sysprep-ondersteuning voor serverfuncties](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
-> Zodra u heb sysprep uitgevoerd op een virtuele machine wordt geacht *gegeneraliseerd* en kan niet opnieuw worden opgestart. Het proces van het generaliseren van een virtuele machine is niet omkeerbaar. Als u behouden de oorspronkelijke VM werkt wilt, moet u rekening houden een [kopie van de virtuele machine](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) en de kopie te generaliseren. 
+> Nadat u hebt Sysprep uitgevoerd op een virtuele machine, die virtuele machine wordt beschouwd als *gegeneraliseerd* en kan niet opnieuw worden gestart. Het generaliseringsproces van een VM is onomkeerbaar. Als u behouden de oorspronkelijke virtuele machine werkt wilt, moet u een [kopie van de virtuele machine](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) en de kopie te generaliseren. 
 >
-> Als u Sysprep voordat u uw VHD uploadt naar Azure voor het eerst uitvoert, controleert u of u hebt [uw virtuele machine voorbereid](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voordat Sysprep wordt uitgevoerd.  
+> Als u van plan bent om uit te voeren van Sysprep voordat u de virtuele harde schijf (VHD) uploadt naar Azure voor het eerst, zorg ervoor dat u hebt [uw virtuele machine voorbereid](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 
-1. Meld u aan de virtuele machine van Windows.
-2. Open het venster opdrachtprompt als beheerder. Wijzig de map in **%windir%\system32\sysprep**, en voer vervolgens `sysprep.exe`.
-3. In de **hulpprogramma voor systeemvoorbereiding** dialoogvenster, **System Voer Out-of-Box Experience (OOBE)**, en zorg ervoor dat de **Generalize** selectievakje is ingeschakeld.
-4. In **afsluitopties**, selecteer **afsluiten**.
-5. Klik op **OK**.
+Als u wilt uw Windows-VM generaliseren, de volgende stappen uit:
+
+1. Aanmelden bij uw Windows-VM.
    
-    ![Sysprep starten](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Wanneer Sysprep is voltooid, afgesloten de virtuele machine. Start de virtuele machine niet opnieuw.
+2. Open een opdrachtpromptvenster als beheerder. Wijzig de map in % windir%\system32\sysprep en voer `sysprep.exe`.
+   
+3. In de **hulpprogramma voor systeemvoorbereiding** in het dialoogvenster, selecteer **Voer System Out-of-Box Experience (OOBE)** en selecteer de **Generalize** selectievakje.
+   
+4. Voor **afsluitopties**, selecteer **afsluiten**.
+   
+5. Selecteer **OK**.
+   
+    ![Sysprep start](./media/upload-generalized-managed/sysprepgeneral.png)
+
+6. Als Sysprep is voltooid, sluit de virtuele machine. Start de virtuele machine niet opnieuw.
 
 
-## <a name="create-a-managed-image-in-the-portal"></a>Een begeleide afbeelding maken in de portal 
+## <a name="create-a-managed-image-in-the-portal"></a>Een beheerde installatiekopie maken in de portal 
 
-1. Open de [portal](https://portal.azure.com).
-2. Klik op de virtuele Machines in het menu aan de linkerkant en selecteer vervolgens de virtuele machine in de lijst.
-3. Klik op de pagina voor de virtuele machine in het bovenste menu **vastleggen**.
-3. In **naam**, typ de naam die u wilt gebruiken voor de afbeelding.
-4. In **resourcegroep** select **nieuw** en typ een naam in of selecteer **gebruik bestaande** en selecteer een resourcegroep te gebruiken uit de vervolgkeuzelijst.
-5. Als u de bron-VM verwijderen wilt nadat de installatiekopie gemaakt, selecteer is **automatisch verwijderen van deze virtuele machine na het maken van de installatiekopie van het**.
-6. Klik op **Maken** wanneer u klaar bent.
-16. Nadat de installatiekopie is gemaakt, ziet u dit als een **installatiekopie** resource in de lijst met resources in de resourcegroep.
+1. Open de [Azure Portal](https://portal.azure.com).
+
+2. Selecteer in het menu aan de linkerkant, **virtuele machines** en selecteer vervolgens de virtuele machine in de lijst.
+
+3. In de **virtuele machine** -pagina voor de virtuele machine, op het bovenste menu en selecteer **vastleggen**.
+
+   De **afbeelding maken** pagina wordt weergegeven.
+
+4. Voor **naam**, accepteert u de naam van de vooraf ingestelde of voer een naam die u wilt gebruiken voor de installatiekopie.
+
+5. Voor **resourcegroep**, selecteer **nieuw** en voer een naam in of selecteer **gebruik bestaande** en selecteer een resourcegroep in de vervolgkeuzelijst.
+
+6. Als u verwijderen van de bron-VM wilt nadat de installatiekopie gemaakt, selecteer is **deze virtuele machine automatisch verwijderen na het maken van de installatiekopie van het**.
+
+7. Als u wilt dat de mogelijkheid het gebruik van de installatiekopie in een [binnen een beschikbaarheidszone](../../availability-zones/az-overview.md), selecteer **op** voor **zoneflexibiliteit**.
+
+8. Selecteer **maken** om de installatiekopie te maken.
+
+9. Nadat de installatiekopie is gemaakt, kunt u vinden als een **installatiekopie** resource in de lijst met resources in de resourcegroep.
 
 
 
-## <a name="create-an-image-of-a-vm-using-powershell"></a>Een installatiekopie maken van een virtuele machine met behulp van Powershell
+## <a name="create-an-image-of-a-vm-using-powershell"></a>Maken van een installatiekopie van een virtuele machine met behulp van Powershell
 
-Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine, zorgt u ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, inclusief de Besturingssysteemschijf en alle gegevensschijven. In dit voorbeeld laat zien hoe een begeleide afbeelding maken van een virtuele machine of schijven die gebruikt worden beheerd.
+Het maken van een installatiekopie van een rechtstreeks vanuit de virtuele machine zorgt ervoor dat de installatiekopie alle schijven die zijn gekoppeld aan de virtuele machine bevat, met inbegrip van de schijf met het besturingssysteem en eventuele gegevensschijven. In dit voorbeeld laat zien hoe een beheerde installatiekopie maken van een virtuele machine die maakt gebruik van schijven beheerde.
 
 
-Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. Dit artikel is vereist voor de AzureRM moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module versie 5.7.0 moet of hoger. Uitvoeren als u wilt zien welke versie, `Get-Module -ListAvailable AzureRM.Compute` in PowerShell. Als u upgraden wilt, raadpleegt u [Azure PowerShell installeren op Windows met PowerShellGet](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, voert u `Connect-AzureRmAccount` voor het maken van een verbinding met Azure.
 
 
 > [!NOTE]
-> Als u wilt uw installatiekopie wordt opgeslagen in de zone robuuste opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheid zones](../../availability-zones/az-overview.md) en bevatten de `-ZoneResilient` parameter in de configuratie van de installatiekopie.
+> Als u wilt voor het opslaan van uw installatiekopie in de zone-redundante opslag, moet u deze maken in een regio die ondersteuning biedt voor [beschikbaarheidszones](../../availability-zones/az-overview.md) en bevatten de `-ZoneResilient` parameter in de configuratie van de installatiekopie (`New-AzureRmImageConfig` opdracht).
 
+Volg deze stappen voor het maken van een VM-installatiekopie:
 
 1. Sommige variabelen maken.
 
@@ -94,25 +113,26 @@ Voordat u begint, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute Po
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. Zorg dat de virtuele machine. 
+4. Haal de virtuele machine op. 
 
     ```azurepowershell-interactive
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
     ```
 
-5. Maak de configuratie van de installatiekopie.
+5. Maak de configuratie van installatiekopie.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
+    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
-6. Maken van de installatiekopie.
+6. Maak de installatiekopie.
 
     ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
-## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Maken van een installatiekopie van een beheerde schijf met behulp van PowerShell
 
-Als u alleen maken van een installatiekopie van de schijf met het besturingssysteem wilt, kunt u ook een installatiekopie maken door te geven van de beheerde schijf-ID als de besturingssysteemschijf.
+## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Een installatiekopie maken van een beheerde schijf met behulp van PowerShell
+
+Als u maken van een afbeelding van de schijf van het besturingssysteem wilt, geeft u de beheerde schijf-ID als de besturingssysteemschijf:
 
     
 1. Sommige variabelen maken. 
@@ -125,35 +145,35 @@ Als u alleen maken van een installatiekopie van de schijf met het besturingssyst
     $imageName = "myImage"
     ```
 
-2. De virtuele machine worden opgehaald.
+2. Ophalen van de virtuele machine.
 
    ```azurepowershell-interactive
    $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
-3. De ID van de beheerde schijf niet ophalen.
+3. Haal de ID van de beheerde schijf.
 
     ```azurepowershell-interactive
     $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
     ```
    
-3. Maak de configuratie van de installatiekopie.
+3. Maak de configuratie van installatiekopie.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
-4. Maken van de installatiekopie.
+4. Maak de installatiekopie.
 
     ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Een installatiekopie maken vanuit een momentopname met behulp van Powershell
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Een installatiekopie maken van een momentopname met behulp van Powershell
 
-U kunt een begeleide afbeelding maken vanuit een momentopname van een gegeneraliseerde virtuele machine.
+U kunt een beheerde installatiekopie maken van een momentopname van een gegeneraliseerde virtuele machine door de volgende stappen:
 
     
 1. Sommige variabelen maken. 
@@ -171,45 +191,45 @@ U kunt een begeleide afbeelding maken vanuit een momentopname van een gegenerali
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
-3. Maak de configuratie van de installatiekopie.
+3. Maak de configuratie van installatiekopie.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
-4. Maken van de installatiekopie.
+4. Maak de installatiekopie.
 
     ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
-## <a name="create-image-from-a-vhd-in-a-storage-account"></a>Installatiekopie van een VHD in een opslagaccount maken
+## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Een installatiekopie van een VHD in een opslagaccount maken
 
-Een begeleide afbeelding van een gegeneraliseerde OS-VHD in een opslagaccount maken. U moet de URI van de VHD in het opslagaccount, dat zich in de indeling https:// bevindt*mystorageaccount*.blob.core.windows.net/*container*/*vhd_filename.vhd*. In dit voorbeeld wordt de VHD die is in *mystorageaccount* in een container met de naam *vhdcontainer* en de bestandsnaam van de VHD is *osdisk.vhd*.
+Een beheerde installatiekopie maken vanaf een gegeneraliseerde VHD met besturingssysteem in een storage-account. U moet de URI van de VHD in de storage-account, dat zich in de volgende indeling: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer* /  *vhdfilename.VHD*. In dit voorbeeld wordt de VHD is in *mystorageaccount*, in een container met de naam *vhdcontainer*, en de bestandsnaam van de VHD is *vhdfilename.vhd*.
 
 
-1.  Stel eerst de algemene parameters:
+1.  Sommige variabelen maken.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
     $imageName = "myImage"
-    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
-2. Step\deallocate de virtuele machine.
+2. Stoppen/toewijzing ongedaan maken de virtuele machine.
 
     ```azurepowershell-interactive
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. De virtuele machine niet markeren als gegeneraliseerd.
+3. De virtuele machine markeren als gegeneraliseerd.
 
     ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
-4.  De installatiekopie via uw algemene besturingssysteem-VHD maken.
+4.  De installatiekopie maken met behulp van uw gegeneraliseerde VHD met het besturingssysteem.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
@@ -219,5 +239,5 @@ Een begeleide afbeelding van een gegeneraliseerde OS-VHD in een opslagaccount ma
 
     
 ## <a name="next-steps"></a>Volgende stappen
-- Nu u kunt [een virtuele machine maken van de installatiekopie van het algemene beheerde](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+- [Een virtuele machine maken vanaf een beheerde installatiekopie](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 

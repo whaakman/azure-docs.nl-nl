@@ -11,22 +11,55 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: f2b1a8e18917c1c045c715bd3424d0bbfc0cdc67
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/03/2018
+ms.openlocfilehash: 6ae9b3f71cb5328c7f4a7ee8e43ec0aff8b5fcec
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045372"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267781"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
-In dit artikel biedt een overzicht van de resourcelimieten voor Azure SQL Database Managed Instance en bevat informatie over het maken van de aanvraag om abonnement standaardlimieten te verhogen. 
+In dit artikel biedt een overzicht van de resourcelimieten voor Azure SQL Database Managed Instance en bevat informatie over het maken van de aanvraag om regionale abonnement standaardlimieten te verhogen. 
 
 > [!NOTE]
-> Zie voor andere Managed Instance beperkingen, die niet specifiek zijn voor afzonderlijke abonnement [vCore gebaseerde aankoopmodel](sql-database-managed-instance.md#vcore-based-purchasing-model) en [Managed Instance-Servicelagen](sql-database-managed-instance.md#managed-instance-service-tiers).
+> Zie voor andere beperkingen in de Managed Instance [vCore gebaseerde aankoopmodel](sql-database-managed-instance.md#vcore-based-purchasing-model) en [Managed Instance-Servicelagen](sql-database-managed-instance.md#managed-instance-service-tiers).
 
-## <a name="default-subscription-level-limits-per-region"></a>Abonnementsniveau standaardlimieten per regio
+## <a name="instance-level-resource-limits"></a>Bronlimieten op exemplaarniveau
+
+Beheerd exemplaar bevat kenmerken en resourcelimieten die afhankelijk zijn van de onderliggende infrastructuur en -architectuur. Limieten, is afhankelijk van hardware genereren en service-laag.
+
+### <a name="hardware-generation-characteristics"></a>Hardwarekenmerken genereren
+
+Azure SQL Database Managed Instance kunnen worden geïmplementeerd op twee hardware generatie (Gen4 als Gen5). Hardwaregeneraties hebben andere kenmerken die worden beschreven in de volgende tabel:
+
+|   | **Gen 4** | **Gen 5** |
+| --- | --- | --- |
+| Hardware | Intel E5-2673 v3-processors 2,4 GHz (Haswell) gekoppeld SSD vCore = 1 PP (fysieke kernen) | Intel E5-2673 v4-processors 2,3 GHz (Broadwell) snel eNVM SSD, vCore = 1 LP (hyper-thread) |
+| Compute | 8, 16, 24 vCores | 8, 16, 24 uur per dag, 32, 40, 64, 80 vCores |
+| Geheugen | 7 GB per vCore | 5.5 GB per vCore |
+| Maximale opslag (Business-kritische) | 1TB | 1TB, 2TB 4TB, afhankelijk van het aantal kernen |
+
+### <a name="service-tier-characteristics"></a>Service tier kenmerken
+
+Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en Business-kritische (openbare Preview). Deze versies bieden verschillende mogelijkheden, zoals beschreven in de onderstaande tabel:
+
+| **Functie** | **Algemeen gebruik** | **Bedrijfskritiek (preview)** |
+| --- | --- | --- |
+| Het aantal vCores\* | Gen4: 8, 16, 24 uur per dag<br/>Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 | Gen4: 8, 16, 24 uur per dag, 32 <br/> Gen5: 8, 16, 24 uur per dag, 32, 40, 64, 80 |
+| Geheugen | Gen4: 56GB - 156GB<br/>Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores | Gen4: 56GB - 156GB <br/> Gen5: 44GB - 440GB<br/>\*In verhouding staan tot het aantal vCores |
+| Maximumgrootte van opslag | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>-1 TB voor 8, 16 vcores uitvoert<br/>-2 TB voor 24 vCores<br/>-4 TB voor 32, 40, 64, 80 vCores |
+| Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
+| Maximumaantal databases per exemplaar | 100 | 100 |
+| Maximum aantal bestanden per exemplaar | Maximaal 280 | Onbeperkt |
+| Verwachte maximumopslag IOPS | 500-7500 IOP's per bestand ([is afhankelijk van de gegevensbestandsgrootte](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Afhankelijk van de snelheid van de onderliggende SSD. |
+
+## <a name="supported-regions"></a>Ondersteunde regio’s
+
+Beheerde Instanced kan alleen worden gemaakt in [ondersteunde regio's](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). Als u maken van een beheerd exemplaar in de regio die wordt momenteel niet ondersteund wilt, kunt u [verzoek om ondersteuning te verzenden via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+
+## <a name="supported-subscription-types"></a>Ondersteunde abonnementstypen
 
 Beheerd exemplaar ondersteunt momenteel implementatie alleen op de volgende typen abonnementen:
 
@@ -35,17 +68,16 @@ Beheerd exemplaar ondersteunt momenteel implementatie alleen op de volgende type
 - [Cloud serviceprovider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 
 > [!NOTE]
-> Deze beperking over ondersteuning voor alleen bepaalde abonnementstypen is tijdelijk.
+> Deze beperking is tijdelijk. Typen voor nieuwe abonnementen worden in de toekomst ingeschakeld.
 
-Beheerde exemplaren heeft twee standaard abonnementsniveau limieten per Azure-regio. Andere abonnementstypen hebben verschillende regionale beperkingen. Deze limieten kunnen worden verhoogd door het maken van speciale ondersteuningsaanvraag in de Azure-portal voor het abonnement met probleemtype **quotum**:
+## <a name="regional-resource-limitations"></a>Regionale resourcebeperkingen
 
-- **Subnet limiet**: het maximum aantal subnetten waarop beheerde exemplaren zijn geïmplementeerd
-- **Maximumaantal exemplaar**: het maximum aantal exemplaren per regio
+Ondersteunde abonnementstypen mag een beperkt aantal resources per regio. Beheerd exemplaar heeft twee standaardlimieten per Azure-regio, afhankelijk van een type van het abonnementstype:
 
-> [!IMPORTANT]
-> Wanneer u uw implementatie plant, houd rekening met dat een kritieke zakelijke (BC)-exemplaar (als gevolg van toegevoegde redundantie) in het algemeen 4 x meer capaciteit dan een algemeen doel (GP)-exemplaar worden verbruikt. Ja, voor de berekeningen, 1 exemplaar van de GP = 1 exemplaar eenheid en 1 BC instantie = 4 eenheden van het exemplaar. Ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten, een overzicht maken van de exemplaar-eenheden via alle subnetten in de regio waar beheerde instanties zijn geïmplementeerd en vergelijk de resultaten met de exemplaar-eenheid-limieten voor uw abonnementstype.
+- **Subnet limiet**: het maximum aantal subnetten waarop beheerde exemplaren zijn geïmplementeerd in een enkele regio.
+- **Maximumaantal exemplaar**: het maximum aantal instanties dat kan worden geïmplementeerd in een enkele regio.
 
-## <a name="default-limits-by-subscription-type"></a>Standaard beperkt door het abonnementstype
+In de volgende tabel worden weergegeven regionale standaardlimieten voor ondersteunde abonnementen:
 
 |Abonnementstype| Maximumaantal Managed Instance-subnetten | Maximumaantal exemplaren |Maximumaantal GP beheerde exemplaren *|Maximumaantal BC beheerde exemplaren *|
 | :---| :--- | :--- |:--- |:--- |
@@ -53,11 +85,16 @@ Beheerde exemplaren heeft twee standaard abonnementsniveau limieten per Azure-re
 |CSP |1 *|4 *|4 *|1 *|
 |EA|3 **|12 **|12 **|3 **|
 
-\* U kunt ofwel 1 BC of 4 GP-exemplaren in één subnet implementeren, zodat het totaal aantal eenheden' instantie' die in een regio nooit meer dan 4.
+\* U kunt ofwel 1 BC of 4 GP-exemplaren in één subnet implementeren, zodat het totaal aantal 'exemplaar eenheden' in het subnet nooit meer dan 4.
 
 ** Maximum aantal exemplaren in een servicelaag van toepassing als er geen exemplaren in een andere servicelaag zijn. Als u van plan bent om GP- en BC-instanties binnen hetzelfde subnet bevinden, maken gebruik van de volgende sectie als uitgangspunt voor toegestane combinaties. Als een eenvoudige regel, het totale aantal subnetten niet langer zijn dan 3 en het totale aantal eenheden van de sessie mag niet meer dan 12.
 
-## <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Implementatie-opties voor BC- en GP-implementaties binnen hetzelfde subnet
+Deze limieten kunnen worden verhoogd door het maken van speciale [verzoek tot ondersteuning in Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) als u meer beheerde instanties in de huidige regio. Als alternatief, kunt u nieuwe beheerde instanties in een andere Azure-regio maken zonder te verzenden aanvragen voor ondersteuning.
+
+> [!IMPORTANT]
+> Wanneer u uw implementatie plant, houd rekening met dat een kritieke zakelijke (BC)-exemplaar (als gevolg van toegevoegde redundantie) in het algemeen 4 x meer capaciteit dan een algemeen doel (GP)-exemplaar worden verbruikt. Ja, voor de berekeningen, 1 exemplaar van de GP = 1 exemplaar eenheid en 1 BC instantie = 4 eenheden van het exemplaar. Ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten, een overzicht maken van de exemplaar-eenheden via alle subnetten in de regio waar beheerde instanties zijn geïmplementeerd en vergelijk de resultaten met de exemplaar-eenheid-limieten voor uw abonnementstype.
+
+### <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Implementatie-opties voor BC- en GP-implementaties binnen hetzelfde subnet
 
 De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subnetten en GP- en BC gemengde service-lagen.
 
@@ -71,7 +108,7 @@ De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subne
 |3|1BC, 0 GP|0 BC, tot 4 GP|BC 1, 0 GP|
 |3|0 BC, tot 4 GP|BC 1, 0 GP|1BC, 0 GP|
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor beheerd exemplaar van SQL
+### <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor beheerd exemplaar van SQL
 
 Het proces voor het verkrijgen van een grotere quotum initiëren:
 

@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Afwijkingsdetectie zoeken-API met behulp van Java - cognitieve Microsoft-Services | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Java en de Afwijkingsdetectie in cognitieve Services.
+title: Het gebruik van de Anomaliedetectie Finder-API met behulp van Java - Microsoft Cognitive Services | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met Java en de detectie van afwijkingen in Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,41 +9,43 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 8152c23e6c5332d243d851be56bab1e4085dbe5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345062"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249177"
 ---
-# <a name="use-the-anomaly-finder-api-with-java"></a>De zoekfunctie Afwijkingsdetectie API gebruiken met Java
+# <a name="use-the-anomaly-finder-api-with-java"></a>De API voor Afwijkingsdetectie gebruiken met Java
 
-In dit artikel bevat informatie en codevoorbeelden kunt u snel aan de slag met behulp van de Afwijkingsdetectie Detection-API met behulp van Java taak van het ophalen van detectieresultaat afwijkingsdetectie voor reeksgegevens tijd uit te voeren.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+In dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de API voor Afwijkingsdetectie taak van het resultaat van de detectie van afwijkingen voor time series-gegevens ophalen uit te voeren met behulp van Java.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Afwijkingsdetectie punten ophalen met de Afwijkingsdetectie Detection-API met Java
+## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Anomaliedetectie punten ophalen met de API voor Afwijkingsdetectie met behulp van Java
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Voorbeeld van een reeksgegevens
+### <a name="example-of-time-series-data"></a>Voorbeeld van time series-gegevens
 
-In het voorbeeld van de gegevenspunten van reeksen tijd is als volgt.
+Het voorbeeld van de tijd gegevenspunten van reeks is als volgt.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Gegevens analyseren en afwijkingsdetectie punten Java-voorbeeld
+### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Gegevens analyseren en anomaliedetectie punten Java-voorbeeld
 
-Als u wilt het voorbeeld uitvoert, moet u de volgende stappen uitvoeren:
-1. Maak een nieuwe App voor de opdrachtregel.
-2. De klasse Main vervangen door de volgende code (behouden `package` instructies).
-3. Vervang de `[YOUR_SUBSCRIPTION_KEY]` waarde met de sleutel geldig abonnement.
+De als voorbeeld wilt uitvoeren, moet u de volgende stappen uitvoeren:
+1. Maak een nieuwe opdrachtregel-App.
+2. Vervang de Main-klasse door de volgende code (behoud `package`-instructies).
+3. Vervang de waarde `[YOUR_SUBSCRIPTION_KEY]` door de geldige abonnementssleutel.
 4. Vervang de `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` met het voorbeeld of uw eigen gegevenspunten.
-5. Deze algemene bibliotheken downloaden vanuit de opslagplaats met Maven naar de `lib` map in uw project:
+5. Deze algemene bibliotheken downloaden van de Maven-opslagplaats naar de `lib` map in uw project:
    * `org.apache.httpcomponents:httpclient:4.5.2`
-6. Voer 'Main'.
+6. Voer 'Main' uit.
 
 ```java
 
@@ -113,7 +115,7 @@ public class Main {
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON. Voorbeeld van een antwoord is als volgt.
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Voorbeeld van een antwoord is als volgt.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

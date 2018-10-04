@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393074"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267984"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>De structuur van Azure-Dashboards
 Dit document begeleidt bij de structuur van een Azure-dashboard met het volgende dashboard als een voorbeeld:
@@ -326,7 +326,7 @@ De __delen__ -object bevat een eigenschap voor elk onderdeel, waarbij de naam va
 Elk object afzonderlijk onderdeel heeft een __positie__, en __metagegevens__.
 
 ### <a name="the-position-object"></a>Het Positieobject
-De __positie__ eigenschap bevat de grootte en locatie-informatie voor het onderdeel als uitgedrukt __x__, __y__, __rowSpan__, en __colSpan__. De waarden zijn in termen van raster eenheden. Deze eenheden raster zijn zichtbaar als het dashboard zich in de modus aanpassen zoals hier wordt weergegeven. Als u een tegel wilt om een breedte van de twee eenheden van de grid, een hoogte van een raster unit en een locatie in de rechterbovenhoek linkerbovenhoek van het dashboard en vervolgens de positie-object er als uitzien volgt:
+De __positie__ eigenschap bevat de grootte en locatie-informatie voor het onderdeel als uitgedrukt __x__, __y__, __rowSpan__, en __colSpan__. De waarden zijn in termen van raster eenheden. Deze eenheden raster zijn zichtbaar als het dashboard zich in de modus aanpassen zoals hier wordt weergegeven. Als u een tegel wilt om een breedte van de twee eenheden van de grid, een hoogte van een raster unit en een locatie in de rechterbovenhoek linkerbovenhoek van het dashboard en vervolgens het Positieobject er als uitzien volgt:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ Elk onderdeel heeft een metagegevenseigenschap, een object vereist slechts één
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` : Wordt gebruikt om weer te geven metrische gegevens controleren
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` : Wordt gebruikt om weer te geven tekst of afbeeldingen met eenvoudige opmaak voor lijsten, koppelingen, enzovoort.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` : Wordt gebruikt om video's van YouTube, Channel 9 en een ander type van de video die in een video html-code werkt weer te geven.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` : Wordt gebruikt om video's van YouTube, Channel 9 en een ander type van de video die in een video HTML-code werkt weer te geven.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` : Wordt gebruikt om de naam en de status van een virtuele Azure-machine weer te geven.
 
 Elk type onderdeel heeft een eigen configuratie. De mogelijke configuratie-eigenschappen worden genoemd __invoer__, __instellingen__, en __asset__. 

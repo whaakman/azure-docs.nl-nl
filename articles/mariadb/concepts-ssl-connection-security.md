@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: dda5df58a83ddd3ce42fa887c3c32a3e23954920
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1d0b27a8fd7e3882a73624fa1b668ac602a85e6b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946643"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249499"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mariadb"></a>SSL-verbindingen in Azure Database voor MariaDB
 Azure Database voor MariaDB ondersteunt verbindingen van uw database-server voor clienttoepassingen met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
@@ -25,7 +25,7 @@ Bij het inrichten van een nieuwe Azure-Database voor MariaDB-server via de Azure
 
 Verbindingsreeksen voor verschillende programmeertalen worden weergegeven in de Azure-portal. Deze tekenreeksen voor databaseverbindingen omvatten de vereiste parameters SSL verbinding maakt met uw database. Selecteer uw server in de Azure-portal. Onder de **instellingen** kop, selecteer de **verbindingsreeksen**. De SSL-parameter is afhankelijk van de connector, bijvoorbeeld ' ssl = true "of" sslmode = vereisen "of" sslmode = vereist ' en andere verschillen.
 
-<!-- To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](howto-configure-ssl.md).-->
+Raadpleeg voor informatie over het in- of uitschakelen van SSL-verbinding bij het ontwikkelen van toepassingen, [over het configureren van SSL](howto-configure-ssl.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [firewallregels voor server](concepts-firewall-rules.md)

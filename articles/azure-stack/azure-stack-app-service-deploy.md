@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995253"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268796"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -97,7 +97,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 8. Voer de gegevens voor de bestandsshare en selecteer vervolgens **volgende**. Het adres van de bestandsshare moet gebruiken voor het volledig FULLY Qualified Domain Name () of het IP-adres van de bestandsserver. Bijvoorbeeld, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >Het installatieprogramma wil test de verbinding met de bestandsshare voordat u doorgaat. Maar als u naar een bestaand virtueel netwerk implementeert, deze Connectiviteitstest mislukken. Krijgt u een waarschuwing en een prompt om door te gaan. Als de bestandsshare-informatie juist is, blijven de implementatie.
+   >Het installatieprogramma wil test de verbinding met de bestandsshare voordat u doorgaat. Maar als u naar een bestaand virtueel netwerk implementeert, deze Connectiviteitstest mislukken. Krijgt u een waarschuwing en een prompt om door te gaan. Als de gegevens van bestandsshare juist is, blijven de implementatie.
 
    ![App Service-installatieprogramma][7]
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: bae71c55bdea838d0ef5e0ae3acbac3e98a92fa0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b48ffb450459891118d5f526bbc73c4a2577ddd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055038"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268830"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procedure: Het beleid voor aanmeldingsrisico configureren
 
@@ -79,7 +79,7 @@ Als u wilt om MFA te vereisen voor riskante aanmeldingen, moet u:
 
 1. Schakel de [registratiebeleid voor meervoudige verificatie](#multi-factor-authentication-registration-policy) voor de betreffende gebruikers.
 
-2. Vereisen dat de betrokken gebruikers aan te melden een niet-riskante-sessie met het uitvoeren van een MFA-registratie.
+2. Vereisen dat de betrokken gebruikers aanmelden bij een niet-riskante-sessie uit te voeren een MFA-registratie.
 
 Deze stappen uit te voeren, zorgt u ervoor dat meervoudige verificatie is vereist voor een riskante aanmelding.
 

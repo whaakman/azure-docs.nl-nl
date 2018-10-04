@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 8fbddd7bca8750317490c35473730ff11f07374c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 812c9911486174b1ed3be5373486e992e4037425
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242623"
+ms.locfileid: "48248520"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Uw Azure Machine Learning-modellen in productie met Application Insights bewaken
 
@@ -49,7 +49,7 @@ U kunt in- en uitschakelen van Application Insights in Azure portal.
 
 4. In **geavanceerde instellingen** Selecteer **diagnostische gegevens van Application Insights inschakelen**.
 
-   [![Bewerken](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png)#lightbox)
+   [![Bewerken](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Selecteer **Update** aan de onderkant van het scherm om de wijzigingen toe te passen. 
 

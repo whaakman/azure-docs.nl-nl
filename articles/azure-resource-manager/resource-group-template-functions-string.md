@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e0578572de53fefddb88e163520d2bf5f580012
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 578d078550daaae54c63bf91da1fa5590bb8fdf6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434310"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249142"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeksfuncties voor Azure Resource Manager-sjablonen
 
@@ -1680,15 +1680,15 @@ Retourneert een subtekenreeks die begint op de positie van het opgegeven teken e
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |tekenreeks |De oorspronkelijke tekenreeks waaruit de subtekenreeks wordt opgehaald. |
 | startIndex |Nee |int |De op nul gebaseerde beginpositie voor de subtekenreeks. |
-| Lengte |Nee |int |Het aantal tekens in voor de subtekenreeks. Moet verwijzen naar een locatie in de tekenreeks. |
+| Lengte |Nee |int |Het aantal tekens in voor de subtekenreeks. Moet verwijzen naar een locatie in de tekenreeks. Moet nul of groter zijn. |
 
 ### <a name="return-value"></a>Retourwaarde
 
-De subtekenreeks.
+De subtekenreeks. Of een lege tekenreeks als de lengte nul is.
 
 ### <a name="remarks"></a>Opmerkingen
 
-De functie mislukt wanneer de subtekenreeks buiten het einde van de tekenreeks valt. Het volgende voorbeeld is mislukt met de fout "de index en lengte moeten verwijzen naar een locatie in de tekenreeks. De Indexparameter: '0', de lengteparameter: 11, de lengte van de tekenreeksparameter: '10'. '.
+De functie mislukt wanneer de subtekenreeks valt buiten het einde van de tekenreeks, of wanneer de lengte is kleiner dan nul zijn. Het volgende voorbeeld is mislukt met de fout "de index en lengte moeten verwijzen naar een locatie in de tekenreeks. De Indexparameter: '0', de lengteparameter: 11, de lengte van de tekenreeksparameter: '10'. '.
 
 ```json
 "parameters": {

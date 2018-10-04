@@ -4,7 +4,7 @@ description: In dit artikel wordt uitgelegd hoe virtuele machines om te communic
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036987"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249125"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -67,7 +67,7 @@ Wanneer de VM met load balancing een uitgaande stroom maakt, wordt het particuli
 
 Kortstondige poorten van de load balancer openbare IP-adres frontend worden gebruikt om te onderscheiden van afzonderlijke stromen afkomstig van de virtuele machine. Dynamisch maakt gebruik van SNAT [vooraf toegewezen kortstondige poorten](#preallocatedports) wanneer uitgaande stromen worden gemaakt. In deze context worden de kortstondige poorten die voor SNAT SNAT poorten genoemd.
 
-SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie. Zijn in feite een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
+SNAT poorten worden vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie. Zijn in feite een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
 
 Wanneer [meerdere openbare IP-adressen zijn gekoppeld aan de Load Balancer Basic](load-balancer-multivip-overview.md), of een van deze openbare IP-adressen zijn een [kandidaat voor uitgaande stromen](#multivipsnat), en een willekeurig is geselecteerd.  
 
@@ -75,7 +75,7 @@ Voor het controleren van de status van uitgaande verbindingen met Load Balancer 
 
 ### <a name="defaultsnat"></a>Scenario 3: Standalone VM zonder een Instance Level Public IP-adres
 
-In dit scenario wordt de virtuele machine maakt geen deel uit van een openbare Load Balancer-groep (en geen deel uitmaakt van een interne Standard Load Balancer-groep) en heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement.
+In dit scenario wordt de virtuele machine maakt geen deel uit van een openbare Load Balancer-groep (en geen deel uitmaakt van een interne Standard Load Balancer-groep) en heeft geen een ILPIP-adres is toegewezen. Wanneer de virtuele machine een uitgaande stroom maakt, zet Azure privé IP-bronadres van de uitgaande stroom aan een openbare IP-adres. Het openbare IP-adres gebruikt voor deze uitgaande stroom kan niet worden geconfigureerd en worden niet meegeteld in openbare IP-resource-limiet van het abonnement. Dit openbare IP-adres behoort niet tot u en kan niet worden gereserveerd. Als u de virtuele machine of Beschikbaarheidsset of VMSS implementeren, wordt dit openbare IP-adres wordt uitgebracht en wordt een nieuw openbaar IP-adres aangevraagd. Gebruik dit scenario niet voor in de whitelist aan IP-adressen. In plaats daarvan gebruik een van de andere twee scenario's waarin u expliciet declareren het uitgaande scenario en de openbare IP-adres moet worden gebruikt voor de uitgaande connectiviteit.
 
 >[!IMPORTANT] 
 >In dit scenario geldt ook wanneer __alleen__ een interne Basic Load Balancer is gekoppeld. Scenario 3 is __niet beschikbaar__ wanneer een interne Standard Load Balancer is gekoppeld aan een virtuele machine.  U moet expliciet maken [scenario 1](#ilpip) of [scenario 2](#lb) naast het gebruik van een interne Standard Load Balancer.

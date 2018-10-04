@@ -4,7 +4,7 @@ description: Meer gedetailleerde stappen voor problemen met het maken van een ve
 keywords: SSH verbinding geweigerd, ssh fout, azure ssh, SSH-verbinding is mislukt
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: genlin
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2017
-ms.author: cynthn
-ms.openlocfilehash: a75a0e8c31934ff001674830bfe3d3d1c9e6beb1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: genli
+ms.openlocfilehash: 1173e4c9ec40e8b8fe9e24587258f7e7aad7c7f8
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413575"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269459"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux-VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet de SSH-service op de virtuele machine bereiken. Als u hebt gevolgd door de andere meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder worden opgelost. In dit artikel begeleidt u bij gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en hoe u deze kunt oplossen.

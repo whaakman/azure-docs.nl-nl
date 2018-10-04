@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b09170c31691be34cea577eb82c8cce3402be96
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1d116b96abab89f08546d3c2d5d7bff3234ecbc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294648"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249227"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met behulp van gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -49,7 +49,7 @@ Als u wilt koppelen aan een andere sjabloon, Voeg een **implementaties** resourc
 ]
 ```
 
-De eigenschappen die u voor de implementatie-resource opgeeft, afhankelijk van of u koppelen aan een externe-sjabloon of een inline-sjabloon in de belangrijkste sjabloon nesten.
+De eigenschappen die u voor de implementatie-resource opgeeft, afhankelijk van of u bent koppelen aan een externe-sjabloon of een inline-sjabloon in de belangrijkste sjabloon nesten.
 
 Voor beide gekoppelde en sjablonen geneste, kunt u alleen gebruiken [incrementele](deployment-modes.md) implementatiemodus.
 
@@ -121,7 +121,9 @@ U hoeft te bieden de `contentVersion` eigenschap voor de sjabloon of de paramete
 
 ### <a name="external-template-and-inline-parameters"></a>Externe sjabloon en inline-parameters
 
-Of u kunt de parameter-inline opgeeft tussen. Gebruik een waarde van de belangrijkste sjabloon doorgeven aan de gekoppelde sjabloon, **parameters**.
+Of u kunt de parameter-inline opgeeft tussen. U kunt zowel inline-parameters en een koppeling niet gebruiken voor een parameterbestand. De implementatie is mislukt met foutmelding wanneer beide `parametersLink` en `parameters` zijn opgegeven.
+
+Gebruik een waarde van de belangrijkste sjabloon doorgeven aan de gekoppelde sjabloon, **parameters**.
 
 ```json
 "resources": [

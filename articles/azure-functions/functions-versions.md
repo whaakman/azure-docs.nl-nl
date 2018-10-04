@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: glenga
-ms.openlocfilehash: a601ea42549abad84d6cab5c429cf94147776436
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978621"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249057"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
@@ -98,7 +98,7 @@ Voor VS Code mogelijk moet u ook om bij te werken van de gebruikersinstelling vo
 
 ### <a name="changing-version-of-apps-in-azure"></a>Wijzigen van de versie van apps in Azure
 
-Gepubliceerde app-versies worden ingesteld via de toepassingsinstelling `FUNCTIONS_RUNTIME_VERSION`.  Deze optie is ingesteld op `~2` voor v2-apps en `~1` voor v1-apps.  Het wordt sterk afgeraden om te wijzigen van de runtimeversie van een app met bestaande functies die zijn gepubliceerd naar het ook de zonder code te wijzigen van deze functies.  De aanbevolen procedure is een nieuwe functie-app maken en ingesteld op de juiste versie, wijzigingen, testen en vervolgens uitschakelen of verwijderen van de vorige app.
+Gepubliceerde app-versies worden ingesteld via de toepassingsinstelling `FUNCTIONS_EXTENSION_VERSION`.  Deze optie is ingesteld op `~2` voor v2-apps en `~1` voor v1-apps.  Het wordt sterk afgeraden om te wijzigen van de runtimeversie van een app met bestaande functies die zijn gepubliceerd naar het ook de zonder code te wijzigen van deze functies.  De aanbevolen procedure is een nieuwe functie-app maken en ingesteld op de juiste versie, wijzigingen, testen en vervolgens uitschakelen of verwijderen van de vorige app.
 
 ## <a name="bindings"></a>Bindingen 
 

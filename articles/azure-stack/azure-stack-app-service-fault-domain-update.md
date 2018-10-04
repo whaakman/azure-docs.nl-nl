@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d361b4165c1fbbf79321e3f6d2ade711f9173c56
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025959"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267212"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Over het distribueren van Azure App Service in Azure Stack in domeinen met fouten
 
@@ -32,7 +32,7 @@ Met de update 1802 ondersteunt Azure Stack nu de distributie van workloads in do
 
 ## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Een App Service-resourceprovider herverdelen in domeinen met fouten
 
-Als u wilt distribueren de schaalsets die is geïmplementeerd voor de resourceprovider App Service, moet u de stappen in dit artikel voor elke schaalset uitvoeren. Standaard zijn de namen van de schaalset:
+Als u wilt distribueren de schaalsets die is geïmplementeerd voor de resourceprovider App Service, moet u de stappen in dit artikel voor elke schaalset uitvoeren. Standaard zijn de namen van schaal:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577129"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249584"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Data Factory.  
@@ -83,7 +83,7 @@ Data Factory heeft de volgende functies toegevoegd voor SSIS sinds de eerste ope
 -   Beheerd exemplaar (MI)
 -   Elastische pool
 -   Ondersteuning voor Azure Resource Manager-netwerk (VNet) boven op klassieke VNet dat in de toekomst – worden afgeschaft Hiermee kunt u uw Azure-SSIS Integration Runtime (IR) met een VNet dat is geconfigureerd voor Azure SQL-database met VNet-service-eindpunten/MI invoeren/join / on-premises gegevenstoegang, Zie: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
--   Ondersteuning voor verificatie van Azure Active Directory (AAD) boven op SQL-verificatie verbinding maken met de SSISDB - Hiermee kunt u AAD-verificatie gebruiken met uw ADF Managed Service Identity (MSI)
+-   Ondersteuning voor verificatie met Azure Active Directory (AAD) boven op SQL-verificatie verbinding maken met de SSISDB - Hiermee kunt u AAD-verificatie met uw ADF beheerde identiteit voor de Azure-resources
 -   Ondersteuning om uw eigen on-premises SQL Server-licentie om te winnen aanzienlijke kostenbesparingen via de optie Azure Hybrid Benefit (AHB)
 -   Ondersteuning voor Enterprise-editie van Azure-SSIS IR waarmee u gebruik geavanceerde/premium-functies, aangepaste setup te installeren van extra onderdelen/extensies en 3e partij-ecosysteem, Zie: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
 -   Diepere integratie van SSIS in ADF waarmee u eersteklas SSIS-pakket uitvoeren-activiteiten in ADF pijplijnen aanroepen/trigger en ze te plannen via SSMS, Zie: https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378666"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268018"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Het gebruik van de eigenschap 'Verwachte entiteit' van acties
 
@@ -63,9 +63,10 @@ Concrete invulling te geven, als het veld 'verwachte entiteit' van een actie is 
 2. Typ 'Wat is de naam van uw?' in het antwoord.
 3. Voer $name in entiteiten verwacht. Klik op Opslaan.
     - Deze waarde betekent dat als deze vraag wordt gesteld en de reactie van de gebruiker beschikt niet over de entiteiten die zijn gedetecteerd, de bot moet ervan uitgaan dat het geheel van het antwoord van de gebruiker is deze entiteit.
+    - De entiteit wordt automatisch toegevoegd als een disqualifying entiteit. 
 2. Klik op acties en vervolgens een nieuwe actie voor het maken van een tweede actie.
 3. Typ in het antwoord 'Hallo $name'.
-    - Houd er rekening mee dat de entiteit wordt automatisch toegevoegd als een vereiste entiteiten. 
+    - De entiteit wordt automatisch toegevoegd als een vereiste entiteiten.
 4. Klik op Opslaan.
 
 U hebt nu twee acties.
@@ -111,7 +112,7 @@ In de volgende voorbeelden wordt de 'verwachte entiteit' heuristiek wordt geacti
 2. Voer 'Hallo'.
 3. In reactie op 'wat de naam van uw is', voer 'Ik ben frank genaamd'.
     - De volledige woordgroep wordt gemarkeerd. Dit komt doordat de statistische model een naam, niet vinden heeft, zodat de heuristiek is geactiveerd en het volledige antwoord geselecteerd als de naam van entiteit.
-2. Om deze te corrigeren, klikt u op de gemarkeerde zin, en klik vervolgens op de rode x. 
+2. Als u wilt corrigeren, klikt u op de gemarkeerde woorden, en klik vervolgens op de rode prullenbakpictogram. 
 3. Schakel frank en klik vervolgens op de naam op.
 2. Klik op Score acties
 3. Selecteer 'Hallo $name'.

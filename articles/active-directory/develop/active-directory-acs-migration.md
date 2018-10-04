@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036538"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249431"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Hoe: migreren vanuit de Azure Access Control-service
 
@@ -117,6 +117,9 @@ Hier is de planning voor beëindigde Access Control-onderdelen:
 - **2 april 2018**: klassieke Azure-portal is volledig buiten gebruik gesteld, wat betekent dat beheer van de Access Control-naamruimte is niet langer beschikbaar is via een URL. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of het inventariseren van de Access Control-naamruimten. De Access Control-beheerportal zijn echter volledig functionele en zich op `https://\<namespace\>.accesscontrol.windows.net`. Alle andere onderdelen van Access Control blijft normaal functioneren.
 - **7 november 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de management-service, STS en het token transformatie regels-engine. Op dit moment aanvragen die worden verzonden naar de Access Control (dat zich bevindt in \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services met andere technologieën en eerder.
 
+> [!NOTE]
+> Een beleid schakelt naamruimten die een token voor een bepaalde tijd niet hebt aangevraagd. Vanaf begin September 2018 is deze periode is momenteel op 14 dagen van inactiviteit, maar dit zal worden ingekort tot 7 dagen van inactiviteit in de komende weken. Hebt u Access Control-naamruimten die momenteel zijn uitgeschakeld, kunt u [downloaden en installeren van ACS PowerShell](#download-and-install-acs-powershell) de namespace(s) opnieuw inschakelen.
+
 ## <a name="migration-strategies"></a>Migratiestrategieën
 
 De volgende secties beschrijven op hoog niveau aanbevelingen voor het migreren van toegangsbeheer voor andere Microsoft-technologieën.
@@ -195,7 +198,7 @@ Op hoog niveau, *Azure Active Directory is waarschijnlijk de beste keuze voor uw
 | Facebook, Google, Yahoo-accounts | Ondersteund | Helemaal niet wordt ondersteund |
 | **Protocollen en SDK compatibiliteit** | | |
 | WIF | Ondersteund | Ondersteunde, maar beperkte instructies zijn beschikbaar |
-| WS-Federation | Ondersteund | Ondersteund |
+| Webservices-federatie | Ondersteund | Ondersteund |
 | OAuth 2.0 | Ondersteuning voor Draft 13 | Ondersteuning voor RFC 6749, de meeste moderne-specificatie |
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token-indelingen** | | |
@@ -246,7 +249,7 @@ De volgende tabel vergelijkt de functies van Access Control die relevant zijn vo
 | Facebook, Google, Yahoo-accounts | Ondersteund | Facebook en Google ondersteund, Yahoo ondersteund via OpenID Connect-Federatie met behulp van aangepaste beleidsregels |
 | **Protocollen en SDK compatibiliteit** | | |
 | Windows Identity Foundation (WIF) | Ondersteund | Niet ondersteund |
-| WS-Federation | Ondersteund | Niet ondersteund |
+| Webservices-federatie | Ondersteund | Niet ondersteund |
 | OAuth 2.0 | Ondersteuning voor Draft 13 | Ondersteuning voor RFC 6749, de meeste moderne-specificatie |
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token-indelingen** | | |
@@ -347,6 +350,10 @@ In dergelijke gevallen kunt u overwegen uw webtoepassing met een andere cloud-ve
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne is een identiteitsservice in de cloud die ondersteuning biedt voor veel van de dezelfde functies als ACS en PingFederate is een vergelijkbare versie van on-premises identity product dat meer flexibiliteit biedt. Raadpleeg [Ping van ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten. |
 
 Ons doel bij het werken met Ping Identity en Auth0 is om ervoor te zorgen dat alle gebruikers van de Access Control een migratiepad voor hun apps en services die zo weinig mogelijk werk dat nodig is om te verplaatsen van Access Control hebben.
+
+#### <a name="passthrough-authentication"></a>Passthrough-verificatie
+
+Er is geen equivalent Microsoft-technologie voor ACS voor passthrough-verificatie met een willekeurige token transformatie. Als dat nodig van uw klanten, mogelijk Auth0 wie de beste benadering-oplossing is.
 
 ## <a name="questions-concerns-and-feedback"></a>Vragen, opmerkingen en feedback
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric-omgevingsvariabelen | Microsoft Docs
-description: -Naslagdocumentatie voor Service Fabric-omgevingsvariabelen
+description: Referentiedocumentatie voor Service Fabric-omgevingsvariabelen
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
@@ -12,36 +12,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213245"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268001"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric-omgevingsvariabelen
 
-Service Fabric heeft ingebouwde omgevingsvariabelen ingesteld voor elk service-exemplaar. De volledige lijst met omgevingsvariabelen lager is dan:
+Service Fabric heeft ingebouwde omgevingsvariabelen instellen voor elke service-exemplaar. De volledige lijst van omgevingsvariabelen lager is dan:
 
 | Omgevingsvariabele                         | Beschrijving                                                            | Voorbeeld                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
-| Fabric_ApplicationName                       | De fabric-uri-naam van de toepassing                                 | fabric: / Mijntoepassing                                                |
-| Fabric_CodePackageName                       | De naam van het codepakket waartoe het proces behoort              | Code                                                                 |
-| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | De IP-adres of FQDN-naam van het eindpunt                                 | 10.0.0.1                                                     |
-| Fabric\_Endpoint\_*ServiceEndpointName*              | Poortnummer op voor het eindpunt                                  | 8234                                                                 |
-| Fabric_Folder_App_Log                        | Map voor het logboek                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
+| Fabric_ApplicationName                       | De naam van de fabric-uri van de toepassing                                 | fabric: / Mijntoepassing                                                |
+| Fabric_CodePackageName                       | De naam van het codepakket met die het proces behoort              | Code                                                                 |
+| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | De ip-adres of FQDN-naam van het eindpunt                                 | 10.0.0.1                                                     |
+| Fabric\_Endpoint\_*ServiceEndpointName*              | Poortnummer voor het eindpunt                                  | 8234                                                                 |
+| Fabric_Folder_App_Log                        | Logboekmap                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
 | Fabric_Folder_App_Temp                       | Tijdelijke map                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
-| Fabric_Folder_App_Work                       | Werkmappen                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
+| Fabric_Folder_App_Work                       | Werkmap                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
 | Fabric_Folder_Application                    | De basismap van toepassingen                                           | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12             |
-| Fabric_IsContainerHost                       | Een Boole-waarde die aangeeft of het proces een container is                   | false                                                                |
-| Fabric_NodeId                                | De knooppunt-ID van het knooppunt waarop het proces wordt uitgevoerd                            | bf865279ba277deb864a976fbf4c200e                                     |
-| Fabric_NodeIPOrFQDN                          | Het IP of FQDN van het knooppunt, zoals opgegeven in het cluster manifestbestand. | localhost of 10.0.0.1                                                |
+| Fabric_IsContainerHost                       | Een Boole-waarde op te geven of het proces een container is                   | false                                                                |
+| Fabric_NodeId                                | Het knooppunt-ID van het knooppunt waarop het proces wordt uitgevoerd                            | bf865279ba277deb864a976fbf4c200e                                     |
+| Fabric_NodeIPOrFQDN                          | De IP- of FQDN-naam van het knooppunt, zoals opgegeven in het cluster-manifestbestand. | localhost of 10.0.0.1                                                |
 | Fabric_NodeName                              | De naam van het knooppunt van het knooppunt waarop het proces wordt uitgevoerd                          | _Node_0                                                              |
-| Fabric_ServiceName                           | De naam van de service, als deze service wordt gehost in de modus ExclusiveProcess. De waarde van deze variabele is alleen beschikbaar als u de service met ServicePackageActivationMode ExclusiveProcess maakt.  | MyService                                               |
+| Fabric_ServiceName                           | De fabric-uri-naam van de service, als service wordt gehost in de modus ExclusiveProcess. De waarde van deze variabele is alleen beschikbaar als u de service ServicePackageActivationMode ExclusiveProcess maakt.  | fabric: / Mijntoepassing/MijnService                                               |
 | Fabric_ServicePackageActivationId            | De ServicePackageActivationId                                         | EEN GUID                                                               |
 | Fabric_ServicePackageName                    | Naam van het pakket met de service het proces maakt deel uit van                     | Web1Pkg                                                              |
 
-Interne omgevingsvariabelen die door de Service Fabric-Runtime:
+Interne omgevingsvariabelen die worden gebruikt door de Service Fabric-Runtime:
 
 - Fabric_ApplicationHostId
 - Fabric_ApplicationHostType

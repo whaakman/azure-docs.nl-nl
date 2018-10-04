@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982973"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267695"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Aan de slag met query's in Log Analytics
 
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Samenvatting: Rijgroepen samenvoegen
-Gebruik **samenvatten** identificeren groepen records, op basis van een of meer kolommen en aggregaties op hen van toepassing. De meest voorkomende gebruik os **samenvatten** is *aantal*, die het aantal resultaten retourneert in elke groep.
+Gebruik **samenvatten** identificeren groepen records, op basis van een of meer kolommen en aggregaties op hen van toepassing. De meest voorkomende gebruik van **samenvatten** is *aantal*, die het aantal resultaten retourneert in elke groep.
 
 De volgende query controleert alle *voor prestaties* records van het afgelopen uur, gegroepeerd door *ObjectName*, en de records in elke groep telt: 
 ```Kusto

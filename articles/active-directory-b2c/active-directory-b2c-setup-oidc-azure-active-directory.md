@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 99e9edf0bb31ec0eab96e22e866d9602a26c2693
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 64cd440947c95de92ea156c14e4c524ecdc8e76c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47179915"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268813"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Aanmelding bij Azure Active Directory-accounts instellen met een ingebouwde beleid in Azure Active Directory B2C
 
@@ -32,10 +32,10 @@ Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organi
 >`Contoso.com` wordt gebruikt voor de organisatie Azure AD-tenant en `fabrikamb2c.onmicrosoft.com` wordt gebruikt als de Azure AD B2C-tenant in de volgende instructies.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Zorg ervoor dat u de map met organisatie-Azure AD-tenant (contoso.com) door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant (fabrikamb2c.onmicrosoft.com) door te klikken op de map- en abonnementsfilter in het bovenste menu en de map met uw Azure AD B2C-tenant te kiezen.
 3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **App-registraties**.
 4. Selecteer **Nieuwe toepassing registreren**.
-5. Voer een naam voor uw toepassing. Bijvoorbeeld `Azure AD B2C App`.
+5. Voer een naam in voor de toepassing. Bijvoorbeeld `Azure AD B2C App`.
 6. Voor de **toepassingstype**, selecteer `Web app / API`.
 7. Voor de **aanmeldings-URL**, voer de volgende URL in kleine letters, waarbij `your-tenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (fabrikamb2c.onmicrosoft.com):
 

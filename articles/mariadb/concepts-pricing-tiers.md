@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 92db6442352242d5c7f25d39442d208d6007621b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984333"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249023"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database voor MariaDB Prijscategorieën
 
@@ -21,7 +21,7 @@ U kunt een Azure Database voor MariaDB-server maken in een van drie verschillend
 
 |    | **Basic** | **Algemeen gebruik** | **Geoptimaliseerd voor geheugen** |
 |:---|:----------|:--------------------|:---------------------|
-| Bewerking voor COMPUTE | <!--Gen 4,--> Gen 5 |<!--Gen 4,-->Gen 5 |<!--Gen 4,--> Gen 5 |
+| Bewerking voor COMPUTE | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Geheugen per vCore | 2 GB | 5 GB | 10 GB |
 | Opslaggrootte | 5 GB tot 1 TB | 5 GB tot 4 TB | 5 GB tot 4 TB |
@@ -40,40 +40,7 @@ Nadat u een server, het aantal vCores en de prijscategorie hebt gemaakt (met uit
 
 ## <a name="compute-generations-and-vcores"></a>Bewerkingen voor COMPUTE en vCores
 
-COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware.<!--Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.--> Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2,3 GHz-processors.
-
-<!--
-| **Azure region** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US | X | X |
-| East US | X | X |
-| East US 2 | X | X |
-| North Central US | X | X |
-| South Central US | X | X |
-| West US | X | X |
-| West US 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
-| Brazil South | X | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK West |  | X |
-| UK South |  | X |
-| East Asia | X | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India | X | X |
-| West India | X | X |
-| South India |  | X |
-| Japan East | X | X |
-| Japan West | X | X |
-| Korea Central |  | X |
-| Korea South |  | X |
--->
+COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU van de onderliggende hardware. Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) 2,3 GHz-processors.
 
 ## <a name="storage"></a>Storage
 
@@ -97,7 +64,9 @@ De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagr
 
 Terwijl de service probeert te maken van de server alleen-lezen, alle nieuwe schrijftransactieaanvragen geblokkeerd en kunnen bestaande actieve transacties blijft om uit te voeren. Wanneer de server is ingesteld op alleen-lezen, voert alle daaropvolgende schrijfbewerkingen en transactie is mislukt. Lezen query's blijven doorwerken. Nadat u de ingerichte opslag verhoogt, wordt de server zijn klaar om te accepteren schrijftransacties opnieuw.
 
-U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. <!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. 
+
+<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
 
 ## <a name="backup"></a>Backup
 
@@ -105,9 +74,11 @@ Voor de service worden automatisch back-ups van uw server. De minimale bewaarper
 
 ## <a name="scale-resources"></a>Resources omhoog/omlaag schalen
 
-Nadat u uw server maakt, kunt u onafhankelijk van elkaar de vCores wijzigen <!--the hardware generation,--> de prijscategorie (met uitzondering van en naar Basic), de hoeveelheid opslag en de bewaarperiode voor back-up. U kunt de back-upopslag-type niet wijzigen nadat een server is gemaakt. Het aantal vCores kunt omhoog of omlaag worden geschaald. De bewaarperiode voor back-up kan worden geschaald omhoog of omlaag van 7 tot 35 dagen. De grootte van de kan alleen worden verhoogd. Schalen van de resources die kan worden gedaan via de portal of Azure CLI. <!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+Nadat u uw server maakt, kunt u onafhankelijk van elkaar de vCores, de prijscategorie wijzigen (met uitzondering van en naar Basic), de hoeveelheid opslag en de bewaarperiode voor back-up. U kunt de back-upopslag-type niet wijzigen nadat een server is gemaakt. Het aantal vCores kunt omhoog of omlaag worden geschaald. De bewaarperiode voor back-up kan worden geschaald omhoog of omlaag van 7 tot 35 dagen. De grootte van de kan alleen worden verhoogd. Schalen van de resources die kan worden gedaan via de portal of Azure CLI. 
 
-Wanneer u het aantal vCores, wijzigt <!--the hardware generation,--> of de prijscategorie, een kopie van de oorspronkelijke server is gemaakt met de nieuwe compute-toewijzing. Nadat de nieuwe server actief en werkend is, worden verbindingen via overgeschakeld naar de nieuwe server. Tijdens het moment dat wanneer het systeem overgeschakeld naar de nieuwe server, kunnen er geen nieuwe verbindingen tot stand worden gebracht en alle niet-doorgevoerde transacties worden teruggedraaid. In dit venster varieert, maar in de meeste gevallen is minder dan een minuut.
+<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+
+Wanneer u het aantal vCores, of de prijscategorie wijzigt, wordt een kopie van de oorspronkelijke server wordt gemaakt met de nieuwe compute-toewijzing. Nadat de nieuwe server actief en werkend is, worden verbindingen via overgeschakeld naar de nieuwe server. Tijdens het moment dat wanneer het systeem overgeschakeld naar de nieuwe server, kunnen er geen nieuwe verbindingen tot stand worden gebracht en alle niet-doorgevoerde transacties worden teruggedraaid. In dit venster varieert, maar in de meeste gevallen is minder dan een minuut.
 
 Schalen van opslag en het wijzigen van de bewaarperiode voor back-up zijn ' True ' online bewerkingen. Er is geen downtime en uw toepassing wordt niet beïnvloed. IOP's met de grootte van de ingerichte opslag te schalen, kunt u de beschikbare IOPS verhogen met uw server met omhoog schalen van opslag.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 797f97b9c1548484d72f518ae1d2c56633b7b5b3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126765"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248921"
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
@@ -105,7 +105,7 @@ Wanneer een profiel is geconfigureerd voor de geografische routering, elk eindpu
 - World – andere regio's
 - Regionale groepering – bijvoorbeeld Afrika, Midden-Oosten, Australië/stille enzovoort. 
 - Land/regio, bijvoorbeeld, Ierland, Peru, Hong Kong SAR enzovoort. 
-- Staat/provincie – bijvoorbeeld VS-Californië, Australië-Queensland, Canada-Alberta enz. (Opmerking: deze granulariteitsniveau wordt alleen ondersteund voor staten / provincies in Australië, Canada, groot-Brittannië en Verenigde Staten).
+- Staat/provincie – bijvoorbeeld VS-Californië, Australië-Queensland, Canada-Alberta enz. (Opmerking: deze granulariteitsniveau wordt alleen ondersteund voor staten / provincies in Australië, Canada en Verenigde Staten).
 
 Wanneer een regio of een set van regio's is toegewezen aan een eindpunt, worden alle aanvragen van deze regio's alleen naar dit eindpunt wordt geleid. Traffic Manager maakt gebruik van de bron-IP-adres van de DNS-query om te bepalen van de regio van waaruit is van een gebruiker uitvoeren van query's: dit is doorgaans het IP-adres van de lokale DNS-resolver uitvoeren van de query namens de gebruiker.  
 

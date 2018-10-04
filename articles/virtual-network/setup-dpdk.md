@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 205a1e399eadd268ffaa390a7ebb4397fda9feff
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444650"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268273"
 ---
-# <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Setup DPDK in een virtuele Linux-machine
+# <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>DPDK instellen in een virtuele Linux-machine
 
-Gegevens vlak Development Kit (DPDK) op Azure biedt een snellere gebruiker ruimte pakket framework voor gegevensverwerking voor prestatie-intensieve toepassingen die niet van de virtuele machine kernel-netwerkstack gebruikmaken.
+Gegevens vlak Development Kit (DPDK) op Azure biedt een snellere gebruikersruimte pakketverwerken framework voor prestatie-intensieve toepassingen. Dit framework omzeilt van de virtuele machine kernel-netwerkstack.
 
-Typische pakket verwerkt met behulp van de kernel-netwerkstack is interrupts bestuurd. Telkens wanneer die de network interface inkomende pakketten ontvangt, is er een kernel-interrupt voor het verwerken van de pakket- en context overschakelen van de kernelruimte aan gebruikersruimte. DPDK elimineert overschakelen van context en de interrupt gestuurde methode en vervangen door een gebruiker ruimte implementatie met behulp van poll-modus stuurprogramma's voor snelle pakket te verwerken.
+In de verwerking van typische pakketten die gebruikmaakt van de netwerkstack kernel, is het proces interrupt gebaseerde. Wanneer de network interface inkomende pakketten ontvangt, is er een kernel-interrupt naar proces die het pakket en een context van de kernelruimte aan de gebruiker overschakelen. DPDK elimineert overschakelen van context en de methode interrupt gebaseerde en vervangen door een gebruikersruimte implementatie dat gebruikt modus stuurprogramma's voor snelle pakket te verwerken pollen.
 
-DPDK bestaat uit de set van gebruiker ruimte bibliotheken bieden toegang tot resources zoals hardware, logische kernen, geheugen lager niveau en pollen modus stuurprogramma's voor netwerkinterfacekaarten.
+DPDK bestaat uit sets gebruikersruimte bibliotheken die toegang tot bronnen op lagere niveaus bieden. Deze resources kunnen opnemen hardware, logische kernen, geheugen-management en poll-modus stuurprogramma's voor netwerkinterfacekaarten.
 
-DPDK kunt uitvoeren in virtuele machines van Azure, ondersteuning van meerdere besturingssysteem distributies. DPDK biedt een prestatie-differentiatie in sparen netwerkfunctie virtualization-implementaties in de vorm van virtuele netwerkapparaten (NVA), zoals een virtuele-router, firewall, VPN, load balancer, ontwikkelde pakket core en denial-of-service ( DDoS)-toepassingen.
+DPDK kunt uitvoeren op Azure virtual machines die ondersteuning voor meerdere besturingssysteem distributies bieden. DPDK biedt prestatie differentiatie in het netwerk functie virtualization implementaties te stimuleren. Deze implementaties kunnen duren voordat de vorm van virtuele netwerkapparaten (NVA's), zoals virtuele routers, firewalls, VPN's, load balancers, ontwikkelde pakket kernen en denial-of-service (DDoS)-toepassingen.
 
 ## <a name="benefit"></a>Voordeel
 
-**Hogere pakketten per seconde (PPS)**: voor het overslaan van de kernel en met inachtneming van pakketten in de gebruikersruimte vermindert het aantal cyclus door het elimineren van context-switch en verbetert het aantal pakketten dat per seconde in virtuele Azure Linux-machines wordt verwerkt.
+**Hogere pakketten per seconde (PPS)**: het aantal cyclus overslaan van de kernel en met inachtneming van pakketten in de gebruikersruimte beperkt door het elimineren van context switches. Het verbetert ook het aantal pakketten dat per seconde in virtuele Azure Linux-machines worden verwerkt.
 
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
@@ -50,7 +50,7 @@ De volgende distributies uit de galerie met Azure worden ondersteund:
 
 **Aangepaste kernel-ondersteuning**
 
-Raadpleeg [Patches voor het bouwen van een Azure-afgestemd op Linux-kernel](https://github.com/microsoft/azure-linux-kernel) voor een Linux-kernel-versie niet wordt vermeld, of voor nadere informatie, neem dan contact op met [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
+Zie voor een Linux-kernel-versie die niet wordt vermeld, [Patches voor het bouwen van een Azure-afgestemd op Linux-kernel](https://github.com/microsoft/azure-linux-kernel). Voor meer informatie, u kunt ook contact opnemen met [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Ondersteuning voor regio
 
@@ -105,17 +105,17 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-## <a name="setup-virtual-machine-environment-once"></a>Setup-omgeving met virtuele machines (één keer)
+## <a name="set-up-the-virtual-machine-environment-once"></a>Instellen van de virtuele machine-omgeving (één keer)
 
 1. [Download de meest recente DPDK](https://core.dpdk.org/download). Versie 18.02 of hoger is vereist voor Azure.
-2. Bouw eerst de standaard-config `make config T=x86_64-native-linuxapp-gcc`.
+2. De standaard-configuratie met bouwen `make config T=x86_64-native-linuxapp-gcc`.
 3. Mellanox PMDs inschakelen in de gegenereerde configuratie met `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Compileren met `make`.
 5. Installeren met `make install DESTDIR=<output folder>`.
 
-# <a name="configure-runtime-environment"></a>Runtime-omgeving configureren
+## <a name="configure-the-runtime-environment"></a>De runtime-omgeving configureren
 
-Voer de volgende opdrachten één keer, na het opnieuw opstarten:
+Na het opnieuw opstarten, moet u de volgende opdrachten één keer uitgevoerd:
 
 1. Hugepages
 
@@ -128,27 +128,29 @@ Voer de volgende opdrachten één keer, na het opnieuw opstarten:
 
    *  Maak een map voor koppelen met `mkdir /mnt/huge`.
    *  Koppelpunt hugepages met `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Selectievakje hugepages zijn gereserveerd met `grep Huge /proc/meminfo`.
+   *  Controleer dat hugepages zijn gereserveerd met `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Er is een manier om het bestand wormgaten wijzigen zodat grote pagina's bij het opstarten zijn gereserveerd door het volgende op de [instructies](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) voor DPDK. De instructie is aan de onderkant van de pagina. Wanneer wordt uitgevoerd in een Azure Linux-machine, wijzigen in /etc/config/grub.d bestanden in plaats daarvan moet worden gereserveerd hugepages tijdens opnieuw opstarten.
+     > Er is een manier om het bestand wormgaten wijzigen zodat hugepages bij het opstarten zijn gereserveerd door het volgende op de [instructies](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) voor de DPDK. De instructies zijn aan de onderkant van de pagina. Wanneer u een Azure Linux-machine gebruikt, wijzigt u bestanden onder **/etc/config/grub.d** in plaats daarvan te reserveren hugepages tijdens opnieuw opstarten.
 
-2. MAC- en IP-adressen: Gebruik `ifconfig –a` om het MAC- en IP-adres van de netwerkinterfaces weer te geven. De *VF* netwerkinterface en *NETVSC* netwerkinterface hebben hetzelfde MAC-adres, maar alleen de *NETVSC* netwerkinterface heeft een IP-adres. VF-interfaces worden uitgevoerd als slave-interfaces van NETVSC interfaces.
+2. MAC- en IP-adressen: Gebruik `ifconfig –a` om het MAC- en IP-adres van de netwerkinterfaces weer te geven. De *VF* netwerkinterface en *NETVSC* netwerkinterface hebben hetzelfde MAC-adres, maar alleen de *NETVSC* netwerkinterface heeft een IP-adres. VF-interfaces worden uitgevoerd als onderliggende-interfaces van NETVSC interfaces.
 
 3. PCI-adressen
 
-   * Ontdek welke PCI-adres moet worden gebruikt voor *VF* met `ethtool -i <vf interface name>`.
-   * Zorg ervoor dat testpmd niet per ongeluk overnemen van het apparaat voor het pci van VF voor *eth0*als *eth0* versnelde netwerken ingeschakeld. Als DPDK toepassing per ongeluk via de beheerinterface van het netwerk heeft genomen en zorgt ervoor verlies van uw SSH-verbinding dat, gebruikt u de seriële console kill DPDK toepassing, of als u wilt stoppen en starten van de virtuele machine.
+   * Gebruik `ethtool -i <vf interface name>` om erachter te komen welke PCI-adres moet worden gebruikt voor *VF*.
+   * Als *eth0* versnelde netwerken is ingeschakeld, zorg ervoor dat testpmd niet per ongeluk overnemen van het apparaat voor het pci van VF voor *eth0*. Als de toepassing DPDK ten opzichte van de netwerkinterface management heeft per ongeluk en zorgt ervoor dat u de SSH-verbinding wordt verbroken, gebruikt u de seriële console om te stoppen van de toepassing DPDK. U kunt ook de seriële console gebruiken om te stoppen en starten van de virtuele machine.
 
 4. Load *ibuverbs* op elke opnieuw opstarten met `modprobe -a ib_uverbs`. Voor SLES 15, ook laden *mlx4_ib* met `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
-DPDK toepassingen moeten worden uitgevoerd via de failsafe PMD die wordt weergegeven in Azure. Als de toepassing wordt uitgevoerd boven op de PMD VF, profiteert deze niet **alle** pakketten dat is bestemd voor de virtuele machine, aangezien sommige pakketten worden weergegeven via de interface van synthetische. Uitvoeren via de failsafe die PMD garandeert dat de toepassing alle pakketten dat is bestemd voor het ontvangt en zorgt er ook voor de toepassing wordt voortgezet om uit te voeren in de modus DPDK, zelfs als de VF wordt ingetrokken wanneer de host wordt onderhouden. Raadpleeg voor meer informatie over failsafe PMD [failsafe poll-modus-stuurprogrammabibliotheek](http://doc.dpdk.org/guides/nics/fail_safe.html).
+DPDK toepassingen moeten worden uitgevoerd via de failsafe PMD die wordt weergegeven in Azure. Als de toepassing wordt uitgevoerd boven op de PMD VF, het ontvangt geen **alle** pakketten die bestemd zijn voor de virtuele machine, aangezien sommige pakketten worden weergegeven via de interface van synthetische. 
+
+Als u een toepassing DPDK via de failsafe PMD uitvoert, zorgt u ervoor dat de toepassing alle pakketten die bestemd zijn voor deze ontvangt. Deze ook zorgt ervoor dat de toepassing blijft actief in de modus DPDK, zelfs als de VF wordt ingetrokken wanneer de host wordt onderhouden. Zie voor meer informatie over failsafe PMD [failsafe poll-modus-stuurprogrammabibliotheek](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Testpmd uitvoeren
 
-Gebruik `sudo` voordat de *testpmd* opdracht uit te voeren in de basis-modus.
+Gebruiken om uit te voeren testpmd in de hoofdmap modus, `sudo` voordat de *testpmd* opdracht.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Controle, initialisatie van de adapter failsafe
 
@@ -171,12 +173,12 @@ Gebruik `sudo` voordat de *testpmd* opdracht uit te voeren in de basis-modus.
    -- -i
    ```
 
-   Als met meer dan 2 NIC's, de `--vdev` argument volgt dit patroon: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+   Als u testpmd met meer dan twee NIC's, de `--vdev` argument volgt dit patroon: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
-3.  Nadat is gestart, voert `show port info all` om te controleren van informatie over de poort. U ziet nu een of twee DPDK-poorten die net_failsafe zijn (niet *net_mlx4*).
+3.  Nadat deze gestart, voert u `show port info all` om te controleren van informatie over de poort. U ziet nu een of twee DPDK-poorten die net_failsafe zijn (niet *net_mlx4*).
 4.  Gebruik `start <port> /stop <port>` verkeer starten.
 
-De voorgaande opdrachten start *testpmd* in de interactieve modus, die wordt aanbevolen, voor het uitproberen van sommige testpmd-opdrachten.
+De voorgaande opdrachten start *testpmd* in de interactieve modus, die wordt aanbevolen om testpmd opdrachten uit te proberen.
 
 ### <a name="basic-single-sendersingle-receiver"></a>Basic: Één afzender/één ontvanger
 
@@ -188,7 +190,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -203,7 +205,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -212,7 +214,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
      --stats-period <display interval in seconds>
    ```
 
-Als u de vorige opdrachten uitvoert op een virtuele machine, wijzigen *IP_SRC_ADDR* en *IP_DST_ADDR* in `app/test-pmd/txonly.c` zodat deze overeenkomt met het IP-adres van de virtuele machines voordat u compileren. Anders worden de pakketten verwijderd voordat de ontvanger wordt bereikt.
+Wanneer u de vorige opdrachten op een virtuele machine uitvoert, veranderen *IP_SRC_ADDR* en *IP_DST_ADDR* in `app/test-pmd/txonly.c` zodat deze overeenkomt met het IP-adres van de virtuele machines voordat u compileren. Anders worden de pakketten verwijderd voordat de ontvanger wordt bereikt.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>Geavanceerd: Één afzender/één doorstuurserver
 De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende opdrachten:
@@ -223,7 +225,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -248,7 +250,7 @@ De pakketten statistieken per seconde wordt periodiek afdrukken door de volgende
      --stats-period <display interval in seconds>
     ```
 
-Als u de vorige opdrachten uitvoert op een virtuele machine, wijzigen *IP_SRC_ADDR* en *IP_DST_ADDR* in `app/test-pmd/txonly.c` zodat deze overeenkomt met het IP-adres van de virtuele machines voordat u compileren. Anders worden de pakketten verwijderd voordat de doorstuurserver is bereikt. Kunt u zich niet aan een derde machine doorgestuurd verkeer ontvangen hebben omdat de *testpmd* doorstuurserver wijzigt niet de laag-3-adressen, tenzij u enkele codewijzigingen.
+Wanneer u de vorige opdrachten op een virtuele machine uitvoert, veranderen *IP_SRC_ADDR* en *IP_DST_ADDR* in `app/test-pmd/txonly.c` zodat deze overeenkomt met het IP-adres van de virtuele machines voordat u compileren. Anders worden de pakketten verwijderd voordat de doorstuurserver is bereikt. Kunt u zich niet aan een derde machine doorgestuurd verkeer ontvangen hebben omdat de *testpmd* doorstuurserver wijzigt niet de laag-3-adressen, tenzij u enkele codewijzigingen.
 
 ## <a name="references"></a>Verwijzingen
 

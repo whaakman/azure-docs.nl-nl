@@ -7,37 +7,37 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286762"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248751"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Doorvoer- en aanvraageenheden in Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is de wereldwijd gedistribueerde databaseservice van Microsoft. Met Azure Cosmos DB hebt u geen virtuele machines huurt, software implementeren of databases bewaken. Azure Cosmos DB is uitgevoerd en continu worden bewaakt door de belangrijkste Microsoft-technici leveren van wereldklasse beschikbaarheid, prestaties en gegevensbescherming. U kunt toegang tot uw gegevens met behulp van API's van uw keuze, zoals de [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), en [tabel](table-introduction.md) API's en een graaf via de [Gremlin-API](graph-introduction.md). Alle API's zijn alle systeemeigen worden ondersteund. 
+Azure Cosmos DB-resources worden in rekening gebracht op basis van de ingerichte doorvoer en opslag. Azure Cosmos DB-doorvoer wordt uitgedrukt in termen van **Aanvraageenheden per seconde (RU/s)**. Azure Cosmos DB ondersteunt verschillende API's met verschillende bewerkingen, variërend van eenvoudige leest en schrijft naar complexe graph-query's. Elke aanvraag verbruikt aanvraageenheden op basis van de hoeveelheid berekening voor het uitvoeren van de aanvraag. Het aantal aanvraageenheden voor een bewerking is deterministisch. U kunt het aantal aanvraageenheden die worden verbruikt door elke bewerking in Azure Cosmos DB met behulp van de reactieheader bijhouden. Om te bieden voorspelbare prestaties, moet u de doorvoer in eenheden van 100 ru's / seconde reserveren. U kunt uw doorvoer moet met behulp van de Azure Cosmos DB schatten [aanvraag eenheid calculator](https://www.documentdb.com/capacityplanner).
 
-De valuta van Azure Cosmos DB is de *aanvraageenheid (RU)*. Met de basis van aanvraageenheden hoeft u geen reserveren voor lezen/schrijven-capaciteiten of inrichten CPU, geheugen en IOP's. Azure Cosmos DB ondersteunt verschillende API's met verschillende bewerkingen, variërend van eenvoudige leest en schrijft naar complexe graph-query's. Omdat niet alle aanvragen gelijk zijn, worden aanvragen een genormaliseerde hoeveelheid aanvraageenheden op basis van de hoeveelheid berekening vereist voor de service van de aanvraag aan toegewezen. Het aantal aanvraageenheden voor een bewerking is deterministisch. U kunt het aantal aanvraageenheden die worden verbruikt door elke bewerking in Azure Cosmos DB via een reactieheader bijhouden. 
+U kunt doorvoer op twee granulaties inrichten in Azure Cosmos DB: 
 
-Gereserveerd voor voorspelbare prestaties, doorvoer in eenheden van 100 ru's / seconde. U kunt [Maak een schatting van uw doorvoer moet](request-units.md#estimating-throughput-needs) met behulp van de Azure Cosmos DB [aanvraag eenheid calculator](https://www.documentdb.com/capacityplanner).
+1. **Azure Cosmos DB-container:** de doorvoer die is ingericht voor een container is gereserveerd voor alleen dat specifieke container. Bij het toewijzen van throughput(RU/s) op het niveau van de container, de containers kunnen worden gemaakt als **vaste** of **onbeperkt**. 
 
-![Doorvoer calculator][5]
+  Containers met vaste grootte hebben een limiet van de maximale doorvoer van 10.000 RU/s en de opslaglimiet van 10 GB. Voor het maken van een onbeperkte container, moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Omdat uw gegevens kunnen worden verdeeld over meerdere partities, hebt u het kiezen van een partitiesleutel waarvoor een hoge kardinaliteit (100 naar miljoenen afzonderlijke waarden). U selecteert een partitiesleutel met veel verschillende waarden, Azure Cosmos DB zorgt ervoor dat de aanvragen voor een verzameling, tabel en een graaf op uniforme wijze worden geschaald. 
 
-Na het lezen van dit artikel, zal het mogelijk om de volgende vragen te beantwoorden:
+2. **Azure Cosmos DB-database:** de doorvoer die is ingericht voor een database wordt gedeeld door alle containers in die database. Bij het inrichten van doorvoer op het databaseniveau van de, kunt u expliciet uitsluit bepaalde containers en in plaats daarvan worden ingericht met doorvoer voor de containers op het niveau van de container. Database-level doorvoer is vereist voor alle verzamelingen worden gemaakt met een partitiesleutel. Bij het toewijzen van doorvoer op het databaseniveau van de, de containers die deel uitmaken van deze database moeten worden gemaakt met een partitiesleutel omdat elke verzameling is een **onbeperkt** container.  
 
-* Wat zijn aanvraageenheden en kosten van de aanvraag in Azure Cosmos DB?
-* Hoe geef ik aanvraag eenheid capaciteit voor een container of een set van containers in Azure Cosmos DB?
-* Hoe schat ik dat aanvraageenheid van mijn toepassing nodig heeft?
-* Wat gebeurt er als ik aanvraag eenheid capaciteit voor een container of een set van containers in Azure Cosmos DB?
+Op basis van de ingerichte doorvoer, toewijzen Azure Cosmos DB fysieke partities voor het hosten van uw container (s) en worden gegevens over meerdere partities wanneer deze groeit. De volgende afbeelding ziet u inrichting doorvoer op verschillende niveaus:
 
-Omdat Azure Cosmos DB een databaseservice is, is het belangrijk te weten dat dit artikel van toepassing op alle gegevensmodellen en API's in Azure Cosmos DB is. In dit artikel wordt gebruikgemaakt van algemene termen, zoals *container* algemeen verwijzen naar een verzameling of een grafiek en *item* algemeen verwijzen naar een tabel, een document, een knooppunt of een entiteit.
+  ![Inrichting van aanvraageenheden voor afzonderlijke containers en instellen van containers](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> Doorvoer op het niveau van de container en het databaseniveau wordt ingericht zijn aparte aanbiedingen en schakelen tussen een van deze moet migreren van gegevens van bron naar doel. Dit betekent dat u wilt maken van een nieuwe database of een nieuwe verzameling en vervolgens migreren van gegevens met behulp van [bulksgewijs executor bibliotheek](bulk-executor-overview.md) of [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>Aanvraageenheden en kosten aanvragen
 
-Azure Cosmos DB biedt snelle, voorspelbare prestaties door het reserveren van resources om te voldoen aan de doorvoerbehoeften van uw toepassing. Toepassingen laden en toegang patronen veranderen verloop van tijd. Azure Cosmos DB kunt u gemakkelijk vergroten of verkleinen van de hoeveelheid gereserveerde doorvoer die beschikbaar zijn voor uw toepassing.
+Azure Cosmos DB biedt snelle, voorspelbare prestaties door het reserveren van resources om te voldoen aan de doorvoerbehoeften van uw toepassing. Laad- en toegangspatronen van toepassingen veranderen in de loop der tijd. Met Azure Cosmos DB kunt u gemakkelijk de hoeveelheid gereserveerde doorvoer vergroten of verkleinen die beschikbaar is voor uw toepassing.
 
 Met Azure Cosmos DB is gereserveerde doorvoer die is opgegeven in termen van aanvraageenheid per seconde verwerken. U kunt de basis van aanvraageenheden beschouwen als doorvoer valuta. U reserveren een aantal gegarandeerde aanvraageenheden beschikbaar voor uw toepassing op basis van de per-seconde. Elke bewerking in Azure Cosmos DB, met inbegrip van het schrijven van een document, een query wordt uitgevoerd en bijwerken van een document, verbruikt CPU, geheugen en IOP's. Dat wil zeggen, is elke bewerking leidt tot een aanvraag in rekening gebracht, die wordt uitgedrukt in reserveringseenheden. Als u de factoren die invloed hebben op aanvraag eenheid kosten in rekening gebracht en de doorvoer van uw toepassingsvereisten begrijpt, kunt u uw toepassing kunt uitvoeren als de kosten-effectief mogelijk. 
 
@@ -57,7 +57,7 @@ Wanneer u een schatting maken van het aantal aanvraageenheden om in te richten, 
 * **Gebruik een script**. Net als bij query's, opgeslagen procedures en triggers gebruiken van aanvraageenheden op basis van de complexiteit van de bewerkingen die worden uitgevoerd. Inspecteer de aanvraagheader van de kosten in rekening gebracht voor meer informatie over hoe elke bewerking aanvraag eenheid capaciteit verbruikt tijdens het ontwikkelen van uw toepassing.
 
 ## <a name="estimating-throughput-needs"></a>Schatten van doorvoervereisten te kunnen voldoen
-Een aanvraageenheid is een genormaliseerde meting van de kosten voor verwerking van aanvragen. Een enkele aanvraageenheid vertegenwoordigt de verwerkingscapaciteit die vereist zijn om te lezen (via self link- of -ID) een één item van 1 KB die uit 10 unieke eigenschapswaarden bestaat (met uitzondering van Systeemeigenschappen). Een aanvraag voor het maken van (invoegen), vervangen of verwijderen van hetzelfde artikel verbruikt meer verwerking van de service en daarmee vereist meer aanvraageenheden. 
+Een aanvraageenheid is een genormaliseerde meting van de kosten voor verwerking van aanvragen. De eenheid van een enkele aanvraag vertegenwoordigt de verwerkingscapaciteit die vereist zijn om te lezen (via Self link- of -ID) een één item van 1KB die uit 10 unieke eigenschapswaarden bestaat (met uitzondering van Systeemeigenschappen). Een aanvraag voor het maken van (invoegen), vervangen of verwijderen van hetzelfde artikel verbruikt meer verwerking van de service en daarmee vereist meer aanvraageenheden. 
 
 > [!NOTE]
 > De basislijn van 1 aanvraageenheid voor een item van 1 KB komt overeen met een eenvoudige ophalen door self link-of-ID van het item.
@@ -74,7 +74,6 @@ Dit is bijvoorbeeld een tabel waarin het aantal aanvraageenheden om in te richte
 | 4 KB | 500 | 500 | (500 * 1.3) + (500 * 7) 4,150 RU/s =
 | 64 kB | 500 | 100 | (500 * 10) + (100 * 48) 9,800 RU/s =
 | 64 kB | 500 | 500 | (500 * 10) + (500 * 48) 29.000 RU/s =
-
 
 ### <a name="use-the-request-unit-calculator"></a>De aanvraag eenheid Rekenmachine gebruiken
 Voor hulp bij het afstemmen van uw schattingen doorvoer, kunt u een webgebaseerde [aanvraag eenheid calculator](https://www.documentdb.com/capacityplanner). De Rekenmachine kan helpen uw schatting de vereisten van de aanvraag-eenheid voor normale bewerkingen, met inbegrip van:
@@ -237,4 +236,5 @@ Als u hebt meer dan één client cumulatief werken boven de snelheid van aanvrag
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 
