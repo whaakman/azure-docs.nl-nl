@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978672"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247449"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Berichtroutering en Event Grid vergelijken voor IoT-Hub
 
@@ -22,6 +22,7 @@ Azure IoT Hub biedt de mogelijkheid voor het streamen van gegevens van uw verbon
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[IoT Hub-berichtroutering](iot-hub-devguide-messages-d2c.md)**: deze IoT Hub-functie kunnen gebruikers voor het routeren van apparaat-naar-cloud-berichten naar de service-eindpunten, zoals Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen. Routering biedt ook een mogelijkheid een query uitvoeren op voor het filteren van de gegevens voordat deze naar de eindpunten. Naast het apparaat telemetriegegevens, kunt u ook verzenden [niet telemetriegebeurtenissen](iot-hub-devguide-messages-d2c.md#non-telemetry-events) die kunnen worden gebruikt voor het activeren van acties. 
+
 * **Integratie van IoT-Hub met Event Grid**: Azure Event Grid is een volledig beheerde service voor gebeurtenisroutering die gebruikmaakt van een publish-subscribe-model. IoT Hub en Event Grid samenwerken om [IoT Hub-gebeurtenissen integreren met Azure en niet-Azure-services](iot-hub-event-grid.md), in near-real-time. 
 
 ## <a name="similarities-and-differences"></a>Overeenkomsten en verschillen
@@ -34,7 +35,7 @@ Berichtroutering en Event Grid waarschuwing configuratie inschakelt, maar er zij
 | **Gebeurtenistype** | Ja, routering van berichten kan rapporteren dat dubbele wijzigingen en levenscyclusgebeurtenissen voor het apparaat. | Ja, Event Grid kunt rapporteren wanneer apparaten zijn gemaakt, verwijderd, verbonden en IoT Hub is verbroken |
 | **Bestellen** | Ja, ordening van gebeurtenissen wordt bijgehouden.  | Nee, de volgorde van gebeurtenissen is niet noodzakelijkerwijs. | 
 | **Maximale berichtgrootte** | 256 KB, apparaat-naar-cloud | 64 kB |
-| **Filteren** | Geavanceerde filteren in de berichteigenschappen van de toepassing, Systeemeigenschappen bericht, de hoofdtekst van bericht, twin apparaat dubbele tags en device eigenschappen. Zie voor voorbeelden van [bericht routering querysyntaxis](iot-hub-devguide-routing-query-syntax.md). | Filteren op basis van achtervoegsel/voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
+| **Filteren** | Geavanceerde op Eigenschappen van de toepassing berichten filteren, twin bericht Systeemeigenschappen, hoofdtekst van het bericht apparaat apparaatdubbel-tags en apparaat eigenschappen. Zie voor voorbeelden van [bericht routering querysyntaxis](iot-hub-devguide-routing-query-syntax.md). | Filteren op basis van achtervoegsel/voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
 | **Eindpunten** | <ul><li>Event Hubs</li> <li>Azure Blob Storage</li> <li>Service Bus-wachtrij</li> <li>Service Bus-onderwerpen</li></ul><br>Betaalde IoT Hub-SKU's (S1, S2 en S3) zijn beperkt tot 10 aangepaste eindpunten. 100 routes kunnen per IoT Hub worden gemaakt. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Aangepaste onderwerpen</li> <li>De services van derden via WebHooks</li></ul><br>Zie voor de meest recente lijst met eindpunten, [Event Grid-gebeurtenis-handlers](../event-grid/overview.md#event-handlers). |
 | **Kosten** | Er is geen aparte toeslag voor het routeren van berichten. Alleen inkomend verkeer van telemetrie naar IoT Hub wordt in rekening gebracht. Bijvoorbeeld, als u een bericht doorgestuurd naar drie verschillende eindpunten hebt, u worden in rekening gebracht voor slechts één bericht. | Er zijn geen kosten van IoT Hub. Event Grid biedt de eerste 100.000 bewerkingen per maand gratis, en vervolgens $0,60 per miljoen bewerkingen hierna. |
 

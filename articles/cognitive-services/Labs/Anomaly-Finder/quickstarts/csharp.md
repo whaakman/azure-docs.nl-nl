@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Afwijkingsdetectie zoeken-API met C# - cognitieve Microsoft-Services | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met C# en de Afwijkingsdetectie zoeken-API in cognitieve Services.
+title: De Anomaliedetectie Finder-API gebruiken met C# - Microsoft Cognitive Services | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van C# en de Anomaliedetectie-API voor zoeken in Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,37 +9,39 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 867ce4d0262c94de8da0dadeb8de71c28a8295d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345058"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246445"
 ---
-# <a name="use-the-anomaly-finder-api-with-c"></a>Gebruik de zoekfunctie Afwijkingsdetectie API met C#
+# <a name="use-the-anomaly-finder-api-with-c"></a>Gebruik de API voor Afwijkingsdetectie met C#
 
-In dit artikel bevat informatie en codevoorbeelden kunt u snel aan de slag met behulp van de Afwijkingsdetectie zoeken-API met C# taak van het resultaat van de afwijkingsdetectie reeks gegevens ophalen uit te voeren.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met de Finder-API voor Afwijkingsdetectie met C# taak van het resultaat van de anomaliedetectie van time series-gegevens ophalen uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Afwijkingsdetectie punten ophalen met Afwijkingsdetectie zoeken-API met C#
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Ophalen van afwijkingen punten met afwijkingen Finder-API met behulp van C#
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data-points"></a>Voorbeeld van gegevenspunten van reeksen tijd
+### <a name="example-of-time-series-data-points"></a>Voorbeeld van time series-gegevens verwijst
 
-In het voorbeeld van de gegevenspunten van reeksen tijd is als volgt.
+Het voorbeeld van de tijd gegevenspunten van reeks is als volgt.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Gegevens analyseren en ophalen van de afwijkingsdetectie punten C#-voorbeeld
+### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Gegevens analyseren en anomaliedetectie-punten C#-voorbeeld ophalen
 
-De stappen van het gebruik van het voorbeeld zijn als volgt.
+De stappen van het gebruik van het voorbeeld zijn er als volgt uit.
 
 1. Maak een nieuwe Console-oplossing in Visual Studio.
-2. Program.cs vervangen door de volgende code en de verwijzing naar System.Net.Http toevoegen.
-3. Vervang `[YOUR_SUBSCRIPTION_KEY]` waarde met de sleutel geldig abonnement.
+2. Vervang Program.cs door de volgende code en voeg de verwijzing naar System.Net.Http.
+3. Vervang `[YOUR_SUBSCRIPTION_KEY]` waarde door de sleutel geldig abonnement.
 4. Vervang `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` met uw gegevenspunten.
 
 ```csharp
@@ -119,7 +121,7 @@ namespace Console
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON. De voorbeeld-antwoord is als volgt.
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Het voorbeeld van een antwoord is als volgt.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

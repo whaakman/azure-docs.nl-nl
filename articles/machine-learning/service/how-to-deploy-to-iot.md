@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239197"
+ms.locfileid: "48248582"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Voorbereidingen voor het implementeren van modellen op IoT Edge
 
@@ -35,7 +35,7 @@ Voordat een model implementeert naar een edge-apparaat, gebruikt u de stappen in
 
 * Een [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in uw Azure-abonnement. 
 
-* Een getraind model. Zie voor een voorbeeld van hoe u een model te trainen, de [een model van de installatiekopie classificatie met Azure Machine Learning te trainen](tutorial-train-models-with-aml.md) document.
+* Een getraind model. Zie voor een voorbeeld van hoe u een model te trainen, de [een model van de installatiekopie classificatie met Azure Machine Learning te trainen](tutorial-train-models-with-aml.md) document. Er is een vooraf getrainde model beschikbaar op de [AI-werkset voor Azure IoT Edge-GitHub-opslagplaats](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ## <a name="prepare-the-iot-device"></a>De IoT-apparaat voorbereiden
 

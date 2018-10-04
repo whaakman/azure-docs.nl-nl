@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ac26e29f4a839f69b123489600c2c83fe395c48a
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597945"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247893"
 ---
 # <a name="anomaly-detection-java-application"></a>Detectie van Java-toepassing voor anomaliedetectie
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 In dit artikel ziet u een eenvoudige Java-toepassing met de API voor Afwijkingsdetectie aanroepen.  
 Het voorbeeld verzendt de time series-gegevens naar de API voor Afwijkingsdetectie met uw abonnementssleutel en vervolgens worden de anomaliedetectie-punten en verwachte waarde opgehaald voor elk gegevenspunt van de API.

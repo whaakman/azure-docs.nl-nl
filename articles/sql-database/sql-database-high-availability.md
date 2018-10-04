@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c06a028df098874a1ec12d83a362e01a5f4a711
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161893"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247716"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -56,7 +56,7 @@ Azure SQL-database in de premium-model, kan worden geïntegreerd reken- en op é
 
 De SQL Server Database Engine-proces- en onderliggende mdf/ldf-bestanden worden geplaatst op hetzelfde knooppunt met lage latentie aan uw workload biedt lokaal gekoppelde SSD-opslag. Hoge beschikbaarheid is geïmplementeerd met behulp van standaard [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Elke database is een cluster van de databaseknooppunten met één primaire database, die toegankelijk is voor de workload van een klant en een drie secundaire processen met kopieën van gegevens. Het primaire knooppunt pushes voortdurend de wijzigingen op secundaire knooppunten om ervoor te zorgen dat de gegevens beschikbaar op secundaire replica's, zijn als het primaire knooppunt om een bepaalde reden vastloopt. Failover wordt verwerkt door de SQL Server Database Engine – één secundaire replica wordt het primaire knooppunt en een nieuwe secundaire replica is gemaakt om ervoor te zorgen voldoende knooppunten in het cluster. De werkbelasting wordt automatisch omgeleid naar de nieuwe primaire knooppunt.
 
-Bedrijfskritiek cluster biedt bovendien ingebouwde alleen-lezen-knooppunt kan worden gebruikt voor het kenmerk alleen-lezen query's uitvoeren (bijvoorbeeld rapporten) die niet van invloed op prestaties van uw primaire workload. 
+Bovendien bedrijfskritiek cluster beschikt over een ingebouwde [Read Scale-Out](sql-database-read-scale-out.md) mogelijkheid waarmee u kunt gratis van kosten in rekening gebracht ingebouwde alleen-lezen-knooppunt kan worden gebruikt voor het kenmerk alleen-lezen query's uitvoeren (bijvoorbeeld rapporten) die niet van invloed op prestaties van uw primaire workload.
 
 ## <a name="zone-redundant-configuration-preview"></a>Zone-redundante configuratie (preview)
 
@@ -70,15 +70,6 @@ Omdat de redundante zone quorum-set replica's in verschillende datacenters met e
 De zone-redundante-versie van de architectuur voor hoge beschikbaarheid wordt aangegeven door het volgende diagram:
  
 ![hoge beschikbaarheid architectuur zone-redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
-
-## <a name="read-scale-out"></a>Uitschaling lezen
-Zoals wordt beschreven, Servicelagen Premium en bedrijfskritiek gebruikmaken van de quorum-sets en altijd op technologie voor hoge beschikbaarheid in één zone en de zone-redundante configuraties. Een van de voordelen van AlwaysOn is dat de replica's altijd de transactioneel consistente status hebben. Omdat de replica's de dezelfde compute groot is als de primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen query's worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. Lezen van de functie scale-out is bedoeld voor de toepassingen die logisch zijn gescheiden van alleen-lezen-werkbelastingen, zoals analytics en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding te maken met de primaire. 
-
-Voor het gebruik van de functie Read Scale-Out met een bepaalde database, moet u expliciet deze activeren bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
-
-Nadat Read Scale-Out is ingeschakeld voor een database, toepassingen die verbinding maken met deze database worden omgeleid naar de alleen-lezen-replica of naar een alleen-lezen replica van die database volgens de `ApplicationIntent` eigenschap geconfigureerd in van de toepassing de verbindingsreeks. Voor meer informatie over de `ApplicationIntent` eigenschap, Zie [Toepassingsintentie op te geven](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
-
-Als Read Scale-Out is uitgeschakeld of als u de eigenschap ReadScale in een niet-ondersteunde servicelaag instellen, alle verbindingen worden doorgestuurd naar de alleen-lezen replica, onafhankelijk van de `ApplicationIntent` eigenschap.
 
 ## <a name="conclusion"></a>Conclusie
 Azure SQL Database is nauw geïntegreerd met het Azure-platform en is sterk afhankelijk van de Service Fabric voor foutdetectie en herstel, op Azure Storage-Blobs voor gegevensbescherming en Beschikbaarheidszones voor hogere fouttolerantie. Op hetzelfde moment, maakt Azure SQL-database volledig gebruik van de technologie AlwaysOn-beschikbaarheidsgroep van SQL Server-vak product voor replicatie en failover. De combinatie van deze technologieën kan de toepassingen volledig profiteren van de voordelen van een gemengde opslagmodel en ondersteuning voor de meest veeleisende Sla's. 

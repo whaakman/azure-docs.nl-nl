@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: e0c2ad2385b5c8a54b4d8a743cc4f081e5ff6703
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127292"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248282"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager-eindpunten
 Microsoft Azure Traffic Manager kunt u bepalen hoe netwerkverkeer wordt gedistribueerd naar implementaties van toepassingen die worden uitgevoerd in verschillende datacenters. U configureren elke implementatie van toepassing als een 'eindpunt' in Traffic Manager. Bij het Traffic Manager een DNS-aanvraag ontvangt, kiest deze een eindpunt beschikbaar om te retourneren in de DNS-antwoord. Traffic manager wordt de basis van de keuze van de huidige status van endpoint en de verkeersrouteringsmethode. Zie voor meer informatie, [hoe Traffic Manager werkt](traffic-manager-how-it-works.md).
@@ -37,8 +37,9 @@ De volgende secties beschrijven elk eindpunt van het type in de opslagprestaties
 
 Azure-eindpunten worden gebruikt voor services op basis van Azure in Traffic Manager. De volgende Azure-resource-typen worden ondersteund:
 
-* 'Klassieke' virtuele machines van IaaS en PaaS-cloudservices.
+* PaaS-cloudservices.
 * Web Apps
+* Web-Appsites
 * PublicIPAddress-resources (die kunnen worden verbonden met virtuele machines rechtstreeks of via een Azure Load Balancer). Het openbare IP-adres moet een DNS-naam die moet worden gebruikt in een Traffic Manager-profiel is toegewezen.
 
 PublicIPAddress-resources zijn Azure Resource Manager-resources. Ze bestaan niet in het klassieke implementatiemodel. Dus zijn ze alleen ondersteund in Traffic Manager van Azure Resource Manager-ervaringen. Het andere eindpunttypen worden ondersteund via zowel Resource Manager en het klassieke implementatiemodel.

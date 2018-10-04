@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/3/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 50b567b298406b936a11ad5a8737ce4b1e21c0c7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163015"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248721"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -180,10 +180,10 @@ Een openbare Standard Load Balancer definieert, plaats de virtuele machines in d
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Uitgaande NAT voor interne Standard Load Balancer-scenario 's
 
-Wanneer u een interne Standard Load Balancer, is uitgaande NAT niet beschikbaar totdat een openbare Standard Load Balancer ook is geconfigureerd. U kunt dit wijzigen met behulp van en een uitgaande regel voor uitgaande connectiviteit voor virtuele machines achter een interne Standard Load Balancer maken.
+Wanneer u een interne Standard Load Balancer, is uitgaande NAT niet beschikbaar totdat de uitgaande connectiviteit expliciet is gedeclareerd. U kunt uitgaande connectiviteit maken uitgaande connectiviteit voor virtuele machines achter een interne Standard Load Balancer met deze stappen met behulp van een uitgaande regel definiëren:
 
 1. Maak een openbare Standard Load Balancer.
-2. Maak een back-endadresgroep en plaats de virtuele machines in een back-endpool van de openbare Load Balancer.
+2. Maak een back-endpool en plaats de virtuele machines in een back-endpool van de openbare Load Balancer naast de interne Load Balancer.
 3. Een uitgaande regel configureren op de openbare Load Balancer voor het programmeren van uitgaande NAT voor deze virtuele machines.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Zowel TCP en UDP-protocollen inschakelen voor de uitgaande NAT met een openbare Standard Load Balancer

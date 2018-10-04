@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: dc5f6c8c12dc10d135eaaf26d83236b2287bf059
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2229a8a01d29fc167eb3696423224f1d2ef0df4e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223115"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248462"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
@@ -33,8 +33,8 @@ Op dit moment binnen een enkel kopieeractiviteit kunt u alleen **gegevens kopië
 >[!IMPORTANT]
 >- Het Azure-abonnement met de data factory en de sink-gegevensopslag moet zich in dezelfde Azure Active Directory (Azure AD)-tenant als Office 365-tenant.
 >- Zorg ervoor dat de Integration Runtime van Azure-regio die wordt gebruikt voor de kopieeractiviteit, evenals de bestemming zich in dezelfde regio waar de Office 365-tenantgebruikers postvak dat zich bevindt. Raadpleeg [hier](concepts-integration-runtime.md#integration-runtime-location) om te begrijpen hoe de locatie van de Azure IR wordt bepaald. Raadpleeg [tabel hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) voor een lijst van ondersteunde Office-regio's en bijbehorende Azure-regio's.
->-  Als u het laden van gegevens in Office 365 **Azure Blob Storage** als doel, zorg ervoor dat u gebruikmaakt van **[service-principal verificatie](connector-azure-blob-storage.md#service-principal-authentication)** bij het definiëren van de gekoppelde Naar Azure Blob Storage-service en niet met behulp van [accountsleutel](connector-azure-blob-storage.md#account-key-authentication), [handtekening voor gedeelde toegang](connector-azure-blob-storage.md#shared-access-signature-authentication) of [beheerde service-identiteit ](connector-azure-blob-storage.md#managed-service-identity-authentication) verificaties.
->-  Als u het laden van gegevens in Office 365 **Azure Data Lake Storage Gen1** als doel, zorg ervoor dat u gebruikmaakt van [ **service-principal verificatie** ](connector-azure-data-lake-store.md#using-service-principal-authentication) bij het definiëren van de Gekoppelde Service Azure Data Lake Storage Gen1 en niet met behulp van [managed service identity-verificatie](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+>-  Als u het laden van gegevens in Office 365 **Azure Blob Storage** als doel, zorg ervoor dat u gebruikmaakt van **[service-principal verificatie](connector-azure-blob-storage.md#service-principal-authentication)** bij het definiëren van de gekoppelde Naar Azure Blob Storage-service en niet met behulp van [accountsleutel](connector-azure-blob-storage.md#account-key-authentication), [handtekening voor gedeelde toegang](connector-azure-blob-storage.md#shared-access-signature-authentication) of [beheerde identiteiten voor een Azure-resources](connector-azure-blob-storage.md#managed-identity) verificaties.
+>-  Als u het laden van gegevens in Office 365 **Azure Data Lake Storage Gen1** als doel, zorg ervoor dat u gebruikmaakt van [ **service-principal verificatie** ](connector-azure-data-lake-store.md#using-service-principal-authentication) bij het definiëren van de Gekoppelde Service Azure Data Lake Storage Gen1 en niet met behulp van [beheerde identiteiten voor verificatie van de Azure-resources](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Vereisten
 

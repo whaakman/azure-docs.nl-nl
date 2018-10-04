@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734468"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247991"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
-U kunt doorvoer instellen voor een Azure Cosmos DB-container of een set van containers met behulp van Azure portal of met behulp van de client-SDK's. 
-
-**Doorvoer voor een afzonderlijke container inrichten:** wanneer u de doorvoer voor een set met containers inrichten, alle containers die de ingerichte doorvoer delen. Inrichting doorvoer voor afzonderlijke containers zorgt ervoor dat de reservering van de doorvoer voor die specifieke container. Bij het toewijzen van RU/sec. op het niveau van de afzonderlijke container, de containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een onbeperkte container, moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Omdat uw gegevens worden verdeeld over meerdere partities moeten mogelijk, is het nodig om het kiezen van een partitiesleutel waarvoor een hoge kardinaliteit (100 naar miljoenen afzonderlijke waarden). Door een partitiesleutel met veel verschillende waarden selecteert, zorgt u ervoor dat uw container/tabel/graph en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
-
-**Doorvoer voor een set met containers of een database inrichten:** Provisioning doorvoer voor een database kunt u voor het delen van de doorvoer van alle containers die deel uitmaken van die database. U kunt een set van containers die de doorvoer, evenals de containers die zijn toegewezen doorvoer deelt hebben binnen een Azure Cosmos DB-database. Bij het toewijzen van RU/sec. over een verzameling van containers, de containers die behoren tot deze verzameling worden behandeld als *onbeperkte* containers en moeten een partitiesleutel opgeven.
-
-Op basis van de ingerichte doorvoer, toewijzen Azure Cosmos DB fysieke partities voor het hosten van uw containers en splitsingen/rebalances gegevens over meerdere partities wanneer deze groeit. Container en de inrichting van de database-level doorvoer zijn aparte aanbiedingen en schakelen tussen een van deze vereisen migreren van gegevens van bron naar bestemming. Dit betekent dat u wilt maken van een nieuwe database of een nieuwe verzameling en vervolgens migreren van gegevens met behulp van [bulksgewijs executor bibliotheek](bulk-executor-overview.md) of [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). De volgende afbeelding ziet u inrichting doorvoer op verschillende niveaus:
-
-![Inrichting van aanvraageenheden voor afzonderlijke containers en instellen van containers](./media/request-units/provisioning_set_containers.png)
-
-In de volgende gedeelten leert u de stappen die zijn vereist voor het configureren van doorvoer op verschillende niveaus voor een Azure Cosmos DB-account. 
+U kunt doorvoer instellen voor een Azure Cosmos DB-container of een set van containers met behulp van Azure portal of met behulp van de client-SDK's. In dit artikel beschrijft de stappen die zijn vereist voor het configureren van doorvoer op verschillende granulaties voor een Azure Cosmos DB-account.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Doorvoer inrichten met behulp van Azure portal
 

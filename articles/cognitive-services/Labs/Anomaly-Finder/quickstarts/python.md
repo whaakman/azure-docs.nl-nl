@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Afwijkingsdetectie zoeken-API met behulp van Python - cognitieve Microsoft-Services | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Afwijkingsdetectie zoeken met behulp van Python in cognitieve Services.
+title: Het gebruik van de Anomaliedetectie Finder-API met Python - Microsoft Cognitive Services | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van Afwijkingsdetectie met Python in Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,34 +9,36 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c14916b0644edab613b298d6e71f8bbb9a6bb804
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c9fd96bf4a9bdc9dfe5baf52aa742e19d5436708
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345050"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247348"
 ---
-# <a name="use-the-anomaly-finder-api-with-python"></a>Gebruik de zoekfunctie Afwijkingsdetectie API met behulp van Python
+# <a name="use-the-anomaly-finder-api-with-python"></a>De API voor Afwijkingsdetectie gebruiken met Python
 
-In dit artikel bevat informatie en codevoorbeelden kunt u snel aan de slag met behulp van de Afwijkingsdetectie zoeken-API met behulp van Python taak van het ophalen van afwijkingsdetectie resultaat voor reeksgegevens tijd uit te voeren.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de Anomaliedetectie Finder-API met Python om uit te voeren taak van het ophalen van de anomaliedetectie-resultaat voor time series-gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-python"></a>Afwijkingsdetectie punten ophalen met Afwijkingsdetectie zoeken-API met behulp van Python 
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-python"></a>Ophalen van afwijkingen punten met afwijkingen Finder-API met behulp van Python 
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Voorbeeld van een reeksgegevens
+### <a name="example-of-time-series-data"></a>Voorbeeld van time series-gegevens
 
-In het voorbeeld van de gegevenspunten van reeksen tijd is als volgt.
+Het voorbeeld van de tijd gegevenspunten van reeks is als volgt.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-python-example"></a>Gegevens analyseren en afwijkingsdetectie punten Python voorbeeld ophalen
+### <a name="analyze-data-and-get-anomaly-points-python-example"></a>Gegevens analyseren en anomaliedetectie punten Python-voorbeeld ophalen
 
-Zorg ervoor dat u python3 hebt geïnstalleerd en maak vervolgens een uitvoerbaar bestand met de naam detect.py van python. In detect.py, moet u de onderstaande code opnemen. Voordat de code wordt uitgevoerd, moet u vervangen de `[YOUR_SUBSCRIPTION_KEY]` waarde met de sleutel geldig abonnement.
+Zorg ervoor dat u python3 hebt geïnstalleerd en maak vervolgens een uitvoerbaar bestand met de naam detect.py van python. In detect.py, moet u de onderstaande code opnemen. Voordat de code wordt uitgevoerd, vergeet niet om te vervangen door de `[YOUR_SUBSCRIPTION_KEY]` waarde door de sleutel geldig abonnement.
 Vervang de `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` met uw gegevenspunten.
 
 ```python
@@ -65,7 +67,7 @@ print(result)
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON. Voorbeeldreactie is als volgt.
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Voorbeeldantwoord is als volgt.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

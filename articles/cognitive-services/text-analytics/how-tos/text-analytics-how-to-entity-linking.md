@@ -1,35 +1,71 @@
 ---
-title: Entiteiten koppelen met de Tekstanalyse-API gebruiken
+title: Herkenning van entiteit met de Tekstanalyse-API gebruiken
 titleSuffix: Azure Cognitive Services
-description: Informatie over het identificeren en oplossen van entiteiten met behulp van de Text Analytics REST-API.
+description: Leer hoe u voor het herkennen van entiteiten met behulp van de Text Analytics REST-API.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: ad2168806f9ddd124faf66cdb5a0f51ed13dfadc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604736"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248064"
 ---
-# <a name="how-to-identify-linked-entities-in-text-analytics-preview"></a>Het identificeren van gekoppelde entiteiten in Text Analytics (Preview)
+# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Herkenning van entiteit met de naam gebruiken in Text Analytics (Preview)
 
-De [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) neemt ongestructureerde tekst en voor elk JSON-document, resulteert in een lijst van disambiguated entiteiten met koppelingen naar meer informatie op het web (Wikipedia en Bing). 
+De [entiteit Recognition-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) neemt ongestructureerde tekst en voor elk JSON-document, resulteert in een lijst van disambiguated entiteiten met koppelingen naar meer informatie op het web (Wikipedia en Bing). 
 
-## <a name="entity-linking-vs-named-entity-recognition"></a>Entity Linking vs. Herkenning van benoemde entiteiten
+## <a name="entity-linking-and-named-entity-recognition"></a>Entiteiten koppelen en herkenning van benoemde entiteiten
 
-In de verwerking van natuurlijke taal, worden de concepten van entiteiten koppelen en herkenning van benoemde entiteiten (NER) eenvoudig verward. In de preview-versie van de Text Analytics `entities` eindpunt, alleen entiteiten koppelen wordt ondersteund.
+De Text Analytics `entities` eindpunt supprts, beide met de naam van entiteit recognition (NER) en het koppelen van de entiteit.
 
+### <a name="entity-linking"></a>Entiteiten koppelen
 Entiteiten koppelen is de mogelijkheid om te bepalen en dubbelzinnigheid van de identiteit van een entiteit in de tekst (bijvoorbeeld bepalen of de "Mars ' wordt gebruikt als de planeet of als de Roman overmacht van war) gevonden. Dit proces vereist de aanwezigheid van een knowledge base die herkend entiteiten zijn gekoppeld: Wikipedia wordt gebruikt als de knowledge base voor de `entities` eindpunt Text Analytics.
+
+In de Text Analytics [versie 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)alleen entiteiten koppelen is beschikbaar.
+
+### <a name="named-entity-recognition-ner"></a>Herkenning van benoemde entiteiten (NER)
+Met de naam van entiteit recognition is (NER) de mogelijkheid om te bepalen van de verschillende entiteiten in de tekst en verdeel ze in categorieën in de vooraf gedefinieerde klassen. De ondersteunde klassen van entiteiten worden hieronder vermeld.
+
+Text Analytics versie 2.1 Preview-versie (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), entiteiten koppelen en herkenning van benoemde entiteiten (NER) beschikbaar zijn.
 
 ### <a name="language-support"></a>Taalondersteuning
 
 Entiteiten koppelen in verschillende talen, moet met behulp van een betreffende knowledge base in elke taal. Voor entiteiten koppelen in Text Analytics, betekent dit dat elke taal die wordt ondersteund door de `entities` eindpunt koppelt aan de bijbehorende Wikipedia corpus in die taal. Omdat de grootte van corpora tussen talen varieert, is het waarschijnlijk dat de entiteit koppelen van de functionaliteit intrekken ook variëren.
+
+## <a name="supported-types-for-named-entity-recognition"></a>Ondersteunde typen voor herkenning van benoemde entiteiten
+
+| Type  | SubType | Voorbeeld |
+|:-----------   |:------------- |:---------|
+| Person        | N.V.T.\*         | "Jan", "Bill Gates"     |
+| Locatie      | N.V.T.\*         | "Redmond, Washington", "Parijs"  |
+| Organisatie  | N.V.T.\*         | 'Microsoft'   |
+| Hoeveelheid      | Aantal        | '6', "zes"     | 
+| Hoeveelheid      | Percentage    | "50%", "50%"| 
+| Hoeveelheid      | Volgnummer       | "2", "tweede"     | 
+| Hoeveelheid      | NumberRange   | "4-8"     | 
+| Hoeveelheid      | Leeftijd           | "90 dagen oud is", "30 jaar oude"    | 
+| Hoeveelheid      | Valuta      | "$10,99"     | 
+| Hoeveelheid      | Dimensie     | "10 mijl", "40 cm"     | 
+| Hoeveelheid      | Temperatuur   | "32 graden"    |
+| DateTime      | N.V.T.\*         | "6:30 PM 4 februari 2012"      | 
+| DateTime      | Date          | "Mei 2e 2017", "05/02/2017"   | 
+| Datum tijd     | Time          | "8 am", "8:00"  | 
+| DateTime      | DateRange     | "Mei 2e op 5 mei"    | 
+| DateTime      | timeRange     | "18: 00 uur tot 19: 00"     | 
+| DateTime      | Duur      | '1 minuut en 45 seconden'   | 
+| DateTime      | Instellen           | "elke dinsdag"     | 
+| DateTime      | TimeZone      |    | 
+| URL           | N.V.T.\*         | "http://www.bing.com"    |
+| Email         | N.V.T.\*         | "support@contoso.com" |
+\* Afhankelijk van de invoer- en uitgepakte entiteiten, bepaalde entiteiten kunnen laat de `SubType`.
+
 
 
 ## <a name="preparation"></a>Voorbereiding
@@ -43,11 +79,11 @@ De documentgrootte van het moet onder maximaal 5000 tekens per document, en u ku
 ```
 {"documents": [{"id": "1",
                 "language": "en",
-                "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."
+                "text": "Jeff bought three dozen eggs because there was a 50% discount."
                 },
                {"id": "2",
                 "language": "en",
-                "text": "The Seattle Seahawks won the Super Bowl in 2014."
+                "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
                 }
                ]
 }
@@ -59,14 +95,14 @@ Meer informatie over de definitie van de aanvraag kunnen u vinden in [over het a
 
 + Maak een **POST** aanvraag. Controleer de API-documentatie voor deze aanvraag: [Entity Linking-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Stel de HTTP-eindpunt voor de extractie van cruciale frasen. Het omvat de `/entities` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
++ Stel de HTTP-eindpunt voor de extractie van cruciale frasen. Het omvat de `/entities` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Stel een aanvraagheader om op te nemen van de toegangssleutel voor de Text Analytics-bewerkingen. Zie voor meer informatie, [over het zoeken van eindpunten en toegangssleutels](text-analytics-how-to-access-key.md).
 
 + In de hoofdtekst van de aanvraag, bieden de JSON-documenten-verzameling die u hebt voorbereid voor deze analyse
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) structureren van een aanvraag en PLAATST deze in de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) structureren van een aanvraag en PLAATST deze in de service.
 
 ## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag plaatsen
 
@@ -82,74 +118,168 @@ Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten naar een toepassi
 
 Een voorbeeld van de uitvoer voor entiteiten koppelen wordt volgende weergegeven:
 
-```
+```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
-
-Wanneer deze beschikbaar is, bevat het antwoord de Wikipedia-ID, de Wikipedia-URL en de Bing-ID voor elke gedetecteerde entiteit. Deze kunnen worden gebruikt voor het verder verbeteren van uw toepassing met informatie met betrekking tot de gekoppelde entiteit.
 
 
 ## <a name="summary"></a>Samenvatting
 
 In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van de Text Analytics in Cognitive Services en concepten. Kortom:
 
-+ [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) is beschikbaar voor de geselecteerde talen.
++ [Entiteiten API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) is beschikbaar voor de geselecteerde talen.
 + JSON-documenten in de aanvraagtekst omvatten een code-id, tekst en taal.
 + POST-aanvraag is een `/entities` eindpunt, met behulp van een persoonlijk [toegang krijgen tot de sleutel en een eindpunt](text-analytics-how-to-access-key.md) die geldig is voor uw abonnement.
 + Antwoorduitvoer, die uit de gekoppelde entiteiten bestaat (met inbegrip van vertrouwen scores verschuivingen en webkoppelingen, voor elk document-ID) kan worden gebruikt in een toepassing
@@ -163,4 +293,4 @@ In dit artikel hebt u geleerd werkstroom voor entiteiten koppelen met behulp van
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Tekstanalyse-API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [Tekstanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

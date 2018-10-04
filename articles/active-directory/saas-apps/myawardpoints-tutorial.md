@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184775"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Zelfstudie: Azure Active Directory-integratie met mijn Award punten boven Sub/boven-Team
 
@@ -50,7 +50,8 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
+Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Mijn Award punten boven Sub/boven Team uit de galerie toe te voegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
@@ -112,7 +113,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > Aanmeldings-URL-waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [ondersteuningsteam van mijn Award punten boven Sub/boven Team Client](mailto:myawardpoints@biworldwide.com) deze waarde op te halen.
+    > U krijgt de `<SAMLENTITYID>` waarde in de volgende stappen in deze zelfstudie.
 
 4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -122,7 +123,9 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Configureren van eenmalige aanmelding opslaan](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Het configureren van eenmalige aanmelding op **mijn Award punten boven Sub/boven Team** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [ondersteuningsteam van mijn Award punten boven Sub/boven Team](mailto:myawardpoints@biworldwide.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+6. In de **mijn Award punten boven Sub/boven Team configuratie** sectie, selecteer **configureren mijn Award punten boven Sub/boven Team** om het venster van de aanmelding configureren te openen. Kopieer de SAML-entiteit-ID van de **Naslaggids** sectie en toevoegen van de SAML-entiteit-ID-waarde met de aanmeldings-URL in plaats van `<SAMLENTITYID>` in de **mijn Award punten boven Sub/boven Team domein en URL's** sectie in Azure portal.
+
+7. Het configureren van eenmalige aanmelding op **mijn Award punten boven Sub/boven Team** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [ondersteuningsteam van mijn Award punten boven Sub/boven Team](mailto:myawardpoints@biworldwide.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 

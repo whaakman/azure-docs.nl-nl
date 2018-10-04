@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 3242f683fd6190209e3395bd8410dd1b2cd36960
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc322857a459f9417ed7c89a6e4df7ce5c41c3f0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043343"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246478"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -75,7 +75,11 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > Op een bepaald moment is slechts één van de AlwaysON-replica's toegankelijk door de alleen-lezen-sessies.
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>In- en uitschakelen van Read Scale-Out met behulp van Azure PowerShell
+## <a name="enable-and-disable-read-scale-out"></a>In- en uitschakelen van Read Scale-Out
+
+Read Scale-Out is standaard ingeschakeld in [Managed Instance](sql-database-managed-instance.md) bedrijfskritiek tier(Preview). Het expliciet moet worden ingeschakeld [database op logische server geplaatst](sql-database-logical-servers.md) lagen Premium en bedrijfskritiek. De methoden voor het inschakelen en uitschakelen van Read Scale-Out wordt hier beschreven. 
+
+### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>In- en uitschakelen van Read Scale-Out met behulp van Azure PowerShell
 
 De December 2016 beheren Read Scale-Out in Azure PowerShell vereist Azure PowerShell versie of hoger. Zie voor de nieuwste versie van PowerShell, [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -99,7 +103,7 @@ Een nieuwe database maken met meer scale-out ingeschakeld (de items in de puntha
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Inschakelen en uitschakelen van Read Scale-Out met behulp van de Azure SQL Database REST-API
+### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Inschakelen en uitschakelen van Read Scale-Out met behulp van de Azure SQL Database REST-API
 
 Voor een database maken met lezen scale-out is ingeschakeld, of voor het in- of uitschakelen van lezen scale-out voor een bestaande database, maken of bijwerken van de bijbehorende database-entiteit met de `readScale` eigenschap ingesteld op `Enabled` of `Disabled` zoals in het onderstaande voorbeeld de aanvraag.
 

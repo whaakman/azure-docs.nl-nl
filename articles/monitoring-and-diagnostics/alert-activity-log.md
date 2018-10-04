@@ -1,5 +1,5 @@
 ---
-title: Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken in Azure Monitor
+title: Weergave, maken en beheren van waarschuwingen voor activiteitenlogboeken in Azure Monitor
 description: Het maken van waarschuwingen voor activiteitenlogboeken van Azure Portal, Resource-sjabloon en PowerShell.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 526c50fa4d261a30738c3f24d537fe5e0d765f6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951301"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248326"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van waarschuwingen voor activiteitenlogboeken met behulp van Azure Monitor  
 
@@ -25,7 +25,7 @@ Deze waarschuwingen zijn voor Azure-resources kunnen worden gemaakt met behulp v
 > [!IMPORTANT]
 > Waarschuwingen op status van de Service-melding kunnen niet worden gemaakt via de interface voor het maken van activiteit log waarschuwingen. Zie voor meer informatie over het maken en gebruiken van servicestatusmeldingen [ontvangen van waarschuwingen voor activiteitenlogboeken op servicestatusmeldingen](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-portal"></a>Regels voor waarschuwingen voor activiteitenlogboek met behulp van Azure portal beheren
+## <a name="azure-portal"></a>Azure Portal
 
 > [!NOTE]
 
@@ -36,7 +36,7 @@ Deze waarschuwingen zijn voor Azure-resources kunnen worden gemaakt met behulp v
 - Er is geen 'dragen' voorwaarde of geneste voorwaarden in de waarschuwingsconfiguratie JSON (in feite, slechts één allOf met geen verdere allOf/dragen is toegestaan).
 - Wanneer is de categorie 'beheer'. U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
 
-### <a name="create-an-alert-rule-for-an-activity-log-using-azure-portal"></a>Een waarschuwingsregel voor een activiteitenlogboek met behulp van Azure portal maken
+### <a name="create-with-azure-portal"></a>Maken met Azure portal
 
 Gebruik de volgende procedure:
 
@@ -102,7 +102,7 @@ U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop d
  ![ waarschuwing toevoegen met het activiteitenlogboek](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
     
 
-### <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>Weergeven en beheren van activiteit-logboekwaarschuwingsregels in Azure portal
+### <a name="view-and-manage-in-azure-portal"></a>Weergeven en beheren in Azure portal
 
 1. Vanuit Azure-portal, klikt u op **Monitor** > **waarschuwingen** en klikt u op **regels beheren** op linksboven in het venster.
 
@@ -127,7 +127,7 @@ U kunt ook een eenvoudige vergelijking voor informatie over voorwaarden waarop d
 4.  U kunt uitschakelen, inschakelen of verwijderen van een regel. Selecteer de gewenste optie aan de bovenkant van het venster nadat u de regel zoals beschreven in stap 2 hebt geselecteerd.
 
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>Regels voor waarschuwingen voor activiteitenlogboek met behulp van Azure-Resourcesjabloon beheren
+## <a name="azure-resource-template"></a>Azure Resource-sjabloon
 Als u wilt een waarschuwing voor activiteitenlogboek maken met behulp van Resource Manager-sjabloon, maken van een resource van het type `microsoft.insights/activityLogAlerts`. U Vul vervolgens alle verwante eigenschappen. Hier volgt een sjabloon die een waarschuwing voor activiteitenlogboek maakt.
 
 ```json
@@ -200,21 +200,23 @@ Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleActivityLogAlert.json t
 > [!NOTE]
 > Het kan tot vijf minuten duren voor de een nieuwe waarschuwingsregel voor activiteitenlogboeken actief
 
-## <a name="manage-alert-rules-for-activity-log-using-powershell-cli-or-api"></a>Regels voor waarschuwingen voor activiteitenlogboek met behulp van PowerShell, CLI of API beheren
+## <a name="rest-api"></a>REST-API 
 [Azure Monitor - activiteit Log waarschuwingen API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
 
+## <a name="powershell"></a>PowerShell
 Hieronder gebruik via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) wordt weergegeven de [Resource sjabloonsectie](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 De sampleActivityLogAlert.parameters.json heeft waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
 
+## <a name="cli"></a>CLI
 Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleActivityLogAlert.json) wordt weergegeven de [Resource sjabloonsectie](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
-De sampleActivityLogAlert.parameters.json heeft waarin de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
+De *sampleActivityLogAlert.parameters.json* bestand heeft de waarden voor de parameters die nodig zijn voor het maken van waarschuwingsregel.
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,6 +1,6 @@
 ---
-title: De Afwijkingsdetectie zoeken-API gebruiken met PHP - cognitieve Microsoft-Services | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Afwijkingsdetectie zoeken met PHP in cognitieve Services.
+title: De Anomaliedetectie Finder-API gebruiken met PHP - Microsoft Cognitive Services | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van Afwijkingsdetectie met PHP in Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,30 +9,32 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345056"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246392"
 ---
-# <a name="use-the-anomaly-finder-api-with-php"></a>Gebruik de zoekfunctie Afwijkingsdetectie API met PHP
+# <a name="use-the-anomaly-finder-api-with-php"></a>De API voor Afwijkingsdetectie gebruiken met PHP
 
-In dit artikel bevat informatie en codevoorbeelden kunt u snel aan de slag met de Afwijkingsdetectie zoeken-API met PHP de taak van het ophalen van afwijkingsdetectie resultaat voor reeksgegevens tijd uit te voeren.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de Anomaliedetectie Finder-API met PHP om uit te voeren van de taak van het ophalen van de anomaliedetectie-resultaat voor time series-gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Afwijkingsdetectie punten ophalen met Afwijkingsdetectie zoeken-API met PHP
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Anomaliedetectie punten ophalen met afwijkingen Finder-API met behulp van PHP
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Voorbeeld van een reeksgegevens
-Het voorbeeld van het gegevenstype van de reeks tijd is als volgt.
+### <a name="example-of-time-series-data"></a>Voorbeeld van time series-gegevens
+Het voorbeeld van de time series-gegevens is als volgt.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Gegevens analyseren en afwijkingsdetectie punten PHP-voorbeeld
-1. Vervang de `[YOUR_SUBSCRIPTION_KEY]` waarde met de sleutel geldig abonnement.
+### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Gegevens analyseren en anomaliedetectie punten voorbeeld van PHP
+1. Vervang de waarde `[YOUR_SUBSCRIPTION_KEY]` door de geldige abonnementssleutel.
 2. Vervang de `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` met het voorbeeld of uw eigen gegevenspunten.
 3. Uitvoeren en controleren van het antwoord.
 
@@ -74,7 +76,7 @@ catch (HttpException $ex)
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON. Voorbeeldreactie is als volgt.
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Voorbeeldantwoord is als volgt.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

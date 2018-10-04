@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181439"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247804"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Ontwikkelen van .NET Standard door de gebruiker gedefinieerde functies voor Azure Stream Analytics Edge-taken (Preview)
 
@@ -37,16 +37,13 @@ De indeling van een UDF-pakket heeft het pad `/UserCustomCode/CLR/*`. Dynamic Li
 
 |**UDF-type (C#)**  |**Azure Stream Analytics-typen**  |
 |---------|---------|
-|BOOL  |  bigint   |
-|Int32  |  bigint   |
-|Int64  |  bigint   |
-|drijvend  |  double   |
+|lengte  |  bigint   |
 |double  |  double   |
 |tekenreeks  |  nvarchar(max)   |
 |Datum/tijd  |  Datum/tijd   |
 |Struct  |  Irecords   |
 |object  |  Irecords   |
-|Matrix  |  IArray   |
+|Matrix<object>  |  IArray   |
 |Dictionary < string, object >  |  Irecords   |
 
 ## <a name="codebehind"></a>CodeBehind

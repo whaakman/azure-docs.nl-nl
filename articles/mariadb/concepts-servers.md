@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf57acdcbcfa792a6c5ab62c6e8ec0589d625df7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994582"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247768"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concepten van de server in Azure Database voor MariaDB
 In dit artikel vindt u overwegingen en richtlijnen voor het werken met Azure Database voor MariaDB-servers.
@@ -44,7 +44,7 @@ De volgende elementen zorgen veilige toegang tot uw database.
 | **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door MySQL. |
 | **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en sockets van Unix-domein. |
 | **Firewall** | Ter bescherming van uw gegevens, voorkomt een firewallregel alle toegang tot uw databaseserver totdat u opgeeft welke computers zijn gemachtigd. Zie [Azure Database voor MariaDB Server firewall-regels](./concepts-firewall-rules.md). |
-| **SSL** | De service biedt ondersteuning voor afdwingen van SSL-verbindingen tussen uw toepassingen en uw database-server.  <!--See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> |
+| **SSL** | De service biedt ondersteuning voor afdwingen van SSL-verbindingen tussen uw toepassingen en uw database-server. Zie [configureren van SSL-connectiviteit in uw toepassing veilig verbinding maken met Azure Database voor MariaDB](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?
 U kunt Azure Database voor MariaDB-servers beheren met behulp van de Azure-portal of de Azure CLI.
@@ -52,4 +52,5 @@ U kunt Azure Database voor MariaDB-servers beheren met behulp van de Azure-porta
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor een overzicht van de service, [Azure Database voor MariaDB-overzicht](./overview.md)
 - Voor informatie over specifieke resource quota en beperkingen op basis van uw **servicelaag**, Zie [Servicelagen](./concepts-pricing-tiers.md)
+
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

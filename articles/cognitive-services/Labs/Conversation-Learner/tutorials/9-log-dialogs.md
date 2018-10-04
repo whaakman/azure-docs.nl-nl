@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171432"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248378"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hoe u zich aanmeldt dialoogvensters in een model Conversatiecursist
 
@@ -76,7 +76,7 @@ U hebt nu twee acties.
 
 Voeg een ander voorbeeld van dit dialoogvenster:
 
-1. Klik op nieuwe actie en vervolgens nieuwe dialoogvenster van de trein.
+1. Klik op Train dialoogvensters en vervolgens nieuwe dialoogvenster van de trein.
 2. Typ 'Wat is het weer in Seattle?'. U ziet dat Seattle is gemarkeerd als een entiteit.
 5. Klik op Score acties 
 6. Selecteer 'het weer in $city is waarschijnlijk zonnige'.
@@ -86,7 +86,7 @@ Voeg een ander voorbeeld van dit dialoogvenster:
 Stel dat we deze bot hebt geïmplementeerd voor gebruikers.
 
 1. Klik op logboek dialoogvensters.
-2. Klik op nieuwe Chat-sessie.
+2. Klik op het dialoogvenster Nieuw logboek.
     - Dit geeft de bot als de gebruiker deze in het besturingselement voor webchat aan de linkerkant van de gebruikersinterface optreden zou. U kunt het spatietekens gebied aan de rechterkant negeren.
 3. Typ 'Hallo'.
 4. Bot-antwoord: welke plaats?
@@ -97,10 +97,10 @@ Stel dat we deze bot hebt geïmplementeerd voor gebruikers.
 
 Laten we een nieuwe sessie starten:
 
-2. Klik op nieuwe Chat-sessie.
+2. Klik op het dialoogvenster Nieuw logboek.
 3. Het type 'Prognose voor Boston'.
 4. Bot-antwoord: welke plaats?
-2. Klik op het onderwijs gereed.
+2. Klik op gereed testen.
 
 Nu maken we gaan correcties in het tweede dialoogvenster:
 

@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 58ccc328281bb70e00294ccef054232108212ccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 930e561c1777ccfcb8046c824853ebb12367cee5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997655"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248097"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database voor MariaDB server firewall-regels
 Totdat u opgeeft welke computers zijn gemachtigd, verhinderen firewalls alle toegang tot uw database-server. De firewall verleent toegang tot de server op basis van het oorspronkelijke IP-adres van elke aanvraag.
@@ -46,7 +46,9 @@ Opdat toepassingen vanuit Azure verbinding maken met uw Azure Database voor Mari
 ![Toegang tot Azure-services toestaan in de portal configureren](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Firewallregels programmatisch beheren
-Naast de Azure portal, kunnen de firewallregels programmatisch worden beheerd met behulp van de Azure CLI. <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+Naast de Azure portal, kunnen de firewallregels programmatisch worden beheerd met behulp van de Azure CLI. 
+
+<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
 ## <a name="troubleshooting-the-database-firewall"></a>Problemen met de databasefirewall oplossen
 De volgende punten overwegen wanneer u toegang tot de Microsoft Azure-Database voor MariaDB server-service niet werkt zoals verwacht:

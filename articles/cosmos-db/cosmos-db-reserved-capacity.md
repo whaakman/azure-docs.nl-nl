@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1be2d67d8a1ee51c4883ae1f50b80ad3a9691c2d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291b2429e6c5c25e051c8f3eca30e1cc3f64611
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981964"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247326"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Betaal vooruit voor Azure Cosmos DB-resources met gereserveerde capaciteit
 
@@ -32,11 +32,11 @@ U kunt Azure Cosmos DB gereserveerde capaciteit uit kopen de [Azure-portal](http
 
 De grootte van de reservering moet worden gebaseerd op de totale hoeveelheid doorvoer die wordt gebruikt door de bestaande of snel-naar--geïmplementeerd Azure Cosmos DB-resources (bijvoorbeeld, databases of containers - verzamelingen, tabellen, grafieken). U kunt de vereiste doorvoer bepalen in de volgende manieren:
 
-* Navigeer naar [Azure Portal](https://portal.azure.com), vinden van uw Azure Cosmos DB-account, opent u de blade metrische gegevens en ophalen van de details van de gemiddelde doorvoer per seconde van de **doorvoer** tabblad gedurende een periode van 3 tot en met 6 maanden. Deze grootte als de gereserveerde capaciteitseenheden opgeven bij de aanschaf van.
+* De historische gegevens ophalen voor de totale ingerichte doorvoer in uw Azure Cosmos DB-accounts, databases en verzamelingen in alle regio's. Bijvoorbeeld, kunt u de dagelijkse gemiddelde ingerichte doorvoer evalueren door uw dagelijkse gebruik overzicht van het downloaden `https://account.azure.com`
 
-U kunt ook als u een Enterprise Agreement (EA), u kunt uw bestand met gebruiksgegevens downloaden en verwijzen naar **servicetype** waarde in de **aanvullende informatie** gedeelte van het gebruiksbestand om op te halen van de Azure Cosmos DB details van de doorvoer.
+* U kunt ook als u een Enterprise Agreement (EA), u kunt uw bestand met gebruiksgegevens downloaden en verwijzen naar **servicetype** waarde in de **aanvullende informatie** gedeelte van het gebruiksbestand om op te halen van de Azure Cosmos DB details van de doorvoer.
 
-U kunt ook de gemiddelde doorvoer voor alle werkbelastingen optellen van uw Azure Cosmos DB-accounts dat u verwacht wordt uitgevoerd voor de volgende één of drie jaar dat en aantal wordt gebruikt voor de reservering.
+* U kunt ook de gemiddelde doorvoer voor alle werkbelastingen optellen van uw Azure Cosmos DB-accounts dat u verwacht wordt uitgevoerd voor de volgende één of drie jaar dat en aantal wordt gebruikt voor de reservering.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB gereserveerde capaciteit kopen
 

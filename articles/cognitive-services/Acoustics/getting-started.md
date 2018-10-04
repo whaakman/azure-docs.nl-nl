@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 72a9d476b5e5dfc55c6a28dff7e09a20faab332c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181564"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246987"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Aan de slag met Project akoestische
 Deze snelstartgids wordt beschreven hoe integreren van de invoegtoepassing in uw Unity-project, het maken van uw scène en het toepassen van de akoestische geluid gegevensbronnen. Voor deze Quick Start, moet u eerst maken een [Azure batch-account](create-azure-account.md). Deze handleiding wordt ervan uitgegaan dat bekend zijn met Unity.
@@ -93,9 +93,9 @@ Maak een audiobron. Klik op het selectievakje aan de onderkant van van de AudioS
 ![Audiobron](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Na bake ontwerp toepassen
-U kunt het script toevoegen **AcousticsSourceCustomization** met een goede bron in uw scène waarmee extra bron ontwerpparameters door te klikken op **onderdeel toevoegen** en het kiezen van **Scripts > Bron-akoestische aanpassing**:
+U kunt het script toevoegen **AcousticsDesign** met een goede bron in uw scène waarmee extra bron ontwerpparameters door te klikken op **onderdeel toevoegen** en het kiezen van **Scripts > akoestische Ontwerp**:
 
-![Aanpassing van bron](media/SourceCustomization.png)
+![Aanpassing van bron](media/AcousticsDesign.png)
 
 Er zijn ook parameters op de **Microsoft akoestische Mixer**. Zie voor meer informatie over het ontwerpen van na bake [parameters ontwerpen](design-process.md).
 

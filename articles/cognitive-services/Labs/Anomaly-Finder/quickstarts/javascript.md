@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8a880e5924ec6bfbabb5ae4d71742f2a29bdea7f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665019"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246926"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Gebruik de API voor Afwijkingsdetectie met Javascript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de API voor Afwijkingsdetectie met Javascript om uit te voeren van de taak van het resultaat van de detectie van afwijkingen van time series-gegevens ophalen.
 
@@ -40,7 +42,7 @@ De stappen van het gebruik van het voorbeeld zijn er als volgt uit.
 
 1. Maak een nieuwe HTML-bestand.
 2. Het HTML-bestand vervangen door de volgende code.
-3. Vervang de `[YOUR_SUBSCRIPTION_KEY]` waarde door de sleutel geldig abonnement.
+3. Vervang de waarde `[YOUR_SUBSCRIPTION_KEY]` door de geldige abonnementssleutel.
 4. De gegevens in requestTextArea vervangen door uw gegevenspunten.
 5. Het HTML-bestand in een webbrowser openen en op `Anomaly Detection` knop.
 
@@ -306,7 +308,7 @@ De stappen van het gebruik van het voorbeeld zijn er als volgt uit.
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde reactie is geretourneerd in JSON. Voorbeeldantwoord is als volgt.
+Een geslaagd antwoord wordt geretourneerd in JSON-indeling. Voorbeeldantwoord is als volgt.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
