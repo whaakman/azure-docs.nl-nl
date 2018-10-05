@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: a21b97f603fc28cdbba8983547ce958a34df0774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 54d177d7542d7501a91a955be20af776b16657a2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968591"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182362"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Wat is Azure Virtual WAN?
 
@@ -43,6 +43,8 @@ Wanneer u met een Virtual WAN-partner werkt, is dit het proces:
 Als u geen voorkeurspartner wilt gebruiken, kunt u de verbinding handmatig configureren. Zie [Een site-naar-site-verbinding maken met Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 ## <a name="p2s"></a>Punt-naar-site-verbindingen (preview)
+
+Met een point-to-site-verbinding (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele hub. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer. Deze oplossing is handig voor telewerkers die verbinding willen maken vanaf een externe locatie, zoals thuis of een conferentie. P2S-VPN is ook een uitstekende oplossing in plaats van een S2S-VPN wanneer u maar een paar clients hebt die verbinding moeten maken.
 
 Raadpleeg [Een site-naar-site-verbinding maken met Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid) als u de verbinding handmatig tot stand wilt brengen.
 

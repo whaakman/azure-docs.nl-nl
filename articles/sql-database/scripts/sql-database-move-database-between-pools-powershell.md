@@ -2,30 +2,26 @@
 title: PowerShell-voorbeeld - Azure SQL-database tussen elastische pools verplaatsen | Microsoft Docs
 description: Azure PowerShell-voorbeeldscript voor het verplaatsen van een SQL-database tussen elastische pools met behulp van PowerShell
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
+ms.reviewer: ''
 ms.author: carlrab
-ms.openlocfilehash: 55ba42bda592652b7921df5f25f9b5747fc9baf2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e71c1b1f184fe5c240e258295c144db405e25527
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054826"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>PowerShell gebruiken voor het maken van elastische pools en verplaatsen van databases tussen elastische pools
 
-In dit PowerShell-voorbeeldscript worden twee elastische pools gemaakt, waarna een database van de ene elastische pool naar een andere elastische pool wordt verplaatst. Vervolgens wordt de database vanuit de elastische pool verplaatst naar een enkel prestatieniveau voor databases. 
+In dit PowerShell-voorbeeldscript worden twee elastische pools gemaakt, waarna een database van de ene elastische pool naar een andere elastische pool wordt verplaatst. Vervolgens wordt de database vanuit de elastische pool verplaatst naar een rekengrootte voor één database. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

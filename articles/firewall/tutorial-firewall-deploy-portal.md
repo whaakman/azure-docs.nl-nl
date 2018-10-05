@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983511"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221641"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -31,9 +31,7 @@ Netwerkverkeer is onderhevig aan de geconfigureerde firewallregels wanneer u het
 
 Toepassings- en netwerkregels worden opgeslagen in *regelverzamelingen*. Een regelverzameling is een lijst met regels die dezelfde actie en prioriteit hebben.  Een netwerkregelverzameling is een lijst met netwerkregels en een toepassingsregelverzameling is een lijst met toepassingsregels.
 
-Azure Firewall beschikt niet over een concept voor binnenkomende en uitgaande regels. Er zijn toepassings- en netwerkregels en deze worden toegepast op al het verkeer dat via de firewall binnenkomt. Netwerkregels worden het eerst toegepast, daarna de toepassingsregels, en de regels zijn afsluitend.
-
-Als bijvoorbeeld een overeenkomende netwerkregel wordt aangetroffen wordt het pakket niet geëvalueerd door de toepassingsregels. Als er geen overeenkomende netwerkregel wordt aangetroffen en het protocol van het pakket HTTP/HTTPS is, wordt het pakket vervolgens door de toepassingsregels geëvalueerd. Als er nog steeds geen overeenkomende regel wordt gevonden, wordt het pakket geëvalueerd op basis van de verzameling regels van de infrastructuur. Als er dan nog steeds geen overeenkomende regel is, wordt het pakket standaard afgewezen.
+Azure Firewall beschikt over NAT-regels, netwerkregels en toepassingsregels. Zie [Verwerkingslogica voor Azure Firewall-regels](rule-processing.md) voor meer informatie over de verwerkingslogica voor Azure Firewall-regels.
 
 In deze zelfstudie leert u het volgende:
 
@@ -64,7 +62,7 @@ Deze zelfstudie maakt gebruik van een vereenvoudigde netwerkconfiguratie voor ge
 Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te implementeren. Maak vervolgens een VNet, subnetten en testservers.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
-1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure-portal op [http://portal.azure.com](http://portal.azure.com).
 1. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Toevoegen**.
 2. Bij **Resourcegroepnaam** typt u **Test-FW-RG**.
 3. Bij **Abonnement** selecteert u uw abonnement.
@@ -215,9 +213,6 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 11. Klik op **Add**.
 
 Azure Firewall bevat een ingebouwde regelverzameling voor infrastructuur-FQDN’s die standaard zijn toegestaan. Deze FQDN’s zijn specifiek voor het platform en kunnen niet voor andere doeleinden worden gebruikt. Zie [FQDN's voor infrastructuur](infrastructure-fqdns.md) voor meer informatie.
-
-> [!Note]
-> FQDN-tags kunnen op dit moment alleen met Azure PowerShell en REST worden geconfigureerd. [Klik hier](https://aka.ms/firewallapplicationrule) voor meer informatie. 
 
 ## <a name="configure-network-rules"></a>Netwerkregels configureren
 

@@ -16,22 +16,22 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b1f1c85cea9aa7c48478ef6ee1c9a4609a3df8e0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045123"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222164"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen
 
-Net zoals een gebruiker wordt een apparaat nog een identiteit die u wilt beschermen, en die u ook wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen via een van de volgende methoden:
+Net zoals een gebruiker wordt een apparaat nog een identiteit die u wilt beschermen, en die u ook wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
 
 - Azure AD-koppeling
 - Hybride Azure AD-koppeling
 - Azure AD-registratie
 
-Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises en cloudbronnen. Tegelijkertijd kunt u de toegang tot uw on-premises en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
+Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Tegelijkertijd kunt u de toegang tot uw on-premises en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
 In deze zelfstudie leert u hoe u hybride Azure AD-koppeling voor apparaten in beheerde domeinen kunt configureren.
 
@@ -78,18 +78,18 @@ Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist
 
 Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect hebt u het volgende nodig:
 
-- De referenties van een hoofdbeheerder voor uw Azure AD-tenant.  
+- De referenties van een globale beheerder voor uw Azure AD-tenant.  
 
 - De referenties van een ondernemingsbeheerder voor elk van de forests.
 
 
 **Ga als volgt te werk om een hybride Azure AD-koppeling te configureren via Azure AD Connect:**
 
-1. Start Azure AD Connect en klik vervolgens op **Configureren**.
+1. Start Azure AD Connect en klik op **Configureren**.
 
     ![Welkom](./media/hybrid-azuread-join-managed-domains/11.png)
 
-2. Selecteer op de pagina **Extra taken** de optie **Apparaatopties configureren** en klik vervolgens op **Volgende**. 
+2. Selecteer op de pagina **Extra taken** de optie **Apparaatopties configureren** en klik op **Volgende**. 
 
     ![Extra taken](./media/hybrid-azuread-join-managed-domains/12.png)
 
@@ -101,7 +101,7 @@ Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect he
 
     ![Verbinding maken met Azure AD](./media/hybrid-azuread-join-managed-domains/14.png)
 
-5. Selecteer op de pagina **Apparaatopties** de optie **Hybride Azure AD-koppeling configureren** en klik vervolgens op **Volgende**. 
+5. Selecteer op de pagina **Apparaatopties** de optie **Hybride Azure AD-koppeling configureren** en klik op **Volgende**. 
 
     ![Apparaatopties](./media/hybrid-azuread-join-managed-domains/15.png)
 
@@ -116,7 +116,7 @@ Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect he
     c. Klik op **Toevoegen** om de referenties van een ondernemingsbeheerder in te voeren.
 
 
-7. Selecteer op de pagina **Apparaatbesturingssystemen** de besturingssystemen die worden gebruikt door apparaten in uw Active Directory-omgeving, en klik vervolgens op **Volgende**. 
+7. Selecteer op de pagina **Apparaatbesturingssystemen** de besturingssystemen die worden gebruikt door apparaten in uw Active Directory-omgeving en klik op **Volgende**. 
 
     ![Apparaatbesturingssysteem](./media/hybrid-azuread-join-managed-domains/17.png)
 
@@ -142,7 +142,7 @@ Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn,
 
 ### <a name="update-device-settings"></a>Apparaatinstellingen bijwerken 
 
-Om downlevel Windows-apparaten te kunnen registreren, moet u ervoor zorgen dat de apparaatinstellingen zijn geconfigureerd die gebruikers in staat stellen apparaten te registreren in Azure AD. In de Azure-portal vindt u deze instellingen onder:
+Om downlevel Windows-apparaten te kunnen registreren, moet u ervoor zorgen dat de apparaatinstellingen zijn geconfigureerd waarmee gebruikers apparaten mogen registreren in Azure AD. In de Azure-portal vindt u deze instelling onder:
 
 `Home > [Name of your tenant] > Devices - Device settings`  
 
@@ -156,7 +156,7 @@ Het volgende beleid moet zijn ingesteld op **Alle**: **Gebruikers mogen hun appa
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>De lokale intranetinstellingen voor apparaatregistratie configureren
 
-Om hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te voltooien, en om certificaatprompts te vermijden wanneer apparaten verifiëren bij Azure AD, kunt u een beleid naar uw domein-gekoppelde apparaten pushen om de volgende URL’s toe te voegen aan de zone Lokaal intranet in Internet Explorer:
+Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te voltooien en om certificaatprompts te vermijden wanneer apparaten worden geverifieerd bij Azure AD, kunt u een beleid naar uw domein-gekoppelde apparaten pushen om de volgende URL’s toe te voegen aan de zone Lokaal intranet in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 
@@ -170,7 +170,7 @@ Om de status van de apparaatregistratie in uw Azure-tenant te verifiëren, kunt 
 
 Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controleren:
 
-- Moet er een object bestaan met de **apparaat-ID** die overeenkomt met de ID op de Windows-client.
+- Moet er een object bestaan met de **apparaat-id** die overeenkomt met de id op de Windows-client.
 - Moet de waarde voor **DeviceTrustType** op **Toegevoegd aan domein** zijn ingesteld. Dit is equivalent aan de status **Toegevoegd aan hybride Azure AD** op de pagina Apparaten in de Azure AD-portal.
 - Moet de waarde voor **Ingeschakeld** op **Waar** zijn ingesteld voor apparaten die worden gebruikt met voorwaardelijke toegang. 
 
@@ -183,7 +183,7 @@ Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controle
 
 3. Typ `get-msoldevice -deviceId <deviceId>`.
 
-6. Verifieer dat **Ingeschakeld** op **Waar** is ingesteld.
+6. Verifieer dat **Ingeschakeld** is ingesteld op **Waar**.
 
 
 
@@ -191,7 +191,7 @@ Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controle
 
 ## <a name="troubleshoot-your-implementation"></a>Problemen met uw implementatie oplossen
 
-Als u problemen ondervindt met het voltooien van hybride Azure AD-koppeling voor domein-gekoppelde Windows-apparaten, raadpleegt u:
+Als u problemen ondervindt met het voltooien van de hybride Azure AD-koppeling voor domein-gekoppelde Windows-apparaten, raadpleegt u:
 
 - [Problemen met hybride Azure AD-koppeling oplossen voor actuele Windows-apparaten](troubleshoot-hybrid-join-windows-current.md)
 - [Problemen met hybride Azure AD-koppeling oplossen voor downlevel Windows-apparaten](troubleshoot-hybrid-join-windows-legacy.md)

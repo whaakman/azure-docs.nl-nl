@@ -1,21 +1,22 @@
 ---
-title: Zelfstudie voor het maken van een akoestisch model met Custom Speech Service - Microsoft Cognitive Services | Microsoft Docs
-description: In deze zelfstudie leert u hoe u een akoestisch model maakt met de Custom Speech Service in Microsoft Cognitive Services.
+title: 'Zelfstudie: een akoestisch model maken - Custom Speech Service'
+titlesuffix: Azure Cognitive Services
+description: In deze zelfstudie leert u hoe u een akoestisch model maakt met de Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 60fea175e8dffeefeb9cb3ecaadad5d8fc7caeb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971535"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220212"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Zelfstudie: een aangepast akoestisch model maken
 
@@ -33,9 +34,9 @@ Als u nog geen Cognitive Services-account hebt, maakt u een [gratis account](htt
 
 Zorg ervoor dat uw Cognitive Services-account is gekoppeld aan een abonnement door de pagina met [Cognitive Services-abonnementen](https://cris.ai/Subscriptions) te openen.
 
-Als er geen abonnementen worden vermeld, kunt u Cognitive Services een account voor u laten maken door te klikken op de knop **Gratis abonnement ophalen**. Of u kunt verbinding maken met een Custom Search Service-abonnement dat is gemaakt in Azure Portal door te klikken op de knop **Verbinding maken met bestaand abonnement**.
+Als er geen abonnementen worden vermeld, kunt u Cognitive Services een account voor u laten maken door te klikken op de knop **Gratis abonnement ophalen**. Of u kunt verbinding maken met een Custom Search Service-abonnement dat is gemaakt in de Azure-portal door te klikken op de knop **Verbinding maken met bestaand abonnement**.
 
-Zie [Een Cognitive Services-API's-account maken in de Azure portal](../../cognitive-services-apis-create-account.md) voor meer informatie over het maken van een Custom Search Service-abonnement in Azure Portal.
+Zie [Een Cognitive Services-API's-account maken in de Azure-portal](../../cognitive-services-apis-create-account.md) voor meer informatie over het maken van een Custom Search Service-abonnement in de Azure-portal.
 
 ## <a name="prepare-the-data"></a>De gegevens voorbereiden
 

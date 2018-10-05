@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: eba2ef280e60693cfd4402348fe61b122cdccdf6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399853"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181189"
 ---
-# <a name="search-unstructured-data-in-cloud-storage"></a>Niet-gestructureerde gegevens in cloudopslag doorzoeken
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Zelfstudie: Niet-gestructureerde gegevens in cloudopslag doorzoeken
 
 In deze zelfstudie leert u hoe u niet-gestructureerde gegevens kunt doorzoeken met [Azure Search](../../search/search-what-is-azure-search.md), waarbij gegevens worden gebruikt die zijn opgeslagen in Azure-blobs. Niet-gestructureerde gegevens zijn gegevens die niet zijn geordend op een vooraf gedefinieerde manier of waarvoor geen gegevensmodel bestaat. Een voorbeeld hiervan is een txt-bestand.
 
@@ -37,7 +37,7 @@ Het voorbeeld bestaat uit tekstbestanden, verkregen via [clinicaltrials.gov](htt
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij [Azure Portal](http://portal.azure.com).
+Meld u aan bij de [Azure-portal](http://portal.azure.com).
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
@@ -69,7 +69,7 @@ Containers zijn vergelijkbaar met mappen en worden gebruikt voor het opslaan van
 
 Voor deze zelfstudie gebruikt u een enkele container om de tekstbestanden in op te slaan die zijn opgehaald uit clinicaltrials.gov.
 
-1. Ga in Azure Portal naar uw opslagaccount.
+1. Ga in de Azure-portal naar uw opslagaccount.
 
 2. Selecteer **Door blobs bladeren** onder **Blob-service**.
 
@@ -107,7 +107,7 @@ Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars 
 
 Als u niet bekend bent met het proces voor het maken van een zoekservice, ga dan als volg te werk:
 
-1. Ga in Azure Portal naar uw opslagaccount.
+1. Ga in de Azure-portal naar uw opslagaccount.
 
 2. Schuif naar beneden en klik op **Azure Search toevoegen** onder **BLOB-SERVICE**.
 

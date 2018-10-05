@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6fcc7823a7e2f2f1e280622a1fa05d4417a71546
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143479"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161525"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: de Azure Data Box-schijf uitpakken, aansluiten en ontgrendelen
 
@@ -30,7 +30,9 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Uw Data Box-schijf uitpakken
-> * De Data Box-schijf aansluiten en ontgrendelen.
+> * Schijven aansluiten en de wachtwoordcode opzoeken
+> * Schijven ontgrendelen op Windows-client
+> * Schijven ontgrendelen op Linux-client
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,12 +40,9 @@ Zorg voordat u begint voor het volgende:
 
 1. U hebt de [zelfstudie: Azure Data Box-schijf bestellen](data-box-disk-deploy-ordered.md) voltooid.
 2. U hebt uw schijven ontvangen en de taakstatus in de portal is bijgewerkt naar **Geleverd**.
-3. U beschikt over een hostcomputer waarop u het ontgrendelingsprogramma voor Data Box-schijven kunt installeren. Op uw hostcomputer moet
-    - Een [ondersteund besturingssysteem](data-box-disk-system-requirements.md) worden uitgevoerd.
-    - [Windows PowerShell 4 zijn geïnstalleerd](https://www.microsoft.com/download/details.aspx?id=40855).
-    - [.NET Framework 4.5.1 zijn geïnstalleerd](https://www.microsoft.com/download/details.aspx?id=30653).
-    - [BitLocker zijn ingeschakeld](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server).
-    - [Windows Management Framework 4 zijn geïnstalleerd](https://www.microsoft.com/en-us/download/details.aspx?id=40855). 
+3. U beschikt over een clientcomputer waarop u het ontgrendelingsprogramma voor Data Box-schijven kunt installeren. De clientcomputer moet voldoen aan deze vereisten:
+    - Een [ondersteund besturingssysteem](data-box-disk-system-requirements.md#supported-operating-systems-for-clients) worden uitgevoerd.
+    - Andere [vereiste software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) is geïnstalleerd in het geval van een Windows-client.  
 
 ## <a name="unpack-your-disks"></a>Uw schijven uitpakken
 
@@ -60,22 +59,31 @@ Zorg voordat u begint voor het volgende:
 
 4. Bewaar de doos en het verpakkingsschuim voor de retourzending van de schijven.
 
-## <a name="connect-and-unlock-your-disks"></a>De schijven aansluiten en ontgrendelen
+## <a name="connect-to-disks-and-get-the-passkey"></a>Schijven aansluiten en de wachtwoordcode opzoeken 
 
-Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
-
-1. Gebruik de meegeleverde kabel om de schijf aan te sluiten op een Windows-computer met een ondersteund besturingssysteem, zoals wordt aangegeven in de vereisten. 
+1. Gebruik de meegeleverde kabel om de schijf aan te sluiten op de clientcomputer met een ondersteund besturingssysteem, zoals wordt aangegeven in de vereisten. 
 
     ![De Data Box-schijf aansluiten](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. 
-3. Klik op **Ontgrendelingsprogramma voor Data Box-schijven downloaden**. 
+2. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. Gebruik het kopieerpictogram om de wachtwoordcode te kopiëren. Deze code wordt gebruikt voor het ontgrendelen van de schijven.
 
-    ![Ontgrendelingsprogramma voor Data Box-schijven downloaden](media/data-box-disk-deploy-set-up/data-box-disk-unload1.png)     
+    ![Wachtwoordcode voor ontgrendelen van Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
-4. Pak het ontgrendelingsprogramma uit op de computer die u gebruikt om de gegevens te kopiëren.
-5. Open op dezelfde computer een opdrachtpromptvenster of voer hierop Windows PowerShell uit als beheerder.
-6. (Optioneel) Voer de opdracht voor systeemcontrole uit om na te gaan of de computer die u gebruikt voor het ontgrendelen van de schijf voldoet aan de besturingssysteemvereisten. Hieronder ziet u een voorbeeld van de uitvoer. 
+De stappen voor het ontgrendelen van de schijven verschillen voor clients met Windows of met Linux.
+
+## <a name="unlock-disks-on-windows-client"></a>Schijven ontgrendelen op Windows-client
+
+Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
+     
+1. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. 
+2. Download de toolset van Data Box Data Box Disk voor Windows-clients. 
+
+    > [!div class="nextstepaction"]
+    > [Data Box Disk-toolset voor Windows downloaden](http://aka.ms/databoxdisktoolswin)         
+
+3. Pak het ontgrendelingsprogramma uit op de computer die u gebruikt om de gegevens te kopiëren.
+4. Open op dezelfde computer een opdrachtpromptvenster of voer hierop Windows PowerShell uit als beheerder.
+5. (Optioneel) Voer de opdracht voor systeemcontrole uit om na te gaan of de computer die u gebruikt voor het ontgrendelen van de schijf voldoet aan de besturingssysteemvereisten. Hieronder ziet u een voorbeeld van de uitvoer. 
 
     ```powershell
     Windows PowerShell
@@ -86,13 +94,12 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-7. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. Gebruik het kopieerpictogram om de wachtwoordcode te kopiëren.
-8. Voer `DataBoxDiskUnlock.exe` uit en geef de wachtwoordcode op. De stationsletter die is toegewezen aan de schijf wordt weergegeven. Hieronder ziet u een voorbeeld van de uitvoer.
+6. Voer `DataBoxDiskUnlock.exe` uit en geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#Connect-to-disks-and-get-the-passkey). De stationsletter die is toegewezen aan de schijf wordt weergegeven. Hieronder ziet u een voorbeeld van de uitvoer.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
-    Enter the passkeys (format: passkey1;passkey2;passkey3):
+    Enter the passkey :
     testpasskey1
     
     Following volumes are unlocked and verified.
@@ -101,26 +108,155 @@ Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```
 
-9. Herhaal de stappen 6 tot 8 wanneer u in de toekomst opnieuw schijven plaatst. Gebruik de Help-opdracht als u hulp nodig hebt met het ontgrendelingsprogramma voor Data Box-schijven.   
+7. Herhaal de ontgrendelingsstappen voor alle schijven die in de toekomst worden geplaatst. Gebruik de opdracht `help` als u hulp nodig hebt met het ontgrendelingsprogramma van Data Box Disk.   
 
     ```powershell
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
     USAGE:
-    DataBoxUnlock /PassKeys:<passkey_list_separated_by_semicolon>
+    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
     
-    Example: DataBoxUnlock /PassKeys:<your passkey>
+    Example: DataBoxUnlock /PassKey:<your passkey>
     Example: DataBoxUnlock /SystemCheck
     Example: DataBoxUnlock /Help
     
-    /PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
+    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
     /SystemCheck:    This option checks if your system meets the requirements to run the tool.
     /Help:           This option provides help on cmdlet usage and examples.
     
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```  
-10. Wanneer de schijf is ontgrendeld, kunt u de inhoud van de schijf bekijken.    
+8. Wanneer de schijf is ontgrendeld, kunt u de inhoud van de schijf bekijken.    
 
     ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+
+## <a name="unlock-disks-on-linux-client"></a>Schijven ontgrendelen op Linux-client
+
+1. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. 
+2. Download de toolset van Data Box Data Box Disk voor Linux-clients.  
+
+    > [!div class="nextstepaction"]
+    > [Data Box Disk-toolset voor Linux downloaden](http://aka.ms/databoxdisktoolslinux) 
+
+3. Open een terminal op uw Linux-client. Ga naar de map waar u de software hebt gedownload. Wijzig de bestandsmachtigingen zodat u deze bestanden kunt uitvoeren. Typ de volgende opdracht: 
+
+    `chmod +x DataBoxDiskUnlock_x86_64` 
+    
+    `chmod +x DataBoxDiskUnlock_Prep.sh` 
+ 
+    Hieronder ziet u een voorbeeld van de uitvoer. Zodra de opdracht chmod is voltooid, kunt u controleren of de bestandsmachtigingen zijn gewijzigd door de opdracht `ls` uit te voeren. 
+ 
+    ```
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_x86_64  
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_Prep.sh   
+        [user@localhost Downloads]$ ls -l  
+        -rwxrwxr-x. 1 user user 1152664 Aug 10 17:26 DataBoxDiskUnlock_x86_64  
+        -rwxrwxr-x. 1 user user 795 Aug 5 23:26 DataBoxDiskUnlock_Prep.sh
+    ```
+4. Voer het script uit om alle binaire bestanden te installeren die nodig zijn voor de ontgrendelingssoftware van Data Box Disk. Gebruik `sudo` om de opdracht als root uit te voeren. Als de binaire bestanden zijn geïnstalleerd, wordt dit gemeld in de terminal.
+
+    `sudo ./DataBoxDiskUnlock_Prep.sh`
+
+    Het script controleert eerst of er een ondersteund besturingssysteem wordt uitgevoerd op de clientcomputer. Hieronder ziet u een voorbeeld van de uitvoer. 
+ 
+    ```
+    [user@localhost Documents]$ sudo ./DataBoxDiskUnlock_Prep.sh 
+        OS = CentOS Version = 6.9 
+        Release = CentOS release 6.9 (Final) 
+        Architecture = x64 
+    
+        The script will install the following packages and dependencies. 
+        epel-release 
+        dislocker 
+        ntfs-3g 
+        fuse-dislocker 
+        Do you wish to continue? y|n :|
+    ```
+    
+ 
+5. Typ `y` om verder te gaan met de installatie. Het script installeert de volgende pakketten: 
+    - **epel-release**: opslagplaats met de volgende drie pakketten. 
+    - **dislocker en fuse-dislocker**: hulpprogramma voor het ontsleutelen van met BitLocker versleutelde schijven. 
+    - **ntfs-3g**: pakket voor het koppelen van NTFS-volumes. 
+ 
+    Als de pakketten zijn geïnstalleerd, ziet u hierover een melding in de terminal.     
+    ```
+    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+    ruby-libs.x86 64 0:1.8.7.374-5.el6 
+    Complete! 
+    Loaded plugins: fastestmirror, refresh-packagekit, security 
+    Setting up Remove Process 
+    Resolving Dependencies 
+    --> Running transaction check 
+    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+    Dependencies Resolved 
+    Package        Architecture        Version        Repository        Size 
+    Removing:  epel-release        noarch         6-8        @extras        22 k 
+    Transaction Summary                                 
+    Remove        1 Package(s) 
+    Installed size: 22 k 
+    Downloading Packages: 
+    Running rpmcheckdebug 
+    Running Transaction Test 
+    Transaction Test Succeeded 
+    Running Transaction 
+    Erasing : epel-release-6-8.noarch 
+    Verifying : epel-release-6-8.noarch 
+    Removed: 
+    epel-release.noarch 0:6-8 
+    Complete! 
+    Dislocker is installed by the script. 
+    OpenSSL is already installed.
+    ```
+
+6. Voer het ontgrendelingsprogramma van Data Box Disk uit. Geef de wachtwoordcode op die u hebt vastgesteld in [Schijven aansluiten en de wachtwoordcode opzoeken](#Connect-to-disks-and-get-the-passkey). Geef eventueel een lijst van met BitLocker versleutelde volumes op die u wilt ontgrendelen. De wachtwoordcode en de lijst moeten tussen enkele aanhalingstekens staan. 
+
+    Typ de volgende opdracht.
+ 
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+
+    Hieronder ziet u een voorbeeld van de uitvoer. 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    
+    START: Mon Aug 13 14:25:49 2018 
+    Volumes: /dev/sdbl 
+    Passkey: qwerqwerqwer 
+    
+    Volumes for data copy : 
+    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+    END: Mon Aug 13 14:26:02 2018
+    ```
+    U ziet het koppelpunt voor het volume waarnaar u uw gegevens kunt kopiëren.
+
+7. Herhaal de ontgrendelingsstappen voor alle schijven die in de toekomst worden geplaatst. Gebruik de opdracht `help` als u hulp nodig hebt met het ontgrendelingsprogramma van Data Box Disk. 
+    
+    `sudo ./DataBoxDiskUnlock_x86_64 /Help` 
+
+    Hieronder ziet u een voorbeeld van de uitvoer. 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Help  
+    START: Mon Aug 13 14:29:20 2018 
+    USAGE: 
+    sudo DataBoxDiskUnlock /PassKey:’<passkey from Azure_portal>’ 
+    
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ 
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ /Volumes:’/dev/sdbl’ 
+    Example: sudo DataBoxDiskUnlock /Help Example: sudo DataBoxDiskUnlock /Clean 
+    
+    /PassKey: This option takes a passkey as input and unlocks all of your disks. 
+    Get the passkey from your Data Box Disk order in Azure portal. 
+    /Volumes: This option is used to input a list of BitLocker encrypted volumes. 
+    /Help: This option provides help on the tool usage and examples. 
+    /Unmount: This option unmounts all the volumes mounted by this tool. 
+   
+    END: Mon Aug 13 14:29:20 2018 [user@localhost Downloads]$
+    ```
+    
+8. Als de schijf is ontgrendeld, kunt u naar het koppelpunt gaan en de inhoud van de schijf bekijken. U kunt de gegevens nu kopiëren naar de map *BlockBlob* of *PageBlob*. 
+
+    ![Inhoud van de Data Box-schijf](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -128,7 +264,9 @@ In deze zelfstudie zijn verschillende onderwerpen besproken over de Azure Data B
 
 > [!div class="checklist"]
 > * Uw Data Box-schijf uitpakken
-> * Data Box-schijven aansluiten en ontgrendelen
+> * Schijven aansluiten en de wachtwoordcode opzoeken
+> * Schijven ontgrendelen op Windows-client
+> * Schijven ontgrendelen op Linux-client
 
 
 Ga naar de volgende zelfstudie om te lezen hoe u gegevens kopieert naar uw Data Box-schijf.

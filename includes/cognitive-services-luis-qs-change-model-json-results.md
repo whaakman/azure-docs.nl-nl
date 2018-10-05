@@ -3,21 +3,21 @@ title: bestand opnemen
 description: bestand opnemen
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: e14f29593d588a8b13162b374372b723c50db8e9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: ec178827a2f27a4566f509fe76b58e451329efd4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920588"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044129"
 ---
-De `response` matrix voor het toevoegen van de voorbeeld-uitingen geeft slagen of mislukken voor elke utterance voorbeeld met de `hasError` eigenschap. De volgende JSON-antwoord bevat dat beide uitingen zijn toegevoegd. 
+De matrix `response` voor het toevoegen van de voorbeelduitingen toont of de voorbeelden zijn geslaagd of mislukt. Hiervoor wordt de eigenschap `hasError` gebruikt. Het volgende JSON-antwoord bevat dat beide uitingen die zijn toegevoegd. 
 
 ```json
     "response": [
@@ -50,7 +50,7 @@ De volgende JSON toont het resultaat van een succesvolle trainingsaanvraag:
 }
 ```
 
-De volgende JSON toont het resultaat van een geslaagde aanvraag voor de trainingsstatus van de. Elk model is een doel. Elk doel moet worden getraind op alle uitingen uitingen naar behoren tot het doel en uitingen die geen deel van de intentie uitmaken correct kan identificeren. 
+De volgende JSON toont het resultaat van een succesvolle aanvraag van de trainingsstatus. Elk modelID is een doel. Elk doel moet worden getraind op alle uitingen zodat wordt herkend dat deze bij het doel horen, en op uitingen die niet bij het doel horen. 
 
 ```JSON
 [

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975238"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419692"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in Hyper-V (preview)
 
@@ -51,7 +51,7 @@ De vereisten om een virtueel apparaat in te richten op een hostsysteem waarop Hy
 Zorg voordat u begint voor het volgende:
 
 * U hebt alle stappen in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md) uitgevoerd.
-* U hebt de installatiekopie van het virtuele apparaat voor Hyper-V vanuit de Azure Portal gedownload zoals is beschreven in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md).
+* U hebt de installatiekopie van het virtuele apparaat voor Hyper-V vanuit de Azure-portal gedownload zoals is beschreven in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md).
 
   > [!IMPORTANT]
   > De software die wordt uitgevoerd op de Data Box Gateway kan alleen worden gebruikt met de Data Box Gateway-resource.
@@ -87,7 +87,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
     * Minimaal 4 kerngeheugens.
     * Ten minste 8 GB RAM-geheugen.
-    * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren. .
+    * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren. 
     * Een besturingssysteemschijf van 250 GB.
     * Een virtuele schijf van 2 TB voor systeemgegevens.
 
@@ -95,7 +95,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
 Voer de volgende stappen uit om een apparaat in de hypervisor in te richten.
 
-1. Kopieer de installatiekopie van het virtuele apparaat op de Windows Server-host naar een lokaal station. U hebt deze VHDX-installatiekopie gedownload via de Azure Portal. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
+1. Kopieer de installatiekopie van het virtuele apparaat op de Windows Server-host naar een lokaal station. U hebt deze VHDX-installatiekopie gedownload via de Azure-portal. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
 2. Open **Serverbeheer**. Klik in de rechterbovenhoek op **Hulpprogramma's** en selecteer **Hyper-V-beheer**.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
@@ -105,9 +105,6 @@ Voer de volgende stappen uit om een apparaat in de hypervisor in te richten.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Klik op de pagina **Voordat u begint** van de wizard Nieuwe virtuele machine op **Volgende**.
 5. Geef op de pagina **Naam en locatie opgeven** een **Naam** op voor het virtuele apparaat. Klik op **Volgende**.
-   
-   > [!IMPORTANT]
-   > In deze release kunt u alleen hoofdletters gebruiken voor de naam van uw virtuele apparaat.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Op de pagina **Generatie opgeven** kiest u **Generatie 2** als het .vhdx-installatiekopietype van het apparaat en klikt u op **Volgende**.    
@@ -171,17 +168,10 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
 3. Het kan 10-15 minuten duren voor het apparaat gereed is. Er wordt een statusbericht op de console weergegeven om de voortgang aan te geven. Wanneer het apparaat gereed is, gaat u naar **Actie**. Druk op `Ctrl + Alt + Delete` om u aan te melden bij het virtuele apparaat. De standaardwaarde is *EdgeUser* en het standaardwachtwoord is *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Uit veiligheidsoverwegingen verloopt het beheerderswachtwoord voor het apparaat na de eerste aanmelding. U wordt gevraagd om het wachtwoord te wijzigen.
-
-   Voer een wachtwoord in van minimaal acht tekens. Het wachtwoord moet voldoen aan ten minste 3 van de volgende 4 vereisten: hoofdletters, kleine letters, cijfers en speciale tekens. Voer het wachtwoord opnieuw in ter bevestiging. U ontvangt een melding dat het wachtwoord is gewijzigd.
    
-5. Wanneer het wachtwoord is gewijzigd, wordt het virtuele apparaat mogelijk opnieuw opgestart. Wacht tot het apparaat is gestart.  De Windows PowerShell-console van het apparaat wordt weergegeven, samen met een voortgangsbalk.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. De stappen 6-8 gelden alleen als het apparaat wordt opgestart in een niet-DHCP-omgeving. In een DHCP-omgeving kunt u deze stappen overslaan en verder gaan met stap 9. Als u uw apparaat hebt opgestart in een niet-DHCP-omgeving wordt er een bericht van die strekking weergegeven.
+6. De stappen 5 - 7 gelden alleen als het opstarten in een niet-DHCP-omgeving gebeurt. In een DHCP-omgeving kunt u deze stappen overslaan. Als u uw apparaat hebt opgestart in een niet-DHCP-omgeving wordt er een bericht van die strekking weergegeven.
     
-7. Om het netwerk te configureren, gebruikt u de opdracht `Get-HcsIpAddress` om een lijst weer te geven met netwerkinterfaces die zijn ingeschakeld op uw virtuele apparaat. Als voor uw apparaat één netwerkinterface is ingeschakeld, wordt `DATA1` als standaardnaam aan deze interface toegewezen.
+7. Om het netwerk te configureren, gebruikt u de opdracht `Get-HcsIpAddress` om een lijst weer te geven met netwerkinterfaces die zijn ingeschakeld op uw virtuele apparaat. Als voor uw apparaat één netwerkinterface is ingeschakeld, wordt `Ethernet` als standaardnaam aan deze interface toegewezen.
 
 8. Gebruik de cmdlet `Set-HcsIpAddress` om het netwerk te configureren. Zie het volgende voorbeeld:
 
@@ -192,7 +182,7 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een fout weergegeven in de bannertekst. Wijzig de apparaatconfiguratie zo dat de virtuele machine voldoende resources heeft om aan de minimale vereisten te voldoen. Daarna kunt u het apparaat opnieuw opstarten en verbinding maken met het apparaat. Raadpleeg de minimale configuratievereisten in [Stap 1: Controleren of het hostsysteem voldoet aan minimale vereisten voor virtuele apparaten](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een fout weergegeven in de bannertekst. Wijzig de apparaatconfiguratie zo dat de virtuele machine voldoende resources heeft om aan de minimale vereisten te voldoen. Daarna kunt u het apparaat opnieuw opstarten en verbinding maken met het apparaat. Raadpleeg de minimale configuratievereisten in [Controleren of het hostsysteem voldoet aan minimale vereisten voor virtuele apparaten](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

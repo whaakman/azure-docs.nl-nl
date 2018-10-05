@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be61695cc57eca3ddf2c03aeb4912348e9535741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193479"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47061012"
 ---
 U moet aan de volgende vereisten voldoen om deze zelfstudie te voltooien:
 
-**Azure CLI**: Azure CLI versie 2.0.29 of hoger moet op uw lokale computer zijn geïnstalleerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+**Azure CLI**: Azure CLI versie 2.0.29 of hoger moet op uw lokale computer zijn geïnstalleerd. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren][azure-cli-install].
 
 **Docker**: in deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en eenvoudige `docker`-opdrachten. Zie het [Docker-overzicht][docker-get-started] voor een inleiding tot de basisprincipes van Docker en containers.
 

@@ -1,5 +1,5 @@
 1. Meld u aan bij [Azure Portal][Azure portal].
-2. Selecteer **+ Een resource maken** in het menu aan de linkerkant. Selecteer vervolgens **Enterprise Integration** > **Relay**.
+2. Selecteer **+ Een resource maken** in het menu aan de linkerkant. Selecteer vervolgens **Integratie** > **Relay**. Als u **Relay** niet in de lijst ziet staan, selecteert u rechtsboven **Alles weergeven**. 
 3. Voer bij **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
 5. Kies in het veld [Resourcegroep](../articles/azure-resource-manager/resource-group-portal.md) een bestaande resourcegroep waarin de naamruimte moet worden opgenomen of maak een nieuwe resourcegroep.  

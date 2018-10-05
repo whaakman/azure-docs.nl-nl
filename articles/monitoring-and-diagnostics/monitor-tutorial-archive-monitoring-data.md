@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918268"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409487"
 ---
-# <a name="archive-azure-monitoring-data"></a>Azure-bewakingsgegevens archiveren
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Metrische gegevens en logboekgegevens van Azure archiveren met behulp van Azure Storage
 
-Verschillende lagen van uw Azure-omgeving genereren logboekgegevens en metrische gegevens die in een Azure Storage-account kunnen worden gearchiveerd. U kunt hier bijvoorbeeld gebruik van maken als u bewakingsgegevens waarvan de bewaarperiode is verstreken in Log Analytics of Azure Monitor, langere tijd wilt bewaren in een voordelig, niet-doorzoekbaar archief. In deze zelfstudie beschrijven we hoe u uw Azure-omgeving configureert voor het archiveren van gegevens in een opslagaccount.
+Verschillende lagen van uw Azure-omgeving genereren logboekgegevens en metrische gegevens die in een Azure Storage-account kunnen worden gearchiveerd. U kunt hier bijvoorbeeld gebruik van maken als u bewakingsgegevens waarvan de bewaarperiode is verstreken langere tijd wilt bewaren in een voordelig, niet-doorzoekbaar archief. 
+
+- De metrische gegevens van het Azure Monitor-platform worden gedurende 93 dagen bewaard. 
+- Resourcelogboeken met diagnostische gegevens worden alleen weergegeven als ze worden gerouteerd naar Log Analytics - hier worden ze minimaal 30 dagen bewaard. De definitieve bewaarperiode kan worden ingesteld. 
+- Vermeldingen in het activiteitenlogboek worden gedurende 90 dagen bewaard.  
+
+In deze zelfstudie beschrijven we hoe u uw Azure-omgeving configureert voor het archiveren van gegevens in een opslagaccount.
 
 > [!div class="checklist"]
 > * Een opslagaccount maken om bewakingsgegevens op te slaan
@@ -30,9 +36,9 @@ Verschillende lagen van uw Azure-omgeving genereren logboekgegevens en metrische
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
 
-Meld u aan bij [Azure Portal](https://portal.azure.com/).
+Meld u aan bij de [Azure-portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
@@ -40,7 +46,7 @@ U moet eerst een opslagaccount instellen waarin de bewakingsgegevens worden gear
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Abonnementslogboeken naar het opslagaccount doorsturen
 
-U bent nu klaar om uw Azure-omgeving in te stellen zodat bewakingsgegevens worden doorgestuurd naar een opslagaccount. We gaan eerst gegevens op abonnementsniveau (in het Azure-activiteitenlogboek) configureren om deze door te sturen naar het opslagaccount. Het [ **Azure-activiteitenlogboek** ](monitoring-overview-activity-logs.md) bevat een geschiedenis van gebeurtenissen op abonnementsniveau in Azure. U kunt ernaar zoeken in Azure Portal om te bepalen *wie* *welke* resources heeft gemaakt, bijgewerkt of verwijderd en *wanneer* dat is gebeurd.
+U bent nu klaar om uw Azure-omgeving in te stellen zodat bewakingsgegevens worden doorgestuurd naar een opslagaccount. We gaan eerst gegevens op abonnementsniveau (in het Azure-activiteitenlogboek) configureren om deze door te sturen naar het opslagaccount. Het [ **Azure-activiteitenlogboek** ](monitoring-overview-activity-logs.md) bevat een geschiedenis van gebeurtenissen op abonnementsniveau in Azure. U kunt ernaar zoeken in de Azure-portal om te bepalen *wie* *welke* resources heeft gemaakt, bijgewerkt of verwijderd en *wanneer* dat is gebeurd.
 
 1. Klik op de knop **Controle** in de linkernavigatielijst en klik op **Activiteitenlogboek**.
 

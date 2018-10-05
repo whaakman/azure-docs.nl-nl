@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: e242395df1ffb16897b73c0330f24de4857ede13
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398446"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180940"
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Een fout simuleren bij het openen van redundante opslag met leestoegang
+# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Zelfstudie: een fout simuleren bij het openen van redundante opslag met leestoegang
 
 Deze zelfstudie is deel twee van een serie.  In deze zelfstudie kunt u [Fiddler](#simulate-a-failure-with-fiddler) of [statische routering](#simulate-a-failure-with-an-invalid-static-route) gebruiken om een fout te simuleren voor aanvragen voor het primaire eindpunt van uw [geografisch redundante](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang en de toepassing te laten lezen vanuit het secundaire eindpunt.
 

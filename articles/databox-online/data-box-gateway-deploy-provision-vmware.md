@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989852"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419539"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in VMware (preview)
 
@@ -28,19 +28,19 @@ ms.locfileid: "46989852"
 
 In deze zelfstudie wordt beschreven hoe u een Data Box Gateway op een hostsysteem met VMware ESXi 6.0 of 6.5 kunt inrichten. 
 
-U hebt beheerdersmachtigingen nodig voor het inrichten van een virtueel apparaat en om er verbinding mee te maken. De inrichting en de initiële installatie kan ongeveer tien minuten duren.
+U hebt beheerdersmachtigingen nodig voor het inrichten van een virtueel apparaat en om er verbinding mee te maken. De inrichting en de initiële installatie kan circa tien minuten duren.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Ervoor zorgen dat de host voldoet aan de minimale apparaatvereisten
-> * Een virtueel apparaat in hypervisor inrichten
+> * Controleren of de host voldoet aan de minimale apparaatvereisten
+> * Een virtueel apparaat inrichten in VMware
 > * Het virtuele apparaat starten en het IP-adres ophalen
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 > [!IMPORTANT]
-> - Data Box Gateway bevindt zich in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
+> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -50,7 +50,7 @@ De vereisten voor het inrichten van een virtueel apparaat op een hostsysteem met
 
 Zorg voordat u begint voor het volgende:
 
-* U hebt de stappen in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md) uitgevoerd.
+* U hebt alle stappen in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md) uitgevoerd.
 * U hebt de installatiekopie van het virtuele apparaat gedownload voor VMware vanuit de Azure-portal zoals wordt beschreven in [De portal voorbereiden voor Data Box Gateway](data-box-gateway-deploy-prep.md).
 
   > [!IMPORTANT]
@@ -64,27 +64,27 @@ Voordat u een virtueel apparaat implementeert, controleert u of:
 * Het hostsysteem kan de volgende resources volledig toewijzen aan het inrichten van uw virtuele apparaat:
 
   * Minimaal 4 kerngeheugens.
-  * Ten minste 8 GB RAM-geheugen
-  * Eén netwerkinterface
-  * Een besturingssysteemschijf van 250 GB
+  * Ten minste 8 GB RAM-geheugen.
+  * Eén netwerkinterface.
+  * Een besturingssysteemschijf van 250 GB.
   * Een virtuele schijf van 2 TB voor systeemgegevens
 
 ### <a name="for-the-network-in-datacenter"></a>Voor het netwerk in het datacenter
 
 Voordat u begint:
 
-- Bekijk de vereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway ](data-box-gateway-system-requirements.md#networking-requirements) voor meer informatie.
-- Zorg dat de minimale bandbreedte voor internet 20 Mbps is voor een optimale werking van het apparaat.
+- Controleer de netwerkvereisten voor het implementeren van een Data Box Gateway en configureer het netwerk van het datacenter aan de hand van die vereisten. Zie [Netwerkvereisten voor Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements) voor meer informatie.
+- Voor een optimale werking van het apparaat heeft internet een minimale bandbreedte van 20 Mbps nodig.
 
-## <a name="check-the-host-system"></a>Controleer het hostsysteem
+## <a name="check-the-host-system"></a>Het hostsysteem controleren
 
 Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
 * Toegang tot een hostsysteem met VMware ESXi Server 6.0 of 6.5. Het hostsysteem kan de volgende resources volledig toewijzen aan uw virtuele apparaat:
  
   * Minimaal 4 kerngeheugens.
-  * Ten minste 8 GB RAM-geheugen 
-  * Er is een netwerkinterface verbonden met het netwerk die verkeer naar internet kan routeren. 
+  * Ten minste 8 GB RAM-geheugen. 
+  * Eén netwerkinterface die is verbonden met het netwerk en verkeer naar internet kan routeren. 
   * Een besturingssysteemschijf van 250 GB
   * Een virtuele schijf van 2 TB voor gegevens
 * Een VMware vSphere-client op uw systeem voor het beheren van de ESXi-host.
@@ -173,7 +173,7 @@ De volgende stap is om deze machine te laten werken en om het IP-adres op te hal
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Het virtuele apparaat starten en het IP-adres ophalen
 
-Voer de volgende stappen uit om uw virtuele apparaat te starten en er verbinding mee te maken.
+Voer de volgende stappen uit om uw virtuele apparaat te starten en verbinding te maken met het apparaat.
 
 #### <a name="to-start-the-virtual-device"></a>Het virtuele apparaat starten
 1. Start het virtuele apparaat. In het rechterdeelvenster selecteert u uw apparaat in de lijst met virtuele machines en klikt u met de rechtermuisknop erop om het contextmenu weer te geven. Selecteer **Aanzetten** en selecteer vervolgens **Inschakelen**. Nu zou uw virtuele machine moeten zijn ingeschakeld. U kunt de status bekijken in het onderste deelvenster van de webclient.
@@ -198,7 +198,7 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en er verbinding
 
 6. De stappen 5 - 7 gelden alleen als het opstarten in een niet-DHCP-omgeving gebeurt. Als u zich in een DHCP-omgeving bevindt, kunt u deze stappen overslaan en gaat u naar stap 8. Als u uw apparaat in een niet-DHCP-omgeving hebt opgestart, ziet u als resultaat een bericht: **De cmdlet Set-HcsIPAddress gebruiken om het netwerk te configureren**. 
    
-7. Gebruik voor het configureren van het netwerk bij de opdrachtprompt de opdracht `Get-HcsIpAddress` om een lijst met netwerkinterfaces weer te geven die zijn ingeschakeld op uw virtuele apparaat. Als voor uw apparaat één netwerkinterface is ingeschakeld, wordt `DATA1` als standaardnaam aan deze interface toegewezen.
+7. Gebruik voor het configureren van het netwerk bij de opdrachtprompt de opdracht `Get-HcsIpAddress` om een lijst met netwerkinterfaces weer te geven die zijn ingeschakeld op uw virtuele apparaat. Als voor uw apparaat één netwerkinterface is ingeschakeld, wordt `Ethernet` als standaardnaam aan deze interface toegewezen.
 
 8. Gebruik de cmdlet `Set-HcsIpAddress` om het netwerk te configureren. Hieronder kunt u een voorbeeld bekijken:
 
@@ -208,7 +208,7 @@ Voer de volgende stappen uit om uw virtuele apparaat te starten en er verbinding
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een fout weergegeven in de bannertekst (zie hieronder). U moet de apparaatconfiguratie wijzigen zodat er voldoende resources zijn om aan de minimale vereisten te voldoen. U kunt het apparaat vervolgens opnieuw opstarten en er verbinding mee maken. Zoek op wat de minimale configuratievereisten zijn in [Stap 1: Zorg ervoor dat het hostsysteem voldoet aan minimale vereisten voor virtuele apparaten](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een fout weergegeven in de bannertekst (zie hieronder). U moet de apparaatconfiguratie wijzigen zodat er voldoende resources zijn om aan de minimale vereisten te voldoen. Daarna kunt u het apparaat opnieuw opstarten en verbinding maken met het apparaat. Raadpleeg de minimale configuratievereisten in [Controleren of het hostsysteem voldoet aan minimale vereisten voor virtuele apparaten](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -220,8 +220,8 @@ Als uw apparaat niet voldoet aan de minimale configuratievereisten, wordt er een
 In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Data Box Gateway, zoals:
 
 > [!div class="checklist"]
-> * Ervoor zorgen dat de host voldoet aan de minimale apparaatvereisten
-> * Een virtueel apparaat in hypervisor inrichten
+> * Controleren of de host voldoet aan de minimale apparaatvereisten
+> * Een virtueel apparaat inrichten in VMware
 > * Het virtuele apparaat starten en het IP-adres ophalen
 
 Ga naar de volgende zelfstudie voor informatie over het maken van verbinding met en het instellen en activeren van uw virtuele apparaat.

@@ -1,63 +1,64 @@
 ---
-title: Azure Content Moderator - Start beheer van taken met behulp van .NET | Microsoft Docs
-description: Het starten van toezicht op taken met Azure Content Moderator-SDK voor .NET
+title: 'Snelstartgids: Beoordelingstaken starten met behulp van .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Leer hoe u beoordelingstaken start met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3761552f81bd733f9c93fab40db07ef6f5a6a7f6
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181597"
+ms.locfileid: "47227422"
 ---
-# <a name="start-moderation-jobs-using-net"></a>Start beheer van taken met behulp van .NET
+# <a name="quickstart-start-moderation-jobs-using-net"></a>Snelstartgids: Beoordelingstaken starten met behulp van .NET
 
-In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen:
  
-- Een taak toezicht op om te scannen en beoordelingen voor menselijke moderators maken starten
-- Haal de status van de in behandeling controleren
-- Bijhouden en de definitieve status van de beoordeling ophalen
-- Verzenden van het resultaat dat de callback-Url
+- Een beoordelingstaak starten voor het scannen en maken van beoordelingen voor menselijke beoordelaars
+- De status van een openstaande beoordeling opvragen
+- De definitieve status van de beoordeling volgen en opvragen
+- Het resultaat verzenden naar de callback-Url
 
-In dit artikel wordt ervan uitgegaan dat u al bekend met Visual Studio en C# bent.
+In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C#.
 
 ## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
 
-Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
-Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
+Voordat u de Content Moderator-services via de REST-API of de SDK kunt gebruiken, hebt u een abonnementssleutel nodig.
+Raadpleeg de [snelstartgids](quick-start.md) voor informatie over hoe u de sleutel kunt verkrijgen.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Zich registreren voor een hulpprogramma voor beoordeling account als niet in de vorige stap is voltooid
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Aanmelden voor een account voor het beoordelingsprogramma als dat niet in de vorige stap is gedaan
 
-Als u uw Content Moderator vanuit de Azure-portal ook hebt [zich registreren voor de beoordeling hulpprogramma account](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. U moet het team-Id en het beoordelingsprogramma de API controleren als u wilt een taak starten en de evaluaties weergeven in het controlehulpprogramma aan te roepen.
+Als u Content Moderator hebt gedownload via de Azure-portal, [schrijf u dan ook in voor het account voor het beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een taak te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Zorg ervoor dat uw API-sleutel de beoordeling-API kunt aanroepen voor het maken van de beoordeling
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Instellen dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
-Na het voltooien van de vorige stappen, zou u uiteindelijk met twee Content Moderator-sleutels als u vanuit de Azure-portal gestart. 
+Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart. 
 
-Als u van plan bent de Azure-opgegeven API-sleutel in de SDK-voorbeeld gebruiken, volgt u de stappen in de [met behulp van Azure-sleutel met de API controleren](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) sectie waarmee uw toepassing in de beoordeling-API aanroepen en beoordelingen te maken.
+Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te gebruiken, volgt u de stappen in de sectie [De Azure-sleutel met de beoordelings-API gebruiken](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) zodat uw app de beoordelings-API kan aanroepen en beoordelingen kan maken.
 
-Als u de gratis proefversie sleutel gegenereerd door het beoordelingsprogramma, uw beoordeling hulpprogramma-account al op de hoogte van de sleutel en daarom geen extra stappen zijn vereist.
+Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door het beoordelingsprogramma, is uw account van het beoordelingsprogramma al op de hoogte van de sleutel, zodat er geen extra stappen zijn vereist.
 
-## <a name="define-a-custom-moderation-workflow"></a>Een werkstroom aangepaste toezicht definiëren
+## <a name="define-a-custom-moderation-workflow"></a>Een aangepaste werkstroom voor beoordeling definiëren
 
-Een beheer-taak scant uw inhoud met behulp van de API's en maakt gebruik van een **werkstroom** om te bepalen of beoordelingen of niet maken.
-Terwijl het beoordelingsprogramma een standaardwerkstroom, gaan we bevat [definiëren van een aangepaste werkstroom](Review-Tool-User-Guide/Workflows.md) voor deze Quick Start.
+Een beoordelingstaak scant uw inhoud met behulp van de API's en maakt gebruik van een **werkstroom** om te bepalen of er al dan niet beoordelingen moeten worden gemaakt.
+Hoewel het beoordelingsprogramma een standaardwerkstroom bevat, gaan we voor deze snelstartgids [een aangepaste werkstroom definiëren](Review-Tool-User-Guide/Workflows.md).
 
-U kunt de naam van de werkstroom gebruiken in uw code waarmee de beheer-taak wordt gestart.
+U gebruikt de naam van de werkstroom in uw code waarmee de beoordelingstaak wordt gestart.
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
+## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
+1. Voeg een nieuw project van het type **Console-app (.NET Framework)** toe aan uw oplossing.
 
-   Noem het project in de voorbeeldcode **CreateReviews**.
+   Geef het project de naam **CreateReviews** in de voorbeeldcode.
 
-1. Selecteer dit project als opstartproject één voor de oplossing.
+1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
@@ -67,9 +68,9 @@ Installeer de volgende NuGet-pakketten:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
-Wijzig het programma de using-instructies toe.
+Pas de using-instructies van het programma aan.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -82,10 +83,10 @@ Wijzig het programma de using-instructies toe.
 
 ### <a name="create-the-content-moderator-client"></a>De Content Moderator-client maken
 
-Voeg de volgende code voor het maken van een Content Moderator-client voor uw abonnement.
+Voeg de volgende code toe om een Content Moderator-client voor uw abonnement te maken.
 
 > [!IMPORTANT]
-> Update de **Azureregio** en **CMSubscriptionKey** velden met de waarden van uw regio-id en de abonnement-sleutel.
+> Werk de velden **AzureRegion** en **CMSubscriptionKey** bij met de waarden van uw regio-id en de abonnementssleutel.
 
 
     /// <summary>
@@ -130,15 +131,15 @@ Voeg de volgende code voor het maken van een Content Moderator-client voor uw ab
         }
     }
 
-### <a name="initialize-application-specific-settings"></a>Initialiseren van toepassingsspecifieke instellingen
+### <a name="initialize-application-specific-settings"></a>Toepassingsspecifieke instellingen initialiseren
 
-Voeg de volgende constanten en statische velden die u wilt de **programma** klasse in Program.cs.
+Voeg de volgende constanten en statische velden toe aan de klasse **Program** in Program.cs.
 
 > [!NOTE]
-> U de constante TeamName ingesteld op de naam die u hebt gebruikt toen u uw abonnement Content Moderator gemaakt. Ophalen van TeamName uit de [website Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
-> Zodra u zich aanmeldt, selecteert u **referenties** uit de **instellingen** (tandwielpictogram)-menu.
+> U stelt de constante TeamName in op de naam die u hebt gebruikt tijdens het maken van uw abonnement voor Content Moderator. U kunt de TeamName vinden op de [website van Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Als u bent aangemeld, selecteert u **Credentials** in het menu **Settings** (tandwielpictogram).
 >
-> De teamnaam van uw is de waarde van de **Id** veld in de **API** sectie.
+> De naam van uw team is de waarde van het veld **Id** veld in de sectie **API**.
 
 
     /// <summary>
@@ -182,12 +183,12 @@ Voeg de volgende constanten en statische velden die u wilt de **programma** klas
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
 
-## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Voeg code toe aan automatische matige, maken van een beoordeling en de taakgegevens ophalen
+## <a name="add-code-to-auto-moderate-create-a-review-and-get-the-job-details"></a>Code toevoegen voor automatische beoordeling, het maken van een beoordeling en het ophalen van taakgegevens
 
 > [!Note]
-> In de praktijk moet u de callback-URL instellen **CallbackEndpoint** naar de URL die de resultaten van de handmatige controle (via een HTTP POST-aanvraag) ontvangt.
+> In de praktijk stelt u de callback-URL **CallbackEndpoint** in op de URL die de resultaten ontvangt van de handmatige beoordeling (via een HTTP POST-aanvraag).
 
-Beginnen met het toevoegen van de volgende code om de **Main** methode.
+Begin door de volgende code toe te voegen aan de **Main**-methode.
 
     using (TextWriter writer = new StreamWriter(OutputFile, false))
     {
@@ -241,27 +242,27 @@ Beginnen met het toevoegen van de volgende code om de **Main** methode.
     }
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS). Als u de limiet overschrijdt, wordt in de SDK een uitzondering met een foutcode 429 genereert. 
+> Er geldt een limiet voor het aantal aanvragen per seconde (RPS) voor de sleutel van de Content Moderator-service. Als u de limiet overschrijdt, veroorzaakt dit een uitzondering met foutcode 429 in de SDK. 
 >
-> De sleutel van een gratis laag heeft een limiet van één RPS.
+> Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
+## <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
 
-U ziet het volgende voorbeeld van uitvoer in de console:
+U ziet de volgende voorbeelduitvoer in de console:
 
     Perform manual reviews on the Content Moderator site.
     Then, press any key to continue.
 
-Meld u aan bij de Content Moderator-controlehulpprogramma om te zien van de installatiekopie van het in behandeling controleren.
+Meld u aan bij het Content Moderator-beoordelingsprogramma om de openstaande beoordeling van de afbeelding te zien.
 
-Gebruik de **volgende** knop om in te dienen.
+Gebruik de knop **Next** om te verzenden.
 
-![Beoordeling van de installatiekopie van menselijke moderators](images/ocr-sample-image.PNG)
+![Beoordeling van afbeelding voor menselijke beoordelaars](images/ocr-sample-image.PNG)
 
-## <a name="see-the-sample-output-in-the-log-file"></a>Zie het voorbeeld van uitvoer in het logboekbestand
+## <a name="see-the-sample-output-in-the-log-file"></a>De voorbeelduitvoer in het logboekbestand bekijken
 
 > [!NOTE]
-> In uw bestand voor uitvoer, de tekenreeksen **Teamname**, **ContentId**, **CallBackEndpoint**, en **WorkflowId** weerspiegelen de waarden die u hebt gebruikt eerder.
+> In het uitvoerbestand vertegenwoordigen de tekenreeksen **Teamname**, **ContentId**, **CallBackEndpoint** en **WorkflowId** de waarden die u eerder hebt gebruikt.
 
     Create moderation job for an image.
     {
@@ -295,12 +296,12 @@ Gebruik de **volgende** knop om in te dienen.
     }
 
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>De Url voor terugbellen voor ontvangt als is opgegeven, deze reactie.
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Deze reactie wordt naar de callback-URL verstuurd, indien die is opgegeven.
 
-U ziet een antwoord weergegeven zoals in het volgende voorbeeld:
+U ziet een reactie zoals in het volgende voorbeeld:
 
 > [!NOTE]
-> In de callback-antwoord wordt de tekenreeksen **ContentId** en **WorkflowId** weerspiegelen de waarden die u eerder hebt gebruikt.
+> In de callback-reactie vertegenwoordigen de tekenreeksen **ContentId** en **WorkflowId** de waarden die u eerder hebt gebruikt.
 
     {
         "JobId": "2018014caceddebfe9446fab29056fd8d31ffe",
@@ -320,4 +321,4 @@ U ziet een antwoord weergegeven zoals in het volgende voorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.
+Download de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere snelstartgidsen over Content Moderator voor .NET en begin met de integratie.

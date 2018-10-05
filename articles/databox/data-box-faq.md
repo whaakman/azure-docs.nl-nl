@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946626"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422861"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: veelgestelde vragen
 
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>V. Het ledcontrolelampje voor systeemstoringen op het voorpaneel brandt. Wat moet ik doen?
-A. Als het ledcontrolelampje voor systeemstoringen brandt, betekent dit dat uw systeem niet in orde is. Neem contact op met Microsoft Ondersteuning voor volgende stappen.
+A. Als het ledcontrolelampje voor systeemstoringen brandt, betekent dit dat uw systeem niet in orde is. [Neem contact op met Microsoft Ondersteuning](data-box-disk-contact-microsoft-support.md) voor volgende stappen.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>V. Ik heb geen toegang tot het ontgrendelingswachtwoord voor de Data Box in de Azure Portal. Waarom is dit?
 A. Controleer de machtigingen in uw abonnement en opslagaccount als u geen toegang tot het ontgrendelingswachtwoord in de Azure Portal hebt. Zorg dat u inzender- of eigenaarsmachtigingen op resourcegroepniveau hebt. Als dit niet het geval is, moet u minimaal machtigingen op het niveau van de rol Data Box Operator hebben om de toegangsreferenties te kunnen zien.
@@ -127,8 +127,8 @@ A. Controleer de machtigingen in uw abonnement en opslagaccount als u geen toega
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>V. Hoe kan ik de bestelstatus van de Data Box volgen vanaf het moment dat de bestelling is geplaatst als ik het apparaat terug wil sturen? 
 A.  U kunt de status van de Data Box-bestelling volgen in Azure Portal. Als u de bestelling plaatst, wordt u ook gevraagd een e-mailadres voor meldingen op te geven. Als u dat hebt gedaan, dan krijgt u elke keer per e-mail een melding als er een statuswijziging heeft plaatsgevonden. Meer informatie over het [configureren van e-mailmeldingen](data-box-portal-ui-admin.md#edit-notification-details).
 
-### <a name="q-how-do-i-return-the-disks"></a>V. Hoe kan ik de schijven terugsturen? 
-A.  Microsoft geeft een verzendlabel weer op het E-Ink-display. Bevestig het label aan de doos met de schijven en geef de verzegelde verpakking af bij de verzender. Als het label beschadigd is of verloren is gegaan, gaat u naar **Overzicht > Verzendlabel downloaden** en downloadt u een nieuw verzendlabel.
+### <a name="q-how-do-i-return-the-device"></a>V. Hoe kan ik het apparaat terugsturen? 
+A.  Microsoft geeft een verzendlabel weer op het E-ink-display. Als het verzendlabel niet wordt weergegeven op het E-ink-display, gaat u naar **Overzicht > Verzendlabel downloaden**. Download en print het label, plaats het label in het doorzichtige plastic hoesje op het apparaat en geef het apparaat mee aan de koerier die u gebruikt. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>V. Ik heb een e-mailbericht ontvangen dat mijn apparaat het Azure-datacenter heeft bereikt. Hoe kan ik weten of de gegevens worden geüpload?
 A. U kunt in de Azure Portal naar uw Data Box-bestelling gaan en dan **Overzicht** kiezen. Als het uploaden van gegevens naar Azure is gestart, zult u de voortgang van het kopiëren in het rechterdeelvenster zien. 
@@ -181,11 +181,11 @@ A. Gebruik het apparaat niet als het beschadigd is gearriveerd of als er bewijs 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>V. Kan ik mijn eigen koerier gebruiken om de Data Box te verzenden?
 A. Microsoft verzorgt de verzending van de Data Box van en naar het Azure-datacenter. U kunt de Azure Import/Export-service gebruiken als u uw eigen koerier wilt gebruiken. Ga voor meer informatie naar [Wat is Azure Import/Export-service](../storage/common/storage-import-export-service.md)?
 
-### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>V. Het E Ink-display geeft het label voor retourverzending niet weer. Wat moet ik doen?
-A. Voer de volgende stappen uit als het E-Ink-display het label voor retourverzending niet weergeeft:
+### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>V. Er wordt geen label voor retourzending weergegeven op het E-ink-display. Wat moet ik doen?
+A. Voer de volgende stappen uit als er geen label voor retourverzending wordt weergegeven op het E-ink-display:
 - Verwijder het oude verzendlabel en alle stickers van de vorige verzending.
-- Ga naar uw bestelling in de Azure Portal. Ga naar Overzicht en download het verzendlabel. Ga voor meer informatie naar [Verzendlabel downloaden](data-box-portal-admin.md#download-shipping-label).
-- Druk het verzendlabel af en steek het in de transparante hoes die aan het apparaat is bevestigd. 
+- Ga naar uw bestelling in de Azure Portal. Ga naar **Overzicht** en **Verzendlabel downloaden**. Ga voor meer informatie naar [Verzendlabel downloaden](data-box-portal-admin.md#download-shipping-label).
+- Print het verzendlabel en steek het in het doorzichtige plastic hoesje op het apparaat. 
 - Zorg dat het verzendlabel duidelijk zichtbaar is. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>V. Hoe worden mijn gegevens tijdens het verzenden beveiligd? 
@@ -204,12 +204,11 @@ A. Ja. U kunt het apparaat inschakelen en meer gegevens toevoegen. Als u het kop
 A.  U hebt weer toegang tot uw gegevens zodra de bestellingsstatus voor **Gegevens kopiëren** als **Voltooid** wordt weergegeven.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>V. Waar bevinden zich mijn gegevens in Azure na het uploaden?
-A.  Als u de gegevens naar Data Box kopieert, worden de gegevens, afhankelijk van of de gegevens blok-blob, pagina-blob of Azure-bestanden zijn, naar een van deze locaties in uw Azure Storage-account geüpload:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Onder blok-blob- en pagina-blob-shares zijn entiteiten op het eerste niveau containers en entiteiten op het tweede niveau blobs. Onder shares voor Azure Files zijn entiteiten op het eerste niveau shares en entiteiten op het tweede niveau bestanden.
+A.  Als u de gegevens naar Data Box kopieert, worden de gegevens naar een van deze locaties in uw Azure Storage-account geüpload, afhankelijk van of de gegevens bestaan uit een blok-blob, een pagina-blob of Azure-bestanden.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ U kunt ook naar uw Azure-opslagaccount in de Azure-portal gaan en van daaruit navigeren.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>V. Ik heb gemerkt dat ik de naamgevingsvereisten voor Azure niet voor mijn containers heb gevolgd. Worden mijn gegevens niet naar Azure geüpload?
 A.  Als de containernamen hoofdletters bevatten, worden deze automatisch naar kleine letters omgezet. Als de namen anderszins niet aan de vereisten voldoen (speciale tekens, andere taal, enzovoort), dan worden er geen gegevens geüpload. Ga voor meer informatie over beproefde methoden voor de naamgeving van shares, containers en bestanden naar: 

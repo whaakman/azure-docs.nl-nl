@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920985"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166874"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
@@ -45,8 +45,6 @@ Intune gebruiken om de configuratie te wijzigen zodat gebruikers het wachtwoord 
    * Geef eventueel een duidelijke beschrijving van het profiel op
    * Platform **Windows 10 en hoger**
    * Profieltype **Aangepast**
-
-   ![Profiel maken][CreateProfile]
 
 3. **Instellingen** configureren
    * **Voeg de volgende OMA-URI-instelling toe** om de koppeling Wachtwoord opnieuw instellen in te schakelen
@@ -100,7 +98,6 @@ Welke wijzigingen zien de gebruikers nadat het beleid is geconfigureerd en toege
 ![Aanmeldingsscherm][LoginScreen]
 
 Wanneer gebruikers zich proberen aan te melden, zien ze nu de koppeling Wachtwoord opnieuw instellen die toegang biedt tot de selfservice voor wachtwoordherstel vanuit het aanmeldingsscherm. Deze functionaliteit maakt het mogelijk dat gebruikers hun wachtwoord opnieuw instellen zonder dat ze een ander apparaat moeten gebruiken om toegang te krijgen tot een webbrowser.
-Wanneer gebruikers zich proberen aan te melden, zien ze nu de koppeling Wachtwoord opnieuw instellen die toegang biedt tot de selfservice voor wachtwoordherstel vanuit het aanmeldingsscherm. Deze functionaliteit maakt het mogelijk dat gebruikers hun wachtwoord opnieuw instellen zonder dat ze een ander apparaat moeten gebruiken om toegang te krijgen tot een webbrowser.
 
 Uw gebruikers vinden hulp voor het gebruik van deze functie in [Uw wachtwoord voor werk of school opnieuw instellen](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -114,7 +111,11 @@ Wanneer u deze functionaliteit test met Extern bureaublad, wordt de koppeling Wa
 
 * Wachtwoordherstel wordt momenteel niet ondersteund vanaf een extern bureaublad.
 
-Als het Windows-vergrendelingsscherm wordt uitgeschakeld met een registersleutel of groepsbeleid, is **Wachtwoord opnieuw instellen** niet beschikbaar.
+Als het Windows-vergrendelingsscherm is uitgeschakeld met een registersleutel of groepsbeleid, is **Wachtwoord opnieuw instellen** niet beschikbaar.
+
+Het auditlogboek van Azure AD bevat informatie over het IP-adres en het ClientType waarvoor het wachtwoord opnieuw is ingesteld.
+
+![Voorbeeld van opnieuw instellen van wachtwoord via het aanmeldingsscherm in het auditlogboek van Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -127,6 +128,5 @@ In deze zelfstudie hebt u gebruikers in staat gesteld om hun wachtwoorden op het
 > [!div class="nextstepaction"]
 > [Risico's beoordelen bij het aanmelden](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Een Intune-apparaatconfiguratieprofiel maken om de koppeling Wachtwoord opnieuw instellen op het aanmeldingsscherm van Windows 10 in te schakelen"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Intune-beleid voor apparaatconfiguratie toewijzen aan een groep Windows 10-apparaten"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "De koppeling Wachtwoord opnieuw instellen op het aanmeldingsscherm van Windows 10"

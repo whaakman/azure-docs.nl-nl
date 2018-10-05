@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957668"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161927"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box 
 
@@ -45,7 +45,7 @@ Zorg voordat u begint voor het volgende:
 ## <a name="connect-to-data-box"></a>Verbinding maken met Data Box
 
 Data Box maakt op basis van het geselecteerde opslagaccount maximaal:
-- Drie shares voor elk gekoppelde opslagaccount voor (GPv1 en GPv2).
+- Drie shares voor elk gekoppeld opslagaccount voor GPv1 en GPv2.
 - Een share voor premium- of blob-opslagaccount. 
 
 Onder blok-blob- en pagina-blob-shares zijn entiteiten op het eerste niveau containers en entiteiten op het tweede niveau blobs. Onder shares voor Azure Files zijn entiteiten op het eerste niveau shares en entiteiten op het tweede niveau bestanden.
@@ -233,7 +233,7 @@ Om de gegevensintegriteit te garanderen wordt de controlesom inline berekend ter
 
 Gebruik een hulpprogramma voor kopiëren dat op Robocopy lijkt als u een Linux-hostcomputer gebruikt. Voorbeelden van beschikbare alternatieven in Linux zijn [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) en [Ultracopier](https://ultracopier.first-world.info/).  
 
-De opdracht cp is een van de beste opties om een map te kopiëren. Ga voor meer informatie over het gebruik naar [cp man-pagina’s](http://man7.org/linux/man-pages/man1/cp.1.html).
+De opdracht `cp` is een van de beste opties om een map te kopiëren. Ga voor meer informatie over het gebruik naar [cp man-pagina’s](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Volg deze richtlijnen als u rsync gebruikt voor een kopie met meerdere threads:
 
@@ -273,7 +273,7 @@ De laatste stap is de voorbereiding van het apparaat voor verzending. In deze st
    
     ![Voorbereiding voor verzending 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Als de controlesom niet werd ingeschakeld, ziet u de optie om de controlesom in te schakelen. We adviseren u om de controlesomvalidatie uit te voeren vanwege de integriteit van uw gegevens. Als u **Controlesom inschakelen** selecteert, zal de berekening van de controlesom worden geactiveerd. Dit kan, afhankelijk van de grootte van uw gegevens, even duren. Klik op **Voorbereiding starten**.
+2. Standaard worden controlesommen inline berekend tijdens de voorbereiding op verzending. Het berekenen van de controlesom kan even duren, afhankelijk van de grootte van uw gegevens. Klik op **Voorbereiding starten**.
     1. De shares van het apparaat gaan offline en het apparaat wordt vergrendeld als we de voorbereiden voor verzending uitvoeren.
         
         ![Voorbereiding voor verzending 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

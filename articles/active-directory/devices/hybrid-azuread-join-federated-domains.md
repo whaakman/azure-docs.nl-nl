@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047339"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391799"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor federatieve domeinen
 
@@ -122,7 +122,7 @@ Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect he
 
     a. Selecteer de forest.
 
-    b. Selecteer de verificatieservice.
+    b. Selecteer de verificatieservice. U moet AD FS-server selecteren tenzij uw organisatie uitsluitend Windows 10-clients gebruikt.
 
     c. Klik op **Toevoegen** om de referenties van een ondernemingsbeheerder in te voeren.
 

@@ -9,14 +9,14 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: b3916fb0de48f30bd4809d1fc42dde6ac78c07b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023263"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180878"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uw toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Zelfstudie: Toepassingsgegevens maximaal beschikbaar maken met Azure-opslag
 
 Deze zelfstudie is deel één van een serie. Hier ziet u hoe u uw toepassingsgegevens maximaal beschikbaar maakt in Azure. Wanneer u klaar bent, hebt u een consoletoepassing die een blob ophaalt en uploadt naar een [geografisch redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) opslagaccount met leestoegang (RA-GRS). RA-GRS werkt door transacties te repliceren van de primaire naar de secundaire regio. Dit replicatieproces zorgt ervoor dat de gegevens in de secundaire regio uiteindelijk consistent zijn. De toepassing gebruikt het [Circuitonderbrekers](/azure/architecture/patterns/circuit-breaker)patroon om te bepalen met welk eindpunt verbinding moet worden gemaakt. De toepassing schakelt over naar het secundaire eindpunt wanneer er een fout wordt gesimuleerd.
 
@@ -55,9 +55,9 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij de Azure-portal
 
-Meld u aan bij [Azure Portal](https://portal.azure.com/).
+Meld u aan bij de [Azure-portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
@@ -65,7 +65,7 @@ Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw 
 
 Volg deze stappen om een account voor geografisch redundante opslag met leestoegang te maken:
 
-1. Selecteer de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
+1. Selecteer de knop **Een resource maken** in de linkerbovenhoek van de Azure-portal.
 
 2. Selecteer **Opslag** op de pagina **Nieuw** en selecteer **Opslagaccount - Blob, File, Table, Queue** onder **Aanbevolen**.
 3. Vul het formulier voor het opslagaccount in met de informatie uit de volgende afbeelding en selecteer **Maken**:
@@ -114,7 +114,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 
 In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. U wordt aangeraden deze verbindingsreeks binnen een omgevingsvariabele op te slaan op de lokale computer waarop de toepassing wordt uitgevoerd. Volg een van de onderstaande voorbeelden afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
-Ga in Azure Portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
+Ga in de Azure-portal naar uw opslagaccount. Selecteer bij **Instellingen** in uw opslagaccount de optie **Toegangssleutels**. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> door uw werkelijke verbindingsreeks door afhankelijk van uw besturingssysteem een van de volgende opdrachten uit te voeren. Met deze opdracht slaat u een omgevingsvariabele naar de lokale machine op. In Windows is de omgevingsvariabele pas beschikbaar wanneer u de **-opdrachtprompt** of shell die u gebruikt opnieuw laadt. Vervang **\<storageConnectionString\>** in het volgende voorbeeld:
 
 # <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
 export storageconnectionstring=\<yourconnectionstring\> 

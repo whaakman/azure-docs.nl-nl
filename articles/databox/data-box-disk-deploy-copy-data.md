@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841502"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452612"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: gegevens kopiëren naar de Azure Data Box-schijf en deze gegevens controleren
 
@@ -30,17 +30,14 @@ In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Gegevens kopiëren naar de Data Box-schijf
-> * De gegevensintegriteit controleren
+> * Gegevens controleren
 
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg voordat u begint voor het volgende:
 - U hebt de [zelfstudie: Uw Azure Data Box-schijf installeren en configureren](data-box-disk-deploy-set-up.md) voltooid.
-- Uw schijven zijn uitgepakt en ingeschakeld.
-- U beschikt over een hostcomputer waarmee u gegevens naar de schijven kunt kopiëren. Op uw hostcomputer moet
-    - Een [ondersteund besturingssysteem](data-box-disk-system-requirements.md) worden uitgevoerd.
-    - [Windows PowerShell 4 zijn geïnstalleerd](https://www.microsoft.com/download/details.aspx?id=40855).
-    - [.NET Framework 4.5 zijn geïnstalleerd](https://www.microsoft.com/download/details.aspx?id=30653).
+- Uw schijven worden ontgrendeld en verbonden met een clientcomputer.
+- Er moet een [ondersteund besturingssysteem](data-box-disk-system-requirements.md) worden uitgevoerd op de clientcomputer die wordt gebruikt om gegevens naar de schijven te kopiëren.
 
 
 ## <a name="copy-data-to-disks"></a>Gegevens naar schijven kopiëren
@@ -59,6 +56,7 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
 
     Houd u aan de Azure-naamgevingsvereisten voor container- en blobnamen.
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Azure-naamconventies voor namen van containers en blobs
     |Entiteit   |Conventies  |
     |---------|---------|
     |Namen van containers voor blok-blobs en pagina-blobs     |Moeten beginnen met een letter of cijfer en mogen alleen kleine letters, cijfers en het koppelteken (-) bevatten. Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. In namen worden geen opeenvolgende koppeltekens toegestaan. <br>Moet een geldige DNS-naam zijn die tussen de 3 en 63 tekens bevat.          |
@@ -165,17 +163,21 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
 > -  Zorg er tijdens het kopiëren van gegevens voor dat de gegevensgrootte voldoet aan de limieten die staan beschreven in de [limieten voor Azure-opslag en Data Box-schijven](data-box-disk-limits.md). 
 > - Als de gegevens die door Data Box Disk worden geüpload gelijktijdig door andere toepassingen buiten Data Box Disk worden geüpload, kan dit tot fouten voor de uploadtaak en beschadigde gegevens leiden.
 
-## <a name="verify-data-integrity"></a>De gegevensintegriteit controleren
+## <a name="verify-data"></a>Gegevens controleren 
 
-Als u de gegevensintegriteit wilt controleren, voert u de volgende stappen uit.
+Voer de volgende stappen uit om de gegevens te controleren.
 
-1. Voer de opdracht `AzureExpressDiskService.ps1` uit voor controlesomvalidatie. Ga in Verkenner naar de map *AzureImportExport* van het station. Klik met de rechtermuisknop en selecteer **Uitvoeren met PowerShell**. 
+1. Voer `DataBoxDiskValidation.cmd` uit in de map *AzureImportExport* van het station om de controlesom te controleren. 
+    
+    ![Uitvoer van validatieprogramma van Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![Controlesom uitvoeren](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. Wanneer het script is voltooid, worden een overzicht van de gegevensintegriteitscontrole en de tijdsduur voor het voltooien van de controle weergegeven. U kunt op **Enter** drukken om het opdrachtvenster te sluiten.
+2. Kies de juiste optie. **Wij adviseren om altijd optie 2 te selecteren om de bestanden te valideren en controlesommen te genereren**. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. Als het script is voltooid, sluit u het opdrachtvenster. Als er fouten optreden tijdens de validatie en het genereren van de controlesom, krijgt u hiervan een melding en ziet u ook een koppeling naar de foutenlogboeken.
 
     ![Uitvoer van de controlesom](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Reset het programma tussen twee uitvoeringen.
+    > - Gebruik optie 1 om bestanden te valideren als het gaat om een grote gegevensset met alleen kleine bestanden (~ kB). In deze gevallen kan het genereren van een controlesom erg lang duren en de prestaties dus tegenvallen.
 
 3. Als u meerdere schijven gebruikt, voert u de opdracht uit voor elke schijf.
 

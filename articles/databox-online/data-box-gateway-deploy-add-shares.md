@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 44fa19191f08f0e35c06f0b7ea5a3e5e41611de3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9560166f9733e1370f99f5f76a6ca3a58567865e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979114"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220219"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Zelfstudie: Gegevens overdragen met Azure Data Box Gateway (preview-versie)
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 > * Verbinding maken met een share
 
 > [!IMPORTANT]
-> - Data Box Gateway bevindt zich in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
+> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
  
 ## <a name="prerequisites"></a>Vereisten
 
@@ -55,7 +55,7 @@ Voer in de [Azure-portal](https://portal.azure.com/) de volgende stappen uit om 
 
 1. Ga terug naar de Azure-portal. Ga naar **Alle resources** en zoek de Data Box Gateway-resource.
     
-2. In de gefilterde lijst met resources selecteert u de Data Box Gateway-resource en gaat u naar **Overzicht**. Klik op de opdrachtbalk van het apparaat op **+ Share toevoegen**.
+2. In de gefilterde lijst met resources selecteert u de Data Box Gateway-resource en gaat u vervolgens naar **Overzicht**. Klik op de opdrachtbalk van het apparaat op **+ Share toevoegen**.
    
    ![Een share toevoegen](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
@@ -110,7 +110,7 @@ Voer deze stappen uit op de Windows Server-client die is verbonden met Data Box 
     ```   
 
 
-2. Druk op Windows-toets+R. Geef in het venster **Uitvoeren** het `\\<device IP address>` op. Klik op **OK**. Verkenner wordt geopend. U moet nu de shares kunnen zien die u als mappen hebt gemaakt. Selecteer een share (map) en dubbelklik erop om de inhoud te bekijken.
+2. Druk op Windows-toets+R. Geef in het venster **Uitvoeren** het `\\<device IP address>` op. Klik op **OK**. Verkenner wordt nu geopend. U moet nu de shares kunnen zien die u als mappen hebt gemaakt. Selecteer een share (map) en dubbelklik erop om de inhoud te bekijken.
  
     ![Verbinding maken met een SMB-share](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702524"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433987"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Een Stream Analytics-taak maken om gegevens van telefoongesprekken te analyseren en de resultaten te visualiseren in een Power BI-dashboard
  
@@ -101,12 +101,12 @@ Voordat u de app TelcoGenerator start, moet u deze configureren voor het verzend
 5. Open vervolgens een opdrachtvenster, ga naar de map waar u de toepassing TelcoGenerator hebt uitgepakt en voer de volgende opdracht in:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Voor deze opdracht worden de volgende parameters gebruikt:
    * **Aantal records met gespreksgegevens per uur**.  
-   * **Percentage van fraudekans**: hoe vaak de app een frauduleus gesprek moet simuleren. Een waarde van .2 betekent dat ongeveer 20% van de gespreksrecords er frauduleus uitziet.  
+   * **Percentage van fraudekans**: hoe vaak de app een frauduleus gesprek moet simuleren. Een waarde van 0.2 betekent dat ongeveer 20% van de gespreksrecords er frauduleus uitziet.  
    * **De tijd in uren**: het aantal uren dat de app moet worden uitgevoerd. U kunt de app op elk gewenst moment stoppen door het proces te beëindigen (met Ctrl+C) op de opdrachtregel.
 
    Na enkele seconden begint de app met het weergeven van telefoongesprekrecords op het scherm wanneer deze naar de event hub worden gestuurd. De telefoongesprekgegevens bevatten de volgende velden:
@@ -228,7 +228,7 @@ U kunt een query testen vanuit de query-editor en u hebt daarvoor voorbeeldgegev
 
 3. Stel **Minuten** in op 3 en selecteer **OK**. Drie minuten aan gegevens wordt opgehaald uit de invoerstroom en u krijgt een melding wanneer de voorbeeldgegevens gereed zijn. U kunt de status van het samplen bijhouden op de meldingsbalk. 
 
-   De voorbeeldgegevens worden tijdelijk opgeslagen en zijn beschikbaar zolang u het queryvenster geopend houdt. Als u het queryvenster sluit, worden de voorbeeldgegevens verwijderd en zult u een nieuwe set voorbeeldgegevens moeten maken. Als alternatief kunt u een .json-bestand met voorbeeldgegevens ophalen uit [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json) en dat .json-bestand uploaden om te gebruiken als set met voorbeeldgegevens voor de CallStream-invoer.  
+   De voorbeeldgegevens worden tijdelijk opgeslagen en zijn beschikbaar zolang u het queryvenster geopend houdt. Als u het queryvenster sluit, worden de voorbeeldgegevens verwijderd en zult u een nieuwe set voorbeeldgegevens moeten maken. Als alternatief kunt u een .json-bestand met voorbeeldgegevens ophalen uit [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) en dat .json-bestand uploaden om te gebruiken als set met voorbeeldgegevens voor de CallStream-invoer.  
 
 4. Selecteer **Testen** om de query te testen. De uitvoerresultaten moeten eruitzien zoals in deze schermafbeelding:  
 
@@ -262,7 +262,7 @@ U kunt een query testen vanuit de query-editor en u hebt daarvoor voorbeeldgegev
 
 Voor dit gedeelte van de zelfstudie maakt u gebruik van een voorbeeld van een [ASP.NET](http://asp.net/)-webtoepassing die gemaakt is door het Power BI-team en waarmee u uw dashboard kunt insluiten. Zie het artikel [Insluiten met Power BI](https://docs.microsoft.com/power-bi/developer/embedding) voor meer informatie over het insluiten van dashboards.
 
-In deze zelfstudie volgen we de stappen voor de toepassing Gebruiker is eigenaar van gegevens. Stel de toepassing in door naar de Github-opslagplaats [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) te gaan en volg de instructies in de sectie **Gebruiker is eigenaar van gegevens** (gebruik de omleidings- en startpagina-URL in de subsectie **integrate-dashboard-web-app**). Omdat we werken met het Dashboard-voorbeeld, gebruiken we de voorbeeldcode voor integrate-dashboard-web-app in de [GitHub-opslagplaats](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+In deze zelfstudie volgen we de stappen voor de toepassing Gebruiker is eigenaar van gegevens. Stel de toepassing in door naar de Github-opslagplaats [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) te gaan en volg de instructies in de sectie **Gebruiker is eigenaar van gegevens** (gebruik de omleidings- en startpagina-URL in de subsectie **integrate-dashboard-web-app**). Omdat we werken met het Dashboard-voorbeeld, gebruiken we de voorbeeldcode voor integrate-dashboard-web-app in de [GitHub-opslagplaats](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Zodra de toepassing in uw browser wordt uitgevoerd, volgt u deze stappen voor het insluiten van het dashboard dat u eerder in de webpagina hebt gemaakt:
 
 1. Selecteer **Aanmelden bij Power BI**, waarmee de toepassing toegang wordt verleend tot de dashboards in uw Power BI-account.  

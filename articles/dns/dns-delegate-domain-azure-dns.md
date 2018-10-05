@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205438"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452291"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Zelfstudie: uw domein hosten in Azure DNS
 
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
-1. Meld u aan bij Azure Portal.
+1. Meld u aan bij de Azure-portal.
 1. Selecteer in de linkerbovenhoek **Een resource maken** > **Netwerken** > **DNS-zone** om de pagina **DNS-zone maken** te openen.
 
    ![DNS-zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
@@ -47,7 +47,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
    |**Naam**|[uw domeinnaam] |De domeinnaam die u hebt gekocht. In deze zelfstudie wordt contoso.net als voorbeeld gebruikt.|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin u de zone wilt maken.|
    |**Resourcegroep**|**Nieuwe maken:** contosoRG|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. |
-   |**Locatie**|VS - oost||
+   |**Locatie**|US - oost||
 
 > [!NOTE]
 > De locatie van de resourcegroep heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
@@ -56,7 +56,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Voordat u uw DNS-zone naar Azure DNS kunt delegeren, moet u weten wat de naamservers voor uw zone zijn. Telkens wanneer er een zone wordt gemaakt, wijst Azure DNS naamservers uit een groep toe.
 
-1. Nu de DNS-zone is gemaakt, selecteert u **Alle resources** in het deelvenster **Favorieten** in Azure Portal. Selecteer op de pagina **Alle resources** uw DNS-zone. Als het abonnement dat u hebt geselecteerd al verschillende resources bevat, kunt u uw domeinnaam invoeren in het vak **Filteren op naam** om gemakkelijk toegang te krijgen tot de toepassingsgateway. 
+1. Nu de DNS-zone is gemaakt, selecteert u **Alle resources** in het deelvenster **Favorieten** in de Azure-portal. Selecteer op de pagina **Alle resources** uw DNS-zone. Als het abonnement dat u hebt geselecteerd al verschillende resources bevat, kunt u uw domeinnaam invoeren in het vak **Filteren op naam** om gemakkelijk toegang te krijgen tot de toepassingsgateway. 
 
 1. U vindt de naamservers op de pagina DNS-zone. In dit voorbeeld zijn de naamservers *ns1-01.azure-dns.com*, *ns2 01.azure dns.net*, *ns3-01.azure-dns.org* en *ns4-01.azure-dns.info* aan de zone contoso.net toegewezen:
 
@@ -70,6 +70,9 @@ Azure DNS maakt automatisch gezaghebbende NS-records in uw zone die de toegeweze
 Nu de DNS-zone is gemaakt en u de naamservers hebt, moet u het bovenliggende domein bijwerken met de Azure DNS-naamservers. Elke registrar heeft zijn eigen hulpprogramma's voor DNS-beheer om de naamserverrecords voor een domein te wijzigen. Ga naar de DNS-beheerpagina van de registrar, bewerk de NS-records en vervang de NS-records door de Azure DNS-naamservers.
 
 Wanneer u een domein naar Azure DNS delegeert, moet u de naamservers gebruiken die worden verstrekt door Azure DNS. Wij raden u aan om altijd alle vier de naamservers te gebruiken, ongeacht de naam van uw domein. Bij het delegeren van een domein is het niet nodig dat een naamserver hetzelfde topleveldomein gebruikt als uw domein.
+
+> [!NOTE]
+> Wanneer u het adres van een naamserver kopieert, moet u niet vergeten om de punt aan het einde van het adres te kopiëren. Deze punt vormt namelijk het einde van een volledig gekwalificeerde domeinnaam. Sommige registrars voegen deze punt automatisch toe als die niet is opgenomen in de naam van de naamserver. Maar om compatibel te zijn met de DNS RFC, moet u de punt zelf opnemen aangezien u er niet vanuit kunt gaan dat elke registrar deze voor u toevoegt.
 
 Delegeringen die gebruikmaken van de naamservers in uw eigen zone, ook wel *vanity-naamservers* genoemd, worden momenteel niet ondersteund in Azure DNS.
 

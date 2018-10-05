@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b1e12ad837def690e55fc501c67d8b2ed5e3cd4d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284608"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222146"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
@@ -144,7 +144,7 @@ Nu kan de Contoso-operator apparaten opvragen op basis van het operationele team
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd u hoe u apparaten kunt configureren en beheren die verbonden zijn met de oplossingsversneller voor externe bewaking. Voor informatie over het gebruik van de oplossingsversneller voor het detecteren van problemen met uw verbonden apparaten, gaat u verder met de volgende zelfstudie.
+In deze zelfstudie hebt u geleerd u hoe u apparaten kunt configureren en beheren die verbonden zijn met de oplossingsversneller voor externe bewaking. Ga door naar de volgende zelfstudie voor meer informatie over het gebruik van de oplossingsverbetering voor het zoeken van de hoofdoorzaak van een onverwachte waarschuwing.
 
 > [!div class="nextstepaction"]
-> [Apparaatwaarschuwingen gebruiken om problemen te identificeren en verhelpen met apparaten die zijn verbonden met uw bewakingsoplossing](iot-accelerators-remote-monitoring-maintain.md)
+> [Een analyse uitvoeren van de hoofdoorzaak van een waarschuwing](iot-accelerators-remote-monitoring-root-cause-analysis.md)

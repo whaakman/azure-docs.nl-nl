@@ -3,7 +3,7 @@ title: Zelfstudie - Azure Security Center gebruiken voor virtuele Linux-machines
 description: In deze zelfstudie krijgt u informatie over de functies van Azure Security Center die helpen uw virtuele Linux-machines in Azure te beschermen en te beveiligen.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/07/2017
-ms.author: iainfou
+ms.date: 06/11/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092608"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Linux-machines te controleren
 
@@ -36,7 +37,7 @@ Met Azure Security Center kunt u meer inzicht krijgen in de beveiliging van uw A
 
 Security Center identificeert mogelijke configuratieproblemen voor virtuele machine (VM's) en gerichte beveiligingsrisico's. Dit kan het volgende omvatten: virtuele machines waarbij netwerkbeveiligingsgroepen ontbreken, niet-versleutelde schijven en RDP-beveiligingsaanvallen (Remote Desktop Protocol). De informatie wordt op het Security Center-dashboard in duidelijke grafieken weergegeven.
 
-Als u het Security Center-dashboard wilt openen, selecteert u in het menu van Azure Portal de optie **Security Center**. Op het dashboard kunt u de beveiligingsstatus van uw Azure-omgeving bekijken, een aantal huidige aanbevelingen zien en de huidige status van bedreigingswaarschuwingen weergeven. U kunt elke algemene grafiek uitvouwen voor gedetailleerdere gegevens.
+Als u het Security Center-dashboard wilt openen, selecteert u in het menu van de Azure-portal de optie **Security Center**. Op het dashboard kunt u de beveiligingsstatus van uw Azure-omgeving bekijken, een aantal huidige aanbevelingen zien en de huidige status van bedreigingswaarschuwingen weergeven. U kunt elke algemene grafiek uitvouwen voor gedetailleerdere gegevens.
 
 ![Dashboard van Security Center](./media/tutorial-azure-security/asc-dash.png)
 
@@ -46,12 +47,13 @@ Security Center biedt niet alleen gegevensdetectie maar ook aanbevelingen voor g
 
 ## <a name="set-up-data-collection"></a>Gegevensverzameling kunt instellen
 
-Voordat u VM-beveiligingsconfiguraties kunt inzien, moet u eerst gegevensverzameling instellen in Security Center. Dit omvat het inschakelen van gegevensverzameling en het maken van een Azure-opslagaccount voor het opslaan van verzamelde gegevens. 
+Voordat u VM-beveiligingsconfiguraties kunt inzien, moet u eerst gegevensverzameling instellen in Security Center. Dit omvat het inschakelen van gegevensverzameling, waardoor de Microsoft Monitoring Agent automatisch wordt geïnstalleerd voor alle VM's in uw abonnement.
 
 1. Klik in het Security Center-dashboard op **Beveiligingsbeleid** en selecteer vervolgens uw abonnement. 
-2. Bij **Gegevensverzameling** selecteert u **Aan**.
-3. Selecteer **Een opslagaccount kiezen** om een opslagaccount te maken. Selecteer vervolgens **OK**.
-4. Selecteer op de blade **Beveiligingsbeleid** de optie **Opslaan**. 
+2. Voor **gegevensverzameling** selecteert u in **Automatische inrichting** de optie **Aan**.
+3. Voor **Configuratie van de standaardwerkruimte** laat u **Werkruimten gebruiken die zijn gemaakt door Security Center (standaard)** staan.
+4. Bij **Beveiligingsgebeurtenissen** laat u de standaardoptie **Algemeen** staan.
+4. Klik boven aan de pagina op **Opslaan**. 
 
 Vervolgens wordt de Security Center-agent voor gegevensverzameling op alle VM's geïnstalleerd en wordt de gegevensverzameling gestart. 
 
@@ -59,26 +61,12 @@ Vervolgens wordt de Security Center-agent voor gegevensverzameling op alle VM's 
 
 Een beveiligingsbeleid wordt gebruikt voor het definiëren van de items waarvoor Security Center gegevens verzamelt en aanbevelingen doet. U kunt verschillende soorten beveiligingsbeleid toepassen op verschillende sets van Azure-resources. Hoewel Azure-resources standaard voor alle beleidsitems worden geëvalueerd, kunt u afzonderlijke beleidsitems uitschakelen voor alle Azure-resources of voor een resourcegroep. Zie [Beveiligingsbeleid instellen in Azure Security Center](../../security-center/security-center-policies.md) voor gedetailleerde informatie over Security Center-beveiligingsbeleid. 
 
-Een beveiligingsbeleid voor alle Azure-resources instellen:
+Een beveiligingsbeleid voor een volledig abonnement:
 
 1. Selecteer in het Security Center-dashboard **Beveiligingsbeleid** en selecteer vervolgens uw abonnement.
-2. Selecteer **Preventiebeleid**.
-3. Schakel beleidsitems die u wilt toepassen op alle Azure-resources in of uit.
-4. Wanneer u klaar bent met instellen, selecteert u **OK**.
-5. Selecteer op de blade **Beveiligingsbeleid** de optie **Opslaan**. 
-
-Een beleid voor een specifieke resourcegroep instellen:
-
-1. Selecteer in het Security Center-dashboard **Beveiligingsbeleid** en selecteer vervolgens een resourcegroep.
-2. Selecteer **Preventiebeleid**.
-3. Schakel beleidsitems die u wilt toepassen op de resourcegroep in of uit.
-4. Selecteer onder **OVERNAME** de optie **Uniek**.
-5. Wanneer u klaar bent met instellen, selecteert u **OK**.
-6. Selecteer op de blade **Beveiligingsbeleid** de optie **Opslaan**.  
-
-U kunt op deze pagina ook gegevensverzameling voor een specifieke resourcegroep uitschakelen.
-
-In het volgende voorbeeld is een uniek beleid gemaakt voor een resourcegroep met de naam *myResoureGroup*. In dit beleid zijn aanbevelingen voor schijfversleuteling en Web Application Firewall uitgeschakeld.
+2. Selecteer op de blade **Beveiligingsbeleid** de optie **Beveiligingsbeleid**. 
+3. Op de blade ** Beveiligingsbeleid - Beveiligingsbeleid ** schakelt u de beleidsitems in die u wilt toepassen op het abonnement.
+4. Wanneer u klaar bent met instellen, selecteert u boven aan de blade de optie **OK**. 
 
 ![Uniek beleid](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,12 +78,12 @@ Terwijl er gegevens worden verzameld, worden de resourcestatus voor elke VM en d
 
 Resourcestatus bekijken:
 
-1.  Selecteer op het Security Center-dashboard onder **Beveiligingsstatus van de resource** de optie **Berekenen**. 
-2.  Selecteer op de blade **Berekenen** de optie **Virtuele machines**. Deze weergave biedt een samenvatting van de configuratiestatus van alle VM's.
+1.  Selecteer op het Security Center-dashboard onder **Preventie** de optie **Compute**. 
+2.  Selecteer op de blade **Compute** de optie **VM's en computers**. Deze weergave biedt een samenvatting van de configuratiestatus van alle VM's.
 
 ![Status berekenen](./media/tutorial-azure-security/compute-health.png)
 
-Selecteer een VM als u alle aanbevelingen voor deze VM wilt bekijken. Aanbevelingen en herstel worden in meer detail behandeld in het volgende gedeelte van deze zelfstudie.
+Selecteer een VM als u alle aanbevelingen voor deze VM wilt bekijken. 
 
 ## <a name="remediate-configuration-issues"></a>Configuratieproblemen oplossen
 
@@ -105,7 +93,7 @@ Een lijst met alle aanbevelingen weergeven:
 
 1. Selecteer in het Security Center-dashboard de optie **Aanbevelingen**.
 2. Selecteer een specifieke aanbeveling. Er wordt een lijst weergegeven met alle resources waarop de aanbeveling van toepassing is.
-3. Als u een aanbeveling wilt toepassen, selecteert u een specifieke resource. 
+3. Als u een aanbeveling wilt toepassen, selecteert u de benodigde resource. 
 4. Volg de instructies voor herstelstappen. 
 
 In veel gevallen biedt Security Center stappen om een aanbeveling uit te voeren zonder Security Center te verlaten. In het volgende voorbeeld detecteert Security Center een netwerkbeveiligingsgroep met een onbeperkte binnenkomende regel. Op de aanbevelingenpagina kunt u de knop **Binnenkomende regels bewerken** selecteren. De gebruikersinterface die nodig is voor het wijzigen van de regel wordt weergegeven. 
@@ -118,14 +106,14 @@ Wanneer aanbevelingen worden doorgevoerd, worden ze als opgelost gemarkeerd.
 
 Security Center geeft naast aanbevelingen voor resourceconfiguratie ook meldingen voor geconstateerde bedreigingen weer. De functie voor beveiligingsmeldingen combineert de verzamelde gegevens van elke VM, Azure-netwerklogboeken en gekoppelde partneroplossingen om bedreigingen voor Azure-resources te detecteren. Lees [Detectiemogelijkheden van Azure Security Center](../../security-center/security-center-detection-capabilities.md) voor gedetailleerdere informatie over de detectiemogelijkheden van Azure Security Center.
 
-De functie voor beveiligingsmeldingen vereist dat de Security Center-prijscategorie wordt verhoogd van *Gratis* naar *Standard*. Er is een **gratis proefversie** van 30 dagen beschikbaar wanneer u naar deze hogere prijscategorie overstapt. 
+De functie voor beveiligingsmeldingen vereist dat de Security Center-prijscategorie wordt verhoogd van *Gratis* naar *Standard*. Er is een **gratis proefversie** van 60 dagen beschikbaar wanneer u naar deze hogere prijscategorie overstapt. 
 
 De prijscategorie wijzigen:  
 
 1. Klik in het Security Center-dashboard op **Beveiligingsbeleid** en selecteer vervolgens uw abonnement.
 2. Selecteer **Prijscategorie**.
-3. Selecteer de nieuwe categorie en kies **Selecteren**.
-4. Selecteer op de blade **Beveiligingsbeleid** de optie **Opslaan**. 
+3. Selecteer **Standard** en klik vervolgens op **Opslaan** boven in de blade.
+
 
 Nadat u de prijscategorie hebt gewijzigd, wordt de grafiek voor beveiligingsmeldingen ingevuld wanneer er beveiligingsbedreigingen worden gedetecteerd.
 
