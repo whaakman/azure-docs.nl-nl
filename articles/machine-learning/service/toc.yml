@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overzicht
   items:
-  - name: Wat is Azure Machine Learning?
+  - name: Wat is de Azure Machine Learning-service?
     href: overview-what-is-azure-ml.md
   - name: Wat is er gebeurd met Workbench?
     href: overview-what-happened-to-workbench.md
@@ -12,8 +12,10 @@ items:
   expanded: true
 - name: Snelstartgidsen
   items:
-  - name: Aan de slag
+  - name: Aan de slag - portal
     href: quickstart-get-started.md
+  - name: Aan de slag - Python
+    href: quickstart-create-workspace-with-python.md
 - name: Zelfstudies
   items:
   - name: Modellen trainen, deel 1
@@ -42,8 +44,12 @@ items:
       href: how-to-choose-a-dev-environment.md
     - name: Een omgeving configureren
       href: how-to-configure-environment.md
-  - name: Een trainingsomgeving instellen
-    href: how-to-set-up-training-targets.md
+    - name: VS Code-hulpprogramma's voor AI
+      items:
+      - name: Aan de slag
+        href: how-to-vscode-tools.md
+      - name: Trainen en implementeren
+        href: how-to-vscode-train-deploy.md
   - name: Gegevens voorbereiden
     href: how-to-data-prep.md
     items:
@@ -53,19 +59,23 @@ items:
       href: how-to-transform-data.md
     - name: Gegevens schrijven
       href: how-to-write-data.md
-  - name: Trainen en afstemmen
+  - name: Toegang tot gegevens
+    href: how-to-access-data.md
+  - name: Modellen trainen
     items:
-    - name: Toegang tot gegevens
-      href: how-to-access-data.md
-    - name: Machine learning-modellen trainen
+    - name: Een trainingsomgeving instellen
+      href: how-to-set-up-training-targets.md
+    - name: Schattingen maken
       href: how-to-train-ml-models.md
       items:
-      - name: PyTorch-modellen trainen
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: TensorFlow-modellen trainen
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: ONNX-modellen maken en implementeren
       href: how-to-build-deploy-onnx.md
+  - name: Modellen afstemmen
+    items:
     - name: Hyperparameters afstemmen
       href: how-to-tune-hyperparameters.md
     - name: Experimenten en metrische gegevens bijhouden
@@ -77,21 +87,28 @@ items:
       href: how-to-configure-auto-train.md
     - name: Externe compute-doelen gebruiken
       href: how-to-auto-train-remote.md
-  - name: Implementeren en bewaken
+  - name: Modellen implementeren
     items:
     - name: Waar modellen te implementeren
       href: how-to-deploy-and-where.md
-      items:
-      - name: Implementeren naar ACI
-        href: how-to-deploy-to-aci.md
-      - name: Implementeren naar AKS
-        href: how-to-deploy-to-aks.md
-      - name: Implementeren naar FPGA's
-        href: how-to-deploy-fpga-web-service.md
-      - name: Implementeren naar IoT Edge
-        href: how-to-deploy-to-iot.md
+    - name: Implementeren naar ACI
+      href: how-to-deploy-to-aci.md
+    - name: Implementeren naar AKS
+      href: how-to-deploy-to-aks.md
+    - name: Implementeren naar FPGA's
+      href: how-to-deploy-fpga-web-service.md
+    - name: Implementeren naar IoT Edge
+      href: how-to-deploy-to-iot.md
+    - name: Problemen oplossen
+      href: how-to-troubleshoot-deployment.md
+    - name: Beveiligen met SSL
+      href: how-to-secure-web-service.md
+  - name: Modellen bewaken
+    items:
     - name: Gegevens verzamelen in een productieomgeving
       href: how-to-enable-data-collection.md
+    - name: Controleren met behulp van Application Insights
+      href: how-to-enable-app-insights.md
   - name: Resourcequota beheren
     href: how-to-manage-quotas.md
   - name: Gegevens exporteren en verwijderen
@@ -104,8 +121,6 @@ items:
     href: reference-azure-machine-learning-cli.md
 - name: Resources
   items:
-  - name: Gids voor R-ontwikkelaars
-    href: ../r-developers-guide.md
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Prijzen
@@ -114,6 +129,8 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Accountgegevens exporteren of verwijderen
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Releaseopmerkingen
+    href: azure-machine-learning-release-notes.md
   - name: Bekende problemen
     href: resource-known-issues.md
   - name: Ondersteuning krijgen
@@ -314,17 +331,13 @@ items:
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Modellen voor tekstclassificatie bouwen en implementeren
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Oudere opmerkingen bij de release
-      href: azure-machine-learning-release-notes.md
     - name: Veelgestelde vragen
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Oudere problemen
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Ondersteuning
-      href: support-for-aml-services.md
-ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb5ffe0b261d1c233765175170b5697050b58d20
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162148"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248808"

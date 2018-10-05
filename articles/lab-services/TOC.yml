@@ -72,6 +72,25 @@ items:
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Uw app in Azure testen
       href: test-app-azure.md
+    - name: DevTest Labs-infrastructuur instellen in uw onderneming
+      href: devtest-lab-guidance-prescriptive-adoption.md
+      items:
+      - name: Aan de slag met DevTest Labs
+        href: devtest-lab-guidance-get-started.md
+      - name: Uw DevTest Labs-implementatie omhoog schalen
+        href: devtest-lab-guidance-scale.md
+      - name: De DevTest Labs-implementatie organiseren
+        href: devtest-lab-guidance-orchestrate-implementation.md
+      - name: DevTest Labs-infrastructuur beheren
+        items:
+        - name: Resources
+          href: devtest-lab-guidance-governance-resources.md
+        - name: Kosten en eigendom
+          href: devtest-lab-guidance-governance-cost-ownership.md
+        - name: Beleid en naleving
+          href: devtest-lab-guidance-governance-policy-compliance.md
+        - name: Migratie en integratie van toepassingen
+          href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Virtuele machines gebruiken in een lab
       items:
       - name: Virtuele machines maken
@@ -194,9 +213,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: c2e701b16c67be86d3e8d2463b8ad45646f0ed0b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 401c41d1b91d6373dfb3c743e0c6f56332030b45
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988628"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247563"
