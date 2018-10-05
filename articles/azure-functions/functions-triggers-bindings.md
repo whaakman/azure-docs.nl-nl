@@ -9,14 +9,14 @@ keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch b
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969424"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801302"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -168,7 +168,7 @@ In deze sectie geldt alleen voor functies 2.x. Bindinguitbreidingen geen explici
 
 Wanneer u een functie maken of een binding toevoegt, wordt u gevraagd wanneer de uitbreiding voor de trigger of binding moet worden geregistreerd. Door te klikken op de prompt beantwoorden **installeren** voor het registreren van de extensie. Installatie kan tot tien minuten duren in een verbruiksabonnement.
 
-U moet elke uitbreiding slechts één keer voor een bepaalde functie-app installeren. 
+U moet elke uitbreiding slechts één keer voor een bepaalde functie-app installeren. Voor ondersteunde bindingen die niet beschikbaar in de portal of bij te werken de geïnstalleerde extensie, u kunt ook [handmatig installeren of bijwerken van Azure Functions binding extensies vanuit de portal](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Azure Functions Core Tools voor lokale ontwikkeling
 

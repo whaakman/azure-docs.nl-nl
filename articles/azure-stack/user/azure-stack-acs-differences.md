@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027166"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802318"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: verschillen en overwegingen
 
@@ -41,7 +41,6 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 |Managed Disks|Premium en standaard worden ondersteund|Als u versie 1808 of hoger ondersteund.
 |Blobnaam|1024 tekens (2048 bytes)|880 tekens (1,760 bytes)
 |Maximale grootte voor blok-blob|4.75 TB (100 MB X 50.000 blokken)|4.75 TB (100 MB x 50.000 blokken) voor de update 1802 of een nieuwere versie. 50.000 x 4 MB (CA. 195 GB) voor eerdere versies.
-|Pagina-blob-momentopname kopiëren|Back-up Azure niet-beheerde VM-schijven die zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund.
 |Pagina blob-momentopname van incrementele kopie|Premium en standard-pagina in Azure blobs ondersteund|Nog niet ondersteund.
 |Opslaglagen voor blob-opslag|Hot, cool en archive storage-lagen.|Nog niet ondersteund.
 Voorlopig verwijderen voor blob-opslag|Preview|Nog niet ondersteund.

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380162"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804613"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Bescherm uw gegevens door het maken van momentopnamen van uw gegevens met gedefinieerde intervallen. Deze momentopnamen zijn voorzien van herstelpunten en ze zijn opgeslagen in Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -37,6 +37,7 @@ Herstellen van een virtuele machine of alle schijven van virtuele machine back-u
 * Selecteer het type herstel, maak een nieuwe virtuele machine of herstel de schijven en geef de vereiste parameters. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Selecteer een herstelpunt voor herstel
+
 1. Meld u aan bij [Azure Portal](http://portal.azure.com/).
 
 1. Selecteer op het menu van Azure, **Bladeren**. Typ in de lijst met services, **herstelservices**. De lijst met services wordt aangepast aan wat u typt. Wanneer de melding **Recovery Services-kluizen**, selecteert u deze.
@@ -102,7 +103,7 @@ Nadat u het herstelpunt geselecteerd, kiest u een VM-configuratie voor herstel. 
 De portal biedt een **snelle invoer** een herstelde virtuele machine. Voor het aanpassen van de VM-configuratie of de namen van de resources die worden gemaakt als onderdeel van het maken van de keuze van een nieuwe virtuele machine, moet u PowerShell of de portal gebruiken voor het herstel de schijven waarvan een back-up is gemaakt. PowerShell-opdrachten gebruiken voor deze koppelt aan uw eigen keuze aan VM-configuratie. Of u kunt de sjabloon die wordt geleverd met herstelde schijven om aan te passen van de herstelde VM. Zie voor meer informatie over het herstellen van een virtuele machine die meerdere NIC's heeft of onder een load balancer [een virtuele machine terugzetten met speciale netwerkconfiguraties](#restore-vms-with-special-network-configurations). Als uw Windows-VM gebruikmaakt [HUB licentieverlening](../virtual-machines/windows/hybrid-use-benefit-licensing.md), herstel de schijven en PowerShell/sjabloon zoals opgegeven in dit artikel gebruiken om te maken van de virtuele machine. Zorg ervoor dat u opgeeft de **licentietype** als "Windows_Server" terwijl u de virtuele machine als u gebruik van de HUB voordelen op de herstelde virtuele machine wilt maken. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Een nieuwe virtuele machine maken vanaf een herstelpunt
-1. Als u nog niet bent, [Selecteer een herstelpunt](#restore-a vm-with-special-network-configurations) voordat u begint met een nieuwe virtuele machine maken vanaf een herstelpunt. Nadat u een herstelpunt selecteren op de **configuratie terugzetten** blade, invoeren of selecteren van waarden voor elk van de volgende velden:
+1. Als u nog niet bent, [Selecteer een herstelpunt](#select-a-restore-point-for-restore) voordat u begint met een nieuwe virtuele machine maken vanaf een herstelpunt. Nadat u een herstelpunt selecteren op de **configuratie terugzetten** blade, invoeren of selecteren van waarden voor elk van de volgende velden:
 
     a. **Type herstellen**. Hiermee maakt u een virtuele machine.
 
@@ -239,9 +240,9 @@ Voor het volledig opnieuw maken van de VM's na het herstellen naar de schijf, de
 
    b. Maak een virtuele machine verbinding maken met een [internetgerichte load balancer](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. Maak een VM met [meerdere NIC's](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   c. Maak een VM met [meerdere NIC's](../virtual-machines/windows/multiple-nics.md).
 
-   d. Maak een VM met [meerdere gereserveerde IP-adressen](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
+   d. Maak een VM met [meerdere gereserveerde IP-adressen](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu kunt u uw virtuele machines herstellen, Zie het artikel over probleemoplossing voor informatie over veelvoorkomende problemen met virtuele machines. Controleer ook het artikel over het beheren van taken met uw VM's.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: ef70d3d3dd2a806ea978be8e996b7d5ba0fbc96b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586356"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802233"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -319,6 +319,16 @@ Deze fout treedt op omdat de Azure File Sync-agent heeft geen toegang de Azure-b
 | **Herstel is vereist** | Ja |
 
 Deze fout treedt op wanneer er een probleem met de interne database die wordt gebruikt door Azure File Sync. Als dit probleem optreedt, maak een ondersteuningsaanvraag en wij nemen contact met u zodat u kunt dit probleem oplossen.
+
+<a id="-2134364053"></a>**De versie van de Azure File Sync-agent geïnstalleerd op de server wordt niet ondersteund.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimaal)** | -2134364053 |
+| **Fouttekenreeks** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Herstel is vereist** | Ja |
+
+Deze fout treedt op als de versie van de Azure File Sync-agent geïnstalleerd op de server wordt niet ondersteund. Dit probleem op te lossen [upgrade]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) naar een [ondersteunde agentversie]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**U bereikt de Azure file share-opslaglimiet.**  
 | | |

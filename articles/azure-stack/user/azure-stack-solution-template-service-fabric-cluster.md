@@ -14,18 +14,18 @@ ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 3d3701c670236d67697f4109a59fa31900037a0d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720919"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804426"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
 Gebruik de **Service Fabric-Cluster** item uit de Azure Marketplace om een beveiligd Service Fabric-cluster in Azure Stack implementeren. 
 
-Zie voor meer informatie over het werken met Service Fabric [overzicht van Azure Service Frabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) en [Service Fabric-clusterbeveiligingsscenario's](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in de documentatie van Azure.
+Zie voor meer informatie over het werken met Service Fabric [overzicht van Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) en [Service Fabric-clusterbeveiligingsscenario's](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in de documentatie van Azure.
 
 ## <a name="prerequisites"></a>Vereisten
 

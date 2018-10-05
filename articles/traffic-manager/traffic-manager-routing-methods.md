@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248921"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785406"
 ---
 # <a name="traffic-manager-routing-methods"></a>Methoden voor het doorsturen van Traffic Manager
 
@@ -39,7 +39,7 @@ Alle Traffic Manager-profielen bevatten bewaking van de gezondheid van het eindp
 
 Vaak wil een organisatie voor de betrouwbaarheid van de services door het implementeren van een of meer back-services als hun primaire service uitvalt. De methode 'Prioriteit' Routering van verkeer kan Azure-klanten eenvoudig dit patroon wilt implementeren failover.
 
-! [Azure Traffic Manager 'Prioriteit' verkeersrouteringsmethode] [1]
+![Met Azure Traffic Manager 'Prioriteit' verkeersrouteringsmethode](media/traffic-manager-routing-methods/priority.png)
 
 Traffic Manager-profiel bevat een geprioriteerde lijst met service-eindpunten. Standaard verzendt Traffic Manager alle verkeer naar het primaire eindpunt van de (hoogste prioriteit). Als het primaire eindpunt niet beschikbaar is, stuurt Traffic Manager het verkeer naar het tweede eindpunt. Als de primaire en secundaire eindpunten niet beschikbaar zijn, wordt het verkeer wordt gerouteerd naar de derde, enzovoort. Beschikbaarheid van het eindpunt is gebaseerd op de geconfigureerde status (ingeschakeld of uitgeschakeld) en de voortdurende eindpuntbewaking.
 
@@ -47,10 +47,10 @@ Traffic Manager-profiel bevat een geprioriteerde lijst met service-eindpunten. S
 
 Met Azure Resource Manager kunt u de eindpuntprioriteit expliciet het gebruik van de eigenschap 'prioriteit' voor elk eindpunt configureren. Deze eigenschap is een waarde tussen 1 en 1000. Lagere waarden geven een hogere prioriteit. Eindpunten kunnen geen prioriteitswaarden worden gedeeld. Als u de eigenschap is optioneel. Wanneer u dit weglaat, wordt een prioriteit is standaard op basis van de volgorde van het eindpunt wordt gebruikt.
 
-##<a name = "weighted"></a>Gewogen verkeersrouteringsmethode
+## <a name = "weighted"></a>Gewogen verkeersrouteringsmethode
 De 'Gewogen' verkeersrouteringsmethode kunt u verkeer gelijkmatig verdelen of een vooraf gedefinieerde weging gebruiken.
 
-! [Azure Traffic Manager 'Gewogen' verkeersrouteringsmethode] [2]
+![Azure Traffic Manager 'Gewogen' verkeersrouteringsmethode](media/traffic-manager-routing-methods/weighted.png)
 
 In de routering van verkeer gewogen methode, kunt u een gewicht toewijzen aan elk eindpunt in de profielconfiguratie van Traffic Manager. Het gewicht is een geheel getal tussen 1 en 1000. Deze parameter is optioneel. Als u dit weglaat, wordt in Traffic Managers maakt gebruik van een standaardgewicht van '1'. De hoger gewicht, hoe hoger de prioriteit.
 
@@ -78,7 +78,7 @@ Deze DNS-cache-effecten gelden voor alle DNS-verkeer routeren systemen, niet all
 
 Implementeren van eindpunten in twee of meer locaties over de hele wereld, kunt de reactietijd van veel toepassingen verbeteren door het routeren van verkeer naar de locatie die zich het dichtst bij u. De methode 'Prestaties' Routering van verkeer biedt deze mogelijkheid.
 
-! [Azure Traffic Manager 'Prestaties' verkeersrouteringsmethode] [3]
+![Met Azure Traffic Manager 'Prestaties' verkeersrouteringsmethode](media/traffic-manager-routing-methods/performance.png)
 
 Het eindpunt van de 'dichtstbijzijnde' is niet noodzakelijkerwijs dichtstbijzijnde wordt gemeten door geografische afstand. De methode 'Prestaties' Routering van verkeer bepaalt in plaats daarvan het eindpunt van de dichtstbijzijnde netwerklatentie meten. Traffic Manager onderhoudt een tabel Internet latentie voor het volgen van de retourtijd tussen IP-adresbereiken en elke Azure-datacenter.
 

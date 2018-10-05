@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 46c25e19fbf8882779e7334da69f74ef0fa79272
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: c65df33fae3f65de8b9b09fbee5e5c06c01109a4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023141"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040666"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Een gesimuleerd TPM-apparaat maken en inrichten voor IoT Hub Device Provisioning Service met de apparaat-SDK voor Python
 
@@ -74,9 +74,9 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
 
 1. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open uw Device Provisioning-service.
 
-1. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Individual Enrollments** en klik bovenaan op de knop **Add**. 
+1. Selecteer **Manage enrollments** in de overzichtsblade van Device Provisioning Service. Selecteer het tabblad **Afzonderlijke registraties** en klik vervolgens op de knop **Afzonderlijke inschrijving toevoegen** bovenaan. 
 
-1. Voer onder bij **Registratielijstitem toevoegen** de volgende gegevens in:
+1. Voer onder **Inschrijving toevoegen** de volgende gegevens in:
     - Selecteer **TPM** als *mechanisme* voor identiteitscontrole.
     - Voer de *registratie-id* en *goedkeuringssleutel* voor het TPM-apparaat in. 
     - Selecteer een IoT-hub die is gekoppeld aan uw inrichtingsservice.
@@ -84,7 +84,7 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
     - Werk de **initiële status van de apparaatdubbel** bij met de gewenste beginconfiguratie voor het apparaat.
     - Klik op de knop **Save** als u klaar bent. 
 
-    ![Gegevens van apparaatinschrijving invoeren in de portalblade](./media/python-quick-create-simulated-device/enter-device-enrollment.png)  
+    ![Gegevens van apparaatinschrijving invoeren in de portalblade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Als het apparaat is ingeschreven, wordt de *Registration ID* ervan weergegeven in de lijst onder het tabblad *Individual Enrollments*. 
 
@@ -131,7 +131,7 @@ Als u niet bekend bent met het proces van automatische inrichting, bekijk dan oo
 
 1. Als het gesimuleerde apparaat is ingericht met de IoT-hub die is gekoppeld met de provisioningservice, wordt de apparaat-id weergegeven op de blade **Device Explorer** van de hub.
 
-    ![Apparaat wordt geregistreerd voor de IoT-hub](./media/python-quick-create-simulated-device/hub-registration.png) 
+    ![Apparaat wordt geregistreerd voor de IoT-hub](./media/python-quick-create-simulated-device/hubregistration.png) 
 
     Als u de standaardwaarde van de *initiële status van de apparaatdubbel* hebt gewijzigd in de inschrijvingsvermelding voor uw apparaat, kan de gewenste status van de dubbel uit de hub worden gehaald en er dienovereenkomstig naar worden gehandeld. Zie [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Apparaatdubbelen begrijpen en gebruiken in IoT Hub) voor meer informatie
 

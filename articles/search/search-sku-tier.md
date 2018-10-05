@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434024"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785304"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -41,19 +41,21 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 In Azure Search, het belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU). Omdat Azure Search, hangt af van de replica's en partities van functie, verstandig niet het om aan te brengen door slechts in één van de andere kosten in rekening. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. 
 
-Formulaically, een SU is voor het product van *replica* en *partities* die worden gebruikt door een service: **`(R X P = SU)`**
+SU is het product van *replica* en *partities* die worden gebruikt door een service: **`(R X P = SU)`**
 
-Ten minste elke service wordt gestart met 1 SU (één replica wordt vermenigvuldigd met één partitie), maar voor grotere workloads, een realistischer model een 3-replica, 3-partitie-service in rekening gebracht als 9 su's mogelijk. 
+Elke service wordt gestart met 1 SU (één replica wordt vermenigvuldigd met één partitie) als het minimum. De maximale waarde voor elke service is 36 su's die op verschillende manieren kunnen worden bereikt: 6 partities x 6 replica's, of 3 partities x 12 replica's, een paar te noemen. 
+
+Het is gebruikelijk is minder dan de totale capaciteit gebruiken. Bijvoorbeeld, een 3-replica, 3-partitie service, kosten in rekening gebracht als 9 su's. 
 
 Het tarief is **per uur per SU**, waarbij elke laag met een steeds hogere snelheid. Hogere lagen geleverd met grotere en sneller partities, die bijdragen aan een totale hogere uurtarief voor die laag. Tarieven voor elke laag kan worden gevonden op [prijsinformatie](https://azure.microsoft.com/pricing/details/search/). 
 
-Hoewel elke laag geleidelijk hogere capaciteit biedt, kunt u doen om een *gedeelte* van de totale capaciteit online, met de rest in reserveren. Wat betreft facturering is het aantal partities en replica's die u online, berekend met behulp van de formule SU, waarmee wordt bepaald wat u daadwerkelijk betaalt brengt.
+De meeste klanten Breng slechts een deel van de totale capaciteit online, met de rest in reserveren. Wat betreft facturering is het aantal partities en replica's die u levert online, berekend met behulp van de formule SU, waarmee wordt bepaald wat u daadwerkelijk betalen op uurbasis.
 
 ### <a name="tips-for-reducing-costs"></a>Tips voor het verminderen van kosten
 
-U kunt de service op de factuur verlagen niet afsluiten. Toegewezen resources voor partities en replica's zijn operationele 24-7, voor exclusief gebruik gedurende de levensduur van uw service is toegewezen. De enige manier om een factuur verlagen door te verminderen van replica's en partities op een laag niveau waarmee u nog steeds acceptabel is en [SLA-naleving](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+U kunt de service op de factuur verlagen niet afsluiten. Toegewezen resources zijn operationele 24-7, voor exclusief gebruik gedurende de levensduur van uw service is toegewezen. De enige manier om een factuur verlagen door te verminderen van replica's en partities op een laag niveau waarmee u nog steeds acceptabel is en [SLA-naleving](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Een andere hendel voor het verminderen van kosten is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan S2 of S3-tarieven. U kunt een service die gericht zijn op de laagste waarde van de load-projecties kan inrichten. Als u de service langzamerhand, een tweede grotere lagen service maken, uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item. Voor op lokale servers is het gebruikelijk "kopen van ' zodat u de verwachte groei kunt verwerken. Maar met een cloudservice, kunt u kosten te besparen voort meest doelbewust weten dat u altijd naar een hogere lagen service overschakelen kunt als het huidige abonnement ontoereikend is.
+Een hendel voor het verminderen van kosten is een laag met een lagere uurtarief kiezen. S1 uurtarieven zijn lager dan S2 of S3-tarieven. U kunt een service die gericht zijn op de laagste waarde van de load-projecties kan inrichten. Als u de service langzamerhand, een tweede grotere lagen service maken, uw indexen op de tweede service opnieuw en verwijder vervolgens het eerste item. Als u hebt plannen van capaciteit voor gedaan op de lokale servers, weet u dat het gebruikelijk is dat 'kopen van' zodat u de verwachte groei kunt verwerken. Maar met een cloudservice, u kunt een meer kosten te besparen doelbewust omdat u niet worden gekoppeld aan een specifieke aankoop. U kunt altijd overschakelen naar een hogere lagen service als het huidige abonnement ontoereikend is.
 
 ### <a name="capacity-drill-down"></a>Inzoom capaciteit
 
@@ -92,7 +94,7 @@ Portal- en prijsmodel pagina's plaatsen de focus op de grootte van partitie en o
 **S3** en **S3 HD** worden ondersteund door identieke hoge capaciteit infrastructuur, maar elk een de maximumlimiet is bereikt op verschillende manieren. **S3** is gericht op een kleiner aantal zeer grote indexen. Hierdoor de maximumlimiet is afhankelijk van de resource (2,4 TB voor elke service). **S3 HD** is gericht op een groot aantal kleine indexen. 1000 indexen **S3 HD** uiterste te belasten in de vorm van de indexbeperkingen is bereikt. Als u een **S3 HD** klant die is vereist meer dan 1000 indexen, neem contact op met Microsoft Support voor meer informatie over om door te gaan.
 
 > [!NOTE]
-> Voorheen, document limieten overweging zijn, maar zijn niet langer van toepassing voor de meeste Azure Search-services ingericht na januari 2018. Zie voor meer informatie over de voorwaarden die nog steeds document limieten van toepassing, [Servicelimieten: document limieten](search-limits-quotas-capacity.md#document-limits).
+> Voorheen, document limieten overweging zijn, maar zijn niet langer van toepassing op nieuwe services. Zie voor meer informatie over de voorwaarden waaronder document limieten nog steeds van toepassing, [Servicelimieten: document limieten](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## <a name="evaluate-capacity"></a>Capaciteit evalueren

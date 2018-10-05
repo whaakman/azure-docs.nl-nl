@@ -12,19 +12,19 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 698fafac771c79bf014d6e9492c8ca22d1c31b47
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018278"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784970"
 ---
 # <a name="what-is-a-managed-instance"></a>Wat is een beheerd exemplaar?
 
 Azure SQL Database Managed Instance is een nieuw implementatiemodel voor van Azure SQL Database, bijna 100% compatibiliteit met de nieuwste SQL Server on-premises Database-Engine (Enterprise Edition) bieden, biedt een systeemeigen [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md) implementatie die algemene beveiligingsproblemen, en een [bedrijfsmodel](https://azure.microsoft.com/pricing/details/sql-database/) gunstig voor on-premises SQL Server-klanten. Met Managed Instance kunnen bestaande klanten met SQL Server voor lift- and -shift van hun on-premises toepassingen naar de cloud met minimale wijzigingen van toepassing en -database. Op hetzelfde moment, beheerd exemplaar behoudt alle PaaS-mogelijkheden (automatische patching en versie-updates, [geautomatiseerde back-ups](sql-database-automated-backups.md), [hoge beschikbaarheid](sql-database-high-availability.md) ), die aanzienlijk verminderd en totale Eigendomskosten.
 
 > [!IMPORTANT]
-> Zie [Uw databases migreren naar een volledig beheerde service met Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) voor een lijst met regio's waarin MI momenteel beschikbaar is.
+> Zie voor een lijst met regio's waarin MI momenteel beschikbaar is, [ondersteunde regio's](sql-database-managed-instance-resource-limits.md#supported-regions).
  
 Het volgende diagram geeft een overzicht van de belangrijkste functies van het beheerde exemplaar:
 
@@ -41,7 +41,7 @@ Om te bepalen tussen Azure SQL Database Single Database, Azure SQL Database Mana
 Azure SQL Database Managed Instance combineert het beste functies die beschikbaar zijn in Azure SQL Database en SQL Server Database Engine.
 
 > [!IMPORTANT]
-> Een beheerd exemplaar wordt uitgevoerd met alle van de functies van de meest recente versie van SQL Server, met inbegrip van online bewerkingen, automatische plan correcties en andere prestatieverbeteringen enterprise. 
+> Een beheerd exemplaar wordt uitgevoerd met alle van de functies van de meest recente versie van SQL Server, met inbegrip van online bewerkingen, automatische plan correcties en andere prestatieverbeteringen enterprise. Een vergelijking van de functies die beschikbaar wordt uitgelegd in [vergelijking: Azure SQL Database versus SQL Server](sql-database-features.md).
 
 | **Voordelen van PaaS** | **Bedrijfscontinuïteit** |
 | --- | --- |
@@ -49,22 +49,34 @@ Azure SQL Database Managed Instance combineert het beste functies die beschikbaa
 |**Beveiliging en naleving** | **Management**|
 |Geïsoleerde omgeving ([VNet-integratie](sql-database-managed-instance-vnet-configuration.md), één service, speciale berekenings- en tenant) <br>[Transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-verificatie](sql-database-aad-authentication.md), eenmalige aanmelding <br>Voldoet aan de standaarden voor compliance hetzelfde als Azure SQL-database <br>[SQL-controle](sql-database-managed-instance-auditing.md) <br>[Detectie van bedreigingen](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API voor het automatiseren van service inrichten en schalen <br>Functionaliteit voor handmatige service inrichten en schalen van Azure portal <br>Data migratieservice 
 
+De belangrijkste functies van Managed Instance worden in de volgende tabel weergegeven:
+
+|Functie | Beschrijving|
+|---|---|
+| SQL Server-versie / build | SQL Server Database Engine (meest recente stabiel) |
+| Automatische back-ups beheren | Ja |
+| Ingebouwd exemplaar en database controleren en metrische gegevens | Ja |
+| Automatische softwarepatches | Ja |
+| De nieuwste functies van de Database-Engine | Ja | 
+| Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
+| Aantal logboekbestanden (logboek) per database | 1 | 
+| VNet - implementatie van Azure Resource Manager | Ja |
+| VNet - klassieke implementatiemodel | Nee |
+| Portal-ondersteuning | Ja|
+| Ingebouwde integratie-Service (SSIS) | Niet - SSIS is een onderdeel van [PaaS van Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| Ingebouwde Analysis Services (SSAS) | Niet - SSAS is gescheiden [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Ingebouwde Reporting Service (SSRS) | Nee, Power BI of SSRS IaaS gebruiken |
+|||
+
 ## <a name="vcore-based-purchasing-model"></a>op vCore gebaseerde aankoopmodel
 
-De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) biedt u flexibiliteit, controle, transparantie en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u Computing kunt schalen, het geheugen en opslag op basis van hun werkbelasting. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) in het beheerde exemplaar biedt u flexibiliteit, controle, transparantie en een eenvoudige manier te vertalen van de vereisten van de on-premises workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van uw workloadbehoefte wijzigen. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties.
-- Logische CPU's van de vierde generatie zijn gebaseerd op Intel E5 2673 v3 (Haswell)-processors van 2,4 GHz.
-- Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz.
+In het vCore-model, kunt u kiezen tussen verschillende hardwaregeneraties.
+- **Gen 4** logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell)-processors van 2,4 GHz, gekoppelde SSD, fysieke kernen, 7 GB RAM-geheugen per kern en compute-grootten tussen 8 en maximaal 24 vCores.
+- **Gen 5** logische CPU's zijn gebaseerd op Intel E5-2673 v4-processors 2,3 GHz (Broadwell) eNVM SSD, hyper-threaded logische core, een snelle en compute-grootten tussen 8 en 80 kernen.
 
-De volgende tabel vindt u informatie over de optimale configuratie van uw Reken-, geheugen-, opslag- en i/o-resources te selecteren.
-
-||Gen 4|Gen 5|
-|----|------|-----|
-|Hardware|Intel E5-2673 v3 (Haswell) processors van 2,4 GHz, gekoppeld SSD vCore = 1 PP (fysieke kernen)|Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz, snelle eNVM SSD, vCore = 1 LP (hyper-thread)|
-|COMPUTE-grootten|8, 16, 24 vCores|8, 16, 24 uur per dag, 32, 40, 64, 80 vCores|
-|Geheugen|7 GB per vCore|5.5 GB per vCore|
-||||
+Meer informatie over het verschil tussen hardwaregeneraties in [Managed Instance-bronlimieten](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 ## <a name="managed-instance-service-tiers"></a>Beheerd exemplaar van service-lagen
 
@@ -83,32 +95,11 @@ De volgende lijst beschrijft de belangrijkste kenmerken van de categorie Algemee
 
 - Ontwerpen voor de meeste zakelijke toepassingen met normale prestatie-eisen 
 - Azure Premium storage van hoge kwaliteit (8 TB) 
-- per exemplaar 100 databases 
+- Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#standardgeneral-purpose-availability) op basis van betrouwbare Azure Premium Storage en [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de categorie Algemeen gebruik-service:
+Zie voor meer informatie, [Storate laag in de categorie Algemeen gebruik](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) en [Storage aanbevolen procedures voor prestaties en overwegingen voor Azure SQL database Managed Instance (Algemeen)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-|Functie | Beschrijving|
-|---|---|
-| Aantal vCores * | 8, 16, 24 uur per dag (gen 4)<br>8, 16, 24 uur per dag, 32, 40, 64, 80 (gen 5)|
-| SQL Server-versie / build | SQL Server Database Engine (meest recente stabiel) |
-| De opslaggrootte min | 32 GB |
-| Maximumgrootte van opslag | 8 TB |
-| Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar |
-| Verwachte opslag IOPS | 500-7500 IOP's per bestand (afhankelijk bestand). Zie [Premium-opslag](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
-| Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
-| Aantal logboekbestanden (logboek) per database | 1 | 
-| Automatische back-ups beheren | Ja |
-| HOGE BESCHIKBAARHEID | Gegevens die zijn opgeslagen in Azure Storage en [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Ingebouwd exemplaar en database controleren en metrische gegevens | Ja |
-| Automatische softwarepatches | Ja |
-| VNet - implementatie van Azure Resource Manager | Ja |
-| VNet - klassieke implementatiemodel | Nee |
-| Portal-ondersteuning | Ja|
-|||
-
-\* Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties. Gen 4 logische CPU's zijn gebaseerd op Intel E5-2673 v3 (Haswell) processors van 2,4 GHz en Gen 5 logische CPU's zijn gebaseerd op Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz. 
-
-Zie voor meer informatie, [Standard/voor algemeen gebruik, beschikbaarheid en architectuur](sql-database-high-availability.md#standardgeneral-purpose-availability) in Azure SQL Database en [Storage aanbevolen procedures voor prestaties en overwegingen voor Azure SQL database Managed Instance (Algemeen Doel)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Meer informatie over het verschil tussen service-lagen in [Managed Instance-bronlimieten](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="business-critical-service-tier-preview"></a>Zakelijke kritieke-laag (preview)
 
@@ -117,33 +108,14 @@ Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het b
 De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag bedrijfskritiek service: 
 -   Ontworpen voor zakelijke toepassingen met de hoogste prestaties en HA-vereisten 
 -   Wordt geleverd met zeer snelle SSD-opslag (maximaal 1 TB op Gen 4 en maximaal 4 TB voor Gen 5)
--   Biedt ondersteuning voor maximaal 100 databases per exemplaar 
-- Ingebouwde extra alleen-lezen exemplaar die kan worden gebruikt voor rapportage- en andere werkbelastingen alleen-lezen
+- Ingebouwde [hoge beschikbaarheid](sql-database-high-availability.md#premiumbusiness-critical-availability) op basis van [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Ingebouwde extra [alleen-lezen databasereplica](sql-database-read-scale-out.md) die kan worden gebruikt voor rapportage- en andere werkbelastingen alleen-lezen
 - [In-Memory OLTP](sql-database-in-memory.md) die kunnen worden gebruikt voor de werkbelasting met hoge prefrmance vereisten  
-
-|Functie | Beschrijving|
-|---|---|
-| Aantal vCores * | 8, 16, 24 uur per dag, 32 (gen 4)<br>8, 16, 24 uur per dag, 32, 40, 64, 80 (gen 5)|
-| SQL Server-versie / build | SQL Server nieuwste (beschikbaar) |
-| Aanvullende functies | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 extra alleen-lezen replica ([Read Scale-Out](sql-database-read-scale-out.md))
-| De opslaggrootte min | 32 GB |
-| Maximumgrootte van opslag | Gen 4: 1 TB (alle vCore grootte)<br> Gen 5:<ul><li>1 TB voor 8, 16 vcores uitvoert</li><li>2 TB voor 24 vCores</li><li>4 TB voor 32, 40, 64, 80 vCores</ul>|
-| Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar |
-| Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
-| Aantal logboekbestanden (logboek) per database | 1 | 
-| Automatische back-ups beheren | Ja |
-| HOGE BESCHIKBAARHEID | Gegevens die zijn opgeslagen op lokale SSD en [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Ingebouwd exemplaar en database controleren en metrische gegevens | Ja |
-| Automatische softwarepatches | Ja |
-| VNet - implementatie van Azure Resource Manager | Ja |
-| VNet - klassieke implementatiemodel | Nee |
-| Portal-ondersteuning | Ja|
-|||
-
-Zie voor meer informatie [Premium/bedrijfskritiek beschikbaarheid en architectuur](sql-database-high-availability.md#premiumbusiness-critical-availability) in Azure SQL Database.
 
 > [!IMPORTANT]
 > De **bedrijfskritiek** servicelaag is beschikbaar als preview.
+
+Meer informatie over het verschil tussen service-lagen in [Managed Instance-bronlimieten](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ## <a name="advanced-security-and-compliance"></a>Geavanceerde beveiliging en naleving van voorschriften 
 

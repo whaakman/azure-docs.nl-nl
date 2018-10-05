@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 8a26491acc7215598e57ce6074fffe26a4374a96
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251049"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801009"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Azure Machine Learning-webservices met SSL beveiligde
 
@@ -81,7 +81,7 @@ Als u wilt implementeren (of opnieuw implementeren) op de service met SSL is ing
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Implementeren op veld programmeerbare gamma arrays (FPGA's)**
++ **Implementeren op veld Programmable Gate Arrays (FPGA's)**
 
   Het antwoord van de `create_service` bewerking bevat het IP-adres van de service. Het IP-adres wordt gebruikt bij het toewijzen van de DNS-naam naar het IP-adres van de service. Het antwoord bevat ook een __primaire sleutel__ en __secundaire sleutel__ die worden gebruikt voor het gebruik van de service. Geef waarden op voor parameters met betrekking tot SSL zoals wordt weergegeven in het volgende codefragment:
 
@@ -119,7 +119,7 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 
   Werk de DNS-server op het tabblad "Configuratie" van het 'openbare IP-adres' van het AKS-cluster, zoals weergegeven in de afbeelding. U vindt het openbare IP-adres als een van de resourcetypen die is gemaakt op basis van de resourcegroep met de AKS-knooppunten van de agent en andere netwerkresources.
 
-  [ ![Azure Machine Learning-service: beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png) ] ((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  ![Azure Machine Learning-service: beveiligen met SSL-webservices](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="consume-authenticated-services"></a>Geverifieerde services gebruiken
 
@@ -131,7 +131,7 @@ Vervolgens moet u uw DNS om te verwijzen naar de webservice bijwerken.
 
   + [Implementeren naar AKS](how-to-deploy-to-aks.md)
 
-+ **Voor ACI en FPGA**:  
++ **Voor FPGA**:  
 
   De volgende voorbeelden laten zien hoe u een geverifieerde FPGA-service in Python en C# gebruiken.
   Vervang `authkey` met de primaire of secundaire sleutel die is geretourneerd bij de implementatie van de service.

@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c4529948a0a1b165945de78de97cc2470c6b431e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237548"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785254"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Hoe: de naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
 Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn *alain@contoso.com*.
@@ -84,7 +84,7 @@ Nadat u uw aangepaste domeinnaam hebt geregistreerd, moet u controleren of dat d
 
     ![Contoso-pagina met DNS-vermeldingsgegevens en de knop controleren](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### <a name="common-verification-issues"></a>Veelvoorkomende problemen met verificatie
+## <a name="common-verification-issues"></a>Veelvoorkomende problemen met verificatie
 - Als Azure AD een aangepaste domeinnaam niet verifiëren kan, probeert u de volgende suggesties:
     - **Wacht ten minste een uur en probeer het opnieuw**. DNS-records moeten worden doorgegeven voordat Azure AD kunt controleren of dat het domein en dit proces kunnen een uur of langer duren.
 
@@ -93,7 +93,8 @@ Nadat u uw aangepaste domeinnaam hebt geregistreerd, moet u controleren of dat d
     Als u de record op de site registrar niet bijwerken, moet u de vermelding delen met iemand die de juiste machtigingen voor de vermelding toevoegen en controleer of dat deze juist is.
 
 - **Zorg ervoor dat de domeinnaam niet al wordt gebruikt in een andere directory.** De naam van een domein kan alleen worden geverifieerd in een bepaalde map, wat betekent dat als de domeinnaam van uw is momenteel geverifieerd in een andere directory, het kan ook worden geverifieerd in de nieuwe map. U lost dit probleem duplicatie, moet u de domeinnaam verwijderen uit de oude map. Zie voor meer informatie over het verwijderen van domeinnamen [aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md).
-    - Als u gebruikers hebt die PowerBI hebben geactiveerd via de self-service-aanmelding en u een niet-beheerde tenant voor uw organisatie hebt gemaakt, kan de IT-beheerder deze tenant via overname beheren of doorgaan met het toevoegen van het domein met behulp van de optie voor overnemen forceren in PowerShell. Zie voor meer informatie over domeinovername door een beheerder, [een niet-beheerde directory overnemen als in Azure Active Directory-beheerder](../users-groups-roles/domains-admin-takeover.md).
+
+- **Zorg ervoor dat u hebt geen niet-beheerde Power BI-tenants.** Als uw gebruikers hebt geactiveerd Power BI via self-service-aanmelding en die een niet-beheerde tenant voor uw organisatie zijn gemaakt, moet u via management als een beheerder intern of extern uitvoeren met behulp van PowerShell. Zie voor meer informatie over hoe u een niet-beheerde directory overnemen, [een niet-beheerde directory overnemen als in Azure Active Directory-beheerder](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

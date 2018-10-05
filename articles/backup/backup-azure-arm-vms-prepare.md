@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ebfd879fcd619dab48e4a08130f86afc68f91207
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408977"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785423"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -37,7 +37,7 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 
  * **Linux**: Azure Backup biedt ondersteuning voor [een lijst met distributies die Azure ondersteunt](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van CoreOS Linux. Zie voor de lijst met Linux-besturingssystemen die ondersteuning voor het herstellen van bestanden, [bestanden herstellen vanuit back-up van virtuele machine](backup-azure-restore-files-from-vm.md#for-linux-os).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Andere bring-your-own-Linux-distributies mogelijk werken, als de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python aanwezig. Deze distributies worden echter niet ondersteund.
     >
  * **Windows Server**, **Windows client**: versies ouder dan Windows Server 2008 R2 of Windows 7, worden niet ondersteund.
@@ -46,11 +46,10 @@ Als deze voorwaarden al in uw omgeving bestaat, gaat u verder met de [maakt u ee
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Beperkingen bij het back-up en herstellen van een virtuele machine
 Voordat u uw omgeving hebt voorbereid, moet u deze beperkingen begrijpt:
 
-* Back-ups van virtuele machines met Standard-SSD wordt momenteel niet ondersteund.
 * Back-ups van virtuele machines met meer dan 32 gegevensschijven wordt niet ondersteund.
 * Back-ups van virtuele machines met een gereserveerd IP-adres en geen gedefinieerde eindpunt wordt niet ondersteund.
 * Back-ups van virtuele Linux-machines versleuteld door middel van Linux Unified sleutel instellen (LUKS)-codering wordt niet ondersteund.
-* Wordt niet aanbevolen back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out bestandsserver. Als u klaar bent, wordt mislukken van CSV-schrijvers verwacht. Ze nodig hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie van het cluster tijdens de taak van een momentopname. Azure Backup biedt geen ondersteuning voor meerdere VM's. 
+* Wordt niet aanbevolen back-ups van virtuele machines met gedeelde clustervolumes (CSV) of Scale-Out bestandsserver. Als u klaar bent, wordt mislukken van CSV-schrijvers verwacht. Ze nodig hebben met betrekking tot alle virtuele machines die zijn opgenomen in de configuratie van het cluster tijdens de taak van een momentopname. Azure Backup biedt geen ondersteuning voor meerdere VM's.
 * Back-upgegevens bevat geen gekoppeld netwerkstations die zijn gekoppeld aan een virtuele machine.
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
@@ -115,7 +114,7 @@ De instelling voor opslagreplicatie bewerken:
    Als u Azure als een primaire back-upopslag-eindpunt gebruikt, blijven geografisch redundante opslag gebruiken. Als u Azure gebruikt als een niet-primaire back-upopslag-eindpunt, kies lokaal redundante opslag. Meer informatie over opties voor opslag in de [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
 
 1. Als u het opslagtype voor de replicatie hebt gewijzigd, selecteert u **opslaan**.
-    
+
 Nadat u de opslagoptie voor uw kluis hebt gekozen, u kunt de virtuele machine koppelen aan de kluis. Voordat u de VM aan de kluis koppelt, moet u eerst de virtuele Azure-machines detecteren en registreren.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Een back-doel selecteren, beleid instellen en definiëren welke items moeten beveiligen
@@ -172,11 +171,11 @@ Nadat u de back-up is ingeschakeld, wordt uw back-upbeleid volgens schema uitgev
 Als u problemen met de registratie van de virtuele machine hebt, raadpleegt u de volgende informatie over het installeren van de VM-agent en de netwerkverbinding. Moet u waarschijnlijk niet de volgende informatie als u virtuele machines die zijn gemaakt in Azure beveiligt. Maar als u uw virtuele machines hebt gemigreerd naar Azure, zorg ervoor dat u de VM-agent correct geïnstalleerd en dat uw virtuele machine met het virtuele netwerk communiceren kan.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent installeren op de virtuele machine
-Voor de Backup-extensie om te werken, de Azure [VM-agent](../virtual-machines/extensions/agent-windows.md) moet worden geïnstalleerd op de virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit de Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine. 
+Voor de Backup-extensie om te werken, de Azure [VM-agent](../virtual-machines/extensions/agent-windows.md) moet worden geïnstalleerd op de virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit de Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine.
 
 De volgende informatie is bedoeld voor situaties waarin u *niet* met behulp van een virtuele machine gemaakt op basis van de Azure Marketplace. **U kunt bijvoorbeeld een virtuele machine gemigreerd uit een on-premises datacenter. In dat geval moet de VM-agent worden geïnstalleerd om de virtuele machine te beschermen.**
 
-**Houd er rekening mee**: nadat de VM-agent is geïnstalleerd, moet u ook Azure PowerShell gebruiken om bij te werken van de eigenschap ProvisionGuestAgent zodat Azure de virtuele machine heeft de agent is geïnstalleerd. 
+**Houd er rekening mee**: nadat de VM-agent is geïnstalleerd, moet u ook Azure PowerShell gebruiken om bij te werken van de eigenschap ProvisionGuestAgent zodat Azure de virtuele machine heeft de agent is geïnstalleerd.
 
 Als u problemen met back-ups van de Azure-VM hebt, gebruikt u de volgende tabel om te controleren of de Azure VM-agent correct is geïnstalleerd op de virtuele machine. De tabel bevat aanvullende informatie over de VM-agent voor Windows en Linux-machines.
 
@@ -207,11 +206,11 @@ Bij het bepalen van welke optie voor het gebruik, zijn de wisselwerking tussen b
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Het Azure-datacenter geaccepteerde IP-bereiken
 Aan lijst met geaccepteerde IP-bereiken met de Azure-datacenter, Zie de [Azure-website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) voor meer informatie over de IP-bereiken en de instructies.
 
-U kunt verbindingen naar de opslag van de specifieke regio met behulp van [servicetags](../virtual-network/security-overview.md#service-tags). Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die Hiermee blokkeert u toegang tot internet heeft. 
+U kunt verbindingen naar de opslag van de specifieke regio met behulp van [servicetags](../virtual-network/security-overview.md#service-tags). Zorg ervoor dat de regel waarmee toegang tot het opslagaccount hogere prioriteit dan de regel die Hiermee blokkeert u toegang tot internet heeft.
 
 ![NSG met opslag-tags voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-De volgende video leidt u door de stapsgewijze procedure servicetags configureren: 
+De volgende video leidt u door de stapsgewijze procedure servicetags configureren:
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
@@ -292,7 +291,7 @@ HttpProxy.Port=<proxy port>
    * Voor **lokale poort**, selecteer **specifieke poorten**. Geef in het onderstaande vak het aantal van de proxyserver-poort die is geconfigureerd.
    * Voor **externe poort**, selecteer **alle poorten**.
 
-Voor de rest van de wizard, accepteer de standaardinstellingen totdat u aan het einde. Vervolgens geeft deze regel een naam. 
+Voor de rest van de wizard, accepteer de standaardinstellingen totdat u aan het einde. Vervolgens geeft deze regel een naam.
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Stap 3: Een uitzonderingsregel toevoegen aan de NSG
 De volgende opdracht voegt een uitzondering aan de NSG. Deze uitzondering kan TCP-verkeer van een willekeurige poort op 10.0.0.5 naar een internetadres op poort 80 (HTTP) of 443 (HTTPS). Als u nodig hebt voor een specifieke poort op het openbare internet, moet u die poort toevoegen ```-DestinationPortRange```.

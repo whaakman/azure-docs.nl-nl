@@ -15,14 +15,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: antchu
-ms.openlocfilehash: 435a581b065b94399006e60fec8d007296734373
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2892481dca9ce62d96e954656341925b4c8110f9
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993949"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802012"
 ---
-# <a name="signalr-service-bindings-for-azure-functions"></a>SignalR-Service-bindingen voor Azure Functions
+# <a name="signalr-service-bindings-for-azure-functions"></a>SignalR-servicebindingen voor Azure Functions
 
 In dit artikel wordt uitgelegd hoe u om te verifiëren en verzenden van berichten in realtime naar clients die zijn verbonden met [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) via SignalR Service bindingen in Azure Functions. Azure Functions ondersteunt invoer- en uitvoerbindingen voor SignalR-Service.
 
@@ -35,8 +35,7 @@ De bindingen SignalR-Service vindt u in de [Microsoft.Azure.WebJobs.Extensions.S
 > [!NOTE]
 > Azure SignalR-Service is algemeen beschikbaar. SignalR-Service-bindingen voor Azure Functions zijn echter momenteel in preview.
 
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
-
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 ## <a name="signalr-connection-info-input-binding"></a>SignalR connection-info-Invoerbinding
 

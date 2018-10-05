@@ -11,20 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 10/03/2018
-ms.openlocfilehash: 6ae9b3f71cb5328c7f4a7ee8e43ec0aff8b5fcec
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.date: 10/04/2018
+ms.openlocfilehash: 3f571a8d8a138656fc8bae5d6f45d183a8819bc3
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267781"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803202"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Overzicht van Azure SQL Database Managed Instance-resourcebeperkingen
 
 In dit artikel biedt een overzicht van de resourcelimieten voor Azure SQL Database Managed Instance en bevat informatie over het maken van de aanvraag om regionale abonnement standaardlimieten te verhogen. 
 
 > [!NOTE]
-> Zie voor andere beperkingen in de Managed Instance [vCore gebaseerde aankoopmodel](sql-database-managed-instance.md#vcore-based-purchasing-model) en [Managed Instance-Servicelagen](sql-database-managed-instance.md#managed-instance-service-tiers).
+> Zie voor andere beperkingen in de Managed Instance [vCore gebaseerde aankoopmodel](sql-database-managed-instance.md#vcore-based-purchasing-model) en [Managed Instance-Servicelagen](sql-database-managed-instance.md#managed-instance-service-tiers). Zie voor verschillen in ondersteunde functies en T-SQL statements [Functieverschillen](sql-database-features.md) en [ondersteuning voor T-SQL-instructie](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Bronlimieten op exemplaarniveau
 
@@ -38,8 +38,8 @@ Azure SQL Database Managed Instance kunnen worden geïmplementeerd op twee hardw
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3-processors 2,4 GHz (Haswell) gekoppeld SSD vCore = 1 PP (fysieke kernen) | Intel E5-2673 v4-processors 2,3 GHz (Broadwell) snel eNVM SSD, vCore = 1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24 uur per dag, 32, 40, 64, 80 vCores |
-| Geheugen | 7 GB per vCore | 5.5 GB per vCore |
-| Maximale opslag (Business-kritische) | 1TB | 1TB, 2TB 4TB, afhankelijk van het aantal kernen |
+| Geheugen | 7 GB per vCore | 5.1 GB per vCore |
+| Maximale opslag (Business-kritische) | 1 TB | 1 TB, 2 TB of 4 TB, afhankelijk van het aantal kernen |
 
 ### <a name="service-tier-characteristics"></a>Service tier kenmerken
 
@@ -53,11 +53,11 @@ Beheerd exemplaar heeft twee Servicelagen: algemeen gebruik en Business-kritisch
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar | Bepaald door de maximale opslagruimte per exemplaar |
 | Maximumaantal databases per exemplaar | 100 | 100 |
 | Maximum aantal bestanden per exemplaar | Maximaal 280 | Onbeperkt |
-| Verwachte maximumopslag IOPS | 500-7500 IOP's per bestand ([is afhankelijk van de gegevensbestandsgrootte](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Afhankelijk van de snelheid van de onderliggende SSD. |
+| Verwachte maximumopslag IOPS | 500-5000 ([is afhankelijk van de gegevensbestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Afhankelijk van de snelheid van de onderliggende SSD. |
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
 
-Beheerde Instanced kan alleen worden gemaakt in [ondersteunde regio's](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). Als u maken van een beheerd exemplaar in de regio die wordt momenteel niet ondersteund wilt, kunt u [verzoek om ondersteuning te verzenden via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Beheerde Instanced kan alleen worden gemaakt in [ondersteunde regio's](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Als u maken van een beheerd exemplaar in de regio die wordt momenteel niet ondersteund wilt, kunt u [verzoek om ondersteuning te verzenden via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
 
 ## <a name="supported-subscription-types"></a>Ondersteunde abonnementstypen
 
@@ -94,23 +94,27 @@ Deze limieten kunnen worden verhoogd door het maken van speciale [verzoek tot on
 > [!IMPORTANT]
 > Wanneer u uw implementatie plant, houd rekening met dat een kritieke zakelijke (BC)-exemplaar (als gevolg van toegevoegde redundantie) in het algemeen 4 x meer capaciteit dan een algemeen doel (GP)-exemplaar worden verbruikt. Ja, voor de berekeningen, 1 exemplaar van de GP = 1 exemplaar eenheid en 1 BC instantie = 4 eenheden van het exemplaar. Ter vereenvoudiging van uw verbruik analyse op basis van de standaardlimieten, een overzicht maken van de exemplaar-eenheden via alle subnetten in de regio waar beheerde instanties zijn geïmplementeerd en vergelijk de resultaten met de exemplaar-eenheid-limieten voor uw abonnementstype.
 
-### <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Implementatie-opties voor BC- en GP-implementaties binnen hetzelfde subnet
+## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Strategieën voor het implementeren van gemengde exemplaren voor algemeen gebruik en bedrijfskritiek
+
+[Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) abonnementen kunnen hebben combinaties van BC- en GP-instanties. Er zijn echter enkele beperkingen met betrekking tot de plaatsing van de exemplaren in de subnetten.
+
+> [!Note] 
+> [Betalen per gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) en [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) abonnementstypen kunnen hebben beide één bedrijfskritiek of omhoog naar 4 exemplaren voor algemeen gebruik.
 
 De volgende voorbeelden betrekking op implementatie gevallen met niet-lege subnetten en GP- en BC gemengde service-lagen.
 
 |Aantal subnetten|subnet 1|Subnet 2|Subnet 3|
 |:---|:---|:---|:---|
-|1|BC 0 en maximaal 12 GP<br>BC 1 en maximaal 8 GP<br>BC 2 en maximaal 4 GP<br>BC 3|N/A| N/A|
-|2|0 BC, tot 4 GP|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP<br>BC 2|N/A|
-|2|1 BC|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP<br>BC 2|N/A|
-|2|BC 2|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP<br>BC 2|N/A|
+|1|BC 1 en maximaal 8 GP<br>BC 2 en maximaal 4 GP|N/A| N/A|
+|2|0 BC, tot 4 GP|1 BC, tot 4 GP<br>2 BC, 0 GP|N/A|
+|2|BC 1, 0 GP|0 BC, tot maximaal 8 GP<br>1 BC, tot 4 GP|N/A|
+|2|2 BC, 0 GP|0 BC, tot 4 GP|N/A|
 |3|BC 1, 0 GP|BC 1, 0 GP|0 BC, tot 4 GP|
-|3|1BC, 0 GP|0 BC, tot 4 GP|BC 1, 0 GP|
-|3|0 BC, tot 4 GP|BC 1, 0 GP|1BC, 0 GP|
+|3|BC 1, 0 GP|0 BC, tot 4 GP|0 BC, tot 4 GP|
 
-### <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor beheerd exemplaar van SQL
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Het ophalen van een grotere quotum voor beheerd exemplaar van SQL
 
-Het proces voor het verkrijgen van een grotere quotum initiëren:
+Als u meer beheerde instanties in uw huidige regio's, kunt u de ondersteuningsaanvraag om uit te breiden het quotum met behulp van Azure portal verzenden. Het proces voor het verkrijgen van een grotere quotum initiëren:
 
 1. Open **Help en ondersteuning**, en klikt u op **nieuwe ondersteuningsaanvraag**. 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 29d6aa99b972dacb12ffb016eabb3a46afab7c7a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108117"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804069"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Poorten die worden gebruikt door de services van Hadoop op HDInsight
 
@@ -37,7 +37,7 @@ Als u wilt toevoegen als u meer machines aan het virtuele netwerk, moet u eerst 
 Alle knooppunten in een HDInsight-cluster bevinden zich in een Azure-netwerk en niet rechtstreeks toegankelijk via internet. Een openbare gateway biedt toegang tot de volgende poorten, die betrekking hebben op alle HDInsight-clustertypen internet.
 
 | Service | Poort | Protocol | Beschrijving |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |Verbonden clients met sshd op het primaire hoofdknooppunt. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie. |
 | sshd |22 |SSH |Verbonden clients met sshd op het edge-knooppunt. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie. |
 | sshd |23 |SSH |Verbonden clients met sshd op het secundaire hoofdknooppunt. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie. |

@@ -1,6 +1,6 @@
 ---
 title: Voorbereiden van de hostcomputer Azure Stack Development Kit (ASDK) | Microsoft Docs
-description: Beschrijft hoe de hostcomputer Azure Stack Development Kit (ASDK) voorbereidt voor ASDK-installatie.
+description: Beschrijft hoe u de Azure Stack Development Kit (ASDK)-hostcomputer voorbereiden voor ASDK-installatie.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5de25f574cb876701ffce74f1dca8c4bb9764157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc9681ee286c30825ac908f9f97ae092808c783a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30165667"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802132"
 ---
-# <a name="prepare-the-asdk-host-computer"></a>De computer van de host ASDK voorbereiden
-Voordat u de ASDK op de hostcomputer installeren kunt, moet u de omgeving ASDK voorbereid voor de installatie. Wanneer de computer development kit host is voorbereid, blijft deze opstarten van de virtuele machine CloudBuilder.vhdx vaste schijf om te beginnen met ASDK-implementatie.
+# <a name="prepare-the-asdk-host-computer"></a>De hostcomputer ASDK voorbereiden
+Voordat u de ASDK op de computer installeren kunt, moet de omgeving ASDK worden voorbereid voor de installatie. Wanneer de computer development kit is voorbereid, zal het opstarten van de virtuele machine CloudBuilder.vhdx vaste schijf om te beginnen met ASDK implementatie.
 
 ## <a name="prepare-the-development-kit-host-computer"></a>Voorbereiden van de hostcomputer development kit
-Voordat u de ASDK op de hostcomputer installeren kunt, moet de computer van ASDK hostomgeving worden voorbereid.
-1. Meld u aan als lokale beheerder op uw computer development kit host.
+Voordat u de ASDK op de host installeren kunt, kan de omgeving ASDK host computer moet worden voorbereid.
+1. Meld u aan als lokale beheerder is op uw computer kit host.
 2. Zorg ervoor dat het bestand CloudBuilder.vhdx is verplaatst naar de hoofdmap van het station C:\ (C:\CloudBuilder.vhdx).
-3. Voer het volgende script voor het downloaden van het installatiebestand van development kit (asdk installer.ps1) van de [Azure Stack GitHub-opslagplaats voor extra](https://github.com/Azure/AzureStack-Tools) naar de **C:\AzureStack_Installer** map op uw Development kit hostcomputer:
+3. Voer het volgende script om te downloaden van het installatiebestand van development kit (asdk-installer.ps1) van de [Azure Stack-GitHub-opslagplaats voor extra](https://github.com/Azure/AzureStack-Tools) naar de **C:\AzureStack_Installer** map op uw Development kit-hostcomputer:
 
   ```powershell
   # Variables
@@ -47,26 +47,25 @@ Voordat u de ASDK op de hostcomputer installeren kunt, moet de computer van ASDK
 
     ![](media/asdk-prepare-host/1.PNG) 
 
-5. Op de **Selecteer Cloudbuilder vhdx** pagina van het installatieprogramma, blader naar en selecteer de **cloudbuilder.vhdx** -bestand dat u hebt gedownload en uitgepakt [de vorige stappen](asdk-download.md). Op deze pagina kunt u ook, eventueel inschakelen de **toevoegen van stuurprogramma's** selectievakje in als u moet extra stuurprogramma's toevoegen aan de hostcomputer development kit. Klik op **Volgende**.  
+5. Op de **Selecteer Cloudbuilder vhdx** pagina van het installatieprogramma, blader naar en selecteer de **cloudbuilder.vhdx** -bestand dat u hebt gedownload en uitgepakt [de vorige stappen](asdk-download.md). Op deze pagina ook, indien gewenst, kunt u de **toevoegen van stuurprogramma's** selectievakje in als u wilt toevoegen van extra stuurprogramma's op de computer development kit. Klik op **Volgende**.  
 
     ![](media/asdk-prepare-host/2.PNG)
 
-6. Op de **optionele instellingen** pagina, geeft u de lokale beheerder accountgegevens voor de development kit-hostcomputer en klik vervolgens op **volgende**. U kunt ook waarden opgeven voor de volgende optionele instellingen:
-  - **Computernaam**: deze optie stelt u de naam van de host van development kit. De naam moet voldoen aan de vereisten van de FQDN-naam en moet zijn dan 15 tekens of minder. De standaardwaarde is de naam van een willekeurige computer door Windows wordt gegenereerd.
-  - **Tijdzone**: Hiermee stelt u de tijdzone voor de host van development kit. De standaardwaarde is (UTC-8:00) Pacific Time (VS en Canada).
-  - **Statische IP-configuratie**: Hiermee stelt u uw implementatie een statische IP-adres gebruiken. Wanneer het installatieprogramma opnieuw wordt opgestart in de cloudbuilder.vhx, worden de netwerkinterfaces anders geconfigureerd met DHCP.
+6. Op de **optionele instellingen** pagina, geef de lokale beheerder accountgegevens voor de hostcomputer development kit en klik vervolgens op **volgende**. U kunt ook waarden opgeven voor de volgende optionele instellingen:
+  - **ComputerName**: deze optie stelt u de naam van de host van development kit. De naam moet voldoen aan de vereisten van de FQDN-naam en 15 tekens of minder moet zijn. De standaardwaarde is de naam van een willekeurige computer die door Windows gegenereerd.
+  - **Statische IP-configuratie**: Hiermee stelt u uw implementatie een statisch IP-adres gebruiken. Wanneer het installatieprogramma opnieuw wordt opgestart in de cloudbuilder.vhx, worden de netwerkinterfaces anders geconfigureerd met DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)
 
   > [!IMPORTANT]
-  > Als u niet de lokale administrator-referenties in deze stap opgeeft, moet u direct of KVM-toegang tot de host nadat de computer opnieuw als onderdeel van het instellen van de development kit opgestart.
+  > Als u het lokale administrator-referenties in deze stap niet opgeeft, moet u direct of KVM-toegang tot de host nadat de computer opnieuw wordt opgestart als onderdeel van het instellen van de development kit.
 
-7. Als u een statisch IP-configuratie in de vorige stap hebt gekozen, moet u nu het volgende doen:
-    - Selecteer een netwerkadapter. Zorg ervoor dat u kunt verbinding maken met de netwerkadapter voordat u op **volgende**.
-    - Zorg ervoor dat de **IP-adres**, **Gateway**, en **DNS** waarden juist zijn en klik vervolgens op **volgende**.
+7. Als u een statisch IP-configuratie in de vorige stap hebt gekozen, moet u nu:
+    - Selecteer een netwerkadapter. Zorg ervoor dat u kunt verbinding maken met de adapter voordat u klikt op **volgende**.
+    - Zorg ervoor dat de **IP-adres**, **Gateway**, en **DNS** waarden correct zijn en klik vervolgens op **volgende**.
 13. Klik op **volgende** starten van het voorbereidingsproces.
-14. Wanneer de voorbereiding blijkt **voltooid**, klikt u op **volgende**.
-15. Klik op **nu opnieuw opstarten** development kit hostcomputer de cloudbuilder.vhdx opstarten en [gaan met het implementatieproces](asdk-install.md).
+14. Wanneer de voorbereiding van het geeft **voltooid**, klikt u op **volgende**.
+15. Klik op **nu opnieuw opstarten** opstarten van de hostcomputer development kit naar de cloudbuilder.vhdx en [doorgaan met het implementatieproces](asdk-install.md).
 
     ![](media/asdk-prepare-host/4.PNG)
 

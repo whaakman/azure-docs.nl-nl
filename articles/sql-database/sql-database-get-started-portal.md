@@ -1,25 +1,27 @@
 ---
 title: 'Azure Portal: een SQL-database maken | Microsoft Docs'
 description: Leer hoe u met Azure Portal een logische SQL Database-server, een firewallregel op serverniveau en een database maakt.
-keywords: zelfstudie over sql-database, een sql-database maken
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090527"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165004"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Een Azure SQL-database maken in Azure Portal
 
-In deze snelstartgids leert u hoe u een SQL-database maakt in Azure met het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Azure SQL Database is een Database-as-a-Service-oplossing waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud. In deze snelstartgids ziet u hoe u aan de slag gaat door een SQL-database te maken met behulp van het Azure Portal.
+In deze snelstartgids leert u hoe u een SQL-database maakt in Azure met het [op DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md). Azure SQL Database is een Database-as-a-Service-oplossing waarmee u maximaal beschikbare SQL Server-databases kunt uitvoeren en schalen in de cloud. In deze snelstartgids ziet u hoe u aan de slag gaat door een SQL-database te maken en er vervolgens query’s op uit te voeren met behulp van de Azure-portal.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -86,7 +88,7 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken.
 
    > [!IMPORTANT]
-   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van VS - west-centraal, China - oost, USDoDCentral, USGov Iowa, Duitsland - centraal, USDoDEast, US Gov Southwest, Duitsland - noordoost, China - noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > In de Premium-laag is momenteel meer dan 1 TB aan opslag beschikbaar in alle regio's met uitzondering van US - west-centraal, China - oost, USDoDCentral, USGov Iowa, Duitsland - centraal, USDoDEast, US Gov - zuidoost, Duitsland - noordoost, China - noord. In andere regio’s is de maximale opslagruimte in de Premium-laag beperkt tot 1 TB. Zie [P11-P15: huidige beperkingen]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
@@ -95,36 +97,6 @@ Volg deze stappen voor het maken van een SQL-database met de voorbeeldgegevens v
 11. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
 
      ![melding](./media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Een serverfirewallregel maken
-
-De service SQL Database maakt een firewall op serverniveau die voorkomt dat externe toepassingen en hulpmiddelen verbinding maken met de server of databases op de server, tenzij er een firewallregel is gemaakt om de firewall te openen voor specifieke IP-adressen. Volg deze stappen om een [SQL Database-firewallregel op serverniveau](sql-database-firewall-configure.md) te maken voor het IP-adres van de client en connectiviteit via de SQL Database-firewall alleen voor uw IP-adres toe te staan.
-
-> [!NOTE]
-> SQL Database communiceert via poort 1433. Als u verbinding probeert te maken vanuit een bedrijfsnetwerk, wordt uitgaand verkeer via poort 1433 mogelijk niet toegestaan door de firewall van uw netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
->
-
-1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en opties voor verdere configuratie.
-
-2. Kopieer deze volledig gekwalificeerde servernaam om in volgende snelstartgidsen verbinding te maken met de server en de bijbehorende databases.
-
-   ![servernaam](./media/sql-database-get-started-portal/server-name.png)
-
-3. Klik op de werkbalk op **Serverfirewall instellen** zoals in de vorige afbeelding is weergegeven. De pagina **Firewallinstellingen** voor de SQL Database-server wordt geopend.
-
-   ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Klik op **IP van client toevoegen** op de werkbalk om uw huidige IP-adres aan een nieuwe firewallregel toe te voegen. Een firewallregel kan poort 1433 openen voor een afzonderlijk IP-adres of voor een aantal IP-adressen.
-
-5. Klik op **Opslaan**. Er wordt een firewallregel op serverniveau gemaakt voor uw huidige IP-adres waarbij poort 1433 op de logische server wordt geopend.
-
-6. Klik op **OK** en sluit de pagina **Firewallinstellingen**.
-
-U kunt nu verbinding maken met de SQL Database-server en de bijbehorende databases met behulp van SQL Server Management Studio of een ander hulpprogramma naar keuze. Dit doet u vanaf dit IP-adres via het serverbeheerdersaccount dat eerder is gemaakt.
-
-> [!IMPORTANT]
-> Voor alle Azure-services is toegang via de SQL Database-firewall standaard ingeschakeld. Klik op **UIT** op deze pagina om dit voor alle Azure-services uit te schakelen.
->
 
 ## <a name="query-the-sql-database"></a>Query's uitvoeren op de SQL-database
 
@@ -161,7 +133,9 @@ Sla deze resources op als u verder wilt gaan met [Volgende stappen](#next-steps)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Nu u een database hebt, kunt u [verbinding maken met een hulpprogramma of taal naar keuze en daarmee query's uitvoeren](sql-database-connect-query.md). 
-- Voor informatie over het ontwerpen van uw eerste database, het maken van tabellen en het invoegen van gegevens kunt u een van deze zelfstudies gebruiken:
- - [Uw eerste Azure SQL-database ontwerpen met SQL Server Management Studio](sql-database-design-first-database.md)
-  - [Een Azure SQL-database ontwerpen en verbinding maken met C# en ADO.NET](sql-database-design-first-database-csharp.md)
+- Nu u een database hebt, moet u een firewallregel op serverniveau maken om verbinding te maken met uw on-premises hulpprogramma’s. Zie [Een serverfirewallregel maken](sql-database-get-started-portal-firewall.md)
+- Als u een firewallregel op serverniveau maakt, kunt u [verbinding maken en query’s uitvoeren](sql-database-connect-query.md) met behulp van een van favoriete hulpprogramma’s of talen, zoals
+  - [Verbinding maken en query's uitvoeren met behulp van SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Verbinding maken en query's uitvoeren met behulp van Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- Zie [Azure CLI-voorbeelden](sql-database-cli-samples.md) voor het maken van databases met behulp van Azure CLI
+- Zie [Azure PowerShell-voorbeelden](sql-database-powershell-samples.md) voor het maken van databases met behulp van Azure PowerShell

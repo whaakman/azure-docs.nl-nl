@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434265"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804171"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -119,27 +119,27 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 
-   * Als u wilt zien als het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld *aprilr@contoso.onmicrosoft.com*) of de gebruikers-ID van de gebruiker die u wilt controleren: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Om te zien de **wachtwoord verloopt nooit** instellen voor alle gebruikers, voert u de volgende cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Als u wilt zien als het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld *aprilr@contoso.onmicrosoft.com*) of de gebruikers-ID van de gebruiker die u wilt controleren: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Om te zien de **wachtwoord verloopt nooit** instellen voor alle gebruikers, voert u de volgende cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Stel een wachtwoord verlopen
 
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 
-   * Als u wilt het wachtwoord van een gebruiker zo instellen dat het wachtwoord is verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Om in te stellen de wachtwoorden voor alle gebruikers in de organisatie, zodat ze zijn verlopen, gebruikt u de volgende cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Als u wilt het wachtwoord van een gebruiker zo instellen dat het wachtwoord is verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
+   * Om in te stellen de wachtwoorden voor alle gebruikers in de organisatie, zodat ze zijn verlopen, gebruikt u de volgende cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
 
 ### <a name="set-a-password-to-never-expire"></a>Stel een wachtwoord op nooit verlopen
 
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 
-   * Om het wachtwoord van een gebruiker op nooit verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Om in te stellen de wachtwoorden voor alle gebruikers in een organisatie op nooit verlopen, moet u de volgende cmdlet uitvoeren: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Om het wachtwoord van een gebruiker op nooit verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
+   * Om in te stellen de wachtwoorden voor alle gebruikers in een organisatie op nooit verlopen, moet u de volgende cmdlet uitvoeren: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
 
    > [!WARNING]
-   > Wachtwoorden is ingesteld op `-PasswordNeverExpires $true` nog steeds leeftijd op basis van de `pwdLastSet` kenmerk. Als u de wachtwoorden nooit verlopen en gaat u 90 dagen door, de wachtwoorden zijn verlopen. Op basis van de `pwdLastSet` kenmerk, als u de vervaldatum om te wijzigen `-PasswordNeverExpires $false`, alle wachtwoorden die u hebt een `pwdLastSet` ouder dan 90 dagen de gebruiker moet te wijzigen van de volgende keer dat ze zich aanmelden. Deze wijziging kan invloed hebben op een groot aantal gebruikers. 
+   > Wachtwoorden is ingesteld op `-PasswordPolicies DisablePasswordExpiration` nog steeds leeftijd op basis van de `pwdLastSet` kenmerk. Als u de wachtwoorden nooit verlopen en gaat u 90 dagen door, de wachtwoorden zijn verlopen. Op basis van de `pwdLastSet` kenmerk, als u de vervaldatum om te wijzigen `-PasswordPolicies None`, alle wachtwoorden die u hebt een `pwdLastSet` ouder dan 90 dagen de gebruiker moet te wijzigen van de volgende keer dat ze zich aanmelden. Deze wijziging kan invloed hebben op een groot aantal gebruikers. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

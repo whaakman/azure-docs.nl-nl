@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055502"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785633"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Azure Cosmos DB biedt containers voor het opslaan van gegevens die verzamelingen
 
 ### <a name="physical-partition"></a>Fysieke partitie
 
-Een *fysieke* partitie is een vaste hoeveelheid gereserveerde SSD-opslag gecombineerd met een wisselende hoeveelheid rekenbronnen (CPU en geheugen). Elke fysieke partitie wordt gerepliceerd voor hoge beschikbaarheid. Elke set van containers kan één of meer fysieke partities delen. Beheer van fysieke partitie volledig wordt beheerd door Azure Cosmos DB en u hoeft te schrijven van complexe code of beheren van de partities. Azure Cosmos DB-containers zijn onbeperkte in termen van opslag en doorvoer. Fysieke partities zijn een interne concept van Azure Cosmos DB en tijdelijke. Azure Cosmos DB wordt automatisch geschaald voor het aantal fysieke partities op basis van uw werkbelasting. Zodat u het ontwerp van de database op basis van het aantal fysieke partities mag niet corelate moet in plaats daarvan u ervoor dat u kiest de juiste partitiesleutel waarmee wordt bepaald hoe de logische partities. 
+Een *fysieke* partitie is een vaste hoeveelheid gereserveerde SSD-opslag gecombineerd met een wisselende hoeveelheid rekenbronnen (CPU en geheugen). Elke fysieke partitie wordt gerepliceerd voor hoge beschikbaarheid. Elke set van containers kan één of meer fysieke partities delen. Beheer van fysieke partitie volledig wordt beheerd door Azure Cosmos DB en u hoeft te schrijven van complexe code of beheren van de partities. Azure Cosmos DB-containers zijn onbeperkte in termen van opslag en doorvoer. Fysieke partities zijn een interne concept van Azure Cosmos DB en tijdelijke. In Azure Cosmos DB wordt het aantal fysieke partities automatisch geschaald op basis van uw workload. Zodat u het ontwerp van de database op basis van het aantal fysieke partities mag niet corelate moet in plaats daarvan u ervoor dat u kiest de juiste partitiesleutel waarmee wordt bepaald hoe de logische partities. 
 
 ### <a name="logical-partition"></a>Logische partitie
 
@@ -93,11 +93,13 @@ Als u ervoor kiest een partitiesleutel met bovenstaande overwegingen, u geen zor
 
 ## <a name="prerequisites"></a>Vereisten voor het partitioneren van
 
-Azure Cosmos DB-containers kunnen worden gemaakt als vast of onbeperkt in de Azure-portal. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een container als onbeperkte, moet u een partitiesleutel en een minimale doorvoer van 1000 RU/s. Azure Cosmos DB-containers kunnen ook worden geconfigureerd voor het delen van doorvoer tussen een set van containers, waarbij elke container nader moet een partitie sleutel en onbeperkt kan groeien. Hier volgen de vereisten om te overwegen voor het partitioneren en schalen:
+Azure Cosmos DB-containers kunnen worden gemaakt als vast of onbeperkt. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een container als onbeperkte, moet u een partitiesleutel en een minimale doorvoer van 1000 RU/s. U kunt ook Azure Cosmos DB-containers maken, zodat ze doorvoer delen. In dergelijke gevallen wordt elke container nader moet een partitiesleutel en onbeperkt kunnen groeien. 
 
-* Bij het maken van een container (bijvoorbeeld een verzameling, een grafiek of een tabel) in Azure portal, selecteert u de **onbeperkt** opslagoptie van capaciteit om te profiteren van onbeperkt schalen. Voor de fysieke partities automatisch in te splitsen **p1** en **p2** zoals beschreven in [hoe partitionering werkt](#how-does-partitioning-work), de container moet worden gemaakt met een doorvoer van 1000 RU/s of meer (of doorvoer van de share op een set met containers), en de partitiesleutel van een moet worden opgegeven. 
+Hier volgen de vereisten om te overwegen voor het partitioneren en schalen:
 
-* Als u een container in Azure portal of via een programma gemaakt en de eerste doorvoer 1000 RU/s of meer is, en u hebt opgegeven een partitiesleutel, kunt u profiteren van onbeperkt schalen zonder wijzigingen in de container. Dit omvat **vaste** containers, mits ze de eerste container is gemaakt met ten minste 1000 RU/s aan doorvoer en een partitiesleutel is opgegeven.
+* Bij het maken van een container (bijvoorbeeld een verzameling, een grafiek of een tabel) in Azure portal, selecteert u de **onbeperkt** opslagoptie van capaciteit om te profiteren van onbeperkt schalen. Aan de fysieke partities automatisch splitsen in **p1** en **p2** zoals beschreven in [hoe partitionering werkt](#how-does-partitioning-work) artikel, de container moet worden gemaakt met een doorvoer van 1000 RU/s of meer (of doorvoer van de share op een set met containers), en de partitiesleutel van een moet worden opgegeven. 
+
+* Als u een container met de eerste doorvoer groter is dan of gelijk zijn aan 1000 RU/s maken en een partitiesleutel bieden, kunt u profiteren van onbeperkt schalen zonder wijzigingen in uw container uitvoeren. Dit betekent dat zelfs als u een **vaste** container, als de eerste container is gemaakt met een doorvoercapaciteit van ten minste 1000 RU/s en als een partitiesleutel is opgegeven, wordt de container als een onbeperkte container fungeert.
 
 * Alle containers die zijn geconfigureerd voor het delen van doorvoer als onderdeel van een set van containers worden behandeld als **onbeperkt** containers.
 

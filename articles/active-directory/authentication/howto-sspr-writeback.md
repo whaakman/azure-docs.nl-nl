@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295815"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801927"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instructies: Het terugschrijven van wachtwoorden configureren
 
@@ -34,6 +34,12 @@ De volgende stappen wordt ervan uitgegaan dat u Azure AD Connect al hebt geconfi
 8. Als u ziet dat de configuratie is voltooid, selecteert u **Afsluiten**.
 
 Voor het oplossen van problemen met taken met betrekking tot het terugschrijven van wachtwoorden, Zie de sectie [problemen met wachtwoord terugschrijven oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in ons artikel over probleemoplossing.
+
+> [!WARNING]
+> Wachtwoord terugschrijven wordt niet meer voor klanten die werken met Azure AD Connect-versies 1.0.8641.0 en oudere wanneer de [Azure Access Control service (ACS) op 7 November 2018 buiten gebruik is gesteld](../develop/active-directory-acs-migration.md). Azure AD Connect-versies 1.0.8641.0 en ouder wordt geen bestanden meer worden het terugschrijven van wachtwoorden op dat moment omdat ze afhankelijk van ACS voor deze functionaliteit zijn.
+>
+> Om te voorkomen dat een onderbreking in de service, een upgrade uitvoeren van een eerdere versie van Azure AD Connect naar een nieuwere versie, Zie het artikel [Azure AD Connect: upgraden van een eerdere versie naar de meest recente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## <a name="active-directory-permissions"></a>Machtigingen voor Active Directory
 
@@ -67,7 +73,7 @@ Om in te stellen op de juiste machtigingen voor het terugschrijven van wachtwoor
 4. Uit de **machtigingen** tabblad **toevoegen**.
 5. Kies het account dat machtigingen worden toegepast op (van de Azure AD Connect-installatie).
 6. In de **is van toepassing op** vervolgkeuzelijst, selecteer **onderliggende gebruiker** objecten.
-7. Onder **machtigingen**, selecteert u het volgende:
+7. Onder **machtigingen**, schakelt u de selectievakjes voor de volgende opties:
     * **Wachtwoord opnieuw instellen**
     * **Wachtwoord wijzigen**
     * **LockoutTime schrijven**

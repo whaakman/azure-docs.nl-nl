@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/3/2018
+ms.date: 10/4/2018
 ms.author: kumud
-ms.openlocfilehash: 50b567b298406b936a11ad5a8737ce4b1e21c0c7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 57bb3fea9ad8128520b5d186bd7a27483308e606
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248721"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802794"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer-regels voor uitgaand
 
@@ -47,7 +47,7 @@ Regels voor uitgaand verkeer, zoals alle Load Balancer-regels, Ga als volgt deze
 
 Een uitgaande regel configureert uitgaande NAT voor _alle virtuele machines geïdentificeerd door de back-endpool_ moeten worden omgezet in de _frontend_.  En _parameters_ meer fijnmazige controle bieden over de uitgaande NAT-algoritme.
 
-API-versie '2018-07-01' kan de definitie van een uitgaande regel als volgt zijn gestructureerd:
+API-versie '2018-08-01' kan de definitie van een uitgaande regel als volgt zijn gestructureerd:
 
 ```json
       "outboundRules": [

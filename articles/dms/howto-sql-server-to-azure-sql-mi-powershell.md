@@ -3,7 +3,7 @@ title: Azure Database Migration Service-module gebruiken in Microsoft Azure Powe
 description: Meer informatie over het migreren van on-premises SQL Server naar Azure SQL DB MI met behulp van Azure PowerShell.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 08/13/2018
-ms.openlocfilehash: 7bd7e7a4cb78cf8a9f818936c980b47a2e7865e7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: c8747b7b8125f097fab3752693f4f14440ed7ce7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099877"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804375"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL-database met behulp van Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger met een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
@@ -24,9 +24,9 @@ In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een 
 In dit artikel leert u het volgende:
 > [!div class="checklist"]
 > * Maak een resourcegroep.
-> * Maak een instantie van de Azure Database Migration Service.
+> * De Azure-portal gebruiken om een Azure Database Migration Service-exemplaar te maken.
 > * Een migratieproject maken in een Azure Database Migration Service-exemplaar.
-> * De migratie uitvoert.
+> * De migratie uitvoeren.
 
 ## <a name="prerequisites"></a>Vereisten
 Als u wilt deze stappen hebt voltooid, hebt u het volgende nodig:
@@ -78,7 +78,7 @@ $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -VirtualSubnetId $vSubNet.Id`
 ```
 
-## <a name="create-a-migration-project"></a>Een migratieproject maken
+## <a name="create-a-migration-project"></a>Maak een migratieproject
 Na het maken van een Azure Database Migration Service-exemplaar, kunt u een migratieproject maken. Een Azure Database Migration Service-project vereist verbindingsgegevens voor zowel de bron en doel-instanties, evenals een lijst met databases die u wilt migreren als onderdeel van het project.
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Een Database Connection-Info-object voor de bron en doel-verbindingen maken
@@ -229,7 +229,7 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDbMi `
   -SelectedAgentJobs $selectedJobs `
 ```
 
-## <a name="monitor-the-migration"></a>De migratie controleren
+## <a name="monitor-the-migration"></a>Bewaak de migratie
 U kunt de migratietaak uitgevoerd door het opvragen van de eigenschap state van de taak, zoals wordt weergegeven in het volgende voorbeeld controleren:
 
 ```powershell

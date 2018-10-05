@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295832"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804528"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
-Met een op basis van cloud-hulpprogramma voor wachtwoordherstel is heel handig, maar de meeste bedrijven hebben nog steeds een on-premises adreslijst waar hun gebruikers bestaan. Hoe heeft Microsoft ondersteuning houden traditionele on-premises Active Directory (AD) gesynchroniseerd met het wachtwoord te wijzigen in de cloud? Wachtwoord terugschrijven is een functie is ingeschakeld met [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) die hierbij worden wachtwoordwijzigingen in de cloud worden teruggeschreven naar een bestaande on-premises adreslijst in realtime.
+Een cloud-gebaseerde wachtwoord opnieuw instellen van hulpprogramma dat is erg handig, maar de meeste bedrijven hebben nog steeds een on-premises adreslijst waar hun gebruikers bestaan. Hoe heeft Microsoft ondersteuning houden traditionele on-premises Active Directory (AD) gesynchroniseerd met het wachtwoord te wijzigen in de cloud? Wachtwoord terugschrijven is een functie is ingeschakeld met [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) die hierbij worden wachtwoordwijzigingen in de cloud worden teruggeschreven naar een bestaande on-premises adreslijst in realtime.
 
 Wachtwoord terugschrijven wordt ondersteund in omgevingen die gebruikmaken van:
 
 * [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
 * [Synchronisatie van wachtwoord-hashes](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Pass through-verificatie](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> Wachtwoord terugschrijven wordt niet meer voor klanten die werken met Azure AD Connect-versies 1.0.8641.0 en oudere wanneer de [Azure Access Control service (ACS) op 7 November 2018 buiten gebruik is gesteld](../develop/active-directory-acs-migration.md). Azure AD Connect-versies 1.0.8641.0 en ouder wordt geen bestanden meer worden het terugschrijven van wachtwoorden op dat moment omdat ze afhankelijk van ACS voor deze functionaliteit zijn.
+>
+> Om te voorkomen dat een onderbreking in de service, een upgrade uitvoeren van een eerdere versie van Azure AD Connect naar een nieuwere versie, Zie het artikel [Azure AD Connect: upgraden van een eerdere versie naar de meest recente](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 Wachtwoord terugschrijven biedt:
 

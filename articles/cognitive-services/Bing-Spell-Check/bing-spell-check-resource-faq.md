@@ -1,55 +1,56 @@
 ---
-title: Veelgestelde vragen over de Bing Spell selectievakje API - cognitieve Azure-Services | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over de Bing-API voor het controleren van spellen op Azure.
+title: Veelgestelde vragen over de Bing Spell Check-API
+titlesuffix: Azure Cognitive Services
+description: Vind antwoorden op veelgestelde vragen over de Bing Spell Check-API op Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 87b1f3ed3e0aaa9f3c3c804dc9eac3ee60b4a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6662ffcbab9ea274a67bc4437ca1600f1625ff1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345596"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801502"
 ---
-# <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Veelgestelde vragen over de spellingcontrole van Bing API controleren
+# <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Veelgestelde vragen over de Bing Spell Check-API
 
- Antwoorden op veelgestelde vragen over de concepten, code en scenario's die zijn gerelateerd aan de Bing-API voor het controleren van spellen voor cognitieve Microsoft-Services in Azure.
+ Vind antwoorden op veelgestelde vragen over concepten, code en scenario's met betrekking tot de Bing Spell Check-API voor Microsoft Cognitive Services op Azure.
 
-## <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-spell-check-api-from-javascript"></a>Hoe krijg ik-headers van de client optioneel bij het aanroepen van de Bing-API voor het controleren van spellen van JavaScript?
+## <a name="how-do-i-get-the-optional-client-headers-when-calling-the-bing-spell-check-api-from-javascript"></a>Hoe ontvang ik de headers van clientcertificaten desgewenst bij het aanroepen van de Bing Spell Check-API van JavaScript?
 
-De volgende headers zijn optioneel, maar we raden u ze behandelen als vereist. Deze koppen helpen de Bing spellen controleren API meer nauwkeurige resultaten geretourneerd.
+De volgende headers zijn optioneel, maar wij raden u ze behandelen als vereist. Deze headers helpen de Bing Spell Check-API meer nauwkeurige resultaten retourneren.
 
 - X-Search-locatie
 - X-MSEdge-ClientID
 - X-MSEdge-client-IP
 
-Wanneer u de Bing-API voor het controleren van spellen vanuit JavaScript aanroept, ingebouwde beveiligingsfuncties van uw browser mogelijk kunt u echter toegang krijgen tot de waarden van de headers.
+Echter, wanneer u de Bing Spell Check-API vanuit JavaScript aanroepen, van uw browser ingebouwde beveiligingsfuncties die mogelijk voorkomen dat u toegang tot de waarden van deze headers.
 
-U lost dit probleem, kunt u de Bing spellen controleren API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers` header die whitelists antwoordheaders en deze beschikbaar voor JavaScript.
+U lost dit probleem, kunt u de Bing Spell Check-API-aanvraag via een proxy CORS. Het antwoord van deze proxy heeft een `Access-Control-Expose-Headers` header die antwoordheaders accounttoewijzing en maakt ze beschikbaar voor JavaScript.
 
-Het is gemakkelijk voor het installeren van een proxy CORS om toe te staan de [zelfstudie app](tutorials/spellcheck.md) voor toegang tot de optionele client-headers. Eerste, als u dit nog niet hebt [Installeer Node.js](https://nodejs.org/en/download/). Voer de volgende opdracht achter de opdrachtprompt.
+Het is eenvoudig te installeren van een CORS-proxy om toe te staan de [zelfstudie app](tutorials/spellcheck.md) voor toegang tot de optionele client-headers. Ten eerste, als u dit nog niet, [Installeer Node.js](https://nodejs.org/en/download/). Voer de volgende opdracht achter de opdrachtprompt.
 
     npm install -g cors-proxy-server
 
-Wijzig vervolgens de Bing spellen controleren API-eindpunt in het HTML-bestand in:
+Vervolgens de Bing Spell Check-API-eindpunt in de HTML-bestand te wijzigen:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
 
-Ten slotte de CORS-proxy starten met de volgende opdracht:
+Ten slotte, start u de CORS-proxy met de volgende opdracht:
 
     cors-proxy-server
 
-Laat het opdrachtvenster open terwijl u de zelfstudie app; gebruiken u sluit het venster stopt de proxy. In de uitbreidbare HTTP-Headers gedeelte onder de zoekresultaten, nu ziet u de `X-MSEdge-ClientID` header (onder andere) en controleer of het is hetzelfde voor elke aanvraag.
+Laat het opdrachtvenster open terwijl u de zelfstudie app; gebruiken het venster sluit, stopt de proxy. In de uitbreidbare HTTP-Headers sectie hieronder de zoekresultaten, kunt u nu zien de `X-MSEdge-ClientID` header (onder andere) en controleer of het is hetzelfde voor elke aanvraag.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Uw vraag over een ontbrekende functie of functionaliteit is? Houd rekening met aanvragen of uw stem op deze op de [UserVoice website](https://cognitive.uservoice.com/).
+Uw vraag over een ontbrekende functie of functionaliteit is? Houd rekening met aanvragen of uw stem op deze op de [UserVoice-website](https://cognitive.uservoice.com/).
 
 ## <a name="see-also"></a>Zie ook
 
- [StackOverflow: Cognitieve Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

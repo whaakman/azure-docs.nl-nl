@@ -1,7 +1,7 @@
 ---
-title: Een Ruby-app maken en implementeren in App Service on Linux | Microsoft Docs
-description: Meer informatie over het maken van Ruby-apps met App Service on Linux.
-keywords: azure app service, linux, oss, ruby
+title: Een Ruby on Rails-app maken en implementeren in App Service on Linux | Microsoft Docs
+description: Meer informatie over het maken van een Ruby on Rails-app met App Service op Linux.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
 author: SyntaxC4
@@ -16,16 +16,19 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 729ed8ac4568f5f39fd62fadbc8d4d0e4595f7b8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04025998f78843b1cc69acd663681b9563a531bc
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885286"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431222"
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
+# <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Een Ruby on Rails-app maken met App Service op Linux
 
 [Azure App Service in Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze snelstart laat zien hoe u een eenvoudige [Ruby on Rails](https://rubyonrails.org/)-toepassing maakt die als een web-app kan worden geïmplementeerd in Azure in Linux.
+
+> [!NOTE]
+> De Ruby-ontwikkelstack ondersteunt momenteel alleen Ruby on Rails. Als u een ander platform wilt gebruiken, zoals Sinatra, raadpleegt u de snelstart voor [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -48,9 +51,16 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Voer de toepassing lokaal uit zodat u kunt zien hoe deze eruit ziet wanneer u de toepassing implementeert naar Azure. Open een terminalvenster, ga naar de map `hello-world` en gebruik de opdracht `rails server` om de server te starten.
 
+De eerste stap is het installeren van de vereiste gems. Er is een `Gemfile` opgenomen in het voorbeeld, dus u hoeft de te installeren gems niet op te geven. Hiervoor gebruiken we bundler:
+
+```
+bundle install
+```
+
+Nadat de gems zijn geïnstalleerd, gebruiken we bundler om de app te starten:
+
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 Navigeer naar `http://localhost:3000` met uw webbrowser om de app lokaal te testen.

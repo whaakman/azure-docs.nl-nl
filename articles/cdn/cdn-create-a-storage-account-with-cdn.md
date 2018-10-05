@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608498"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096238"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Quickstart: Een Azure Storage-account integreren met Azure CDN
 In deze snelstart gaat u ervoor zorgen dat [Azure Content Delivery Network (CDN)](cdn-overview.md) inhoud van Azure Storage in de cache kan opslaan. Azure CDN biedt ontwikkelaars een mondiale oplossing voor het leveren van inhoud met hoge bandbreedte. Het kan worden gebruikt om blobs en statische inhoud van rekeninstanties in de cache op fysieke knooppunten in de Verenigde Staten, Europa, Azië, Australië en Zuid-Amerika op te slaan.
@@ -70,7 +70,7 @@ U kunt verschillende methoden, waaronder Azure Portal en PowerShell gebruiken om
     | -------- | ----- |
     | **Implementatiemodel** | Gebruik de standaardwaarde. |
     | **Type account** | Gebruik de standaardwaarde. |
-    | **Locatie**    | Selecteer **VS Centraal** in de vervolgkeuzelijst. |
+    | **Locatie**    | Selecteer **US - centraal** in de vervolgkeuzelijst. |
     | **Replicatie** | Gebruik de standaardwaarde. |
     | **Prestaties** | Gebruik de standaardwaarde. |
     | **Veilige overdracht vereist** | Gebruik de standaardwaarde. |
@@ -84,7 +84,7 @@ U kunt verschillende methoden, waaronder Azure Portal en PowerShell gebruiken om
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Azure CDN inschakelen voor het opslagaccount
 
-U kunt Azure CDN voor uw opslagaccount rechtstreeks vanuit uw opslagaccount inschakelen. Als u voor uw CDN-eindpunt geavanceerde configuratie-instellingen wilt opgeven, zoals het optimalisatietype, kunt u in plaats daarvan de [Azure CDN-extensie](cdn-create-new-endpoint.md) gebruiken om een CDN-profiel of een CDN-eindpunt te maken.
+U kunt Azure CDN voor uw opslagaccount rechtstreeks vanuit uw opslagaccount inschakelen. Als u voor uw CDN-eindpunt geavanceerde configuratie-instellingen wilt opgeven, zoals [ optimalisatie voor het downloaden van grote bestanden](cdn-optimization-overview.md#large-file-download), kunt u in plaats daarvan de [Azure CDN-extensie](cdn-create-new-endpoint.md) gebruiken om een CDN-profiel en -eindpunt te maken.
 
 1. Selecteer een opslagaccount van het dashboard en selecteer vervolgens **Azure CDN** in het linkerdeelvenster. Als de knop **Azure CDN** niet meteen zichtbaar is, kunt u ernaar zoeken door 'CDN' te typen in het vak **Zoeken** in het linkerdeelvenster.
     
@@ -109,6 +109,9 @@ U kunt Azure CDN voor uw opslagaccount rechtstreeks vanuit uw opslagaccount insc
 Vanuit de pagina **Azure CDN** van het opslagaccount, selecteert u het CDN-eindpunt in de lijst om de configuratiepagina van het CDN-eindpunt te openen. Op deze pagina kunt u extra CDN-functies inschakelen voor uw levering, zoals [Compressie](cdn-improve-performance.md), [Queryreeksen opslaan in cache](cdn-query-string.md) en [Geo-filteren](cdn-restrict-access-by-country.md). 
     
 ![Opslagconfiguratie van het CDN-eindpunt](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>SAS inschakelen
+Als u beperkte toegang tot persoonlijke opslagcontainers wilt verlenen, kunt u de Shared Access Signature (SAS)-functie van uw Azure-opslagaccount gebruiken. Een SAS is een URI die beperkte toegangsrechten verleent aan uw Azure Storage-resources zonder uw accountsleutel prijs te geven. Zie [Azure CDN gebruiken met SAS](cdn-sas-storage-support.md) voor meer informatie.
 
 ## <a name="access-cdn-content"></a>Toegang tot CDN-inhoud
 Gebruik de CDN-URL op de portal om toegang te krijgen tot inhoud van de cache op het CDN. Het adres van een blob in de cache heeft de volgende indeling:
@@ -139,8 +142,8 @@ In de voorgaande stappen hebt u een CDN-profiel en een eindpunt in een resourceg
 3. Als u uw opslagaccount wilt verwijderen, selecteert u dit in het dashboard en selecteert u vervolgens **Verwijderen** in het menu bovenaan.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het toevoegen van een aangepast domein aan uw CDN-eindpunt, de volgende zelfstudie:
+Zie voor meer informatie over het toevoegen van een aangepast domein aan en HTTPS in te schakelen op uw CDN-eindpunt, de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md)
+> [Zelfstudie: Toegang tot opslagblobs met een aangepast Azure CDN-domein via HTTPS](cdn-storage-custom-domain-https.md)
 

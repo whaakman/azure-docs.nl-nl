@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ef2f349333592e05185c5502490828832cb6c24c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 456b60ee44f3e47bc04da341fd0e3df86662d16b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018346"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785440"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informatie over de Speech to Text-API
 
@@ -34,9 +34,11 @@ De **spraak naar tekst** API biedt de volgende functies:
 
 - Natuurlijke taal begrijpen. Dankzij de integratie met [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), u kunt afleiden intenties en entiteiten van spraak. Gebruikers hoeft te weten vocabulaire van uw app, maar wordt beschreven wat ze willen in hun eigen woorden.
 
+- Als u een gedetailleerde uitvoer van de spraak-configuratieobject (SpeechConfig.OutputFormat eigenschap) opgeeft, wordt de betrouwbaarheidsscore geretourneerd reactie van de service. Vervolgens kunt u een van beide methoden Best() op het resultaat gebruiken of deze rechtstreeks de score ophalen van JSON geretourneerd door de service (ongeveer als resultaat. Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+
 ## <a name="api-capabilities"></a>API-functies
 
-Veel van de mogelijkheden van de **spraak naar tekst** API - met name wat betreft aanpassing - zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Voor een volledige lijst van de mogelijkheden en -API. Raadpleeg details [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Sommige van de mogelijkheden van de **spraak naar tekst** API - met name wat betreft aanpassing - zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. 
 
 | Use-case | REST | SDK's |
 |-----|-----|-----|----|

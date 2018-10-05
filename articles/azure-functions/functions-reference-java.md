@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123484"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802114"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -115,9 +115,15 @@ met de bijbehorende `function.json`:
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>JDK runtime-beschikbaarheid en ondersteuning 
+
+Download en gebruik de [Azul Zulu voor Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK van [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) voor lokale ontwikkeling van Java-functie-apps. JDK zijn beschikbaar voor Windows, Linux en Mac OS en [ondersteuning van Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is beschikbaar voor fouten die optreden tijdens de ontwikkeling met een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
+
 ## <a name="third-party-libraries"></a>Bibliotheken van derden 
 
 Azure Functions ondersteunt het gebruik van bibliotheken van derden. Standaard alle afhankelijkheden die zijn opgegeven in uw project `pom.xml` bestand zal automatisch worden gebundeld tijdens de `mvn package` doel. Voor bibliotheken niet is opgegeven als afhankelijkheden in de `pom.xml` bestand, plaats deze in een `lib` map in de hoofdmap van de functie. Afhankelijkheden worden geplaatst de `lib` directory worden toegevoegd aan het laadprogramma van de klasse system tijdens runtime.
+
+De `com.microsoft.azure.functions:azure-functions-java-library` afhankelijkheid wordt standaard in het klassepad verstrekt en hoeft niet te worden opgenomen in de `lib` directory.
 
 ## <a name="data-type-support"></a>Ondersteuning voor gegevenstype
 
@@ -235,7 +241,7 @@ Soms moet u een functie controle over de invoer en uitvoer hebt gedetailleerde. 
 
 | Gespecialiseerde Type      |       Doel        | Normaal gebruik                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage<T>`  |    HTTP-Trigger     | Methode, koptekst of query's ophalen |
+| `HttpRequestMessage<T>`  |    HTTP-trigger     | Methode, koptekst of query's ophalen |
 | `HttpResponseMessage<T>` | HTTP-Uitvoerbinding | Status van het resultaat dan 200   |
 
 > [!NOTE] 

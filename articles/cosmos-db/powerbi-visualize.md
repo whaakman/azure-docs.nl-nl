@@ -8,30 +8,23 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 686f21aa805560bb4c2a7fbf9b0c61e1edef14bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452408"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785525"
 ---
-# <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-zelfstudie voor Azure Cosmos DB: gegevens visualiseren met behulp van de Power BI-connector
-[PowerBI.com](https://powerbi.microsoft.com/) is een online service waar u kunt maken en delen van dashboards en rapporten met gegevens die belangrijk is voor u en uw organisatie.  Power BI Desktop is een speciale rapport ontwerpgereedschap waarmee u gegevens ophalen uit verschillende gegevensbronnen, samenvoegen en de gegevens te transformeren, krachtige rapporten en visualisaties maken en de rapporten publiceren naar Power BI.  De meest recente versie van Power BI Desktop, u kunt nu verbinding maken met uw Azure Cosmos DB-account via de Azure Cosmos DB-connector voor Power BI.   
+# <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Azure Cosmos DB-gegevens visualiseren met behulp van de Power BI-connector
 
-In deze zelfstudie Power BI volgen we de stappen voor het verbinding maken met een Azure Cosmos DB-account in Power BI Desktop, gaat u naar een verzameling waar we de gegevens met behulp van de Navigator extraheren, transformeren van JSON-gegevens in tabelvorm met behulp van Query-Editor van Power BI Desktop , en bouwt en publiceert u een rapport naar PowerBI.com.
+[Power BI](https://powerbi.microsoft.com/) is een online service waar u kunt maken en delen van dashboards en rapporten. Power BI Desktop is een hulpprogramma waarmee u gegevens ophalen uit verschillende gegevensbronnen voor rapportontwerp. Azure Cosmos DB is een van de gegevensbron die u met Power BI Desktop gebruiken kunt. U kunt Power BI Desktop verbinding maken met Azure Cosmos DB-account met de Azure Cosmos DB-connector voor Power BI.  Nadat u Azure Cosmos DB-gegevens in Power BI importeren, kunt u het te transformeren, rapporten maken en de rapporten publiceren naar Power BI.   
 
-Na het voltooien van deze zelfstudie Power BI, zal het mogelijk om de volgende vragen te beantwoorden:  
-
-* Hoe kan ik bouwen rapporten met gegevens uit Azure Cosmos DB met behulp van Power BI Desktop?
-* Hoe kan ik verbinding maken met een Azure Cosmos DB-account in Power BI Desktop?
-* Hoe kan ik gegevens ophalen uit een verzameling in Power BI Desktop?
-* Hoe kan ik transformeren geneste JSON-gegevens in Power BI Desktop?
-* Hoe kan ik publiceren en delen van mijn rapporten in PowerBI.com?
+Dit artikel beschrijft de stappen die nodig zijn om Azure Cosmos DB-account voor Power BI Desktop verbinding te maken. Nadat u verbinding hebt u gaat u naar een verzameling, Extraheer de gegevens, zet de JSON-gegevens in tabelvorm en een rapport publiceren naar Power BI.
 
 > [!NOTE]
-> De Power BI-connector voor Azure Cosmos DB maakt verbinding met Power BI Desktop voor uitpakken en transformatie van gegevens. Rapporten die zijn gemaakt in Power BI Desktop kunnen vervolgens worden gepubliceerd naar PowerBI.com. Directe extractie en transformatie van Azure Cosmos DB-gegevens kunnen niet worden uitgevoerd in PowerBI.com. 
+> De Power BI-connector voor Azure Cosmos DB verbindt met Power BI Desktop. Rapporten die zijn gemaakt in Power BI Desktop kunnen worden gepubliceerd naar PowerBI.com. Directe extractie van Azure Cosmos DB-gegevens kan niet worden uitgevoerd in PowerBI.com. 
 
 > [!NOTE]
 > Verbinding maken met Azure Cosmos DB met de Power BI-connector wordt momenteel ondersteund voor SQL-API van Azure Cosmos DB en Gremlin-API-accounts.
@@ -39,17 +32,16 @@ Na het voltooien van deze zelfstudie Power BI, zal het mogelijk om de volgende v
 ## <a name="prerequisites"></a>Vereisten
 Voordat u de instructies in deze zelfstudie Power BI, zorg ervoor dat u toegang tot de volgende bronnen hebt:
 
-* [De meest recente versie van Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* Toegang tot onze demo-account of de gegevens in uw Azure Cosmos DB-account.
-  * De demo-account wordt gevuld met de Vulkaan gegevens weergegeven in deze zelfstudie. Deze demo-account is niet gebonden bent aan de SLA's en is bedoeld voor demonstratiedoeleinden alleen te gebruiken.  We behouden ons het recht om wijzigingen in deze demo account, zoals te brengen, maar niet beperkt tot het account beëindigen, wijzigen van de sleutel, beperken van toegang, wijzigen, en de gegevens op elk gewenst moment zonder vooraf een kennisgeving of opgave van redenen te verwijderen.
-    * URL: `https://analytics.documents.azure.com`
-    * Alleen-lezensleutel: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
-  * Of, voor het maken van uw eigen account, Zie [maken van een Azure Cosmos DB-databaseaccount met behulp van de Azure-portal](https://azure.microsoft.com/documentation/articles/create-account/). Klik, om op te halen voorbeeld Vulkaan gegevens die vergelijkbaar is met wat in deze zelfstudie wordt gebruikt (maar bevat niet de GeoJSON-blokken), Zie de [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) en importeer vervolgens de gegevens met de [Azure Cosmos DB-hulpprogramma voor gegevensmigratie](import-data.md).
+* [Download de nieuwste versie van Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-Als u wilt delen in uw rapporten in PowerBI.com, moet u een account hebben in PowerBI.com.  Voor meer informatie over Power BI voor gratis en Power BI Pro, gaat u naar [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
+* Download de [Vulkaan voorbeeldgegevens](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) vanuit GitHub.
+
+* [Een Azure Cosmos DB-databaseaccount maken](https://azure.microsoft.com/documentation/articles/create-account/) en de Vulkaan-gegevens importeren met behulp van de [hulpprogramma voor gegevensmigratie Azure Cosmos DB](import-data.md).
+
+Als u wilt delen in uw rapporten in PowerBI.com, moet u een account hebben in PowerBI.com.  Zie voor meer informatie over Power BI en Power BI Pro, [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Aan de slag
-In deze zelfstudie gaan we Stel dat u bent een geologist studie vulkanen over de hele wereld.  De Vulkaan-gegevens worden opgeslagen in een Azure Cosmos DB-account en de JSON-documenten, zoals het volgende voorbeelddocument zoeken.
+In deze zelfstudie gaan we Stel dat u bent een geologist studie vulkanen over de hele wereld. De Vulkaan-gegevens worden opgeslagen in een Azure Cosmos DB-account en de indeling van JSON-document is als volgt:
 
     {
         "Volcano Name": "Rainier",
@@ -68,41 +60,33 @@ In deze zelfstudie gaan we Stel dat u bent een geologist studie vulkanen over de
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-U kunt de Vulkaan gegevens opgehaald uit de Azure Cosmos DB-account en visualiseren van gegevens in een interactieve Power BI-rapport, zoals het volgende rapport.
+U de Vulkaan gegevens opgehaald uit de Azure Cosmos DB-account en visualiseren van gegevens in een interactieve Power BI-rapport.
 
-![Door het voltooien van deze Power BI-zelfstudie met de Power BI-connector, zal het mogelijk om gegevens met het rapport van de Vulkaan Power BI Desktop te visualiseren](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+1. Power BI Desktop worden uitgevoerd.
 
-Wilt u het proberen? Laten we beginnen.
-
-1. Power BI Desktop worden uitgevoerd op uw werkstation.
-2. Wanneer Power BI Desktop wordt gestart, een *Welkom* scherm wordt weergegeven.
+2. U kunt **gegevens ophalen**, Zie **recente bronnen**, of **Open andere rapporten** rechtstreeks vanuit het welkomstscherm wordt weergegeven. Selecteer de 'X' in de rechterbovenhoek om te sluiten van het scherm. De **rapport** weergave van Power BI Desktop wordt weergegeven.
    
-    ![Power BI Desktop op het welkomstscherm wordt weergegeven - Power BI-connector](./media/powerbi-visualize/power_bi_connector_welcome.png)
-3. U kunt **gegevens ophalen**, Zie **recente bronnen**, of **Open andere rapporten** rechtstreeks vanuit de *Welkom* scherm.  Klik op de X in de rechterbovenhoek om te sluiten van het scherm. De **rapport** weergave van Power BI Desktop wordt weergegeven.
-   
-    ![Power BI Desktop rapportweergave - Power BI-connector](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
-4. Selecteer de **Start** lint en klik vervolgens op **gegevens ophalen**.  De **gegevens ophalen** venster moet worden weergegeven.
-5. Klik op **Azure**, selecteer **Azure Cosmos DB (bèta)**, en klik vervolgens op **Connect**. 
+   ![Power BI Desktop rapportweergave - Power BI-connector](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
+
+3. Selecteer de **Start** lint en klik vervolgens op **gegevens ophalen**.  De **gegevens ophalen** venster moet worden weergegeven.
+
+4. Klik op **Azure**, selecteer **Azure Cosmos DB (bèta)**, en klik vervolgens op **Connect**. 
 
     ![Ophalen Power BI Desktop - Power BI-connector](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. Op de **Preview-Connector** pagina, klikt u op **doorgaan**. De **Azure Cosmos DB** venster wordt weergegeven.
-7. Geef de URL Azure Cosmos DB-account eindpunt u wilt ophalen van de gegevens uit zoals hieronder wordt weergegeven, en klik vervolgens op **OK**. Voor het gebruik van uw eigen account, kunt u de URL niet ophalen uit de URI in de **[sleutels](manage-account.md#keys)** blade van de Azure-portal. Voer voor het gebruik van de demo-account, `https://analytics.documents.azure.com` voor de URL. 
+
+5. Op de **Preview-Connector** pagina, klikt u op **doorgaan**. De **Azure Cosmos DB** venster wordt weergegeven.
+
+6. Geef de URL Azure Cosmos DB-account eindpunt u wilt ophalen van de gegevens uit zoals hieronder wordt weergegeven, en klik vervolgens op **OK**. Voor het gebruik van uw eigen account, kunt u de URL niet ophalen uit de URI in de **[sleutels](manage-account.md#keys)** blade van de Azure-portal. U kunt eventueel de databasenaam, de verzamelingsnaam van opgeven of de navigator gebruiken om te selecteren van de database en verzameling om te bepalen waar de gegevens vandaan komen.
    
-    Laat de databasenaam, de naam van verzameling en de SQL-instructie leeg omdat deze velden optioneel zijn.  We gebruiken in plaats daarvan de Navigator selecteren van de Database en verzameling om te bepalen waar de gegevens vandaan komen.
+7. Als u verbinding met dit eindpunt voor de eerste keer, wordt u gevraagd de accountsleutel op te geven. Voor uw eigen account ophalen van de sleutel van de **primaire sleutel** vak de **[alleen-Lezensleutels](manage-account.md#keys)** blade van de Azure-portal. Voer de juiste sleutel en klik vervolgens op **Connect**.
    
-    ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector - bureaublad-venster verbinding maken](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. Als u verbinding met dit eindpunt voor de eerste keer, wordt u gevraagd de accountsleutel op te geven. Voor uw eigen account ophalen van de sleutel van de **primaire sleutel** vak de **[alleen-Lezensleutels](manage-account.md#keys)** blade van de Azure-portal. Voor de demo-account, de sleutel is `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Voer de juiste sleutel en klik vervolgens op **Connect**.
-   
-    U wordt aangeraden dat u de alleen-lezen-sleutel gebruikt als het maken van rapporten.  Dit voorkomt dat beter beschermd van de hoofdsleutel aan potentiële beveiligingsrisico's. De sleutel alleen-lezen is beschikbaar via de [sleutels](manage-account.md#keys) blade van de Azure-portal of u kunt de demo-accountgegevens hierboven.
-   
-    ![Power BI-zelfstudie voor Azure Cosmos DB Power BI-connector - Accountsleutel](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+   U wordt aangeraden dat u de alleen-lezen-sleutel gebruikt als het maken van rapporten. Dit voorkomt dat beter beschermd van de hoofdsleutel aan potentiële beveiligingsrisico's. De sleutel alleen-lezen is beschikbaar via de [sleutels](manage-account.md#keys) blade van de Azure-portal. 
     
-    > [!NOTE] 
-    > Als er een fout met de mededeling "de opgegeven database is niet gevonden." Zie de tijdelijke oplossing in deze stap [Power BI-probleem](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
-    
-9. Wanneer het account is is verbonden, de **Navigator** deelvenster wordt weergegeven.  De **Navigator** ziet u een lijst met databases onder het account.
-10. Klik op en Ga op de database waarin de gegevens voor het rapport is afkomstig uit, als u de demo-account selecteren **volcanodb**.   
-11. Selecteer nu een verzameling met de gegevens moeten worden opgehaald. Als u de demo-account, selecteert u **volcano1**.
+8. Wanneer het account is is verbonden, de **Navigator** deelvenster wordt weergegeven. De **Navigator** ziet u een lijst met databases onder het account.
+
+9. Klik op en Ga op de database waar de gegevens voor het rapport is afkomstig uit, selecteer **volcanodb** (de databasenaam van uw kan afwijken).   
+
+10. Selecteer nu een verzameling met de gegevens wilt ophalen, selecteert u **volcano1** (de verzamelingsnaam van uw kan afwijken).
     
     Het voorbeeldvenster bevat een overzicht van **Record** items.  Een Document wordt weergegeven als een **Record** type in Power BI. Op deze manier een geneste JSON-blok in een document is ook een **Record**.
     
@@ -170,7 +154,6 @@ Hieronder ziet u de basisstappen voor het maken van een rapport eenvoudig intera
 5. U ziet nu de kaart visual met een set met bellen die wijzen op de locatie van elke Vulkaan met de grootte van de Bel voor de uitbreiding van de Vulkaan te correleren.
 6. U hebt nu een eenvoudig rapport gemaakt.  Verder kunt u het rapport aanpassen door meer visualisaties toe te voegen.  In ons geval hebben we een slicer Vulkaan Type zodat het rapport interactieve toegevoegd.  
    
-    ![Schermafbeelding van het laatste Power BI Desktop-rapport na voltooiing van de Power BI-zelfstudie voor Azure Cosmos DB](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 7. Klik op het menu bestand **opslaan** en sla het bestand als PowerBITutorial.pbix.
 
 ## <a name="publish-and-share-your-report"></a>Publiceren en delen van uw rapport

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108803"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227279"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snelstart: Een virtuele Linux-machine maken op de Azure Portal
 
@@ -49,26 +49,27 @@ Aanmelden bij Azure Portal op http://portal.azure.com
 
 1. Kies in de linkerbovenhoek van Azure Portal **Een resource maken**.
 
-2. Zoek via het zoekvak boven de lijst met Azure Marketplace-resources naar **Ubuntu Server 16.04 LTS by Canonical**, selecteer deze en kies **Maken**.
+1. Zoek via het zoekvak boven de lijst met Azure Marketplace-resources naar **Ubuntu Server 16.04 LTS by Canonical**, selecteer deze en kies **Maken**.
 
-3. Geef een VM-naam op, zoals *myVM*, laat het schijftype als *SSD* en geef dan een gebruikersnaam op, zoals *azuregebruiker*.
+1. Zorg ervoor dat op het tabblad **Basis** onder **Projectgegevens** het juiste abonnement is geselecteerd, en kies **Nieuwe maken** onder **Resourcegroep**. Typ in het pop-upvenster *myResourceGroup* als naam voor de resourcegroep en kies **OK*. 
 
-4. Als **Verificatietype** selecteert u **Openbare SSH-sleutel**. Plak dan uw openbare sleutel in het tekstvak. Zorg date er geen voorloop- en volgspaties in uw openbare sleutel staan.
+    ![Een nieuwe resourcegroep maken voor uw VM](./media/quick-create-portal/project-details.png)
 
-    ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. Typ onder **Exemplaardetails** *myVM* als **Naam van de virtuele machine** en kies *US - oost* als de **Regio**. Houd voor de rest de standaardinstellingen aan.
 
-5. Kies voor het maken van een **nieuwe** resourcegroep en geef vervolgens een naam op, zoals *myResourceGroup*. Kies de gewenste **locatie** en selecteer dan **OK**.
+    ![Sectie Exemplaardetails](./media/quick-create-portal/instance-details.png)
 
-4. Selecteer een grootte voor de VM. U kunt bijvoorbeeld filteren op *Rekentype* of *Schijftype*. Een voorgestelde VM-grootte is *D2s_v3*.
+1. Selecteer onder **Administrator-account** **Openbare SSH-sleutel**, typ uw gebruikersnaam en plak uw openbare sleutel in het tekstvak. Verwijder eventuele voorloop- en volgspaties van uw openbare sleutel.
 
-    ![Schermopname van VM-grootten](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Administrator-account](./media/quick-create-portal/administrator-account.png)
 
-5. Ga op de pagina **Instellingen** naar **Netwerk** > **Netwerkbeveiligingsgroep** > **Openbare binnenkomende poorten selecteren**, en selecteer **HTTP** en **SSH (22)** in de vervolgkeuzelijst. Laat de overige standaardwaarden staan en selecteer **OK**.
+1. Onder **Regels voor binnenkomende poort** > **Openbare binnenkomende poorten**, kiest u **​​Geselecteerde poorten toestaan** en selecteert u vervolgens **SSH (22)** en  **TTP (80)** in de vervolgkeuzelijst. 
 
-6. Selecteer **Maken** op de overzichtspagina om de implementatie van de VM te starten.
+    ![Open poorten voor RDP en HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. De VM wordt aan het dashboard van de Azure Portal vastgemaakt. Zodra de implementatie is voltooid, wordt de samenvatting van de VM automatisch geopend.
+1. Laat de resterende standaardwaarden staan ​​en selecteer vervolgens de knop **Beoordelen en maken** aan de onderkant van de pagina.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 
 Maak een SSH-verbinding met de VM.

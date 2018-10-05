@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2d13a409d095bca64da781e5c5ca58553f9710c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047588"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785321"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 
-Broncodebeheer kunt u uw runbooks behouden in uw account zijn up-to-date met de scripts in uw resourcebeheerbibliotheek GitHub of Azure Dev Ops-automatisering. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Bijvoorbeeld, kunt broncodebeheer u verschillende branches in broncodebeheer aan uw ontwikkelings-, test- of productieomgeving Automation-accounts, zodat u eenvoudig kunt ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-automatisering is getest synchroniseren -account.
+Broncodebeheer kunt u uw runbooks behouden in uw Automation account zijn bijgewerkt met de scripts in uw GitHub- of Azure Dev Ops resourcebeheerbibliotheek. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en Ga terug naar de eerdere versies van uw runbooks. Broncodebeheer bijvoorbeeld, kunt u verschillende branches in broncodebeheer om uw ontwikkelings-, test- of productieomgeving Automation-accounts te synchroniseren. Hiermee kunt u eenvoudig ter bevordering van code die in uw ontwikkelomgeving, zodat uw productie-Automation-account is getest.
 
 Azure Automation biedt ondersteuning voor 3 soorten of broncodebeheer:
 
@@ -29,6 +29,7 @@ Azure Automation biedt ondersteuning voor 3 soorten of broncodebeheer:
 ## <a name="pre-requisites"></a>Vereisten
 
 * Een opslagplaats voor bronbeheer (GitHub of Visual Studio Team Services)
+* De juiste [machtigingen](#personal-access-token-permissions) naar de opslagplaats voor bronbeheer
 * Een [Run-As Account en -verbinding](manage-runas-account.md)
 
 > [!NOTE]
@@ -40,7 +41,7 @@ Selecteer in uw Automation-Account **broncodebeheer (preview)** en klikt u op **
 
 ![Selecteer het besturingselement](./media/source-control-integration/select-source-control.png)
 
-Kies **broncodebeheer type** , klikt u op **verifiëren**.
+Kies **broncodebeheer type**, klikt u op **verifiëren**.
 
 Controleer de pagina app-aanvraag machtigingen en klik op **accepteren**.
 
@@ -49,8 +50,8 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
 |Naam van de bron-besturingselement     | Een beschrijvende naam voor broncodebeheer        |
-|Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Visual Studio teamservices (Git)</br>Visual Studio teamservices (TFVC)        |
-|Opslagplaats     | De naam van de opslagplaats of het project. Dit is opgehaald uit de opslagplaats voor bronbeheer. Voorbeeld: $/ ContosoFinanceTFVCExample         |
+|Broncodebeheertype     | Het type van de bron van het besturingselement. De volgende opties zijn beschikbaar:</br> GitHub</br>Visual Studio teamservices (Git)</br> Visual Studio teamservices (TFVC)        |
+|Opslagplaats     | De naam van de opslagplaats of het project. Deze waarde wordt opgehaald uit de opslagplaats voor bronbeheer. Voorbeeld: $/ ContosoFinanceTFVCExample         |
 |Branche     | De vertakking voor het ophalen van de bronbestanden op uit. Vertakking die gericht is op is niet beschikbaar voor het type TFVC broncodebeheer.          |
 |Mappad     | De map met de runbooks om te synchroniseren. Voorbeeld: /Runbooks         |
 |Automatisch synchroniseren     | Hiermee schakelt u in- of uitschakelen van automatische synchronisatie wanneer een wijziging wordt aangebracht in de opslagplaats voor bronbeheer         |
@@ -61,13 +62,13 @@ Op de **samenvatting van de bron-besturingselement** pagina, vult u uw gegevens 
 
 ## <a name="syncing"></a>Synchroniseren...
 
-Als automatische synchronisatie is ingesteld bij het configureren van integratie van broncodebeheer, zou de initiële synchronisatie met een automatisch gestart. Als automatische synchronisatie niet is ingesteld, selecteert u de bron uit de tabel op de **besturingselement (Preview) voor de gegevensbron** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.  
+Automatische synchronisatie configureren bij het configureren van integratie van broncodebeheer, de initiële synchronisatie wordt automatisch gestart. Als automatische synchronisatie niet is ingesteld, selecteert u de bron uit de tabel op de **besturingselement (Preview) voor de gegevensbron** pagina. Klik op **synchronisatie starten** om de synchronisatieproces te starten.  
 
 U ziet de status van de huidige synchronisatietaak of vorige waarden door te klikken op de **taken synchroniseren** tabblad. Op de **broncodebeheer** vervolgkeuzelijst, selecteer een bron-besturingselement.
 
 ![Synchronisatiestatus](./media/source-control-integration/sync-status.png)
 
-Op een taak te klikken, kunt u om de taakuitvoer weer te geven. Hier volgt een voorbeeld van de uitvoer van een bron control sync-taak.
+Op een taak te klikken, kunt u om de taakuitvoer weer te geven. Het volgende voorbeeld wordt de uitvoer van een bron control sync-taak.
 
 ```output
 ========================================================================================================
@@ -101,6 +102,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## <a name="personal-access-token-permissions"></a>Token Pat-machtigingen
+
+Broncodebeheer vereist minimale machtigingen voor persoonlijke toegangstokens. De volgende tabellen bevatten de minimale machtigingen die vereist zijn voor GitHub en DevOps met Azure.
+
+### <a name="github"></a>GitHub
+
+|Bereik  |Beschrijving  |
+|---------|---------|
+|**opslagplaats**     |         |
+|status van-opslagplaats:     | Commit-toegangsstatus         |
+|repo_deployment      | Implementatie-toegangsstatus         |
+|public_repo     | Toegang tot openbare opslagplaatsen         |
+|**Admin: repo_hook**     |         |
+|schrijven: repo_hook     | Opslagplaats hooks schrijven         |
+|lezen: repo_hook|Opslagplaats hooks lezen|
+
+### <a name="azure-devops"></a>Azure DevOps
+
+|Bereik  |
+|---------|
+|Code (lezen)     |
+|Project en team (lezen)|
+|Identiteit (lezen)      |
+|Gebruikersprofiel (lezen)     |
+|Werkitems (lezen)    |
+|Verbindingen met de service (lezen, query's uitvoeren en beheren)<sup>1</sup>    |
+
+<sup>1</sup>de machtiging voor verbindingen met de Service is alleen vereist als u automatische synchronisatie hebt ingeschakeld.
 
 ## <a name="disconnecting-source-control"></a>Verbinding met broncodebeheer verbreken
 

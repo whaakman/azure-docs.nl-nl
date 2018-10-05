@@ -1,26 +1,32 @@
 ---
-title: Een Python-app in Azure Web App for Containers implementeren
-description: Een Docker-installatiekopie waarop een Python-app wordt uitgevoerd naar Web App for Containers implementeren.
-keywords: azure-app-service, web-app, python, docker, container
-services: app-service
+title: Een Python-web-app maken in Azure App Service op Linux | Microsoft Docs
+description: Leer hoe u in een paar minuten uw eerste Python-app (Hello World) implementeert in Azure App Service on Linux.
+services: app-service\web
+documentationcenter: ''
 author: cephalin
 manager: jeconnoc
-ms.service: app-service
-ms.devlang: python
+editor: ''
+ms.assetid: ''
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/13/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433439"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432064"
 ---
-# <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Een Python-web-app in Web App for Containers implementeren
+# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Een Python-web-app maken in Azure App Service op Linux (preview)
 
-[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze snelstart laat zien hoe u een web-app kunt maken en daar een eenvoudige Flask-app implementeren met behulp van een aangepaste Docker Hub-installatiekopie. U maakt de web-app met behulp van [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze snelstart laat zien hoe een Python-app bovenop de ingebouwde Python-installatiekopie (preview) in de App-service op Linux kan worden geïmplementeerd met behulp van de [Azure CLI](/cli/azure/install-azure-cli).
+
+U kunt de stappen in dit artikel volgen met behulp van een Mac-, Windows- of Linux-computer.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -28,11 +34,10 @@ ms.locfileid: "39433439"
 
 ## <a name="prerequisites"></a>Vereisten
 
-Vereisten voor het voltooien van deze zelfstudie:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
+* <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 installeren</a>
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
-* <a href="https://www.docker.com/community-edition" target="_blank">Docker Community Edition installeren</a>
-* <a href="https://hub.docker.com/" target="_blank">Registreren voor een Docker Hub-account</a>
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -43,52 +48,36 @@ git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
 
-Deze opslagplaats bevat een eenvoudige Flask-toepassing in de _/app_-map, en een _Dockerfile_ waarmee drie dingen worden opgegeven:
-
-- Gebruik de basisinstallatiekopie [tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
-- De container moet luisteren op poort 8000.
-- Kopieer de map `/app` naar de map `/app` van de container.
-
-De configuratie volgt de [instructies voor de basisinstallatiekopie](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/).
-
 ## <a name="run-the-app-locally"></a>De app lokaal uitvoeren
 
-Voer de app uit in een Docker-container.
+Voer de toepassing lokaal uit zodat u kunt zien hoe deze eruit ziet wanneer u de toepassing implementeert naar Azure. Open een terminalvenster en gebruik de opdrachten hieronder om de vereiste afhankelijkheden te installeren en de ingebouwde ontwikkelserver te starten. 
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker run --rm -it -p 8000:8000 flask-quickstart
+# In Bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+FLASK_APP=application.py flask run
+
+# In PowerShell
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+Set-Item Env:FLASK_APP ".\application.py"
+flask run
 ```
 
-Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:8000`.
+Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:5000/`.
 
-Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
+Het bericht **Hallo wereld** uit de voorbeeld-app wordt weergegeven op de pagina.
 
-![Voorbeeld-app die lokaal wordt uitgevoerd](media/quickstart-python/localhost-hello-world-in-browser.png)
+![Voorbeeld-app die lokaal wordt uitgevoerd](media/quickstart-python/hello-world-in-browser.png)
 
-Druk in uw terminalvenster op **Ctrl+C** om de container te stoppen.
-
-## <a name="deploy-image-to-docker-hub"></a>De installatiekopie naar Docker Hub implementeren
-
-Meld u aan bij uw Docker Hub-account. Volg de aanwijzing om uw Docker Hub-referenties in te voeren.
-
-```bash
-docker login
-```
-
-Tag de installatiekopie en push deze naar een nieuwe _openbare_ opslagplaats uw Docker Hub-account, naar een opslagplaats met de naam `flask-quickstart`. Vervang *\<dockerhub_id>* door uw Docker Hub-id.
-
-```bash
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
-```
-
-> [!NOTE]
-> `docker push` maakt een openbare opslagplaats als de opgegeven opslagplaats niet wordt gevonden. In deze snelstart wordt ervan uitgegaan dat een openbare opslagplaats in Docker Hub wordt gebruikt. Als u liever naar een privé-opslagplaats wilt pushen, moet u later de referenties van uw Docker Hub in Azure App Service configureren. Zie [Een webtoepassing maken](#create-a-web-app).
-
-Nadat de installatiekopie is gepusht, kunt u deze gebruiken in uw Azure-webapp.
+Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
@@ -96,99 +85,100 @@ Nadat de installatiekopie is gepusht, kunt u deze gebruiken in uw Azure-webapp.
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak een [web-app](../app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vervang *\<app name>* door een unieke naam en vervang *\<dockerhub_id>* door uw Docker Hub-id.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
+Blader naar de site om uw nieuwe web-app met de ingebouwde installatiekopie te bekijken. Vervang _&lt;app-naam>_ door de naam van uw web-app.
+
+```bash
+http://<app_name>.azurewebsites.net
 ```
 
-Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in het volgende voorbeeld:
+Zo zou uw nieuwe web-app er moeten uitzien:
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app name>.scm.azurewebsites.net/<app name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
+![Lege pagina van web-app](media/quickstart-php/app-service-web-service-created.png)
 
-Als u eerder naar een privé-opslagplaats hebt geüpload, moet u ook de Docker Hub-referenties configureren in App Service. Zie voor meer informatie [Gebruik een persoonlijke installatiekopie uit Docker Hub](tutorial-custom-docker-image.md#use-a-private-image-from-docker-hub-optional).
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-### <a name="specify-container-port"></a>Containerpoort opgeven
-
-Zoals opgegeven in de _Dockerfile_, luistert uw container op poort 8000. Om ervoor te zorgen dat uw aanvraag naar de juiste poort wordt doorgestuurd, moet u de app-instelling *WEBSITES_PORT* instellen.
-
-Voer in Cloud Shell de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) uit.
-
-
-```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings WEBSITES_PORT=8000
-```
+```bash
+Counting objects: 42, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (39/39), done.
+Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
+Total 42 (delta 15), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'c40efbb40e'.
+remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+.
+.
+.
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
+ * [new branch]      master -> master
+ ```
 
 ## <a name="browse-to-the-app"></a>Bladeren naar de app
 
+Blader naar de geïmplementeerde toepassing via uw webbrowser.
+
 ```bash
-http://<app_name>.azurewebsites.net/
+http://<app_name>.azurewebsites.net
 ```
+
+De Python-voorbeeldcode wordt uitgevoerd in een web-app met een ingebouwde installatiekopie.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-python/hello-world-in-browser.png)
 
-> [!NOTE]
-> Het duurt even voordat de web-app wordt gestart, omdat de Docker Hub-installatiekopie moet worden gedownload en uitgevoerd wanneer de app voor het eerst wordt aangevraagd. Als u in het begin na een lange tijd een foutmelding ziet, vernieuwt u de pagina.
+**Gefeliciteerd!** U hebt uw eerste Python-app geïmplementeerd naar App Service op Linux.
 
-**Gefeliciteerd!** U hebt een aangepaste Docker-installatiekopie waarop een Python-app wordt uitgevoerd naar Web App for Containers geïmplementeerd.
+## <a name="update-locally-and-redeploy-the-code"></a>De code lokaal bijwerken en opnieuw implementeren
 
-## <a name="update-locally-and-redeploy"></a>Lokaal bijwerken en opnieuw implementeren
-
-Gebruik een lokale teksteditor om het bestand `app/main.py` in de Python-app te openen en breng een kleine wijziging aan in de tekst naast de instructie `return`:
+Open in de lokale opslagplaats het bestand `application.py` en breng een kleine wijziging aan in de tekst op de laatste regel:
 
 ```python
-return 'Hello, Azure!'
+return "Hello Azure!"
 ```
 
-Herbouw de installatiekopie en push deze opnieuw naar Docker Hub.
+Leg uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
+git commit -am "updated output"
+git push azure master
 ```
 
-Start de app opnieuw in Cloud Shell. Door de app opnieuw te starten, worden alle instellingen toegepast en wordt de meest recente container uit het register opgehaald.
-
-```azurecli-interactive
-az webapp restart --resource-group myResourceGroup --name <app_name>
-```
-
-Wacht ongeveer 15 seconden tot App Service de bijgewerkte installatiekopie heeft opgehaald. Ga terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en vernieuw de pagina.
+Wanneer de implementatie is voltooid, gaat u terug naar het browservenster dat is geopend in de stap **Bladeren naar de app** en vernieuwt u de pagina.
 
 ![Bijgewerkte voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
+## <a name="manage-your-new-azure-web-app"></a>Uw nieuwe Azure-web-app beheren
 
-Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
+Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om de web-app te beheren die u hebt gemaakt.
 
-Klik vanuit het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
+Klik in het linkermenu op **App Services** en klik op de naam van uw Azure-web-app.
 
 ![Navigatie in de portal naar de Azure-web-app](./media/quickstart-python/app-service-list.png)
 
-In de portal wordt standaard de pagina **Overzicht** van de web-app getoond. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
+De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen.
 
-![App Service-pagina in Azure Portal](./media/quickstart-python/app-service-detail.png)
+![App Service-pagina in Azure Portal](media/quickstart-python/app-service-detail.png)
 
-[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
+De ingebouwde Python-installatiekopie in App Service onder Linux is momenteel in preview. U kunt in plaats daarvan productie-Python-apps maken met behulp van een aangepaste container.
+
 > [!div class="nextstepaction"]
-> [Python met PostgreSQL](tutorial-docker-python-postgresql-app.md)
+> [Python met PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Ingebouwde Python-installatiekopie configureren](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Aangepaste installatiekopieën gebruiken](tutorial-custom-docker-image.md)

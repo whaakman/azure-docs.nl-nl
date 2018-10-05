@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 372cf445e518ccdb287ce23ade6a3d92ddc5bc2b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249057"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784896"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
@@ -63,6 +63,7 @@ Naast de wijzigingen in talen en bindingen zijn er enkele functies die zijn verw
 * Toepassingsinstellingen (`local.settings.json`) is een waarde vereist voor de eigenschap `FUNCTIONS_WORKER_RUNTIME` die wordt toegewezen aan de taal van de app `dotnet | node | java | python`.
     * Ter verbetering van de voetafdruk en opstarten van zijn apps beperkt tot één taal. U kunt meerdere apps als u functies in verschillende talen voor de dezelfde oplossing wilt publiceren.
 * Standaardtime-out voor functies in een app service-plan is 30 minuten.  Dit kan nog steeds worden handmatig ingesteld op onbeperkt.
+* HTTP-gelijktijdigheid vertragingen in zijn standaard voor verbruik plan functies (100 gelijktijdige aanvragen per exemplaar) geïmplementeerd.  Deze instellingen kunnen worden gewijzigd de `host.json` bestand.
 * [Vanwege een .NET core ten aanzien](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` scripts voor F #-functies zijn verwijderd. Gecompileerde F #-functies worden nog steeds ondersteund.
 * De indeling van triggers met webhooks (bijvoorbeeld Event Grid) is gewijzigd in `https://{app}/runtime/webhooks/{triggerName}`
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98de7a84dc388f74c64d7c265d2ce8ed32995a5a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965276"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784772"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Gebruik van een waarschuwing voor het activeren van een Azure Automation-runbook
 
@@ -211,7 +211,7 @@ Een meldingsactie in de actiegroep maken:
    ![Actie groepspagina toevoegen](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. Voor het maken van de actiegroep selecteert **OK**.
 
-U kunt deze actiegroep in de [waarschuwingen voor activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) en [bijna in realtime waarschuwingen](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal) die u maakt.
+U kunt deze actiegroep in de [waarschuwingen voor activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) en [bijna in realtime waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) die u maakt.
 
 ## <a name="classic-alert"></a>Klassieke waarschuwing
 
@@ -231,4 +231,4 @@ Een klassieke waarschuwing maken:
 * Zie voor meer informatie over het starten van een Automation-runbook met behulp van een webhook [een runbook starten vanuit een webhook](automation-webhooks.md).
 * Zie voor meer informatie over de verschillende manieren om een runbook te starten, [een runbook starten](automation-starting-a-runbook.md).
 * Zie voor meer informatie over het maken van een waarschuwing voor activiteitenlogboek, [waarschuwingen voor activiteitenlogboek maken](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
-* Zie voor meer informatie over het maken van een waarschuwing voor bijna realtime, [een waarschuwingsregel maken in Azure portal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal).
+* Zie voor meer informatie over het maken van een waarschuwing voor bijna realtime, [een waarschuwingsregel maken in Azure portal](../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json).

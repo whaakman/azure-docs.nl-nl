@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268963"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800856"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory gekoppelde downlevel-apparaten 
 
@@ -43,6 +43,10 @@ In dit artikel wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure A
 In dit artikel biedt hulp bij probleemoplossing voor het oplossen van problemen.  
 
 **Wat u moet weten:** 
+
+- Lid worden van hybride Azure AD voor downlevel Windows-apparaten werkt net iets anders dan dat het wordt in Windows 10. Veel klanten doen niet realiseren dat ze nodig hebben AD FS (voor federatieve domeinen) of naadloze eenmalige aanmelding (voor beheerde domeinen) geconfigureerd.
+
+- Voor klanten met federatieve domeinen, als de Service Connection Point (SCP) is zodanig geconfigureerd dat deze verwijst naar de naam van het beheerde domein (bijvoorbeeld contoso.onmicrosoft.com, in plaats van contoso.com), wordt klikt u vervolgens hybride Azure AD Join voor downlevel Windows-apparaten werkt niet.
 
 - Het maximum aantal apparaten per gebruiker momenteel geldt ook voor downlevel-apparaten met hybride Azure AD-domein. 
 

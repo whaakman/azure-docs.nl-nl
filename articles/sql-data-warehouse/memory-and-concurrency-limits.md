@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/10/2018
+ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e901d147d757a046d50927d6f2651b0a74657b1f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288186"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785212"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limieten voor geheugen en gelijktijdigheid voor Azure SQL Data Warehouse
 Bekijk de limieten voor geheugen en gelijktijdigheid toegewezen aan de verschillende prestatieniveaus en resourceklassen in Azure SQL Data Warehouse. Zie voor meer informatie en om toe te passen van deze mogelijkheden voor uw abonnement van de management workload [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). 
@@ -27,10 +27,11 @@ De volgende tabellen ziet u de maximale capaciteit voor het datawarehouse op ver
 
 ### <a name="gen2"></a>Gen2
 
-Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt bij het leveren van de snelle prestaties Gen2.  De prestaties voor het bereik Gen2 van DW1000c tot DW30000c. 
+Gen2 biedt 2,5 x meer geheugen per query dan de Gen1. Deze extra geheugen helpt bij het leveren van de snelle prestaties Gen2.  De prestaties voor het bereik Gen2 van DW500c tot DW30000c. 
 
 | Prestatieniveau | Rekenknooppunten | Distributies per knooppunt | Geheugen per datawarehouse (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1200                          |
@@ -75,6 +76,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 
 | Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -90,7 +92,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 **Dynamische resourceklassen**
 
 > [!NOTE]
-> De resourceklasse smallrc in Gen2 dynamisch geheugen wordt toegevoegd als het serviceniveau van de wordt verhoogd en biedt alleen ondersteuning voor een maximaal 32 gelijktijdige query's.  De gelijktijdigheidssleuven en het geheugen dat wordt gebruikt door smallrc toeneemt als de service wordt verhoogd. 
+> De resourceklasse smallrc in Gen2 dynamisch geheugen wordt toegevoegd als het serviceniveau van de wordt verhoogd en biedt alleen ondersteuning voor een maximaal 32 gelijktijdige query's op DW1000c en 20 en DW500c.  Zodra het exemplaar is geschaald DW1500c, gelijktijdigheidssleuven en geheugen dat wordt gebruikt door niet verhoogt smallrc als de service wordt verhoogd. 
 >
 >
 
@@ -98,6 +100,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 
 | Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheidssleuven beschikbaar | Sleuven die worden gebruikt door smallrc | Sleuven die worden gebruikt door mediumrc | Sleuven die worden gebruikt door largerc | Sleuven die worden gebruikt door xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |

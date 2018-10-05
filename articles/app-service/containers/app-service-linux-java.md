@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b2256ef5802160dbaa66e2a098a798fcdc653d2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47065106"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803032"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -229,7 +229,7 @@ Voor gedeelde bronnen op serverniveau:
 
 ## <a name="docker-containers"></a>Docker-containers
 
-Voor het gebruik van de Zulu Azure wordt ondersteund JDK die worden uitgevoerd in App Service in uw containers, zorg ervoor dat van uw toepassing `Dockerfile` gebruikmaakt van installatiekopieën uit de [Java-App Service-Docker-installatiekopie opslagplaats](https://github.com/Azure-App-Service/java).
+Voor het gebruik van de JDK Zulu Azure wordt ondersteund in uw containers, zorg ervoor dat voor het ophalen en gebruiken van de vooraf gemaakte installatiekopieën die worden vermeld op [downloadpagina van Azul](https://www.azul.com/downloads/azure-only/zulu/#docker) of gebruik de `Dockerfile` voorbeelden uit de [Microsoft Java GitHub-opslagplaats](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Runtime-beschikbaarheid en een overzicht van ondersteuning
 
@@ -242,7 +242,7 @@ App Service for Linux ondersteunt twee runtimes voor het beheerde hosten van Jav
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK versies en onderhoud
 
-Azure ondersteunde Java Development Kit (JDK) is [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) geleverd via [Azul Systems](https://www.azul.com/).
+Azure ondersteunde Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) geleverd via [Azul Systems](https://www.azul.com/).
 
 Belangrijke versieupdates wordt geleverd door de nieuwe runtime-opties in Azure App Service voor Linux. Klanten hebben bijgewerkt naar deze nieuwere versies van Java door het configureren van de App Service-implementatie en zijn verantwoordelijk voor het testen en ervoor te zorgen dat de grote update aan hun eisen voldoen.
 
@@ -258,15 +258,15 @@ Als een ondersteunde Java-runtime wordt beëindigd, Azure-ontwikkelaars met behu
 
 ### <a name="local-development"></a>Lokale ontwikkeling
 
-Ontwikkelaars kunnen de productie-editie van Azul Zulu Enterprise JDK voor lokale ontwikkeling van downloaden [site voor het downloaden van Azul](https://www.azul.com/downloads/zulu/).
+Ontwikkelaars kunnen de productie-editie van Azul Zulu Enterprise JDK voor lokale ontwikkeling van downloaden [site voor het downloaden van Azul](https://www.azul.com/downloads/azure-only/zulu/).
 
 ### <a name="development-support"></a>Ontwikkelingsondersteuning voor
 
-Ondersteuning voor het product voor de JDK Azul Zulu Enterprise is beschikbaar via bij het ontwikkelen voor Azure of [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) met een [Azure-ondersteuningsplan gekwalificeerde](https://azure.microsoft.com/support/plans/).
+Ondersteuning voor het product voor de [Azure wordt ondersteund Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) is beschikbaar via bij het ontwikkelen voor Azure of [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) met een [gekwalificeerde Azure-ondersteuningsplan](https://azure.microsoft.com/support/plans/).
 
 ### <a name="runtime-support"></a>Runtime-ondersteuning
 
-Ontwikkelaars kunnen [opent u een probleem](/azure/azure-supportability/how-to-create-azure-support-request) met de App Service Linux Java-runtime via ondersteuning voor Azure als ze beschikken over een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
+Ontwikkelaars kunnen [opent u een probleem](/azure/azure-supportability/how-to-create-azure-support-request) met de JDK Azul Zulu via ondersteuning voor Azure als ze beschikken over een [gekwalificeerde ondersteuningsplan](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

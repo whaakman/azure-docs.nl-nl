@@ -1,22 +1,23 @@
 ---
-title: Bing nieuws zoeken-eindpunten | Microsoft Docs
+title: Bing Nieuws zoeken-eindpunten
+titlesuffix: Azure Cognitive Services
 description: Samenvatting van het nieuws zoeken-API-eindpunt.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: ab892e947566adf025499382b213a52ed3e96e35
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433681"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800542"
 ---
-# <a name="news-search-endpoints"></a>Nieuws zoeken-eindpunten
+# <a name="bing-news-search-endpoints"></a>Bing Nieuws zoeken-eindpunten
 De **nieuws zoeken-API** retourneert nieuws artikelen, webpagina's, afbeeldingen, video's, en [entiteiten](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteiten bevat overzichtsinformatie over een persoon, plaats of onderwerp.
 ## <a name="endpoints"></a>Eindpunten
 Als u met behulp van de API voor Bing zoekresultaten voor nieuws, verzendt een `GET` aanvraag naar een van de volgende eindpunten. De kop- en URL-parameters definiëren verder specificaties.

@@ -3,19 +3,22 @@ title: "SSMS: verbinding maken met Azure SQL Database en query's uitvoeren voor 
 description: Ontdek hoe u verbinding maakt met SQL Database in Azure met behulp van SQL Server Management Studio (SSMS). Voer vervolgens T-SQL-instructies (Transact-SQL) uit om query's uit te voeren voor gegevens en om gegevens te bewerken.
 keywords: verbinding maken met SQL-database,Sql Server Management Studio
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412811"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063214"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
@@ -26,6 +29,8 @@ ms.locfileid: "39412811"
 In deze Quick Start wordt uitgegaan van de resources die u hebt gemaakt in een van deze Quick Starts:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+Voor deze snelstart is ook vereist dat u een firewallregel op serverniveau configureert. Bekijk [Een firewallregel op serverniveau maken](sql-database-get-started-portal-firewall.md) voor een snelstart die laat zien hoe u dat doet.
 
 #### <a name="install-the-latest-ssms"></a>De nieuwste SSMS installeren
 

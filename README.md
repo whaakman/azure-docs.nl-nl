@@ -26,7 +26,7 @@ Volg de instructies de [installatie-inhoud ontwerpprogramma's](https://docs.micr
 
 ## <a name="license"></a>Licentie
 
-Raadpleeg [licentie](.github/LICENSE), [LICENTIECODE](.github/LICENSE-CODE) en [ThirdPartyNotices](.github/ThirdPartyNotices) voor alle licentiegegevens.
+Raadpleeg [licentie](.github/LICENSE), [LICENTIECODE](.github/LICENSE-CODE) en [ThirdPartyNotices](.github/ThirdPartyNotices.md) voor alle licentiegegevens.
 
 ## <a name="code-of-conduct"></a>Gedragscode
 

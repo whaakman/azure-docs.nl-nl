@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023422"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032226"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Inleiding tot Azure Data Science Virtual Machine voor Linux en Windows
 
@@ -137,3 +137,5 @@ In de Data Science VM zijn vele populaire hulpprogramma's voor datatechnologie e
 * Zie [De Data Science Virtual Machine voor Linux (Ubuntu) inrichten](dsvm-ubuntu-intro.md) voor meer informatie over het maken en gebruiken van een Ubuntu DSVM. Zie [Een Linux CentOS Data Science Virtual Machine inrichten in Azure](linux-dsvm-intro.md) voor meer informatie over het maken en gebruiken van een CentOS DSVM.
 * Zie [Datatechnologie op de Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) voor een overzicht waarin wordt getoond hoe u enkele algemene datatechnologietaken met de Linux-VM uitvoert (zowel CentOS en Ubuntu).
 
+## <a name="next-steps"></a>Volgende stappen
+[Azure-handleiding voor R-ontwikkelaars](../r-developers-guide.md)

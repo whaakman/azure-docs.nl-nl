@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 10/04/2018
+ms.openlocfilehash: 9056eb6d93b0ead2a62dc5f58984fa6342af2d8e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407652"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801656"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Een vCore-servicelaag kiezen, Reken-, geheugen, opslag- en i/o-resources
 
@@ -25,7 +25,7 @@ Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk van elkaar schalen rek
 - Gen 4 - maximaal 24 logische CPU's gebaseerd op Intel E5-2673 v3 (Haswell) processors van 2,4 GHz, vCore = 1 PP (fysieke kernen), 7 GB per kern, SSD aangesloten
 - Gen 5 - maximaal 80 logische CPU's die zijn gebaseerd op Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB per kern, snelle eNVM SSD
 
-vCore-model kunt u gebruiken [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) te krijgen van de kosten te besparen.
+vCore-model kunt u gebruiken [Azure Hybrid Use Benefit voor SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) te krijgen van de kosten te besparen.
 
 ## <a name="service-tier-characteristics"></a>Service tier kenmerken
 

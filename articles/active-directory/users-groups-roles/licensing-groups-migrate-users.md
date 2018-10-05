@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 01/14/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 10851990f26124ae89945d4b56058115cacb81ee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861752"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800737"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Gelicentieerde gebruikers toevoegen aan een groep voor licentieverlening in Azure Active Directory
 
@@ -47,7 +47,7 @@ Het belangrijkste dat rekening moet houden is dat u een situatie waarbij migrere
 
 6. Houd rekening met de oorspronkelijke directe toewijzingen; worden verwijderd mogelijk wilt u geleidelijk in 'blokken' voor het bewaken van het resultaat in een subset van gebruikers eerst doen.
 
-  Kan u laat u de oorspronkelijke directe toewijzingen op gebruikers, maar wanneer laat u de gebruikers hun groepen met licenties die ze nog steeds de oorspronkelijke licentie behouden, mogelijk is niet wilt dat u wilt.
+  Kan u laat u de oorspronkelijke directe toewijzingen op gebruikers, maar als de gebruikers hun groepen met licenties laat ze nog steeds de oorspronkelijke licentie, is mogelijk niet wat u wilt behouden.
 
 ## <a name="an-example"></a>Een voorbeeld
 
@@ -86,5 +86,5 @@ Lees voor meer informatie over andere scenario's voor Licentiebeheer via groepen
 
 * [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
 * [Wat is licentieverlening in Azure Active Directory op basis van groep?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Identificeren en oplossen van problemen voor een groep in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Azure Active Directory-groep op basis van aanvullende scenario's-licentieverlening](licensing-group-advanced.md)
+* [Licentieproblemen voor een groep vaststellen en oplossen in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Aanvullende scenario’s voor Azure Active Directory-licenties op basis van groepen](licensing-group-advanced.md)

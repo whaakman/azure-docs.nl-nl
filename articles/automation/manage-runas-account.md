@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 5e8e8d1923caf5f51cffedd6b918dbc617b5c3a9
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433698"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785474"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -35,7 +35,7 @@ Er zijn twee typen uitvoeren als-Accounts:
 
 ## <a name="permissions"></a>Machtigingen voor het uitvoeren als-accounts configureren
 
-Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifieke rechten en machtigingen hebben. Een globale beheerder/Medebeheerder kunt voltooien van de taken. In een situatie waarin u werkt met seperation van taken, bevat de volgende tabel een overzicht van de taken, de cmdlet equivalent en de machtigingen die nodig zijn:
+Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifieke rechten en machtigingen hebben. Een globale beheerder/Medebeheerder kunt voltooien van de taken. In een situatie waarin u werkt met scheiding van functies, ziet de volgende tabel u een overzicht van de taken, de cmdlet equivalent en de machtigingen die nodig zijn:
 
 |Taak|Cmdlet  |Minimale machtigingen  |
 |---|---------|---------|
@@ -49,18 +49,18 @@ Als u wilt maken of bijwerken van een uitvoeren als-account, moet u de specifiek
 * Een AD-gebruikersaccount met machtigingen heeft die equivalent zijn aan de rol Inzender voor Microsoft.Automation-resources, zoals wordt beschreven in artikel [rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md#contributor).  
 * Gebruikers zonder beheerdersrechten in uw Azure AD-tenant kunnen [AD-toepassingen registreren](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) als de optie **Gebruikers kunnen toepassingen registreren** van de Azure AD-tenant op de pagina **Gebruikersinstellingen** is ingesteld op **Ja**. Als de app-registratie-instelling is ingesteld op **Nee**, moet de gebruiker die deze actie uitvoert een globale beheerder zijn in Azure AD.
 
-Als u geen lid bent van het Active Directory-exemplaar van het abonnement voordat u wordt toegevoegd aan de rol van globale beheerder/medebeheerder van het abonnement, wordt u als gast toegevoegd aan Active Directory. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
+Als u niet lid zijn van Active Directory-exemplaar van het abonnement voordat u bent toegevoegd aan de globale beheerder/medebeheerder rol van het abonnement, bent u als Gast toegevoegd. In dit geval ontvangt u een `You do not have permissions to create…` waarschuwing op de **Automation-Account toevoegen** pagina. Gebruikers die zijn toegevoegd aan de rol van globale beheerder/medebeheerder, kunnen worden verwijderd uit het Active Directory-exemplaar van het abonnement en opnieuw worden toegevoegd, zodat ze een volledige gebruiker worden in Active Directory. U kunt deze situatie controleren door in het deelvenster **Azure Active Directory** van Azure Portal **Gebruikers en groepen** te selecteren. Selecteer vervolgens **Alle gebruikers**, de specifieke gebruiker en **Profiel**. De waarde van het kenmerk **Gebruikerstype** onder het gebruikersprofiel mag niet gelijk zijn aan **Gast**.
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Een uitvoeren als-account maken in de Portal
 
 In deze sectie voert u de volgende stappen uit om uw Azure Automation-account bij te werken in Azure Portal. U maakt afzonderlijke Uitvoeren als- en Klassiek Uitvoeren als-accounts. Als u geen klassieke resources hoeft te beheren, kunt u alleen de Uitvoeren als-account van Azure maken.  
 
 1. Meld u aan bij Azure Portal met een account dat lid is van de rol Abonnementsbeheerders en dat medebeheerder is van het abonnement.
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Automation**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Automation-accounts**.
-1. Selecteer op de pagina **Automation-accounts** uw Automation-account uit de lijst met Automation-accounts.
-1. Selecteer in het linkerdeelvenster de optie **Uitvoeren als-accounts** in de sectie **Accountinstellingen**.  
-1. Afhankelijk van welk account u nodig hebt, selecteert u **Uitvoeren als-account van Azure**  of **Klassiek Uitvoeren als-account van Azure**. Na deze selectie wordt het deelvenster **Azure uitvoeren als-account toevoegen** of **Klassiek Uitvoeren als-account toevoegen** weergegeven. Controleer de overzichtsgegevens en klik op **Maken** om verder te gaan met het maken van een Uitvoeren als-account.  
-1. Terwijl in Azure het Uitvoeren als-account wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen. Er wordt ook een banner weergegeven waarin staat dat het account wordt gemaakt. Dit proces kan enkele minuten duren.  
+2. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Automation**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Automation-accounts**.
+3. Selecteer op de pagina **Automation-accounts** uw Automation-account uit de lijst met Automation-accounts.
+4. Selecteer in het linkerdeelvenster de optie **Uitvoeren als-accounts** in de sectie **Accountinstellingen**.  
+5. Afhankelijk van welk account u nodig hebt, selecteert u **Uitvoeren als-account van Azure**  of **Klassiek Uitvoeren als-account van Azure**. Na deze selectie wordt het deelvenster **Azure uitvoeren als-account toevoegen** of **Klassiek Uitvoeren als-account toevoegen** weergegeven. Controleer de overzichtsgegevens en klik op **Maken** om verder te gaan met het maken van een Uitvoeren als-account.  
+6. Terwijl in Azure het Uitvoeren als-account wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen. Er wordt ook een banner weergegeven waarin staat dat het account wordt gemaakt. Dit proces kan enkele minuten duren.  
 
 ## <a name="create-run-as-account-using-powershell"></a>Uitvoeren als-account maken met behulp van PowerShell
 
@@ -73,7 +73,7 @@ De volgende lijst bevat de vereisten voor het uitvoeren als-account maken in Pow
 * Een Automation-account waarnaar wordt verwezen als de waarde voor de parameter *– AutomationAccountName* en *- ApplicationDisplayName*.
 * Machtigingen heeft die equivalent zijn aan wat wordt weergegeven in [vereist machtigingen voor het uitvoeren als-accounts configureren](#permissions)
 
-Ga als volgt te werk om de waarden op te halen voor *SubscriptionID*, *ResourceGroup* en *AutomationAccountName*; dit zijn vereiste parameters voor de scripts:
+Om op te halen van de waarden voor *SubscriptionID*, *ResourceGroup*, en *AutomationAccountName*, dit zijn vereiste parameters voor het script, voer de volgende stappen uit:
 
 1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Automation**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Automation-accounts**.
 1. Selecteer op de Automation-accountpagina uw Automation-account en selecteer vervolgens onder **Accountinstellingen** de optie **Eigenschappen**.  
@@ -306,7 +306,7 @@ Let op het volgende nadat het script is uitgevoerd:
 
 * Als u een klassiek Uitvoeren als-account hebt gemaakt met een zelfondertekend openbaar certificaat (.cer-bestand), wordt het door het script gemaakt en opgeslagen in de map met tijdelijke bestanden op uw computer, onder het gebruikersprofiel *%USERPROFILE%\AppData\Local\Temp*, dat u hebt gebruikt voor het uitvoeren van de PowerShell-sessie.
 
-* Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Volg de instructies voor [een API-beheercertificaat uploaden naar de Azure portal](../azure-api-management-certs.md). () Automation-Verify-runas-Authentication.MD#Classic-Run-as-Authentication).
+* Gebruik dit certificaat als u een klassiek Uitvoeren als-account hebt gemaakt met een openbaar certificaat (.cer-bestand). Volg de instructies voor [een API-beheercertificaat uploaden naar de Azure portal](../azure-api-management-certs.md).
 
 ## <a name="delete-a-run-as-or-classic-run-as-account"></a>Een Uitvoeren als- of klassiek Uitvoeren als-account verwijderen
 
@@ -314,9 +314,9 @@ In dit gedeelte wordt beschreven hoe u uw Uitvoeren als- of klassieke Uitvoeren 
 
 1. Open in Azure Portal het Automation-account.
 
-1. Selecteer op de pagina **Automation-account** de optie **Uitvoeren als-accounts**.
+2. Selecteer op de pagina **Automation-account** de optie **Uitvoeren als-accounts**.
 
-1. Selecteer op de pagina **Uitvoeren als-accounts** het Uitvoeren als- of klassieke Uitvoeren als-account dat u wilt verwijderen. Klik vervolgens in het deelvenster **Eigenschappen** voor het geselecteerde account op **Verwijderen**.
+3. Selecteer op de pagina **Uitvoeren als-accounts** het Uitvoeren als- of klassieke Uitvoeren als-account dat u wilt verwijderen. Klik vervolgens in het deelvenster **Eigenschappen** voor het geselecteerde account op **Verwijderen**.
 
  ![Uitvoeren als-account verwijderen](media/manage-runas-account/automation-account-delete-runas.png)
 
@@ -330,7 +330,7 @@ In dit gedeelte wordt beschreven hoe u uw Uitvoeren als- of klassieke Uitvoeren 
 
 Op een bepaald moment voordat uw uitvoeren als-account is verlopen, moet u het certificaat te vernieuwen. Als u denkt dat het Uitvoeren als-account is aangetast, kunt u het verwijderen en opnieuw maken. In deze sectie wordt besproken hoe u deze bewerkingen uitvoert.
 
-Het zelfondertekende certificaat dat u voor het Uitvoeren als-account hebt gemaakt, verloopt één jaar na de aanmaakdatum. U kunt het certificaat op elk gewenst moment vernieuwen voordat het verloopt. Als u het certificaat vernieuwt, blijft het huidige geldige certificaat behouden om ervoor te zorgen dat eventuele runbooks die nog in de wachtrij staan of nog actief zijn, en die worden geverifieerd met het Uitvoeren als-account, niet negatief worden beïnvloed. Het certificaat blijft geldig tot de vervaldatum.
+Het zelfondertekende certificaat dat u voor het Uitvoeren als-account hebt gemaakt, verloopt één jaar na de aanmaakdatum. U kunt het certificaat op elk gewenst moment vernieuwen voordat het verloopt. Wanneer u deze verlengt, wordt het huidige geldige certificaat behouden om ervoor te zorgen dat eventuele runbooks die in de wachtrij staan of nog actief en die worden geverifieerd met het account uitvoeren als dit een negatieve worden niet beïnvloed. Het certificaat blijft geldig tot de vervaldatum.
 
 > [!NOTE]
 > Als u het Uitvoeren als-account voor Automation hebt geconfigureerd om een certificaat te gebruiken dat is uitgegeven door de certificeringsinstantie van uw bedrijf, en u deze optie gebruikt, wordt het bedrijfscertificaat vervangen door een zelfondertekend certificaat.
@@ -359,7 +359,7 @@ Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Aut
 
 ![Abonnement inzenders](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **toevoegen**, Hiermee opent u de **machtigingen toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Doe dit voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
+Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **toevoegen**, Hiermee opent u de **machtigingen toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Deze stappen voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
 
 ## <a name="misconfiguration"></a>Onjuiste configuratie
 

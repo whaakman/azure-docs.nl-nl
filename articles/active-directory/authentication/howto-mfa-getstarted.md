@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e8d4286e282ebbe727941712f3f3c4d3ea749cb5
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 07e9126b73b0282f61567fe8d06f785bf9a04fef
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366587"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803474"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementeren van cloud-gebaseerde Azure multi-factor Authentication
 
@@ -30,9 +30,9 @@ Voordat u begint, zorg er dan voor dat u hebt de volgende vereisten:
 
 **Door beleid voor voorwaardelijke toegang ingeschakeld** -met deze methode wordt besproken in dit artikel. Het is de meest flexibele manier om in te schakelen van verificatie in twee stappen voor uw gebruikers. Inschakelen met behulp van alleen beleid voor voorwaardelijke toegang werkt voor Azure MFA in de cloud en is een premium-functie van Azure AD.
 
-Ingeschakeld door Azure AD Identity Protection - met deze methode maakt gebruik van de Azure AD Identity Protection-beleid voor gebruikersrisico's om te vereisen van verificatie in twee stappen alleen op basis van aanmeldingsrisico voor alle cloudtoepassingen. Deze methode is een Azure Active Directory P2-licentie vereist. Meer informatie over deze methode kan worden gevonden [het configureren van het beleid voor gebruikersrisico's](../identity-protection/howto-user-risk-policy.md).
+**Ingeschakeld met Azure AD Identity Protection** -met deze methode maakt gebruik van de Azure AD Identity Protection-beleid voor gebruikersrisico's om te vereisen van verificatie in twee stappen alleen op basis van aanmeldingsrisico voor alle cloudtoepassingen. Deze methode is een Azure Active Directory P2-licentie vereist. Meer informatie over deze methode kan worden gevonden [het configureren van het beleid voor gebruikersrisico's](../identity-protection/howto-user-risk-policy.md).
 
-Ingeschakeld door het veranderen van de gebruiker status - dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide Azure MFA in de cloud en Azure MFA-Server. Met deze methode vereist dat gebruikers om uit te voeren van verificatie in twee stappen **telkens** ze zich aanmelden en vervangt u beleid voor voorwaardelijke toegang. Meer informatie over deze methode kan worden gevonden [hoe u verificatie in twee stappen vereist voor een gebruiker](howto-mfa-userstates.md).
+**Ingeschakeld door het veranderen van gebruikersstatus** -dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide Azure MFA in de cloud en Azure MFA-Server. Met deze methode vereist dat gebruikers om uit te voeren van verificatie in twee stappen **telkens** ze zich aanmelden en vervangt u beleid voor voorwaardelijke toegang. Meer informatie over deze methode kan worden gevonden [hoe u verificatie in twee stappen vereist voor een gebruiker](howto-mfa-userstates.md).
 
 > [!Note]
 > Meer informatie over licenties en prijzen vindt u op de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

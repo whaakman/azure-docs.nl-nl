@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: 18f354f931995731bf4f0da47e830a575e96fc7c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: be7c0b80b8f735a5eefe4e8345cd4d4a16885ec4
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237769"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803559"
 ---
 # <a name="what-is-the-hyperscale-service-tier-preview-in-azure-sql-database"></a>Wat is het zeer grootschalige-laag (preview) in Azure SQL Database?
 
@@ -25,6 +25,9 @@ De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier i
 
 > [!IMPORTANT]
 > Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service tier beschikbare regio's](#hyperscale-regions)
+
+> [!IMPORTANT]
+> Zeer grootschalige service-laag is momenteel in openbare preview. Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 
 ## <a name="what-are-the-capabilities-of-the-hyperscale-service-tier"></a>Wat zijn de mogelijkheden van de servicelaag grootschalige
 
