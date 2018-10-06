@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 09/11/2018
+ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: fcefec7eff37c3600cb37f02c2b3ac5599367714
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e24353013110bfa95f23b75bbd81fd6d1048b95a
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630066"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830838"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
@@ -52,13 +52,13 @@ Zie voor meer informatie, [VirtualMachineExtension klasse](/dotnet/api/microsoft
             "configurationArguments": {
                 "RegistrationUrl" : "registrationUrl",
                 "NodeConfigurationName" : "nodeConfigurationName"
-            },
-            "protectedSettings": {
-                "configurationArguments": {
-                    "RegistrationKey": {
-                        "userName": "NOT_USED",
-                        "Password": "registrationKey"
-                    }
+            }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "RegistrationKey": {
+                    "userName": "NOT_USED",
+                    "Password": "registrationKey"
                 }
             }
         }
@@ -324,7 +324,7 @@ Hier ziet u hoe de vorige indeling worden aangepast aan de huidige indeling:
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |SAS-token van protectedSettings.DataBlobUri |
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Hier volgen enkele van de fouten die u mogelijk ondervindt en hoe u deze kunt oplossen.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498535"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816035"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -36,6 +36,8 @@ Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegev
 ![Processtroom voor het beheer van bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, u onboarding moet als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+
+Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven.  Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
 
 Nadat een computer een scan voor naleving van updates voert, verzendt de agent de informatie in bulk naar Azure Log Analytics. Op een Windows-computer, wordt de nalevingsscan standaard elke 12 uur uitgevoerd.
 
@@ -158,7 +160,7 @@ Toegevoegde Linux-agents weer de status van **bijgewerkt** nadat een evaluatie i
 
 Om te bevestigen dat een Operations Manager-beheergroep met Log Analytics communiceert, Zie [valideren Operations Manager-integratie met Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
-## <a name="data-collection"></a>Gegevensverzameling
+## <a name="data-collection"></a>Gegevens verzamelen
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -241,10 +243,10 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
 |Updatepakketten     | Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie.        |
-|Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
+|Feature Ppacks     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
 |Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
-|Hulpprogramma's     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
+|Hulpmiddelen     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
 |Updates     | Een update voor een toepassing of bestand dat momenteel wordt geïnstalleerd.        |
 
 ### <a name="linux"></a>Linux
@@ -252,7 +254,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
-|Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
+|Andere updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
 
 Voor Linux, updatebeheer, kunnen onderscheid maken tussen essentiële updates en beveiligingsupdates in de cloud bij het weergeven van gegevens voor de evaluatie vanwege gegevensverrijking in de cloud. Het toepassen van patches, gebruikmaakt van updatebeheer classificatie gegevens beschikbaar is op de computer. In tegenstelling tot andere distributies CentOS heeft geen deze informatie beschikbaar buiten het vak. Hebt u CentOS-machines die zijn geconfigureerd op een manier om terug te keren van beveiligingsgegevens voor de volgende opdracht, zich updatebeheer voor het patchen van op basis van classificaties.
 
@@ -497,7 +499,7 @@ Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtu
 * Abonnement
 * Resourcegroepen
 * Locaties
-* Tags
+* Codes
 
 ![Groepen selecteren](./media/automation-update-management/select-groups.png)
 

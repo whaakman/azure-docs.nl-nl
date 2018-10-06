@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980267"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815208"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Hoe: uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -35,11 +35,11 @@ ms.locfileid: "46980267"
 - Wederzijdse klanten krijgen een stapsgewijze configuratie-zelfstudie.
 - Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Voor federatieve toepassingen (Open-ID en SAML/WS-Federation), moet de toepassing ondersteunt de SaaS-model voor het ophalen van die worden vermeld in de galerie van Azure AD. De galerie bedrijfstoepassingen moeten configuraties met meerdere klanten en niet voor elke klant met een specifieke ondersteunen.
 
-- Voor de Open ID Connect meerdere tenants van de toepassing moet en [Azure AD-toestemmingsframework](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) moet de juiste wijze worden geïmplementeerd voor de toepassing. De gebruiker kan de aanmeldingsaanvraag verzenden naar een gemeenschappelijk eindpunt zodat elke klant u toestemming voor de toepassing krijgt. U kunt toegang van gebruikers op basis van de tenant-ID en de UPN van de gebruiker in het token ontvangen.
+- Voor de Open ID Connect meerdere tenants van de toepassing moet en [Azure AD-toestemmingsframework](consent-framework.md) moet de juiste wijze worden geïmplementeerd voor de toepassing. De gebruiker kan de aanmeldingsaanvraag verzenden naar een gemeenschappelijk eindpunt zodat elke klant u toestemming voor de toepassing krijgt. U kunt toegang van gebruikers op basis van de tenant-ID en de UPN van de gebruiker in het token ontvangen.
 
 - Voor SAML 2.0/WS-Federation moet uw toepassing de mogelijkheid de SAML/WS-Federation SSO integreren in de modus SP of id-provider. Zorg ervoor dat deze correct werkt voordat de aanvraag is ingediend.
 

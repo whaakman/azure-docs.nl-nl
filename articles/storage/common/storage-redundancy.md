@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/02/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bca75f9efa1614c4fa719b21007c827494ecd8f0
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523757"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830707"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -40,6 +40,8 @@ De volgende tabel geeft een kort overzicht van het bereik van duurzaamheid en be
 | Leestoegang tot uw gegevens (in de regio van een externe, geo-replicatie) in het geval van de gehele regio niet beschikbaar zijn | Nee                              | Nee                               | Nee                                   | Ja                                  |
 | Die zijn bedoeld voor ___ duurzaamheid van objecten gedurende een bepaald jaar                                          | ten minste 99,999999999% (11 9's) | ten minste 99,9999999999% (12 9's) | ten minste 99,99999999999999% (16 9's) | ten minste 99,99999999999999% (16 9's) |
 | Typen ondersteunde opslagaccounts weergegeven                                                                   | GPv1-en gpv2-Opslagaccounts Blob                | GPv2                             | GPv1-en gpv2-Opslagaccounts Blob                     | GPv1-en gpv2-Opslagaccounts Blob                     |
+| SLA voor beschikbaarheid voor lezen aanvragen | Ten minste 99,9% (99% voor de koude toegangslaag)
+
 
 Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over de opties voor redundantie op verschillende prijzen.
 

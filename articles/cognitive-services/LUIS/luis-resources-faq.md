@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e604138c35e476d1635cb695923bb7d2b83de82
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432457"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831259"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -135,7 +135,7 @@ Als uw app bestond voordat LUIS is algemeen beschikbaar (GA), worden automatisch
 Als u wilt een LUIS-app overzetten naar een ander Azure-abonnement, de LUIS-app exporteren en importeren met behulp van een nieuw account. Werk de LUIS-app-ID in de clienttoepassing die wordt aangeroepen. De nieuwe app mogelijk enigszins LUIS scores geretourneerd uit de oorspronkelijke app.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Hoe kan ik een logboek van de gebruiker uitingen downloaden?
-Uw LUIS-app registreert standaard uitingen van gebruikers. Als u wilt een logboek van uitingen die gebruikers naar uw LUIS-app verzenden downloaden, gaat u naar **mijn Apps**, en klik op het weglatingsteken (***...*** ) in de aanbieding voor uw app. Klik vervolgens op **eindpunt-logboeken exporteren**. Het logboek wordt opgemaakt als een bestand met door komma's gescheiden waarden (CSV).
+Uw LUIS-app registreert standaard uitingen van gebruikers. Als u wilt een logboek van uitingen die gebruikers naar uw LUIS-app verzenden downloaden, gaat u naar **mijn Apps**, en selecteer de app. Selecteer in de werkbalk contextuele **eindpunt-logboeken exporteren**. Het logboek wordt opgemaakt als een bestand met door komma's gescheiden waarden (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Hoe kan ik de registratie van uitingen uitschakelen?
 U kunt de registratie van de gebruiker uitingen uitschakelen door in te stellen `log=false` in de eindpunt-URL die uw clienttoepassing maakt gebruik van LUIS query. Echter, uw LUIS-app kunnen voorstellen uitingen of prestaties die gebaseerd op het uitschakelen van logboekregistratie uitgeschakeld [actief leren](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Als u instelt `log=false` vanwege problemen van de privacy van gegevens, kan u een record van deze gebruiker uitingen van LUIS downloaden of die uitingen gebruiken voor het verbeteren van uw app.
@@ -155,7 +155,7 @@ Als u van het logboek voor de voorspelling analyse gebruikmaakt, test-uitingen i
 
 ### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft toegang tot mijn LUIS-app-gegevens voor een eigen doeleinden, bijvoorbeeld, ter verbetering van de LUIS of Microsoft in het algemeen?
 
-Nee. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers.
+Nr. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers.
 
 Meer informatie over [gebruikersprivacy](luis-user-privacy.md), [extra beveiliging, naleving](luis-concept-security.md#security-compliance), en [gegevensopslag](luis-concept-data-storage.md).
 
@@ -185,7 +185,7 @@ Als u een LUIS-sjabloon selecteren en selecteer de **Selecteer** knop in het dee
 ## <a name="luis-service"></a>LUIS-service
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS on-premises beschikbaar is of in een privécloud?
-Nee.
+Nr.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Ik gehoord over een functie voor Language Understanding of een demo maar ik niet meer weet wat het werd aangeroepen op de Build-conferentie 2018?

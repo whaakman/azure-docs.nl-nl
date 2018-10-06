@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services Speech SDK oplossen van problemen
-description: Probleemoplossing Cognitive Services Speech SDK
-titleSuffix: Microsoft Cognitive Services
+title: De Cognitive Services spraak SDK oplossen
+description: Problemen met de Cognitive Services spraak SDK.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
@@ -9,41 +9,43 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: ff8aba562cfd2d6d54c708ee7fdc4c6ca7185f29
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 02564021257c97f6c865fcbebf30c73babee859a
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284119"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816195"
 ---
-# <a name="troubleshooting-speech-services-sdk"></a>Het oplossen van problemen Speech Services SDK
+# <a name="troubleshoot-the-speech-sdk"></a>Oplossen van de spraak-SDK
 
-In dit artikel bevat informatie om u te helpen bij het oplossen van problemen die optreden bij het gebruik van de spraak-SDK.
+Dit artikel bevat informatie om u te helpen bij het oplossen van problemen die mogelijk optreden wanneer u de spraak-SDK gebruiken.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout `WebSocket Upgrade failed with an authentication error (403).`
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fout: De WebSocket-Upgrade is mislukt met een verificatiefout (403)
 
-Mogelijk hebt u het juiste eindpunt voor uw regio of de service. Controleer de URI om te controleren of dat deze juist is. Zie ook de volgende sectie, als dit wordt mogelijk ook een probleem met uw abonnementssleutel of autorisatie token.
+Mogelijk hebt u het juiste eindpunt voor uw regio of de service. Controleer de URI om te controleren of dat deze juist is. 
 
-## <a name="error-http-403-forbidden-or-error-http-401-unauthorized"></a>Fout `HTTP 403 Forbidden` of fout `HTTP 401 Unauthorized`
+Bovendien kan er een probleem met uw abonnementssleutel of autorisatie token. Zie de volgende sectie voor meer informatie.
 
-Deze fout wordt vaak veroorzaakt door verificatieproblemen met. Verbindingsaanvragen zonder een geldig `Ocp-Apim-Subscription-Key` of `Authorization` header met de status 401- of 403 worden afgewezen.
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fout: HTTP 403 verboden of HTTP 401 Unauthorized
 
-* Als u een abonnementssleutel voor verificatie gebruikt, kan de oorzaak kan zijn:
+Deze fout wordt vaak veroorzaakt door verificatieproblemen met. Verbindingsaanvragen zonder een geldig `Ocp-Apim-Subscription-Key` of `Authorization` header met de status 403 of 401 worden afgewezen.
+
+* Als u een abonnementssleutel voor verificatie gebruikt, ziet u mogelijk de fout omdat:
 
     - de abonnementssleutel is ongeldig of ontbreekt
     - u hebt overschreden quotum voor het gebruik van uw abonnement
 
-* Als u van een verificatietoken voor de verificatie gebruikmaakt, kan de oorzaak zijn:
+* Als u een verificatietoken voor de verificatie gebruikt, ziet u mogelijk de fout omdat:
 
     - het verificatietoken is ongeldig
     - het verificatietoken is verlopen
 
 ### <a name="validate-your-subscription-key"></a>Uw abonnementssleutel valideren
 
-U kunt controleren om ervoor te zorgen dat u beschikt over een geldig abonnement-sleutel door het uitvoeren van een van de onderstaande opdrachten.
+U kunt controleren of dat u beschikt over een sleutel geldig abonnement door het uitvoeren van een van de volgende opdrachten.
 
 > [!NOTE]
-> Vervang `YOUR_SUBSCRIPTION_KEY` en `YOUR_REGION` met uw eigen abonnementssleutel en een gekoppelde regio, respectievelijk.
+> Vervang `YOUR_SUBSCRIPTION_KEY` en `YOUR_REGION` met uw eigen abonnementssleutel en een gekoppelde regio.
 
 * PowerShell
 
@@ -68,7 +70,7 @@ U kunt controleren om ervoor te zorgen dat u beschikt over een geldig abonnement
 Als u een verificatietoken voor de verificatie gebruikt, voert u een van de volgende opdrachten om te verifiëren dat het Autorisatietoken nog geldig is. Tokens zijn geldig voor 10 minuten.
 
 > [!NOTE]
-> Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand `YOUR_ACCESS_TOKEN` door het Autorisatietoken geretourneerd in de vorige stap en `YOUR_REGION` met de juiste regio.
+> Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand. Vervang `YOUR_ACCESS_TOKEN` geretourneerd door het Autorisatietoken in de vorige stap. Vervang `YOUR_REGION` met de juiste regio.
 
 * PowerShell
 
@@ -83,12 +85,12 @@ Als u een verificatietoken voor de verificatie gebruikt, voert u een van de volg
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
     
-    # Read audio into byte array
+    # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
     
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
     
-    # Show the result
+    # Show the result.
     $RecoResponse
     ```
 
@@ -100,22 +102,23 @@ Als u een verificatietoken voor de verificatie gebruikt, voert u een van de volg
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Fout `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Fout: HTTP 400-Ongeldige aanvraag
 
-Deze fout treedt meestal op wanneer de aanvraagtekst ongeldige audiogegevens bevat. Alleen `WAV` indeling wordt ondersteund. Controleer ook of de aanvraagheaders om ervoor te zorgen dat u een geschikte opgeeft `Content-Type` en `Content-Length`.
+Deze fout treedt meestal op wanneer de aanvraagtekst ongeldige audiogegevens bevat. Alleen WAV-indeling wordt ondersteund. Controleer ook of de aanvraagheaders om te controleren of u de juiste waarden voor opgeven `Content-Type` en `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Fout `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Fout: HTTP 408 time-out van aanvraag
 
-De fout is het waarschijnlijk dat er geen audiogegevens worden verzonden naar de service. Deze fout kan ook worden veroorzaakt door netwerkproblemen.
+De meest waarschijnlijke fout treedt op omdat er geen audiogegevens worden verzonden naar de service. Deze fout kan ook worden veroorzaakt door netwerkproblemen.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>De `RecognitionStatus` in het antwoord is `InitialSilenceTimeout`
+## <a name="recognitionstatus-in-the-response-is-initialsilencetimeout"></a>"RecognitionStatus' in het antwoord is"InitialSilenceTimeout"
 
-Audiogegevens is meestal de reden dat het probleem veroorzaakt. Bijvoorbeeld:
+Dit probleem wordt meestal veroorzaakt door audiogegevens. U kunt deze fout mogelijk ziet, omdat:
 
-* Er is een lange stretch stilte aan het begin van de audio. De service de opname stoppen na een paar seconden en retourneren `InitialSilenceTimeout`.
+* Er is een lange stretch stilte aan het begin van de audio. In dat geval wordt de service stopt de opname na een paar seconden en retourneert `InitialSilenceTimeout`.
+
 * Een niet-ondersteunde codec-indeling, die ervoor zorgt dat de gegevens worden behandeld als stilte maakt gebruik van de audio.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Releaseopmerkingen](releasenotes.md)
+* [Opmerkingen bij de release bekijken](releasenotes.md)
 

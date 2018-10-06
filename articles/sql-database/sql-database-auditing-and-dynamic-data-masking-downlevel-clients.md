@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: giladm
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 525b699efdbfd2e4e2f8ad7a8b24f20f1d7438d0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 41509c1f35d42a1e8558299b4244ad515c36ec17
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063333"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816052"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - ondersteuning voor Downlevel-clients en IP-eindpunt voor Tabelcontrole wordt gewijzigd
 
@@ -52,8 +52,8 @@ De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
 
 | Databaseregio | Mogelijke IP-eindpunten |
 | --- | --- |
-| China - noord |139.217.29.176, 139.217.28.254 |
-| China East |42.159.245.65, 42.159.246.245 |
+| Noord-China |139.217.29.176, 139.217.28.254 |
+| China Oost |42.159.245.65, 42.159.246.245 |
 | Australië - oost |104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
 | Australië - zuidoost |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |
 | Brazilië - zuid |104.41.44.161, 104.41.62.230, 23.97.99.54, 104.41.59.191 |
@@ -72,11 +72,11 @@ De nieuwe database IP-eindpunt is afhankelijk van de databaseregio:
 | Europa - noord |104.41.209.221, 40.85.139.245, 137.116.251.66, 40.85.142.176 |
 | US - zuid-centraal |191.238.184.128, 40.84.190.84, 23.102.160.153, 40.84.186.66 |
 | Azië - zuidoost |104.215.198.156, 13.76.252.200, 23.97.51.109, 13.76.252.113 |
-| Europa -west |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
+| Europa - west |104.40.230.120, 13.80.23.64, 137.117.171.161, 13.80.8.37, 104.47.167.215, 40.118.56.193, 104.40.176.73, 40.118.56.20 |
 | US - west |191.236.123.146, 138.91.163.240, 168.62.194.148, 23.99.6.91 |
 | US - west 2 |13.66.224.156, 13.66.227.8 |
 | US - west-centraal |52.161.29.186, 52.161.27.213 |
-| Canada - midden |13.88.248.106, 13.88.248.110 |
-| Canada - oost |40.86.227.82, 40.86.225.194 |
-| VK, noord |13.87.101.18, 13.87.100.232 |
-| VK, zuid 2 |13.87.32.202, 13.87.32.226 |
+| Canada Centraal |13.88.248.106, 13.88.248.110 |
+| Canada Oost |40.86.227.82, 40.86.225.194 |
+| VK Noord |13.87.101.18, 13.87.100.232 |
+| VK Zuid 2 |13.87.32.202, 13.87.32.226 |

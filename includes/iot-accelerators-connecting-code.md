@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: d087a3d5746396d81ef4ea44d90e917f25ebf19d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c79b6f854dc78670a7eb8a1275c3e2fc46fcdd99
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45739178"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831684"
 ---
 ### <a name="code-walkthrough"></a>Code-overzicht
 
@@ -26,7 +26,7 @@ Het volgende fragment toont hoe de gerapporteerde eigenschappen die de mogelijkh
 - De lijst met methoden die biedt ondersteuning voor het apparaat.
 - Het schema van de telemetrieberichten die door het apparaat verzonden.
 
-[!code-cpp[Define data structures for Chiller](~/iot-samples-c/samples/solutions/remote_monitoring/remote_monitoring.c?name=datadefinition "Define data structures for Chiller")]
+[!code-cpp[Define data structures for Chiller](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=datadefinition "Define data structures for Chiller")]
 
 Het voorbeeld bevat een **serializeToJson** -functie die deze gegevensstructuur met behulp van de bibliotheek Parson serialiseert.
 
@@ -39,15 +39,15 @@ Het voorbeeld bevat verschillende callback-functies die gegevens naar de console
 
 Het volgende codefragment bevat de **device_method_callback** functie. Deze functie bepaalt de actie te ondernemen wanneer een methodeaanroep wordt ontvangen van de solution accelerator. De functie ontvangt een verwijzing naar de **Koelunit** gegevens structureren de **userContextCallback** parameter. De waarde van **userContextCallback** wordt ingesteld wanneer de callback-functie is geconfigureerd in de **belangrijkste** functie:
 
-[!code-cpp[Device method callback](~/iot-samples-c/samples/solutions/remote_monitoring/remote_monitoring.c?name=devicemethodcallback "Device method callback")]
+[!code-cpp[Device method callback](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=devicemethodcallback "Device method callback")]
 
 Wanneer de oplossingsverbetering voor de firmware-update-methode aanroept, wordt het voorbeeld gedeserialiseerd van de JSON-nettolading en een achtergrond-thread voor het voltooien van het updateproces wordt gestart. Het volgende codefragment bevat de **do_firmware_update** die wordt uitgevoerd op de thread:
 
-[!code-cpp[Firmware update thread](~/iot-samples-c/samples/solutions/remote_monitoring/remote_monitoring.c?name=firmwareupdate "Firmware update thread")]
+[!code-cpp[Firmware update thread](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=firmwareupdate "Firmware update thread")]
 
 Het volgende fragment toont hoe de client een bericht telemetrie verzendt naar de solution accelerator. De eigenschappen van berichten zijn onder andere het berichtschema om te helpen de oplossingsverbetering voor de telemetrie weergegeven op het dashboard:
 
-[!code-cpp[Send telemetry](~/iot-samples-c/samples/solutions/remote_monitoring/remote_monitoring.c?name=sendmessage "Send telemetry")]
+[!code-cpp[Send telemetry](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=sendmessage "Send telemetry")]
 
 De **belangrijkste** functie in het voorbeeld:
 
@@ -57,4 +57,4 @@ De **belangrijkste** functie in het voorbeeld:
 - Hiermee configureert u het apparaat methode callback-functie.
 - Stuurt gesimuleerde telemetriewaarden naar de solution accelerator.
 
-[!code-cpp[Main](~/iot-samples-c/samples/solutions/remote_monitoring/remote_monitoring.c?name=main "Main")]
+[!code-cpp[Main](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=main "Main")]

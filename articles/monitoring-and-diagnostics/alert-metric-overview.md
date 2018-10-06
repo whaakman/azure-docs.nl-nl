@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405917"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816427"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Begrijpen hoe metriek werk waarschuwingen in Azure Monitor
 
@@ -93,7 +93,43 @@ Voor metrische waarschuwingen, doorgaans u gewaarschuwd in minder dan vijf minut
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Ondersteunde resourcetypen voor de metrische waarschuwingen
 
-U vindt de volledige lijst met ondersteunde resourcetypen in deze [artikel](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+U vindt de volledige lijst met ondersteunde resourcetypen in deze [artikel](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+Als u bent al gebruikmaken van de klassieke metrische waarschuwingen en informatie als metrische waarschuwingen ondersteuning bieden voor de alle de resourcetypen die willen u, de volgende tabel bevat de resource gegevenstypen ondersteund door klassieke metrische waarschuwingen en als ze worden ondersteund door metrische waarschuwingen vandaag of niet.
+
+|Resource dat wordt ondersteund door klassieke metrische waarschuwingen | Ondersteund door metrische waarschuwingen |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Ja |
+| Microsoft.Batch/batchAccounts| Ja|
+|Microsoft.Cache/redis| Ja
+|Microsoft.ClassicCompute/virtualMachines | Nee |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Nee|
+|Microsoft.CognitiveServices/accounts | Nee |
+|Microsoft.Compute/virtualMachines | Ja|
+|Microsoft.Compute/virtualMachineScaleSets| Ja|
+|Microsoft.ClassicStorage/storageAccounts| Nee |
+|Microsoft.DataFactory/datafactories | Ja|
+|Microsoft.DBforMySQL/servers| Ja|
+|Microsoft.DBforPostgreSQL/servers| Ja|
+|Microsoft.Devices/IotHubs | Nee|
+|Microsoft.DocumentDB/databaseAccounts| Nee|
+|Microsoft.EventHub/namespaces | Ja|
+|Microsoft.Logic/workflows | Ja|
+|Microsoft.Network/loadBalancers |Ja|
+|Microsoft.Network/publicIPAddresses| Ja|
+|Microsoft.Network/applicationGateways| Ja|
+|Microsoft.Network/expressRouteCircuits| Ja|
+|Microsoft.Network/trafficManagerProfiles | Ja|
+|Microsoft.Search/searchServices | Nee|
+|Microsoft.ServiceBus/namespaces| Nee|
+|Microsoft.Storage/storageAccounts | Ja|
+|Microsoft.StreamAnalytics/streamingjobs| Ja|
+|Microsoft.TimeSeriesInsights/environments | Ja|
+|Microsoft. Web/serverfarms | Ja |
+|Microsoft. Websites (met uitzondering van de functies) | Ja|
+|Microsoft. Web/hostingEnvironments/multiRolePools | Nee|
+|Microsoft. Web/hostingEnvironments/workerPools| Nee
+|Microsoft.SQL/Servers | Nee|
 
 ## <a name="next-steps"></a>Volgende stappen
 

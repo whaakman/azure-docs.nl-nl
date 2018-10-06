@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/04/2018
-ms.openlocfilehash: 2f25b167572f36334ce84657ee3d235683dfa125
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3f9d595b0a8dff8fce52769aaa12043632107ff5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803882"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830405"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel 
 
@@ -38,7 +38,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 | Maximaal aantal DTU's | 5 |
 | Inbegrepen opslag (GB) | 2 |
 | Maximale opslagopties (GB) | 2 |
-| Maximale OLTP-opslag in het geheugen (GB) |N/A |
+| Maximale OLTP-opslag in het geheugen (GB) |N.v.t. |
 | Maximaal aantal gelijktijdige werknemers (aanvragen) | 30 |
 | Maximaal aantal gelijktijdige sessies | 300 |
 |||
@@ -49,7 +49,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 | Maximaal aantal DTU's | 10 | 20 | 50 | 100 |
 | Inbegrepen opslag (GB) | 250 | 250 | 250 | 250 |
 | Maximale opslagopties (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Maximale OLTP-opslag in het geheugen (GB) | N/A | N/A | N/A | N/A |
+| Maximale OLTP-opslag in het geheugen (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. |
 | Maximaal aantal gelijktijdige werknemers (aanvragen)| 60 | 90 | 120 | 200 |
 | Maximaal aantal gelijktijdige sessies |600 | 900 | 1200 | 2400 |
 ||||||
@@ -60,9 +60,9 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 | Maximaal aantal DTU's | 200 | 400 | 800 | 1600 | 3000 |
 | Inbegrepen opslag (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximale opslagopties (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Maximale OLTP-opslag in het geheugen (GB) | N/A | N/A | N/A | N/A |N/A |
+| Maximale OLTP-opslag in het geheugen (GB) | N.v.t. | N.v.t. | N.v.t. | N.v.t. |N.v.t. |
 | Maximaal aantal gelijktijdige werknemers (aanvragen)| 400 | 800 | 1600 | 3200 |6000 |
-| Maximaal aantal gelijktijdige sessies |4800 | 9600 | 19200 | 30.000 |30.000 |
+| Maximaal aantal gelijktijdige sessies |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
 ### <a name="premium-service-tier"></a>Premium servicelaag 
@@ -73,7 +73,7 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 | Maximale opslagopties (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | Maximale OLTP-opslag in het geheugen (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximaal aantal gelijktijdige werknemers (aanvragen)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Maximaal aantal gelijktijdige sessies | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 | 30.000 |
+| Maximaal aantal gelijktijdige sessies | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 
@@ -129,5 +129,5 @@ Een maximale grootte die groter zijn dan 1 TB voor P11 en P15-database wordt ond
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
 - Zie [overzicht van resource beperkt op een logische server](sql-database-resource-limits-logical-server.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
-- Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+- Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Zie voor meer informatie over de maximale grootte tempdb https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

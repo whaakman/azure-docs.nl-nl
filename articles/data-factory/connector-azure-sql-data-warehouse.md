@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 03f02d9d36ffc6a14334cdcccf2d1455db34e2bc
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249618"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815798"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -70,7 +70,7 @@ Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voo
 
 - [SQL-verificatie](#sql-authentication)
 - Azure AD-toepassing-tokenverificatie: [Service-principal](#service-principal-authentication)
-- Azure AD-toepassing-tokenverificatie: [beheerde identiteiten voor een Azure-resources](#managed-service-identity-authentication)
+- Azure AD-toepassing-tokenverificatie: [beheerde identiteiten voor een Azure-resources](#managed-identity)
 
 >[!TIP]
 >Als u fout met foutcode als "UserErrorFailedToConnectToSqlServer" bereikt en wordt weergegeven, zoals 'de sessielimiet voor de database is XXX en is bereikt.', toe te voegen `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
@@ -152,7 +152,7 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Beheerde identiteiten voor verificatie van de Azure-resources
+### <a name="managed-identity"></a> Beheerde identiteiten voor verificatie van de Azure-resources
 
 Een data factory, kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md) die staat voor de specifieke factory. U kunt deze service-identiteit gebruiken voor verificatie van Azure SQL Data Warehouse. De aangewezen factory kunt openen en gegevens kopiëren van of naar uw data warehouse met behulp van deze identiteit.
 
@@ -359,7 +359,7 @@ Om gegevens te kopiëren naar Azure SQL Data Warehouse, stelt u het sink-type in
 | rejectType | Hiermee geeft u op of de **rejectValue** optie is een letterlijke waarde of een percentage.<br/><br/>Toegestane waarden zijn **waarde** (standaard) en **Percentage**. | Nee |
 | rejectSampleValue | Bepaalt het aantal rijen om op te halen voordat PolyBase berekent het percentage van geweigerde rijen opnieuw.<br/><br/>Toegestane waarden zijn 1, 2, enzovoort. | Ja, als de **rejectType** is **percentage**. |
 | useTypeDefault | Hiermee geeft u ontbrekende waarden in de tekstbestanden verwerken als PolyBase worden gegevens opgehaald uit het tekstbestand.<br/><br/>Meer informatie over deze eigenschap in de sectie argumenten [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Toegestane waarden zijn **waar** en **False** (standaard). | Nee |
-| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
+| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **geheel getal** (aantal rijen). | Nr. De standaardwaarde is 10000. |
 | writeBatchTimeout | Wachttijd voor de bewerking voor het invoegen van batch worden voltooid voordat er een optreedt time-out. Geldt alleen wanneer PolyBase wordt niet gebruikt.<br/><br/>De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Data Warehouse in elke uitvoering. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee | (#repeatability-tijdens-kopie). | Een query-instructie. | Nee |
 
@@ -554,11 +554,11 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 |:--- |:--- |
 | bigint | Int64 |
 | binaire bestanden | Byte[] |
-| bits | Booleaans |
+| bits | Boole-waarde |
 | CHAR | Tekenreeks, Char] |
-| datum | DateTime |
-| Datum en tijd | DateTime |
-| datetime2 | DateTime |
+| datum | Datum en tijd |
+| Datum en tijd | Datum en tijd |
+| datetime2 | Datum en tijd |
 | Datetimeoffset | DateTimeOffset |
 | decimaal | decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) | Byte[] |
@@ -572,7 +572,7 @@ Wanneer u gegevens van of naar Azure SQL Data Warehouse kopieert, worden de volg
 | nvarchar | Tekenreeks, Char] |
 | echte | Enkelvoudig |
 | ROWVERSION | Byte[] |
-| smalldatetime | DateTime |
+| smalldatetime | Datum en tijd |
 | smallint | Int16 |
 | smallmoney | decimaal |
 | sql_variant | Object * |

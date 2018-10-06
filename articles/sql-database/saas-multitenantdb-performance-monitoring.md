@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055942"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830002"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Prestaties van shard Azure SQL-database met meerdere tenants in een multitenant SaaS-app controleren en beheren
 
 In deze zelfstudie worden verschillende belangrijke scenario's die worden gebruikt in SaaS-toepassingen verkend. Met behulp van een load-generator voor het simuleren van activiteit in shard multitenant-databases, worden de ingebouwde bewaking en waarschuwingen van de functies van SQL Database geïllustreerd.
 
-De app Wingtip Tickets SaaS multitenant-Database maakt gebruik van een model met gedeelde gegevens van meerdere tenants, waar gegevens van de venue (tenant) worden gedistribueerd door tenant-ID voor mogelijk meerdere databases. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Als u wilt profiteren van dit typerende patroon, kunnen databases omhoog en omlaag worden geschaald voor het optimaliseren van de kosten van een oplossing. Met dit type patroon is het belangrijk om het Resourcegebruik van de database om ervoor te zorgen dat belastingen redelijkerwijs worden verdeeld over mogelijk meerdere databases te bewaken. Ook moet u ervoor zorgen dat individuele databases voldoende resources hebben en worden zo hun [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) limieten. Deze zelfstudie worden manieren om te controleren en beheren van databases, en hoe u corrigerende maatregelen nemen in reactie op wisselingen in de workload.
+De app Wingtip Tickets SaaS multitenant-Database maakt gebruik van een model met gedeelde gegevens van meerdere tenants, waar gegevens van de venue (tenant) worden gedistribueerd door tenant-ID voor mogelijk meerdere databases. Net als bij veel andere SaaS-toepassingen, is het verwachte tenantworkloadpatroon onvoorspelbaar en sporadisch. Met andere woorden, kaartverkoop kan op ieder moment plaatsvinden. Als u wilt profiteren van dit typerende patroon, kunnen databases omhoog en omlaag worden geschaald voor het optimaliseren van de kosten van een oplossing. Met dit type patroon is het belangrijk om het Resourcegebruik van de database om ervoor te zorgen dat belastingen redelijkerwijs worden verdeeld over mogelijk meerdere databases te bewaken. Ook moet u ervoor zorgen dat individuele databases voldoende resources hebben en worden zo hun [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) limieten. Deze zelfstudie worden manieren om te controleren en beheren van databases, en hoe u corrigerende maatregelen nemen in reactie op wisselingen in de workload.
 
 In deze zelfstudie leert u het volgende:
 
@@ -194,7 +194,7 @@ In deze zelfstudie leert u het volgende:
 > * Schalen van de database in reactie op de verhoogde databaseload
 > * Een tenant in te richten in een database met één tenant
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure Automation](../automation/automation-intro.md)

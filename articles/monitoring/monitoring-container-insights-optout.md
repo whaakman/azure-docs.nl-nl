@@ -12,26 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 2b989fbebe237e4e3746ef2f237193587173dfe4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 12a8b1f43fd822035417096bc21e0e44f574448d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963403"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830632"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-azure-monitor-for-containers"></a>Het beëindigen van de controle van uw Azure-Monitor voor Azure Kubernetes Service (AKS) voor containers
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Stoppen met het controleren van uw Azure Kubernetes Service (AKS) met Azure Monitor voor containers
 
-Als u inschakelt nadat de bewaking van uw AKS-cluster, u besluit u niet meer wilt bewaken, kunt u *opt-out* met behulp van de opgegeven Azure Resource Manager-sjablonen met de PowerShell-cmdlet  **Nieuwe-AzureRmResourceGroupDeployment** of de Azure CLI. Een JSON-sjabloon Hiermee geeft u de configuratie van *opt-out*. De andere bevat parameterwaarden die u configureert om op te geven van de AKS-cluster-ID en resource resourcegroep die het cluster is geïmplementeerd in. 
+Als u inschakelt nadat de bewaking van uw AKS-cluster, u besluit u niet meer wilt bewaken, kunt u *opt-out*.  Dit artikel wordt beschreven hoe u dit doen met de Azure CLI of met de opgegeven Azure Resource Manager-sjablonen.  
+
+
+## <a name="azure-cli"></a>Azure CLI
+Gebruik de [az aks disable--invoegtoepassingen](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) opdracht voor het uitschakelen van Azure Monitor voor containers. De opdracht wordt de agent verwijderd van de clusterknooppunten, niet de oplossing of de gegevens die al zijn verzameld en opgeslagen in uw Log Analytics-resource wordt verwijderd.  
+
+```azurecli
+az aks disable -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+```
+
+Opnieuw inschakelen van bewaking voor uw cluster [controle inschakelen met Azure CLI](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager-sjabloon
+Gegeven worden twee Azure Resource Manager-sjabloon voor de ondersteuning van de resources van de oplossing consistent en herhaaldelijk in de resourcegroep te verwijderen. Een is een JSON-sjabloon op te geven van de configuratie van *opt-out* en de andere bevat parameterwaarden die u configureert om op te geven van de AKS-cluster-ID en resource resourcegroep die het cluster is geïmplementeerd in. 
 
 Als u niet bekend met het concept bent van het implementeren van resources met behulp van een sjabloon, Zie:
 * [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
+>[!NOTE]
+>De sjabloon opnieuw moet worden geïmplementeerd in dezelfde resourcegroep bevinden als het cluster.
+>
+
 Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="create-template"></a>Sjabloon maken
+### <a name="create-template"></a>Sjabloon maken
 
 1. Kopieer en plak de volgende JSON-syntaxis in het bestand:
 
@@ -101,7 +118,7 @@ Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lo
 5. Sla dit bestand als **OptOutParam.json** naar een lokale map.
 6. U kunt deze sjabloon nu implementeren. 
 
-## <a name="remove-the-solution-using-azure-cli"></a>Verwijderen van de oplossing met behulp van Azure CLI
+### <a name="remove-the-solution-using-azure-cli"></a>Verwijderen van de oplossing met behulp van Azure CLI
 De volgende opdracht uit met Azure CLI op Linux te verwijderen van de oplossing en het opschonen van de configuratie van uw AKS-cluster worden uitgevoerd.
 
 ```azurecli
@@ -116,7 +133,7 @@ Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, 
 ProvisioningState       : Succeeded
 ```
 
-## <a name="remove-the-solution-using-powershell"></a>Verwijderen van de oplossing met behulp van PowerShell
+### <a name="remove-the-solution-using-powershell"></a>Verwijderen van de oplossing met behulp van PowerShell
 
 Voer de volgende PowerShell-opdrachten in de map met de sjabloon voor het verwijderen van de oplossing en het opschonen van de configuratie van uw AKS-cluster.    
 

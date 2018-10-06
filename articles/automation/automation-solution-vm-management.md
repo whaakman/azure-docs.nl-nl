@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9abdb17c7b1cf0662913a4c9cd59c49efc91e419
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8ae3a2d8dc42944bdea2b3e6ebac0a40029c0540
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785491"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817174"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -33,8 +33,10 @@ De volgende zijn beperkingen aan de huidige oplossing:
 
 > [!NOTE]
 > Als u van de oplossing voor klassieke virtuele machines gebruikmaakt, worden alle virtuele machines verwerkt sequentieel worden verwerkt per cloudservice. Verwerking van een parallelle taak wordt nog steeds worden ondersteund in de verschillende cloudservices.
+>
+> Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Als de oplossing starten/stoppen wordt uitgevoerd krijgt u mogelijk fouten omdat u cmdlets voor het beheren van klassieke resources. Zie voor meer informatie over de CSP, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 De runbooks voor deze oplossing werkt met een [uitvoeren als-account](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
 
@@ -269,7 +271,7 @@ Automation worden twee typen records gemaakt in de Log Analytics-werkruimte: taa
 |RunbookName | De naam van het runbook.|
 |SourceSystem | Hiermee wordt het bronsysteem voor de verzonden gegevens opgegeven. Voor Automation is de waarde OpsManager.|
 |StreamType | Het type taakstroom. Mogelijke waarden zijn:<br>-Voortgang<br>- Uitvoer<br>- Waarschuwing<br>- Fout<br>- Foutopsporing<br>- Uitgebreid|
-|Time | Datum en tijd van uitvoering van de runbooktaak.|
+|Tijd | Datum en tijd van uitvoering van de runbooktaak.|
 
 Wanneer u een zoekopdracht in Logboeken waarmee categorierecords met uitvoert **JobLogs** of **JobStreams**, kunt u de **JobLogs** of **JobStreams**weergave die een set tegels samenvatting van de updates die zijn geretourneerd door de zoekopdracht weergeeft.
 
@@ -277,7 +279,7 @@ Wanneer u een zoekopdracht in Logboeken waarmee categorierecords met uitvoert **
 
 De volgende tabel bevat voorbeeldzoekopdrachten in logboeken voor taakrecords die worden verzameld met deze oplossing.
 
-|Query’s uitvoeren | Beschrijving|
+|Query | Beschrijving|
 |----------|----------|
 |Taken zoeken voor runbook ScheduledStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "ScheduledStartStop_Parent") | waar (ResultType == "Voltooid")  | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|
 |Taken zoeken voor runbook SequencedStartStop_Parent die met succes voltooid | ''' zoeken naar categorie == "JobLogs" | waar (RunbookName_s == "SequencedStartStop_Parent") | waar (ResultType == "Voltooid") | samenvatten |AggregatedValue = count() by ResultType, bin (TimeGenerated, 1 uur) | sorteren op TimeGenerated desc'' '|

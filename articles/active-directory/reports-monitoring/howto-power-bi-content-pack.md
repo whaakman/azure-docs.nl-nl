@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2cfdd5b903b8ffd9702745df150fe578d42e5a11
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735829"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816681"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI Content Pack gebruiken
 
@@ -29,6 +29,10 @@ ms.locfileid: "45735829"
 |  |
 
 Als IT-beheerder moet u begrijpen hoe uw gebruikers vast en Azure Active Directory-functies gebruiken. Hiermee kunt u het plannen van uw IT-infrastructuur en communicatie met het-gebruik verhogen en optimaal gebruikmaken van Azure AD-functies. Power BI-inhoudspakket voor Azure Active Directory biedt u de mogelijkheid voor verdere analyse van uw gegevens voor het verzamelen van uitgebreidere inzicht in wat met uw directory gebeurt er. Met de integratie van Azure Active Directory-API's in Power BI, kunt u eenvoudig de vooraf gemaakte inhoudspakket downloaden en krijgt u inzicht in alle activiteiten binnen uw Azure Active Directory met behulp van de krachtige visualisatie-ervaring die Power BI biedt. U kunt uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
+
+## <a name="prerequisites"></a>Vereiste onderdelen
+
+U moet een Azure AD premium (P1/P2)-licentie voor het gebruik van het inhoudspakket. 
 
 ## <a name="install-the-content-pack"></a>Het inhoudspakket installeren
 

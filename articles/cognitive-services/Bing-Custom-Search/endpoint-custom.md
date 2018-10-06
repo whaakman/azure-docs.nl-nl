@@ -1,63 +1,64 @@
 ---
-title: Aangepaste zoeken eindpunt | Microsoft Docs
-description: Samenvatting van het aangepaste Search API-eindpunt.
+title: Bing Aangepaste zoekopdrachten-eindpunt
+titlesuffix: Azure Cognitive Services
+description: Samenvatting van de Bing Custom Search-API-eindpunt.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: 8d9851f3687a783f52a80a8dffcf2580d4710551
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: da448cdeaf6fcbe10cba8e5e2613214f8e0cee18
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344905"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815185"
 ---
 # <a name="custom-search"></a>Aangepast zoeken
-Bing aangepaste zoeken kunt u voor het maken van de ervaringen op maat gemaakte zoeken naar onderwerpen die u interesseren. Uw gebruikers zien zoekresultaten wilt weergeven die zijn toegesneden op de ze in plaats van interesseren inhoud naar de pagina met zoekresultaten wilt weergeven die niet relevant inhoud bevatten.
+Bing aangepaste zoekopdrachten kunt maken op maat gemaakte zoekervaringen voor onderwerpen waarin u geïnteresseerd bent. Uw gebruikers zien de resultaten die zijn afgestemd op de inhoud die ze geïnteresseerd in plaats van naar de pagina met zoekresultaten die niet van belang inhoud bevatten.
 
-## <a name="custom-search-endpoint"></a>Aangepaste zoekactie eindpunt
-Voor resultaten met de Bing aangepaste Search API, stuurt u een `GET` aanvraag voor het volgende eindpunt. De kop- en URL-parameters gebruiken voor het definiëren van verdere specificaties.
+## <a name="custom-search-endpoint"></a>Eindpunt aangepast zoeken
+Als u de resultaten met behulp van de Bing Custom Search-API, verzendt een `GET` aanvraag naar het volgende eindpunt. De kop- en URL-parameters gebruiken om te definiëren verder specificaties.
 
-Eindpunt: Retourneert zoeksuggesties als JSON-resultaten die relevant voor de gebruikersinvoer gedefinieerd zijn door `?q=""`.
+Eindpunt: Retourneert zoeksuggesties als JSON-resultaten die relevant voor de invoer van de gebruiker gedefinieerd zijn door `?q=""`.
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Zie voor voorbeelden waarin wordt beschreven hoe u aangepaste zoekactie bronnen instelt voor de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Voor meer informatie over kopteksten, parameters, markt codes, antwoord objecten, fouten, enz., Zie de [Bing-API van zoekservice aangepaste v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) verwijzing.
+Zie voor meer voorbeelden waarin wordt beschreven hoe u aangepaste zoekopdrachten bronnen instelt, de [zelfstudie](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing Custom Search-API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) verwijzing.
 
-## <a name="custom-search-response-json"></a>Aangepaste zoekactie antwoord JSON
-Een aangepaste zoekaanvraag retourneert resultaten als JSON-objecten, Zie [antwoord objecten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects). 
+## <a name="custom-search-response-json"></a>JSON-antwoord van de aangepaste zoekopdrachten
+Een aangepaste zoekopdracht retourneert resultaten als JSON-objecten, Zie [antwoordobjecten](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects). 
 
-## <a name="custom-autosuggest"></a>Voor Automatische suggestie van aangepaste
-De aangepaste voor Automatische suggestie API kunt u een gedeeltelijke zoekterm query verzenden naar Bing en ophalen van een lijst met voorgestelde query's die u kunt configureren. Met Automatische suggestie van aangepaste suggesties geretourneerd door de API toevoegen en optioneel aangeven of suggesties gegenereerd door Bing bevatten.
+## <a name="custom-autosuggest"></a>Aangepaste automatische suggesties
+De aangepaste automatische suggestie-API kunt u een gedeeltelijke zoekterm query verzenden naar Bing en terughalen van een lijst met voorgestelde query's die u kunt configureren. Met aangepaste automatische suggesties, suggesties die zijn geretourneerd door de API toevoegen en optioneel opgeven of u wilt opnemen die worden gegenereerd door Bing suggesties.
 
-## <a name="custom-autosuggest-endpoint"></a>Eindpunt voor Automatische suggestie van aangepaste
-Als aangepaste Querysuggesties, verzenden naar een GET-aanvraag:
+## <a name="custom-autosuggest-endpoint"></a>Aangepaste automatische suggesties eindpunt
+Verzenden om aan te vragen van aangepaste Querysuggesties, een GET-aanvraag naar:
 
 ```
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 ```  
 
-Zie voor meer informatie over het definiëren van aangepaste suggesties [aangepaste zoeksuggesties definiëren](define-custom-suggestions.md).
+Zie voor meer informatie over het definiëren van aangepaste suggesties [definiëren van aangepaste zoeksuggesties](define-custom-suggestions.md).
 
-## <a name="custom-image-search"></a>Aangepaste installatiekopie zoeken
-De aangepaste installatiekopie Search API kunt u een zoekopdracht naar Bing te verzenden en een lijst met relevante afbeeldingen terughalen van uw aangepaste zoekactie-exemplaar.
+## <a name="custom-image-search"></a>Aangepast zoeken voor afbeeldingen
+De aangepaste afbeeldingen zoeken-API kunt u een zoekopdracht naar Bing te verzenden en een lijst met relevante afbeeldingen teruggaan van uw aangepaste zoekopdrachten-instantie.
 
-## <a name="custom-image-search-endpoint"></a>Aangepaste installatiekopie zoeken eindpunt
-Om aan te vragen installatiekopieën van het exemplaar van uw aangepaste zoekactie, een GET-aanvraag te verzenden naar de volgende URL:
+## <a name="custom-image-search-endpoint"></a>Aangepaste afbeelding zoeken-eindpunten
+Om aan te vragen afbeeldingen van uw instantie Custom Search, een GET-aanvraag te verzenden naar de volgende URL:
 
 ```
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Zie voor meer informatie over het configureren van een aangepaste Zoekexemplaar [configureren van uw aangepaste zoekervaring](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
+Zie voor meer informatie over het configureren van een exemplaar voor aangepast zoeken [configureren van uw aangepaste zoekervaring](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Volgende stappen
-De **Bing** API's ondersteunen zoekacties die resultaten volgens hun type retourneren. Alle zoeken eindpunten retourneren resultaten als JSON-antwoord-objecten.  Alle eindpunten ondersteuning query's die een specifieke taal en/of de locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
+De **Bing** API's ondersteunen zoekacties die retourneren van resultaten op basis van hun type. Alle eindpunten voor zoeken worden resultaten geretourneerd als JSON-antwoord-objecten.  Alle eindpunten ondersteuning voor query's die een specifieke taal en/of locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
 
-Zie de pagina's met naslaginformatie voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
-Zie voor voorbeelden van basic-aanvragen via de Search-API voor aangepaste [aangepaste Search Quick-Start](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
+Zie de referentiepagina's voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
+Zie voor meer voorbeelden van basic met behulp van de Custom Search-API-aanvragen [aangepast zoeken voor snel starten](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

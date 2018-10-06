@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397523"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830970"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-Service in Azure Service Fabric
 De DNS-Service is een optionele systeemservice waarmee u in uw cluster inschakelen kunt voor het detecteren van andere services met behulp van het DNS-protocol. 
@@ -132,7 +132,7 @@ Wanneer de toepassing is geïmplementeerd, ziet u de service-exemplaar in de Ser
 
 ![Service-eindpunten](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-Het volgende voorbeeld wordt de DNS-naam voor een stateful service `statefulsvc.app`. De service maakt gebruik van een benoemde partitieschema. U ziet dat de partitienamen van de kleine letters. Dit is een vereiste voor partities die worden opgenomen in de DNS-query's; Zie voor meer informatie, [maken van DNS-query's op een stateful service partitie](#making-dns-queries-on-a-stateful-service-partition).
+Het volgende voorbeeld wordt de DNS-naam voor een stateful service `statefulsvc.app`. De service maakt gebruik van een benoemde partitieschema. U ziet dat de partitienamen van de kleine letters. Dit is een vereiste voor partities die worden opgenomen in de DNS-query's; Zie voor meer informatie, [maken van DNS-query's op een stateful service partitie](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

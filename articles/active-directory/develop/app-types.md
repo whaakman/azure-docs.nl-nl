@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959951"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816341"
 ---
 # <a name="application-types-in-v10"></a>Toepassingstypen in v1.0
 
@@ -69,7 +69,7 @@ Informatie voor meer informatie over hoe u [een app registreren bij de Azure AD-
 Inrichting wordt duidelijker als u weet wat er zijn twee soorten toepassingen die kunnen worden ontwikkeld en geïntegreerd met Azure AD:
 
 * **Eén tenant toepassing** -een toepassing met één tenant is bedoeld voor gebruik in een organisatie. Dit zijn doorgaans line-of-business (LoB)-toepassingen die is geschreven door de ontwikkelaar in een organisatie. Een toepassing met één tenant moet alleen worden geopend door gebruikers in een map en als gevolg hiervan alleen moet worden ingericht in een map. Deze toepassingen zijn meestal geregistreerd door een ontwikkelaar in de organisatie.
-* **Toepassing met meerdere tenants** -een toepassing met meerdere tenants is bedoeld voor gebruik in veel organisaties niet slechts één organisatie. Dit zijn doorgaans software-as-a-service (SaaS)-toepassingen die is geschreven door een onafhankelijke softwareleverancier (ISV). Toepassingen met meerdere tenants moeten worden ingericht in elke map waar ze worden gebruikt, welke gebruiker of beheerder toestemming om u te registreren. Dit proces toestemming wordt gestart wanneer een toepassing in de directory is geregistreerd en toegang tot de Graph API of een andere web-API krijgen wordt. Wanneer een gebruiker of beheerder van een andere organisatie zich registreert voor het gebruik van de toepassing, worden ze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven. De gebruiker of beheerder kan vervolgens akkoord met de toepassing, die de toepassing toegang geeft tot de opgegeven gegevens en tot slot, registreert u de toepassing in de directory. Zie voor meer informatie, [overzicht van het Framework toestemming geven](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework).
+* **Toepassing met meerdere tenants** -een toepassing met meerdere tenants is bedoeld voor gebruik in veel organisaties niet slechts één organisatie. Dit zijn doorgaans software-as-a-service (SaaS)-toepassingen die is geschreven door een onafhankelijke softwareleverancier (ISV). Toepassingen met meerdere tenants moeten worden ingericht in elke map waar ze worden gebruikt, welke gebruiker of beheerder toestemming om u te registreren. Dit proces toestemming wordt gestart wanneer een toepassing in de directory is geregistreerd en toegang tot de Graph API of een andere web-API krijgen wordt. Wanneer een gebruiker of beheerder van een andere organisatie zich registreert voor het gebruik van de toepassing, worden ze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven. De gebruiker of beheerder kan vervolgens akkoord met de toepassing, die de toepassing toegang geeft tot de opgegeven gegevens en tot slot, registreert u de toepassing in de directory. Zie voor meer informatie, [overzicht van het Framework toestemming geven](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Aanvullende overwegingen bij het ontwikkelen van één of meerdere tenant-apps
 

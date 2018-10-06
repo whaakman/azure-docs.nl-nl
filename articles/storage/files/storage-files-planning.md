@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783148"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831378"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Omdat Azure Files wordt volledig beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u deze in productie scenario's is geïmplementeerd. In dit artikel komen de onderwerpen om u te overwegen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -56,19 +56,36 @@ Azure Files biedt verschillende ingebouwde opties voor het garanderen van de bev
 
 * Ondersteuning voor codering in beide protocollen over-the-wire: SMB 3.0-versleuteling en de REST-bestand via HTTPS. Standaard: 
     * Clients die ondersteuning bieden voor SMB 3.0-codering verzenden en ontvangen van gegevens via een versleuteld kanaal.
-    * Clients die geen ondersteuning bieden voor SMB 3.0, kunnen intra-datacenter communiceren via het SMB 2.1 of SMB 3.0 zonder versleuteling. Houd er rekening mee dat clients zijn niet toegestaan om te communiceren tussen datacenter via SMB 2.1 of SMB 3.0 zonder versleuteling.
+    * Clients die bieden geen ondersteuning voor SMB 3.0 met-codering kunnen intra-datacenter communiceren via het SMB 2.1 of SMB 3.0 zonder versleuteling. SMB-clients zijn niet toegestaan om te communiceren tussen datacenter via SMB 2.1 of SMB 3.0 zonder versleuteling.
     * Clients kunnen communiceren via de REST-bestand met HTTP of HTTPS.
 * Versleuteling in rust ([Azure Storage-Serviceversleuteling](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is ingeschakeld voor alle opslagaccounts. Gegevens in rust worden versleuteld met een volledig beheerde sleutels. Versleuteling in rust niet verhogen van de kosten voor opslag of de prestaties negatief beïnvloeden. 
 * Optionele vereiste van versleutelde gegevens die worden verzonden: als u selecteert, Azure Files toegang tot de gegevens via niet-versleutelde kanalen geweigerd. Specifiek, zijn alleen HTTPS en SMB 3.0 met versleuteling verbindingen toegestaan. 
 
     > [!Important]  
-    > Veilige overdracht van gegevens vereisen zorgt ervoor dat oudere SMB-clients niet geschikt voor communicatie met SMB 3.0 met-codering mislukken. Zie [koppelen in Windows](storage-how-to-use-files-windows.md), [koppelen in Linux](storage-how-to-use-files-linux.md), [koppelen in macOS](storage-how-to-use-files-mac.md) voor meer informatie.
+    > Veilige overdracht van gegevens vereisen zorgt ervoor dat oudere SMB-clients niet geschikt voor communicatie met SMB 3.0 met-codering mislukken. Zie voor meer informatie, [koppelen in Windows](storage-how-to-use-files-windows.md), [koppelen in Linux](storage-how-to-use-files-linux.md), en [koppelen in macOS](storage-how-to-use-files-mac.md).
 
 Voor een maximale beveiliging wordt aangeraden altijd inschakelen beide versleuteling in rust en inschakelen van versleuteling van gegevens die worden verzonden wanneer u van moderne clients gebruikmaakt toegang tot uw gegevens. Als u nodig hebt om te koppelen van een share op een Windows Server 2008 R2-VM, die alleen ondersteuning biedt voor SMB 2.1, moet u bijvoorbeeld niet-versleuteld verkeer naar uw storage-account toestaan omdat SMB 2.1 biedt geen ondersteuning voor versleuteling.
 
 Als u Azure File Sync gebruikt voor toegang tot uw Azure-bestandsshare, zullen we de HTTPS en SMB 3.0 met versleuteling altijd gebruiken om te synchroniseren van uw gegevens met uw Windows-Servers, ongeacht of u versleuteling van inactieve gegevens nodig hebt.
 
-## <a name="data-redundancy"></a>De gegevensredundantie
+## <a name="file-share-performance-tiers"></a>File share prestatielagen
+Azure Files ondersteunt twee prestatielagen: standard en premium.
+
+* **Standard-bestandsshares** worden ondersteund door roterende harde schijven (HDD's) waarmee u betrouwbare prestaties voor i/o-werkbelastingen die minder gevoelig zijn voor variaties in prestaties, zoals voor algemeen gebruik-bestandsshares en dev/test-omgevingen. Standard-bestandsshares zijn alleen beschikbaar in een betalen per gebruik factureringsmodel.
+* **Premium-bestandsshares (preview)** worden ondersteund door SSD-schijven (SSD's) die consistent hoge prestaties en lage latentie en binnen enkele milliseconden voor de meeste i/o-bewerkingen voor de meeste i/o-intensieve workloads. Hierdoor kunt u ze geschikt zijn voor een groot aantal workloads, zoals databases, website hosting, ontwikkelomgevingen, enzovoort. Premium-bestandsshares zijn alleen beschikbaar in een ingerichte factureringsmodel.
+
+### <a name="provisioned-shares"></a>Ingerichte shares
+Premium-bestandsshares worden ingericht op basis van een vaste GiB/IOPS/doorvoer verhouding. Voor elke GiB ingericht, wordt de share één IOPS en doorvoer van 0,1 MiB/s tot de maximumlimiet per share worden uitgegeven. De minimaal toegestane inrichting is 100 GiB met minimale IOPS/doorvoer. Grootte van de bestandsshare op elk gewenst moment kan worden vergroot en verlaagd van elk gewenst moment maar kan elke 24 uur sinds de laatste toename worden verlaagd.
+
+Alle shares kunnen beste vermogen burst maximaal drie IOP's per GiB van ingerichte opslag gedurende 60 minuten of langer, afhankelijk van de grootte van de share. Nieuwe shares beginnen met het volledige burst-tegoed op basis van de ingerichte capaciteit.
+
+| Ingerichte capaciteit | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| Basislijn IOPS | 100 | 500 | 1,024 | 5.120 | 
+| Burst-limiet | 300 | 1,500 | 3072 | 15,360 | 
+| Doorvoer | 110 MiB/sec | 150 MiB/sec | 202 MiB/sec | 612 MiB/sec |
+
+## <a name="file-share-redundancy"></a>File share redundantie
 Azure Files ondersteunt drie opties voor gegevensredundantie: lokaal redundante opslag (LRS), zone-redundante opslag (ZRS) en geografisch redundante opslag (GRS). De volgende secties worden de verschillen tussen de verschillende redundantieopties voor:
 
 ### <a name="locally-redundant-storage"></a>Lokaal redundante opslag
@@ -81,9 +98,9 @@ Azure Files ondersteunt drie opties voor gegevensredundantie: lokaal redundante 
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Patroon van de groei van gegevens
-De maximale grootte voor een Azure-bestandsshare is vandaag de dag van 5 TiB. Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare. Houd er rekening mee dat een Azure Storage-account kan worden gebruikt voor het opslaan van meerdere shares met een totaal van 500 TiB die via alle shares zijn opgeslagen.
+De maximale grootte voor een Azure-bestandsshare is vandaag de dag van 5 TiB. Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare. 
 
-Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een enkele Windows-bestandsserver met Azure File Sync. Hiermee kunt u om ervoor te zorgen dat oudere, zeer grote bestandsshares dat er on-premises naar Azure File Sync kunnen worden gebracht. Raadpleeg [plannen voor een implementatie van Azure File Sync](storage-files-planning.md) voor meer informatie.
+Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een enkele Windows-bestandsserver met Azure File Sync. Hiermee kunt u om ervoor te zorgen dat oudere, grote bestandsshares dat er on-premises naar Azure File Sync kunnen worden gebracht. Zie voor meer informatie, [plannen voor een implementatie van Azure File Sync](storage-files-planning.md).
 
 ## <a name="data-transfer-method"></a>Methode voor gegevensoverdracht
 Er zijn veel eenvoudige opties voor het bulksgewijs overdracht van gegevens uit een bestaand bestand, zoals een bestandsshare on-premises naar Azure Files delen. Enkele populaire services zijn onder andere (niet-uitputtende lijst):

@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410269"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816600"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ingebouwde rollen voor Azure-resources
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -297,7 +297,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="automation-operator"></a>Automation-operator
+## <a name="automation-operator"></a>Operator voor Automation
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -502,7 +502,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Hiermee worden de gebruiksgegevens voor een Recovery Services-kluis geretourneerd. |
 
-## <a name="billing-reader"></a>Lezer voor facturering
+## <a name="billing-reader"></a>Facturering voor lezer
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -786,14 +786,14 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Beschrijving** | Hiermee beheert u data factory's, maar kunt u niet de toegang tot de data factory's beheren. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Acties** |  |
-> | Microsoft.Authorization/*/read | Meer functies en rollen toewijzingen |
+> | Microsoft.Authorization/*/read | Rollen en roltoewijzingen lezen. |
 > | Microsoft.DataFactory/dataFactories/* | Maken en beheren van data factory's en onderliggende resources hierin. |
 > | Microsoft.DataFactory/factories/* | Maken en beheren van data factory's en onderliggende resources hierin. |
-> | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
-> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
-> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources in het opgegeven bereik. |
+> | Microsoft.Resources/deployments/* | Maken en beheren van implementaties van resource-groep. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Ophalen of weergeven van resourcegroepen. |
+> | Microsoft.Support/* | Maak en ondersteuningstickets beheren. |
 
 ## <a name="data-lake-analytics-developer"></a>Ontwikkelaar voor Data Lake Analytics
 > [!div class="mx-tableFixed"]
@@ -1703,7 +1703,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-## <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
+## <a name="user-access-administrator"></a>Administrator voor gebruikerstoegang
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

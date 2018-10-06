@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5bc68b55fdefc07b9764b8393ea6f4062468252
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422940"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816460"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -58,7 +58,7 @@ U kunt PowerShell gebruiken om te verwijderen van een Recovery Services-kluis ge
 
 Een Recovery Services-kluis verwijderen:
 
-1. Aanmelden bij uw Azure-account.
+1. Meld u aan bij uw Azure-account.
 
    Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
 
@@ -90,6 +90,12 @@ Een Recovery Services-kluis verwijderen:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+   De kluis moet leeg zijn voordat u het kunt verwijderen. Anders krijgt u een vermelding van "Kluis kan niet worden verwijderd omdat er bestaande resources binnen deze kluis" fout. De volgende opdracht laat zien hoe u een container in een kluis verwijderen:
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ```
+   
 1. Meld u aan uw abonnement in Azure portal en controleer of dat de kluis wordt verwijderd.
 
 

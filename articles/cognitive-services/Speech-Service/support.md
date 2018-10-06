@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 4f296e2a7e7e205715ab232ef137493adf02e0f1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f14fee349f5b5d88d628d0322e32bedeacd0562f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295611"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816256"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
 
@@ -30,7 +30,7 @@ U net aan de slag om te verkennen van de functionaliteit van de Speech-service? 
 
 Nieuws over Cognitive Services worden verzameld de [Cognitive Services-blog](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Voor de meest recente informatie over de spraak-service, houden de [Speech serviceblog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
-## <a name="search"></a>Search
+## <a name="search"></a>Zoeken
 
 U kunt het gewenste antwoord vinden in de documentatie, voorbeelden, of antwoorden op [Stack Overflow](https://www.stackoverflow.com) vragen of in de voorbeelden.
 
@@ -44,13 +44,20 @@ Voor snellere resultaten, het bereik van uw zoekopdracht naar Stack Overflow, de
 
 Waar *{uw zoektermen}* uw zoekwoorden is.
 
+## <a name="create-an-azure-support-request"></a>Een Azure-ondersteuningsaanvraag maken
+
+Azure-klanten kunnen maken en beheren van aanvragen voor ondersteuning in Azure portal.
+
+* [Azure Portal](https://portal.azure.com)
+* [Azure-portal voor de Amerikaanse overheid](https://portal.azure.us)
+
 ## <a name="post-a-question-to-stack-overflow"></a>Plaats een vraag in Stack Overflow
 
 Stack Overflow is het aanbevolen kanaal voor vragen over ontwikkeling. Het is waar leden van de community en Microsoft-teamleden rechtstreeks betrokken zijn bij zodat u uw problemen oplossen.
 
 Als u een antwoord op uw probleem via zoekopdrachten niet vinden, verzendt u een nieuwe vraag naar Stack Overflow. Gebruik een van de volgende codes bij het formuleren van de vraag:
 
-|Onderdeel/gebied  |Tags  |
+|Onderdeel/gebied  |Codes  |
 |---------|---------|
 |Spraakherkenning |[[microsoft-cognitieve + spraak-naar-tekst]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Spraaksynthese |[[microsoft-cognitieve + tekst-naar-spraak]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|

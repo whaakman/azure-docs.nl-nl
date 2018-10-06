@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803032"
+ms.locfileid: "48815168"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide for App Service op Linux
 
@@ -216,14 +216,18 @@ Voor gedeelde bronnen op serverniveau:
 
 4. Zorg ervoor dat de JDBC-stuurprogramma's beschikbaar voor de Tomcat-classloader zijn door ze in te plaatsen de `/home/tomcat/lib` directory. Als u wilt deze bestanden uploaden naar uw App Service-exemplaar, kunt u de volgende stappen uitvoeren:  
     1. De uitbreiding voor de Azure App Service-webpp installeren:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Voer de volgende CLI-opdracht voor het maken van een SSH-tunnel vanuit uw lokale systeem naar App Service:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden `/home/tomcat/lib`.
+
+    3. Verbinding maken met de lokale tunneling poort met uw SFTP-client en de bestanden te uploaden de `/home/tomcat/lib` map.
 
 5. De App Service Linux-toepassing opnieuw hebt gestart. Tomcat wordt opnieuw ingesteld `CATALINA_HOME` naar `/home/tomcat` en de bijgewerkte configuratie en -klassen gebruiken.
 

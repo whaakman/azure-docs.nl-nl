@@ -9,18 +9,18 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/01/2018
-ms.openlocfilehash: df6637f1a52b679ba9ad0a49fb37d4e4b72f35e4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b78a199df9f457b09bb487df74a646363fb172b9
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237820"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815066"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning
 
 U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md).  Met behulp van FPGA's biedt zeer lage latentie inferentietaken, zelfs met een enkele batchgrootte.   
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
@@ -165,157 +165,8 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>Beveiligde FPGA-webservices
 
-Azure Machine Learning-modellen die worden uitgevoerd op FPGA's bieden ondersteuning voor SSL en verificatie op basis van een sleutel. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken.
+Azure Machine Learning-modellen die worden uitgevoerd op FPGA's bieden ondersteuning voor SSL en verificatie op basis van een sleutel. Hiermee kunt u toegang tot uw service en beveiligd door clients verzonden gegevens te beperken. [Meer informatie over het beveiligen van de webservice](how-to-secure-web-service.md).
 
-> [!IMPORTANT]
-> Verificatie is alleen ingeschakeld voor services die een SSL-certificaat en de sleutel hebt opgegeven. 
->
-> Als u SSL niet inschakelt, kunnen elke gebruiker op het internet voor aanroepen naar de service wordt mogelijk.
->
-> Als u SSL inschakelt en de verificatiesleutel vereist is bij het openen van de service.
-
-SSL versleutelt de gegevens die tussen de client en de service worden verzonden. Het wordt ook gebruikt door de client om te controleren of de identiteit van de server.
-
-U kunt een service implementeren met SSL is ingeschakeld of bijwerken van een reeds geïmplementeerde service als u wilt inschakelen. De stappen zijn hetzelfde:
-
-1. De naam van een domein aan te schaffen.
-
-2. Een SSL-certificaat aan te schaffen.
-
-3. Implementeren of bijwerken van de service met SSL is ingeschakeld.
-
-4. Hiermee werkt u uw DNS-server om te verwijzen naar de service.
-
-### <a name="acquire-a-domain-name"></a>De naam van een domein verkrijgen
-
-Als u een domeinnaam niet al hebt kan, kunt u kopen van een __domeinnaamregistrar__. Tussen registrars, verschilt het proces als de kosten. De registrar biedt u ook met hulpprogramma's voor het beheren van de domeinnaam. Deze hulpprogramma's worden gebruikt om een volledig gekwalificeerde domeinnaam (zoals www.contoso.com) toewijzen aan de IP-adres dat uw service wordt gehost op.
-
-### <a name="acquire-an-ssl-certificate"></a>Een SSL-certificaat verkrijgen
-
-Er zijn veel manieren om op te halen van een SSL-certificaat. De meest voorkomende reden is het kopen van een __certificeringsinstantie__ (CA). Ongeacht waar u het certificaat hebt verkregen, moet u de volgende bestanden:
-
-* Een __certificaat__. Het certificaat moet de volledige certificaatketen bevatten en moet PEM gecodeerd.
-* Een __sleutel__. De sleutel moet PEM gecodeerd.
-
-> [!TIP]
-> Als de certificeringsinstantie kan niet het certificaat en sleutel als PEM-gecodeerde bestanden opgeeft, kunt u een hulpprogramma zoals [OpenSSL](https://www.openssl.org/) om de opmaak te wijzigen.
-
-> [!IMPORTANT]
-> Zelfondertekende certificaten moeten worden gebruikt alleen voor ontwikkeling. Ze moeten niet worden gebruikt in de productieomgeving.
->
-> Als u een zelfondertekend certificaat gebruikt, raadpleegt u de [gebruikmaakt van de services met zelfondertekende certificaten](#self-signed) sectie voor specifieke instructies.
-
-> [!WARNING]
-> Wanneer u een certificaat aanvraagt, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het adres dat u van plan bent te gebruiken voor de service opgeven. Bijvoorbeeld: www.contoso.com. Adres van de tijdstempel in het certificaat en het adres dat wordt gebruikt door de clients worden vergeleken bij het valideren van de identiteit van de service.
->
-> Als de adressen niet overeenkomen, ontvangt de clients een fout. 
-
-### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Implementeren of bijwerken van de service met SSL ingeschakeld
-
-Voor het implementeren van de service met SSL is ingeschakeld, stel de `ssl_enabled` parameter `True`. Stelt de `ssl_certificate` parameter met de waarde van de __certificaat__ bestand en de `ssl_key` aan de waarde van de __sleutel__ bestand. Het volgende voorbeeld ziet u een service implementeren met SSL is ingeschakeld:
-
-```python
-from amlrealtimeai import DeploymentClient
-
-subscription_id = "<Your Azure Subscription ID>"
-resource_group = "<Your Azure Resource Group Name>"
-model_management_account = "<Your AzureML Model Management Account Name>"
-location = "eastus2"
-
-model_name = "resnet50-model"
-service_name = "quickstart-service"
-
-deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-with open('cert.pem','r') as cert_file:
-    with open('key.pem','r') as key_file:
-        cert = cert_file.read()
-        key = key_file.read()
-        service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-```
-
-Het antwoord van de `create_service` bewerking bevat het IP-adres van de service. Het IP-adres wordt gebruikt bij het toewijzen van de DNS-naam naar het IP-adres van de service.
-
-Het antwoord bevat ook een __primaire sleutel__ en __secundaire sleutel__ die worden gebruikt voor het gebruik van de service.
-
-### <a name="update-your-dns-to-point-to-the-service"></a>Werkt u uw DNS om te verwijzen naar de service
-
-Gebruik de hulpprogramma's van uw domeinnaamregistrar om bij te werken van de DNS-record voor uw domeinnaam. De record moet verwijzen naar het IP-adres van de service.
-
-> [!NOTE]
-> Afhankelijk van de registrar, en de tijd naar live (TTL) die is geconfigureerd voor de domeinnaam, duurt het enkele minuten tot enkele uren voordat clients de domeinnaam kunnen omzetten.
-
-### <a name="consume-authenticated-services"></a>Geverifieerde services gebruiken
-
-De volgende voorbeelden ziet u hoe u gebruik van een geverifieerde service met behulp van Python en C#:
-
-> [!NOTE]
-> Vervang `authkey` geretourneerd met de primaire of secundaire sleutel bij het maken van de service.
-
-```python
-from amlrealtimeai import PredictionClient
-client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-image_file = R'C:\path_to_file\image.jpg'
-results = client.score_image(image_file)
-```
-
-```csharp
-var client = new ScoringClient(host, 50051, useSSL, "authKey");
-float[,] result;
-using (var content = File.OpenRead(image))
-    {
-        IScoringRequest request = new ImageRequest(content);
-        result = client.Score<float[,]>(request);
-    }
-```
-
-Andere clients gRPC kunnen aanvragen verifiëren door in te stellen van een autorisatie-header. De algemene aanpak is het maken van een `ChannelCredentials` -object dat combineert `SslCredentials` met `CallCredentials`. Dit wordt toegevoegd aan de autorisatie-header van de aanvraag. Zie voor meer informatie over het implementeren van ondersteuning voor uw specifieke headers [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-De volgende voorbeelden ziet u hoe het instellen van de koptekst in C# en gaat u naar:
-
-```csharp
-creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                      async (context, metadata) =>
-                      {
-                          metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                          await Task.CompletedTask;
-                      }));
-
-```
-
-```go
-conn, err := grpc.Dial(serverAddr, 
-    grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-    grpc.WithPerRPCCredentials(&authCreds{
-    Key: "authKey"}))
-
-type authCreds struct {
-    Key string
-}
-
-func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-    return map[string]string{
-        "authorization": c.Key,
-    }, nil
-}
-
-func (c *authCreds) RequireTransportSecurity() bool {
-    return true
-}
-```
-
-### <a id="self-signed"></a>Gebruikmaakt van de services met zelfondertekende certificaten
-
-Er zijn twee manieren om te zorgen dat de client om te verifiëren met een server die is beveiligd met een zelfondertekend certificaat:
-
-* Stel op het clientsysteem de `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` omgevingsvariabele op het clientsysteem om te verwijzen naar het certificaatbestand.
-
-* Bij het maken van een `SslCredentials` object, de inhoud van het certificaatbestand doorgeven aan de constructor.
-
-Met behulp van een van beide methoden zorgt ervoor dat de gRPC gebruik van het certificaat als het basiscertificaat.
-
-> [!IMPORTANT]
-> gRPC accepteert geen niet-vertrouwde certificaten. Met behulp van een niet-vertrouwd certificaat mislukken met een `Unavailable` statuscode. De details van de fout bevatten `Connection Failed`.
 
 ## <a name="sample-notebook"></a>Voorbeeld-notebook
 

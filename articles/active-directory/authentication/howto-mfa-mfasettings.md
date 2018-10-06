@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391841"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817123"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -111,17 +111,33 @@ Voordat u begint, worden op de hoogte van de volgende beperkingen:
 * De maximale bestandsgrootte is 5 MB.
 * Verificatieberichten moet korter zijn dan 20 seconden. Berichten die langer dan 20 seconden zijn kunnen ertoe leiden dat de verificatie mislukt. De gebruiker mogelijk niet reageren voordat het bericht is voltooid en de verificatie een optreedt time-out.
 
+### <a name="custom-message-language-behavior"></a>Aangepast bericht taal gedrag
+
+Wanneer een aangepaste gesproken bericht wordt afgespeeld naar de gebruiker, afhankelijk van de taal van het bericht deze factoren:
+
+* De taal van de huidige gebruiker.
+   * De taal die wordt gedetecteerd door de browser van de gebruiker.
+   * Andere scenario's voor verificatie kunnen zich anders gedragen.
+* De taal van de beschikbare aangepaste berichten.
+   * Deze taal wordt gekozen door de beheerder bij een aangepast bericht wordt toegevoegd.
+
+Bijvoorbeeld, als er slechts één aangepaste bericht, met een systeemtaal Duits:
+
+* Een gebruiker die wordt geverifieerd in de Duitse taal wordt het aangepaste Duitse bericht horen.
+* Een gebruiker die wordt geverifieerd in het Engels wordt het standaard Engels bericht horen.
+
 ### <a name="set-up-a-custom-message"></a>Instellen van een aangepast bericht
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
-2. Blader naar **Azure Active Directory** > **MFA-Server** > **instellingen van telefoongesprekken**.
+1. Blader naar **Azure Active Directory** > **MFA-Server** > **instellingen van telefoongesprekken**.
 
    ![Record aangepast telefoonnummer berichten](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Selecteer **begroeting toevoegen**.
-4. Kies het type begroeting. Kies de taal.
-5. Selecteer een MP3- of WAV-geluidsbestand uploaden.
-6. Selecteer **Toevoegen**.
+1. Selecteer **begroeting toevoegen**.
+1. Kies het type begroeting. 
+1. Kies de taal.
+1. Selecteer een MP3- of WAV-geluidsbestand uploaden.
+1. Selecteer **Toevoegen**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Opslaan in cache in Azure multi-factor Authentication
 
@@ -150,7 +166,7 @@ Als uw organisatie de NPS-extensie implementeert voor MFA on-premises toepassing
 
 | Azure AD-tenant-type | Vertrouwde IP-adressen functieopties |
 |:--- |:--- |
-| Managed |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
+| Beheerd |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
 | Federatief |**Alle federatieve gebruikers**: alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven. |
 
 De goedgekeurde IP-adressen overslaan werkt alleen in het bedrijfsintranet. Als u selecteert de **alle federatieve gebruikers** optie en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, de gebruiker heeft om te verifiëren met behulp van verificatie in twee stappen. Het proces is hetzelfde, zelfs als de gebruiker een AD FS claim geeft. 

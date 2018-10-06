@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/26/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 76da33a74ad95d7f074bc4efd3a8d9f97c19d612
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049607"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830309"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Gegevens verplaatsen naar en uit Azure Storage
 Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of omgekeerd), zijn er verschillende manieren om dit te doen. De benadering die het meest voor u geschikt is afhankelijk van uw scenario. In dit artikel biedt een kort overzicht van de verschillende scenario's en de juiste aanbiedingen voor elk criterium.
@@ -38,14 +38,14 @@ Als u vereist of meer vertrouwd met een opdrachtregel-hulpprogramma (bijvoorbeel
 ### <a name="azcopy"></a>AzCopy
 AzCopy is een opdrachtregelprogramma dat is ontworpen voor high-performance kopiëren van gegevens naar en van Azure Storage. U kunt ook gegevens binnen een opslagaccount of tussen verschillende opslagaccounts kopiëren. AzCopy is beschikbaar op [Windows](storage-use-azcopy.md) en klik op [Linux](storage-use-azcopy-linux.md).
 
-Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) of [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md) voor meer informatie.
+Zie voor meer informatie over het migreren van on-premises gegevens naar Azure Storage, [zelfstudie: on-premises gegevens migreren naar cloudopslag met behulp van AzCopy](storage-use-azcopy-migrate-on-premises-data.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell is een module die cmdlets biedt voor het beheren van services op Azure. Het is een op taken gebaseerde opdrachtregelshell en scripttaal die speciaal is ontworpen voor systeembeheer.
 
 Zie [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md) voor meer informatie.
 
-### <a name="azure-cli"></a>Azure-CLI
+### <a name="azure-cli"></a>Azure CLI
 Azure CLI bevat een set open-source, platformoverschrijdende opdrachten om te werken met Azure-services. Azure CLI is beschikbaar in Windows, OSX en Linux.
 
 Zie [met de Azure CLI met Azure Storage](../storage-azure-cli.md) voor meer informatie.

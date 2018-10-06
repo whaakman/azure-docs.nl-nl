@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: add49aaf96190f782d2133e2a5f620a340f05eaf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733828"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831097"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Uw Raspberry Pi-apparaat verbinden met de Remote Monitoring solution accelerator (C)
 
@@ -57,15 +57,15 @@ De volgende stappen laten zien hoe u uw Raspberry Pi voorbereiden voor het bouwe
 
 ## <a name="view-the-code"></a>De code weergeven
 
-De [voorbeeldcode](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) gebruikt in deze handleiding is beschikbaar in de Azure IoT C SDK's GitHub-opslagplaats.
+De [voorbeeldcode](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) gebruikt in deze handleiding is beschikbaar in de Azure IoT C SDK's GitHub-opslagplaats.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>De broncode downloaden en voorbereiden van het project
 
 Om voor te bereiden op het project, klonen of downloaden de [opslagplaats Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c) vanuit GitHub.
 
-Het voorbeeld bevindt zich de **samples/oplossingen/remote_monitoring** map.
+Het voorbeeld bevindt zich de **samples/oplossingen/remote_monitoring_client** map.
 
-Open de **remote_monitoring.c** -bestand in de **samples/oplossingen/remote_monitoring** map in een teksteditor.
+Open de **remote_monitoring.c** -bestand in de **samples/oplossingen/remote_monitoring_client** map in een teksteditor.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -87,7 +87,7 @@ De volgende stappen wordt beschreven hoe u *CMake* om de clienttoepassing te bou
 1. Voer de clienttoepassing en verzenden van telemetrie naar IoT Hub:
 
     ```sh
-    ./samples/solutions/remote_monitoring/remote_monitoring_client
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
     De console worden berichten weergegeven:

@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214938"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831616"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI
 
 ## <a name="overview"></a>Overzicht
 
-**De Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI biedt een directe implementatie van een Azure PaaS-oplossing om u te laten zien hoe u veilig voor het opnemen, opslaan, analyseren en communiceren met statusgegevens terwijl deze kunnen voldoen aan de bedrijfstak van naleving vereisten. De blauwdruk helpt Versnel de acceptatie van cloudcomputing en -gebruik voor klanten met gegevens die wordt geregeld.**
+**De Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI biedt een directe implementatie van een Azure PaaS en IaaS-oplossing om te laten zien hoe u opnemen, opslaan, analyseren, communiceren, identiteit en -oplossingen met statusgegevens tijdens het veilig implementeren om te kunnen voldoen aan nalevingsvereisten voor de bedrijfstak. De blauwdruk helpt Versnel de acceptatie van cloudcomputing en -gebruik voor klanten met gegevens die wordt geregeld.**
 
-De Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI blauwdruk biedt hulpprogramma's en hulp bij het implementeren van een veilige, Health Insurance Portability en Accountability Act (HIPAA) en Health informatie vertrouwen Alliance (HITRUST) gereed platform-as-a-service (PaaS)-omgeving voor het opnemen, opslaan, analyseren en interactie met persoonlijke en niet-persoonlijke medische dossiers in een beveiligde, meerdere lagen cloudomgeving, geïmplementeerd als een end-to-end-oplossing. Het brengt een algemene referentiearchitectuur en is ontworpen voor het vereenvoudigen van de aanvaarding van Microsoft Azure. Deze architectuur opgegeven ziet u een oplossing om te voldoen aan de behoeften van organisaties om een cloud-gebaseerde benadering voor het verminderen van de belasting en de kosten van de implementatie te zoeken.
+De Azure-beveiliging en naleving blauwdruk - HIPAA/HITRUST Health Data en AI blauwdruk biedt hulpprogramma's en hulp bij het implementeren van een veilige, Health Insurance Portability en Accountability Act (HIPAA) en Health informatie vertrouwen Alliance (HITRUST) gereed platform-as-a-service (PaaS)-omgeving voor het opnemen, opslaan, analyseren en interactie met persoonlijke en niet-persoonlijke medische dossiers in een beveiligde, meerdere lagen cloudomgeving, geïmplementeerd als een end-to-end-oplossing. 
+
+IaaS-oplossing laat zien hoe u een on-premises op basis van SQL-oplossing migreren naar Azure, en voor het implementeren van een Privileged Access Workstation (PAW) voor het veilig beheren van cloud-gebaseerde services en oplossingen. De IaaS SQL Server-database mogelijke experimenten gegevens worden geïmporteerd in een SQL IaaS-VM wordt toegevoegd en dat VM maakt gebruik van MSI geverifieerde toegang om te communiceren een SQL Azure PaaS-service. Zowel deze een algemene referentiearchitectuur worden gepresenteerd en is ontworpen voor het vereenvoudigen van de aanvaarding van Microsoft Azure. Deze architectuur opgegeven ziet u een oplossing om te voldoen aan de behoeften van organisaties om een cloud-gebaseerde benadering voor het verminderen van de belasting en de kosten van de implementatie te zoeken.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Deze blauwdruk is bedoeld om te fungeren als een modulaire basis voor klanten om
 
 ## <a name="deploying-the-automation"></a>De automation implementeren
 
-- Volg de instructies in de implementatie-instructies voor het implementeren van de oplossing. 
+- Als u wilt de oplossing implementeert, volg de instructies de [implementatierichtlijnen](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Voor een snel overzicht van de werking van deze oplossing, bekijk deze [video](https://aka.ms/healthblueprintvideo) worden uitgelegd en gedemonstreerd van de implementatie.
+- Voor een snel overzicht van de werking van deze oplossing, bekijk deze [video](https://aka.ms/healthblueprintvideo) worden uitgelegd en gedemonstreerd van de implementatie.
 
 - Veelgestelde vragen vindt u de [Veelgestelde vragen over](https://aka.ms/healthblueprintfaq) richtlijnen.
 
 -   **Architecturaal diagram.** Het diagram toont de referentiearchitectuur gebruikt voor de blauwdruk en het voorbeeld van de use-casescenario.
 
--   **Implementatiesjablonen**. In deze implementatie [Azure Resource Manager-sjablonen](/azure/azure-resource-manager/resource-group-overview#template-deployment) worden gebruikt voor het implementeren van de onderdelen van de architectuur van automatisch in Microsoft Azure door parameters voor de configuratie op te geven tijdens de installatie.
-
--   **[Geautomatiseerde implementatiescripts](https://aka.ms/healthblueprintdeploy)**. Deze scripts helpen bij het implementeren van de oplossing. De scripts bestaan uit:
-
-
--   Een installatie van de module en [hoofdbeheerder](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup-script wordt gebruikt om te installeren en te controleren of vereiste PowerShell-modules en rollen voor globale beheerder correct zijn geconfigureerd. 
--   Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de oplossing, die beschikbaar is via een ZIP-bestand met een vooraf gemaakte demo-functies.
+-   [IaaS-extensie](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) deze oplossing wordt gedemonstreerd hoe u een on-premises op basis van SQL-oplossing migreren naar Azure, en voor het implementeren van een werkstation Privieged toegang als u wilt beheren veilig cloud bsed services en oplossingen. 
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 
@@ -70,7 +64,7 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 # <a name="architectural-diagram"></a>Architectuurdiagram
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Rollen
 
@@ -296,7 +290,7 @@ Voor het bereiken van de opslag van de gegevens, is een algemene API-schema geï
 
 
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>Gebeurtenisraster
 
 
 De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde service voor het beheren van routering van alle gebeurtenissen van elke bron naar elke bestemming opgeven:
@@ -384,9 +378,9 @@ De oplossing biedt ondersteuning voor Azure Event Grid, een geïntegreerde servi
 
     -   [Azure WebApp Analytics](/azure/log-analytics/log-analytics-azure-web-apps-analytics) oplossing
 
-    -   Key Vault-analyse
+    -   Analyse van Key Vault
 
-    -   Tracering wijzigen
+    -   Bijhouden van wijzigingen
 
 -   [Application Insights-Connector (Preview)](/azure/log-analytics/log-analytics-app-insights-connector) is ingeschakeld
 

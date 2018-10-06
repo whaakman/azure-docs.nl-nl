@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c345235fa16a28877a46d5eaef54093d89ffcdd0
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247991"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815831"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
@@ -35,7 +35,7 @@ U kunt doorvoer instellen voor een Azure Cosmos DB-container of een set van cont
    |Database-id  |  Geef een unieke naam voor het identificeren van uw database. Database is een logische container voor een of meer verzamelingen. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie. |
    |Verzamelings-id  | Geef een unieke naam voor het identificeren van uw verzameling. Voor id’s van verzamelingen gelden dezelfde tekenvereisten als voor databasenamen. |
    |Opslagcapaciteit   | Deze waarde vertegenwoordigt de opslagcapaciteit van de database. Bij het inrichten van de doorvoer voor een verzameling afzonderlijke opslagcapaciteit kan worden **vast (10 GB)** of **onbeperkt**. Onbeperkte opslagcapaciteit, moet u om in te stellen van een partitiesleutel voor uw gegevens.  |
-   |Doorvoer   | Elke verzameling en -database hebben doorvoer in aanvraageenheden per seconde.  Voor vaste opslagcapaciteit, minimaal doorvoer is 400 aanvraageenheden per seconde (RU/s), voor onbeperkte opslag capaciteit, minimum doorvoer is ingesteld op 1000 RU/s.|
+   |Doorvoer   | Elke verzameling en -database hebben doorvoer in aanvraageenheden per seconde.  En een verzameling kunt hebt opgelost of onbeperkte opslagcapaciteit. |
 
 6. Nadat u waarden voor deze velden opgeven, selecteert u **OK** de instellingen op te slaan.  
 

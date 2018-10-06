@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 10/04/2018
 ms.author: douglasl
-ms.openlocfilehash: aa8572ea0195891657baf3df1916ce0b4f36f788
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8027b167481fd4e48e03b3c1ad3ed8c6adcb853e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018805"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815440"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
@@ -116,7 +116,7 @@ Hier volgen de stappen voor het instellen van een Azure-pijplijnen release, zoda
     g. Selecteer de **incrementele** Implementatiemodus.
 
     > [!WARNING]
-    > Als u selecteert **voltooid** implementatiemodus, bestaande bronnen kan worden verwijderd, met inbegrip van de doelresourcegroep.
+    > Als u selecteert **voltooid** implementatiemodus, bestaande bronnen kan worden verwijderd, met inbegrip van alle resources in de doelresourcegroep die niet zijn gedefinieerd in het Resource Manager-sjabloon.
 
 1.  Sla de release-pijplijn.
 

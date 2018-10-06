@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: bbf94d53b24c4087e7212d56bd51131034e39212
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5bfc11fdf6cbde9c9eed131bbcc7f7ab1dfbc442
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042974"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830690"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -67,7 +67,7 @@ De sessie limieten resource geeft aan dat het aantal beschikbare gelijktijdige a
 
 Werknemer limieten bereiken is een specifieke aanvraag resourcebeperkingen bereikt omdat beschikbare werkrollen worden niet meegeteld in het gebruik van DTU of vCore. Werknemer beperkingen met betrekking tot een database wordt bereikt, kan de opkomst van wachttijden van resource-specifieke, wat tot prestatievermindering query leidt veroorzaken.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens voert query-hashes van query's die de prestaties en de resource verbruikspercentages beïnvloed. U kunt deze informatie gebruiken als uitgangspunt voor het optimaliseren van de werkbelasting van uw database. In het bijzonder, kunt u de query's die invloed hebben op de prestaties achteruitgaan door het toevoegen van indexen optimaliseren. Of u toepassingen met een meer zelfs Werkbelastingsverdeling kunt optimaliseren. Als u geen workloads verminderen of optimalisaties, houd rekening met de prijscategorie van uw SQL database-abonnement te verhogen van de hoeveelheid beschikbare resources te verhogen.
 
@@ -85,7 +85,7 @@ Deze detectie wordt gedaan door een combinatie van verschillende metrische gegev
 
 In de vorm ernstigere de werkbelasting mogelijk continu opstapelen vanwege de modeldatabase groter van de SQL-database voor het afhandelen van de werkbelasting. Het resultaat is een voortdurend groeiende werkbelastingsgrootte de werkbelasting pile-up voorwaarde is. Vanwege dit probleem groeit de tijd dat de werkbelasting moet tot de uitvoering van wachten. Deze voorwaarde vertegenwoordigt een van de meest ernstige prestatieproblemen met de database. Dit probleem wordt gedetecteerd door middel van controle van de toename van het aantal afgebroken werkthreads. 
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert het aantal query's waarvan de uitvoering is toegenomen en de queryhash van de query's uitvoeren met de grootste bijdrage aan de toename van de werkbelasting. U kunt deze informatie gebruiken als uitgangspunt voor het optimaliseren van de werkbelasting. De query die is geïdentificeerd als het grootste aandeel in de toename van de werkbelasting is vooral nuttig als uw beginpunt.
 
@@ -101,7 +101,7 @@ Geheugendruk geeft aan dat een prestatieniveau waarin zich een groot aantal werk
 
 De strengere vorm van geheugendruk is de voorwaarde van de pile-up geheugen. Deze voorwaarde wordt aangegeven dat een groter aantal werkthreads geheugen verleent aanvraagt dan er query's het vrijgeven van het geheugen. Dit aantal werkthreads aanvragende geheugen ook verleent kan worden continu te vergroten (opstapelen) omdat de SQL database-engine kan geen geheugen efficiënt genoeg om te voldoen aan de vraag toewijzen. De voorwaarde van geheugen pile-up vertegenwoordigt een van de meest ernstige prestatieproblemen met de database.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert de details van gegevensarchief object geheugen met de medewerker (dat wil zeggen, werkthread) die is gemarkeerd als de hoogste reden voor hoog geheugengebruik en relevante tijdstempels. U kunt deze informatie gebruiken als basis voor het oplossen van problemen. 
 
@@ -121,7 +121,7 @@ In moderne RDBMS van TOPKLASSE is het essentieel is voor de implementatie met me
 
 Als transacties uitgevoerd door de SQL-engine gedurende langere perioden wachten voor toegang tot resources die zijn vergrendeld voor gebruik, is deze wachttijd zorgt ervoor dat de vertraging van de prestaties van de werkbelastingen worden uitgevoerd. 
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert vergrendelen details die u als basis voor het oplossen van problemen gebruiken kunt. U kunt de gerapporteerde blokkerende query's, dat wil zeggen, de query's die de vergrendeling prestatievermindering, analyseren en verwijder ze. In sommige gevallen kunt u mogelijk lukt dit in de blokkerende query's optimaliseren.
 
@@ -139,7 +139,7 @@ Het systeem expert analyseert de huidige databaseprestaties in vergelijking met 
 
 De MAXDOP-serverconfiguratieoptie op SQL-Database wordt gebruikt om te bepalen hoeveel CPU-kernen kunnen worden gebruikt om dezelfde query parallel uitvoeren. 
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens voert query-hashes met betrekking tot query's waarvan de duur van de uitvoering van omdat ze zijn meer dan ze had moeten geparallelliseerd verhoogd. Het logboek voert ook CXP wachttijden. Deze tijd geeft de tijd die een enkele organisator/coordinator thread (thread 0) wordt gewacht tot alle andere threads voltooid voordat u de resultaten samenvoegen en verder te verplaatsen. Bovendien voert de logboekbestanden met diagnostische gegevens de wachttijden die slecht presterende query's zijn nog in de algehele worden uitgevoerd. U kunt deze informatie gebruiken als basis voor het oplossen van problemen.
 
@@ -159,7 +159,7 @@ Er zijn veel soorten vergrendelingen beschikbaar op de SQL-database. Buffer verg
 
 Conflicten op de pagina's treedt op wanneer meerdere threads gelijktijdig probeert aan te schaffen vergrendelingen op de dezelfde structuur in het geheugen, die resulteert in een verhoogde wachttijd voor het uitvoeren van query's. In het geval van pagelatch i/o-conflicten, wanneer gegevens moeten worden geopend vanuit de opslag, is deze wachttijd nog grotere. Deze kan de prestaties van de werkbelastingen aanzienlijk beïnvloeden. Pagelatch conflicten is het meest voorkomende scenario van threads op elkaar af en de concurrentie voor resources die op meerdere CPU-systemen.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert pagelatch conflicten details. U kunt deze informatie gebruiken als basis voor het oplossen van problemen.
 
@@ -179,7 +179,7 @@ Een index wordt gebruikt om de prestaties van query's te versnellen. Het biedt s
 
 Specifieke query's die verminderde prestaties veroorzaakt worden geïdentificeerd door deze detectie waarvoor maken van indexen nuttig is om de prestaties zijn zou.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens voert query-hashes voor de query's die zijn geïdentificeerd voor de werkbelasting beïnvloeden. U kunt bouwen indexen voor deze query's. U kunt ook optimaliseren of verwijderen van deze query's als ze niet vereist. Een goede prestaties practice is om te voorkomen dat het opvragen van gegevens die u niet gebruikt.
 
@@ -197,7 +197,7 @@ Dit patroon prestaties geeft aan dat een nieuwe query wordt gedetecteerd die sle
 
 Soms een goed presterende query schrijven, kan een uitdaging zijn. Zie voor meer informatie over het schrijven van query's [schrijven van SQL-query's](https://msdn.microsoft.com/library/bb264565.aspx). Zie voor het optimaliseren van prestaties van de bestaande query's, [Query afstemmen](https://msdn.microsoft.com/library/ms176005.aspx).
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 Diagnostische gegevens over de logboekgegevens uitvoer maximaal twee nieuwe de meeste CPU verbruikt query's, met inbegrip van de query-hashes. Omdat de gedetecteerde query is van invloed op de prestaties van de werkbelastingen, kunt u uw query te optimaliseren. Het wordt aangeraden om op te halen, alleen gegevens die u wilt gebruiken. We raden u ook aan met behulp van query's met een WHERE-component. Ook wordt aangeraden dat u complexe query's te vereenvoudigen en splits in kleinere query's. Een andere goede gewoonte is om op te splitsen in kleinere query's voor batch grote batch-query's. Introductie van indexen voor de nieuwe query's is meestal een goede gewoonte om dit probleem te verhelpen.
 
@@ -211,7 +211,7 @@ Dit patroon detecteerbare prestaties geeft aan dat een verslechtering van de wer
 
 In dit geval wordt het systeem kan niet de slecht presterende query's onder andere categorieën detecteerbare standaardprestaties classificeren, maar de wachttijd statistieken die verantwoordelijk is voor de regressie gevonden. Daarom wordt deze beschouwt als query's met *verhoogd wacht statistieken*, waar ook de wachttijd statistieken die verantwoordelijk is voor de regressie wordt weergegeven. 
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De uitvoer-informatie over verbeterde wacht tijd-gegevens en query-hashes van de betrokken query's-diagnoselogboek.
 
@@ -225,7 +225,7 @@ Zie voor meer informatie over het optimaliseren van prestaties van query's [Quer
 
 Dit patroon detecteerbare prestaties geeft aan dat de prestatieniveau van een database waarin een knelpunt van threads probeert te krijgen tot bronnen van tempDB bestaat. (Dit probleem niet i/o die betrekking hebben.) De typisch scenario voor dit probleem is honderden gelijktijdige query's dat alle maken, gebruiken en zet vervolgens neer kleine tempDB-tabellen. Er is gedetecteerd dat het aantal gelijktijdige query's met behulp van de dezelfde tempDB-tabellen met voldoende statistisch significante invloed heeft op de prestaties van de database is in vergelijking met de basislijn van de afgelopen zeven dagen prestaties worden verhoogd.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert tempDB conflicten details. Gebruik de informatie als startpunt voor het oplossen van problemen. Er zijn twee dingen die u voor het verlichten van dit soort conflicten en verhoogt de doorvoer van de algemene workload kunt voortzetten: U kunt stoppen met behulp van de tijdelijke tabellen. U kunt ook tabellen geoptimaliseerd voor geheugen gebruiken. 
 
@@ -237,9 +237,9 @@ Zie voor meer informatie, [Inleiding tot tabellen geoptimaliseerd voor geheugen]
 
 Dit patroon detecteerbare prestaties geeft aan dat een verslechtering van de in de huidige database werkbelastingsprestaties in vergelijking met de basislijn van de afgelopen zeven dagen. Het is vanwege het gebrek aan beschikbare dtu's in de elastische pool van uw abonnement. 
 
-Resources voor SQL Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), die bestaan uit een samengestelde meting van CPU- en i/o-resources voor (gegevens en transactielogboeken logboek-IO). [Elastische groep van Azure-resources](sql-database-elastic-pool.md) worden gebruikt als een pool van beschikbare eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer beschikbaar eDTU-resources in de elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een elastische pool DTU tekort prestatieprobleem gedetecteerd door het systeem.
+Resources voor SQL Database worden gewoonlijk aangeduid als [DTU-bronnen](sql-database-service-tiers.md#dtu-based-purchasing-model), die bestaan uit een samengestelde meting van CPU- en i/o-resources voor (gegevens en transactielogboeken logboek-IO). [Elastische groep van Azure-resources](sql-database-elastic-pool.md) worden gebruikt als een pool van beschikbare eDTU-resources die zijn gedeeld tussen meerdere databases voor het schalen van toepassing. Wanneer beschikbaar eDTU-resources in de elastische pool niet voldoende voor de ondersteuning van alle databases in de groep, wordt een elastische pool DTU tekort prestatieprobleem gedetecteerd door het systeem.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert informatie over de elastische pool, geeft een lijst van de bovenste DTU verbruikt databases en levert een percentage van de pool-DTU gebruikt door de database boven verbruikt.
 
@@ -261,7 +261,7 @@ Het nieuwe abonnement regressie voorwaarde verwijst naar een status waarin SQL-D
 
 Zie voor meer informatie over planning regressie [wat plan regressie in SQL Server is?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De logboekbestanden met diagnostische gegevens levert de query-hashes, goede plan-ID, ongeldige abonnement-ID en query-id's. U kunt deze informatie gebruiken als basis voor het oplossen van problemen.
 
@@ -283,7 +283,7 @@ Dit patroon detecteerbare prestaties geeft aan een voorwaarde waarin een wijzigi
 
 Wijzigingen in de database-scoped configuratie kunnen worden ingesteld voor elke afzonderlijke database. Deze configuratie wordt gebruikt op een per geval beoordeeld om de afzonderlijke prestaties van uw database te optimaliseren. De volgende opties kunnen worden geconfigureerd voor elke afzonderlijke database: MAXDOP, LEGACY_CARDINALITY_ESTIMATION, PARAMETER_SNIFFING, QUERY_OPTIMIZER_HOTFIXES en DUIDELIJKE PROCEDURE_CACHE.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 De uitvoer databasebereik configuratiewijzigingen die onlangs zijn aangebracht waardoor prestatievermindering in vergelijking met het gedrag van het vorige zeven dagen werkbelasting-diagnoselogboek. U kunt de configuratiewijzigingen in de vorige waarden herstellen. U kunt ook waarde door waarde afstemmen totdat het gewenste prestatieniveau is bereikt. U kunt database-scope-configuratiewaarden kopiëren uit een database vergelijkbaar met voldoende prestaties. Als u niet om op te lossen van de prestaties, terugkeren naar de standaardwaarden van de standaard-SQL-Database en proberen te starten vanaf deze basislijn aanpassen.
 
@@ -297,7 +297,7 @@ Dit patroon detecteerbare prestaties geeft zo snel mogelijk verzendt de resultat
 
 Deze voorwaarde wordt alleen gegenereerd als een regressie prestaties ten opzichte van de afgelopen zeven dagen database werkbelasting gedrag wordt gedetecteerd. Dit probleem wordt gedetecteerd alleen als er een statistisch merkbare prestatievermindering optreedt in vergelijking met vorige prestatiegedrag.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 Dit patroon detecteerbare prestaties geeft aan dat een client-side '-voorwaarde. Probleemoplossing is vereist op de client-side '-toepassing of de client-side '-netwerk. De logboekbestanden met diagnostische gegevens levert de query-hashes en wachttijden die lijken te zijn het meest voor de client te gebruiken in de afgelopen twee uur wachten. U kunt deze informatie gebruiken als basis voor het oplossen van problemen.
 
@@ -311,7 +311,7 @@ Dit patroon detecteerbare prestaties geeft aan een voorwaarde waarin de prijscat
 
 Bovendien kan er een voorwaarde waarin de prijscategorie van uw SQL Database-abonnement is een downgrade uitgevoerd en vervolgens een upgrade uitgevoerd naar een hogere laag binnen een korte periode. Detectie van deze tijdelijke prestatievermindering is gegenereerd in het gedeelte details van de logboekbestanden met diagnostische gegevens als een pricing tier downgrade en upgraden.
 
-### <a name="troubleshooting"></a>Problemen oplossen
+### <a name="troubleshooting"></a>Probleemoplossing
 
 Als u over uw prijscategorie, en dus het aantal dtu's beschikbaar zijn voor SQL-Database beperkte, en u tevreden met de prestaties bent, is er niets hoeft te doen. Als u uw prijscategorie verminderd en u tevreden met de prestaties van uw SQL-database bent, workloads van uw databases verlagen of vergroot de prijscategorie naar een hoger niveau.
 

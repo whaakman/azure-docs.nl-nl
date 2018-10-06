@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036953"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830987"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Gebruik woordgroep lijsten moeten worden boost signaal van de lijst met woorden
 
@@ -46,7 +46,7 @@ U kunt functies toevoegen aan uw LUIS-app voor het verbeteren van de nauwkeurigh
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> U kunt bewerken, verwijderen of een woordgroepenlijst van de drie puntjes deactiveren (***...*** ) knop aan het einde van de rij met tijdens elke exportactie woordgroepenlijst.
+> U kunt verwijderen of een woordgroepenlijst van de contextuele werkbalk deactiveren op de **lijsten woordgroep** pagina.
 
 ## <a name="pattern-regular-expression-feature"></a>De patroonfunctie (reguliere expressie) 
 **Deze functie is afgeschaft**. Nieuwe functies van het patroon kunnen niet worden toegevoegd aan LUIS. Eventuele bestaande patroon-functies worden ondersteund tot mei 2018. Bijdragen aan de standaard LUIS reguliere expressie die overeenkomt met een pull-aanvraag naar de [kenmerken tekst Github-opslagplaats](https://github.com/Microsoft/Recognizers-Text). 

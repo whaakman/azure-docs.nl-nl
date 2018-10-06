@@ -4,15 +4,15 @@ description: Vind antwoorden op veelgestelde vragen over Azure Files.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1f7fc9916fc856d636b6ad850f831a3235b80632
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 725aa5ff0d5ac0d6760656fc596fe44ca8661d1f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237752"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816120"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -179,7 +179,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="ad-support-regions"></a>
 **Is de Preview-versie van Azure AD via SMB voor Azure Files beschikbaar in alle Azure-regio's?**
 
-    De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS-West 2, Zuid-centraal VS, VS-Oost, VS-Oost 2, VS-midden, Noord-centraal VS, VS-Oost, Australië, West-Europa, Noord-Europa.
+    De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS Zuid-centraal, VS-midden, West-Europa, Noord-Europa.
 
 * <a id="ad-support-on-premises"></a>
 **Azure AD-verificatie via SMB voor Azure Files (Preview) biedt ondersteuning voor verificatie met behulp van Azure AD vanaf on-premises machines?**
@@ -245,14 +245,14 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="expressroute-not-required"></a>
 **Heb ik Azure ExpressRoute gebruiken voor het verbinding maken met Azure Files of voor het gebruik van Azure File Sync on-premises?**  
 
-    Nee. ExpressRoute is niet vereist voor toegang tot een Azure-bestandsshare. Als u wilt koppelen wordt een Azure-bestandsshare rechtstreeks on-premises alle die vereist is dat poort 445 (TCP uitgaand) openen voor toegang tot internet (dit is de poort die SMB gebruikt om te communiceren). Als u Azure File Sync, dat u nodig hebt, is poort 443 (TCP uitgaand) voor HTTPS-toegang (geen SMB vereist). Echter, u *kunt* ExpressRoute gebruiken met een van deze toegangsopties.
+    Nr. ExpressRoute is niet vereist voor toegang tot een Azure-bestandsshare. Als u wilt koppelen wordt een Azure-bestandsshare rechtstreeks on-premises alle die vereist is dat poort 445 (TCP uitgaand) openen voor toegang tot internet (dit is de poort die SMB gebruikt om te communiceren). Als u Azure File Sync, dat u nodig hebt, is poort 443 (TCP uitgaand) voor HTTPS-toegang (geen SMB vereist). Echter, u *kunt* ExpressRoute gebruiken met een van deze toegangsopties.
 
 * <a id="mount-locally"></a>
 **Hoe kan ik een Azure-bestandsshare koppelen op mijn lokale computer?**  
 
     U kunt de bestandsshare koppelt via het SMB-protocol als poort 445 (TCP uitgaand) geopend is en de client het SMB 3.0-protocol ondersteunt (bijvoorbeeld, als u Windows 10 of Windows Server 2016). Als poort 445 wordt geblokkeerd door het beleid van uw organisatie of door uw Internetprovider, kunt u Azure File Sync kunt gebruiken voor toegang tot uw Azure-bestandsshare.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Back-up
 * <a id="backup-share"></a>
 **Hoe kan ik maak een back-up van mijn Azure-bestand delen?**  
     U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
@@ -348,7 +348,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="need-larger-share"></a>
 **Ik heb nodig een grotere bestandsshare dan Azure Files op dit moment biedt. Kan ik de grootte van mijn Azure-bestandsshare vergroten?**  
-    Nee. De maximale grootte van een Azure-bestandsshare is 5 TiB. Dit is momenteel een vaste limiet die we niet aanpassen. Er wordt gewerkt aan een oplossing voor het verhogen van de grootte van de bestandsshare in 100 TiB, maar er zijn geen tijdlijnen om te delen op dit moment.
+    Nr. De maximale grootte van een Azure-bestandsshare is 5 TiB. Dit is momenteel een vaste limiet die we niet aanpassen. Er wordt gewerkt aan een oplossing voor het verhogen van de grootte van de bestandsshare in 100 TiB, maar er zijn geen tijdlijnen om te delen op dit moment.
 
 * <a id="open-handles-quota"></a>
 **Hoeveel clients kunnen tegelijkertijd toegang krijgen tot hetzelfde bestand?**   
@@ -377,7 +377,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="nested-shares"></a>
 **Kan ik geneste shares instellen? Met andere woorden, een share onder een share?**  
-    Nee. De bestandsshare *is* het virtuele stuurprogramma dat u koppelen kunt, zodat de geneste shares worden niet ondersteund.
+    Nr. De bestandsshare *is* het virtuele stuurprogramma dat u koppelen kunt, zodat de geneste shares worden niet ondersteund.
 
 * <a id="ibm-mq"></a>
 **Hoe gebruik ik Azure Files met IBM MQ?**  

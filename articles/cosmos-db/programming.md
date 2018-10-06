@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 3c18478fb2996178ee0b75870ce63dfc79ad4c4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054720"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817095"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB-server-side-programmering: opgeslagen procedures, databasetriggers en UDF's
 
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Het contextobject biedt toegang tot alle bewerkingen die kunnen worden uitgevoerd op Cosmos DB-opslag, evenals de toegang tot de aanvraag- en -objecten. In dit geval kunt u de antwoordobject voor de hoofdtekst van het antwoord dat is verzonden naar de client ingesteld. Zie voor meer informatie de [Azure Cosmos DB JavaScript server SDK-documentatie](https://azure.github.io/azure-cosmosdb-js-server/).  
+Het contextobject biedt toegang tot alle bewerkingen die kunnen worden uitgevoerd op Cosmos DB-opslag, evenals de toegang tot de aanvraag- en -objecten. In dit geval kunt u de antwoordobject voor de hoofdtekst van het antwoord dat is verzonden naar de client ingesteld. Zie voor meer informatie de [Azure Cosmos DB JavaScript-serverzijde API-verwijzing](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Laat het ons Vouw op het volgende voorbeeld en meer met betrekking tot database functionaliteit toevoegen aan de opgeslagen procedure. Opgeslagen procedures kunnen maken, bijwerken, lezen, query's uitvoeren en verwijderen van documenten en bijlagen in de verzameling.    
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript language integrated query API
-Naast het uitgeven van query's met behulp van Azure Cosmos DB SQL-grammatica, kunt de SDK-serverzijde u geoptimaliseerde query's uitvoeren met een gestroomlijnde JavaScript-interface zonder enige kennis van SQL. De JavaScript-query-API u query's via een programma kunt maken kunt met het predicaat functies wordt doorgegeven aan de chainable functie aanroept, met een syntaxis die bekend is bij de matrix dient te worden en populaire JavaScript-bibliotheken zoals Lodash van ECMAScript5. Query's worden geparseerd door het JavaScript-runtime efficiënt met behulp van Azure Cosmos DB-indexen worden uitgevoerd.
+Naast het uitgeven van query's met behulp van Azure Cosmos DB SQL-grammatica, de [server-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) kunt u geoptimaliseerde query's uitvoeren met een gestroomlijnde JavaScript-interface zonder enige kennis van SQL. De JavaScript-query-API u query's via een programma kunt maken kunt met het predicaat functies wordt doorgegeven aan de chainable functie aanroept, met een syntaxis die bekend is bij de matrix dient te worden en populaire JavaScript-bibliotheken zoals Lodash van ECMAScript5. Query's worden geparseerd door het JavaScript-runtime efficiënt met behulp van Azure Cosmos DB-indexen worden uitgevoerd.
 
 > [!NOTE]
 > `__` (dubbel-onderstrepingsteken) is een alias voor `getContext().getCollection()`.
@@ -752,7 +752,7 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 }
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 Alle Azure Cosmos DB-bewerkingen kunnen worden uitgevoerd op een RESTful manier. Opgeslagen procedures, triggers en gebruikersgedefinieerde functies kunnen worden geregistreerd bij een verzameling met behulp van HTTP POST. Het volgende voorbeeld ziet u informatie over het registreren van een opgeslagen procedure:
 
     POST https://<url>/sprocs/ HTTP/1.1
@@ -831,9 +831,8 @@ Zodra u hebt een of meer opgeslagen procedures, triggers en gebruikersgedefiniee
 
 Ook kan nuttig voor u de volgende verwijzingen en resources in het pad voor meer informatie over Azure Cosmos dB-serverzijde programmeren:
 
-* [Azure Cosmos DB SDK 's](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB JavaScript-serverzijde API-naslaginformatie](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Veilige en draagbare Database uitbreidbaarheid](http://dl.acm.org/citation.cfm?id=276339) 
 * [Service Oriented Architecture voor Database](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

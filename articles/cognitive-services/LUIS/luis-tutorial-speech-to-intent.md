@@ -10,12 +10,12 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1625bb9e9f51f8460db4e7ccbaf6e5eada3f8180
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042071"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831056"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. Het project gebruikmaakt van de gesproken tekst [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al is opgenomen als een verwijzing. 
@@ -118,7 +118,7 @@ De juiste intentie **GetEmployeeOrgChart**, met een betrouwbaarheid van 61% is g
 De SDK spraak retourneert het gehele LUIS-antwoord. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u niet meer nodig hebt, verwijdert u de app LUIS HumanResources. Selecteer hiervoor de drie puntjes (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u niet meer nodig hebt, verwijdert u de app LUIS HumanResources. Om dit te doen, selecteert u de app en vervolgens op de werkbalk boven de lijst met een contextuele **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 Houd er rekening mee te verwijderen van de LUIS-Samples-directory wanneer u klaar bent met behulp van de voorbeeldcode.
 

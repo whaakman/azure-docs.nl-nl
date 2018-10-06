@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5e8e8d1923caf5f51cffedd6b918dbc617b5c3a9
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785474"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816601"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -32,6 +32,9 @@ Er zijn twee typen uitvoeren als-Accounts:
 * **Azure klassieke uitvoeren als-Account** -dit account wordt gebruikt om klassieke implementatie model resources te beheren.
   * Er wordt een Automation-certificaatasset gemaakt met de naam *AzureClassicRunAsCertificate* in het opgegeven Automation-account. Het certificaatasset bevat de persoonlijke sleutel van het certificaat die wordt gebruikt door het beheercertificaat.
   * Er wordt een Automation-verbindingsasset gemaakt met de naam *AzureClassicRunAsConnection* in het opgegeven Automation-account. Het verbindingsasset bevat de naam van het abonnement, de abonnements-id en de certificaatassetnaam.
+  
+  > [!NOTE]
+  > Abonnementen voor Azure Cloud Solution Provider (Azure CSP) ondersteunen alleen de Azure Resource Manager-model, niet - Azure Resource Manager-services zijn niet beschikbaar in het programma. Wanneer u een CSP-abonnement heeft niet de klassiek uitvoeren als-Account gemaakt. Het Azure uitvoeren als-Account wordt nog steeds gemaakt. Zie voor meer informatie over het CSP-abonnementen, [beschikbare services in CSP-abonnementen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="permissions"></a>Machtigingen voor het uitvoeren als-accounts configureren
 
@@ -64,7 +67,7 @@ In deze sectie voert u de volgende stappen uit om uw Azure Automation-account bi
 
 ## <a name="create-run-as-account-using-powershell"></a>Uitvoeren als-account maken met behulp van PowerShell
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 De volgende lijst bevat de vereisten voor het uitvoeren als-account maken in PowerShell:
 

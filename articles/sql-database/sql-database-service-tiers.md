@@ -12,27 +12,28 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/02/2018
-ms.openlocfilehash: 99914fd1fbfb2647f54c8257145132db2c7bf045
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 1bcaceb0f4d96b66d7fd25b1733b3f505316fe5a
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249108"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830552"
 ---
-# <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database-modellen en -bronnen aanschaffen 
+# <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
-Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften: 
- - [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) biedt twee aankopen modellen voor berekening, opslag en i/o-resources: een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Binnen deze aankoopmodel kunt u kiezen [enkelvoudige databases](sql-database-single-databases-manage.md) of [elastische pools](sql-database-elastic-pool.md).
- - [Beheerde exemplaren](sql-database-managed-instance.md) in enige aanbieding van Azure SQL Database de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
+Azure SQL Database kunt u gemakkelijk volledig beheerde PaaS-database-engine die past bij de behoeften van uw prestaties en kosten kunt kopen. Afhankelijk van het implementatiemodel van Azure SQL Database, kunt u de aankopen model dat aansluit bij uw behoeften:
+
+- [Logische servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) biedt twee aankopen modellen voor berekening, opslag en i/o-resources: een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en een [op vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). Binnen deze aankoopmodel kunt u kiezen [enkelvoudige databases](sql-database-single-databases-manage.md) of [elastische pools](sql-database-elastic-pool.md).
+- [Beheerde exemplaren](sql-database-managed-instance.md) in enige aanbieding van Azure SQL Database de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Zeer grootschalige databases (preview)](sql-database-hyperscale.md) nu in openbare preview, alleen voor individuele databases met behulp van de vCore model kopen. 
+> [Zeer grootschalige databases (preview)](sql-database-service-tier-hyperscale.md) nu in openbare preview, alleen voor individuele databases met behulp van de vCore model kopen.
 
 De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contrast.
 
 |**Aankopen model**|**Beschrijving**|**Het meest geschikt voor**|
 |---|---|---|
-|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
+|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
 |Model op basis van vCore|Dit model kunt u reken- en opslagresources onafhankelijk van elkaar te kiezen. Ook kunt u Azure Hybrid Benefit voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor klanten die flexibiliteit, controle en transparantie waarde.|
 ||||  
 
@@ -40,9 +41,10 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 
 ## <a name="vcore-based-purchasing-model"></a>op vCore gebaseerde aankoopmodel 
 
-Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#standardgeneral-purpose-availability) en [bedrijfskritiek](sql-database-high-availability.md#premiumbusiness-critical-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [ beheerde exemplaren](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). Voor individuele databases, u kunt ook de [grootschalige (preview)](sql-database-hyperscale.md) servicelaag.
+Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#standardgeneral-purpose-availability) en [bedrijfskritiek](sql-database-high-availability.md#premiumbusiness-critical-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [ beheerde exemplaren](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). Voor individuele databases, u kunt ook de [grootschalige (preview)](sql-database-service-tier-hyperscale.md) servicelaag.
 
 Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresources kiest, overeenkomt met de on-premises prestaties en optimaliseren van de prijs. In het op vCore gebaseerde aankoopmodel betalen klanten voor:
+
 - COMPUTE (servicelaag + aantal vCores en de hoeveelheid geheugen en de generatie van de hardware)
 - Type en de hoeveelheid opslag van gegevens en logboekbestanden 
 - Back-upopslag (RA-GRS) 
@@ -57,7 +59,8 @@ Als uw database of elastische pool meer dan 300 DTU conversie naar vCore verbrui
 
 De Database Transaction Unit (DTU) vertegenwoordigt een samengestelde meting van CPU, geheugen, leest en schrijft. Het op DTU gebaseerde aankoopmodel biedt een reeks vooraf geconfigureerde bundels van rekenresources en inbegrepen opslag op verschillende niveaus van de schijf van de prestaties van toepassingen. Klanten die de voorkeur geeft aan de eenvoud van een vooraf geconfigureerde bundel en vaste betalingen elke maand, vindt het dtu model beter geschikt is voor hun behoeften. In de DTU gebaseerde aankoopmodel, klanten kunnen kiezen uit **Basic**, **Standard**, en **Premium** Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md) en [elastische pools](sql-database-elastic-pool.md). Dit aankoopmodel is niet beschikbaar in [instanties die worden beheerd](sql-database-managed-instance.md).
 
-### <a name="what-are-database-transaction-units-dtus"></a>Wat zijn Database Transaction Units (dtu's)?
+### <a name="database-transaction-units-dtus"></a>Database Transaction Units (dtu's)
+
 Compute voor één Azure SQL-database op een specifieke grootte binnen een [servicelaag](sql-database-single-database-scale.md), garandeert Microsoft een bepaald niveau van resources voor die database (onafhankelijk van een andere database in de Azure-cloud), bieden een voorspelbaar niveau van de prestaties. De hoeveelheid resources wordt berekend als een getal van Database Transaction Units of dtu's en is een gecombineerde meting van compute, opslag- en i/o-resources. De verhouding tussen deze resources werd oorspronkelijk bepaald door een [OLTP-benchmark werkbelasting](sql-database-benchmark-overview.md), ontworpen om u te zijn van echte OLTP-workloads. Wanneer uw workload hoger is dan de hoeveelheid van elk van deze resources, is de doorvoer van uw beperkte - wat resulteert in tragere prestaties en time-outs. De resources die worden gebruikt voor uw werkbelasting niet invloed hebben op de beschikbare resources voor andere SQL-databases in de Azure-cloud en de resources die worden gebruikt door andere werkbelastingen niet invloed hebben op de beschikbare resources voor uw SQL-database.
 
 ![selectiekader](./media/sql-database-what-is-a-dtu/bounding-box.png)
@@ -70,7 +73,8 @@ Gebruiken om te krijgen van inzicht in het gebruik van resources (DTU) van uw we
 - Zoom in op de details van een query, de tekst en de geschiedenis van Resourcegebruik weergeven.
 - Prestaties voor gegevenstoegang aanbevelingen die laten zien van acties die worden uitgevoerd door voor het afstemmen [SQL Database Advisor](sql-database-advisor.md).
 
-### <a name="what-are-elastic-database-transaction-units-edtus"></a>Wat zijn de elastic Database Transaction Units (edtu's)?
+### <a name="elastic-database-transaction-units-edtus"></a>Elastic Database Transaction Units (edtu's)
+
 Dan bieden een toegewezen set met resources (dtu's) die mogelijk niet altijd nodig zijn voor een SQL-Database die altijd beschikbaar is, kunt u in plaats van databases plaats een [elastische pool](sql-database-elastic-pool.md) op een SQL-Database-server die een groep resources tussen deelt Deze databases. De gedeelde bronnen in een elastische pool worden gemeten op basis van elastische Database Transaction Units of edtu's. Elastische pools bieden een eenvoudige en kosteneffectieve oplossing voor het beheren van de prestatiedoelen voor meerdere databases met breed uiteenlopende en onvoorspelbare gebruikspatronen. Een elastische pool garandeert resources kunnen niet worden gebruikt door een database in de pool, terwijl altijd ervoor te zorgen dat elke database in de pool een minimale hoeveelheid benodigde bronnen beschikbaar heeft. 
 
 ![Inleiding tot SQL Database: eDTU's per laag en niveau](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
@@ -79,12 +83,13 @@ Een pool krijgt een bepaald aantal edtu's voor een vaste prijs. Binnen de elasti
 
 Er kunnen extra eDTU's aan een bestaande pool worden toegevoegd zonder uitvaltijd van de database en zonder gevolgen voor de databases in de pool. En als de extra eDTU's niet meer nodig zijn, kunnen ze op elk moment uit een bestaande pool worden verwijderd. U kunt toevoegen of verwijderen uit de groep of de limiet voor de hoeveelheid edtu's een database kunt gebruiken onder zware belasting te reserveren edtu's voor andere databases. Als een database is naar verwachting minder resources, die u kunt deze uit de pool verplaatsen en configureren als een individuele database met een voorspelbare hoeveelheid vereiste resources.
 
-### <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>Hoe bepaal ik hoeveel DTU's ik met mijn workload nodig heb?
+### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Het aantal dtu's die nodig zijn voor een werkbelasting bepalen
+
 Als u een bestaande workload voor virtuele on-premises of SQL Server-machines wilt migreren naar Azure SQL Database, kunt u de [DTU-rekenmachine](http://dtucalculator.azurewebsites.net/) gebruiken om een schatting te maken van het aantal benodigde DTU's. Voor een bestaande Azure SQL Database-workload, kunt u [SQL Database Query Performance Insight](sql-database-query-performance.md) om uw verbruik van databaseresources (dtu's) om te krijgen van inzicht voor het optimaliseren van uw werkbelasting te begrijpen. U kunt ook de [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV om gebruik van resources voor het afgelopen uur weer te geven. U kunt ook de catalogusweergave [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) resourceverbruik voor de afgelopen 14 dagen, maar op een lagere betrouwbaarheid van gemiddeld vijf minuten worden weergegeven.
 
-### <a name="how-do-i-know-if-i-could-benefit-from-an-elastic-pool-of-resources"></a>Hoe weet ik of een elastische pool met resources voor mij voordeliger is?
-Pools zijn geschikt voor een groot aantal databases met specifieke gebruikspatronen. Voor een bepaalde database, wordt dit patroon gekenmerkt door een gemiddelde laag gebruik met relatief incidentele gebruikspieken. SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Zie [Wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool.md) voor meer informatie.
+### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Workloads die baat bij een elastische pool met resources hebben
 
+Pools zijn geschikt voor een groot aantal databases met specifieke gebruikspatronen. Voor een bepaalde database, wordt dit patroon gekenmerkt door een gemiddelde laag gebruik met relatief incidentele gebruikspieken. SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Zie [Wanneer moet een elastische pool worden gebruikt?](sql-database-elastic-pool.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

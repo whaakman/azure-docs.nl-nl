@@ -7,15 +7,15 @@ author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 73aa67ec4939aca28a28e1733a39c8517c2c38c5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8fa70705d1dff5c3150fa5868938a3c50ef863fe
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435500"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815560"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Ondersteuning voor de Bing webzoekopdrachten-API voor aangepaste taal en regio
 
@@ -44,10 +44,10 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Duitsland|DE|
 |Hongkong|HK|
 |India|IN|
-|Indonesië|Id|
-|Italië|IT|
+|Indonesië|ID|
+|Italië|it|
 |Japan|JP|
-|Korea|KR|
+|Zuid-Korea|KR|
 |Maleisië|MIJN|
 |Mexico|MX|
 |Nederland|NL|
@@ -56,9 +56,9 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |China|ALGEMENE NAAM|
 |Polen|PL|
 |Portugal|PT|
-|Filippijnen|PH|
+|Filipijnen|PH|
 |Rusland|RU|
-|Saoedi-Arabië|SA|
+|Saudi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|TWEEDE EDITIE|
@@ -74,12 +74,12 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|ES-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|NL-worden|
 |België|Frans|FR-worden|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|ES-CL|
 |Denemarken|Deens|da-DK|
@@ -87,29 +87,29 @@ De `Accept-Language` header en het `setLang` queryparameter zijn sluiten elkaar 
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Zuid-Korea|Koreaans|ko-KR|
+|Maleisië|Engels|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |Noorwegen|Noors|uit den boze|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filippijnen|Nederlands|NL-PH|
+|Filipijnen|Engels|NL-PH|
 |Rusland|Russisch|ru-RU|
-|Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|NL-ZA|
+|Saudi-Arabië|Arabisch|ar-SA|
+|Zuid-Afrika|Engels|NL-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|nl-NL|
 |Verenigde Staten|Spaans|ES-US|

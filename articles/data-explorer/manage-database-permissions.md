@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7f1e06fba76b833d4a344af1163ef7ef2c29bdb6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954014"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816851"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure Data Explorer databasemachtigingen beheren
 
@@ -31,7 +31,6 @@ Azure Data Explorer heeft de volgende rollen:
 |Databasegebruiker              |Kan lezen alle gegevens en metagegevens in de database. Ze kunnen bovendien tabellen (om de beheerder van de tabel voor deze tabel) en -functies in de database maken.|
 |Database-viewer            |Kan lezen alle gegevens en metagegevens in de database.|
 |Database ingestor          |Kan opnemen van gegevens op alle bestaande tabellen in de database, maar niet de gegevens op te vragen.|
-|Database unrestrictedviewer|Query kunt uitvoeren op tabellen waarvoor de **RestrictedViewAccess** beleid is ingeschakeld. Kan geen query uitvoeren op andere tabellen.|
 |Database-monitor           |Kan '.show...' opdrachten uitvoeren in de context van de database en de onderliggende entiteiten.|
 |Tabel-beheerder                |Alles binnen het bereik van een bepaalde tabel kunnen doen. |
 |Tabel ingestor             |Kan opnemen van gegevens in het bereik van een bepaalde tabel, maar niet de gegevens op te vragen.|

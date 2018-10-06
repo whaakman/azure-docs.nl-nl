@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: c513ef76174507f1ea78b265b1882266b8473737
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248938"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815865"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -64,7 +64,7 @@ Verwijzen respectievelijk naar de volgende secties over de vereisten en JSON-voo
 
 - [SQL-verificatie](#sql-authentication)
 - [Azure AD-toepassing-tokenverificatie: Service-principal](#service-principal-authentication)
-- [Azure AD-toepassing-tokenverificatie: beheerde identiteiten voor een Azure-resources](#managed-service-identity-authentication)
+- [Azure AD-toepassing-tokenverificatie: beheerde identiteiten voor een Azure-resources](#managed-identity)
 
 >[!TIP]
 >Als u fout met foutcode als "UserErrorFailedToConnectToSqlServer" bereikt en wordt weergegeven, zoals 'de sessielimiet voor de database is XXX en is bereikt.', toe te voegen `Pooling=false` met de verbindingstekenreeks en probeer het opnieuw.
@@ -146,7 +146,7 @@ Volg deze stappen voor het gebruik van een tokenverificatie voor service-princip
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Beheerde identiteiten voor verificatie van de Azure-resources
+### <a name="managed-identity"></a> Beheerde identiteiten voor verificatie van de Azure-resources
 
 Een data factory, kan worden gekoppeld aan een [beheerde identiteit voor de Azure-resources](data-factory-service-identity.md) die staat voor de specifieke data factory. U kunt deze service-identiteit gebruiken voor Azure SQL Database-verificatie. Toegang heeft tot de aangewezen factory en gegevens kopiëren van of naar de database met behulp van deze identiteit.
 
@@ -344,7 +344,7 @@ Instellen om gegevens te kopiëren naar Azure SQL Database, de **type** sink-eig
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De **type** eigenschap van de Copy-activiteit-sink moet zijn ingesteld op **SqlSink**. | Ja |
-| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nee. De standaardwaarde is 10000. |
+| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte bereikt **writeBatchSize**.<br/> De toegestane waarde is **geheel getal** (aantal rijen). | Nr. De standaardwaarde is 10000. |
 | writeBatchTimeout | De wachttijd voor de batch invoegen bewerking is voltooid voordat er een optreedt time-out.<br/> De toegestane waarde is **timespan**. Voorbeeld: "00: 30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Azure SQL Database. Deze wordt slechts één keer aangeroepen per exemplaar uitvoeren. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
 | sqlWriterStoredProcedureName | De naam van de opgeslagen procedure die over het toepassen van gegevens in een doeltabel definieert. Een voorbeeld is upsert-bewerking of transformeren met behulp van uw eigen bedrijfslogica. <br/><br/>Deze opgeslagen procedure is **per batch aangeroepen**. Voor bewerkingen die slechts één keer uitgevoerd en hebben niets te doen met de brongegevens, gebruikt u de `preCopyScript` eigenschap. Voorbeeld van de bewerkingen zijn verwijderen en afkappen. | Nee |
@@ -580,11 +580,11 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 |:--- |:--- |
 | bigint |Int64 |
 | binaire bestanden |Byte[] |
-| bits |Booleaans |
+| bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |DateTime |
-| Datum en tijd |DateTime |
-| datetime2 |DateTime |
+| datum |Datum en tijd |
+| Datum en tijd |Datum en tijd |
+| datetime2 |Datum en tijd |
 | Datetimeoffset |DateTimeOffset |
 | decimaal |decimaal |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte[] |
@@ -598,7 +598,7 @@ Wanneer u gegevens van of naar Azure SQL Database kopieert, worden de volgende t
 | nvarchar |Tekenreeks, Char] |
 | echte |Enkelvoudig |
 | ROWVERSION |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |decimaal |
 | sql_variant |Object * |

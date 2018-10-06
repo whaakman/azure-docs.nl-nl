@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8ae97869f51b4ab92b820bb05f1484d986095736
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042549"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817142"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Maken en configureren van een zelf-hostende integratieruntime
 De integratieruntime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt zodat de mogelijkheden van de integratie van gegevens in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration runtime](concepts-integration-runtime.md).
@@ -59,7 +59,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Overwegingen voor het gebruik van een zelf-hostende IR
 
-- Een enkele zelf-hostende integratieruntime kan worden gebruikt voor meerdere on-premises gegevensbronnen. Een enkele zelf-hostende integratieruntime kan worden gedeeld met een andere data factory binnen dezelfde Azure Active Directory-tenant. Zie voor meer informatie, [delen van een zelf-hostende integratieruntime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
+- Een enkele zelf-hostende integratieruntime kan worden gebruikt voor meerdere on-premises gegevensbronnen. Een enkele zelf-hostende integratieruntime kan worden gedeeld met een andere data factory binnen dezelfde Azure Active Directory-tenant. Zie voor meer informatie, [delen van een zelf-hostende integratieruntime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
 - U kunt slechts één exemplaar van een zelf-hostende integratieruntime op één computer geïnstalleerd hebben. Hebt u twee data factory's die nodig voor toegang tot on-premises gegevensbronnen, moet u de zelf-hostende integratieruntime installeren op twee on-premises computers. Met andere woorden, is een zelf-hostende integratieruntime gekoppeld aan een specifieke data factory.
 - De zelf-hostende integratieruntime hoeft niet te worden op dezelfde computer als de gegevensbron. Echter verkort met de zelf-hostende integratieruntime dichter bij de gegevensbron de termijn voor de zelf-hostende integratieruntime verbinding maken met de gegevensbron. Het is raadzaam dat u installeert de zelf-hostende integratieruntime op een computer die verschilt van de hosts on-premises gegevensbron. Wanneer de zelf-hostende integration runtime en de gegevensbron zich op verschillende computers bevinden, kunnen de zelf-hostende integratieruntime niet concurreren voor resources met de gegevensbron.
 - U kunt meerdere zelf-hostende integratieruntimes hebben op verschillende computers die verbinding met dezelfde on-premises gegevensbron maken. Bijvoorbeeld, u mogelijk twee zelf-hostende integratieruntimes die u beschikbaar twee data factory's maakt, maar dezelfde on-premises gegevensbron is geregistreerd bij de gegevensfactory.
@@ -69,7 +69,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 - Zelfs als het gegevensarchief in de cloud op een virtuele machine van Azure IaaS is, moet u de zelf-hostende integratieruntime gebruiken.
 - Taken mislukken in een zelf-hostende integratieruntime die geïnstalleerd op een Windows-server op welke FIPS-compatibele versleuteling is ingeschakeld. U lost dit probleem FIPS-compatibele versleuteling op de server uit te schakelen. Als u wilt uitschakelen FIPS-compatibele versleuteling, wijzigt u de volgende registerwaarde van 1 (ingeschakeld) op 0 (uitgeschakeld): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - De ondersteunde besturingssysteemversies zijn Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Installatie van de zelf-hostende integratieruntime op een domeincontroller wordt niet ondersteund.
 - .NET framework 4.6.1 of hoger is vereist. Als u de zelf-hostende integratieruntime op een computer met Windows 7 installeert, installeert u .NET Framework 4.6.1 of hoger. Zie [.NET Framework-systeemvereisten](/dotnet/framework/get-started/system-requirements) voor meer informatie.

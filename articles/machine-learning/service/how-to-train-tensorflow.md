@@ -9,19 +9,19 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ba43593e90b78aaa0083faf4f8162a7663c0ad47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43302bd449b2a25e3e1a65da5ae2a70c3660cb09
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974218"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815015"
 ---
 # <a name="how-to-train-tensorflow-models"></a>Hoe TensorFlow modellen kunt trainen
 
-Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste TensorFlow-klasse van de kostenraming. De Azure SDK TensorFlow Estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig TensorFlow-trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen indienen.
+Azure Machine Learning biedt voor deep neural network (DNN) training over het gebruik van TensorFlow, een aangepaste `TensorFlow` klasse van de `Estimator`. De Azure SDK `TensorFlow` estimator (niet te worden conflated met de [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klasse) kunt u eenvoudig TensorFlow-trainingstaken voor één knooppunt en het gedistribueerde wordt uitgevoerd op Azure-rekenen indienen.
 
 ## <a name="single-node-training"></a>Training voor één knooppunt
-Training met de TensorFlow Estimator is vergelijkbaar met de [baseren Estimator](how-to-train-ml-models.md), dus eerst Lees het artikel met instructies en zorg ervoor dat u er de concepten begrijpen.
+Training met de `TensorFlow` estimator is vergelijkbaar met de [basis `Estimator` ](how-to-train-ml-models.md), dus eerst Lees het artikel met instructies en zorg ervoor dat u er de concepten begrijpen.
   
 Exemplaar om uit te voeren een taak TensorFlow, maken van een `TensorFlow` object. U moet al hebt gemaakt uw [compute-doel](how-to-set-up-training-targets.md#batch) object `compute_target`.
 
@@ -42,13 +42,15 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```
 
 Hier geeft u de volgende parameters voor de TensorFlow-constructor:
-* `source_directory`: De lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute
-* `script_params`: Een woordenlijst op te geven de opdrachtregelargumenten voor uw trainingsscript `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren
-* `compute_target`: De externe compute die uw trainingsscript uitgevoerd op, in dit geval een [Batch AI](how-to-set-up-training-targets.md#batch) cluster
-* `entry_script`: De filepath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
-* `conda_packages`: De lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript. In dit geval trainingsscript gebruikt `sklearn` om de gegevens te laden, dus geef dit pakket kan worden geïnstalleerd.  
-De constructor heeft een andere parameter met de naam `pip_packages` die u kunt gebruiken voor een pip-pakketten die nodig zijn
-* `use_gpu`: Met deze markering wordt ingesteld op `True` gebruikmaken van de GPU voor training. Standaard ingesteld op `False`.
+
+Parameter | Beschrijving
+--|--
+`source_directory` | Lokale map waarin alle uw code die nodig zijn voor de trainingstaak. Deze map wordt op uw lokale machine gekopieerd naar de externe compute
+`script_params` | Woordenlijst voor de opdrachtregelargumenten voor uw trainingsscript op te geven `entry_script`, in de vorm van < opdrachtregelargument, waarde > paren
+`compute_target` | Externe compute die uw trainingsscript uitgevoerd op, in dit geval een [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`entry_script` | FilePath (relatief aan de `source_directory`) van het trainingsscript in de berekening die extern worden uitgevoerd. Dit bestand en eventuele aanvullende bestanden dat hangt ervan af, moeten zich bevinden in deze map
+`conda_packages` | Lijst met Python-pakketten worden geïnstalleerd via conda die nodig zijn voor uw trainingsscript. In dit geval trainingsscript gebruikt `sklearn` om de gegevens te laden, dus geef dit pakket kan worden geïnstalleerd.  De constructor heeft een andere parameter met de naam `pip_packages` die u kunt gebruiken voor een pip-pakketten die nodig zijn
+`use_gpu` | Deze vlag ingesteld op `True` gebruikmaken van de GPU voor training. Standaard ingesteld op `False`.
 
 Omdat u van de estimator TensorFlow gebruikmaakt, de container die wordt gebruikt voor de training wordt standaard de TensorFlow-pakket en de bijbehorende afhankelijkheden die nodig zijn voor de training over CPU's en GPU's omvatten.
 
@@ -61,8 +63,8 @@ run = exp.submit(tf_est)
 De TensorFlow Estimator kunt u uw modellen op schaal te trainen voor CPU en GPU-clusters virtuele Azure-machines. U kunt eenvoudig gedistribueerde TensorFlow-training uitvoeren met een aantal API-aanroepen, terwijl Azure Machine Learning achter de schermen beheert de infrastructuur en orchestration die nodig zijn voor het uitvoeren van deze werkbelastingen.
 
 Azure Machine Learning ondersteunt twee methoden van gedistribueerde training in TensorFlow:
-1. Op basis van een MPI gedistribueerd training met behulp van de [Horovod](https://github.com/uber/horovod) framework
-2. systeemeigen [gedistribueerde TensorFlow](https://www.tensorflow.org/deploy/distributed) via de methode van de parameter-server
+* Op basis van een MPI gedistribueerd training met behulp van de [Horovod](https://github.com/uber/horovod) framework
+* systeemeigen [gedistribueerde TensorFlow](https://www.tensorflow.org/deploy/distributed) via de methode van de parameter-server
 
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) is een open-source ring-allreduce-framework voor gedistribueerde cursussen ontwikkeld door Uber.
@@ -83,13 +85,17 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```
 
 De bovenstaande code wordt aangegeven dat de volgende nieuwe parameters voor de TensorFlow-constructor:
-* `node_count`: Het aantal knooppunten moet worden gebruikt voor de trainingstaak. Dit argument standaard ingesteld op `1`
-* `process_count_per_node`: Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt. Dit argument standaard ingesteld op `1`
-* `distributed_backend`: De back-end voor het starten distributed opleiding, die de Estimator via MPI biedt. Dit argument standaard ingesteld op `None`. Als u wilt uitvoeren van parallelle en gedistribueerde training (bijvoorbeeld `node_count`> 1 of `process_count_per_node`> 1 of beide) instellen met MPI (en Horovod) `distributed_backend='mpi'`. De MPI-implementatie die worden gebruikt door Azure Machine Learning is [Open MPI](https://www.open-mpi.org/).
+
+Parameter | Beschrijving | Normaal
+--|--|--
+`node_count` | Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
+`process_count_per_node` | Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt.|`1`
+`distributed_backend` | Back-end voor het starten distributed opleiding, die de Estimator via MPI biedt. Als u wilt uitvoeren van parallelle en gedistribueerde training (bijvoorbeeld `node_count`> 1 of `process_count_per_node`> 1 of beide) instellen met MPI (en Horovod) `distributed_backend='mpi'`. De MPI-implementatie die worden gebruikt door Azure Machine Learning is [Open MPI](https://www.open-mpi.org/). | `None`
 
 Het bovenstaande voorbeeld wordt gedistribueerd training worden uitgevoerd met twee werkrollen één werknemer per knooppunt.
 
 Horovod en de bijbehorende afhankelijkheden wordt geïnstalleerd, zodat u deze eenvoudig in uw trainingsscript importeren kunt `train.py` als volgt:
+
 ```Python
 import tensorflow as tf
 import horovod
@@ -104,6 +110,7 @@ run = exp.submit(tf_est)
 U kunt ook uitvoeren [native gedistribueerde TensorFlow](https://www.tensorflow.org/deploy/distributed), waarbij het servermodel parameter worden gebruikt. Bij deze methode hoeft trainen u in een cluster van de parameter-servers en werknemers. De werknemers Bereken de verlopen tijdens de training, terwijl de parameter-servers de verlopen aggregeren.
 
 Bouw het TensorFlow-object:
+
 ```Python
 from azureml.train.dnn import TensorFlow
 
@@ -119,9 +126,12 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```
 
 Let op de volgende parameters voor de TensorFlow-constructor in de bovenstaande code:
-* `worker_count`: Het aantal werknemers. Dit argument standaard ingesteld op `1`
-* `parameter_server_count`: Het aantal parameter-servers. Dit argument standaard ingesteld op `1`
-* `distributed_backend`: De back-end te gebruiken voor een gedistribueerde training. Dit argument standaard ingesteld op `None`. Om andere gedistribueerde training via de parameterserver, moet u instellen `distributed_backend='ps'`
+
+Parameter | Beschrijving | Normaal
+--|--|--
+`worker_count` | Het aantal werknemers. | `1`
+`parameter_server_count` | Het aantal parameter-servers. | `1`
+`distributed_backend` | Back-end te gebruiken voor een gedistribueerde training. Hiervoor gedistribueerde training via de parameterserver instellen `distributed_backend='ps'` | `None`
 
 #### <a name="note-on-tfconfig"></a>Houd er rekening mee op `TF_CONFIG`
 U moet ook de netwerkadressen en poorten van het cluster voor de [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), zodat Azure Machine Learning wordt de `TF_CONFIG` omgevingsvariabele voor u.
@@ -161,13 +171,13 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Voorbeelden
 Zie voor een zelfstudie op één knooppunt TensorFlow-training:
-* `training/03.train-tune-deploy-tensorflow/03.train-tune-deploy-tensorflow.ipynb`
+* `training/03.train-hyperparameter-tune-deploy-with-tensorflow `
 
 Voor een zelfstudie over gedistribueerde TensorFlow met Horovod, Zie:
-* `training/04.distributed-tensorflow-with-horovod/04.distributed-tensorflow-with-horovod.ipynb`
+* `training/04.distributed-tensorflow-with-horovod`
 
 Voor een zelfstudie over systeemeigen gedistribueerde TensorFlow, Zie:
-* `training/05.distributed-tensorflow-with-parameter-server/05.distributed-tensorflow-with-parameter-server.ipynb`
+* `training/05.distributed-tensorflow-with-parameter-server`
 
 Deze laptops ophalen:
 

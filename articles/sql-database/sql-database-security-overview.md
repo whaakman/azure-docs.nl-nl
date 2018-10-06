@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: giladm
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 04/20/2018
-ms.openlocfilehash: 01399544dc4817060ca797383743e673182e3653
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 25e37bcb1247e5fdb37c4be6ca8790c77c0f5575
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163066"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816664"
 ---
 # <a name="securing-your-sql-database"></a>Uw SQL Database beveiligen
 
@@ -77,7 +77,7 @@ Uw gegevens worden beveiligd met SQL Database met behulp van mogelijkheden voor 
 ### <a name="auditing"></a>Controleren
 SQL Database Auditing houdt databaseactiviteiten bij en helpt u bij de naleving van regelgeving door databasegebeurtenissen vast te leggen in een auditlogboek in uw Azure Storage-account. Door te controleren krijgt u informatie over actieve databaseactiviteiten. Het helpt u ook bij het analyseren en onderzoeken van activiteiten uit het verleden. Op deze manier kunt u mogelijke dreigingen, vermoedelijk misbruik of schendingen van de beveiliging identificeren. Zie [Get started with SQL Database Auditing](sql-database-auditing.md) (Aan de slag met SQL Database Auditing) voor aanvullende informatie.  
 
-### <a name="threat-detection"></a>Detectie van bedreigingen
+### <a name="threat-detection"></a>Detectie van dreigingen
 Controle, door te geven van een extra laag met beveiligingsinformatie die is ingebouwd in de Azure SQL Database-service die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases detecteert wordt aangevuld door detectie van bedreigingen. U wordt gewaarschuwd over verdachte activiteiten, potentiële kwetsbaarheden SQL-injectieaanvallen en afwijkende patronen voor databasetoegang. Waarschuwingen van Threat Detection kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van verdachte activiteiten en geven aanbevelingen voor het onderzoeken en tegenhouden. Detectie van bedreigingen kost $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie [Aan de slag met SQL Database Threat Detection](sql-database-threat-detection.md) voor meer informatie.
  
 ## <a name="compliance"></a>Naleving

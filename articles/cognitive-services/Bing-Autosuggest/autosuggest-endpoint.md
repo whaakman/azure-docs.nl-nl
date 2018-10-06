@@ -1,45 +1,46 @@
 ---
-title: Eindpunt voor Automatische suggestie | Microsoft Docs
-description: Samenvatting van de Automatische suggestie van API-eindpunt.
+title: Bing Automatische suggesties-eindpunt
+titlesuffix: Azure Cognitive Services
+description: Samenvatting van de Automatische suggestie-API-eindpunt.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: 5aaddd09006cb6f1812bb6ae213a2f5e6720fb1b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2d1c97ad2af266558f9b664162526d5006d2092
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345444"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830441"
 ---
-# <a name="autosuggest-endpoint"></a>Eindpunt voor Automatische suggestie
+# <a name="bing-autosuggest-endpoint"></a>Bing Automatische suggesties-eindpunt
 
-De **API voor Automatische suggestie van** bevat één eindpunt waarmee een lijst met voorgestelde query's uit een gedeeltelijke zoekterm retourneert.
+De **Bing Automatische suggestie-API** bevat één eindpunt die resulteert in een lijst met voorgestelde query's uit een gedeeltelijke zoekterm.
 
 ## <a name="endpoint"></a>Eindpunt
 
-Voor voorgestelde query's met de Bing-API, stuurt u een `GET` aanvraag voor het volgende eindpunt. De kop- en URL-parameters gebruiken voor het definiëren van verdere specificaties.
+Als u de voorgestelde query's met behulp van de API voor Bing, verzendt een `GET` aanvraag naar het volgende eindpunt. De kop- en URL-parameters gebruiken om te definiëren verder specificaties.
 
-**Eindpunt:** retourneert zoeksuggesties als JSON-resultaten die relevant voor de gebruikersinvoer gedefinieerd zijn door `?q=""`.
+**Eindpunt:** retourneert zoeksuggesties als JSON-resultaten die relevant voor de invoer van de gebruiker gedefinieerd zijn door `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Voor meer informatie over kopteksten, parameters, markt codes, antwoord objecten, fouten, enz., Zie de [voor Automatische suggestie van Bing-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) verwijzing.
+Voor meer informatie over kopteksten, parameters, markt codes, antwoordobjecten, fouten, enz., Zie de [Bing Automatische suggestie-API versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) verwijzing.
 
-## <a name="response-json"></a>Antwoord JSON
+## <a name="response-json"></a>JSON-antwoord
 
-Het antwoord op een aanvraag voor Automatische suggestie bevat resultaten als JSON-objecten. Voor Zie voor voorbeelden van het parseren van de resultaten de [zelfstudie](tutorials/autosuggest.md) en [broncode](tutorials/autosuggest-source.md).
+Het antwoord op een automatische suggesties-aanvraag bevat de resultaten als JSON-objecten. Voor Zie voor voorbeelden van het parseren van de resultaten de [zelfstudie](tutorials/autosuggest.md) en [broncode](tutorials/autosuggest-source.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De **Bing** API's ondersteunen zoekacties die resultaten volgens hun type retourneren. Alle zoeken eindpunten retourneren resultaten als JSON-antwoord-objecten.
-Alle eindpunten ondersteuning query's die een specifieke taal en/of de locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
+De **Bing** API's ondersteunen zoekacties die retourneren van resultaten op basis van hun type. Alle eindpunten voor zoeken worden resultaten geretourneerd als JSON-antwoord-objecten.
+Alle eindpunten ondersteuning voor query's die een specifieke taal en/of locatie door lengtegraad, breedtegraad en zoeken radius retourneren.
 
-Zie de pagina's met naslaginformatie voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
-Zie voor voorbeelden van basic-aanvragen via de API voor Automatische suggestie van [snelstartgidsen voor Automatische suggestie van](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
+Zie de referentiepagina's voor elk type voor volledige informatie over de parameters die worden ondersteund door elk eindpunt.
+Zie voor meer voorbeelden van basic met behulp van de Automatische suggestie-API-aanvragen [Automatische suggestie-snelstartgidsen](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).

@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c90e51d1aa1c3215c40baeae2c5494ef90b01132
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d06ad47dc2962b249b4e7aef5667492e642be35e
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584350"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830120"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registratie
 U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie wordt aanbevolen omdat hiermee u voor het testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik kunt. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
 
 Als u uw ASDK niet registreert, ziet u mogelijk een **activering vereist** waarschuwing die aangeeft voor het registreren van uw Azure Stack Development Kit. Dit gedrag is verwacht.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 Voordat u deze instructies voor het registreren van de ASDK met Azure, zorg ervoor dat u hebt de PowerShell voor Azure Stack geïnstalleerd en de hulpprogramma's voor Azure Stack downloaden, zoals beschreven in de [post-implementatieconfiguratie](asdk-post-deploy.md) artikel.
 
 Bovendien de taalmodus PowerShell moet zijn ingesteld op **FullLanguageMode** op de computer gebruikt voor het registreren van de ASDK met Azure. Om te controleren dat de huidige taalmodus is ingesteld op full, open een verhoogde PowerShell-venster en voer de volgende PowerShell-opdrachten:
@@ -66,8 +66,8 @@ Volg deze stappen voor het registreren van de ASDK met Azure.
     Set-AzsRegistration `
         -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
-        -BillingModel Development
-        -RegistrationName $RegistrationName
+        -BillingModel Development `
+        -RegistrationName $RegistrationName `
         -EnableUsageReporting $UsageReporting
     ```
 3. Wanneer het script is voltooid, ziet u dit bericht: **uw omgeving is nu geregistreerd en worden geactiveerd met behulp van de opgegeven parameters.**
