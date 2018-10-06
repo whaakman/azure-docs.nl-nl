@@ -4,17 +4,17 @@ Welkom bij de open-source [documentatie](https://docs.microsoft.com/azure) van [
 
 ## <a name="getting-started"></a>Aan de slag
 
-Bijdragen aan open source is meer dan alleen het leveren van updates, deze wordt ook laten weten wanneer er een probleem. Lees onze [die bijdragen aan richtlijnen](.github/CONTRIBUTING.md) voor meer informatie.
+Bijdragen aan open source is meer dan alleen het leveren van updates, het is ook het laten weten wanneer er een probleem is. Lees onze [richtlijnen voor bijdragen](.github/CONTRIBUTING.md) voor meer informatie.
 
 ### <a name="prerequisites"></a>Vereisten
 
-U hebt besloten om een bijdrage, die is erg handig bieden! Er zijn een paar hulpprogramma's die nodig zijn om bij te dragen naar de documentatie.
+U hebt besloten om een bijdrage te leveren. Dat is geweldig! Er zijn een paar hulpprogramma's die nodig zijn om bij te dragen aan de documentatie.
 
-Een bijdrage levert aan de documentatie van een GitHub-account vereist, als u geen account hebt, volgt u de instructies voor het [GitHub-account instellen](https://docs.microsoft.com/contribute/get-started-setup-github) van onze gids voor inzenders.
+Een bijdrage leveren aan de documentatie vereist een GitHub-account. Als u geen account hebt, volg dan de instructies voor het [aanmaken van een GitHub-account](https://docs.microsoft.com/contribute/get-started-setup-github) in onze gids voor inzenders.
 
 #### <a name="download"></a>Downloaden
 
-De volgende hulpprogramma's installeren:
+Installeer de volgende hulpprogramma's:
 
 * [Git](https://git-scm.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -22,7 +22,7 @@ De volgende hulpprogramma's installeren:
 
 #### <a name="install"></a>Installeren
 
-Volg de instructies de [installatie-inhoud ontwerpprogramma's](https://docs.microsoft.com/contribute/get-started-setup-tools) van onze gids voor inzenders.
+Volg de instructies voor [het installeren van inhoud ontwerpprogramma's](https://docs.microsoft.com/contribute/get-started-setup-tools) in onze gids voor inzenders.
 
 ## <a name="license"></a>Licentie
 
@@ -31,4 +31,4 @@ Raadpleeg [licentie](.github/LICENSE), [LICENTIECODE](.github/LICENSE-CODE) en [
 ## <a name="code-of-conduct"></a>Gedragscode
 
 Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing.
-Zie voor meer informatie de [Code van Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [ opencode@microsoft.com ](mailto:opencode@microsoft.com) aanvullende vragen of opmerkingen hebt.
+Zie voor meer informatie de [Code van Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) of neem contact op met [ opencode@microsoft.com ](mailto:opencode@microsoft.com) indien u aanvullende vragen of opmerkingen hebt.
