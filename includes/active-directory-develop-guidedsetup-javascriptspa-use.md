@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: navyasric
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: be8ffeae1977fb2f56e0f85a716d982a6d2f84dc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 77400453e455ff2ebf20f59f888a3e3d641bcf07
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060413"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843432"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden bij de gebruiker
 
@@ -132,16 +131,16 @@ Nadat een gebruiker op de *'Aanmelden'* knop voor het eerst `signIn` methodeaanr
 
 De beveiligd-WACHTWOORDVERIFICATIE die worden gegenereerd door deze handleiding aanroepen `acquireTokenSilent` en/of `acquireTokenPopup` aan te schaffen een *toegangstoken* gebruikt om te vragen van de Microsoft Graph-API voor profielgegevens van de gebruiker. Als u een voorbeeld waarin het ID-token valideert, kijk dan eens [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld Github") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
 
-#### <a name="getting-a-user-token-interactively"></a>Een gebruiker ophalen interactief token
+#### <a name="getting-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
 Na de eerste aanmelding wordt u niet wilt gebruikers vragen om te verifiëren telkens wanneer ze nodig hebben om aan te vragen van een token te krijgen tot een resource – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory v2-eindpunt: enkele voorbeelden zijn:
-- Gebruikers willen hun referenties opnieuw invoeren omdat het wachtwoord is verlopen
-- Uw toepassing aanvraagt toegang tot een resource die de gebruiker moet toestemming geven
-- Tweeledige verificatie is vereist
+- Gebruikers moeten mogelijk hun referenties opnieuw opgeven omdat het wachtwoord is verlopen
+- Uw toepassing vraagt toegang tot een resource waarvoor de gebruiker toestemming moet geven
+- Wanneer verificatie in twee stappen is vereist
 
 Aanroepen van de *acquireTokenPopup(scope)* resulteert in een pop-upvenster (of *acquireTokenRedirect(scope)* leidt gebruikers omleiden naar de Azure Active Directory v2-eindpunt) waar gebruikers moeten communiceren door hun referenties bevestigen, de toestemming verlenen aan de vereiste resource of voltooien van de verificatie met twee factoren.
 
-#### <a name="getting-a-user-token-silently"></a>Een gebruiker ophalen op de achtergrond token
+#### <a name="getting-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 De ` acquireTokenSilent` methode wordt gebruikt voor token-aankopen en verlenging zonder tussenkomst van de gebruiker. Na `loginPopup` (of `loginRedirect`) wordt uitgevoerd voor de eerste keer `acquireTokenSilent` is de methode die vaak worden gebruikt om te verkrijgen van tokens gebruikt voor toegang tot beveiligde resources voor volgende aanroepen - aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
 `acquireTokenSilent` mislukken in sommige gevallen, bijvoorbeeld van de gebruiker het wachtwoord is verlopen. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 

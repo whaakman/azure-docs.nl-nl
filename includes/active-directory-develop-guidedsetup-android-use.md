@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293608"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843234"
 ---
 ## <a name="use-msal-to-get-a-token"></a>MSAL gebruiken om op te halen van een token 
 
@@ -242,10 +241,10 @@ ms.locfileid: "46293608"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
-#### <a name="get-a-user-token-interactively"></a>Een gebruiker interactief token ophalen
+#### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 Aanroepen van de `AcquireTokenAsync` methode wordt een venster waarin wordt gevraagd om gebruikers te aan te melden of hun account selecteren. Toepassingen in het algemeen moet de gebruiker vragen voor een eerste interactie, maar kan worden uitgevoerd op de achtergrond vanaf dat moment op. 
 
-#### <a name="get-a-user-token-silently"></a>Een gebruiker op de achtergrond token ophalen
+#### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 De `AcquireTokenSilentAsync` methode wordt een token zonder tussenkomst van de gebruiker opgehaald.  `AcquireTokenSilentAsync` kunnen worden behandeld als een best-effort-aanvraag met een terugval naar `AcquireTokenAsync` wanneer de gebruiker moet zich opnieuw aanmeldt of doen enkele extra autorisatie, zoals meervoudige verificatie 
 
 Wanneer `AcquireTokenSilentAsync` mislukt, genereert een `MsalUiRequiredException`. Uw toepassing kan verwerken deze uitzondering op twee manieren:

@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,18 +14,18 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: f0e584a4a4a54fc04b5539b56d5c901bfaa42bcc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6e20ce083c415bced22231835cc616ede8f0dd04
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293758"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843535"
 ---
 ## <a name="register-your-application"></a>Uw toepassing registreren
 U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgende twee secties.
 
 ### <a name="option-1-express"></a>Optie 1: Express
-1. Ga naar de [Microsoft Portal voor Appregistratie](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
 2.  In **toepassingsnaam**, voer een naam in voor uw toepassing.
 
 3. Zorg ervoor dat de **begeleide installatie** selectievakje is geselecteerd en selecteer vervolgens **maken**.
@@ -34,12 +33,12 @@ U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgen
 4. Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code.
 
 ### <a name="option-2-advanced"></a>Optie 2: geavanceerde 
-1. Ga naar de [Microsoft Portal voor Appregistratie](https://apps.dev.microsoft.com/portal/register-app).
-2. In de **toepassingsnaam** voert u een naam voor uw toepassing. 
+1. Ga naar de [Microsoft-portal voor app-registratie](https://apps.dev.microsoft.com/portal/register-app).
+2. Typ in het vak **Toepassingsnaam** een naam voor de toepassing. 
 
-3. Zorg ervoor dat de **begeleide installatie** selectievakje is uitgeschakeld, en selecteer vervolgens **maken**.
+3. Zorg ervoor dat het selectievakje **Stapsgewijze instelling** is uitgeschakeld en selecteer vervolgens **Maken**.
 
-4. Selecteer **Platform toevoegen**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
+4. Selecteer **Platform toevoegen**, selecteer **Systeemeigen toepassing** en selecteer vervolgens **Opslaan**.
 
 5. Onder **app** > **java** > **{host}. { naamruimte}** Open `MainActivity`. 
 

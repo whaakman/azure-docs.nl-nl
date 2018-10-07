@@ -3,24 +3,23 @@ title: bestand opnemen
 description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d4ba15e4ad46044c04c242c8805af9f320e95150
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368443"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843247"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL gebruiken om op te halen van een token voor de Microsoft Graph API
 
@@ -98,11 +97,11 @@ In deze sectie maakt u MSAL gebruiken om op te halen van een token voor de Micro
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 
-#### <a name="get-a-user-token-interactively"></a>Een gebruiker interactief token ophalen
+#### <a name="get-a-user-token-interactively"></a>Een gebruikerstoken interactief ophalen
 
 Aanroepen van de `AcquireTokenAsync` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich interactief aanmelden de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze kunnen ook moet zich aanmelden als een bewerking op de achtergrond is een token ophalen is mislukt (bijvoorbeeld wanneer het wachtwoord van een gebruiker is verlopen).
 
-#### <a name="get-a-user-token-silently"></a>Een gebruiker op de achtergrond token ophalen
+#### <a name="get-a-user-token-silently"></a>Een gebruikerstoken op de achtergrond ophalen
 
 De `AcquireTokenSilentAsync` methode wordt gebruikt voor token-aankopen en vernieuwingen zonder tussenkomst van de gebruiker. Na `AcquireTokenAsync` wordt uitgevoerd voor de eerste keer `AcquireTokenSilentAsync` is de gebruikelijke methode om te gebruiken om te verkrijgen van tokens die toegang krijgen beveiligde bronnen voor volgende aanroepen tot omdat aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
 

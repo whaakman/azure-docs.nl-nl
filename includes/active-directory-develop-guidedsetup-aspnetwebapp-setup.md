@@ -2,36 +2,42 @@
 title: bestand opnemen
 description: bestand opnemen
 services: active-directory
+documentationcenter: dev-center-name
 author: andretms
+manager: mtillman
+editor: ''
 ms.service: active-directory
+ms.devlang: na
 ms.topic: include
-ms.date: 05/08/2018
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9c7daf7bc947b08835148f6d09c58b47c9e0186b
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36204917"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843455"
 ---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
-Deze sectie bevat de stappen voor het installeren en configureren van de verificatiepijplijn via OWIN middleware op een ASP.NET-project met OpenID Connect. 
+In deze sectie bevat de stappen voor het installeren en configureren van de verificatiepijplijn via OWIN-middleware op een ASP.NET-project met behulp van OpenID Connect. 
 
-> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Downloaden van een project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) en doorgaan met de [configuratiestap](#register-your-application) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.
+> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Een project hebt gedownload](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) en gaat u naar de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u uitvoert.
 
 ### <a name="create-your-aspnet-project"></a>Uw ASP.NET-project maken
 
 1. In Visual Studio: `File` > `New` > `Project`
 2. Onder *Visual C# \Web*, selecteer `ASP.NET Web Application (.NET Framework)`.
-3. Naam van uw toepassing en klik op *OK*
-4. Selecteer `Empty` en schakel het selectievakje om toe te voegen `MVC` verwijzingen
+3. Geef uw toepassing en klikt u op *OK*
+4. Selecteer `Empty` en schakel het selectievakje in om toe te voegen `MVC` verwijzingen
 
 ## <a name="add-authentication-components"></a>Verificatieonderdelen toevoegen
 
 1. In Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Voeg *OWIN middleware NuGet-pakketten* door het volgende te typen in het venster Package Manager-Console:
+2. Voeg *NuGet-pakketten voor OWIN-middleware* toe door het volgende te typen in het Package Manager Console-venster:
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -41,18 +47,18 @@ Deze sectie bevat de stappen voor het installeren en configureren van de verific
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Over deze bibliotheken
->De bovenstaande bibliotheken Schakel eenmalige aanmelding (SSO) met OpenID Connect via authenticatie op basis van een cookie. Nadat de verificatie is voltooid en het token voor de gebruiker wordt verzonden naar uw toepassing, maakt OWIN middleware een sessiecookie. De browser gebruikt deze cookie vervolgens bij volgende aanvragen, zodat de gebruiker hoeft niet nogmaals het wachtwoord en geen aanvullende verificatie nodig is.
+>De bovenstaande bibliotheken maken SSO (eenmalige aanmelding) met behulp van OpenID Connect mogelijk via verificatie op basis van cookies. Nadat de verificatie is voltooid en het token dat de gebruiker vertegenwoordigt, is verzonden naar de toepassing, wordt met OWIN-middleware een sessiecookie gemaakt. De browser vervolgens deze cookie wordt gebruikt bij volgende aanvragen, zodat de gebruiker hoeft niet te Typ nogmaals het wachtwoord en er zijn geen aanvullende verificatie nodig is.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>De verificatiepijplijn configureren
-De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-Opstartklasse OpenID Connect verificatie configureren. Deze klasse wordt automatisch uitgevoerd wanneer uw IIS-proces wordt gestart.
+De onderstaande stappen worden gebruikt voor het maken van een OWIN-middleware-Opstartklasse OpenID Connect-verificatie configureren. Deze klasse wordt automatisch uitgevoerd wanneer uw IIS-proces wordt gestart.
 
 > [!TIP]
-> Als uw project beschikt niet over een `Startup.cs` bestand in de hoofdmap:
+> Ga als volgt te werk als uw project geen `Startup.cs`-bestand bevat in de hoofdmap:
 > 1. Met de rechtermuisknop op de hoofdmap van het project: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Geef deze de naam `Startup.cs`
+> 2. Noem deze `Startup.cs`
 >
->> Zorg ervoor dat de geselecteerde klasse is een OWIN-Opstartklasse en niet een standaard C#-klasse. Dit controleren door te controleren of er `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` boven de naamruimte.
+>> Zorg ervoor dat de geselecteerde klasse een OWIN-opstartklasse is, en niet een Standard C#-klasse. Verzeker u hiervan door te kijken of `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` wordt weergegeven boven de naamruimte.
 
 1. Voeg *OWIN* en *Microsoft.IdentityModel* verwijzingen naar `Startup.cs`:
 
@@ -137,6 +143,6 @@ De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-O
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Meer informatie
-> De parameters die u opgeeft in *OpenIDConnectAuthenticationOptions* fungeren als coördinaten voor de toepassing om te communiceren met Azure AD. Omdat het OpenID Connect middleware gebruikmaakt van cookies op de achtergrond, moet u ook Cookieverificatie instellen als de code hierboven wordt weergegeven. De *ValidateIssuer* waarde vertelt OpenIdConnect niet toegang te beperken tot een specifieke organisatie.
+> De parameters die u opgeeft in *OpenIDConnectAuthenticationOptions*, dienen als coördinaten waarmee de toepassing kan communiceren met Azure AD. Omdat de middleware OpenID Connect maakt gebruik van cookies op de achtergrond, moet u ook het instellen van de cookie-verificatie als de code hierboven wordt weergegeven. De waarde *ValidateIssuer* zorgt ervoor dat de toegang via OpenIdConnect niet wordt beperkt tot één specifieke organisatie.
 <!--end-collapse-->
 

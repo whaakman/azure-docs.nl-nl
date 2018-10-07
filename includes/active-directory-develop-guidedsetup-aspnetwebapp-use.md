@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,21 +14,21 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943586"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842904"
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Toevoegen van een domeincontroller voor het afhandelen van aanmelden en afmeldingsaanvragen te verzenden
+## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Toevoegen van een domeincontroller voor het afhandelen van aanmelding en afmeldingsaanvragen te verzenden
 
-Deze stap ziet een nieuwe domeincontroller om aan- en afmeldingsaanvragen methoden zichtbaar te maken.
+Deze stap ziet u hoe u een nieuwe controller als aanmelden en afmelden methoden beschikbaar wilt maken.
 
-1.  Met de rechtermuisknop op de `Controllers` map en selecteer `Add` > `Controller`
+1.  Klik met de rechtermuisknop de `Controllers` map en selecteer `Add` > `Controller`
 2.  Selecteer `MVC (.NET version) Controller – Empty`.
 3.  Klik op *toevoegen*
-4.  Naam `HomeController` en klik op *toevoegen*
+4.  Geef het de naam `HomeController` en klikt u op *toevoegen*
 5.  Voeg *OWIN* verwijzingen naar de klasse:
 
     ```csharp
@@ -38,7 +37,7 @@ Deze stap ziet een nieuwe domeincontroller om aan- en afmeldingsaanvragen method
     using Microsoft.Owin.Security.OpenIdConnect;
     ```
     
-6. De twee methoden hieronder om af te handelen aanmelden en afmelden toevoegen aan uw domeincontroller door een verificatievraag via code initiëren:
+6. De twee methoden hieronder om af te handelen aanmelden en afmelden bij de domeincontroller toevoegen door te starten van een verificatiecontrole via code:
     
     ```csharp
     /// <summary>
@@ -66,13 +65,13 @@ Deze stap ziet een nieuwe domeincontroller om aan- en afmeldingsaanvragen method
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>De startpagina van de app aan te melden gebruikers via een knop maken
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Maken van de startpagina van de app aan te melden bij gebruikers via een knop aanmelden
 
-Maak een nieuwe weergave voor het toevoegen van de knop aanmelden en gebruikersgegevens na verificatie weergeven in Visual Studio:
+Maak in Visual Studio een nieuwe weergave om de knop Aanmelden toe te voegen en gebruikersgegevens weer te geven na de verificatie:
 
-1.  Met de rechtermuisknop op de `Views\Home` map en selecteer `Add View`
+1.  Klik met de rechtermuisknop de `Views\Home` map en selecteer `Add View`
 2.  Noem deze `Index`.
-3.  De volgende HTML-code, waaronder de knop aanmelden toevoegen aan het bestand:
+3.  Voeg de volgende HTML toe aan het bestand. Deze bevat de knop Aanmelden:
 
     ```html
     <html>
@@ -114,17 +113,17 @@ Maak een nieuwe weergave voor het toevoegen van de knop aanmelden en gebruikersg
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Meer informatie
-> Deze pagina wordt de knop aanmelden in SVG-indeling met een zwarte achtergrond toegevoegd:<br/>![Meld u aan met Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Voor meer aanmelden knoppen, gaat u naar de [deze pagina](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "richtlijnen huisstijl").
+> Deze pagina wordt een knop aanmelden in SVG-indeling met een zwarte achtergrond toegevoegd:<br/>![Aanmelden bij Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Voor meer aanmelding knoppen, gaat u naar de [deze pagina](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Huisstijlrichtlijnen").
 <!--end-collapse-->
 
-## <a name="add-a-controller-to-display-users-claims"></a>Toevoegen van een domeincontroller om claims van de gebruiker weer te geven
-Deze domeincontroller ziet u het gebruik van de `[Authorize]` kenmerk voor het beveiligen van een domeincontroller. Dit kenmerk wordt toegang tot de controller beperken door alleen geverifieerde gebruikers. De code hieronder maakt gebruik van het kenmerk om claims van de gebruiker die zijn opgehaald als onderdeel van de aanmeldingspagina weer te geven.
+## <a name="add-a-controller-to-display-users-claims"></a>Toevoegen van een domeincontroller om claims van gebruiker weer te geven
+Deze controller demonstreert het gebruik van het kenmerk `[Authorize]` om een controller te beveiligen. Met dit kenmerk wordt de toegang tot de controller beperkt doordat alleen geverifieerde gebruikers toegang krijgen. De code hieronder maakt gebruik van het kenmerk om weer te geven van gebruikersclaims die zijn opgehaald als onderdeel van de aanmelding.
 
-1.  Met de rechtermuisknop op de `Controllers` map: `Add` > `Controller`
+1.  Klik met de rechtermuisknop de `Controllers` map: `Add` > `Controller`
 2.  Selecteer `MVC {version} Controller – Empty`.
 3.  Klik op *toevoegen*
-4.  Geef deze de naam `ClaimsController`
-5.  Vervang de code van de klasse van uw domeincontroller met de code hieronder - Hiermee voegt u de `[Authorize]` kenmerk aan de klasse:
+4.  Noem deze `ClaimsController`
+5.  Vervang de code van de controllerklasse met de onderstaande - code wordt toegevoegd de `[Authorize]` kenmerk aan de klasse:
 
     ```csharp
     [Authorize]
@@ -157,16 +156,16 @@ Deze domeincontroller ziet u het gebruik van de `[Authorize]` kenmerk voor het b
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Meer informatie
-> Vanwege het gebruik van de `[Authorize]` kenmerk, alle methoden van deze domeincontroller kan alleen worden uitgevoerd als de gebruiker is geverifieerd. Als de gebruiker niet is geverifieerd en probeert te krijgen tot de domeincontroller, wordt de OWIN een verificatievraag initiëren en afdwingen van de gebruiker te verifiëren. De bovenstaande code gekeken naar de lijst met claims voor een specifieke gebruikerskenmerken in de token Id van de gebruiker. Deze kenmerken zijn de volledige naam van de gebruiker en gebruikersnaam, evenals het onderwerp globale gebruiker-id. Bevat ook de *Tenant-ID*, die staat voor de ID voor de organisatie van de gebruiker. 
+> Vanwege het gebruik van het kenmerk `[Authorize]` kunnen alle methoden van deze controller alleen worden uitgevoerd als de gebruiker is geverifieerd. Als de gebruiker niet is geverifieerd en probeert te krijgen tot de controller, wordt de OWIN een verificatiecontrole initiëren en afdwingen dat de gebruiker om te verifiëren. De bovenstaande code kijkt naar de lijst met claims voor de kenmerken van de specifieke gebruiker is opgenomen in het Id-token van de gebruiker. Deze kenmerken omvatten de volledige naam en gebruikersnaam van de gebruiker, en het globale onderwerp voor de gebruikers-id. Ze omvatten ook de *Tenant-id*. Dit is de id voor de organisatie van de gebruiker. 
 <!--end-collapse-->
 
-## <a name="create-a-view-to-display-the-users-claims"></a>Een weergave voor de claims van de gebruiker maken
+## <a name="create-a-view-to-display-the-users-claims"></a>Maken van een weergave om claims van de gebruiker weer te geven
 
-Maak een nieuwe weergave voor de claims van de gebruiker in een webpagina in Visual Studio:
+Maak in Visual Studio een nieuwe weergave om de claims van de gebruiker weer te geven op een webpagina:
 
-1.  Met de rechtermuisknop op de `Views\Claims` map en: `Add View`
+1.  Klik met de rechtermuisknop de `Views\Claims` map en: `Add View`
 2.  Noem deze `Index`.
-3.  De volgende HTML-code toevoegen aan het bestand:
+3.  Voeg de volgende HTML toe aan het bestand:
 
     ```html
     <html>
