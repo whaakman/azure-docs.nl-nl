@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 293d8376d83d729588aab0aeaa1040d9b3e5e0b5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 722a9ada338420cc1ed55eb7c4400f946d58ebac
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182277"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831650"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -84,11 +84,15 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Laag2-ondersteuning voor partner](#partner-tier2-support)**: niet gebruiken. Deze rol is afgeschaft en wordt verwijderd uit Azure AD in de toekomst. Deze rol is bedoeld voor gebruik door een klein aantal wederverkoop partners van Microsoft en is niet bedoeld voor algemeen gebruik.
 
-* **[Wachtwoordbeheerder / Helpdeskbeheerder](#helpdesk-administrator)**: gebruikers met deze rol kunnen wachtwoorden wijzigen, vernieuwingstokens ongeldig te maken, serviceaanvragen beheren en servicestatus controleren. Helpdesk-beheerders kunnen wachtwoorden wijzigen en vernieuwingstokens alleen voor gebruikers en andere helpdeskbeheerders ongeldig te maken. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden.
-
+* **[Wachtwoordbeheerder / Helpdeskbeheerder](#helpdesk-administrator)**: gebruikers met deze rol kunnen wachtwoorden wijzigen, vernieuwingstokens ongeldig te maken, serviceaanvragen beheren en servicestatus controleren. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden. Helpdesk-beheerders kunnen wachtwoorden opnieuw instellen en vernieuwen van tokens van andere gebruikers die niet-beheerders of leden van de volgende rollen alleen ongeldig te maken:
+  * Adreslijstlezers
+  * Gastuitnodiging
+  * Helpdeskbeheerder
+  * Berichtencentrum-lezer
+  * Rapportenlezer
+  
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als 'Helpdesk-beheerder'. 'Wachtwoordbeheerder' is in de [Azure-portal](https://portal.azure.com/).
-  >
   >
   
 * **[Power BI-servicebeheerder](#power-bi-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Power BI, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [inzicht in de Power BI-beheerdersrol](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -132,11 +136,13 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Servicebeheerder teams](#teams-service-administrator)**: gebruikers in deze rol kunnen alle aspecten van de Microsoft Teams-werkbelasting via de Microsoft Teams en Skype voor bedrijven-beheercentrum en de bijbehorende PowerShell-modules beheren. Dit omvat onder andere gebieden, alle beheerprogramma's met betrekking tot de telefoon, chatberichten, vergaderingen en teams zelf. Deze rol hebben ook de mogelijkheid voor het beheren van Office 365-groepen.
 
-* **[Beheerder van gebruikersaccounts](#user-account-administrator)**: gebruikers met deze rol kunnen maken en beheren van alle aspecten van gebruikers en groepen. Daarnaast bevat deze rol de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Er zijn enkele beperkingen zijn van toepassing. Deze rol kunnen bijvoorbeeld niet verwijderen van een globale beheerder. Gebruiker accountbeheerders kunnen wachtwoorden wijzigen en vernieuwen van tokens voor gebruikers, helpdeskbeheerders en andere beheerders gebruikersaccount alleen ongeldig te maken. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden.
+* **[Beheerder van gebruikersaccounts](#user-account-administrator)**: gebruikers met deze rol kunnen gebruikers maken en beheren van alle aspecten van gebruikers met enkele beperkingen (Zie hieronder). Gebruikers met deze rol kunnen bovendien maken en beheren van alle groepen. Deze rol omvat ook de mogelijkheid om te maken en beheren van gebruikersweergaven, ondersteuningstickets beheren en servicestatus controleren.
 
-| Kan doen | Niet mogelijk is |
-| --- | --- |
-| <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden wijzigen voor gebruikers, helpdeskbeheerders en andere alleen beheerders van gebruikersaccount</p><p>Gebruikersweergaven maken en beheren</p><p>Maken, bewerken en verwijderen van gebruikers en groepen beheren van gebruikerslicenties, met beperkingen. Hij of zij kan niet verwijderen van een globale beheerder of andere beheerders maken.</p> |<p>Facturering en aankopen bewerkingen voor Office-producten</p><p>Domeinen beheren</p><p>Bedrijfsinformatie beheren</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>In- of uitschakelen van multi-factor Authentication-verificatie</p><p>Auditlogboeken weergeven</p> |
+  | | |
+  | --- | --- |
+  |Algemene machtigingen|<p>Gebruikers en groepen maken</p><p>Gebruikersweergaven maken en beheren</p><p>Office-ondersteuningstickets beheren|
+  |<p>Op alle gebruikers, met inbegrip van alle beheerders</p>|<p>Licenties beheren</p><p>Eigenschappen van alle gebruikers, behalve de User Principal Name beheren</p>
+  |Alleen op gebruikers die niet-beheerders of beperkte beheerdersrollen in het volgende:<ul><li>Adreslijstlezers<li>Gastuitnodiging<li>Helpdeskbeheerder<li>Berichtencentrum-lezer<li>Rapportenlezer<li>Beheerder van gebruikersaccounts|<p>Verwijderen en herstellen</p><p>Uitschakelen en inschakelen</p><p>Ongeldig vernieuwingstokens</p><p>Eigenschappen van alle gebruikers met inbegrip van de User Principal Name beheren</p><p>Wachtwoord opnieuw instellen</p><p>Apparaatsleutels (FIDO) bijwerken</p>
 
 De volgende tabellen beschrijven de specifieke machtigingen in Azure Active Directory die aan elke rol. Sommige functies mogelijk extra machtigingen in Microsoft-services outide van Azure Active Directory.
 
