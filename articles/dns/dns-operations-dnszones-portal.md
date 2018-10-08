@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954378"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829679"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Over het beheren van DNS-Zones in Azure portal
 
@@ -32,7 +32,7 @@ Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van de Azure-portal. U 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
 1. Aanmelden bij Azure Portal
-2. Klik in het menu Hub en klikt u op **een resource maken > netwerken >** en klik vervolgens op **DNS-zone** om het maken van DNS-zone-blade te openen.
+2. Navigeer in het menu Hub op **een resource maken > netwerken > DNS-zone** openen de **DNS-zone maken** blade.
 
     ![DNS-zone](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,13 +51,13 @@ Dit artikel ziet u hoe u uw DNS-zones beheren met behulp van de Azure-portal. U 
 
 ## <a name="list-dns-zones"></a>DNS-zones vermelden
 
-In de Azure-portal, gaat u naar **meer services** > **netwerken** > **DNS-zones**. Elke DNS-zone is het eigen resource, informatie zoals het aantal recordsets en naamservers kunnen worden bekeken in deze weergave. De kolom **NAAMSERVERS** bevindt zich niet in de standaardweergave, toe te voegen klikt u op **kolommen**, selecteer **naamservers** en klikt u op **gedaan**.
+In de Azure-portal, gaat u naar **meer services** > **netwerken** > **DNS-zones**. Elke DNS-zone is een eigen resource en informatie zoals het aantal recordsets en naamservers kunnen worden bekeken in deze weergave. De kolom **NAAMSERVERS** bevindt zich niet in de standaardweergave. Als u wilt toevoegen, klikt u op **kolommen**, selecteer **naamservers**, en klik vervolgens op **gedaan**.
 
 ![DNS-zones weergeven](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Een DNS-zone verwijderen
 
-Navigeer naar een DNS-zone in de portal. Op de **DNS-zone** blade, klikt u op **zone verwijderen**. U wordt gevraagd om te bevestigen uw wilt verwijderen van de DNS-zone. Als u een DNS-zone verwijdert, verwijdert u ook alle records die zijn opgenomen in de zone.
+Navigeer naar een DNS-zone in de portal. Op de **DNS-zone** blade, klikt u op **zone verwijderen**. U wordt vervolgens gevraagd om te bevestigen uw wilt verwijderen van de DNS-zone. Als u een DNS-zone verwijdert, verwijdert u ook alle records die zijn opgenomen in de zone.
 
 ## <a name="next-steps"></a>Volgende stappen
 

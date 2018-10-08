@@ -1,24 +1,27 @@
 ---
-title: Een nieuwe knowledge base maken - Java-snelstart - voor Microsoft QnA Maker-API (v4) - Azure Cognitive Services | Microsoft Docs
-description: Maak een knowledge base in Java voor al uw veelgestelde vragen en producthandleidingen, zodat u aan de slag kunt gaan met QnA Maker.
+title: 'Snelstart: API Java - Knowledge base maken - QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: In deze snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor Cognitive Services-API.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43769131"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037606"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Een nieuwe knowledge base maken in Java
 
 In deze snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor Cognitive Services-API.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 Hieronder ziet u twee voorbeelden van URL's voor veelgestelde vragen (in kb.urls van **getKB()**) die inhoud bieden. Met QnA Maker worden automatisch vragen en antwoorden opgehaald uit semi-gestructureerde inhoud, zoals veelgestelde vragen. Dit wordt nog verder uitgelegd in dit document met [gegevensbronnen](../Concepts/data-sources-supported.md). U kunt in deze snelstart ook uw eigen URL's voor veelgestelde vragen gebruiken.
 

@@ -1,55 +1,55 @@
 ---
-title: Visuele zoekopdrachten SDK Node-Quickstart | Microsoft Docs
-description: Instellingen voor visuele zoekopdrachten knooppunt van de SDK-consoletoepassing.
+title: 'Snelstart: Bing Visual Search SDK, Node'
 titleSuffix: Azure Cognitive Services
+description: Lees hier informatie over de instellingen voor het maken van een Node-consoletoepassing met behulp van Visual Search SDK.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
-ms.translationtype: MT
+ms.openlocfilehash: afccbc66da94d5c2d276a05a47ffe60dfbae2261
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782437"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219699"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Visuele zoekopdrachten-SDK-Node-Quickstart
+# <a name="quickstart-bing-visual-search-sdk-node"></a>Snelstart: Bing Visual Search SDK voor Node 
 
-De Bing Visual Search SDK maakt gebruik van de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
-De [broncode voor Node-SDK voor Visual Search-voorbeelden](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) is beschikbaar op Git Hub.
+De Bing Visual Search SDK gebruikt de functionaliteit van de REST-API voor webaanvragen en het parseren van resultaten.
+De [broncode voor voorbeelden van Bing Video Search SDK voor Node](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) is beschikbaar op Git Hub.
 
-Scenario's de code worden onder de volgende rubrieken beschreven:
+Documentatie van codescenario's vindt u onder de volgende koppen:
 * [Visual Search-client](#client)
-* [Volledige-consoletoepassing](#complete)
+* [Consoletoepassing voltooien](#complete)
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Cognitive Services-API-sleutel is vereist voor het verifiëren van de SDK-aanroepen. Zich aanmelden voor een [gratis proefversie sleutel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De proefversie sleutel is handig voor zeven dagen met één aanroep per seconde. Voor productiescenario's, [kopen van een toegangssleutel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Zie ook [informatie over de prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Er is een code van de Cognitive Services API vereist voor het verifiëren van SDK-aanroepen. Meld u aan voor een [gratis proefcode](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De proefcode is gedurende zeven dagen geldig, met één aanroep per seconde. Voor productiescenario's kunt u [een toegangscode kopen](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Bekijk ook de [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
 * Voer `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch` uit.
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Visual Search-client
-Het maken van een exemplaar van de `VisualSearchAPI` client using-instructies toevoegen:
+Als u een exemplaar van de client `VisualSearchAPI` wilt maken, voegt u using-instructies toe:
 ```
 const Search = require('azure-cognitiveservices-visualsearch');
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 
 ```
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 ```
 let keyVar = 'YOUR-VISUAL-SEARCH-ACCESS-KEY';
 let credentials = new CognitiveServicesCredentials(keyVar);
 let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
 
 ```
-Gebruik de client om te zoeken naar afbeeldingen:
+De client gebruiken om te zoeken naar afbeeldingen:
 ```
 let fileStream = fs.createReadStream('../Data/image.jpg');
 let visualSearchRequest = JSON.stringify({});
@@ -65,7 +65,7 @@ try {
 }
 
 ```
-Parseren van de resultaten van de vorige query:
+De resultaten van de vorige query parseren:
 ```
 // Visual Search results
 if (visualSearchResults.image.imageInsightsToken) {
@@ -97,9 +97,9 @@ else {
 
 ```
 <a name="complete"></a>
-## <a name="complete-console-application"></a>Volledige-consoletoepassing
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
 
-De volgende consoletoepassing wordt uitgevoerd van de vorige code, andere scenario's, en parseert resultaten:
+De volgende consoletoepassing voert de eerder gedefinieerde code uit, andere scenario's en parseert vervolgens de resultaten:
 ```
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -328,4 +328,4 @@ exports.sample = sample;
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitive Services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

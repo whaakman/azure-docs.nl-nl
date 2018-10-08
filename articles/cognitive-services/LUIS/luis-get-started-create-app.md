@@ -1,20 +1,21 @@
 ---
-title: Uw eerste LUIS-app (Language Understanding) maken in 10 minuten - Cognitive Services-LUIS | Microsoft Docs
-description: In deze snelstart maakt u een LUIS-app die gebruikmaakt van het vooraf gemaakte domein `HomeAutomation` voor het in- en uitschakelen van lichten en apparaten. Dit vooraf gemaakte domein biedt u intenties, entiteiten voorbeelden van utterances. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
+title: Nog 10 minuten tot uw eerste LUIS-app
+titleSuffix: Azure Cognitive Services
+description: Maak een LUIS-app die gebruikmaakt van het vooraf gemaakte domein `HomeAutomation` voor het in- en uitschakelen van lichten en apparaten. Dit vooraf gemaakte domein biedt u intenties, entiteiten voorbeelden van utterances. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 457f23936dec0cf85e9aebbf3e54bba37c2f3ca3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "43769940"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037470"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snelstart: Een vooraf gemaakte app voor huisautomatisering gebruiken
 
@@ -54,11 +55,7 @@ Wanneer het vooraf gemaakte domein is toegevoegd, wordt in het vak met vooraf ge
 
 ## <a name="intents-and-entities"></a>Intenties en entiteiten
 
-Selecteer **Intents** in het navigatiedeelvenster aan de linkerkant om de intenties van het domein 'Home Automation' te controleren. 
-
-[![](media/luis-quickstart-new-app/home-automation-intents.png "Schermopname van lijst met intenties met de namen van intenties gemarkeerd in de tabel")](media/luis-quickstart-new-app/home-automation-intents.png)
-
-Elke intentie bevat voorbeelden van utterances.
+Selecteer **Intents** in het navigatiedeelvenster aan de linkerkant om de intenties van het domein 'Home Automation' te controleren. Elke intentie bevat voorbeelden van utterances.
 
 > [!NOTE]
 > **None** is een intentie die door alle LUIS-apps wordt geboden. U kunt deze gebruiken voor het afhandelen van utterances die niet overeenkomen met de functionaliteit die uw app biedt. 
@@ -67,11 +64,9 @@ Selecteer de intentie **HomeAutomation.TurnOff**. U kunt zien dat de intentie ee
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "Schermopname van de intentie HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
-## <a name="train-your-app"></a>Uw app trainen
+## <a name="train-the-luis-app"></a>LUIS-app trainen
 
-Selecteer **Train** in de bovenste navigatiebalk.
-
-[![](media/luis-quickstart-new-app/trained.png "Schermopname van de intentie HomeAutomation.TurnOff met melding dat trainen is gelukt (groen)")](media/luis-quickstart-new-app/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>Uw app testen
 Nadat u uw app hebt getraind, kunt u deze testen. Selecteer **Test** in de bovenste navigatiebalk. Typ een test-utterance, zoals 'Turn off the lights' in het interactieve testdeelvenster en druk op Enter. 
@@ -89,29 +84,23 @@ In dit voorbeeld wordt 'Turn off the lights' correct geïdentificeerd als de bes
 
 Selecteer **Test** nogmaals om het deelvenster samen te vouwen. 
 
-## <a name="publish-your-app"></a>Uw app publiceren
-Selecteer **Publish** in de bovenste navigatiebalk. 
+<a name="publish-your-app"></a>
 
-[![](media/luis-quickstart-new-app/publish.png "Schermopname van app met de knop Publish gemarkeerd")](media/luis-quickstart-new-app/publish.png)
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 
-Selecteer de slot Production en vervolgens de knop **Publish**.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-In de groene meldingsbalk boven aan wordt aangegeven dat de app is gepubliceerd.
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
 
-[![](media/luis-quickstart-new-app/published.png "Schermopname van app met de melding dat de app is gepubliceerd")](media/luis-quickstart-new-app/published.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-Nadat het publiceren is voltooid, kunt u de eindpunt-URL gebruiken die wordt weergegeven in de **app Publish**.
+2. Ga naar het einde van de URL in het adres, voer `turn off the living room light` in en druk op Enter. Het JSON-antwoord van uw HTTP-eindpunt wordt weergegeven in de browser.
 
-[![](media/luis-quickstart-new-app/endpoint.png "Schermopname van de pagina Publish met eindpunt-URL gemarkeerd")](media/luis-quickstart-new-app/endpoint.png)
-
-## <a name="use-your-app"></a>Uw app gebruiken
-U kunt uw gepubliceerde eindpunt testen in een browser met behulp van de gegenereerde URL. Open deze URL in uw browser en stel de URL-parameter '&q' in op uw testquery. Voeg bijvoorbeeld `turn off the living room light` aan het einde van uw URL toe en druk op Enter. Het JSON-antwoord van uw HTTP-eindpunt wordt weergegeven in de browser.
-
-
-[![](media/luis-quickstart-new-app/turn-off-living-room.png "Schermafbeelding van browser met JSON-resultaat waarin de intentie TurnOff is gedetecteerd")](media/luis-quickstart-new-app/turn-off-living-room.png)
-
+    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Schermafbeelding van browser met JSON-resultaat waarin de intentie TurnOff is gedetecteerd")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor de drie puntjes (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,46 +1,46 @@
 ---
-title: Bing Visual Search SDK bijsnijden gebied resulteert zelfstudie | Microsoft Docs
-description: Het gebruik van de Bing Visual Search SDK-URL's van installatiekopieën die vergelijkbaar is met het gebied van de geüploade afbeelding bijsnijden ophalen.
+title: 'Zelfstudie: gebied voor bijsnijden afbeelding en resultaten - Bing Visual Search'
+description: De Bing Visual Search-SDK gebruiken voor het ophalen van URL's van afbeeldingen die overeenkomen met het bijsnijdgebied van een geüploade afbeelding.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574486"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226907"
 ---
-# <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Zelfstudie: De Bing Visual Search SDK afbeelding bijsnijden oppervlakte en de resultaten
-De Visual Search-SDK bevat een optie voor het selecteren van een gebied van een afbeelding en online installatiekopieën die op het gebied van de grote afbeelding bijsnijden lijken zoeken.  In dit voorbeeld geeft gebied bijsnijden met één persoon uit een afbeelding met verschillende mensen.  De code verzendt de gebied bijsnijden en de URL van de grote afbeelding en retourneert resultaten die zijn onder andere Bing zoeken-URL's en URL's van vergelijkbare afbeeldingen online gevonden.
+# <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Zelfstudie: gebied voor bijsnijden afbeelding en resultaten van de Bing Visual Search-SDK
+De Visual Search-SDK bevat een optie voor het selecteren van een gebied van een afbeelding en het online zoeken van afbeeldingen die lijken op het bijsnijdgebied van de grotere afbeelding.  In dit voorbeeld wordt een bijsnijdgebied getoond met één persoon, afkomstig uit een afbeelding met meerdere personen.  De code verzendt het bijsnijdgebied en de URL van de grotere afbeelding en retourneert resultaten met Bing Search-URL's en URL's van vergelijkbare online gevonden afbeeldingen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows. (De gratis Community-editie volstaat.)
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om de code in Windows te kunnen uitvoeren. (De gratis Community-editie volstaat.)
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze Quick Start. Moet u de toegangssleutel die is opgegeven wanneer u uw gratis proefversie activeren, of u de sleutel van een betaald abonnement van uw Azure-dashboard kunt.
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met Bing Zoeken-API's. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Als u een consoletoepassing met behulp van de Bing Web Search SDK instelt, blader naar de optie NuGet-pakketten beheren vanuit de Solution Explorer in Visual Studio. Het pakket Microsoft.Azure.CognitiveServices.Search.VisualSearch toevoegen.
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Als u een consoletoepassing wilt instellen met behulp van de Bing Web Search SDK, gaat u naar de optie NuGet-pakketten beheren van Solution Explorer in Visual Studio. Voeg het pakket Microsoft.Azure.CognitiveServices.Search.VisualSearch toe.
 
-Het pakket NuGet Web Search SDK ook installeert, installeert afhankelijkheden, met inbegrip van:
+Wanneer u het NuGet Web Search SDK-pakket installeert, worden onder andere ook de volgende afhankelijkheden geïnstalleerd:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="image-and-crop-area"></a>Afbeelding en bijsnijden gebied
-De volgende afbeelding toont het senior management-team van Microsoft.  Met behulp van de Visual Search-SDK, we een gebied bijsnijden van de installatiekopie van het uploaden en de andere afbeeldingen en webpagina's die de entiteit is opgenomen in het geselecteerde gebied van de grote afbeelding zoeken.  In dit geval is de entiteit een persoon.
+## <a name="image-and-crop-area"></a>Afbeelding en bijsnijdgebied
+In de volgende afbeelding ziet u het team senior leidinggevenden van Microsoft.  Met de Visual Search-SDK uploadt u een bijsnijdgebied van de afbeelding en zoekt u andere afbeeldingen en webpagina's met de opgegeven entiteit in het geselecteerde deel van de grotere afbeelding.  In dit geval is de entiteit een persoon.
 
-![Senior Management-Team van Microsoft](./media/MS_SrLeaders.jpg)
+![Senior leidinggevenden bij Microsoft](./media/MS_SrLeaders.jpg)
 
-## <a name="specify-the-crop-area-as-imageinfo-in-visualsearchrequest"></a>Geef op het gebied bijsnijden als ImageInfo in VisualSearchRequest
-Dit voorbeeld wordt een gebied bijsnijden van de vorige afbeelding bovenste links en rechts coördinaten met percentage van de installatiekopie van het hele verlagen.  De volgende code maakt een `ImageInfo` -object van het gebied bijsnijden en belastingen de `ImageInfo` -object in een `VisualSearchRequest`.  De `ImageInfo` object bevat ook de URL van de online-installatiekopie.
+## <a name="specify-the-crop-area-as-imageinfo-in-visualsearchrequest"></a>Geef het bijsnijdgebied de naam ImageInfo in VisualSearchRequest
+In dit voorbeeld wordt het bijsnijdgebied van de vorige afbeelding gebruikt, met de coördinaten linksboven en rechtsonder weergegeven als percentage van de gehele afbeelding.  De volgende code maakt een `ImageInfo`-object van het bijsnijdgebied en laadt het `ImageInfo`-object in een `VisualSearchRequest`.  Het `ImageInfo`-object bevat ook de URL van de onlineafbeelding.
 
 ```
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
@@ -49,8 +49,8 @@ ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
 ```
-## <a name="search-for-images-similar-to-crop-area"></a>Zoeken naar afbeeldingen die vergelijkbaar is met het gebied bijsnijden
-De `VisualSearchRequest` bijsnijden gebied informatie over de installatiekopie en de URL bevat.  De `VisualSearchMethodAsync` methode haalt de resultaten.
+## <a name="search-for-images-similar-to-crop-area"></a>Zoeken naar afbeeldingen die lijken op het bijsnijdgebied
+De `VisualSearchRequest` bevat informatie over het bijsnijdgebied in de afbeelding en de bijbehorende URL.  Met de `VisualSearchMethodAsync`-methode worden de resultaten opgehaald.
 ```
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
 var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest: visualSearchRequest).Result; 
@@ -58,30 +58,30 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 ```
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>De URL-gegevens ophalen uit ImageModuleAction
-Visuele zoekresultaten zijn `ImageTag` objecten.  Elke tag bevat een lijst met `ImageAction` objecten.  Elke `ImageAction` bevat een `Data` veld met een lijst met waarden die afhankelijk van het type actie zijn:
+Visual Search-resultaten zijn `ImageTag`-objecten.  Elke tag bevat een lijst met `ImageAction`-objecten.  Elke `ImageAction` bevat een `Data`-veld met een lijst met waarden die afhankelijk zijn van het type actie:
 
-U kunt de verschillende typen krijgen door de volgende code:
+U kunt de verschillende typen ophalen met de volgende code:
 ```
 Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " + i.WebSearchUrl);
 
 ```
-De volledige toepassing geeft als resultaat:
+De volledige toepassing retourneert:
 
 * ActionType: PagesIncluding WebSearchURL:
 * ActionType: MoreSizes WebSearchURL:
 * ActionType: VisualSearch WebSearchURL:
 * ActionType: ImageById WebSearchURL: 
-* ActionType: RelatedSearches WebSearchURL:
-* ActionType: Entiteit -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx, 5380.1
-* ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx, 5382.1
-* ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx, 5384.1
+* ActionType: RelatedSearches  WebSearchURL:
+* ActionType: Entity -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=BvvDoRtmZ35Xc_UZE4lZx6_eg7FHgcCkigU1D98NHQo&v=1&r=https%3a%2f%2fwww.bing.com%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5380.1
+* ActionType: TopicResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=3QGtxPb3W9LemuHRxAlW4CW7XN4sPkUYCUynxAqI9zQ&v=1&r=https%3a%2f%2fwww.bing.com%2fdiscover%2fnadella%2bsatya&p=DevEx,5382.1
+* ActionType: ImageResults -> WebSearchUrl: https://www.bing.com/cr?IG=E40D0E1A13404994ACB073504BC937A4&CID=03DCF882D7386A442137F49BD6596BEF&rd=1&h=l-WNHO89Kkw69AmIGe2MhlUp6MxR6YsJszgOuM5sVLs&v=1&r=https%3a%2f%2fwww.bing.com%2fimages%2fsearch%3fq%3dSatya%2bNadella&p=DevEx,5384.1
 
-Zoals wordt weergegeven in de voorgaande lijst de `Entity` `ActionType` bevat een Bing zoeken-query die informatie over een herkenbare persoon, een plaats of een ding retourneert.  De `TopicResults` en `ImageResults` typen query's voor gerelateerde afbeeldingen bevatten. De URL's in de lijst met koppeling naar Bing-zoekresultaten.
+Zoals wordt weergegeven in de voorgaande lijst, bevat de `Entity` `ActionType` een Bing Search-query waarmee informatie wordt geretourneerd over een herkenbare persoon, een herkenbare plaats of een herkenbaar ding.  De typen `TopicResults` en `ImageResults` bevatten zoekopdrachten naar gerelateerde afbeeldingen. De URL's in de lijst zijn koppelingen naar Bing-zoekresultaten.
 
 
-## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>PagesIncluding ActionType URL's van installatiekopieën vinden door visuele zoekopdrachten
+## <a name="pagesincluding-actiontype-urls-of-images-found-by-visual-search"></a>PagesIncluding ActionType-URL's van met Visual Search gevonden afbeeldingen
 
-De werkelijke afbeelding-URL's aan een cast nodig die leest vereist een `ActionType` als `ImageModuleAction`, waarin een `Data` element met een lijst met waarden.  Elke waarde is de URL van een afbeelding.  De volgende webcasts de `PagesIncluding` actietype naar `ImageModuleAction` en de waarden worden gelezen.
+Voor het ophalen van de werkelijke afbeeldings-URL's is een cast vereist die een `ActionType` leest als `ImageModuleAction`, die een `Data`-element met een waardelijst bevat.  Elke waarde is de URL van een afbeelding.  De volgende code cast het actietype `PagesIncluding` naar `ImageModuleAction` en leest de waarden.
 ```
     if (i.ActionType == "PagesIncluding")
     {
@@ -94,7 +94,7 @@ De werkelijke afbeelding-URL's aan een cast nodig die leest vereist een `ActionT
 
 ## <a name="complete-code"></a>Volledige code
 
-De volgende code wordt de eerdere voorbeelden uitgevoerd. Het verzendt een installatiekopie van een binaire in de hoofdtekst van de post-aanvraag, samen met een object cropArea en af te drukken om de Bing zoeken op URL's voor elke ActionType. Als de ActionType PagesIncluding, haalt de code de items ImageObject in ImageObject gegevens.  De gegevens bevatten een lijst met waarden die de URL's van installatiekopieën op webpagina's.  Kopieer en plak de resulterende Visual Search-URL's naar de browser om resultaten weer te geven. Kopieer en plak ContentUrl items naar de browser om installatiekopieën weer te geven.
+Met de volgende code worden de eerdere voorbeelden uitgevoerd. Er wordt binaire code van een afbeelding verzonden in de plaatsingsaanvraag, in combinatie met een cropArea-object. De Bing Search-URL's van elke ActionType worden geretourneerd. Als het ActionType PagesIncluding is, worden met de code ImageObject-items opgehaald in de ImageObject-gegevens.  De gegevens bevatten een lijst met waarden: de URL's van afbeeldingen op webpagina's.  Kopieer en plak de resulterende Visual Search-URL's naar de browser om resultaten weer te geven. Kopieer en plak ContentUrl-items naar de browser om afbeeldingen weer te geven.
 
 ```
 using System;
@@ -182,4 +182,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Volgende stappen
-[Visual Search-antwoord](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Reactie van Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

@@ -1,75 +1,76 @@
 ---
-title: Controle-SDK's en voorbeelden van inhoud voor de beheerder van Azure-inhoud | Microsoft Docs
-description: Ophalen van SDK's en voorbeelden voor inhoud beheerder
+title: SDK's en voorbeelden - Content Moderator, Python, Java, Node.js en .NET
+titlesuffix: Azure Cognitive Services
+description: SDK's en voorbeelden voor Content Moderator ophalen
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 40b8fc0f63383e837f0813f876f20806e6e8c6eb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a57f6a312b00d7ec3d927c6fda319f1de8663c9c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344526"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220445"
 ---
-# <a name="content-moderator-sdks-and-samples"></a>Inhoud beheerder SDK's en voorbeelden
+# <a name="content-moderator-sdks-and-samples"></a>SDK's en voorbeelden voor Content Moderator
 
 ## <a name="sdks-for-python-java-nodejs-and-net"></a>SDK's voor Python, Java, Node.js en .NET
 
-- [Inhoud beheerder SDK voor Python](https://pypi.python.org/pypi/azure-cognitiveservices-vision-contentmoderator)
-- [Inhoud beheerder SDK voor Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22)
-- [Inhoud beheerder SDK voor Node.js](https://www.npmjs.com/package/azure-cognitiveservices-contentmoderator)
-- [Inhoud beheerder SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)
+- [Content Moderator SDK voor Python](https://pypi.python.org/pypi/azure-cognitiveservices-vision-contentmoderator)
+- [Content Moderator SDK voor Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-cognitiveservices-contentmoderator%22)
+- [Content Moderator SDK voor Node.js](https://www.npmjs.com/package/azure-cognitiveservices-contentmoderator)
+- [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)
 
-## <a name="net-sdk-samples"></a>Voorbeelden van de .NET SDK
+## <a name="net-sdk-samples"></a>.NET SDK-voorbeelden
 
-De volgende lijst bevat koppelingen naar de codevoorbeelden die is gebouwd met behulp van de beheerder van Azure Content SDK voor .NET.
+De volgende lijst bevat koppelingen naar de codevoorbeelden die zijn gecompileerd met behulp van de Azure Content Moderator SDK voor .NET.
 
-- **Hulpbibliotheek**: [maken van een client inhoud beheerder voor gebruik in andere voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Zie [Quick Start](content-moderator-helper-quickstart-dotnet.md).
+- **Hulpbibliotheek**: [Een Content Moderator-client maken voor gebruik in andere voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Zie [snelstart](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="moderation"></a>Toezicht 
-- **Afbeelding van toezicht**: [evalueren van een afbeelding voor de inhoud voor volwassenen en mooie, tekst en vlakken](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Zie [Quick Start](image-moderation-quickstart-dotnet.md).
-- **Aangepaste installatiekopieën**: [gemiddeld met aangepaste installatiekopie lijsten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Zie [Quick Start](image-lists-quickstart-dotnet.md).
+- **Beheer van afbeeldingen**: [Een afbeelding controleren op erotische en ongepaste inhoud, tekst en gezichten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Zie [snelstart](image-moderation-quickstart-dotnet.md).
+- **Aangepaste afbeeldingen**: [Toezicht houden met aangepaste afbeeldingslijsten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Zie [snelstart](image-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Er is een maximumlimiet van **5 installatiekopie lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
+> Er is een maximumlimiet van **5 afbeeldingslijsten** waarbij elke lijst **niet meer dan 10.000 afbeeldingen mag bevatten**.
 >
 
-- **Tekst toezicht**: [tekst voor taalgebruik en persoonsgegevens (PII) scherm](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Zie [Quick Start](text-moderation-quickstart-dotnet.md).
-- **Aangepaste voorwaarden**: [gemiddeld met aangepaste term lijsten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Zie [Quick Start](term-lists-quickstart-dotnet.md).
+- **Tekstbeheer**: [Tekst controleren op grof taalgebruik en persoonlijk identificeerbare informatie (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Zie [snelstart](text-moderation-quickstart-dotnet.md).
+- **Aangepaste terminologie**: [Toezicht houden met aangepaste terminologielijsten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Zie [snelstart](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Er is een maximumlimiet van **geeft een lijst van 5 term** met elke lijst **niet meer dan 10.000 voorwaarden**.
+> Er is een maximumlimiet van **5 terminologielijsten** waarbij elke lijst **niet meer dan 10.000 termen mag bevatten**.
 >
 
-- **Video toezicht**: [video voor inhoud voor volwassenen en mooie scannen en resultaten](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Zie [Quick Start](video-moderation-api.md).
+- **Beheer van video**: [Een video controleren op erotische en ongepaste inhoud en resultaten ontvangen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Zie [snelstart](video-moderation-api.md).
 
 ### <a name="review"></a>Beoordelen
-- **Afbeelding van taken**: [Start een controle-taak die gescand en wordt gemaakt van beoordelingen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Zie [Quick Start](moderation-jobs-quickstart-dotnet.md).
-- **Afbeelding van beoordelingen**: [beoordelingen voor human in de lus maken](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Zie [Quick Start](moderation-reviews-quickstart-dotnet.md).
-- **Video bekijkt**: [maken video bekijkt voor human in de lus](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Zie [Quick Start](video-reviews-quickstart-dotnet.md)
-- **De tekst van de video bekijkt**: [maken de tekst van video bekijkt voor human in de lus](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Zie [Quick Start](video-reviews-quickstart-dotnet.md)
+- **Taken voor afbeeldingen**: [Een beheertaak starten om beoordelingen te scannen en maken](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Zie [snelstart](moderation-jobs-quickstart-dotnet.md).
+- **Beoordelingen voor afbeeldingen**: [Beoordelingen maken voor HITL (human-in-the-loop)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Zie [snelstart](moderation-reviews-quickstart-dotnet.md).
+- **Beoordelingen voor video's**: [Beoordelingen maken voor HITL (human-in-the-loop)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Zie [snelstart](video-reviews-quickstart-dotnet.md)
+- **Beoordelingen van videotranscripties**: [Beoordelingen van videotranscripties maken voor HITL (human-in-the-loop)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Zie [snelstart](video-reviews-quickstart-dotnet.md)
 
-Zie van alle .NET-voorbeelden op de [inhoud beheerder .NET-voorbeelden op GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
+Zie alle .NET-voorbeelden bij de [Voorbeelden van Content Moderator .NET op GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
 
-## <a name="rest-api-samples-in-c"></a>Voorbeelden van de REST-API in C#
+## <a name="rest-api-samples-in-c"></a>REST API-voorbeelden in C#
 
 - [Beheer van afbeeldingen](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageModeration)
 - [Beheer van tekst](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/TextModeration)
 - [Beheer van video](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/VideoModeration)
 - [Beoordelingen van afbeeldingen](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageReviews)
-- [De installatiekopie van taken](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageJob)
+- [Taken voor afbeeldingen](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageJob)
 
-Bekijk voor scenario's van deze voorbeelden, de [op aanvraag webinar](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html).
+Bekijk de [webinar op aanvraag](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html) om een beeld te krijgen van deze voorbeelden.
 
 ## <a name="tutorials"></a>Zelfstudies
-- [e-commerce catalogus toezicht](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). Zie [zelfstudie](ecommerce-retail-catalog-moderation.md).
-- [Facebook inhoud toezicht](https://github.com/MicrosoftContentModerator/samples-fbPageModeration). Zie [zelfstudie](facebook-post-moderation.md).
-- [Video's en de tekst van toezicht en bekijk oplossing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) Zie [zelfstudie](video-transcript-moderation-review-tutorial-dotnet.md)
+- [Beheer van eCommerce-catalogus](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration). Zie [zelfstudie](ecommerce-retail-catalog-moderation.md).
+- [Beheer van Facebook-inhoud](https://github.com/MicrosoftContentModerator/samples-fbPageModeration). Zie [zelfstudie](facebook-post-moderation.md).
+- [Beheer van video en transcriptie oplossing voor beheer](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) Zie [zelfstudie](video-transcript-moderation-review-tutorial-dotnet.md)
 
-## <a name="on-demand-webinars"></a>Op aanvraag webinars
-- [Machine-ondersteunde inhoud toezicht op schaal met de beheerder van de inhoud](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html)
+## <a name="on-demand-webinars"></a>Webinars op aanvraag
+- [Geautomatiseerd inhoudstoezicht op schaal met Content Moderator](https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html)

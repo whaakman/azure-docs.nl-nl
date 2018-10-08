@@ -3,18 +3,22 @@ title: bestand opnemen
 description: bestand opnemen
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 07/26/2018
+ms.date: 08/06/2018
 ms.author: diberry
-ms.openlocfilehash: 3aefde0185ad29d9735d3dde6d04423e7425b583
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a7d8deda7674cfb44c2e268a32d78f04b53580a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163742"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47105757"
 ---
-Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+Ga in de sectie **Manage** (menu rechtsboven) naar de pagina **Keys and endpoints** (linkermenu) en selecteer onderaan de pagina de URL bij **endpoint**. Er wordt een nieuw browservenster geopend, met de URL van het eindpunt in de adresbalk. 
+
+De URL ziet eruit als `https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<YOUR_KEY>&<optional-name-value-pairs>&q=<user-utterance-text>`.
+
+ 

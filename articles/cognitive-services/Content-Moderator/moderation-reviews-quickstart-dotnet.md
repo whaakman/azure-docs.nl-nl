@@ -1,56 +1,57 @@
 ---
-title: Azure Content Moderator - beoordelingen met behulp van .NET maken | Microsoft Docs
-description: Over het maken van beoordelingen met Azure Content Moderator-SDK voor .NET
+title: 'Snelstart: Beoordelingen maken met behulp van .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Beoordelingen maken met behulp van de Azure Content Moderator SDK voor .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: c5f301e7ed15100c39f0af77942147275b966ed9
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180770"
+ms.locfileid: "47226582"
 ---
-# <a name="create-reviews-using-net"></a>Beoordelingen met behulp van .NET maken
+# <a name="quickstart-create-reviews-using-net"></a>Snelstart: Beoordelingen maken met behulp van .NET
 
-In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen:
  
-- Maken van een set met beoordelingen voor menselijke moderators
+- Een set beoordelingen voor menselijke moderators maken
 - De status van bestaande beoordelingen voor menselijke moderators ophalen
 
-Inhoud verloopt over het algemeen via een geautomatiseerd toezicht voordat het wordt gepland voor menselijke beoordeling. Dit artikel behandelt alleen het maken van de beoordeling van menselijk toezicht. Zie voor een uitgebreidere scenario, de [Facebook inhoudstoezicht](facebook-post-moderation.md) en [beheer van eCommerce-catalogus](ecommerce-retail-catalog-moderation.md) zelfstudies.
+De inhoud doorloopt over het algemeen de een of andere vorm van geautomatiseerd toezicht voordat deze wordt gepland voor menselijke beoordeling. Dit artikel behandelt alleen het maken van de beoordeling voor menselijk toezicht. Zie de zelfstudies [Beheer van Facebook-inhoud](facebook-post-moderation.md) en [Beheer van eCommerce-catalogus](ecommerce-retail-catalog-moderation.md) voor een uitgebreider scenario.
 
-In dit artikel wordt ervan uitgegaan dat u al bekend met Visual Studio en C# bent.
+In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C#.
 
 ## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
 
-Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
-Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
+Om de Content Moderator-services via de REST-API of de SDK te kunnen gebruiken, hebt u een abonnementssleutel nodig.
+Raadpleeg de [snelstart](quick-start.md) voor informatie over hoe u de sleutel kunt verkrijgen.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Zich registreren voor een hulpprogramma voor beoordeling account als niet in de vorige stap is voltooid
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Schrijf u in voor een account voor een beoordelingsprogramma als dat niet in de vorige stap is uitgevoerd
 
-Als u uw Content Moderator vanuit de Azure-portal ook hebt [zich registreren voor de beoordeling hulpprogramma account](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. U moet het team-Id en het beoordelingsprogramma de API controleren als u wilt een taak starten en de evaluaties weergeven in het controlehulpprogramma aan te roepen.
+Als u uw Content Moderator via de Azure-portal hebt gekregen, [schrijf u dan ook in voor het account voor een beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/) en stel een beoordelingsteam samen. U hebt de team-id en het beoordelingsprogramma nodig om de beoordelings-API aan te roepen om een functie te starten en de beoordelingen te bekijken in het beoordelingsprogramma.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Zorg ervoor dat uw API-sleutel de beoordeling-API kunt aanroepen voor het maken van de beoordeling
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Zorg ervoor dat uw API-sleutel de beoordelings-API kan aanroepen voor het maken van de beoordeling
 
-Na het voltooien van de vorige stappen, zou u uiteindelijk met twee Content Moderator-sleutels als u vanuit de Azure-portal gestart. 
+Nadat u de vorige stappen hebt uitgevoerd, zou u twee Content Moderator-sleutels kunnen hebben als u vanuit de Azure-portal bent gestart. 
 
-Als u van plan bent de Azure-opgegeven API-sleutel in de SDK-voorbeeld gebruiken, volgt u de stappen in de [met behulp van Azure-sleutel met de API controleren](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) sectie waarmee uw toepassing in de beoordeling-API aanroepen en beoordelingen te maken.
+Als u van plan bent de door Azure verstrekte API-sleutel in uw SDK-voorbeeld te gebruiken, volgt u de stappen in de sectie [De Azure-sleutel met de beoordelings-API gebruiken](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) zodat uw app de beoordelings-API kan aanroepen en beoordelingen kan maken.
 
-Als u de gratis proefversie sleutel gegenereerd door het beoordelingsprogramma, uw beoordeling hulpprogramma-account al op de hoogte van de sleutel en daarom geen extra stappen zijn vereist.
+Als u de gratis proefversie van de sleutel gebruikt die wordt gegenereerd door het beoordelingsprogramma, is uw account van het beoordelingsprogramma al op de hoogte van de sleutel, zodat er geen extra stappen zijn vereist.
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
+## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
-1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
+1. Voeg een nieuw project van het type **Console app (.NET Framework)** toe aan uw oplossing.
 
-   Noem het project in de voorbeeldcode **CreateReviews**.
+   Noem het project **CreateReviews** in de voorbeeldcode.
 
-1. Selecteer dit project als opstartproject één voor de oplossing.
+1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
@@ -60,9 +61,9 @@ Installeer de volgende NuGet-pakketten:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
-Wijzig het programma de using-instructies toe.
+De using-instructies van het programma wijzigen
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -75,10 +76,10 @@ Wijzig het programma de using-instructies toe.
 
 ### <a name="create-the-content-moderator-client"></a>De Content Moderator-client maken
 
-Voeg de volgende code voor het maken van een Content Moderator-client voor uw abonnement.
+Voeg de volgende code toe om een Content Moderator-client voor uw abonnement te maken.
 
 > [!IMPORTANT]
-> Update de **Azureregio** en **CMSubscriptionKey** velden met de waarden van uw regio-id en de abonnement-sleutel.
+> Werk de velden **AzureRegion** en **CMSubscriptionKey** bij met de waarden van uw regio-id en de abonnementssleutel.
 
 
     /// <summary>
@@ -123,10 +124,10 @@ Voeg de volgende code voor het maken van een Content Moderator-client voor uw ab
         }
     }
 
-## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Maak een klasse voor interne informatie over de inhoud aan een revisie-ID koppelen
+## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Maak een klasse om informatie over interne inhoud te koppelen aan een beoordelings-id
 
-De volgende klasse die u wilt toevoegen de **programma** klasse.
-Met deze klasse kan de revisie-ID om uw interne ID van inhoud voor het item te koppelen.
+Voeg de volgende klasse toe aan de klasse **Program**.
+Met deze klasse kunt u de beoordelings-id koppelen aan de id van uw interne inhoud voor het item.
 
     /// <summary>
     /// Associates the review ID (assigned by the service) to the internal
@@ -155,14 +156,14 @@ Met deze klasse kan de revisie-ID om uw interne ID van inhoud voor het item te k
         public string ReviewId;
     }
 
-### <a name="initialize-application-specific-settings"></a>Initialiseren van toepassingsspecifieke instellingen
+### <a name="initialize-application-specific-settings"></a>Toepassingsspecifieke instellingen initialiseren
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS) en als u de limiet overschrijdt, de SDK een uitzondering met een foutcode 429 genereert. 
+> De sleutel van uw Content Moderator-service heeft een limiet voor het aantal aanvragen per seconde (RPS) en als u die limiet overschrijdt, genereert de SDK een uitzondering met foutcode 429. 
 >
-> De sleutel van een gratis laag heeft een limiet van één RPS.
+> Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Voeg de volgende constanten toe aan de **programma** klasse in Program.cs.
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Voeg de volgende constanten toe aan de klasse **Program** in Program.cs.
     
     /// <summary>
     /// The minimum amount of time, in milliseconds, to wait between calls
@@ -182,14 +183,14 @@ Met deze klasse kan de revisie-ID om uw interne ID van inhoud voor het item te k
     /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende constanten en statische velden die u wilt de **programma** klasse in Program.cs.
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende constanten en statische velden toe aan de klasse **Program** in Program.cs.
 
-Werk deze waarden bevatten informatie die specifiek zijn voor uw abonnement en het team.
+Werk deze waarden bij met informatie die specifiek is voor uw abonnement en team.
 
 > [!NOTE]
-> U de constante TeamName ingesteld op de naam die u hebt gebruikt tijdens het maken van uw [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/) abonnement. Ophalen van de TeamName uit de **referenties** sectie de **instellingen** (tandwielpictogram)-menu.
+> U stelt de constante TeamName in op de naam die u hebt gebruikt tijdens het maken van uw abonnement op het [Content Moderator-beoordelingsprogramma](https://contentmoderator.cognitive.microsoft.com/). U haalt de TeamName op uit de sectie **Credentials** in het menu **Instellingen** (het tandwielpictogram).
 >
-> De teamnaam van uw is de waarde van de **Id** veld in de **API** sectie.
+> De naam van uw team is de waarde van het veld **Id** veld in de sectie **API**.
 
     /// <summary>
     /// The name of the team to assign the review to.
@@ -237,9 +238,9 @@ Werk deze waarden bevatten informatie die specifiek zijn voor uw abonnement en h
     /// </summary>
     private const string MetadataValue = "true";
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>De volgende statische velden toevoegen aan de **programma** klasse in Program.cs.
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Voeg de volgende statische velden toe aan de klasse **Program** in Program.cs.
 
-Deze velden gebruiken voor het bijhouden van de status van de toepassing.
+Gebruik deze velden voor het volgen van de status van de toepassing.
 
     /// <summary>
     /// A static reference to the text writer to use for logging.
@@ -253,7 +254,7 @@ Deze velden gebruiken voor het bijhouden van de status van de toepassing.
     private static List<ReviewItem> reviewItems =
         new List<ReviewItem>();
 
-## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Een methode voor het schrijven van berichten naar het logboekbestand maken
+## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Een methode definiëren voor het schrijven van berichten naar het logboekbestand
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
@@ -272,9 +273,9 @@ Voeg de volgende methode toe aan de klasse **Program**.
         }
     }
 
-## <a name="create-a-method-to-create-a-set-of-reviews"></a>Een methode voor het maken van een set met beoordelingen maken
+## <a name="create-a-method-to-create-a-set-of-reviews"></a>Een methode definiëren voor het maken van een reeks beoordelingen
 
-Normaal gesproken hebt u de bedrijfslogica voor het identificeren van binnenkomende afbeeldingen, tekst, of video die moet worden gecontroleerd. Echter hier alleen gebruiken een vaste lijst met installatiekopieën.
+Normaal gesproken beschikt u over bedrijfslogica voor het identificeren van binnenkomende afbeeldingen, tekst of video die moeten worden beoordeeld. Hier gebruikt u echter alleen een vaste lijst met afbeeldingen.
 
 Voeg de volgende methode toe aan de klasse **Program**.
 
@@ -339,13 +340,13 @@ Voeg de volgende methode toe aan de klasse **Program**.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Maken van een methode voor het ophalen van de status van bestaande beoordelingen
+## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Een methode definiëren om de status van bestaande beoordelingen op te halen
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
 > [!Note]
-> In de praktijk, stelt u de callback-URL `CallbackEndpoint` naar de URL die u de resultaten van de handmatige controle (via een HTTP POST-aanvraag ontvangt).
-> U kunt deze methode om te controleren op de status van in behandeling beoordelingen wijzigen.
+> In de praktijk stelt u de callback-URL `CallbackEndpoint` in op de URL die de resultaten van de handmatige beoordeling ontvangt (via een HTTP POST-aanvraag).
+> U kunt deze methode wijzigen om de status van in behandeling zijnde beoordelingen te controleren.
 
     /// <summary>
     /// Gets the review details from the server.
@@ -370,11 +371,11 @@ Voeg de volgende methode toe aan de klasse **Program**.
         }
     }
 
-## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Code voor het maken van een set van beoordelingen en controleer de status toevoegen
+## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Code toevoegen om een reeks beoordelingen te maken en de status ervan te controleren
 
-Voeg de volgende code aan de **Main** methode.
+Voeg de volgende code aan de methode **Main**.
 
-Deze code wordt gesimuleerd veel van de bewerkingen die u uitvoert in definiëren en beheren van de lijst, evenals met behulp van de lijst om de installatiekopieën van het scherm. De functies voor logboekregistratie kunnen u zien dat de antwoordobjecten die worden gegenereerd door de SDK-aanroepen naar de Content Moderator-service.
+Deze code simuleert veel van de bewerkingen die u uitvoert bij het definiëren en beheren van de lijst en bij het gebruik van de lijst voor schermafbeeldingen. Met de functies voor logboekregistratie kunt u de antwoordobjecten zien die worden gegenereerd door de SDK-aanroepen naar de Content Moderator-service.
 
     using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
     {
@@ -407,7 +408,7 @@ Deze code wordt gesimuleerd veel van de bewerkingen die u uitvoert in definiëre
 
 ## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
 
-Ziet u de volgende voorbeelduitvoer:
+U krijgt de volgende voorbeelduitvoer te zien:
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
@@ -415,11 +416,11 @@ Ziet u de volgende voorbeelduitvoer:
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
-Meld u aan bij de Content Moderator-controlehulpprogramma om te zien van de installatiekopie van het in behandeling controleren met de **sc** label ingesteld op **waar**. U ziet ook de standaard **een** en **r** tags en eventuele aangepaste labels die u mogelijk hebt gedefinieerd binnen het beoordelingsprogramma. 
+Meld u aan bij het Content Moderator-beoordelingsprogramma om de in behandeling zijnde beoordeling van afbeeldingen te zien met het **sc**-label ingesteld op **true**. U ziet ook de standaard **a**- en **r**-tags en eventuele aangepaste tags die u mogelijk hebt gedefinieerd binnen het beoordelingsprogramma. 
 
-Gebruik de **volgende** knop om in te dienen.
+Gebruik de knop **Volgende** om de code te verzenden.
 
-![Beoordeling van de installatiekopie van menselijke moderators](images/moderation-reviews-quickstart-dotnet.PNG)
+![Beoordeling van afbeeldingen voor menselijke moderators](images/moderation-reviews-quickstart-dotnet.PNG)
 
 Druk vervolgens op een willekeurige toets om door te gaan.
 
@@ -430,12 +431,12 @@ Druk vervolgens op een willekeurige toets om door te gaan.
 
     Press any key to exit...
 
-## <a name="check-out-the-following-output-in-the-log-file"></a>Bekijk de volgende uitvoer gegenereerd in het logboekbestand.
+## <a name="check-out-the-following-output-in-the-log-file"></a>Bekijk de volgende uitvoer in het logboekbestand.
 
 > [!NOTE]
-> In uw bestand voor uitvoer, de tekenreeksen "\{teamname} ' en '\{callbackUrl}" weerspiegelen de waarden voor de `TeamName` en `CallbackEndpoint` velden, respectievelijk.
+> In het uitvoerbestand geven de tekenreeksen "\{teamname} ' en '\{callbackUrl}" de waarden aan voor respectievelijk de velden `TeamName` en `CallbackEndpoint`.
 
-De revisie-id's en de installatiekopie die inhoud URL's zijn verschillend telkens wanneer u de toepassing wordt uitgevoerd en wanneer een beoordeling is voltooid, de `reviewerResultTags` het veld wordt weergegeven hoe de revisor gemarkeerd voor het item.
+De beoordelings-id's en de URL's van de afbeeldingsinhoud verschillen iedere keer wanneer u de toepassing uitvoert. Wanneer een beoordeling is voltooid, geeft het veld `reviewerResultTags` aan hoe de beoordelaar het item gemarkeerd heeft.
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
@@ -496,9 +497,9 @@ De revisie-id's en de installatiekopie die inhoud URL's zijn verschillend telken
         "callbackEndpoint": "{callbackUrl}"
     }
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>De Url voor terugbellen voor ontvangt als is opgegeven, deze reactie
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Indien opgegeven ontvangt de URL voor terugbellen deze reactie
 
-U ziet een antwoord weergegeven zoals in het volgende voorbeeld:
+U ziet een reactie zoals in het volgende voorbeeld:
 
     {
         "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
@@ -519,4 +520,4 @@ U ziet een antwoord weergegeven zoals in het volgende voorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.
+Download de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere snelstarts over Content Moderator voor .NET en begin met de integratie.

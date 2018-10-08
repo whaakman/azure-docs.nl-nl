@@ -1,20 +1,21 @@
 ---
-title: Snelstart Model wijzigen en LUIS-app trainen met behulp van PHP - Azure Cognitive Services | Microsoft Docs
+title: PHP-snelstart - model wijzigen en LUIS-app trainen
+titleSuffix: Azure Cognitive Services
 description: Voeg in deze PHP-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 31840f34b99bbb474776ce81a7f87df94a0e338e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c2f2343b889166a9fe7ea9356ee82620dba27d08
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44156984"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034262"
 ---
 # <a name="quickstart-change-model-using-php"></a>Snelstart: Model wijzigen met behulp van PHP 
 
@@ -213,4 +214,4 @@ Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelsta
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Programmatisch een LUIS-app bouwen](luis-tutorial-node-import-utterances-csv.md)
+> [Programmatisch een LUIS-app compileren](luis-tutorial-node-import-utterances-csv.md)

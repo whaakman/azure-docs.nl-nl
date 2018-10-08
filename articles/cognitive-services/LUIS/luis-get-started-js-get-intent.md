@@ -1,22 +1,23 @@
 ---
-title: Tekst in natuurlijke taal analyseren in LUIS (Language Understanding) met JavaScript- Cognitive Services - Azure Cognitive Services | Microsoft Docs
+title: JavaScript-snelstart - Intentie voorspellen - LUIS
+titleSuffix: Azure Cognitive Services
 description: In deze snelstart gebruikt u een beschikbare openbare LUIS-app om de intentie van een gebruiker te bepalen aan de hand van beschrijvende tekst. Gebruik JavaScript om de intentie van de gebruiker als tekst naar het HTTP-voorspellingseindpunt van de openbare app te verzenden. Bij het eindpunt wordt via LUIS het model van de openbare app toegepast om de betekenis van tekst in natuurlijke taal te analyseren. Hiermee wordt de algehele intentie bepaald en worden gegevens geëxtraheerd die relevant zijn voor het onderwerpdomein van de app.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d787f744ff0fe7315553e9dd6f4465122f7e06b2
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cbbf0d2388f83f4e38f0a63b6bc181d4a24e0aa0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039477"
 ---
-# <a name="quickstart-analyze-text-using-javascript"></a>Snelstart: tekst analyseren met JavaScript
+# <a name="quickstart-get-intent-using-javascript"></a>Snelstart: intentie ophalen met JavaScript
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -34,11 +35,11 @@ ms.locfileid: "44159704"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Tekst analyseren met browser
+## <a name="get-intent-with-browser"></a>De intentie via een browser ophalen
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-javascript"></a>Tekst analyseren met JavaScript 
+## <a name="get-intent-programmatically"></a>De intentie programmatisch ophalen
 
 U kunt JavaScript gebruiken voor toegang tot dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. 
 

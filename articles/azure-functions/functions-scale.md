@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7168db80593426977e238fa2b8a5f09638cf0fdf
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 4585b6d4e9e3f6c64e1c583b947f979b8edc5a74
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542156"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830253"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -53,7 +53,7 @@ Het verbruiksabonnement is de standaardinstelling hostingabonnement en biedt de 
 * U betaalt alleen wanneer uw functies worden uitgevoerd.
 * Automatisch opwaarts schalen, zelfs tijdens perioden van hoge laden.
 
-## <a name="app-service-plan"></a>App Service-plan
+## <a name="app-service-plan"></a>App Service-abonnement
 
 In de toegewezen App Service-plan, uw functie-apps worden uitgevoerd via exclusieve virtuele machines op Basic, Standard, Premium en geïsoleerd SKU's, die is hetzelfde als andere apps in App Service. Toegewezen virtuele machines worden toegewezen aan uw functie-app, wat betekent dat de host functies kan worden [altijd wordt uitgevoerd](#always-on). App Service-plannen ondersteuning voor Linux.
 
@@ -74,7 +74,7 @@ Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een pl
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-### <a name="always-on"></a>Altijd beschikbaar
+### <a name="always-on"></a>Altijd aan
 
 Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** instellen zodat uw functie-app correct wordt uitgevoerd. Op een App Service-plan gaat de functions-runtime niet-actieve na een paar minuten van inactiviteit, zodat alleen HTTP-triggers '' uw functies inschakelt. Altijd is op alleen beschikbaar op een App Service-plan. Functie-apps die het automatisch door het platform wordt geactiveerd op een verbruiksabonnement.
 
@@ -124,7 +124,7 @@ De eenheid van de schaal is de functie-app. Wanneer de functie-app is uitgebreid
 
 Schalen kan variëren van een aantal factoren, en schaal anders op basis van de trigger en taal selecteren. Maar er zijn een aantal aspecten van de schaal die aanwezig zijn in het systeem vandaag:
 
-* Een enkele functie-app alleen omhoog wordt geschaald uitgaande tot een maximum van 100 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
+* Een enkele functie-app alleen omhoog wordt geschaald uitgaande maximaal 200 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
 * Nieuwe instanties wordt alleen maximaal elke 10 seconden worden toegewezen.
 
 Verschillende triggers mogelijk ook andere limieten voor schalen, evenals gedocumenteerde hieronder:

@@ -1,82 +1,83 @@
 ---
-title: Azure Content Moderator - matig video's en transcripties in .NET | Microsoft Docs
-description: Het gebruik van Content Moderator tot gemiddelde video's en transcripties in .NET.
+title: "Zelfstudie: Video's en transcripties beoordelen in .NET - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: Leer hoe u Content Moderator gebruikt voor het beoordelen van video's en transcripties in .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: MT
+ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865468"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227568"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>Video en transcriptie toezicht-zelfstudie
+# <a name="tutorial-video-and-transcript-moderation"></a>Zelfstudie: Video's en transcripties beoordelen
 
-Content Moderator-video-API's kunnen u video's modereren en video beoordelingen maken in het hulpprogramma voor menselijke beoordeling. 
+Met behulp van de video-API's van Content Moderator kunt u video's beoordelen en videobeoordelingen maken in het hulpprogramma voor menselijke beoordeling. 
 
-Deze gedetailleerde zelfstudie biedt om te begrijpen hoe u een volledige video en transcriptie toezicht om oplossing te bouwen met geautomatiseerd beheer en het maken van human-in-the-loop revisie.
+In deze gedetailleerde zelfstudie leert u hoe u een complete oplossing voor het beoordelen van video's en transcripties bouwt die resulteert in een beoordeling die deels automatisch tot stand komt en deels wordt uitgevoerd door menselijke beoordelaars.
 
-Download de [C#-consoletoepassing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) voor deze zelfstudie. De consoletoepassing maakt gebruik van de SDK en de bijbehorende pakketten naar de volgende taken uitvoeren:
+Download de [C#-consoletoepassing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) voor deze zelfstudie. De consoletoepassing maakt gebruik van de SDK en de bijbehorende pakketten om de volgende taken uit te voeren:
 
-- De invoer video(s) voor een snellere verwerking comprimeren
-- Gemiddelde van de video om te slagen en frames met inzichten
-- De tijdstempels frame gebruiken voor het maken van miniatuurweergaven (installatiekopieën)
-- Tijdstempels en miniaturen te maken van de video beoordelingen worden ingediend
-- Converteer de video spraak naar tekst (transcript) met de Media Indexer-API
-- Gemiddelde van het transcript met de service van de toezicht op tekst
-- Toevoegen van de gecontroleerde transcriptie naar de video-overzicht
+- De invoervideo('s) comprimeren voor een snellere verwerking
+- De video beoordelen om opnamen en frames met inzichten te verkrijgen
+- Miniaturen (afbeeldingen) maken aan de hand van de tijdstempels
+- Tijdstempels en miniaturen verzenden voor het maken van videobeoordelingen
+- Videospraak converteren naar tekst (transcriptie) met de Media Indexer-API
+- De transcriptie beoordelen met de service voor tekstbeoordeling
+- De beoordeelde transcriptie toevoegen aan het video-overzicht
 
-## <a name="sample-program-outputs"></a>Voorbeeld van programma-uitvoer
+## <a name="sample-program-outputs"></a>Voorbeelduitvoer van programma
 
-Voordat u doorgaat, gaan we de uitvoer van follwing voorbeeld bekijken van het programma:
+Voordat we verdergaan, kijken we eerst even naar wat voorbeelden van uitvoer van het programma:
 
 - [Console-uitvoer](#program-output)
-- [Video controleren](#video-review-default-view)
-- [Transcript weergeven](#video-review-transcript-view)
+- [Videobeoordeling](#video-review-default-view)
+- [Weergave van transcriptie](#video-review-transcript-view)
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Zich aanmelden voor de [Content Moderator-controlehulpprogramma](https://contentmoderator.cognitive.microsoft.com/) website en [maken van aangepaste labels](Review-Tool-User-Guide/tags.md) waarmee de C#-consoletoepassing uit in de code worden toegewezen. Het volgende scherm ziet u de aangepaste labels.
+1. Meld u aan voor het [beoordelingsprogramma Content Moderator](https://contentmoderator.cognitive.microsoft.com/) en [maak aangepaste tags](Review-Tool-User-Guide/tags.md) die door de C#-consoletoepassing worden toegewezen vanuit de code. In het volgende scherm ziet u de aangepaste tags.
 
-  ![Videotoezicht aangepaste labels](images/video-tutorial-custom-tags.png)
+  ![Aangepaste tags voor beoordelen van video's](images/video-tutorial-custom-tags.png)
 
-1. Als u wilt de voorbeeldtoepassing uitvoert, moet u een Azure-account en een Azure Media Services-account. Daarnaast moet u toegang tot de Content Moderator private preview. Tot slot moet u referenties voor Azure Active Directory-verificatie. Zie voor meer informatie over het verkrijgen van deze informatie [de toezicht-API voor Video-snelstartgids](video-moderation-api.md).
+1. Als u de voorbeeldtoepassing wilt uitvoeren, hebt u een Azure-account en een account voor Azure Media Services nodig. Daarnaast moet u toegang hebben tot de beperkte preview van Content Moderator. Ten slotte moet u referenties hebben voor verificatie bij Azure Active Directory. Zie voor meer informatie over het verkrijgen van deze informatie [de snelstartgids over de API voor videobeoordeling](video-moderation-api.md).
 
-1. Bewerk het bestand `App.config` en voeg de naam van de Active Directory-tenant, de service-eindpunten en abonnementssleutels aangegeven door `#####`. U moet de volgende informatie:
+1. Bewerk het bestand `App.config` en voeg de naam van de Active Directory-tenant, de service-eindpunten en de abonnementssleutels toe aangegeven door `#####`. U hebt de volgende informatie nodig:
 
 |Sleutel|Beschrijving|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Eindpunt voor de API van Azure Media Services (AMS)|
 |`ClientSecret`|Abonnementssleutel voor Azure Media Services|
-|`ClientId`|Client-ID voor Azure mediaservices|
-|`AzureAdTenantName`|Active Directory-tenantnaam voor uw organisatie|
-|`ContentModeratorReviewApiSubscriptionKey`|Abonnementssleutel voor de Content Moderator API bekijken|
+|`ClientId`|Client-id voor Azure Media Services|
+|`AzureAdTenantName`|Naam van Active Directory-tenant voor uw organisatie|
+|`ContentModeratorReviewApiSubscriptionKey`|Abonnementssleutel voor de beoordelings-API van Content Moderator|
 |`ContentModeratorApiEndpoint`|Eindpunt voor de Content Moderator-API|
-|`ContentModeratorTeamId`|Content moderator team-ID|
+|`ContentModeratorTeamId`|Team-id voor Content Moderator|
 
 ## <a name="getting-started"></a>Aan de slag
 
-De klasse `Program` in `Program.cs` is de belangrijkste beginpunt voor het beheer van video-toepassing.
+De klasse `Program` in `Program.cs` is het belangrijkste invoerpunt voor de toepassing voor videobeoordeling.
 
 ### <a name="methods-of-class-program"></a>Methoden van de klasse Program
 
 |Methode|Beschrijving|
 |-|-|
-|`Main`|Vanaf de opdrachtregel parseert, verzamelt de invoer van de gebruiker en begint met de verwerking.|
-|`ProcessVideo`|Comprimeert, uploadt, matigt en video beoordelingen maakt.|
-|`CreateVideoStreamingRequest`|Hiermee maakt u een stream een video uploaden|
-|`GetUserInputs`|Verzamelt de invoer van de gebruiker; Als er geen opdrachtregelopties aanwezig zijn gebruikt|
-|`Initialize`|Initialiseert de objecten die nodig zijn voor het beheer van proces|
+|`Main`|Parseert de opdrachtregel, verzamelt invoer van de gebruiker en start de verwerking.|
+|`ProcessVideo`|Comprimeert, uploadt, beoordeelt en maakt videobeoordelingen.|
+|`CreateVideoStreamingRequest`|Maakt een stream voor het uploaden van een video|
+|`GetUserInputs`|Verzamelt invoer van de gebruiker; wordt gebruikt als er geen opdrachtregelopties aanwezig zijn.|
+|`Initialize`|Initialiseert objecten die nodig zijn voor het beoordelingsproces.|
 
 ### <a name="the-main-method"></a>De Main-methode
 
-`Main()` is waarbij de uitvoering wordt gestart, dus dit is de plaats om te beginnen met informatie over het beheer van video-proces.
+De uitvoering begint bij `Main()`, dus is dit het punt vanaf waar het belangrijk is om het beoordelingsproces van video's te begrijpen.
 
     static void Main(string[] args)
     {
@@ -117,30 +118,30 @@ De klasse `Program` in `Program.cs` is de belangrijkste beginpunt voor het behee
         }
     }
 
-`Main()` de volgende opdrachtregelargumenten verwerkt:
+`Main()` verwerkt de volgende opdrachtregelargumenten:
 
-- Het pad naar een map met MPEG-4 video bestanden kunnen worden verzonden voor beheer. Alle `*.mp4` bestanden in deze map en submappen zijn ingediend voor beheer.
-- (Optioneel) een Booleaanse waarde (true/false) vlag die aangeeft of tekst Transcripten ten behoeve van toezicht audio moeten worden gegenereerd.
+- Het pad naar een map met MPEG-4-videobestanden die moeten worden aangeboden voor beoordeling. Alle `*.mp4`-bestanden in deze map en submappen worden aangeboden voor beoordeling.
+- Optioneel een Booleaanse vlag (true/false) die aangeeft of er al dan niet transcripties moeten worden gegenereerd om ook de audio te beoordelen.
 
-Als er geen opdrachtregelargumenten aanwezig zijn, `Main()` aanroepen `GetUserInputs()`. Deze methode wordt de gebruiker voert u het pad naar een enkel bestand van de video en om op te geven of een tekstversie moet worden gegenereerd.
+Als er geen opdrachtregelargumenten zijn opgegeven, wordt `GetUserInputs()` aangeroepen met `Main()`. Deze methode vraagt de gebruiker om het pad naar één videobestand in te voeren en om aan te geven of er een transcriptie moet worden gegenereerd.
 
 > [!NOTE]
-> De consoletoepassing maakt gebruik van de [API van Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) Transcripten genereren uit van de geüploade video audiotrack. De resultaten zijn opgegeven in WebVTT-indeling. Zie voor meer informatie over deze indeling [Web Video tekstindeling nummers](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> De consoletoepassing maakt gebruik van de [API van Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) om transcripties te genereren van de audiotrack van de geüploade video. De resultaten worden aangeboden in de indeling WebVTT. Zie de Engelstalige site [Web Video Text Tracks Format (WebVTT)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) voor meer informatie over deze indeling.
 
-### <a name="initialize-and-processvideo-methods"></a>Initialiseren en ProcessVideo methoden
+### <a name="initialize-and-processvideo-methods"></a>De methoden Initialize en ProcessVideo
 
-Ongeacht of de opties van het programma afkomstig zijn uit vanaf de opdrachtregel of invoer van de interactieve gebruiker, `Main()` volgende aanroepen `Initialize()` te maken van de volgende gevallen:
+Ongeacht of de opties voor het programma afkomstig zijn van de opdrachtregel of uit interactieve invoer van de gebruiker, roept `Main()` vervolgens `Initialize()` aan om de volgende instanties te maken:
 
 |Klasse|Beschrijving|
 |-|-|
-|`AMSComponent`|Comprimeert videobestanden voordat u ze verzendt voor beheer.|
-|`AMSconfigurations`|Interface de configuratiegegevens van de toepassing, gevonden in `App.config`.|
-|`VideoModerator`| Uploaden, codering, versleuteling en beheer met behulp van AMS SDK|
-|`VideoReviewApi`|Video beoordelingen in de Content Moderator-service beheert|
+|`AMSComponent`|Comprimeert videobestanden voordat deze worden verzonden voor beoordeling.|
+|`AMSconfigurations`|Interface naar de configuratiegegevens van de toepassing, gevonden in `App.config`.|
+|`VideoModerator`| Uploaden, coderen, versleutelen en beoordelen met behulp van de AMS-SDK|
+|`VideoReviewApi`|Videobeoordelingen beheren in de Content Moderator-service|
 
-Deze klassen (aside van `AMSConfigurations`, die is vrij eenvoudig) worden behandeld in meer detail in toekomstige gedeelten van deze zelfstudie.
+Deze klassen (afgezien van `AMSConfigurations`, die voor zichzelf spreekt) worden verderop in deze zelfstudie afzonderlijk behandeld.
 
-Ten slotte de videobestanden verwerkte één bewerking tegelijk worden door het aanroepen van `ProcessVideo()` voor elk.
+Ten slotte worden de videobestanden één voor één verwerkt door voor elk bestand `ProcessVideo()` aan te roepen.
 
     private static async Task ProcessVideo(string videoPath)
     {
@@ -188,23 +189,23 @@ Ten slotte de videobestanden verwerkte één bewerking tegelijk worden door het 
     }
 
 
-De `ProcessVideo()` methode is redelijk eenvoudig. De volgende bewerkingen worden uitgevoerd in de volgorde:
+De methode `ProcessVideo()` is redelijk eenvoudig. De methode voert de volgende bewerkingen in de onderstaande volgorde uit:
 
-- Comprimeert de video
-- De video uploadt naar een Azure Media Services-asset
-- Hiermee maakt u een AMS-taak voor het gemiddelde van de video
-- Hiermee maakt u een video beoordeling in Content Moderator
+- De video comprimeren
+- De video uploaden naar een asset van Azure Media Services
+- Een AMS-taak maken voor het beoordelen van de video
+- Een videobeoordeling maken in Content Moderator
 
-Overweeg de volgende secties in meer detail enkele van de afzonderlijke processen aangeroepen door `ProcessVideo()`. 
+In de volgende gedeelten worden enkele van de afzonderlijke processen die worden aangeroepen door `ProcessVideo()` in meer detail besproken. 
 
 ## <a name="compressing-the-video"></a>Comprimeren van de video
 
-Voor het netwerkverkeer te minimaliseren, de toepassing videobestanden converteert naar H.264 (MPEG-4 AVC)-indeling en deze kan worden geschaald naar een maximale breedte van 640 pixels. De compressiecodec H.264 wordt aanbevolen vanwege de hoge efficiëntie (prijs compressie). De compressie wordt gedaan met behulp van de gratis `ffmpeg` opdrachtregelprogramma, die is opgenomen in de `Lib` map van de Visual Studio-oplossing. De invoerbestanden kunnen worden van een indeling die wordt ondersteund door `ffmpeg`, met inbegrip van de meest gebruikte videobestandsindelingen en codecs voor.
+Teneinde het netwerkverkeer zo veel mogelijk te beperken, converteert de toepassing videobestanden naar de indeling H.264 (MPEG-4 AVC) en worden de bestanden vervolgens geschaald naar een maximale breedte van 640 pixels. De codec H.264 wordt aanbevolen vanwege de hoge efficiëntie (compressie). De compressie wordt gedaan met behulp van het gratis opdrachtregelprogramma `ffmpeg`, dat u kunt vinden in de map `Lib` van Visual Studio. De invoerbestanden kunnen elke indeling hebben die wordt ondersteund door `ffmpeg`, dus ook de meest gebruikte indeling en codecs voor videobestanden.
 
 > [!NOTE]
-> Wanneer u begint met het programma met behulp van opdrachtregelopties, geeft u een map met de video bestanden kunnen worden verzonden voor beheer. Alle bestanden in deze map met de `.mp4` extensie worden verwerkt. Voor het verwerken van andere bestandsnaamextensies, werken de `Main()` methode in `Program.cs` om op te nemen van de gewenste extensies.
+> Wanneer u het programma start met opdrachtregelopties, geeft u een map op die de videobestanden bevat die moeten worden verzonden voor beoordeling. Alle bestanden in deze map met de extensie `.mp4` worden verwerkt. Als u andere bestanden met andere extensies wilt verwerken, moet u de methode `Main()` in `Program.cs` bijwerken om de gewenste extensies toe te voegen.
 
-De code die een enkele videobestand comprimeert is de `AmsComponent` in klasse `AMSComponent.cs`. De methode die verantwoordelijk is voor deze functionaliteit is `CompressVideo()`, die hier worden weergegeven.
+De code voor het comprimeren van een videobestand is de klasse `AmsComponent` in `AMSComponent.cs`. De methode die verantwoordelijk is voor deze functionaliteit is `CompressVideo()`, die hier wordt weergegeven.
 
     public string CompressVideo(string videoPath)
     {
@@ -238,21 +239,21 @@ De code die een enkele videobestand comprimeert is de `AmsComponent` in klasse `
 
 De code voert de volgende stappen uit:
 
-- Controles om te controleren of de configuratie in `App.config` bevat alle benodigde gegevens
-- Controles om ervoor te zorgen de `ffmpeg` binaire aanwezig is
-- Naam van het uitvoerbestand bouwt door toe te voegen `_c.mp4` op de naam van het bestand (zoals `Example.mp4`  ->  `E>xample_c.mp4`)
-- Maakt een opdrachtregeltekenreeks om uit te voeren van de conversie
-- Start een `ffmpeg` verwerken met behulp van de opdrachtregel
-- Wacht tot de video om te worden verwerkt
+- Controleert of de configuratie in `App.config` alle benodigde gegevens bevat
+- Controleert of het binaire bestand `ffmpeg` aanwezig is
+- Stelt de naam van het uitvoerbestand samen door `_c.mp4` toe te voegen aan de basisnaam van het bestand (zoals `Example.mp4` -> `E>xample_c.mp4`)
+- Stelt een opdrachtregeltekenreeks samen om de conversie uit te voeren
+- Start een proces `ffmpeg` vanaf de opdrachtregel
+- Wacht tot de video is verwerkt
 
 > [!NOTE]
-> Als u uw video's al zijn gecomprimeerd met H.264 en de juiste afmetingen hebben, kunt u herschrijven `CompressVideo()` om over te slaan van de compressie.
+> Als u weet dat uw video's al zijn gecomprimeerd met H.264 en de juiste afmetingen hebben, kunt u `CompressVideo()` herschrijven om de compressiestap over te slaan.
 
 De methode retourneert de bestandsnaam van het gecomprimeerde uitvoerbestand.
 
-## <a name="uploading-and-moderating-the-video"></a>Uploaden en toezicht houden op de video
+## <a name="uploading-and-moderating-the-video"></a>De video uploaden en beoordelen
 
-De video moet worden opgeslagen in Azure Media Services voordat deze kan worden verwerkt door de Content Moderation-service. De `Program` in klasse `Program.cs` heeft een korte methode `CreateVideoStreamingRequest()` die geeft als resultaat een object waarmee de streaming-aanvraag voor het uploaden van de video.
+De video moet worden opgeslagen in Azure Media Services voordat deze kan worden verwerkt door de Content Moderation-service. De klasse `Program` in `Program.cs` heeft een korte methode `CreateVideoStreamingRequest()` die een object retourneert dat de streaming-aanvraag voorstelt voor het uploaden van de video.
 
     private static UploadVideoStreamRequest CreateVideoStreamingRequest(string compressedVideoFilePath)
     {
@@ -269,7 +270,7 @@ De video moet worden opgeslagen in Azure Media Services voordat deze kan worden 
             };
     }
 
-De resulterende `UploadVideoStreamRequest` object wordt gedefinieerd in `UploadVideoStreamRequest.cs` (en de bovenliggende `UploadVideoRequest`in `UploadVideoRequest.cs`). Deze klassen worden niet hier; weergegeven ze korte en dienen alleen voor het opslaan van de gecomprimeerde video gegevens en informatie erover. Een andere klasse voor alleen-gegevens, `UploadAssetResult` (`UploadAssetResult.cs`) wordt gebruikt voor het opslaan van de resultaten van het uploadproces. Nu is het mogelijk om te begrijpen van deze regels in `ProcessVideo()`:
+Het resulterende object `UploadVideoStreamRequest` is gedefinieerd in `UploadVideoStreamRequest.cs` (en het bovenliggende object, `UploadVideoRequest`, in `UploadVideoRequest.cs`). Deze klassen worden hier niet weergegeven. Ze zijn kort en zijn alleen bedoeld voor het opslaan van de gecomprimeerde videogegevens en de bijbehorende metagegevens. Een andere klasse voor alleen gegevens, `UploadAssetResult` (`UploadAssetResult.cs`), wordt gebruikt voor het opslaan van de resultaten van het uploadproces. Nu hebben we genoeg informatie om deze regels in `ProcessVideo()` te begrijpen:
 
     UploadVideoStreamRequest uploadVideoStreamRequest = CreateVideoStreamingRequest(compressedVideoPath);
     UploadAssetResult uploadResult = new UploadAssetResult();
@@ -286,15 +287,15 @@ De resulterende `UploadVideoStreamRequest` object wordt gedefinieerd in `UploadV
         Console.WriteLine("Video Review process failed.");
     }
 
-Deze regels uitvoeren de volgende taken:
+Deze regels voeren de volgende taken uit:
 
-- Maak een `UploadVideoStreamRequest` gecomprimeerde video uploaden
-- Instellen van de aanvraag `GenerateVTT` markeren als de gebruiker heeft een tekstversie aangevraagd
-- Aanroepen `CreateAzureMediaServicesJobToModerateVideo()` voor het uitvoeren van het uploaden en het resultaat ontvangen
+- Een `UploadVideoStreamRequest` maken om de gecomprimeerde video te uploaden
+- De vlag `GenerateVTT` van de aanvraag instellen als de gebruiker een transcriptie heeft aangevraagd
+- `CreateAzureMediaServicesJobToModerateVideo()` aanroepen om de upload uit te voeren en het resultaat te ontvangen
 
-## <a name="deep-dive-into-video-moderation"></a>Nauwkeuriger beheer van video
+## <a name="deep-dive-into-video-moderation"></a>Diepgaande bespreking van videobeoordeling
 
-De methode `CreateAzureMediaServicesJobToModerateVideo()` is in `VideoModerator.cs`, bevat het grootste deel van de code die met Azure Media Services communiceert. De broncode van de methode wordt weergegeven in het volgende uittreksel.
+De methode `CreateAzureMediaServicesJobToModerateVideo()` bevindt zich in `VideoModerator.cs`, de klasse met het overgrote deel van de code die interactie heeft met Azure Media Services. De broncode van de methode wordt weergegeven in het volgende fragment.
 
     public bool CreateAzureMediaServicesJobToModerateVideo(UploadVideoStreamRequest uploadVideoRequest, UploadAssetResult uploadResult)
     {
@@ -355,16 +356,16 @@ De methode `CreateAzureMediaServicesJobToModerateVideo()` is in `VideoModerator.
         return true;
     }
 
-Deze code worden de volgende taken uitgevoerd:
+Met deze code worden de volgende taken uitgevoerd:
 
-- Hiermee maakt u een AMS-taak voor de verwerking moet worden uitgevoerd
-- Taken voor het coderen van het videobestand, toezicht houden op deze en genereert een tekstversie toevoegen
-- De taak, uploaden van het bestand en de verwerking van het begin worden verzonden
-- Haalt de resultaten van het beheer, het transcript tekst (indien nodig) en andere informatie
+- Een AMS-taak maken voor de bewerkingen die moeten worden uitgevoerd
+- Taken toevoegen voor het coderen van het videobestand, het beoordelen van het bestand en het genereren van een transcriptie
+- De taak verzenden, het bestand uploaden en de verwerking starten
+- De resultaten van de beoordeling, de transcriptie (indien aangevraagd) en andere informatie ophalen
 
-## <a name="sample-video-moderation-response"></a>Videotoezicht voorbeeldantwoord
+## <a name="sample-video-moderation-response"></a>Voorbeeld van videobeoordeling
 
-Het resultaat van de taak videotoezicht (Zie [videotoezicht snelstartgids](video-moderation-api.md) is een JSON-gegevensstructuur met het beheer van resultaten. Deze resultaten bevatten een overzicht van de fragmenten (foto's) binnen de video, elk met gebeurtenissen (clips) met de belangrijkste frames die zijn gemarkeerd voor controle. Elke sleutel frame wordt berekend door de kans dat deze volwassen of ongepaste inhoud bevat. Het volgende voorbeeld ziet u een JSON-antwoord:
+Het resultaat van de videobeoordelingstaak (zie de [snelstartgids over videobeoordeling](video-moderation-api.md)) is een JSON-gegevensstructuur met de resultaten van de beoordeling. Deze resultaten omvatten een overzicht van de fragmenten (opnamen) binnen de video, elk met gebeurtenissen (clips) met belangrijke frames die zijn gemarkeerd voor beoordeling. Elk sleutelframe krijgt een score die aangeeft hoe groot de kans is dat het frame inhoud voor volwassenen of ongepaste inhoud bevat. Hieronder ziet u een voorbeeld van een JSON-antwoord:
 
     {
         "version": 2,
@@ -416,15 +417,15 @@ Het resultaat van de taak videotoezicht (Zie [videotoezicht snelstartgids](video
     ]
     }
 
-Een transcriptie van de audio van de video wordt ook gemaakt wanneer de `GenerateVTT` vlag is ingesteld.
+Er wordt ook een transcriptie van de audio van de video gemaakt wanneer de vlag `GenerateVTT` is ingesteld.
 
 > [!NOTE]
-> De consoletoepassing maakt gebruik van de [API van Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) Transcripten genereren uit van de geüploade video audiotrack. De resultaten zijn opgegeven in WebVTT-indeling. Zie voor meer informatie over deze indeling [Web Video tekstindeling nummers](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> De consoletoepassing maakt gebruik van de [API van Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) om transcripties te genereren van de audiotrack van de geüploade video. De resultaten worden aangeboden in de indeling WebVTT. Zie de Engelstalige site [Web Video Text Tracks Format (WebVTT)](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) voor meer informatie over deze indeling.
 
 
-## <a name="creating-the-human-in-the-loop-review"></a>Het maken van de beoordeling human-in-the-loop
+## <a name="creating-the-human-in-the-loop-review"></a>Opnamen of frames extraheren voor menselijke beoordeling
 
-Het toezichtproces retourneert een lijst van belangrijke frames van de video, samen met een transcript van audio sporen te wissen. De volgende stap is het maken van een beoordeling in het Content Moderator-controlehulpprogramma voor menselijke moderators. Ga terug naar de `ProcessVideo()` methode in `Program.cs`, ziet u de aanroep van de `CreateVideoReviewInContentModerator()` methode. Deze methode is in de `videoReviewApi` klasse, die in `VideoReviewAPI.cs`, en wordt hier weergegeven.
+Het beoordelingsproces retourneert een lijst met sleutelframes uit de video, samen met een transcriptie van de audiotracks. De volgende stap is het maken van een beoordeling in Content Moderator voor menselijke beoordelaars. Als we teruggaan naar de methode `ProcessVideo()` in `Program.cs`, ziet u de aanroep van de methode `CreateVideoReviewInContentModerator()`. Deze methode maakt deel uit van de klasse `videoReviewApi`, in `VideoReviewAPI.cs`, en wordt hier weergegeven.
 
     public async Task<string> CreateVideoReviewInContentModerator(UploadAssetResult uploadAssetResult)
     {
@@ -458,40 +459,40 @@ Het toezichtproces retourneert een lijst van belangrijke frames van de video, sa
     
     }
 
-`CreateVideoReviewInContentModerator()` roept de verschillende methoden om de volgende taken uitvoeren:
+`CreateVideoReviewInContentModerator()` roept verschillende andere methoden aan om de volgende taken uit te voeren:
 
 > [!NOTE]
-> De consoletoepassing maakt gebruik van de [FFmpeg](https://ffmpeg.org/) bibliotheek voor het genereren van miniaturen. Deze miniaturen (installatiekopieën) komen overeen met de tijdstempels frame in de [beheer van video-uitvoer](#sample-video-moderation-response).
+> De consoletoepassing maakt gebruik van de bibliotheek [FFmpeg](https://ffmpeg.org/) voor het genereren van miniaturen. Deze miniaturen (afbeeldingen) komen overeen met de tijdstempels van frames in de [uitvoer voor videobeoordeling](#sample-video-moderation-response).
 
 |Taak|Methoden|File|
 |-|-|-|
-|Pak de sleutel frames van de video en maakt u de miniatuurafbeeldingen van deze|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
-|Scan de tekstversie, indien beschikbaar, volwassene of ongepaste audio vinden|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
-|Voorbereiden en verzendt de aanvraag van een video beoordelen voor menselijke inspectie|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
+|De sleutelframes uit de video extraheren en er miniatuurafbeeldingen van maken|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
+|De transcriptie, indien beschikbaar, scannen op tekst voor volwassenen of ongepaste tekst|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
+|Een aanvraag voor videobeoordeling voorbereiden en verzenden voor menselijke controle|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
-## <a name="video-review-default-view"></a>De standaardweergave video controleren
+## <a name="video-review-default-view"></a>Standaardweergave voor videobeoordeling
 
-Het volgende scherm toont de resultaten van de vorige stappen.
+In het volgende scherm ziet u de resultaten van de vorige stappen.
 
-![De standaardweergave video controleren](images/video-tutorial-default-view.PNG)
+![Standaardweergave voor videobeoordeling](images/video-tutorial-default-view.PNG)
 
-## <a name="transcript-generation"></a>Transcript genereren
+## <a name="transcript-generation"></a>Transcriptie genereren
 
-De code in deze zelfstudie is tot nu toe gericht op de visuele inhoud. Overzicht van de gesproken inhoud is een afzonderlijke en optionele proces dat zoals gezegd, gebruikt een transcript gegenereerd op basis van de audio. Het is nu tijd om te kijken hoe tekst Transcripten worden gemaakt en gebruikt in het controleproces. De taak voor het genereren van het transcript valt op de [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) service.
+De code in deze zelfstudie is tot nu toe gericht op de visuele inhoud. Beoordeling van gesproken inhoud is een afzonderlijk en optioneel proces dat, zoals gezegd, gebruikmaakt van een transcriptie die wordt gegenereerd van de audio. Het is nu tijd om te kijken hoe transcripties worden gemaakt en gebruikt in het beoordelingsproces. Het genereren van transcripties wordt uitgevoerd door de [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content)-service.
 
-De toepassing uitvoert de volgende taken:
+De toepassing voert de volgende taken uit:
 
 |Taak|Methoden|File|
 |-|-|-|
-|Bepalen of tekst Transcripten zijn gegenereerd|`Main()`<br>`GetUserInputs()`|`Program.cs`|
-|Als dit het geval is, dient u een taak transcriptie als onderdeel van beheer|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
-|Een lokale kopie van het transcript|`GenerateTranscript()`|`VideoModerator.cs`|
-|Markering waarmee wordt aangegeven frames van de video met onjuiste audio|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
-|De resultaten voor de revisie toevoegen|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
+|Vaststellen of er transcripties moeten worden gegenereerd|`Main()`<br>`GetUserInputs()`|`Program.cs`|
+|Zo ja, een transcriptietaak verzenden als onderdeel van de beoordeling|`ConfigureTranscriptTask()`|`VideoModerator.cs`|
+|Een lokale kopie van de transcriptie opvragen|`GenerateTranscript()`|`VideoModerator.cs`|
+|Frames van de video markeren die ongepaste audio bevatten|`GenerateTextScreenProfanity()`<br>`TextScreen()`|`VideoReviewAPI.cs`|
+|De resultaten toevoegen aan de beoordeling|`UploadScreenTextResult()`<br>`ExecuteAddTranscriptSupportFile()`|`VideoReviewAPI.cs`|
 
-### <a name="task-configuration"></a>Taakconfiguratie
+### <a name="task-configuration"></a>Configuratie van de taak
 
-Laten we meteen in de taak transcriptie verzenden. `CreateAzureMediaServicesJobToModerateVideo()` (al eerder beschreven) aanroepen `ConfigureTranscriptTask()`.
+We beginnen gewoon meteen met het verzenden van de transcriptietaak. `CreateAzureMediaServicesJobToModerateVideo()` (al eerder beschreven) roept `ConfigureTranscriptTask()` aan.
 
     private void ConfigureTranscriptTask(IJob job)
     {
@@ -504,14 +505,14 @@ Laten we meteen in de taak transcriptie verzenden. `CreateAzureMediaServicesJobT
         task.OutputAssets.AddNew("AudioIndexing Output Asset", AssetCreationOptions.None);
     }
 
-De configuratie voor de taak transcript wordt gelezen uit het bestand `MediaIndexerConfig.json` in van de oplossing `Lib` map. AMS-assets worden gemaakt voor het configuratiebestand en de uitvoer van het proces transcriptie. Wanneer de AMS-taak wordt uitgevoerd, maakt deze taak een tekstversie van het videobestand audiotrack.
+De configuratie voor de transcriptietaak wordt gelezen uit het bestand `MediaIndexerConfig.json` in de map `Lib` van de oplossing. Er worden AMS-assets gemaakt voor het configuratiebestand en voor de uitvoer van het transcriptieproces. Wanneer de AMS-taak wordt uitgevoerd, maakt deze taak een transcriptie van de audiotrack van het videobestand.
 
 > [!NOTE]
-> De voorbeeld-App herkent alleen spraak in Amerikaans Engels.
+> De voorbeeldtoepassing herkent alleen spraak in het Amerikaans-Engels.
 
-### <a name="transcript-generation"></a>Transcript genereren
+### <a name="transcript-generation"></a>Transcriptie genereren
 
-De transcript is gepubliceerd als een AMS-asset. Als u wilt scannen op het transcript voor aanstootgevende inhoud, downloadt de toepassing de activa van Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` aanroepen `GenerateTranscript()`, zoals weergegeven hier om op te halen van het bestand.
+De transcriptie wordt gepubliceerd als een AMS-asset. Om de transcriptie te scannen op aanstootgevende inhoud, downloadt de toepassing de asset uit Azure Media Services. `CreateAzureMediaServicesJobToModerateVideo()` roept `GenerateTranscript()` aan, zoals hier wordt weergegeven, om het bestand op te halen.
 
     public bool GenerateTranscript(IAsset asset)
     {
@@ -534,23 +535,23 @@ De transcript is gepubliceerd als een AMS-asset. Als u wilt scannen op het trans
         }
     }
 
-Na de installatie van bepaalde vereiste AMS, het downloaden van de werkelijke is uitgevoerd door het aanroepen van `DownloadAssetToLocal()`, een algemene functie waarmee een AMS-asset worden gekopieerd naar een lokaal bestand.
+Nadat enkele AMS-instellingen zijn geconfigureerd, wordt het bestand gedownload door het aanroepen van `DownloadAssetToLocal()`, een algemene functie voor het kopiëren van AMS-assets naar een lokaal bestand.
 
-## <a name="transcript-moderation"></a>Transcript toezicht
+## <a name="transcript-moderation"></a>Transcriptie beoordelen
 
-Het is met het transcript dicht bij de hand, gescand en gebruikt in de evaluatie. Het maken van de beoordeling is de controlesfeer van `CreateVideoReviewInContentModerator()`, die aanroepen `GenerateTextScreenProfanity()` om het werk te doen. Op zijn beurt deze methode aanroept `TextScreen()`, die de meeste functionaliteit bevat. 
+Met de transcriptie bij de hand kan deze worden gescand en gebruikt in de beoordeling. Het maken van de beoordeling is de taak van `CreateVideoReviewInContentModerator()`, die `GenerateTextScreenProfanity()` aanroept om het werk te doen. Deze methode roept op zijn beurt `TextScreen()` aan, die de meeste functionaliteit bevat. 
 
-`TextScreen()` de volgende taken worden uitgevoerd:
+`TextScreen()` voert de volgende taken uit:
 
-- Parseren van het transcript voor tijd tamps en bijschriften
-- Indienen van elk bijschrift voor het beheer van tekst
-- Markering waarmee wordt aangegeven dat mogelijk aanstootgevend spraakinhoud frames
+- De transcriptie parseren op tijdstempels en ondertitels
+- Elke ondertitel verzenden voor beoordeling
+- Frames markeren die mogelijk aanstootgevende tekst bevatten
 
-Laten we een toelichting van elk deze taken in meer detail:
+Laten we deze taken eens afzonderlijk bekijken:
 
-### <a name="initialize-the-code"></a>Initialisatie van de code
+### <a name="initialize-the-code"></a>Code initialiseren
 
-Eerst, initialiseren alle variabelen en verzamelingen.
+Eerst worden alle variabelen en verzamelingen geïnitialiseerd.
 
     private async Task<TranscriptScreenTextResult> TextScreen(string filepath, List<ProcessedFrameDetails> frameEntityList)
     {
@@ -571,9 +572,9 @@ Eerst, initialiseren alle variabelen en verzamelingen.
         // Code from the next sections in the tutorial
     
 
-### <a name="parse-the-transcript-for-captions"></a>Parseren van het transcript voor bijschriften
+### <a name="parse-the-transcript-for-captions"></a>Transcriptie parseren op ondertiteling
 
-Vervolgens wordt het opgemaakte transcript VTT voor bijschriften en tijdstempels parseren. Deze bijschriften worden weergegeven op het tabblad Transcript op het scherm video revisie van het beoordelingsprogramma. De tijdstempels worden gebruikt voor het synchroniseren van de bijschriften met de bijbehorende videoframes.
+Vervolgens wordt de transcriptie met VTT-indeling geparseerd op ondertiteling en tijdstempels. Het beoordelingsprogramma geeft deze ondertitels weer op het tabblad Transcript van het scherm voor videobeoordeling. De tijdstempels worden gebruikt om de ondertitels te synchroniseren met de bijbehorende videoframes.
 
         // Code from the previous section(s) in the tutorial
 
@@ -623,14 +624,14 @@ Vervolgens wordt het opgemaakte transcript VTT voor bijschriften en tijdstempels
 
             // Code from the following section in the quickstart
 
-### <a name="moderate-captions-with-the-text-moderation-service"></a>Gemiddeld bijschriften met de service van de toezicht op tekst
+### <a name="moderate-captions-with-the-text-moderation-service"></a>Ondertitels beoordelen met de service voor tekstbeoordeling
 
-Vervolgens controleren we de bijschriften geparseerde tekst met Content Moderator tekst-API.
+Vervolgens scannen we de geparseerde ondertitels met de tekst=API van Content Moderator.
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS). Als u de limiet overschrijdt, wordt in de SDK een uitzondering met een foutcode 429 genereert. 
+> Er geldt een limiet voor het aantal aanvragen per seconde (RPS) voor de sleutel van de Content Moderator-service. Als u de limiet overschrijdt, veroorzaakt dit een uitzondering met foutcode 429 in de SDK. 
 >
-> De sleutel van een gratis laag heeft een limiet van één RPS.
+> Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
     //
     // Moderate the captions or cues
@@ -722,29 +723,29 @@ Vervolgens controleren we de bijschriften geparseerde tekst met Content Moderato
             return screenTextResult;
     }
 
-### <a name="breaking-down-the-text-moderation-step"></a>De toezicht op tekst stap afbreken
+### <a name="breaking-down-the-text-moderation-step"></a>De stap van tekstbeoordeling opsplitsen
 
-`TextScreen()` is een aanzienlijke methode, laten we deze opsplitsen.
+`TextScreen()` is een omvangrijke methode, dus is het beter om die op te splitsen.
 
-1. De methode leest eerst het bestand transcriptie per regel. Deze worden genegeerd lege regels en regels met een `NOTE` met een betrouwbaarheidsscore. Pakt deze de tijdstempels en de tekstitems uit de *hints* in het bestand. Een hint tekst uit het audiospoor vertegenwoordigt en begin- en eindtijden bevat. Een hint begint met de tijdlijn van de stempel met de tekenreeks `-->`. Deze wordt gevolgd door een of meer regels tekst.
+1. De methode leest eerst het transcriptiebestand regel voor regel. Lege regels en regels met een `NOTE` worden genegeerd en krijgen geen betrouwbaarheidsscore. De tijdstempels en tekstitems worden geëxtraheerd uit de *cues* in het bestand. Een cue vertegenwoordigt tekst uit de audiotrack en bevat begin- en eindtijden. Een cue begint met de tijdlijnregel met de tekenreeks `-->`. en wordt gevolgd door een of meer regels tekst.
 
-1. Exemplaren van `CaptionScreentextResult` (gedefinieerd in `TranscriptProfanity.cs`) worden gebruikt voor het opslaan van de gegevens geparseerd van elke hint.  Wanneer een nieuwe stempel tijdlijn wordt gedetecteerd of een tekst een maximale lengte van 1024 tekens is bereikt, een nieuwe `CaptionScreentextResult` wordt toegevoegd aan de `csrList`. 
+1. Instanties van `CaptionScreentextResult` (gedefinieerd in `TranscriptProfanity.cs`) worden gebruikt voor het opslaan van de gegevens die uit elke cue worden geparseerd.  Wanneer er een nieuw tijdstempel wordt gedetecteerd, of een maximale tekstlengte van 1024 tekens wordt bereikt, wordt er een nieuw `CaptionScreentextResult` toegevoegd aan de `csrList`. 
 
-1. De methode verzendt vervolgens elke hint aan de Text-API voor beheer. Wordt de beide `ContentModeratorClient.TextModeration.DetectLanguageAsync()` en `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()`, die zijn gedefinieerd in de `Microsoft.Azure.CognitiveServices.ContentModerator` assembly. Om te voorkomen wordt beperkt in de snelheid, onderbreekt de methode voor een tweede voordat u verzendt elke hint.
+1. De methode verzendt vervolgens elke cue naar de API voor tekstbeoordeling. De methode roept vervolgens zowel `ContentModeratorClient.TextModeration.DetectLanguageAsync()` als `ContentModeratorClient.TextModeration.ScreenTextWithHttpMessagesAsync()` aan, die beide zijn gedefinieerd in de assembly `Microsoft.Azure.CognitiveServices.ContentModerator`. Om te voorkomen dat er een frequentielimiet wordt afgedwongen, wordt de methode tussen het verzenden van de cues steeds één seconde onderbroken.
 
-1. Na ontvangst van de resultaten van de service beheer van tekst, analyseert de methode ze om te zien of ze voldoen aan de drempelwaarden voor vertrouwen. Deze waarden zijn gevestigd `App.config` als `OffensiveTextThreshold`, `RacyTextThreshold`, en `AdultTextThreshold`. Ten slotte worden de aanstootgevende voorwaarden zelf ook opgeslagen. Alle frames binnen het tijdsbereik van de hint zijn gemarkeerd als aanstootgevend, ongepaste waarin en/of volwassene tekst.
+1. Na ontvangst van de resultaten van de service voor tekstbeoordeling, analyseert de methode de resultaten om te controleren of deze voldoen aan de drempelwaarden voor vertrouwen. Deze waarden worden vastgelegd in `App.config` als `OffensiveTextThreshold`, `RacyTextThreshold` en `AdultTextThreshold`. Ten slotte worden de aanstootgevende termen zelf ook opgeslagen. Alle frames binnen het tijdsbereik van de cue worden gemarkeerd als frames die aanstootgevende tekst, ongepaste tekst en/of tekst voor volwassenen bevatten.
 
-1. `TextScreen()` retourneert een `TranscriptScreenTextResult` exemplaar met het resultaat van het beheer van tekst van de video als geheel. Dit object bevat vlaggen en beoordeelt voor de verschillende typen aanstootgevende inhoud, samen met een lijst met alle ongewenste termen. De aanroeper `CreateVideoReviewInContentModerator()`, gesprekken `UploadScreenTextResult()` deze informatie koppelen aan de evaluatie, zodat deze beschikbaar om menselijke revisoren is.
+1. `TextScreen()` retourneert een instantie van `TranscriptScreenTextResult` met het resultaat van de tekstbeoordeling van de video als geheel. Dit object bevat vlaggen en scores voor de verschillende typen aanstootgevende inhoud, samen met een lijst met alle ongewenste termen. De aanroepende functie, `CreateVideoReviewInContentModerator()`, roept `UploadScreenTextResult()` aan om deze informatie te koppelen aan de beoordeling, om deze beschikbaar te maken voor menselijke beoordeling.
  
-## <a name="video-review-transcript-view"></a>Video revisie transcript weergeven
+## <a name="video-review-transcript-view"></a>Transcriptie van videobeoordeling
 
-Het volgende scherm ziet u het resultaat van het transcript genereren en beheer van stappen.
+In het volgende scherm ziet u het resultaat van de transcriptie die is gegenereerd en de stappen voor beoordeling.
 
-![Videotoezicht transcript weergeven](images/video-tutorial-transcript-view.PNG)
+![Weergave van transcriptie van videobeoordeling](images/video-tutorial-transcript-view.PNG)
 
 ## <a name="program-output"></a>Programma-uitvoer
 
-De volgende opdrachtregel uitvoer van het programma bevat de verschillende taken, zoals ze zijn voltooid. Bovendien, het resultaat beheer (in JSON-indeling) en de transcriptie van spraak beschikbaar in dezelfde map als de oorspronkelijke videobestanden.
+De volgende uitvoer op de opdrachtregel van het programma toont de verschillende taken terwijl die worden voltooid. Het resultaat van de beoordeling (in JSON-indeling) en de transcriptie van de tekst zijn bovendien beschikbaar in dezelfde map als de oorspronkelijke videobestanden.
 
     Microsoft.ContentModerator.AMSComponentClient
     Enter the fully qualified local path for Uploading the video :
@@ -768,4 +769,4 @@ De volgende opdrachtregel uitvoer van het programma bevat de verschillende taken
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) en voorbeeld van bestanden en de vereiste bibliotheken voor deze zelfstudie en aan de slag met uw integratie.
+[Download de Visual Studio-oplossing](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) en de voorbeeldbestanden en de vereiste bibliotheken voor deze zelfstudie en ga aan de slag met uw integratie.

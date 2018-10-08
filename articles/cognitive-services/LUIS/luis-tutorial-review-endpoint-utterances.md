@@ -1,71 +1,81 @@
 ---
-title: Zelfstudie over het beoordelen van eindpuntuitingen in Language Understanding (LUIS) - Azure | Microsoft Docs
-description: In deze zelfstudie leert u eindpuntuitingen in het domein Human Resources (HR) te beoordelen voor LUIS.
+title: 'Zelfstudie 1: eindpuntuitingen controleren middels actief leren'
+titleSuffix: Azure Cognitive Services
+description: Verbeter de voorspellingen van de app door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160078"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042264"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Zelfstudie: Eindpuntuitingen beoordelen
-In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt te controleren of corrigeren. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Zelfstudie 1: onzekere voorspellingen herstellen
+In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt (en waar LUIS niet zeker over is) te controleren of corrigeren. Bij sommige uitingen moet mogelijk de intentie worden gecontroleerd en bij andere de entiteit. Controleer de eindpuntuitingen regelmatig als onderdeel van uw geplande LUIS-onderhoud. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Inzicht krijgen in de beoordeling van eindpuntuitingen 
-> * De LUIS-app gebruiken voor het domein Human Resources (HR) 
-> * Eindpuntuitingen controleren
-> * App trainen en publiceren
-> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Voordat u begint
-Als u nog niet beschikt uit de Human Resources-app uit de zelfstudie over [sentiment](luis-quickstart-intent-and-sentiment-analysis.md), kunt u de app importeren uit de Github-opslagplaats [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Als u deze zelfstudie doet met een nieuwe, geïmporteerde app, moet u die ook trainen en publiceren en vervolgens de uitingen toevoegen aan het eindpunt met een [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) of via het eindpunt in een browser. U dient deze uitingen toe te voegen:
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `review`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
-
-Als u alle versies van de app hebt, omdat u de hele reeks zelfstudies hebt gevolgd, zal het u wellicht verrassen dat de lijst **Eindpuntuitingen beoordelen** niet per versie verschilt. Er is één groep uitingen om te beoordelen, ongeacht welke versie van de uiting u actief bewerkt of welke versie van de app wordt gepubliceerd op het eindpunt. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Het doel van de beoordeling van eindpuntuitingen
-Dit beoordelingsproces is een andere manier waarop LUIS meer over uw app-domein kan leren. De uitingen zijn door LUIS geselecteerd in de beoordelingslijst. Deze lijst:
+Dit beoordelingsproces is een andere manier waarop LUIS meer over uw app-domein kan leren. De uitingen die in de beoordelingslijst worden weergegeven, zijn door LUIS geselecteerd. Deze lijst:
 
 * is specifiek voor deze app;
 * is bedoeld om de nauwkeurigheid van de app te verbeteren; 
 * dient op periodieke basis te worden gecontroleerd. 
 
-Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controleren of corrigeren. U kunt ook aangepaste entiteiten die niet zijn voorspeld van een label voorzien. 
+Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controleren of corrigeren. U kunt ook aangepaste entiteiten die niet of onjuist zijn voorspeld van een label voorzien. 
+
+**In deze zelfstudie leert u het volgende:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Bestaande zelfstudie-app gebruiken
+> * Eindpuntuitingen controleren
+> * Frasenlijst bijwerken
+> * App trainen
+> * App publiceren
+> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Bestaande app gebruiken
+
+Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+
+Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+
+1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) en sla het op.
+
+2. Importeer de JSON in een nieuwe app.
+
+3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `review`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
+
+    Als u deze zelfstudie doet met een nieuwe, geïmporteerde app, moet u die ook trainen en publiceren en vervolgens de uitingen toevoegen aan het eindpunt met een [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) of via het eindpunt in een browser. U dient deze uitingen toe te voegen:
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Als u alle versies van de app hebt, omdat u de hele reeks zelfstudies hebt gevolgd, zal het u wellicht verrassen dat de lijst **Eindpuntuitingen beoordelen** niet per versie verschilt. Er is één groep uitingen om te beoordelen, ongeacht welke versie u actief bewerkt of welke versie van de app wordt gepubliceerd op het eindpunt. 
 
 ## <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
 
-1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer in de linkernavigatiebalk **Eindpuntuitingen beoordelen**. De lijst is gefilterd voor de intentie **ApplyForJob**. 
 
-    [ ![Schermafbeelding van de knop Eindpuntuitingen beoordelen in de navigatiebalk aan de linkerkant](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Schermafbeelding van de knop Eindpuntuitingen beoordelen in de navigatiebalk aan de linkerkant](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Schakelen tussen de **Weergave Entiteiten** om de entiteiten met labels weer te geven. 
     
-    [ ![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met de wisselknop Entiteiten weergeven gemarkeerd](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Schermafbeelding van het paneel Eindpuntuitingen beoordelen met de wisselknop Entiteiten weergeven gemarkeerd](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Utterance|Correcte intentie|Ontbrekende entiteiten|
     |:--|:--|:--|
     |Ik ben op zoek naar een taak met natuurlijke taalverwerking|GetJobInfo|Taak - 'Natuurlijke taalverwerking'|
 
     Deze uiting is niet ingedeeld onder de juiste intentie en heeft een score lager dan 50%. De intentie **ApplyForJob** bevat 21 uitingen, terwijl **GetJobInformation** zeven uitingen bevat. Nu dient dus eerst de eindpuntuiting correct te worden gekoppeld, maar er moeten ook meer uitingen worden toegevoegd aan de intentie **GetJobInformation**. Deze stappen kunt u bij wijze van oefening zelf uitvoeren. Alle intenties, met uitzondering van de intentie **None**, zouden ongeveer hetzelfde aantal voorbeelduitingen moeten bevatten. De intentie **None** zou 10% van het totale aantal uitingen in de app moeten bevatten. 
-
-    Wanneer u zich in de **weergave Tokens** bevindt, kunt u de muisaanwijzer boven blauwe tekst houden om de naam van de voorspelde entiteit weer te geven. 
 
 4. Selecteer voor de intentie `I'm looking for a job with Natual Language Processing` de correcte intentie, **GetJobInformation**, in de kolom **Uitgelijnde intentie** kolom. 
 
@@ -87,11 +97,13 @@ Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controlere
 
     [ ![Schermafbeelding van het voltooien van de resterende uitingen naar de uitgelijnde intentie](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. Deze uitingen zouden nu niet meer op de lijst moeten staan. Als meer uitingen worden weergegeven, dient u de lijst af te blijven gaan, de intenties waar nodig te corrigeren en eventuele ontbrekende entiteiten van een label te voorzien, tot de lijst leeg is. Selecteer de volgende intentie in de filterlijst en blijf vervolgens uitingen corrigeren en entiteiten van labels voorzien. Vergeet niet voor iedere intentie als laatste stap ofwel **Toevoegen aan uitgelijnde intentie** te selecteren op de rij van die uiting of het selectievakje te selecteren bij die intentie en boven de tabel op **Selectie toevoegen** te klikken. 
+9. Deze uitingen zouden nu niet meer op de lijst moeten staan. Als meer uitingen worden weergegeven, dient u de lijst af te blijven gaan, de intenties waar nodig te corrigeren en eventuele ontbrekende entiteiten van een label te voorzien, tot de lijst leeg is. 
 
-    Dit is een hele kleine app. Het beoordelingsproces duurt slechts een paar minuten.
+10. Selecteer de volgende intentie in de filterlijst en blijf vervolgens uitingen corrigeren en entiteiten van labels voorzien. Vergeet niet voor iedere intentie als laatste stap ofwel **Toevoegen aan uitgelijnde intentie** te selecteren op de rij van die uiting of het selectievakje te selecteren bij die intentie en boven de tabel op **Selectie toevoegen** te klikken.
 
-## <a name="add-new-job-name-to-phrase-list"></a>Een nieuwe taaknaam toevoegen aan de woordgroepenlijst
+    Ga door totdat alle intenties en entiteiten in de filterlijst over een lege lijst beschikken. Dit is een hele kleine app. Het beoordelingsproces duurt slechts een paar minuten. 
+
+## <a name="update-phrase-list"></a>Frasenlijst bijwerken
 Houd de woordgroepenlijst actueel door alle nieuwe gedetecteerde taaknamen toe te voegen. 
 
 1. Selecteer **Woordgroepenlijsten** in de linkernavigatiebalk.
@@ -100,19 +112,19 @@ Houd de woordgroepenlijst actueel door alle nieuwe gedetecteerde taaknamen toe t
 
 3. Voeg `Natural Language Processing` toe als een waarde en selecteer vervolgens **Opslaan**. 
 
-## <a name="train-the-luis-app"></a>LUIS-app trainen
+## <a name="train"></a>Trainen
 
 LUIS is niet op de hoogte van eventuele wijzigingen totdat deze wordt getraind. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
+## <a name="publish"></a>Publiceren
 
 Als u deze app hebt geïmporteerd, dient u **Sentimentanalyse** te selecteren.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
+## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
 
 Probeer een uiting die lijkt op de gecorrigeerde uiting. 
 
@@ -223,16 +235,14 @@ Probeer een uiting die lijkt op de gecorrigeerde uiting.
 U vraagt zich misschien af waarom we niet meer voorbeelduitingen toevoegen. Wat is het doel van de beoordeling van eindpuntuitingen? In een echte LUIS-app zijn de eindpuntuitingen van gebruikers met een woordkeuze en indeling die u nog niet hebt gebruikt. Als u de dezelfde woordkeuze en rangschikking had gebruikt, zou de oorspronkelijke voorspelling een hoger percentage hebben gehad. 
 
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Waarom staat de bovenste intentie in de lijst met uitingen? 
-Sommige eindpuntuitingen hebben een hoog percentage in de beoordelingslijst. U dient deze uitingen alsnog te beoordelen en verifiëren. Ze zijn opgenomen in de lijst omdat de beoordeling van de tweede intentie een score had die te dicht lag bij de score van de hoogst scorende intentie. 
-
-## <a name="what-has-this-tutorial-accomplished"></a>Wat is er in deze zelfstudie bereikt?
-De nauwkeurigheid van de voorspellingen van deze app is verbeterd door eindpuntuitingen te beoordelen. 
+Sommige eindpuntuitingen hebben een hoge voorspellingsscore in de beoordelingslijst. U dient deze uitingen alsnog te beoordelen en verifiëren. Ze zijn opgenomen in de lijst omdat de beoordeling van de tweede intentie een score had die te dicht lag bij de score van de hoogst scorende intentie. Er moet ongeveer 15% verschil zijn tussen de bovenste twee intenties.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+In deze zelfstudie hebt u uitingen bekeken die bij het eindpunt zijn ingediend en waar LUIS niet zeker van was. Zodra deze uitingen zijn gecontroleerd en als voorbeelduitingen naar de juiste intenties zijn verplaatst, kan LUIS de voorspellingsnauwkeurigheid vergroten.
 
 > [!div class="nextstepaction"]
 > [Meer informatie over het gebruik van patronen](luis-tutorial-pattern.md)

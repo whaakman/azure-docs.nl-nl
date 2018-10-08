@@ -3,33 +3,33 @@ title: bestand opnemen
 description: bestand opnemen
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: dae56e05f01e83f05e75fdf378c0c50679d18728
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: MT
+ms.openlocfilehash: e507a7c45e286473abe9b9e4365e80fb29eba2a4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043996"
 ---
-Om te begrijpen wat een LUIS-eindpunt voor voorspelling retourneert, het resultaat van een voorspelling te bekijken in een webbrowser. Als u wilt een openbare app een query uitvoert, moet u uw eigen sleutel en de app-ID. De openbare app-ID IoT `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, wordt geleverd als onderdeel van de URL in stap 1.
+Om te begrijpen wat een LUIS-voorspellingseindpunt retourneert, kunt u het resultaat van een voorspelling in een webbrowser bekijken. Als u een query voor een openbare app uitvoert, hebt u uw eigen sleutel en de app-ID nodig. De openbare IoT-app-ID, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, wordt geleverd als onderdeel van de URL in stap 1.
 
-De indeling van de URL voor een **ophalen** endpoint-aanvraag is:
+De indeling van de URL voor een **GET**-eindpuntaanvraag is:
 
 ```JSON
 https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<YOUR-KEY>&q=<user-utterance>
 ```
 
-1. Het eindpunt van de openbare IoT-app is volgens de volgende notatie: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_KEY>&q=turn on the bedroom light`
+1. Het eindpunt van de openbare IoT-app heeft deze indeling: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_KEY>&q=turn on the bedroom light`.
 
-    Kopieer de URL en vervangen door uw sleutel voor de waarde van `<YOUR_KEY>`.
+    Kopieer de URL en vervang uw sleutel door de waarde van `<YOUR_KEY>`.
 
-2. Plak de URL in een browservenster en druk op Enter. De browser wordt een JSON-resultaat die aangeeft dat LUIS detecteert de `HomeAutomation.TurnOn` intentie als het belangrijkste doel en de `HomeAutomation.Room` entiteit met de waarde `bedroom`.
+2. Plak de URL in een browservenster en druk op Enter. In de browser wordt een JSON-resultaat weergegeven dat aangeeft dat LUIS de intent `HomeAutomation.TurnOn` als de belangrijkste intent en de entiteit `HomeAutomation.Room` met de waarde `bedroom` detecteert.
 
     ```JSON
     {
@@ -50,7 +50,7 @@ https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription
     }
     ```
 
-3. Wijzig de waarde van de parameter `q=` in de URL in `turn off the living room light` en druk op Enter. Het resultaat geeft nu aan dat wordt gedetecteerd door LUIS de `HomeAutomation.TurnOff` intentie als het belangrijkste doel en de `HomeAutomation.Room` entiteit met de waarde `living room`. 
+3. Wijzig de waarde van de parameter `q=` in de URL in `turn off the living room light` en druk op Enter. Het resultaat geeft nu aan dat LUIS de intent `HomeAutomation.TurnOff` als de belangrijkste intent en de entiteit `HomeAutomation.Room` met waarde `living room` heeft gedetecteerd. 
 
     ```JSON
     {

@@ -1,46 +1,46 @@
 ---
-title: Visuele zoekopdrachten SDK C# Quickstart | Microsoft Docs
-description: Instellingen voor visuele zoekopdrachten SDK-C#-consoletoepassing.
+title: 'Snelstart: Bing Visual Search SDK gebruiken, C#'
 titleSuffix: Azure Cognitive Services
+description: Lees hier informatie over de instellingen voor het maken van een C#-consoletoepassing met behulp van Visual Search SDK.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: e9b93c46cf0702dc58398e247fef79c3f31bb50c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
+ms.openlocfilehash: 938768ad366611b8651adc3d554c44c16a3830ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213102"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224525"
 ---
-# <a name="visual-search-sdk-c-quickstart"></a>Visuele zoekopdrachten-SDK C# snelstartgids
+# <a name="quickstart-bing-visual-search-sdk-c"></a>Snelstart: Bing Visual Search SDK voor C#
 
-De Bing Visual Search SDK maakt gebruik van de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
-De [broncode voor de Bing Visual Search SDK voor C#-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch) is beschikbaar op Git Hub.
+De Bing Visual Search SDK gebruikt de functionaliteit van de REST-API voor webaanvragen en het parseren van resultaten.
+De [broncode voor voorbeelden van C# Bing Visual Search SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch) is beschikbaar op Git Hub.
 
-Scenario's de code worden onder de volgende rubrieken beschreven:
-* [Visuele zoekopdrachten-Client](#client)
-* [Volledige-consoletoepassing](#complete)
-* [Binaire bericht van de installatiekopie met cropArea](#binary-crop)
-* [KnowledgeRequest parameter](#knowledge-req)
+Documentatie van codescenario's vindt u onder de volgende koppen:
+* [Visual Search-client](#client)
+* [Consoletoepassing voltooien](#complete)
+* [Binair bestand van afbeelding posten met cropArea](#binary-crop)
+* [KnowledgeRequest-parameter](#knowledge-req)
 * [Tags, acties en actionType](#tags-actions)
 * [Aantal tags, aantal acties en eerste actionType](#num-tags-actions)
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Visual Studio 2017. Als nodig is, u gratis community-versie hier downloaden kunt: https://www.visualstudio.com/vs/community/.
-* Een Cognitive Services-API-sleutel is vereist voor het verifiëren van de SDK-aanroepen. Zich aanmelden voor een [gratis proefversie sleutel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De proefversie sleutel is handig voor zeven dagen met één aanroep per seconde. Voor productiescenario [kopen toegangssleutel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Zie ook [informatie over de prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* De mogelijkheid om uit te voeren van .NET core-SDK, .net core 1.1-apps. U kunt CORE Framework en Runtime komen vanaf deze locatie: https://www.microsoft.com/net/download/.
+* Visual Studio 2017. Indien nodig kunt u hier de gratis communityversie downloaden: https://www.visualstudio.com/vs/community/.
+* Er is een code van de Cognitive Services API vereist voor het verifiëren van SDK-aanroepen. Meld u aan voor een [gratis proefcode](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De proefcode is gedurende zeven dagen geldig, met één aanroep per seconde. Voor productiescenario's kunt u [een toegangscode kopen](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Bekijk ook de [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* De mogelijkheid om .NET core SDK-, .net core 1.1-apps uit te voeren. U kunt CORE, Framework en Runtime hier downloaden: https://www.microsoft.com/net/download/.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Als u een consoletoepassing met behulp van de Bing Web Search SDK instelt, blader naar de `Manage NuGet Packages` optie vanuit de Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.VisualSearch` pakket.
+Als u een consoletoepassing wilt instellen met behulp van de Bing Web Search SDK, gaat u naar de optie `Manage NuGet Packages` van Solution Explorer in Visual Studio.  Voeg het pakket `Microsoft.Azure.CognitiveServices.Search.VisualSearch` toe.
 
-Installeren van de [NuGet Web Search SDK-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.0) installeert ook afhankelijkheden, met inbegrip van:
+Wanneer u het [NuGet Web Search SDK-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.0) installeert, worden onder andere ook de volgende afhankelijkheden geïnstalleerd:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
@@ -48,20 +48,20 @@ Installeren van de [NuGet Web Search SDK-pakket](https://www.nuget.org/packages/
 <a name="client"></a>
 
 ## <a name="visual-search-client"></a>Visual Search-client
-Het maken van een exemplaar van de `VisualSearchAPI` client using-instructies toevoegen:
+Als u een exemplaar van de client `VisualSearchAPI` wilt maken, voegt u using-instructies toe:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
 ```
 
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 
 ```csharp
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
-Gebruik de client om te zoeken naar afbeeldingen:
+De client gebruiken om te zoeken naar afbeeldingen:
 
 ```csharp
  System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
@@ -69,7 +69,7 @@ Gebruik de client om te zoeken naar afbeeldingen:
  var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
 ```
 
-Parseren van de resultaten van de vorige query:
+De resultaten van de vorige query parseren:
 
 ```csharp
 // Visual Search results
@@ -103,9 +103,9 @@ if (visualSearchResults.Tags.Count > 0)
 
 <a name="complete"></a> 
 
-## <a name="complete-console-application"></a>Volledige-consoletoepassing
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
 
-De volgende consoletoepassing, wordt de eerder gedefinieerde query uitgevoerd en de resultaten worden geparseerd:
+De volgende consoletoepassing voert de eerder gedefinieerde query uit en parseert de resultaten:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
@@ -200,13 +200,13 @@ namespace VisualSrchSDK
 }
 ```
 
-De Bing zoeken-voorbeelden laten zien dat verschillende functies van de SDK.  Voeg de volgende functies toe aan de eerder gedefinieerde `VisualSrchSDK` klasse.
+De voorbeelden van Bing Zoeken laten verschillende functies van de SDK zien.  Voeg de volgende functies toe aan de eerder gedefinieerde klasse `VisualSrchSDK`.
 
 <a name="binary-crop"></a>
 
-## <a name="image-binary-post-with-croparea"></a>Binaire bericht van de installatiekopie met cropArea
+## <a name="image-binary-post-with-croparea"></a>Binair bestand van afbeelding posten met cropArea
 
-De volgende code verzendt een installatiekopie van een binaire in de hoofdtekst van de post-aanvraag, samen met een cropArea-object.  Vervolgens worden de imageInsightsToken, het aantal tags, het aantal acties en de eerste actionType.
+De volgende code verzendt binair bestand van een afbeelding in de hoofdtekst van de post-aanvraag, samen met een cropArea-object.  Vervolgens worden het imageInsightsToken, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```csharp
 public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
@@ -278,9 +278,9 @@ public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
 
 <a name="knowledge-req"></a>
 
-## <a name="knowledgerequest-parameter"></a>KnowledgeRequest parameter
+## <a name="knowledgerequest-parameter"></a>KnowledgeRequest-parameter
 
-De volgende code verzendt een afbeeldings-url in de `knowledgeRequest` parameter, samen met een \"site: www.bing.com\" filter.  Vervolgens er wordt de `imageInsightsToken`, het aantal tags, het aantal acties en de eerste actionType.
+De volgende code verzendt een afbeeldings-url in de parameter `knowledgeRequest`, samen met een filter \"site: www.bing.com\".  Vervolgens worden het `imageInsightsToken`, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```csharp
 public static void VisualSearchUrlWithFilters(string subscriptionKey)
@@ -355,7 +355,7 @@ public static void VisualSearchUrlWithFilters(string subscriptionKey)
 
 ## <a name="tags-actions-and-actiontype"></a>Tags, acties en actionType
 
-De volgende code wordt een installatiekopie insights-token met de parameter knowledgeRequest, samen met een object cropArea verzonden.  Vervolgens worden de imageInsightsToken, het aantal tags, het aantal acties en de eerste actionType.
+De volgende code verzendt een token voor inzicht in afbeeldingen met de parameter knowledgeRequest, samen met een cropArea-object.  Vervolgens worden het imageInsightsToken, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```csharp
 public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
@@ -429,7 +429,7 @@ public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
 
 ## <a name="number-of-tags-number-of-actions-and-first-actiontype"></a>Aantal tags, aantal acties en eerste actionType
 
-De volgende code wordt een afbeeldings-url in de parameter knowledgeRequest, samen met een gebied bijsnijden verzonden.  Vervolgens wordt de imageInsightsToken, het aantal tags, het aantal acties en de eerste actionType afgedrukt.
+De volgende code verzendt een afbeeldings-url met de parameter knowledgeRequest, samen met een bijsnijdgebied (cropArea).  Vervolgens worden het imageInsightsToken, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```csharp
 public static void VisualSearchUrlWithJson(string subscriptionKey)
@@ -514,4 +514,4 @@ public static void VisualSearchUrlWithJson(string subscriptionKey)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitive Services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

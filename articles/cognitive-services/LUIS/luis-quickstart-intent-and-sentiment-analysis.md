@@ -1,40 +1,25 @@
 ---
-title: Zelfstudie voor het maken van een LUIS-app die een sentimentanalyse als resultaat geeft - Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u sentimentanalyse toevoegt aan uw LUIS-app om utterances te analyseren op positieve, negatieve en neutrale gevoelens.
+title: 'Zelfstudie 9: gevoel analyseren (inclusief positief, negatief en neutraal) in LUIS'
+titleSuffix: Azure Cognitive Services
+description: In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances. Het gevoel wordt bepaald op basis van de gehele uiting.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a89755bcc0ed5ef8bee4ed00b99c73993a57bcb9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163019"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031455"
 ---
-# <a name="tutorial-9--add-sentiment-analysis"></a>Zelfstudie: 9.  Sentimentanalyse toevoegen
-In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances.
+# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Zelfstudie 9: het gevoel van een volledige uiting herkennen
+In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances. Het gevoel wordt bepaald op basis van de gehele uiting.
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Sentimentanalyse begrijpen
-> * De LUIS-app in HR-domein (Human Resources) gebruiken 
-> * Sentimentanalyse toevoegen
-> * App trainen en publiceren
-> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien 
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over vooraf gemaakte [keyPhrase-entiteit](luis-quickstart-intent-and-key-phrase.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
-
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `sentiment`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
-
-## <a name="sentiment-analysis"></a>Sentimentanalyse
 Sentimentanalyse is de mogelijkheid om te bepalen of de uiting (utterance) van een gebruiker positief, negatief of neutraal is. 
 
 De volgende utterances zijn voorbeelden van gevoelens:
@@ -44,18 +29,40 @@ De volgende utterances zijn voorbeelden van gevoelens:
 |positief|0,91 |John W. Smith heeft een geweldige presentatie gegeven in Parijs.|
 |positief|0,84 |jill-jones@mycompany.com heeft het fantastisch gedaan om Parker als klant binnen te halen.|
 
-Sentimentanalyse is een app-instelling die voor elke utterance geldt. U hoeft niet op zoek te gaan naar woorden om in de utterance een sentiment aan te duiden en deze van een label te voorzien, omdat sentimentanalyse voor de hele utterance geldt. 
+Sentimentanalyse is een publicatie-instelling die voor elke uiting geldt. U hoeft niet op zoek te gaan naar woorden om in de utterance een sentiment aan te duiden en deze van een label te voorzien, omdat sentimentanalyse voor de hele utterance geldt. 
 
-## <a name="add-employeefeedback-intent"></a>Intent EmployeeFeedback toevoegen 
+Omdat dit een publicatie-instelling is, wordt deze niet weergegeven op de intentie- of entiteitenpagina. De instelling is te zien in het deelvenster [Interactieve test](luis-interactive-test.md#view-sentiment-results) of bij het uitvoeren van tests bij de eindpunt-URL. 
+
+**In deze zelfstudie leert u het volgende:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Bestaande zelfstudie-app gebruiken 
+> * Sentimentanalyse toevoegen als publicatie-instelling
+> * Trainen
+> * Publiceren
+> * Het gevoel achter een uiting ophalen van een eindpunt
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Bestaande app gebruiken
+
+Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+
+Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+
+1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json) en sla het op.
+
+2. Importeer de JSON in een nieuwe app.
+
+3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `sentiment`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
+
+## <a name="employeefeedback-intent"></a>De intentie EmployeeFeedback 
 Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf behoren, vast te leggen. 
 
-1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
-
-    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent**.
-
-    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
 3. Geef de nieuwe intentie de naam  `EmployeeFeedback`.
 
@@ -78,135 +85,126 @@ Voeg een nieuwe intentie toe om feedback van werknemers die tot het bedrijf beho
 
     [ ![Schermopname van de LUIS-app met voorbeelden van utterances in de intentie EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train-the-luis-app"></a>LUIS-app trainen
+## <a name="train"></a>Trainen
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>App configureren voor gebruik van sentimentanalyse
-Configureer sentimentanalyse op de pagina **Publish**. 
+1. Selecteer **Beheren** in het navigatievenster rechtsboven en selecteer in het menu links de optie **Publicatie-instellingen**.
 
-1. Selecteer **Publish** in de navigatiebalk rechtsboven.
+2. Klik op de knop bij **Sentimentanalyse** om deze instelling in te schakelen. 
 
-    ![Schermopname van de pagina Intent met de knop Publish uitgevouwen ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
+    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-2. Selecteer **Enable Sentiment Analysis**. 
-
-## <a name="publish-app-to-endpoint"></a>App publiceren naar eindpunt
+## <a name="publish"></a>Publiceren
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
+## <a name="get-sentiment-of-utterance-from-endpoint"></a>Het gevoel achter een uiting ophalen van een eindpunt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Ga naar het einde van de URL in het adres en voer `Jill Jones work with the media team on the public portal was amazing` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `EmployeeFeedback` als resultaat moet geven met de sentimentanalyse geëxtraheerd.
-
-```
-{
-  "query": "Jill Jones work with the media team on the public portal was amazing",
-  "topScoringIntent": {
-    "intent": "EmployeeFeedback",
-    "score": 0.4983256
-  },
-  "intents": [
+    
+    ```JSON
     {
-      "intent": "EmployeeFeedback",
-      "score": 0.4983256
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.06617523
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.04631853
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.0103248553
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.007531875
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00344597152
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00337914471
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0026357458
-    },
-    {
-      "intent": "None",
-      "score": 0.00214573368
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00157622492
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 7.379545E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "jill jones",
-      "type": "Employee",
-      "startIndex": 0,
-      "endIndex": 9,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
+      "query": "Jill Jones work with the media team on the public portal was amazing",
+      "topScoringIntent": {
+        "intent": "EmployeeFeedback",
+        "score": 0.4983256
+      },
+      "intents": [
+        {
+          "intent": "EmployeeFeedback",
+          "score": 0.4983256
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.06617523
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.04631853
+        },
+        {
+          "intent": "ApplyForJob",
+          "score": 0.0103248553
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.007531875
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00344597152
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00337914471
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.0026357458
+        },
+        {
+          "intent": "None",
+          "score": 0.00214573368
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00157622492
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 7.379545E-05
+        }
+      ],
+      "entities": [
+        {
+          "entity": "jill jones",
+          "type": "Employee",
+          "startIndex": 0,
+          "endIndex": 9,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
+        },
+        {
+          "entity": "media team",
+          "type": "builtin.keyPhrase",
+          "startIndex": 25,
+          "endIndex": 34
+        },
+        {
+          "entity": "public portal",
+          "type": "builtin.keyPhrase",
+          "startIndex": 43,
+          "endIndex": 55
+        },
+        {
+          "entity": "jill jones",
+          "type": "builtin.keyPhrase",
+          "startIndex": 0,
+          "endIndex": 9
+        }
+      ],
+      "sentimentAnalysis": {
+        "label": "positive",
+        "score": 0.8694164
       }
-    },
-    {
-      "entity": "media team",
-      "type": "builtin.keyPhrase",
-      "startIndex": 25,
-      "endIndex": 34
-    },
-    {
-      "entity": "public portal",
-      "type": "builtin.keyPhrase",
-      "startIndex": 43,
-      "endIndex": 55
-    },
-    {
-      "entity": "jill jones",
-      "type": "builtin.keyPhrase",
-      "startIndex": 0,
-      "endIndex": 9
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "positive",
-    "score": 0.8694164
-  }
-}
-```
+    ```
 
-SentimentAnalysis is met een score van 0,86 positief. 
-
-## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Deze app, met sentimentanalyse ingeschakeld, heeft de intentie van een query in natuurlijke taal geïdentificeerd en de overeenkomende geëxtraheerde gegevens geretourneerd, met inbegrip van het algehele gevoel uitgedrukt als een score. 
-
-Uw chatbot heeft nu voldoende gegevens om de volgende stap in het gesprek te bepalen. 
-
-## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
-LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de sentimentgegevens uit de utterance om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
+    SentimentAnalysis is met een score van 0,86 positief. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+In deze zelfstudie voegt u Sentimentanalyse toe als publicatie-instelling om de gevoelswaarden uit gehele uitingen op te halen.
 
 > [!div class="nextstepaction"] 
 > [Eindpuntuitingen beoordelen in de HR-app](luis-tutorial-review-endpoint-utterances.md) 

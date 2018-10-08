@@ -1,63 +1,63 @@
 ---
-title: Een eenvoudige app met twee intents maken - Azure | Microsoft Docs
-description: In deze snelstart leert u hoe u een eenvoudige LUIS-app maakt met behulp van twee 'intents' en geen entiteiten om 'utterances' van gebruikers te identificeren.
+title: 'Zelfstudie 1: Intenties zoeken in aangepaste LUIS-app'
+titleSuffix: Azure Cognitive Services
+description: Maak een aangepaste app waarmee de intentie van een gebruiker wordt voorspeld. Deze app is het eenvoudigste type LUIS-app omdat de app geen verschillende gegevenselementen uit de utterancetekst extraheert, zoals e-mailadressen of datums.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160112"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035400"
 ---
-# <a name="tutorial-1-build-app-with-custom-domain"></a>Zelfstudie: 1. Web-app met aangepast domein
-In deze zelfstudie maakt u een app die laat zien hoe u **intents** gebruikt om de _bedoeling_ van de gebruiker te bepalen op basis van de utterance (tekst) die ze naar de app verzenden. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
+# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Zelfstudie 1: Aangepaste app compileren om gebruikersintents te bepalen
 
-Deze app is het eenvoudigste type LUIS-app omdat dit type geen gegevens uit de utterances ophaalt. Dit type bepaalt alleen wat de gebruiker bedoelt met de utterance.
+In deze zelfstudie maakt u een aangepaste HR-app (Human Resources) waarmee de intentie van een gebruiker wordt voorspeld op basis van de utterance (tekst). Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
 
-<!-- green checkmark -->
+Het doel van de app is om de intentie van natuurlijke omgangstaal in een tekst te bepalen. Deze intenties worden onderverdeeld in **Intents**. Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt vast wanneer een gebruiker informatie wil over vacatures binnen een bedrijf. De tweede intent, **`None`**, wordt gebruikt voor utterances van de gebruiker die zich buiten het _domein_ (bereik) van deze app bevinden. Later wordt er een derde intent, **`ApplyForJob`**, toegevoegd voor alle utterances over solliciteren naar een functie. Deze derde intent wijkt af van `GetJobInformation` omdat de informatie over de functie al bekend moet zijn wanneer iemand naar die functie solliciteert. Maar afhankelijk van de woordkeuze kan het moeilijk zijn de juiste intent te bepalen omdat beide betrekking hebben op een functie.
+
+Nadat LUIS de JSON-reactie heeft geretourneerd, is LUIS klaar met deze aanvraag. LUIS geeft geen antwoord op deze utterances van gebruikers, maar stelt alleen vast om wat voor soort informatie er wordt gevraagd in natuurlijke taal. 
+
+**In deze zelfstudie leert u het volgende:**
+
 > [!div class="checklist"]
-> * Een nieuwe app voor een Human Resources (HR)-domein maken 
-> * GetJobInformation-intent toevoegen
-> * Voorbeeldutterances toevoegen aan de GetJobInformation-intent 
-> * App trainen en publiceren
-> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
-> * ApplyForJob-intent toevoegen
-> * Voorbeeldutterances toevoegen aan de ApplyForJob-intent 
-> * Eindpunt opnieuw trainen, publiceren en opvragen 
+> * Een nieuwe app maken 
+> * Intents maken
+> * Voorbeelden van utterances toevoegen
+> * App trainen
+> * App publiceren
+> * Intent van eindpunt ophalen
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="purpose-of-the-app"></a>Doel van de app
-Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt vast wanneer een gebruiker informatie wil over vacatures binnen een bedrijf. De tweede intent, **`None`**, stelt elk ander type utterance vast. Verderop in de snelstart wordt een derde intent, `ApplyForJob`, toegevoegd. 
-
 ## <a name="create-a-new-app"></a>Een nieuwe app maken
-1. Meld u aan op de website van [LUIS](luis-reference-regions.md#luis-website). Doe dit bij de [regio](luis-reference-regions.md#publishing-regions) waarin u de LUIS-eindpunten wilt publiceren.
 
-2. Selecteer op de website van [LUIS](luis-reference-regions.md#luis-website) de optie **Create new app**.  
+1. Meld u aan bij de LUIS-portal met de URL [https://www.luis.ai](https://www.luis.ai). 
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Schermopname van pagina My Apps")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+2. Selecteer **Create new app**.  
 
-3. Typ in het pop-upvenster de naam `HumanResources`. Deze app handelt vragen af over de afdeling Human Resources van uw bedrijf. Dit type afdeling verwerkt kwesties met betrekking tot werkgelegenheid zoals posities in het bedrijf die moeten worden ingevuld.
+    [![](media/luis-quickstart-intents-only/app-list.png "Schermafbeelding van de pagina My Apps van Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+
+3. Typ de naam in het pop-updialoogvenster `HumanResources` en houd de standaardcultuur, **Engels**, aan. Laat de beschrijving leeg.
 
     ![Nieuwe LUIS-app](./media/luis-quickstart-intents-only/create-app.png)
 
-4. Als dat proces is voltooid, ziet u de pagina **Intents** met de intent **None**. 
+    Vervolgens geeft de app de pagina **Intents** weer met de intent **None**.
 
-## <a name="create-getjobinformation-intention"></a>GetJobInformation-intent maken
-1. Selecteer **Create new intent**. Voer de naam `GetJobInformation` in voor de nieuwe intent. Deze intent wordt voorspeld telkens wanneer een gebruiker informatie wil over vacatures in uw bedrijf.
+## <a name="getjobinformation-intent"></a>GetJobInformation-intent
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Schermopname van het dialoogvenster New intent")
+1. Selecteer **Create new intent**. Voer de naam `GetJobInformation` in voor de nieuwe intent. Deze intent wordt voorspeld telkens wanneer een gebruiker informatie wil over vacatures in het bedrijf.
 
-    Door een intent te maken, maakt u een categorie van gegevens die u wilt identificeren. Door de categorie een naam te geven kunnen andere toepassingen die de queryresultaten van LUIS gebruiken, die categorienaam gebruiken om een geschikt antwoord te vinden. LUIS geeft geen antwoord op deze vragen, maar stelt alleen vast om wat voor soort informatie er wordt gevraagd in natuurlijke taal. 
+    ![](media/luis-quickstart-intents-only/create-intent.png "Schermafbeelding van het dialoogvenster New intent van Language Understanding (LUIS) My Apps")
 
-2. Voeg zeven utterances toe aan deze intent waarnaar een gebruiker waarschijnlijk zal vragen, zoals:
+2. Door _voorbeelden van utterances_ op te geven traint u LUIS met het soort utterances dat voor deze intent kan worden voorspeld. Voeg verschillende voorbeelden van utterances toe aan deze intent waarnaar een gebruiker waarschijnlijk zal vragen, zoals:
 
     | Voorbeelden van utterances|
     |--|
@@ -71,9 +71,17 @@ Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt 
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Schermopname van het invoeren van nieuwe utterances voor MyStore-intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-3. De LUIS-app heeft momenteel geen utterances voor de intent **None**. Er zijn utterances nodig die de app niet beantwoordt. U mag deze intent niet leeglaten. Selecteer **Intents** in het linkerpaneel. 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
-4. Selecteer de intent **None**. Voeg drie utterances toe die een gebruiker misschien kan invoeren, maar die niet relevant zijn voor uw app. Als de app betrekking heeft op uw vacatures, zijn dit enkele goede **None**-utterances:
+
+## <a name="none-intent"></a>None- intent 
+De clienttoepassing moet weten of een utterance buiten het onderwerpsdomein van de toepassing valt. Als LUIS de **None**-intent retourneert voor een utterance, kan uw clienttoepassing vragen of de gebruiker het gesprek wil beëindigen. De clienttoepassing kan ook meer aanwijzingen geven voor het vervolgen van het gesprek als de gebruiker dit niet wil beëindigen. 
+
+Deze voorbeeldutterances, buiten het onderwerpsdomein, worden ondergebracht in de **None**-intent. U mag deze intent niet leeglaten. 
+
+1. Selecteer **Intents** in het linkerpaneel.
+
+2. Selecteer de intent **None**. Voeg drie utterances toe die een gebruiker misschien kan invoeren, maar die niet relevant zijn voor uw HR-app. Als de app betrekking heeft op uw vacatures, zijn dit enkele **None**-utterances:
 
     | Voorbeelden van utterances|
     |--|
@@ -81,25 +89,24 @@ Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt 
     |Bestel een pizza voor me|
     |Pinguïns in de oceaan|
 
-    Als LUIS de intent **None** retourneert voor een toepassing die LUIS aanroept, zoals een chatbot, kan de bot hierop reageren door te vragen of de gebruiker het gesprek wil beëindigen. De chatbot kan ook meer aanwijzingen geven voor het vervolgen van het gesprek als de gebruiker dit niet wil beëindigen. 
 
-## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
+## <a name="train"></a>Trainen 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>App publiceren naar eindpunt
+## <a name="publish"></a>Publiceren
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="query-endpoint-for-getjobinformation-intent"></a>Query-eindpunt voor GetJobInformation-intent
+## <a name="get-intent"></a>Intentie ophalen
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Ga naar het einde van de URL in het adres en voer `I'm looking for a job with Natual Language Processing` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. Deze utterance is niet hetzelfde als een van de voorbeeld-utterances in stap 4. Daarom is dit een goede test die de intent `GetJobInformation` als belangrijkste scorings-intent moet geven. 
+2. Ga naar het einde van de URL in de adresbalk en voer `I'm looking for a job with Natural Language Processing` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. Deze utterance is niet hetzelfde als een van de voorbeeldutterances. Dit is een goede test die de `GetJobInformation`-intent als de best scorende intent moet retourneren. 
 
-    ```
+    ```JSON
     {
-      "query": "I'm looking for a job with Natual Language Processing",
+      "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
         "intent": "GetJobInformation",
         "score": 0.8965092
@@ -118,8 +125,12 @@ Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt 
     }
     ```
 
-## <a name="create-applyforjob-intention"></a>ApplyForJob-intent maken
-Ga terug naar het browsertabblad voor de website van LUIS en maak een nieuwe intent om te solliciteren op een vacature.
+    De resultaten bevatten **alle intents** in de app; momenteel zijn dat er 2. De entiteitenmatrix is leeg omdat deze app momenteel geen entiteiten bevat. 
+
+    Het JSON-resultaat identificeert de hoogst scorende intent als **`topScoringIntent`**-eigenschap. Alle scores liggen tussen 1 en 0, met de betere score dichterbij 1. 
+
+## <a name="applyforjob-intent"></a>ApplyForJob-intent
+Ga terug naar de website van LUIS en maak een nieuwe intent om te bepalen of de gebruikersutterance over het solliciteren naar een functie gaat.
 
 1. Selecteer **Build** in het menu rechtsboven om terug te keren naar het compileren van apps.
 
@@ -143,15 +154,21 @@ Ga terug naar het browsertabblad voor de website van LUIS en maak een nieuwe int
 
     De gelabelde intent is rood omlijnd omdat LUIS momenteel niet zeker weet of de intent juist is. Door de app te trainen weet LUIS wanneer de utterances voor de juiste intent zijn. 
 
-    Opnieuw [trainen en publiceren](#train-and-publish-the-app). 
+## <a name="train-again"></a>Opnieuw trainen
 
-## <a name="query-endpoint-for-applyforjob-intent"></a>Query-eindpunt voor ApplyForJob-intent
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+
+## <a name="publish-again"></a>Opnieuw publiceren
+
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+
+## <a name="get-intent-again"></a>Intent opnieuw ophalen
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Voer in het nieuwe browservenster `Can I submit my resume for job 235986` in aan het einde van de URL. 
 
-    ```
+    ```JSON
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
@@ -176,19 +193,15 @@ Ga terug naar het browsertabblad voor de website van LUIS en maak een nieuwe int
     }
     ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Deze app heeft met slechts enkele intents een query in natuurlijke taal geïdentificeerd die hetzelfde doel heeft maar anders is geformuleerd. 
-
-Het JSON-resultaat identificeert de hoogst scorende intent. Alle scores liggen tussen 1 en 0, met de betere score dichterbij 1. De scores van de `GetJobInformation`- en `None`-intents zijn veel dichter bij nul. 
-
-## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
-LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het topScoringIntent-resultaat gebruiken en informatie vinden (die niet is opgeslagen in LUIS) om de vraag te beantwoorden of de conversatie beëindigen. Dit zijn programma-opties voor de chatbot of aanroepende toepassing. LUIS hoeft die taak niet uit te voeren. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
+    De resultaten bevatten de nieuwe intent **ApplyForJob** samen met de bestaande intents. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie hebt u de app Human Resources (HR) gemaakt, hebt u 2 intents gemaakt, voorbeeldutterances aan elke intent toegevoegd, voorbeeldutterances aan de None-intent toegevoegd, de app getraind, gepubliceerd en getest op het eindpunt. Dit zijn de basisstappen voor het compileren van een LUIS-model. 
 
 > [!div class="nextstepaction"]
 > [Vooraf gemaakte intents en entiteiten aan deze app toevoegen](luis-tutorial-prebuilt-intents-entities.md)

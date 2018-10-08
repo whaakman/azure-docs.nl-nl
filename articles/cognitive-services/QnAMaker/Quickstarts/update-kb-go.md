@@ -1,24 +1,25 @@
 ---
-title: Kennisdatabase bijwerken - Go-Quickstart - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstart: de knowledge base bijwerken - Qna Maker'
+titleSuffix: Azure Cognitive Services
 description: Een kennisdatabase bijwerken in Go voor QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 613bcd67f766497c9dca49f2ac2dd7a9f7b1cacf
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 03287a2c7a79f0a19d12d7246b2aba679f4ae1a9
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43768968"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040156"
 ---
 # <a name="update-a-knowledge-base"></a>Een kennisdatabase bijwerken
 
-Met de volgende code wordt een bestaande kennisdatabase bijgewerkt met de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
 1. Maak een nieuw Go-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -195,4 +196,4 @@ U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/se
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie over REST-API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Naslaginformatie over REST API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

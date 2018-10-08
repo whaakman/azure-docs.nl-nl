@@ -51,15 +51,16 @@ items:
         href: quickstart-v1-dotnet.md
       - name: Xamarin
         href: quickstart-v1-xamarin.md
-    - name: Service-naar-service
+    - name: Service naar service
       href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
   - name: Voorbeelden
     href: sample-v1-code.md
   - name: Concepten
     items:
     - name: Toepassingstypen
-      href: app-types.md
       items:
+      - name: Soorten toepassingen
+        href: app-types.md
       - name: Toepassing met één pagina
         href: single-page-application.md
       - name: Web-app
@@ -71,26 +72,27 @@ items:
       - name: Daemon- of servertoepassing
         href: service-to-service.md
     - name: Verificatie
-      href: authentication-scenarios.md
       items:
-      - name: Protocollen
+      - name: Basisbeginselen van verificatie
+        href: authentication-scenarios.md
+      - name: OAuth 2.0- en OpenID Connect-protocol
         items:
-        - name: OAuth en het OpenID Connect-protocol
-          items:
-          - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
-            href: v1-oauth2-implicit-grant-flow.md
-          - name: OAuth 2.0-verificatiecode verlenen
-            href: v1-protocols-oauth-code.md
-          - name: Namens-stroom voor OAuth 2.0
-            href: v1-oauth2-on-behalf-of-flow.md
-          - name: Referenties voor OAuth 2.0-client verlenen
-            href: v1-oauth2-client-creds-grant-flow.md
-        - name: SAML 2.0
-          items:
-          - name: Eenmalige aanmelding
-            href: single-sign-on-saml-protocol.md
-          - name: Afmelden
-            href: single-sign-out-saml-protocol.md
+        - name: OpenID Connect
+          href: v1-protocols-openid-connect-code.md
+        - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
+          href: v1-oauth2-implicit-grant-flow.md
+        - name: OAuth 2.0-verificatiecode verlenen
+          href: v1-protocols-oauth-code.md
+        - name: Namens-stroom voor OAuth 2.0
+          href: v1-oauth2-on-behalf-of-flow.md
+        - name: 'OAuth 2.0: clientreferenties verlenen'
+          href: v1-oauth2-client-creds-grant-flow.md
+      - name: SAML 2.0-protocol
+        items:
+        - name: Eenmalige aanmelding
+          href: single-sign-on-saml-protocol.md
+        - name: Afmelden
+          href: single-sign-out-saml-protocol.md
         - name: Webservices-federatie
           items:
           - name: Federatieve metagegevens
@@ -106,16 +108,18 @@ items:
       - name: SAML-tokens
         href: reference-saml-tokens.md
     - name: Toepassingsconfiguratie
-      href: app-objects-and-service-principals.md
       items:
+      - name: Toepassingen en service-principals
+        href: app-objects-and-service-principals.md
       - name: Hoe en waarom apps worden toegevoegd aan Azure AD
         href: active-directory-how-applications-are-added.md
       - name: Apps met één tenant en apps met meerdere tenants
         href: single-and-multi-tenant-apps.md
     - name: Machtigingen en toestemming
       displayName: Scopes
-      href: v1-permissions-and-consent.md
       items:
+      - name: Typen machtigingen en toestemmingen
+        href: v1-permissions-and-consent.md
       - name: Toestemmingsframework
         href: consent-framework.md
       - name: Ervaringen met toepassingstoestemming
@@ -143,6 +147,8 @@ items:
           href: ../active-directory-enterprise-app-role-management.md
         - name: Claims aanpassen
           href: active-directory-saml-claims-customization.md
+      - name: Best practices voor foutafhandeling voor ADAL
+        href: active-directory-devhowto-adal-error-handling.md
     - name: Toepassingsconfiguratie
       items:
       - name: Van een app met één tenant een app met meerdere tenants maken
@@ -185,7 +191,7 @@ items:
       href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: Verwijzingen
     items:
-    - name: Azure AD-verificatiebibliotheken
+    - name: Verificatiebibliotheken
       displayName: ADAL
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
@@ -276,20 +282,21 @@ items:
     - name: Toepassingstypen
       href: v2-app-types.md
     - name: Verificatie
-      href: authentication-scenarios.md
       items:
-      - name: Protocollen
+      - name: Basisbeginselen van verificatie
+        href: authentication-scenarios.md
+      - name: OAuth 2.0- en OpenID Connect-protocol
         items:
-        - name: OAuth en het OpenID Connect-protocol
-          items:
-          - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
-            href: v2-oauth2-implicit-grant-flow.md
-          - name: OAuth 2.0-verificatiecode verlenen
-            href: v2-oauth2-auth-code-flow.md
-          - name: Namens-stroom voor OAuth 2.0
-            href: v2-oauth2-on-behalf-of-flow.md
-          - name: Referenties voor OAuth 2.0-client verlenen
-            href: v2-oauth2-client-creds-grant-flow.md
+        - name: OpenID Connect
+          href: v2-protocols-oidc.md
+        - name: 'OAuth 2.0: stroom voor impliciete goedkeuring'
+          href: v2-oauth2-implicit-grant-flow.md
+        - name: OAuth 2.0-verificatiecode verlenen
+          href: v2-oauth2-auth-code-flow.md
+        - name: Namens-stroom voor OAuth 2.0
+          href: v2-oauth2-on-behalf-of-flow.md
+        - name: 'OAuth 2.0: clientreferenties verlenen'
+          href: v2-oauth2-client-creds-grant-flow.md
       - name: Id-tokens
         href: id-tokens.md
       - name: Toegangstokens
@@ -297,14 +304,16 @@ items:
       - name: Certificaatreferenties
         href: active-directory-certificate-credentials.md
     - name: Toepassingsconfiguratie
-      href: app-objects-and-service-principals.md
       items:
+      - name: Toepassingen en service-principals
+        href: app-objects-and-service-principals.md
       - name: Apps met één tenant en apps met meerdere tenants
         href: single-and-multi-tenant-apps.md
     - name: Machtigingen en toestemming
       displayName: Scopes
-      href: v2-permissions-and-consent.md
       items:
+      - name: Typen machtigingen en toestemmingen
+        href: v2-permissions-and-consent.md
       - name: Toestemmingsframework
         href: consent-framework.md
       - name: Ervaringen met toepassingstoestemming
@@ -347,7 +356,7 @@ items:
         href: vs-active-directory-error.md
   - name: Verwijzingen
     items:
-    - name: Microsoft Authentication Library
+    - name: Verificatiebibliotheken
       displayName: MSAL
       href: reference-v2-libraries.md
     - name: Azure AD-API's in Microsoft Graph
@@ -373,9 +382,9 @@ items:
     href: developer-support-help-options.md
   - name: Managed Service Identity voor Azure-resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 180b7962d6083887a25f582471b6b3e405f3f8f9
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419663"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784998"

@@ -1,29 +1,31 @@
 ---
-title: Snelstart SDK voor het maken van een miniatuur met de Computer Vision-API met C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows C#-clientbibliotheek in Cognitive Services.
+title: 'Quickstart: Een miniatuur genereren - SDK, C# - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows C#-clientbibliotheek.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: e26d2da8f068b3b23b8211dc88cd21ca4a049018
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770243"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054809"
 ---
-# <a name="quickstart-generate-a-thumbnail---sdk-c35"></a>Snelstart: een miniatuur genereren - SDK, C&#35;
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Quickstart: Een miniatuur genereren met de Computer Vision SDK en C#
 
-In deze snelstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows-clientbibliotheek.
+In deze quickstart maakt u een miniatuur van een afbeelding met behulp van de Computer Vision Windows-clientbibliotheek.
+
+De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Als u Computer Vision wilt gebruiken, hebt u een abonnementssleutel nodig. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie.
 * Een versie van [Visual Studio 2015 of 2017](https://www.visualstudio.com/downloads/).
 * Het NuGet-pakket van de [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision)-clientbibliotheek. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
 
@@ -40,7 +42,7 @@ U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
     1. Selecteer **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** wanneer dit wordt weergegeven, klik op het selectievakje naast uw projectnaam en klik op **Installeren**.
 1. Vervang `Program.cs` door de volgende code.
 1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig indien nodig `computerVision.AzureRegion = AzureRegions.Westcentralus` in de locatie waar u uw abonnementssleutels hebt verkregen.
+1. Wijzig zo nodig `computerVision.Endpoint` in de Azure-regio die is gekoppeld aan uw abonnementssleutels.
 1. Vervang `<LocalImage>` desgewenst door het pad en de bestandsnaam van een lokale afbeelding (wordt genegeerd indien niet ingesteld).
 1. Stel `remoteImageUrl` desgewenst in op een andere afbeelding.
 1. Stel `writeThumbnailToDisk` desgewenst in op `true` om de miniatuur op schijf op te slaan.
@@ -48,7 +50,6 @@ U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 using System;
 using System.IO;
@@ -74,33 +75,33 @@ namespace ImageThumbnail
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...\n");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Create a thumbnail from a remote image
         private static async Task GetRemoteThumbnailAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -124,7 +125,7 @@ namespace ImageThumbnail
 
         // Create a thumbnail from a local image
         private static async Task GetLocalThumbnailAsnc(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {

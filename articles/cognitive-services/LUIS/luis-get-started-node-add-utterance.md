@@ -1,20 +1,21 @@
 ---
-title: Snelstart Model wijzigen en LUIS-app trainen met behulp van Node.js - Azure Cognitive Services | Microsoft Docs
+title: Node.js-snelstart - model wijzigen en LUIS-app trainen
+titleSuffix: Azure Cognitive Services
 description: Voeg in deze Node.js-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd8b467fa3894d9cf58e1c8cb78ee00ebd0965e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44156850"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036147"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Snelstart: Model wijzigen met behulp van Node.js
 
@@ -92,4 +93,4 @@ Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelsta
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Programmatisch een LUIS-app bouwen](luis-tutorial-node-import-utterances-csv.md)
+> [Programmatisch een LUIS-app compileren](luis-tutorial-node-import-utterances-csv.md)

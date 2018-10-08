@@ -1,54 +1,54 @@
 ---
-title: Video-API van zoekservice snel aan de slag | Microsoft Docs
-description: Laat zien hoe u aan de slag met de Bing-API voor het zoeken van Video.
+title: "Snelstart: Bing Video's zoeken-API"
+titlesuffix: Azure Cognitive Services
+description: Lees hoe u aan de slag gaat met de Bing Video's zoeken-API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0bd0f067d64cac3ebac342ebadcfcc010a47af7b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345462"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225511"
 ---
-# <a name="your-first-video-search-query"></a>Uw eerste video query
+# <a name="quickstart-your-first-video-search-query"></a>Snelstart: Uw eerste query om video's te zoeken
 
-Voordat u uw eerste aanroep aanbrengen kunt, moet u een abonnement cognitieve zoekservices Bing code. Als u een sleutel, Zie [cognitieve Services probeer](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
+Voordat u uw eerste aanroep kunt versturen, moet u een abonnementssleutel van Cognitive Services voor Bing Zoeken opvragen. Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api) voor meer informatie.
 
-Als u Video zoekresultaten, zou u een GET-aanvraag verzenden naar het volgende eindpunt:  
+Om video's als zoekresultaat te krijgen, verstuurt u een GET-aanvraag naar het volgende eindpunt:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/videos/search
 ```
    
-De aanvraag moet de HTTPS-protocol gebruiken.
+In de aanvraag moet u het HTTPS-protocol gebruiken.
 
-We raden aan dat alle aanvragen zijn afkomstig uit een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt meer mogelijkheden om een schadelijke van derden om deze te openen. Het aanroepen van een server biedt ook een centraal punt voor de upgrade voor toekomstige versies van de API.
+Het is raadzaam dat alle aanvragen afkomstig zijn van een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt een kwaadwillende gebruiker namelijk meer mogelijkheden om de sleutel te onderscheppen. Als u ervoor kiest om alle aanroepen via een server te laten lopen, beschikt u bovendien over een centraal upgradepunt voor toekomstige versies van de API.
 
   
-De aanvraag moet opgeven de [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) queryparameter waarin de gebruiker zoekterm. Hoewel dit optioneel is, geef de aanvraag ook de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#mkt) queryparameter waarmee de markt waar u de resultaten uit te komen. Query voor een lijst met optionele parameters zoals `pricing`, Zie [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters). Alle parameterwaarden moet URL zijn gecodeerd.  
+De aanvraag moet de parameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) bevatten, met daarin de zoekterm van de gebruiker. Hoewel dit optioneel is, moet de aanvraag ook de queryparameter [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#mkt) bevatten. Hiermee geeft u de markt aan waarvan de resultaten afkomstig moeten zijn. Zie [Queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query-parameters) voor een lijst met optionele queryparameters, zoals `pricing`. Alle waarden van queryparameter moeten als een URL zijn gecodeerd.  
   
-De aanvraag moet opgeven de [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#subscriptionkey) header. Hoewel dit optioneel, wordt u aangeraden ook de volgende headers opgeven:  
+De aanvraag moet de header [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#subscriptionkey) bevatten. Hoewel dit optioneel is, wordt u aangeraden ook altijd deze headers op te geven:  
   
--   [Gebruikersagent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#clientid)  
--   [X-Search-client-IP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#clientip)  
--   [X-Search-locatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#location)  
 
-De client-IP-adres en de locatie-headers zijn belangrijk voor het retourneren van locatie op de hoogte inhoud.  
+De headers ClientIP en Location zijn belangrijk voor het retourneren van locatiespecifieke inhoud.  
 
-Zie voor een lijst van alle aanvraag- en reactieheaders [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#headers).
+Zie [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#headers) voor een lijst van alle aanvraag- en antwoordheaders.
 
 
 ## <a name="the-request"></a>De aanvraag
 
-Hieronder ziet u een zoekaanvraag met alle voorgestelde queryparameters en -koppen. Als dit de eerste keer aanroepen van een van de Bing-API's, bevatten geen koptekst van de client-ID. Alleen de client-ID bevatten als u eerder een Bing-API hebt genoemd en Bing een client-ID voor de gebruiker en apparaat combinatie geretourneerd. 
+Hieronder ziet u een zoekaanvraag waarin alle voorgestelde queryparameters en headers zijn opgenomen. Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld ziet ook de Bing-specifieke antwoordheaders.
+Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld bevat ook de Bing-specifieke antwoordheaders.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -134,10 +134,10 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De API uitproberen. Ga naar [Video zoeken-API voor testdoeleinden Console](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
+Probeer de API uit. Ga naar [Video Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
 
-Zie voor meer informatie over het gebruiken van de objecten antwoord [zoeken op het Web voor video's](./search-the-web.md).
+Zie [What is Bing Video Search?](./search-the-web.md) (Wat is Bing Video's zoeken?) voor meer informatie over het gebruiken van de antwoordobjecten.
 
-Zie voor meer informatie over het verkrijgen van inzicht in een video zoals verwante zoekopdrachten [Video Insights](./video-insights.md).  
+Zie [Inzichten over video's](./video-insights.md) voor meer informatie over het verkrijgen van inzichten over een video, zoals verwante zoekopdrachten.  
   
-Zie voor meer informatie over de video's die zijn trends op sociale media [trends video's](./trending-videos.md).  
+Zie [Trending video's ophalen](./trending-videos.md) voor meer informatie over video's die trending zijn op sociale media.  

@@ -1,21 +1,22 @@
 ---
-title: Tekst in natuurlijke taal analyseren in LUIS (Language Understanding) met Java - Cognitive Services - Azure Cognitive Services | Microsoft Docs
+title: Java-snelstart - Intentie voorspellen - LUIS
+titleSuffix: Azure Cognitive Services
 description: In deze snelstart gebruikt u een beschikbare openbare LUIS-app om de intentie van een gebruiker te bepalen aan de hand van beschrijvende tekst. Gebruik Java om de intentie van de gebruiker als tekst naar het HTTP-voorspellingseindpunt van de openbare app te verzenden. Bij het eindpunt wordt via LUIS het model van de openbare app toegepast om de betekenis van tekst in natuurlijke taal te analyseren. Hiermee wordt de algehele intentie bepaald en worden gegevens geëxtraheerd die relevant zijn voor het onderwerpdomein van de app.
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4dd5437940994a2f264b5a11baebcd67fdddb43d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 03fd376e58062ae9b4593fcaf7904200157c4dc3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163087"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031421"
 ---
-# <a name="quickstart-analyze-text-using-java"></a>Snelstart: tekst analyseren met Java
+# <a name="quickstart-get-intent-using-java"></a>Snelstart: intentie ophalen met Java
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -34,11 +35,11 @@ ms.locfileid: "44163087"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Tekst analyseren met browser
+## <a name="get-intent-with-browser"></a>De intentie via een browser ophalen
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-java"></a>Tekst analyseren met Java 
+## <a name="get-intent-programmatically"></a>De intentie programmatisch ophalen 
 
 U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. 
 

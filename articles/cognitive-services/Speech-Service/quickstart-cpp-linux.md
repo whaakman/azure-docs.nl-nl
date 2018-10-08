@@ -1,137 +1,143 @@
 ---
-title: 'Snelstartgids: Spraakherkenning in C++ op Linux met behulp van de Cognitive Services Speech SDK herkennen'
+title: 'Snelstart: Gesproken tekst herkennen in C++ onder Linux met behulp van de Speech SDK van Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in C++ in Linux met behulp van de Cognitive Services spraak-SDK
+description: Gesproken tekst leren herkennen in C++ onder Linux met behulp van de Speech SDK van Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 92bd5980ac2e6befbe352df6ddf8644f04d37d34
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055914"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C++ in Linux met behulp van de spraak-SDK
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snelstart: Gesproken tekst herkennen in C++ onder Linux met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u hoe u een C++-consoletoepassing maken in Linux (Ubuntu 16.04) met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
+In dit artikel maakt u een C++ consoletoepassing voor Ubuntu Linux 16.04. U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met de [Speech SDK voor Linux](https://aka.ms/csspeech/linuxbinary) en de C++ compiler van uw Linux-distributie (bijvoorbeeld `g++`).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [de spraakservice gratis uitproberen](get-started.md).
-* Een Ubuntu-16.04-PC met een microfoon werken.
-* Om pakketten te installeren die nodig zijn voor het bouwen en uitvoeren van dit voorbeeld voert u het volgende:
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit te voeren. U kunt er een gratis downloaden. Zie [Probeer de Speech-service gratis uit](get-started.md) voor meer informatie.
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
-  ```
-
-## <a name="get-the-speech-sdk"></a>De spraak-SDK ophalen
+## <a name="install-speech-sdk"></a>Speech SDK installeren
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Cognitive Services Speech SDK is `0.6.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.0.0`.
 
-De Cognitive Services spraak-SDK voor Linux is beschikbaar voor het bouwen van 64-bits en 32-bits toepassingen.
-Kunnen de vereiste bestanden worden gedownload als een tar-bestand van https://aka.ms/csspeech/linuxbinary.
+De Speech SDK voor Linux kan worden gebruikt om zowel 32-bits als 64-bits toepassingen te compileren. De vereiste bibliotheken en headerbestanden kunnen als tarfile worden gedownload van https://aka.ms/csspeech/linuxbinary.
+
 Download en installeer de SDK als volgt:
 
-1. Kies een map (absoluut pad) waar u wilt plaatsen van de binaire bestanden voor spraak-SDK en -koppen.
-   Kies bijvoorbeeld het pad `speechsdk` onder de basismap:
+1. Zorg ervoor dat de SDK-afhankelijkheden zijn geïnstalleerd.
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+   ```
+
+1. Kies een map waar de bestanden van de Speech SDK moeten worden uitgepakt en laat de `SPEECHSDK_ROOT`-omgevingsvariabele naar die map verwijzen. Met deze variabele kunt u in toekomstige opdrachten eenvoudig naar de map verwijzen. Als u de map `speechsdk` bijvoorbeeld wilt gebruiken in de basismap, gebruik dan een opdracht als de volgende:
 
    ```sh
    export SPEECHSDK_ROOT="$HOME/speechsdk"
    ```
 
-1. De map niet maken als deze nog niet bestaat:
+1. Maak de map als deze nog niet bestaat.
 
    ```sh
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Downloaden en uitpakken van de `.tar.gz` archief met de binaire bestanden voor spraak-SDK:
+1. Download en extraheer het `.tar.gz`-archief met de binaire bestanden voor de Speech SDK:
 
    ```sh
    wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
    tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
    ```
 
-1. De inhoud van de map op het hoogste niveau van de uitgepakte pakket valideren:
+1. Valideer de inhoud van de map op het hoogste niveau van het uitgepakte pakket:
 
    ```sh
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Kennisgevingen van derden en licentiebestanden, moet worden weergegeven, evenals een `include` Active directory voor kopteksten en een `lib` Active directory voor bibliotheken.
+   De mapvermelding moet de kennisgeving van derden en licentiebestanden bevatten, evenals een `include`-map met headerbestanden (`.h`) en een `lib`-map met bibliotheken.
 
    [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
-## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
+## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
-1. Voeg de volgende code in een bestand met de naam `helloworld.cpp`:
+1. Maak een C++ bronbestand met de naam `helloworld.cpp` en plak er de volgende code in.
 
-  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Vervang de tekenreeks `YourSubscriptionKey` met de abonnementssleutel van uw.
+1. Vervang in dit nieuwe bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel van de Speech-service.
 
-1. Vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die gekoppeld is aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-## <a name="building"></a>Bouwen
+## <a name="build-the-app"></a>De app compileren
 
 > [!NOTE]
-> Zorg ervoor dat u kopieert en plakt u de onderstaande opdrachten build als een _Eén regel_.
+> Zorg ervoor dat u de onderstaande opdrachten als _één opdrachtregel_ invoert. De eenvoudigste manier om dat te doen is om de opdracht te kopiëren met behulp van de knop **Kopiëren** naast elke opdracht en deze vervolgens bij de shell-prompt te plakken.
 
-* Op een **x64** machine, voer de volgende opdracht om de toepassing te bouwen:
+* Voer op een **x64** (64-bits) systeem de volgende opdracht uit om de toepassing te compileren.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-* Op een **x86** machine, voer de volgende opdracht om de toepassing te bouwen:
+* Voer op een **x86** (32-bits) systeem de volgende opdracht uit om de toepassing te compileren.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
+## <a name="run-the-app"></a>De app uitvoeren
 
-1. Het configureren van het laadprogramma bibliotheekpad om te verwijzen naar de spraak-SDK-bibliotheek configureren.
+1. Configureer het bibliotheekpad van het laadprogramma om te verwijzen naar de bibliotheek van de Speech SDK.
 
-   * Op een **x64** machine, worden uitgevoerd:
+   * Voer op een **x64** (64-bits) systeem de volgende opdracht uit.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
      ```
 
-   * Op een **x86** machine, worden uitgevoerd:
+   * Voer op een **x86** (32-bits) systeem de volgende opdracht uit.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. Voer de toepassing als volgt uit:
+1. Voer de toepassing uit.
 
    ```sh
    ./helloworld
    ```
 
-1. Hier ziet u uitvoer die lijkt op dit:
+1.  In het consolevenster wordt een prompt weergegeven waarin u wordt gevraagd om iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem wordt verzonden naar de Speech-service en getranscribeerd naar tekst, die in hetzelfde venster wordt weergegeven.
 
    ```text
    Say something...
-   We recognized: What's the weather
+   We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/cpp-linux` map.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Zoek naar dit voorbeeld in de map `quickstart/cpp-linux`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Intents van gesproken inhoud herkennen met behulp van de Speech SDK voor C++](how-to-recognize-intents-from-speech-cpp.md)
+
+## <a name="see-also"></a>Zie ook
+
+- [Spraak vertalen](how-to-translate-speech-csharp.md)
+- [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
+- [Taalmodellen aanpassen](how-to-customize-language-model.md)

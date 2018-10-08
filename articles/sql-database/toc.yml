@@ -89,12 +89,16 @@ items:
     items:
     - name: vCore vs. DTU
       href: sql-database-service-tiers.md
-    - name: vCore-model
-      href: sql-database-service-tiers-vcore.md
-    - name: DTU-model
+    - name: Op vCore gebaseerd aanschafmodel
+      items:
+      - name: vCore-servicelaag kiezen
+        href: sql-database-service-tiers-vcore.md
+      - name: Algemeen gebruik / Bedrijfskritiek
+        href: sql-database-service-tiers-general-purpose-business-critical.md
+      - name: Hyperscale
+        href: sql-database-service-tier-hyperscale.md
+    - name: DTU-servicelagen
       href: sql-database-service-tiers-dtu.md
-    - name: Hyperscale serviceniveau
-      href: sql-database-hyperscale.md
     - name: Vooruitbetalen voor reservecapaciteit
       href: sql-database-reserved-capacity.md
   - name: Logische servers
@@ -626,9 +630,9 @@ items:
     href: /azure/architecture/
   - name: Verhalen van klanten
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 0f6a269c31089b52b2dca16ca31e1c229efc70fb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c1860984a4f6e08d4365ecb56cb77c002b4dbcab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042492"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831633"

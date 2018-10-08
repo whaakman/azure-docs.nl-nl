@@ -3,25 +3,25 @@ title: bestand opnemen
 description: bestand opnemen
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 419f15901b665b43b850922f77bd32d7aac8d3a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: a1b0afce31d7202c38b049addf546350ff347719
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920613"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044138"
 ---
-Het voorbeeldbestand uitingen **utterances.json**, een specifieke indeling volgt. 
+Het voorbeeldbestand met utterances, **utterances.json**, volgt een specifieke indeling. 
 
-De `text` veld bevat de tekst van de voorbeeld-utterance. De `intentName` veld moet overeenkomen met de naam van een bestaande kunt u lezen wat in de LUIS-app. Het veld `entityLabels` is vereist. Als u niet dat alle entiteiten een label wilt, geeft u een lege matrix.
+Het veld `text` bevat de tekst van de voorbeeldutterance. Het veld `intentName` moet overeenkomen met de naam van een bestaande intentie in de LUIS-app. Het veld `entityLabels` is vereist. Als u niet alle entiteiten een label wilt geven, geeft u een lege matrix op.
 
-Als de matrix entityLabels niet leeg is, wordt is de `startCharIndex` en `endCharIndex` wilt markeren van de entiteit waarnaar in de `entityName` veld. De index is nul, wat betekent dat 6 in het bovenste voorbeeld verwijst naar de "S" van Seattle en niet de spatie vóór de hoofdstad S. Als u begin of einde van het label op een spatie in de tekst, mislukt de API-aanroep naar de utterances toevoegen.
+Als de entityLabels-matrix niet leeg is, moeten `startCharIndex` en `endCharIndex` de entiteit markeren waarnaar wordt verwezen in het veld `entityName`. De index is nul, wat betekent dat 6 in het bovenste voorbeeld verwijst naar de "S" van Seattle en niet naar de spatie vóór de hoofdletter S. Als u het label begint of eindigt bij een spatie in de tekst, mislukt de API-aanroep om de utterances toe te voegen.
 
 ```JSON
 [
