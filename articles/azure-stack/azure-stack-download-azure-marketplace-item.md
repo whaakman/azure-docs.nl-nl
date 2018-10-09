@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630272"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854827"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -121,15 +121,12 @@ Er zijn twee onderdelen voor dit scenario:
 
    ```
 
-5. Importeer de module syndicatie en start vervolgens het hulpprogramma voor het volgende script uit te voeren. Vervang de *pad naar de doelmap* met een locatie voor het opslaan van de bestanden die u vanuit Azure Marketplace downloadt.   
+5. Importeer de module syndicatie en start vervolgens het hulpprogramma door het uitvoeren van de volgende opdrachten. Vervang `Destination folder path` met een locatie voor het opslaan van de bestanden die u vanuit Azure Marketplace downloadt.   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
    ```
 
 6. Wanneer het hulpprogramma wordt uitgevoerd, wordt u gevraagd de referenties van uw Azure-account in te voeren. Meld u aan bij de Azure-account die u hebt gebruikt voor het registreren van Azure Stack. Nadat de aanmelding is geslaagd, ziet u een scherm zoals de volgende afbeelding, met de lijst met beschikbare marketplace-items.  

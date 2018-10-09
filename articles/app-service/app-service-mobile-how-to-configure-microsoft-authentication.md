@@ -1,6 +1,6 @@
 ---
-title: Het configureren van Microsoft-Account-verificatie voor uw toepassing App Services
-description: Informatie over het configureren van Microsoft-Account-verificatie voor uw App Services-toepassing.
+title: Verificatie van de Microsoft-Account voor uw App Services-toepassing configureren
+description: Informatie over het configureren van verificatie van de Microsoft-Account voor uw App Services-toepassing.
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -14,44 +14,46 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 4fb5bdf30502dbca3eba961165a1ab643427abd6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abf09444e92c6faded42a9143b4b5c849a4cf41d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150000"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853263"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Het configureren van uw App Service-toepassing te gebruiken Microsoft-Account aanmelding
+# <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Uw App Service-toepassing voor het gebruik aanmelding voor Microsoft-Account configureren
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Dit onderwerp leest u over het configureren van Azure App Service voor het gebruik van Microsoft-Account als een verificatieprovider. 
+In dit onderwerp ziet u hoe het configureren van Azure App Service voor het gebruik van Microsoft-Account als een verificatieprovider. 
 
 ## <a name="register-microsoft-account"> </a>Uw app registreren bij Microsoft-Account
-1. Meld u aan bij de [Azure-portal], en navigeer naar uw toepassing. Kopieer uw **URL**, die u later gebruiken voor het configureren van uw app met Microsoft-Account.
+1. Meld u aan bij de [Azure Portal], en navigeer naar uw toepassing. Kopieer uw **URL**, waarmee u later uw app configureren met Microsoft-Account.
 2. Navigeer naar de [mijn toepassingen] pagina in het Microsoft-Account Developer Center en meld u aan met uw Microsoft-account, indien nodig.
-3. Klik op **een app toevoegen**vervolgens typt u de naam van een toepassing en klik op **maken**.
-4. Noteer de **toepassings-ID**, zoals u deze later hebt. 
-5. Klik onder 'Platforms,' op **toevoegen Platform** en selecteert u 'Web'.
+3. Klik op **een app toevoegen**, klikt u vervolgens typt u een toepassingsnaam in en klikt u op **maken**.
+4. Noteer de **toepassings-ID**, zoals u deze later nodig. 
+5. Klik onder 'Platforms' **Platform toevoegen** en selecteer 'Web'.
 6. Geef het eindpunt voor uw toepassing onder 'Omleidings-URI' en klik op **opslaan**. 
    
    > [!NOTE]
-   > De omleidings-URI de URL van uw toepassing toegevoegd aan het pad is */.auth/login/microsoftaccount/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
+   > Uw omleidings-URI de URL van uw toepassing met het pad, het achtervoegsel is */.auth/login/microsoftaccount/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Zorg ervoor dat u van het HTTPS-schema gebruikmaakt.
    
-7. Klik onder 'Toepassing geheimen,' op **nieuw wachtwoord genereren**. Noteer de waarde die wordt weergegeven. Zodra u de pagina verlaat, wordt deze niet opnieuw worden weergegeven.
+7. Klik onder "Toepassingsgeheimen," **nieuw wachtwoord genereren**. Noteer de waarde die wordt weergegeven. Nadat u de pagina verlaat, wordt deze niet opnieuw worden weergegeven.
 
     > [!IMPORTANT]
-    > Het wachtwoord is een belangrijke beveiligingsreferentie. Het wachtwoord met anderen delen of deze te distribueren vanuit een clienttoepassing niet.
+    > Het wachtwoord is een belangrijke beveiligingsreferentie. Het wachtwoord met iedereen delen en distribueren binnen een clienttoepassing niet.
+    
+8. Klik op **Opslaan**.
 
-## <a name="secrets"> </a>Informatie van Microsoft-Account toevoegen aan uw App Service-toepassing
-1. Terug in de [Azure-portal], gaat u naar uw toepassing, klik op **instellingen** > **verificatie / autorisatie**.
-2. Als de verificatie / autorisatie-functie is niet ingeschakeld, schakel deze **op**.
-3. Klik op **Microsoft-Account**. Plak in de toepassings-ID en wachtwoord waarden die u eerder hebt verkregen en optioneel in staat alle scopes die vereist zijn voor uw toepassing. Klik vervolgens op **OK**.
+## <a name="secrets"> </a>Informatie voor Microsoft-Account toevoegen aan uw App Service-toepassing
+1. Klik in de [Azure Portal], gaat u naar uw toepassing, klikt u op **instellingen** > **verificatie / autorisatie**.
+2. Als de verificatie / autorisatie-functie niet is ingeschakeld, schakelt u het **op**.
+3. Klik op **Microsoft-Account**. Plak in de waarden van de toepassings-ID en het wachtwoord die u eerder hebt verkregen, en schakel eventueel alle scopes die uw toepassing vereist. Klik vervolgens op **OK**.
    
     ![][1]
    
-    Standaard-App Service biedt verificatie maar wordt niet geautoriseerde toegang beperkt tot uw site-inhoud en API's. U moet gebruikers machtigen in uw app-code.
-4. (Optioneel) Instellen om toegang te beperken tot uw site tot alleen gebruikers die zijn geverifieerd door de Microsoft-account, **te ondernemen actie wanneer de aanvraag is niet geverifieerd** naar **Microsoft-Account**. Dit vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid naar de Microsoft-account voor verificatie.
+    Standaard is App Service-verificatie biedt, maar biedt geautoriseerde toegang tot uw API's en site-inhoud niet beperken. U moet autoriseren van gebruikers in uw app-code.
+4. (Optioneel) Om toegang te beperken naar uw site tot alleen gebruikers die zijn geverifieerd door Microsoft-account, ingesteld **te ondernemen actie wanneer de aanvraag niet is geverifieerd** naar **Microsoft-Account**. Dit vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid naar de Microsoft-account voor de verificatie.
 5. Klik op **Opslaan**.
 
 U bent nu klaar voor gebruik van Microsoft-Account voor de verificatie in uw app.
@@ -66,5 +68,5 @@ U bent nu klaar voor gebruik van Microsoft-Account voor de verificatie in uw app
 
 <!-- URLs. -->
 
-[mijn toepassingen]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure-portal]: https://portal.azure.com/
+[Mijn toepassingen]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Azure Portal]: https://portal.azure.com/

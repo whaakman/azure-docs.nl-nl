@@ -7,16 +7,16 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982661"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867779"
 ---
 # <a name="monitor-and-tune"></a>Controleren en afstemmen
-Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. 
+Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende controle-opties te bieden inzicht in het gedrag van uw server.
 
 ## <a name="metrics"></a>Metrische gegevens
 Azure Database voor PostgreSQL biedt verschillende metrische gegevens geven inzicht in het gedrag van de resources voor het ondersteunen van de PostgreSQL-server. Alle gegevens wordt verzonden met een frequentie van één minuut en maximaal 30 dagen van de geschiedenis heeft. U kunt waarschuwingen configureren op de metrische gegevens. Zie voor stapsgewijze instructies [over het instellen van waarschuwingen](howto-alert-on-metric.md). Andere taken omvatten het instellen van geautomatiseerde acties, het uitvoeren van geavanceerde analyses en het archiveren van geschiedenis. Zie voor meer informatie de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
@@ -39,6 +39,9 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 |connections_failed|Mislukte verbindingen|Count|Het aantal mislukte verbindingen met de server.|
 |network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
+
+## <a name="server-logs"></a>Serverlogboeken
+U kunt logboekregistratie op uw server inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
 
 ## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) is een openbare preview-functie die boekrecords bijhoudt query prestaties gedurende een bepaalde tijd met inbegrip van runtime-statistieken opvragen en wacht gebeurtenissen. De functie zich blijft voordoen querygegevens over de runtimeprestaties in een systeemdatabase met de naam **azure_sys** onder het query_store-schema. U kunt de verzameling en opslag van gegevens via verschillende configuratie-knoppen beheren.

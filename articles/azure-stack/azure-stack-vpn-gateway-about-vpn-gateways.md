@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: brenduns
-ms.openlocfilehash: 0ff3402115ae9f4c736bf9058fc09de16eaefb1e
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ed405a0f8892b278d81f2494ad90f776ad5faa41
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347182"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857088"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure Stack
 
@@ -33,7 +33,7 @@ Wanneer u een virtuele netwerkgateway maakt, geeft u het gatewaytype aan dat u w
 
 Elk virtueel netwerk kan twee virtuele netwerkgateways hebben, maar slechts één van elk type. Afhankelijk van de instellingen die u kiest, kunt u meerdere verbindingen maken voor één VPN-gateway. Een voorbeeld is een configuratie met meerdere Site-verbinding.
 
-Voordat u maken en configureren van VPN-Gateways voor Azure Stack, controleert u de [overwegingen voor Azure Stack-netwerken](/azure/azure-stack/user/azure-stack-network-differences) voor meer informatie over hoe configuraties voor Azure Stack verschillen van Azure.
+Voordat u maken en configureren van VPN-Gateways voor Azure Stack, controleert u de [overwegingen voor Azure Stack-netwerken](/articles/azure-stack/user/azure-stack-network-differences.md) voor meer informatie over hoe configuraties voor Azure Stack verschillen van Azure.
 
 >[!NOTE]
 >In Azure, moet de doorvoer van de bandbreedte voor VPN-gateway-SKU die u kiest, worden verdeeld over alle verbindingen die zijn verbonden met de gateway. Maar in Azure Stack, de waarde voor de bandbreedte voor de VPN-gateway-SKU wordt toegepast op elke verbinding-resource die is verbonden met de gateway.
