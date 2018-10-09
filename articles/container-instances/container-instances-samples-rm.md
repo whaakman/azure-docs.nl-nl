@@ -1,41 +1,41 @@
 ---
-title: Azure Resource Manager sjabloon steekproeven - exemplaren van Azure-Container
-description: Azure Resource Manager-sjabloon voorbeelden voor exemplaren van Azure-Container
+title: Voorbeeldsjablonen van Azure Resource Manager - het Azure Container Instances
+description: Voorbeeldsjablonen van Azure Resource Manager voor Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 05/17/2018
-ms.author: marsma
-ms.openlocfilehash: fcc2e6c52e773d95bcdfe43d881fce036fae6513
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: danlep
+ms.openlocfilehash: e825e0bdd08db0e9c1b51c09859aba2e7c716f91
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856454"
 ---
-# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-sjablonen voor Azure Containerexemplaren
+# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Resource Manager-sjablonen voor Azure Container Instances
 
-De volgende voorbeeldsjablonen implementeren containerexemplaren in verschillende configuraties.
+De volgende voorbeeldsjablonen implementeren containerinstanties in verschillende configuraties.
 
-Zie voor de implementatie-opties, de [implementatie](#deployment) sectie. Als u wilt maken van uw eigen sjablonen, de Azure-Containerexemplaren [verwijzing naar het Resource Manager-sjabloon] [ ref] details sjabloon en de beschikbare eigenschappen.
+Zie voor de implementatie-opties, de [implementatie](#deployment) sectie. Als u wilt maken van uw eigen sjablonen, de Azure Container Instances [verwijzing naar het Resource Manager-sjabloon] [ ref] details sjabloonindeling en beschikbare eigenschappen.
 
 ## <a name="sample-templates"></a>Voorbeeldsjablonen
 
 | | |
 |-|-|
 | **Toepassingen** ||
-| [WordPress][app-wp] | Maakt een WordPress-website en de bijbehorende MySQL-database in een exemplaar van de container. De WordPress-site-inhoud en MySQL-database zijn opgeslagen in een Azure-bestanden delen. |
-| [MS NAV met SQL Server- en IIS][app-nav] | Implementeert een enkele Windows-container met een volledig functionele zelfstandig Dynamics NAV / Dynamics 365 Business centrale omgeving. |
+| [WordPress][app-wp] | Hiermee maakt een WordPress-website en de MySQL-database in een containerexemplaar. De inhoud van de WordPress-site en MySQL-database zijn opgeslagen op een Azure-bestanden delen. |
+| [MS NAV met SQL Server en IIS][app-nav] | Implementeert een enkele Windows-container met een volledig functionele zichzelf Dynamics NAV / Dynamics 365 Business Central-omgeving. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Twee Linux-containers die delen van een volume emptyDir implementeert. |
-| [GitRepo][vol-gitrepo] | Implementeert een Linux-container die een GitHub-opslagplaats kloont en koppelt deze als een volume. |
-| [Geheim][vol-secret] | Implementeert een Linux-container met een PFX-certificaat gekoppeld als een geheime volume. |
+| [GitRepo][vol-gitrepo] | Hiermee wordt een Linux-container die een GitHub-opslagplaats te klonen en koppelt deze als een volume geïmplementeerd. |
+| [Geheim][vol-secret] | Hiermee wordt een Linux-container geïmplementeerd met een PFX-certificaat dat is gekoppeld als een geheime volume. |
 | **Netwerken** ||
-| [UDP-blootgesteld container][net-udp] | Implementeert een Windows- of Linux-container die een UDP-poort beschrijft. |
-| [Linux-container met openbare IP-adres][net-publicip] | Implementeert een enkele Linux-container toegankelijk via een openbaar IP-adres. |
+| [UDP-blootgesteld container][net-udp] | Hiermee wordt geïmplementeerd op een Windows- of Linux-container waarin wordt aangegeven dat een UDP-poort. |
+| [Linux-containers met openbare IP-adres][net-publicip] | Implementeert een enkele Linux-container toegankelijk via een openbaar IP-adres. |
 | **Azure-resources** ||
-| [Azure Storage-account maken en delen van bestanden][az-files] | Maakt gebruik van de Azure CLI in een container-exemplaar maken van een opslagaccount en een Azure-bestanden delen.
+| [Azure Storage-account maken en delen van bestanden][az-files] | Maakt gebruik van de Azure CLI in een containerexemplaar om een opslagaccount en een Azure-bestandsshare te maken.
 
 ## <a name="deployment"></a>Implementatie
 

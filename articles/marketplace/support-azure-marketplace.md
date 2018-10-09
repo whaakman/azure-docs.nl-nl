@@ -3,7 +3,7 @@ title: Ondersteuning voor Azure Marketplace en AppSource | Azure
 description: Informatie over ondersteuning en koppelingen naar Azure Marketplace en AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: ellacroi
+author: yijenj
 manager: nunoc
 editor: ''
 ms.assetid: ''
@@ -12,27 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/02/2018
-ms.author: ellacroi
-ms.openlocfilehash: 55f66203c7d84a41e6c060dd6ae5241b4a719f1c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 10/05/2018
+ms.author: yijenj
+ms.openlocfilehash: 884432d5604868ad2307a7d7ababa3e5a004a982
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049028"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854062"
 ---
 # <a name="support-for-the-marketplace"></a>Ondersteuning voor de Marketplace  
 De ondersteuningsopties voor de Marketplace.  
 
 ## <a name="onboarding"></a>Onboarding
 
-[Open een ticket](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor "Onboarding Marketplace" die met Microsoft ondersteuning voor het oplossen van alle problemen met het aan de slag.
+Open een ticket voor met Microsoft [marketplace publisher ondersteuning](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor alle problemen met onboarding en aan de slag.
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner-portal  
 
 | Ondersteuning van kanaal | Beschrijving | Beschikbaarheid |  
 |:--- |:--- |:--- |  
-| Ondersteuning<ul> <li>Hulp nodig hebt, gaat u naar de maken een incident-pagina te vinden op [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Ondersteuning voor Cloud Partner-Portal. | Ondersteuning wordt geboden op alle keren gedurende de dag en nacht. |  
+| Hulp nodig hebt, gaat u naar de maken een incident-pagina te vinden op [Marketplace-ondersteuning](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Ondersteuning voor Cloud Partner-Portal. | Tussen 6 am - 6 uur PST, wordt ondersteuning geboden. |  
 
 ## <a name="technical"></a>Technisch  
 

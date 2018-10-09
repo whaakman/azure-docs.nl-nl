@@ -2,17 +2,17 @@
 title: Azure Container Registry taken referentie - YAML
 description: Verwijzing voor het definiëren van taken in YAML voor ACR-taken, waaronder taakeigenschappen, stap typen stapeigenschappen en ingebouwde variabelen.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: a40c05b2775e32bd0932122245914951d42cf712
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047636"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854946"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Taken van de ACR-verwijzing: YAML
 
@@ -30,7 +30,7 @@ ACR taken ondersteunt meerdere stappen taak declaratie in standaard YAML-syntaxi
 Het hoogste niveau `acr-task.yaml` primitieven zijn **taak eigenschappen**, **stap typen**, en **stap eigenschappen**:
 
 * [Eigenschappen van de taak](#task-properties) zijn van toepassing op alle stappen in de uitvoering van de taak. Er zijn drie algemene eigenschappen:
-  * versie
+  * version
   * stepTimeout
   * totalTimeout
 * [Taak stap typen](#task-step-types) vertegenwoordigen de typen van de acties die kunnen worden uitgevoerd in een taak. Er zijn drie typen voor stap:
@@ -40,7 +40,7 @@ Het hoogste niveau `acr-task.yaml` primitieven zijn **taak eigenschappen**, **st
 * [Taak stapeigenschappen](#task-step-properties) parameters die betrekking hebben op een afzonderlijke stap. Er zijn verschillende stapeigenschappen, met inbegrip van:
   * startDelay
   * timeout
-  * Wanneer
+  * wanneer
   * .. .en is nog veel meer.
 
 De algemene indeling van een `acr-task.yaml` bestand, met inbegrip van sommige algemene stapeigenschappen volgt. Tijdens het niet een volledige weergave van alle beschikbare stapeigenschappen of het gebruik van het type stap biedt het een kort overzicht van de basic-indeling.

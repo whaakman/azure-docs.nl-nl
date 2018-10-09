@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 308ba7fd7635dc243d88b73b7785b747969bbbbb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409997"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854011"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Maken, weergeven en beheren van klassieke metrische waarschuwingen met behulp van Azure Monitor
 
@@ -36,7 +36,7 @@ Klassieke metrische waarschuwingen in Azure Monitor biedt een manier om te worde
 
 6. Selecteer **e-eigenaren...**  als u wilt dat beheerders en medebeheerders e-mailmeldingen ontvangen wanneer de waarschuwing wordt geactiveerd.
 
-7. Als u wilt om meldingen te verzenden naar extra e-mailadressen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Scheid meerdere e-mailberichten met puntkomma's, in de volgende indeling:  *email@contoso.com; email2@contoso.com*
+7. Als u wilt om meldingen te verzenden naar extra e-mailadressen wanneer de waarschuwing wordt geactiveerd, voegt u ze op in de **beheerder email(s)** veld. Scheid meerdere e-mailberichten met puntkomma's, in de volgende indeling:  *email@contoso.com;email2@contoso.com*
 
 8. Plaats in een geldige URI in de **Webhook** veld als u wilt dat deze moet worden aangeroepen wanneer de waarschuwing wordt geactiveerd.
 

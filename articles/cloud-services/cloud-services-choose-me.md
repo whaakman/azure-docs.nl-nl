@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008963"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857819"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Overzicht van Azure Cloudservices
 Azure Cloud Services is een voorbeeld van een [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Zoals [Azure App Service](../app-service/app-service-web-overview.md), deze technologie is ontworpen ter ondersteuning van toepassingen die schaalbare, betrouwbare en voordelig uit te voeren. Op dezelfde manier dat App Service wordt gehost op virtuele machines (VM's), dus is Azure Cloud Services. U hebt echter meer controle over de virtuele machines. U kunt uw eigen software installeren op virtuele machines die gebruikmaken van Azure Cloud Services, en kunt u ze op afstand openen.
@@ -33,7 +33,7 @@ Er zijn twee soorten Azure Cloud Services-rollen. Het enige verschil tussen de t
 
 * **Werkrol**: geen gebruik maakt van IIS en wordt uw zelfstandige app wordt uitgevoerd.
 
-Een eenvoudige toepassing kan bijvoorbeeld alleen een één-Webrol, die zijn voor een website gebruiken. Een complexere toepassing mogelijk een Webrol gebruiken voor het verwerken van binnenkomende aanvragen van gebruikers en geeft deze aanvragen bij een werkrol voor verwerking. (Deze communicatie mogelijk gebruik [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) of [Azure Queue storage](../storage/common/storage-introduction.md).)
+Een eenvoudige toepassing kan bijvoorbeeld alleen een één-Webrol, die zijn voor een website gebruiken. Een complexere toepassing mogelijk een Webrol gebruiken voor het verwerken van binnenkomende aanvragen van gebruikers en geeft deze aanvragen bij een werkrol voor verwerking. (Deze communicatie mogelijk gebruik [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) of [Azure Queue storage](../storage/common/storage-introduction.md).)
 
 Als de afbeelding hierboven al aangeeft, alle virtuele machines in één toepassing worden uitgevoerd in dezelfde cloudservice. Gebruikers toegang tot de toepassing via een enkel openbaar IP-adres, met aanvragen automatisch worden verdeeld met gelijke taakverdeling voor virtuele machines van de toepassing. Het platform [wordt geschaald en implementeert](cloud-services-how-to-scale-portal.md) de virtuele machines in een Azure Cloud Services-toepassing op een manier die een single point of hardware-uitval voorkomt.
 

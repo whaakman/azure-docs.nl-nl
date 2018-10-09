@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 432a17b1e3cd065bd6189ffa9f80ca5985629bb7
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2dc034ea28075019b74fe9d9be548cf9d355d20e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239935"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857479"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migreren van Bing Speech naar de Speech-Service
 
@@ -49,7 +49,7 @@ Aangepaste spraakstijlen | : heavy_check_mark: | : heavy_check_mark: | Bing Spee
 Spraakintentieherkenning | Afzonderlijke LUIS-API-aanroep is vereist | Geïntegreerd (met de SDK) |  Een LUIS-sleutel kan worden gebruikt met de Speech-Service.
 Eenvoudige intentieherkenning | : heavy_minus_sign: | : heavy_check_mark: 
 Batch transcriptie van lange audio-bestanden | : heavy_minus_sign: | : heavy_check_mark:
-Opname-modus | Handmatig via URI van het eindpunt | Automatisch | Opname-modus is niet beschikbaar in de Speech-Service
+Herkennings-modus | Handmatig via URI van het eindpunt | Automatisch | Opname-modus is niet beschikbaar in de Speech-Service
 Eindpunt plaats | Wereldwijd | Regionale | Regionale eindpunten verbeteren latentie. Er is een globaal eindpunt voor in aanmerking voor de Speech-Service.
 REST-API’s | : heavy_check_mark: | : heavy_check_mark: | REST-API voor spraak-Service is compatibel met de Bing Speech (verschillende eindpunt). REST-API's ondersteunen voor tekst naar spraak en beperkte spraak-naar-tekst-functionaliteit.
 WebSockets-protocollen | : heavy_check_mark: | : heavy_check_mark: | Spraak-API voor Service WebSockets is compatibel met de Bing Speech (verschillende eindpunt). Migreren naar de SDK spraak indien mogelijk moet uw code vereenvoudigen.
@@ -74,11 +74,11 @@ De Speech-Service niet wordt momenteel een globaal eindpunt voor bieden. U moet 
 
 Als uw toepassing maakt gebruik van lange levensduur hebben verbindingen en een beschikbare SDK kan niet worden gebruikt, kunt u een verbinding WebsSockets gebruiken en beheren van de 10 minuten time-outlimiet door opnieuw verbinding maken op de juiste tijden.
 
-Aan de slag met de nieuwe SDK voor spraak:
+Aan de slag met de spraak-SDK:
 
 1. Download de [spraak SDK](speech-sdk.md).
 1. Werk met de Spraakservice [snelstartgidsen](quickstart-csharp-dotnet-windows.md), [zelfstudies](how-to-recognize-intents-from-speech-csharp.md), en bekijk de [codevoorbeelden](samples.md) aan ervaring met de nieuwe API's.
-1. Uw toepassing bijwerken voor de nieuwe service voor spraak en API's gebruiken.
+1. Uw toepassing bijwerken voor gebruik van de service voor spraak en API's.
 
 ## <a name="support"></a>Ondersteuning
 

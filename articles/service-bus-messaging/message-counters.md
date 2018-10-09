@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: bd9d1b813c90be09301eeff1de7580f22c15500b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 954c16cefe6d7ffe61a0b04b274b9bf92306a587
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407583"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857581"
 ---
 # <a name="message-counters"></a>Berichtentellers
 
@@ -40,13 +40,12 @@ Weet het aantal actieve berichten is nuttig bij het bepalen of een wachtrij een 
 -   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): berichten die zijn mislukt overdracht naar een andere wachtrij of onderwerp en zijn verplaatst naar de dead-letter-wachtrij voor overdracht.
 -   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): berichten in behandeling zijnde overdracht naar een andere wachtrij of onderwerp.
 
-Als een toepassing wil schalen van resources op basis van de lengte van de wachtrij, moet dit met een zeer gemeten tempo. Het ophalen van de items van het bericht is een dure bewerking in de berichtenbroker, en uitvoeren van deze vaak rechtstreeks en negatieve gevolgen heeft voor de prestaties van de entiteit.
+Als een toepassing wil schalen van resources op basis van de lengte van de wachtrij, moet dit met een gemeten tempo. Het ophalen van de items van het bericht is een dure bewerking in de berichtenbroker, en uitvoeren van deze vaak rechtstreeks en negatieve gevolgen heeft voor de prestaties van de entiteit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

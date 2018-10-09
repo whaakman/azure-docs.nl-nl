@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 51dc1280dcc8c47c3cb3ad46fc720e0a38e04b69
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9a6f7aeea799787becf0bb99cdfa08bed4e9d355
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814437"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867456"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Functies en hulpprogramma's voor Azure Cloud Shell
 
@@ -33,12 +33,12 @@ Azure Cloud Shell wordt uitgevoerd op `Ubuntu 16.04 LTS`.
 
 Cloudshell veilig en automatisch toegang tot het worden geverifieerd voor de Azure CLI en Azure PowerShell.
 
-### <a name="home-persistence-across-sessions"></a>$Home persistentie in verschillende sessies
+### <a name="home-persistence-across-sessions"></a>$HOME persistentie in verschillende sessies
 
 Als u wilt bestanden in verschillende sessies persistent, helpt Cloud Shell u bij het koppelen van een Azure-bestandsshare op de eerste keer opstarten.
-Als voltooid, Cloud Shell automatisch uw opslag koppelt (gekoppeld als `$Home\clouddrive`) voor alle toekomstige sessies.
-Bovendien uw `$Home` directory worden opgeslagen als een .img in uw Azure-bestandsshare.
-Bestanden buiten `$Home` en status van de machine zijn niet blijven behouden tussen sessies. Gebruik de aanbevolen procedures bij het opslaan van geheimen zoals SSH-sleutels. Services, zoals [Azure Key Vault-zelfstudies voor setup hebt](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+Als voltooid, Cloud Shell automatisch uw opslag koppelt (gekoppeld als `$HOME\clouddrive`) voor alle toekomstige sessies.
+Bovendien uw `$HOME` directory worden opgeslagen als een .img in uw Azure-bestandsshare.
+Bestanden buiten `$HOME` en status van de machine zijn niet blijven behouden tussen sessies. Gebruik de aanbevolen procedures bij het opslaan van geheimen zoals SSH-sleutels. Services, zoals [Azure Key Vault-zelfstudies voor setup hebt](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Meer informatie over het behoud van bestanden in de Cloud Shell.](persisting-shell-storage.md)
 
@@ -55,28 +55,28 @@ Eventuele wijzigingen in de Azure-resources, hetzij rechtstreeks in Azure portal
 
 Cloudshell bevat vooraf geconfigureerde verificatie voor open-source hulpprogramma's zoals Terraform, Ansible en Chef inspectie mogelijk. Probeer het nu uit de voorbeeld-scenario's.
 
-## <a name="tools"></a>Hulpmiddelen
+## <a name="tools"></a>Hulpprogramma's
 
 |Categorie   |Naam   |
 |---|---|
 |Hulpprogramma's voor Linux            |Bash<br> zsh<br> Sh<br> tmux<br> graven<br>               |
 |Azure-hulpprogramma 's            |[Azure CLI](https://github.com/Azure/azure-cli) en [Azure klassieke CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric-CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Teksteditors           |VIM<br> nano<br> emacs       |
+|Teksteditors           |VIM<br> nano<br> emacs<br> Code       |
 |Broncodebeheer         |git                    |
 |Hulpprogramma's bouwen            |Maken<br> Maven<br> npm<br> PIP         |
 |Containers             |[Docker CLI](https://github.com/docker/cli)/[Docker-Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databases              |MySQL-client<br> PostgreSql-client<br> [Sqlcmd-hulpprogramma](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-scripts](https://github.com/Microsoft/sql-xplat-cli) |
-|Anders                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)|
+|Overige                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef inspectie mogelijk](https://www.chef.io/inspec/)|
 
 ## <a name="language-support"></a>Taalondersteuning
 
 |Taal   |Versie   |
 |---|---|
 |.NET Core  |2.0.0       |
-|Start         |1.9        |
+|Aan de slag         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.0-Preview.4](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 en 3.5 (standaard)|
 
 ## <a name="next-steps"></a>Volgende stappen

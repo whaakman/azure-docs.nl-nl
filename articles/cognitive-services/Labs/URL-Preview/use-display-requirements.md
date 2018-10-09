@@ -1,23 +1,25 @@
 ---
-title: Project URL Preview gebruik en vereisten - cognitieve Microsoft-Services weer te geven | Microsoft Docs
-description: Gebruik en vereisten voor het Project URL Preview-API-eindpunt weergeven.
+title: Gebruik en weergavevereisten - Project-URL-voorbeeld
+titlesuffix: Azure Cognitive Services
+description: Gebruik en vereisten voor het Project URL Preview-API-eindpunt worden weergegeven.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4aee9207c4f1bd4f0e36aae42985096544dc19d7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a1aaf5f4c273e2eb42110d11cd3c28f8cf322750
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345269"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868340"
 ---
-# <a name="project-url-preview-use-and-display-requirements"></a>Project URL Preview gebruiken en weergeven van vereisten
+# <a name="project-url-preview-use-and-display-requirements"></a>Project-URL-voorbeeld gebruiken en weergavevereisten
 
-Gebruik alleen de gegevens van Project URL Preview weer te geven preview codefragmenten en miniatuurafbeeldingen hyperlink voor hun bronsites in eindgebruikers geïnitieerde URL delen op sociale media, chat bot of vergelijkbare aanbiedingen. U moet niet kopiëren, opslaan of alle gegevens die u van Project URL Preview ontvangt in de cache. U moet voldoen aan de verzoeken om uit te schakelen voorbeelden die kunnen worden weergegeven van de website of eigenaren van inhoud.
+Alleen de gegevens van Project URL-voorbeeld gebruiken om weer te geven van preview codefragmenten en miniatuurafbeeldingen hyperlink aan hun bronsites in de gebruiker geïnitieerde URL delen op sociale media, chatbot of vergelijkbare aanbiedingen. U moet niet kopiëren, opslaan of alle gegevens die u van het URL-voorbeeld-Project ontvangt in de cache. U moet alle aanvragen voor het uitschakelen van voorbeelden die u van de website of eigenaren van inhoud ontvangt mogelijk in acht neemt.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Overzicht van de URL-Preview](overview.md)
+- [Overzicht van de URL-voorbeeld](overview.md)

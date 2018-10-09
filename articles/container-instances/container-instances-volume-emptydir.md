@@ -1,56 +1,54 @@
 ---
-title: Een volume emptyDir in Azure Containerexemplaren koppelen
-description: Meer informatie over het koppelen van een volume emptyDir om gegevens tussen de containers in een containergroep in Azure Containerexemplaren te delen
+title: Koppelen van een volume emptyDir in Azure Container Instances
+description: Meer informatie over het koppelen van een volume emptyDir voor het delen van gegevens tussen de containers in de containergroep van een in Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
-ms.author: marsma
-ms.openlocfilehash: 89289a7a0bb5c486c662d528c5014bdbd8eebaca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164887"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857649"
 ---
-# <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Een volume emptyDir in Azure Containerexemplaren koppelen
+# <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Koppelen van een volume emptyDir in Azure Container Instances
 
-Meer informatie over het koppelen van een *emptyDir* volume voor het delen van gegevens tussen de containers in een containergroep in Azure Containerexemplaren.
+Meer informatie over het koppelen van een *emptyDir* volume voor het delen van gegevens tussen de containers in de containergroep van een in Azure Container Instances.
 
 > [!NOTE]
-> Koppelen van een *emptyDir* volume is momenteel beperkt tot Linux containers. Hoewel we ons best doen om alle functies beschikbaar te maken voor Windows-containers, kunnen de [quota en beschikbaarheid in regio´s voor Azure Container Instances](container-instances-quotas.md) variëren op de verschillende platforms.
+> Koppelen van een *emptyDir* volume is momenteel beperkt tot Linux-containers. Terwijl we werken om alle functies op Windows-containers, vindt u de huidige platform verschillen in [quota en beschikbaarheid in regio's voor Azure Container Instances](container-instances-quotas.md).
 
-## <a name="emptydir-volume"></a>emptyDir volume
+## <a name="emptydir-volume"></a>emptyDir-volume
 
-De *emptyDir* volume biedt een beschrijfbare map toegankelijk is voor elke container in een containergroep. Containers in de groep kunnen lezen en schrijven van dezelfde bestanden die in het volume en kan worden gekoppeld met behulp van de dezelfde of verschillende paden in elke container.
+De *emptyDir* volume biedt een beschrijfbare directory toegankelijk voor elke container in een container bevinden. Containers in de groep kunnen lezen en schrijven van dezelfde bestanden die in het volume, en kunnen worden gekoppeld met behulp van de dezelfde of verschillende paden in elke container.
 
 Sommige voorbeeld wordt gebruikt voor een *emptyDir* volume:
 
 * Scratchruimte
-* Het plaatsen van controlepunten tijdens langlopende taken worden uitgevoerd
-* Opslaan van gegevens door een container ter opgehaald en geleverd door een toepassingscontainer
+* Het plaatsen van controlepunten tijdens langlopende taken
+* Store-gegevens opgehaald door een sidecar-container en geleverd door een App-container
 
-Gegevens in een *emptyDir* volume via container crashes worden bewaard. Containers die opnieuw worden opgestart, echter niet worden gegarandeerd om vast te leggen van de gegevens in een *emptyDir* volume.
+Gegevens in een *emptyDir* volume worden persistent gemaakt via container crashes. Containers die opnieuw worden opgestart, maar zijn niet noodzakelijkerwijs om vast te leggen van de gegevens in een *emptyDir* volume.
 
 ## <a name="mount-an-emptydir-volume"></a>Een volume emptyDir koppelen
 
-Een volume emptyDir in een container-exemplaar koppelen, moet u implementeren met behulp van een [Azure Resource Manager-sjabloon](/azure/templates/microsoft.containerinstance/containergroups).
+Voor het koppelen van een volume emptyDir in een containerexemplaar, moet u implementeren met behulp van een [Azure Resource Manager-sjabloon](/azure/templates/microsoft.containerinstance/containergroups).
 
-Eerst vullen de `volumes` matrix in de containergroep `properties` gedeelte van de sjabloon. Vervolgens voor elke container in de containergroep waarin u wilt koppelen van de *emptyDir* volume, vullen de `volumeMounts` -matrix in de `properties` sectie van de definitie van de container.
+Eerst, vullen het `volumes` -matrix in de containergroep `properties` gedeelte van de sjabloon. Vervolgens voor elke container in containergroep waarin u wilt koppelen de *emptyDir* volume, vullen het `volumeMounts` matrix in de `properties` sectie van de containerdefinitie van de.
 
-De volgende Resource Manager-sjabloon maakt u bijvoorbeeld een containergroep die bestaat uit twee containers elk welke koppelingen het *emptyDir* volume:
+De volgende Resource Manager-sjabloon maakt bijvoorbeeld een containergroep die bestaat uit twee containers, van welke koppelingen het *emptyDir* volume:
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
-[!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json --> [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
-Zie voor een voorbeeld van de implementatie van de container-exemplaar met een Azure Resource Manager-sjabloon [implementeren meerdere container groepen in Azure Containerexemplaren](container-instances-multi-container-group.md).
+Zie voor een voorbeeld van de implementatie van de containers-instantie met een Azure Resource Manager-sjabloon [groepen met meerdere containers in Azure Container Instances implementeren](container-instances-multi-container-group.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het koppelen van andere volumetypen in Azure Containerexemplaren:
+Informatie over het koppelen van andere typen in Azure Container Instances:
 
 * [Een Azure-bestandsshare in Azure Containerexemplaren koppelen](container-instances-volume-azure-files.md)
 * [Koppelen van een volume gitRepo in Azure Containerexemplaren](container-instances-volume-gitrepo.md)
-* [Koppelen van een geheime volume in Azure Containerexemplaren](container-instances-volume-secret.md)
+* [Koppelen van een geheime volume in Azure Container Instances](container-instances-volume-secret.md)

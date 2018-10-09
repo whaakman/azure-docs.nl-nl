@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7ee1dc7a3e3ae6bff6f2084d7290a37dc999dec7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 865dfa1f3adbcea5907c309c8cbf2daa30513fd6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040208"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855747"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -28,6 +28,7 @@ Een paar regels code invoegen in uw toepassing om erachter te komen wat gebruike
 > `TrackMetric()` is niet langer de voorkeursmethode voor het verzenden van aangepaste metrische gegevens voor uw .NET-toepassingen. In [versie 2,60 Bèta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) van de Application Insights SDK voor .NET een nieuwe methode [ `TelemetryClient.GetMetric()` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) werd geïntroduceerd. Vanaf de Application Insights .NET SDK [versie 2.72](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) deze functionaliteit maakt nu deel uit van de stabiele versie.
 
 ## <a name="api-summary"></a>API-overzicht
+
 De core API uniform wordt voor alle platformen, naast enkele variaties zoals `GetMetric`(alleen voor .NET).
 
 | Methode | Gebruikt voor |
@@ -44,6 +45,7 @@ De core API uniform wordt voor alle platformen, naast enkele variaties zoals `Ge
 U kunt [eigenschappen en metrische gegevens koppelen](#properties) voor de meeste van deze telemetrie-aanroepen.
 
 ## <a name="prep"></a>Voordat u begint
+
 Als u nog een verwijzing op Application Insights-SDK hebt:
 
 * Voeg de Application Insights SDK toe aan uw project:
@@ -52,35 +54,43 @@ Als u nog een verwijzing op Application Insights-SDK hebt:
   * [Java-project](app-insights-java-get-started.md)
   * [Node.js-project](app-insights-nodejs.md)
   * [JavaScript in elke webpagina](app-insights-javascript.md) 
-* In de apparaat- of servercode, zijn onder andere:
+* Neem in uw apparaat- of webservercode het volgende op:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
-    
+
     *Node.js:* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Een TelemetryClient-exemplaar ophalen
+
 Een exemplaar van `TelemetryClient` (behalve in JavaScript in webpagina's):
 
 *C#*
 
-    private TelemetryClient telemetry = new TelemetryClient();
+```csharp
+private TelemetryClient telemetry = new TelemetryClient();
+```
 
 *Visual Basic*
 
-    Private Dim telemetry As New TelemetryClient
+```vb
+Private Dim telemetry As New TelemetryClient
+```
 
 *Java*
 
-    private TelemetryClient telemetry = new TelemetryClient();
-    
+```java
+private TelemetryClient telemetry = new TelemetryClient();
+``` 
+
 *Node.js*
 
-    var telemetry = applicationInsights.defaultClient;
-
+```javascript
+var telemetry = applicationInsights.defaultClient;
+```
 
 TelemetryClient is-thread-veilig.
 
@@ -88,17 +98,22 @@ ASP.NET en Java-projecten, worden binnenkomende HTTP-aanvragen automatisch vastg
 
 *C#*
 
-    TelemetryClient.Context.User.Id = "...";
-    TelemetryClient.Context.Device.Id = "...";
+```csharp
+TelemetryClient.Context.User.Id = "...";
+TelemetryClient.Context.Device.Id = "...";
+```
 
 *Java*
 
-    telemetry.getContext().getUser().setId("...);
-    telemetry.getContext().getDevice().setId("...");
+```java
+telemetry.getContext().getUser().setId("...");
+telemetry.getContext().getDevice().setId("...");
+```
 
 In Node.js-projecten, kunt u `new applicationInsights.TelemetryClient(instrumentationKey?)` te maken van een nieuwe instantie, maar dit wordt alleen aanbevolen voor scenario's waarin geïsoleerde configuratie van de singleton `defaultClient`.
 
 ## <a name="trackevent"></a>TrackEvent
+
 In Application Insights, een *aangepaste gebeurtenis* is van een gegevenspunt geldt dat u kunt weergeven in [Metrics Explorer](app-insights-metrics-explorer.md) als een samengevoegd aantal, en in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md) als afzonderlijke exemplaren. (Deze is niet verwant aan de MVC- of andere framework "events".)
 
 Invoegen `TrackEvent` aanroepen in uw code voor het tellen van diverse gebeurtenissen. Hoe vaak gebruikers ervoor kiezen een bepaalde functie, hoe vaak ze specifieke doelen kan bereiken of misschien hoe vaak ze bepaalde typen fouten maken.
@@ -107,33 +122,43 @@ Bijvoorbeeld in een game-Apps, een gebeurtenis wanneer een gebruiker, het spel w
 
 *JavaScript*
 
-    appInsights.trackEvent("WinGame");
+```javascript
+appInsights.trackEvent("WinGame");
+```
 
 *C#*
 
-    telemetry.TrackEvent("WinGame");
+```csharp
+telemetry.TrackEvent("WinGame");
+```
 
 *Visual Basic*
 
-    telemetry.TrackEvent("WinGame")
+```vb
+telemetry.TrackEvent("WinGame")
+```
 
 *Java*
 
-    telemetry.trackEvent("WinGame");
-    
+```java
+telemetry.trackEvent("WinGame");
+```
+
 *Node.js*
 
-    telemetry.trackEvent({name: "WinGame"});
+```javascript
+telemetry.trackEvent({name: "WinGame"});
+```
 
 ### <a name="custom-events-in-analytics"></a>Aangepaste gebeurtenissen in Analytics
 
-De telemetrie is beschikbaar in de `customEvents` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een aanroep van `trackEvent(..)` in uw app. 
+De telemetrie is beschikbaar in de `customEvents` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een aanroep van `trackEvent(..)` in uw app.
 
 Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen van trackEvent(), het proces steekproeven alleen een van beide overgedragen. Als u het juiste aantal aangepaste gebeurtenissen, moet u daarom code gebruiken zoals `customEvent | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
-### <a name="examples"></a>Voorbeelden:
+### <a name="examples"></a>Voorbeelden
 
 *C#*
 
@@ -229,13 +254,13 @@ namespace User.Namespace.Example01
 
 Application Insights kunnen metrische gegevens die niet zijn gekoppeld aan bepaalde gebeurtenissen van grafiek. Bijvoorbeeld, kan u de lengte van een wachtrij met regelmatige tussenpozen controleren. De afzonderlijke metingen zijn minder interessant zijn dan de variaties en trends met metrische gegevens, en dus statistische kolomdiagrammen zijn nuttig.
 
-Om te kunnen metrische gegevens verzenden naar Application Insights, kunt u de `TrackMetric(..)` API. Er zijn twee manieren voor het verzenden van een metrische waarde: 
+Om te kunnen metrische gegevens verzenden naar Application Insights, kunt u de `TrackMetric(..)` API. Er zijn twee manieren voor het verzenden van een metrische waarde:
 
-* Één waarde. Telkens wanneer u een meting in uw toepassing uitvoert, kunt u de overeenkomstige waarde verzenden naar Application Insights. Bijvoorbeeld, wordt ervan uitgegaan dat u hebt een metrische waarde met een beschrijving van het aantal items in een container. Tijdens een bepaalde periode, u voor het eerst drie items in de container geplaatst en verwijder vervolgens u twee items. Dienovereenkomstig, roept u `TrackMetric` tweemaal: geeft de eerst de waarde `3` en vervolgens de waarde `-2`. Application Insights slaat beide waarden uit uw naam. 
+* Één waarde. Telkens wanneer u een meting in uw toepassing uitvoert, kunt u de overeenkomstige waarde verzenden naar Application Insights. Bijvoorbeeld, wordt ervan uitgegaan dat u hebt een metrische waarde met een beschrijving van het aantal items in een container. Tijdens een bepaalde periode, u voor het eerst drie items in de container geplaatst en verwijder vervolgens u twee items. Dienovereenkomstig, roept u `TrackMetric` tweemaal: geeft de eerst de waarde `3` en vervolgens de waarde `-2`. Application Insights slaat beide waarden uit uw naam.
 
 * Aggregatie. Als u werkt met metrische gegevens, wordt elke meting zelden is van belang. In plaats daarvan is een samenvatting van wat is er gebeurd gedurende een bepaalde periode belangrijk. Een samenvatting van dergelijke heet _aggregatie_. In het bovenstaande voorbeeld wordt de som van het cumulatieve metrische gegevens voor die periode is `1` en het aantal van de metrische waarden is `2`. Wanneer u de aggregatie-methode gebruikt, u alleen aanroepen `TrackMetric` eenmaal per periode en de samengevoegde waarden te verzenden. Dit is de aanbevolen aanpak omdat deze de kosten en de prestaties aanzienlijk verkorten kan overhead door minder gegevenspunten te verzenden naar Application Insights, terwijl u nog steeds alle relevante informatie te verzamelen.
 
-### <a name="examples"></a>Voorbeelden:
+### <a name="examples"></a>Voorbeelden
 
 #### <a name="single-values"></a>Enkele waarden
 
@@ -243,67 +268,78 @@ Voor het verzenden van één metrische waarde:
 
 *JavaScript*
 
- ```Javascript
-     appInsights.trackMetric("queueLength", 42.0);
+ ```javascript
+appInsights.trackMetric("queueLength", 42.0);
  ```
 
 *C#*
 
 ```csharp
-    var sample = new MetricTelemetry();
-    sample.Name = "metric name";
-    sample.Value = 42.3;
-    telemetryClient.TrackMetric(sample);
+var sample = new MetricTelemetry();
+sample.Name = "metric name";
+sample.Value = 42.3;
+telemetryClient.TrackMetric(sample);
 ```
 
 *Java*
 
-```Java
-    
-    telemetry.trackMetric("queueLength", 42.0);
-
+```java
+telemetry.trackMetric("queueLength", 42.0);
 ```
 
 *Node.js*
 
- ```Javascript
-     telemetry.trackMetric({name: "queueLength", value: 42.0});
+ ```javascript
+telemetry.trackMetric({name: "queueLength", value: 42.0});
  ```
 
 ### <a name="custom-metrics-in-analytics"></a>Aangepaste metrische gegevens in Analytics
 
 De telemetrie is beschikbaar in de `customMetrics` in tabel [Application Insights Analytics](app-insights-analytics.md). Elke rij vertegenwoordigt een aanroep van `trackMetric(..)` in uw app.
+
 * `valueSum` -Dit is de som van de metingen. Als u de gemiddelde waarde, waardoor `valueCount`.
 * `valueCount` -Het aantal van de metingen die zijn samengevoegd in dit `trackMetric(..)` aanroepen.
 
 ## <a name="page-views"></a>Paginaweergaven
+
 In een apparaat of webpagina-app, telemetrie van paginaweergaven worden standaard verzonden wanneer elk scherm of pagina wordt geladen. Maar u kunt dit wijzigen voor het volgen van paginaweergaven op aanvullende of verschillende tijdstippen. Bijvoorbeeld in een app die tabbladen of blades wordt weergegeven, kunt u voor het bijhouden van een pagina wanneer de gebruiker wordt een nieuwe blade geopend.
 
 Gebruikers- en -gegevens worden verzonden als eigenschappen samen met paginaweergaven, zodat de gebruikers- en -grafieken tot leven komen wanneer er telemetrie van paginaweergaven.
 
 ### <a name="custom-page-views"></a>Aangepaste paginaweergaven
+
 *JavaScript*
 
-    appInsights.trackPageView("tab1");
+```javascript
+appInsights.trackPageView("tab1");
+```
 
 *C#*
 
-    telemetry.TrackPageView("GameReviewPage");
-
-*Java*
-
-    telemetry.trackPageView("GameReviewPage");
+```csharp
+telemetry.TrackPageView("GameReviewPage");
+```
 
 *Visual Basic*
 
-    telemetry.TrackPageView("GameReviewPage")
+```vb
+telemetry.TrackPageView("GameReviewPage")
+```
 
+*Java*
+
+```java
+telemetry.trackPageView("GameReviewPage");
+```
 
 Als u meerdere tabbladen in verschillende HTML-pagina's hebt, kunt u de URL te opgeven:
 
-    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+```javascript
+appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+```
 
 ### <a name="timing-page-views"></a>Timing paginaweergaven
+
 Standaard worden de tijden die zijn gerapporteerd als **paginalaadtijden** worden gemeten vanaf het moment de browser de aanvraag verzendt totdat gebeurtenis voor het laden van pagina van de browser wordt aangeroepen.
 
 In plaats daarvan kunt u deze:
@@ -313,13 +349,15 @@ In plaats daarvan kunt u deze:
 
 *JavaScript*
 
-    // To start timing a page:
-    appInsights.startTrackPage("Page1");
+```javascript
+// To start timing a page:
+appInsights.startTrackPage("Page1");
 
 ...
 
-    // To stop timing and log the page:
-    appInsights.stopTrackPage("Page1", url, properties, measurements);
+// To stop timing and log the page:
+appInsights.stopTrackPage("Page1", url, properties, measurements);
+```
 
 De naam die u als de eerste parameter gebruiken koppelt de gesprekken starten en stoppen. Wordt standaard de naam van de huidige pagina.
 
@@ -334,23 +372,27 @@ In [Analytics](app-insights-analytics.md) twee tabellen bevatten gegevens uit de
 
 Om te zoeken hoe lang de browser nodig is om verschillende pagina's:
 
-```
-browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
+```kusto
+browserTimings
+| summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name
 ```
 
 Voor het detecteren van de popularities van verschillende browsers:
 
-```
-pageViews | summarize count() by client_Browser
+```kusto
+pageViews
+| summarize count() by client_Browser
 ```
 
 Als u wilt koppelen paginaweergaven, AJAX-aanroepen, moet u lid met afhankelijkheden:
 
-```
-pageViews | join (dependencies) on operation_Id 
+```kusto
+pageViews
+| join (dependencies) on operation_Id 
 ```
 
 ## <a name="trackrequest"></a>TrackRequest
+
 De SDK-server maakt gebruik van TrackRequest om aan te melden HTTP-aanvragen.
 
 U kunt deze zelf ook aanroepen als u verzoeken wilt simuleren in een context waarin u de web service-module uitgevoerd hebt.
@@ -358,6 +400,7 @@ U kunt deze zelf ook aanroepen als u verzoeken wilt simuleren in een context waa
 Echter, de aanbevolen manier voor het verzenden van aanvraagtelemetrie is waar de aanvraag fungeert als een <a href="#operation-context">bewerkingscontext</a>.
 
 ## <a name="operation-context"></a>Bewerkingscontext
+
 U kunt telemetrie-items bij elkaar correleren door deze te koppelen met de bewerkingscontext. De standard-aanvraag bij te houden module doet dit voor uitzonderingen en andere gebeurtenissen die worden verzonden terwijl een HTTP-aanvraag wordt verwerkt. In [zoeken](app-insights-diagnostic-search.md) en [Analytics](app-insights-analytics.md), kunt u gemakkelijk alle gebeurtenissen die zijn gekoppeld aan de aanvraag met behulp van de bewerking-id vinden
 
 Zie [telemetriecorrelatie in Application Insights](application-insights-correlation.md) voor meer informatie over correlatie.
@@ -374,6 +417,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
     ...
     telemetryClient.TrackTrace(...); // or other Track* calls
     ...
+
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
@@ -385,7 +429,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 Samen met het instellen van de bewerkingscontext van een, `StartOperation` wordt gemaakt van een Telemetrisch item van het type dat u opgeeft. Stuurt de telemetrie-item wanneer u de bewerking verwijderen, of als u expliciet aanroepen `StopOperation`. Als u `RequestTelemetry` als het telemetrietype, de duur is ingesteld op de getimed interval tussen starten en stoppen.
 
-Telemetrie-items dat is gerapporteerd binnen een bereik van opnieuw worden 'kinderen' van deze bewerking. Bewerking contexten kunnen worden genest. 
+Telemetrie-items dat is gerapporteerd binnen een bereik van opnieuw worden 'kinderen' van deze bewerking. Bewerking contexten kunnen worden genest.
 
 In het zoekvak, de bewerkingscontext wordt gebruikt om de **verwante Items** lijst:
 
@@ -399,12 +443,13 @@ In [Application Insights Analytics](app-insights-analytics.md), weergeven van aa
 
 Als [steekproeven](app-insights-sampling.md) is uitgevoerd, de eigenschap itemCount ziet u een waarde groter is dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackRequest() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal aanvragen en gemiddelde duur gesegmenteerd op aanvraag namen, zoals code gebruiken:
 
-```AIQL
-requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
+```kusto
+requests
+| summarize count = sum(itemCount), avgduration = avg(duration) by name
 ```
 
-
 ## <a name="trackexception"></a>TrackException
+
 Uitzonderingen verzenden naar Application Insights:
 
 * Naar [ze tellen](app-insights-metrics-explorer.md), als een indicatie van de frequentie van een probleem.
@@ -414,44 +459,52 @@ De rapporten bevatten de stack-traces.
 
 *C#*
 
-    try
-    {
-        ...
-    }
-    catch (Exception ex)
-    {
-       telemetry.TrackException(ex);
-    }
+```csharp
+try
+{
+    ...
+}
+catch (Exception ex)
+{
+    telemetry.TrackException(ex);
+}
+```
 
 *Java*
 
-    try {
-        ...
-    } catch (Exception ex) {
-        telemetry.trackException(ex);
-    }
+```java
+try {
+    ...
+} catch (Exception ex) {
+    telemetry.trackException(ex);
+}
+```
 
 *JavaScript*
 
-    try
-    {
-       ...
-    }
-    catch (ex)
-    {
-       appInsights.trackException(ex);
-    }
-    
+```javascript
+try
+{
+    ...
+}
+catch (ex)
+{
+    appInsights.trackException(ex);
+}
+```
+
 *Node.js*
 
-    try
-    {
-       ...
-    }
-    catch (ex)
-    {
-       telemetry.trackException({exception: ex});
-    }
+```javascript
+try
+{
+    ...
+}
+catch (ex)
+{
+    telemetry.trackException({exception: ex});
+}
+```
 
 De SDK's catch veel uitzonderingen automatisch, zodat u altijd niet hoeven te TrackException expliciet aanroepen.
 
@@ -459,12 +512,12 @@ De SDK's catch veel uitzonderingen automatisch, zodat u altijd niet hoeven te Tr
 * J2EE: [uitzonderingen automatisch zijn opgepikt](app-insights-java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Uitzonderingen worden automatisch onderschept. Als u uitschakelen automatisch verzamelen wilt, moet u een regel toegevoegd aan het codefragment die u in uw webpagina's invoegen:
 
-    ```
-    ({
-      instrumentationKey: "your key"
-      , disableExceptionTracking: true
-    })
-    ```
+```javascript
+({
+    instrumentationKey: "your key",
+    disableExceptionTracking: true
+})
+```
 
 ### <a name="exceptions-in-analytics"></a>Uitzonderingen in Analytics
 
@@ -472,25 +525,27 @@ In [Application Insights Analytics](app-insights-analytics.md), uitzonderingen w
 
 Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de `itemCount` eigenschap bevat een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackException() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal uitzonderingen gesegmenteerd op type uitzondering, zoals code gebruiken:
 
-```
-exceptions | summarize sum(itemCount) by type
+```kusto
+exceptions
+| summarize sum(itemCount) by type
 ```
 
 De meeste belangrijke stack informatie al wordt geëxtraheerd in verschillende variabelen, maar u kunt ophalen uit elkaar de `details` structuur om meer te halen. Omdat deze structuur dynamisch is, moet u het resultaat dat het verwachte type cast-conversie. Bijvoorbeeld:
 
-```AIQL
+```kusto
 exceptions
 | extend method2 = tostring(details[0].parsedStack[1].method)
 ```
 
 Als u wilt koppelen uitzonderingen met hun verwante aanvragen, gebruikt u een join:
 
-```
+```kusto
 exceptions
-| join (requests) on operation_Id 
+| join (requests) on operation_Id
 ```
 
 ## <a name="tracktrace"></a>TrackTrace
+
 Gebruik TrackTrace om u te helpen bij het vaststellen van problemen door een 'navigatiepad' verzenden naar Application Insights. U kunt segmenten van diagnostische gegevens verzenden en controleren in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md).
 
 In .NET [adapters zich](app-insights-asp-net-trace-logs.md) gebruik van deze API van derden om Logboeken te verzenden naar de portal.
@@ -499,16 +554,25 @@ In Java voor [Standard kunt zoals Log4J, Logback](app-insights-java-trace-logs.m
 
 *C#*
 
-    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+```csharp
+telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+```
 
 *Java*
 
-    telemetry.trackTrace(message, SeverityLevel.Warning, properties);
-    
+```java
+telemetry.trackTrace(message, SeverityLevel.Warning, properties);
+```
+
 *Node.js*
 
-    telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
-
+```javascript
+telemetry.trackTrace({
+    message: message,
+    severity: applicationInsights.Contracts.SeverityLevel.Warning,
+    properties: properties
+});
+```
 
 U kunt zoeken op inhoud van het bericht, maar (in tegenstelling tot eigenschapswaarden) u kunt niet filteren op het.
 
@@ -519,25 +583,22 @@ Bovendien kunt u een ernstniveau toevoegen aan uw bericht. En net als andere tel
 
 *C#*
 
-```C#
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow database response",
+                SeverityLevel.Warning,
+                new Dictionary<string,string> { {"database", db.ID} });
 ```
 
 *Java*
 
-```Java
-
-    Map<String, Integer> properties = new HashMap<>();
-    properties.put("Database", db.ID);
-    telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
-
+```java
+Map<String, Integer> properties = new HashMap<>();
+properties.put("Database", db.ID);
+telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
 In [zoeken](app-insights-diagnostic-search.md), u kunt eenvoudig filteren vervolgens alle berichten van een specifieke ernst op die betrekking op een bepaalde database hebben.
-
 
 ### <a name="traces-in-analytics"></a>Traceringen in Analytics
 
@@ -546,6 +607,7 @@ In [Application Insights Analytics](app-insights-analytics.md), aanroepen van Tr
 Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 houdt in dat van 10 aanroepen naar `trackTrace()`, een van deze alleen in het proces steekproeven worden verzonden. Als u het juiste aantal trace-aanroepen, moet u daarom code zoals `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
+
 Gebruik de TrackDependency-aanroep voor het bijhouden van de responstijden en succespercentages van aanroepen naar externe code. De resultaten worden weergegeven in de afhankelijkheidsgrafiek in de portal.
 
 *C#*
@@ -569,25 +631,24 @@ finally
 
 *Java*
 
-```Java
-    boolean success = false;
-    long startTime = System.currentTimeMillis();
-    try {
-        success = dependency.call();
-    }
-    finally {
-        long endTime = System.currentTimeMillis();
-        long delta = endTime - startTime;
-        RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-        telemetry.setTimeStamp(startTime);
-        telemetry.trackDependency(dependencyTelemetry);
-    }
-
+```java
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+}
+finally {
+    long endTime = System.currentTimeMillis();
+    long delta = endTime - startTime;
+    RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
+    telemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
+}
 ```
 
 *JavaScript*
 
-```Javascript
+```javascript
 var success = false;
 var startTime = new Date().getTime();
 try
@@ -597,7 +658,12 @@ try
 finally
 {
     var elapsed = new Date() - startTime;
-    telemetry.trackDependency({dependencyTypeName: "myDependency", name: "myCall", duration: elapsed, success:success});
+    telemetry.trackDependency({
+        dependencyTypeName: "myDependency",
+        name: "myCall",
+        duration: elapsed,
+        success: success
+    });
 }
 ```
 
@@ -615,53 +681,57 @@ In [Application Insights Analytics](app-insights-analytics.md), trackDependency 
 
 Als [steekproeven](app-insights-sampling.md) worden uitgevoerd, de eigenschap itemCount geeft een waarde groter dan 1. Voor voorbeeld itemCount == 10 betekent dat van 10 aanroepen naar trackDependency() het proces steekproeven alleen een van beide overgedragen. Als u een juiste aantal afhankelijkheden gesegmenteerd op target-component, zoals code gebruiken:
 
-```
-dependencies | summarize sum(itemCount) by target
+```kusto
+dependencies
+| summarize sum(itemCount) by target
 ```
 
 Als u wilt koppelen afhankelijkheden met hun verwante aanvragen, gebruikt u een join:
 
-```
+```kusto
 dependencies
-| join (requests) on operation_Id 
+| join (requests) on operation_Id
 ```
 
 ## <a name="flushing-data"></a>Gegevens leegmaken
+
 Normaal gesproken verzendt de SDK soms ervoor gekozen om te beperken de gevolgen voor de gebruiker. Echter, in sommige gevallen kunt u leegmaken van de buffer--bijvoorbeeld, als u de SDK in een toepassing die wordt afgesloten.
 
 *C#*
- 
- ```C#
-    telemetry.Flush();
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(5000);
+
+ ```csharp
+telemetry.Flush();
+// Allow some time for flushing before shutdown.
+System.Threading.Thread.Sleep(5000);
 ```
 
 *Java*
 
-```Java
-    telemetry.flush();
-    //Allow some time for flushing before shutting down
-    Thread.sleep(5000);
+```java
+telemetry.flush();
+//Allow some time for flushing before shutting down
+Thread.sleep(5000);
 ```
 
-    
 *Node.js*
 
-    telemetry.flush();
+```javascript
+telemetry.flush();
+```
 
 Houd er rekening mee dat de functie voor asynchrone is de [server telemetrie kanaal](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 In het ideale geval moet flush() methode worden gebruikt in de activiteit afsluiten van de toepassing.
 
 ## <a name="authenticated-users"></a>Geverifieerde gebruikers
+
 In een web-app, worden gebruikers (standaard) geïdentificeerd door cookies. Een gebruiker kan meer dan één keer worden geteld als ze toegang krijgen tot uw app uit een andere computer of de browser, of als het verwijderen van cookies.
 
 Als gebruikers zich bij uw app aanmelden, krijgt u een meer nauwkeurige telling door in te stellen van de geverifieerde gebruikers-ID in de browsercode:
 
 *JavaScript*
 
-```JS
+```javascript
 // Called when my app has identified the user.
 function Authenticated(signInId) {
     var validatedId = signInId.replace(/[,;=| ]+/g, "_");
@@ -674,14 +744,16 @@ In een ASP.NET-web MVC-toepassing, bijvoorbeeld:
 
 *Razor*
 
-        @if (Request.IsAuthenticated)
-        {
-            <script>
-                appInsights.setAuthenticatedUserContext("@User.Identity.Name
-                   .Replace("\\", "\\\\")"
-                   .replace(/[,;=| ]+/g, "_"));
-            </script>
-        }
+```cshtml
+@if (Request.IsAuthenticated)
+{
+    <script>
+        appInsights.setAuthenticatedUserContext("@User.Identity.Name
+            .Replace("\\", "\\\\")"
+            .replace(/[,;=| ]+/g, "_"));
+    </script>
+}
+```
 
 Het is niet nodig om werkelijke van de gebruiker aanmelden naam te gebruiken. Alleen er moet een ID die uniek is voor die gebruiker. Mogen geen spaties of een van de tekens `,;=|`.
 
@@ -689,13 +761,16 @@ De gebruikers-ID is ook in een sessiecookie ingesteld en naar de server verzonde
 
 Als uw app gebruikers in accounts groepen, kunt u ook een id voor het account (met de dezelfde tekenbeperkingen) doorgeven.
 
-      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+```javascript
+appInsights.setAuthenticatedUserContext(validatedId, accountId);
+```
 
 In [Metrics Explorer](app-insights-metrics-explorer.md), kunt u een grafiek telt **gebruikers, geverifieerd**, en **gebruikersaccounts**.
 
 U kunt ook [zoeken](app-insights-diagnostic-search.md) voor gegevenspunten van de client met de namen van de specifieke gebruikers en accounts.
 
 ## <a name="properties"></a>Filteren, zoeken en uw gegevens segmenteren met behulp van eigenschappen
+
 U kunt eigenschappen en metingen toevoegen aan uw gebeurtenissen (en ook tot metrische gegevens over, pagina weergaven, uitzonderingen en andere telemetriegegevens).
 
 *Eigenschappen* tekenreekswaarden die u gebruiken kunt voor het filteren van uw telemetrie in de rapporten over gebruik zijn. Bijvoorbeeld, als uw app verschillende games biedt, kunt u koppelen de naam van het spel aan elke gebeurtenis zodat u kunt zien welke games meer populair zijn.
@@ -710,91 +785,99 @@ Er zijn een aantal [beperkingen met betrekking tot het aantal eigenschappen en e
 
 *JavaScript*
 
-    appInsights.trackEvent
-      ("WinGame",
-         // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
+```javascript
+appInsights.trackEvent
+    ("WinGame",
+        // String properties:
+        {Game: currentGame.name, Difficulty: currentGame.difficulty},
+        // Numeric metrics:
+        {Score: currentGame.score, Opponents: currentGame.opponentCount}
+        );
 
-    appInsights.trackPageView
-        ("page name", "http://fabrikam.com/pageurl.html",
-          // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-
+appInsights.trackPageView
+    ("page name", "http://fabrikam.com/pageurl.html",
+        // String properties:
+        {Game: currentGame.name, Difficulty: currentGame.difficulty},
+        // Numeric metrics:
+        {Score: currentGame.score, Opponents: currentGame.opponentCount}
+        );
+```
 
 *C#*
 
-    // Set up some properties and metrics:
-    var properties = new Dictionary <string, string>
-       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var metrics = new Dictionary <string, double>
-       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+```csharp
+// Set up some properties and metrics:
+var properties = new Dictionary <string, string>
+    {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+var metrics = new Dictionary <string, double>
+    {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
 
-    // Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics);
+// Send the event:
+telemetry.TrackEvent("WinGame", properties, metrics);
+```
 
 *Node.js*
 
-    // Set up some properties and metrics:
-    var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
-    var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
+```javascript
+// Set up some properties and metrics:
+var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
+var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
 
-    // Send the event:
-    telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
-
+// Send the event:
+telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
+```
 
 *Visual Basic*
 
-    ' Set up some properties:
-    Dim properties = New Dictionary (Of String, String)
-    properties.Add("game", currentGame.Name)
-    properties.Add("difficulty", currentGame.Difficulty)
+```vb
+' Set up some properties:
+Dim properties = New Dictionary (Of String, String)
+properties.Add("game", currentGame.Name)
+properties.Add("difficulty", currentGame.Difficulty)
 
-    Dim metrics = New Dictionary (Of String, Double)
-    metrics.Add("Score", currentGame.Score)
-    metrics.Add("Opponents", currentGame.OpponentCount)
+Dim metrics = New Dictionary (Of String, Double)
+metrics.Add("Score", currentGame.Score)
+metrics.Add("Opponents", currentGame.OpponentCount)
 
-    ' Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics)
-
+' Send the event:
+telemetry.TrackEvent("WinGame", properties, metrics)
+```
 
 *Java*
 
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
+```java
+Map<String, String> properties = new HashMap<String, String>();
+properties.put("game", currentGame.getName());
+properties.put("difficulty", currentGame.getDifficulty());
 
-    Map<String, Double> metrics = new HashMap<String, Double>();
-    metrics.put("Score", currentGame.getScore());
-    metrics.put("Opponents", currentGame.getOpponentCount());
+Map<String, Double> metrics = new HashMap<String, Double>();
+metrics.put("Score", currentGame.getScore());
+metrics.put("Opponents", currentGame.getOpponentCount());
 
-    telemetry.trackEvent("WinGame", properties, metrics);
-
+telemetry.trackEvent("WinGame", properties, metrics);
+```
 
 > [!NOTE]
 > Let erop dat niet voor logboekregistratie van persoonsgegevens in de eigenschappen.
 >
 >
 
-
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>Alternatieve manier om de eigenschappen en metrische gegevens
+
 Als het is beter uitkomt, kunt u de parameters van een gebeurtenis in een afzonderlijke object verzamelen:
 
-    var event = new EventTelemetry();
+```csharp
+var event = new EventTelemetry();
 
-    event.Name = "WinGame";
-    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
-    event.Properties["game"] = currentGame.Name;
-    event.Properties["difficulty"] = currentGame.Difficulty;
-    event.Metrics["Score"] = currentGame.Score;
-    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+event.Name = "WinGame";
+event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+event.Properties["game"] = currentGame.Name;
+event.Properties["difficulty"] = currentGame.Difficulty;
+event.Metrics["Score"] = currentGame.Score;
+event.Metrics["Opponents"] = currentGame.Opponents.Length;
 
-    telemetry.TrackEvent(event);
+telemetry.TrackEvent(event);
+```
 
 > [!WARNING]
 > Niet opnieuw gebruiken de hetzelfde exemplaar van de telemetrie-item (`event` in dit voorbeeld) om aan te roepen Track*() meerdere keren. Dit kan leiden tot telemetrie wordt verzonden met een onjuiste configuratie.
@@ -807,9 +890,9 @@ In [Analytics](app-insights-analytics.md), eigenschappen en aangepaste metrische
 
 Bijvoorbeeld, als u een eigenschap met de naam 'game' aan de aanvraagtelemetrie van uw hebt toegevoegd, deze query telt de instanties van andere waarden van 'spel' en het gemiddelde van de aangepaste metrische 'score' weergeven:
 
-```
+```kusto
 requests
-| summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game) 
+| summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game)
 ```
 
 U ziet dat:
@@ -817,92 +900,96 @@ U ziet dat:
 * Wanneer u een waarde uit de customDimensions of customMeasurements JSON halen, het dynamisch type heeft, en dus moet u dit casten `tostring` of `todouble`.
 * Rekening te houden met de mogelijkheid om [steekproeven](app-insights-sampling.md), moet u `sum(itemCount)`, niet `count()`.
 
-
-
 ## <a name="timed"></a> Timing-gebeurtenissen
+
 Soms wilt u grafiek hoe lang het duurt een actie uit te voeren. Bijvoorbeeld, u mogelijk wilt weten hoe lang gebruikers rekening houden met opties in een game voor toets maken. Hiervoor kunt u de parameter meting.
 
 *C#*
 
-```C#
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+```csharp
+var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-    // ... perform the timed action ...
+// ... perform the timed action ...
 
-    stopwatch.Stop();
+stopwatch.Stop();
 
-    var metrics = new Dictionary <string, double>
-       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+var metrics = new Dictionary <string, double>
+    {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
 
-    // Set up some properties:
-    var properties = new Dictionary <string, string>
-       {{"signalSource", currentSignalSource.Name}};
+// Set up some properties:
+var properties = new Dictionary <string, string>
+    {{"signalSource", currentSignalSource.Name}};
 
-    // Send the event:
-    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+// Send the event:
+telemetry.TrackEvent("SignalProcessed", properties, metrics);
 ```
 
 *Java*
 
-```Java
-    long startTime = System.currentTimeMillis();
+```java
+long startTime = System.currentTimeMillis();
 
-    // perform timed action
+// Perform timed action
 
-    long endTime = System.currentTimeMillis();
-    Map<String, Double> metrics = new HashMap<>();
-    metrics.put("ProcessingTime", endTime-startTime);
+long endTime = System.currentTimeMillis();
+Map<String, Double> metrics = new HashMap<>();
+metrics.put("ProcessingTime", endTime-startTime);
 
-    // Setup some propereties
-    Map<String, String> properties = new HashMap<>();
-    properties.put("signalSource", currentSignalSource.getName());
+// Setup some properties
+Map<String, String> properties = new HashMap<>();
+properties.put("signalSource", currentSignalSource.getName());
 
-    //send the event
-    telemetry.trackEvent("SignalProcessed", properties, metrics);
-
+// Send the event
+telemetry.trackEvent("SignalProcessed", properties, metrics);
 ```
 
-
 ## <a name="defaults"></a>Standaard-eigenschappen voor aangepaste telemetrie
+
 Als u het instellen van de standaard eigenschapswaarden voor enkele van de aangepaste gebeurtenissen die u schrijft wilt, kunt u ze kunt instellen in een TelemetryClient-exemplaar. Ze zijn gekoppeld aan elk telemetrie-item dat wordt verzonden van die client.
 
 *C#*
 
-    using Microsoft.ApplicationInsights.DataContracts;
+```csharp
+using Microsoft.ApplicationInsights.DataContracts;
 
-    var gameTelemetry = new TelemetryClient();
-    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
-    // Now all telemetry will automatically be sent with the context property:
-    gameTelemetry.TrackEvent("WinGame");
+var gameTelemetry = new TelemetryClient();
+gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+// Now all telemetry will automatically be sent with the context property:
+gameTelemetry.TrackEvent("WinGame");
+```
 
 *Visual Basic*
 
-    Dim gameTelemetry = New TelemetryClient()
-    gameTelemetry.Context.Properties("Game") = currentGame.Name
-    ' Now all telemetry will automatically be sent with the context property:
-    gameTelemetry.TrackEvent("WinGame")
+```vb
+Dim gameTelemetry = New TelemetryClient()
+gameTelemetry.Context.Properties("Game") = currentGame.Name
+' Now all telemetry will automatically be sent with the context property:
+gameTelemetry.TrackEvent("WinGame")
+```
 
 *Java*
 
-    import com.microsoft.applicationinsights.TelemetryClient;
-    import com.microsoft.applicationinsights.TelemetryContext;
-    ...
+```java
+import com.microsoft.applicationinsights.TelemetryClient;
+import com.microsoft.applicationinsights.TelemetryContext;
+...
 
 
-    TelemetryClient gameTelemetry = new TelemetryClient();
-    TelemetryContext context = gameTelemetry.getContext();
-    context.getProperties().put("Game", currentGame.Name);
+TelemetryClient gameTelemetry = new TelemetryClient();
+TelemetryContext context = gameTelemetry.getContext();
+context.getProperties().put("Game", currentGame.Name);
 
-    gameTelemetry.TrackEvent("WinGame");
-    
+gameTelemetry.TrackEvent("WinGame");
+```
+
 *Node.js*
 
-    var gameTelemetry = new applicationInsights.TelemetryClient();
-    gameTelemetry.commonProperties["Game"] = currentGame.Name;
+```javascript
+var gameTelemetry = new applicationInsights.TelemetryClient();
+gameTelemetry.commonProperties["Game"] = currentGame.Name;
 
-    gameTelemetry.TrackEvent({name: "WinGame"});
-
-
+gameTelemetry.TrackEvent({name: "WinGame"});
+```
 
 Aanroepen van afzonderlijke telemetrie kunnen de standaardwaarden in de eigenschap woordenlijsten overschrijven.
 
@@ -911,6 +998,7 @@ Aanroepen van afzonderlijke telemetrie kunnen de standaardwaarden in de eigensch
 *Eigenschappen toevoegen aan alle telemetrie*, met inbegrip van de gegevens uit de verzameling modules, [implementeren `ITelemetryInitializer` ](app-insights-api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>Steekproeven, te filteren en verwerken van telemetrie
+
 U kunt de code voor het verwerken van uw telemetrie voordat deze wordt verzonden van de SDK schrijven. De verwerking van bevat gegevens die worden verzonden vanaf de telemetrie-modules, zoals de verzameling van de HTTP-aanvragen en afhankelijkheid verzameling.
 
 [Voeg eigenschappen toe](app-insights-api-filtering-sampling.md#add-properties) tot telemetrie door het implementeren van `ITelemetryInitializer`. U kunt bijvoorbeeld waarden die worden berekend of versienummers toevoegen van andere eigenschappen.
@@ -922,109 +1010,119 @@ U kunt de code voor het verwerken van uw telemetrie voordat deze wordt verzonden
 [Meer informatie](app-insights-api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>Telemetrie uitschakelen
+
 Naar *dynamisch stoppen en starten* het verzamelen en verzenden van telemetrie:
 
 *C#*
 
 ```csharp
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    using  Microsoft.ApplicationInsights.Extensibility;
-
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 *Java*
 
-```Java
-    
-    telemetry.getConfiguration().setTrackingDisabled(true);
-
+```java
+telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
 Naar *uitschakelen geselecteerde standard collectors*--bijvoorbeeld, prestatiemeteritems, HTTP-aanvragen of afhankelijkheden--verwijderen of opmerkingen bij de desbetreffende regels in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). U kunt dit bijvoorbeeld doen als u wilt de gegevens van uw eigen TrackRequest verzenden.
 
 *Node.js*
 
-```Javascript
-
-    telemetry.config.disableAppInsights = true;
+```javascript
+telemetry.config.disableAppInsights = true;
 ```
 
 Naar *uitschakelen geselecteerde standard collectors*--bijvoorbeeld, prestatiemeteritems, HTTP-aanvragen of afhankelijkheden--tijdens de initialisatie keten configuratiemethoden toe aan uw code van de initialisatie van SDK:
 
-```Javascript
-
-    applicationInsights.setup()
-        .setAutoCollectRequests(false)
-        .setAutoCollectPerformance(false)
-        .setAutoCollectExceptions(false)
-        .setAutoCollectDependencies(false)
-        .setAutoCollectConsole(false)
-        .start();
+```javascript
+applicationInsights.setup()
+    .setAutoCollectRequests(false)
+    .setAutoCollectPerformance(false)
+    .setAutoCollectExceptions(false)
+    .setAutoCollectDependencies(false)
+    .setAutoCollectConsole(false)
+    .start();
 ```
 
 Schakel deze collectors na de initialisatie van de configuratie-object te gebruiken: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="debug"></a>Modus voor ontwikkelaars
+
 Tijdens de foutopsporing, is dit handig om uw telemetrie afgehandeld via de pijplijn, zodat u onmiddellijk de resultaten kunt bekijken. U ook get extra berichten die u helpen bij traceren problemen met de telemetrie. Functies uitschakelen in de productieomgeving, omdat deze kan uw app vertragen.
 
 *C#*
 
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+```csharp
+TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+```
 
 *Visual Basic*
 
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
-
+```vb
+TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+```
 
 ## <a name="ikey"></a> De instrumentatiesleutel voor geselecteerde aangepaste telemetrie instellen
+
 *C#*
 
-    var telemetry = new TelemetryClient();
-    telemetry.InstrumentationKey = "---my key---";
-    // ...
-
+```csharp
+var telemetry = new TelemetryClient();
+telemetry.InstrumentationKey = "---my key---";
+// ...
+```
 
 ## <a name="dynamic-ikey"></a> Dynamische instrumentatiesleutel
+
 Om te voorkomen dat een combinatie van telemetrie van ontwikkeling, testen en productie-omgevingen, kunt u [maakt u afzonderlijke Application Insights-resources](app-insights-create-new-resource.md) en wijzigt u de sleutels, afhankelijk van de omgeving.
 
 In plaats van de instrumentatiesleutel ophalen uit het configuratiebestand, kunt u dit instellen in uw code. Stel de sleutel in een initialiseringsmethode, zoals global.aspx.cs in een ASP.NET-service:
 
 *C#*
 
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.Settings["ikey"];
-      ...
+```csharp
+protected void Application_Start()
+{
+    Microsoft.ApplicationInsights.Extensibility.
+    TelemetryConfiguration.Active.InstrumentationKey =
+        // - for example -
+        WebConfigurationManager.Settings["ikey"];
+    ...
+}
+```
 
 *JavaScript*
 
-    appInsights.config.instrumentationKey = myKey;
-
-
+```javascript
+appInsights.config.instrumentationKey = myKey;
+```
 
 In webpagina's, is het raadzaam om in te stellen deze van de webserver status, in plaats van letterlijk coderen in het script. Bijvoorbeeld, in een webpagina die in een ASP.NET-app is gegenereerd:
 
 *JavaScript in de Razor*
 
-    <script type="text/javascript">
-    // Standard Application Insights webpage script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey;
-    }) // ...
-
+```cshtml
+<script type="text/javascript">
+// Standard Application Insights webpage script:
+var appInsights = window.appInsights || function(config){ ...
+// Modify this part:
+}({instrumentationKey:  
+    // Generate from server property:
+    @Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey;
+}) // ...
+```
 
 ## <a name="telemetrycontext"></a>TelemetryContext
+
 TelemetryClient heeft een contexteigenschap, waarin de waarden die samen met alle telemetriegegevens worden verzonden. Deze normaal gesproken zijn ingesteld door de modules standaardtelemetrie voor, maar u kunt ook deze zelf instellen. Bijvoorbeeld:
 
-    telemetry.Context.Operation.Name = "MyOperationName";
+```csharp
+telemetry.Context.Operation.Name = "MyOperationName";
+```
 
 Als u een van deze waarden zelf instellen, kunt u de desbetreffende regel verwijderen [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), zodat uw waarden en de standaard geen verwarring.
 
@@ -1041,6 +1139,7 @@ Als u een van deze waarden zelf instellen, kunt u de desbetreffende regel verwij
 * **Gebruiker**: gebruikersgegevens.
 
 ## <a name="limits"></a>Limieten
+
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 Gebruiken om te voorkomen dat de limiet hebt bereikt, [steekproeven](app-insights-sampling.md).
@@ -1048,6 +1147,7 @@ Gebruiken om te voorkomen dat de limiet hebt bereikt, [steekproeven](app-insight
 Om te bepalen hoe lang gegevens worden bewaard, Zie [bewaren van gegevens en privacy](app-insights-data-retention-privacy.md).
 
 ## <a name="reference-docs"></a>Referentiedocumenten
+
 * [ASP.NET-naslaginformatie](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Naslaginformatie over Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript-referentie](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -1055,7 +1155,8 @@ Om te bepalen hoe lang gegevens worden bewaard, Zie [bewaren van gegevens en pri
 * [iOS-SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## <a name="sdk-code"></a>SDK-code
-* [ASP.NET Core-SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+
+* [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pakketten van Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
@@ -1064,6 +1165,7 @@ Om te bepalen hoe lang gegevens worden bewaard, Zie [bewaren van gegevens en pri
 * [Alle platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## <a name="questions"></a>Vragen
+
 * *Welke uitzonderingen mogelijk Track_() aanroepen genereren?*
 
     Geen. U hoeft niet te zabalit trycatch-componenten. Als er problemen voor de SDK, wordt deze berichten zich in de console-uitvoer voor foutopsporing en--als de berichten van--doorzoeken van diagnostische gegevens ontvangt.
@@ -1072,6 +1174,6 @@ Om te bepalen hoe lang gegevens worden bewaard, Zie [bewaren van gegevens en pri
     Ja, de [data access-API](https://dev.applicationinsights.io/). Andere manieren om gegevens te extraheren, bijvoorbeeld [van Analytics exporteren naar Power BI](app-insights-export-power-bi.md) en [continue export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Volgende stappen
-* [Logboeken en gebeurtenissen voor zoeken](app-insights-diagnostic-search.md)
 
+* [Logboeken en gebeurtenissen voor zoeken](app-insights-diagnostic-search.md)
 * [Problemen oplossen](app-insights-troubleshoot-faq.md)

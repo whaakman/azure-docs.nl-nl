@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d94aaa93596a18cf92b745267a6be9966454e36f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7ff7167d60a4c22459622aea6a71130bd1e209fb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971538"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868867"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -234,7 +234,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Vernieuwen van het toegangstoken
 
-Access_tokens zijn korte duur en moet u deze vernieuwen nadat ze zijn verlopen om door te gaan met het openen van bronnen. U kunt dit doen door het indienen van een andere `POST` aanvragen naar de `/token` eindpunt, dit keer met de `refresh_token` in plaats van de `code`:
+Access_tokens zijn korte duur en moet u deze vernieuwen nadat ze zijn verlopen om door te gaan met het openen van bronnen. U kunt dit doen door het indienen van een andere `POST` aanvragen naar de `/token` eindpunt, dit keer met de `refresh_token` in plaats van de `code`.  Vernieuwen van tokens geldig zijn voor alle machtigingen die de client al is toestemming geven voor - dus een vernieuwingstoken dat is uitgegeven voor een aanvraag voor `scope=mail.read` kan worden gebruikt om aan te vragen van een nieuw toegangstoken voor `scope=api://contoso.com/api/UseResource`.  
+
+Vernieuwen van tokens geen opgegeven levensduur. De levensduur van vernieuwingstokens zijn meestal relatief lange. Echter, in sommige gevallen, vernieuwingstokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwachten en verwerken [fouten die zijn geretourneerd door het eindpunt voor token-uitgifte](#error-codes-for-token-endpoint-errors) correct. 
 
 ```
 // Line breaks for legibility only

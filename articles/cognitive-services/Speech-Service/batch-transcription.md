@@ -8,16 +8,16 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e702cb6da3378e460ebb68542d82e736b9f57a52
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981369"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857785"
 ---
 # <a name="batch-transcription"></a>Batchtranscriptie
 
-Batch transcriptie is ideaal als u grote hoeveelheden van audio. U kunt verwijzen naar audio bestanden en transcripties teruggaan in asynchrone modus wordt uitgevoerd.
+Batch transcriptie is ideaal als u grote hoeveelheden van audio. U kunt verwijzen naar audio bestanden door de URI en transcripties teruggaan in asynchrone modus wordt uitgevoerd.
 
 ## <a name="batch-transcription-api"></a>Batch transcriptie API
 
@@ -59,7 +59,7 @@ Voor stereo audiostreams, wordt de linker- en -kanaal in Batch transcriptie gesp
 
 ## <a name="authorization-token"></a>Autorisatietoken
 
-Bij het met alle functies van de Spraakservice Unified maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com) volgende onze [Get-Started guide](get-started.md). Als u van plan bent om op te halen transcripties van onze basislijn-modellen vervolgens is dit alles die wat u nodig om te doen. 
+Als met alle functies van de Speech-Service die u een abonnementssleutel van maakt de [Azure-portal](https://portal.azure.com) volgende onze [Get-Started guide](get-started.md). Als u van plan bent om op te halen transcripties van onze basislijn-modellen vervolgens is dit alles die wat u nodig om te doen. 
 
 Als u van plan bent aanpassen en het gebruik van een aangepast model moet u deze sleutel subscritpion als volgt toevoegen aan de portal voor aangepaste spraak:
 

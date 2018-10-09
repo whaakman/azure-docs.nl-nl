@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 10b1d2088a489c73d8929bdf22069e21b8beac50
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 64d135ba336ca31fe6db5193f9f19c8c2340b454
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817501"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854844"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
@@ -33,7 +33,7 @@ De nieuwe geïntegreerde bewaking en waarschuwingen voor Application Insights be
 
 - **Metrische gegevens van Application Insights-Platform** – waarmee u populaire vooraf gemaakte metrische gegevens van Application Insights-product. Zie dit artikel voor meer informatie over het gebruik van [Platform metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights beschikbaarheid en Web-test** -waarmee u de mogelijkheid om de reactiesnelheid en beschikbaarheid van uw web-app of de server vast te stellen. Zie dit artikel voor meer informatie over het gebruik van [Beschikbaarheidstests en waarschuwingen voor Application Insights op de nieuwe Azure Monitor](../application-insights/app-insights-monitor-web-app-availability.md).
-- **Metrische gegevens van Application Insights aangepaste** – Hiermee kunt u definiëren en hun eigen metrische gegevens voor controle en meldingen te verzenden. Zie dit artikel voor meer informatie over het gebruik van [aangepaste metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#using-pre-aggregation-with-application-insights-custom-metrics).
+- **Metrische gegevens van Application Insights aangepaste** – Hiermee kunt u definiëren en hun eigen metrische gegevens voor controle en meldingen te verzenden. Zie dit artikel voor meer informatie over het gebruik van [aangepaste metrische gegevens voor Application Insights op de nieuwe Azure Monitor](../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights-Foutafwijkingen (onderdeel van Slimme detectie)** – die automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen voor HTTP- of afhankelijkheidsaanroepen optreedt in uw web-app. Foutafwijkingen (onderdeel van Slimme detectie) als onderdeel van de nieuwe Azure Monitor, Application Insights is binnenkort beschikbaar en we zullen dit document bijwerken met koppelingen op de volgende iteratie als deze is geïmplementeerd-out in de komende maanden.
 
 ## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Geïntegreerde metrische gegevens en waarschuwingen voor andere Azure-resources
@@ -46,7 +46,7 @@ Nieuwere metrische gegevens voor Azure-resources zijn beschikbaar als:
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Buiten gebruik stellen van klassieke bewaking en waarschuwingen platform
 
-Zoals gezegd, het klassieke bewaking en waarschuwingen platform op dit moment kan worden gebruikt vanuit de [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal wordt beëindigd in twaalf maanden gegeven ze zijn vervangen door de nieuwere systeem.
+Zoals gezegd, het klassieke bewaking en waarschuwingen platform op dit moment kan worden gebruikt vanuit de [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal wordt beëindigd in de komende maanden gegeven ze zijn vervangen door de nieuwere systeem.
 Oudere klassiek bewaking en waarschuwingen wordt buiten gebruik gesteld op 30 juni 2019; het sluiten van gerelateerde API's, de interface van de Azure portal en de Services inclusief erin. Om precies worden deze functies afgeschaft:
 
 - Oudere (klassiek) metrische gegevens en waarschuwingen voor Azure-resources als op dit moment beschikbaar zijn via [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure portal; toegankelijk als [microsoft.insights/alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) resource
@@ -55,7 +55,7 @@ Oudere klassiek bewaking en waarschuwingen wordt buiten gebruik gesteld op 30 ju
 
 Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bijbehorende [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal-pagina, en [Resourcesjabloon](monitoring-enable-alerts-using-template.md) bruikbaar blijven tot juni 2019. Na deze datum is klassieke bewaking en waarschuwingen service buiten gebruik is gesteld en niet meer beschikbaar voor gebruik; Wanneer een waarschuwing van regels die blijven bestaan in waarschuwingen (klassiek) buiten juni 2019 blijft uitvoeren, maar niet meer beschikbaar voor de wijziging.
 
-Alle waarschuwingen die nog in de klassieke bewaking en waarschuwingen van platform naast 2019 juni, worden automatisch gemigreerd door Microsoft aan het equivalent hiervan in het nieuwe platform van Azure monitor in oktober 2019. Het proces wordt naadloos zonder uitvaltijd en zorg ervoor dat klanten hebben geen invloed op de dekking voor bewaking.
+Alle waarschuwingen die nog in de klassieke bewaking en waarschuwingen van platform naast 2019 juni, worden automatisch gemigreerd door Microsoft aan het equivalent hiervan in het nieuwe platform van Azure monitor in juli 2019. Het proces wordt naadloos zonder uitvaltijd en zorg ervoor dat klanten hebben geen invloed op de dekking voor bewaking.
 
 Hulpprogramma's kunt u uw waarschuwingen van vrijwillig migratie zal binnenkort worden geboden [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure-portal naar de nieuwe Azure-waarschuwingen. Alle regels die zijn geconfigureerd in waarschuwingen (klassiek) die worden gemigreerd naar nieuwe Azure Monitor, gratis blijven en niet in rekening gebracht. Gemigreerde regels voor klassieke waarschuwingen worden kosten in rekening gebracht voor het pushen van meldingen via e-mail, webhook of LogicApp ook niet voorzien. Gebruik van de nieuwere melding of actie typen (zoals SMS, Spraakoproep, ITSM-integratie, enzovoort) is gebracht of toegevoegd aan een gemigreerde of een nieuwe waarschuwing. Zie voor meer informatie, [prijzen voor Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 

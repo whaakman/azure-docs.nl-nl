@@ -1,26 +1,18 @@
 ---
-title: Beheren van DNS-recordsets en records met Azure DNS | Microsoft Docs
+title: DNS-recordsets en records met Azure DNS beheren
 description: Azure DNS biedt de mogelijkheid voor het beheren van DNS-recordsets en records bij het hosten van uw domein.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451389"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853705"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Beheren van DNS-records en recordsets met behulp van Azure portal
 
@@ -120,3 +112,4 @@ De SOA kan niet worden verwijderd en NS-record wordt ingesteld in het toppunt va
 * Zie voor meer informatie over Azure DNS, de [Azure DNS-overzicht](dns-overview.md).
 * Zie voor meer informatie over het automatiseren van DNS [het maken van DNS-zones en -recordsets met de .NET SDK](dns-sdk.md).
 * Zie voor meer informatie over omgekeerde DNS-records, [overzicht omgekeerde DNS-en ondersteuning in Azure](dns-reverse-dns-overview.md).
+* Zie voor meer informatie over Azure DNS-alias records [Azure overzicht DNS-aliassen records](dns-alias.md).

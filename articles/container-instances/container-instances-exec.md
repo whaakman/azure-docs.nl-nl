@@ -1,27 +1,26 @@
 ---
-title: Opdrachten uitvoeren in de actieve containers in Azure Containerexemplaren
-description: Meer informatie over hoe een opdracht in een container die momenteel wordt uitgevoerd in Azure Containerexemplaren worden uitgevoerd
+title: Opdrachten uitvoeren in het uitvoeren van containers in Azure Container Instances
+description: Informatie over hoe een opdracht uitvoeren in een container momenteel wordt uitgevoerd in Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: marsma
-ms.openlocfilehash: 43211f620efb16cbcd722d3d386b1bb862fc6280
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165643"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854081"
 ---
-# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Geef een opdracht in een actief Azure-container-exemplaar
+# <a name="execute-a-command-in-a-running-azure-container-instance"></a>Een opdracht uitvoeren in een actief Azure container-exemplaar
 
-Azure Containerexemplaren biedt ondersteuning voor het uitvoeren van een opdracht in een actieve container. Uitvoeren van een opdracht in een container die u al hebt gestart is vooral nuttig tijdens de ontwikkeling van toepassingen en probleemoplossing. De meest voorkomende gebruik van deze functie is een interactieve shell starten zodat u fouten van problemen in een container uitgevoerd opsporen kunt.
+Azure Container Instances biedt ondersteuning voor een opdracht is uitgevoerd in een container die wordt uitgevoerd. Uitvoeren van een opdracht in een container die u al hebt gestart is vooral nuttig tijdens de ontwikkeling van toepassingen en het oplossen van problemen. De meest voorkomende gebruik van deze functie is een interactieve shell starten zodat u fouten van problemen in een container die wordt uitgevoerd opsporen kunt.
 
-## <a name="run-a-command-with-azure-cli"></a>Een opdracht uitvoert met Azure CLI
+## <a name="run-a-command-with-azure-cli"></a>Een opdracht uitvoeren met Azure CLI
 
-Geef een opdracht in een actieve container met [az container exec] [ az-container-exec] in de [Azure CLI][azure-cli]:
+Een opdracht uitvoeren in een container die wordt uitgevoerd met [az container exec] [ az-container-exec] in de [Azure CLI][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -33,7 +32,7 @@ Als u bijvoorbeeld een Bash-shell in een Nginx-container te starten:
 az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
 ```
 
-In de onderstaande voorbeelduitvoer Bash-shell wordt gestart in een actieve Linux-container, bieden een terminal waarin `ls` wordt uitgevoerd:
+In de onderstaande voorbeelduitvoer de Bash-shell wordt gestart in een actieve Linux-container, zodat er een terminal waarin `ls` wordt uitgevoerd:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
@@ -45,7 +44,7 @@ exit
 Bye.
 ```
 
-In dit voorbeeld wordt de opdrachtprompt in een actieve Nanoserver container gestart:
+In dit voorbeeld wordt de opdrachtprompt geopend in een Nanoserver-container die wordt uitgevoerd:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
@@ -75,9 +74,9 @@ Bye.
 
 ## <a name="multi-container-groups"></a>Groepen met meerdere containers
 
-Als uw [containergroep](container-instances-container-groups.md) heeft meerdere containers, zoals een toepassingscontainer en een ter logboekregistratie, geef de naam van de container waarin u de opdracht met uitvoeren `--container-name`.
+Als uw [containergroep](container-instances-container-groups.md) heeft meerdere containers, zoals een App-container en een sidecar logboekregistratie, geef de naam van de container waarin u de opdracht met uit te voeren `--container-name`.
 
-Bijvoorbeeld, in de containergroep *mynginx* zijn twee containers *nginx-app* en *berichtenlogboek*. Starten van een shell op de *nginx-app* container:
+Bijvoorbeeld, in de containergroep *mynginx* zijn twee containers *nginx-app* en *logger*. Een shell gestart op de *nginx-app* container:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
@@ -85,11 +84,11 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Beperkingen
 
-Azure Containerexemplaren ondersteunt momenteel starten van een enkel proces met [az container exec][az-container-exec], en u niet de opdrachtargumenten doorgeven. Bijvoorbeeld, u opdrachten zoals in niet koppelen `sh -c "echo FOO && echo BAR"`, of het uitvoeren van `echo FOO`.
+Azure Container Instances biedt momenteel ondersteuning voor het starten van een enkel proces met [az container exec][az-container-exec], en u niet de opdrachtargumenten doorgeven. Bijvoorbeeld, u opdrachten, zoals in kan niet koppelen `sh -c "echo FOO && echo BAR"`, of uit te voeren `echo FOO`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over andere hulpprogramma's voor probleemoplossing en veelvoorkomende implementatieproblemen met in [container en implementatie problemen in Azure Containerexemplaren](container-instances-troubleshooting.md).
+Meer informatie over andere hulpprogramma's voor probleemoplossing en veelvoorkomende implementatieproblemen met in [container en de implementatie problemen in Azure Container Instances](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
 [az-container-create]: /cli/azure/container#az-container-create

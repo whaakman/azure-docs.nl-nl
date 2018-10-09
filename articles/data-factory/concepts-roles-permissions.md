@@ -4,7 +4,7 @@ description: Beschrijft de rollen en machtigingen die vereist zijn voor de Data 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10-04/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: cd6e28298b773f466ea317b7217af7709802aa12
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c915c6b102f3aeedb316048fad1c6dc238fa0ad
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817504"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868612"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rollen en machtigingen voor Azure Data Factory
 
@@ -50,6 +50,9 @@ Zie voor meer informatie over deze rol [rol van Inzender Data Factory](../role-b
 ### <a name="resource-manager-template-deployment"></a>Sjabloonimplementatie van Resource Manager
 
 De **Inzender Data Factory** rol, op het niveau van de resource of hoger, kan gebruikers Resource Manager-sjablonen implementeren. Als gevolg hiervan kunnen leden van de rol van Resource Manager-sjablonen gebruiken om zowel data factory's en hun onderliggende resources, met inbegrip van gegevenssets, gekoppelde services, pijplijnen, triggers en integratieruntimes te implementeren. Lidmaatschap van deze rol kiest, kunnen niet de gebruiker andere resources, maar kan maken.
+
+> [!WARNING]
+> Sjabloonimplementatie van Resource Manager-met de **Inzender Data Factory** rol niet verhogen van uw machtigingen. Bijvoorbeeld, als u een sjabloon die wordt gemaakt van een virtuele Azure-machine implementeert en u bent niet gemachtigd om virtuele machines te maken, mislukt de implementatie met een Autorisatiefout.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Aangepaste scenario's en aangepaste rollen
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 29e894b0666b37d32f36b016603fda408e9d2746
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 982bcbb9060a3f29000de2a0487b61dc58e24f6e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161037"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855456"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -26,7 +26,7 @@ De onderstaande tabel bevat een overzicht van de typen inhoud en bestandsindelin
 |Brontype|Inhoudstype| Voorbeelden|
 |--|--|--|
 |URL|Veelgestelde vragen (vaste, met de secties of met een startpagina onderwerpen)|[Veelgestelde vragen over de gewone](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [Veelgestelde vragen over met koppelingen](https://www.microsoft.com/software-download/faq), [Veelgestelde vragen over met onderwerpen startpagina](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC-BESTAND|Veelgestelde vragen over handmatige Product, Brochures, document, Folder-beleid, ondersteuning handleiding gestructureerde QnA, enzovoort.|[Gestructureerd QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [voorbeeld Product Manual.pdf](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [voorbeeld semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [wit paper.pdf voorbeeld](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
+|PDF / DOC-BESTAND|Veelgestelde vragen over handmatige Product, Brochures, document, Folder-beleid, ondersteuning handleiding gestructureerde QnA, enzovoort.|[Gestructureerd QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [voorbeeld Product Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [voorbeeld semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [wit paper.pdf voorbeeld](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
 |Excel|Gestructureerd QnA-bestand (met inbegrip van RTF, HTML ondersteuning)|[Voorbeeld QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Gestructureerd QnA-bestand|[Voorbeeld chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
 
@@ -69,7 +69,7 @@ QnA Maker geeft secties en subsecties en relaties in het bestand op basis van vi
 
 ### <a name="product-manuals"></a>Producthandleidingen
 
-Een handmatige is doorgaans richtlijnen materiaal die wordt meegestuurd met een product. Hiermee wordt de gebruiker wilt instellen, gebruikt, onderhouden en oplossen van het product. Wanneer de QnA Maker een handmatige processen, pakt deze de koppen en subkoppen als vragen en de volgende inhoud als antwoord. Bekijk een voorbeeld [hier](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
+Een handmatige is doorgaans richtlijnen materiaal die wordt meegestuurd met een product. Hiermee wordt de gebruiker wilt instellen, gebruikt, onderhouden en oplossen van het product. Wanneer de QnA Maker een handmatige processen, pakt deze de koppen en subkoppen als vragen en de volgende inhoud als antwoord. Bekijk een voorbeeld [hier](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
 
 Hieronder volgt een voorbeeld van een handmatige met een index-pagina en hiërarchische inhoud
 

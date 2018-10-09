@@ -10,12 +10,12 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 1625bb9e9f51f8460db4e7ccbaf6e5eada3f8180
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: fb17e2d8c0ef1df5a6d4965730d3ddd3764d58f5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831056"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868748"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. Het project gebruikmaakt van de gesproken tekst [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al is opgenomen als een verwijzing. 
@@ -26,7 +26,7 @@ Voor dit artikel, moet u een gratis [LUIS] [ LUIS] website-account voor het impo
 In de Azure-portal [maken](luis-how-to-azure-subscription.md#create-luis-endpoint-key) een **Language Understanding** (LUIS)-sleutel. 
 
 ## <a name="import-human-resources-luis-app"></a>Importeren van Human Resources LUIS app
-De intenties en uitingen voor dit artikel zijn van het Human Resources LUIS-app beschikbaar is via de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download de [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) bestand opslaan met de extensie *.json en [importeren](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
+De intenties en uitingen voor dit artikel zijn van het Human Resources LUIS-app beschikbaar is via de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download de [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) bestand opslaan met de `.json` -extensie en [importeren](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
 
 Deze app heeft intenties en entiteiten uitingen met betrekking tot het Human Resources-domein. Voorbeeld-uitingen zijn onder andere:
 
@@ -68,52 +68,24 @@ De spraak-SDK is al opgenomen als een verwijzing.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 weergeven Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>De C#-code wijzigen
-Open de **LUIS_samples.cs** bestand en wijzig de volgende variabelen:
+Open de `Program.cs` bestand en wijzig de volgende variabelen:
 
 |De naam van variabele|Doel|
 |--|--|
-|luisSubscriptionKey|Komt overeen met eindpunt-URL abonnementssleutel waarde van de pagina publiceren|
-|luisRegion|Komt overeen met de eerste subdomein eindpunt-URL|
-|luisAppId|Komt overeen met de eindpunt-URL-route te volgen **apps /**|
+|LUIS_assigned_endpoint_key|Komt overeen met de eindpunt-URL's abonnementssleutel waarde vanuit de pagina publiceren toegewezen|
+|LUIS_endpoint_key_region|Komt overeen met de eerste subdomein eindpunt-URL, bijvoorbeeld `westus`|
+|LUIS_app_ID|Komt overeen met de eindpunt-URL-route te volgen **apps /**|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Schermopname van Visual Studio 2017 LUIS_samples.cs variabelen weergeven")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-Het bestand heeft al het Human Resources-intents toegewezen.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "Schermopname van Visual Studio 2017 LUIS_samples.cs intents weergeven")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+De `Program.cs` bestand al heeft het Human Resources-intents toegewezen.
 
 Ontwikkel en voer de app. 
 
 ## <a name="test-code-with-utterance"></a>Testen van code met utterance
-Selecteer **1** en spreek in de microfoon 'Wie is de manager van John Smith'.
+In de microfoon praat "Wie zijn de goedgekeurde tandartsen in Redmond?".
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-De juiste intentie **GetEmployeeOrgChart**, met een betrouwbaarheid van 61% is gevonden. De entiteit keyPhrase is geretourneerd. 
+De juiste intentie **GetEmployeeBenefits**, met een betrouwbaarheid van 85% is gevonden. De entiteit keyPhrase is geretourneerd. 
 
 De SDK spraak retourneert het gehele LUIS-antwoord. 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 001dc4d5057767191003697c5fb819e53a8658f2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719933"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856527"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
 
@@ -28,7 +28,7 @@ Revisoren: Karthik Bharthy
 Met behulp van geschreven: Microsoft Azure BizTalk Services – februari 2014-release.
 
 ## <a name="introduction"></a>Inleiding
-(EDI, Electronic Data Interchange) is een van de meest voorkomende manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B-transacties worden genoemd. BizTalk Server heeft EDI-ondersteuning voor ruim tien jaar na de initiële release van BizTalk Server. Microsoft blijft de ondersteuning voor EDI-oplossingen met BizTalk Services, de op het Microsoft Azure-platform. B2B-transacties worden meestal buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid tot en met BizTalk Services.
+(EDI, Electronic Data Interchange) is een van de meest voorkomende manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B-transacties worden genoemd. BizTalk Server heeft ondersteuning voor meer dan een decennium sinds de release van de eerste BizTalk Server EDI. Microsoft blijft de ondersteuning voor EDI-oplossingen met BizTalk Services, de op het Microsoft Azure-platform. B2B-transacties worden meestal buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid tot en met BizTalk Services.
 
 Hoewel sommige klanten naar BizTalk Services als een 'groen veld'-platform voor het nieuwe EDI-oplossingen kijkt, hebben veel klanten huidige BizTalk Server EDI-oplossingen die ze wilt migreren naar Azure. Omdat EDI van BizTalk Services is ontworpen is op basis van de dezelfde voornaamste entiteiten als BizTalk Server EDI-architectuur (trading partners, entiteiten, overeenkomsten), het mogelijk om te migreren van BizTalk Server EDI-artefacten naar BizTalk Services.
 

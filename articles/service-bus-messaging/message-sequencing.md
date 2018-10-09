@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: a15e726e237bcdbd9d380aaf9232e5d16a2e648f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409132"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857683"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Berichtvolgorde en -timestamps
 
@@ -26,7 +26,7 @@ Sequentiëren en tijdstempel zijn twee functies die altijd zijn ingeschakeld op 
 
 Voor gevallen waarin absolute volgorde van berichten belangrijk is en/of waarin moet een gebruiker een betrouwbare unieke id voor berichten, de broker stempels berichten met een gat gratis, verhogen volgnummer ten opzichte van de wachtrij of onderwerp. Voor gepartitioneerde entiteiten, is het volgnummer uitgegeven ten opzichte van de partitie.
 
-De **SequenceNumber** waarde is een unieke 64-bits geheel getal zijn toegewezen aan een bericht wanneer ze worden geaccepteerd en door de broker en functies als de interne id opgeslagen. Voor gepartitioneerde entiteiten weerspiegelen de bovenste 16 bits de partitie-id. Volgnummers meenemen naar nul wanneer de 48/64-bits-bereik is verbruikt.
+De **SequenceNumber** waarde is een unieke 64-bits geheel getal zijn toegewezen aan een bericht wanneer ze worden geaccepteerd en door de broker en functies als de interne id opgeslagen. Voor gepartitioneerde entiteiten weerspiegelen de bovenste 16 bits de partitie-id. Volgnummers meenemen op nul wanneer het bereik 48/64-bits is verbruikt.
 
 Het volgnummer kan worden vertrouwd als een unieke id omdat deze is toegewezen door een CA-centraal en neutrale en niet door clients. Deze ook vertegenwoordigt de waarde true volgorde van aankomst van en nauwkeuriger is dan een tijdstempel als een criterium volgorde omdat tijdstempels geen een hoog genoeg resolutie extreme bericht tarieven en zijn mogelijk onderhevig aan (maar minimale) tijdsverschil in situaties waar de broker eigendom van omgevingen tussen knooppunten.
 
@@ -50,7 +50,6 @@ Omdat de functie is verankerd op afzonderlijke berichten en berichten kunnen in 
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

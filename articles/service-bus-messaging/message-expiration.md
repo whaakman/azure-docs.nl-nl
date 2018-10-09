@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: c1c38370ae508dffc6888dd7e94514406b8da327
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405263"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856918"
 ---
 # <a name="message-expiration-time-to-live"></a>Verlopen van berichten (Time to Live)
 
@@ -59,7 +59,6 @@ De **autoDeleteOnIdle** eigenschap moet worden ingesteld via een Azure Resource 
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

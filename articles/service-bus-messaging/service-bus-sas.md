@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: d75f8654a33d670f107508b9e91661b1a7719755
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408547"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857870"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -31,7 +31,7 @@ SAS biedt toegang tot Service Bus op basis van regels voor bescherming. Die zijn
 
 Shared Access Signatures zijn een autorisatiemechanisme voor op basis van claims met behulp van eenvoudige-tokens. Met behulp van SAS, sleutels nooit doorgegeven op de kabel. Sleutels worden cryptografisch om informatie te ondertekenen die later kan worden geverifieerd door de service gebruikt. SAS kan worden gebruikt die vergelijkbaar is met een gebruikersnaam en wachtwoord schema waar de client deel uitmaakt van onmiddellijke bezit is van een regelnaam autorisatie en een overeenkomende sleutel. SAS kan ook worden gebruikt die vergelijkbaar is met een federatieve beveiligingsmodel, waar de client een beperkte tijd en ondertekende toegangstoken ontvangt van een service voor beveiligingstokens zonder ooit in bezit is van de ondertekeningssleutel die afkomstig zijn.
 
-SAS-verificatie in Service Bus is geconfigureerd met de naam [autorisatieregels voor gedeelde toegang](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) hebben die zijn gekoppeld aan toegangsrechten en een combinatie van primaire en secundaire cryptografische sleutels. De sleutels zijn 256-bits waarden in Base 64-indeling. U kunt regels configureren op het niveau van de naamruimte voor Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [wachtrijen](service-bus-fundamentals-hybrid-solutions.md#queues), en [onderwerpen](service-bus-fundamentals-hybrid-solutions.md#topics).
+SAS-verificatie in Service Bus is geconfigureerd met de naam [autorisatieregels voor gedeelde toegang](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) hebben die zijn gekoppeld aan toegangsrechten en een combinatie van primaire en secundaire cryptografische sleutels. De sleutels zijn 256-bits waarden in Base 64-indeling. U kunt regels configureren op het niveau van de naamruimte voor Service Bus [relays](../service-bus-relay/relay-what-is-it.md), [wachtrijen](/service-bus-messaging/service-bus-messaging-overview.md#queues), en [onderwerpen](/service-bus-messaging/service-bus-messaging-overview.md#topics).
 
 De [Shared Access Signature](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token bevat de naam van de gekozen autorisatieregel, de URI van de resource die moet worden geopend, een directe, verlopen en een cryptografische handtekening voor HMAC-SHA256 berekend voor deze velden gebruiken de primaire of de secundaire cryptografische sleutel van de gekozen autorisatieregel.
 
@@ -301,7 +301,6 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 
 Zie de volgende onderwerpen voor meer informatie over de Service Bus-berichtenservice
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Service Bus-wachtrijen gebruiken](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

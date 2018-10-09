@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018771"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855422"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
 
@@ -211,7 +211,7 @@ Voor proxy-informatie voor uw gateway, Zie [proxy-instellingen configureren](htt
 > [!NOTE]
 > Met deze opdracht test alleen verbinding met het netwerk en de verbinding met de Azure Service Bus. De opdracht doet niets met de gateway of de gateway-cloudservice die versleutelt en slaat de referenties en -gatewaydetails. 
 >
-> Ook deze opdracht is alleen beschikbaar op Windows Server 2012 R2 of hoger en Windows 8.1 of hoger. In eerdere versies van het besturingssysteem, kunt u Telnet connectiviteit testen. Meer informatie over [Azure Service Bus en hybride oplossingen](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Ook deze opdracht is alleen beschikbaar op Windows Server 2012 R2 of hoger en Windows 8.1 of hoger. In eerdere versies van het besturingssysteem, kunt u Telnet connectiviteit testen. Meer informatie over [Azure Service Bus en hybride oplossingen](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Uw resultaten moeten eruitzien zoals in dit voorbeeld met **TcpTestSucceeded** ingesteld op **waar**:
 
@@ -232,7 +232,7 @@ De firewall ook blokkeren mogelijk de verbindingen die de Azure Service Bus met 
 
 ## <a name="configure-ports"></a>Poorten configureren
 
-De gateway maakt een uitgaande verbinding met [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) en communiceert via uitgaande poorten: TCP 443 (standaard), 5671, 5672, 9350 via 9354. De gateway vereist geen inkomende poorten. Meer informatie over [Azure Service Bus en hybride oplossingen](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+De gateway maakt een uitgaande verbinding met [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) en communiceert via uitgaande poorten: TCP 443 (standaard), 5671, 5672, 9350 via 9354. De gateway vereist geen inkomende poorten. Meer informatie over [Azure Service Bus en hybride oplossingen](../service-bus-messaging/service-bus-messaging-overview.md).
 
 De gateway maakt gebruik van deze volledig gekwalificeerde domeinnamen:
 

@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 65c3fa4c667fdb2d670ff259b190db140b4d968f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803916"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854912"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Aangepaste domeinnamen in uw Azure Active Directory beheren
 
-De naam van een domein is een belangrijk onderdeel van de id voor veel directoryresources: dit maakt deel uit van een gebruikersnaam of e-mailadres voor een gebruiker, onderdeel van het adres voor een groep, en kunnen deel uitmaken van de app-ID-URI voor een toepassing. Een resource in Azure Active Directory (Azure AD) kan een domeinnaam die al is geverifieerd als eigendom van de map waarin de resource bevatten. Alleen een globale beheerder kan domein-beheertaken uitvoeren in Azure AD.
+De naam van een domein is een belangrijk onderdeel van de id voor veel directoryresources: het deel uitmaakt van een gebruikersnaam of e-mailadres voor een gebruiker, onderdeel van het adres voor een groep, en is het soms onderdeel van de app-ID-URI voor een toepassing. Een resource in Azure Active Directory (Azure AD) zijn de domeinnaam van een dat eigendom van de map waarin de resource. Alleen een globale beheerder kan domeinen beheren in Azure AD.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Instellen van de primaire domeinnaam voor uw Azure AD-directory
 
@@ -38,19 +38,19 @@ Wanneer de map wordt gemaakt, wordt de initiële domeinnaam, zoals 'contoso.onmi
   
    ![Een domeinnaam instellen als primaire domeinnaam](./media/domains-manage/make-primary-domain.png)
 
-U kunt de primaire domeinnaam voor uw directory moet een gecontroleerd aangepast domein dat niet is gefedereerd wijzigen. Wijzigen van het primaire domein voor uw directory, worden de gebruikersnamen voor alle bestaande gebruikers niet gewijzigd.
+U kunt de primaire domeinnaam voor uw directory moet een gecontroleerd aangepast domein dat niet is gefedereerd wijzigen. Wijzigen van het primaire domein voor uw directory, niet de naam van de gebruiker voor alle bestaande gebruikers gewijzigd.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Aangepaste domeinnamen toevoegt aan uw Azure AD-tenant
 
-U kunt maximaal 900 beheerde domeinnamen toevoegen. Als u uw domeinen voor federatie met on-premises Active Directory configureren wilt, kunt u zich kan oplopen tot een maximum van 450 domeinnamen in elke map. 
+U kunt maximaal 900 beheerde domeinnamen toevoegen. Als u uw domeinen voor federatie met on-premises Active Directory configureert, kunt u maximaal 450 domeinnamen toevoegen in elke map.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Subdomeinen van een aangepast domein toevoegen
 
-Als u wilt een derde niveau domeinnaam zoals 'europe.contoso.com' toevoegen aan uw directory, moet u eerst toevoegen en controleer of het domein op het tweede niveau, zoals contoso.com. Het subdomein zal automatisch worden gecontroleerd door Azure AD. Als u wilt zien dat het subdomein dat u zojuist hebt toegevoegd is geverifieerd, de pagina in de browser met een lijst met de domeinen te vernieuwen.
+Als u wilt een derde niveau domeinnaam zoals 'europe.contoso.com' toevoegen aan uw directory, moet u eerst toevoegen en controleer of het domein op het tweede niveau, zoals contoso.com. Het subdomein wordt automatisch geverifieerd met Azure AD. Als u wilt zien dat het subdomein dat u hebt toegevoegd is geverifieerd, de domeinlijst in de browser te vernieuwen.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Wat te doen als u de DNS-registratieservice voor uw aangepaste domeinnaam wijzigen
 
-Als u de DNS-registratieservice voor uw aangepaste domeinnaam wijzigt, kunt u echter ook doorgaan met de naam van uw aangepaste domein met Azure AD zelf zonder onderbreking en zonder aanvullende configuratietaken. Als u uw aangepaste domeinnaam met Office 365, Intune of andere services die afhankelijk van aangepaste domeinnamen in Azure AD zijn gebruikt, raadpleegt u de documentatie voor die services.
+Als u de DNS-registrars wijzigt, zijn er geen aanvullende configuratie-taken in Azure AD. U kunt met behulp van de domeinnaam met Azure AD zonder onderbreking. Als u uw aangepaste domeinnaam met Office 365, Intune of andere services die afhankelijk van aangepaste domeinnamen in Azure AD gebruikt zijn, Zie de documentatie voor de services.
 
 ## <a name="delete-a-custom-domain-name"></a>De naam van een aangepast domein verwijderen
 
@@ -83,7 +83,7 @@ Een fout wordt geretourneerd wanneer:
 
 * Het aantal objecten dat moet worden gewijzigd, is groter is dan 1000
 * Een van de toepassingen te worden gewijzigd, is een multitenant-app
-  
+
 ### <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **V: Waarom wordt het domein verwijderen mislukt met een fout met de mededeling dat ik heb onder de knie Exchange-groepen op de domeinnaam van dit?** <br>

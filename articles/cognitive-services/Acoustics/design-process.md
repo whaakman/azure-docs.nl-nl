@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b6bb04d9cec690198de663189dacd41fcbe960eb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: bb3e5010f1839f7b18396cc8e177ed07e52ea98a
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248601"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867629"
 ---
 # <a name="design-process-overview"></a>Overzicht van het ontwerp
 U kunt de bedoeling van uw ontwerp in alle drie fasen van de werkstroom Project akoestische express: vooraf verdient scène setup, gezonde bron plaatsing en na bake ontwerp. Het proces vereist minder markeringen die zijn gekoppeld aan volumes weerklank behoudt designer bepalen hoe een scène geluiden plaatsen.
@@ -37,6 +37,21 @@ Voxels en test weergeven tijdens runtime kan helpen bij het opsporen van problem
 
 De weergave voxel kunt u eenvoudiger bepalen als visuele onderdelen in de game een transformatie is toegepast om ze te hebben. Als dit het geval is, de dezelfde transformatie toepassen op de GameObject die als host fungeert de **akoestische Manager**.
 
+### <a name="voxel-size-discrepancies"></a>Voxel grootte verschillen
+U merkt u wellicht dat de grootte van de voxels gebruikt om te illustreren die van de scène netten deelnemen aan het akoestische bake anders in de ontwerp- en tijdens runtime weergaven is. Dit verschil heeft geen invloed op de kwaliteit/granulatie van de frequentie van de geselecteerde simulatie, maar in plaats daarvan een biproduct over het gebruik van de runtime van de scène voxelized is. Tijdens runtime worden de simulatie voxels "verfijnd' voor de ondersteuning van de interpolatie tussen de bron. Hierdoor kunnen ook ontwerp tijd positionering van geluid bronnen dichter naar het scène-netten dan is toegestaan door de grootte van de simulatie voxel – omdat bronnen binnen een voxel die een acoustically behandeld mesh bevatten geen geluid maakt.
+
+Hier volgen twee afbeeldingen is het verschil tussen voxels ontwerp (vooraf bake) en runtime (na bake) voxels weergegeven als gevisualiseerd door de Unity-invoegtoepassing:
+
+Tijd voxels ontwerpen:
+
+![VoxelsDesignTime](media/VoxelsDesignTime.png)
+
+Runtime-voxels:
+
+![VoxelsRuntime](media/VoxelsRuntime.png)
+
+De beslissing over de wel of niet het net voxel nauwkeurige weergave is van de architectuur/structurele scène netten moet worden gemaakt met behulp van het ontwerp modus voxels, niet de runtime-visualisatie van de verfijnde voxels.
+
 ## <a name="post-bake-design"></a>Na het maken van ontwerp
 Bake resultaten worden opgeslagen in het bestand ACE als bedekking en weerklank parameters voor alle bron-listener locatie sets in de scène. Deze fysiek accuraat resultaat kan worden gebruikt voor het project als- en een goed startpunt voor het ontwerpen van is. Het ontwerpproces voor na bake Hiermee geeft u regels voor het transformeren van de parameters van het resultaat bake tijdens runtime.
 
@@ -53,22 +68,22 @@ Als u wilt aanpassen parameters voor alle bronnen, klikt u op de strook kanaal i
 ![Aanpassing van Mixer](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>Bron parameters afstemmen
-Bezig met koppelen van de **AcousticsDesign** script naar een gegevensbron kunt afstemmen parameters voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische ontwerp**. Het script heeft zes besturingselementen:
+Bezig met koppelen van de **AcousticsAdjust** script naar een gegevensbron kunt afstemmen parameters voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen**. Het script heeft zes besturingselementen:
 
-![AcousticsDesign](media/AcousticsDesign.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Bedekking Factor** -een vermenigvuldiger van toepassing op het niveau van de bedekking dB berekend door het systeem akoestische. Als deze vermenigvuldiger groter dan 1 is, bedekking wordt exaggerated, terwijl waarden minder dan 1 maken het effect van bedekking subtielere en een waarde van 0 schakelt bedekking.
-* **Overdracht (dB)** -de afname (in de database) veroorzaakt door een overdracht via geometrie instellen. Deze schuifregelaar ingesteld op het laagste niveau om uit te schakelen verzending. Akoestische spatializes de initiële droge audio als binnenkomen rond scène geometrie (portaling). Verzending biedt een extra droge aankomst die in de richting van de regel van zicht is spatialized. Houd er rekening mee dat de curve afstand afname van de bron ook wordt toegepast.
-* **Wetness aanpassen (dB)** -de kracht weerklank in dB worden aangepast op basis van de afstand tussen de bron. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge. Klik op het besturingselement met de curve (groene lijn) om de curve-editor. Wijzigen van de curve door te klikken met de linkermuisknop om toe te voegen punten en sleept deze punten om de functie die u wilt. De x-as is afstand van de bron en de y-as is weerklank aanpassing in dB. Raadpleeg deze [Unity handmatig](https://docs.unity3d.com/Manual/EditingCurves.html) voor meer informatie over het bewerken van curven. Als u wilt opnieuw met het instellen van de curve naar de standaard, klik met de rechtermuisknop op **Wetness aanpassen** en selecteer **opnieuw**.
-* **Verval schaal** -Hiermee past u een vermenigvuldiger voor de vervaltijd. Bijvoorbeeld, als het resultaat bake Hiermee geeft u een Vervaltijd van 750 milliseconden, maar deze waarde is ingesteld op 1.5, is de vervaltijd toegepast op de bron 1,125 milliseconden.
 * **Inschakelen van akoestische** -bepaalt of akoestische is toegepast op deze gegevensbron. Wanneer dit selectievakje uitschakelt, wordt de bron spatialized met HRTFs, maar zonder akoestische, wat betekent dat zonder obstakel bedekking en dynamische weerklank parameters zoals niveau en decay tijd. Weerklank wordt nog steeds toegepast met een vaste niveau en de vervaltijd.
-* **Aanpassing van outdoorness** -een-additieve aanpassing op van het systeem akoestische schatting van hoe "buitenshuis' de weerklank op een bron moet geluid. Deze instelling dan op 1 een bron altijd goed volledig buitenshuis, tijdens het instellen op-1 wordt hierdoor een bron geluid binnenshuis.
+* **Bedekking** -een vermenigvuldiger van toepassing op het niveau van de bedekking dB berekend door het systeem akoestische. Als deze vermenigvuldiger groter dan 1 is, bedekking wordt exaggerated, terwijl waarden minder dan 1 maken het effect van bedekking subtielere en een waarde van 0 schakelt bedekking.
+* **Overdracht (dB)** -de afname (in de database) veroorzaakt door een overdracht via geometrie instellen. Deze schuifregelaar ingesteld op het laagste niveau om uit te schakelen verzending. Akoestische spatializes de initiële droge audio als binnenkomen rond scène geometrie (portaling). Verzending biedt een extra droge aankomst die in de richting van de regel van zicht is spatialized. Houd er rekening mee dat de curve afstand afname van de bron ook wordt toegepast.
+* **Wetness (dB)** -de kracht weerklank in dB worden aangepast op basis van de afstand tussen de bron. Positieve waarden moeten een geluid meer reverberant, terwijl u negatieve waarden van een geluid meer droge. Klik op het besturingselement met de curve (groene lijn) om de curve-editor. Wijzigen van de curve door te klikken met de linkermuisknop om toe te voegen punten en sleept deze punten om de functie die u wilt. De x-as is afstand van de bron en de y-as is weerklank aanpassing in dB. Raadpleeg deze [Unity handmatig](https://docs.unity3d.com/Manual/EditingCurves.html) voor meer informatie over het bewerken van curven. Als u wilt opnieuw met het instellen van de curve naar de standaard, klik met de rechtermuisknop op **Wetness** en selecteer **opnieuw**.
+* **Verval schaal** -Hiermee past u een vermenigvuldiger voor de vervaltijd. Bijvoorbeeld, als het resultaat bake Hiermee geeft u een Vervaltijd van 750 milliseconden, maar deze waarde is ingesteld op 1.5, is de vervaltijd toegepast op de bron 1,125 milliseconden.
+* **Outdoorness** -een-additieve aanpassing op van het systeem akoestische schatting van hoe "buitenshuis' de weerklank op een bron moet geluid. Deze instelling dan op 1 een bron altijd goed volledig buitenshuis, tijdens het instellen op-1 wordt hierdoor een bron geluid binnenshuis.
 
-Verschillende bronnen mogelijk verschillende instellingen voor een bepaalde effecten fraaie uiterlijk of spelen. Dialoogvenster is een mogelijke voorbeeld. Het menselijke oor is meer attuned naar weerklank in spraak, terwijl dialoogvenster moet vaak worden begrijpelijke voor spelen. U kunt voor dit account zonder dat het dialoogvenster niet-diegetic door over te stappen de **Wetness aanpassen** naar beneden, passen de **perceptuele afstand verdraaien** parameter hieronder wordt beschreven, toe te voegen sommige **Verzending** voor sommige droge audio boost doorgegeven door de muren en/of vermindering van de **bedekking Factor** van 1 tot en met meer geluid binnenkomen via portals hebben.
+Verschillende bronnen mogelijk verschillende instellingen voor een bepaalde effecten fraaie uiterlijk of spelen. Dialoogvenster is een mogelijke voorbeeld. Het menselijke oor is meer attuned naar weerklank in spraak, terwijl dialoogvenster moet vaak worden begrijpelijke voor spelen. U kunt voor dit account zonder dat het dialoogvenster niet-diegetic door over te stappen de **Wetness** naar beneden, passen de **perceptuele afstand verdraaien** parameter hieronder wordt beschreven, toe te voegen sommige  **Verzending** voor sommige droge audio boost doorgegeven door de muren en/of vermindering van de **bedekking** van 1 tot en met meer geluid binnenkomen via portals hebben.
 
-Bezig met koppelen van de **AcousticsDesignExperimental** script naar een bron zorgt ervoor dat extra parameters voor experimentele afstemmen voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische ontwerp experimentele**. Er is momenteel een experimenteel besturingselement:
+Bezig met koppelen van de **AcousticsAdjustExperimental** script naar een bron zorgt ervoor dat extra parameters voor experimentele afstemmen voor die bron. Als u wilt koppelen het script, klikt u op **onderdeel toevoegen** aan de onderkant van de **Inspector** deelvenster en vervolgens naar **Scripts > akoestische aanpassen experimentele**. Er is momenteel een experimenteel besturingselement:
 
-![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
 * **Perceptuele afstand verdraaien** -toepassing een exponentiële kromtrekken aan de afstand wordt gebruikt voor het berekenen van de testmodus NAT-verhouding. Het systeem akoestische berekent NAT niveaus in de ruimte die variëren probleemloos met afstand en perceptuele afstand aanwijzingen geven. Kromtrekken waarden die groter zijn dan 1 dit effect exaggerate door te verhogen met betrekking tot afstand weerklank niveaus, zodat de geluid "afstand", terwijl minder dan 1 Controleer de weerklank op basis van een afstand van meer subtiele, waardoor het geluid meer wijziging kromtrekken waarden 'presenteren'.
 

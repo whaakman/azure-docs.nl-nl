@@ -2,18 +2,18 @@
 title: bestand opnemen
 description: bestand opnemen
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47390001"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874047"
 ---
 ## <a name="about-vhds"></a>Over VHD's
 
@@ -34,11 +34,11 @@ Voordat u een VHD-bronbestand kunt verwijderen, dient u de lease te verwijderen 
 
 Azure-schijven zijn ontworpen om 99,999% van de tijd beschikbaar te zijn. Azure-schijven hebben dan geavanceerde duurzaamheid, met een toonaangevende Annualized foutpercentage van nul % consistent geleverd.
 
-Er zijn drie prestatielagen voor opslag die u kiezen kunt uit bij het maken van uw schijven--Premium SSD-schijven, Standard-SSD (Preview) en Standard HDD-opslag. Er zijn ook twee soorten schijven, niet-beheerd en beheerd.
+Er zijn drie prestatielagen voor opslag die u kiezen kunt uit bij het maken van uw schijven--Premium SSD-schijven, Standard-SSD en HDD standaardopslag. Er zijn ook twee soorten schijven, niet-beheerd en beheerd.
 
 ### <a name="standard-hdd-disks"></a>Standaard harde schijven
 
-Standaard harde schijven worden ondersteund door HDD's en rendabele opslag bieden. Standard HDD-opslag kan lokaal worden gerepliceerd in één datacenter of kan geografisch redundant met primaire en secundaire datacenters. Zie voor meer informatie over de storage-replicatie, [Azure Storage-replicatie](../articles/storage/common/storage-redundancy.md). 
+Standaard harde schijven worden ondersteund door HDD's en rendabele opslag bieden. Standard HDD-opslag kan lokaal worden gerepliceerd in één datacenter of kan geografisch redundant met primaire en secundaire datacenters. Zie voor meer informatie over de storage-replicatie, [Azure Storage-replicatie](../articles/storage/common/storage-redundancy.md).
 
 Zie voor meer informatie over het gebruik van standaard harde schijven [Standard Storage en schijven](../articles/virtual-machines/windows/standard-storage.md).
 

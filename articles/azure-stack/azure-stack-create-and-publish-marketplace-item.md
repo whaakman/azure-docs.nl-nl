@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 9e579123124615df83483e244ef11810ca590844
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: avishwan
+ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633960"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856443"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Een Marketplace-item maken en publiceren
 
@@ -29,12 +29,15 @@ ms.locfileid: "45633960"
 1. [Download](http://www.aka.ms/azurestackmarketplaceitem) het hulpprogramma Azure-galerie Packager en het voorbeeld van Azure Stack Marketplace-item.
 2. Open het voorbeeld Marketplace-item en wijzig de naam van de **SimpleVMTemplate** map. (Gebruik dezelfde naam als uw Marketplace-item, bijvoorbeeld **Contoso.TodoList**.) Deze map bevat:
    
-       /Contoso.TodoList/
-       /Contoso.TodoList/Manifest.json
-       /Contoso.TodoList/UIDefinition.json
-       /Contoso.TodoList/Icons/
-       /Contoso.TodoList/Strings/
-       /Contoso.TodoList/DeploymentTemplates/
+   ```shell
+   /Contoso.TodoList/
+   /Contoso.TodoList/Manifest.json
+   /Contoso.TodoList/UIDefinition.json
+   /Contoso.TodoList/Icons/
+   /Contoso.TodoList/Strings/
+   /Contoso.TodoList/DeploymentTemplates/
+   ```
+
 3. [Een Azure Resource Manager-sjabloon maken](../azure-resource-manager/resource-group-authoring-templates.md) of kies een sjabloon in GitHub. De Marketplace-item maakt gebruik van deze sjabloon om een resource te maken.
 
     > [!Note]  
@@ -52,22 +55,30 @@ ms.locfileid: "45633960"
 8. In de **manifest.json** bestand, wijzig de **naam** op de naam van uw Marketplace-item. Ook wijzigen **publisher** aan uw naam of het bedrijf.
 9. Onder **artefacten**, wijzigen **naam** en **pad** naar de juiste gegevens voor de Azure Resource Manager-sjabloon die u hebt opgenomen.
    
-         "artifacts": [
-            {
-                "name": "Type your template name",
-                "type": "Template",
-                "path": "DeploymentTemplates\\Type your path",
-                "isDefault": true
-            }
+   ```json
+   "artifacts": [
+      {
+          "name": "Type your template name",
+          "type": "Template",
+          "path": "DeploymentTemplates\\Type your path",
+          "isDefault": true
+      }
+   ```
+
 10. Vervang **mijn Marketplace-Items** met een lijst van de categorieën waar uw Marketplace-item moet worden weergegeven.
     
-             "categories":[
-                 "My Marketplace Items"
-              ],
+   ```json
+   "categories":[
+   "My Marketplace Items"
+   ],
+   ```
+
 11. Raadpleeg voor alle verdere wijzigingen aan manifest.json [verwijzing: Marketplace-item manifest.json](#reference-marketplace-item-manifestjson).
 12. Als u wilt de mappen in een bestand .azpkg inpakken, open een opdrachtprompt en voer de volgende opdracht uit:
     
-        AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```shell
+   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```
     
     > [!NOTE]
     > Het volledige pad naar de uitvoer-pakket moet bestaan. Bijvoorbeeld, als het uitvoerpad C:\MarketPlaceItem\yourpackage.azpkg is, moet de map C:\MarketPlaceItem bestaan.
@@ -79,8 +90,10 @@ ms.locfileid: "45633960"
 2. Controleer of uw PowerShell-sessie met uw beheerdersreferenties voor de service is ingesteld op de client virtuele machine in de Microsoft Azure Stack-omgeving. U vindt instructies voor het verifiëren van PowerShell in Azure Stack in [implementeren van een sjabloon met PowerShell](user/azure-stack-deploy-template-powershell.md).
 3. Bij het gebruik [PowerShell 1.3.0]( azure-stack-powershell-install.md) of hoger, kunt u de **toevoegen AzsGalleryItem** PowerShell-cmdlet op de Marketplace-item publiceren naar Azure Stack. Voordat u met behulp van PowerShell 1.3.0, gebruikt u de cmdlet **toevoegen AzureRMGalleryitem** in plaats van **toevoegen AzsGalleryItem**.  Bijvoorbeeld, wanneer het gebruik van PowerShell 1.3.0 of hoger:
    
-       Add-AzsGalleryItem -GalleryItemUri `
-       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```powershell
+   Add-AzsGalleryItem -GalleryItemUri `
+   https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```
    
    | Parameter | Beschrijving |
    | --- | --- |
@@ -102,7 +115,9 @@ ms.locfileid: "45633960"
 
 6. U kunt een Marketplace-item verwijderen met behulp van de **Remove-AzureRMGalleryItem** cmdlet. Voorbeeld:
    
-        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```powershell
+   Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```
    
    > [!NOTE]
    > De Marketplace-gebruikersinterface kan een fout worden weergegeven na het verwijderen van een item. De fout te verhelpen, klikt u op **instellingen** in de portal. Selecteer **wijzigingen negeren** onder **Portal aanpassing**.

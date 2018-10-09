@@ -2,18 +2,17 @@
 title: Update-containers in Azure Container Instances
 description: Informatie over het bijwerken van de actieve containers in uw Azure Container Instances-container-groepen.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432613"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854538"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Update-containers in Azure Container Instances
 
@@ -23,7 +22,7 @@ Tijdens normale werking van uw containerinstanties merkt u misschien het die nod
 
 De containers in een containergroep bijwerken door een bestaande groep met ten minste één aangepaste eigenschap opnieuw te implementeren. Wanneer u een containergroep bijwerkt, alle actieve containers in de groep opnieuw worden gestart in-place.
 
-Opnieuw implementeren van een bestaande containergroep met behulp van de opdracht create (of gebruik de Azure-portal) en geef de naam van een bestaande groep. Ten minste één geldige eigenschap van de groep wijzigen wanneer u de opdracht maken voor het activeren van het opnieuw implementeren. Niet alle eigenschappen van container-groep zijn geldig voor opnieuw implementeren. Zie [eigenschappen waarvoor verwijderen](#properties-that-require-delete) voor een lijst van niet-ondersteunde eigenschappen.
+Opnieuw implementeren van een bestaande containergroep met behulp van de opdracht create (of gebruik de Azure-portal) en geef de naam van een bestaande groep. Ten minste één geldige eigenschap van de groep wijzigen wanneer u de opdracht maken voor het activeren van het opnieuw implementeren. Niet alle eigenschappen van container-groep zijn geldig voor opnieuw implementeren. Zie [eigenschappen waarvoor verwijderen](#properties-that-require-container-delete) voor een lijst van niet-ondersteunde eigenschappen.
 
 De volgende Azure CLI-voorbeeld werkt bij een containergroep met een nieuwe DNS-naamlabel. Omdat de labeleigenschap van DNS-naam van de groep is gewijzigd, de containergroep is geïmplementeerd en de containers opnieuw gestart.
 

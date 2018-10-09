@@ -2,18 +2,17 @@
 title: Verwijderen van de installatiekopie van resources in Azure Container Registry
 description: Informatie over hoe u effectief registergrootte beheren door gegevens van container-installatiekopie te verwijderen.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/27/2018
-ms.author: marsma
-ms.openlocfilehash: 6ab667a01eddd84d1145868a3ae499e7497035c9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: danlep
+ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265593"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857768"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Verwijderen van installatiekopieën van containers in Azure Container Registry
 
@@ -188,7 +187,7 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-Daarna geeft u de samenvatting die u verwijderen wilt de [az acr repository delete] [ az-acr-repository-delete] opdracht. De indeling van de opdracht is:
+Daarna geeft u de samenvatting die u verwijderen wilt de [az acr repository delete] [ az-acr-repository-delete] opdracht. De indeling van de opdracht is als volgt:
 
 ```azurecli
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>

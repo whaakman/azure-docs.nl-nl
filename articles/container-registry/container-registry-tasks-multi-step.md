@@ -2,17 +2,17 @@
 title: Installatiekopie bouwen, testen en patchen met Azure Container Registry WebTest met meerdere stappen taken automatiseren
 description: Een WebTest met meerdere stappen inleiding taken, een functie van de ACR-taken in Azure Container Registry waarmee werkstromen op basis van een taak voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: b88fbf927cff51d78d95ed9501921d528b22b455
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047400"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856714"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>WebTest met meerdere stappen bouwen, testen en patch-taken uitvoeren in de ACR-taken
 

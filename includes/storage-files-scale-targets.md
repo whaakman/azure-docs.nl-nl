@@ -1,4 +1,4 @@
-| Resource | Standard-bestandsshares shares | Premium-bestandsshares (preview) |
+| Resource | Standard-bestandsshares | Premium-bestandsshares (preview) |
 |----------|---------------|------------------------------------------|
 | Minimale grootte van een bestandsshare | (geen minimum; betalen) | 100 GiB |
 | Maximale grootte van een bestandsshare | 5 TiB | 5 TiB |

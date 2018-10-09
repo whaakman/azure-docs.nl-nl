@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4c9b2099308bc6a239a72fe2ebe559cdfa2fd3a1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/05/2018
+ms.openlocfilehash: 343782448d4b508e678108ece268f2ce57b6ac1d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064217"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868136"
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Bescherming van gevoelige gegevens in SQL-Database en uw versleutelingssleutels opslaan in het Windows-certificaatarchief
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in het Windows-certificaatarchief
 
 Dit artikel leest u over het beveiligen van gevoelige gegevens in een SQL-database waarvoor versleuteling van de database met behulp van de [Wizard altijd versleuteld](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Deze ook wordt beschreven hoe u uw versleutelingssleutels opslaan in het Windows-certificaatarchief.
 

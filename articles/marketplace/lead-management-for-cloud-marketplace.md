@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: v-yijong
-ms.openlocfilehash: d484452e03110a71933f3c503f5bd06c93aac68c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.date: 10/05/2018
+ms.author: yijenj
+ms.openlocfilehash: 47333a7b5ad7d76ee8bbac19884ba8246eadc05e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047370"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855779"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -56,6 +56,42 @@ Nadat u de bestemming lead correct is geconfigureerd en publiceren van uw aanbie
 
 Zodra de technische instellen ingesteld is, moet u deze leads opnemen in uw huidige verkoop en marketing strategie en operationele processen. We zijn geïnteresseerd in een beter inzicht in uw totale verkoopproces en willen werken nauw samen met u op het bieden van leads van hoge kwaliteit en voldoende gegevens bijdragen aan uw succes. We stellen uw feedback over hoe we kunt optimaliseren en verbeteren van de leads sturen we u met extra gegevens om u te helpen deze klanten geslaagd. Laat het ons weten als u geïnteresseerd bent in geven van feedback en suggesties om in te schakelen van uw verkoopteam meer successen te behalen met Marketplace leidt.
 
+
+
+## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Veelvoorkomende fouten in de lead configuratie tijdens het publiceren op de cloud partner-portal 
+
+**Kan de lead aan Dynamics CRM niet opslaan. Controleer de instellingen van Dynamics CRM-account. LastCRMError: Kan niet aanmelden bij Dynamics CRM, LastCRMException:** 
+
+> Als de O365-verificatie is geselecteerd, controleert u of de gebruikersaccount en het wachtwoord geldig is. Als AAD is geselecteerd, controleert u als de tenant-ID, toepassings-ID en toepassing geheime sleutel overeenkomt met wat is ingesteld op AAD. Volg de instructies [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Als het account van de gebruikersnaam en wachtwoord geldig is, Controleer of er toegang tot Dynamics 365 en heeft een licentie toegewezen (stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office). 
+
+ 
+**Kan de lead aan Dynamics CRM niet opslaan. Gebruikers hebben maakt geen machtigingen voor het kenmerk leadsourcecode in de entiteit lead** 
+
+> De toepassing/gebruiker, security-rollen zijn naar Microsoft Marketplace lead writer ontbreekt. Volg de stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
+
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Tenant is niet gevonden. Dit exemplaar kan gebeuren als er geen actieve abonnementen voor de tenant zijn.**  
+
+> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
+
+**Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: SecLib::RetrievePrivilegeForUser is mislukt: Er zijn geen rollen zijn toegewezen aan gebruiker.**  
+
+> Oplossing: Beveiligingsrol toewijzen aan de Microsoft Marketplace lead schrijver. Volg de instructies [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) onder beveiligingsinstellingen 
+
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Toepassing met de id is niet gevonden in de map** 
+
+> De toepassings-Id opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 8 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Aangevraagde tenant-id is niet geldig en is niet geldig voor externe domein-indeling** 
+
+> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering:: Valideren van referenties.-fout: ongeldige clientgeheim is opgegeven.** 
+
+> Oplossing: Meld u aan bij Azure Portal, controleert u of de sleutel van de toepassing overeenkomt met wat is er in de Cloud Partner-Portal. Genereer een wachtwoord op basis van de instructie bij stap 10 (onder Azure Active Directory), van [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+
+**Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: De aanvraagkanaal er is een time-out opgetreden tijdens het wachten op een antwoord op een na 00:02:00 uur. Verhoog de time-outwaarde doorgegeven aan het gesprek op aanvraag of vergroot de waarde voor SendTimeout voor de Binding. De tijd die voor deze bewerking wordt toegewezen mogelijk is een deel van een langere time-out.**  
+
+> Oplossing: Aanmelding voor Cloud Partner-Portal, Controleer de details van de winkel >> Lead bestemming >> URL, controleert u of het is een geldige dynamische CRM-exemplaar
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -201,41 +237,3 @@ Vanwege een beleid met PII (persoonlijke informatie), kan niet we gegevens over 
 **Kan ik de Azure Storage (BLOB/tabel) als de bestemming van mijn lead, hoeveel kost het hebt geconfigureerd?** 
 
 Potentiële klanten ALG gegevens laag is (< 1 GB voor bijna alle uitgevers). De kosten afhankelijk van het aantal leads die zijn ontvangen, als 1000 potentiële klanten worden ontvangen in een maand, kost ongeveer 50 cent. 
-
- 
-
-
-## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Veelvoorkomende fouten in de lead configuratie tijdens het publiceren op de cloud partner-portal 
-
-**Kan de lead aan Dynamics CRM niet opslaan. Controleer de instellingen van Dynamics CRM-account. LastCRMError: Kan niet aanmelden bij Dynamics CRM, LastCRMException:** 
-
-> Als de O365-verificatie is geselecteerd, controleert u of de gebruikersaccount en het wachtwoord geldig is. Als AAD is geselecteerd, controleert u als de tenant-ID, toepassings-ID en toepassing geheime sleutel overeenkomt met wat is ingesteld op AAD. Volg de instructies [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Als het account van de gebruikersnaam en wachtwoord geldig is, Controleer of er toegang tot Dynamics 365 en heeft een licentie toegewezen (stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office). 
-
- 
-**Kan de lead aan Dynamics CRM niet opslaan. Gebruikers hebben maakt geen machtigingen voor het kenmerk leadsourcecode in de entiteit lead** 
-
-> De toepassing/gebruiker, security-rollen zijn naar Microsoft Marketplace lead writer ontbreekt. Volg de stappen 11-15 als met Azure Active Directory of beveiligingsinstellingen als een gebruiker van Office [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
-
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Tenant is niet gevonden. Dit exemplaar kan gebeuren als er geen actieve abonnementen voor de tenant zijn.**  
-
-> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
-
-**Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: SecLib::RetrievePrivilegeForUser is mislukt: Er zijn geen rollen zijn toegewezen aan gebruiker.**  
-
-> Oplossing: Beveiligingsrol toewijzen aan de Microsoft Marketplace lead schrijver. Volg de instructies [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) onder beveiligingsinstellingen 
-
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Toepassing met de id is niet gevonden in de map** 
-
-> De toepassings-Id opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 8 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzonderingen:: Aangevraagde tenant-id is niet geldig en is niet geldig voor externe domein-indeling** 
-
-> De map-Id die is opgegeven in de beheersectie lead is geen geldige map. Zorg voor de map-Id op basis van de instructies in stap 2 (onder Azure Active Directory, uit [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Kan de lead aan Dynamics CRM met behulp van AAD niet opslaan. Uitzondering:: Valideren van referenties.-fout: ongeldige clientgeheim is opgegeven.** 
-
-> Oplossing: Meld u aan bij Azure Portal, controleert u of de sleutel van de toepassing overeenkomt met wat is er in de Cloud Partner-Portal. Genereer een wachtwoord op basis van de instructie bij stap 10 (onder Azure Active Directory), van [hier](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
-
-**Kan de lead aan Dynamics CRM niet opslaan. LastCRMError: De aanvraagkanaal er is een time-out opgetreden tijdens het wachten op een antwoord op een na 00:02:00 uur. Verhoog de time-outwaarde doorgegeven aan het gesprek op aanvraag of vergroot de waarde voor SendTimeout voor de Binding. De tijd die voor deze bewerking wordt toegewezen mogelijk is een deel van een langere time-out.**  
-
-> Oplossing: Aanmelding voor Cloud Partner-Portal, Controleer de details van de winkel >> Lead bestemming >> URL, controleert u of het is een geldige dynamische CRM-exemplaar

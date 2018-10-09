@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e3745efdd0d0ea159afcda177c306f5865ac2aad
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366831"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857904"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
-WORMGATEN is het eindtotaal Unified Bootloader. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere. 
+WORMGATEN is het eindtotaal Unified Bootloader. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere.
 
 Modus voor één gebruiker is een minimale omgeving met een minimale functionaliteit. Kan het nuttig zijn voor het onderzoeken van opstartproblemen bij, bestandssysteem problemen of netwerkproblemen. Minder services kunnen worden uitgevoerd op de achtergrond en, afhankelijk van de (uitvoeringsniveau), een bestandssysteem kan niet ook worden automatisch gekoppeld.
 
-Modus voor één gebruiker is ook handig in situaties waar uw virtuele machine kan alleen worden geconfigureerd om te accepteren van SSH-sleutels om aan te melden. In dit geval wordt u mogelijk modus voor één gebruiker gebruiken om te maken van een account met wachtwoordverificatie. 
+Modus voor één gebruiker is ook handig in situaties waar uw virtuele machine kan alleen worden geconfigureerd om te accepteren van SSH-sleutels om aan te melden. In dit geval wordt u mogelijk modus voor één gebruiker gebruiken om te maken van een account met wachtwoordverificatie.
 
 Om in te voeren modus voor één gebruiker, moet u WORMGATEN invoeren wanneer uw virtuele machine wordt opgestart, en de configuratie van de opstartinstallatiekopie in WORMGATEN wijzigen. Dit kan worden gedaan met de seriële console van de virtuele machine.
 

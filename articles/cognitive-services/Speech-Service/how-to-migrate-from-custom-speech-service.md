@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: b5f23cf5a9dc3a675d9103bb32f686d387fda837
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 4b5d0b66c4d39320a082cb9e76252bfc00db6c3a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239931"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854132"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migreren van de Custom Speech service naar de Speech-service
 
@@ -48,7 +48,7 @@ Het prijsmodel is eenvoudiger, verplaatsen naar een prijsmodel op basis van een 
 
 ## <a name="migration-for-existing-customers"></a>Migratie voor bestaande klanten
 
-Bestaande klanten zijn vereist voor het migreren van hun bestaande resource sleutels naar de nieuwe service in de portal Speech-Service. Voer de volgende stappen uit: 
+Bestaande klanten zijn vereist voor het migreren van hun bestaande resource-sleutels met de spraak-service op de Spraakservice-portal. Voer de volgende stappen uit: 
 
 > [!NOTE] 
 > Resource-sleutels kunnen alleen worden gemigreerd binnen dezelfde regio. 

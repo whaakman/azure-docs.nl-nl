@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 08a90811356f508eebfed9f88500a694f2fbd83e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407124"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853518"
 ---
 # <a name="topic-filters-and-actions"></a>Onderwerpfilters en acties
 
@@ -56,7 +56,6 @@ Routering worden filters gebruikt om berichten te verdelen tussen onderwerpabonn
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [SQLFilter-syntaxis](service-bus-messaging-sql-filter.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

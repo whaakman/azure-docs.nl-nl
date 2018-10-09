@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: 1bcaceb0f4d96b66d7fd25b1733b3f505316fe5a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/05/2018
+ms.openlocfilehash: 660252c987c06a7afd8974a65cd57009b4973a25
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830552"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868289"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database aanschaffen van modellen
 
@@ -39,9 +39,9 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 
 ![prijsmodel](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>op vCore gebaseerde aankoopmodel 
+## <a name="vcore-based-purchasing-model"></a>Op vCore gebaseerd aanschafmodel 
 
-Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#standardgeneral-purpose-availability) en [bedrijfskritiek](sql-database-high-availability.md#premiumbusiness-critical-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [ beheerde exemplaren](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). Voor individuele databases, u kunt ook de [grootschalige (preview)](sql-database-service-tier-hyperscale.md) servicelaag.
+Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties en fysieke kenmerken van hardware (bijvoorbeeld aantal kernen, geheugen, opslagruimte). De vCore-aanschafmodel biedt de flexibiliteit, controle, transparantie van afzonderlijke resources en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u rekenkracht, geheugen en opslag op basis van hun behoeften workload kiezen. In het op vCore gebaseerde aankoopmodel, kunt u kiezen tussen [algemeen](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) en [bedrijfskritiek](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md), [ beheerde exemplaren](sql-database-managed-instance.md), en [elastische pools](sql-database-elastic-pool.md). Voor individuele databases, u kunt ook de [grootschalige (preview)](sql-database-service-tier-hyperscale.md) servicelaag.
 
 Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresources kiest, overeenkomt met de on-premises prestaties en optimaliseren van de prijs. In het op vCore gebaseerde aankoopmodel betalen klanten voor:
 

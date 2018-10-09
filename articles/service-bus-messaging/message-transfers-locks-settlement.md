@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: 73143c8c79da609099d562f8cc6c588fe6dc08c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1835e26f67427f84abd8a3cf24ad196fec8e99d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410048"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854419"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Berichten overdragen, vergrendelen en verwerken
 
@@ -126,7 +126,6 @@ De typische mechanisme voor het identificeren van dubbele bericht leveringen is 
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

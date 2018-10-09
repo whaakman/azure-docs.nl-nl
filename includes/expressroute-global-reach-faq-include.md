@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 343bd2bc4f0e875c84ddb69ea064e30f3f7671c4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060876"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874063"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Wat is ExpressRoute globaal bereik?
 
@@ -35,13 +35,13 @@ Met ExpressRoute kunt connectiviteit vanuit uw on-premises netwerk naar Microsof
 
 Globaal bereik van ExpressRoute wordt ondersteund in de volgende landen. De ExpressRoute-circuits moeten worden gemaakt op de peering locaties in die landen.
 
-* Verenigde Staten
-* Verenigd Koninkrijk
+* Australië
 * Hongkong
 * Ierland
-* Nederland
 * Japan
-
+* Nederland
+* Verenigd Koninkrijk
+* Verenigde Staten
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Ik heb meer dan twee on-premises netwerken, elk verbonden met een ExpressRoute-circuit. Kan ik inschakelen globaal bereik van ExpressRoute al mijn on-premises netwerken met elkaar verbinden?
 

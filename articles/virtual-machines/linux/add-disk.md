@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 93ff349eb14823784ca574a70279cd623c720872
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949210"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853722"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Een schijf toevoegen aan een virtuele Linux-machine
 Dit artikel ziet u hoe u een permanente schijf koppelen aan uw virtuele machine zodat u kunt uw gegevens - behouden, zelfs als uw virtuele machine is ingericht vanwege onderhoud vergroten of verkleinen. 
@@ -169,7 +169,7 @@ sudo mount /dev/sdc1 /datadrive
 Om ervoor te zorgen dat het station na het opnieuw opstarten automatisch wordt gekoppeld, moet deze worden toegevoegd aan de */etc/fstab* bestand. Het is ook ten zeerste aanbevolen dat de UUID (Universally Unique IDentifier) wordt gebruikt in */etc/fstab* om te verwijzen naar de schijf in plaats van alleen de naam van het apparaat (zoals */dev/sdc1*). Als het besturingssysteem wordt een fout gedetecteerd tijdens het opstarten, voorkomt met behulp van de UUID de onjuiste schijf is gekoppeld aan een bepaalde locatie. Resterende gegevensschijven kan vervolgens worden toegewezen die dezelfde apparaat-id's. Als u zoekt de UUID van het nieuwe station, gebruiken de `blkid` hulpprogramma:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 De uitvoer lijkt op het volgende voorbeeld:

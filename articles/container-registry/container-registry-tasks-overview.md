@@ -2,17 +2,17 @@
 title: OS- en framework patchen met taken van Azure Container Registry (ACR-taken) automatiseren
 description: Een inleiding tot het ACR-taken, een reeks functies in Azure Container Registry beveiligde biedt, geautomatiseerde build van container-installatiekopie en patching uit handen in de cloud.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: 3ba08a0c2422adcd987fa6ed601b666106e8503c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047423"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855751"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>OS- en framework patchen met ACR taken automatiseren
 
@@ -76,7 +76,7 @@ Meer informatie over het besturingssysteem en framework patching uit handen in d
 > [!NOTE]
 > Basisinstallatiekopie builds van de trigger wordt alleen bijgewerkt wanneer zowel de basisklassen en toepassing afbeeldingen bevinden zich in dezelfde Azure container registry, of de base bevindt zich in een openbare Docker Hub-opslagplaats.
 
-## <a name="multi-step-tasks-preview"></a>WebTest met meerdere stappen taken (preview)
+## <a name="multi-step-tasks-preview"></a>Taken met meerdere stappen (preview)
 
 WebTest met meerdere stappen taken, een preview-functie van de ACR-taken, biedt op basis van een stap taakdefinitie en kan worden uitgevoerd voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke container-installatiekopie bouwen en push-bewerkingen. Ze kunnen ook de uitvoering van een of meer containers, met elke stap met behulp van de container als de uitvoeringsomgeving definiëren.
 

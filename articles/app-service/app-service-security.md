@@ -1,7 +1,7 @@
 ---
 title: Beveiliging in Azure App Service en Azure Functions | Microsoft Docs
 description: Meer informatie over het hoe App Service beveiligd helpt uw app en hoe u verder kunt uw app tegen bedreigingen kunt vergrendelen.
-keywords: Azure appservice, web-app, mobiele Apps, api-app, functie-app, beveiliging, veilige, beveiligd, naleving, voldoen aan het beleid, certificaten, certificaten, https, ftps, tls, vertrouwen, codering, versleutelen, versleuteld, ip-beperking, verificatie, autorisatie, authn, autho, MSI-bestand, beheerde service-identiteit, geheimen, geheim, patches, patch, patches, versie, isolatie, netwerkisolatie, ddos, mitm
+keywords: Azure appservice, web-app, mobiele Apps, api-app, functie-app, beveiliging, veilige, beveiligd, naleving, voldoen aan het beleid, certificaten, certificaten, https, ftps, tls, vertrouwen, codering, versleutelen, versleuteld, ip-beperking, verificatie, autorisatie, authn, autho, MSI-bestand, beheerde service-identiteit, beheerde identiteit, geheimen, geheim, patches, patch, patches, versie, isolatie, netwerkisolatie, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382113"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857496"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Beveiliging in Azure App Service en Azure Functions
 
@@ -69,7 +69,7 @@ App Service-verificatie en autorisatie ondersteuning voor meerdere authenticatio
 
 Verificatie bij een back-endservice, biedt App Service op twee manieren, afhankelijk van uw behoeften:
 
-- **Service-identiteit** -aanmelden bij de externe resource met behulp van de identiteit van de app zelf. App Service kunt u eenvoudig maken een [beheerde service-identiteit](app-service-managed-service-identity.md), die u kunt gebruiken om te verifiëren met andere services, zoals [Azure SQL Database](/azure/sql-database/) of [Azure Key Vault](/azure/key-vault/). Zie voor een zelfstudie voor end-to-end van deze benadering, [Secure Azure SQL Database-verbinding vanuit App Service met behulp van beheerde service-identiteit](app-service-web-tutorial-connect-msi.md).
+- **Service-identiteit** -aanmelden bij de externe resource met behulp van de identiteit van de app zelf. App Service kunt u eenvoudig maken een [beheerde identiteit](app-service-managed-service-identity.md), die u kunt gebruiken om te verifiëren met andere services, zoals [Azure SQL Database](/azure/sql-database/) of [Azure Key Vault](/azure/key-vault/). Zie voor een zelfstudie voor end-to-end van deze benadering, [Secure Azure SQL Database-verbinding vanuit App Service met behulp van een beheerde identiteit](app-service-web-tutorial-connect-msi.md).
 - **On-behalf-of (OBO)** -ervoor gedelegeerde toegang tot externe resources namens de gebruiker. Met Azure Active Directory als de verificatieprovider, kan uw App Service-app uitvoeren gedelegeerde aanmelden bij een externe service, zoals [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) of een externe API-app in App Service. Zie voor een zelfstudie voor end-to-end van deze benadering, [verifiëren en autoriseren van gebruikers end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Verbinding met externe bronnen
@@ -106,13 +106,13 @@ U kunt veilig toegang krijgen tot on-premises bronnen, zoals databases, op drie 
 
 Toepassingsgeheimen, zoals de databasereferenties, API-tokens en persoonlijke sleutels niet worden opgeslagen in uw code of configuratie bestanden. De algemeen geaccepteerde benadering is voor toegang tot deze als [omgevingsvariabelen](https://wikipedia.org/wiki/Environment_variable) met het standaardpatroon in uw taal naar keuze. In App Service, de manier voor het definiëren van omgevingsvariabelen is via [app-instellingen](web-sites-configure.md#app-settings) (en, met name voor .NET-toepassingen, [verbindingsreeksen](web-sites-configure.md#connection-strings)). App-instellingen en verbindingsreeksen worden versleuteld opgeslagen in Azure en ze zijn ontsleuteld alleen voordat wordt opgenomen in het procesgeheugen van uw app wanneer de app wordt gestart. De versleutelingssleutels worden regelmatig gedraaid.
 
-U kunt ook uw App Service-app met integreren [Azure Key Vault](/azure/key-vault/) voor het beheer van geavanceerde geheimen. Door [toegang tot de Key Vault met een beheerde service-identiteit](../key-vault/tutorial-web-application-keyvault.md), uw App Service-app veilig toegang krijgen tot de geheimen die u nodig hebt.
+U kunt ook uw App Service-app met integreren [Azure Key Vault](/azure/key-vault/) voor het beheer van geavanceerde geheimen. Door [toegang tot de Key Vault met een beheerde identiteit](../key-vault/tutorial-web-application-keyvault.md), uw App Service-app veilig toegang krijgen tot de geheimen die u nodig hebt.
 
 ## <a name="network-isolation"></a>Netwerkisolatie
 
 Met uitzondering van de **geïsoleerd** prijscategorie, alle lagen uw apps uitgevoerd op de gedeelde netwerkinfrastructuur in App Service. Bijvoorbeeld, worden het openbare IP-adressen en front-load balancers gedeeld met andere tenants. De **geïsoleerd** laag biedt u volledige netwerkisolatie door het uitvoeren van de apps in een toegewezen [App Service-omgeving](environment/intro.md). Een App Service-omgeving wordt uitgevoerd in uw eigen exemplaar van [Azure Virtual Network](/azure/virtual-network/). Hiermee kunt u: 
 
-- Beperken van toegang tot het netwerk met [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md). 
+- Beperken van toegang tot het netwerk met [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Uw apps via een toegewezen openbare eindpunt, met speciale front-ends fungeren.
 - Interne toepassing via een interne load balancer (ILB), waarmee alleen toegankelijk is vanaf binnen uw Azure Virtual Network kunt leveren. De ILB heeft een IP-adres van uw privé-subnet waarmee de totale isolatie van uw apps vanaf het internet.
 - [Gebruik een ILB achter een web application firewall (WAF)](environment/integrate-with-application-gateway.md). De WAF biedt beveiliging voor uw openbare-toepassingen, zoals DDoS protection, URI filteren en SQL-injectie preventie op ondernemingsniveau.

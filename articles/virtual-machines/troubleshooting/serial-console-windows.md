@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413730"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858006"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -28,8 +28,8 @@ De seriële Console van de virtuele Machine op Azure biedt toegang tot een op te
 
 Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](serial-console-linux.md).
 
-> [!Note] 
-> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële console nog niet beschikbaar in Azure Government or Azure China-clouds.
+> [!NOTE] 
+> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële Console nog niet beschikbaar in Azure Government or Azure China-clouds.
 
  
 
@@ -83,9 +83,12 @@ Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gev
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
 2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 30`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Opnieuw opstarten van het systeem voor het opstartmenu worden ingeschakeld
+
+> [!NOTE] 
+> De time-out die u hebt ingesteld voor het opstartmenu manager worden weergegeven is van invloed op de opstarttijd van uw besturingssysteem in de toekomst. Hoewel het mogelijk aanvaardbaar is voor sommige om toe te voegen een 30 tweede time-out om ervoor te zorgen dat de boot manager zichtbaar zijn via de seriële console, kunnen anderen een kortere time-out wilt. De time-outwaarde op een waarde die u vertrouwd met bent instellen.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Seriële Console voor NMI aanroepen in de Windows-VM's gebruiken
 Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.
@@ -99,7 +102,7 @@ Zie voor meer informatie over het configureren van Windows voor het maken van ee
 ## <a name="disable-serial-console"></a>Seriële Console uitschakelen
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
 
-> [!Note]       
+> [!NOTE]       
 > Als u wilt in- of uitschakelen voor een abonnement op de seriële console, moet u hebt schrijfmachtigingen voor het abonnement. Dit omvat, maar is niet beperkt tot de beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
 ### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen

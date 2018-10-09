@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/05/2018
+ms.openlocfilehash: 1c6fb3660f395e709207e788b4ef648a69cae48d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247716"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868572"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -31,9 +31,9 @@ Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die w
 
 Azure upgrades en patches onderliggende besturingssysteem, stuurprogramma's en SQL Server Database Engine transparant met de minimale uitvaltijd voor eindgebruikers. Azure SQL-Database wordt uitgevoerd op de laatste stabiele versie van SQL Server Database Engine en Windows-besturingssysteem en de meeste van de gebruikers niet ziet dat de upgrades continu worden uitgevoerd.
 
-## <a name="standardgeneral-purpose-availability"></a>Standaard-/ algemeen beschikbaar
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Basic, Standard- en algemene beschikbaarheid van de service tier
 
-Standard beschikbaarheid verwijst naar de SLA van 99,99% dat wordt toegepast in de lagen Basic/Standard/algemeen gebruik. Hoge beschikbaarheid in deze architectuur wordt bereikt door scheiding van reken- en opslaglaag en de replicatie van gegevens in de opslaglaag.
+Standard beschikbaarheid verwijst naar de SLA van 99,99% dat wordt toegepast in de Servicelagen Basic, Standard en algemeen gebruik. Hoge beschikbaarheid in deze architectuur wordt bereikt door scheiding van reken- en opslaglaag en de replicatie van gegevens in de opslaglaag.
 
 De volgende afbeelding ziet vier knooppunten in de standard-architectuur met de gescheiden reken- en storage-lagen.
 
@@ -46,9 +46,9 @@ In het model standard beschikbaarheid zijn er twee lagen:
 
 Wanneer de upgrade van database-engine of -besturingssysteem wordt uitgevoerd, een deel van de onderliggende infrastructuur is mislukt of als een belangrijk probleem wordt gedetecteerd in Sql Server-proces, Azure Service Fabric stateless SQL Server-proces wordt verplaatst naar een andere staatloze compute-knooppunt. Er is een set van ongebruikte knooppunten die wacht op nieuwe compute-service in het geval van failover uitvoeren om het aantal failover-tijd. Gegevens in Azure Storage-laag wordt niet beïnvloed en gegevens/logboekbestanden zijn gekoppeld aan de nieuwe geïnitialiseerde SQL Server-proces. Dit proces garandeert 99,99% beschikbaarheid, maar dat er bepaalde prestatie-invloeden van zware werkbelasting die wordt uitgevoerd vanwege enige tijd en de nieuwe SQL Server-knooppunt van het feit begint met cold cache.
 
-## <a name="premiumbusiness-critical-availability"></a>Beschikbaarheid van Premium/bedrijfskritiek
+## <a name="premium-and-business-critical-service-tier-availability"></a>Premium en bedrijfskritiek laag servicebeschikbaarheid
 
-Premium-beschikbaarheid is ingeschakeld in Premium-laag van Azure SQL Database en het is bedoeld voor intensieve werkbelastingen die invloed op de prestaties vanwege de lopende onderhoudsbewerkingen kunnen tolereren.
+Premium-beschikbaarheid is ingeschakeld in de Servicelagen Premium en bedrijfskritiek van Azure SQL Database en het is bedoeld voor intensieve werkbelastingen die invloed op de prestaties vanwege de lopende onderhoudsbewerkingen kunnen tolereren.
 
 Azure SQL-database in de premium-model, kan worden geïntegreerd reken- en op één knooppunt. Hoge beschikbaarheid in deze architectuur wordt bereikt door middel van replicatie van berekening (SQL Server Database Engine-proces) en opslag (lokaal gekoppelde SSD) in 4 knooppunten geïmplementeerd [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) cluster.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413538"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856340"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -29,7 +29,7 @@ De seriële Console van de virtuele Machine op Azure biedt toegang tot een op te
 Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/serial-console.md).
 
 > [!Note] 
-> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële console nog niet beschikbaar in Azure Government or Azure China-clouds.
+> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële Console nog niet beschikbaar in Azure Government or Azure China-clouds.
 
 
 ## <a name="prerequisites"></a>Vereisten 
@@ -49,7 +49,7 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 
 
 ## <a name="get-started-with-serial-console"></a>Aan de slag met de seriële Console
-Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal 
+Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Zorg ervoor dat u hebt voldaan aan de [vereisten](#prerequisites) hierboven. Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal:
 
   1. De Azure-portal openen
   1. (Deze stap overslaan als de virtuele machine heeft een gebruiker die gebruikmaakt van wachtwoordverificatie) Toevoegen van een gebruiker met verificatie voor gebruikersnaam en wachtwoord door te klikken op de blade 'Wachtwoord opnieuw instellen'

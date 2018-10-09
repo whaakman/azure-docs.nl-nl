@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: spelluru
-ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d4ecbb7101e7b1f0f3dd6978ae7d35bb5066126d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695405"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854929"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Zelfstudie voor Azure WCF Relay REST
 
@@ -561,7 +561,6 @@ Nadat u de oplossing hebt opgebouwd, gaat u als volgt te werk om de toepassing u
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u een toepassing die gebruikmaakt van de Azure Relay-service hebt gemaakt, ziet u de volgende artikelen voor meer informatie:
 
-* [Overzicht van Azure Service Bus-architectuur](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Overzicht van Azure Relay](relay-what-is-it.md)
 * [De WCF relay-service gebruiken met .NET](relay-wcf-dotnet-get-started.md)
 

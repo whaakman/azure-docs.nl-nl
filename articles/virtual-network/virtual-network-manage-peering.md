@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8ce550fcd9756286488d17ac5cad258aaf1682ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bde451a2a01a8baa347f093a1b56525dcead00f3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946850"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855303"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -116,7 +116,7 @@ Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats va
 - Bij het maken van een wereldwijde peering, wordt de gekoppelde virtuele netwerken kunnen bestaan in een openbare cloud van Azure-regio, maar niet in Azure, nationale clouds. U kunt alleen virtuele netwerken in dezelfde regio in nationale clouds koppelen.
 - Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een interne Azure load balancer in een wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met deze communiceren moeten zich in een virtueel netwerk in dezelfde regio. Als de gekoppelde virtuele netwerken zich echter in dezelfde regio bevinden, kunnen resources in beide virtuele netwerken communiceren met de front-end-IP-adres van een interne Azure load balancer in beide virtuele netwerken in de peering.
 - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken. Als u externe gateways gebruiken of gatewayoverdracht toestaan, moet de gekoppelde virtuele netwerken in dezelfde regio.
-- De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, kunnen beide abonnementen worden gekoppeld aan dezelfde of verschillende Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Ondersteuning voor peering tussen virtuele netwerken van abonnementen die zijn gekoppeld aan andere Azure Aztuve Directory-tenants is niet beschikbaar in de Portal. U kunt de CLI, PowerShell of sjablonen gebruiken.
+- De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, kunnen beide abonnementen worden gekoppeld aan dezelfde of verschillende Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Ondersteuning voor peering tussen virtuele netwerken van abonnementen die zijn gekoppeld aan andere Azure Active Directory-tenants is niet beschikbaar in de Portal. U kunt de CLI, PowerShell of sjablonen gebruiken.
 - De virtuele netwerken die u op hetzelfde niveau moeten niet-overlappende IP-adresruimten hebben.
 - U kan niet-adresbereiken aan toevoegen of verwijderen-adresbereiken in de adresruimte van een virtueel netwerk van wanneer een virtueel netwerk is gekoppeld aan een ander virtueel netwerk. Als u wilt toevoegen of verwijderen-adresbereiken, de peering verwijderen, toevoegen of verwijderen van de adresbereiken, maakt u opnieuw de peering. -Adresbereiken aan toevoegen of verwijderen-adresbereiken van virtuele netwerken, Zie [virtuele netwerken beheren](manage-virtual-network.md).
 - U kunt twee virtuele netwerken die zijn geïmplementeerd via Resource Manager of een virtueel netwerk dat is geïmplementeerd via Resource Manager met een virtueel netwerk dat is geïmplementeerd via het klassieke implementatiemodel kunt koppelen. U kunt geen peer-twee virtuele netwerken die zijn gemaakt via het klassieke implementatiemodel. Als u niet bekend met Azure-implementatiemodellen bent, leest de [Azure-implementatiemodellen begrijpen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. U kunt [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) gebruiken om twee virtuele netwerken te koppelen die zijn gemaakt via het klassieke implementatiemodel.

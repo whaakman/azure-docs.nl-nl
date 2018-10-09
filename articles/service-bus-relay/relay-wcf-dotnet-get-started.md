@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701762"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854113"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Het gebruik van Azure Relay WCF relays met .NET
 In dit artikel wordt beschreven hoe u de Azure Relay-service gebruiken. De voorbeelden zijn geschreven in C# en maken gebruik van de WCF-API (Windows Communication Foundation) met extensies die deel uitmaken van de Service Bus-assembly. Zie voor meer informatie over Azure relay, de [overzicht van Azure Relay](relay-what-is-it.md).
@@ -220,7 +220,6 @@ De eindpuntdefinities worden verplaatst naar het bestand App.config. Het volgend
 Nu dat u de basisprincipes van Azure Relay hebt geleerd, volgt u deze koppelingen voor meer informatie.
 
 * [Wat is Azure Relay?](relay-what-is-it.md)
-* [Overzicht van Azure Service Bus-architectuur](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Downloaden van Service Bus-voorbeelden van [Azure-voorbeelden] [ Azure samples] of Raadpleeg de [overzicht van Service Bus-voorbeelden][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

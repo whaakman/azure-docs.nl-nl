@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369330"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858074"
 ---
 VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslagdoorvoer voor grootten die in deze groepering. 
 
@@ -26,6 +26,8 @@ VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Id
 - De Dv3-serie biedt de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor of de meest recente 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor in een configuratie met hyper-threaded, bieden een betere toegevoegde waarde voor de meest algemene doeleinden-werkbelastingen.  Geheugen is (van ~3.5 GiB/vCPU naar 4 GiB/vCPU) uitgevouwen terwijl de schijf en netwerk limieten zijn aangepast op basis van per core om uit te lijnen met de overgang naar hyperthreading is.  De Dv3 heeft niet langer de hoge geheugen-VM-grootten van de D/Dv2-families, die zijn verplaatst naar de nieuwe Ev3-serie.
 
   Voorbeeld van de D-serie van use cases zijn zakelijke toepassingen, relationele databases, caching in geheugen en analytics. 
+  
+- De [DC-serie](#dc-series) is een nieuwe serie van virtuele machines in Azure waarmee u kunt de vertrouwelijkheid en integriteit van uw gegevens beveiligen en code terwijl deze wordt verwerkt in de openbare cloud. Deze machines worden ondersteund door de nieuwste generatie van 3,7 GHz Intel XEON-E - 2176G Processor met SGX technologie. Met de Intel Turbo Boost Technology gaat deze machines 4.7 GHz bereiken. Instanties van DC-serie kunnen klanten toepassingen kunnen ontwikkelen beveiligde enclave op basis van hun code en gegevens beveiligen terwijl deze gebruikt wordt
 
 ## <a name="b-series"></a>B-serie
 
@@ -138,6 +140,7 @@ Premium-opslag: Niet ondersteund
 
 Premium Storage Caching: Niet ondersteund
 
+
 | Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Maximale tijdelijke opslagdoorvoer: IOPS / MBps lezen / MBps schrijven | Maximumaantal gegevensschijven / doorvoer: IOPS | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500               | 2 / 250                 |
@@ -149,6 +152,22 @@ Premium Storage Caching: Niet ondersteund
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500             | 8 / 2000                     |
 
 <br>
+
+
+## <a name="dc-series"></a>DC-serie
+
+Premium Storage: ondersteund
+
+Caching van Premium Storage: ondersteund
+
+
+
+| Grootte          | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+
 
 
 

@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: e878da5f6741b1a4c31874af05b7a37f6dee21df
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 9bcd2ccfc5fb8ddc71d2df178dd214be2a67160d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586220"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856850"
 ---
 # <a name="confidence-score"></a>Betrouwbaarheidsscore
 Wanneer de aanvraag voor een gebruiker wordt vergeleken met een knowledge base, retourneert de QnA Maker relevante antwoorden, samen met een betrouwbaarheidsscore. Deze score geeft aan dat het vertrouwen dat het antwoord de juiste overeenkomst voor de opgegeven gebruiker-query is. 
@@ -70,7 +70,7 @@ Hier ziet u hoe de [publiceren](../How-To/publish-knowledge-base.md) bewerking w
 ## <a name="no-match-found"></a>Er is geen overeenkomst gevonden
 Wanneer er geen goede overeenkomst is gevonden door de kerntechnologie, wordt de betrouwbaarheidsscore van 0,0 of 'Geen' wordt geretourneerd en wordt het standaardantwoord is 'Geen goede treffer gevonden in de KB'. U kunt deze reactie standaard in de bot of toepassing code aanroepen van het eindpunt overschrijven. U kunt ook u kunt ook het antwoord voor overschrijven instellen in Azure en Hiermee wordt de standaardwaarde voor alle knowledge bases geïmplementeerd in een bepaalde QnA Maker-service gewijzigd.
 
-1. Ga naar de [Azure-portal](http://portal.azure.com) en navigeer naar de resourcegroep die de QnA Maker-service die u hebt gemaakt.
+1. Ga naar de [Azure-portal](https://portal.azure.com) en navigeer naar de resourcegroep die de QnA Maker-service die u hebt gemaakt.
 
 2. Klik hier om de **App Service**.
 

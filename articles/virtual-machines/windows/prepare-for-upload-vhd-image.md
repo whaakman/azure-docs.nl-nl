@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/23/2018
+ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: b4787f5b9657afbcedbd3803d6a17af9c8cf9099
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 53c7b2f217e315d473e18da8f134352722229ee0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406988"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855813"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -88,7 +88,7 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
 4. Tijd van Coordinated Universal Time (UTC) instellen voor Windows en het opstarttype van de Windows Time (w32time)-service **automatisch**:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
@@ -96,6 +96,13 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
+    ```
+6. Zorg ervoor dat de omgevingsvariabelen **TEMP** en **TMP** zijn ingesteld op hun standaardwaarden:
+
+    ```PowerShell
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
     ```
 
 ## <a name="check-the-windows-services"></a>De Windows-services controleren
@@ -119,63 +126,63 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbinding met extern bureaublad:
 
 >[!Note] 
->U wordt een foutbericht weergegeven wanneer u de **Set-ItemProperty-pad ' HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services - naam &lt;objectnaam&gt; &lt;waarde&gt;** in deze stappen. Het foutbericht kan veilig worden genegeerd. Het betekent alleen dat het domein dat de configuratie via een Group Policy object niet pusht.
+>U wordt een foutbericht weergegeven wanneer u de **Set-ItemProperty-pad ' HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services - naam &lt;objectnaam&gt; -waarde &lt;waarde&gt;**  in deze stappen. Het foutbericht kan veilig worden genegeerd. Het betekent alleen dat het domein dat de configuratie via een Group Policy object niet pusht.
 >
 >
 
 1. Remote Desktop Protocol (RDP) is ingeschakeld:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord -force
 
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
     ```
    
 2. De RDP-poort juist is ingesteld (standaard poort 3389):
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" 3389 -Type DWord
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
     ```
     Wanneer u een virtuele machine implementeert, worden de standaardregels worden gemaakt op basis van poort 3389. Als u wijzigen van het poortnummer wilt, doet u dat nadat de virtuele machine is geïmplementeerd in Azure.
 
 3. De listener luistert in elke netwerkinterface:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
    ```
 4. De modus voor verificatie op netwerkniveau voor de RDP-verbindingen configureren:
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" 1 -Type DWord
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" -Value 1 -Type DWord -force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -force
      ```
 
 5. Stel de keepalive waarde:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" 1 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" -Value 1  -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
     ```
 6. Opnieuw verbinding maken met:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" 0 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" 0 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" -Value 0 -Type DWord -force
     ```
 7. Beperk het aantal gelijktijdige verbindingen:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" 4294967295 -Type DWord
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
     ```
 8. Als er geen zelfondertekende certificaten die zijn gekoppeld aan de RDP-listener, deze verwijderen:
     
     ```PowerShell
-    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash"
+    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
     ```
     Dit is om ervoor te zorgen dat u verbinding aan het begin maken kunt bij het implementeren van de virtuele machine. U kunt ook bekijkt u deze op een later stadium nadat de virtuele machine is geïmplementeerd in Azure, indien nodig.
 
@@ -193,27 +200,25 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 1. Windows Firewall inschakelen op de drie profielen (domein-, Standard- en openbare):
 
    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile' -name "EnableFirewall" -Value 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\PublicProfile' -name "EnableFirewall" -Value 1 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\Standardprofile' -name "EnableFirewall" -Value 1 -Type DWord
+    Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
    ```
 
 2. Voer de volgende opdracht in PowerShell WinRM toestaan via de drie firewallprofielen (Domain, Private en openbare) en de externe PowerShell-service inschakelen:
    
    ```PowerShell
     Enable-PSRemoting -force
-    netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
-    netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+
+    Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -Enabled True
    ```
 3. De volgende firewallregels waarmee het RDP-verkeer inschakelen:
 
    ```PowerShell
-    netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+    Set-NetFirewallRule -DisplayGroup "Remote Desktop" -Enabled True
    ```   
 4. Bestands- en printerdeling regel inschakelen zodat de virtuele machine op een ping-opdracht in het Virtueelnetwerk reageren kan:
 
    ```PowerShell
-    netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+   Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
 5. Als de virtuele machine onderdeel van een domein is, controleert u de volgende instellingen om ervoor te zorgen dat de voormalige instellingen worden niet hersteld. De AD-beleidsregels die moeten worden gecontroleerd op zijn de volgende:
 
@@ -250,7 +255,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 
     #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-    bcdedit /set {bootmgr} timeout 10
+    bcdedit /set {bootmgr} timeout 5
     bcdedit /set {bootmgr} bootems yes
     bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
@@ -262,20 +267,20 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
     ```powershell
     cmd
 
-    #Setup the Guest OS to collect a kernel dump on an OS crash event
-    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+    # Setup the Guest OS to collect a kernel dump on an OS crash event
+    Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
+    Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
+    Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
 
     #Setup the Guest OS to collect user mode dumps on a service crash event
-    md c:\Crashdumps
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v CrashCount /t REG_DWORD /d 10 /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpType /t REG_DWORD /d 2 /f
+    $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
+    if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
+    New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
+    New-ItemProperty -Path $key -name CrashCount -Type DWord -force -Value 10
+    New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
     sc config WerSvc start= demand
 
     exit
-    
     ```
 4. Controleer of de Windows Management Instrumentation-opslagplaats consistent is. Als u wilt uitvoeren, moet u de volgende opdracht uitvoeren:
 
@@ -408,7 +413,7 @@ De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt a
 *  Nadat de virtuele machine is gemaakt in Azure, wordt u aangeraden dat u het wisselbestand op het stationsvolume 'Tijdelijke plaatsen' om prestaties te verbeteren. U kunt instellen dit als volgt:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
     ```
 Als er een gegevensschijf die is gekoppeld aan de virtuele machine, is de stationsletter van het volume van de tijdelijke schijf doorgaans "D." Deze aanwijzing mogelijk verschillen, afhankelijk van het aantal beschikbare stations en de instellingen die u aanbrengt.
 

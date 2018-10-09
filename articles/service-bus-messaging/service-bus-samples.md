@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 651d58d4cfb654ecef780ef12effbfbf71f7050b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d4b7babe9d8243c5240ab6d7f990bbaa2a6969a2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410031"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854436"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus messaging-voorbeelden
 
@@ -43,5 +43,4 @@ Zie de volgende onderwerpen voor conceptuele overzichten van Service Bus.
 
 * [Overzicht van Service Bus-berichten](service-bus-messaging-overview.md)
 * [Service Bus-architectuur](service-bus-architecture.md)
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8c6736d52ea0854a83bb213077c21946dc23141f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802233"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857428"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -780,11 +780,11 @@ U kunt controleren cloudlagen activiteit op een server met gebeurtenis-ID 9002 9
 <a id="monitor-recall-activity"></a>**Intrekken-activiteit op een server controleren**  
 U kunt controleren intrekken-activiteit op een server met gebeurtenis-ID 9005, 9006, 9007 in het logboek voor telemetrie (te vinden onder logboeken toepassingen en Services\Microsoft\FileSync\Agent in Logboeken). Opmerking: deze gebeurtenissen per uur worden vastgelegd.
 
-- Gebeurtenis-ID 9005 biedt betrouwbaarheid intrekken voor het eindpunt van een server. Bijvoorbeeld: totaal aantal unieke bestanden zijn geopend, totale aantal unieke bestanden met mislukte toegang, enzovoort.
+- Gebeurtenis-ID 9005 biedt betrouwbaarheid van terugroeping voor een servereindpunt. Bijvoorbeeld: totaal aantal unieke bestanden zijn geopend, totale aantal unieke bestanden met mislukte toegang, enzovoort.
 
 - Gebeurtenis-ID 9006 biedt foutverdeling intrekken voor een servereindpunt. Totaal aantal mislukte aanvragen, ErrorCode, enzovoort. Let op: één gebeurtenis wordt geregistreerd per foutcode.
 
-- Gebeurtenis-ID 9007 biedt intrekken prestaties voor het eindpunt van een server. TotalRecallIOSize, TotalRecallTimeTaken, enzovoort.
+- Gebeurtenis-ID 9007 biedt intrekken prestaties voor een servereindpunt. TotalRecallIOSize, TotalRecallTimeTaken, enzovoort.
 
 <a id="files-fail-tiering"></a>**Problemen met bestanden die niet voldoen aan naar tier oplossen**  
 Als bestanden niet naar tier naar Azure Files:

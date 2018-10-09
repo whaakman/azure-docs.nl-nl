@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7a409b1ecdd693a0f28d2303d55a27b177644eb0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249295"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855405"
 ---
 # <a name="bake-acoustics"></a>Akoestische maken
 
@@ -230,25 +230,25 @@ Voor een schatting van wat een bepaalde bake kost, nemen de waarde die wordt wee
 Nadat de bake is voltooid, moet u controleren of de punten voxels en test in de verwachte locaties zijn door het uitvoeren van de runtime-invoegtoepassing. Meer informatie vindt u in [overzicht van het ontwerp voor akoestische](design-process.md).
 
 ## <a name="Local-bake"></a>Lokale bake
-Lokale bake akoestische simulatie op uw eigen lokale PC in plaats van het offloaden naar de Azure Batch compute cluster wordt uitgevoerd. Dit kan een goede optie voor het experimenteren met akoestische zonder een Azure-abonnement, maar houd er rekening mee dat akoestische simulatie rekenintensief veeleisende is en lang, afhankelijk van de grootte van de scène, simulatie configuratie duren kan zijn en onbewerkte de rekenkracht van de computer verwerking.
+Lokale bake akoestische simulatie op uw eigen PC in plaats van het offloaden naar de Azure Batch compute cluster wordt uitgevoerd. Dit kan een goede optie voor het experimenteren met akoestische zonder een Azure-abonnement zijn. Houd er rekening mee dat de simulatie akoestische rekenintensief is zwaar worden belast en lang, afhankelijk van de grootte van de scène, simulatie configuratie en onbewerkte rekenkracht van de computer verwerking duren kan.
 
 ### <a name="minimum-hardware-requirements"></a>Minimale hardwarevereisten
 64-bits Intel-processor met ten minste 8 kerngeheugens en 32 GB aan RAM-geheugen of hoger.
 
-Een voorbeeld: op een 8-core-machine met Intel Xeon E5-1660 @ 3 GHz en 32 GB geheugen-
+Een voorbeeld: op een 8-core-machine met Intel Xeon E5-1660 @ 3 GHz en 32 GB RAM-
 * Kleine scène met 100 tests duurt ~ 2 uur voor een grof bake en een prima oplossing bake ~ 32 uur.
-* Grotere scène met 1000 tests kan maximaal ongeveer 20 uur voor een oplossing met behulp van abrupte en ~ 21 dagen voor een prima oplossing bake duren.
+* Grotere scène met 1000 tests kunt ~ 20 uur duren voor een oplossing met behulp van abrupte en ~ 21 dagen voor een prima oplossing bake.
 
 ### <a name="setup-docker"></a>Docker instellen
 Installeren en configureren van Docker op de computer die de simulatie - verwerkt
 1. Installeer de [Docker toolset](https://www.docker.com/products/docker-desktop).
-2. Instellingen voor Docker start, gaat u naar de opties 'Geavanceerd' en -resources configureren, zoals hieronder wordt weergegeven. ![Docker-resources](media/DockerSettings.png)
-3. Navigeer naar "Gedeelde stations" opties en delen van het station gebruikt voor de verwerking van inschakelen.![DockerDriveSharing](media/DockerSharedDrives.png)
+2. Start de Docker-instellingen, navigeer naar de opties voor 'Geavanceerd' en -resources als u wilt dat met de minste 8 GB RAM-geheugen configureren. De meer CPU's die u kunt toewijzen aan Docker, hoe sneller de bake wordt voltooid. ![Voorbeeld van Docker-instellingen](media/DockerSettings.png)
+3. Ga naar "Gedeelde stations" en delen van het station gebruikt voor de verwerking van inschakelen.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Lokale bake uitvoeren
-1. Klik op de knop op het tabblad Bake 'Voorbereiden lokale verdient' en selecteer de map waarin invoerbestanden en uitvoering van scripts worden opgeslagen. U kunt vervolgens de bake uitvoeren op elke computer, zolang deze voldoet aan de minimale hardwarevereisten en waarop Docker is geïnstalleerd door te kopiëren van de map op de computer.
-2. Start de simulatie met 'runlocalbake.bat'-script dat wordt opgehaald van het Project akoestische Docker-installatiekopie met de toolset die nodig zijn voor de verwerking van de simulatie en start de simulatie. 
-3. Nadat de simulatie is voltooid, moet u het resulterende .ace-bestand kopiëren naar uw Unity-project naar dezelfde locatie die is opgegeven in het tabblad tests. Controleer of de naam van het doelbestand voldoet aan de vereisten voor de Unity door '.bytes' toe te voegen aan de bestandsextensie. De gedetailleerde logboeken voor de simulatie worden opgeslagen in bestand 'AcousticsLog.txt'. Als u problemen ondervindt, kunt u dit bestand om te helpen bij diagnose delen.
+1. Klik op de knop op het tabblad Bake 'Voorbereiden lokale verdient' en selecteer de map waarin de invoerbestanden en de uitvoering van scripts worden opgeslagen. U kunt vervolgens de bake uitvoeren op elke computer, zolang deze voldoet aan de minimale hardwarevereisten en waarop Docker is geïnstalleerd door te kopiëren van de map op de computer.
+2. Start de simulatie met behulp van het script 'runlocalbake.bat'. Dit script wordt het Project akoestische Docker-installatiekopie met de toolset die nodig zijn voor de verwerking van de simulatie ophalen en de simulatie starten. 
+3. Nadat de simulatie is voltooid, moet u het resulterende .ace-bestand kopiëren naar uw Unity-project. Om ervoor te zorgen dat Unity herkent deze als een binair bestand, voegt u ".bytes" aan de bestandsextensie (bijvoorbeeld ' Scene1.ace.bytes'). De gedetailleerde logboeken voor de simulatie worden opgeslagen in "AcousticsLog.txt." Als u problemen ondervindt, kunt u dit bestand om te helpen bij diagnose delen.
 
 ## <a name="Data-Files"></a>Gegevensbestanden
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043223"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867796"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatische online back-up en herstel met Azure Cosmos DB
-Azure Cosmos DB maakt back-ups van al uw gegevens automatisch met regelmatige intervallen. De automatische back-ups worden zonder gevolgen voor de prestaties of beschikbaarheid van uw databasebewerkingen genomen. Uw back-ups apart zijn opgeslagen in een andere storage-service, en deze back-ups wereldwijd voor bescherming tegen regionale rampen zijn gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's wanneer u uw Cosmos DB-container per ongeluk verwijdert en later nodig hebt voor herstel van gegevens of een oplossing voor noodherstel.  
+Azure Cosmos DB maakt back-ups van al uw gegevens automatisch met regelmatige intervallen. De automatische back-ups worden zonder gevolgen voor de prestaties of beschikbaarheid van uw databasebewerkingen genomen. Uw back-ups apart zijn opgeslagen in een andere storage-service, en deze back-ups wereldwijd voor bescherming tegen regionale rampen zijn gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's als u per ongeluk uw Cosmos DB-container verwijdert en herstel van gegevens later nodig.  
 
 In dit artikel begint met een korte samenvatting van de gegevensredundantie en beschikbaarheid in Cosmos DB, en vervolgens besproken back-ups. 
 
@@ -67,14 +67,17 @@ Als u wilt herstellen van uw database vanwege een probleem met gegevens (inclusi
 
 Azure Cosmos DB behoudt de laatste twee back-ups van elke partitie in de databaseaccount. Dit model is geschikt als een container (verzameling van documenten, grafiek en tabel) of een database per ongeluk worden verwijderd omdat een van de laatste versies kan worden hersteld. Echter, in het geval wanneer gebruikers leiden een probleem met beschadigde gegevens tot kunnen, Azure Cosmos DB kunnen zich niet bewust zijn van de beschadigde gegevens en het is mogelijk de beschadiging van de bestaande back-ups mogelijk zijn overschreven. 
 
-Als beschadigd wordt gedetecteerd, kunt u contact op met de database-account en de container informatie met bij benadering de tijd van beschadiging van customer support. Nog een actie die de gebruiker kan doen in het geval van beschadigd (gegevens verwijderen/bijgewerkt) de gebruiker de beschadigde container (verzameling/grafiek/tabel) moet verwijderen, zodat back-ups worden beveiligd met beschadigde gegevens wordt overschreven.  
+Als beschadigd wordt gedetecteerd, moet de gebruiker de beschadigde container (verzameling/grafiek/table) verwijderen zodat back-ups worden beveiligd met beschadigde gegevens wordt overschreven. En bovenal contact op met Microsoft Support en een ticket bij de specifieke aanvraag van ernst 2 verhogen. 
 
 De volgende afbeelding ziet u het maken van de aanvraag voor ondersteuning voor container(collection/graph/table) herstellen via Azure-portal voor het per ongeluk verwijderen of bijwerken van gegevens binnen een container
 
 ![Herstellen van een container voor onjuiste bijwerken of verwijderen van gegevens in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Als het herstellen is voltooid voor dit soort scenario's - gegevens wordt hersteld naar een ander account (met het achtervoegsel van '-hersteld ') en de container. Deze terugzetten wordt niet uitgevoerd in plaats voor een kans dat aan de klant valideren van de gegevens en de gegevens zo nodig verplaatsen. De herstelde container is in dezelfde regio met dezelfde ru's en beleidsregels voor indexering. 
+Als het herstellen is voltooid voor dit soort scenario's - gegevens wordt hersteld naar een ander account (met het achtervoegsel van '-hersteld ') en de container. Deze terugzetten wordt niet uitgevoerd in plaats voor een kans dat aan de klant valideren van de gegevens en de gegevens zo nodig verplaatsen. De herstelde container is in dezelfde regio met dezelfde ru's en beleidsregels voor indexering. Gebruiker die beheerder van abonnement of co-beheerder kan dit herstelde account zien.
 
+
+> [!NOTE]
+> Als u de gegevens voor het oplossen van het probleem te herstellen of alleen voor testdoeleinden, neem van plan bent om ze te verwijderen binnenkort kost zoals de taak wordt uitgevoerd als hersteld containers of een database extra - op basis van de ingerichte doorvoer. 
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u wilt repliceren van uw database in meerdere datacenters, Zie [uw gegevens globaal distribueren met Cosmos DB](distribute-data-globally.md). 

@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 9cba912e99591f175eeff564e8d83e794fb6ad97
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/05/2018
+ms.openlocfilehash: 47a2404361c8ce3f30a0564378857f5a86232a52
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832267"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868090"
 ---
 # <a name="hyperscale-service-tier-preview"></a>Zeer grootschalige servicelaag (preview)
 
 De servicelaag grootschalige in Azure SQL Database is de nieuwste service tier in het op vCore gebaseerde aankoopmodel. Deze servicelaag is een zeer schaalbare opslag en compute-prestatielaag die gebruikmaakt van de Azure-architectuur om te schalen om de opslag en rekenresources voor een Azure SQL-Database aanzienlijk buiten de grenzen beschikbaar voor de algemeen gebruik en het bedrijf Kritieke Servicelagen.
 
 > [!IMPORTANT]
-> Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service tier beschikbare regio's](#available-regions)
+> Zeer grootschalige service-laag is momenteel in openbare preview en beschikbaar is in de beperkte Azure-regio's. Zie voor een regiolijst volledig [grootschalige service beschikbare regio's voor een laag](#available-regions). Wordt niet aanbevolen om nog een productieworkload uitvoert in grootschalige databases. U kunt een grootschalige-database niet bijwerken naar een andere service-laag. Voor test-doeleinden aangeraden u een kopie van de huidige database maken en bijwerken van de kopie naar grootschalige servicelaag.
 > [!NOTE]
 > Zie voor meer informatie over de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel [Servicelagen voor algemeen gebruik en bedrijfskritiek](sql-database-service-tiers-general-purpose-business-critical.md). Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-service-tiers.md).
 > [!IMPORTANT]

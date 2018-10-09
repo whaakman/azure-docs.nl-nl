@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9837316cab503e6ade623e91a41176e6f4bfc84a
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166653"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867647"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universele authenticatie met SQL-Database en SQL Data Warehouse (SSMS-ondersteuning voor MFA)
 Azure SQL Database en Azure SQL Data Warehouse ondersteunt verbindingen van het gebruik van SQL Server Management Studio (SSMS) *Universal verificatie van Active Directory*. 
@@ -56,7 +56,7 @@ Azure AD-gebruikers ondersteund voor Azure AD B2B-scenario's als gastgebruikers 
 - Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [configureren van een Azure SQL Database-firewallregel op serverniveau met de Azure portal](sql-database-configure-firewall-settings.md)  
 - [Azure Active Directory-verificatie configureren en beheren met SQL Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Framework voor Microsoft SQL Server-Gegevenslaagtoepassingen (17.0.0 algemene beschikbaarheid)](https://www.microsoft.com/download/details.aspx?id=55088)  
-- [SQLPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)  
+- [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [Een BACPAC-bestand importeren in een nieuwe Azure SQL-database](../sql-database/sql-database-import.md)  
 - [Een Azure SQL-database exporteren naar een BACPAC-bestand](../sql-database/sql-database-export.md)  
 - C#-interface [IUniversalAuthProvider-Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  

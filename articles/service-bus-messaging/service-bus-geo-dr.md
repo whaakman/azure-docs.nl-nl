@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 8cf21b283053760077ca2903349f0dc5e4cbb9e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392481"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855171"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-noodherstel
 
@@ -121,7 +121,6 @@ U kunt Beschikbaarheidszones inschakelen op nieuwe naamruimten, met behulp van d
 
 Zie voor meer informatie over Service Bus-berichten, de volgende artikelen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

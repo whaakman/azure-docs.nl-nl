@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 16826ddb2dd76629454137f8ae3d9476b0126e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804579"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855269"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regels voor dynamisch lidmaatschap voor groepen in Azure Active Directory
 
@@ -139,6 +139,20 @@ Als u wilt vergelijken van de waarde van een gebruikerskenmerk op basis van een 
 ```
    user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>Met behulp van de - match-operator 
+De **-overeenkomen met** operator wordt gebruikt voor die overeenkomt met een reguliere expressie. Voorbeelden:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David resulteren in waar, aDa wordt geëvalueerd als onwaar.
+
+```
+user.displayName -match ".*vid"
+```
+David resulteert in waar, Da wordt geëvalueerd als onwaar.
 
 ## <a name="supported-values"></a>Ondersteunde waarden
 

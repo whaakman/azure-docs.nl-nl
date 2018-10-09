@@ -12,30 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 0b971535120e51a9aeec7b57da133c6b8db6a09e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 383f16bf0671e0bdec840afe1abe85e37ed32ce2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219406"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855354"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Richtlijnen voor Azure Marketplace-vermelding
 
 Dit document bevat richtlijnen voor vereiste, evenals een controlelijst voor revisoren voor nieuwe aanbiedingen en services die worden vermeld in de Azure Marketplace.
 
-Alle aanbiedingen moeten voldoen aan de 'alle aanbieding "-vereisten. Aanvullende vereisten en controlelijsten zijn opgegeven voor specifieke aanbieding typen, inclusief: biedt met gekoppelde proefversies, consulting biedt, SaaS-apps en containers.
-
-**Zie de aanbevolen aanbieding hier voorbeelden:**
-| Type aanbieding | Koppeling van de aanbieding
-|:--- |:--- |
-| Algemeen | <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=Overview <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-altavault-cloud-integrated-storage-solution?tab=Overview |
-| Proefversie | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/intigua.intigua-agent-manager-trial?tab=Overview |
-| SaaS-apps | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/apptimized.isvtesting?tab=Overview |
-| Containers |https://azuremarketplace.microsoft.com/en-us/marketplace/apps/couchbase.couchbase-server-enterprise-containercouchbase-enterprise-server-container-byol?tab=Overview |
-| Adviesservices | https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/wipro-ltd.cmp-wipro?page=1 |
-
+Alle aanbiedingen moeten voldoen aan de [alle vereisten van de aanbieding](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) hieronder wordt aangegeven. Aanvullende vereisten en controlelijsten zijn opgegeven voor specifieke aanbieding typen, inclusief: aanbiedingen met gekoppeld [proefversies](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS-apps](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [containers](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements), en [consulting biedt](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## <a name="all-listing-requirements"></a>Alle vereisten van de aanbieding
@@ -106,8 +96,6 @@ Alle aanbiedingen moeten voldoen aan de 'alle aanbieding "-vereisten. Aanvullend
 | 10 | Producten | Azure moet worden | |
 | 11 | Land/regio | Zorg ervoor dat land en regio overeenkomsten gekozen valuta | |
 | 12 | Meer informatie  | <br>• Koppelingen aan de onderkant (onder de beschrijving, niet de marketplace-koppelingen aan de linkerkant) leidt tot meer informatie over de oplossing en openbaar beschikbaar en weer te geven correct zijn. <br>• Koppelingen moet een 'beschrijvende naam"hebben en niet worden weergegeven als de bestandsnaam van alle downloads | |
-
-
 
 
 ## <a name="next-steps"></a>Volgende stappen

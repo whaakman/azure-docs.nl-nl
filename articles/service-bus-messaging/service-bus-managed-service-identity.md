@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 90271758e4092a574d3a44deffe42e3c689a31ca
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784855"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857071"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Beheerde identiteiten voor Azure Service Bus-resources 
 
@@ -83,7 +83,6 @@ Als u wilt verzenden of ontvangen van berichten, voer de naam van de naamruimte 
 
 Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
-* [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus-onderwerpen en -abonnementen gebruiken](service-bus-dotnet-how-to-use-topics-subscriptions.md)

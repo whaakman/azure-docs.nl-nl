@@ -5,67 +5,49 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: 1d92f68bbb5e8c001594e4f78f90cb10496aaf29
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984489"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867507"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Licentierichtlijnen voor B2B-samenwerking van Azure Active Directory
 
-Functionaliteit voor Azure AD B2B-samenwerking kunt u gastgebruikers uitnodigen in uw Azure AD-tenant waarmee ze toegang krijgen tot Azure AD-services en andere resources in uw organisatie. Als u wilt toegang bieden tot betaalde Azure AD-functies, wordt in B2B-samenwerking gastgebruikers moeten zijn gelicentieerd met Azure AD-licenties nodig. 
+Met business-to-business (B2B)-samenwerking van Azure Active Directory (Azure AD), kunt u uitnodigen externe gebruikers (of "gastgebruikers") met uw betaalde Azure AD-services. Voor elke Azure AD-licentie die u aan een gebruiker betaalde toewijst, kunt u maximaal vijf gastgebruikers ook kunnen onder de aftrek van de externe gebruiker uitnodigen.
 
-Specifiek:
-* Gratis mogelijkheden van Azure AD zijn beschikbaar voor gastgebruikers zonder aanvullende licenties.
-* Als u toegang bieden tot betaalde Azure AD-functies voor B2B-gebruikers wilt, moet u voldoende licenties voor de ondersteuning van de B2B-gastgebruikers hebben.
-* Een uitnodigende tenant met een betaalde licentie van Azure AD heeft B2B-samenwerking gebruiksrechten voor een aanvullende vijf B2B gastgebruikers uitgenodigd voor de tenant.
-* De klant die eigenaar is van de uitnodigende tenant moet zijn om te bepalen hoeveel B2B-samenwerking gebruikers moeten betaalde Azure AD-mogelijkheden. Afhankelijk van de betaalde Azure AD betaalde functies die u wilt gebruiken voor uw gastgebruikers ook kunnen, moet u genoeg Azure AD hebben gebruikers van B2B-samenwerking in dezelfde 5:1 verhouding-licenties.
+Een gastgebruiker is iemand die geen lid is van uw organisatie of een van de gelieerde ondernemingen van uw organisatie. Gastgebruikers ook kunnen worden gedefinieerd door hun relatie met uw organisatie, niet door de referenties die ze gebruiken voor het aanmelden. In feite kunt een gastgebruiker aan met een externe id of met de referenties die eigendom zijn van uw organisatie ondertekenen.
 
-Een gastgebruiker van B2B-samenwerking wordt toegevoegd als een gebruiker vanuit een partnerbedrijf, niet een werknemer van uw organisatie of een werknemer van een ander bedrijf in uw conglomeraat. Een B2B-Gast-gebruiker kan zich aanmelden met externe referenties of referenties die eigendom zijn van uw organisatie zoals beschreven in dit artikel. 
+Hieronder vindt u *niet* gastgebruikers ook kunnen:
+- Uw werknemers, op locatie opdrachtnemers of onsiteagents
+- Werknemers, op locatie opdrachtnemers of onsiteagents van uw partners
 
-Met andere woorden, B2B-licentieverlening ingesteld niet door de manier waarop de gebruiker wordt geverifieerd, maar in plaats van door de relatie van de gebruiker voor uw organisatie. Als deze gebruikers geen partners zijn, worden ze anders behandeld in de licentievoorwaarden. Ze worden niet beschouwd als een gebruiker B2B-samenwerking voor licentieverlening van toepassing, zelfs als hun UserType is gemarkeerd als "Gast." Ze moeten normaal gesproken worden gelicentieerd op één licentie per gebruiker. Deze gebruikers zijn onder andere:
-* Uw werknemers
-* Aanmelden met gebruikmaking van externe identiteiten personeel
-* Een werknemer van een ander bedrijf in uw conglomeraat
+Gebruikerslicenties voor B2B-Gast wordt automatisch berekend en gerapporteerd op basis van de hoogte-breedteverhouding 1:5. Het is momenteel niet mogelijk om toe te wijzen B2B Gast gebruikerslicenties rechtstreeks naar gastgebruikers.
 
+Er zijn bepaalde situaties waar een gastgebruiker is niet gemeld met behulp van de limiet van 1:5 externe gebruiker. Als een gastgebruiker beschikt al over een betaald Azure AD-licentie in de organisatie van gebruiker, de gebruiker een van de gebruikerslicenties van uw B2B-Gast niet gebruiken. Bovendien gratis Gast kunnen gebruikers met Azure AD-functies met geen aanvullende licentievereisten te voldoen. Gastgebruikers hebben toegang tot Azure AD-functies gratis, zelfs als u geen hebt betaalde Azure AD-licenties. 
 
-## <a name="licensing-examples"></a>Voorbeelden-licentieverlening
-- Een klant wil 100 gebruikers van B2B-samenwerking met de Azure AD-tenant uitnodigen. De klant toegewezen toegangsbeheer en inrichting voor alle gebruikers, maar 50 gebruikers ook vereisen dat MFA en voorwaardelijke toegang. De klant moet aanschaffen 10 licenties voor Azure AD Basic en 10 Azure AD Premium P1-licenties deze B2B-gebruikers correct. Als de klant wil Identity Protection-functies gebruiken met B2B-gebruikers, moeten ze Azure AD Premium P2-licenties de uitgenodigde gebruikers in dezelfde 5:1 verhouding hebben.
-- Een klant heeft 10 werknemers die alle momenteel met Azure AD Premium P1 worden gelicentieerd. Ze willen nu uitnodigen 60 B2B-gebruikers die alle multi-factor authentication (MFA) vereist. De klant moet ten minste 12 Azure AD Premium P1-licenties alle 60 gebruikers van B2B-samenwerking hebben onder de licentieverlening regel 5:1. Omdat ze al 10 Premium P1-licenties voor hun 10 werknemers hebben, maar ze beschikken over rechten om uit te nodigen 50 B2B-gebruikers met Premium P1-functies zoals MFA. In dit voorbeeld moeten ze vervolgens 2 extra Premium P1-licenties aan zodat de resterende 10 B2B-samenwerking gebruikers aanschaffen.
+## <a name="examples-calculating-guest-user-licenses"></a>Voorbeelden: Berekenen van de Gast-gebruikerslicenties
+Zodra u hoeveel gastgebruikers nodig bepalen voor toegang tot uw betaalde Azure AD-services, zorg ervoor dat u hebt voldoende Azure AD betaalde licenties voor gastgebruikers ook kunnen in de vereiste 1:5-verhouding. Hier volgen enkele voorbeelden:
 
-> [!NOTE]
-> Er is geen manier nog het toewijzen van licenties rechtstreeks naar de B2B-gebruikers om in te schakelen van de gebruikersrechten van deze B2B-samenwerking.
+- U wilt uitnodigen 100 gastgebruikers ook kunnen aan uw Azure AD-apps of services, en u wilt toewijzen, toegangsbeheer en inrichting voor alle gastgebruikers. U wilt ook vereisen dat MFA en voorwaardelijke toegang voor deze gastgebruikers 50. Hebt u voor deze combinatie van 10 licenties voor Azure AD Basic en 10 licenties voor Azure AD Premium P1 nodig. Als u van plan bent te Identity Protection-functies met uw gastgebruikers ook kunnen gebruiken, moet u Azure AD Premium P2-licenties in de dezelfde 1:5-verhouding tussen het betrekking hebben op de gastgebruikers.
+- U wilt uitnodigen 60 gastgebruikers die alle MFA, vereist dus u moet ten minste 12 Azure AD Premium P1-licenties hebt. Hebt u 10 werknemers met Azure AD Premium P1-licenties kunnen maximaal 50 gastgebruikers ook kunnen onder de 1:5 verhouding-licentieverlening. U moet twee extra Premium P1-licenties voor 10 extra Gastgebruikers ook kunnen kopen.
 
-De klant die eigenaar is van de uitnodigende tenant moet zijn om te bepalen hoeveel B2B-samenwerking gebruikers moeten betaalde Azure AD-mogelijkheden. Afhankelijk van welke betaalde Azure AD-functies die u wilt gebruiken voor uw gastgebruikers ook kunnen gebruiken, hebt u genoeg Azure AD betaalde licenties voor gebruikers van B2B-samenwerking in de verhouding tussen de 5:1. 
+## <a name="using-the-b2b-collaboration-api-to-invite-users-from-your-affiliates"></a>Met behulp van de B2B-samenwerking API om uit te nodigen gebruikers uit uw gelieerde ondernemingen
 
-## <a name="additional-licensing-details"></a>Aanvullende licenties details
-- Er is niet nodig daadwerkelijk licenties toewijzen aan gebruikersaccounts B2B. Op basis van de 5:1 verhouding, is-licentieverlening automatisch berekend en gerapporteerd.
-- Indien Nee betaalde Azure AD-licentie in de tenant bestaat elke uitgenodigde gebruiker beschikt over de rechten die de Azure AD Free edition biedt.
-- Als een samenwerking gebruiker al een betaalde Azure AD heeft B2B licentie van hun organisatie, meetellen die niet als een van de licenties voor B2B-samenwerking van de uitnodigende tenant.
+Een gastgebruiker B2B is per definitie een externe gebruiker u uitnodigen voor het gebruik van uw betaalde Azure AD-apps en services. Een werknemer, contractant op locatie of de agent op locatie van uw bedrijf of een van uw gelieerde ondernemingen wordt niet in aanmerking komen voor B2B-samenwerking, zelfs als de B2B-functies worden gebruikt. Hier volgen enkele voorbeelden: 
+- U wilt gebruiken van externe referenties (bijvoorbeeld een sociale identiteit) om uit te nodigen van een gebruiker die een werknemer van uw organisatie. In dit scenario niet voldoen aan de licentievereisten duidelijk zijn en is niet toegestaan. Externe referenties maken niet van een werknemer een externe gebruiker.  
+- U wilt de B2B-API's gebruiken om uit te nodigen van een gebruiker vanuit een van de partners van uw organisatie. B2B-API's in dit scenario wordt de gebruiker uitnodigen, niet wordt dit beschouwd als B2B-samenwerking. Het voldoen niet aan de licentievereisten duidelijk zijn omdat een gebruiker vanuit de partner niet een externe gebruiker. 
 
-## <a name="advanced-discussion-what-are-the-licensing-considerations-when-we-add-users-from-a-conglomerate-organization-as-members-using-your-apis"></a>Geavanceerde discussie: wat zijn de licenties wanneer we gebruikers van een organisatie conglomeraat als 'leden toevoegen' met behulp van uw API's?
-Een B2B-gastgebruiker is die van een partnerorganisatie wordt uitgenodigd om te werken met de organisatie van de host. Normaal gesproken alle andere gevallen komt niet in aanmerking als B2B nog gebruikt B2B-functies. Laten we kijken twee aanvragen in het bijzonder:
-
-1. Als een host met behulp van een consumer-adres van een werknemer uitnodigingen
-  * In dit scenario is niet compatibel zijn met onze licentiebeleid en wordt niet aanbevolen.
-
-2. Als een organisatie host een gebruiker in een andere conglomeraat organisatie wilt toevoegen
-  1. In dit geval de gebruiker is uitgenodigd met B2B-API's, maar deze aanvraag kan niet vroeger B2B. In het ideale geval hebben we deze organisaties de andere organisaties gebruikers uitnodigen als leden (onze API kunt die). In dit geval moeten licenties worden toegewezen aan deze leden voor deze toegang krijgen tot bronnen in de organisatie.
-
-  2. Sommige organisaties willen gebruikers de andere organisatie moeten worden toegevoegd als 'Gast' als een beleid toevoegen. Er zijn hier twee mogelijke situaties:
-      * De conglomeraat organisatie maakt al gebruik van Azure AD en de uitgenodigde gebruikers in de andere organisatie zijn gelicentieerd: in dit geval wordt niet verwacht dat uitgenodigde gebruikers hoeft uit te voeren van de lay-out van eerder in dit document 1:5-formule. 
-
-      * De conglomeraat organisatie maakt geen gebruik van Azure AD of beschikt niet over voldoende licenties: In dit geval, volgt u de lay-out van eerder in dit document 1:5-formule.
+In beide scenario's, betere oplossing is de B2B-API gebruikt om uit te nodigen van de gebruikers als leden (invitedUserType lid =) en ze elk een Azure AD-licentie toewijzen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen op Azure AD B2B-samenwerking:
+Zie de volgende bronnen op Azure AD B2B-samenwerking:
 
 * [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 * [Azure Active Directory B2B-samenwerking Veelgestelde vragen (FAQ)](faq.md)

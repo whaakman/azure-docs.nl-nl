@@ -1,6 +1,6 @@
 ---
-title: Controlelijst voor de beveiliging van de Azure-database | Microsoft Docs
-description: In dit artikel biedt een reeks controlelijst voor beveiliging van de Azure-database.
+title: Controlelijst voor de beveiliging van Azure-database | Microsoft Docs
+description: In dit artikel biedt een set met controlelijst voor beveiliging van de Azure database.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893963"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855932"
 ---
-# <a name="azure-database-security-checklist"></a>Controlelijst voor de beveiliging van de Azure-database
+# <a name="azure-database-security-checklist"></a>Controlelijst voor de beveiliging van Azure-database
 
-Om beveiliging te verbeteren, Azure-Database bevat een aantal ingebouwde beveiligingsmechanismen die u kunt gebruiken om te beperken en beheren van toegang.
+Om beveiliging te verbeteren, Azure-Database bevat een aantal ingebouwde beveiligingsmaatregelen die u kunt gebruiken om te beperken en beheren van toegang.
 
 Deze omvatten:
 
--   Een firewall die u kunt maken [firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) connectiviteit beperken door IP-adres
--   Niveau van de Server firewall toegankelijk is vanaf de Azure-portal
--   Firewallregels voor databaseniveau toegankelijk is vanaf SSMS
--   Beveiligde verbinding met de database met de beveiligde verbindingsreeksen
--   Toegangsbeheer gebruiken
+-   Een firewall die u kunt maken [firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) connectiviteit beperken door IP-adres.
+-   De firewall op serverniveau toegankelijk is vanaf de Azure-portal
+-   De firewall op databaseniveau regels toegankelijk via SSMS
+-   Beveiligde verbinding met uw database met behulp van veilige verbindingsreeksen
+-   Access management gebruiken
 -   Gegevensversleuteling
 -   SQL Database Auditing
--   Detectie van dreigingen SQL-Database
+-   Detectie van bedreigingen voor SQL-Database
 
 ## <a name="introduction"></a>Inleiding
-Cloud computing nieuwe beveiliging paradigma's die niet bekend te veel gebruikers van de toepassing, databasebeheerders en programmeurs zijn vereist. Als gevolg hiervan zijn sommige organisaties terughoudend voor het implementeren van een cloudinfrastructuur voor gegevensbeheer vanwege merkbare beveiligingsrisico's. Veel van dit probleem kan echter worden ondervangen via een beter begrip van de beveiligingsfuncties die is ingebouwd in Microsoft Azure en Microsoft Azure SQL Database.
+Cloud computing vereist nieuwe beveiliging paradigma's die niet veel gebruikers van de toepassing, databasebeheerders en programmeurs bekend zijn. Als gevolg hiervan zijn sommige organisaties willen implementeren van een cloud-infrastructuur voor gegevensbeheer vanwege waargenomen beveiligingsrisico's. Veel van dit probleem kan echter worden verholpen door een beter begrip van de beveiligingsfuncties die is ingebouwd in Microsoft Azure en Microsoft Azure SQL Database.
 
 ## <a name="checklist"></a>Controlelijst
-Het is raadzaam dat u leest de [Azure Security Best Practices](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) artikel voordat deze controlelijst controleren. U kunt zich Maak optimaal gebruik van deze controlelijst nadat u de best practices begrijpt. Vervolgens kunt u deze controlelijst om ervoor te zorgen dat u de belangrijke problemen in Azure databasebeveiliging hebt verholpen.
+Het is raadzaam dat u leest de [Best Practices voor beveiliging op Azure-Database](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) artikel voordat u deze controlelijst bekijken. Kunt u zich kunt u optimaal te profiteren van deze controlelijst wanneer u bekend bent met de aanbevolen procedures. U kunt vervolgens deze controlelijst om ervoor te zorgen dat u de belangrijke problemen in Azure database-beveiliging hebt behandeld.
 
 
-|Controlelijst categorie| Beschrijving|
+|Controlelijst voor categorie| Beschrijving|
 | ------------ | -------- |
 |**Gegevens beveiligen**||
-| <br> Codering in beweging/doorvoer| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), om gegevens te coderen wanneer gegevens worden verplaatst naar de netwerken.</li><li>Database vereist een beveiligde communicatie van clients op basis van de [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protocol via TLS (Transport Layer Security).</li></ul> |
-|<br>Versleuteling 'at rest'| <ul><li>[Met transparante gegevensversleuteling](http://go.microsoft.com/fwlink/?LinkId=526242)wanneer inactieve gegevens fysiek worden opgeslagen in een digitale vorm.</li></ul>|
+| <br> Versleuteling in beweging/doorvoer| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), voor gegevensversleuteling bij het verplaatsen van gegevens naar de netwerken.</li><li>Database is vereist voor veilige communicatie van clients op basis van de [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protocol via TLS (Transport Layer Security).</li></ul> |
+|<br>Versleuteling 'at rest'| <ul><li>[De Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242)als inactieve gegevens fysiek worden opgeslagen in een digitale vorm.</li></ul>|
 |**Toegang beheren**||  
-|<br> Toegang tot de database | <ul><li>[Verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory-verificatie) AD-verificatie wordt gebruikgemaakt van identiteiten die worden beheerd door Azure Active Directory.</li><li>[Autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) Verleen gebruikers de minimaal benodigde bevoegdheden nodig zijn.</li></ul> |
-|<br>Toegang tot toepassingen| <ul><li>[Rij level Security](https://msdn.microsoft.com/library/dn765131) (met behulp van beveiligingsbeleid, op hetzelfde moment rijniveau toegang beperken op basis van een gebruiker identiteit, rol of uitvoering context).</li><li>[Dynamische-Gegevensmaskering](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (met behulp van machtiging & beleid beperkt blootstelling van gevoelige gegevens door het maskeren voor onbevoegde gebruikers)</li></ul>|
+|<br> Toegang tot de database | <ul><li>[Verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory-verificatie) AD-verificatie wordt gebruikt voor identiteiten die worden beheerd door Azure Active Directory.</li><li>[Autorisatie](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) gebruikers de minimaal benodigde bevoegdheden verlenen.</li></ul> |
+|<br>Toegang tot toepassingen| <ul><li>[Beveiliging op rij](https://msdn.microsoft.com/library/dn765131) (met behulp van beveiligingsbeleid op hetzelfde moment beperken van de beveiliging op rijniveau toegang op basis van de identiteit, rol of uitvoering context van een gebruiker).</li><li>[Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (met behulp van machtigingen en -beleid, blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers)</li></ul>|
 |**Proactieve controle**||  
-| <br>Bijhouden & detecteren| <ul><li>[Controle](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) houdt databasegebeurtenissen bij en schrijft deze naar een controlelogboek / activiteit log in uw [Azure Storage-account](https://docs.microsoft.com/azure/storage/storage-create-storage-account).</li><li>Gebruik van track Azure Database health [Azure Monitor activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).</li><li>[Bedreigingendetectie](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) worden afwijkende databaseactiviteiten die wijzen op beveiligingsdreigingen voor de database gedetecteerd. </li></ul> |
-|<br>Azure Security Center| <ul><li>[Bewaking van de gegevens](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-databases) Azure Security Center gebruiken als een oplossing voor een gecentraliseerde veiligheidscontrole voor SQL en andere Azure-services.</li></ul>|       
+| <br>Volgen & detecteren| <ul><li>[Controle](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) databasegebeurtenissen en schrijft deze naar een auditlogboek / activiteitenlogboek uw [Azure Storage-account](https://docs.microsoft.com/azure/storage/storage-create-storage-account).</li><li>Spoor Azure Database health gebruiken [activiteitenlogboeken van Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).</li><li>[Detectie van bedreigingen](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) detecteert afwijkende activiteiten die wijzen op mogelijke beveiligingsrisico's met de database. </li></ul> |
+|<br>Azure Security Center| <ul><li>[Bewaking van de gegevens](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-databases) Azure Security Center gebruiken als een gecentraliseerde beveiliging voor SQL en andere Azure-services voor controle.</li></ul>|       
 
 ## <a name="conclusion"></a>Conclusie
-Azure-Database is een databaseplatform robuuste met een volledige reeks beveiligingsfuncties die voldoen aan veel organisatie- en regelgeving nalevingsvereisten. U kunt eenvoudig gegevens beveiligen door de fysieke toegang tot uw gegevens beheren en het gebruik van een groot aantal opties voor beveiliging van gegevens op het file-, kolom- of met transparante gegevensversleuteling, -Celcodering of beveiliging op rijniveau. Altijd kan versleutelde ook bewerkingen op de versleutelde gegevens, het proces van toepassingsupdates vereenvoudigen. Op zijn beurt biedt toegang tot de controlelogboeken van de activiteit van de SQL-Database u de informatie die u nodig hebt, zodat u weet hoe en wanneer gegevens worden geopend.
+Azure Database is een krachtige databaseplatform, met een volledige reeks beveiligingsfuncties die voldoen aan veel organisatie en wettelijke nalevingsvereisten. U kunt eenvoudig gegevens beschermen door de fysieke toegang tot uw gegevens beheren en het gebruik van een verscheidenheid aan opties voor beveiliging van gegevens op het bestand-, kolom- of beveiliging op rijniveau met Transparent Data Encryption, versleuteling op celniveau of beveiliging op rijniveau. Altijd kan versleutelde ook bewerkingen op de versleutelde gegevens, het proces van updates van toepassingen vereenvoudigen. Op zijn beurt biedt toegang tot de logboeken van de activiteit van SQL Database auditing u de informatie die u nodig hebt, zodat u weet hoe en wanneer gegevens worden geopend.
 
 ## <a name="next-steps"></a>Volgende stappen
 U hoeft slechts een paar eenvoudige stappen uit te voeren om de beveiliging van uw database tegen kwaadwillende gebruikers of onbevoegde toegang te verbeteren. In deze zelfstudie leert u het volgende:
 
-- Instellen van [firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor de server en of de database.
+- Instellen van [firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor uw server en/of database.
 - Uw gegevens beschermen met [versleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Schakel [SQL Database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 

@@ -8,22 +8,16 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 571a005dd3f50690f291a7ffa3c1174ea15cb0ed
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 07ee05128333df963c2d8ff3dd3f6442a3843d07
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047609"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48866887"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Gegevens verwijderen uit Azure Data Explorer
 
 Azure Data Explorer biedt ondersteuning voor verschillende bulksgewijs verwijderen benaderingen, die we in dit artikel behandelen. Het biedt geen ondersteuning voor per record verwijderen in realtime, omdat deze geoptimaliseerd voor snelle toegang voor lezen.
-
-* Als de database niet meer nodig hebt is, verwijderen met behulp van de opdracht drop database.
-
-    ```Kusto
-    .drop database <DatabaseName>
-    ```
 
 * Als een of meer tabellen niet meer nodig is, verwijdert u deze met behulp van de tabel verwijderen of tabellen opdracht verwijderen.
 
@@ -44,12 +38,5 @@ Azure Data Explorer biedt ondersteuning voor verschillende bulksgewijs verwijder
     ```
 
     Zie voor meer informatie, [bewaarbeleid](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
-
-* U kunt afzonderlijke records met behulp van verwijderen de *opschonen* bewerking, op basis van een predicaat achtige `where CustomerName == 'contoso'`. Ze eerst een opschonen is een bulk-verwijderen die niet is ontworpen voor realtime verwijderen. Het volgende voorbeeld ziet een leegmaken.
-
-    ```Kusto
-    .purge table Customer records
-    | where CustomerName =='contoso'
-    ```
 
 Als u hulp nodig hebt bij problemen met het verwijderen van gegevens, opent u een ondersteuningsaanvraag in de [Azure-portal](https://portal.azure.com).

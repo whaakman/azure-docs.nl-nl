@@ -1,5 +1,5 @@
 ---
-title: Ontwikkelingslevenscyclus van een knowledge base - QnA Maker
+title: Levenscyclus van het knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 5af829b3355c6d68bace959b66f9511877d08b83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040911"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857165"
 ---
 # <a name="knowledge-base-lifecycle"></a>Knowledge base-levenscyclus
 QnA Maker leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's. 
