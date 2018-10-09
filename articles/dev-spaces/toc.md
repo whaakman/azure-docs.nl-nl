@@ -22,6 +22,7 @@
 #### [2 - Teamontwikkeling](team-development-nodejs.md)
 
 ## Procedures
+### [Een Kubernetes-cluster maken met behulp van Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
 ### [Azure Dev Spaces delen](how-to/share-dev-spaces.md)
 ### [Geheimen beheren](how-to/manage-secrets.md)
 ### [Een aangepaste NuGet-feed gebruiken](how-to/use-custom-nuget-feed.md)
