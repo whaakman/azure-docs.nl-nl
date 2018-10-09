@@ -1,114 +1,103 @@
 ---
-title: 'Snelstartgids: Spraakherkenning in Java op Android met behulp van de Cognitive Services Speech SDK herkennen'
+title: 'Snelstartgids: Gesproken tekst herkennen in Java onder Android met behulp van de Speech SDK van Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in Java op Android met behulp van de Cognitive Services spraak-SDK
+description: Leer hoe u gesproken tekst herkent in Java onder Android met behulp van de Speech SDK van Cognitive Services
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127068"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432782"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snelstartgids: Spraakherkenning in Java op Android met behulp van de SDK spraak herkennen
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in Java onder Android met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u over het maken van een Java-toepassing voor Android met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK Maven-pakket, versie 0.6.0 en Android Studio 3.1.
+In dit artikel leert u hoe u een Java-toepassing voor Android maakt met behulp van de Cognitive Services Speech SDK om spraak om te zetten in tekst.
+De toepassing is gebaseerd op het Microsoft Cognitive Services Speech SDK Maven-pakket, versie 1.0.0 en Android Studio 3.1.
+De Speech SDK is op dit moment compatibel met Android-apparaten met 32-bits of 64-bits ARM-processors.
 
 > [!NOTE]
-> Voor de SDK van de apparaten spraak en het apparaat Roobo, gaat u naar de [spraak Devices SDK](speech-devices-sdk.md) pagina.
+> Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices SDK en het Roobo-apparaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [de spraakservice gratis uitproberen](get-started.md).
-* Een PC (Windows, Linux, Mac) die geschikt zijn om uit te voeren Android Studio.
-* Versie 3.1 van [Android Studio](https://developer.android.com/studio/).
-* Een op basis van ARM Android-apparaat (API 23: Android 6.0 Marshmallow of hoger) [ingeschakeld voor de ontwikkeling van](https://developer.android.com/studio/debug/dev-options) met een microfoon werken.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids uit te voeren. U kunt gratis een sleutel downloaden. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
-## <a name="create-an-android-studio-project"></a>Een Android Studio-project maken
+## <a name="create-and-configure-a-project"></a>Een project maken en configureren
 
-Android Studio starten en selecteer **Start een nieuw Android Studio-project**.
+1. Start Android Studio starten en kies **Start a new Android Studio project** in het welkomstscherm.
 
-![](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
+    ![Schermafbeelding van het welkomstscherm van Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-In de **nieuw Project maken** wizard die wordt geleverd omhoog, moet u de volgende opties:
+1. De wizard **Create New Project** wordt weergegeven. Voer in het scherm **Create Android Project** **Quickstart** in voor **Application name**, **samples.speech.cognitiveservices.microsoft.com** voor **Company domain** en kies een projectmap. Laat de selectievakjes voor C++ en Kotlin uitgeschakeld, en selecteer **Next**.
 
-1. In de **Android-Project maken** scherm, voert u **snelstartgids** als **toepassingsnaam**, **samples.speech.cognitiveservices.microsoft.com** als **bedrijfsdomein**, en kies de projectlocatie van een. Laat u de selectievakjes uitgeschakeld en klik op **volgende**.
+   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-02-create-android-project.png)
 
-   ![](media/sdk/qs-java-android-02-create-android-project.png)
+1. Selecteer in het scherm **Target Android Devices** alleen **Phone and Tablet**. Kies in de vervolgkeuzelijst eronder **API 23: Android 6.0 (Marshmallow)** en selecteer **Next**.
 
-1. In de **Android doelapparaten** scherm selectievakje **telefoons en tablets** als de enige optie kiezen **API 23: Android 6.0 (Marshmallow)** in de vervolgkeuzelijst en klik op **Volgende**.
+   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-03-target-android-devices.png)
 
-   ![](media/sdk/qs-java-android-03-target-android-devices.png)
+1. Selecteer **Empty Activity** in het scherm **Add an Activity to Mobile** en klik op **Next**.
 
-1. In de **toevoegen van een activiteit aan Mobile** scherm, selecteer **lege activiteit** en klikt u op **volgende**.
+   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
 
-   ![](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
+1. Gebruik in het scherm **Configure Activity** **MainActivity** als de naam van de activiteit en **activity\_main** als de naam van de lay-out. Schakel beide selectievakjes in en selecteer **Finish**.
 
-1. In de **configureren activiteit** scherm **MainActivity** als naam van de activiteit en **activiteit\_belangrijkste** als de naam van de lay-out. Beide selectievakjes uit en klikt u op **voltooien**.
+   ![Schermafbeelding van de wizard Create New Project](media/sdk/qs-java-android-05-configure-activity.png)
 
-   ![](media/sdk/qs-java-android-05-configure-activity.png)
-
-Nadat het is uitgevoerd voor een tijdje uw zojuist gemaakte Android Studio-project moet zijn beschikbaar.
-
-## <a name="configure-your-project-for-the-speech-sdk"></a>Uw project voor de spraak-SDK configureren
+Android Studio heeft even de tijd nodig om het nieuwe Android-project voor te bereiden. Configureer het project vervolgens voor gebruik van de Speech SDK en Java 8.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Cognitive Services Speech SDK is `0.6.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.0.0`.
 
-De spraak-SDK voor Android wordt geleverd als een [AAR (Android-bibliotheek)](https://developer.android.com/studio/projects/android-library), waaronder de vereiste bibliotheken, evenals de vereiste Android-machtigingen voor het gebruik ervan.
-Deze wordt gehost in een Maven-opslagplaats op https://csspeechstorage.blob.core.windows.net/maven/.
+De Speech SDK voor Android wordt aangeboden als een [AAR (Android Library)](https://developer.android.com/studio/projects/android-library) die de vereiste bibliotheken bevat, evenals de vereiste Android-machtigingen voor het gebruik ervan.
+De SDK wordt gehost in een Maven-opslagplaats op https://csspeechstorage.blob.core.windows.net/maven/.
 
-We dat hieronder wordt beschreven hoe u het instellen van uw project met de spraak-SDK.
+Stel uw project in voor gebruik van de Speech SDK. Open het venster Project Structure door **File** > **Project Structure** te kiezen in de menubalk van Android Studio. Breng in het venster Project Structure de volgende wijzigingen aan: 
 
-Open het venster van de structuur project onder **bestand** \> **projectstructuur**.
-In het venster dat weergegeven maken de volgende wijzigingen wordt (Klik op **OK** alleen nadat u alle stappen hebt voltooid):
+1. Selecteer **Project** in de lijst aan de linkerkant van het venster. Bewerk de instellingen voor **Default Library Repository** door een komma toe te voegen en dan de URL van onze Maven-opslagplaats tussen enkele aanhalingstekens. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
-1. Selecteer **Project**, en bewerk de **standaard bibliotheek opslagplaats** instellingen door een komma en onze opslagplaats-URL op Maven tussen enkele aanhalingstekens toe te voegen `'https://csspeechstorage.blob.core.windows.net/maven/'`:
+   ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-06-add-maven-repository.png)
 
-  ![](media/sdk/qs-java-android-06-add-maven-repository.png)
+1. Selecteer in hetzelfde scherm aan de linkerkant **app**. Selecteer vervolgens bovenaan het venster het tabblad **Dependencies**. Selecteer het groen plusteken (+) en kies **Library dependency** in de vervolgkeuzelijst.
 
-1. Selecteer nog steeds in hetzelfde scherm, aan de linkerkant de **App** -module, en in de rechterbovenhoek de **afhankelijkheden** tabblad. Vervolgens klikt u op het groen plusteken in de rechterbovenhoek rechts en selecteer **bibliotheek afhankelijkheid**.
+   ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-  ![](media/sdk/qs-java-android-07-add-module-dependency.png)
+1. Voer in het venster dat verschijnt de naam en versie van onze Speech SDK voor Android in, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Selecteer vervolgens **OK**.
+   De Speech SDK moet nu worden toegevoegd aan de lijst met afhankelijkheden, zoals hieronder wordt weergegeven:
 
-1. Voer in het venster dat weergegeven wordt, de naam en versie van onze spraak-SDK voor Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, klikt u vervolgens op **OK**.
-   De spraak-SDK moet worden toegevoegd aan de lijst met afhankelijkheden nu, zoals hieronder wordt weergegeven:
+   ![Schermafbeelding van het venster Project Structure](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-  ![](media/sdk/qs-java-android-08-dependency-added.png)
+1. Selecteer het tabblad **Properties**. Selecteer voor zowel **Source Compatibility** als **Target Compatibility** versie **1.8**.
 
-1. Selecteer in de rechterbovenhoek de **eigenschappen** tabblad. Selecteer **1.8** voor **compatibele gegevensbron** en **gericht op compatibiliteit**.
+   ![](media/sdk/qs-java-android-09-dependency-added.png)
 
-  ![](media/sdk/qs-java-android-09-dependency-added.png)
+1. Selecteer **OK** om het venster Project Structure te sluiten en wijzigingen toe te passen op het project.
 
-1. Klik tot slot, **OK** sluiten de **projectstructuur** windows en alle updates toe te passen.
+## <a name="create-user-interface"></a>Gebruikersinterface maken
 
-## <a name="create-a-minimal-ui"></a>Een minimale gebruikersinterface maken
+We gaan een eenvoudige gebruikersinterface maken voor de toepassing. Bewerk de lay-out voor de hoofdactiviteit, `activity_main.xml`. In eerste instantie bevat de lay-out een titelbalk met de naam van uw toepassing en een TextView met de tekst "Hello World!"
 
-De indeling van uw belangrijkste activiteit bewerken `activity_main.xml`.
-Standaard deze moet zijn beschikbaar met een titelbalk met de naam van uw toepassing en een TextView met de tekst 'Hallo wereld!'.
+* Klik op het TextView-element. Wijzig het kenmerk ID in de rechterbovenhoek in `hello`.
 
-* Klik op de TextView. Wijzigen van het id-kenmerk in de rechterbovenhoek op `hello`.
+* Sleep vanuit het palet in de linkerbovenhoek van het venster `activity_main.xml` een knop naar de lege ruimte boven de tekst.
 
-* In het palet in de linkerbovenhoek van de `activity_main.xml` venster, Sleep een knop in de lege ruimte boven de tekst.
+* Ga naar de kenmerken van de knop aan de rechterkant en voer `onSpeechButtonClicked` in als de waarde voor het kenmerk `onClick`. We gaan een methode met deze naam schrijven om de knopgebeurtenis af te handelen.  Wijzig het kenmerk ID in de rechterbovenhoek in `button`.
 
-* In de kenmerken van de knop aan de rechterkant, in de waarde voor de `onClick` kenmerk, voer `onSpeechButtonClicked`, worden de naam van de handler van onze knop.
-  Wijzigen van het id-kenmerk in de rechterbovenhoek op `button`.
+* Gebruik het pictogram van de toverstaf bovenaan de ontwerpfunctie om beperkingen voor de lay-out af te leiden.
 
-* Gebruik het pictogram Toverstaf aan de bovenkant van de ontwerper als u wilt afleiden van lay-out beperkingen voor u.
+  ![Schermafbeelding van toverstafpictogram](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-  ![](media/sdk/qs-java-android-10-infer-layout-constraints.png)
-
-De tekst en de grafische versie van de gebruikersinterface moeten er nu uitzien als volgt:
+De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeveer als volgt uitzien.
 
 <table>
 <tr>
@@ -116,47 +105,51 @@ De tekst en de grafische versie van de gebruikersinterface moeten er nu uitzien 
 ![](media/sdk/qs-java-android-11-gui.png)
 </td>
 <td valign="top">
-[! code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 </td>
 </tr>
 </table>
 
-## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
+## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
-1. Bewerk de `MainActivity.java` bronbestand en vervang de code door het volgende (onder de pakketinstructie):
+1. Open het bronbestand `MainActivity.java`. Vervang alle code na de instructie `package` door de volgende code.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
-   * De `onCreate` methode omvat een code die vraagt om microfoon en machtigingen voor Internet, evenals de systeemeigen platform-binding wordt geïnitialiseerd. Het configureren van de systeemeigen platform-bindingen is slechts eenmaal vereist, dat wil zeggen, deze moet worden gedaan vroeg tijdens de initialisatie van toepassingen.
+   * De methode `onCreate` omvat code die toestemming vraagt voor gebruik van de microfoon en internet, en initialiseert de binding met het native platform. Configuratie van bindingen voor het native platform hoeft maar één keer. Dit moet gebeuren in een vroeg stadium tijdens de initialisatie van de toepassing.
    
-   * De methode `onSpeechButtonClicked` is eerder zo ingericht dat als de knop klikt u op de handler. Druk op een knop wordt de werkelijke spraakherkenning geactiveerd.
+   * De methode `onSpeechButtonClicked` is, zoals eerder gezegd, de methode voor het afhandelen van het klikken op de knop. Een klik op de knop betekent dat de spraak wordt omgezet in tekst.
 
-1. Vervang de tekenreeks `YourSubscriptionKey` met de abonnementssleutel van uw.
+1. Vervang in hetzelfde bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 
-1. Vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang ook de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
+## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-* Om te bouwen, druk op Ctrl + F9 of selecteer **bouwen** \> **Project maken**.
+1. Sluit uw Android-apparaat aan op de ontwikkelmachine. Zorg ervoor dat u de [ontwikkelmodus en USB-foutopsporing](https://developer.android.com/studio/debug/dev-options) hebt ingeschakeld op het apparaat.
 
-* Uw Android-apparaat verbinden met ontwikkeling van uw PC. Zorg ervoor dat u hebt [Ontwikkelingsmodus en USB-foutopsporing ingeschakeld](https://developer.android.com/studio/debug/dev-options).
+1. Druk op Ctrl + F9 om de toepassing te compileren, of kies **Build** > **Make Project** in de menubalk.
 
-* U start de app, drukt u op Shift + F10 of selecteer **uitvoeren** \> **uitvoeren 'app'**.
+1. Als u de toepassing wilt starten, drukt u op Shift + F10 of kiest u **Run** > **Run 'app'**.
 
-* In de windows-implementatie doel dat wordt weergegeven, kiest u uw Android-apparaat.
+1. Kies uw Android-apparaat in het venster Select Deployment Target dat wordt weergegeven.
 
-  ![Start de app into-foutopsporing](media/sdk/qs-java-android-12-deploy.png)
+   ![Schermafbeelding van het venster Select Deployment Target](media/sdk/qs-java-android-12-deploy.png)
 
-* De app te op uw apparaat starten.
-  Zodra u op de knop drukt, de volgende 15 seconden worden herkend en weergegeven in de gebruikersinterface (u zou ook het mogelijk om te zien van het antwoord in het venster logcat in Android Studio):
+Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten. De volgende 15 seconden aan Engels gesproken tekst wordt verzonden naar de Speech-service en getranscribeerd. Het resultaat wordt weergegeven in de Android-toepassing, en in het logcat-venster in Android Studio.
 
-  ![Gebruikersinterface na geslaagde opname](media/sdk/qs-java-android-13-gui-on-device.png)
+![Schermafbeelding van de Android-toepassing](media/sdk/qs-java-android-13-gui-on-device.png)
 
-Deze schermopname is de Snelstartgids voor Android. De voorbeeldcode volledige project kan worden gedownload vanuit de opslagplaats met voorbeelden.
-
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/java-android` map.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+U kunt dit voorbeeld vinden in de map `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor Java](how-to-recognize-intents-from-speech-java.md)
+
+## <a name="see-also"></a>Zie ook
+
+- [Spraak vertalen](how-to-translate-speech-csharp.md)
+- [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
+- [Taalmodellen aanpassen](how-to-customize-language-model.md)
