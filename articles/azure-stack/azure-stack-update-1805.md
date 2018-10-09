@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816732"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869995"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 update
 
@@ -71,9 +71,9 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 
 ## <a name="before-you-begin"></a>Voordat u begint    
 
-### <a name="prerequisites"></a>Vereiste onderdelen
-- De Azure-Stack installeren [1804 bijwerken](azure-stack-update-1804.md) voordat u de Azure Stack 1805 update toepassen.  
-- Installeer de meest recente beschikbare [update of hotfix voor versie 1804](azure-stack-update-1804.md#post-update-steps).   
+### <a name="prerequisites"></a>Vereisten
+- De Azure Stack 1804-update geïnstalleerd voordat u de Azure Stack 1805 update toepassen.  
+- Installeer de meest recente beschikbare update of hotfix voor versie 1804.   
 - Voordat u begint met de installatie van update 1805, voert u [Test AzureStack](azure-stack-diagnostic-test.md) om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist. 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces   
@@ -117,7 +117,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
   Tijdelijke oplossing: Gebruiken om op te lossen dit probleem nadat u deze update installeert, stap 3 van de [Trigger automation configureren claims provider vertrouwensrelatie in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure voor het opnieuw instellen van de eigenaar van de provider standaardabonnement.   
 
 <!-- TBD - IS ASDK --> 
-- Sommige typen administratieve abonnementen zijn niet beschikbaar.  Wanneer u een upgrade uitvoert van Azure Stack in deze versie, worden de twee abonnementstypen zijn [geïntroduceerd in versie 1804](azure-stack-update-1804.md#new-features) zijn niet zichtbaar in de console. Dit is normaal gedrag. Het niet beschikbaar-abonnementstypen zijn *softwarelicentiecontrole abonnement*, en *verbruik abonnement*. Deze abonnementstypen zijn zichtbaar in de nieuwe Azure Stack-omgevingen vanaf versie 1804 maar nog niet klaar voor gebruik. U moet echter ook doorgaan met de *Provider standaard* abonnementstype.  
+- Sommige typen administratieve abonnementen zijn niet beschikbaar. Wanneer u een upgrade uitvoert van Azure Stack in deze versie, zijn de typen van de twee abonnementen die zijn geïntroduceerd in versie 1804 niet zichtbaar in de console. Dit is normaal gedrag. Het niet beschikbaar-abonnementstypen zijn *softwarelicentiecontrole abonnement*, en *verbruik abonnement*. Deze abonnementstypen zijn zichtbaar in de nieuwe Azure Stack-omgevingen vanaf versie 1804 maar nog niet klaar voor gebruik. U moet echter ook doorgaan met de *Provider standaard* abonnementstype.  
 
 <!-- 2403291 - IS ASDK --> 
 - Hebt u mogelijk geen gebruik van de horizontale schuifbalk langs de onderkant van de beheerder en gebruiker portals. Als u geen toegang de horizontale schuifbalk tot, blijven gebruiken de breadcrumbs om naar een vorige blade in de portal navigeren zijn door de naam van de blade te selecteren dat u wilt weergeven in de breadcrumb-lijst gevonden aan de bovenkant van de portal.
@@ -211,7 +211,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen.  
 
 
-### <a name="networking"></a>Netwerk
+### <a name="networking"></a>Netwerken
 <!-- TBD - IS ASDK --> 
 - U kan geen gebruiker gedefinieerde routes maken in de portal-beheerder of gebruiker. Als tijdelijke oplossing gebruiken [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
 

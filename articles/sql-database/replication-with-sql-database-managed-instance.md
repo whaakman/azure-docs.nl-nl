@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228328"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869309"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicatie met SQL Database Managed Instance
 
@@ -76,21 +76,22 @@ Ondersteunt:
 
 ## <a name="configure-publishing-and-distribution-example"></a>Voorbeeld van de publicatie en distributie configureren
 
-1. [Maken van een Azure SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) in de portal.
+1. [Maken van een Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) in de portal.
+2. [Maak een Azure Storage-Account](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) voor de werkmap.
 
-1. [Maak een Azure Storage-Account](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) voor de werkmap. Zorg ervoor dat de opslagsleutels kopiëren. Zie [opslagtoegangssleutels bekijken en kopiëren](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys).
-
-1. Maak een database voor de uitgever.
+   Zorg ervoor dat de opslagsleutels kopiëren. Zie [opslagtoegangssleutels bekijken en kopiëren](../storage/common/storage-account-manage.md#access-keys
+).
+3. Maak een database voor de uitgever.
 
    Vervang in het van de voorbeeldscripts hieronder, `<Publishing_DB>` met de naam van deze database.
 
-1. Maak een databasegebruiker met SQL-verificatie voor de distributor. Zie, [databasegebruikers maken](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Gebruik een beveiligd wachtwoord.
+4. Maak een databasegebruiker met SQL-verificatie voor de distributor. Zie, [databasegebruikers maken](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Gebruik een beveiligd wachtwoord.
 
    In het van de voorbeeldscripts hieronder, gebruikt u `<SQL_USER>` en `<PASSWORD>` met dit Account voor SQL Server-database, gebruiker en wachtwoord.
 
-1. [Verbinding maken met het beheerde exemplaar van SQL Database](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Verbinding maken met het beheerde exemplaar van SQL Database](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. Voer de volgende query uit om toe te voegen van de distributor en de distributiedatabase.
+6. Voer de volgende query uit om toe te voegen van de distributor en de distributiedatabase.
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Ondersteunt:
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. Voor het configureren van een uitgever als de database van een opgegeven distributiepuntengroep wilt gebruiken, bijwerken en voer de query follwing uit.
+7. Voor het configureren van een uitgever als de database van een opgegeven distributiepuntengroep wilt gebruiken, bijwerken en voer de volgende query uit.
 
    Vervang `<SQL_USER>` en `<PASSWORD>` met de SQL Server-Account en het wachtwoord.
 
@@ -107,7 +108,7 @@ Ondersteunt:
 
    Vervang `<STORAGE_CONNECTION_STRING>` met de verbindingsreeks uit de **toegangssleutels** tabblad van uw Microsoft Azure storage-account.
 
-   Na het bijwerken van de volgende query uitvoeren. 
+   Na het bijwerken van de volgende query uitvoeren.
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Ondersteunt:
    GO
    ```
 
-1. Configureer de uitgever voor replicatie. 
+8. Configureer de uitgever voor replicatie.
 
     Vervang in de volgende query `<Publishing_DB>` met de naam van de publisher-database.
 
@@ -155,15 +156,13 @@ Ondersteunt:
                 @job_password = N'<PASSWORD>'
    ```
 
-1. Het artikel, het abonnement en de agent voor push-abonnement toevoegen. 
+9. Het artikel, het abonnement en de agent voor push-abonnement toevoegen.
 
    Als u wilt deze objecten toevoegen, bijwerken met het volgende script.
 
-   Vervang `<Object_Name>` met de naam van de publicatie-object.
-
-   Vervang `<Object_Schema>` met de naam van het schema van de gegevensbron. 
-
-   Vervang de andere parameters punthaken `<>` zodat deze overeenkomen met de waarden in de vorige scripts. 
+   - Vervang `<Object_Name>` met de naam van de publicatie-object.
+   - Vervang `<Object_Schema>` met de naam van het schema van de gegevensbron.
+   - Vervang de andere parameters punthaken `<>` zodat deze overeenkomen met de waarden in de vorige scripts.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Ondersteunt:
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

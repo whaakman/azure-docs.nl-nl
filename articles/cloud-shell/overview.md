@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: ea7393584e77b51073ca8938ec03e9d6f6ad6fc0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166670"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869360"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure Cloudshell
 Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -78,7 +78,7 @@ Meer informatie voor meer informatie over het koppelen van een [nieuwe of bestaa
 * Cloudshell is vereist voor een Azure-bestandsshare te koppelen
 * Cloudshell gebruikmaakt van dezelfde Azure-bestandsshare voor zowel Bash als PowerShell
 * Cloudshell is één machine per gebruikersaccount toegewezen
-* Cloudshell zich blijft voordoen $Home met behulp van de installatiekopie van een 5 GB die zijn ondergebracht in de bestandsshare
+* Cloudshell zich blijft voordoen $HOME met behulp van de installatiekopie van een 5 GB die zijn ondergebracht in de bestandsshare
 * Machtigingen zijn ingesteld als een gewone gebruiker Linux in Bash
 
 Meer informatie over functies in [Bash in Cloud Shell](features.md) en [PowerShell in Cloud Shell](features-powershell.md).

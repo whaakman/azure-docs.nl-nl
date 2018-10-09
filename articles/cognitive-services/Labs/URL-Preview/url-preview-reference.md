@@ -1,20 +1,21 @@
 ---
-title: Naslaginformatie over URL-voorbeeld - Microsoft Cognitive Services-project | Microsoft Docs
+title: Project-URL-voorbeeld-verwijzing
+titlesuffix: Azure Cognitive Services
 description: Referentie voor het eindpunt van de Project-URL-voorbeeld.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865872"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870805"
 ---
 # <a name="project-url-preview-v7-reference"></a>Naslaggids voor project URL-voorbeeld voor Bing versie 7
 
@@ -98,9 +99,9 @@ Hiermee definieert u de fout is opgetreden.
 |<a name="error-code" />Code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|Reeks|  
 |<a name="error-message" />Bericht|Een beschrijving van de fout.|Reeks|  
 |<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|Reeks|  
-|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|  
-|<a name="error-subcode" />de subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|  
-|<a name="error-value" />waarde|De queryparameter-waarde die niet geldig is.|Reeks|  
+|<a name="error-parameter" />Parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|  
+|<a name="error-subcode" />De subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|  
+|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|Reeks|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -109,7 +110,7 @@ Het object van het type op het hoogste niveau dat het antwoord bevat als de aanv
 |Naam|Waarde|Type|  
 |----------|-----------|----------|  
 |_Type|Type hint.|Reeks|  
-|<a name="errors" />fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|   
+|<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|   
   
 
 ### <a name="webpage"></a>Webpagina  

@@ -11,16 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5af6779bfb6075aa3606cc32939ae715241afe8d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 93408b266a239e897b49ab2482818a5221742685
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166313"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870399"
 ---
-# <a name="multi-shard-querying"></a>Meerdere shards uitvoeren van query 's
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Multi-shard query's uitvoeren met behulp van hulpprogramma's voor elastische databases
+
 ## <a name="overview"></a>Overzicht
+
 Met de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduction.md), kunt u oplossingen voor shard-database maken. **Meerdere shards uitvoeren van query's** wordt gebruikt voor taken zoals verzameling/rapportage gegevens waarvoor een query uit te voeren die zich uitstrekt over meerdere shards. (Deze contrast [gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md), die al het werk wordt uitgevoerd op een enkele shard.) 
 
 1. Krijgen een **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) of **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) met behulp van de **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), wordt de **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), of de **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) methode. Zie **[maken van een ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** en  **[een RangeShardMap of ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
@@ -31,6 +33,7 @@ Met de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduct
 6. Bekijk de resultaten met behulp van de **MultiShardResultSet of MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) klasse. 
 
 ## <a name="example"></a>Voorbeeld
+
 De volgende code illustreert het gebruik van meerdere shards uitvoeren van query's met behulp van een bepaalde **ShardMap** met de naam *myShardMap*. 
 
 ```csharp
@@ -63,8 +66,7 @@ Houd er rekening mee de aanroep van **myShardMap.GetShards()**. Deze methode haa
 Een beperking met meerdere shards uitvoeren van query's is momenteel het ontbreken van validatie voor shards en shardlets die zijn opgevraagd. Terwijl gegevensafhankelijke routering heeft geverifieerd dat een bepaalde shard deel van de shard-toewijzing op het moment van het uitvoeren van query's uitmaakt, voer multi-shard query's niet deze controle uit. Dit kan leiden tot meerdere shard-query's die worden uitgevoerd op databases die zijn verwijderd uit de shard-toewijzing.
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Multi-shard query's en bewerkingen van splitsen en samenvoegen
+
 Multi-shard query's controleren niet of shardlets in de opgevraagde database lopende bewerkingen voor splitsen en samenvoegen deelneemt. (Zie [schalen met het Elastic Database-hulpprogramma voor splitsen en samenvoegen](sql-database-elastic-scale-overview-split-and-merge.md).) Dit kan leiden tot inconsistenties wanneer rijen uit hetzelfde shardlet weergeven voor meerdere databases in dezelfde query meerdere shards. Houd rekening met deze beperkingen en rekening houden met verwerkingsstop van verbindingen lopende bewerkingen voor splitsen en samenvoegen en wijzigingen in de shard-toewijzing tijdens het uitvoeren van meerdere shard-query's.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-

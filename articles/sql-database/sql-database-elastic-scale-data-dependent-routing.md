@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161812"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869615"
 ---
-# <a name="data-dependent-routing"></a>Gegevensafhankelijke routering
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Gegevensafhankelijke routering om te routeren van een query naar de juiste database gebruiken
+
 **Gegevensafhankelijke routering** is de mogelijkheid om de gegevens in een query gebruiken voor het routeren van de aanvraag met een juiste database. Gegevens-afhankelijke routering is een fundamenteel patroon bij het werken met shard-databases. De context van de aanvraag kan ook worden gebruikt voor het routeren van de aanvraag, met name als de sharding-sleutel geen deel uit van de query maakt. Elke specifieke query of een transactie in een toepassing met behulp van gegevensafhankelijke routering is beperkt tot het openen van een individuele database per aanvraag. Voor de Azure SQL Database Elastic-hulpprogramma's, deze routering wordt uitgevoerd met de **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) klasse.
 
 De toepassing hoeft niet te volgen verschillende tekenreeksen voor databaseverbindingen of DB-locaties die zijn gekoppeld aan verschillende delen van gegevens in de shard-omgeving. In plaats daarvan de [Shard-Toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md) verbindingen naar de juiste databases wanneer dat nodig is, wordt geopend op basis van de gegevens in de shard-toewijzing en de waarde van de sharding-sleutel die het doel van de aanvraag van de toepassing. De sleutel is doorgaans de *customer_id*, *tenant_id*, *date_key*, of enige andere specifieke id die is een fundamenteel parameter van de aanvraag van de database. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953222"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870550"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: De Azure AD Graph API gebruiken
 
@@ -38,7 +38,7 @@ Voordat u toepassingen of gebruikers maken kunt, moet u een Azure AD B2C-tenant.
 Nadat u een B2C-tenant hebt, moet u registreren van uw toepassing met de [Azure-portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Voor het gebruik van de Graph API met uw B2C-tenant, moet u registreert een toepassing met de *App-registraties* service in Azure portal, **niet** Azure AD B2C *toepassingen*menu. De volgende instructies leiden u naar het menu registratiecertificaat. U kunt bestaande B2C-toepassingen die u hebt geregistreerd in de Azure AD B2C niet opnieuw gebruiken *toepassingen* menu.
+> Voor het gebruik van de Graph API met uw B2C-tenant, moet u registreert een toepassing met de *App-registraties* service in Azure portal, **niet** Azure AD B2C *toepassingen*menu. De volgende instructies leiden u aan het bijbehorende menu. U kunt bestaande B2C-toepassingen die u hebt geregistreerd in de Azure AD B2C niet opnieuw gebruiken *toepassingen* menu.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Kies uw Azure AD B2C-tenant door uw account te selecteren in de rechterbovenhoek van de pagina.

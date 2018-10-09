@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166483"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870975"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -89,7 +89,7 @@ De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directo
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Hoe beperken of besturingselement ik toegang tot mijn database verbinding?
 Er zijn meerdere technieken beschikken die u gebruiken kunt voor het bereiken van optimale connectiviteit organisatie voor uw toepassing. 
 - Firewallregels
-- VNET-Service-eindpunten
+- VNet-Service-eindpunten
 - Gereserveerde IP-adressen
 
 #### <a name="firewall"></a>Firewall
@@ -98,11 +98,11 @@ Een firewall voorkomt dat toegang tot uw server een externe entiteit door toe te
 U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server-level firewall-regels kunnen gemaakt via de portal of via SSMS. Zie voor meer informatie over het instellen van een server en database-level firewall-regel,: [firewallregels in SQL-Database maken](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Service-eindpunten
-Uw SQL-database is standaard geconfigureerd voor 'Azure-services tot server toestaan': wat betekent dat elke virtuele Machine in Azure probeert verbinding maken met uw database. Deze pogingen nog steeds hoeft te geverifieerd. Echter, als u niet toegankelijk zijn via een Azure-IP-adressen van uw database wilt, kunt u uitschakelen 'Azure-services tot server toestaan'. Bovendien kunt u configureren [VNET-Service-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md).
+Uw SQL-database is standaard geconfigureerd voor 'Azure-services tot server toestaan': wat betekent dat elke virtuele Machine in Azure probeert verbinding maken met uw database. Deze pogingen nog steeds hoeft te geverifieerd. Echter, als u niet toegankelijk zijn via een Azure-IP-adressen van uw database wilt, kunt u uitschakelen 'Azure-services tot server toestaan'. Bovendien kunt u configureren [VNet-Service-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Service-eindpunten (SE) kunnen u uw kritieke Azure-resources alleen voor uw eigen persoonlijke virtueel netwerk in Azure beschikbaar. Op deze manier elimineren u in feite openbare toegang tot uw resources. Het verkeer tussen uw virtuele netwerk naar Azure blijft in het Azure-backbone-netwerk. U krijgt de geforceerde tunnels routering uit te voeren zonder SE. Het virtuele netwerk zorgt ervoor dat het verkeer van internet voor uw organisatie en de Azure-Service in op dezelfde route. Service-eindpunten kunt u optimaliseren dit omdat de pakketten stroom rechtstreeks vanuit uw virtuele netwerk naar de service op Azure-backbone-netwerk.
 
-![VNET-service-eindpunten](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet-service-eindpunten](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>Gereserveerde IP-adressen
 Een andere optie is om in te richten [gereserveerd IP-adressen](../virtual-network/virtual-networks-reserved-public-ip.md) voor uw VM's en de lijst met toegestane adressen die specifieke VM-IP-in de server adressen firewall-instellingen. Door gereserveerde IP-adressen toe te wijzen, bespaart u de moeite van het bij te werken van de firewall-regels met het wijzigen van IP-adressen.

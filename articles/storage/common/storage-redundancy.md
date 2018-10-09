@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/02/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bca75f9efa1614c4fa719b21007c827494ecd8f0
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b266bc11f32d8621b6819b695af42cb14908bc05
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830707"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870788"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -40,10 +40,12 @@ De volgende tabel geeft een kort overzicht van het bereik van duurzaamheid en be
 | Leestoegang tot uw gegevens (in de regio van een externe, geo-replicatie) in het geval van de gehele regio niet beschikbaar zijn | Nee                              | Nee                               | Nee                                   | Ja                                  |
 | Die zijn bedoeld voor ___ duurzaamheid van objecten gedurende een bepaald jaar                                          | ten minste 99,999999999% (11 9's) | ten minste 99,9999999999% (12 9's) | ten minste 99,99999999999999% (16 9's) | ten minste 99,99999999999999% (16 9's) |
 | Typen ondersteunde opslagaccounts weergegeven                                                                   | GPv1-en gpv2-Opslagaccounts Blob                | GPv2                             | GPv1-en gpv2-Opslagaccounts Blob                     | GPv1-en gpv2-Opslagaccounts Blob                     |
-| SLA voor beschikbaarheid voor lezen aanvragen | Ten minste 99,9% (99% voor de koude toegangslaag)
+| SLA voor beschikbaarheid voor lezen aanvragen | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,99% (99,9% voor de koude Toegangslaag) |
+| Beschikbaarheids-SLA voor schrijfaanvragen voor | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) |
 
+Zie voor informatie over prijzen voor elke optie voor redundantie, [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/). 
 
-Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over de opties voor redundantie op verschillende prijzen.
+Zie voor meer informatie over Azure Storage garanties voor duurzaamheid en beschikbaarheid, de [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
 > Premium Storage ondersteunt alleen lokaal redundante opslag (LRS). Zie voor meer informatie over Premium Storage [Premium Storage: hoogwaardige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md).

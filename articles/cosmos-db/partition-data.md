@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785633"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870567"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
@@ -119,6 +119,8 @@ Houd rekening met de volgende informatie op bij het maken van een gepartitioneer
 
 - **Graph-query's moeten een partitiesleutel opgeven**. Query's moeten partitiesleutel bevatten om te profiteren van de horizontale partitionering in Azure Cosmos DB, indien mogelijk de grafiek. Bijvoorbeeld wanneer een hoekpunt is geselecteerd. De volgende voorbeeldquery's laten zien hoe om op te nemen partitiesleutel bij het selecteren van een of meerdere hoekpunten in een gepartitioneerde grafiek:
 
+    - **U kunt geen gebruiken momenteel wordt `/id` als partitiesleutel voor een container in Gremlin-API**.
+
     - Selecteren en vervolgens een hoekpunt door-ID, **gebruiken de `.has()` stap om op te geven van de partitie-sleuteleigenschap**: 
     
         ```
@@ -147,7 +149,7 @@ Houd rekening met de volgende informatie op bij het maken van een gepartitioneer
 
 * **De uitgaande richting gebruiken bij het opvragen van randen** wanneer het is mogelijk. Randen worden opgeslagen met hun bron hoekpunten in de uitgaande richting. Dit betekent dat de kans op sorteren op query's over meerdere partities wanneer de gegevens en query's zijn ontworpen met dit patroon waarmee u rekening moet worden beperkt.
 
-## <a name="designing-for-partitioning"></a> Partitiesleutel maken 
+## <a name="designing-for-partitioning"></a> Maken van een partitiesleutel 
 U kunt de Azure portal of Azure CLI containers te maken en ze op elk gewenst moment te schalen. Deze sectie wordt beschreven hoe u containers maken en de ingerichte doorvoer en partitie sleutel met behulp van elke API opgeven.
 
 
@@ -225,6 +227,9 @@ Zie voor meer informatie, [ontwikkelen met de Table-API](tutorial-develop-table-
 ### <a name="gremlin-api"></a>Gremlin-API
 
 Met de Gremlin-API, kunt u de Azure portal of Azure CLI om een container die staat voor een grafiek maken. U kunt ook omdat Azure Cosmos DB multi-modeldatabase, kunt u een van de andere API's te maken en schalen van de graph-container.
+
+> [!NOTE]
+> U kunt geen gebruiken `/id` als partitiesleutel voor een container in Gremlin-API. 
 
 U kunt een hoekpunt of edge lezen met behulp van de partitiesleutel en -ID in Gremlin. Voor een grafiek met de regio ("VS") als de partitiesleutel en "Seattle" Als de recordsleutel, kunt u bijvoorbeeld een hoekpunt vinden met behulp van de volgende syntaxis:
 

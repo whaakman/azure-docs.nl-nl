@@ -1,27 +1,28 @@
 ---
-title: URL-Preview-eindpunt - cognitieve Services van Microsoft Project | Microsoft Docs
-description: Samenvatting van het URL-Preview-eindpunt.
+title: Project-URL-voorbeeld-eindpunt
+titlesuffix: Azure Cognitive Services
+description: Samenvatting van het eindpunt van de URL-voorbeeld.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ddd53aa49db01d7a6db397eb285d0854edc59388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0464ac80c451ada46561de78b5ba0860c59a9e34
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345279"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868646"
 ---
-# <a name="project-url-preview-endpoint"></a>Project URL Preview-eindpunt
+# <a name="project-url-preview-endpoint"></a>Project-URL-voorbeeld-eindpunt
 
-De URL Preview-API bevat één eindpunt.
+De API van de voorbeeld-URL bevat één eindpunt.
 
 ## <a name="endpoint"></a>Eindpunt
-Als u een voorbeeld-URL, een aanvraag te verzenden naar het volgende eindpunt. De kop- en URL-parameters gebruiken voor andere specificaties.
+Als u een URL-voorbeeld, een aanvraag te verzenden naar het volgende eindpunt. De URL-parameters en headers gebruiken voor andere specificaties.
 
 GET:
 ````
@@ -32,12 +33,12 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ### <a name="query-parameters"></a>Queryparameters
 |Naam|Waarde|Type|Vereist|  
 |----------|-----------|----------|--------------|  
-|q|URL voor de preview|Reeks |Ja|
-|veilig zoeken|Ongeldige inhoud voor volwassenen of illegale inhoud is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen ziet hieronder u het gedrag. Statuscode 200, retourneert en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>veilig zoeken = strict: titel, beschrijving, URL en de installatiekopie, worden niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen.</li><li>veilig zoeken = off; Haal alle antwoord objecten/elementen – titel, de URL, de beschrijving en de installatiekopie.</li></ul> |Reeks|Niet vereist. </br> Standaard veilig zoeken = strict.| 
+|q|URL om een voorbeeld van|Reeks |Ja|
+|veilig zoeken|Ongeldige inhoud voor volwassenen, of illegale inhoud, is geblokkeerd met foutcode 400, en de *isFamilyFriendly* vlag wordt niet geretourneerd. <p>Voor juridische inhoud voor volwassenen, ziet hieronder u het gedrag. Statuscode 200 wordt geretourneerd en de *isFamilyFriendly* vlag is ingesteld op false.<ul><li>veilig zoeken = strikte: titel, beschrijving, URL en afbeelding wordt niet geretourneerd.</li><li>veilig zoeken = gemiddeld; Titel, URL en beschrijving, maar niet de beschrijvende afbeelding ophalen</li><li>veilig zoeken = uit; Krijg alle antwoord objecten/elementen: titel, URL, beschrijving en afbeelding.</li></ul> |Reeks|Niet vereist. </br> Standaard ingesteld op safeSearch = strikte.| 
 
-## <a name="response-object"></a>Response-object
+## <a name="response-object"></a>Antwoordobject
 
-Het antwoord bevat HTTP-headers en webpagina-object gevonden met kenmerken, zoals wordt weergegeven in het volgende voorbeeld: `name`, `url`, `description`, `isFamilyFriendly`, en `primaryImageOfPage`.
+Het antwoord bevat HTTP-headers en webpagina-object met de kenmerken, zoals wordt weergegeven in het volgende voorbeeld: `name`, `url`, `description`, `isFamilyFriendly`, en `primaryImageOfPage`.
 
 ````
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE
@@ -59,8 +60,8 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](csharp.md)
-- [Java-Quick Start](java-quickstart.md)
-- [JavaScript Quick Start](javascript.md)
-- [Knooppunt Quick Start](node-quickstart.md)
+- [Snelstartgids voor C#](csharp.md)
+- [Snelstartgids voor Java](java-quickstart.md)
+- [Snelstartgids voor JavaScript](javascript.md)
+- [Knooppunt-snelstartgids](node-quickstart.md)
 - [Snelstartgids voor Python](python-quickstart.md)

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031251"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870112"
 ---
 # <a name="create-an-app"></a>Een app maken
 Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de [LUIS](https://www.luis.ai) portal of via het ontwerpen van LUIS [API's](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -22,9 +22,9 @@ Er zijn een aantal manieren om een LUIS-app te maken. U kunt een LUIS-app in de 
 ## <a name="using-the-luis-portal"></a>Met behulp van de portal LUIS
 U kunt een nieuwe app maken in de portal LUIS op verschillende manieren:
 
-* [Start](#create-new-app) met een lege app en intenties, uitingen en entiteiten te maken.
-* [Start](#create-new-app) met een lege app en voeg een [vooraf gemaakte domein](luis-how-to-use-prebuilt-domains.md).
-* [Een LUIS-app importeren](#import-new-app) vanuit een JSON-bestand dat al intents, uitingen en entiteiten bevat.
+* Beginnen met een lege app en intenties, uitingen en entiteiten te maken.
+* Beginnen met een lege app en voeg een [vooraf gemaakte domein](luis-how-to-use-prebuilt-domains.md).
+* Importeer een LUIS-app vanuit een JSON-bestand dat al intents, uitingen en entiteiten bevat.
 
 ## <a name="using-the-authoring-apis"></a>Met behulp van de API's voor ontwerpen
 U kunt een nieuwe app maken met de authoring API's in een aantal manieren:

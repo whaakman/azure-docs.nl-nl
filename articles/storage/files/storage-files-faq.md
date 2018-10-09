@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 725aa5ff0d5ac0d6760656fc596fe44ca8661d1f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7cab1d0594792437c03427177159b193765aa92e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816120"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870992"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -157,8 +157,11 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     
 * <a id="afs-resource-move"></a>
 **Kan ik de opslagsynchronisatieservice en/of de storage-account verplaatsen naar een andere resourcegroep of abonnement?**  
-   Ja, de opslagsynchronisatieservice en/of de storage-account kan worden verplaatst naar een andere resourcegroep of abonnement. Als het opslagaccount is verplaatst, moet u de hybride File Sync-Service toegang geven tot het opslagaccount (Zie [Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Ja, de opslagsynchronisatieservice en/of de storage-account kan worden verplaatst naar een andere resourcegroep of abonnement binnen de bestaande Azure AD-tenant. Als het opslagaccount is verplaatst, moet u de hybride File Sync-Service toegang geven tot het opslagaccount (Zie [Zorg ervoor dat Azure File Sync heeft toegang tot het opslagaccount](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+    > [!Note]  
+    > Azure File Sync biedt geen ondersteuning voor het verplaatsen van het abonnement naar een andere Azure AD-tenant.
+    
 * <a id="afs-ntfs-acls"></a>
 **Behoudt Azure File Sync directory/bestandsniveau NTFS ACL's samen met de gegevens die zijn opgeslagen in Azure Files?**
 
@@ -245,14 +248,14 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="expressroute-not-required"></a>
 **Heb ik Azure ExpressRoute gebruiken voor het verbinding maken met Azure Files of voor het gebruik van Azure File Sync on-premises?**  
 
-    Nr. ExpressRoute is niet vereist voor toegang tot een Azure-bestandsshare. Als u wilt koppelen wordt een Azure-bestandsshare rechtstreeks on-premises alle die vereist is dat poort 445 (TCP uitgaand) openen voor toegang tot internet (dit is de poort die SMB gebruikt om te communiceren). Als u Azure File Sync, dat u nodig hebt, is poort 443 (TCP uitgaand) voor HTTPS-toegang (geen SMB vereist). Echter, u *kunt* ExpressRoute gebruiken met een van deze toegangsopties.
+    Nee. ExpressRoute is niet vereist voor toegang tot een Azure-bestandsshare. Als u wilt koppelen wordt een Azure-bestandsshare rechtstreeks on-premises alle die vereist is dat poort 445 (TCP uitgaand) openen voor toegang tot internet (dit is de poort die SMB gebruikt om te communiceren). Als u Azure File Sync, dat u nodig hebt, is poort 443 (TCP uitgaand) voor HTTPS-toegang (geen SMB vereist). Echter, u *kunt* ExpressRoute gebruiken met een van deze toegangsopties.
 
 * <a id="mount-locally"></a>
 **Hoe kan ik een Azure-bestandsshare koppelen op mijn lokale computer?**  
 
     U kunt de bestandsshare koppelt via het SMB-protocol als poort 445 (TCP uitgaand) geopend is en de client het SMB 3.0-protocol ondersteunt (bijvoorbeeld, als u Windows 10 of Windows Server 2016). Als poort 445 wordt geblokkeerd door het beleid van uw organisatie of door uw Internetprovider, kunt u Azure File Sync kunt gebruiken voor toegang tot uw Azure-bestandsshare.
 
-## <a name="backup"></a>Back-up
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hoe kan ik maak een back-up van mijn Azure-bestand delen?**  
     U kunt periodieke [momentopnamen van bestandsshares](storage-snapshots-files.md) voor bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-uphulpprogramma van derden die back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van Azure Files. Meer informatie over [maakt u een back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
@@ -348,7 +351,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="need-larger-share"></a>
 **Ik heb nodig een grotere bestandsshare dan Azure Files op dit moment biedt. Kan ik de grootte van mijn Azure-bestandsshare vergroten?**  
-    Nr. De maximale grootte van een Azure-bestandsshare is 5 TiB. Dit is momenteel een vaste limiet die we niet aanpassen. Er wordt gewerkt aan een oplossing voor het verhogen van de grootte van de bestandsshare in 100 TiB, maar er zijn geen tijdlijnen om te delen op dit moment.
+    Nee. De maximale grootte van een Azure-bestandsshare is 5 TiB. Dit is momenteel een vaste limiet die we niet aanpassen. Er wordt gewerkt aan een oplossing voor het verhogen van de grootte van de bestandsshare in 100 TiB, maar er zijn geen tijdlijnen om te delen op dit moment.
 
 * <a id="open-handles-quota"></a>
 **Hoeveel clients kunnen tegelijkertijd toegang krijgen tot hetzelfde bestand?**   
@@ -377,7 +380,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="nested-shares"></a>
 **Kan ik geneste shares instellen? Met andere woorden, een share onder een share?**  
-    Nr. De bestandsshare *is* het virtuele stuurprogramma dat u koppelen kunt, zodat de geneste shares worden niet ondersteund.
+    Nee. De bestandsshare *is* het virtuele stuurprogramma dat u koppelen kunt, zodat de geneste shares worden niet ondersteund.
 
 * <a id="ibm-mq"></a>
 **Hoe gebruik ik Azure Files met IBM MQ?**  

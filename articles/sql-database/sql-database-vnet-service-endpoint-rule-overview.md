@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166806"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870839"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 
@@ -187,7 +187,7 @@ PolyBase wordt meestal gebruikt om gegevens te laden in Azure RESOURCEKLASSE van
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob Auditing
 Auditlogboeken controlefunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Connectiviteit van Azure SQLDB naar het opslagaccount dat wordt verbroken als u dit storage-account maakt gebruik van de functie voor de VNet-Service-eindpunten.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNET-firewallregel toevoegen aan uw server zonder in te schakelen op VNET-Service-eindpunten
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNet-firewallregel toevoegen aan uw server zonder in te schakelen op VNet-Service-eindpunten
 
 Lang geleden, voordat dit onderdeel is verbeterd, moest u VNet-service-eindpunten inschakelen voordat u een live VNet-regel in de Firewall kan implementeren. De eindpunten die betrekking hebben een bepaald VNet-subnet naar een Azure SQL-Database. Maar nu vanaf januari 2018, u kunt omzeilen deze vereiste door in te stellen de **IgnoreMissingServiceEndpoint** vlag.
 

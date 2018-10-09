@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039571"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870176"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Gegevens over het gebruik van LUIS-service van Azure Cloud Shell
 De Azure-portal kunt u PowerShell-cmdlets gebruiken om te werken met LUIS-resources. 
@@ -23,7 +23,7 @@ De Azure-portal kunt u PowerShell-cmdlets gebruiken om te werken met LUIS-resour
 Deze cmdlets kunt u [maken](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) een LUIS-abonnement, informatie over het abonnement, met inbegrip van [gebruik](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), en [verwijderen](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) het abonnement. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud shell-storage-account en -verificatie
-Als u wilt gebruiken van PowerShell in Azure portal [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), moet u beschikken over een Azure storage-account. Als u geen een [opslagaccount](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), wordt u gevraagd een te maken. Het storage-account kunt u voor het opslaan van de PowerShell-scripts in de cloudshell.  
+Als u wilt gebruiken van PowerShell in Azure portal [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), moet u beschikken over een Azure storage-account. Als u geen een [opslagaccount](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), wordt u gevraagd een te maken. Het storage-account kunt u voor het opslaan van de PowerShell-scripts in de cloudshell.  
 
 U moet ook worden geverifieerd bij Azure in de cloudshell toegang tot bronnen. 
 

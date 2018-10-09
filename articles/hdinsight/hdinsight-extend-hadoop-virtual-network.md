@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 6df64afa5e99ea5fe3d3c6531e6e50425520286b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/08/2018
+ms.openlocfilehash: 724d3d7fe8ff037b82bbce797e391c21060aa53d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801961"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870958"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -302,7 +302,7 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruiken,
 
     Zie voor informatie over de IP-adressen te gebruiken voor Azure Government, de [Azure Government Intelligence en analyse](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 
-3. Als u een aangepaste DNS-server met het virtuele netwerk, moet u ook toegang via toestaan __168.63.129.16__. Dit adres is van het Azure-recursieve naamomzetting. Zie voor meer informatie de [naamomzetting voor virtuele machines en de rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
+3. U moet ook zodat toegang vanaf __168.63.129.16__. Dit adres is van het Azure-recursieve naamomzetting. Zie voor meer informatie de [naamomzetting voor virtuele machines en de rol exemplaren](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 Zie voor meer informatie de [netwerkverkeer beheren](#networktraffic) sectie.
 
