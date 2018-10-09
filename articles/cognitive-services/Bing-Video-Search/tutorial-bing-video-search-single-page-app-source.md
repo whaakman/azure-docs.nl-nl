@@ -1,24 +1,25 @@
 ---
-title: Bing video's zoeken Web-app met één pagina (broncode) | Microsoft Docs
-description: De broncode voor de zelfstudie waarin wordt getoond hoe het gebruik van de Bing video's zoeken-API in een Web-App van één pagina.
+title: 'Zelfstudie: een web-app met één pagina bouwen - Bing Video Search'
+titlesuffix: Azure Cognitive Services
+description: Broncode voor een zelfstudie waarin wordt uitgelegd hoe u de Bing Video Search-API kunt gebruiken in een web-app met één pagina.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112457"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223284"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Single-page-video's zoeken-app
+# <a name="tutorial-single-page-bing-video-search-app"></a>Zelfstudie: Bing Video Search-app met één pagina
 
-Dit is de volledige broncode besproken in de [app met één pagina zelfstudie](tutorial-bing-video-search-single-page-app.md) voor Bing video's zoeken. Om uit te voeren de app, kopieert u de broncode in Kladblok of een andere teksteditor en sla het bestand als `bing.html`. Open vervolgens het bestand opgeslagen in Microsoft Edge of een andere populaire browser.
+Dit is de volledige broncode die is besproken in de [zelfstudie App van één pagina](tutorial-bing-video-search-single-page-app.md) voor Bing Video Search. Als u de app wilt uitvoeren, kopieert u de broncode in Kladblok of een andere teksteditor en slaat u het bestand op als `bing.html`. Open het opgeslagen bestand vervolgens in Microsoft Edge of een andere populaire browser.
 
 ```html
 <!DOCTYPE html>

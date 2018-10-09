@@ -1,75 +1,63 @@
 ---
-title: 'Zelfstudie: Een LUIS-app maken voor het ophalen van tekstgegevens met exacte overeenkomst - Azure | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u een eenvoudige LUIS-app maakt met behulp van 'intenties' en een lijstentiteit om gegevens te extraheren.
+title: 'Zelfstudie 4: Exact tekstovereenkomst - List-entiteit van LUIS'
+titleSuffix: Azure Cognitive Services
+description: Leer hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met items. Elk item in de lijst kan synoniemen hebben die ook exact overeenkomen
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162195"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162080"
 ---
-# <a name="tutorial-4-add-list-entity"></a>Zelfstudie: 4. Een entiteit List toevoegen
-In deze zelfstudie gaat u een app maken die laat zien hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst. 
+# <a name="tutorial-4-extract-exact-text-matches"></a>Zelfstudie 4: Exacte tekstovereenkomsten extraheren
+In deze zelfstudie leert u hoe u gegevens ophaalt die overeenkomen met een vooraf gedefinieerde lijst met termen. Elk item in de lijst kan een lijst met synoniemen bevatten. Voor de Human Resources-app kan een werknemer worden geïdentificeerd aan de hand van enkele belangrijke gegevens, zoals naam, e-mailadres, telefoonnummer en sociaal-fiscaal nummer. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Algemene informatie over lijstentiteiten 
-> * Met de intentie MoveEmployee een nieuwe LUIS-app maken voor het domein Human Resources (HR)
-> * Entiteit List toevoegen om Employee uit utterance te extraheren
-> * App trainen en publiceren
-> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
+De Human Resources-app moet bepalen welke werknemer wordt overgeplaatst van het ene naar het andere gebouw. Voor een utterance over het verplaatsen van een werknemer bepaalt LUIS de intentie en extraheert de werknemer, zodat een standaardopdracht voor het verplaatsen van de werknemer kan worden aangemaakt door de clienttoepassing.
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over de [regex-entiteit](luis-quickstart-intents-regex-entity.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
-
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `list`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
-
-## <a name="purpose-of-the-list-entity"></a>Doel van de entiteit List
-Deze app voorspelt utterances over het verplaatsen van een werknemer van het ene gebouw naar een ander. Deze app maakt gebruik van een entiteit List om een werknemer te extraheren. Naar de werknemer kan worden verwezen met de naam, het telefoonnummer, het e-mailadres of het Amerikaans sociaal-fiscaal nummer. 
-
-Een entiteit List kan veel items bevatten met synoniemen voor elk item. Voor een klein tot middelgrote bedrijf wordt de entiteit List gebruikt voor het extraheren van werknemersgegevens. 
-
-De canonieke naam voor elk item is het werknemersnummer. Voorbeelden van de synoniemen binnen dit domein zijn: 
-
-|Doel synoniem|Waarde synoniem|
-|--|--|
-|Naam|John W. Smith|
-|E-mailadres|john.w.smith@mycompany.com|
-|Toestelnummer|x12345|
-|Mobiel nummer (privé)|425-555-1212|
-|Amerikaans sociaal-fiscaal nummer|123-45-6789|
+Deze app maakt gebruik van een List-entiteit om de werknemer te extraheren. Er kan worden verwezen naar de werknemer op naam, doorkiesnummer, mobiel nummer, e-mailadres of sociaal-fiscaal nummer. 
 
 Een entiteit List is een goede keuze voor dit type gegevens wanneer:
 
 * De gegevenswaarden deel uitmaken van een bekende set.
 * De set maximale [begrenzingen](luis-boundaries.md) van LUIS voor dit entiteitstype niet overschrijdt.
-* De tekst in de utterance exact overeenkomt met een synoniem. 
+* De tekst in de utterance is een exact overeenkomst met een synoniem of de canonieke naam. 
 
-LUIS extraheert de werknemer op een manier dat een standaardopdracht om de werknemer te verplaatsen door de clienttoepassing kan worden gemaakt.
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**In deze zelfstudie leert u het volgende:**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Bestaande zelfstudie-app gebruiken
+> * De intentie MoveEmployee toevoegen
+> * Een entiteit List toevoegen 
+> * Trainen 
+> * Publiceren
+> * Intenties en entiteiten ophalen van eindpunt
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="add-moveemployee-intent"></a>De intentie MoveEmployee toevoegen
+## <a name="use-existing-app"></a>Bestaande app gebruiken
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+
+1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) en sla het op.
+
+2. Importeer de JSON in een nieuwe app.
+
+3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `list`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL. 
+
+
+## <a name="moveemployee-intent"></a>De intentie MoveEmployee
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent**. 
 
@@ -94,8 +82,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Schermopname van de pagina Intent met de nieuwe utterances gemarkeerd](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="create-an-employee-list-entity"></a>Een entiteit Employee List maken
-Nu de intentie **MoveEmployee** utterances bevat, moet LUIS kunnen vaststellen wat een werknemer is. 
+    Houd er rekening mee dat number en datetimeV2 in een vorige zelfstudie zijn toegevoegd en dat deze automatisch worden gelabeld wanneer ze worden gevonden in voorbeelden van utterances.
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="employee-list-entity"></a>De entiteit Employee List
+Nu de intentie **MoveEmployee** voorbeelden van utterances bevat, moet LUIS kunnen vaststellen wat een werknemer is. 
+
+De primaire, _canonieke_ naam voor elk item is het werknemersnummer. Voorbeelden van synoniemen voor elke canonieke naam binnen dit domein zijn: 
+
+|Doel synoniem|Waarde synoniem|
+|--|--|
+|Naam|John W. Smith|
+|E-mailadres|john.w.smith@mycompany.com|
+|Toestelnummer|x12345|
+|Mobiel nummer (privé)|425-555-1212|
+|Amerikaans sociaal-fiscaal nummer|123-45-6789|
+
 
 1. Selecteer **Entities** in het linkerpaneel.
 
@@ -133,15 +136,15 @@ Nu de intentie **MoveEmployee** utterances bevat, moet LUIS kunnen vaststellen w
     |Mobiel nummer (privé)|425-555-0000|
     |Amerikaans sociaal-fiscaal nummer|234-56-7891|
 
-## <a name="train-the-luis-app"></a>LUIS-app trainen
+## <a name="train"></a>Trainen
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
+## <a name="publish"></a>Publiceren
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
+## <a name="get-intent-and-entities-from-endpoint"></a>Intenties en entiteiten ophalen van eindpunt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -259,22 +262,12 @@ Nu de intentie **MoveEmployee** utterances bevat, moet LUIS kunnen vaststellen w
 
   De werknemer is gevonden en is geretourneerd als type `Employee` met de resolutiewaarde `Employee-24612`.
 
-## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Waar vindt de verwerking van natuurlijke taal plaats in de entiteit List? 
-Omdat de lijstentiteit een exacte tekstovereenkomst is, is er geen verwerking van natuurlijke taal (of machine learning) nodig. LUIS maakt gebruik van verwerking van natuurlijke taal (of machine learning) om de juiste best scorende intentie te selecteren. Daarnaast kan een utterance een combinatie zijn van meer dan één entiteit of zelfs meer dan één type entiteit. Elke utterance wordt verwerkt voor alle entiteiten in de app, inclusief de verwerking van entiteiten in natuurlijke taal (of verkregen via machine learning).
-
-## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Deze app heeft met behulp van een entiteit List de juiste werknemer geëxtraheerd. 
-
-Uw chatbot heeft nu voldoende gegevens om de primaire actie `MoveEmployee` te bepalen en welke medewerker moet worden verplaatst. 
-
-## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
-LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+In deze zelfstudie hebt u een nieuwe intentie gemaakt, voorbeelden van utterances toegevoegd en vervolgens een List-entiteit gemaakt om exacte tekstovereenkomsten te extraheren uit utterances. Na het trainen en het publiceren van de app is met een query naar het eindpunt de intentie achterhaald. Vervolgens zijn de geëxtraheerde gegevens geretourneerd.
 
 > [!div class="nextstepaction"]
 > [Een hiërarchische entiteit aan de app toevoegen](luis-quickstart-intent-and-hier-entity.md)

@@ -1,121 +1,125 @@
 ---
-title: 'Snelstartgids: Herkennen gesproken tekst in C# in een UWP-app met behulp van de Cognitive Services spraak-SDK'
+title: 'Snelstartgids: Gesproken tekst herkennen in C# in een UWP-app met behulp van de Speech SDK van Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in een UWP-app met behulp van de Cognitive Services spraak-SDK
+description: Leer hoe u gesproken tekst herkent in een UWP-app met behulp van de Speech SDK van Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: b709b2791ae7472689cc2c7ca747f75ce0f1e6bf
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126087"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432984"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in een UWP-app met behulp van de spraak-SDK
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in een UWP-app met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u over het maken van een Universal Windows Platform (UWP)-toepassing met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
+In dit artikel maakt u in C# een UWP-app (Universal Windows Platform) met behulp van de [Speech SDK](speech-sdk.md) van Cognitive Services. U gaat in realtime spraak naar tekst transcriberen via de microfoon van uw apparaat. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
-> De Universal Windows Platform kunt u ontwikkelen van apps die worden uitgevoerd op een apparaat dat ondersteuning biedt voor Windows 10, met inbegrip van pc's, Xbox, Surface Hub en andere apparaten. Apps met behulp van de spraak-SDK nog doorgegeven niet de Windows App Certification Kit (WACK). Het is mogelijk te sideloaden die uw app, maar het kan niet op dit moment worden verzonden naar de Windows Store.
+> Het Universal Windows Platform stelt u in staat om apps te ontwikkelen die kunnen worden uitgevoerd op elk apparaat dat ondersteuning biedt voor Windows 10, met inbegrip van pc's, Xbox, Surface Hub en andere apparaten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [de spraakservice gratis uitproberen](get-started.md).
-* Een Windows-PC (Windows 10 Fall Creators Update of hoger) met een microfoon werken.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition of hoger.
-* De **universele Windows-platformontwikkeling** workload in Visual Studio.You kunt inschakelen in **extra** \> **hulpprogramma's en onderdelen**.
-
-  ![Universal Windows Platform-ontwikkeling mogelijk maken](media/sdk/vs-enable-uwp-workload.png)
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids uit te voeren. U kunt er een gratis downloaden. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
-1. Maak een nieuwe Visual C# Windows universele lege App in Visual Studio 2017. In de **nieuw Project** in het dialoogvenster, in het linkerdeelvenster Vouw **geïnstalleerde** \> **Visual C#** \> **Windows Universal** en selecteer vervolgens **lege App (universeel Windows)**. Voer voor de naam van het project, *helloworld*.
+1. Start Visual Studio 2017.
 
-    ![](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
+1. Zorg ervoor dat de workload **Universal Windows Platform development** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als deze workload al is ingeschakeld, sluit u het dialoogvenster. 
 
-1. In de **nieuw Universal Windows Platform-Project** venster dat pop's, kies **Windows 10 Fall Creators Update (10.0; Build 16299)** als **minimumversie**, en deze of een latere versie als **doelversie**, klikt u vervolgens op **OK**.
+    ![Schermopname van het installatieprogramma van Visual Studio, met het tabblad Workloads gemarkeerd](media/sdk/vs-enable-uwp-workload.png)
 
-    ![](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+    Selecteer anders het vakje naast **.NET cross-platform development** en selecteer **Modify** in de rechterbenedenhoek van het dialoogvenster. De installatie van de nieuwe functie duurt even.
 
-1. Als u op een 64-bits Windows-installatie uitvoert, u uw build-platform te kan schakelen `x64`.
+1. Maak een lege, universele Windows-app in C#. Kies eerst **File** > **New** > **Project** in het menu. Vouw in het dialoogvenster **New Project** **Installed** > **Visual C#** > **Windows Universal** uit in het linkerdeelvenster. Selecteer vervolgens **Blank App (Universal Windows)**. Voer als projectnaam *helloworld* in.
 
-   ![Het build-platform overschakelen naar x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
+    ![Schermafbeelding van het dialoogvenster New Project](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
+
+1. De Speech SDK vereist dat uw toepassing wordt gecompileerd voor de Windows 10-makersupdate van het najaar of later. Kies in het venster **New Universal Windows Platform Project** dat wordt weergegeven **Windows 10 Fall Creators Update (10.0; Build 16299)** bij **Minimum version**. Selecteer bij **Target version** deze of een latere versie en klik op **OK**.
+
+    ![Schermafbeelding van het venster New Universal Windows Platform Project](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+
+1. Als u 64-bits Windows gebruikt, kunt u uw build-platform omschakelen naar `x64` via de vervolgkeuzelijst in de werkbalk van Visual Studio. (Met 64-bits Windows kunt u ook 32-bits toepassingen uitvoeren, dus u kunt dit laten staan op `x86` als u dat liever hebt.)
+
+   ![Schermafbeelding van de Visual Studio-werkbalk, met x64 gemarkeerd](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > Op dit moment ondersteunt de spraak-SDK compatibel zijn met Intel-processors, maar niet ARM.
+   > De Speech SDK biedt alleen ondersteuning voor Intel-compatibele processors. ARM wordt momenteel niet ondersteund.
 
-1. Installeren en verwijzen naar de [spraak SDK NuGet-pakket](https://aka.ms/csspeech/nuget). In de Solution Explorer met de rechtermuisknop op de oplossing en selecteer **NuGet-pakketten beheren voor oplossing**.
+1. Installeer het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en verwijs ernaar. Klik in Solution Explorer met de rechtermuisknop op de oplossing en selecteer **Manage NuGet Packages for Solution**.
 
-    ![Met de rechtermuisknop op de NuGet-pakketten beheren voor oplossing](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
+    ![Schermafbeelding van Solution Explorer, met Manage NuGet Packages for Solution gemarkeerd](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. In de rechterbovenhoek, in de **pakketbron** veld **Nuget.org**. Zoek en installeer de `Microsoft.CognitiveServices.Speech` verpakken en installeer het in de **helloworld** project.
+1. Selecteer in de rechterbovenhoek, in het veld **Package Source**, het pakket **nuget.org**. Zoek het pakket `Microsoft.CognitiveServices.Speech` en installeer het in het project **helloworld**.
 
-    ![Installeer het NuGet-pakket Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "installeren Nuget-pakket")
+    ![Schermafbeelding van het dialoogvenster Manage Packages for Solution](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "NuGet-pakket installeren")
 
-1. Accepteer de gebruiksrechtovereenkomst weergegeven.
+1. Ga akkoord met de weergegeven licentie om te beginnen met het installeren van het NuGet-pakket.
 
-    ![Accepteer de licentie](media/sdk/qs-csharp-uwp-06-nuget-license.png "gaat akkoord met de licentie")
+    ![Schermafbeelding van het licentievenster](media/sdk/qs-csharp-uwp-06-nuget-license.png "Akkoord gaan met licentie")
 
-1. De volgende uitvoerregel wordt weergegeven in de Package Manager-console.
+1. De volgende regel wordt uitgevoerd in de Package Manager Console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
    ```
 
-## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
+1. Omdat de toepassing de microfoon gebruikt voor spraakinvoer, voegt u **Microphone** toe aan het project. Dubbelklik in Solution Explorer op **Package.appxmanifest** om het manifest van uw toepassing te bewerken. Ga vervolgens naar het tabblad **Capabilities**, selecteer het selectievakje bij **Microphone** en sla de wijzigingen op.
 
-1. Dubbelklik in Solution Explorer op **Package.appxmanifest** bewerken van het manifest van uw toepassing.
-   Selecteer de **mogelijkheden** tabblad, selecteert u het selectievakje voor de **microfoon** mogelijkheid, en sla de wijzigingen.
+   ![Schermafbeelding van het Visual Studio-toepassingsmanifest, met Capabilities en Microphone gemarkeerd](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-   ![](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-1. De gebruikersinterface van uw toepassing bewerken door te dubbelklikken op `MainPage.xaml` in Solution Explorer. 
+## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
-    In de weergave van de ontwerpfunctie XAML, invoegen van het volgende fragment van XAML in de tag raster (tussen `<Grid>` en `</Grid>`).
+1. De gebruikersinterface van de toepassing wordt gedefinieerd met behulp van XAML. Open `MainPage.xaml` in Solution Explorer. Voeg in de XAML-weergave van de ontwerpfunctie het volgende XAML-fragment toe aan de tag Grid (tussen `<Grid>` en `</Grid>`).
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. De XAML-code-behind bewerken door te dubbelklikken op `MainPage.xaml.cs` in Solution Explorer (deze wordt gegroepeerd onder de `MainPage.xaml` item).
-   Vervang de code in dit bestand met de volgende.
+1. Open het code-behind-bronbestand `MainPage.xaml.cs` (u vindt dit gegroepeerd onder `MainPage.xaml`). Vervang alle code in het bestand door de volgende code.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-1. In de `SpeechRecognitionFromMicrophone_ButtonClicked` handler, vervang de tekenreeks `YourSubscriptionKey` met de abonnementssleutel van uw.
+1. Vervang de tekenreeks `YourSubscriptionKey` in de handler `SpeechRecognitionFromMicrophone_ButtonClicked` in dit bestand door uw abonnementssleutel.
 
-1. In de `SpeechRecognitionFromMicrophone_ButtonClicked` handler, vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang in de handler `SpeechRecognitionFromMicrophone_ButtonClicked` de tekenreeks `YourServiceRegion` door de [regio](regions.md) die is gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-1. Sla alle wijzigingen in het project.
+1. Sla alle wijzigingen in het project op.
 
-## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
+## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-1. Maken van de toepassing. Selecteer in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten.
+1. Compileer de toepassing. Selecteer in de menubalk **Build** > **Build Solution**. De code moet nu zonder fouten worden gecompileerd.
 
-    ![Geslaagde build](media/sdk/qs-csharp-uwp-08-build.png "geslaagde build")
+    ![Schermafbeelding van Visual Studio-toepassing met de optie Build Solution gemarkeerd](media/sdk/qs-csharp-uwp-08-build.png "Geslaagde build")
 
-1. De toepassing te starten. Selecteer in de menubalk **Debug** > **Start Debugging**, of druk op **F5**.
+1. Start de toepassing. Selecteer in de menubalk **Debug** > **Start Debugging** of druk op **F5**.
 
-    ![De app te starten in foutopsporing](media/sdk/qs-csharp-uwp-09-start-debugging.png "bij het opsporen van fouten in de app te starten")
+    ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-csharp-uwp-09-start-debugging.png "Start foutopsporing van de app")
 
-1. Er verschijnt een venster GUI. Klikt u eerst op de **inschakelen microfoon** knop en te bevestigen van de machtiging-aanvraag die wordt weergegeven.
+1. Er verschijnt een venster. Selecteer **Enable Microphone** en bevestig dat de app toegang mag hebben tot de microfoon.
 
-    ![De app te starten in foutopsporing](media/sdk/qs-csharp-uwp-10-access-prompt.png "bij het opsporen van fouten in de app te starten")
+    ![Schermafbeelding van verzoek om toegang](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start foutopsporing van de app")
 
-1. Klik op de **spraakherkenning met invoer van de microfoon** en spreek een korte zin in de microfoon van uw apparaat. De herkende tekst wordt weergegeven in het venster.
+1. Selecteer **Speech recognition with microphone input** en zeg een Engelse woordgroep of zin in de microfoon van uw apparaat. Uw gesproken tekst wordt verzonden naar de Speech-service en getranscribeerd naar tekst, die in hetzelfde venster wordt weergegeven.
 
-    ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
+    ![Schermafbeelding van gebruikersinterface voor spraakherkenning](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/csharp-uwp` map.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Zoek naar dit voorbeeld in de map `quickstart/csharp-uwp`.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C#](how-to-recognize-intents-from-speech-csharp.md)
+
+## <a name="see-also"></a>Zie ook
 
 - [Spraak vertalen](how-to-translate-speech-csharp.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)

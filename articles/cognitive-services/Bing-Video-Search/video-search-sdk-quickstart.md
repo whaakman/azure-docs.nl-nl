@@ -1,59 +1,59 @@
 ---
-title: Video zoeken Quick Start SDK C# | Microsoft Docs
-description: Setup voor Video zoeken SDK-consoletoepassing.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: 'Snelstart: Bing Video Search SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: De Bing Video Search SDK-consoletoepassing instellen.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345711"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219937"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Video zoeken SDK C# Quick Start
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>Snelstart: Bing Video Search SDK met C# 
 
-De Bing Video Search SDK bevat de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
+De Bing Video Search SDK bevat de functionaliteit van de REST API voor webaanvragen en parseerresultaten.
 
-De [broncode voor voorbeelden van C# Bing Video Search SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing Video Search SDK voor C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) is beschikbaar op Git Hub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Als u een consoletoepassing met de Bing Video Search SDK instelt, blader naar de `Manage NuGet Packages` optie in Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.VideoSearch` pakket.
+Als u een consoletoepassing wilt instellen met behulp van de Bing Video Search SDK, gaat u naar de optie `Manage NuGet Packages` van Solution Explorer in Visual Studio.  Voeg het pakket `Microsoft.Azure.CognitiveServices.Search.VideoSearch` toe.
 
-Installeren van de [[NuGet Video zoeken SDK-pakket]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) installeert ook afhankelijkheden, met inbegrip van:
+Wanneer u het [[NuGet Video Search SDK-pakket]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) installeert, worden onder andere ook de volgende afhankelijkheden geïnstalleerd:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 
-## <a name="video-search-client"></a>Video zoeken client
-Maken van een exemplaar van de `VideoSearchAPI` -client toevoegen met behulp van instructies:
+## <a name="video-search-client"></a>Video Search-client
+Als u een exemplaar van de client `VideoSearchAPI` wilt maken, voegt u dit toe met behulp van deze instructies:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
 
 ```
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 ```
 var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-De client gebruiken om te zoeken met de querytekst van een 'SwiftKey' voor video's.
+Gebruik de client om naar video's te zoeken met de querytekst 'SwiftKey'.
 ```
 var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
 Console.WriteLine("Search videos for query \"SwiftKey\"");
 
 ```
 
-Parseren van de resultaten en vervolgens controleren of het aantal resultaten en afdrukken-ID, naam en url van de eerste video resultaat.
+Parseer de resultaten, controleer vervolgens het aantal resultaten en druk de ID, naam en URL van het eerste videoresultaat af.
 ```
 if (videoResults == null)
 {
@@ -77,9 +77,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
 
-De volgende consoletoepassing wordt de eerder gedefinieerde query uitgevoerd en wordt geparseerd resultaten.
+De volgende consoletoepassing voert de eerder gedefinieerde query uit en parseert resultaten.
 
 ```
 using System;
@@ -142,7 +142,7 @@ namespace VideoSrchSDK
 ```
 ## <a name="url-parameters"></a>URL-parameters
 
-Zoek op de querytekst 'Bellevue aanhangwagen' voor video's die zijn niet gewijzigd, korte en omzetten van 1080p.  Controleer of het aantal resultaten en afdrukken-ID, naam en url van de eerste video resultaat.
+Zoek op de querytekst 'Bellevue Trailer' voor video's die ongewijzigd en kort zijn en de resolutie 1080p hebben.  Controleer het aantal resultaten en druk de ID, naam en URL van het eerste videoresultaat af.
 
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
@@ -183,8 +183,8 @@ Zoek op de querytekst 'Bellevue aanhangwagen' voor video's die zijn niet gewijzi
 
 
 ```
-## <a name="trending-videos"></a>Trending video 's
-Zoek trends video's en controleer of de tegels banner en categorieën.
+## <a name="trending-videos"></a>Trending video's
+Zoek naar trending video's en controleer vervolgens de bannertegels en categorieën.
 ```
         public static void VideoTrending(VideoSearchAPI client)
         {
@@ -259,7 +259,7 @@ Zoek trends video's en controleer of de tegels banner en categorieën.
 
 ```
 ## <a name="details"></a>Details
-Video's zoeken naar 'Bellevue aanhangwagen' en zoek vervolgens naar gedetailleerde informatie van de eerste video.
+Zoek naar video's met 'Bellevue Trailer' en zoek vervolgens naar gedetailleerde informatie over de eerste video.
 ```
         public static void VideoDetail(VideoSearchAPI client)
         {
@@ -323,4 +323,4 @@ Video's zoeken naar 'Bellevue aanhangwagen' en zoek vervolgens naar gedetailleer
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

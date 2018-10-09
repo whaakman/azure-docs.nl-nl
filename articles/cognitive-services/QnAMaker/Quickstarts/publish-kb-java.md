@@ -1,24 +1,27 @@
 ---
-title: Kennisdatabase publiceren - Java-snelstart - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstart: een knowledge base publiceren in Java - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Een kennisdatabase publiceren in Java voor QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036919"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>Een kennisdatabase publiceren in Java
 
 Met de volgende code wordt een bestaande kennisdatabase gepubliceerd, met behulp van de methode [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. Maak een nieuw Java-project in uw favoriete IDE.
 2. Voeg de onderstaande code toe.
@@ -131,7 +134,7 @@ public class PublishKB {
 }
 ```
 
-## <a name="the-publish-a-knowledge-base-response"></a>Het antwoord op Een kennisdatabase publiceren
+## <a name="the-publish-a-knowledge-base-response"></a>Het antwoord op Een knowledge base publiceren
 
 Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
@@ -144,4 +147,4 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie over REST-API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Naslaginformatie over REST API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

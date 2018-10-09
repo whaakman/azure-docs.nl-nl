@@ -1,32 +1,32 @@
 ---
-title: Bing visuele zoekopdrachten uploaden installatiekopie-zelfstudie | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Een uitsplitsing van het proces van het uploaden van een afbeelding naar Bing te verkrijgen van inzicht en vervolgens bij het parseren en weergeven van het antwoord.
+title: 'Zelfstudie: afbeelding uploaden voor Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Hierin wordt het proces geanalyseerd waarmee een afbeelding naar Bing wordt geüpload om er inzichten over te verkrijgen en vervolgens het antwoord wordt geparseerd en weergegeven.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: a5bc5197ecd1f35b4d0026caa076a844c9d57c40
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068665"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221315"
 ---
-# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: Afbreken van Bing visuele zoekopdrachten uploaden
+# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Zelfstudie: uploaden naar Bing Visual Search analyseren
 
-In deze zelfstudie een uitsplitsing van het proces van het uploaden van een afbeelding naar Bing en inzichten krijgen. Ook ziet u hoe om te openen en weergeven van de inzichten in de JSON-antwoord. Zie voor de volledige HTML en JavaScript-voorbeeld [code aanvullen](#complete-code).
+In deze zelfstudie wordt het proces van het uploaden van een afbeelding naar Bing en het terugkrijgen van inzichten geanalyseerd. Ook ziet u hoe u toegang kunt krijgen tot de inzichten in het JSON-antwoord en deze weergeven. Zie voor het volledige HTML- en JavaScript-voorbeeld de [volledige code](#complete-code).
 
-In deze zelfstudie is bedoeld voor de ontwikkelaar die wil de inhoud van het antwoord van de Bing visuele zoekopdrachten verkennen. Deze niet alle gebruik van toepassing en weergavevereisten (bijvoorbeeld, biedt geen een koppeling naar het privacybeleid van Microsoft). Zie voor de gebruiksvereisten voor alle [Bing gebruik en de vereisten van de weergave](./use-and-display-requirements.md).
+Deze zelfstudie is bedoeld voor de ontwikkelaar die de inhoud van het antwoord van Bing Visual Search wil verkennen. Er wordt niet voldaan aan alle gebruiks- en weergavevereisten (er wordt bijvoorbeeld geen koppeling naar het privacybeleid van Microsoft gemaakt). Zie [Bing Use and Display Requirements](./use-and-display-requirements.md) (vereisten voor gebruik en weergave) voor alle gebruiksvereisten.
 
 
-## <a name="where-to-start"></a>Waar wilt starten?
+## <a name="where-to-start"></a>Waar beginnen?
 
-Laten we beginnen met een HTML-pagina die een afbeelding van Bing verzendt en wordt in inzichten en geeft deze weer. Maak een bestand met de naam van uploaddemo.html in uw favoriete editor. De volgende HTML-basisstructuur toevoegen aan het bestand.
+Laten we beginnen met een HTML-pagina die Bing een afbeelding stuurt en inzichten terugkrijgt en weergeeft. Maak in uw favoriete editor een bestand met de naam uploaddemo.html. Voeg de volgende eenvoudige HTML-structuur toe aan het bestand.
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ Laten we beginnen met een HTML-pagina die een afbeelding van Bing verzendt en wo
 </html>      
 ```
 
-Als u wilt starten, moet u gaan we de pagina onderverdelen in een aanvraag, waarin de gebruiker biedt alle informatie die nodig zijn voor het maken van de aanvraag, en een antwoord sectie waarin de inzichten worden weergegeven. Voeg de volgende \<div\> tags aan het \<hoofdtekst\>. De \<hr\> tag visueel vormt het kader waarbinnen de aanvraag-sectie van de antwoord-sectie.
+Om te beginnen verdelen we de pagina in een aanvraagsectie, waar de gebruiker alle informatie verschaft die nodig is om de aanvraag te doen, en een antwoordsectie waar de inzichten worden weergegeven. Voeg de volgende \<div\> -tags toe aan de \<body\>. De \<hr\>-tag scheidt de aanvraagsectie visueel van de antwoordsectie.
 
 ```html
         <div id="requestSection"></div>
@@ -50,13 +50,13 @@ Als u wilt starten, moet u gaan we de pagina onderverdelen in een aanvraag, waar
         <div id="responseSection"></div>
 ```
 
-## <a name="get-the-file-to-upload"></a>Ophalen van het bestand te uploaden
+## <a name="get-the-file-to-upload"></a>Het te uploaden bestand ophalen
 
-Als u wilt dat de gebruiker selecteert u de afbeelding te uploaden, de demo maakt gebruik van de \<invoer\> tag met het typekenmerk is ingesteld op het bestand. De gebruikersinterface, moet u gemakkelijk wissen dat de demo Bing gebruikt om op te halen van de lijst met zoekresultaten. 
+Om de gebruiker de te uploaden afbeelding te laten selecteren, gebruikt de demo de \<input\>-tag met het kenmerk ‘type’ ingesteld op ‘file’ (bestand). De gebruikersinterface moet duidelijk maken dat de demo Bing gebruikt om de zoekresultaten te krijgen. 
 
-Voeg de volgende \<div\> naar de requestSection div. De bestandsinvoer accepteert een enkel bestand van elk type installatiekopie (bijvoorbeeld, JPG, GIF, PNG). De `onchange` gebeurtenis Hiermee geeft u de handler die wordt aangeroepen wanneer een gebruiker een bestand selecteert.
+Voeg de volgende \<div\> toe aan de div requestSection. De bestandsinvoer accepteert één bestand, van elk afbeeldingstype (bijvoorbeeld .jpg, .gif, .png). De `onchange`-gebeurtenis geeft de handler aan die wordt aangeroepen wanneer een gebruiker een bestand selecteert.
 
-De \<uitvoer\> invoercode wordt gebruikt om een miniatuur van de geselecteerde installatiekopie weer te geven.
+De \<output\>-tag wordt gebruikt om een ​​miniatuur van de geselecteerde afbeelding weer te geven.
 
 
 ```html
@@ -69,14 +69,14 @@ De \<uitvoer\> invoercode wordt gebruikt om een miniatuur van de geselecteerde i
             </div>
 ```
 
-Voordat u de handler toevoegt, Voeg een \<script\> tag aan de \<head\> tag.
+Voordat u de handler toevoegt, voegt u een \<script\>-tag toe aan de \<head\>-tag.
 
 ```html
         <script>
         <\script>
 ```
 
-Hieronder ziet u de handler waarmee de geselecteerde installatiekopie wordt vastgelegd. De handler bevat logica om te controleren of het geselecteerde bestand is een afbeeldingsbestand en dat de grootte 1 MB is of minder. U kunt toestaan dat de gebruiker om grotere bestanden te selecteren, maar moet u de grootte van de installatiekopie verkleinen tot minder dan 1 MB voordat u deze uploadt naar Bing. Het laatste wat de handler heeft is een miniatuur van de afbeelding wordt weergegeven, zodat de gebruiker heeft een visual herinnering aan het bestand dat ze geselecteerd.
+Hieronder ziet u de handler waarmee de geselecteerde afbeelding wordt vastgelegd. De handler bevat logica om ervoor te zorgen dat het geselecteerde bestand een afbeeldingsbestand is en dat de grootte 1 MB of minder is. U kunt de gebruiker toestaan ​​om grotere bestanden te selecteren, maar u moet de afbeeldingsgrootte verkleinen tot minder dan 1 MB voordat u deze uploadt naar Bing. Het laatste dat de handler doet, is een miniatuur van de afbeelding weergeven, zodat de gebruiker een visuele herinnering heeft aan het bestand dat deze heeft geselecteerd.
 
 ```javascript
         function handleFileSelect(selector) {
@@ -126,9 +126,9 @@ Hieronder ziet u de handler waarmee de geselecteerde installatiekopie wordt vast
 ```
 
 
-## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Wat u nog meer nodig is voor de oproep naar Bing?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Wat is er nog meer nodig voor de aanroep van Bing?
 
-De demo moet nog steeds een abonnementssleutel. U zult de abonnementssleutel van beveiligde opslag in de praktijk, maar voor het gemak van deze demo, moet u opgeven in de gebruikersinterface. Voeg de volgende \<invoer\> tag (met het typekenmerk is ingesteld op tekst) aan de \<hoofdtekst\> onder van het bestand \<uitvoer\> tag.
+De demo heeft nog een abonnementssleutel nodig. In de praktijk haalt u de abonnementssleutel waarschijnlijk op uit beveiligde opslag, maar om deze demo eenvoudig te houden, moet u de sleutel opgeven in de gebruikersinterface. Voeg de volgende \<input\>-tag (met het kenmerk ‘type’ ingesteld op ‘text’) toe aan de \<body\>, vlak onder de \<output\>-tag van het bestand.
 
 ```html
         <div>
@@ -138,9 +138,9 @@ De demo moet nog steeds een abonnementssleutel. U zult de abonnementssleutel van
         </div>
 ```
 
-Met de installatiekopie en de sleutel van het abonnement beschikt, kunt u de aanroep van Bing visuele zoekopdrachten om inzichten over de installatiekopie te verkrijgen. De aanroep zou gebruiken de standaard-markt en de waarden van veilig zoeken (en-us en Gemiddeld, respectievelijk).
+Aan de hand van de afbeelding en de abonnementssleutel kunt u Bing Visual Search aanroepen om inzicht te krijgen in de afbeelding. De aanroep zou de standaardwaarden voor de markt en Veilig Zoeken gebruiken (respectievelijk ‘en-us’ en ‘moderate’ (gemiddeld)).
 
-In deze demo biedt de gebruiker de optie voor het wijzigen van deze waarden. Voeg de volgende \<div\> onder de sleutel div. abonnement De demo maakt gebruik van een \<Selecteer\> tag te voorzien in een vervolgkeuzelijst markt en de waarden van veilig zoeken. Beide lijsten bevatten de standaardwaarde van Bing.
+Deze demo biedt de gebruiker de mogelijkheid om deze waarden te wijzigen. Voeg het volgende \<div\>-element toe onder de div voor de abonnementssleutel. De demo gebruikt een \<select\>-tag om een ​​vervolgkeuzelijst te bieden voor de waarden voor de markt en Veilig Zoeken. In beide lijsten wordt de standaardwaarde van Bing weergegeven.
 
  
 ```html
@@ -203,7 +203,7 @@ In deze demo biedt de gebruiker de optie voor het wijzigen van deze waarden. Voe
         </div>
 ```
 
-De demo Hiermee verbergt u de lijsten in een div-element samenvouwbare die wordt beheerd door de koppeling van de Query-opties. Wanneer u op de koppeling van de opties voor query's klikt, wordt het div-element uitgebreid zodat u kunt bekijken en wijzigen van de opties voor query's. Als u klikt op worden de opties voor query's opnieuw, de samengevouwen div koppelen en is verborgen. Hieronder ziet u de Query-opties-koppeling onclick handler. De handler Hiermee bepaalt u of het div-element is uitgevouwen of is samengevouwen. Deze handler toevoegen de \<script\> sectie. De handler wordt gebruikt door alle samenvouwbare div-elementen in de demo.
+De demo verbergt de lijsten in een samenvouwbaar div-element dat wordt bestuurd met de koppeling ‘Query options’ (zoekopties). Wanneer u op de koppeling ‘Query options’ klikt, wordt de div uitgevouwen, zodat u de zoekopties kunt zien en wijzigen. Als u nogmaals op de koppeling ‘Query options’ klikt, wordt het div-element samengevouwen en verborgen. Hieronder ziet u de onclick-handler van ‘Query options’. De handler bepaalt of het div-element wordt uitgevouwen of samengevouwen. Voeg deze handler toe aan de \<script\>-sectie. De handler wordt gebruikt door alle samenvouwbare div-elementen in de demo.
 
 ```javascript
         // Contains the toggle state of divs.
@@ -226,15 +226,15 @@ De demo Hiermee verbergt u de lijsten in een div-element samenvouwbare die wordt
 ```
 
 
-## <a name="making-the-call"></a>De oproep
+## <a name="making-the-call"></a>De aanroep doen
 
-De volgende Get insights knop onder de opties div-element toevoegen in de hoofdtekst. De knop kan de gebruiker die de oproep te initiëren. Wanneer de gebruiker op de knop klikt, wordt de cursor is gewijzigd in de wacht zetten cursor en wordt de handler onclick wordt genoemd.
+Voeg de volgende knop ‘Get insights’ (inzichten ophalen) toe onder het div-element met opties in de body. Met deze knop kan de gebruiker de aanroep doen. Wanneer de gebruiker op de knop klikt, verandert de cursor in de draaiende wachtcursor en wordt de onclick-handler aangeroepen.
 
 ```html
         <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Toevoegen van de knop onclick-handler het \<script\> tag. De handler zorgt ervoor dat de abonnementssleutel aanwezig is en 32 tekens lang zijn en dat er een installatiekopie is geselecteerd. Ook wist de App geen inzichten vanuit een eerdere aanvraag. Als alles goed is, wordt de functie sendRequest zodat de aanroep.
+Voeg de onclick-handler van de knop toe in de \<script\>-tag. De handler controleert of de abonnementssleutel aanwezig is en 32 tekens lang is, en of er een afbeelding is geselecteerd. Verder worden eventuele inzichten uit een eerdere query gewist. Als alles goed is, wordt de functie sendRequest aangeroepen om de aanroep te doen.
 
 ```javascript
         function handleQuery() {
@@ -271,7 +271,7 @@ Toevoegen van de knop onclick-handler het \<script\> tag. De handler zorgt ervoo
         }
 ```
 
-De functie sendRequest indelingen van de eindpunt-URL, wordt de kop Ocp-Apim-Subscription-Key ingesteld op de abonnementssleutel, voegt het binaire bestand van de afbeelding te uploaden, Hiermee geeft u de antwoordhandler en Hiermee wordt de aanroep. 
+De sendRequest-functie deelt de eindpunt-URL in, stelt de header Ocp-Apim-Subscription-Key in op de abonnementssleutel, voegt het binaire bestand van de afbeelding toe om te uploaden, geeft de antwoordhandler aan en voert de aanroep uit. 
 
 ```javascript
         function sendRequest(file, key) {
@@ -291,13 +291,13 @@ De functie sendRequest indelingen van de eindpunt-URL, wordt de kop Ocp-Apim-Sub
         }
 ```
 
-## <a name="handling-the-response"></a>Verwerken van het antwoord
+## <a name="handling-the-response"></a>Het antwoord verwerken
 
-De functie handleResponse verwerkt het antwoord van de aanroep van Bing visuele zoekopdrachten. Als de aanroep slaagt, wordt het JSON-antwoord geparseerd in de afzonderlijke tags, waarin de inzichten. Vervolgens wordt er de tekenreeks, Bing, internet-zoekresultaten, toegevoegd aan de pagina en laat de gebruiker informatie over dat de gegevens afkomstig zijn van Bing.
+De handleResponse-functie behandelt het antwoord van de aanroep van Bing Visual Search. Als de aanroep slaagt, parseert deze functie de JSON-reactie in de afzonderlijke tags, die de inzichten bevatten. Vervolgens wordt de tekenreeks ‘Bing internet search results’ (internetzoekresultaten van Bing) toegevoegd aan de pagina om de gebruiker te laten weten dat de gegevens afkomstig zijn van Bing.
 
-De demo kan dump alle inzichten naar de pagina, maar sommige afbeeldingen retourneren een grote hoeveelheid gegevens, waardoor het moeilijk te gebruiken. In plaats daarvan maakt de demo een samenvouwbare div-element voor elk label, zodat de gebruiker hoeveel gegevens ze zien kunt beheren.
+De demo kan alle inzichten op de pagina dumpen, maar sommige afbeeldingen retourneren veel gegevens, waardoor ze moeilijk te gebruiken zijn. In plaats daarvan maakt de demo een samenvouwbaar div-element voor elke tag, zodat de gebruiker kan bepalen hoeveel gegevens deze wil zien.
 
-De handler toevoegen aan de \<script\> sectie.
+Voeg de handler toe aan de \<script\>-sectie.
 
 ```javascript
         function handleResponse() {
@@ -334,7 +334,7 @@ De handler toevoegen aan de \<script\> sectie.
         }
 ```
 
-De functie buildTagSections doorloopt de geparseerde JSON-tags en roept de buildDiv-functie voor het bouwen van een div-element voor elk label. Net als met de optie voor een Query, wordt elk label weergegeven als een koppeling. Wanneer de gebruiker op de koppeling klikt, wordt de tag breidt de inzichten die zijn gekoppeld aan het label weergegeven. Als de gebruiker op de koppeling opnieuw klikt, wordt de sectie samengevouwen verbergen van de inzichten op basis van de gebruiker.
+De functie buildTagSections doorloopt de geparseerde JSON-tags en roept de buildDiv-functie aan om een ​​div-element samen te stellen voor elke tag. Net als bij de optie Query, wordt elke tag weergegeven als een koppeling. Wanneer de gebruiker op de koppeling klikt, wordt de tag uitgevouwen en worden de inzichten weergegeven die aan de tag zijn gekoppeld. Als de gebruiker nogmaals op de koppeling klikt, wordt de sectie samengevouwen en worden de inzichten voor de gebruiker verborgen.
 
 ```javascript
         function buildTagSections(tags) {
@@ -372,11 +372,11 @@ De functie buildTagSections doorloopt de geparseerde JSON-tags en roept de build
         }
 ```
 
-De functie buildDiv roept de addDivContent-functie voor het bouwen van de inhoud van elke tag samenvouwbare div.
+De buildDiv-functie roept de functie addDivContent aan om de inhoud van het samenvouwbare div-element voor elke tag op te bouwen.
 
-De inhoud van een tag omvat de JSON uit het antwoord voor de tag. De demo bevat de JSON voor de ontwikkelaars die u wenst te zien in de JSON achter het antwoord. In eerste instantie alleen de eerste 100 tekens van de JSON is weergegeven, maar u kunt klikken op de JSON-tekenreeks om weer te geven van alle JSON. Als u deze opnieuw klikt, wordt de JSON-tekenreeks samengevouwen terug tot 100 tekens.
+De inhoud van een tag omvat de JSON uit het antwoord voor de tag. De demo bevat de JSON voor ontwikkelaars die de JSON achter het antwoord willen zien. Aanvankelijk worden alleen de eerste 100 tekens van de JSON weergegeven, maar u kunt op de JSON-tekenreeks klikken om alle JSON te tonen. Als u hier nogmaals op klikt, wordt de JSON-tekenreeks weer samengevouwen tot 100 tekens.
 
-Voeg vervolgens de actietypen gevonden in de tag. Roep de verschillende functies om toe te voegen van de inzichten voor elk actietype.
+Voeg vervolgens de in de tag gevonden actietypen toe. Roep voor elk actietype de verschillende functies aan om de inzichten ervan toe te voegen.
 
 ```javascript
         function addDivContent(div, tag, json) {
@@ -451,9 +451,9 @@ Voeg vervolgens de actietypen gevonden in de tag. Roep de verschillende functies
         }
 ```
 
-Hieronder vindt u alle functies die inzichten voor de verschillende acties die worden weergegeven. De meeste van deze functies zijn rechtstreeks doorsturen &mdash; ze geven een afbeelding of een aanklikbare koppeling waarmee de gebruiker naar een webpagina waar ze vind meer informatie over de installatiekopie (Bing.com of van de afbeelding host webpagina). De zelfstudie weergegeven niet alle gegevens die zijn gekoppeld aan het inzicht. Zie voor alle velden die beschikbaar zijn voor een beter inzicht [Bing Visual Search Reference](https://aka.ms/bingvisualsearchreferencedoc).
+Hieronder volgen alle functies waarmee inzichten voor de verschillende acties worden weergegeven. De meeste van deze functies zijn ongecompliceerd; ze bieden een afbeelding of koppeling waarop kan worden geklikt om de gebruiker naar een webpagina te sturen waar meer informatie over de afbeelding beschikbaar is (Bing.com of de webpagina waar de afbeelding wordt gehost). De zelfstudie geeft niet alle gegevens weer die aan het inzicht zijn gekoppeld. Zie [Bing Visual Search Reference](https://aka.ms/bingvisualsearchreferencedoc) om alle beschikbare velden voor een inzicht te bekijken.
 
-Let op: Er is een minimale hoeveelheid gegevens die u moet weergeven, de rest is aan u. Als u wilt controleren of u bent aan het nalevingsbeleid voldoet, Zie [Bing gebruik en de vereisten van de weergave](./use-and-display-requirements.md).
+Onthoud dat er een minimale hoeveelheid gegevens is die u moet weergeven; de rest is aan u. Zie [Bing Use and Display Requirements](./use-and-display-requirements.md) (vereisten voor gebruik en weergave) om ervoor te zorgen dat u aan de voorwaarden voldoet.
 
 
 ```javascript
@@ -676,9 +676,9 @@ Let op: Er is een minimale hoeveelheid gegevens die u moet weergeven, de rest is
 
 
 
-## <a name="adding-styles-to-make-the-page-display-correctly"></a>Toevoegen van aanvullende stijlen in de pagina correct weergegeven
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Stijlen toevoegen om de pagina correct weer te geven
 
-Voeg de volgende \<stijl\> sectie aan de \<head\> tag.
+Voeg de volgende \<style\>-sectie toe aan de \<head\>-tag.
 
 ```html
         <style>
@@ -715,7 +715,7 @@ Voeg de volgende \<stijl\> sectie aan de \<head\> tag.
 
 ## <a name="complete-code"></a>Volledige code
 
-Hier is het complete voorbeeld voor HTML en JavaScript.
+Hier is het volledige HTML- en JavaScript-voorbeeld.
 
 ```html
 <!DOCTYPE html>
@@ -1331,4 +1331,4 @@ Hier is het complete voorbeeld voor HTML en JavaScript.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Om te zien hoe inzichten krijgen werkt met behulp van en inzichten token, Zie [Bing Visual Search SDK ImageInsightsToken zelfstudie](.\tutorial-visual-search-insights-token.md).
+Zie de [zelfstudie over Bing Visual Search SDK ImageInsightsToken](.\tutorial-visual-search-insights-token.md) om te zien hoe het ophalen van inzichten met een inzichttoken werkt.

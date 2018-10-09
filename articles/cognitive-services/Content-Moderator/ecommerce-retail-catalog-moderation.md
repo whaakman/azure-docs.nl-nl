@@ -1,69 +1,70 @@
 ---
-title: e-commerce catalogus toezicht met machine learning en AI met Azure inhoud beheerder | Microsoft Docs
-description: Automatisch e-commerce catalogussen met machine learning en AI gemiddeld
+title: 'Zelfstudie: e-commerce-catalogus beheer - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: E-commerce-catalogi automatisch modereren met machine learning en AI.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: MT
+ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095748"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227347"
 ---
-# <a name="ecommerce-catalog-moderation-with-machine-learning"></a>e-commerce catalogus toezicht met machine learning
+# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Zelfstudie: e-commerce-catalogus modereren met machine learning
 
-In deze zelfstudie wordt informatie over het intelligent machine learning-gebaseerde als e-commerce catalogus toezicht door AI-technologieën machine ondersteund in combinatie met menselijke controle voor een systeem intelligent catalogus implementeren.
+In deze zelfstudie leren we hoe we intelligente op machine learning gebaseerde moderatie van e-commercecatalogi kunnen implementeren door AI-technologieën te combineren met menselijke moderatie om een ​​intelligent catalogussysteem te bieden.
 
 ![Geclassificeerde productafbeeldingen](images/tutorial-ecommerce-content-moderator.PNG)
 
 ## <a name="business-scenario"></a>Bedrijfsscenario
 
-Ondersteunde machine technologieën gebruiken om te classificeren en gemiddelde productafbeeldingen in deze categorieën:
+Door machines ondersteunde technologieën gebruiken om productafbeeldingen in de volgende categorieën te classificeren en modereren:
 
-1. Volwassene (bloot)
-2. Mooie (suggestieve)
+1. Voor volwassenen (naakt)
+2. Ongepast (suggestief)
 3. Beroemdheden
-4. VS-vlaggen
-5. Toys
+4. Amerikaanse vlaggen
+5. Speelgoed
 6. Pennen
 
-## <a name="tutorial-steps"></a>Zelfstudie stappen
+## <a name="tutorial-steps"></a>Stappen in de zelfstudie
 
-De zelfstudie leidt u door de volgende stappen uit:
+In deze zelfstudie gaat u de volgende stappen uitvoeren:
 
-1. Registreren en een team inhoud beheerder maken.
-2. Configureer controle labels (labels) voor potentiële beroemdheden en markering inhoud.
-3. Inhoud beheerder van de installatiekopie API gebruiken om te scannen op mogelijke inhoud voor volwassenen en mooie.
+1. Aanmelden en een Content Moderator-team samenstellen.
+2. Moderatietags (labels) voor mogelijke beroemdheden en vlaginhoud configureren.
+3. De Image-API van Content Moderator gebruiken om te scannen op mogelijke ongepaste inhoud of inhoud voor volwassenen.
 4. De Computer Vision-API gebruiken om te scannen op mogelijke beroemdheden.
-5. De aangepaste visie-service gebruiken om te scannen op mogelijke aanwezigheid van vlaggen.
-6. De nuanced scanresultaten voor menselijke revisie en definitieve besluitvorming aanwezig.
+5. De Custom Vision service gebruiken om te scannen op mogelijke aanwezigheid van vlaggen.
+6. De genuanceerde scanresultaten presenteren voor menselijke beoordeling en uiteindelijke besluitvorming.
 
 ## <a name="create-a-team"></a>Een team maken
 
-Raadpleeg de [Quick Start](quick-start.md) pagina aanmelden voor inhoud beheerder en het maken van een team. Opmerking de **Team-ID** van de **referenties** pagina.
+Raadpleeg de [snelstart](quick-start.md)-pagina voor informatie over hoe u zich aanmeldt voor Content Moderator en een team samenstelt. Noteer de **Team-id** op de pagina **Referenties**.
 
 
-## <a name="define-custom-tags"></a>Aangepaste labels definiëren
+## <a name="define-custom-tags"></a>Aangepaste tags definiëren
 
-Raadpleeg de [labels](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) artikel aangepaste labels toevoegen. Naast de ingebouwde **volwassenen** en **mooie** labels, de nieuwe labels kunnen het hulpprogramma controleren om de beschrijvende namen voor de labels weer te geven.
+Raadpleeg het artikel [Tags](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) voor het toevoegen van aangepaste tags. Naast de ingebouwde tags **adult** (voor volwassenen) en **racy** (ongepast), bieden de nieuwe tags de het beoordelingsprogramma de mogelijkheid om de beschrijvende namen voor de tags weer te geven.
 
-In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, **ons**, **toy**, **pen**):
+In ons geval definiëren we de aangepaste tags (**celebrity** (beroemdheid), **flag** (vlag), **us** (VS), **software**, **pen**):
 
-![Aangepaste labels configureren](images/tutorial-ecommerce-tags2.PNG)
+![Aangepaste tags configureren](images/tutorial-ecommerce-tags2.PNG)
 
-## <a name="list-your-api-keys-and-endpoints"></a>Lijst van uw API-sleutels en -eindpunten
+## <a name="list-your-api-keys-and-endpoints"></a>Uw API-sleutels en eindpunten weergeven
 
-1. De zelfstudie maakt gebruik van drie API's en de bijbehorende sleutels en API-eindpunten.
-2. Uw API-eindpunten zijn verschillend op basis van uw abonnement regio's en de beheerder controleren Inhoudsteam-ID.
+1. De zelfstudie gebruikt drie API's en de bijbehorende sleutels en API-eindpunten.
+2. Uw API-eindpunten zijn verschillend op basis van uw abonnementsregio's en de team-id van het Content Moderator-beoordelingsteam.
 
 > [!NOTE]
-> De zelfstudie is ontworpen voor het abonnement sleutels in de regio's die zichtbaar zijn in de volgende eindpunten te gebruiken. Moet overeenkomen met uw API-sleutels met de regio anders uw sleutels niet met de volgende eindpunten werkt URI's:
+> De zelfstudie is ontworpen om abonnementssleutels te gebruiken in de regio's die zichtbaar zijn in de volgende eindpunten. Zorg ervoor dat uw API-sleutels overeenkomen met de regio-URI’s, anders werken uw sleutels mogelijk niet met de volgende eindpunten:
 
          // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -76,12 +77,12 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
         public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
         public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
 
-## <a name="scan-for-adult-and-racy-content"></a>Zoeken naar inhoud voor volwassenen en mooie
+## <a name="scan-for-adult-and-racy-content"></a>Scannen op inhoud voor volwassenen en ongepaste inhoud
 
-1. Deze functie kent een afbeeldings-URL en een matrix met sleutel-waardeparen als parameters.
-2. De inhoud beheerder installatiekopie API om op te halen van de scores volwassene en Racy aangeroepen.
-3. Als de score groter is dan 0,4 (bereik ligt tussen 0 en 1), wordt de waarde in de **ReviewTags** matrix aan **True**.
-4. De **ReviewTags** matrix wordt gebruikt voor het markeren van de bijbehorende tag in het hulpprogramma voor beoordeling.
+1. De functie gebruikt een afbeeldings-URL en een matrix van sleutel-waardeparen als parameters.
+2. De Image API van de Content Moderator wordt aangeroepen om de scores voor Adult en Racy te krijgen.
+3. Als de score hoger is dan 0,4 (bereik ligt tussen 0 en 1), wordt de waarde in de **ReviewTags**-matrix ingesteld op **true** (waar).
+4. De **ReviewTags**-matrix wordt gebruikt om de overeenkomstige tag in het beoordelingsprogramma te markeren.
 
         public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
         {
@@ -119,17 +120,17 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
             return response.IsSuccessStatusCode;
         }
 
-## <a name="scan-for-celebrities"></a>Scannen voor beroemdheden
+## <a name="scan-for-celebrities"></a>Scannen op beroemdheden
 
-1. Aanmelden voor een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) van de [Computer Vision-API](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
-2. Klik op de **API-sleutel ophalen** knop.
-3. De voorwaarden accepteren.
-4. Als u wilt aanmelden, kiezen uit de lijst met Internet-accounts beschikbaar.
-5. Noteer de API-sleutels op de pagina weergegeven.
+1. Registreer u voor een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) van de [Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
+2. Klik op de knop **API-sleutel ophalen**.
+3. Accepteer de voorwaarden.
+4. Om u aan te melden, maakt u een keuze uit de lijst met beschikbare internetaccounts.
+5. Let op de API-sleutels die worden weergegeven op uw servicepagina.
     
-   ![Computer Vision-API-sleutels](images/tutorial-computer-vision-keys.PNG)
+   ![Computer Vision API-sleutels](images/tutorial-computer-vision-keys.PNG)
     
-6. Raadpleeg de broncode project voor de functie waarmee de installatiekopie met de Computer Vision-API worden gescand.
+6. Raadpleeg de projectbroncode voor de functie die de afbeelding scant met de Computer Vision API.
 
          public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
@@ -156,13 +157,13 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
             return Response.IsSuccessStatusCode;
         }
 
-## <a name="classify-into-flags-toys-and-pens"></a>Classificeren in vlaggen toys en pennen
+## <a name="classify-into-flags-toys-and-pens"></a>Classificeren in vlaggen, speelgoed en pennen
 
-1. [Meld u aan](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) naar de [Vision-API voor aangepaste preview](https://www.customvision.ai/).
-2. Gebruik de [Quick Start](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) voor het bouwen van uw aangepaste classificatie voor het detecteren van de mogelijke aanwezigheid van vlaggen, toys en pennen.
-   ![Aangepaste visie Training installatiekopieën](images/tutorial-ecommerce-custom-vision.PNG)
-3. [Ophalen van de voorspelling eindpunt-URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) voor uw aangepaste classificatie.
-4. Raadpleeg de broncode project voor een overzicht van de functie die uw aangepaste classificatie voorspelling-eindpunt om te scannen van uw installatiekopie aanroept.
+1. [Meld u aan](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) bij de [Custom Vision API-preview](https://www.customvision.ai/).
+2. Gebruik de [snelstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) om uw aangepaste classificatie voor het detecteren van de mogelijke aanwezigheid van vlaggen, speelgoed en pennen te bouwen.
+   ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
+3. [Haal de eindpunt-URL van de voorspelling op](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) voor uw aangepaste classificatie.
+4. Raadpleeg de broncode van het project om de functie te zien waarmee het voorspellingseindpunt van uw aangepaste classificatie wordt aangeroepen om uw afbeelding te scannen.
 
         public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
         {
@@ -180,11 +181,11 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
             return response.IsSuccessStatusCode;
         }       
  
-## <a name="reviews-for-human-in-the-loop"></a>Beoordelingen voor human in de lus
+## <a name="reviews-for-human-in-the-loop"></a>Beoordelingen voor persoon in de lus
 
-1. In de vorige secties, kunt u de binnenkomende afbeeldingen voor volwassenen en mooie (inhoud beheerder), beroemdheden (Computer Vision) en vlaggen (aangepaste visie) gescande.
-2. Op basis van onze drempelwaarden overeenkomst voor elke scan, de nuanced gevallen beschikbaar maken voor menselijke controleren in het hulpprogramma voor beoordeling.
-        openbare statische bool {CreateReview (tekenreeks ImageUrl, KeyValuePair [] metagegevens)
+1. In de vorige paragrafen hebt u de binnenkomende afbeeldingen gescand op inhoud voor volwassen en ongepaste inhoud (Content Moderator), beroemdheden (Computer Vision) en vlaggen (Custom Vision).
+2. Maak op basis van onze matchdrempels voor elke scan de genuanceerde gevallen beschikbaar voor menselijke beoordeling in het beoordelingsprogramma.
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -202,11 +203,11 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
             return response.IsSuccessStatusCode;
         }
 
-## <a name="submit-batch-of-images"></a>Batch van afbeeldingen verzenden
+## <a name="submit-batch-of-images"></a>Batch met afbeeldingen verzenden
 
-1. Deze zelfstudie wordt ervan uitgegaan van een map 'C:Test' met een tekstbestand met een lijst met URL's van de installatiekopie.
-2. De volgende code controleert op de aanwezigheid van het bestand en leest alle URL's in het geheugen.
-            Controleer voor een testmap voor een tekstbestand met de lijst met URL's afbeelding om te scannen var topdir = @"C:\test\"; var Urlsfile = topdir + 'Urls.txt';
+1. In deze zelfstudie wordt ervan uitgegaan dat er een map 'C:Test' bestaat die een tekstbestand met een lijst met afbeeldings-URL's bevat.
+2. De volgende code controleert het bestaan ​​van het bestand en leest alle URL's naar het geheugen.
+            // Controleer een testdirectory op een tekstbestand met de lijst met afbeeldings-URL's om te scannen var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -221,9 +222,9 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
 
 ## <a name="initiate-all-scans"></a>Alle scans initiëren
 
-1. Deze functie op het hoogste niveau in een lus alle afbeelding-URL's in het tekstbestand dat eerder vermeld.
-2. Het scant ze met elke API en als de overeenkomst vertrouwen score binnen onze criteria valt, maakt een beoordeling voor menselijke moderators.
-             installatiekopie voor elk URL in het bestand... foreach (var Url in URL's) {/ / Initiatize van een nieuwe revisie labels array ReviewTags = nieuwe KeyValuePair [MAXTAGSCOUNT];
+1. Deze functie op het hoogste niveau doorloopt alle afbeeldings-URL's in het tekstbestand dat we eerder noemden.
+2. Ze worden met elke API gescand, en als de betrouwbaarheidsscore van de overeenkomst binnen onze criteria valt, wordt een beoordeling gemaakt voor menselijke moderators.
+             // voor elke afbeeldings-URL in het bestand... foreach (var Url in Urls) { // Initialiseer een nieuwe matrix met beoordelingstags ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -240,12 +241,12 @@ In ons geval definiëren we deze aangepaste labels (**beroemdheden**, **vlag**, 
 
 ## <a name="license"></a>Licentie
 
-Alle Microsoft cognitieve Services SDK's en voorbeelden worden in licentie gegeven aan de MIT-licentie. Zie voor meer informatie [licentie](https://microsoft.mit-license.org/).
+Alle SDK's en voorbeelden van Microsoft Cognitive Services worden gelicentieerd met de MIT-licentie. Zie de [LICENTIE](https://microsoft.mit-license.org/) voor meer informatie.
 
 ## <a name="developer-code-of-conduct"></a>Gedragscode voor ontwikkelaars
 
-Ontwikkelaars die cognitieve Services, waaronder deze clientbibliotheek & voorbeeld verwacht voert u de 'Developer Code van uitvoeren voor Microsoft cognitieve Services', gevonden op http://go.microsoft.com/fwlink/?LinkId=698895.
+Ontwikkelaars die gebruikmaken van Cognitive Services, inclusief deze clientbibliotheek en dit voorbeeld, worden geacht de 'gedragscode voor ontwikkelaars voor Microsoft Cognitive Services' te volgen, te vinden op http://go.microsoft.com/fwlink/?LinkId=698895 (Engelstalig).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Maken en uitbreiden van de zelfstudie met behulp van de [bronbestanden project](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) op Github.
+Bouw de zelfstudie en breid deze uit met de [projectbronbestanden](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) op Github.

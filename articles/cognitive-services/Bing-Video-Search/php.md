@@ -1,42 +1,43 @@
 ---
-title: PHP-Snelstartgids voor Azure cognitieve Services, Bing Video zoeken-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing Video zoeken-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstart: Bing Video Search, PHP'
+titlesuffix: Azure Cognitive Services
+description: Informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Bing Video Search-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2e7dc1fc82f143b51461595f9c92294a359bdc62
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345456"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224712"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-php"></a>Quick Start voor Bing Video zoeken-API met PHP
+# <a name="quickstart-bing-video-search-api-with-php"></a>Snelstart: Bing Video Search-API met PHP
 
-Dit artikel ziet u hoe de Bing Video Search API, onderdeel van Microsoft cognitieve Services in Azure gebruiken. Hoewel dit artikel de veiligheidsmaatregelen voor PHP, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+In dit artikel ziet u hoe u de Bing Video Search-API gebruikt die onderdeel vormt van Microsoft Cognitive Services in Azure. Hoewel in dit artikel PHP wordt geïmplementeerd, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren. 
 
-De voorbeeldcode is om te werken onder PHP 5.6 geschreven.
+De voorbeeldcode is geschreven om te werken met PHP 5.6.
 
-Raadpleeg de [API-referentiemateriaal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) voor technische informatie over de API's.
+Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) voor technische informatie over de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U hebt een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Search-API's** nodig. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze snelstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="bing-video-search"></a>Bing video zoeken
+## <a name="bing-video-search"></a>Bing Video Search
 
-De [Video zoeken-API van Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) video resultaten retourneert uit de Bing zoekmachine.
+Met de [Bing Video Search-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
 
-1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini` zoals beschreven in de code-opmerking.
-2. Maak een nieuwe PHP-project in uw favoriete IDE of -editor.
-3. Voeg de code hieronder.
-4. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-5. Voer het programma.
+1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini` zoals beschreven in het commentaar bij de code.
+2. Maak een nieuw PHP-project in uw favoriete IDE of editor.
+3. Voeg de onderstaande code toe.
+4. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+5. Voer het programma uit.
 
 ```php
 <?php
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -211,9 +212,9 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Paginering video's](paging-videos.md)
-> [miniatuurafbeeldingen bijsnijden en Resizing](resize-and-crop-thumbnails.md)
+> [Video's pagineren](paging-videos.md)
+> [Miniatuurafbeeldingen vergroten/verkleinen en bijsnijden](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Zie ook 
 
- [Zoeken op het web voor video's](search-the-web.md) [te proberen](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Internet doorzoeken op video's](search-the-web.md) [Probeer het uit](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

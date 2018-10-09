@@ -1,24 +1,26 @@
 ---
-title: Een nieuwe knowledge base maken - Node.js-snelstart - voor Microsoft QnA Maker-API (V4) - Azure Cognitive Services | Microsoft Docs
-description: Maak een knowledge base in Node.js voor al uw veelgestelde vragen en producthandleidingen, zodat u aan de slag kunt gaan met QnA Maker.
+title: 'Snelstart: API Node.js - Knowledge base maken - QnA Maker'
+description: In deze snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor Cognitive Services-API.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: cbf89aa3a10012ea2d99972c6a83dd351739c5a6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43769139"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037300"
 ---
 # <a name="create-a-new-knowledge-base-in-nodejs"></a>Een nieuwe knowledge base maken in Node.js
 
 In deze snelstart wordt stapsgewijs uitgelegd hoe u, met behulp van een programma, een voorbeeldexemplaar van een knowledge base in QnA Maker kunt maken, dat wordt weergegeven op het Azure-dashboard van uw account voor Cognitive Services-API.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 Hieronder ziet u twee voorbeelden van URL's voor veelgestelde vragen (in 'urls' van **req={}**) die inhoud bieden. Met QnA Maker worden automatisch vragen en antwoorden opgehaald uit deze semi-gestructureerde inhoud, zoals uitgelegd in dit document met [gegevensbronnen](../Concepts/data-sources-supported.md). U kunt in deze snelstart ook uw eigen URL's voor veelgestelde vragen gebruiken.
 

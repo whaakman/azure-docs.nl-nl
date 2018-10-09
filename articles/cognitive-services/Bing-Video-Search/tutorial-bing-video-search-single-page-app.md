@@ -1,69 +1,70 @@
 ---
-title: Bing één pagina Video zoeken app | Microsoft Docs
-description: Legt uit hoe u de API van Bing Video zoeken gebruiken in een webtoepassing van één pagina.
+title: 'Zelfstudie: Een Bing Video’s zoeken-app met één pagina bouwen'
+titlesuffix: Azure Cognitive Services
+description: Hierin wordt uitgelegd hoe u de Bing Video’s zoeken-API kunt gebruiken in een webtoepassing met één pagina.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345486"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226599"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Single-page Video zoeken app
-De Bing Video Search API kunt u zoeken op het Web en video resultaten krijgt die relevant zijn voor een zoekopdracht. In deze zelfstudie maken we een single-page-webtoepassing die gebruikmaakt van de Bing zoeken-API om zoekresultaten op de pagina weer te geven. De toepassing bevat onderdelen die HTML, CSS en JavaScript.
+# <a name="tutorial-single-page-video-search-app"></a>Zelfstudie: Video’s zoeken-app met één pagina
+Met de Bing Video’s zoeken-API kunt u op internet zoeken en videoresultaten ophalen die relevant zijn voor een zoekquery. In deze zelfstudie bouwen we een webtoepassing met één pagina die gebruikmaakt van de Bing Zoeken-API om resultaten op de pagina weer te geven. De toepassing omvat HTML-, CSS- en JavaScript-onderdelen.
 
 <!-- Remove until it can be replaced with a sanitized version.
 ![Single-page Bing Video Search app](./media/video-search-singlepage.png)
 -->
 
 > [!NOTE]
-> De JSON- en HTTP-koppen onder aan de pagina aanklikken ziet u de JSON-antwoord en gegevens voor het HTTP-aanvragen. Deze informatie kunnen nuttig zijn wanneer de service te verkennen.
+> Als u klikt op de JSON- en HTTP-headers onder aan de pagina worden het JSON-antwoord en de gegevens voor de HTTP-aanvraag weergegeven. Deze gegevens kunnen handig zijn bij het verkennen van de service.
 
-![JSON-, HTTP-onbewerkte resultaten](./media/json-http-raw-results.png)
+![Onbewerkte resultaten voor JSON en HTTP](./media/json-http-raw-results.png)
 
-Deze zelfstudie app illustreert hoe:
+In deze zelfstudie-app ziet u hoe u de volgende acties kunt uitvoeren:
 > [!div class="checklist"]
-> * Een Bing Video zoeken-API-aanroep in JavaScript uitvoeren
-> * Zoekopties doorgeven aan de Bing zoeken-API
-> * Video zoekresultaten weergeven of om desgewenst webpagina's, nieuws of installatiekopieën
-> * Zoek tijdschema van 24 uur, de afgelopen week, maand of alle beschikbare tijd
-> * Pagina met zoekresultaten
-> * Ingang Bing-ID en API-abonnementssleutel van de client
-> * Afhandelen van fouten die optreden
+> * Een Bing Video’s zoeken-API uitvoeren in JavaScript
+> * Zoekopties doorgeven aan de Bing Zoeken-API
+> * Zoekresultaten voor video’s weergeven of optioneel webpagina’s, nieuws of afbeeldingen opnemen
+> * Zoeken in een tijdsbestek van 24 uur, in de afgelopen week of maand, of in alle beschikbare tijden.
+> * Door de zoekresultaten bladeren
+> * De Bing-client-id en abonnementsleutel voor de API verwerken
+> * Eventuele fouten verwerken
 
-De zelfstudie pagina is volledig onafhankelijke; gebruikt niet alle externe frameworks, opmaakmodellen of afbeeldingsbestanden. Alleen functies voor sterk ondersteund JavaScript-taal wordt gebruikt en werkt met huidige versies van alle bekende webbrowsers.
+De zelfstudiepagina staat volledig op zichzelf. Er worden geen externe frameworks, opmaakmodellen of afbeeldingsbestanden gebruikt. Er wordt alleen gebruikgemaakt van ondersteunde taalfuncties voor JavaScript en het werkt met actuele versies van alle bekende webbrowsers.
 
-In deze zelfstudie besproken geselecteerde gedeelten van de broncode. De volledige [broncode](tutorial-bing-video-search-single-page-app-source.md) is beschikbaar. De als voorbeeld wilt uitvoeren, kopieer en plak de broncode in een teksteditor en sla deze als `bing.html`.
+In deze zelfstudie worden geselecteerde gedeelten van de broncode besproken. De volledige [broncode](tutorial-bing-video-search-single-page-app-source.md) is beschikbaar. Als u het voorbeeld wilt uitvoeren, kopieert en plakt u de broncode in een teksteditor en slaat u deze op als `bing.html`.
 
 ## <a name="app-components"></a>App-onderdelen
-Net als alle Web-Apps van één pagina is deze zelfstudie toepassing bestaat uit drie delen:
+Net zoals andere web-apps met één pagina bestaat de toepassing in deze zelfstudie uit drie onderdelen:
 
 > [!div class="checklist"]
-> * HTML - definieert de structuur en inhoud van de pagina
-> * CSS - bepaalt de vormgeving van de pagina
-> * JavaScript - definieert het gedrag van de pagina
+> * HTML: definieert de structuur en inhoud van de pagina
+> * CSS: definieert het uiterlijk van de pagina
+> * JavaScript: definieert het gedrag van de pagina
 
-De meeste HTML en CSS is conventionele, zodat de zelfstudie worden niet behandeld. De HTML-code bevat het zoekformulier waarin de gebruiker voert een query en zoekopties kiest. Het formulier is verbonden met JavaScript dat de zoekactie met biedt de `onsubmit` kenmerk van de `<form>` tag:
+De meeste HTML en CSS is gangbaar en wordt daarom niet besproken in de zelfstudie. De HTML bevat het zoekformulier waarop de gebruiker een query invoert en zoekopties kiest. Het formulier is gekoppeld aan JavaScript, waarmee de zoekopdracht wordt uitgevoerd met behulp van het kenmerk `onsubmit` van de code `<form>`:
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this)">
 ```
-De `onsubmit` handler retourneert `false`, waarmee het formulier worden verzonden naar een server houdt. De JavaScript-code komt het werk van de benodigde informatie verzamelen van het formulier en het uitvoeren van de zoekopdracht.
+Met de handler `onsubmit` wordt `false` geretourneerd, waardoor het formulier niet wordt verzonden naar de server. Met de JavaScript-code worden de benodigde gegevens uit het formulier verzameld en wordt de zoekopdracht uitgevoerd.
 
-De HTML-code bevat ook de afdelingen (HTML `<div>` labels) waar de zoekresultaten worden weergegeven.
+De HTML bevat ook de verdelingen (HTML-`<div>`-codes) waar de zoekresultaten worden weergegeven.
 
 ## <a name="managing-subscription-key"></a>Abonnementssleutel beheren
 
-Om te voorkomen dat de sleutel Bing zoeken-API-abonnement in de code opnemen, gebruiken we de permanente opslag van de browser voor het opslaan van de sleutel. Voordat u de sleutel wordt opgeslagen, vragen wij voor de sleutel van de gebruiker. Als de sleutel wordt later geweigerd door de API, ongeldig we opgeslagen zodat de gebruiker opnieuw wordt gevraagd.
+De abonnementssleutel voor de Bing Zoeken-API wordt opgeslagen in de permanente opslag van de browser om te voorkomen dat deze moet worden opgenomen in de code. Voordat de sleutel wordt opgeslagen, vragen we om de sleutel van de gebruiker. Als de sleutel later wordt geweigerd in de API, wordt de opgeslagen sleutel ongeldig en wordt de gebruiker opnieuw om een sleutel gevraagd.
 
-Definiëren we `storeValue` en `retrieveValue` functies die gebruikmaken van een de `localStorage` object (niet alle browsers ondersteunen deze) of een cookie. De `getSubscriptionKey()` functie maakt gebruik van deze functies op te slaan en het ophalen van de sleutel van de gebruiker.
+De functies `storeValue` en `retrieveValue` worden gedefinieerd. Deze maken gebruik van het `localStorage`-object (dat niet in alle browsers wordt ondersteund) of van een cookie. De functie `getSubscriptionKey()` gebruikt deze functies om de sleutel van de gebruiker op te slaan en op te halen.
 
 ``` javascript
 // Cookie names for data we store
@@ -86,31 +87,31 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-De HTML-code `<form>` tag `onsubmit` aanroepen de `bingWebSearch` functie voor het retourneren van resultaten van de zoekmap. `bingWebSearch` maakt gebruik van `getSubscriptionKey()` om te verifiëren van elke query. Zoals wordt weergegeven in de vorige definitie `getSubscriptionKey` vraagt de gebruiker om de sleutel als de sleutel nog niet is opgegeven. De sleutel wordt vervolgens opgeslagen voor voortgezet gebruik door de toepassing.
+Met de HTML-`<form>`-code `onsubmit` wordt de functie `bingWebSearch` aangeroepen om de zoekresultaten te retourneren. `bingWebSearch` gebruikt `getSubscriptionKey()` om elke query te verifiëren. Zoals weergegeven in de vorige definitie, wordt de gebruiker in `getSubscriptionKey` om de sleutel gevraagd, indien de sleutel niet is ingevoerd. De sleutel wordt vervolgens opgeslagen voor verder gebruik in de toepassing.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">
 ```
 ## <a name="selecting-search-options"></a>Zoekopties selecteren
-De volgende afbeelding ziet u de querytekstvak en de opties die een zoekopdracht definiëren.
+In de volgende afbeelding ziet u het querytekstvak en de queryopties die een zoekopdracht definiëren.
 
-![Bing nieuws zoekopties](media/video-search-options.png)
+![Bing Nieuws zoeken-opties](media/video-search-options.png)
 
 Het HTML-formulier bevat elementen met de volgende namen:
 
 |Element|Beschrijving|
 |-|-|
-| `where` | Een vervolgkeuzelijst voor het selecteren van de markt (locatie en taal) dat wordt gebruikt voor de zoekopdracht. |
-| `query` | Het tekstveld zoektermen invoeren. |
-| `modules` | De selectievakjes om bepaalde modules van de resultaten, alle resultaten of verwante video's te bevorderen. |
-| `when` | De vervolgkeuzelijst voor het beperken van eventueel om te zoeken naar de meest recente dag, week of maand. |
-| `safe` | Een selectievakje waarmee wordt aangegeven of de functie Bing veilig zoeken gebruiken voor het filteren van resultaten 'volwassenen'. |
-| `count` | Verborgen veld. Het aantal zoekresultaten worden geretourneerd bij elke aanvraag. Wijzigen om minder of meer resultaten per pagina weer te geven. |
-| `offset`|  Verborgen veld. De verschuiving van de eerste zoekresultaten in de aanvraag; gebruikt voor het wisselbestand. Dit wordt opnieuw ingesteld op `0` op een nieuwe aanvraag. |
+| `where` | Een vervolgkeuzelijst voor het selecteren van de markt (locatie en taal) die wordt gebruikt voor de zoekopdracht. |
+| `query` | Het tekstveld voor het invoeren van de zoektermen. |
+| `modules` | Selectievakjes voor het promoten van bepaalde modules met resultaten, alle resultaten of gerelateerde video’s. |
+| `when` | Vervolgkeuzelijst voor het optioneel beperken van de zoekopdracht tot de meest recente dag, week of maand. |
+| `safe` | Een selectievakje dat aangeeft of de functie Bing SafeSearch moet worden gebruikt voor het uitfilteren van resultaten voor volwassenen. |
+| `count` | Verborgen veld. Het aantal zoekresultaten dat moet worden geretourneerd bij elke aanvraag. Wijzig dit om minder of meer resultaten per pagina weer te geven. |
+| `offset`|  Verborgen veld. De verschuiving van het eerste zoekresultaat in de aanvraag, gebruikt voor wisselgeheugengebruik. Deze waarde wordt bij een nieuwe aanvraag opnieuw ingesteld op `0`. |
 
 > [!NOTE]
-> Bing zoeken op het Web biedt andere queryparameters. We maken gebruik van slechts enkele van deze.
+> Bing Webzoekopdrachten biedt andere queryparameters. We gebruiken hier slechts een aantal van.
 
 ``` javascript
 // build query options from the HTML form
@@ -137,10 +138,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Bijvoorbeeld, de `SafeSearch` parameter in een werkelijke API-aanroep is `strict`, `moderate`, of `off`, met `moderate` wordt de standaardwaarde. Onze formulier, gebruikt echter een selectievakje dat slechts twee statussen heeft. De JavaScript-code converteert u deze instelling op `strict` of `off` (`moderate` wordt niet gebruikt).
+De parameter `SafeSearch` in een werkelijke API-aanroep kan bijvoorbeeld `strict`, `moderate` of `off` zijn, waarbij `moderate` de standaardwaarde is. In ons formulier wordt echter gebruikgemaakt van een selectievakje. Selectievakjes hebben slechts twee statussen. Met de JavaScript-code wordt deze instelling geconverteerd in `strict` of `off` (`moderate` wordt niet gebruikt).
 
-## <a name="performing-the-request"></a>Uitvoeren van de aanvraag
-Basis van de query, de opties-tekenreeks en de API-sleutel, de `BingWebSearch` functie maakt gebruik van een `XMLHttpRequest` object, zodat de aanvraag naar het Bing zoeken-eindpunt.
+## <a name="performing-the-request"></a>De aanvraag uitvoeren
+Nadat de query, de tekenreeks met opties en de API-sleutel zijn opgegeven, gebruikt de functie `BingWebSearch` een `XMLHttpRequest`-object om een aanvraag in te dienen bij het Bing Zoeken-eindpunt.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -189,7 +190,7 @@ function bingWebSearch(query, options, key) {
     return false;
 }
 ```
-De HTTP-aanvraag is gelukt, JavaScript-aanroepen de `load` gebeurtenis-handler `handleOnLoad()`, voor het afhandelen van een geslaagde HTTP GET-aanvraag naar de API. 
+Als de HTTP-aanvraag juist is voltooid, wordt met JavaScript de gebeurtenis-handler van `load` (`handleOnLoad()`) aangeroepen om een geslaagde HTTP GET-aanvraag naar de API te verwerken. 
 
 ```javascript
 // handle Bing search request results
@@ -255,21 +256,21 @@ function handleOnLoad() {
 ```
 
 > [!IMPORTANT]
-> Als er een fout optreedt tijdens de zoekbewerking wordt de Bing nieuws zoeken-API retourneert een statuscode 200 HTTP en bevat informatie over de fout in de JSON-antwoord. Als de aanvraag snelheid beperkt is, retourneert de API bovendien een leeg antwoord.
-Een geslaagde HTTP-aanvraag komt *niet* noodzakelijkerwijs dat de zoekopdracht zelf is voltooid. 
+> Als er een fout optreedt in de zoekbewerking, wordt met de Bing Nieuws zoeken-API een niet-200-HTTP-statuscode geretourneerd en bevat het JSON-antwoord de foutgegevens. Daarnaast wordt met de API een leeg antwoord geretourneerd als er beperkingen gelden voor de aanvraag.
+Een juist voltooide HTTP-aanvraag betekent *niet* noodzakelijkerwijs dat de zoekopdracht zelf ook is geslaagd. 
 
-Veel van de code in beide van de voorgaande functies is speciaal bedoeld voor foutafhandeling. Er kunnen fouten optreden in de volgende fasen:
+Een groot deel van de code in beide voorgaande functies is toegewezen aan foutafhandeling. Er kunnen fouten optreden in de volgende fasen:
 
-|Fase|Potentiële fouten|Verwerkt door|
+|Fase|Potentiële fout(en)|Verwerkt met|
 |-|-|-|
-|De JavaScript-request-object maken|De URL is ongeldig|`try`/`catch` blokkeren|
-|Maken van de aanvraag|Netwerkfouten, afgebroken verbindingen|`error` en `abort` gebeurtenis-handlers|
-|De zoekactie|Ongeldige aanvraag, ongeldige JSON-frequentielimieten|webtests op `load` gebeurtenis-handler|
+|Het JavaScript-aanvraagobject bouwen|Ongeldige URL|`try`/`catch` blokkeren|
+|De aanvraag indienen|Netwerkfouten, afgebroken verbindingen|Gebeurtenis-handlers `error` en `abort`|
+|De zoekopdracht uitvoeren|Ongeldige aanvraag, ongeldige JSON, geldende beperkingen|tests in gebeurtenis-handler van `load`|
 
-Fouten worden verwerkt door het aanroepen van `renderErrorMessage()` met details over de fout bekend. Als het antwoord voldoet aan de volledige gauntlet fout tests, noemen we `renderSearchResults()` om de zoekresultaten op de pagina weer te geven.
+Fouten worden afgehandeld door `renderErrorMessage()` aan te roepen met eventuele bekende details over de fout. Als het antwoord de volledige set met fouttests doorgeeft, wordt `renderSearchResults()` aangeroepen om de zoekresultaten op de pagina weer te geven.
 
 ## <a name="displaying-search-results"></a>Zoekresultaten weergeven
-De belangrijkste functie voor het weergeven van de zoekresultaten is `renderSearchResults()`. Deze functie heeft de JSON die is geretourneerd door de zoekservice Bing nieuws en worden de nieuwsresultaten en de verwante zoekopdrachten, indien van toepassing.
+De hoofdfunctie voor het weergeven van de zoekresultaten is `renderSearchResults()`. Deze functie maakt gebruik van de JSON die is geretourneerd met de Bing Nieuws zoeken-service, en zorgt ervoor dat de nieuwsresultaten en gerelateerde zoekopdrachten worden weergegeven, indien van toepassing.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -286,7 +287,7 @@ function renderSearchResults(results) {
     }
 }
 ```
-De zoekresultaten worden geretourneerd als het hoogste niveau `value` object in het JSON-antwoord. Ze geven we onze functie `renderResultsItems()`, waardoor ze doorlopen en roept een functie voor elk item weergeven in HTML. De HTML-code wordt geretourneerd naar `renderSearchResults()`, waar deze wordt ingevoegd in de `results` deling op de pagina.
+De zoekresultaten worden geretourneerd als `value`-object op het hoogste niveau. Deze worden doorgegeven aan de functie `renderResultsItems()`. Hier worden ze verwerkt en wordt een functie aangeroepen om elk item weer te geven in HTML. De resulterende HTML wordt geretourneerd naar `renderSearchResults()`, waar deze wordt ingevoegd in de verdeling `results` op de pagina.
 
 ```javascript
 // render search results
@@ -305,20 +306,20 @@ De zoekresultaten worden geretourneerd als het hoogste niveau `value` object in 
 }
 ```
 
-De Bing nieuws zoeken-API retourneert maximaal vier verschillende soorten gerelateerde resultaten in een eigen object op het hoogste niveau. Dit zijn:
+Met de Bing Nieuws zoeken-API worden maximaal vier verschillende soorten gerelateerde resultaten geretourneerd, elk in een eigen object op het hoogste niveau. Dit zijn:
 
-|De relatie|Beschrijving|
+|Relatie|Beschrijving|
 |-|-|
-|`pivotSuggestions`|Query's die een woord pivot in oorspronkelijke zoekopdracht door een andere naam vervangen. Bijvoorbeeld, als u zoekt naar 'rode bloemen', een woord pivot mogelijk "red" en een suggestie pivot mogelijk "gele bloemen."|
-|`queryExpansions`|Query's die de oorspronkelijke zoekopdracht te verfijnen door meer voorwaarden toe te voegen. Bijvoorbeeld, als u zoekt naar 'Microsoft Surface ', een query-uitbreiding mogelijk "Microsoft Surface Pro."|
-|`relatedSearches`|Query's die ook door andere gebruikers die de oorspronkelijke zoekopdracht ingevoerd zijn ingevoerd. Bijvoorbeeld, als u zoekt naar 'Mount Rainier', een gerelateerde zoekopdracht mogelijk 'onderwerp Mt. Saint Helens."|
-|`similarTerms`|Query's met dezelfde betekenis voor de oorspronkelijke zoekopdracht. Bijvoorbeeld, als u zoekt naar 'scholen', een vergelijkbare term mogelijk "education."|
+|`pivotSuggestions`|Query’s die een beschrijvend woord in de oorspronkelijke zoekopdracht vervangen door een ander beschrijvend woord. Als u bijvoorbeeld zoekt naar ‘rode bloemen’, is ‘rood’ een beschrijvend woord, en is ‘gele bloemen’ een mogelijke suggestie.|
+|`queryExpansions`|Query’s die de oorspronkelijke zoekopdracht verfijnen door meer zoektermen toe te voegen. Als u bijvoorbeeld zoekt naar ‘Microsoft Surface’, is ‘Microsoft Surface Pro’ een mogelijke uitbreiding van de query.|
+|`relatedSearches`|Query’s die ook zijn ingevoerd door andere gebruikers die de oorspronkelijke zoekopdracht hebben ingevoerd. Als u bijvoorbeeld zoekt naar ‘Mount Rainier’, is ‘Mt. Saint Helens’ een gerelateerde zoekopdracht.|
+|`similarTerms`|Query’s die qua betekenis vergelijkbaar zijn met de oorspronkelijke zoekopdracht. Als u bijvoorbeeld zoekt naar ‘scholen’, is ‘onderwijs’ een vergelijkbare term.|
 
-Zoals eerder is gezien in `renderSearchResults()`, we alleen weergeven, de `relatedItems` suggesties en plaats de resulterende koppelingen in de zijbalk van de pagina.
+Zoals eerder aangetoond in `renderSearchResults()` worden alleen de `relatedItems`-suggesties weergegeven en zijn de resulterende koppelingen zichtbaar in de zijbalk van de pagina.
 
-## <a name="rendering-result-items"></a>Rendering resultaat items
+## <a name="rendering-result-items"></a>Resultaten weergeven
 
-Het object in de JavaScript-code `searchItemRenderers`, kunnen bevat *renderers:* zoekresultaat functies die HTML gegenereerd voor elk type. De video zoekopdracht pagina alleen gebruikt `videos`. Zie andere zelfstudies voor verschillende soorten renderers.
+In de JavaScript-code kan het object (`searchItemRenderers`) *renderers* bevatten: functies waarmee HTML wordt weergegeven voor elk soort zoekresultaat. Op de pagina voor het zoeken van video’s wordt alleen `videos` gebruikt. Zie andere zelfstudies voor verschillende typen renderers.
 
 ```javascript
 searchItemRenderers = {
@@ -329,17 +330,17 @@ searchItemRenderers = {
     relatedSearches: function(item) { ... }
 }
 ```
-Een renderer-functie kan de volgende parameters accepteert:
+Met een renderer kunnen de volgende parameters worden geaccepteerd:
 
 |Parameter|Beschrijving|
 |-|-|
-|`item`| De JavaScript-object met de eigenschappen van het item, zoals de URL en de beschrijving.|
-|`index`| De index van het resultaatitem binnen de verzameling.|
-|`count`| Het aantal items in de verzameling van de zoekopdracht resultaat item.|
+|`item`| Het JavaScript-object met de eigenschappen van het item, zoals de bijbehorende URL en beschrijving.|
+|`index`| De index van het resultaatitem binnen de bijbehorende verzameling.|
+|`count`| Het aantal items in de verzameling van het zoekresultaatitem.|
 
-De `index` en `count` parameters kunnen worden gebruikt om te aantal resultaten voor het genereren van speciale HTML voor het begin of einde van een verzameling regeleinden invoegen na een bepaald aantal items, enzovoort. Als een renderer niet nodig heeft voor deze functionaliteit, hoeft deze niet te accepteren van deze twee parameters.
+De parameters `index` en `count` kunnen worden gebruikt om resultaten te nummeren, speciale HTML te genereren voor het begin en einde van een verzameling, regeleinden in te voegen na een bepaald aantal items, enzovoort. Als een renderer deze functionaliteit niet nodig heeft, hoeven deze twee parameters niet te worden geaccepteerd.
 
-De `video` renderer wordt weergegeven in het volgende javascript-fragment. Met behulp van het eindpunt van de video's, zijn alle resultaten van het type `Videos`. De `searchItemRenderers` worden weergegeven in het volgende codesegment.
+De `video`-renderer wordt weergegeven zoals in het volgende JavaScript-fragment. Als het eindpunt Video's wordt gebruikt, zijn alle resultaten van het type `Videos`. De `searchItemRenderers` worden weergegeven in het volgende codesegment.
 
 ```javascript
 // render functions for various types of search results
@@ -364,46 +365,46 @@ De `video` renderer wordt weergegeven in het volgende javascript-fragment. Met b
 }
 ```
 
-De renderer-functie:
+Met de renderer worden de volgende handelingen uitgevoerd:
 > [!div class="checklist"]
-> * Maakt een alineatag en wijst deze naar de `images` klasse en het verstuurd naar de html-matrix.
-> * Berekent de miniatuur afbeeldingsgrootte (breedte wordt vastgesteld op 60 pixels hoogte berekend naar verhouding).
-> * De HTML-code builds `<img>` tag om de miniatuur weer te geven. 
-> * De HTML-code builds `<a>` labels die een koppeling naar de installatiekopie en de pagina waarvan het deel uitmaakt.
-> * De beschrijving die geeft informatie weer over de installatiekopie en de site is gebaseerd.
+> * Er wordt een alineacode gemaakt. Deze wordt toegewezen aan de klasse `images` en naar de HTML-matrix gepusht.
+> * De afbeeldingsgrootte van de miniatuur wordt berekend (breedte is vastgesteld op 60 pixels, hoogte wordt naar verhouding berekend).
+> * De HTML-`<img>`-code wordt gebouwd om de miniatuur weer te geven. 
+> * De HTML-`<a>`-codes worden gebouwd die zijn gekoppeld aan de afbeelding en aan de pagina die de afbeelding bevat.
+> * De beschrijving met informatie over de afbeelding en de bijbehorende site wordt samengesteld.
 
-De miniatuurgrootte wordt gebruikt in zowel de `<img>` code en de `h` en `w` velden in de miniatuur-URL. De [miniaturen Bing-service](resize-and-crop-thumbnails.md) voorziet in een miniatuur van precies die grootte.
+De miniatuurgrootte wordt gebruik in de `<img>`-code en in de velden `h` en `w` in de URL van de miniatuur. Met de [Bing-miniatuurservice](resize-and-crop-thumbnails.md) wordt vervolgens een miniatuur van deze exacte grootte gegenereerd.
 
-## <a name="persisting-client-id"></a>Persisting client-ID
-Antwoorden van de Bing zoeken-API's, omvat mogelijk een `X-MSEdge-ClientID` header die moet worden verzonden naar de API met opeenvolgende aanvragen. Als er meerdere Bing zoeken-API's worden gebruikt, moet dezelfde client-ID worden gebruikt met deze, indien mogelijk.
+## <a name="persisting-client-id"></a>Permanente client-id
+Antwoorden van de Bing Zoeken-API kunnen een `X-MSEdge-ClientID`-header omvatten die bij volgende aanvragen moet worden teruggestuurd naar de API. Als er meerdere Bing Zoeken-API’s worden gebruikt, moet voor al deze API’s, indien mogelijk, dezelfde client-id worden gebruikt.
 
-Geven de `X-MSEdge-ClientID` header kan de Bing-API's om te koppelen van een gebruiker zoekopdrachten met twee belangrijke voordelen.
+Door de `X-MSEdge-ClientID`-header op te geven kunnen met Bing-API’s alle zoekopdrachten van een gebruiker worden gekoppeld. Dit heeft twee belangrijke voordelen.
 
-Ten eerste kunt u de Bing zoekmachine voorbij context toepassen op zoekopdrachten resultaten oplevert die beter voldoen aan de gebruiker. Als een gebruiker eerder naar voorwaarden die betrekking hebben op afvaart gezocht is, bijvoorbeeld een hoger zoek naar 'knooppunten' mogelijk bij voorkeur informatie ophalen over knooppunten in afvaart gebruikt.
+Ten eerste kan met de Bing-zoekmachine vroegere context worden toegepast op zoekopdrachten om beter kloppende resultaten te vinden voor de gebruiker. Als een gebruiker bijvoorbeeld eerder heeft gezocht naar termen die zijn gerelateerd aan zeilen, kan bij een latere zoekopdracht naar ‘knopen’ de voorkeur worden gegeven aan informatie over knopen die worden gebruikt bij zeilen.
 
-Ten tweede kunt Bing willekeurig selecteren voor gebruikers gebruikmaken van nieuwe functies voordat ze algemeen beschikbaar worden gemaakt. Dezelfde client-ID die aan elke aanvraag zorgt ervoor dat gebruikers die de functie altijd zien deze weergegeven. Zonder de client-ID ziet de gebruiker mogelijk een functie worden weergegeven en verdwijnt schijnbaar willekeurig in de zoekresultaten.
+Ten tweede kunnen in Bing willekeurig gebruikers worden geselecteerd om nieuwe functies uit te proberen voordat deze algemeen beschikbaar worden. Door bij elke aanvraag dezelfde client-id op te geven zien gebruikers die de functie zien, deze altijd. Zonder de client-id kan het gebeuren dat de gebruiker een functie, schijnbaar willekeurig, ziet verschijnen en verdwijnen in de zoekresultaten.
 
-Browser-beveiligingsbeleid (CORS) mogelijk niet de `X-MSEdge-ClientID` header beschikbaar is voor JavaScript. Deze beperking treedt op wanneer het antwoord van de zoekactie heeft een andere oorsprong van de pagina die wordt aangevraagd. In een productieomgeving, moet u dit beleid door het hosten van een script op server die de API-aanroep in hetzelfde domein als de webpagina wordt adresseren. Aangezien het script dezelfde oorsprong als de webpagina heeft de `X-MSEdge-ClientID` header is beschikbaar voor JavaScript.
+Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-ClientID`-header niet beschikbaar is in JavaScript. Deze beperking treedt op wanneer het antwoord op een zoekopdracht een andere oorsprong heeft dan de pagina waarop de zoekopdracht is uitgevoerd. In een productieomgeving kunt u dit beleid omzeilen door een serverscript te hosten waarmee de API wordt aangeroepen in hetzelfde domein als de webpagina. Omdat het script dezelfde oorsprong heeft als de webpagina, is de `X-MSEdge-ClientID`-header vervolgens beschikbaar voor JavaScript.
 
 > [!NOTE]
-> U moet de aanvraag-serverzijde uitvoeren in een productie-webtoepassing. Uw Bing zoeken-API-sleutel moet anders zijn opgenomen in de webpagina waar het voor iedereen die de bron-weergaven beschikbaar is. U wordt gefactureerd voor het gebruik van alle onder uw API-abonnement-sleutel, zelfs aanvragen door onbevoegden, dus is het belangrijk dat u niet uw sleutel beschikbaar.
+> In een webtoepassing die bedoeld is voor productie, moet u de aanvraag aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Zoeken-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
 
-Voor ontwikkelingsdoeleinden, kunt u de zoekopdracht Bing-Web-API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers` header die whitelists antwoordheaders en deze beschikbaar voor JavaScript.
+Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Webzoekopdrachten-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
-Het is gemakkelijk voor het installeren van een proxy CORS zodat onze zelfstudie app toegang tot de client een koptekst-ID. Eerste, als u dit nog niet hebt [Installeer Node.js](https://nodejs.org/en/download/). Vervolgens voert u de volgende opdracht in een opdrachtvenster:
+U kunt eenvoudig een CORS-proxy installeren zodat de zelfstudie-app toegang krijgt tot de client-id-header. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht uit in een opdrachtvenster:
 
     npm install -g cors-proxy-server
 
-Wijzig vervolgens het eindpunt naar Bing in het HTML-bestand in:
+Wijzig vervolgens het Bing Webzoekopdrachten-eindpunt in het HTML-bestand in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Ten slotte de CORS-proxy starten met de volgende opdracht:
+Start ten slotte de CORS-proxy met de volgende opdracht:
 
     cors-proxy-server
 
-Laat het opdrachtvenster open terwijl u de zelfstudie app; gebruiken u sluit het venster stopt de proxy. In de uitbreidbare HTTP-Headers gedeelte onder de zoekresultaten, nu ziet u de `X-MSEdge-ClientID` header (onder andere) en controleer of het is hetzelfde voor elke aanvraag.
+Laat het opdrachtvenster geopend terwijl u de zelfstudie-app gebruikt. Als u het venster sluit, wordt de proxy gestopt. In de uitbreidbare sectie met HTTP-headers onder de zoekresultaten ziet u nu (onder andere) de `X-MSEdge-ClientID`-header en kunt u controleren of deze voor elke aanvraag gelijk is.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Bing Video Search API-verwijzingen](//docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)
+> [Referentie voor de Bing Video’s zoeken-API](//docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)

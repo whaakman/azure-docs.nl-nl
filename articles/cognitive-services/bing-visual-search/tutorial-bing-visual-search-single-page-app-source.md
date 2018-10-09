@@ -1,25 +1,25 @@
 ---
-title: Bing visuele zoekopdrachten-Web-app met één pagina (broncode) | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: De broncode voor de zelfstudie waarin wordt getoond hoe het gebruik van de Bing visuele zoekopdrachten-API in een Web-App van één pagina.
+title: 'Zelfstudie: Een web-app met één pagina bouwen (broncode) - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Broncode voor zelfstudie waarin wordt uitgelegd hoe u de Bing Visual Search-API kunt gebruiken in een web-app met één pagina.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 9b6164b811f897ec5cd8a67d27d3aa4f3d250f2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: a908bdcf447039ad3a27ceae04f0a6cfff890d21
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002589"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225749"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Zelfstudie: Één pagina visuele zoekopdrachten-Web-app
+# <a name="tutorial-visual-search-single-page-web-app"></a>Zelfstudie: Visual Search-web-app met één pagina
 
-Dit is de volledige broncode besproken in de [visuele zoekopdrachten Single-page-Web-app](tutorial-bing-visual-search-single-page-app.md) voor Bing visuele zoekopdrachten. Om uit te voeren de app, kopieert u de broncode in Kladblok of een andere teksteditor en sla het bestand als `bing-visual-search.html`. Open vervolgens het bestand opgeslagen in Microsoft Edge of een andere populaire browser.
+Dit is de volledige broncode die is besproken in de zelfstudie [Visual Search-web-app met één pagina](tutorial-bing-visual-search-single-page-app.md) voor Bing Visual Search. Als u de app wilt uitvoeren, kopieert u de broncode in Kladblok of een andere teksteditor en slaat u het bestand op als `bing-visual-search.html`. Open het opgeslagen bestand vervolgens in Microsoft Edge of een andere veel gebruikte browser.
 
 ```html
 <!DOCTYPE html>

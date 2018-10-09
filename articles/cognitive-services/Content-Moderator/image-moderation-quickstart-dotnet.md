@@ -1,42 +1,44 @@
 ---
-title: Azure Content Moderator - matig afbeeldingen met behulp van .NET | Microsoft Docs
-description: Het gemiddelde van afbeeldingen met behulp van Azure Content Moderator-SDK voor .NET
+title: 'Snelstart: afbeeldingen beheren met .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Afbeeldingen beheren met de Content Moderator SDK voor .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 9c662558d21bf52b6e9e5c9e781fee7121493ea2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: d89d9b8a2e3b00155e82cc28105007ab39fc549c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182005"
+ms.locfileid: "47226161"
 ---
-# <a name="moderate-images-using-net"></a>Gemiddeld afbeeldingen met behulp van .NET
+# <a name="quickstart-moderate-images-using-net"></a>Snelstart: afbeeldingen beheren met .NET
 
-In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan: 
-- Een installatiekopie voor volwassenen of ongepaste inhoud controleren
-- Detecteren en haal de tekst uit een installatiekopie
-- Detecteer gezichten in een afbeelding
+In dit artikel vindt u informatie en codevoorbeelden om aan de slag te gaan met de [Content Moderator SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en het volgende te doen: 
 
-In dit artikel wordt ervan uitgegaan dat u al bekend met Visual Studio en C# bent.
+- Een afbeelding controleren op erotische of ongepaste inhoud
+- Tekst detecteren in een afbeelding en extraheren
+- Gezichten in een afbeelding detecteren
 
-## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor Content Moderator-services
+In dit artikel wordt ervan uitgegaan dat u al bekend bent met Visual Studio en C#.
 
-Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u een API-sleutel en de regio van uw API-account.
-Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u zich registreert voor Content Moderator verkrijgen van beide.
+## <a name="sign-up-for-content-moderator-services"></a>Registreren voor Content Moderator-services
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
+Voordat u de Content Moderator-services via de REST API of de SDK kunt gebruiken, hebt u een API-sleutel en de regio van uw API-account nodig.
+Raadpleeg de [Snelstart](quick-start.md) voor meer informatie over hoe u zich aanmeldt voor Content Moderator om beide te verkrijgen.
 
-1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
+## <a name="create-your-visual-studio-project"></a>Het Visual Studio-project maken
 
-   Noem het project in de voorbeeldcode **ImageModeration**.
+1. Voeg een nieuw project van het type **Console-app (.NET Framework)** toe aan uw oplossing.
 
-1. Selecteer dit project als opstartproject één voor de oplossing.
+   Geef het project de naam **ImageModeration** in de voorbeeldcode.
+
+1. Selecteer dit project als het enige opstartproject voor de oplossing.
 
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
@@ -47,9 +49,9 @@ Installeer de volgende NuGet-pakketten:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>De using-instructies van het programma bijwerken
 
-Wijzig het programma de using-instructies toe.
+Pas de using-instructies van het programma aan.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -62,10 +64,10 @@ Wijzig het programma de using-instructies toe.
 
 ### <a name="create-the-content-moderator-client"></a>De Content Moderator-client maken
 
-Voeg de volgende code voor het maken van een Content Moderator-client voor uw abonnement.
+Voeg de volgende code toe om een Content Moderator-client voor uw abonnement te maken.
 
 > [!IMPORTANT]
-> Update de **Azureregio** en **CMSubscriptionKey** velden met de waarden van uw regio-id en de abonnement-sleutel.
+> Werk de velden **AzureRegion** en **CMSubscriptionKey** bij met de waarden van uw regio-id en de abonnementssleutel.
 
     /// <summary>
     /// Wraps the creation and configuration of a Content Moderator client.
@@ -109,9 +111,9 @@ Voeg de volgende code voor het maken van een Content Moderator-client voor uw ab
         }
     }
 
-### <a name="initialize-application-specific-settings"></a>Initialiseren van toepassingsspecifieke instellingen
+### <a name="initialize-application-specific-settings"></a>Toepassingsspecifieke instellingen initialiseren
 
-De volgende statische velden toevoegen aan de **programma** klasse in Program.cs.
+Voeg de volgende statische velden toe aan de klasse **Program** in Program.cs.
 
     ///<summary>
     ///The name of the file that contains the image URLs to evaluate.
@@ -130,13 +132,13 @@ De volgende statische velden toevoegen aan de **programma** klasse in Program.cs
 
 
 > [!NOTE]
-> Het voorbeeld wordt de volgende installatiekopieën om de uitvoer voor deze Quick Start te genereren.
+> Het voorbeeld gebruikt de volgende afbeeldingen om de uitvoer voor deze snelstart te genereren.
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
-## <a name="store-the-analysis-results"></a>Resultaten van de analyse Store
+## <a name="store-the-analysis-results"></a>De analyseresultaten opslaan
 
-De volgende klasse die u wilt toevoegen de **programma** klasse. Een exemplaar van deze klasse gebruiken om vast te leggen van de resultaten toezicht op voor de geëvalueerde afbeeldingen.
+Voeg de volgende klasse toe aan de klasse **Program**. Gebruik een exemplaar van deze klasse om de toezichtresultaten voor de geëvalueerde afbeeldingen vast te leggen.
 
     /// <summary>
     /// Contains the image moderation results for an image, 
@@ -165,14 +167,14 @@ De volgende klasse die u wilt toevoegen de **programma** klasse. Een exemplaar v
         public FoundFaces FaceDetection;
     }
 
-## <a name="evaluate-an-individual-image"></a>Een installatiekopie van een afzonderlijke evalueren
+## <a name="evaluate-an-individual-image"></a>Een afzonderlijke afbeelding evalueren
 
-Voeg de volgende methode toe aan de klasse **Program**. Deze methode wordt geëvalueerd als één installatiekopie en de resultaten van evaluatie van retourneert.
+Voeg de volgende methode toe aan de klasse **Program**. Met deze methode wordt één afbeelding geëvalueerd en worden de resultaten van de evaluatie geretourneerd.
 
 > [!NOTE]
-> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS) en als u de limiet overschrijdt, de SDK een uitzondering met een foutcode 429 genereert. 
+> De sleutel van uw Content Moderator-service heeft een limiet voor het aantal aanvragen per seconde (RPS). Als u die limiet overschrijdt, genereert de SDK een uitzondering met foutcode 429. 
 >
-> De sleutel van een gratis laag heeft een limiet van één RPS.
+> Een sleutel voor de gratis laag heeft een limiet van één RPS.
 
 
     /// <summary>
@@ -213,18 +215,18 @@ Voeg de volgende methode toe aan de klasse **Program**. Deze methode wordt geëv
         return imageData;
     }
 
-De **EvaluateUrlInput** methode is een wrapper voor de installatiekopie van toezicht op REST-API.
-De geretourneerde waarde bevat het object dat wordt geretourneerd van de API-aanroep.
+De methode **EvaluateUrlInput** is een wrapper voor de REST API voor afbeeldingstoezicht.
+De geretourneerde waarde bevat het object dat door de API-aanroep wordt geretourneerd.
 
-De **OCRUrlInput** methode is een wrapper voor de installatiekopie OCR REST-API.
-De geretourneerde waarde bevat het object dat wordt geretourneerd van de API-aanroep.
+De methode **OCRUrlInput** is een wrapper voor de REST API voor OCR van afbeeldingen.
+De geretourneerde waarde bevat het object dat door de API-aanroep wordt geretourneerd.
 
-De **FindFacesUrlInput** methode is een wrapper voor de afbeeldingen zoeken gezichten REST-API.
-De geretourneerde waarde bevat het object dat wordt geretourneerd van de API-aanroep.
+De methode **FindFacesUrlInput** is een wrapper voor de REST API voor het vinden van gezichten in afbeeldingen.
+De geretourneerde waarde bevat het object dat door de API-aanroep wordt geretourneerd.
 
-## <a name="process-the-image-urls-in-your-code"></a>Verwerken van de installatiekopie van URL's in uw code
+## <a name="process-the-image-urls-in-your-code"></a>De afbeeldings-URL's in uw code verwerken
 
-Voeg de volgende code aan de **Main** methode.
+Voeg de volgende code aan de methode **Hoofd**.
 
     // Create an object to store the image moderation results.
     List<EvaluationData> evaluationData = new List<EvaluationData>();
@@ -257,13 +259,13 @@ Voeg de volgende code aan de **Main** methode.
         outputWriter.Close();
     }
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
+## <a name="run-the-program-and-review-the-output"></a>Het programma uitvoeren en de uitvoer controleren
 
-De volgende JSON-object bevat de uitvoer van het programma.
+Het volgende JSON-object bevat uitvoer voor het programma.
 
 > [!NOTE]
-> `isImageAdultClassified` Hiermee geeft u de mogelijke aanwezigheid van installatiekopieën die kunnen worden beschouwd als seksueel expliciet of volwassenen in bepaalde situaties.
-> `isImageRacyClassified` Hiermee geeft u de mogelijke aanwezigheid van installatiekopieën die kunnen worden beschouwd als seksueel suggestieve of volwassen in bepaalde situaties.
+> `isImageAdultClassified` geeft de mogelijke aanwezigheid weer van afbeeldingen die in bepaalde situaties als seksueel expliciet of erotisch kunnen worden beschouwd.
+> `isImageRacyClassified` geeft de mogelijke aanwezigheid weer van afbeeldingen die in bepaalde situaties als suggestief of voor volwassenen kunnen worden beschouwd.
 >
 
     [
@@ -449,6 +451,6 @@ De volgende JSON-object bevat de uitvoer van het programma.
     ]
 
 
-## <a name="next-steps---get-the-source-code"></a>Haal de broncode van de volgende stappen:
+## <a name="next-steps---get-the-source-code"></a>Volgende stappen: de broncode ophalen
 
-Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.
+Download de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere snelstartgidsen over Content Moderator voor .NET en begin met de integratie.

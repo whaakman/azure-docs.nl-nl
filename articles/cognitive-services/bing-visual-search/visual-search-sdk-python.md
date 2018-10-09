@@ -1,42 +1,42 @@
 ---
-title: Visual zoeken SDK Python Quick Start | Microsoft Docs
-description: Setup voor Visual zoeken Python SDK-consoletoepassing.
+title: 'Snelstartgids: Bing Visual Search SDK, Python'
 titleSuffix: Azure Cognitive Services
+description: Lees hier informatie over de instellingen voor het maken van een Python-consoletoepassing met behulp van Visual Search SDK.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939454"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222638"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Quick Start Visual zoeken SDK Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Snelstartgids: Bing Visual Search SDK Python
 
-De Bing-SDK voor Visual Search gebruikt de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
-De [broncode voor Python Bing Visual Search SDK voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) beschikbaar is op de Git-Hub.
+De Bing Visual Search SDK gebruikt de functionaliteit van de REST-API voor webaanvragen en het parseren van resultaten.
+De [broncode voor voorbeelden van Python Bing Visual Search SDK](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) is beschikbaar op Git Hub.
 
-Code-scenario's zijn onder de volgende rubrieken beschreven:
-* [Client Visual zoeken](#client)
-* [Volledige consoletoepassing](#complete-console)
-* [Afbeelding binaire post met cropArea](#binary-crop)
-* [De parameter KnowledgeRequest](#knowledge-req)
-* [Labels, acties en actionType](#tags-actions)
+Documentatie van codescenario's vindt u onder de volgende koppen:
+* [Visual Search-client](#client)
+* [Consoletoepassing voltooien](#complete-console)
+* [Binair bestand van afbeelding posten met cropArea](#binary-crop)
+* [KnowledgeRequest-parameter](#knowledge-req)
+* [Tags, acties en actionType](#tags-actions)
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-* Een cognitieve services API-sleutel is vereist voor het verifiëren van de SDK-aanroepen. Aanmelden voor een [gratis proefabonnement sleutel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De evaluatieversie sleutel is geschikt is voor de zeven dagen 1 aanroepen per seconde. Voor productiescenario's [kopen toegangssleutel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Zie ook [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* Als u dit nog geen hebt, installeert u Python. De SDK is compatibel met Python 2.7 3.3, 3.4, 3.5 en 3.6.
-* De algemene aanbevelingen voor de ontwikkeling van een Python is met een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html). Installeren en het initialiseren van de virtuele omgeving met de [venv module](https://pypi.python.org/pypi/virtualenv). Virtualenv voor Python 2.7 installeren.
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+* Er is een sleutel van de Cognitive Services API vereist voor het verifiëren van SDK-aanroepen. Meld u aan voor een [gratis sleutel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De sleutel is gedurende zeven dagen geldig, met één aanroep per seconde. Voor productiescenario's kunt u [een toegangssleutel kopen](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Bekijk ook de [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Als u Python nog niet hebt, moet u dit eerst installeren. De SDK is compatibel met Python 2.7, 3.3, 3.4, 3.5 en 3.6.
+* De algemene aanbeveling voor het ontwikkelen met Python is om een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html) te gebruiken. Installeer en initialiseer de virtuele omgeving met de [venv-module](https://pypi.python.org/pypi/virtualenv). Installeer virtualenv voor Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Bing Visual Search SDK-afhankelijkheden installeren:
+Installeer Bing Visual Search SDK-afhankelijkheden:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-visualsearch
@@ -44,7 +44,7 @@ python -m pip install azure-cognitiveservices-search-visualsearch
 
 <a name="client"></a> 
 ## <a name="visual-search-client"></a>Visual Search-client
-Maken van een exemplaar van de `VisualSearchAPI` client, de volgende bibliotheken importeren:
+Importeer de volgende bibliotheken om een exemplaar van de `VisualSearchAPI`-client te maken:
 ```
 import http.client, urllib.parse
 import json
@@ -58,15 +58,15 @@ from azure.cognitiveservices.search.visualsearch.models import (
     KnowledgeRequest,
 )
 ```
-De waarde voor de subscriptionKey vervangen door uw sleutel geldig abonnement.
+Vervang de tekenreekswaarde voor subscriptionKey door de geldige abonnementssleutel.
 ```
 subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
 ```
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
-De client gebruiken om installatiekopieën te zoeken en parseren van de resultaten:
+De client gebruiken om afbeeldingen te zoeken en de resultaten te parseren:
 ```
 PATH = 'C:\\Users\\USER\\azure-cognitive-samples\\mytestenv\\TestImages\\'
 image_path = os.path.join(PATH, "image.jpg")
@@ -106,9 +106,9 @@ with open(image_path, "rb") as image_fd:
 ```
 
 <a name="complete-console"></a> 
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
 
-De volgende consoletoepassing wordt de eerder gedefinieerde query uitgevoerd en de resultaten parseert:
+De volgende consoletoepassing voert de eerder gedefinieerde query uit en parseert de resultaten:
 ```
 import http.client, urllib.parse
 import json
@@ -173,12 +173,12 @@ with open(image_path, "rb") as image_fd:
 
 ```
 
-Bing zoeken-voorbeelden laten zien dat verschillende functies van de SDK.  De volgende functies toevoegen aan het eerder gedefinieerde `VisualSrchSDK` klasse.
+De voorbeelden van Bing Zoeken laten verschillende functies van de SDK zien.  Voeg de volgende functies toe aan de eerder gedefinieerde klasse `VisualSrchSDK`.
 
 <a name="binary-crop"></a>
-## <a name="image-binary-post-with-croparea"></a>Afbeelding binaire post met cropArea
+## <a name="image-binary-post-with-croparea"></a>Binair bestand van afbeelding posten met cropArea
 
-De volgende code verzendt een installatiekopie van een binaire in de hoofdtekst van de post-aanvraag, samen met een cropArea-object.  Vervolgens worden de imageInsightsToken, het aantal tags, het aantal acties en de eerste actionType.
+De volgende code verzendt binair bestand van een afbeelding in de hoofdtekst van de post-aanvraag, samen met een cropArea-object.  Vervolgens worden het imageInsightsToken, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```
 def search_image_binary_with_crop_area(client, sub_key, file_path):
@@ -225,9 +225,9 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 
 ```
 <a name="knowledge-req"></a>
-## <a name="knowledgerequest-parameter"></a>De parameter KnowledgeRequest
+## <a name="knowledgerequest-parameter"></a>KnowledgeRequest-parameter
 
-De volgende code verzendt een afbeeldings-url in de `knowledgeRequest` parameter, samen met een \"site: www.bing.com\" filter. Vervolgens deze wordt de `imageInsightsToken`, het aantal tags, het aantal acties en de eerste actionType.
+De volgende code verzendt een afbeeldings-url in de parameter `knowledgeRequest`, samen met een filter \"site: www.bing.com\". Vervolgens worden het `imageInsightsToken`, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 ```
 def search_url_with_filters(client_in, sub_key):
 
@@ -274,9 +274,9 @@ def search_url_with_filters(client_in, sub_key):
 
 ```
 <a name="tags-actions"></a>
-## <a name="tags-actions-and-actiontype"></a>Labels, acties en actionType
+## <a name="tags-actions-and-actiontype"></a>Tags, acties en actionType
 
-De volgende code verzendt een token van de installatiekopie van inzicht in de parameter knowledgeRequest samen met een cropArea-object. Vervolgens worden de imageInsightsToken, het aantal tags, het aantal acties en de eerste actionType.
+De volgende code verzendt een token voor inzicht in afbeeldingen met de parameter knowledgeRequest, samen met een cropArea-object. Vervolgens worden het imageInsightsToken, het aantal tags, het aantal acties en het eerste actionType weergegeven.
 
 ```
     client = client_in
@@ -325,4 +325,4 @@ De volgende code verzendt een token van de installatiekopie van inzicht in de pa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

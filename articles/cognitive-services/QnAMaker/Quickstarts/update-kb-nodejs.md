@@ -1,24 +1,27 @@
 ---
-title: Knowledge base bijwerken, Node.js-snelstart - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstart: Node.js knowledge base bijwerken - Qna Maker'
+titleSuffix: Azure Cognitive Services
 description: Een knowledge base bijwerken in Node.js voor QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 7023230c8f71bbe6f12799cc8d8d7d47b9393ad2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a987993da5202abc9b543aa2dba0f080a622e199
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "43769907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033614"
 ---
 # <a name="update-a-knowledge-base-in-nodejs"></a>Een knowledge base bijwerken in Node.js
 
 Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 Als u nog geen knowledge base hebt, kunt u een voorbeeldexemplaar maken om te gebruiken met deze snelstart: [Een nieuwe knowledge base maken](create-new-kb-nodejs.md).
 

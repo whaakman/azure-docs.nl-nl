@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700335"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422963"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
 
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. Voer vervolgens `:remote console` uit om alle consoleopdrachten om te leiden naar de externe server.
 
+   > [!NOTE]
+   > Als u de `:remote console` opdracht niet uitvoert maar alle consoleopdrachten naar de externe server wilt omleiden, moet u opdracht vooraf laten gaan door `:>`. Voer de opdracht bijvoorbeeld uit als `:> g.V().count()`. Dit voorvoegsel is onderdeel van de opdracht, en is belangrijk bij het gebruiken van de Gremlin-console met Azure Cosmos DB. Als u het voorvoegsel weglaat, laat u de console de opdracht lokaal uitvoeren, vaak op basis van een graaf in het geheugen. Door het voorvoegsel `:>` te gebruiken, laat u de console een externe opdracht uitvoeren, in dit geval op Azure Cosmos DB (de localhost-emulator of een Azure-instantie).
+
 Goed gedaan. Nu we configuratie hebben voltooid, gaan we een aantal consoleopdrachten uitvoeren.
 
 We proberen een eenvoudige count()-opdracht. Typ wanneer u hierom wordt gevraagd het volgende in de console bij de prompt:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> Ziet u de `:>` die voorafgaat aan de tekst `g.V().count()`? 
->
-> Dit maakt deel uit van de opdracht die u moet opgeven. Dit is belangrijk bij het gebruik van de Gremlin-console met Azure Cosmos DB.  
->
-> Als u het voorvoegsel `:>` weglaat, laat u de console de opdracht lokaal uitvoeren, vaak op basis van een graaf in het geheugen.
-> Door `:>` te gebruiken, laat u de console een externe opdracht uitvoeren, in dit geval op basis van Cosmos DB (de localhost-emulator of een > Azure-instantie).
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>Hoekpunten en randen maken
 
@@ -113,7 +108,7 @@ Laten we beginnen met het toevoegen van vijf hoekpunten voor de personen *Thomas
 Invoer (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Uitvoer:
@@ -124,7 +119,7 @@ Uitvoer:
 Invoer (Marije):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ Uitvoer:
 Invoer (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Uitvoer:
@@ -150,7 +145,7 @@ Uitvoer:
 Invoer (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ Uitvoer:
 Invoer (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Uitvoer:
@@ -178,7 +173,7 @@ Laten we nu randen toevoegen om relaties tussen deze personen aan te geven.
 Invoer (Thomas -> Marije):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Uitvoer:
@@ -190,7 +185,7 @@ Uitvoer:
 Invoer (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Uitvoer:
@@ -202,7 +197,7 @@ Uitvoer:
 Invoer (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Uitvoer:
@@ -217,7 +212,7 @@ We gaan nu de hoekpunt van *Thomas* bijwerken met een nieuwe leeftijd van *45*.
 
 Invoer:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Uitvoer:
 
@@ -234,7 +229,7 @@ Eerst gaan we met een filter een query uitvoeren om als resultaat mensen die oud
 Invoer (filterquery):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Uitvoer:
@@ -248,7 +243,7 @@ Vervolgens gaan we voor de mensen die ouder zijn dan 40 jaar de voornaam project
 Invoer (filter + projectiequery):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Uitvoer:
@@ -264,7 +259,7 @@ Laten we door de graaf gaan om alle vrienden van Thomas als resultaat te retourn
 Invoer (vrienden van Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Uitvoer: 
@@ -279,7 +274,7 @@ Laten we nu de volgende laag met hoekpunten ophalen. Ga door de graaf om alle vr
 Invoer (vrienden van vrienden van Thomas):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Uitvoer:
 
@@ -294,7 +289,7 @@ Nu gaan we een hoekpunt verwijderen uit de graafdatabase.
 Invoer (hoekpunt van Jack neerzetten):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Uw graaf wissen
@@ -304,8 +299,8 @@ Ten slotte gaan we de database met alle hoekpunten en randen wissen.
 Invoer:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Gefeliciteerd! U hebt deze zelfstudie over de Azure Cosmos DB Gremlin-API voltooid.

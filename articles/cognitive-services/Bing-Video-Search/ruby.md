@@ -1,41 +1,42 @@
 ---
-title: Ruby Quick Start voor Azure cognitieve Services, Bing Video zoeken-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing Video zoeken-API in Microsoft cognitieve Services in Azure.
+title: 'Quickstart: Bing Video’s zoeken, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Krijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Bing Video’s zoeken-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: d621944415ec376f11a45ea96c331138ec4d6cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345459"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223566"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-ruby"></a>Quick Start voor Bing Video zoeken-API met Ruby
+# <a name="quickstart-bing-video-search-api-with-ruby"></a>Quickstart: Bing Video’s zoeken-API met Ruby
 
-Dit artikel ziet u hoe de Bing Video Search API, onderdeel van Microsoft cognitieve Services in Azure gebruiken. Hoewel dit artikel de veiligheidsmaatregelen voor Ruby, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+In dit artikel ziet u hoe u de Bing Video’s zoeken-API gebruikt die onderdeel vormt van Microsoft Cognitive Services in Azure. Hoewel in dit artikel Ruby wordt geïmplementeerd, is de API een RESTful-webservice die compatibel is met elke programmeertaal waarmee HTTP-aanvragen kunnen worden ingediend en JSON kan worden geparseerd. 
 
-De voorbeeldcode is geschreven voor Ruby 2.4 uitvoering.
+De voorbeeldcode is geschreven om te worden uitgevoerd in Ruby 2.4.
 
-Raadpleeg de [API-referentiemateriaal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) voor technische informatie over de API's.
+Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) voor technische informatie over de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de opgegeven toegangssleutel nodig bij het activeren van de gratis proefversie of u kunt betaalde abonnementssleutel gebruiken vanuit het Azure-dashboard.
 
-## <a name="bing-video-search"></a>Bing video zoeken
+## <a name="bing-video-search"></a>Bing Video’s zoeken
 
-De [Video zoeken-API van Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) video resultaten retourneert uit de Bing zoekmachine.
+Met de [Bing Video’s zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) worden videoresultaten geretourneerd uit de zoekmachine van Bing.
 
-1. Maak een nieuwe Ruby project in uw favoriete IDE of -editor.
-2. Voeg de code hieronder.
-3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Ruby-project in uw favoriete IDE of editor.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```ruby
 require 'net/https'
@@ -84,7 +85,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 **Antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld:
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
 {
@@ -196,9 +197,9 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Paginering video's](paging-videos.md)
-> [miniatuurafbeeldingen bijsnijden en Resizing](resize-and-crop-thumbnails.md)
+> [Video's pagineren](paging-videos.md)
+> [Miniatuurafbeeldingen vergroten/verkleinen en bijsnijden](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Zie ook 
 
- [Zoeken op het web voor video's](search-the-web.md) [te proberen](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Op internet zoeken naar video's](search-the-web.md) [Uitproberen](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

@@ -1,44 +1,44 @@
 ---
-title: Video zoeken SDK knooppunt Quick Start | Microsoft Docs
-description: Instellingen voor de consoletoepassing Video Search SDK.
-titleSuffix: Azure cognitive services
+title: 'Snelstart: Bing Video Search SDK, Node'
+titleSuffix: Azure Cognitive Services
+description: De Bing Video Search SDK-consoletoepassing instellen.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
-ms.openlocfilehash: 5718c750288e0a5605db3296d2911cca5e03375c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345863"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225613"
 ---
-# <a name="video-search-sdk-node-quickstart"></a>Video zoeken SDK knooppunt Quick Start
+# <a name="quickstart-bing-video-search-sdk-with-node"></a>Snelstart: Bing Video Search SDK met Node
 
-De Bing Video Search SDK bevat de functionaliteit van de REST-API voor video's en parseren resultaten. 
+De Bing Video Search SDK bevat de functionaliteit van de REST API voor videoquery's en parseerresultaten. 
 
-De [broncode voor voorbeelden van knooppunt Bing Video Search SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing Video Search SDK voor Node](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) is beschikbaar op Git Hub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Uitvoeren als u een consoletoepassing met de Bing Video Search SDK instelt, `npm install azure-cognitiveservices-videosearch` in uw ontwikkelomgeving.
+Als u een consoletoepassing met behulp van de Bing Video Search SDK wilt instellen, voert u `npm install azure-cognitiveservices-videosearch` uit in uw ontwikkelingsomgeving.
 
-## <a name="video-search-client"></a>Video zoeken client
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *Search*. Maak een instantie van de `CognitiveServicesCredentials`:
+## <a name="video-search-client"></a>Video Search-client
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder *Zoeken*. Maak een exemplaar van de `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 ```
 const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
 let client = new VideoSearchAPIClient(credentials);
 ```
-Zoeken naar resultaten.
+Zoek naar resultaten.
 ```
 client.videosOperations.search('Interstellar Trailer').then((result) => {
     console.log(result.value);
@@ -57,4 +57,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services SDK voor Node.js-voorbeelden](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Voorbeelden voor Cognitive Services Node.js SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

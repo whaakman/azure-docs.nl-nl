@@ -1,98 +1,108 @@
 ---
-title: 'Snelstartgids: Herkennen gesproken tekst in C++ op Windows-bureaublad met de Cognitive Services spraak-SDK'
+title: 'Snelstartgids: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech SDK van Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in C++ op Windows-bureaublad met de Cognitive Services spraak-SDK
+description: Leer hoe u gesproken tekst herkent in C++ onder Windows met behulp van de Speech SDK van Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9fae855de2a746084f4775f194e04c6dbe09f684
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127288"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434293"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C++ op Windows-bureaublad met de spraak-SDK
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in C++ onder Windows met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Wordt beschreven hoe u een op basis van een C++-consoletoepassing maken voor Windows-bureaublad die gebruik maakt van de spraak-SDK.
-De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
+In dit artikel maakt u een C++-consoletoepassing voor Windows. U gebruikt de [Speech SDK](speech-sdk.md) van Cognitive Services om in realtime spraak te transcriberen naar tekst via de microfoon van uw pc. De toepassing is gemaakt met het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een abonnementssleutel voor de Speech-service. Zie [de spraakservice gratis uitproberen](get-started.md).
-* Een Windows-PC met een werkende microfoon.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition of hoger.
-* De **bureaubladontwikkeling met C++** workload in Visual Studio en de **NuGet-Pakketbeheer** onderdeel in Visual Studio.
-  U kunt beide in **hulpprogramma's** \> **hulpprogramma's en onderdelen**onder de **Workloads** en **afzonderlijke onderdelen** tabbladen , respectievelijk:
-
-  ![Bureaubladontwikkeling met C++ werkbelasting inschakelen](media/sdk/vs-enable-cpp-workload.png)
-
-  ![NuGet-Pakketbeheer in Visual Studio inschakelen ](media/sdk/vs-enable-nuget-package-manager.png)
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids uit te voeren. U kunt er een gratis downloaden. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
-Maak een nieuwe Visual C++ Windows Desktop Windows consoletoepassing in Visual Studio 2017. In de **nieuw Project** in het dialoogvenster, in het linkerdeelvenster Vouw **geïnstalleerde** \> **Visual C++** \> **Windows Desktop** en selecteer vervolgens **Windows-consoletoepassing**. Voer voor de naam van het project, *helloworld*.
+1. Start Visual Studio 2017.
 
-![Visual C++ Windows-bureaublad van Windows-consoletoepassing maken](media/sdk/qs-cpp-windows-01-new-console-app.png)
+1. Zorg ervoor dat de workload **Desktop development with C++** beschikbaar is. Kies **Tools** > **Get Tools and Features** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de werkbelasting al is ingeschakeld, gaat u naar de volgende stap. 
 
-Als u op een 64-bits Windows-installatie uitvoert, (optioneel) uw build-platform om te schakelen `x64`:
+    ![Schermafbeelding van het tabblad Workloads van Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-![Het build-platform overschakelen naar x64](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
+    Schakel anders het selectievakje naast **Desktop development with C++** in. 
 
-## <a name="install-and-reference-the-speech-sdk-nuget-package"></a>Installeren en verwijzen naar de Speech SDK NuGet-pakket
+1. Zorg ervoor dat het onderdeel **NuGet package manager** beschikbaar is. Ga naar het tabblad **Individual components** van het dialoogvenster van het installatieprogramma van Visual Studio en selecteer **NuGet package manager** als deze optie nog niet is ingeschakeld.
 
-In de Solution Explorer met de rechtermuisknop op de oplossing en klik op **NuGet-pakketten beheren voor oplossing**.
+      ![Schermafbeelding van het tabblad Individual components van Visual Studio](media/sdk/vs-enable-nuget-package-manager.png)
 
-![Met de rechtermuisknop op de NuGet-pakketten beheren voor oplossing](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
+1. Als u de workload C++ of NuGet hebt moeten inschakelen, selecteert u **Modify** (in de rechterbenedenhoek van het dialoogvenster). De installatie van de nieuwe functies duurt even. Als beide functies al zijn ingeschakeld, kunt u het dialoogvenster sluiten.
 
-In de rechterbovenhoek, in de **pakketbron** Kies 'Nuget.org'.
-Uit de **Bladeren** tabblad, zoek het pakket 'Microsoft.CognitiveServices.Speech', selecteert u deze en controleer de **Project** en **helloworld** vakken aan de rechterkant en selecteer **Installeren** om deze te installeren in de helloworld-project.
+1. Maak een nieuwe Windows-consoletoepassing van het type Windows Desktop voor Visual C++. Kies eerst **File** > **New** > **Project** in het menu. Vouw in het dialoogvenster **New Project** **Installed** > **Visual C++** > **Windows Desktop** uit in het linkerdeelvenster. Selecteer vervolgens **Windows Console Application**. Voer als projectnaam *helloworld* in.
 
-> [!NOTE]
-> De huidige versie van de Cognitive Services Speech SDK is `0.6.0`.
+    ![Schermafbeelding van het dialoogvenster New Project](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-![Microsoft.CognitiveServices.Speech NuGet-pakket installeren](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
+1. Als u 64-bits Windows gebruikt, kunt u uw build-platform omschakelen naar `x64` via de vervolgkeuzelijst in de werkbalk van Visual Studio. (64-bits versies van Windows kunnen 32-bits toepassingen uitvoeren, dus dit is geen vereiste.)
 
-In het scherm van het type licentie dat verschijnt, accepteer de licentie:
+    ![Schermafbeelding van de Visual Studio-werkbalk, met de optie x64 gemarkeerd](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
-![Accepteer de gebruiksrechtovereenkomst](media/sdk/qs-cpp-windows-05-nuget-license.png)
+1. Klik in Solution Explorer met de rechtermuisknop op de oplossing en kies **Manage NuGet Packages for Solution**.
 
-## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
+    ![Schermafbeelding van Solution Explorer, met de optie Manage NuGet Packages for Solution gemarkeerd](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. De code van uw standaard-starter vervangen door het volgende:
+1. Selecteer in de rechterbovenhoek, in het veld **Package Source**, het pakket **nuget.org**. Zoek het pakket `Microsoft.CognitiveServices.Speech` en installeer het in het project **helloworld**.
+
+    ![Schermafbeelding van het dialoogvenster Manage Packages for Solution](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
+
+    > [!NOTE]
+    > De huidige versie van de Speech SDK van Cognitive Services is `1.0.0`.
+
+1. Accepteer de weergegeven licentie om te beginnen met het installeren van het NuGet-pakket.
+
+    ![Schermafbeelding van het licentievenster](media/sdk/qs-cpp-windows-05-nuget-license.png)
+
+Nadat het pakket is geïnstalleerd, wordt er een bevestiging weergegeven in de Package Manager-console.
+
+## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
+
+1. Open het bronbestand *helloworld.cpp*. Vervang alle code onder de eerste include-instructie (`#include "stdafx.h"` of `#include "pch.h"`) door het volgende:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
-1. Vervang de tekenreeks `YourSubscriptionKey` met de abonnementssleutel van uw.
+1. Vervang in hetzelfde bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 
-1. Vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die gekoppeld is aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-1. Sla de wijzigingen aan het project.
+1. Sla de wijzigingen in het project op.
 
-## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
+## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-1. Maken van de toepassing. Selecteer in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten:
+1. Compileer de toepassing. Kies in de menubalk **Build** > **Build Solution**. De code moet zonder fouten worden gecompileerd.
 
-   ![Geslaagde build](media/sdk/qs-cpp-windows-06-build.png)
+   ![Schermafbeelding van Visual Studio-toepassing met de optie Build Solution gemarkeerd](media/sdk/qs-cpp-windows-06-build.png)
 
-1. De toepassing te starten. Selecteer in de menubalk **Debug** > **Start Debugging**, of druk op **F5**.
+1. Start de toepassing. Kies in de menubalk **Debug** > **Start Debugging** of druk op **F5**.
 
-   ![Start de app into-foutopsporing](media/sdk/qs-cpp-windows-07-start-debugging.png)
+   ![Schermafbeelding van Visual Studio-toepassing met de optie Start Debugging gemarkeerd](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Een consolevenster verschijnt, waarin u kunt iets wat er op (in het Engels).
-   Het resultaat van de opname wordt weergegeven op het scherm.
+1. Er wordt een consolevenster weergegeven waarin u wordt gevraagd iets te zeggen. Spreek een Engelse woordgroep of zin in. De gesproken tekst wordt verzonden naar de Speech-service en getranscribeerd naar tekst, die in hetzelfde venster wordt weergegeven.
 
-   ![Console-uitvoer na geslaagde opname](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/cpp-windows` map.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Zoek naar dit voorbeeld in de map `quickstart/cpp-windows`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C++](how-to-recognize-intents-from-speech-cpp.md)
+
+## <a name="see-also"></a>Zie ook
+
+- [Spraak vertalen](how-to-translate-speech-csharp.md)
+- [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
+- [Taalmodellen aanpassen](how-to-customize-language-model.md)

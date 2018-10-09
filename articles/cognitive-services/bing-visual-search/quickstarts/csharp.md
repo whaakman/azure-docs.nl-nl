@@ -1,27 +1,27 @@
 ---
-title: C#-Snelstartgids voor Bing visuele zoekopdrachten-API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Laat zien hoe u een installatiekopie uploaden naar de Bing visuele zoekopdrachten-API en weer toegang krijgen van inzicht in de afbeelding.
+title: 'Snelstartgids: Een Visual Search-query maken, C# - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Leer hoe u een afbeelding uploadt naar Bing Visual Search-API om inzichten op te vragen over de afbeelding.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070923"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218764"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>Uw eerste Bing visuele zoekopdrachten-query in C#
+# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Snelstartgids: Uw eerste Bing Visual Search-query in C#
 
-Bing visuele zoekopdrachten-API retourneert informatie over een afbeelding die u opgeeft. U kunt de installatiekopie opgeven met behulp van de URL van de afbeelding, een insights token, of door een installatiekopie te uploaden. Zie voor meer informatie over deze opties [wat Bing visuele zoekopdrachten-API is?](../overview.md) In dit artikel ziet u een installatiekopie uploaden. Uploaden van een afbeelding kan nuttig zijn in mobiele scenario's waarbij u een afbeelding van een bekende oriëntatiepunt en informatie erover weer toegang krijgen. Bijvoorbeeld, kunnen de insights bevat ook algemene vragen over de oriëntatiepunt. 
+Bing Visual Search-API retourneert informatie over een afbeelding die u opgeeft. U kunt de afbeelding opgeven door de URL van de afbeelding te gebruiken, een inzichttoken of door een afbeelding te uploaden. Zie [Wat is Bing Visual Search-API?](../overview.md) voor informatie over deze opties. Dit artikel demonstreert het uploaden van een afbeelding. Het uploaden van een afbeelding kan handig zijn in mobiele scenario's waarbij u een foto neemt van een bekend oriëntatiepunt en er informatie over terugkrijgt. De inzichten kunnen bijvoorbeeld trivia bevatten over het oriëntatiepunt. 
 
-Als u een lokale installatiekopie uploadt, ziet hieronder u de gegevens dat moet u in de hoofdtekst van het bericht opnemen. De gegevens moet de header Content-Disposition bevatten. De `name` parameter moet worden ingesteld op 'afbeelding' en de `filename` parameter kan worden ingesteld op een willekeurige tekenreeks. De inhoud van het formulier is het binaire bestand van de installatiekopie. De grootte van de maximale installatiekopie die u kunt uploaden is 1 MB. 
+Als u een lokale afbeelding uploadt, toont het volgende de formuliergegevens die u in de POST moet opnemen. De formuliergegevens moeten de header Content-Disposition bevatten. De parameter `name` moet worden ingesteld op "image" en de parameter `filename` kan op een willekeurige tekenreeks worden ingesteld. De inhoud van het formulier is het binaire bestand van de afbeelding. De maximale afbeeldingsgrootte die u kunt uploaden is 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,28 +32,28 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Dit artikel bevat een eenvoudige consoletoepassing die een Bing visuele zoekopdrachten-API-aanvraag verzendt en de JSON-zoekresultaten worden weergegeven. Terwijl deze toepassing is geschreven in C#, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen te parseren van JSON. 
+Dit artikel bevat een eenvoudige consoletoepassing die een Bing Visual Search-API-aanvraag verzendt en de JSON-zoekresultaten weergeeft. Hoewel deze toepassing in C# is geschreven, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren. 
 
-Het voorbeeldprogramma maakt gebruik van alleen .NET Core-klassen en wordt uitgevoerd op Windows met behulp van de .NET CLR of op Linux of macOS met behulp van [Mono](http://www.mono-project.com/).
+Het voorbeeldprogramma maakt alleen gebruik van .NET Core-klassen en wordt uitgevoerd in Windows met behulp van de .NET CLR of in Linux of macOS met behulp van [Mono](http://www.mono-project.com/).
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows. (De gratis Community-editie blijft werken.)
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om de code in Windows te kunnen uitvoeren. (De gratis Community-editie volstaat.)
 
-In deze Quick Start kunt u een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
+In deze snelstartgids kunt u een code van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of van een betaald abonnement gebruiken.
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-Hieronder ziet u hoe u het bericht met behulp van het HttpWebRequest te verzenden. Zie voor een voorbeeld dat gebruikmaakt van httpclient maakt, het HttpRequestMessage en MultipartFormDataContent [met behulp van HttpClient](#using-httpclient).
+Hieronder ziet u hoe u het bericht met behulp van HttpWebRequest kunt verzenden. Zie [HttpClient gebruiken](#using-httpclient) voor een voorbeeld waarin HttpClient, HttpRequestMessage en MultipartFormDataContent worden gebruikt.
 
-Om uit te voeren deze toepassing, de volgende stappen uit:
+Volg deze stappen om deze toepassing uit te voeren:
 
-1. Maak een nieuwe Console-oplossing in Visual Studio.
-1. Vervang de inhoud van `Program.cs` met de code die wordt weergegeven in deze Quick Start.
-2. Vervang de `accessKey` waarde met de abonnementssleutel van uw.
-2. Vervang de `imagePath` waarde met het pad van de afbeelding te uploaden.
-3. Voer het programma.
+1. Maak een nieuwe console-oplossing in Visual Studio.
+1. Vervang de inhoud van `Program.cs` door de code die wordt weergegeven in deze snelstartgids.
+2. Vervang de waarde van `accessKey` door uw abonnementssleutel.
+2. Vervang de waarde van `imagePath` door het pad van de te uploaden afbeelding.
+3. Voer het programma uit.
 
 
 ```csharp
@@ -303,11 +303,11 @@ namespace VisualSearchUpload
 ```
 
 
-## <a name="using-httpclient"></a>Met behulp van httpclient maakt
+## <a name="using-httpclient"></a>Met behulp van HttpClient
 
-Als u httpclient maakt, kunt u MultipartFormDataContent aan het bouwen van de gegevens. De volgende secties van de code gebruikt ter vervanging van de methodes die met de naam in het vorige voorbeeld.
+Als u HttpClient gebruikt, kunt u MultipartFormDataContent gebruiken om de formuliergegevens samen te stellen. Gebruik de volgende secties met code om de methoden met dezelfde naam in het vorige voorbeeld te vervangen.
 
-Vervang de methode Main met deze code:
+Vervang de Main-methode door deze code:
 
 ```csharp
         static void Main()
@@ -347,7 +347,7 @@ Vervang de methode Main met deze code:
         }
 ```
 
-Vervang de methode BingImageSearch met deze code:
+Vervang de BingImageSearch-methode door deze code:
 
 ```csharp
         /// <summary>
@@ -386,10 +386,10 @@ Vervang de methode BingImageSearch met deze code:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Inzichten over een afbeelding met behulp van een token inzichten verkrijgen](../use-insights-token.md)  
-[Bing visuele zoekopdrachten-installatiekopie uploaden zelfstudie](../tutorial-visual-search-image-upload.md)
-[Bing visuele zoekopdrachten-app met één pagina zelfstudie](../tutorial-bing-visual-search-single-page-app.md)
-[Bing visuele zoekopdrachten-overzicht](../overview.md)  
-[Nu uitproberen](https://aka.ms/bingvisualsearchtryforfree)  
-[Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing visuele zoekopdrachten-API-verwijzing](https://aka.ms/bingvisualsearchreferencedoc)
+[Inzichten krijgen over een afbeelding met behulp van een inzichttoken](../use-insights-token.md)  
+[Zelfstudie: Afbeelding uploaden naar Bing Visual Search](../tutorial-visual-search-image-upload.md)
+[Zelfstudie: Bing Visual Search-app van één pagina](../tutorial-bing-visual-search-single-page-app.md)
+[Wat is Bing Visual Search-API?](../overview.md)  
+[Proberen](https://aka.ms/bingvisualsearchtryforfree)  
+[Een toegangscode voor een gratis proefversie aanvragen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Naslaginformatie over Bing Visual Search-API](https://aka.ms/bingvisualsearchreferencedoc)

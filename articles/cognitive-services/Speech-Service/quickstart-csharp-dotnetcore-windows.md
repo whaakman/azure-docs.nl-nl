@@ -1,88 +1,97 @@
 ---
-title: 'Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de Cognitive Services spraak-SDK'
+title: 'Snelstart: gesproken tekst herkennen in C# onder .NET Core op Windows met behulp van de Speech SDK van Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over het herkennen van gesproken tekst in C# onder .NET Core in Windows met behulp van de Cognitive Services spraak-SDK
+description: Gesproken tekst herkennen in C# onder .NET Core op Windows met behulp van de Speech SDK van Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: ee83443c76851506fffbfcaaa12e72790d077cb0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128499"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434769"
 ---
-# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de spraak-SDK
+# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Snelstart: gesproken tekst herkennen in C# onder .NET Core op Windows met behulp van de Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In dit artikel leert u hoe u een C#-consoletoepassing maken voor .NET Core in Windows met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
+In dit artikel maakt u een C#-consoletoepassing voor .NET Core op Windows met behulp van de [Speech SDK](speech-sdk.md) van Cognitive Services. U gaat in realtime spraak naar tekst transcriberen via de microfoon van uw pc. De toepassing is gemaakt met het [NuGet-pakket van de Speech SDK](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017 (willekeurige editie).
 
 > [!NOTE]
-> .NET core is een open-source, platformoverschrijdende .NET-platform uitvoering van de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specificatie.
+> .NET Core is een open-source, platformoverschrijdend .NET-platform waarmee de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard)-specificatie wordt geïmplementeerd.
 
-## <a name="prerequisites"></a>Vereisten
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit te voeren. U kunt gratis een downloaden. Zie [Speech Service gratis uitproberen](get-started.md) voor meer informatie.
 
-* Een abonnementssleutel voor de Speech-service. Zie [de spraakservice gratis uitproberen](get-started.md).
-* Een Windows-PC met een werkende microfoon.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition of hoger.
-* De **.NET Core platformoverschrijdende ontwikkeling** workload in Visual Studio. U kunt deze inschakelen in **extra** \> **hulpprogramma's en onderdelen**.
-
-  ![.NET Core platformoverschrijdende ontwikkeling mogelijk maken](media/sdk/vs-enable-net-core-workload.png)
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
-1. Maak een nieuwe Visual C# .NET Core-consoletoepassing in Visual Studio 2017. In de **nieuw Project** in het dialoogvenster, in het linkerdeelvenster Vouw **geïnstalleerde** \> **Visual C#** \> **.NET Core**en selecteer vervolgens **Console-App (.NET Core)**. Voer voor de naam van het project, *helloworld*.
+1. Open Visual Studio 2017.
 
-    ![Visual C#-consoletoepassing (.NET Core)](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Visual C#-consoletoepassing (.NET Core)")
+1. Zorg ervoor dat de workload voor **.NET platformoverschrijdende ontwikkeling** beschikbaar is. Kies **Extra** > **Hulpmiddelen en onderdelen ophalen** in de menubalk van Visual Studio om het installatieprogramma voor Visual Studio te openen. Als de workload al is ingeschakeld, sluit u het dialoogvenster.
 
-1. Installeren en verwijzen naar de [spraak SDK NuGet-pakket](https://aka.ms/csspeech/nuget). In de Solution Explorer met de rechtermuisknop op de oplossing en selecteer **NuGet-pakketten beheren voor oplossing**.
+    ![Schermopname van het Visual Studio-installatieprogramma met het tabblad Workloads gemarkeerd](media/sdk/vs-enable-net-core-workload.png)
 
-    ![Met de rechtermuisknop op de NuGet-pakketten beheren voor oplossing](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "NuGet-pakketten beheren voor oplossing")
+    Selecteer anders het vak naast **platformoverschrijdende ontwikkelmogelijkheden van .NET Core** en selecteer **Wijzigen** in de rechterbenedenhoek van het dialoogvenster. De installatie van de nieuwe functie kan even duren.
 
-1. In de rechterbovenhoek, in de **pakketbron** veld **Nuget.org**. Zoek en installeer de `Microsoft.CognitiveServices.Speech` verpakken en installeer het in de **helloworld** project.
+1. Maak een nieuwe Visual C# .NET Core-consoletoepassing. Vouw in het dialoogvenster **Nieuw project**, vanuit het linkerdeelvenster, **Geïnstalleerd** > **Visual C#** > **.NET Core** uit. Selecteer vervolgens **Consoletoepassing (.NET Core)**. Voer als projectnaam *helloworld* in.
 
-    ![Installeer het NuGet-pakket Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "installeren Nuget-pakket")
+    ![Schermopname van dialoogvenster Nieuw project](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Visual C#-consoletoepassing (.NET Core) maken")
 
-1. Accepteer de gebruiksrechtovereenkomst weergegeven.
+1. Installeer en bekijk het [Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget). Klik in Solution Explorer met de rechtermuisknop op de oplossing en kies **NuGet-pakketten beheren voor oplossing**.
 
-    ![Accepteer de licentie](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "gaat akkoord met de licentie")
+    ![Schermopname van Solution Explorer, met NuGet-pakketten beheren voor oplossing gemarkeerd](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "NuGet-pakketten beheren voor oplossing")
 
-## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
+1. In de rechterbovenhoek selecteert u in het veld **Pakketbron** de optie **nuget.org**. Zoek het pakket `Microsoft.CognitiveServices.Speech` en installeer het in het project **helloworld**.
 
-1. Open `Program.cs` en vervang de code in het door het volgende.
+    ![Schermafbeelding van het dialoogvenster Pakketten beheren voor oplossing](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "NuGet-pakket installeren")
+
+1. Accepteer de weergegeven licentie om te beginnen met het installeren van het NuGet-pakket.
+
+    ![Schermafbeelding van het dialoogvenster voor akkoord gaan met licentie](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Licentie accepteren")
+
+Wanneer het pakket is geïnstalleerd, wordt er een bevestiging weergegeven in de Package Manager-console.
+
+
+## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
+
+1. Open `Program.cs` en vervang daarin alle code door het volgende.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
-1. Vervang de tekenreeks `YourSubscriptionKey` met de abonnementssleutel van uw.
+1. Vervang in hetzelfde bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
 
-1. Vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang ook de tekenreeks `YourServiceRegion` door de [regio](regions.md) die is gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-1. Sla de wijzigingen aan het project.
+1. Sla de wijzigingen aan het project op.
 
-## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
+## <a name="build-and-run-the-app"></a>De app bouwen en uitvoeren
 
-1. Maken van de toepassing. Kies in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten.
+1. Bouw de toepassing. Selecteer in de menubalk **Bouwen** > **Oplossing bouwen**. De code moet zonder fouten worden gecompileerd.
 
-    ![Geslaagde build](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "geslaagde build")
+    ![Schermafbeelding van Visual Studio-toepassing met de optie Oplossing bouwen gemarkeerd](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Geslaagde build")
 
-1. De toepassing te starten. Kies in de menubalk **Debug** > **Start Debugging**, of druk op **F5**.
+1. Start de toepassing. Selecteer in de menubalk **Fouten opsporen** > **Foutopsporing starten** of druk op **F5**.
 
-    ![De app te starten in foutopsporing](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "bij het opsporen van fouten in de app te starten")
+    ![Schermafbeelding van Visual Studio-toepassing met optie Foutopsporing starten gemarkeerd](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start foutopsporing voor de app")
 
-1. Een consolevenster wordt weergegeven, waarin u kunt iets wat er op (in het Engels). De herkende tekst wordt vervolgens weergegeven in hetzelfde venster.
+1. Een consolevenster wordt weergegeven, waarin u wordt gevraagd iets te zeggen. Spreek een Engelse woordgroep of zin in. Uw stem wordt verzonden naar de Speech-service en getranscribeerd naar tekst, die in hetzelfde venster wordt weergegeven.
 
-    ![Console-uitvoer na geslaagde opname](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Console-uitvoer na geslaagde opname")
+    ![Schermafbeelding van console-uitvoer na geslaagde herkenning](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Console-uitvoer na geslaagde herkenning")
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/csharp-dotnetcore-windows` map.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Zoek naar dit voorbeeld in de map `quickstart/csharp-dotnetcore-windows`.
 
 ## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C#](how-to-recognize-intents-from-speech-csharp.md)
+
+## <a name="see-also"></a>Zie ook
 
 - [Spraak vertalen](how-to-translate-speech-csharp.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)

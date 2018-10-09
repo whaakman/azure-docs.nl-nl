@@ -1,36 +1,36 @@
 ---
-title: Zoeken naar Bing-afbeelding één pagina Web-app | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Laat zien hoe de Bing installatiekopie zoeken-API gebruiken in een webtoepassing van één pagina.
+title: 'Zelfstudie: Een web-app met één pagina bouwen - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Laat zien hoe u de Bing Visual Search-API kunt gebruiken in een webtoepassing met één pagina.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-brapel
-ms.openlocfilehash: 303d7745167d2ea25fda083ed99881ac4e0a7ec7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: e3cd36d799256406b3ae12f35303bd2406468b3c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345326"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227177"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Zelfstudie: Visual zoeken één pagina Web-app
+# <a name="tutorial-visual-search-single-page-web-app"></a>Zelfstudie: Visual Search-web-app met één pagina
 
-Bing Visual zoeken-API biedt een vergelijkbaar met de details van de afbeelding die wordt weergegeven op Bing.com/images ervaring. U kunt met Visual Search opgeven van een installatiekopie van een en terughalen van inzicht in de afbeelding zoals visueel soortgelijke afbeeldingen, winkelwagen bronnen, webpagina's met de installatiekopie en andere elementen bevatten. 
+Bing Visual Search-API biedt een ervaring die lijkt op de afbeeldingsdetails die worden getoond op Bing.com/images. Met Visual Search kunt u een afbeelding opgeven en inzichten over de afbeelding terugkrijgen, zoals visueel vergelijkbare afbeeldingen, winkelbronnen, webpagina's met de afbeelding en meer. 
 
-Deze zelfstudie breidt de web-app van één pagina van de zelfstudie zoeken naar Bing-afbeelding (Zie [Single-page-Web-app](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Zie voor de volledige broncode om te starten in deze zelfstudie [Single-page-Web-app (broncode)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Zie voor de laatste broncode van deze zelfstudie [Visual zoeken Single-page-Web-app](tutorial-bing-visual-search-single-page-app-source.md).
+Deze zelfstudie breidt de web-app met één pagina van de Bing Image Search-zelfstudie uit (zie [Web-app met één pagina](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Zie [Web-app met één pagina (broncode)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md) voor de volledige broncode om deze zelfstudie te starten. Zie [Visual Search-web-app met één pagina](tutorial-bing-visual-search-single-page-app-source.md) voor de uiteindelijke broncode van deze zelfstudie.
 
-De taken besproken zijn:
+De behandelde taken zijn:
 
 > [!div class="checklist"]
-> * Bing Visual zoeken-API aanroepen met een installatiekopie insights-token
-> * Soortgelijke afbeeldingen weergeven
+> * Bing Visual Search-API aanroepen met een afbeeldingsinzichttoken
+> * Vergelijkbare afbeeldingen weergeven
 
-## <a name="call-bing-visual-search"></a>Aanroepen van Bing Visual zoeken
-Bewerk de Bing installatiekopie Search-zelfstudie en voeg de volgende code toe aan het einde van het script-element op de regel 409. Deze code roept de API van Bing Visual zoeken en de resultaten worden weergegeven.
+## <a name="call-bing-visual-search"></a>Bing Visual Search aanroepen
+Bewerk de Bing Image Search zelfstudie en voeg de volgende code toe aan het einde van het scriptelement op regel 409. Deze code roept de Bing Visual Search API aan en geeft de resultaten weer.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -94,15 +94,15 @@ function bingVisualSearch(insightsToken){
 }
 ```
 
-## <a name="capture-insights-token"></a>Insights token vastleggen
-Voeg de volgende code in de `searchItemsRenderer` object op de regel 151. Deze code wordt toegevoegd een **zoeken lijken** koppeling die roept de `bingVisualSearch` werken wanneer geklikt. De functie ontvangt de imageInsightsToken als argument.
+## <a name="capture-insights-token"></a>Inzichttoken vastleggen
+Voeg de volgende code toe aan het `searchItemsRenderer`-object op regel 151. Deze code voegt de koppeling **find similar** toe (vergelijkbare zoeken) die de `bingVisualSearch`-functie aanroept wanneer erop wordt geklikt. De functie ontvangt imageInsightsToken als argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
-## <a name="display-similar-images"></a>Soortgelijke afbeeldingen weergeven
-Voeg de volgende HTML-code op de regel 601. Deze code markup voegt een element dat wordt gebruikt om de resultaten van de Bing Visual zoeken-API-aanroep weer te geven.
+## <a name="display-similar-images"></a>Vergelijkbare afbeeldingen weergeven
+Voeg de volgende HTML-code toe op regel 601. Deze code voegt een element toe dat wordt gebruikt om de resultaten van de Bing Visual Search-API-aanroep weer te geven.
 
 ``` html
 <div id="insights">
@@ -111,10 +111,10 @@ Voeg de volgende HTML-code op de regel 601. Deze code markup voegt een element d
 </div>
 ```
 
-Met alle nieuwe JavaScript-code en HTML-elementen in de plaats, zoekresultaten worden weergegeven met een **zoeken lijken** koppeling. Klik op de koppeling voor het vullen van de **vergelijkbaar** sectie met afbeeldingen die vergelijkbaar zijn met die u verzameld. Wellicht hebt u uit te breiden de **vergelijkbaar** sectie om de installatiekopieën van het weer te geven.
+Met alle nieuwe JavaScript-code en HTML-elementen op hun plaats, worden zoekresultaten weergegeven met een koppeling **find similar** (vergelijkbare zoeken). Klik op koppeling om de sectie **Similar** (vergelijkbaar) te vullen met afbeeldingen die lijken op de afbeelding die u hebt gekozen. Mogelijk moet u de sectie **Similar** uitvouwen om de afbeeldingen weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Visual zoeken één pagina app webbron](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Visual Search API-verwijzingen](https://aka.ms/bingvisualsearchreferencedoc)
+> [Broncode van de Visual Search-web-app van één pagina](tutorial-bing-visual-search-single-page-app-source.md)
+> [Naslaginformatie over Bing Visual Search-API](https://aka.ms/bingvisualsearchreferencedoc)

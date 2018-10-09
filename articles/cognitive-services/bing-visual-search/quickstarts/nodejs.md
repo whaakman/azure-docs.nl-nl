@@ -1,27 +1,27 @@
 ---
-title: JavaScript-Snelstartgids voor Bing visuele zoekopdrachten-API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Laat zien hoe u een installatiekopie uploaden naar de Bing visuele zoekopdrachten-API en weer toegang krijgen van inzicht in de afbeelding.
+title: 'Quickstart: Een Visual Search-query maken, Node.js - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Een afbeelding uploaden naar Bing Visual Search-API en inzichten over de afbeelding terugkrijgen.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: b13738c5bfd8fc75224bf934ae8be56e7c2edd69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071699"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225494"
 ---
-# <a name="your-first-bing-visual-search-query-in-javascript"></a>Uw eerste Bing visuele zoekopdrachten-query in JavaScript
+# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Quickstart: Uw eerste Bing Visual Search-query in JavaScript
 
-Bing visuele zoekopdrachten-API retourneert informatie over een afbeelding die u opgeeft. U kunt de installatiekopie opgeven met behulp van de URL van de afbeelding, een insights token, of door een installatiekopie te uploaden. Zie voor meer informatie over deze opties [wat Bing visuele zoekopdrachten-API is?](../overview.md) In dit artikel ziet u een installatiekopie uploaden. Uploaden van een afbeelding kan nuttig zijn in mobiele scenario's waarbij u een afbeelding van een bekende oriëntatiepunt en informatie erover weer toegang krijgen. Bijvoorbeeld, kunnen de insights bevat ook algemene vragen over de oriëntatiepunt. 
+Bing Visual Search-API retourneert informatie over een afbeelding die u opgeeft. U kunt de afbeelding opgeven met behulp van de URL van de afbeelding, een inzichttoken of door een afbeelding te uploaden. Zie [Wat is Bing Visual Search-API?](../overview.md) voor informatie over deze opties Dit artikel demonstreert het uploaden van een afbeelding. Het uploaden van een afbeelding kan handig zijn in mobiele scenario's waarbij u een foto neemt van een bekend oriëntatiepunt en er informatie over terugkrijgt. De inzichten kunnen bijvoorbeeld trivia bevatten over het oriëntatiepunt. 
 
-Als u een lokale installatiekopie uploadt, ziet hieronder u de gegevens dat moet u in de hoofdtekst van het bericht opnemen. De gegevens moet de header Content-Disposition bevatten. De `name` parameter moet worden ingesteld op 'afbeelding' en de `filename` parameter kan worden ingesteld op een willekeurige tekenreeks. De inhoud van het formulier is het binaire bestand van de installatiekopie. De grootte van de maximale installatiekopie die u kunt uploaden is 1 MB. 
+Als u een lokale afbeelding uploadt, toont het volgende de formuliergegevens die u moet opnemen in de hoofdtekst van de POST. De formuliergegevens moeten de header Content-Disposition bevatten. De parameter `name` moet worden ingesteld op ‘image’ en de parameter `filename` kan op een willekeurige tekenreeks worden ingesteld. De inhoud van het formulier is het binaire bestand van de afbeelding. De maximale afbeeldingsgrootte die u kunt uploaden, is 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -32,34 +32,34 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Dit artikel bevat een eenvoudige consoletoepassing die een Bing visuele zoekopdrachten-API-aanvraag verzendt en de JSON-zoekresultaten worden weergegeven. Terwijl deze toepassing is geschreven in JavaScript, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen te parseren van JSON. 
+Dit artikel bevat een eenvoudige consoletoepassing waarmee een Bing Visual Search-API-aanvraag wordt verzonden en de JSON-zoekresultaten worden weergegeven. Hoewel deze toepassing is geschreven in JavaScript, is de API een RESTful-webservice die compatibel is met elke programmeertaal waarmee HTTP-aanvragen kunnen worden ingediend en JSON kan worden geparseerd. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Node.js 6](https://nodejs.org/en/download/) deze code uit te voeren.
+U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te voeren.
 
-In deze Quick Start kunt u een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonnementssleutel of een betaald abonnement-sleutel.
+In deze quickstart kunt u een abonnementssleutel van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of een betaalde abonnementssleutel gebruiken.
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-Hieronder ziet u hoe u het bericht met FormData in Node.js te verzenden.
+Hieronder ziet u hoe u het bericht met behulp van formuliergegevens kunt verzenden in Node.js.
 
-Om uit te voeren deze toepassing, de volgende stappen uit:
+Volg deze stappen voor het uitvoeren van de toepassing:
 
-1. Maak een map voor uw project (of gebruik uw favoriete IDE of editor).
-2. Navigeer naar de map die u zojuist hebt gemaakt vanaf een opdrachtprompt of terminal.
-3. De aanvraag-modules installeren:  
+1. Maak een map voor het project (of gebruik uw favoriete IDE of editor).
+2. Navigeer vanuit een opdrachtprompt of terminal naar de map die u zojuist hebt gemaakt.
+3. Installeer de aanvraagmodules:  
   ```  
   npm install request  
   ```  
-3. Installeer de formuliergegevens-modules:  
+3. Installeer de formuliergegevensmodules:  
   ```  
   npm install form-data  
   ```  
 4. Maak een bestand met de naam GetVisualInsights.js en voeg de volgende code toe.
-5. Vervang de `subscriptionKey` waarde met de abonnementssleutel van uw.
-6. Vervang de `imagePath` waarde met het pad van de afbeelding te uploaden.
-7. Voer het programma.  
+5. Vervang de waarde `subscriptionKey` door de abonnementscode.
+6. Vervang de waarde `imagePath` door het pad van de afbeelding die moet worden geüpload.
+7. Voer het programma uit.  
   ```
   node GetVisualInsights.js
   ```
@@ -94,10 +94,10 @@ function requestCallback(err, res, body) {
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Inzichten over een afbeelding met behulp van een token inzichten verkrijgen](../use-insights-token.md)  
-[Bing visuele zoekopdrachten-installatiekopie uploaden zelfstudie](../tutorial-visual-search-image-upload.md)
-[Bing visuele zoekopdrachten-app met één pagina zelfstudie](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing visuele zoekopdrachten-overzicht](../overview.md)  
-[Nu uitproberen](https://aka.ms/bingvisualsearchtryforfree)  
-[Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing visuele zoekopdrachten-API-verwijzing](https://aka.ms/bingvisualsearchreferencedoc)
+[Inzichten krijgen over een afbeelding met behulp van een inzichttoken](../use-insights-token.md)  
+[Zelfstudie: Afbeelding uploaden naar Bing Visual Search](../tutorial-visual-search-image-upload.md)
+[Zelfstudie: Bing Visual Search-app met één pagina](../tutorial-bing-visual-search-single-page-app.md)  
+[Overzicht van Bing Visual Search ](../overview.md)  
+[Proberen](https://aka.ms/bingvisualsearchtryforfree)  
+[Een toegangscode voor een gratis proefversie aanvragen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Naslaginformatie over Bing Visual Search-API](https://aka.ms/bingvisualsearchreferencedoc)

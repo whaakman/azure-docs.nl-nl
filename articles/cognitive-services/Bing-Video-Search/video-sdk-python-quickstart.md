@@ -1,51 +1,51 @@
 ---
-title: Video zoeken SDK Python Quick Start | Microsoft Docs
-description: Instellingen voor de consoletoepassing Video Search SDK.
-titleSuffix: Azure Video Search SDK Python quickstart
+title: 'Snelstart: Video Search SDK, Python'
+titleSuffix: Azure Cognitive Services
+description: De Video Search SDK-consoletoepassing instellen.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345707"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225647"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Video zoeken SDK Python Quick Start
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Snelstart: Bing Video Search SDK met Python
 
-De Bing installatiekopie Search SDK bevat de functionaliteit van de REST-API voor web-query's en parseren resultaten.
+De Bing Image Search SDK bevat de functionaliteit van de REST API voor webaanvragen en parseerresultaten.
 
-De [broncode voor Python Bing Video Search SDK voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing Video Search SDK voor Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) is beschikbaar op Git Hub.
 
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Als u dit nog geen hebt, installeert u Python. De SDK is compatibel met Python 2.7 3.3, 3.4, 3.5 en 3.6.
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Als u Python nog niet hebt, moet u dit eerst installeren. De SDK is compatibel met Python 2.7, 3.3, 3.4, 3.5 en 3.6.
 
-De algemene aanbevelingen voor de ontwikkeling van een Python is met een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html). Installeren en het initialiseren van de virtuele omgeving met de [venv module](https://pypi.python.org/pypi/virtualenv). Virtualenv voor Python 2.7 installeren.
+De algemene aanbeveling voor het ontwikkelen met Python is om een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html) te gebruiken. Installeer en initialiseer de virtuele omgeving met de [venv-module](https://pypi.python.org/pypi/virtualenv). Installeer Virtualenv voor Python 2.7.
 ```
 python -m venv mytestenv
 ```
-Bing-video's zoeken SDK-afhankelijkheden installeren:
+Installeer Bing Video Search SDK-afhankelijkheden:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-videosearch
 ```
-## <a name="video-search-client"></a>Video zoeken client
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *Search*. Invoer toevoegen:
+## <a name="video-search-client"></a>Video Search-client
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder *Zoeken*. Voeg imports toe:
 ```
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Maak een instantie van de `CognitiveServicesCredentials`, en te maken van de client:
+Maak een instantie van de `CognitiveServicesCredentials` en instantieer de client:
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Zoek video's (SwiftKey) en controleer of het aantal resultaten. Afdrukken `ID`, `name` en `URL` van eerste video resultaat.
+Zoek naar video's voor (SwiftKey) en controleer het aantal resultaten. Druk `ID`, `name` en `URL` van het eerste videoresultaat af.
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 
@@ -66,7 +66,7 @@ except Exception as err:
     print("Encountered exception. {}".format(err))
 
 ```
-Video's voor (Bellevue aanhangwagen) die is gratis kort en 1080p oplossing zoeken. Controleer of het aantal resultaten en afdrukken `ID`, `name` en `URL` van eerste video resultaat.
+Zoek naar video's voor (Bellevue Trailer) die gratis en kort zijn en een resolutie van 1080p hebben. Controleer het aantal resultaten en druk de `ID`, `name` en `URL` van het eerste videoresultaat af.
 ```
 def video_search_with_filtering(subscription_key):
 
@@ -95,7 +95,7 @@ def video_search_with_filtering(subscription_key):
 
 ```
 
-Trends resultaten krijgt. Controleer of de tegels banner en categorieën:
+Haal trending resultaten op. Controleer de bannertegels en categorieën:
 ```
 def video_trending(subscription_key):
 
@@ -139,7 +139,7 @@ def video_trending(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Video's zoeken naar (Bellevue aanhangwagen) en zoek vervolgens naar gedetailleerde informatie van de eerste video.
+Zoek naar video's voor (Bellevue Trailer) en zoek vervolgens naar gedetailleerde informatie over de eerste video.
 ```
 def video_detail(subscription_key):
 
@@ -181,5 +181,5 @@ def video_detail(subscription_key):
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Python SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Voorbeelden voor Cognitive Services Python SDK](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
