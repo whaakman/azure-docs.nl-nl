@@ -97,61 +97,6 @@ items:
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Toegang verlenen tot de telemetrieverkenner
       href: iot-accelerators-remote-monitoring-rbac-tsi.md
-  - name: Externe bewaking (vorige versie)
-    items:
-    - name: Wat zijn de vooraf geconfigureerde oplossingen?
-      href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
-    - name: Veelgestelde vragen
-      href: ../iot-suite/iot-suite-v1-faq.md
-    - name: Aan de slag
-      items:
-      - name: Aan de slag met vooraf geconfigureerde oplossingen
-        href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
-      - name: Machtigingen op azureiotsuite.com
-        href: ../iot-suite/iot-suite-v1-permissions.md
-      - name: Een overzicht van de oplossing voor bewaking op afstand
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
-      - name: Verbinding maken met uw Raspberry Pi
-        href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
-        items:
-        - name: C gebruiken
-          items:
-          - name: Gesimuleerde gegevens
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
-          - name: Echte sensoren gebruiken
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
-          - name: Firmware-update implementeren
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
-        - name: Node.js gebruiken
-          items:
-          - name: Gesimuleerde gegevens
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
-          - name: Echte sensoren gebruiken
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
-          - name: Firmware-update implementeren
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
-      - name: Verbinding maken met uw MXChip IoT DevKit
-        href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
-    - name: Handleidingen
-      items:
-      - name: Een gesimuleerd apparaat verbinden
-        items:
-        - name: C op Windows
-          href: ../iot-suite/iot-suite-v1-connecting-devices.md
-        - name: C op Linux
-          href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
-        - name: Node.js
-          href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
-      - name: Een logische app aansluiten op de oplossing voor bewaking op afstand
-        href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
-      - name: Een oplossingsversneller aanpassen
-        href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-      - name: Dynamische telemetrie gebruiken bij de oplossing voor bewaking op afstand
-        href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
-      - name: Een aangepaste regel maken in de oplossing voor bewaking op afstand
-        href: ../iot-suite/iot-suite-v1-custom-rule.md
-      - name: Apparaatgegevens in de oplossing voor bewaking op afstand
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
   - name: Verbonden factory
     items:
     - name: Het dashboard gebruiken
@@ -203,7 +148,7 @@ items:
   - name: Oplossingen
     items:
     - name: IoT-oplossingsversnellers
-      href: /azure/iot-suite
+      href: /azure/iot-accelerators
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
   - name: Platformservices
@@ -256,9 +201,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Leertraject voor IoT-oplossingsversnellers
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: 935b9acf2eeaaee73745426eefb5625f470f62b7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f0efa66bd9ed85ed4ab79f5937355bd19c404a64
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365465"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884325"

@@ -25,7 +25,7 @@
 # Procedures
 ## Plannen en ontwerpen
 ### [Inzicht in de Azure AD-architectuur](fundamentals/active-directory-architecture.md)
-### [Claimtoewijzing in Azure Active Directory](active-directory-claims-mapping.md)
+### [Claimtoewijzing in Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Een hybride identiteitsoplossing implementeren](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Vereisten bepalen
 ##### [Identity](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [Beperkingen voor tenants](manage-apps/tenant-restrictions.md)
 #### [SCIM gebruiken voor het inrichten van gebruikers](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Inzicht in ervaringen met Azure AD-toepassingtoestemming](application-consent-experience.md)
+### [Inzicht in ervaringen met Azure AD-toepassingtoestemming](develop/application-consent-experience.md)
 
 ### Problemen oplossen
 
@@ -323,7 +323,7 @@
 
 ### [On-premises identiteiten integreren met Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
+### [De levensduur van tokens configureren](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Uw identiteiten beveiligen
 
