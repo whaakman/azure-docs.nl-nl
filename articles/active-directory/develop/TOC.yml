@@ -93,12 +93,14 @@ items:
           href: single-sign-on-saml-protocol.md
         - name: Afmelden
           href: single-sign-out-saml-protocol.md
-        - name: Webservices-federatie
-          items:
-          - name: Federatieve metagegevens
-            href: azure-ad-federation-metadata.md
-        - name: Rollover van ondertekeningssleutel
-          href: active-directory-signing-key-rollover.md
+        - name: Hoe Azure AD het SAML-protocol gebruikt
+          href: active-directory-saml-protocol-reference.md
+      - name: Webservices-federatie
+        items:
+        - name: Federatieve metagegevens
+          href: azure-ad-federation-metadata.md
+      - name: Rollover van ondertekeningssleutel
+        href: active-directory-signing-key-rollover.md
       - name: Id-tokens
         href: id-tokens.md
       - name: Toegangstokens
@@ -123,7 +125,7 @@ items:
       - name: Toestemmingsframework
         href: consent-framework.md
       - name: Ervaringen met toepassingstoestemming
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Voorwaardelijke toegang
       href: conditional-access-dev-guide.md
     - name: Nationale clouds
@@ -144,9 +146,15 @@ items:
       - name: Claims configureren
         items:
         - name: Rolclaims configureren
-          href: ../active-directory-enterprise-app-role-management.md
+          href: active-directory-enterprise-app-role-management.md
         - name: Claims aanpassen
           href: active-directory-saml-claims-customization.md
+        - name: Claims aanpassen (openbare preview)
+          href: active-directory-claims-mapping.md
+        - name: Optionele claims configureren (openbare preview)
+          href: active-directory-optional-claims.md
+        - name: Levensduur van tokens configureren (openbare preview)
+          href: active-directory-configurable-token-lifetimes.md
       - name: Best practices voor foutafhandeling voor ADAL
         href: active-directory-devhowto-adal-error-handling.md
     - name: Toepassingsconfiguratie
@@ -196,8 +204,6 @@ items:
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
       href: active-directory-graph-api.md
-    - name: Claims in Azure AD-beveiligingstokens
-      href: active-directory-optional-claims.md
     - name: Manifest van de toepassing
       href: reference-app-manifest.md
     - name: Codes van verificatie- en autorisatiefouten
@@ -317,7 +323,7 @@ items:
       - name: Toestemmingsframework
         href: consent-framework.md
       - name: Ervaringen met toepassingstoestemming
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Nationale clouds
       href: authentication-national-cloud.md
   - name: Handleidingen
@@ -325,9 +331,17 @@ items:
     - name: Verificatie
       items:
       - name: Rolclaims configureren
-        href: ../active-directory-enterprise-app-role-management.md
+        href: active-directory-enterprise-app-role-management.md
       - name: Claims aanpassen
         href: active-directory-saml-claims-customization.md
+      - name: Claims aanpassen (openbare preview)
+        href: active-directory-claims-mapping.md
+      - name: Optionele claims configureren (openbare preview)
+        href: active-directory-optional-claims.md
+      - name: Levensduur van tokens configureren (openbare preview)
+        href: active-directory-configurable-token-lifetimes.md
+      - name: Verifiëren met Azure AD en een JWT-token ophalen met behulp van OAuth 2.0
+        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Toepassingsconfiguratie
       items:
       - name: Van een app met één tenant een app met meerdere tenants maken
@@ -382,9 +396,9 @@ items:
     href: developer-support-help-options.md
   - name: Managed Service Identity voor Azure-resources
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: f7b8ce59f421c2a2c7cdb6269132910bd2b3ab4e
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784998"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901835"

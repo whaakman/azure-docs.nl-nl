@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: 52330d9f999676301e3a92487c0106f2fa59bc76
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e77e81624c93bf1189afd556a8257362197c6b60
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237939"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902957"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -180,7 +180,7 @@ Zie voor meer informatie, [Azure Functions-triggers en bindingen concepten](func
 
 ## <a name="local-settings-file"></a>Lokale instellingsbestand
 
-Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core Tools. Het heeft de volgende structuur:
+Het bestand local.settings.json slaat de app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core Tools. Instellingen in het bestand local.settings.json worden alleen gebruikt door de Functions-hulpprogramma's bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen deze instellingen worden toegevoegd aan de functie-app in Azure. Houd er rekening mee dat de waarden in **ConnectionStrings** nooit worden gepubliceerd. Het bestand heeft de volgende structuur:
 
 ```json
 {
@@ -214,11 +214,9 @@ De waarden voor de functie-app-instellingen kunnen ook worden gelezen in uw code
 
 + [C# vooraf geschreven](functions-dotnet-class-library.md#environment-variables)
 + [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#](functions-reference-fsharp.md#environment-variables)
++ [F #-script (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
-
-Instellingen in het bestand local.settings.json worden alleen gebruikt door de Functions-hulpprogramma's bij lokale uitvoering. Standaard worden deze instellingen niet gemigreerd automatisch wanneer het project wordt gepubliceerd naar Azure. Gebruik de `--publish-local-settings` overschakelen [bij het publiceren van](#publish) om ervoor te zorgen deze instellingen worden toegevoegd aan de functie-app in Azure. De waarden in **ConnectionStrings** nooit worden gepubliceerd.
 
 Wanneer er is geen geldige verbindingsreeks is ingesteld voor **AzureWebJobsStorage** en de emulator niet wordt gebruikt, wordt het volgende foutbericht weergegeven:  
 
@@ -425,7 +423,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publiceren naar Azure
 
-Core-hulpprogramma's ondersteunt twee typen implementatie, functie project-bestanden rechtstreeks naar uw functie-app implementeren en implementeren van een aangepaste Linux-container, dit wordt alleen ondersteund in versie 2.x.
+Core-hulpprogramma's ondersteunt twee typen implementatie, functie project-bestanden rechtstreeks naar uw functie-app implementeren en implementeren van een aangepaste Linux-container, dit wordt alleen ondersteund in versie 2.x. U moet al hebben [een functie-app gemaakt in uw Azure-abonnement](functions-cli-samples.md#create).
 
 In versie 2.x gebruikt, hebt u [geregistreerd uw extensies](#register-extensions) in uw project voordat u publiceert. Projecten waarvoor compilatie moeten worden gemaakt, zodat de binaire bestanden kunnen worden geïmplementeerd.
 
@@ -444,13 +442,8 @@ Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout o
 De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht worden niet verwijderd van Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure Portal].  
 
 >[!IMPORTANT]  
-> Wanneer u een functie-app in Azure maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, de toepassingsinstelling toevoegen `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Gebruik de volgende Azure CLI-code voor deze instelling toevoegen aan uw functie-app:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> Wanneer u een functie-app in Azure portal maakt, wordt versie 2.x van de runtime van de functies standaard. Om te maken van de functie app-gebruik versie 1.x van de runtime, volg de instructies in [worden uitgevoerd op versie 1.x](functions-versions.md#creating-1x-apps).  
+> U kunt de runtimeversie voor een functie-app met bestaande functies niet wijzigen.
 
 U kunt de volgende opties publiceren, die voor zowel versies, 1.x en 2.x gelden gebruiken:
 
