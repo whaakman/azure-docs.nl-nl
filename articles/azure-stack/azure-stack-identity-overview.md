@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 10/09/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 84ab374c95f3e77b2897ff142c3cacef3df87140
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718913"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902838"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Overzicht van de identiteit voor Azure Stack
 
@@ -59,7 +59,7 @@ Het maken en beheren van gebruikers en groepen, is afhankelijk van de identiteit
 
 In Azure Stack, gebruikersaccounts:
 
-- Worden gemaakt in de *username@domain* indeling. Hoewel AD FS gebruikersaccounts aan een Active Directory-exemplaar toegewezen, AD FS ondersteunt niet het gebruik van de  *\<domein >\<alias >* indeling.
+- Worden gemaakt in de *username@domain* indeling. Hoewel AD FS gebruikersaccounts aan een Active Directory-exemplaar toegewezen, AD FS ondersteunt niet het gebruik van de  *\\ \<domein >\\\<alias >* indeling.
 - Kan worden ingesteld voor het gebruik van meervoudige verificatie.
 - Zijn beperkt tot de map waar ze zich registreren, dit de map van hun organisatie is.
 - Kan worden geïmporteerd vanuit uw on-premises adreslijsten. Zie voor meer informatie, [uw on-premises directory's integreren met Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).

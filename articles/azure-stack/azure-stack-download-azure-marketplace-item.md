@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2018
+ms.date: 10/09/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854827"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902005"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -126,7 +126,10 @@ Er zijn twee onderdelen voor dit scenario:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. Wanneer het hulpprogramma wordt uitgevoerd, wordt u gevraagd de referenties van uw Azure-account in te voeren. Meld u aan bij de Azure-account die u hebt gebruikt voor het registreren van Azure Stack. Nadat de aanmelding is geslaagd, ziet u een scherm zoals de volgende afbeelding, met de lijst met beschikbare marketplace-items.  
