@@ -1,31 +1,32 @@
 ---
-title: Telefonische vergaderingen Reekskenmerken entiteit in de Academic Knowledge API | Microsoft Docs
-description: Meer informatie over de kenmerken die u met de entiteit conferentie reeks cognitieve Services gebruiken kunt.
+title: Conferentie reeks entiteitskenmerken - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over de kenmerken die u met de entiteit Conferentiereeks gebruiken kunt.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 332736c927bdaa00334546f626a6eabb8e11d3b5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9f28afd7005d7a61aa0d2f4dba69ca598034b52
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344401"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900745"
 ---
-# <a name="conference-series-entity"></a>Telefonische vergaderingen reeks entiteit
+# <a name="conference-series-entity"></a>Conferentie reeks entiteit
 
-<sub> * De volgende kenmerken zijn specifiek voor conferentie reeks entiteit. (Ty = "3") </sub>
+<sub> * De volgende kenmerken zijn specifiek voor de Conferentie reeks entiteit. (Ty = "3") </sub>
 
 Naam    |Beschrijving                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                              |Int64      |Is gelijk aan
-ALGEMENE NAAM      |Telefonische vergaderingen reeks genormaliseerde naam      |Reeks     |Is gelijk aan
-DCN     |Telefonische vergaderingen reeks weergavenaam         |Reeks     |geen
-CC      |Conferentie reeks totaal aantal instantiedocumentcitaat         |Int32      |geen  
-ECC     |Telefonische vergaderingen reeks totale geschatte instantiedocumentcitaat aantal   |Int32      |geen
-F.FId   |Veld van uitgevoerde studie entiteit-ID die is gekoppeld aan de Conferentie-reeks |Int64  | Is gelijk aan
-F.FN    |Veld van het onderzoek de naam gekoppeld aan de Conferentie-reeks  | Is gelijk aan,<br/>StartsWith
+ALGEMENE NAAM      |Conferentiereeks genormaliseerd naam      |Reeks     |Is gelijk aan
+DCN     |Weergavenaam conferentie-serie         |Reeks     |geen
+CC      |Conferentiereeks totaal aantal citaat         |Int32      |geen  
+ECC     |Conferentie reeks totale geschatte citaat tellen   |Int32      |geen
+F.FId   |Veld van het onderzoek entiteit-ID die is gekoppeld aan de conferentiereeks |Int64  | Is gelijk aan
+F.FN    |Veld van het onderzoek naar de naam die is gekoppeld aan de conferentiereeks  | Is gelijk aan,<br/>StartsWith

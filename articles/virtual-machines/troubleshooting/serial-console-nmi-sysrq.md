@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ba42c3cc50466f9b5bf46cd1eef8f0d4e48bf89a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856000"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884639"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seriële Console gebruiken voor SysRq en NMI aanroepen
 
@@ -30,11 +30,11 @@ Wanneer de reeks SysRq wordt geleverd, wordt de configuratie van de kernel bepal
 
 De seriële Console van Azure kan worden gebruikt voor het verzenden van een SysRq met een Azure-machine via het toetsenbordpictogram in de opdrachtbalk die hieronder wordt weergegeven.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 'Verzenden SysRq opdracht' kiest, wordt een dialoogvenster dat wordt bieden algemene SysRq opties of accepteren van een reeks SysRq opdrachten ingevoerd in het dialoogvenster geopend.  Hiermee wordt voor de reeks SysRq's een bewerking op hoog niveau zoals het gebruik van een veilige opnieuw opstarten uit te voeren: `REISUB`.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 De opdracht SysRq kan niet worden gebruikt op virtuele machines die zijn gestopt of waarvan kernel bevindt zich in een niet-reagerend status. (bijvoorbeeld een kernelprobleem).
 
@@ -103,8 +103,9 @@ Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal da
 
 De seriële Console kan worden gebruikt voor het verzenden van een NMI met een Azure-machine via het toetsenbordpictogram in de opdrachtbalk die hieronder wordt weergegeven. Zodra de NMI wordt geleverd, worden de virtuele-machineconfiguratie bepalen hoe het systeem reageert.  Linux-besturingssystemen kunnen worden geconfigureerd voor crashes en het besturingssysteem van een geheugendump maken ontvangt een NMI.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
+### <a name="enable-nmi"></a>NMI inschakelen
 Voor Linux-systemen die ondersteuning bieden voor sysctl voor het configureren van de kernel-parameters, kunt u een paniek inschakelen bij de ontvangst van deze NMI met behulp van de volgende:
 1. Deze regel aan toe te voegen */etc/sysctl.conf* <br>
     `kernel.panic_on_unrecovered_nmi=1`

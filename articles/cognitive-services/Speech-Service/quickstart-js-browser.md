@@ -5,16 +5,16 @@ description: Meer informatie over het herkennen van gesproken tekst in JavaScrip
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018381"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883651"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in JavaScript in een browser met behulp van de Cognitive Services spraak-SDK
 
@@ -103,7 +103,7 @@ U start de app, dubbelklik op het bestand index.html of index.html met uw favori
 Start uw app, open uw favoriete webbrowser en wijst deze naar de openbare URL die u bij het hosten van de map op, Geef uw [regio](regions.md), en een opname met behulp van de microfoon te activeren. Als geconfigureerd, wordt er een token van de bron-token verkrijgen.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/js-browser` map.
+Zoek naar dit voorbeeld in de map `quickstart/js-browser`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

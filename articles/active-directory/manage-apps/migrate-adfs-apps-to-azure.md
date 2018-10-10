@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296465"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903025"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>On-premises AD FS-apps naar Azure migreren 
 
@@ -151,7 +151,7 @@ Apps die u vandaag gemakkelijk kunt migreren zijn SAML 2.0 apps die gebruikmake
 - Voornaam.
 - Achternaam.
 - Alternatief kenmerk als SAML **NameID**, met inbegrip van het Azure AD e-mailkenmerk, e-mailvoorvoegsel, werknemer-id, extensiekenmerken 1-15, of on-premises **SamAccountName**-kenmerk. Zie voor meer informatie [De NameIdentifier-claim bewerken](../develop/active-directory-saml-claims-customization.md).
-- Aangepaste claims. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](../active-directory-claims-mapping.md) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](../develop/active-directory-saml-claims-customization.md).
+- Aangepaste claims. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](../develop/active-directory-claims-mapping.md) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](../develop/active-directory-saml-claims-customization.md).
 
 Naast aangepaste claims en **NameID**-elementen, zijn configuraties waarvoor extra configuratiestappen in Azure AD nodig zijn als onderdeel van de migratie:
 - Aangepaste autorisatie-of Multi-Factor Authentication-regels in AD FS. U configureert deze met behulp van de functie [Voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md).
@@ -171,7 +171,7 @@ Apps waarvoor de volgende mogelijkheden zijn vereist, kunnen momenteel niet word
 - Claims in tokenmogelijkheden:
     - Uitgeven van on-premises groepsnamen als claims.
     - Claims van andere stores dan Azure AD.
-    - Complexe transformatieregel voor claimuitgifte. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](../active-directory-claims-mapping.md) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](../develop/active-directory-saml-claims-customization.md).
+    - Complexe transformatieregel voor claimuitgifte. Zie voor informatie over het toewijzen van ondersteunde claims [Claims toewijzen in Azure Active Directory](../develop/active-directory-claims-mapping.md) en [Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen](../develop/active-directory-saml-claims-customization.md).
     - Uitgifte van mapextensies als claims.
     - Aangepaste specificatie van de **NameID**-indeling.
     - Uitgifte van meerwaardige kenmerken.

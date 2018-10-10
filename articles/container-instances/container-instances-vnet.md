@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 6d319c09b8a935b5ca81a6d5815daa5d2f706f45
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: feb9547b004141a3c1d02ef4b356b9d00b74fc95
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854597"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902356"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Containerexemplaren in een Azure-netwerk implementeren
 
@@ -174,15 +174,85 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 Die moet worden weergegeven door de logboekuitvoer `wget` kan verbinding maken en de indexbestand downloaden van de eerste container met behulp van de privé IP-adres op het lokale subnet is. Netwerkverkeer tussen de twee containergroepen bleef binnen het virtuele netwerk.
 
+## <a name="deploy-to-existing-virtual-network---yaml"></a>Implementeren naar een bestaand virtueel netwerk - YAML
+
+U kunt ook een containergroep implementeren op een bestaand virtueel netwerk met behulp van een YAML-bestand. Als u wilt implementeren op een subnet in een virtueel netwerk, kunt u verschillende extra eigenschappen opgeven in de YAML:
+
+* `ipAddress`: De IP-adresinstellingen voor de containergroep.
+  * `ports`: De poorten te openen, indien van toepassing.
+  * `protocol`: Het protocol (TCP of UDP) voor de poort geopend.
+* `networkProfile`: Hiermee geeft u de netwerkinstellingen, zoals het virtuele netwerk en subnet voor een Azure-resource.
+  * `id`: De volledige Resource Manager resource-ID van de `networkProfile`.
+
+Voor het implementeren van een containergroep met een virtueel netwerk met een YAML-bestand, moet u eerst de ID van het netwerkprofiel niet ophalen. Uitvoeren van de [az netwerk profielenlijst] [ az-network-profile-list] opdracht, de naam van de resourcegroep waarin uw virtuele netwerk en gedelegeerde subnet op te geven.
+
+``` azurecli
+az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+```
+
+De uitvoer van de opdracht geeft de volledige resource-ID voor het netwerkprofiel:
+
+```console
+$ az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
+```
+
+Beschikt u over het netwerk profiel-ID, de volgende YAML kopiëren naar een nieuw bestand met de naam *vnet-implementeren-aci.yaml*. Onder `networkProfile`, vervangen de `id` waarde met de ID die u zojuist hebt opgehaald, sla het bestand. Deze YAML wordt gemaakt van de containergroep van een met de naam *appcontaineryaml* in uw virtuele netwerk.
+
+```YAML
+apiVersion: '2018-09-01'
+location: westus
+name: appcontaineryaml
+properties:
+  containers:
+  - name: appcontaineryaml
+    properties:
+      image: microsoft/aci-helloworld
+      ports:
+      - port: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    type: Private
+    ports:
+    - protocol: tcp
+      port: '80'
+  networkProfile:
+    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Implementeren van de containergroep met de [az container maken] [ az-container-create] opdracht op te geven de naam van de YAML-bestand voor de `--file` parameter:
+
+```azurecli
+az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
+```
+
+Nadat de implementatie is voltooid, voert de [az container show] [ az-container-show] opdracht om de status ervan weer te geven:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
+Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+```
+
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 ### <a name="delete-container-instances"></a>Containerexemplaren verwijderen
 
-Als u klaar bent met de containerinstanties werkt u hebt gemaakt, verwijdert zowel met de volgende opdrachten:
+Wanneer u klaar bent met de containerinstanties werkt u hebt gemaakt, verwijdert deze met de volgende opdrachten:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
+az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Verwijderen van netwerkbronnen
@@ -239,4 +309,6 @@ Meerdere virtuele-netwerkbronnen en functies zijn besproken in dit artikel al ko
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list

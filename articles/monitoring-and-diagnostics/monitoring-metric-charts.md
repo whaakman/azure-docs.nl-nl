@@ -8,20 +8,14 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978414"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901410"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
-
-Deze procedures voor beschrijving van de volgende generatie Azure Monitor Metrics voor grafieken-ervaring die momenteel in openbare preview. De nieuwe ervaring biedt ondersteuning voor rendering grafieken voor zowel multidimensionale metrische gegevens en eenvoudige metrische gegevens met er zijn geen dimensies. U kunt diagrammen die overlay metrische gegevens van andere resourcetypen, meerdere resourcegroepen en abonnementen. De grafieken met multi-dimensionale metrische gegevens kunnen worden aangepast door dimensiefilters zijn toegepast, evenals groeperen. Een grafiek, met inbegrip van aangepaste grafieken kan worden vastgemaakt aan dashboards.
-
-Als u naar informatie over de oude ervaring die alleen ondersteuning biedt voor eenvoudige metrische gegevens met er zijn geen dimensies zoekt,. Zie de sectie 'Toegang tot metrische gegevens via de portal' de [overzicht van de metrische gegevens van de Microsoft Azure handleiding](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## <a name="what-is-azure-monitor-metrics-explorer"></a>Wat is Azure Monitor Metrics Explorer?
 
 Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal die u kunt grafieken te tekenen, visueel correleren van trends en onderzoeken van pieken en dalen in de metrische waarden. Metrics Explorer is een essentiële beginpunt voor het onderzoeken van verschillende prestaties en van beschikbaarheidsproblemen met uw toepassingen en infrastructuur die wordt gehost in Azure of bewaakt door Azure Monitor-services. 
 
@@ -29,34 +23,29 @@ Azure Monitor Metrics Explorer is een onderdeel van de Microsoft Azure-portal di
 
 Metrische gegevens in Microsoft Azure, zijn de reeks meetwaarden en aantallen die worden verzameld en opgeslagen na verloop van tijd. Er zijn metrische gegevens voor standard (of 'platform') en aangepaste metrische gegevens. De standaard metrische gegevens worden aan u vertrekt door de Azure-platform zelf. Standaard metrische gegevens weer de status en gebruik statistische gegevens van uw Azure-resources. Terwijl aangepaste metrische gegevens naar Azure worden verzonden door uw toepassingen met behulp van de [Application Insights-API voor aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Aangepaste metrische gegevens worden opgeslagen in de Application Insights-resources samen met andere specifieke metrische gegevens voor een toepassing.
 
-
-
 ## <a name="how-do-i-create-a-new-chart"></a>Hoe kan ik een nieuwe grafiek maken?
 
-   > [!NOTE]
-   > Enkele van de functies van de oude ervaring voor metrische gegevens nog niet beschikbaar in de nieuwe Metrics Explorer. Terwijl de nieuwe ervaring in preview is, kunt u doorgaan met behulp van de oude (niet-dimensionale) weergave voor metrische gegevens van Azure Monitor. 
-
 1. De Azure-portal openen
-2. Navigeer naar de nieuwe **Monitor** tabblad, en selecteer vervolgens **metrische gegevens (preview)**.
+2. Navigeer naar de nieuwe **Monitor** tabblad, en selecteer vervolgens **metrische gegevens**.
 
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0001.png)
+   ![Afbeelding van de metrische gegevens](./media/monitoring-metric-charts/0001.png)
 
 3. De **metrische selector** automatisch worden geopend voor u. Kies een resource in de lijst om de bijbehorende metrische gegevens weer te geven. Alleen bronnen met metrische gegevens worden weergegeven in de lijst.
 
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0002.png)
+   ![Afbeelding van de metrische gegevens](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Als u meer dan één Azure-abonnement hebt, Metrics Explorer worden de resources in alle abonnementen die zijn geselecteerd in de Portal-instellingen -> Filter door de abonnementenlijst met. Als u wilt wijzigen, klikt u op het tandwielpictogram voor instellingen van Portal boven op het scherm en selecteer welke abonnementen die u wilt gebruiken.
 
-4. Voor sommige typen resources (dat wil zeggen Storage-Accounts en virtuele Machines), voordat u selecteert een metrische waarde moet u een **Namespace**. Elke naamruimte heeft een eigen set metrische gegevens die relevant zijn voor alleen deze naamruimte, en niet voor andere naamruimten.
+4. Voor sommige typen resources (Storage-Accounts en virtuele Machines), voordat u selecteert een metrische waarde moet u een **Namespace**. Elke naamruimte heeft een eigen set metrische gegevens die relevant zijn voor alleen deze naamruimte, en niet voor andere naamruimten.
 
    Elke Azure-Storage heeft bijvoorbeeld metrische gegevens voor subservices 'Blobs', 'Files', 'Wachtrijen' en 'Tabellen', alle onderdelen van het storage-account zijn. De metriek "aantal Wachtrijberichten" is echter op een natuurlijke manier van toepassing op de subservice 'Wachtrij' en niet op een andere opslag account subservices.
 
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0003.png)
+   ![Afbeelding van de metrische gegevens](./media/monitoring-metric-charts/0003.png)
 
 5. Selecteer een metrische waarde in de lijst. Als u een gedeeltelijke naam van de metrische gegevens die u wilt weten, kunt u beginnen te typen in een gefilterde lijst met beschikbare metrische gegevens zien:
 
-   ![De voorbeeldafbeelding metrische gegevens](./media/monitoring-metric-charts/0004.png)
+   ![Afbeelding van de metrische gegevens](./media/monitoring-metric-charts/0004.png)
 
 6. Na het selecteren van een metrische waarde, worden de grafiek weergegeven met de standaardaggregatie voor de geselecteerde metrische gegevens. Op dit punt hoeft u alleen op weg van de **metrische gegevens selector** om deze te sluiten. U kunt eventueel ook de grafiek overschakelen naar een andere aggregatie. Voor sommige metrische gegevens kunt schakelen tussen aggregatie u kiezen welke waarde u wilt zien op de grafiek. U kunt bijvoorbeeld schakelen tussen de gemiddelde, minimale en maximale waarden. 
 

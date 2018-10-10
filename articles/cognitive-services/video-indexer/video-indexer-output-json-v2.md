@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985641"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884288"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
 > [!Note]
-> De Video Indexer-API V1 is op 1 augustus 2018 afgeschaft. U moet nu de v2-API voor Video Indexer gebruiken. <br/>Als u wilt ontwikkelen met Video Indexer v2-API's, Zie de instructies [hier](https://api-portal.videoindexer.ai/). 
+> De Video Indexer V1-API is afgeschaft op 1 augustus 2018. U moet nu de Video Indexer v2-API gebruiken. <br/>Bekijk [hier](https://api-portal.videoindexer.ai/) de instructies voor ontwikkeling met de Video Indexer v2-API's. 
 
 Wanneer u aanroepen de **Video-Index ophalen** API en de status van het antwoord is OK, kunt u een gedetailleerde JSON-uitvoer als de inhoud van de reactie. De JSON-inhoud bevat details van de opgegeven inzichten in video's. De inzichten dimensies zoals bevatten: transcripties, optisch, gezichten, onderwerpen, blokken, enzovoort. De afmetingen zijn instanties van tijd bereiken die worden weergegeven wanneer elke dimensie wordt weergegeven in de video.  
 
@@ -115,7 +115,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |publishedUrlProxy|Een url naar het streamen van video van (voor Apple-apparaten).|
 |viewToken|Een korte levensduur hebben weergave-token voor het streamen van de video.|
 |sourceLanguage|De brontaal van de video.|
-|Taal|Huidige taal van de video (NAT).|
+|language|Huidige taal van de video (NAT).|
 |indexingPreset|De definitie die wordt gebruikt om te indexeren van de video.|
 |streamingPreset|De vooraf gedefinieerde instellingen gebruikt voor het publiceren van de video.|
 |linguisticModelId|Het CRI model gebruikt de video te transcriberen.|
@@ -155,7 +155,7 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |Versie|De codeversie|
 |---|---|
 |sourceLanguage|Van de video source-taal (ervan uitgaande dat één master taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
-|Taal|De insights-taal (vertaald uit de source-taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
+|language|De insights-taal (vertaald uit de source-taal). In de vorm van een [BCP-47](https://tools.ietf.org/html/bcp47) tekenreeks.|
 |transcript|De [transcript](#transcript) dimensie.|
 |OCR|De [ocr](#ocr) dimensie.|
 |trefwoorden|De [trefwoorden](#keywords) dimensie.|
@@ -205,7 +205,7 @@ instanties|Een lijst met tijdsbereiken van dit blok.|
 |---|---|
 |id|De regel-ID.|
 |tekst|Het transcript zelf.|
-|Taal|De transcript-taal. Bedoeld ter ondersteuning van transcript waarbij elke regel een andere taal kan hebben.|
+|language|De transcript-taal. Bedoeld ter ondersteuning van transcript waarbij elke regel een andere taal kan hebben.|
 |instanties|Een lijst met bereiken van tijd waarop deze regel wordt weergegeven. Als de instantie transcript is, is er slechts 1 exemplaar.|
 
 Voorbeeld:
@@ -244,7 +244,7 @@ Voorbeeld:
 |id|De OCR-regel-ID.|
 |tekst|De tekst.|
 |vertrouwen|De opname-vertrouwen.|
-|Taal|De OCR-taal.|
+|language|De OCR-taal.|
 |instanties|Een lijst met tijdsbereik waar deze OCR weergegeven (de dezelfde OCR kan meerdere keren voorkomen).|
 
 ```json
@@ -287,7 +287,7 @@ Voorbeeld:
 |id|Het sleutelwoord-ID.|
 |tekst|De tekst trefwoord.|
 |vertrouwen|Van het sleutelwoord erkenning vertrouwen.|
-|Taal|Het sleutelwoord-taal (wanneer het wordt omgezet).|
+|language|Het sleutelwoord-taal (wanneer het wordt omgezet).|
 |instanties|Een lijst met tijdsbereik waar dit sleutelwoord wordt weergegeven (een trefwoord kan meerdere keren voorkomen).|
 
 ```json
@@ -332,7 +332,7 @@ Voorbeeld:
 |Naam|Beschrijving|
 |---|---|
 |id|De face-ID.|
-|naam|De naam van pictogramtitel. 'Onbekende #0', een geïdentificeerde beroemdheden of een persoon met de klant kan zijn.|
+|naam|De naam van het gezicht. Kan het zijn ' Onbekende #, 0, een geïdentificeerde beroemdheden of een persoon met de klant.|
 |vertrouwen|De face id vertrouwen.|
 |description|Een beschrijving van de beroemdheden. |
 |thumbnalId|De ID van de miniatuur van die gezicht.|
@@ -378,7 +378,7 @@ Voorbeeld:
 |---|---|
 |id|De label-ID.|
 |naam|De labelnaam (bijvoorbeeld 'Computer', 'Tv-programma's ').|
-|Taal|De taal met de label-naam (wanneer het wordt omgezet). BCP-47|
+|language|De taal met de label-naam (wanneer het wordt omgezet). BCP-47|
 |instanties|Een lijst met tijdsbereik waar dit label wordt weergegeven (een label kan meerdere keren voorkomen). Elk exemplaar heeft een veld vertrouwen. |
 
 
@@ -678,7 +678,7 @@ Video Indexer identificeert willekeurige emoties op basis van de spraak- en audi
 |Naam|Beschrijving|
 |---|---|
 |id|De emotion-ID.|
-|type|De emotion-even die is geïdentificeerd op basis van de spraak- en audio hints. De emotion kan zijn: zelf, verdriet, boosheid of angst.|
+|type|De emotion-even die is geïdentificeerd op basis van de spraak- en audio hints. De emotie kan vreugde, verdriet, boosheid of angst zijn.|
 |instanties|Een lijst met tijdsbereik waar deze emoties werd weergegeven.|
 
 ```json
@@ -771,7 +771,7 @@ Video Indexer maakt Deductie van de belangrijkste onderwerpen uit transcripties.
 |naam|Het onderwerp naam, bijvoorbeeld: 'Pharmaceuticals'.|
 |referenceId|Breadcrumbs zetten op basis van de hiërarchie van onderwerpen. Bijvoorbeeld: ' status en wellbeing / medicijnen en gezondheidszorg / Pharmaceuticals '.|
 |vertrouwen|De betrouwbaarheidsscore binnen het bereik [0,1]. Hoger is meer vertrouwen hebben.|
-|Taal|De taal die wordt gebruikt in het onderwerp.|
+|language|De taal die wordt gebruikt in het onderwerp.|
 |iptcName|De media IPTC code naam, als wordt gedetecteerd.|
 |instanties |Video Indexer biedt op dit moment niet een onderwerp tijdsintervallen, indexeren, zodat de gehele video wordt gebruikt als het interval.|
 

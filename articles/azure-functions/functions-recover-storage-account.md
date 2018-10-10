@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: f5e23a5734f8451b99823f238b577a21a4752c18
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047382"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887205"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Problemen oplossen met "functions-runtime is niet bereikbaar"
 
@@ -28,7 +28,7 @@ Dit document is bedoeld om problemen met de volgende fout weergegeven in de Func
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### <a name="summary"></a>Samenvatting
-Dit probleem treedt op wanneer de Azure unctions Runtime kunnen niet worden gestart. De meest voorkomende reden voor deze fout kan optreden, is de functie-app toegang verliezen tot het opslagaccount. [Meer informatie over de vereisten voor een opslagaccount hier](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Dit probleem treedt op wanneer de Azure Functions-Runtime kan niet worden gestart. De meest voorkomende reden voor deze fout kan optreden, is de functie-app toegang verliezen tot het opslagaccount. [Meer informatie over de vereisten voor een opslagaccount hier](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 We behandelen de vier meest voorkomende foutgevallen, identificeren en over het oplossen van elke aanvraag.

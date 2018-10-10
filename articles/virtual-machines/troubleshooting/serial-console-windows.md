@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858006"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885116"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -222,7 +222,7 @@ A. Hebt u toegang van Inzender-niveau of hoger met een virtuele machine voor toe
 
 **Q. Mijn seriële console niet wordt weergegeven van alles zijn, wat moet ik doen?**
 
-A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële Console inschakelen in aangepaste of oudere installatiekopieën](#Enable-Serial-Console-in-custom-or-older-images) voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console.
+A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële Console inschakelen in aangepaste of oudere installatiekopieën](#enable-serial-console-in-custom-or-older-images) voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console.
 
 **Q. Seriële console beschikbaar is voor Virtual Machine Scale Sets?**
 

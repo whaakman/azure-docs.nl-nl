@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577183"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902923"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -162,10 +162,10 @@ In dit voorbeeld wordt de [Azure-portal](https://portal.azure.com) naar udpate d
 >[!NOTE]
 >Voor het gebruik van een aangepaste claim, moet u ook een aangepast beleid gedefinieerd en toegewezen aan de toepassing hebben.  Dit beleid moet alle vereiste aangepaste kenmerken bevatten.
 >
->Beleidsdefinitie en de toewijzing kunnen worden gedaan via PowerShell, Azure AD Graph Explorer of MS Graph.  Als u dit in PowerShell doet, moet u mogelijk eerst met `New-AzureADPolicy `en deze vervolgens toewijzen aan de toepassing met `Set-AzureADServicePrincipalPolicy`.  Zie voor meer informatie de [documentatie voor Azure AD-Policy](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Beleidsdefinitie en de toewijzing kunnen worden gedaan via PowerShell, Azure AD Graph Explorer of MS Graph.  Als u dit in PowerShell doet, moet u mogelijk eerst met `New-AzureADPolicy `en deze vervolgens toewijzen aan de toepassing met `Set-AzureADServicePrincipalPolicy`.  Zie voor meer informatie de [documentatie voor Azure AD-Policy](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Optioneel: gebruik een aangepaste claim
-Als u wilt dat uw toepassing met een aangepaste claim en aanvullende velden opnemen, zorg ervoor dat u ook hebt [een aangepaste claims toewijzen van beleid gemaakt en toegewezen aan de toepassing](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Als u wilt dat uw toepassing met een aangepaste claim en aanvullende velden opnemen, zorg ervoor dat u ook hebt [een aangepaste claims toewijzen van beleid gemaakt en toegewezen aan de toepassing](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>PingAccess downloaden en configureren van uw app
 

@@ -9,14 +9,21 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 61fa0b1d2fc40daed8b3b99a0ab0d36de802ce3d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367981"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901318"
 ---
 # <a name="custom-vision-service-release-notes"></a>Opmerkingen bij de Release van de Custom Vision Service
+
+## <a name="october-9-2018"></a>9 oktober 2018
+- Objectdetectie van krijgt de betaalde Preview-versie. U kunt nu Objectdetectie projecten maken met een Azure-resource.
+- 'Verplaatsen naar Azure'-functie toegevoegd aan, zodat u gemakkelijk om te upgraden van een beperkte proefversie project koppelen aan een Azure-website. resource in de gekoppelde project (F0 of S0). U kunt dit vinden op de pagina instellingen voor uw product.  
+- Toegevoegde exporteren naar de ONNX-1.2, ter ondersteuning van de Update van oktober 2018 Windows-versie van Windows-ML.
+Bugfixes, met inbegrip van ONNX exporteren met speciale tekens. 
+
 
 ## <a name="august-14-2018"></a>14 augustus 2018
 - Toegevoegde 'Aan de slag' widget naar site customvision.ai gebruikers begeleidt bij project training. 
@@ -24,12 +31,12 @@ ms.locfileid: "46367981"
 
 ## <a name="june-28-2018"></a>28 juni 2018
 - Verbeteringen in bugfixes & back-end.
-- Enabeled Multiklasse classificatie voor projecten waar afbeeldingen precies één label hebben. In voorspellingen voor multiklassen modus kansen zal oplopen tot een (alle installatiekopieën worden geclassificeerd onder de opgegeven labels).
+- Multiklassen indeling, voor projecten waar afbeeldingen precies één label hebt ingeschakeld. In voorspellingen voor multiklassen modus kansen zal oplopen tot een (alle installatiekopieën worden geclassificeerd onder de opgegeven labels).
 
 ## <a name="june-13-2018"></a>13 juni 2018
 - UX vernieuwen, gericht op gebruiksgemak en toegankelijkheid. 
 - Verbeteringen aan de machine learning-pijplijn om te profiteren van multilabel projecten met een groot aantal tags.
-- Bug verholpen in TensorFlow exporteren. Enabeled geëxporteerd model versiebeheer, zodat iteraties kunnen meer dan één keer worden geëxporteerd. 
+- Bug verholpen in TensorFlow exporteren. Geëxporteerde model versiebeheer, ingeschakeld zodat iteraties kunnen meer dan één keer worden geëxporteerd. 
 
 ## <a name="may-7-2018"></a>7 mei 2018
 - Preview-functie voor objectdetectie geïntroduceerd voor beperkte proefprojecten.
@@ -38,7 +45,7 @@ ms.locfileid: "46367981"
 - Belangrijke back-endverbeteringen aan de machine learning-pijplijn voor classificatieprojecten voor afbeeldingen. Projecten die zijn getraind na 27 april 2018, profiteren van deze updates.
 - Modelexport naar ONNX toegevoegd voor gebruik met Windows ML.
 - Modelexport naar DockerFile toegevoegd. Dit stelt u in staat om de artefacten te downloaden om uw eigen Windows- en Linux-containers te bouwen, inclusief een DockerFile, TensorFlow-model en servicecode. 
-- Voor onlangs getrainde modellen die zijn geëxporteerd naar TensorFlow in de domeinen Algemeen (compact) en Oriëntatiepunt (compact), zijn de [Gemiddelde waarden nu (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), voor consistentie in alle projecten. 
+- Voor nieuwe getrainde modellen die zijn geëxporteerd naar TensorFlow in het algemeen (cd) en oriëntatiepunt (cd) domeinen, [betekenen waarden zijn nu (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), voor consistentie in alle projecten. 
 
 ## <a name="march-1-2018"></a>1 maart 2018
 - Start van betaalde preview-versie en onboarding bij Azure Portal. Projecten kunnen nu worden gekoppeld aan Azure-resources met een F0-laag (gratis) of een S0-laag (Standard). Introductie van S0-laagprojecten die ruimte bieden voor maximaal 100 labels en 25.000 afbeeldingen. 

@@ -3,17 +3,17 @@ title: Style-functies van Azure Maps toewijzen | Microsoft Docs
 description: Meer informatie over Azure Maps stijl gerelateerde functies.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/05/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d0614f55b9666f6d5d7e95529fd78fdf1c19e615
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 32571d88ffc08c19f819335254b4f5dda521bdb0
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857615"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885918"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
 
@@ -24,7 +24,7 @@ Azure Maps heeft vier verschillende maps stijlen om uit te kiezen. Zie voor meer
 <iframe height='500' scrolling='no' title='De stijl instellen bij het laden van de kaart' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>de stijl instellen bij het laden van de kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt een kaart-object met de stijl van ingesteld op weg in grijswaarden. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
+Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt een kaart-object met de stijl van ingesteld op grayscale_dark. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
 ## <a name="update-the-style"></a>De stijl bijwerken
 
@@ -33,7 +33,7 @@ Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt een kaa
 
 Het bovenstaande codeblok Hiermee stelt u de abonnementssleutel en maakt u een kaartobject zonder vooraf instellen van de stijl. Zie [maken van een kaart](./map-create.md) voor instructies over het maken van een kaart.
 
-De tweede code klok maakt gebruik van de kaart [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) methode om in te stellen van de stijl van de kaart naar satelliet.
+Het tweede codeblok maakt gebruik van de kaart [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) methode om in te stellen van de stijl van de kaart naar satelliet.
 
 ## <a name="add-the-style-picker"></a>De Stijlkiezer toevoegen
 
@@ -44,7 +44,7 @@ Het eerste codeblok in de bovenstaande code stelt de abonnementssleutel en maakt
 
 Het tweede codeblok vormt een stijl selector met behulp van de atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) constructor.
 
-Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de Stijlkiezer toegevoegd aan de kaart met behulp van de kaart [control.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. Alle besturingselementen zijn binnen de kaart gebeurtenislistener om te controleren of dat alle besturingselementen zijn geladen nadat de kaarten volledig is geladen.
+Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de Stijlkiezer toegevoegd aan de kaart met behulp van de kaart [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode. De stijl selector is binnen de kaart **gebeurtenislistener** om ervoor te zorgen dat deze wordt geladen nadat de kaart volledig is geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

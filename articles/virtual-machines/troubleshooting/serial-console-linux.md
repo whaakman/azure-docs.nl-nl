@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856340"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885286"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -44,7 +44,7 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Zie voor specifieke instellingen voor Linux-distributies, [toegang tot de seriële console voor Linux](#Serial-Console-Linux-distro-availability)
+* Zie voor specifieke instellingen voor Linux-distributies, [seriële Console-Linux-distributie beschikbaarheid](#serial-console-linux-distro-availability)
 
 
 
@@ -206,7 +206,7 @@ A. Hebt u toegang van Inzender-niveau of hoger met een virtuele machine voor toe
 
 **Q. Mijn seriële console niet wordt weergegeven van alles zijn, wat moet ik doen?**
 
-A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële Console van de toegang voor Linux](#Access-Serial-Console-for-Linux) voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console.
+A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële Console-Linux-distributie beschikbaarheid](#serial-console-linux-distro-availability) voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console.
 
 **Q. Seriële console beschikbaar is voor Virtual Machine Scale Sets?**
 

@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697693"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902821"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Azure Stack-VM's repliceren naar Azure (preview)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack-VM's repliceren naar Azure
 
 In dit artikel leest u hoe u herstel na noodgevallen naar Azure instelt voor Azure Stack-VM's met behulp van de [Azure Site Recovery-service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ Site Recovery draagt bij aan uw strategie voor zakelijke continuïteit en noodhe
 - Wanneer er een storing optreedt op de primaire site, kunt u Site Recovery gebruiken om te fungeren als failover voor Azure.
 - Azure-VM's zijn gemaakt op basis van de opgeslagen gegevens van de virtuele machine bij failover en gebruikers kunnen doorgaan met het openen van workloads die worden uitgevoerd op deze Azure-VM's.
 - Als alles weer actief en werkend is, kunt u Azure-VM naar uw primaire site mislukt dit en beginnen met het repliceren naar Azure-opslag opnieuw.
-
-
-> [!NOTE]
-> Site Recovery voor Azure Stack is momenteel in openbare preview.
 
 
 In dit artikel leert u het volgende:

@@ -1,5 +1,5 @@
 ---
-title: Verifiëren met Azure AD en ontvang een JWT-Token met behulp van OAuth 2.0
+title: Verifiëren met Azure AD en een met behulp van OAuth 2.0 JWT-token ophalen
 description: Voorbeeldcode waarin wordt getoond hoe om te verifiëren met Azure Active Directory met behulp van OAuth 2.0 voor toegang tot beveiligde webtoepassingen en web-API's in uw organisatie.
 services: active-directory
 author: rloutlaw
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4bcbb2064a8f7fcdfd2002d2e8d6e0c4f679ffc
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981794"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902906"
 ---
-# <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Aanvragen van een toegangstoken toegang tot web-API's en toepassingen beveiligd door Azure Active Directory met behulp van OAuth 2.0
+# <a name="how-to-request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-ad"></a>Hoe: een toegangstoken toegang tot web-API's en toepassingen beveiligd door Azure AD met behulp van OAuth 2.0 aanvragen
 
 In dit artikel laat zien hoe u een JSON Web Token (JWT) voor toegang tot resources die zijn beveiligd door Azure AD. Hierbij wordt ervan uitgegaan dat u hebt een [Autorisatietoken](/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code) van gebruiker verleende machtiging of via een [service-principal](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -45,7 +45,6 @@ De volgende headers zijn vereist:
 |--------------------|-----------------|  
 | *Host:* | https://login.microsoftonline.com |
 | *Content-Type:*| Application/x-www-form-urlencoded goedkeurt |
- 
 
 ### <a name="uri-parameters"></a>URI-parameters
 
@@ -59,6 +58,7 @@ De volgende headers zijn vereist:
 | redirect_uri  | vereist              | Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | vereist voor web-apps | Het toepassingsgeheim die u hebt gemaakt in de portal voor app-registratie voor uw app. Gebruik niet in een systeemeigen app omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's, waarvoor de mogelijkheid om op te slaan de waarde voor client_secret veilig op de server.  Client-geheimen moet URL gecodeerd voordat het wordt verzonden.                                                                                 |
 | code_verifier | optioneel              | De dezelfde code_verifier die is gebruikt voor het verkrijgen van de authorization_code. Vereist als PKCE is gebruikt in de autorisatieaanvraag voor het verlenen van code. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 ## <a name="handle-the-response"></a>Het antwoord verwerken
 
 Een geslaagde respons van de token bevat een JWT-token en wordt er als volgt uitzien:
@@ -81,6 +81,3 @@ Een geslaagde respons van de token bevat een JWT-token en wordt er als volgt uit
 | scope         | De bereiken die de access_token is geldig voor.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | Een vernieuwingstoken OAuth 2.0. De app kan dit token gebruiken als u meer toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen. Refresh_tokens worden lange levensduur hebben en kan worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. Voor meer informatie raadpleegt u de [v2.0 code verlenen verwijzing](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Opmerking:** alleen opgegeven als `offline_access` bereik is aangevraagd.                                               |
 | id_token      | Een niet-ondertekende JSON Web Token (JWT). De app kan worden gedecodeerd de segmenten van dit token informatie opvragen over de gebruiker die zijn aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze moet niet gebruiken voor autorisatie of grenzen voor netwerkbeveiliging. Zie voor meer informatie over id_tokens, de [ `id_token reference` ](id-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
-
-
-

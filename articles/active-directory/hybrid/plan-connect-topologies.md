@@ -12,18 +12,21 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bab18c5c36cf4ffbbe6268910bf9121bc351fdca
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 26049b1e7283d53be7214130ff64cf830935708c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311995"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901799"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 Dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die gebruikmaken van Azure AD Connect-synchronisatie als de integratieoplossing key. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
+
+>[!IMPORTANT]
+>Active Directory met Azure AD synchroniseren met behulp van een oplossing voor dan Azure AD Connect kan leiden tot een inconsistente of niet-ondersteunde status. Microsoft kan niet als gevolg hiervan, technische ondersteuning bieden voor dergelijke implementaties.
 
 Hier volgt de legenda voor afbeeldingen in het artikel:
 

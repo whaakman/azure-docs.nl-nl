@@ -2,20 +2,20 @@
 title: Azure Database Migration Service-overzicht | Microsoft Docs
 description: Overzicht van de Azure Database Migration Service, waarmee u naadloze migratie van veel databasebronnen naar Azure-gegevensplatforms.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/05/2018
-ms.openlocfilehash: 44c536d3633286f8279cda89dd95cd7b29a81eb7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: 064d7ca2f544dbf1c968310842e322d8c0db2ca1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803848"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884439"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Wat is de Azure Database Migration Service?
 Azure Database Migration Service is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime (online migratie).

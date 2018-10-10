@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e6950c38db83efb57e5f3b1809aa6baa56532cd0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953936"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903042"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -57,6 +57,8 @@ De volgende secties vindt u meer informatie.
 ## <a name="requirements-for-virtual-network-configuration"></a>Vereisten voor virtuele-netwerkconfiguratie
 -   Zorg ervoor dat `Microsoft.Batch` is een geregistreerde provider onder het abonnement van uw virtuele netwerksubnet dat als host fungeert voor de Azure-SSIS-IR. Als u een klassiek virtueel netwerk gebruikt, ook toevoegen `MicrosoftAzureBatch` aan de rol Inzender voor klassieke virtuele machines voor dit virtuele netwerk. 
 
+-   Zorg ervoor dat u beschikt over de vereiste machtigingen. Zie [vereiste machtigingen](#perms).
+
 -   Selecteer het juiste subnet voor het hosten van de Azure-SSIS-IR. Zie [selecteert u het subnet](#subnet). 
 
 -   Als u uw eigen server Services DNS (Domain Name) op het virtuele netwerk, Zie [Domain Name Services server](#dns_server). 
@@ -66,6 +68,16 @@ De volgende secties vindt u meer informatie.
 -   Als u met behulp van Azure Express Route of configureren van de gebruiker gedefinieerde Route (UDR), raadpleegt u [gebruik Azure ExpressRoute of door de gebruiker gedefinieerde Route](#route). 
 
 -   Zorg ervoor dat de resourcegroep van het virtuele netwerk kunt maken en verwijderen van bepaalde Azure-netwerkbronnen. Zie [vereisten voor de resourcegroep](#resource-group). 
+
+### <a name="perms"></a> Vereiste machtigingen
+
+- Als u de SSIS-IR aan een Azure-netwerk van de huidige versie toevoegen bent, hebt u twee opties:
+
+  - Gebruik de ingebouwde rol *Inzender voor netwerken*. Deze rol is vereist de *Microsoft.Network/\**  machtiging, maar een veel groter bereik heeft.
+
+  - Een aangepaste rol maken die de machtiging bevat *Microsoft.Network/virtualNetworks/\*/join/actie*. 
+
+- Als u de SSIS-IR aan een klassiek virtueel netwerk van Azure toevoegen bent, raden wij aan dat u de ingebouwde rol *Inzender voor klassieke virtuele machines*. Anders moet u een aangepaste rol met machtigingen om lid van het virtuele netwerk te definiëren.
 
 ### <a name="subnet"></a> Het subnet selecteren
 -   Selecteer het GatewaySubnet voor het implementeren van een Azure-SSIS Integration Runtime, niet omdat deze is specifiek voor virtuele netwerkgateways. 

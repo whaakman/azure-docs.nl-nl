@@ -5,16 +5,16 @@ description: Meer informatie over het herkennen van gesproken tekst in Objective
 services: cognitive-services
 author: chlandsi
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226021"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883429"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Snelstartgids: Spraakherkenning in Objective-C op iOS op basis van de Cognitive Services Speech SDK herkennen
 
@@ -31,7 +31,7 @@ In dit artikel leert u hoe u een iOS-app maken in Objective-C met behulp van de 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Cognitive Services Speech SDK is `1.0.0`.
+De huidige versie van de Speech SDK van Cognitive Services is `1.0.0`.
 
 De Cognitive Services spraak-SDK voor Mac- en iOS wordt gedistribueerd als een Cocoa-Framework.
 Deze kan worden gedownload vanaf https://aka.ms/csspeech/iosbinary. Download het bestand naar uw basismap.
@@ -83,8 +83,8 @@ Klik op **voltooien** in het volgende dialoogvenster zonder de instellingen te w
 
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
-1. Vervang de tekenreeks `YourSubscriptionKey` met de abonnementssleutel van uw.
-1. Vervang de tekenreeks `YourServiceRegion` met de [regio](regions.md) die zijn gekoppeld aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel.
+1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
 
 ## <a name="building-and-running-the-sample"></a>Het bouwen en uitvoeren van het voorbeeld
@@ -96,7 +96,7 @@ Klik op **voltooien** in het volgende dialoogvenster zonder de instellingen te w
  ![Gesimuleerde iOS-App](media/sdk/qs-objectivec-simulated-app.png)
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Zoek in dit voorbeeld in de `quickstart/objectivec-ios` map.
+Zoek naar dit voorbeeld in de map `quickstart/objectivec-ios`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,34 +1,35 @@
 ---
-title: Lidmaatschap van de entiteitskenmerken in de Academic Knowledge API | Microsoft Docs
-description: Meer informatie over de kenmerken die u met het lidmaatschap van de entiteit in de Academic Knowledge API in cognitieve Services gebruiken kunt.
+title: Kenmerken van de relatie-entiteit in de Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over de kenmerken die u met de relatie-entiteit in de Academic Knowledge API gebruiken kunt.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a0ec67cb811ca207b3d038028491da2516028f0b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 177fe9da8bbe821a69eae02d89a225e5d4009331
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344397"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900475"
 ---
-# <a name="affiliation-entity"></a>Lidmaatschap van de entiteit
+# <a name="affiliation-entity"></a>Relatie-entiteit
 
-<sub> * De volgende kenmerken zijn specifiek voor lidmaatschap van de entiteit. (Ty = "5") </sub>
+<sub> * De volgende kenmerken zijn specifiek voor de relatie-entiteit. (Ty = '5') </sub>
 
 Naam    |Beschrijving                            |Type       | Bewerkingen
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |Entiteits-id                              |Int64      |Is gelijk aan
-AfN     |Lidmaatschap van de genormaliseerde naam        |Reeks     |Is gelijk aan
-DAfN    |Lidmaatschap van de weergavenaam       |Reeks     |geen
-CC      |Lidmaatschap van de totale instantiedocumentcitaat aantal           |Int32      |geen  
-ECC     |Lidmaatschap van de totale geschatte instantiedocumentcitaat aantal |Int32      |geen
+AfN     |Relatie genormaliseerde naam        |Reeks     |Is gelijk aan
+DAfN    |Weergavenaam van de relatie       |Reeks     |geen
+CC      |Relatie totale citaat tellen           |Int32      |geen  
+ECC     |Relatie totale geschatte citaat tellen |Int32      |geen
 
-## <a name="extended-metadata-attributes"></a>Uitgebreide Metagegevenskenmerken ##
+## <a name="extended-metadata-attributes"></a>Uitgebreide metagegevens kenmerken ##
 
 Naam    | Beschrijving               
 --------|---------------------------    

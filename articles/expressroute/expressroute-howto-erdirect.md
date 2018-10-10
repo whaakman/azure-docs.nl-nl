@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6bf2da140f53d39812fb475130471d49750b9f4b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947785"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887186"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Het configureren van ExpressRoute Direct (Preview)
 
@@ -35,7 +35,7 @@ ExpressRoute Direct biedt de mogelijkheid om rechtstreeks in het wereldwijde net
 2. Lijst met alle locaties waar ExpressRoute Direct wordt ondersteund.
   
   ```powershell
-  Get-AzureRMExpressRoutePortLocations
+  Get-AzureRmExpressRoutePortsLocation
   ```
 
   **Voorbeeld van uitvoer**

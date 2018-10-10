@@ -1,27 +1,29 @@
 ---
-title: Beheren van eenmalige aanmelding en token aanpassen met aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
-description: Meer informatie over het beheren van eenmalige aanmelding en token aanpassen met aangepast beleid.
+title: Beheren van eenmalige aanmelding en token aanpassen met behulp van aangepaste beleidsregels in Azure Active Directory B2C | Microsoft Docs
+description: Meer informatie over het beheren van eenmalige aanmelding en token aanpassen met behulp van aangepaste beleidsregels in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/02/2017
+ms.date: 10/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 811fb8b2de59c9d324ab4acb8b0f51b4cec80aee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c7ba1f87b877466ff4d9d11e4b3b5a6567e7ae06
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441794"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902624"
 ---
-# <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: Eenmalige aanmelding en token aanpassen met aangepaste beleidsregels beheren
-Met behulp van aangepaste beleid biedt u de dezelfde controle over uw token-, sessie en eenmalige aanmelding (SSO) configuraties als u via de ingebouwde beleidsregels.  Voor meer informatie over wat elke instelling doet, Zie de documentatie [hier](#active-directory-b2c-token-session-sso).
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Beheren van eenmalige aanmelding en token aanpassen met behulp van aangepaste beleidsregels in Azure Active Directory B2C
+
+In dit artikel bevat informatie over hoe u beheren kunt, uw token-, sessie en eenmalige aanmelding (SSO) configuraties met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configuratie van sessietoken levensduur en claims
-Wijzig de instellingen op de levensduur van tokens, die u wilt toevoegen een `<ClaimsProviders>` -element in de relying party-bestand van het beleid dat u wilt van invloed zijn op.  De `<ClaimsProviders>` -element is een onderliggend element van de `<TrustFrameworkPolicy>`.  Binnen moet u de gegevens die van invloed is op de levensduur van tokens.  Het XML-bestand ziet eruit zoals in dit voorbeeld:
+
+Wijzig de instellingen op de levensduur van tokens, die u toevoegt een [ClaimsProviders](claimsproviders.md) -element in de relying party-bestand van het beleid dat u wilt van invloed zijn op.  De **ClaimsProviders** -element is een onderliggend element van de [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Binnen moet u de gegevens die van invloed is op de levensduur van tokens. Het XML-bestand ziet eruit zoals in dit voorbeeld:
 
 ```XML
 <ClaimsProviders>
@@ -43,41 +45,36 @@ Wijzig de instellingen op de levensduur van tokens, die u wilt toevoegen een `<C
 </ClaimsProviders>
 ```
 
-**Toegang tot de levensduur van tokens** -de levensduur van tokens toegang kan worden gewijzigd door het wijzigen van de waarde binnen de `<Item>` = met de sleutel 'token_lifetime_secs' in een paar seconden.  De standaardwaarde aan in de ingebouwde is 3600 seconden (60 minuten).
+De volgende waarden worden ingesteld in het vorige voorbeeld:
 
-**Levensduur van vernieuwingstoken ID** -levensduur van de ID-token kan worden gewijzigd door het wijzigen van de waarde binnen de `<Item>` = met de sleutel 'id_token_lifetime_secs' in een paar seconden.  De standaardwaarde aan in de ingebouwde is 3600 seconden (60 minuten).
+- **Toegang tot de levensduur van tokens** - toegang levensduur van het token waarde is ingesteld met **token_lifetime_secs** metagegevensitem. De standaardwaarde is 3600 seconden (60 minuten).
+- **Levensduur van vernieuwingstoken ID** - ID levensduur van het token waarde is ingesteld met de **id_token_lifetime_secs** metagegevensitem. De standaardwaarde is 3600 seconden (60 minuten).
+- **Levensduur van vernieuwingstoken** - de levensduur van vernieuwingstoken waarde is ingesteld met de **refresh_token_lifetime_secs** metagegevensitem. De standaardwaarde is 1209600 seconden (14 dagen).
+- **Levensduur van sliding window token vernieuwen** : als u wilt een levensduur van sliding window ingesteld op uw vernieuwingstoken, stel de waarde van **rolling_refresh_token_lifetime_secs** metagegevensitem. De standaardwaarde is 7776000 (90 dagen). Als u niet wilt om af te dwingen een levensduur van sliding window, vervangt u het item met `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
+- **Claim van verlener (iss)** -claim van de verlener (iss) is ingesteld met de **IssuanceClaimPattern** metagegevensitem. De waarden van toepassing zijn `AuthorityAndTenantGuid` en `AuthorityWithTfp`.
+- **Instelling claim beleids-ID vertegenwoordigt** -zijn de opties voor het instellen van deze waarde `TFP` (framework vertrouwensbeleid) en `ACR` (authentication context verwijzing). `TFP` de aanbevolen waarde is. Stel **AuthenticationContextReferenceClaimPattern** met de waarde van `None`. In uw **OutputClaims** item, dit element toe te voegen:
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    ```
 
-**Levensduur van vernieuwingstoken** -de levensduur van vernieuwingstoken kan worden gewijzigd door het wijzigen van de waarde binnen de `<Item>` = met de sleutel 'refresh_token_lifetime_secs' in een paar seconden.  De standaardwaarde aan in de ingebouwde is 1209600 seconden (14 dagen).
+    Voor ACR, verwijdert u de **AuthenticationContextReferenceClaimPattern** item.
 
-**Levensduur van sliding window token vernieuwen** : als u wilt een levensduur van sliding window ingesteld op uw vernieuwingstoken, wijzigt u de waarde binnen `<Item>` = met de sleutel 'rolling_refresh_token_lifetime_secs' in een paar seconden.  De standaardwaarde aan in de ingebouwde is 7776000 (90 dagen).  Als u niet wilt om af te dwingen een levensduur van sliding window, vervangt u deze regel:
-```XML
-<Item Key="allow_infinite_rolling_refresh_token">True</Item>
-```
+- **Onderwerp (sub) claim** -deze optie standaard ingesteld op object-id, als u deze instelling om te schakelen `Not Supported`, vervangen door deze regel: 
 
-**Claim van verlener (iss)** : als u wilt wijzigen van de claim van verlener (iss), wijzigt u de waarde binnen de `<Item>` = "IssuanceClaimPattern" met de sleutel.  De waarden van toepassing zijn `AuthorityAndTenantGuid` en `AuthorityWithTfp`.
-
-**Instelling claim beleids-ID voor** -zijn de opties voor het instellen van deze waarde TFP (vertrouwensbeleid framework) en ACR (authentication context verwijzing).  
-Het is raadzaam deze instelling naar TFP, om dit te doen, controleert u of de `<Item>` met de sleutel = "AuthenticationContextReferenceClaimPattern" bestaat en de waarde is `None`.
-In uw `<OutputClaims>` item, dit element toe te voegen:
-```XML
-<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
-```
-Voor ACR, verwijdert u de `<Item>` = "AuthenticationContextReferenceClaimPattern" met de sleutel.
-
-**Onderwerp (sub) claim** -deze optie is standaard ingesteld op object-id, als u wilt overschakelen met deze `Not Supported`, doet u het volgende:
-
-Deze regel vervangen 
-```XML
-<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
-```
-Met deze regel:
-```XML
-<OutputClaim ClaimTypeReferenceId="sub" />
-```
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+    ```
+    
+    Met deze regel:
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="sub" />
+    ```
 
 ## <a name="session-behavior-and-sso"></a>Sessiegedrag en eenmalige aanmelding
 
-Als u wilt wijzigen van uw sessiegedrag en de SSO-configuraties, die u wilt toevoegen een `<UserJourneyBehaviors>` element in de `<RelyingParty>` element.  De `<UserJourneyBehaviors>` element moet onmiddellijk volgen het `<DefaultUserJourney>`.  Binnen uw `<UserJourneyBehavors>` element moet er als volgt:
+Als u wilt wijzigen van uw sessiegedrag en de SSO-configuraties, die u toevoegt een **UserJourneyBehaviors** element in de [RelyingParty](relyingparty.md) element.  De **UserJourneyBehaviors** element moet onmiddellijk volgen het **DefaultUserJourney**. Binnen uw **UserJourneyBehavors** element moet eruitzien als in dit voorbeeld:
 
 ```XML
 <UserJourneyBehaviors>
@@ -86,8 +83,9 @@ Als u wilt wijzigen van uw sessiegedrag en de SSO-configuraties, die u wilt toev
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Eenmalige aanmelding (SSO)-configuratie van** : als u wilt wijzigen van de configuratie voor eenmalige aanmelding moet u de waarde van wijzigen `<SingleSignOn>`.  De waarden van toepassing zijn `Tenant`, `Application`, `Policy` en `Disabled`. 
 
-**Web-appsessie (minuten)** : als u wilt wijzigen van de web-app sessielevensduur, moet u wijzigen van de waarde van de `<SessionExpiryInSeconds>` element.  De standaardwaarde in het ingebouwde beleid is 86400 seconden (1440 minuten).
+De volgende waarden worden geconfigureerd in het vorige voorbeeld:
 
-**Web-app sessietime-out** : als u wilt wijzigen van de web-appsessie, moet u de waarde van wijzigen `<SessionExpiryType>`.  De waarden van toepassing zijn `Absolute` en `Rolling`.
+- **Eenmalige aanmelding (SSO)** -eenmalige aanmelding is geconfigureerd met de **SingleSignOn**. De waarden van toepassing zijn `Tenant`, `Application`, `Policy`, en `Suppressed`. 
+- **Web-appsessie (minuten)** - de web-app-sessie levensduur is ingesteld met de **SessionExpiryInSeconds** element. De standaardwaarde is 86400 seconden (1440 minuten).
+- **Web-app sessietime-out** - de web-app-sessie time-out wordt ingesteld met de **SessionExpiryType** element. De waarden van toepassing zijn `Absolute` en `Rolling`.

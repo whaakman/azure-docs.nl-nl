@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018975"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884490"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpassen voor uw Service Fabric-cluster. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Voor zelfstandige clusters, kunt u instellingen aanpassen door het bijwerken van het bestand ClusterConfig.json en een configuratie-upgrade uitvoert op uw cluster. 
@@ -361,6 +361,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |DeploymentMaxFailureCount|Int, de standaardwaarde is 20| Dynamisch|Implementatie van de toepassing wordt opnieuw uitgevoerd voor DeploymentMaxFailureCount tijden voor het mislukken van de implementatie van toepassing op het knooppunt.| 
 |DeploymentMaxRetryInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600)|Dynamisch| Interval in seconden opgeven. Interval voor maximum aantal nieuwe pogingen voor de implementatie. Bij elke continue fout wordt het interval voor opnieuw proberen berekend als Min (DeploymentMaxRetryInterval; Continue foutenteller * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(10)|Dynamisch|Interval in seconden opgeven. Uitstelinterval voor de implementatie mislukt. Het systeem wordt opnieuw geprobeerd de implementatie voor maximaal de MaxDeploymentFailureCount op elke continue implementatie is mislukt. Het interval voor opnieuw proberen is een product van continue implementatie is mislukt en het uitstel implementatie interval. |
+|DisableDockerRequestRetry|BOOL, standaard is ingesteld op FALSE |Dynamisch| Standaard communiceert SF met een time-out van 'DockerRequestTimeout' voor elke http-aanvraag verzonden naar het met DD (docker dameon). Als DD niet reageert binnen deze tijdsduur; SF opnieuw de aanvraag als het bovenste niveau bewerking heeft nog steeds remining tijd.  Met Hyper-v-container. DD soms veel meer tijd nodig voor brengen van de container of deactiveren. In dergelijke gevallen DD aanvraag pogingen time-out van SF perspectief en SF de bewerking. Dit lijkt soms voegt meer druk te verlichten op DD. Deze configuratie kunt uitschakelen van deze nieuwe pogingen en wacht tot DD om te reageren. |
 |EnableActivateNoWindow| BOOL, standaard is ingesteld op FALSE|Dynamisch| De geactiveerde procedure is gemaakt op de achtergrond zonder een console. |
 |EnableContainerServiceDebugMode|BOOL, standaard is ingesteld op TRUE|Statisch|Logboekregistratie voor docker-containers inschakelen/uitschakelen.  Alleen Windows.|
 |EnableDockerHealthCheckIntegration|BOOL, standaard is ingesteld op TRUE|Statisch|Integratie van docker-statuscontrole gebeurtenissen met Service Fabric system health-rapport |
@@ -422,6 +423,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |SharedLogId |tekenreeks, standaardwaarde is "" |Statisch|De unieke guid voor gedeelde log-container. Gebruik ' ' als standaardpad onder fabric-gegevenshoofdmap. |
 |SharedLogPath |tekenreeks, standaardwaarde is "" |Statisch|Pad en de naam naar de locatie voor gedeelde log-container. Gebruik ' ' voor het gebruik van standaardpad onder fabric-gegevenshoofdmap. |
 |SharedLogSizeInMB |Int, de standaardwaarde is 8192 liggen |Statisch|Het aantal MB om toe te wijzen in de gedeelde log-container. |
+|SharedLogThrottleLimitInPercentUsed|int, standaard is 0 | Statisch | Het percentage van het gebruik van de gedeelde logboek dat wordt een beperking. Waarde moet liggen tussen 0 en 100 liggen. Een waarde van 0 geeft aan met behulp van de standaardwaarde voor het percentage is. Een waarde van 100 impliceert dat er geen beperking op. Een waarde tussen 1 en 99 geeft het percentage van logboek gebruik bij meer dan welke beperking wordt uitgevoerd; bijvoorbeeld als de gedeelde logboek 10GB en de waarde is is 90 vervolgens optreden throttleing wanneer 9GB gebruikt wordt. Gebruik de standaardwaarde wordt aanbevolen.|
 |WriteBufferMemoryPoolMaximumInKB | int, standaard is 0 |Dynamisch|Het aantal KB om toe te staan de schrijven geheugen buffergroep tot groeien. Gebruik 0 om aan te geven geen limiet. |
 |WriteBufferMemoryPoolMinimumInKB |Int, de standaardwaarde is 8388608 |Dynamisch|Het aantal KB in eerste instantie voor het schrijven voor buffergroep in het geheugen toewijzen. Gebruik 0 om aan te geven geen limiet standaard moet consistent zijn met SharedLogSizeInMB hieronder. |
 

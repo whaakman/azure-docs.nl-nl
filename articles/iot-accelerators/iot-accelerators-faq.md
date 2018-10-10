@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716397"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884272"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Veelgestelde vragen over IoT-oplossingsversnellers
 
@@ -41,6 +41,10 @@ Op dit moment alleen de oplossing voor externe controle maakt gebruik van de arc
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Welke voordelen biedt de nieuwe open source op basis van microservices-architectuur in de nieuwe update?
 
 Architectuur van de afgelopen twee jaar aanzienlijk zich heeft ontwikkeld. Microservices hebben naar voren gekomen als een geweldige patroon om de schaal en flexibiliteit, zonder dat dit ten koste gaat ontwikkelingssnelheid bereiken. Dit architectuurpatroon wordt gebruikt in verschillende Microsoft-services die intern met geweldige betrouwbaarheid en schaalbaarheid resultaten. We worden deze in de praktijk leren, zodat onze klanten van deze profiteren uitgeoefend.
+
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Waar vind ik informatie over de vorige versie van de oplossing voor externe controle
+
+De vorige versie van de oplossingsverbetering voor externe controle was bekend als de IoT Suite vooraf geconfigureerde oplossing voor externe controle. U vindt de gearchiveerde documentatie op [ https://docs.microsoft.com/previous-versions/azure/iot-suite/ ](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Nieuwe solution accelerator is beschikbaar in dezelfde geografische regio als de bestaande oplossing?
 

@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: anroth
-ms.openlocfilehash: 53884cfc2683832d9df2b215c92b6b683ba29d2c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363460"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902855"
 ---
 # <a name="limits-and-quotas"></a>Limieten en quota
 
@@ -26,7 +26,8 @@ Beperkte proefversie projectresources zijn gekoppeld aan uw aangepaste Vision-aa
 ||**Beperkte proefversie**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Projecten|2|2|100|
-|Trainingsafbeeldingen per project|5.000|5.000|50,000|
+|Trainingsafbeeldingen per project, classificatie|5.000|5.000|50,000|
+|Trainingsafbeeldingen per project, detectie van Object|5.000|5.000|10.000|
 |Voorspellingen / maand|10.000 |10.000|Onbeperkt|
 |Tags / project|50|50|250|
 |Iteraties |10|10|10|

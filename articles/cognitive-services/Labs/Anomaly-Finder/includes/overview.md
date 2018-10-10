@@ -5,33 +5,33 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: 6d8b71f3c3105415b487f5b7dd8308cf81459638
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ab0080372de77b9c9f4d607a0c7a3a250224143
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345044"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904610"
 ---
 <a name="overview"></a>
 ## <a name="overview"></a>Overzicht
-De Afwijkingsdetectie zoeken-API kunt u het bewaken van gegevens gedurende een bepaalde periode en afwijkingen met machine learning die wordt aangepast aan uw unieke gegevens door het toepassen van het recht statistische model automatisch detecteren. Deze kan organisaties onderhouden van de kwaliteit van de gegevens, betrouwbare services bieden, identificeren business incidenten en hun beleid van bedrijf verfijnen zonder het aanpakken van de robuust problemen van abnormale gegevens handmatig worden geïdentificeerd.
+De Finder-API voor Afwijkingsdetectie kunt u gegevens na verloop van tijd bewaken en anomalieën met machine learning die wordt aangepast aan uw unieke gegevens door het automatisch toepassen van de juiste statistische model. Deze kan organisaties onderhouden van de kwaliteit van de gegevens, betrouwbare services te kunnen leveren, business incidenten identificeren en verfijnen van het beleid van hun bedrijf zonder de moeilijke problemen van het identificeren van afwijkende gegevens handmatig de dagelijkse praktijk tegenkomt.
 
 ### <a name="version-information"></a>Versie-informatie
 *Versie*: 1.0.0
 
 ### <a name="uri-scheme"></a>URI-schema
-*Host*: labsportalppe.azure api.net  
-*Het basispad naar*: /anomalyfinder/v1.0  
+*Host*: labsportalppe.azure-api.net  
+*BasePath*: /anomalyfinder/v1.0  
 *Schema's*: HTTPS
 
 ### <a name="tags"></a>Tags
 
-* anomalydetection: de API kunt u het bewaken van gegevens gedurende een bepaalde periode en afwijkingen met machine learning die wordt aangepast aan uw unieke gegevens door het toepassen van het recht statistische model automatisch detecteren.
+* anomalydetection: de API kunt u gegevens na verloop van tijd bewaken en anomalieën met machine learning die wordt aangepast aan uw unieke gegevens door het automatisch toepassen van de juiste statistische model.
 
 
 

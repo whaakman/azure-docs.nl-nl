@@ -5,17 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858074"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904633"
 ---
 VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslagdoorvoer voor grootten die in deze groepering. 
+
+- De [DC-serie](#dc-series) is een nieuwe serie van virtuele machines in Azure waarmee u kunt de vertrouwelijkheid en integriteit van uw gegevens beveiligen en code terwijl deze wordt verwerkt in de openbare cloud. Deze machines worden ondersteund door de nieuwste generatie van 3,7 GHz Intel XEON-E - 2176G Processor met SGX technologie. Met de Intel Turbo Boost Technology gaat deze machines 4.7 GHz bereiken. Instanties van DC-serie kunnen klanten toepassingen kunnen ontwikkelen beveiligde enclave op basis van hun code en gegevens beveiligen terwijl deze gebruikt wordt.
 
 - De Av2-serie VM's kunnen worden geïmplementeerd op diverse hardwaretypen en processors. VM's uit de A-serie beschikken over CPU-prestaties en geheugenconfiguraties die uitermate geschikt zijn voor workloads op instapniveau, zoals ontwikkelen en testen. De grootte is afhankelijk van de hardware, zodat er consistente processorprestaties voor het actieve exemplaar kunnen worden geboden, ongeacht de hardware waarop deze is geïmplementeerd. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
 
@@ -27,7 +29,6 @@ VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Id
 
   Voorbeeld van de D-serie van use cases zijn zakelijke toepassingen, relationele databases, caching in geheugen en analytics. 
   
-- De [DC-serie](#dc-series) is een nieuwe serie van virtuele machines in Azure waarmee u kunt de vertrouwelijkheid en integriteit van uw gegevens beveiligen en code terwijl deze wordt verwerkt in de openbare cloud. Deze machines worden ondersteund door de nieuwste generatie van 3,7 GHz Intel XEON-E - 2176G Processor met SGX technologie. Met de Intel Turbo Boost Technology gaat deze machines 4.7 GHz bereiken. Instanties van DC-serie kunnen klanten toepassingen kunnen ontwikkelen beveiligde enclave op basis van hun code en gegevens beveiligen terwijl deze gebruikt wordt
 
 ## <a name="b-series"></a>B-serie
 

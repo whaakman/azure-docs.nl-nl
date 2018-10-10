@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036487"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888285"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Voorbeeld-uitingen en label met entiteiten toevoegen
 
@@ -92,12 +92,12 @@ Een synoniem toevoegen aan de lijst met entiteit door te selecteren van het woor
 
 Selecteer in de utterance het synoniem woord, zoals `aqua` voor water, selecteer vervolgens de naam van de entiteit in de vervolgkeuzelijst, zoals **drinken**en selecteer vervolgens **instellen als synoniem**, selecteer de lijst item gelijk aan, zoals is **water**.
 
-![Schermafbeelding van de intenties pagina, met het maken van een nieuwe synoniem gemarkeerd](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Schermafbeelding van de intenties pagina, met het maken een nieuwe weergave genormaliseerde gemarkeerd](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Nieuw item voor een lijst met entiteit maken
-Maak een nieuw item voor een bestaande entiteit in de lijst met door het selecteren van het woord of zinsdeel in de utterance. Als u een drank lijst en wilt toevoegen hebt `tea` als een nieuw item, de volgende stappen:
+Maak een nieuw item voor een bestaande entiteit in de lijst met door het selecteren van het woord of zinsdeel in de utterance. Als u een werknemer weergeven en wilt toevoegen hebt `Bob Smith` als een nieuw item, de volgende stappen:
 
-In de utterance, selecteert u het woord voor het nieuwe lijstitem zoals `tea`, selecteer de naam van de entiteit in de vervolgkeuzelijst, zoals **drinken**en selecteer vervolgens **maken van een nieuwe synoniem**. 
+In de utterance, selecteert u het woord of zinsdeel voor het nieuwe lijstitem zoals `Bob Smith`, selecteer de naam van de entiteit in de vervolgkeuzelijst, zoals **werknemer**en selecteer vervolgens **maken van een nieuwe genormaliseerde weergave**. 
 
 ![Schermafbeelding van het nieuwe item in de lijst toevoegen](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

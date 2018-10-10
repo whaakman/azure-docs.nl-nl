@@ -1,22 +1,23 @@
 ---
-title: JSON-zoeksyntaxis in de Academic Knowledge API | Microsoft Docs
-description: Meer informatie over de syntaxis van de JSON-zoekopdracht die kunt u in de Academic Knowledge API in cognitieve Microsoft-Services.
+title: JSON-zoeksyntaxis - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over de JSON-zoeksyntaxis die kunt u in de Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a4b9cf535dae60258d71c43bba6f9eec1444bd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5ece028f89ad9e93840211383db97a5d8a80069a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344402"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900407"
 ---
-# <a name="json-search-syntax"></a>JSON-Zoeksyntaxis
+# <a name="json-search-syntax"></a>JSON-zoeksyntaxis
 
 ```javascript
 /* Query Object:
@@ -32,9 +33,9 @@ ms.locfileid: "35344402"
 }
 ```
 
-De knooppuntnamen in een query-pad (_v0, v1,..._ ) fungeren als knooppunt-id's die kunnen worden verwezen in de queryobject. de namen van de rand (_e0, e1,..._ ) vertegenwoordigen de typen van de bijbehorende randen in het pad. We kunnen ook een sterretje gebruiken _*_ als de naam van een knooppunt of rand (met uitzondering van het eerste knooppunt, die moet worden gegeven) om te declareren die er zijn geen beperkingen voor dergelijke een element. Bijvoorbeeld, een query pad `/v0/*/v1/e1/*/` paden opgehaald uit de grafiek zonder het beperken van het type van de rand _(v0 v1)_. Ondertussen heeft de query geen beperkingen op de doelhost (het laatste knooppunt) van het pad op.
+De knooppuntnamen van de in een query-pad (_v0, v1,..._ ) fungeren als knooppunt-id's die kunnen worden verwezen in de queryobject. de namen van de rand (_e0, e1,..._ ) vertegenwoordigen de typen van de bijbehorende randen in het pad. We kunnen een sterretje gebruiken _*_ als de naam van een knooppunt of randtabel (met uitzondering van het eerste knooppunt, die moet worden gegeven) om aan te geven dat er zijn geen beperkingen met betrekking tot deze een element. Bijvoorbeeld, een query pad `/v0/*/v1/e1/*/` paden opgehaald uit de grafiek zonder het beperken van het type van de rand _(v0, v1)_. In de tussentijd zorgen, de query heeft geen beperkingen met betrekking tot de bestemming (het laatste knooppunt) van het pad naar een.
 
-Wanneer een pad slechts één knooppunt bevat, spreken _v0_, retourneert de query gewoon alle entiteiten die voldoet aan de beperkingen. Een beperking-object dat is toegepast op het eerste knooppunt heet een *queryobject starten*, waarvan is niet opgegeven als volgt.
+Wanneer een pad slechts één knooppunt bevat, zeg _v0_, de query retourneert alle entiteiten die voldoen aan de beperkingen. Een beperking-object dat is toegepast op het eerste knooppunt heet een *queryobject vanaf*, waarvan is niet opgegeven als volgt.
 
 ```javascript
 /* Starting Query Object:
@@ -63,7 +64,7 @@ Wanneer een pad slechts één knooppunt bevat, spreken _v0_, retourneert de quer
 }
 ```
 
-Wanneer een pad meer dan alleen het beginknooppunt bevat, zal de queryprocessor een grafiek traversal na het opgegeven pad patroon uitvoeren. Wanneer het aankomt op een knooppunt, de acties van de gebruiker opgegeven traversal wordt geactiveerd, dat wil zeggen, of u wilt stoppen op het huidige knooppunt en retourneren of moet worden doorgegaan met het verkennen van de grafiek. Wanneer er geen actie traversal wordt opgegeven, wordt standaardacties worden genomen. De standaardactie is voor een tussenliggende knooppunt om door te gaan verkennen van de grafiek. De standaardactie is voor het laatste knooppunt van een pad om te stoppen en te retourneren. Wordt aangeroepen met een beperking-object die traversal acties opgeeft die een *Traversal actie-Object*. De specificatie krijgt als volgt:
+Wanneer een pad meer dan alleen een beginknooppunt bevat, zal de queryprocessor uitvoeren met een grafiek-traversal volgen het patroon van het opgegeven pad. Wanneer ze worden ontvangen op een knooppunt de acties van de gebruiker opgegeven traversal wordt geactiveerd, dat wil zeggen, of om te stoppen op het huidige knooppunt en retourneren, of om door te gaan naar het verkennen van de grafiek. Wanneer er is geen actie transport is opgegeven, worden standaardacties worden uitgevoerd. De standaardactie is voor een tussenliggende knooppunt om door te gaan naar het verkennen van de grafiek. De standaardactie is voor het laatste knooppunt van een pad, om te stoppen en te retourneren. Een beperking-object dat traversal acties heet een *Traversal actie voor het Object*. Het is niet opgegeven als volgt:
 
 ```javascript
 /* Traversal Action Object:
@@ -106,7 +107,7 @@ Wanneer een pad meer dan alleen het beginknooppunt bevat, zal de queryprocessor 
 }
 ```
 
-De POST-hoofdtekst van een *json* zoekquery mag ten minste een *pad* patroon. Bladeren action-objecten zijn optioneel. Hier vindt u twee voorbeelden.
+De hoofdtekst van bericht van een *json* zoekquery mag ten minste een *pad* patroon. Bladeren actie objecten zijn optioneel. Hier volgen twee voorbeelden.
 
 ```JSON
 {

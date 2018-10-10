@@ -1,6 +1,6 @@
 ---
-title: Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen | Microsoft Docs
-description: Informatie over het aanpassen van de claims die zijn uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory
+title: In het SAML-token voor bedrijfstoepassingen in Azure AD uitgegeven claims aanpassen | Microsoft Docs
+description: Informatie over het aanpassen van de uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956958"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902022"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Hoe: in het SAML-token voor bedrijfstoepassingen in Azure AD uitgegeven claims aanpassen
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Hoe: in het SAML-token voor bedrijfstoepassingen uitgegeven claims aanpassen
 
-Vandaag nog Azure Active Directory biedt ondersteuning voor eenmalige aanmelding op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen vooraf geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker zich bij een toepassing via Azure AD met behulp van het SAML 2.0-protocol verifieert, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze tokens SAML bevatten informatie over de gebruiker bekend als 'claims'.
+Vandaag nog Azure Active Directory (Azure AD) biedt ondersteuning voor eenmalige aanmelding op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen vooraf geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker zich bij een toepassing via Azure AD met behulp van het SAML 2.0-protocol verifieert, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze tokens SAML bevatten informatie over de gebruiker bekend als 'claims'.
 
-In de id-spreken, een "claim" zijn gegevens met de mededeling van een id-provider van een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens is meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt gewoonlijk weergegeven in het onderwerp van de SAML-naam-id ook wel.
+Een *claim* zijn gegevens met de mededeling van een id-provider van een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens is meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt gewoonlijk weergegeven in het onderwerp van de SAML-naam-id ook wel.
 
-Standaard geeft Azure Active Directory een SAML-token aan uw toepassing met een claim NameIdentifier met de waarde van de gebruiker gebruikersnaam (AKA UPN) in Azure AD. Deze waarde kan unieke identificatie van de gebruiker. Het SAML-token bevat ook aanvullende claims met e-mailadres van de gebruiker, de voornaam en achternaam op.
+Standaard verzendt Azure AD een SAML-token aan uw toepassing met een claim NameIdentifier met de waarde van de gebruiker gebruikersnaam (AKA UPN) in Azure AD. Deze waarde kan unieke identificatie van de gebruiker. Het SAML-token bevat ook aanvullende claims met e-mailadres van de gebruiker, de voornaam en achternaam op.
 
 Als u wilt weergeven of bewerken van de claims in het SAML-token is verleend aan de toepassing, open de toepassing in Azure portal. Selecteer vervolgens de **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie van de toepassing.
 
@@ -38,7 +38,7 @@ Als u wilt weergeven of bewerken van de claims in het SAML-token is verleend aan
 
 Er zijn twee mogelijke redenen waarom u mogelijk de uitgegeven claims in het SAML-token bewerken:
 * De toepassing is naar een andere set claim URI's is vereist of claimwaarden geschreven.
-* De toepassing is geïmplementeerd op een manier die de claim NameIdentifier dan de gebruikersnaam (AKA gebruiker principal name) die zijn opgeslagen in Azure Active Directory vereist.
+* De toepassing is geïmplementeerd op een manier die de claim NameIdentifier dan de gebruikersnaam (AKA gebruiker principal name) die zijn opgeslagen in Azure AD is vereist.
 
 U kunt een van de standaardwaarden van de claim bewerken. Selecteer de rij claim in de tabel voor SAML-token kenmerken. Hiermee opent u de **kenmerk bewerken** sectie en u vervolgens de claimnaam van de, de waarde en de naamruimte die is gekoppeld aan de claim kunt bewerken.
 
@@ -130,8 +130,9 @@ Er zijn enkele beperkingen claims in SAML. Als u deze claims toevoegt, klikt u v
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Toepassingsbeheer in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
+
+* [Toepassingsbeheer in Azure AD](../manage-apps/what-is-application-management.md)
+* [Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure AD-toepassingsgalerie](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

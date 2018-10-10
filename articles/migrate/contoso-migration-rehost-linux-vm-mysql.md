@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 49667251cbce4a3f71d71a6508793a2d4c7aac38
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f6c877a182395d12ee46e9fd9b7892a4a3e5cdb8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300400"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887782"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migratie van Contoso: een on-premises Linux-app op Azure VM's en Azure MySQL Rehost
 
@@ -53,7 +53,7 @@ Het team voor IT-leidinggevenden heeft nauw samengewerkt met zakelijke partners 
 
 Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor deze migratie kan om te bepalen van de beste migratiemethode:
 
-- Na de migratie, moet de app in Azure dezelfde prestatiemogelijkheden hebben als in hun on-premises VMWare-omgeving.  De app blijven als kritiek in de cloud als on-premises. 
+- Na de migratie, moet de app in Azure dezelfde prestatiemogelijkheden hebben als in hun on-premises VMware-omgeving.  De app blijven als kritiek in de cloud als on-premises. 
 - Contoso wil niet investeren in deze app.  Het is belangrijk voor het bedrijf, maar in de huidige vorm Contoso wilt veilig naar de cloud verplaatsen.
 - Nadat een aantal migraties van Windows-app is voltooid, wil Contoso voor meer informatie over het gebruik van een infrastructuur op basis van Linux in Azure.
 - Contoso wil minimaliseren beheertaken database nadat de toepassing is verplaatst naar de cloud.
@@ -106,7 +106,7 @@ Voor het migreren van de database:
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | De database is gebaseerd op de open-source MySQL-Server-engine. Het biedt een volledig beheerde, bedrijfsklare community MySQL-database als een service voor ontwikkeling en implementatie. 
 
  
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Hier volgt wat Contoso nodig heeft voor dit scenario.
 

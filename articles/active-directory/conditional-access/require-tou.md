@@ -1,6 +1,6 @@
 ---
 title: Snelstartgids - gebruiksrechtovereenkomst moet zijn geaccepteerd voordat u toegang tot cloud-apps die zijn beveiligd met voorwaardelijke toegang van Azure Active Directory vereisen | Microsoft Docs
-description: In deze snelstartgids leert u hoe u kunt vereisen dat de gebruiksrechtovereenkomst worden geaccepteerd voordat de toegang tot de geselecteerde cloud-apps door Azure Active Directory voor voorwaardelijke toegang wordt verleend.
+description: In deze snelstartgids leert u hoe u kunt vereisen dat de gebruiksrechtovereenkomst worden geaccepteerd voordat de toegang tot de geselecteerde cloud-apps wordt verleend voor voorwaardelijke toegang van Azure Active Directory.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsbronnen, beleid voor voorwaardelijke toegang, gebruiksvoorwaarden
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605841"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901875"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snelstartgids: Gebruiksvoorwaarden worden geaccepteerd voordat u toegang tot cloud-apps vereisen 
 
@@ -193,7 +193,7 @@ Stel in het beleid:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Een gesimuleerde aanmelding evalueren
 
-Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Gebruik als een eerste stap de voorwaardelijke toegang beleid hulpprogramma what-if om te simuleren een aanmelding van uw testgebruiker. De simulatie maakt een schatting van het effect dat aanmelding heeft op uw beleid en genereert een simulatierapport.  
+Nu u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u weten of het werkt zoals u wilt. Gebruik als een eerste stap de voorwaardelijke toegang beleid hulpprogramma what-if om te simuleren een aanmelding van uw testgebruiker. De simulatie schat de impact van deze aanmelding op uw beleid in en genereert een simulatierapport.  
 
 Initialiseren van de wat als hulpprogramma voor het evalueren van beleid is ingesteld:
 

@@ -3,17 +3,17 @@ title: Een HDInsight-cluster configureren met Enterprise-beveiligingspakket met 
 description: Informatie over het instellen en configureren van een Enterprise-beveiligingspakket van HDInsight-cluster met behulp van Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/3/2018
-ms.openlocfilehash: 84ee24b9002237d0993a30190944dbd6dd190ac8
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.date: 10/9/2018
+ms.openlocfilehash: c56158a5e8df2e8781ec8e4431c75beadd154297
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784932"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901648"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Een HDInsight-cluster configureren met Enterprise-beveiligingspakket met behulp van Azure Active Directory Domain Services
 
@@ -25,6 +25,9 @@ In dit artikel leert u hoe u een HDInsight-cluster met ESP configureren met behu
 >ESP is algemeen beschikbaar in HDI 3.6 voor Spark, interactieve en Hadoop. ESP voor HBase en Kafka-cluster is beschikbaar als preview.
 
 ## <a name="enable-azure-ad-ds"></a>Inschakelen van Azure AD DS
+
+> [!NOTE]
+> Alleen tenantbeheerders hebben de bevoegdheden voor het maken van een Azure AD DS-exemplaar. Als de clusteropslag is het Azure Data Lake Store (ADLS) Gen1 of Gen2, het uitschakelen van multi-factor Authentication (MFA) alleen voor gebruikers die toegang tot het cluster. Als de clusteropslag is Azure Blob Storage (WASB), u MFA niet uitschakelen.
 
 Inschakelen van DS-AzureAD is een vereiste voordat u een HDInsight-cluster met ESP maken kunt. Zie voor meer informatie, [inschakelen Azure Active Directory Domain Services met behulp van de Azure-portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -40,8 +43,7 @@ Wijzig de configuratie van de DNS-servers in het Azure AD DS-VNET aan het gebrui
 
 ![De VNET DNS-configuratie bijwerken](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-> [!NOTE]
-> Alleen tenantbeheerders hebben de bevoegdheden voor het maken van een Azure AD DS-exemplaar. Multi-factor authentication moet worden uitgeschakeld alleen voor gebruikers die toegang het cluster tot.
+
 
 Bij het inschakelen van secure LDAP, plaatst u de domeinnaam in de onderwerpnaam of alternatieve onderwerpnaam in het certificaat. Bijvoorbeeld, als uw domeinnaam *contoso.com*, zorg ervoor dat de exacte naam bestaat in de onderwerpnaam of alternatieve naam voor onderwerp. Zie voor meer informatie, [configureren secure LDAP voor een Azure AD DS-domein beheerd](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 

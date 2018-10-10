@@ -8,22 +8,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 697245a6465fc15c943acefa4b820982fbaecb55
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054244"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887595"
 ---
 # <a name="recovery-services-vaults-overview"></a>Overzicht van Recovery Services-kluizen
 
-In dit artikel beschrijft de functies van een Recovery Services-kluis. Een Recovery Services-kluis is een opslagentiteit in Azure met gegevens. De gegevens zijn meestal kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations. U kunt de Recovery Services-kluizen gebruiken voor het opslaan van back-upgegevens voor verschillende Azure-services, zoals virtuele machines van IaaS (Linux of Windows) en Azure SQL-databases. Recovery Services-kluizen ondersteuning van System Center DPM, Windows Server, Azure Backup Server en meer. Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn. 
+In dit artikel beschrijft de functies van een Recovery Services-kluis. Een Recovery Services-kluis is een opslagentiteit in Azure met gegevens. De gegevens zijn meestal kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations. U kunt de Recovery Services-kluizen gebruiken voor het opslaan van back-upgegevens voor verschillende Azure-services, zoals virtuele machines van IaaS (Linux of Windows) en Azure SQL-databases. Recovery Services-kluizen ondersteuning van System Center DPM, Windows Server, Azure Backup Server en meer. Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn.
 
 Binnen een Azure-abonnement, kunt u maximaal 500 Recovery Services-kluizen per abonnement per regio maken.
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Het vergelijken van Recovery Services-kluizen en back-upkluizen
 
-Als u nog steeds back-upkluizen hebt, worden ze automatisch bijgewerkt naar Recovery Services-kluizen. Per November 2017, zijn alle back-upkluizen bijgewerkt naar Recovery Services-kluizen. 
+Als u nog steeds back-upkluizen hebt, worden ze automatisch bijgewerkt naar Recovery Services-kluizen. Per November 2017, zijn alle back-upkluizen bijgewerkt naar Recovery Services-kluizen.
 
 Recovery Services-kluizen zijn gebaseerd op het Azure Resource Manager-model van Azure, terwijl de Backup-kluizen zijn gebaseerd op het Azure Service Manager-model. Wanneer u een back-upkluis naar een Recovery Services-kluis upgraden, blijft de back-upgegevens behouden tijdens en na het upgradeproces. Recovery Services-kluizen bieden functies niet beschikbaar voor back-upkluizen, zoals:
 
@@ -38,7 +38,7 @@ Recovery Services-kluizen zijn gebaseerd op het Azure Resource Manager-model van
 - **Instant herstel voor IaaS-VM's**: met behulp van Recovery Services-kluizen, u kunt bestanden en mappen van een IaaS-VM herstellen zonder het herstellen van de volledige virtuele machine, waardoor sneller worden hersteld. Instant herstel voor IaaS-VM's is beschikbaar voor zowel Windows als Linux-VM's. [Meer informatie](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Beheren van uw Recovery Services-kluizen in de portal
-Maken en beheren van Recovery Services-kluizen in de Azure-portal is eenvoudig, want de Backup-service kan worden geïntegreerd in andere Azure-services. Deze integratie betekent dat u kunt maken of beheren van een Recovery Services-kluis *in de context van de doelservice*. Bijvoorbeeld, als u wilt weergeven van de herstelpunten voor een virtuele machine, selecteer de virtuele machine en klikt u op **back-up** in het menu Acties. 
+Maken en beheren van Recovery Services-kluizen in de Azure-portal is eenvoudig, want de Backup-service kan worden geïntegreerd in andere Azure-services. Deze integratie betekent dat u kunt maken of beheren van een Recovery Services-kluis *in de context van de doelservice*. Bijvoorbeeld, als u wilt weergeven van de herstelpunten voor een virtuele machine, selecteer de virtuele machine en klikt u op **back-up** in het menu Acties.
 
 ![Recovery services vault-gegevens virtuele machine](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
@@ -51,6 +51,9 @@ In het vorige voorbeeld **ContosoVM** is de naam van de virtuele machine. **Cont
 Als een Recovery Services-kluis meerdere servers beveiligt, is deze mogelijk meer logische om te kijken naar de Recovery Services-kluis. U kunt zoeken naar alle Recovery Services-kluizen in het abonnement en maak een keuze uit de lijst.
 
 De volgende secties bevatten koppelingen naar artikelen waarin wordt uitgelegd hoe u een Recovery Services-kluis in elk type activiteit.
+
+> [!NOTE]
+> Recovery Services-kluis kan niet worden gemaakt met dezelfde naam als deze binnen 24 uur is verwijderd. Gebruik een andere resourcenaam op of kies een andere resourcegroep of probeer het opnieuw na 24 uur.
 
 ### <a name="back-up-data"></a>Back-up van gegevens
 - [Back-up van een Azure-VM](backup-azure-vms-first-look-arm.md)

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/9/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0711b52b76a22e32d05f27e6aae6c981bd2c148a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125641"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902600"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metrische gegevens en de gezondheid van diagnostische gegevens voor de standaardversie van Load Balancer
 
-Azure Standard Load Balancer biedt uw resources met de volgende diagnostische mogelijkheden:
-* **Multi-dimensionale metrische gegevens**: nieuwe multi-dimensionale diagnostische mogelijkheden biedt voor openbare en interne load balancer-configuraties. U kunt controleren, beheren en oplossen van uw resources voor load balancer.
+Azure Standard Load Balancer wordt Azure Standard Load Balancer biedt de volgende diagnostische mogelijkheden van uw resources:
+* **Multi-dimensionale metrische gegevens**: biedt nieuwe mogelijkheden van de multi-dimensionale diagnostische via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) voor openbare en interne load balancer-configuraties. U kunt controleren, beheren en oplossen van uw resources voor load balancer.
 
 * **Resourcestatus**: de Load Balancer-pagina in de Azure portal en de Resource Health-pagina (onder Monitor) tonen de resourcestatus sectie voor de openbare load balancer-configuratie van de standaardversie van Load Balancer.
 
@@ -219,6 +219,7 @@ De verschillende statussen van de resource-status en de bijbehorende beschrijvin
 
 - Meer informatie over [Standard Load Balancer](load-balancer-standard-overview.md).
 - Meer informatie over uw [Load balancer uitgaande connectiviteit](https://aka.ms/lboutbound).
+- Meer informatie over [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 - Meer informatie over de [metrische gegevens van Azure Monitor REST-API](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

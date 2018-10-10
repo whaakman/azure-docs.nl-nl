@@ -5,16 +5,16 @@ description: Laat zien hoe vertalen spraak met de spraak-SDK voor C++.
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: c4a30553dc7782bcb9622cf48c3071cd83b40000
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27e7fac33ce03895adcf97bf5d1a9022173dd431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974694"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883446"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Omzetten van spraak met de Cognitive Services spraak-SDK voor C++
 
@@ -35,5 +35,5 @@ Zoek de code die wordt gebruikt in dit artikel in de map samples/cpp/windows /-c
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Het herkennen van spraak](how-to-recognize-speech-cpp.md)
+- [Spraak herkennen](how-to-recognize-speech-cpp.md)
 - [Intents van gesproken inhoud herkennen](how-to-recognize-intents-from-speech-cpp.md)

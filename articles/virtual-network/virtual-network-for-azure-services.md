@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ef902f58f37cd0d09195aa5d1ff03847906ef414
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 163a8f318608ba980d98209277371fb4d148c4ff
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238894"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902770"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integratie van virtuele netwerken voor Azure-services
 
@@ -46,9 +46,6 @@ Implementeren van services binnen een virtueel netwerk biedt de volgende mogelij
 - (Optioneel) services mogelijk een [overgedragen subnet](virtual-network-manage-subnet.md#add-a-subnet) als een expliciete id dat een subnet kan worden gebruikt voor het hosten van een bepaalde service. Subnet delegering biedt expliciete machtigingen voor de service servicespecifieke om resources te maken in het subnet.
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Services die kunnen worden geïmplementeerd in een virtueel netwerk
-
-Elke service die rechtstreeks zijn geïmplementeerd in virtuele netwerk heeft specifieke vereisten voor de Routering en de soorten netwerkverkeer naar en van subnetten moeten worden toegestaan. De verschillende services die kunnen worden geïmplementeerd in een virtueel netwerk worden gecategoriseerd hieronder. Selecteer de specifieke service in de tabel voor meer informatie over deze en hoe u deze integreren met uw virtuele netwerk. 
-
 
 |Categorie|Service|
 |-|-|

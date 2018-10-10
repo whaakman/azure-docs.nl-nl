@@ -1,5 +1,5 @@
 ---
-title: Informatie over Azure Stack-beveiligingsmechanismen | Microsoft Docs
+title: Informatie over beveiligingsmaatregelen voor Azure Stack
 description: Als servicebeheerder meer informatie over de beveiligingsmaatregelen die is toegepast op Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719015"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901478"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure-infrastructuur stack-beveiliging
 
 *Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Aandachtspunten voor de beveiliging en nalevingsvoorschriften zijn een van de belangrijkste stuurprogramma's voor het gebruik van hybride clouds. Azure Stack is ontworpen voor deze scenario's en het is belangrijk te begrijpen van de controlemechanismen al zijn geïmplementeerd als overstappen op Azure Stack.
+Aandachtspunten voor de beveiliging en nalevingsvoorschriften zijn een van de belangrijkste stuurprogramma's voor het gebruik van hybride clouds. Azure Stack is ontworpen voor deze scenario's. In dit artikel wordt uitgelegd dat de beveiligingsmaatregelen voor Azure Stack.
 
 Twee beveiligingslagen houding naast elkaar bestaan in Azure Stack. De eerste laag is de Azure Stack-infrastructuur, waaronder de hardwareonderdelen die tot de Azure Resource Manager. De eerste laag omvat de beheerder en de Tenant-portals. De tweede laag bestaat uit de werkbelastingen die zijn gemaakt, geïmplementeerd en beheerd door tenants. De tweede laag bevat items zoals virtual machines en websites App Services.
 
@@ -50,14 +50,14 @@ Alle externe infrastructuur-eindpunten, zoals de REST-eindpunten of de Azure Sta
 Hoewel zelfondertekende certificaten kunnen worden gebruikt voor deze externe eindpunten, raadt Microsoft op basis van het gebruik ervan. 
 
 ## <a name="secret-management"></a>Geheimenbeheer
-Azure Stack-infrastructuur maakt gebruik van een groot aantal geheimen zoals wachtwoorden, werken. De meeste van deze worden automatisch gedraaid vaak het geval is, omdat deze groep beheerde serviceaccounts, die om de 24 uur draait zijn.
+Azure Stack-infrastructuur maakt gebruik van een groot aantal geheimen zoals wachtwoorden, werken. De meeste van deze worden automatisch gedraaid vaak het geval is, omdat ze Group-Managed serviceaccounts, die om de 24 uur draait zijn.
 
-De resterende geheimen die niet zijn Group Managed Service accounts met een script in het Privileged eindpunt handmatig kunnen worden gedraaid.
+De resterende geheimen die niet zijn Group-Managed Service-accounts met een script in het Privileged eindpunt handmatig kunnen worden gedraaid.
 
 ## <a name="code-integrity"></a>Code-integriteit
 Azure Stack wordt gebruik gemaakt van de meest recente versie van Windows Server 2016 beveiligingsfuncties. Een van beide is Windows Defender Device Guard, dit opname in de whitelist biedt en zorgt ervoor dat alleen code wordt uitgevoerd binnen de Azure Stack-infrastructuur gemachtigde. 
 
-Geautoriseerde code is ondertekend door Microsoft of de OEM-partner en het is opgenomen in de lijst met toegestane software die is opgegeven in een beleid is gedefinieerd door Microsoft. Met andere woorden, kan alleen de software die is goedgekeurd om te worden uitgevoerd in de Azure Stack-infrastructuur worden uitgevoerd. Elke poging voor het uitvoeren van niet-geautoriseerde code geblokkeerd en wordt een controle wordt gegenereerd.
+Geautoriseerde code is ondertekend door Microsoft of de OEM-partner. De ondertekende geautoriseerde code is opgenomen in de lijst met toegestane software die zijn opgegeven in een beleid is gedefinieerd door Microsoft. Met andere woorden, kan alleen de software die is goedgekeurd om te worden uitgevoerd in de Azure Stack-infrastructuur worden uitgevoerd. Elke poging voor het uitvoeren van niet-geautoriseerde code geblokkeerd en wordt een controle wordt gegenereerd.
 
 Het Device Guard-beleid voorkomt ook dat software of agenten van derden die worden uitgevoerd in de Azure Stack-infrastructuur.
 
@@ -67,7 +67,7 @@ Een andere Windows Server 2016 security-functie in Azure Stack is Windows Defend
 ## <a name="antimalware"></a>Antimalware
 Elk onderdeel in Azure Stack (Hyper-V-hosts en virtuele Machines) wordt beschermd met Windows Defender Antivirus.
 
-Antivirus-definitie en engine-updates worden meerdere keren per dag toegepast in verbonden scenario's. In niet-verbonden scenario's worden anti-malware-updates toegepast als onderdeel van de maandelijkse updates van Azure Stack. Zie [bijwerken van Windows Defender Antivirus op Azure Stack](azure-stack-security-av.md) voor meer informatie.
+Antivirus-definitie en engine-updates worden meerdere keren per dag toegepast in verbonden scenario's. In niet-verbonden scenario's worden anti-malware-updates toegepast als onderdeel van de maandelijkse updates van Azure Stack. Zie voor meer informatie, [bijwerken van Windows Defender Antivirus op Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Beperkte beheermodel
 Beheer in Azure Stack wordt beheerd door het gebruik van drie toegangspunten, elk met een specifiek doel: 
@@ -76,12 +76,24 @@ Beheer in Azure Stack wordt beheerd door het gebruik van drie toegangspunten, el
 3. Voor bepaalde bewerkingen op laag niveau, bijvoorbeeld data center-integratie of ondersteuning van scenario's, Azure Stack wordt aangegeven dat een PowerShell-eindpunt met de naam [bevoegde eindpunt](azure-stack-privileged-endpoint.md). Dit eindpunt wordt alleen een goedgekeurde set cmdlets en het is sterk gecontroleerd.
 
 ## <a name="network-controls"></a>Netwerkbesturingselementen
-Azure Stack-infrastructuur wordt geleverd met meerdere lagen van network Access Control List(ACL). De ACL's voorkomt ongeoorloofde toegang tot de onderdelen van de infrastructuur en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
+Azure Stack-infrastructuur wordt geleverd met meerdere lagen van netwerk lijst met ACL (Access Control). De ACL's voorkomt ongeoorloofde toegang tot de onderdelen van de infrastructuur en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
 
 Netwerk-ACL's worden afgedwongen in drie lagen:
 1.  Top van Rack-switches
 2.  Software Defined Network
 3.  Host en virtuele machine besturingssysteem-firewalls
+
+## <a name="regulatory-compliance"></a>Naleving van regelgeving
+
+Azure Stack is geworden door een formele evaluatie van een derde partij-onafhankelijke controle onderneming. Als gevolg hiervan is de documentatie over hoe de Azure Stack-infrastructuur voldoet aan de toepasselijke besturingselementen uit diverse belangrijke nalevingsstandaarden beschikbaar. De documentatie is niet een certificering van Azure Stack vanwege de standaarden met inbegrip van verschillende besturingselementen voor personeel met betrekking tot en met betrekking tot proces. Klanten kunnen in plaats daarvan deze documentatie gebruiken voor een vliegende start geven hun certificeringsproces.
+
+De beoordelingen zijn onder andere de volgende standaarden:
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) payment card industry-adressen.
+- [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is een uitgebreide toewijzing voor meerdere standaarden, inclusief FedRAMP gemiddeld, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 en anderen.
+- [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) voor government-klanten.
+
+De naleving-documentatie te vinden in de [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Blueprint). De handleidingen naleving zijn van een beveiligde bron en moeten u zich aanmelden met de referenties van uw Azure-cloud-service.
 
 ## <a name="next-steps"></a>Volgende stappen
 

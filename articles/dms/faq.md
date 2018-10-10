@@ -2,7 +2,7 @@
 title: Veelgestelde vragen over het gebruik van de Azure Database Migration Service | Microsoft Docs
 description: Meer informatie over veelgestelde vragen over het gebruik van de Azure Database Migration Service om uit te voeren van de databasemigraties.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: ''
@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 08158843d0dfb3e5eb0635b5f5b5d015938d895e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804409"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887101"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Azure Database Migration Service
 In dit artikel geeft een lijst met veelgestelde vragen over het gebruik van de Azure Database Migration Service, samen met verwante antwoorden.
@@ -59,9 +59,9 @@ Vereisten voor Azure Database Migration Service die betrekking hebben op alle on
 Zie voor een lijst van alle vereisten voor migratie van specifieke scenario's met behulp van de Azure Database Migration Service deelname, de gerelateerde zelfstudies in de Azure Database Migration Service [documentatie](https://docs.microsoft.com/azure/dms/dms-overview) op Docs.Microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>V. Hoe vind ik het IP-adres voor de Azure Database Migration Service zodat ik kan een acceptatielijst voor de firewall-regels gebruikt voor toegang tot mijn brondatabase voor migratie maken?
-U wilt toevoegen van firewallregels zodat de Azure Database Migration Service toegang tot uw brondatabase voor migratie. Het IP-adres voor de service dynamisch is, maar als u van Express Route gebruikmaakt, wordt dit adres privé toegewezen door uw bedrijfsnetwerk. De eenvoudigste manier om het juiste IP-adres, dat het is om te zoeken in dezelfde resourcegroep als uw ingerichte Azure Database Migration Service-resource te vinden van de bijbehorende netwerkinterface identificeren. Doorgaans de naam van de netwerkinterface-resource begint met het voorvoegsel van de NIC en gevolgd door een unieke teken en volgnummer, voorbeeld van de NIC-jj6tnztnmarpsskr82rbndyp. Als u dit netwerkinterface resource selecteert, ziet u het IP-adres dat moet worden opgenomen in de acceptatielijst op de resource-overzicht van Azure portal-pagina.
+U wilt toevoegen van firewallregels zodat de Azure Database Migration Service toegang tot uw brondatabase voor migratie. Het IP-adres voor de service dynamisch is, maar als u Expressroute gebruikt, wordt dit adres privé toegewezen door uw bedrijfsnetwerk. De eenvoudigste manier om het juiste IP-adres, dat het is om te zoeken in dezelfde resourcegroep als uw ingerichte Azure Database Migration Service-resource te vinden van de bijbehorende netwerkinterface identificeren. Doorgaans de naam van de resource van de netwerkinterface begint met het voorvoegsel van de NIC en gevolgd door een unieke teken en volgnummer, bijvoorbeeld NIC-jj6tnztnmarpsskr82rbndyp. Als u dit netwerkinterface resource selecteert, ziet u het IP-adres dat moet worden opgenomen in de acceptatielijst op de resource-overzicht van Azure portal-pagina.
 
-U moet mogelijk ook om op te nemen van de bron van de poort die SQL Server op de acceptatielijst luistert. Standaard is poort 1433, maar de bron-SQL Server kan worden geconfigureerd om te luisteren op ook andere poorten. In dit geval moet u deze poorten op de lijst ook opnemen. U kunt de poort op die SQL Server luistert op met behulp van een dynamische Beheerweergave query bepalen:
+U moet mogelijk ook om op te nemen van de bron van de poort die SQL Server op de acceptatielijst luistert. Standaard's deze poort 1433, maar de bron die SQL Server kan worden geconfigureerd om te luisteren op ook andere poorten. In dit geval moet u deze poorten op de lijst ook opnemen. U kunt de poort op die SQL Server luistert op met behulp van een dynamische Beheerweergave query bepalen:
 
 ```sql
     SELECT DISTINCT 

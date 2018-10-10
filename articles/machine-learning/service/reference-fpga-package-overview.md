@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162182"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887578"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning-hardwareversnelling-pakket
 
@@ -148,7 +148,7 @@ Deze voorbeeldcode leidt u stapsgewijs de SDK door een model implementeren op ee
 
 ## <a name="reporting-issues"></a>Problemen melden
 
-Gebruik de [forum](https://aka.ms/aml-forum) voor het rapporteren van problemen die u ondervindt met het pakket.
+Gebruik de [forum](https://aka.ms/aml-forum-service) voor het rapporteren van problemen die u ondervindt met het pakket.
 
 ## <a name="next-steps"></a>Volgende stappen
 

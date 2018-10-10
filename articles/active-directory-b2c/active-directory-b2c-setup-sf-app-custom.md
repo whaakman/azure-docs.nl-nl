@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f75f6b66e4176459023088ca944348055aabff1b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ebce7a661ab305e5dcfda191ddbad54a4e9d33a1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182719"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887254"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Instellen van aanmelding met een Salesforce-SAML-provider met behulp van aangepaste beleidsregels in Azure Active Directory B2C
 
@@ -195,6 +195,18 @@ Nu dat u een knop op locatie hebt, die u wilt koppelen aan een actie. De actie, 
 
 3. Sla de *TrustFrameworkExtensions.xml* -bestand en upload het opnieuw om te verifiëren.
 
+## <a name="create-an-azure-ad-b2c-application"></a>Een Azure AD B2C-toepassing maken
+
+Communicatie met Azure AD B2c vindt plaats via een toepassing die u in uw tenant maakt. Deze sectie vindt u optionele stappen die u uitvoeren kunt voor het maken van een testtoepassing als u dat nog niet hebt gedaan.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.
+3. Kies **alle services** in de linkerbovenhoek van de Azure portal en vervolgens zoeken naar en selecteer **Azure AD B2C**.
+4. Selecteer **toepassingen**, en selecteer vervolgens **toevoegen**.
+5. Voer een naam voor de toepassing, bijvoorbeeld *testapp1*.
+6. Voor **Web-App / Web-API**, selecteer `Yes`, en voer vervolgens `https://jwt.ms` voor de **antwoord-URL**.
+7. Klik op **Create**.
+
 ## <a name="update-and-test-the-relying-party-file"></a>Bijwerken en testen van de relying party-bestand
 
 Update voor de relying party (RP)-bestand dat initieert de gebruikersbeleving die u zojuist hebt gemaakt:
@@ -203,4 +215,5 @@ Update voor de relying party (RP)-bestand dat initieert de gebruikersbeleving di
 2. Open het nieuwe bestand en werk de waarde van de **PolicyId** voor het kenmerk **TrustFrameworkPolicy** met een unieke waarde. Bijvoorbeeld `SignUpSignInSalesforce`.
 3. Werk de waarde van **PublicPolicyUri** aan de URI voor het beleid. Bijvoorbeeld:`http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. Werk de waarde van de **ReferenceId** kenmerk in **DefaultUserJourney** zodat deze overeenkomen met de ID van de nieuwe gebruikersbeleving die u hebt gemaakt (SignUpSignInSalesforce).
-5. Sla uw wijzigingen, upload het bestand en deze testen door te klikken en te openen **nu uitvoeren**.
+5. Sla uw wijzigingen, upload het bestand en selecteer vervolgens het nieuwe beleid in de lijst.
+6. Zorg ervoor dat Azure AD B2C-toepassing die u hebt gemaakt is geselecteerd de **toepassing selecteren** veld en vervolgens testen door te klikken op **nu uitvoeren**.

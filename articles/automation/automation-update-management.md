@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816035"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887452"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -160,7 +160,7 @@ Toegevoegde Linux-agents weer de status van **bijgewerkt** nadat een evaluatie i
 
 Om te bevestigen dat een Operations Manager-beheergroep met Log Analytics communiceert, Zie [valideren Operations Manager-integratie met Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
-## <a name="data-collection"></a>Gegevens verzamelen
+## <a name="data-collection"></a>Gegevensverzameling
 
 ### <a name="supported-agents"></a>Ondersteunde agents
 
@@ -243,10 +243,10 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Essentiële updates     | Een update voor een specifiek probleem die een kritieke bug niet-beveiliging.        |
 |Beveiligingsupdates     | Een update voor een probleem met de productspecifieke, productspecifieke beveiliging.        |
 |Updatepakketten     | Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie.        |
-|Feature Ppacks     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
+|Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
 |Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
 |Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
-|Hulpmiddelen     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
+|Hulpprogramma's     | Een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.        |
 |Updates     | Een update voor een toepassing of bestand dat momenteel wordt geïnstalleerd.        |
 
 ### <a name="linux"></a>Linux
@@ -254,7 +254,7 @@ De volgende tabellen worden de updateclassificaties in Update Management met een
 |Classificatie  |Beschrijving  |
 |---------|---------|
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een probleem met de productspecifieke, productspecifieke beveiliging.         |
-|Andere updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
+|Andere Updates     | Alle overige updates die niet essentieel zijn in de aard of die niet-beveiligingsupdates.        |
 
 Voor Linux, updatebeheer, kunnen onderscheid maken tussen essentiële updates en beveiligingsupdates in de cloud bij het weergeven van gegevens voor de evaluatie vanwege gegevensverrijking in de cloud. Het toepassen van patches, gebruikmaakt van updatebeheer classificatie gegevens beschikbaar is op de computer. In tegenstelling tot andere distributies CentOS heeft geen deze informatie beschikbaar buiten het vak. Hebt u CentOS-machines die zijn geconfigureerd op een manier om terug te keren van beveiligingsgegevens voor de volgende opdracht, zich updatebeheer voor het patchen van op basis van classificaties.
 
@@ -499,7 +499,7 @@ Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtu
 * Abonnement
 * Resourcegroepen
 * Locaties
-* Codes
+* Tags
 
 ![Groepen selecteren](./media/automation-update-management/select-groups.png)
 
@@ -515,7 +515,7 @@ Zie voor meer informatie over het integreren van de oplossing voor beheer met Sy
 
 ## <a name="inclusion-behavior"></a>Opname-gedrag
 
-Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die zijn ingesteld om te worden opgenomen worden, ongeacht de classificaties die zijn geselecteerd voor de implementatie geïnstalleerd.
+Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die zijn ingesteld om te worden opgenomen, zijn geïnstalleerd. Wanneer Patches of pakketten zijn ingesteld om op te nemen en een classificatie ook is geselecteerd, worden de opgenomen items en de items die voldoen aan de classificatie geïnstalleerd.
 
 Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket dat specifcally uitgesloten heeft, is is het pakket niet geïnstalleerd.
 

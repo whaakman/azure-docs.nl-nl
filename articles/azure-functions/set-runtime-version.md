@@ -7,24 +7,27 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 10/05/2018
 ms.author: glenga
-ms.openlocfilehash: 889a5a40409238462ee81d3bbd51ac6b77d28173
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947481"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886804"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Het doel-Azure Functions runtime-versies
 
-Een functie-app wordt uitgevoerd op een specifieke versie van de Azure Functions-runtime. Er zijn twee primaire versies: [1.x en 2.x](functions-versions.md). In dit artikel wordt uitgelegd hoe u een functie-app configureren in Azure uit te voeren op de versie die u kiest. Zie voor meer informatie over het configureren van een lokale ontwikkelingsomgeving voor een specifieke versie [Code en test Azure Functions lokaal](functions-run-local.md).
+Een functie-app wordt uitgevoerd op een specifieke versie van de Azure Functions-runtime. Er zijn twee primaire versies: [1.x en 2.x](functions-versions.md). Standaard functie-apps die zijn gemaakt, versie 2.x van de runtime. In dit artikel wordt uitgelegd hoe u een functie-app configureren in Azure uit te voeren op de versie die u kiest. Zie voor meer informatie over het configureren van een lokale ontwikkelingsomgeving voor een specifieke versie [Code en test Azure Functions lokaal](functions-run-local.md).
+
+> [!NOTE]
+> U kunt de runtimeversie voor een functie-app met een of meer functies niet wijzigen. U moet de Azure-portal gebruiken om het wijzigen van de runtimeversie.
 
 ## <a name="automatic-and-manual-version-updates"></a>Automatische en handmatige versie-updates
 
 Functions kunt u richten op een specifieke versie van de runtime met behulp van de `FUNCTIONS_EXTENSION_VERSION` toepassingsinstelling in een functie-app. De functie-app wordt opgeslagen op de opgegeven primaire versie totdat u zelf kiezen om te verplaatsen naar een nieuwe versie.
 
-Als u alleen de primaire versie ("~ 2" voor 2.x of '~ 1' voor 1.x) opgeeft, wordt de functie-app automatisch bijgewerkt naar de nieuwe secundaire versies van de runtime wanneer deze beschikbaar worden. Nieuwe secundaire versies kunnen niet tot belangrijke wijzigingen. Als u een secundaire versie (bijvoorbeeld ' 2.0.12345') opgeeft, wordt de functie-app op die versie bewaard totdat u deze expliciet wijzigt. 
+Als u alleen de primaire versie ("~ 2" voor 2.x of '~ 1' voor 1.x) opgeeft, wordt de functie-app automatisch bijgewerkt naar de nieuwe secundaire versies van de runtime wanneer deze beschikbaar worden. Nieuwe secundaire versies kunnen niet tot belangrijke wijzigingen. Als u een secundaire versie (bijvoorbeeld ' 2.0.12345') opgeeft, wordt de functie-app is vastgemaakt aan die specifieke versie totdat u deze expliciet wijzigt.
 
 Wanneer een nieuwe versie openbaar beschikbaar is, geeft u een opdrachtprompt in de portal de kans op omhoog verplaatsen naar deze versie. Nadat u hebt verplaatst naar een nieuwe versie, kunt u altijd gebruiken de `FUNCTIONS_EXTENSION_VERSION` toepassingsinstelling om weer te verplaatsen naar een eerdere versie.
 
@@ -32,42 +35,74 @@ Een wijziging in de runtimeversie zorgt ervoor dat een functie-app te starten.
 
 De waarden die u kunt instellen in de `FUNCTIONS_EXTENSION_VERSION` app-instelling voor het inschakelen van automatische updates zijn momenteel '~ 1' voor de runtime 1.x en "~ 2" voor 2.x.
 
-## <a name="view-the-current-runtime-version"></a>De huidige runtimeversie weergeven
+## <a name="view-and-update-the-current-runtime-version"></a>Weergeven en bijwerken van de huidige runtimeversie
 
-Gebruik de volgende procedure om de runtimeversie die momenteel wordt gebruikt door een functie-app weer te geven. 
+Gebruik de volgende procedure om de runtimeversie die momenteel wordt gebruikt door een functie-app weer te geven.
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar de functie-app en klikt u onder **functies geconfigureerd**, kiest u **functie app-instellingen**. 
+1. In de [Azure-portal](https://portal.azure.com), blader naar uw functie-app.
 
-    ![Instellingen voor functie-app selecteren](./media/functions-versions/add-update-app-setting.png)
+1. Onder **functies geconfigureerd**, kiest u **functie app-instellingen**.
 
-2. In de **functie app-instellingen** tabblad, Ga naar de **runtimeversie**. Houd er rekening mee de specifieke runtimeversie en de aangevraagde primaire versie. In het voorbeeld hieronder, de functies\_EXTENSIE\_versie app-instelling is ingesteld op `~1`.
- 
-   ![Instellingen voor functie-app selecteren](./media/functions-versions/function-app-view-version.png)
+    ![Instellingen voor functie-app selecteren](./media/set-runtime-version/add-update-app-setting.png)
 
-## <a name="target-a-version-using-the-portal"></a>Doel een versie met behulp van de portal
+1. In de **functie app-instellingen** tabblad, Ga naar de **runtimeversie**. Houd er rekening mee de specifieke runtimeversie en de aangevraagde primaire versie. In het onderstaande voorbeeld de versie is ingesteld op `~2`.
 
-Wanneer u een versie dan de huidige primaire versie of versie 2.0 moet, stelt de `FUNCTIONS_EXTENSION_VERSION` toepassingsinstelling.
+   ![Instellingen voor functie-app selecteren](./media/set-runtime-version/function-app-view-version.png)
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw functie-app en klikt u onder **functies geconfigureerd**, kiest u **toepassingsinstellingen**.
+1. Als u wilt vastmaken aan de versie 1.x-runtime uw functie-app, kies **~ 1** onder **runtimeversie**. Deze schakeloptie is uitgeschakeld als er functies in uw app.
 
-    ![Instellingen voor functie-app selecteren](./media/functions-versions/add-update-app-setting1a.png)
+1. Als u de runtimeversie is gewijzigd, gaat u terug naar de **overzicht** tabblad en kies **opnieuw** de app opnieuw te starten.  De functie-app wordt opnieuw opgestart die worden uitgevoerd op de versie 1.x-runtime en de sjablonen van versie 1.x worden gebruikt wanneer u functies maakt.
 
-2. In de **toepassingsinstellingen** tabblad, vinden de `FUNCTIONS_EXTENSION_VERSION` instellen en wijzig de waarde in een geldige versie van de runtime 1.x of `~2` voor versie 2.0. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld, ~ 1') gebruiken. 
+## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Weergeven en bijwerken van de runtimeversie met behulp van Azure CLI
 
-    ![De functie-app instellen](./media/functions-versions/add-update-app-setting2.png)
+U kunt ook bekijken en stel de `FUNCTIONS_EXTENSION_VERSION` vanuit de Azure CLI.
 
-3. Klik op **opslaan** om op te slaan van de update van de instelling van toepassing. 
+>[!NOTE]
+>Omdat andere instellingen wordt mogelijk beïnvloed door de runtimeversie, moet u de versie in de portal wijzigen. De portal maakt automatisch de andere vereiste updates, zoals Node.js-versie en runtime-stack, wanneer u runtimeversies wijzigt.  
 
-## <a name="target-a-version-using-azure-cli"></a>Doel een versie met behulp van Azure CLI
+Met de Azure CLI, de huidige runtimeversie met weer de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
 
- U kunt ook instellen de `FUNCTIONS_EXTENSION_VERSION` vanuit de Azure CLI. Met de Azure-CLI bijwerken de toepassingsinstelling in de functie-app met de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
+```azurecli-interactive
+az functionapp config appsettings list --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+In deze code, Vervang `<function_app>` met de naam van uw functie-app. Vervang ook `<my_resource_group>` met de naam van de resourcegroep voor uw functie-app. 
+
+U ziet de `FUNCTIONS_EXTENSION_VERSION` in de volgende uitvoer, die is afgekapt voor de duidelijkheid:
+
+```output
+[
+  {
+    "name": "FUNCTIONS_EXTENSION_VERSION",
+    "slotSetting": false,
+    "value": "~2"
+  },
+  {
+    "name": "FUNCTIONS_WORKER_RUNTIME",
+    "slotSetting": false,
+    "value": "dotnet"
+  },
+  
+  ...
+  
+  {
+    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+    "slotSetting": false,
+    "value": "8.11.1"
+  }
+]
+```
+
+U kunt bijwerken de `FUNCTIONS_EXTENSION_VERSION` instellen in de functie-app met de [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) opdracht.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
-In deze code, Vervang `<function_app>` met de naam van uw functie-app. Vervang ook `<my_resource_group>` met de naam van de resourcegroep voor uw functie-app. Vervang `<version>` met een geldige versie van de runtime 1.x of `~2` voor versie 2.x. 
+
+Vervang `<function_app>` met de naam van uw functie-app. Vervang ook `<my_resource_group>` met de naam van de resourcegroep voor uw functie-app. Vervang ook `<version>` met een geldige versie van de runtime 1.x of `~2` voor versie 2.x.
 
 U kunt uitvoeren met deze opdracht uit de [Azure Cloud Shell](../cloud-shell/overview.md) door te kiezen **uitproberen** in het vorige codevoorbeeld. U kunt ook de [lokaal Azure CLI](/cli/azure/install-azure-cli) aan deze opdracht wordt uitgevoerd na het uitvoeren van [az login](/cli/azure/reference-index#az-login) aan te melden.
 

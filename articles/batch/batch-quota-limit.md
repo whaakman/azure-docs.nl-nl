@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423739"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887561"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -53,7 +53,9 @@ Als u een Batch-account met de pooltoewijzingsmodus is ingesteld gemaakt op **ge
 | [Toepassingen](batch-application-packages.md) per Batch-account |20 |
 | Toepassingspakketten per toepassing |40 |
 | De maximale levensduur van taken | 7 dagen<sup>1</sup> |
-| COMPUTE-knooppunten in de communicatie tussen knooppunten pool ingeschakeld | 100 |
+| Rekenknooppunten in [pool communicatie tussen knooppunten is ingeschakeld](batch-mpi.md) | 100 |
+| Toegewezen rekenknooppunten in [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md) | 2500 |
+| Met lage prioriteit in de rekenknooppunten [groep van toepassingen die zijn gemaakt met aangepaste VM-installatiekopie](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> de maximale levensduur van een taak, wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 7 dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
 

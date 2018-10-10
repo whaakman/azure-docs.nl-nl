@@ -5,26 +5,36 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d9c8a0e6a3bd6d79a11ee0d0dab0500a209e5571
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38941367"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888548"
 ---
-U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een Netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt.
+U een poort openen of maken van een eindpunt dat aan een virtuele machine (VM) in Azure met het maken van een netwerk-filter op een subnet of een VM-netwerkinterface. U plaatst deze filters, die binnenkomend en uitgaand verkeer worden beheerd, op een netwerkbeveiligingsgroep die is gekoppeld aan de resource die het verkeer ontvangt.
 
-We gebruiken een algemeen voorbeeld van webverkeer op poort 80. Beschikt u over een virtuele machine die is geconfigureerd om te fungeren webaanvragen op de standaard TCP-poort 80 (Vergeet niet om de juiste services starten en firewallregels besturingssysteem op de virtuele machine ook openen), u:
+Het voorbeeld in dit artikel ziet u hoe u een netwerk-filter die gebruikmaakt van de standaard TCP-poort 80 (er wordt aangenomen dat u al hebt gestart, de juiste services en firewallregels besturingssysteem op de virtuele machine geopend) te maken.
 
-1. Maak een Netwerkbeveiligingsgroep.
-2. Maak een inkomende regel het verkeer met:
-   * het poortbereik van doel van "80"
-   * het bron-poortbereik van ' * ' (zodat elke bron-poort)
-   * een prioriteitswaarde van minder 65,500 (om te worden hogere prioriteit dan de standaard catch-alle inkomende regel voor weigeren)
-3. De Netwerkbeveiligingsgroep koppelen aan het VM-netwerkinterface of subnet.
+Nadat u een virtuele machine die geconfigureerd voor de webaanvragen worden verwerkt op de standaard TCP-poort 80 hebt gemaakt, kunt u het volgende doen:
 
-U kunt complexe netwerkconfiguraties voor het beveiligen van uw omgeving met behulp van Netwerkbeveiligingsgroepen en regels kunt maken. In ons voorbeeld maakt gebruik van slechts één of twee regels waarmee HTTP-verkeer of extern beheer. Zie voor meer informatie de volgende ['Meer informatie'](#more-information-on-network-security-groups) sectie of [wat is er een Netwerkbeveiligingsgroep?](../articles/virtual-network/security-overview.md)
+1. Maak een netwerkbeveiligingsgroep.
+
+2. Maak een beveiligingsregel voor binnenkomend verkeer wordt toegestaan en waarden toewijzen aan de volgende instellingen:
+
+   - **Poortbereiken van doel**: 80
+
+   - **Poortbereiken van bron**: * (elke bron-poort worden toegestaan)
+
+   - **Prioriteitswaarde**: Voer een waarde die kleiner is dan 65.500 en hogere prioriteit dan de standaardwaarde catch-alle inkomende regel voor weigeren.
+
+3. De netwerkbeveiligingsgroep koppelen aan het VM-netwerkinterface of subnet.
+
+Hoewel in dit voorbeeld een eenvoudige regel wordt HTTP-verkeer toe te staan, kunt u ook netwerkbeveiligingsgroepen en regels gebruiken om te maken van complexere configuraties van het netwerk. 
+
+
+
 

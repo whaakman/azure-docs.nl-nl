@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: afba483172bc34b9d54afc3af755f0967affc875
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239163"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885064"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Beheren, implementeren en bewaken van modellen met Azure Machine Learning-Service
 
@@ -71,7 +71,7 @@ U kunt uw installatiekopieën implementeren op de volgende [implementatiedoelen]
 * Azure FPGA-machines
 * Azure IoT Edge-apparaten
 
-Als de service is geïmplementeerd, de aanvraag inferentietaken wordt automatisch taakverdeling en het cluster wordt geschaald om te voldoen aan pieken vertoont op aanvraag. [Telemetrie over uw service](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) kunnen worden vastgelegd in de Azure Application Insights-service die is gekoppeld aan uw werkruimte.
+Als de service is geïmplementeerd, de aanvraag inferentietaken wordt automatisch taakverdeling en het cluster wordt geschaald om te voldoen aan pieken vertoont op aanvraag. [Telemetrie over uw service kan worden vastgelegd](how-to-enable-app-insights.md) in de Azure Application Insights-service die is gekoppeld aan uw werkruimte.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>Stap 4: Modellen controleren en verzamelen van gegevens
 

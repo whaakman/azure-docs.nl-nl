@@ -10,16 +10,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745906"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888073"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Service-eindpunten voor Virtueelnetwerk gebruiken met Azure Event Hubs
 
 De integratie van Event Hubs met [Service-eindpunten voor Virtueelnetwerk (VNet)] [ vnet-sep] kunt veilige toegang tot messaging mogelijkheden van werkbelastingen, zoals virtuele machines die zijn gekoppeld aan virtuele netwerken, met het netwerkpad verkeer aan beide uiteinden worden beveiligd. 
+
+> [!IMPORTANT]
+> Virtuele netwerken worden ondersteund **standard** en **toegewezen** lagen van Event Hubs. Het wordt niet ondersteund in de basic-laag. 
 
 Eenmaal is geconfigureerd om te worden gekoppeld aan ten minste één virtueel netwerk subnet service-eindpunt, wordt de respectieve Event Hubs-naamruimte niet meer accepteert verkeer vanaf elke locatie maar geautoriseerd virtuele netwerken. Vanuit het perspectief virtueel netwerk met de binding van een Event Hubs-naamruimte met een service-eindpunt configureert een geïsoleerde netwerken tunnel vanuit het subnet van het virtuele netwerk naar de messaging-service.
 

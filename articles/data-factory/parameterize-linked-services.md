@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 7bc603ceee1f85e6f00cdac9a6ac098abb39e217
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 287dcdedede5cab575aa0b9a73ec3e122556dc93
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251015"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900720"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Gekoppelde services in Azure Data Factory parameteriseren
 
@@ -27,6 +27,18 @@ U kunt de gebruikersinterface van Data Factory in Azure Portal of een programmee
 
 > [!TIP]
 > We raden niet om te voorzien van wachtwoorden of geheimen. Alle verbindingsreeksen in plaats daarvan Store in Azure Key Vault en parameteriseren de *geheime naam*.
+
+## <a name="supported-data-stores"></a>Ondersteunde gegevensarchieven
+
+Parameterisering van de gekoppelde service wordt op dit moment ondersteund in de gebruikersinterface van Data Factory in Azure portal voor de volgende gegevensarchieven. Voor alle andere gegevensarchieven, kunt u de gekoppelde service voorzien door het selecteren van de **Code** pictogram op het pijplijntabblad en met behulp van de JSON-editor.
+- Azure SQL Database
+- Azure SQL Data Warehouse
+- SQL Server
+- Oracle
+- Cosmos DB
+- Amazon Redshift
+- MySQL
+- Azure Database for MySQL
 
 ## <a name="data-factory-ui"></a>Gebruikersinterface van Data Factory
 

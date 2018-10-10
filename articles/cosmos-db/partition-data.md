@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870567"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886379"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
@@ -104,50 +104,6 @@ Hier volgen de vereisten om te overwegen voor het partitioneren en schalen:
 * Alle containers die zijn geconfigureerd voor het delen van doorvoer als onderdeel van een set van containers worden behandeld als **onbeperkt** containers.
 
 Als u hebt gemaakt een **vaste** container zonder dat er partitie sleutel of doorvoer minder dan 1000 RU/s, de container wordt niet automatisch kan worden geschaald. Als u wilt de gegevens van een vaste container migreren naar een onbeperkte container, die u wilt gebruiken de [hulpprogramma voor gegevensmigratie](import-data.md) of de [Change Feed bibliotheek](change-feed.md). 
-
-## <a name="PartitionedGraph"></a>Vereisten voor gepartitioneerde graph
-
-Houd rekening met de volgende informatie op bij het maken van een gepartitioneerde grafiekcontainer:
-
-- **Het instellen van het partitioneren is noodzakelijk** als de container wordt verwacht dat meer dan 10 GB groot zijn en/of als bij het toewijzen van meer dan 10.000 aanvraageenheden per seconde (RU/s) vereist is.
-
-- **Hoekpunten en randen worden opgeslagen als JSON-documenten** in de back-end van een Gremlin-API van Azure Cosmos DB.
-
-- **Hoekpunten vereisen een partitiesleutel**. Deze sleutel bepaalt welke partitie wordt gebruikt voor het opslaan van het hoekpunt en een hash-algoritme maakt gebruik van dit proces. De naam van de partitiesleutel van deze is een tekenreeks van één woord zonder spaties of speciale tekens en deze is gedefinieerd bij het maken van een nieuwe container met de volgende indeling `/partitioning-key-name`.
-
-- **Randen worden opgeslagen met hun bronhoekpunt**. Met andere woorden, voor elk hoekpunt dat definieert de partitiesleutel waar het hoekpunt en de uitgaande randen zijn opgeslagen. Dit wordt gedaan om te voorkomen dat partitieoverkoepelende query's bij het gebruik van de `out()` kardinaliteit in graph-query's.
-
-- **Graph-query's moeten een partitiesleutel opgeven**. Query's moeten partitiesleutel bevatten om te profiteren van de horizontale partitionering in Azure Cosmos DB, indien mogelijk de grafiek. Bijvoorbeeld wanneer een hoekpunt is geselecteerd. De volgende voorbeeldquery's laten zien hoe om op te nemen partitiesleutel bij het selecteren van een of meerdere hoekpunten in een gepartitioneerde grafiek:
-
-    - **U kunt geen gebruiken momenteel wordt `/id` als partitiesleutel voor een container in Gremlin-API**.
-
-    - Selecteren en vervolgens een hoekpunt door-ID, **gebruiken de `.has()` stap om op te geven van de partitie-sleuteleigenschap**: 
-    
-        ```
-        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
-        ```
-    
-    - Selecteren van een hoekpunt door **op te geven een tuple met inbegrip van de waarde voor de partitiesleutel en -ID**: 
-    
-        ```
-        g.V(['partitionKey_value', 'vertex_id'])
-        ```
-        
-    - Een hoekpunt selecteren door op te geven een **matrix met tuples die partitiesleutelwaarden die zijn en id's bevatten**:
-    
-        ```
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
-        ```
-        
-    - Selecteren van een set met hoekpunten door **op te geven een lijst met partitie-sleutelwaarden**: 
-    
-        ```
-        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
-        ```
-
-* **Altijd de waarde voor de partitiesleutel opgeven bij het opvragen van een hoekpunt**. Het verkrijgen van een hoekpunt van een bekende partitie is de meest efficiënte manier wat betreft prestaties.
-
-* **De uitgaande richting gebruiken bij het opvragen van randen** wanneer het is mogelijk. Randen worden opgeslagen met hun bron hoekpunten in de uitgaande richting. Dit betekent dat de kans op sorteren op query's over meerdere partities wanneer de gegevens en query's zijn ontworpen met dit patroon waarmee u rekening moet worden beperkt.
 
 ## <a name="designing-for-partitioning"></a> Maken van een partitiesleutel 
 U kunt de Azure portal of Azure CLI containers te maken en ze op elk gewenst moment te schalen. Deze sectie wordt beschreven hoe u containers maken en de ingerichte doorvoer en partitie sleutel met behulp van elke API opgeven.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: bf55f4f4aa91efaf1c4512339a6d54f893788bae
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816749"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883632"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer met TCP-opnieuw instellen op niet-actieve (openbare Preview)
 
@@ -43,7 +43,7 @@ Zorgvuldig de hele end-to-end scenario om te bepalen of u profiteren van het ins
 
 ## <a name="enabling-tcp-reset-on-idle-timeout"></a>Inschakelen van de TCP-opnieuw instellen op de time-out voor inactiviteit
 
-Met API-versie 2018-08-01, kunt u inschakelen verzenden van bidirectionele TCP wordt opnieuw ingesteld op de time-out voor inactiviteit op basis van per regel:
+Met API-versie 2018-07-01, kunt u inschakelen verzenden van bidirectionele TCP wordt opnieuw ingesteld op de time-out voor inactiviteit op basis van per regel:
 
 ```json
       "loadBalancingRules": [
@@ -73,7 +73,7 @@ Met API-versie 2018-08-01, kunt u inschakelen verzenden van bidirectionele TCP w
 
 Deze parameter werkt momenteel in de volgende regio's.  In de regio's hier niet wordt vermeld, heeft de parameter geen effect.
 
-| Gebied |
+| Regio |
 |---|
 | Azië - zuidoost |
 | Europa - west |

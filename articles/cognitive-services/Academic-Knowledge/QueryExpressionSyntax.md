@@ -1,90 +1,91 @@
 ---
-title: De querysyntaxis expressie in de Academic Knowledge API | Microsoft Docs
-description: Informatie over het gebruik van de syntaxis van de query-expressie in de Academic Knowledge API voor cognitieve Microsoft-Services.
+title: Query-expressies - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over het gebruik van de query-expressies in de Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6ec338fff09954e2f14066ce2b83bc1228794af8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344425"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901274"
 ---
-# <a name="query-expression-syntax"></a>Syntaxis van de query-expressie
+# <a name="query-expression-syntax"></a>De syntaxis van de query-expressie
 
-Wij hebben die het antwoord op een **interpreteren** aanvraag bevat een query-expressie. De grammatica die geïnterpreteerd query van de gebruiker een query-expressie voor elke interpretatie gemaakt. Een query-expressie kan vervolgens worden gebruikt om een **evalueren** aanvraag zoekresultaten entiteit ophalen.
+Hebben we gezien dat het antwoord op een **interpreteren** aanvraag bevat een query-expressie. De grammatica die geïnterpreteerd query van de gebruiker een query-expressie voor elke interpretatie gemaakt. Een query-expressie kan vervolgens worden gebruikt voor probleem een **evalueren** aanvraag voor het ophalen van de zoekresultaten van entiteiten.
 
-U kunt ook uw eigen query-expressies maken en gebruiken ze op in een **evalueren** aanvraag. Dit is handig als u uw eigen gebruikersinterface die u een query-expressie in reactie op acties van de gebruiker maakt wilt maken. Om dit te doen, moet u weten de syntaxis voor query-expressies.  
+U kunt ook uw eigen query-expressies maken en ze gebruiken in een **evalueren** aanvraag. Dit is handig als u het bouwen van uw eigen gebruikersinterface die u een query-expressie in reactie op de acties van de gebruiker maakt. Om dit te doen, moet u weten de syntaxis voor query-expressies.  
 
-Elke entiteit-kenmerk dat kan worden opgenomen in een query-expressie heeft een specifiek gegevenstype en een aantal mogelijke voor query's. De set entiteitskenmerken en ondersteunde operators voor elk kenmerk is opgegeven in [entiteitskenmerken](EntityAttributes.md). Een query met één waarde moet het kenmerk voor de ondersteuning van de *gelijk is aan* bewerking. Een query voorvoegsel moet het kenmerk voor de ondersteuning van de *StartsWith* bewerking. Query's numeriek bereik moet het kenmerk voor de ondersteuning van de *IsBetween* bewerking.
+Elke entiteit-kenmerk dat kan worden opgenomen in een query-expressie heeft een type specifieke gegevens en een set van mogelijke query-operators. De set kenmerken en de ondersteunde operators voor elk kenmerk is opgegeven in [Entiteitkenmerken](EntityAttributes.md). Een query met één waarde moet het kenmerk voor de ondersteuning van de *gelijk is aan* bewerking. Een query voorvoegsel moet het kenmerk voor de ondersteuning van de *StartsWith* bewerking. Numerieke bereik-query's moet het kenmerk voor de ondersteuning van de *IsBetween* bewerking.
 
-Sommige van de entiteitsgegevens worden opgeslagen als samengestelde kenmerken, zoals aangegeven door een punt '.' in de naam van het kenmerk. Bijvoorbeeld wordt auteur/lidmaatschap van de informatie weergegeven als een samengesteld kenmerk. Deze 4 onderdelen bevat: AuN, AuId, AfN, AfId. Deze onderdelen zijn afzonderlijke gegevenselementen die een kenmerkwaarde één entiteit vormen.
+Sommige van de entiteitsgegevens worden opgeslagen als samengestelde kenmerken, zoals aangegeven door een punt '.' naam van het kenmerk. Bijvoorbeeld, wordt auteur/relatie informatie weergegeven als een samengesteld kenmerk. Deze 4 onderdelen bevat: AuN, AuId, AfN, AfId. Deze onderdelen zijn verschillende soorten gegevens die een waarde van het kenmerk één entiteit vormen.
 
 
-**Tekenreekskenmerk: Één waarde** (inclusief overeenkomsten met synoniemen)  
-TI = 'indexeren door latente semantische analyse'  
-Samengestelde (AA. AuN = 'verrichten dumais')
+**Tekenreeks-kenmerk: Één waarde** (met inbegrip van overeenkomsten op basis van synoniemen)  
+TI = 'indexering door latente semantische analyse'  
+Samengestelde (AA. AuN = 'gerechtelijke procedure dumais')
 
-**Tekenreekskenmerk: Exacte één waarde** (komt overeen met alleen canonieke waarden)  
-TI == 'indexeren door latente semantische analyse'  
+**Tekenreeks-kenmerk: Exact één waarde** (komt overeen met alleen de canonieke waarden)  
+TI == 'indexering door latente semantische analyse'  
 Samengestelde (AA. AuN == 'susan t dumais')
      
-**: Tekenreeks voorvoegsel kenmerkwaarde**   
-TI = 'indexeren door latente seman'...  
-Samengestelde (AA. AuN =... 'verrichten du')
+**Tekenreekskenmerk: Voorvoegsel**   
+TI = 'indexering door latente seman'...  
+Samengestelde (AA. AuN =... 'gerechtelijke procedure du')
 
-**Numerieke kenmerk: De enkele waarde**  
+**Numerieke kenmerk: Één waarde**  
 Y = 2010
  
-**Numerieke kenmerk: De waarde binnen het bereik**  
+**Numerieke kenmerk: Waarde van het bereik**  
 Y &GT; 2005  
 Y &GT; = 2005  
 Y &LT; 2010  
 Y &LT; = 2010  
-Y =\[2010, 2012\) (bevat alleen links grenswaarde: 2010, 2011)  
+Y =\[2010, 2012\) (alleen links grenswaarde bevat: 2010, 2011)  
 Y =\[2010, 2012\] (beide waarden bevat: 2010, 2011, 2012)
  
-**Numerieke kenmerk: Waarde van het voorvoegsel**  
+**Numerieke kenmerk: Waarde van het Aanpassingsvoorvoegsel**  
 Y = '19'... (een numerieke waarde die met 19 begint) 
  
-**Datumkenmerk: Enkele waarde**  
-D ='2010-02-04'
+**Datumkenmerk: Één waarde**  
+D = "2010-02-04'
 
-**Datumkenmerk: De waarde binnen het bereik**  
-D &GT;'2010-02-03'  
-D = ['2010-02-03', ' 2010-02-05']
+**Datumkenmerk: Waarde voor het bereik**  
+D &GT; "2010-02-03'  
+D = ["2010-02-03', ' 2010-02-05']
 
 **En/of query's:**  
 En (Y = 1985, Ti = 'disordered elektronische systemen')  
-Of (Ti = 'disordered elektronische systemen', Ti = 'fouttolerantie beginselen en practice')  
+Of (Ti = 'disordered elektronische systemen', Ti = "fault tolerance principes en praktijken")  
 And(OR(Y=1985,Y=2008), Ti = 'disordered elektronische systemen')
  
 **Samengestelde query's:**  
-U moet voor query-componenten van een samengesteld kenmerk, plaatst u het deel van de queryexpressie die naar het samengestelde kenmerk in de functie Composite() verwijst. 
+Op queryonderdelen van een samengestelde kenmerk moet u het deel van de query-expressie die naar het samengestelde kenmerk in de functie Composite() verwijst. 
 
 Bijvoorbeeld wilt zoeken naar documenten door de naam van auteur, gebruikt u de volgende query:
 ```
 Composite(AA.AuN='mike smith')
 ```
-<br>Om te vragen voor documenten van een bepaalde auteur tijdens de auteur van het bij een bepaalde instelling, gebruik de volgende query:
+<br>Om te vragen voor documenten door de auteur van een bepaalde terwijl de auteur bij een bepaalde instelling is, gebruik de volgende query:
 ```
 Composite(And(AA.AuN='mike smith',AA.AfN='harvard university'))
 ```
-<br>De functie Composite() verbindt de twee delen van het samengestelde kenmerk samen. Dit betekent dat er alleen papers waarbij een van de auteurs 'Mike Smith' is ophalen terwijl hij op Harvard. 
+<br>De functie Composite() de twee onderdelen van het samengestelde kenmerk gebundeld. Dit betekent dat we alleen documenten waarin een van de auteurs 'Mike Smith' is terwijl hij bij Harvard werkte. 
 
-Als u wilt zoeken naar documenten van een bepaalde auteur in verwantschappen met (andere) auteurs van een bepaalde instelling, gebruik de volgende query:
+Om te vragen voor documenten door de auteur van een bepaalde in connecties met (andere) auteurs van een bepaalde instelling, gebruikt u de volgende query:
 ```
 And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
-<br>In deze versie omdat Composite() wordt toegepast op de auteur en de relatie afzonderlijk voordat And(), krijgen we alle documenten, waarbij een van de auteurs 'Mike Smith' en een van de auteurs verwantschappen 'Harvard' is. Dat klinkt vergelijkbaar met het vorige voorbeeld van de query, maar het is niet hetzelfde.
+<br>In deze versie omdat Composite() wordt toegepast op de auteur en de relatie afzonderlijk voordat And(), krijgen we alle documenten waarbij een van de auteurs 'Mike Smith' en een van de auteurs connecties 'Harvard' is. Dit klinkt die vergelijkbaar is met het vorige voorbeeld, maar het is niet hetzelfde te doen.
 
-In het algemeen Bekijk het volgende voorbeeld: We hebben een samengestelde kenmerk C dat bestaat uit twee onderdelen A en B. Een entiteit kan meerdere waarden hebben voor C. Dit zijn de entiteiten:
+In het algemeen, bekijk het volgende voorbeeld: Er is een samengestelde kenmerk C dat bestaat uit twee onderdelen A en B. Een entiteit kan meerdere waarden hebben voor C. Dit zijn onze entiteiten:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}
@@ -101,9 +102,9 @@ De query
 ```
 And(Composite(C.A=1), Composite(C.B=2))
 ```
-<br>komt overeen met entiteiten met een waarde voor C waarbij C.A 1 is ook een waarde hebben voor C waarbij C.B 2 is. Zowel E1 en E2 overeen met deze query.
+<br>komt overeen met entiteiten die een waarde hebben voor C waar C.A is 1 en ook een waarde hebben voor C waar C.B is 2. E1- en E2 komen overeen met deze query.
 
 Opmerking:  
-- U kan niet verwijzen naar een deel van een samengesteld kenmerk buiten een Composite()-functie.
-- U kunt delen van twee verschillende samengestelde kenmerken binnen dezelfde Composite()-functie kan niet verwijzen naar.
-- U kan niet verwijzen naar een kenmerk die geen deel uitmaakt van een samengesteld kenmerk binnen een functie Composite().
+- U kan niet verwijzen naar een deel van een samengestelde kenmerk buiten een Composite()-functie.
+- U kunt delen van twee verschillende samengestelde kenmerken binnen dezelfde Composite() functie kan niet verwijzen naar.
+- U kunt een kenmerk die geen deel uitmaakt van een samengestelde kenmerk binnen een functie Composite() kan niet verwijzen naar.

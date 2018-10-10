@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043071"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888218"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,6 +293,23 @@ Als u wilt om de inhoud van stdout.txt aan downstream-activiteiten te gebruiken,
   > [!IMPORTANT]
   > - De activity.json, linkedServices.json en datasets.json zijn opgeslagen in de map van de runtime van de Batch-taak. In dit voorbeeld de activity.json, linkedServices.json en datasets.json worden opgeslagen in 'https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/ ' pad. Indien nodig, moet u ze afzonderlijk opschonen. 
   > - Voor de gekoppelde Services maakt gebruik van zelfgehoste Integration Runtime, de gevoelige gegevens, zoals sleutels of wachtwoorden zijn versleuteld door de zelfgehoste Integration Runtime om ervoor te zorgen referentie gedefinieerd blijft klant particuliere netwerkomgeving. Sommige tijdgevoelige velden kunnen worden ontbrekende wanneer waarnaar wordt verwezen door de code van uw aangepaste toepassing op deze manier. Gebruik SecureString in extendedProperties in plaats van verwijzing naar de gekoppelde Service, indien nodig. 
+
+## <a name="retrieve-securestring-outputs"></a>SecureString uitvoer ophalen
+
+Gevoelige eigenschapswaarden die zijn aangewezen als het type *SecureString*, zoals weergegeven in enkele van de voorbeelden in dit artikel uit op het tabblad bewaking in de Data Factory-gebruikersinterface worden gemaskeerd.  In de werkelijke pijplijn worden uitgevoerd, maar een *SecureString* eigenschap is geserialiseerd als JSON binnen de `activity.json` bestand als tekst zonder opmaak. Bijvoorbeeld:
+
+```json
+"extendedProperties": {
+    "connectionString": {
+        "type": "SecureString",
+        "value": "aSampleSecureString"
+    }
+}
+```
+
+Deze serialisatie is niet echt beveiligd, en is niet bedoeld om te beveiligen. Het doel is om hint aan de Data Factory om te maskeren van de waarde in het tabblad bewaking.
+
+Eigenschappen van het type toegang *SecureString* van een aangepaste activiteit lezen de `activity.json` -bestand, dat wordt geplaatst in dezelfde map als uw. Uitvoerbare bestanden, deserialiseren van de JSON, en vervolgens toegang tot de JSON-eigenschap (extendedProperties = > [propertyName] = > waarde).
 
 ## <a name="compare-v2-v1"></a> Aangepaste v2-activiteit vergelijken met versie 1 (aangepaste) DotNet-activiteit
 

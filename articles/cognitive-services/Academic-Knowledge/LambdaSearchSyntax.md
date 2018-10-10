@@ -1,52 +1,53 @@
 ---
-title: Lambda-zoeksyntaxis in de Academic Knowledge API | Microsoft Docs
-description: Meer informatie over de syntaxis van de Lambda-zoekopdracht die kunt u in de Academic Knowledge API in cognitieve Microsoft-Services.
+title: Lambda-zoeksyntaxis - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over de Lambda-zoeksyntaxis die kunt u in de Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f486368e1d0258087091acb846a84b125712db40
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344440"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902685"
 ---
 # <a name="lambda-search-syntax"></a>Lambda-Zoeksyntaxis
 
-Elke *lambda* zoekquery tekenreeks beschrijft een patroon van de grafiek. Een query moet ten minste één beginknooppunt, geven we start vanaf welk knooppunt van de grafiek het transport hebben. Geef een beginknooppunt door aanroepen de *magnetische. StartFrom()* methode en geeft u de id('s) van een of meer knooppunten of een query-object waarmee de zoekcriteria. De *StartFrom()* methode heeft drie overloads. Deze duren twee argumenten met de tweede wordt optioneel. Het eerste argument kan een lange integer, een lange integer inventariseerbare verzameling of een tekenreeks voor een JSON-object met dezelfde betekenis zoals in *json* zoeken:
+Elke *lambda* zoekquery tekenreeks een graph-patroon wordt beschreven. Een query moet ten minste één vanaf knooppunt op te geven van welk knooppunt graph beginnen we eerst het transport. Als u een eerste knooppunt, aanroepen de *MAG. StartFrom()* methode en geeft u de id's van een of meer knooppunten of een query-object dat Hiermee geeft u de zoekcriteria. De *StartFrom()* methode heeft drie overloads. Al deze neemt twee argumenten met de tweede wordt optioneel. Het eerste argument kan een lange integer, een verzameling invoeroverzicht van lange geheel getal, of een tekenreeks voor een JSON-object, met dezelfde semantiek als in *json* zoeken:
 ```
 StartFrom(long cellid, IEnumerable<string> select = null)
 StartFrom(IEnumerable<long> cellid, IEnumerable<string> select = null)
 StartFrom(string queryObject, IEnumerable<string> select = null)
 ```
 
-Schrijven van een lambda-zoekquery wordt stapsgewijs van het ene knooppunt naar een andere. Gebruik het opgeven van het type van de rand te doorlopen *FollowEdge()* en in de gewenste rand typen. *FollowEdge()* duurt een willekeurig aantal tekenreeksargumenten:
+Het proces van het schrijven van een lambda-zoekquery wordt worden uitgelegd van het ene knooppunt naar een andere. Gebruik het opgeven van het type van de rand om te zien hoe *FollowEdge()* en door te geven in de gewenste edge-typen. *FollowEdge()* duurt een willekeurig aantal tekenreeksargumenten:
 ```
 FollowEdge(params string[] edgeTypes)
 ```
 > [!NOTE]
-> Als er niet van belang is over de typen van de edge(s) te volgen, weglaten *FollowEdge()* tussen twee knooppunten: de query wordt de mogelijke randen doorlopen tussen deze twee knooppunten.
+> Als we niet geïnteresseerd in het type van de edge(s) bent te volgen, laat *FollowEdge()* tussen twee knooppunten: de query helpt bij de mogelijke randen tussen deze twee knooppunten.
 
-We kunnen de traversal acties moeten worden uitgevoerd op een knooppunt via opgeven *VisitNode()*, dat wil zeggen, of om te stoppen op dit knooppunt en het huidige pad als het resultaat te retourneren of moet worden doorgegaan met het verkennen van de grafiek.  Het enum-type *actie* definieert twee soorten bewerkingen: *Action.Return* en *Action.Continue*. Geven we deze een enum-waarde rechtstreeks in *VisitNode()*, of ze combineren met bitwise- en de operator '&'. Wanneer twee actie worden gecombineerd, betekent dit dat beide acties worden uitgevoerd. Opmerking: gebruik geen Bitsgewijs- of operator ' |' van de acties. Hierdoor wordt de query is beëindigd zonder iets te retourneren. Overslaan *VisitNode()* tussen twee *FollowEdge()* aanroepen, wordt de query voor de grafiek onvoorwaardelijk verkennen nadat zij op een knooppunt.
+We kunnen de traversal acties worden uitgevoerd op een knooppunt via opgeven *VisitNode()*, dat wil zeggen, of om te stoppen op dit knooppunt en het huidige pad als het resultaat te retourneren, of om door te gaan naar het verkennen van de grafiek.  Het type enum *actie* definieert u twee soorten acties: *Action.Return* en *Action.Continue*. Die kunnen worden doorgegeven die een enum-waarde rechtstreeks in *VisitNode()*, of ze worden gecombineerd met bitwise- en de operator '&'. Als twee actie worden gecombineerd, betekent dit dat beide acties worden uitgevoerd. Opmerking: gebruik geen Bitsgewijs- of -operator ' |' op acties. In dat geval zorgt ervoor dat de query te beëindigen zonder iets te retourneren. Overgeslagen *VisitNode()* tussen twee *FollowEdge()* aanroepen zorgt ervoor dat de query in de grafiek onvoorwaardelijk verkennen nadat zij op een knooppunt.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-Voor *VisitNode()*, kunnen we ook doorgeven in een lambda-expressie van het type *expressie\<Func\<inodes door, actie\>\>*, wat een duurt*Inodes door* en retourneert een transport-actie:
+Voor *VisitNode()*, die ook kunnen worden doorgegeven in een lambda-expressie van het type *expressie\<Func\<Inodes, actie\>\>*, die een duurt*Inodes* en retourneert een transport-actie:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
 ```
 
-## <a name="inode"></a>*Inodes door* 
+## <a name="inode"></a>*Inodes* 
 
-*Inodes door* biedt *alleen-lezen* data access-interfaces en enkele ingebouwde hulpfuncties die op een knooppunt. 
+*Inodes* biedt *alleen-lezen* data access-interfaces en een aantal ingebouwde hulpfuncties die op een knooppunt. 
 
 ### <a name="basic-data-access-interfaces"></a>Basic data access-interfaces
 
@@ -54,17 +55,17 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 De 64-bits-ID van het knooppunt. 
 
-##### <a name="t-getfieldtstring-fieldname"></a>T GetField\<T\>(string fieldName)
+##### <a name="t-getfieldtstring-fieldname"></a>T GetField\<T\>(fieldName string)
 
-Hiermee wordt de waarde van de opgegeven eigenschap. *T* is het gewenste type dat moet worden geïnterpreteerd als het veld. Automatische type casten wordt geprobeerd als het gewenste type kan niet impliciet worden geconverteerd van het type van het veld. Opmerking: als de eigenschap is met meerdere waarden *GetField\<tekenreeks\>*  , wordt de lijst om te worden geserialiseerd naar een Json-tekenreeks ['waarde1', 'waarde2',...]. Als de eigenschap niet bestaat, wordt Veroorzaak een exception en de huidige grafiek exploratie afbreken.
+Hiermee haalt u de waarde van de opgegeven eigenschap. *T* is het gewenste type dat het veld worden geïnterpreteerd moet als. Automatische type casten zal worden uitgevoerd als het gewenste type kan niet impliciet worden geconverteerd van het type van het veld. Opmerking: als de eigenschap is meerdere waarden *GetField\<tekenreeks\>*  zorgt ervoor dat de lijst om te worden geserialiseerd naar een Json-tekenreeks ["val1", "val2',...]. Als de eigenschap niet bestaat, wordt een uitzondering en afbreken van de huidige graph verkennen.
 
 ##### <a name="bool-containsfieldstring-fieldname"></a>BOOL ContainsField (veldnaam tekenreeks)
 
-Geeft aan of een veld met de gegeven naam in het huidige knooppunt bestaat.
+Geeft aan of een veld met de opgegeven naam in het huidige knooppunt bestaat.
 
-##### <a name="string-getstring-fieldname"></a>tekenreeks (string veldnaam) ophalen
+##### <a name="string-getstring-fieldname"></a>tekenreeks (tekenreeks veldnaam) ophalen
 
-Werkt als *GetField\<tekenreeks\>(veldnaam)*. Echter deze komt niet uitzonderingen genereert wanneer het veld niet wordt gevonden, wordt een lege string("") in plaats daarvan.
+Werkt als *GetField\<tekenreeks\>(veldnaam)*. Echter deze komt niet uitzonderingen genereren wanneer het veld niet wordt gevonden, resulteert dit in een lege string("") in plaats daarvan.
 
 ##### <a name="bool-hasstring-fieldname"></a>BOOL heeft (veldnaam tekenreeks)
 
@@ -78,21 +79,21 @@ Geeft aan of de eigenschap de opgegeven waarde heeft.
 
 Het aantal waarden van een bepaalde eigenschap ophalen. Wanneer de eigenschap niet bestaat, retourneert 0.
 
-### <a name="built-in-helper-functions"></a>Ingebouwd Help-functies
+### <a name="built-in-helper-functions"></a>Ingebouwde ondersteunende functies
 
-##### <a name="action-returnifbool-condition"></a>Actie return_if (bool voorwaarde)
+##### <a name="action-returnifbool-condition"></a>Actie return_if (Boole-voorwaarde)
 
-Retourneert *Action.Return* als de voorwaarde *true*. Als de voorwaarde *false* en deze expressie wordt niet samengevoegd met andere acties van een bitwise- en -operator, de exploratie van de grafiek wordt afgebroken.
+Retourneert *Action.Return* als de voorwaarde is *waar*. Als de voorwaarde is *false* en deze expressie is niet samengevoegd met andere acties van een bitwise- en -operator, de verkenning van de grafiek wordt afgesloten.
 
-##### <a name="action-continueifbool-condition"></a>Actie continue_if (bool voorwaarde)
+##### <a name="action-continueifbool-condition"></a>Actie continue_if (Boole-voorwaarde)
 
-Retourneert *Action.Continue* als de voorwaarde *true*. Als de voorwaarde *false* en deze expressie wordt niet samengevoegd met andere acties van een bitwise- en -operator, de exploratie van de grafiek wordt afgebroken.
+Retourneert *Action.Continue* als de voorwaarde is *waar*. Als de voorwaarde is *false* en deze expressie is niet samengevoegd met andere acties van een bitwise- en -operator, de verkenning van de grafiek wordt afgesloten.
 
-##### <a name="bool-dicedouble-p"></a>BOOL opdelen (dubbele p)
+##### <a name="bool-dicedouble-p"></a>BOOL dice (dubbele p)
 
-Genereert een willekeurig getal dat groter is dan of gelijk zijn aan 0,0 en kleiner dan 1.0. Deze functie retourneert *true* alleen als het aantal is kleiner dan of gelijk zijn aan *p*.
+Genereert een willekeurig getal dat groter is dan of gelijk zijn aan 0,0 en kleiner dan 1,0 liggen. Deze functie retourneert *waar* alleen als het getal is kleiner dan of gelijk zijn aan *p*.
 
-Vergeleken met de *json* zoeken, *lambda* zoekopdracht heeft meer expressieve: C# lambda-expressies kunnen rechtstreeks worden gebruikt om op te geven querypatronen. Hier vindt u twee voorbeelden.
+Vergeleken met *json* zoeken, *lambda* zoekopdracht heeft meer expressieve: C# lambda-expressies kunnen rechtstreeks worden gebruikt om op te geven querypatronen. Hier volgen twee voorbeelden.
 
 ```
 MAG.StartFrom(@"{

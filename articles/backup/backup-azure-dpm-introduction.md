@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: adigan
-ms.openlocfilehash: 873e7066bcf51b32c3a7a54e845ffd5a744f407f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 2da5b04f56a5746fb77de6bc954bb5971eb4664b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745432"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885167"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Met DPM voorbereiden op het maken van back-ups van workloads in Azure
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Nadat de Azure Backup-kluis is gemaakt, moet een agent worden geïnstalleerd op 
 14. Wanneer u Data Protection Manager, kunt u de instellingen die zijn opgegeven tijdens de registratiewerkstroom door te klikken op de **configureren** optie hiervoor **Online** onder de **Management**  Tabblad.
 
 ## <a name="requirements-and-limitations"></a>Vereisten (en beperkingen)
-* DPM kan worden uitgevoerd als een fysieke server of een Hyper-V virtuele machine is geïnstalleerd op de System Center 2012 SP1 of System Center 2012 R2. Kan ook worden uitgevoerd als een Azure virtuele machine die wordt uitgevoerd op System Center 2012 R2 met ten minste DPM 2012 R2 updatepakket 3 of een Windows-machine in VMWare die ten minste wordt uitgevoerd op System Center 2012 R2 met Update Rollup 5.
+* DPM kan worden uitgevoerd als een fysieke server of een Hyper-V virtuele machine is geïnstalleerd op de System Center 2012 SP1 of System Center 2012 R2. Kan ook worden uitgevoerd als een Azure virtuele machine die wordt uitgevoerd op System Center 2012 R2 met ten minste DPM 2012 R2 updatepakket 3 of een Windows-machine in VMware die ten minste wordt uitgevoerd op System Center 2012 R2 met Update Rollup 5.
 * Als u DPM met System Center 2012 SP1 uitvoert moet u installeren Update Roll up 2 voor System Center Data Protection Manager SP1. Dit is vereist voordat u de Azure Backup Agent kunt installeren.
 * De DPM-server moet Windows PowerShell en .net Framework 4.5 geïnstalleerd.
 * DPM kan back-up de meeste werkbelastingen op Azure Backup. De back-up van Azure ondersteuning voor een volledige lijst van heeft wat wordt ondersteund, Zie onderstaande items.

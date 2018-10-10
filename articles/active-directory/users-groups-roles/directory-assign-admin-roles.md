@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 722a9ada338420cc1ed55eb7c4400f946d58ebac
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: f54f13c6b7bb75644e95e62f13d6427e07c64037
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831650"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884589"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Rol beheerdersmachtigingen in Azure Active Directory
 
@@ -78,7 +78,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Licentiebeheerder](#license-administrator)**: gebruikers in deze rol kunnen toevoegen, verwijderen, en toewijzen van licenties op gebruikers, groepen (met Groepslicenties) bijwerken en beheren van de gebruikslocatie op gebruikers. De rol heeft niet de mogelijkheid om te kopen of beheren van abonnementen, maken of beheren van groepen, of maken of beheren van gebruikers buiten de gebruikslocatie verlenen.
 
-* **[Message Center lezer](#message-center-reader)**: gebruikers in deze rol kunnen controleren, meldingen en de gezondheid van advies-updates in [Office 365-berichtencentrum](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) voor hun organisatie op de geconfigureerde services zoals Exchange, Intune en Microsoft Teams. Berichtencentrum-lezer wekelijkse e-mailbericht verwerkingen van berichten, updates, ontvangen en message center berichten in Office 365 kunnen delen. In Azure AD, wordt gebruikers die zijn toegewezen aan deze rol alleen alleen-lezen toegang hebben op Azure AD-services, zoals gebruikers en groepen. 
+* **[Message Center lezer](#message-center-reader)**: gebruikers in deze rol kunnen controleren, meldingen en de gezondheid van advies-updates in [Office 365-berichtencentrum](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) voor hun organisatie op de geconfigureerde services zoals Exchange, Intune, en Microsoft Teams. Berichtencentrum-lezer wekelijkse e-mailbericht verwerkingen van berichten, updates, ontvangen en message center berichten in Office 365 kunnen delen. In Azure AD, wordt gebruikers die zijn toegewezen aan deze rol alleen alleen-lezen toegang hebben op Azure AD-services, zoals gebruikers en groepen. 
 
 * **[Laag1-ondersteuning voor partner](#partner-tier1-support)**: niet gebruiken. Deze rol is afgeschaft en wordt verwijderd uit Azure AD in de toekomst. Deze rol is bedoeld voor gebruik door een klein aantal wederverkoop partners van Microsoft en is niet bedoeld voor algemeen gebruik.
 
@@ -99,7 +99,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Rol van beheerder in beschermde modus](#privileged-role-administrator)**: gebruikers met deze rol kunnen roltoewijzingen in Azure Active Directory, evenals in Azure AD Privileged Identity Management beheren. Bovendien kan deze rol beheer van alle aspecten van Privileged Identity Management.
 
-* **[Lezer-rapporten](#reports-reader)**: gebruikers met deze rol gebruiksrapporten gegevens en het dashboard rapporten in Office 365-beheercentrum en de acceptatie-context pack in Power BI kunnen bekijken. Bovendien de rol biedt toegang tot de aanmeldings-rapporten en -activiteit in Azure AD en gegevens die zijn geretourneerd door de Microsoft Graph rapportage-API. De gebruiker die is toegewezen aan de rol Rapportenlezer toegang alleen relevante gebruik en acceptatie metrische gegevens. Ze geen geen admin-machtigingen voor het configureren van instellingen of toegang tot die het product specifieke beheercentrums zoals Exchange. 
+* **[Lezer-rapporten](#reports-reader)**: gebruikers met deze rol gebruiksrapporten gegevens en het dashboard rapporten in Office 365-beheercentrum en de acceptatie-context pack in Power BI kunnen bekijken. Bovendien de rol biedt toegang tot aanmelden-rapporten en -activiteit in Azure AD en gegevens die zijn geretourneerd door de Microsoft Graph rapportage-API. De gebruiker die is toegewezen aan de rol Rapportenlezer toegang alleen relevante gebruik en acceptatie metrische gegevens. Ze geen geen admin-machtigingen voor het configureren van instellingen of toegang tot die het beheercentrums productspecifieke zoals Exchange. 
 
 * **[Beveiligingsbeheerder](#security-administrator)**: gebruikers met deze rol hebben alle alleen-lezen machtigingen van de rol beveiligingslezer, plus de mogelijkheid voor het beheren van configuratie voor beveiliging-gerelateerde services: Azure Active Directory Identity Protection Azure Information Protection, en Office 365 Centrum voor beveiliging en naleving. Meer informatie over Office 365-machtigingen is beschikbaar op [machtigingen in het Office 365-beveiligings- en Nalevingscentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -121,7 +121,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[SharePoint-servicebeheerder](#sharepoint-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft SharePoint Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Skype voor bedrijven / Lync-servicebeheerder](#skype-for-business-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Skype voor bedrijven, wanneer de service aanwezig is, evenals Skype-specifieke gebruikerskenmerken in Azure Active beheren De map. Deze rol hebben bovendien de mogelijkheid ondersteuningstickets beheren en servicestatus controleren en de toegang tot de Teams en Skype voor bedrijven-beheercentrum. Het account moet ook een licentie hebben voor Teams of Teams PowerShell-cmdlets kan niet worden uitgevoerd. Meer informatie op [over de Skype voor bedrijven-beheerdersrol](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) en Teams informatie over licenties op [Skype voor bedrijven en Microsoft Teams-Add-on-licentieverlening](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[Skype voor bedrijven / Lync-servicebeheerder](#lync-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Skype voor bedrijven, wanneer de service aanwezig is, evenals Skype-specifieke gebruikerskenmerken in Azure Active beheren De map. Deze rol hebben bovendien de mogelijkheid ondersteuningstickets beheren en servicestatus controleren en de toegang tot de Teams en Skype voor bedrijven-beheercentrum. Het account moet ook een licentie hebben voor Teams of Teams PowerShell-cmdlets kan niet worden uitgevoerd. Meer informatie op [over de Skype voor bedrijven-beheerdersrol](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) en Teams informatie over licenties op [Skype voor bedrijven en Microsoft Teams-Add-on-licentieverlening](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als 'Lync-servicebeheerder'. Het 'Skype voor bedrijven-servicebeheerder' is in de [Azure-portal](https://portal.azure.com/).
@@ -144,43 +144,9 @@ De volgende beheerdersrollen zijn beschikbaar:
   |<p>Op alle gebruikers, met inbegrip van alle beheerders</p>|<p>Licenties beheren</p><p>Eigenschappen van alle gebruikers, behalve de User Principal Name beheren</p>
   |Alleen op gebruikers die niet-beheerders of beperkte beheerdersrollen in het volgende:<ul><li>Adreslijstlezers<li>Gastuitnodiging<li>Helpdeskbeheerder<li>Berichtencentrum-lezer<li>Rapportenlezer<li>Beheerder van gebruikersaccounts|<p>Verwijderen en herstellen</p><p>Uitschakelen en inschakelen</p><p>Ongeldig vernieuwingstokens</p><p>Eigenschappen van alle gebruikers met inbegrip van de User Principal Name beheren</p><p>Wachtwoord opnieuw instellen</p><p>Apparaatsleutels (FIDO) bijwerken</p>
 
-De volgende tabellen beschrijven de specifieke machtigingen in Azure Active Directory die aan elke rol. Sommige functies mogelijk extra machtigingen in Microsoft-services outide van Azure Active Directory.
+De volgende tabellen beschrijven de specifieke machtigingen in Azure Active Directory die aan elke rol. Sommige functies mogelijk extra machtigingen in Microsoft-services buiten Azure Active Directory.
 
-## <a name="adhoc-license-administrator"></a>Ad-hoclicentiebeheerder
-Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| Microsoft.AAD.Directory/Domains/default/Read | Lees de basiseigenschappen van domeinen in Azure Active Directory. |
-| microsoft.aad.directory/groups/appRoleAssignments/read | Lezen groups.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/default/Read | Lees de basiseigenschappen van groepen in Azure Active Directory. |
-| microsoft.aad.directory/groups/memberOf/read | Lezen groups.memberOf in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Members/Read | Lezen groups.members in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Owners/Read | Lezen groups.owners in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Settings/Read | Lezen groups.settings in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/default/read | Lees de basiseigenschappen van oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/update | Update oAuth2PermissionGrants in Azure Active Directory. |
-| Microsoft.AAD.Directory/Organization/default/Read | Lees de basiseigenschappen van de organisatie in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Lezen organization.trustedCAsForPasswordlessAuth in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
-| microsoft.aad.directory/users/appRoleAssignments/read | Lezen users.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Default/Read | Lees de basiseigenschappen van gebruikers in Azure Active Directory. |
-| microsoft.aad.directory/users/directReports/read | Lezen users.directReports in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedBy/read | Lezen users.invitedBy in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedUsers/read | Lezen users.invitedUsers in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Manager/Read | Lezen users.manager in Azure Active Directory. |
-| microsoft.aad.directory/users/memberOf/read | Lezen users.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Lezen users.oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedDevices/read | Lezen users.ownedDevices in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Lezen users.ownedObjects in Azure Active Directory. |
-| microsoft.aad.directory/users/registeredDevices/read | Lezen users.registeredDevices in Azure Active Directory. |
-
-## <a name="application-administrator"></a>Toepassingsbeheerder
+### <a name="application-administrator"></a>Toepassingsbeheerder
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 
   > [!NOTE]
@@ -192,7 +158,7 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 | --- | --- |
 | Microsoft.AAD.Directory/Applications/Audience/update | De eigenschap applications.audience in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Applications/Authentication/update | De eigenschap applications.authentication in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Applications/default/update | Werk de basiseigenschappen van toepassingen in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Basic/update | Werk de basiseigenschappen van toepassingen in Azure Active Directory. |
 | Microsoft.AAD.Directory/Applications/Create | Toepassingen maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Applications/credentials/update | De eigenschap applications.credentials in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Applications/DELETE | Verwijder toepassingen in Azure Active Directory. |
@@ -203,14 +169,14 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 | microsoft.aad.directory/appRoleAssignments/read | Lees appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Verwijder appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/update | De eigenschap policies.applicationConfiguration in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/update | De eigenschap policies.applicationConfiguration in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Maak beleidsregels in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/delete | Beleidsregels in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | De eigenschap policies.applicationConfiguration in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/default/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/servicePrincipals/create | ServicePrincipals maken in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Verwijder servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | De eigenschap servicePrincipals.appRoleAssignedTo in Azure Active Directory bijgewerkt. |
@@ -224,8 +190,8 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="application-developer"></a>Toepassingsontwikkelaar
-Kan toepassingsregistraties maken, onafhankelijk van de gebruikers kan zich registreren toepassingen instellen.
+### <a name="application-developer"></a>Toepassingsontwikkelaar
+Kan toepassingsregistraties onafhankelijk van de 'gebruikers kunnen toepassingen registreren' maken instelling.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -239,7 +205,7 @@ Kan toepassingsregistraties maken, onafhankelijk van de gebruikers kan zich regi
 | microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | OAuth2PermissionGrants maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | ServicePrincipals maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
 
-## <a name="billing-administrator"></a>Factureringsbeheerder
+### <a name="billing-administrator"></a>Factureringsbeheerder
 Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgegevens bijwerken.
 
   > [!NOTE]
@@ -248,13 +214,13 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| Microsoft.AAD.Directory/Organization/default/update | Eenvoudige eigenschappen op de organisatie in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Organization/Basic/update | Eenvoudige eigenschappen op de organisatie in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | De eigenschap organization.trustedCAsForPasswordlessAuth in Azure Active Directory bijgewerkt. |
 | microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
@@ -263,7 +229,7 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="cloud-application-administrator"></a>Beheerder van de cloudtoepassing
+### <a name="cloud-application-administrator"></a>Beheerder van de cloudtoepassing
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve App Proxy.
 
   > [!NOTE]
@@ -275,7 +241,7 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 | --- | --- |
 | Microsoft.AAD.Directory/Applications/Audience/update | De eigenschap applications.audience in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Applications/Authentication/update | De eigenschap applications.authentication in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Applications/default/update | Werk de basiseigenschappen van toepassingen in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Basic/update | Werk de basiseigenschappen van toepassingen in Azure Active Directory. |
 | Microsoft.AAD.Directory/Applications/Create | Toepassingen maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Applications/credentials/update | De eigenschap applications.credentials in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Applications/DELETE | Verwijder toepassingen in Azure Active Directory. |
@@ -286,15 +252,15 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 | microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Verwijder appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Maak beleidsregels in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/update | De eigenschap policies.applicationConfiguration in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/update | De eigenschap policies.applicationConfiguration in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/policies/applicationConfiguration/delete | Beleidsregels in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | De eigenschap policies.applicationConfiguration in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Lezen policies.applicationConfiguration in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | De eigenschap servicePrincipals.appRoleAssignedTo in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | De eigenschap servicePrincipals.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/default/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/servicePrincipals/create | ServicePrincipals maken in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Verwijder servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | De eigenschap servicePrincipals.owners in Azure Active Directory bijgewerkt. |
@@ -306,7 +272,7 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="cloud-device-administrator"></a>Cloud-Apparaatbeheerder
+### <a name="cloud-device-administrator"></a>Cloud-Apparaatbeheerder
 Volledige toegang om apparaten te beheren in Azure AD.
 
   > [!NOTE]
@@ -323,7 +289,7 @@ Volledige toegang om apparaten te beheren in Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-## <a name="company-administrator"></a>Bedrijfsbeheerder
+### <a name="company-administrator"></a>Bedrijfsbeheerder
 Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identiteiten gebruiken.
 
   > [!NOTE]
@@ -332,7 +298,7 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -385,7 +351,7 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Beheer alle aspecten van Dynamics 365. |
 
-## <a name="compliance-administrator"></a>Compliancebeheerder
+### <a name="compliance-administrator"></a>Compliancebeheerder
 Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 365.
 
   > [!NOTE]
@@ -394,7 +360,7 @@ Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 3
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -410,7 +376,7 @@ Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 3
 | Microsoft.Office365.skypeForBusiness/allEntities/allTasks | Alle aspecten van Skype voor bedrijven Online beheren. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="conditional-access-administrator"></a>Voorwaardelijke toegang beheerder
+### <a name="conditional-access-administrator"></a>Voorwaardelijke toegang beheerder
 Kan de mogelijkheden van voorwaardelijke toegang beheren.
 
   > [!NOTE]
@@ -420,16 +386,16 @@ Kan de mogelijkheden van voorwaardelijke toegang beheren.
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| microsoft.aad.directory/policies/conditionalAccess/default/read | Lezen policies.conditionalAccess in Azure Active Directory. |
-| microsoft.aad.directory/policies/conditionalAccess/default/update | De eigenschap policies.conditionalAccess in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/policies/conditionalAccess/basic/read | Lezen policies.conditionalAccess in Azure Active Directory. |
+| microsoft.aad.directory/policies/conditionalAccess/basic/update | De eigenschap policies.conditionalAccess in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/policies/conditionalAccess/create | Maak beleidsregels in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/delete | Beleidsregels in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Lezen policies.conditionalAccess in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | De eigenschap policies.conditionalAccess in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Lezen policies.conditionalAccess in Azure Active Directory. |
 
-## <a name="customer-lockbox-access-approver"></a>Toegangsfiatteur voor Klanten-lockbox
-Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
+### <a name="crm-service-administrator"></a>CRM-servicebeheerder
+Kan alle aspecten van het Dynamics 365-product beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -437,180 +403,7 @@ Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klan
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
-| Microsoft.Office365.lockbox/allEntities/allTasks | Alle aspecten van Office 365-klant Lockbox beheren |
-
-## <a name="device-administrators"></a>Apparaatadministrators
-Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD join-apparaten.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.aad.directory/groupSettings/default/read | Lees de basiseigenschappen van groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/default/read | Lees de basiseigenschappen van groupSettingTemplates in Azure Active Directory. |
-
-## <a name="device-managers"></a>Apparaatbeheerders
-Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| Microsoft.AAD.Directory/Devices/default/Read | Lees de basiseigenschappen van apparaten in Azure Active Directory. |
-| Microsoft.AAD.Directory/Devices/default/update | Eenvoudige eigenschappen op apparaten in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/devices/memberOf/read | Lezen devices.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredOwners/read | Lezen devices.registeredOwners in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredOwners/update | De eigenschap devices.registeredOwners in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/devices/registeredUsers/read | Lezen devices.registeredUsers in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredUsers/update | De eigenschap devices.registeredUsers in Azure Active Directory bijgewerkt. |
-
-## <a name="directory-readers"></a>Adreslijstlezers
-Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.aad.directory/administrativeUnits/default/read | Lees de basiseigenschappen van administrativeUnits in Azure Active Directory. |
-| microsoft.aad.directory/administrativeUnits/members/read | Lezen administrativeUnits.members in Azure Active Directory. |
-Azure Active Directory. |
-| Microsoft.AAD.Directory/Applications/default/Read | Lees de basiseigenschappen van toepassingen in Azure Active Directory. |
-| Microsoft.AAD.Directory/Applications/Owners/Read | Lezen applications.owners in Azure Active Directory. |
-| Microsoft.AAD.Directory/Contacts/default/Read | Lees de basiseigenschappen van contactpersonen in Azure Active Directory. |
-| microsoft.aad.directory/contacts/memberOf/read | Lezen contacts.memberOf in Azure Active Directory. |
-| Microsoft.AAD.Directory/Contracts/default/Read | Lees de basiseigenschappen van opdrachten in Azure Active Directory. |
-| Microsoft.AAD.Directory/Devices/default/Read | Lees de basiseigenschappen van apparaten in Azure Active Directory. |
-| microsoft.aad.directory/devices/memberOf/read | Lezen devices.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredOwners/read | Lezen devices.registeredOwners in Azure Active Directory. |
-| microsoft.aad.directory/devices/registeredUsers/read | Lezen devices.registeredUsers in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/default/read | Lees de basiseigenschappen van directoryRoles in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/eligibleMembers/read | Lezen directoryRoles.eligibleMembers in Azure Active Directory. |
-| microsoft.aad.directory/directoryRoles/members/read | Lezen directoryRoles.members in Azure Active Directory. |
-| Microsoft.AAD.Directory/Domains/default/Read | Lees de basiseigenschappen van domeinen in Azure Active Directory. |
-| microsoft.aad.directory/groups/appRoleAssignments/read | Lezen groups.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/default/Read | Lees de basiseigenschappen van groepen in Azure Active Directory. |
-| microsoft.aad.directory/groups/memberOf/read | Lezen groups.memberOf in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Members/Read | Lezen groups.members in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Owners/Read | Lezen groups.owners in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Settings/Read | Lezen groups.settings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/default/read | Lees de basiseigenschappen van groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/groupSettingTemplates/default/read | Lees de basiseigenschappen van groupSettingTemplates in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/default/read | Lees de basiseigenschappen van oAuth2PermissionGrants in Azure Active Directory. |
-| Microsoft.AAD.Directory/Organization/default/Read | Lees de basiseigenschappen van de organisatie in Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Lezen organization.trustedCAsForPasswordlessAuth in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Lezen servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Lezen servicePrincipals.appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/default/read | Lees de basiseigenschappen van servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | Lezen servicePrincipals.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Lezen servicePrincipals.oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Lezen servicePrincipals.ownedObjects in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/read | Lezen servicePrincipals.owners in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/read | Lezen servicePrincipals.policies in Azure Active Directory. |
-| microsoft.aad.directory/subscribedSkus/default/read | Lees de basiseigenschappen van subscribedSkus in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/read | Lezen users.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Default/Read | Lees de basiseigenschappen van gebruikers in Azure Active Directory. |
-| microsoft.aad.directory/users/directReports/read | Lezen users.directReports in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedBy/read | Lezen users.invitedBy in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedUsers/read | Lezen users.invitedUsers in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Manager/Read | Lezen users.manager in Azure Active Directory. |
-| microsoft.aad.directory/users/memberOf/read | Lezen users.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Lezen users.oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedDevices/read | Lezen users.ownedDevices in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Lezen users.ownedObjects in Azure Active Directory. |
-| microsoft.aad.directory/users/registeredDevices/read | Lezen users.registeredDevices in Azure Active Directory. |
-
-## <a name="directory-synchronization-accounts"></a>Synchronisatie van Active Directory-Accounts
-Alleen gebruikt door Azure AD Connect-service.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.aad.directory/organization/dirSync/update | De eigenschap organization.dirSync in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Policies/Create | Maak beleidsregels in Azure Active Directory. |
-| Microsoft.AAD.Directory/Policies/DELETE | Beleidsregels in Azure Active Directory verwijderen. |
-| Microsoft.AAD.Directory/Policies/default/Read | Lees de basiseigenschappen van beleidsregels in Azure Active Directory. |
-| Microsoft.AAD.Directory/Policies/default/update | Werk de basiseigenschappen van beleidsregels in Azure Active Directory. |
-| Microsoft.AAD.Directory/Policies/Owners/Read | Lezen policies.owners in Azure Active Directory. |
-| Microsoft.AAD.Directory/Policies/Owners/update | De eigenschap policies.owners in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/policies/policiesAppliedTo/read | Lezen policies.policiesAppliedTo in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Lezen servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | De eigenschap servicePrincipals.appRoleAssignedTo in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Lezen servicePrincipals.appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | De eigenschap servicePrincipals.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/default/read | Lees de basiseigenschappen van servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/default/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/create | ServicePrincipals maken in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | Lezen servicePrincipals.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Lezen servicePrincipals.oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/read | Lezen servicePrincipals.owners in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/update | De eigenschap servicePrincipals.owners in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Lezen servicePrincipals.ownedObjects in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/read | Lezen servicePrincipals.policies in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/update | De eigenschap servicePrincipals.policies in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directorySync/allEntities/allTasks | Voer alle acties uit in Azure AD Connect. |
-
-## <a name="directory-writers"></a>Adreslijstschrijvers
-Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toegang tot toepassingen
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| Microsoft.AAD.Directory/Groups/Create | Groepen maken in Azure Active Directory. |
-| microsoft.aad.directory/groups/createAsOwner | Groepen maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
-| microsoft.aad.directory/groups/appRoleAssignments/update | De eigenschap groups.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/default/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
-| Microsoft.AAD.Directory/Groups/Members/update | De eigenschap groups.members in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/Owners/update | De eigenschap groups.owners in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/Settings/update | De eigenschap groups.settings in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/groupSettings/default/update | Eenvoudige eigenschappen op groupSettings in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/groupSettings/create | GroupSettings maken in Azure Active Directory. |
-| microsoft.aad.directory/groupSettings/delete | Verwijder groupSettings in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/update | De eigenschap users.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
-| Microsoft.AAD.Directory/Users/Default/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Manager/Update | De eigenschap users.manager in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/users/userPrincipalName/update | De eigenschap users.userPrincipalName in Azure Active Directory bijgewerkt. |
-
-## <a name="dynamics-365-administrator"></a>Dynamics 365-beheerder
-Kan alle aspecten van het Dynamics 365-product beheren. Voorheen CRM-servicebeheerder.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -623,7 +416,163 @@ Kan alle aspecten van het Dynamics 365-product beheren. Voorheen CRM-servicebehe
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="exchange-service-administrator"></a>Exchange Service-beheerder
+### <a name="customer-lockbox-access-approver"></a>Toegangsfiatteur voor Klanten-lockbox
+Kan Microsoft-ondersteuningsaanvragen voor toegang tot bedrijfsgegevens van klanten goedkeuren.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+  > [!NOTE]
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
+| Microsoft.Office365.lockbox/allEntities/allTasks | Alle aspecten van Office 365-klant Lockbox beheren |
+
+### <a name="device-administrators"></a>Apparaatadministrators
+Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD join-apparaten.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.directory/groupSettings/basic/read | Lees de basiseigenschappen van groupSettings in Azure Active Directory. |
+| microsoft.aad.directory/groupSettingTemplates/basic/read | Lees de basiseigenschappen van groupSettingTemplates in Azure Active Directory. |
+
+### <a name="directory-readers"></a>Adreslijstlezers
+Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen, niet is bedoeld voor gebruikers.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.directory/administrativeUnits/basic/read | Lees de basiseigenschappen van administrativeUnits in Azure Active Directory. |
+| microsoft.aad.directory/administrativeUnits/members/read | Lezen administrativeUnits.members in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Audience/Read | Lezen applications.audience in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Authentication/Read | Lezen applications.authentication in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Basic/Read | Lees de basiseigenschappen van toepassingen in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/credentials/Read | Lezen applications.credentials in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Owners/Read | Lezen applications.owners in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/permissions/Read | Lezen applications.permissions in Azure Active Directory. |
+| Microsoft.AAD.Directory/Applications/Policies/Read | Lezen applications.policies in Azure Active Directory. |
+| Microsoft.AAD.Directory/Contacts/Basic/Read | Lees de basiseigenschappen van contactpersonen in Azure Active Directory. |
+| microsoft.aad.directory/contacts/memberOf/read | Lezen contacts.memberOf in Azure Active Directory. |
+| Microsoft.AAD.Directory/Contracts/Basic/Read | Lees de basiseigenschappen van opdrachten in Azure Active Directory. |
+| Microsoft.AAD.Directory/Devices/Basic/Read | Lees de basiseigenschappen van apparaten in Azure Active Directory. |
+| microsoft.aad.directory/devices/memberOf/read | Lezen devices.memberOf in Azure Active Directory. |
+| microsoft.aad.directory/devices/registeredOwners/read | Lezen devices.registeredOwners in Azure Active Directory. |
+| microsoft.aad.directory/devices/registeredUsers/read | Lezen devices.registeredUsers in Azure Active Directory. |
+| microsoft.aad.directory/directoryRoles/basic/read | Lees de basiseigenschappen van directoryRoles in Azure Active Directory. |
+| microsoft.aad.directory/directoryRoles/eligibleMembers/read | Lezen directoryRoles.eligibleMembers in Azure Active Directory. |
+| microsoft.aad.directory/directoryRoles/members/read | Lezen directoryRoles.members in Azure Active Directory. |
+| Microsoft.AAD.Directory/Domains/Basic/Read | Lees de basiseigenschappen van domeinen in Azure Active Directory. |
+| microsoft.aad.directory/groups/appRoleAssignments/read | Lezen groups.appRoleAssignments in Azure Active Directory. |
+| Microsoft.AAD.Directory/Groups/Basic/Read | Lees de basiseigenschappen van groepen in Azure Active Directory. |
+| microsoft.aad.directory/groups/memberOf/read | Lezen groups.memberOf in Azure Active Directory. |
+| Microsoft.AAD.Directory/Groups/Members/Read | Lezen groups.members in Azure Active Directory. |
+| Microsoft.AAD.Directory/Groups/Owners/Read | Lezen groups.owners in Azure Active Directory. |
+| Microsoft.AAD.Directory/Groups/Settings/Read | Lezen groups.settings in Azure Active Directory. |
+| microsoft.aad.directory/groupSettings/basic/read | Lees de basiseigenschappen van groupSettings in Azure Active Directory. |
+| microsoft.aad.directory/groupSettingTemplates/basic/read | Lees de basiseigenschappen van groupSettingTemplates in Azure Active Directory. |
+| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | Lees de basiseigenschappen van oAuth2PermissionGrants in Azure Active Directory. |
+| Microsoft.AAD.Directory/Organization/Basic/Read | Lees de basiseigenschappen van de organisatie in Azure Active Directory. |
+| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Lezen organization.trustedCAsForPasswordlessAuth in Azure Active Directory. |
+| microsoft.aad.directory/roleAssignments/basic/read | Lees de basiseigenschappen van roleAssignments in Azure Active Directory. |
+| microsoft.aad.directory/roleDefinitions/basic/read | Lees de basiseigenschappen van roleDefinitions in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Lezen servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Lezen servicePrincipals.appRoleAssignments in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/basic/read | Lees de basiseigenschappen van servicePrincipals in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/memberOf/read | Lezen servicePrincipals.memberOf in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Lezen servicePrincipals.oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Lezen servicePrincipals.ownedObjects in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/owners/read | Lezen servicePrincipals.owners in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/policies/read | Lezen servicePrincipals.policies in Azure Active Directory. |
+| microsoft.aad.directory/subscribedSkus/basic/read | Lees de basiseigenschappen van subscribedSkus in Azure Active Directory. |
+| microsoft.aad.directory/users/appRoleAssignments/read | Lezen users.appRoleAssignments in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Basic/Read | Lees de basiseigenschappen van gebruikers in Azure Active Directory. |
+| microsoft.aad.directory/users/directReports/read | Lezen users.directReports in Azure Active Directory. |
+| microsoft.aad.directory/users/invitedBy/read | Lezen users.invitedBy in Azure Active Directory. |
+| microsoft.aad.directory/users/invitedUsers/read | Lezen users.invitedUsers in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Manager/Read | Lezen users.manager in Azure Active Directory. |
+| microsoft.aad.directory/users/memberOf/read | Lezen users.memberOf in Azure Active Directory. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Lezen users.oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.aad.directory/users/ownedDevices/read | Lezen users.ownedDevices in Azure Active Directory. |
+| microsoft.aad.directory/users/ownedObjects/read | Lezen users.ownedObjects in Azure Active Directory. |
+| microsoft.aad.directory/users/registeredDevices/read | Lezen users.registeredDevices in Azure Active Directory. |
+
+### <a name="directory-synchronization-accounts"></a>Synchronisatie van Active Directory-Accounts
+Alleen gebruikt door Azure AD Connect-service.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.directory/organization/dirSync/update | De eigenschap organization.dirSync in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Policies/Create | Maak beleidsregels in Azure Active Directory. |
+| Microsoft.AAD.Directory/Policies/DELETE | Beleidsregels in Azure Active Directory verwijderen. |
+| Microsoft.AAD.Directory/Policies/Basic/Read | Lees de basiseigenschappen van beleidsregels in Azure Active Directory. |
+| Microsoft.AAD.Directory/Policies/Basic/update | Werk de basiseigenschappen van beleidsregels in Azure Active Directory. |
+| Microsoft.AAD.Directory/Policies/Owners/Read | Lezen policies.owners in Azure Active Directory. |
+| Microsoft.AAD.Directory/Policies/Owners/update | De eigenschap policies.owners in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/policies/policiesAppliedTo/read | Lezen policies.policiesAppliedTo in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Lezen servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | De eigenschap servicePrincipals.appRoleAssignedTo in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Lezen servicePrincipals.appRoleAssignments in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | De eigenschap servicePrincipals.appRoleAssignments in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/servicePrincipals/basic/read | Lees de basiseigenschappen van servicePrincipals in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/servicePrincipals/create | ServicePrincipals maken in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/memberOf/read | Lezen servicePrincipals.memberOf in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Lezen servicePrincipals.oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/owners/read | Lezen servicePrincipals.owners in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/owners/update | De eigenschap servicePrincipals.owners in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Lezen servicePrincipals.ownedObjects in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/policies/read | Lezen servicePrincipals.policies in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/policies/update | De eigenschap servicePrincipals.policies in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directorySync/allEntities/allTasks | Voer alle acties uit in Azure AD Connect. |
+
+### <a name="directory-writers"></a>Adreslijstschrijvers
+Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toegang tot toepassingen, niet is bedoeld voor gebruikers.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| Microsoft.AAD.Directory/Groups/Create | Groepen maken in Azure Active Directory. |
+| microsoft.aad.directory/groups/createAsOwner | Groepen maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
+| microsoft.aad.directory/groups/appRoleAssignments/update | De eigenschap groups.appRoleAssignments in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Groups/Basic/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
+| Microsoft.AAD.Directory/Groups/Members/update | De eigenschap groups.members in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Groups/Owners/update | De eigenschap groups.owners in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Groups/Settings/update | De eigenschap groups.settings in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/groupSettings/basic/update | Eenvoudige eigenschappen op groupSettings in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/groupSettings/create | GroupSettings maken in Azure Active Directory. |
+| microsoft.aad.directory/groupSettings/delete | Verwijder groupSettings in Azure Active Directory. |
+| microsoft.aad.directory/users/appRoleAssignments/update | De eigenschap users.appRoleAssignments in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
+| Microsoft.AAD.Directory/Users/Basic/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Manager/Update | De eigenschap users.manager in Azure Active Directory bijgewerkt. |
+| microsoft.aad.directory/users/userPrincipalName/update | De eigenschap users.userPrincipalName in Azure Active Directory bijgewerkt. |
+
+### <a name="exchange-service-administrator"></a>Exchange Service-beheerder
 Kan alle aspecten van het product Exchange beheren.
 
   > [!NOTE]
@@ -632,7 +581,7 @@ Kan alle aspecten van het product Exchange beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -645,76 +594,30 @@ Kan alle aspecten van het product Exchange beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="guest"></a>Gast
-De standaardrol van gastgebruikers. Een beperkte set van directory-informatie kan worden gelezen.
+### <a name="guest-inviter"></a>Gastuitnodiging
+Kan onafhankelijk van de instelling 'leden kunnen gasten uitnodigen' gastgebruikers uitnodigen.
 
   > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de gebruikersrol.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| Microsoft.AAD.Directory/Applications/default/Read | Lees de basiseigenschappen van toepassingen in Azure Active Directory. |
-| Microsoft.AAD.Directory/Applications/Owners/Read | Lezen applications.owners in Azure Active Directory. |
-| Microsoft.AAD.Directory/Domains/default/Read | Lees de basiseigenschappen van domeinen in Azure Active Directory. |
-| microsoft.aad.directory/groups/appRoleAssignments/read | Lezen groups.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/default/Read | Lees de basiseigenschappen van groepen in Azure Active Directory. |
-| microsoft.aad.directory/groups/memberOf/read | Lezen groups.memberOf in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Members/Read | Lezen groups.members in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Owners/Read | Lezen groups.owners in Azure Active Directory. |
-| Microsoft.AAD.Directory/Groups/Settings/Read | Lezen groups.settings in Azure Active Directory. |
-| microsoft.aad.directory/organization/basicProfile/read | Lees basisinformatie in het organisatieprofiel in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Lezen servicePrincipals.appRoleAssignedTo in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Lezen servicePrincipals.appRoleAssignments in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/default/read | Lees de basiseigenschappen van servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | Lezen servicePrincipals.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/members/read | Lezen servicePrincipals.members in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Lezen servicePrincipals.oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/read | Lezen servicePrincipals.owners in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | Lezen servicePrincipals.ownedObjects in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/policies/read | Lezen servicePrincipals.policies in Azure Active Directory. |
-| microsoft.aad.directory/users/basicProfile/read | Lezen users.basicProfile in Azure Active Directory. |
-| microsoft.aad.directory/users/appRoleAssignments/read | Lezen users.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Default/Read | Lees de basiseigenschappen van gebruikers in Azure Active Directory. |
-| microsoft.aad.directory/users/directReports/read | Lezen users.directReports in Azure Active Directory. |
-| microsoft.aad.directory/users/eligibleMemberOf/read | Lezen users.eligibleMemberOf in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedBy/read | Lezen users.invitedBy in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedUsers/read | Lezen users.invitedUsers in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Manager/Read | Lezen users.manager in Azure Active Directory. |
-| microsoft.aad.directory/users/memberOf/read | Lezen users.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Lezen users.oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedDevices/read | Lezen users.ownedDevices in Azure Active Directory. |
-| microsoft.aad.directory/users/ownedObjects/read | Lezen users.ownedObjects in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Password/update | Bijwerken van wachtwoorden voor alle gebruikers in Azure Active Directory. Zie de onlinedocumentatie voor meer informatie. |
-| microsoft.aad.directory/users/pendingMemberOf/read | Lezen users.pendingMemberOf in Azure Active Directory. |
-| microsoft.aad.directory/users/registeredDevices/read | Lezen users.registeredDevices in Azure Active Directory. |
-| microsoft.aad.directory/users/scopedAdministratorOf/read | Lezen users.scopedAdministratorOf in Azure Active Directory. |
-
-## <a name="guest-inviter"></a>Gastuitnodiging
-Kan uitnodigen van gastgebruikers ook kunnen onafhankelijk van de 'leden kunnen gasten uitnodigen leden kunnen gasten instellen uitnodigen.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de gebruikersrol.
+  > Deze rol de aanvullende machtigingen overneemt van de rol.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Lezen users.appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Users/Default/Read | Lees de basiseigenschappen van gebruikers in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Basic/Read | Lees de basiseigenschappen van gebruikers in Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Lezen users.directReports in Azure Active Directory. |
 | microsoft.aad.directory/users/invitedBy/read | Lezen users.invitedBy in Azure Active Directory. |
 | microsoft.aad.directory/users/inviteGuest | Nodig gastgebruikers uit in Azure Active Directory. |
 | microsoft.aad.directory/users/invitedUsers/read | Lezen users.invitedUsers in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/Manager/Read | Lezen users.manager in Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Lezen users.memberOf in Azure Active Directory. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Lezen users.oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Lezen users.oAuth2PermissionGrants in Azure Active Directory. |
 | microsoft.aad.directory/users/ownedDevices/read | Lezen users.ownedDevices in Azure Active Directory. |
 | microsoft.aad.directory/users/ownedObjects/read | Lezen users.ownedObjects in Azure Active Directory. |
 | microsoft.aad.directory/users/registeredDevices/read | Lezen users.registeredDevices in Azure Active Directory. |
 
-## <a name="helpdesk-administrator"></a>Helpdeskbeheerder
+### <a name="helpdesk-administrator"></a>Helpdeskbeheerder
 Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 
   > [!NOTE]
@@ -732,7 +635,7 @@ Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="information-protection-administrator"></a>Information Protection-beheerder
+### <a name="information-protection-administrator"></a>Information Protection-beheerder
 Kan alle aspecten van het product Azure Information Protection beheren.
 
   > [!NOTE]
@@ -741,7 +644,7 @@ Kan alle aspecten van het product Azure Information Protection beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -753,7 +656,7 @@ Kan alle aspecten van het product Azure Information Protection beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="intune-service-administrator"></a>Intune-servicebeheerder
+### <a name="intune-service-administrator"></a>Intune-servicebeheerder
 Kan alle aspecten van het product Intune beheren.
 
   > [!NOTE]
@@ -762,22 +665,22 @@ Kan alle aspecten van het product Intune beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| Microsoft.AAD.Directory/Contacts/default/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Contacts/Basic/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Contacts/Create | Contactpersonen maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Contacts/DELETE | Contactpersonen in Azure Active Directory verwijderen. |
-| Microsoft.AAD.Directory/Devices/default/update | Eenvoudige eigenschappen op apparaten in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Devices/Basic/update | Eenvoudige eigenschappen op apparaten in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Devices/Create | Apparaten maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Devices/DELETE | Apparaten verwijderen in Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/update | De eigenschap devices.registeredOwners in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/devices/registeredUsers/update | De eigenschap devices.registeredUsers in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | De eigenschap groups.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/default/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
+| Microsoft.AAD.Directory/Groups/Basic/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
 | Microsoft.AAD.Directory/Groups/Create | Groepen maken in Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Groepen maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
 | Microsoft.AAD.Directory/Groups/DELETE | Groepen in Azure Active Directory verwijderen. |
@@ -787,13 +690,13 @@ Kan alle aspecten van het product Intune beheren.
 | Microsoft.AAD.Directory/Groups/Restore | Groepen in Azure Active Directory herstellen. |
 | Microsoft.AAD.Directory/Groups/Settings/update | De eigenschap groups.settings in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/appRoleAssignments/update | De eigenschap users.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Users/Default/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Basic/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/Manager/Update | De eigenschap users.manager in Azure Active Directory bijgewerkt. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
 | microsoft.intune/allEntities/allTasks | Beheer alle aspecten van Intune. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="license-administrator"></a>Licentiebeheerder
+### <a name="license-administrator"></a>Licentiebeheerder
 Kan productlicenties voor gebruikers en groepen beheren.
 
   > [!NOTE]
@@ -809,7 +712,29 @@ Kan productlicenties voor gebruikers en groepen beheren.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-## <a name="message-center-reader"></a>Berichtencentrum-lezer
+### <a name="lync-service-administrator"></a>Lync-servicebeheerder
+Kan alle aspecten van het product Skype voor Bedrijven beheren.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+  > [!NOTE]
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
+| Microsoft.Office365.skypeForBusiness/allEntities/allTasks | Alle aspecten van Skype voor bedrijven Online beheren. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
+
+### <a name="message-center-reader"></a>Berichtencentrum-lezer
 Kan berichten en updates voor hun organisatie alleen in het Office 365-berichtencentrum lezen. 
 
   > [!NOTE]
@@ -818,7 +743,7 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -827,7 +752,7 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
 | microsoft.aad.accessmessagecenter/allEntities/allTasks | Maak en verwijder alle resources en lees de standaardeigenschappen in Berichtencentrum en werk deze bij. |
 | microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
 
-## <a name="partner-tier1-support"></a>Laag1-ondersteuning voor partner
+### <a name="partner-tier1-support"></a>Laag1-ondersteuning voor partner
 Gebruik geen - niet bedoeld voor algemeen gebruik.
 
   > [!NOTE]
@@ -836,13 +761,13 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| Microsoft.AAD.Directory/Contacts/default/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Contacts/Basic/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Contacts/Create | Contactpersonen maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Contacts/DELETE | Contactpersonen in Azure Active Directory verwijderen. |
 | Microsoft.AAD.Directory/Groups/Create | Groepen maken in Azure Active Directory. |
@@ -851,7 +776,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | Microsoft.AAD.Directory/Groups/Owners/update | De eigenschap groups.owners in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/appRoleAssignments/update | De eigenschap users.appRoleAssignments in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
-| Microsoft.AAD.Directory/Users/Default/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Basic/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/DELETE | Gebruikers in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/Manager/Update | De eigenschap users.manager in Azure Active Directory bijgewerkt. |
@@ -864,7 +789,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="partner-tier2-support"></a>Laag2-ondersteuning voor partner
+### <a name="partner-tier2-support"></a>Laag2-ondersteuning voor partner
 Gebruik geen - niet bedoeld voor algemeen gebruik.
 
   > [!NOTE]
@@ -873,13 +798,13 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| Microsoft.AAD.Directory/Contacts/default/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Contacts/Basic/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Contacts/Create | Contactpersonen maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Contacts/DELETE | Contactpersonen in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/domains/allTasks | Maken en verwijderen van domeinen en lezen en bijwerken van de standaardeigenschappen in Azure Active Directory. |
@@ -887,11 +812,11 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | Microsoft.AAD.Directory/Groups/DELETE | Groepen in Azure Active Directory verwijderen. |
 | Microsoft.AAD.Directory/Groups/Members/update | De eigenschap groups.members in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Groups/Restore | Groepen in Azure Active Directory herstellen. |
-| Microsoft.AAD.Directory/Organization/default/update | Eenvoudige eigenschappen op de organisatie in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Organization/Basic/update | Eenvoudige eigenschappen op de organisatie in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | De eigenschap organization.trustedCAsForPasswordlessAuth in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/appRoleAssignments/update | De eigenschap users.appRoleAssignments in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
-| Microsoft.AAD.Directory/Users/Default/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Basic/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/DELETE | Gebruikers in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/Manager/Update | De eigenschap users.manager in Azure Active Directory bijgewerkt. |
@@ -904,7 +829,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="power-bi-service-administrator"></a>Servicebeheerder van Power BI
+### <a name="power-bi-service-administrator"></a>Servicebeheerder van Power BI
 Kan alle aspecten van het Power BI-product beheren.
 
   > [!NOTE]
@@ -913,7 +838,7 @@ Kan alle aspecten van het Power BI-product beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -926,8 +851,8 @@ Kan alle aspecten van het Power BI-product beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="privileged-role-administrator"></a>Beheerder met bevoorrechte rol
-Kunnen roltoewijzingen beheren in Azure AD
+### <a name="privileged-role-administrator"></a>Beheerder met bevoorrechte rol
+Kan roltoewijzingen in Azure AD en alle aspecten van Privileged Identity Management beheren.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -935,7 +860,7 @@ Kunnen roltoewijzingen beheren in Azure AD
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -944,7 +869,7 @@ Kunnen roltoewijzingen beheren in Azure AD
 | microsoft.aad.directory/directoryRoles/update | Update directoryRoles in Azure Active Directory. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Maken en verwijderen van alle resources en lezen en bijwerken van de standaardeigenschappen in microsoft.aad.privilegedIdentityManagement. |
 
-## <a name="reports-reader"></a>Rapportenlezer
+### <a name="reports-reader"></a>Rapportenlezer
 Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 
   > [!NOTE]
@@ -953,7 +878,7 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -964,8 +889,8 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.usageReports/allEntities/Read | Lees Office 365-gebruiksrapporten. |
 
-## <a name="security-administrator"></a>Beveiligingsbeheerder
-Kan beveiligingsgegevens en -rapporten lezen
+### <a name="security-administrator"></a>Beveiligingsbeheerder
+Kan beveiligingsgegevens en -rapporten lezen en configuratie beheren in Azure AD en Office 365.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -973,14 +898,14 @@ Kan beveiligingsgegevens en -rapporten lezen
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | Microsoft.AAD.Directory/Applications/Policies/update | De eigenschap applications.policies in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Policies/default/update | Werk de basiseigenschappen van beleidsregels in Azure Active Directory. |
+| Microsoft.AAD.Directory/Policies/Basic/update | Werk de basiseigenschappen van beleidsregels in Azure Active Directory. |
 | Microsoft.AAD.Directory/Policies/Create | Maak beleidsregels in Azure Active Directory. |
 | Microsoft.AAD.Directory/Policies/DELETE | Beleidsregels in Azure Active Directory verwijderen. |
 | Microsoft.AAD.Directory/Policies/Owners/update | De eigenschap policies.owners in Azure Active Directory bijgewerkt. |
@@ -994,7 +919,7 @@ Kan beveiligingsgegevens en -rapporten lezen
 | Microsoft.Office365.protectionCenter/allEntities/update | Alle resources in microsoft.office365.protectionCenter bijwerken. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-## <a name="security-reader"></a>Beveiligingslezer
+### <a name="security-reader"></a>Beveiligingslezer
 Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 
   > [!NOTE]
@@ -1003,7 +928,7 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1016,7 +941,7 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 | Microsoft.Office365.protectionCenter/allEntities/Read | Lees alle aspecten van Office 365 Protection Center. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-## <a name="service-support-administrator"></a>Beheerder serviceondersteuning
+### <a name="service-support-administrator"></a>Beheerder serviceondersteuning
 Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 
   > [!NOTE]
@@ -1025,7 +950,7 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1037,7 +962,7 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="sharepoint-service-administrator"></a>SharePoint Service-beheerder
+### <a name="sharepoint-service-administrator"></a>SharePoint Service-beheerder
 Kan alle aspecten van de SharePoint-service beheren.
 
   > [!NOTE]
@@ -1046,7 +971,7 @@ Kan alle aspecten van de SharePoint-service beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1059,29 +984,7 @@ Kan alle aspecten van de SharePoint-service beheren.
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Maken en verwijderen van alle resources en lezen en bijwerken van de standaardeigenschappen in microsoft.office365.sharepoint. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="skype-for-business-administrator"></a>Skype voor Bedrijven-beheerder
-Kan alle aspecten van het product Skype voor Bedrijven beheren. Voorheen Lync-servicebeheerder.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Maken en beheren van tickets van ondersteuning van Azure. |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
-| Microsoft.Office365.skypeForBusiness/allEntities/allTasks | Alle aspecten van Skype voor bedrijven Online beheren. |
-| Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
-
-## <a name="teams-communications-administrator"></a>Teams communicatie beheerder
+### <a name="teams-communications-administrator"></a>Teams communicatie beheerder
 Kunnen aanroepen en functies in de service Microsoft Teams-vergaderingen beheren.
 
   > [!NOTE]
@@ -1090,7 +993,7 @@ Kunnen aanroepen en functies in de service Microsoft Teams-vergaderingen beheren
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1104,7 +1007,7 @@ Kunnen aanroepen en functies in de service Microsoft Teams-vergaderingen beheren
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 | Microsoft.Office365.usageReports/allEntities/Read | Lees Office 365-gebruiksrapporten. |
 
-## <a name="teams-communications-support-engineer"></a>Ondersteuningstechnicus van teams communicatie
+### <a name="teams-communications-support-engineer"></a>Ondersteuningstechnicus van teams communicatie
 Problemen kunt communicatie binnen Teams met behulp van geavanceerde hulpprogramma's.
 
   > [!NOTE]
@@ -1113,7 +1016,7 @@ Problemen kunt communicatie binnen Teams met behulp van geavanceerde hulpprogram
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1124,7 +1027,7 @@ Problemen kunt communicatie binnen Teams met behulp van geavanceerde hulpprogram
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-## <a name="teams-communications-support-specialist"></a>Ondersteuningsmedewerker voor teams communicatie
+### <a name="teams-communications-support-specialist"></a>Ondersteuningsmedewerker voor teams communicatie
 Problemen kunt communicatie binnen Teams met behulp van eenvoudige hulpprogramma's.
 
   > [!NOTE]
@@ -1133,7 +1036,7 @@ Problemen kunt communicatie binnen Teams met behulp van eenvoudige hulpprogramma
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1144,7 +1047,7 @@ Problemen kunt communicatie binnen Teams met behulp van eenvoudige hulpprogramma
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
-## <a name="teams-service-administrator"></a>Teams-servicebeheerder
+### <a name="teams-service-administrator"></a>Teams-servicebeheerder
 Kan de service Microsoft Teams beheren.
 
   > [!NOTE]
@@ -1153,7 +1056,7 @@ Kan de service Microsoft Teams beheren.
   >
 
   > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de bovenstaande beschrijving van de functie voor meer informatie.
   >
   >
 
@@ -1168,8 +1071,8 @@ Kan de service Microsoft Teams beheren.
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 | Microsoft.Office365.usageReports/allEntities/Read | Lees Office 365-gebruiksrapporten. |
 
-## <a name="user-account-administrator"></a>Beheerder van gebruikersaccounts
-Kan alle aspecten van gebruikers en groepen beheren
+### <a name="user-account-administrator"></a>Beheerder van gebruikersaccounts
+Kan alle aspecten van gebruikers en groepen beheren, inclusief het opnieuw instellen van wachtwoorden voor bepaalde beheerders.
 
   > [!NOTE]
   > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
@@ -1181,11 +1084,11 @@ Kan alle aspecten van gebruikers en groepen beheren
 | microsoft.aad.directory/appRoleAssignments/create | AppRoleAssignments maken in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Verwijder appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
-| Microsoft.AAD.Directory/Contacts/default/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
+| Microsoft.AAD.Directory/Contacts/Basic/update | Eenvoudige eigenschappen voor contactpersonen in Azure Active Directory bijgewerkt. |
 | Microsoft.AAD.Directory/Contacts/Create | Contactpersonen maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Contacts/DELETE | Contactpersonen in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | De eigenschap groups.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/default/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
+| Microsoft.AAD.Directory/Groups/Basic/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
 | Microsoft.AAD.Directory/Groups/Create | Groepen maken in Azure Active Directory. |
 | microsoft.aad.directory/groups/createAsOwner | Groepen maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
 | Microsoft.AAD.Directory/Groups/DELETE | Groepen in Azure Active Directory verwijderen. |
@@ -1196,7 +1099,7 @@ Kan alle aspecten van gebruikers en groepen beheren
 | Microsoft.AAD.Directory/Groups/Settings/update | De eigenschap groups.settings in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/appRoleAssignments/update | De eigenschap users.appRoleAssignments in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
-| Microsoft.AAD.Directory/Users/Default/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
+| Microsoft.AAD.Directory/Users/Basic/update | Werk de basiseigenschappen van gebruikers in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/Create | Gebruikers maken in Azure Active Directory. |
 | Microsoft.AAD.Directory/Users/DELETE | Gebruikers in Azure Active Directory verwijderen. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
@@ -1210,54 +1113,6 @@ Kan alle aspecten van gebruikers en groepen beheren
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-## <a name="user"></a>Gebruiker
-De standaardrol van gebruikers. Kan alle lezen en schrijven van een beperkte set van directory-informatie.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.aad.directory/applications/createAsOwner | Toepassingen maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
-| Microsoft.AAD.Directory/Groups/default/Read | Lees de basiseigenschappen van groepen in Azure Active Directory. |
-| microsoft.aad.directory/groups/createAsOwner | Groepen maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
-| microsoft.aad.directory/oAuth2PermissionGrants/create | OAuth2PermissionGrants maken in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/delete | Verwijder oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/oAuth2PermissionGrants/update | Update oAuth2PermissionGrants in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/createAsOwner | ServicePrincipals maken in Azure Active Directory. Maker wordt toegevoegd als de eigenaar van de eerste en het gemaakte object in mindering gebracht op de maker van 250 gemaakte objecten quotum. |
-| microsoft.aad.directory/users/activateServicePlan | Activateserviceplan gebruikers in Azure Active Directory. |
-| microsoft.aad.directory/users/inviteGuest | Nodig gastgebruikers uit in Azure Active Directory. |
-| Microsoft.AAD.Directory/Applications/default/update | Werk de basiseigenschappen van toepassingen in Azure Active Directory. |
-| Microsoft.AAD.Directory/Applications/DELETE | Verwijder toepassingen in Azure Active Directory. |
-| Microsoft.AAD.Directory/Applications/Owners/update | De eigenschap applications.owners in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Applications/permissions/update | De eigenschap applications.permissions in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Applications/Policies/update | De eigenschap applications.policies in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Applications/Restore | Toepassingen in Azure Active Directory herstellen. |
-| Microsoft.AAD.Directory/Devices/disable | Apparaten in Azure Active Directory uitschakelen. |
-| microsoft.aad.directory/groups/appRoleAssignments/update | De eigenschap groups.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/default/update | Basic-eigenschappen op in Azure Active Directory-groepen bijwerken. |
-| Microsoft.AAD.Directory/Groups/DELETE | Groepen in Azure Active Directory verwijderen. |
-| microsoft.aad.directory/groups/dynamicMembershipRule/update | De eigenschap groups.dynamicMembershipRule in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/Members/update | De eigenschap groups.members in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/Owners/update | De eigenschap groups.owners in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Groups/Restore | Groepen in Azure Active Directory herstellen. |
-| Microsoft.AAD.Directory/Groups/Settings/update | De eigenschap groups.settings in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Policies/default/update | Werk de basiseigenschappen van beleidsregels in Azure Active Directory. |
-| Microsoft.AAD.Directory/Policies/DELETE | Beleidsregels in Azure Active Directory verwijderen. |
-| Microsoft.AAD.Directory/Policies/Owners/update | De eigenschap policies.owners in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | De eigenschap servicePrincipals.appRoleAssignedTo in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | De eigenschap servicePrincipals.appRoleAssignments in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/default/update | Eenvoudige eigenschappen op servicePrincipals in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/delete | Verwijder servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/owners/update | De eigenschap servicePrincipals.owners in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/servicePrincipals/policies/update | De eigenschap servicePrincipals.policies in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/users/changePassword | Wachtwoorden wijzigen voor alle gebruikers in Azure Active Directory. Zie de onlinedocumentatie voor meer informatie. |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | Maak alle vernieuwingstokens voor gebruikers ongeldig in Azure Active Directory. |
-| microsoft.aad.directory/users/basicProfile/update | De eigenschap users.basicProfile in Azure Active Directory bijgewerkt. |
-| Microsoft.AAD.Directory/Users/Mobile/update | De eigenschap users.mobile in Azure Active Directory bijgewerkt. |
-| microsoft.aad.directory/users/searchableDeviceKey/update | De eigenschap users.searchableDeviceKey in Azure Active Directory bijgewerkt. |
 
 ## <a name="deprecated-roles"></a>Afgeschafte functies
 

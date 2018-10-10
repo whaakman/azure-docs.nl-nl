@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8027b167481fd4e48e03b3c1ad3ed8c6adcb853e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5da9d4b33951e14df251fe4939c54cff822843aa
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815440"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901950"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Continue integratie en levering (CI/CD) in Azure Data Factory
 
@@ -182,6 +182,9 @@ Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het a
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met de `Start-AzureRmDataFactoryV2Trigger` functie) opnieuw op te starten van de triggers na de implementatie.
+
+> [!IMPORTANT]
+> Continue integratie en implementatie-scenario's moet het type Integratieruntime in verschillende omgevingen hetzelfde zijn. Als u hebt bijvoorbeeld een *zelf-Hostend* Integration Runtime (IR) in de ontwikkelomgeving, dezelfde IR moet van het type *zelf-Hostend* in andere omgevingen zoals test- en productieomgevingen ook. Op dezelfde manier als u integratieruntimes in meerdere fasen deelt, hebt u het configureren van de IRs als *gekoppelde zelf-Hostend* in alle omgevingen, zoals ontwikkeling, testen en productie.
 
 ## <a name="sample-deployment-template"></a>Voorbeeldsjabloon voor implementatie
 

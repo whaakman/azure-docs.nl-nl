@@ -5,23 +5,23 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a806cac410eb57e59dacb42da9be954b2f962956
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb02496d9c107a2c21acca6c65ef69fdfceb4597
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345057"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904564"
 ---
 <a name="paths"></a>
 ## <a name="paths"></a>Paden
 
 <a name="anomalydetection-post"></a>
-### <a name="detect-anomaly-points-for-the-time-series-data-points-requested"></a>Afwijkingsdetectie punten voor de reeks gegevenspunten keer aangevraagd detecteren
+### <a name="detect-anomaly-points-for-the-time-series-data-points-requested"></a>Detecteren van afwijkingen punten voor de gegevenspunten van reeks keer aangevraagd
 ```
 POST /anomalydetection
 ```
@@ -31,7 +31,7 @@ POST /anomalydetection
 
 |Type|Naam|Beschrijving|Schema|
 |---|---|---|---|
-|**Hoofdtekst**|**Hoofdtekst**  <br>*Vereist*|De tijdreeks gegevenspunten en periode indien nodig.|[Aanvraag](#request)|
+|**Hoofdtekst**|**De hoofdtekst**  <br>*Vereist*|De tijdreeksen gegevenspunten en periode indien nodig.|[Aanvraag](#request)|
 
 
 #### <a name="responses"></a>Antwoorden
@@ -39,9 +39,9 @@ POST /anomalydetection
 |HTTP-Code|Beschrijving|Schema|
 |---|---|---|
 |**200**|De bewerking is geslaagd.|< [antwoord](#response) > matrix|
-|**400**|Kan de JSON-aanvraag niet parseren.|Geen inhoud|
+|**400**|JSON-aanvraag kan niet worden geparseerd.|Geen inhoud|
 |**403**|Het certificaat dat u hebt opgegeven, wordt niet geaccepteerd door de server.|Geen inhoud|
-|**405**|De methode is niet toegestaan.|Geen inhoud|
+|**405**|Methode is niet toegestaan.|Geen inhoud|
 |**500**|Er is een interne serverfout opgetreden.|Geen inhoud|
 
 

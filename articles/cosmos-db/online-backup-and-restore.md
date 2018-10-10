@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 657b75e5e3bb5c35bb23221235e62298fc797046
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867796"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902668"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatische online back-up en herstel met Azure Cosmos DB
 Azure Cosmos DB maakt back-ups van al uw gegevens automatisch met regelmatige intervallen. De automatische back-ups worden zonder gevolgen voor de prestaties of beschikbaarheid van uw databasebewerkingen genomen. Uw back-ups apart zijn opgeslagen in een andere storage-service, en deze back-ups wereldwijd voor bescherming tegen regionale rampen zijn gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's als u per ongeluk uw Cosmos DB-container verwijdert en herstel van gegevens later nodig.  
@@ -47,12 +47,18 @@ De volgende afbeelding ziet periodieke volledige back-ups van alle Cosmos DB-ent
 ## <a name="backup-retention-period"></a>Bewaarperiode voor back-up
 Zoals hierboven beschreven, duurt Azure Cosmos DB momentopnamen van uw gegevens om de vier uur op het niveau van de partitie. Op elk moment worden alleen de laatste twee momentopnamen worden bewaard. Echter, als de container/database wordt verwijderd, behoudt Azure Cosmos DB de bestaande momentopnamen voor alle verwijderde partities binnen de opgegeven container/database gedurende 30 dagen.
 
-Voor SQL-API, als u wilt behouden, uw eigen momentopnamen, kunt u het exporteren naar een JSON-optie in de Azure Cosmos DB [hulpprogramma voor gegevensmigratie](import-data.md#export-to-json-file) aanvullende back-ups plannen.
+Voor SQL-API, als u wilt behouden, uw eigen momentopnamen, kunt u doen met behulp van de volgende opties:
+
+* Het exporteren naar een JSON-optie gebruiken in de Azure Cosmos DB [hulpprogramma voor gegevensmigratie](import-data.md#export-to-json-file) aanvullende back-ups plannen.
+
+* Gebruik [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) periodiek verplaatsen van gegevens.
+
+* Azure Cosmos DB gebruiken [wijzigingenfeed](change-feed.md) lezen van gegevens periodiek voor volledige back-up en afzonderlijk voor incrementele wijzigen en verplaatsen naar de bestemming van uw blob. 
+
+* Voor het beheren van warme back-ups, is het mogelijk om gegevens periodiek uit wijzigingenfeeds lezen en vertraging van het schrijven naar een andere verzameling. Dit zorgt ervoor hoeft u niet om de gegevens te herstellen en u onmiddellijk de gegevens voor het probleem kunt kijken. 
 
 > [!NOTE]
-> Als u "Inrichten doorvoer voor een set van containers op databaseniveau" – Houd er rekening mee wordt de terugzetbewerking gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat contact binnen acht uur het ondersteuningsteam als u per ongeluk verwijderd van de container. Gegevens kan niet worden hersteld als u geen contact opnemen met het ondersteuningsteam binnen acht uur. 
-
-
+> Als u "Inrichten doorvoer voor een set van containers op databaseniveau" – Houd er rekening mee wordt de terugzetbewerking gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat contact binnen acht uur het ondersteuningsteam als u de container voor het per ongeluk verwijdert. Gegevens kan niet worden hersteld als u geen contact opnemen met het ondersteuningsteam binnen acht uur.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Herstellen van een database vanuit een online back-up
 
@@ -61,7 +67,7 @@ Als u uw database of de container per ongeluk verwijdert, kunt u [een ondersteun
 Als u wilt herstellen van uw database vanwege een probleem met gegevens (inclusief gevallen waar de documenten in een container worden verwijderd), raadpleegt u [beschadigde gegevens verwerken](#handling-data-corruption) behoefte aanvullende stappen uitvoeren om te voorkomen dat de beschadigde gegevens overschrijft de bestaande back-ups. Voor een specifieke momentopname van de back-up kunnen worden hersteld, vereist Cosmos DB dat de gegevens beschikbaar voor de duur van de back-cyclus die momentopname te maken is.
 
 > [!NOTE]
-> Databases of verzamelingen kunnen worden hersteld na een klantaanvragen voor het herstellen. Het is van de klant responsbility te verwijderen van de container of de database direct na het herstellen van de gegevens. Als u niet de herstelde databases of verzamelingen verwijdert, worden deze kosten tegen het tarief van herstelde verzameling of een database in rekening gebracht. Het is dus heel belangrijk dat u ze onmiddellijk te verwijderen. 
+> Databases of verzamelingen kunnen alleen op expliciete klantaanvragen worden hersteld. Het is de verantwoordelijkheid van de klant te verwijderen van de container of de database direct na het afstemmen van de gegevens. Als u niet de herstelde databases of verzamelingen verwijdert, ze worden kosten in rekening gebracht voor aanvraageenheden, opslag en uitgaand verkeer.
 
 ## <a name="handling-data-corruption"></a>Beschadigde gegevens verwerken
 
@@ -73,7 +79,7 @@ De volgende afbeelding ziet u het maken van de aanvraag voor ondersteuning voor 
 
 ![Herstellen van een container voor onjuiste bijwerken of verwijderen van gegevens in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Als het herstellen is voltooid voor dit soort scenario's - gegevens wordt hersteld naar een ander account (met het achtervoegsel van '-hersteld ') en de container. Deze terugzetten wordt niet uitgevoerd in plaats voor een kans dat aan de klant valideren van de gegevens en de gegevens zo nodig verplaatsen. De herstelde container is in dezelfde regio met dezelfde ru's en beleidsregels voor indexering. Gebruiker die beheerder van abonnement of co-beheerder kan dit herstelde account zien.
+Als het herstellen is voltooid voor dit soort scenario's - gegevens wordt hersteld naar een ander account (met het achtervoegsel van '-hersteld ') en de container. Deze terugzetten wordt niet uitgevoerd in plaats voor een kans dat aan de klant valideren van de gegevens en de gegevens zo nodig verplaatsen. De herstelde container is in dezelfde regio met dezelfde ru's en beleidsregels voor indexering. Gebruiker beheerder van abonnement of coadmin is ziet dit herstelde account.
 
 
 > [!NOTE]

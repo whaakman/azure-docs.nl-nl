@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452510"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886821"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>API-versieprofielen gebruiken met Java in Azure Stack
 
@@ -40,7 +40,7 @@ Een API-profiel is een combinatie van resourceproviders en -API-versies. U kunt 
     
       - Dit is om te worden opgegeven in het Pom.xml-bestand als een afhankelijkheid, die wordt automatisch modules geladen als u de juiste klasse in de vervolgkeuzelijst, kiezen zoals u zou met .NET doen.
         
-          - Het begin van elke module wordt als volgt weergegeven:         
+      - Het begin van elke module wordt als volgt weergegeven:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +93,11 @@ Voor het gebruik van de Java-SDK van Azure met Azure Stack, moet u de volgende w
 
 | Waarde                     | Omgevingsvariabelen | Beschrijving                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tenant-id                 | TENANT_ID            | De waarde van uw Azure Stack [ <span class="underline">tenant-ID</span>](../azure-stack-identity-overview.md).                                                          |
-| Client-id                 | CLIENT_ID             | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.                                                                                              |
-| Abonnements-id           | ABONNEMENTS-ID      | De [ <span class="underline">abonnements-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack.                |
-| Clientgeheim             | WAARDE VOOR CLIENT_SECRET        | De service-principal toepassing geheim opgeslagen bij het service-principal is gemaakt.                                                                                                                                   |
-| Resource Manager-eindpunt | EINDPUNT              | Zie [ <span class="underline">de Azure Stack resource manager-eindpunt</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Tenant-id                 | AZURE_TENANT_ID            | De waarde van uw Azure Stack [ <span class="underline">tenant-ID</span>](../azure-stack-identity-overview.md).                                                          |
+| Client-id                 | AZURE_CLIENT_ID             | De service principal toepassings-ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.                                                                                              |
+| Abonnements-id           | AZURE_SUBSCRIPTION_ID      | De [ <span class="underline">abonnements-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) is hoe u toegang hebben tot aanbiedingen in Azure Stack.                |
+| Clientgeheim             | AZURE_CLIENT_SECRET        | De service-principal toepassing geheim opgeslagen bij het service-principal is gemaakt.                                                                                                                                   |
+| Resource Manager-eindpunt | ARM_ENDPOINT              | Zie [ <span class="underline">de Azure Stack resource manager-eindpunt</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Locatie                  | RESOURCE_LOCATION    | Lokale voor Azure Stack                                                                                                                                                                                                |
 
 Volg de instructies om de tenant-ID voor uw Azure Stack, [hier](../azure-stack-csp-ref-operations.md). Om in te stellen de omgevingsvariabelen, het volgende doen:
@@ -107,7 +107,7 @@ Volg de instructies om de tenant-ID voor uw Azure Stack, [hier](../azure-stack-c
 De omgevingsvariabelen instellen in een Windows-opdrachtprompt, gebruik de volgende indeling:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux en Unix-systemen
@@ -115,7 +115,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 In op basis van Unix-systemen kunt u de volgende opdracht uit:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>De Azure Stack resource manager-eindpunt
@@ -162,7 +162,8 @@ De volgende code wordt geverifieerd door de service-principal in Azure Stack. De
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 U kunt de volgende GitHub-voorbeelden als verwijzingen gebruiken voor het maken van oplossingen met .NET en Azure Stack-API-profielen:
 
-  - [Resourcegroepen beheren](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Resourcegroepen beheren](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Storage-Accounts beheren](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Storage-Accounts beheren](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Een virtuele Machine beheren](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Een virtuele Machine beheren](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>Voorbeeld van een Project voor de Test-eenheid 
 
 1.  Kloon de opslagplaats met de volgende opdracht:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Een Azure-service-principal maken en toewijzen van een rol voor toegang tot het abonnement. Zie voor instructies over het maken van een service-principal [gebruik Azure PowerShell een service-principal maken met een certificaat](../azure-stack-create-service-principals.md).
 
 3.  De volgende vereiste omgeving variabele waarden ophalen:
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  WAARDE VOOR CLIENT_SECRET
-   4.  ABONNEMENTS-ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Stel de volgende omgevingsvariabelen met behulp van de gegevens die u hebt opgehaald uit de Service-Principal hebt gemaakt met behulp van de opdrachtprompt:
     
-   1. exporteren van TENANT_ID = {uw tenant-id}
-   2. exporteren van CLIENT_ID = {uw client-id}
-   3. exporteren van de waarde voor CLIENT_SECRET = {uw clientgeheim}
-   4. exporteren van de abonnements-id = {uw abonnements-id}
-   5. exporteren van ARM_ENDPOINT = {uw Azure Stack Resource manager-URL}
-   6. exporteren van RESOURCE_LOCATION = {locatie van Azure Stack}
+    - exporteren van AZURE_TENANT_ID = {uw tenant-id}
+    - exporteren van AZURE_CLIENT_ID = {uw client-id}
+    - exporteren van AZURE_CLIENT_SECRET = {uw clientgeheim}
+    - exporteren van AZURE_SUBSCRIPTION_ID = {uw abonnements-id}
+    - exporteren van ARM_ENDPOINT = {uw Azure Stack Resource manager-URL}
+    - exporteren van RESOURCE_LOCATION = {locatie van Azure Stack}
 
    Gebruik in Windows, **ingesteld** in plaats van **exporteren**.
 

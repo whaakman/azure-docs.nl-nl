@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054875"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901988"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -31,6 +31,7 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 | Beveiligingsvragen | Alleen SSPR |
 | E-mailadres | Alleen SSPR |
 | Microsoft Authenticator-app | MFA en Preview-versie voor SSPR |
+| OATH-token van Hardware | Openbare preview-versie van MFA en Self-service voor Wachtwoordherstel |
 | Sms | MFA en Self-service voor Wachtwoordherstel |
 | Spraakoproep | MFA en Self-service voor Wachtwoordherstel |
 | App-wachtwoorden | MFA alleen in bepaalde gevallen |
@@ -39,7 +40,7 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 
 |     |
 | --- |
-| Mobiele app-meldingen en mobiele app-code als methoden voor het Azure AD Self-service voor wachtwoord opnieuw instellen van de openbare preview-functies van Azure Active Directory zijn. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| OATH-Hardwaretokens voor melding van MFA en de SSPR en de mobiele app of mobiele app-code als methoden voor het Azure AD Self-service voor wachtwoord opnieuw instellen van de openbare preview-functies van Azure Active Directory zijn. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Wachtwoord
@@ -146,6 +147,28 @@ De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt 
 > [!WARNING]
 > Self-service voor wachtwoord opnieuw ingesteld wanneer alleen één methode vereist is voor het opnieuw instellen van de verificatiecode is de enige optie beschikbaar voor gebruikers **om te controleren of het hoogste niveau van beveiliging**.
 >
+
+## <a name="oath-hardware-tokens"></a>OATH-tokens voor hardware
+
+OATH is een open standaard die aangeeft hoe eenmalig wachtwoord (OTP)-codes worden gegenereerd. Azure AD ondersteunt het gebruik van de mobiele TOTP-SHA-1-OATH-tokens van de verschillende 30 seconden of 60 seconden. Klanten kunnen deze tokens verkrijgen van de leverancier van hun keuze. Houd er rekening mee dat de geheime sleutels zijn beperkt tot 128 tekens die niet compatibel met alle tokens.
+
+![OATH-tokens geüpload naar de blade van de MFA Server OATH-tokens in Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+Zodra de tokens worden verkregen moet het worden geüpload in een indeling met door komma's gescheiden waarden (CSV) met inbegrip van de UPN, serienummer, geheime sleutel, tijdsinterval, de fabrikant en model als in het voorbeeld hieronder ziet.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Zorg ervoor dat u de rij met koppen opnemen in uw CSV-bestand, zoals hierboven.
+
+Eenmaal juist opgemaakt als een CSV-bestand, een beheerder kan vervolgens aanmelden bij de Azure-portal en gaat u naar **Azure Active Directory**, **MFA-Server**, **OATH-tokens**, en Upload het resulterende CSV-bestand.
+
+Afhankelijk van de grootte van het CSV-bestand duurt het enkele minuten om te verwerken. Klik op de **vernieuwen** knop om op te halen van de huidige status. Als er fouten in het bestand zijn, hebt u de optie voor het downloaden van een CSV-bestand met alle fouten voor u om op te lossen.
+
+Wanneer er fouten zijn opgelost, de beheerder vervolgens kan activeren elke sleutel door te klikken op **activeren** voor het token wordt geactiveerd en de invoeren door de OTP op het token wordt weergegeven.
 
 ## <a name="mobile-phone"></a>Mobiele telefoon
 

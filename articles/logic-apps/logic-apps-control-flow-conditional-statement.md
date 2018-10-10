@@ -3,82 +3,89 @@ title: Voeg voorwaardelijke instructies toe aan de werkstromen - Azure Logic App
 description: Voorwaarden waarmee acties in werkstromen in Azure Logic Apps maken
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.topic: article
+ms.date: 10/09/2018
+ms.openlocfilehash: 462a21c760f7dec727148f2a41dec9f508e24dbc
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096373"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885235"
 ---
-# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Voorwaardelijke instructies waarmee de werkstroomacties in Azure Logic Apps maken
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Voorwaardelijke instructies waarmee werkstroomacties in Azure Logic Apps maken
 
-Toevoegen om bepaalde acties uitvoeren in uw logische app alleen na een opgegeven voorwaarde wordt doorgegeven, een *voorwaardelijke instructie*. Deze structuur vergelijkt de gegevens in uw werkstroom op basis van bepaalde waarden of velden. Vervolgens kunt u verschillende acties die worden uitgevoerd op basis van of de gegevens aan de voorwaarde voldoet. U kunt voorwaarden in de andere nesten.
+Voor het uitvoeren van specifieke acties in uw logische app alleen na een opgegeven voorwaarde wordt doorgegeven, Voeg een *voorwaardelijke statement*. Deze structuur besturingselement vergelijkt de gegevens in uw werkstroom op basis van specifieke waarden of de velden. Vervolgens kunt u verschillende acties die worden uitgevoerd op basis van op of de gegevens aan de voorwaarde voldoet. U kunt voorwaarden in de andere nesten.
 
-Stel dat u hebt een logische app waarmee te veel e-mails worden verzonden wanneer nieuwe items worden weergegeven op een website RSS-feed. U kunt een voorwaarde voor het verzenden van e-mailbericht alleen als het nieuwe item een specifieke tekenreeks omvat toevoegen. 
+Stel bijvoorbeeld dat u hebt een logische app die te veel e-mailberichten verzendt wanneer nieuwe items worden weergegeven op RSS-feed van een website. U kunt een voorwaardelijke statement om e-mail te verzenden wanneer een nieuw item een specifieke tekenreeks bevat toevoegen. 
 
 > [!TIP]
-> Gebruiken voor het uitvoeren van andere stappen uitvoeren op basis van andere specifieke waarden, een [ *instructie switch* ](../logic-apps/logic-apps-control-flow-switch-statement.md) in plaats daarvan.
+> Als u wilt uitvoeren op basis van verschillende waarden voor de specifieke stappen, gebruikt u een [ *instructie switch* ](../logic-apps/logic-apps-control-flow-switch-statement.md) in plaats daarvan.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. Als u nog geen abonnement hebt, [meld u dan aan voor een gratis Azure-account](https://azure.microsoft.com/free/).
 
-* Elementaire kennis over [logic apps maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Te volgen in het voorbeeld in dit artikel [in dit voorbeeld logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) met een Outlook.com of Outlook van Office 365-account.
+* Het voorbeeld in dit artikel volgen [in dit voorbeeld logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) met een Outlook.com- of Office 365 Outlook-account.
 
-## <a name="add-a-condition"></a>Een voorwaarde toevoegen
+## <a name="add-condition"></a>Voorwaarde toevoegen
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, opent u uw logische app in Logic App Designer.
 
-2. Een voorwaarde op de locatie die u wilt toevoegen. 
+1. Een voorwaarde op de locatie die u wilt toevoegen. 
 
-   Als u wilt een voorwaarde tussen stappen toevoegen, de aanwijzer boven de pijl waar u de voorwaarde toevoegen. Kies de **plusteken** (**+**) dat wordt weergegeven, en kies vervolgens **een voorwaarde toevoegen**. Bijvoorbeeld:
+   Om toe te voegen een voorwaarde tussen fasen, gaat u de aanwijzer over de pijl waar u wilt toevoegen van de voorwaarde. Kies de **plusteken** (**+**) die wordt weergegeven, en kies vervolgens **een actie toevoegen**. Bijvoorbeeld:
 
-   ![Voorwaarde tussen stappen toevoegen](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
+   ![Actie tussen fasen toevoegen](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Als u wilt een voorwaarde toevoegen aan het einde van de werkstroom, aan de onderkant van uw logische app, kiest u **+ een nieuwe stap** > **een voorwaarde toevoegen**.
+   Als u wilt een voorwaarde toevoegen aan het einde van uw werkstroom, aan de onderkant van uw logische app, kies **nieuwe stap** > **een actie toevoegen**.
 
-3. Onder **voorwaarde**, de voorwaarde te bouwen. 
+1. Typ 'voorwaarde' als filter in het zoekvak. Selecteer deze actie: **voorwaarde - controle**
 
-   1. Geef de gegevens of het veld dat u wilt vergelijken in het linkerdeelvenster.
+   ![Voorwaarde toevoegen](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
-      Wanneer u in het vak links klikt, wordt de lijst met dynamische inhoud weergegeven, zodat u uitvoer uit de vorige stappen in uw logische app selecteren kunt. 
-      Selecteer de samenvatting RSS-feed voor dit voorbeeld.
+1. In de **voorwaarde** vak, het bouwen van uw voorwaarde. 
 
-      ![De voorwaarde bouwen](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
+   1. Geef de gegevens of een veld dat u wilt vergelijken in het linkerdeelvenster.
 
-   2. Selecteer de bewerking uit te voeren in de middelste lijst. 
+      Wanneer u in het vak links klikt, wordt de lijst met dynamische inhoud weergegeven zodat u uitvoer uit de vorige stappen in uw logische app selecteren kunt. 
+      Selecteer voor dit voorbeeld de samenvatting van de RSS-feed.
+
+      ![Maak uw voorwaarde](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
+
+   1. Selecteer de bewerking uit te voeren in het middelste vak. 
    Selecteer voor dit voorbeeld '**bevat**'. 
 
-   3. Geef een waarde of een veld als uw criteria in het vak rechts. 
-   Deze tekenreeks opgeven voor dit voorbeeld: **Microsoft**
+   1. Geef een waarde of een veld als uw criteria in het vak rechts. 
+   Geef deze tekenreeks op voor dit voorbeeld: **Microsoft**
 
    Dit is de volledige voorwaarde:
 
    ![Voltooide voorwaarde](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-5. Onder **als de waarde true** en **indien false**, voeg de stappen uit te voeren op basis van de vraag of de voorwaarde wordt voldaan. Bijvoorbeeld:
+   Als u wilt een nieuwe rij toevoegt aan de voorwaarde, kiest u **toevoegen** > **rij toevoegen**. 
+   Als u wilt toevoegen van een groep met subconditions, kies **toevoegen** > **groep toevoegen**. 
+   Als u wilt groeperen bestaande rijen, schakel de selectievakjes in voor de rijen, kiest u de knop met weglatingstekens (...) voor elke rij en kies vervolgens **maken groep**.
 
-   ![Met de voorwaarde 'als de waarde true' en 'Indien false' paden](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
+1. Onder **als de waarde true** en **indien onwaar**, voeg de stappen om uit te voeren op basis van op of de voorwaarde wordt voldaan. Bijvoorbeeld:
+
+   ![Voorwaarde met 'indien waar' en 'indien onwaar' paden](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Kunt u bestaande acties in de **als de waarde true** en **indien false** paden.
+   > Kunt u bestaande acties in de **als de waarde true** en **indien onwaar** paden.
 
-6. Sla uw logische app op.
+1. Sla uw logische app op.
 
-Deze logische app alleen verzendt nu e-mail wanneer de nieuwe items in de RSS-feed voldoen aan de voorwaarde.
+Deze logische app wordt nu een e-mail verzendt alleen wanneer de nieuwe items in de RSS-feed voldoen aan de voorwaarde.
 
 ## <a name="json-definition"></a>JSON-definitie
 
-Nu dat u een logische app met behulp van een voorwaarde hebt gemaakt, bekijken we de codedefinitie op hoog niveau achter het voorwaardelijke-instructie.
+Hier volgt de codedefinitie op hoog niveau achter een voorwaardelijke statement:
 
 ``` json
 "actions": {
@@ -93,7 +100,8 @@ Nu dat u een logische app met behulp van een voorwaarde hebt gemaakt, bekijken w
       "and": [ 
         { 
           "contains": [ 
-            "@triggerBody()?['summary']", "Microsoft"
+            "@triggerBody()?['summary']", 
+            "Microsoft"
           ]
         } 
       ]
@@ -106,11 +114,11 @@ Nu dat u een logische app met behulp van een voorwaarde hebt gemaakt, bekijken w
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u wilt verzenden of stemmen over de functies en suggesties, gaat u naar de [Azure Logic Apps gebruiker feedback site](http://aka.ms/logicapps-wish).
+* Als u wilt indienen of hierop stemmen op de functies en suggesties, gaat u naar de [site voor gebruikersfeedback van Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Voer stappen uit op basis van verschillende waarden (switch instructies)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Voer stappen uit op basis van verschillende waarden (switch-instructies)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Uitvoeren en herhaalt u stap (lussen)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Uitvoeren of samenvoegen van parallelle stappen (vertakkingen)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Voer stappen uit op basis van Actiestatus van de gegroepeerde (scopes genoemd)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Voer stappen uit op basis van gegroepeerde Actiestatus (bereiken)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

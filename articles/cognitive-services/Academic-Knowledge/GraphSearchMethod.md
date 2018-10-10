@@ -1,24 +1,25 @@
 ---
-title: Grafiek Search-methode in de Academic Knowledge API | Microsoft Docs
-description: De grafiek Search-methode in de Academic Knowledge API gebruiken om te retourneren van een reeks academic entiteiten op basis van specifieke grafiek patronen in cognitieve Microsoft-Services.
+title: Graph-methode van de Search - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Gebruik de methode graaf zoeken in de Academic Knowledge API op een set academische entiteiten op basis van specifieke graafpatronen retourneren.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344410"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902377"
 ---
-# <a name="graph-search-method"></a>Grafiek Search-methode
+# <a name="graph-search-method"></a>Zoekmethode Graph
 
-De **grafiek zoeken** REST-API wordt gebruikt om te retourneren van een reeks academic entiteiten op basis van de gegeven grafiek patronen.  Het antwoord is een set van grafiek paden die voldoet aan de gebruiker opgegeven beperkingen. Een grafiek pad is een interleaved reeks grafiekknooppunten en randen in de vorm van _v0, e0, v1, e1,..., vn_, waarbij _v0_ is het eerste knooppunt van het pad.
+De **graaf zoeken** REST-API wordt gebruikt om te retourneren van een set academische entiteiten op basis van de gegeven grafiek patronen.  Het antwoord is een set met graph-paden die voldoen aan de gebruiker opgegeven beperkingen. Het pad van een grafiek is een interleaved reeks graph-knooppunten en randen in de vorm van _v0, e0, v1, e1,..., vn_, waarbij _v0_ is het eerste knooppunt van het pad.
 <br>
 
 **REST-eindpunt:**  
@@ -30,24 +31,24 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ## <a name="request-parameters"></a>Aanvraagparameters  
 Naam     | Waarde | Vereist?  | Beschrijving
 -----------|-----------|---------|--------
-**Modus**       | Tekenreeks | Ja | Naam van de modus die u wilt gebruiken. De waarde is *json* of *lambda*.
+**modus**       | Tekenreeks met tekst | Ja | De naam van de modus die u wilt gebruiken. De waarde is een *json* of *lambda*.
 
-De grafiek search-methode moet worden aangeroepen via een HTTP POST-aanvraag. De post-aanvraag moet de header content-type bevatten: **application/json**.
+De zoekmethode die grafiek moet worden aangeroepen via een HTTP POST-aanvraag. De post-aanvraag moet de inhoudstype-header bevatten: **application/json**.
 
-##### <a name="json-search"></a>JSON zoeken 
+##### <a name="json-search"></a>JSON-zoeken 
 
-Voor de *json* zoeken, de hoofdtekst van bericht is een JSON-object. De JSON-object wordt een patroon pad met de gebruiker opgegeven beperkingen beschreven (Zie de [specificatie van JSON-object](JSONSearchSyntax.md) voor *json* zoeken).
+Voor de *json* zoeken, in de hoofdtekst van bericht is een JSON-object. Het JSON-object beschrijft een padpatroon met de gebruiker opgegeven beperkingen (Zie de [specificatie van de JSON-object](JSONSearchSyntax.md) voor *json* zoeken).
 
 
-##### <a name="lambda-search"></a>Lambda zoeken
+##### <a name="lambda-search"></a>Lambda-zoeken
 
-Voor de *lambda* zoeken, de hoofdtekst van bericht is een tekenreeks met tekst zonder opmaak. De hoofdtekst van bericht is een queryreeks LIKQ lambda, die één C#-instructie (Zie de [specificatie van queryreeks](LambdaSearchSyntax.md) voor *lambda* zoeken). 
+Voor de *lambda* zoeken, in de hoofdtekst van bericht is een tekenreeks met tekst zonder opmaak. De hoofdtekst van bericht is een queryreeks LIKQ lambda, dit één C#-instructie is (Zie de [specificatie van de query-tekenreeks](LambdaSearchSyntax.md) voor *lambda* zoeken). 
 
 <br>
 ## <a name="response-json"></a>Antwoord (JSON)
 Naam | Beschrijving
 -------|-----   
-**resultaten** | Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat de waarden van de aangevraagde kenmerken. Dit veld is aanwezig als de aanvraag is verwerkt.
+**Resultaten** | Een matrix met 0 of meer entiteiten die overeenkomen met de query-expressie. Elke entiteit bevat de waarden van de aangevraagde kenmerken. Dit veld is aanwezig als de aanvraag is verwerkt.
 **Fout** | HTTP-statuscodes. Dit veld is aanwezig als de aanvraag is mislukt.
 **Bericht** | Foutbericht. Dit veld is aanwezig als de aanvraag is mislukt.
 
@@ -56,12 +57,12 @@ Als een query kan niet worden verwerkt binnen _800 ms_, een _time-out_ fout word
 <br>
 #### <a name="example"></a>Voorbeeld:
 
-##### <a name="json-search"></a>JSON zoeken
+##### <a name="json-search"></a>JSON-zoeken
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 ```
 <br>
-Voor de *json* zoeken, als we krijgen de papers waarvan de titels bevatten willen 'graph engine' en geschreven door 'bin shao', kunnen we als volgt de query opgeven.
+Voor de *json* zoeken, als we ophalen van de documenten waarvan de titels bevatten willen 'graph-engine' en die is geschreven door 'bin shao', kunnen we als volgt de query opgeven.
 
 ```JSON
 {
@@ -82,7 +83,7 @@ Voor de *json* zoeken, als we krijgen de papers waarvan de titels bevatten wille
 }
 ```
 
-De uitvoer van een query is een matrix van grafiek paden. Een grafiek pad is een matrix van knooppuntobjecten overeenkomt met de knooppunten in het pad van de query opgegeven. Deze knooppuntobjecten hebben ten minste één eigenschap *CellID*, die staat voor de entiteit-ID. Andere eigenschappen kunnen worden opgehaald door te geven of de eigenschapnamen via de operator select van een [ *Traversal actie-Object*](JSONSearchSyntax.md).
+De uitvoer van een query is een reeks paden van de grafiek. Een graph-pad is een matrix met knooppuntobjecten die overeenkomt met de knooppunten die zijn opgegeven in de query-pad. Deze knooppuntobjecten hebben ten minste één eigenschap *CellID*, die staat voor de entiteit-ID. Andere eigenschappen kunnen worden opgehaald door op te geven de namen van eigenschappen via de operator select van een [ *Traversal actie voor het Object*](JSONSearchSyntax.md).
 
 ```JSON
 {
@@ -127,13 +128,13 @@ De uitvoer van een query is een matrix van grafiek paden. Een grafiek pad is een
 }
  ```
 
-##### <a name="lambda-search"></a>Lambda zoeken 
+##### <a name="lambda-search"></a>Lambda-zoeken 
 
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=lambda
 ```
 <br>
-Voor de *lambda* zoeken, als we wilt krijgen van de auteur-id's van een bepaald artikel, wordt een query schrijven zoals de volgende.
+Voor de *lambda* zoeken, als we willen ophalen van de auteur van de id's van een bepaald artikel, we kunnen een query schrijven zoals de volgende.
 
 ```
 MAG.StartFrom(@"{
@@ -144,7 +145,7 @@ MAG.StartFrom(@"{
 }").FollowEdge("AuthorIDs").VisitNode(Action.Return)
 ```
 
-De uitvoer van een *lambda* zoekquery is ook een matrix van grafiek paden:
+De uitvoer van een *lambda* zoekquery is ook een reeks paden van de grafiek:
 
 ```JSON
 {
@@ -177,8 +178,8 @@ De uitvoer van een *lambda* zoekquery is ook een matrix van grafiek paden:
 }
 ```
  
-## <a name="graph-schema"></a>Grafiek-Schema
+## <a name="graph-schema"></a>Graph-Schema
 
-Schema van de grafiek is nuttig voor het schrijven van grafiek zoekquery's. Dit wordt weergegeven in de volgende afbeelding.
+Graph-schema is handig voor het schrijven van graph zoekquery's. Deze wordt weergegeven in de volgende afbeelding.
 
-![Academic Microsoft Graph Schema](./Images/AcademicGraphSchema.png)
+![Microsoft Academic Graph-Schema](./Images/AcademicGraphSchema.png)

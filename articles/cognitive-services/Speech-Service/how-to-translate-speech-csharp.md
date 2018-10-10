@@ -5,16 +5,16 @@ description: Laat zien hoe u met de spraak-SDK voor C# spraak vertalen.
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32cbfada359fb39e71abdf1b9ab892a7cd407cc2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e69dabb3be0aada952fe3acba4d4c0b30f62945
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996669"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887612"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Omzetten van spraak met de Cognitive Services spraak-SDK voor C#
 
@@ -39,5 +39,5 @@ Zoek de code die wordt gebruikt in dit artikel in de map samples/csharp/sharedco
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Het herkennen van spraak](how-to-recognize-speech-csharp.md)
+- [Spraak herkennen](how-to-recognize-speech-csharp.md)
 - [Intents van gesproken inhoud herkennen](how-to-recognize-intents-from-speech-csharp.md)
