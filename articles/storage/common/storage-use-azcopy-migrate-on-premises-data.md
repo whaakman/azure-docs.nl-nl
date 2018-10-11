@@ -4,17 +4,16 @@ description: AzCopy gebruiken om gegevens te migreren of gegevens te kopiëren n
 services: storage
 author: roygara
 ms.service: storage
-ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: b238e0f8059e7b4e5223c72ebed04f7d5178fbf2
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182549"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830953"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Zelfstudie: on-premises gegevens migreren naar cloudopslag met behulp van AzCopy
 
@@ -72,7 +71,7 @@ U kunt AzCopy gebruiken om alle bestanden in een map te uploaden naar Blob-opsla
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
-Vervang `<key>` en `key` door uw accountsleutel. In de Azure-portal kunt u uw accountsleutel ophalen door **Toegangssleutels** te selecteren onder **Instellingen** in uw opslagaccount. Selecteer een sleutel en plak deze in de AzCopy-opdracht. Als de opgegeven doelcontainer niet bestaat, wordt deze door AzCopy gemaakt en wordt het bestand erin geüpload. Werk het bronpad bij in uw gegevensmap en vervang **myaccount** in de doel-URL door de naam van uw opslagaccount.
+Vervang `<key>` en `key` door uw accountsleutel. In Azure Portal kunt u uw accountsleutel ophalen door **Toegangssleutels** te selecteren onder **Instellingen** in uw opslagaccount. Selecteer een sleutel en plak deze in de AzCopy-opdracht. Als de opgegeven doelcontainer niet bestaat, wordt deze door AzCopy gemaakt en wordt het bestand erin geüpload. Werk het bronpad bij in uw gegevensmap en vervang **myaccount** in de doel-URL door de naam van uw opslagaccount.
 
 Als u de inhoud van de opgegeven map recursief wilt uploaden naar Blob-opslag, geeft u de optie `--recursive` (Linux) of `/S` optie (Windows) op. Wanneer u AzCopy uitvoert met een van deze opties, worden alle submappen en de bijbehorende bestanden ook geüpload.
 

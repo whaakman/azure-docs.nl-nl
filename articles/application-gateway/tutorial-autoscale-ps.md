@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 9/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c54706f45653c43e6b41d0adb3132583079e6b6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d86ce2e1bac2fb58df8df748381a00eac21e65cb
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167523"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016931"
 ---
 # <a name="tutorial-create-an-autoscaling-zone-redundant-application-gateway-with-a-reserved-virtual-ip-address-using-azure-powershell"></a>Zelfstudie: Een automatisch schalende, zoneredundante toepassingsgateway met een gereserveerde IP-adres maken met Azure PowerShell
 
@@ -119,7 +119,7 @@ U kunt nu de configuratie voor automatisch schalen opgeven voor de toepassingsga
 - **Modus voor vaste capaciteit**. In deze modus wordt er geen automatisch schalen uitgevoerd voor de toepassingsgateway en werkt deze met een vaste schaaleenheid-capaciteit.
 
    ```azurepowershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
+   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
 - **Modus voor automatisch schalen**. In deze modus wordt de schaal van de toepassingsgateway automatisch aangepast op basis van het patroon van het toepassingsverkeer.
 
