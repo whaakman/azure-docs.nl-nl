@@ -4,14 +4,14 @@ description: In dit artikel bevat een overzicht van de web application firewall 
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.date: 10/6/2017
+ms.date: 10/11/2018
 ms.author: amsriva
-ms.openlocfilehash: a16f8d988c900d015810bfe72b04ff5e9eb0682a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815661"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068448"
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -47,21 +47,43 @@ Dit zijn de belangrijkste voordelen van Application Gateway en Web Application F
 
 ## <a name="features"></a>Functies
 
-Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt ook versie 2.2.9 gebruiken. Het voordeel van CRS 3.0 is dat er minder fout-positieven worden geregistreerd dan met 2.2.9. U hebt de mogelijkheid om [regels aan uw behoeften aan te passen](application-gateway-customize-waf-rules-portal.md). Hieronder ziet u enkele voorbeelden van veelvoorkomende beveiligingsproblemen waartegen Web Application Firewall bescherming biedt:
+- Beveiliging tegen SQL-injecties
+- Beveiliging tegen scripting op meerdere sites
+- Beveiliging tegen veelvoorkomende aanvallen via internet, zoals opdrachtinjectie, het smokkelen van HTTP-aanvragen, het uitsplitsen van HTTP-antwoorden en aanvallen waarbij een extern bestand wordt ingesloten
+- Beveiliging tegen schendingen van het HTTP-protocol
+- Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
+- Beveiliging tegen bots, crawlers en scanners
+- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen, Apache, IIS, enz.)
 
-* Beveiliging tegen SQL-injecties
-* Beveiliging tegen scripting op meerdere sites
-* Beveiliging tegen veelvoorkomende aanvallen via internet, zoals opdrachtinjectie, het smokkelen van HTTP-aanvragen, het uitsplitsen van HTTP-antwoorden en aanvallen waarbij een extern bestand wordt ingesloten
-* Beveiliging tegen schendingen van het HTTP-protocol
-* Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
-* Beveiliging tegen bots, crawlers en scanners
-* Detectie van veelvoorkomende onjuiste configuraties van toepassingen (dat wil zeggen, Apache, IIS, enz.)
+### <a name="public-preview-features"></a>Openbare preview-functies
 
-Raadpleeg de volgende [Core Rule Sets](#core-rule-sets) voor een gedetailleerde lijst van regels en waartegen ze beveiliging bieden.
+De huidige WAF-openbare preview-SKU incudes de volgende functies:
+
+- **Grootte aanvraaglimieten** -Web Application Firewall kunnen gebruikers grootte aanvraaglimieten in kleine en bovengrens instellen.
+- **Uitsluitingslijsten** -WAF uitsluitingslijsten toestaan dat gebruikers bepaalde kenmerken van een evaluatie WAF weglaten. Een veelvoorkomend voorbeeld is de dat Active Directory-tokens die worden gebruikt voor verificatie of wachtwoordvelden ingevoegd.
+
+Zie voor meer informatie over de openbare preview van WAF, [Web application firewall aanvraaglimieten grootte en uitsluitingslijsten (openbare Preview)](application-gateway-waf-configuration.md).
+
+
+
+
 
 ### <a name="core-rule-sets"></a>Core Rule Sets
 
 Application Gateway ondersteunt twee regelsets, CRS 3.0 en CRS 2.2.9. Deze Core Rule Sets zijn verzamelingen regels die uw webtoepassingen beschermen tegen schadelijke activiteiten.
+
+Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt ook versie 2.2.9 gebruiken. Het voordeel van CRS 3.0 is dat er minder fout-positieven worden geregistreerd dan met 2.2.9. U hebt de mogelijkheid om [regels aan uw behoeften aan te passen](application-gateway-customize-waf-rules-portal.md). Hieronder ziet u enkele voorbeelden van veelvoorkomende beveiligingsproblemen waartegen Web Application Firewall bescherming biedt:
+
+- Beveiliging tegen SQL-injecties
+- Beveiliging tegen scripting op meerdere sites
+- Beveiliging tegen veelvoorkomende aanvallen via internet, zoals opdrachtinjectie, het smokkelen van HTTP-aanvragen, het uitsplitsen van HTTP-antwoorden en aanvallen waarbij een extern bestand wordt ingesloten
+- Beveiliging tegen schendingen van het HTTP-protocol
+- Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
+- Beveiliging tegen bots, crawlers en scanners
+- Detectie van veelvoorkomende onjuiste configuraties van toepassingen (Apache, IIS, enzovoort)
+
+Zie voor een gedetailleerde lijst met regels en waartegen ze beveiliging bieden [Core rule set](#core-rule-sets).
+
 
 #### <a name="owasp30"></a>OWASP_3.0
 

@@ -1,64 +1,74 @@
 ---
-title: Maken of koppelen van parallelle vertakkingen - Azure Logic Apps | Microsoft Docs
-description: Het maken of koppelen van parallelle vertakkingen voor werkstromen in Azure Logic Apps
+title: Maken of lid van parallelle vertakkingen - Azure Logic Apps | Microsoft Docs
+description: Maken of koppelen van parallelle vertakkingen voor werkstromen in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/10/2018
+ms.openlocfilehash: 344768e08fbd70aaae4fdb250b00cc968ed8eae1
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298852"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067021"
 ---
-# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Maken of koppelen van parallelle vertakkingen voor werkstroomacties in Azure Logic Apps
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Maken of lid van parallelle vertakkingen voor werkstroomacties in Azure Logic Apps
 
-Standaard wordt uw acties in logic app werkstromen worden opeenvolgend uitgevoerd. Bewerkingen uit te voeren onafhankelijke op hetzelfde moment, kunt u [parallelle vertakkingen](#parallel-branches), en vervolgens [join die vertakkingen](#join-branches) verderop in de stroom. 
+Standaard wordt uw acties in logic app workflows worden opeenvolgend uitgevoerd. Als u wilt onafhankelijke acties uitvoeren op hetzelfde moment, kunt u [parallelle vertakkingen](#parallel-branches), en vervolgens [deelnemen aan die vertakkingen](#join-branches) verderop in de stroom. 
 
 > [!TIP] 
-> Als u een trigger die een matrix ontvangt en een werkstroom voor elk matrixitem wilt uitvoeren hebt, kunt u *debatch* dat matrix met de [ **SplitOn** activeren eigenschap](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> Als u een trigger die een matrix ontvangt en een werkstroom voor elk matrixitem wilt uitvoeren, kunt u *debatch* matrix met de [ **SplitOn** activeren van de eigenschap](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. Als u nog geen abonnement hebt, [meld u dan aan voor een gratis Azure-account](https://azure.microsoft.com/free/). 
 
-* Elementaire kennis over [logic apps maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="parallel-branches"></a>
 
-## <a name="add-a-parallel-branch"></a>Een parallelle vertakking toevoegen
+## <a name="add-parallel-branch"></a>Parallelle vertakking toevoegen
 
-Als u wilt uitvoeren onafhankelijk stappen op hetzelfde moment, kunt u parallelle vertakkingen naast een bestaande stap toevoegen. 
+Onafhankelijke stappen op hetzelfde moment uitgevoerd, kunt u parallelle vertakkingen naast een bestaande stap toevoegen. 
 
-![Stappen parallel worden uitgevoerd](media/logic-apps-control-flow-branches/parallel.png)
+![Werk parallel worden uitgevoerd](media/logic-apps-control-flow-branches/parallel.png)
 
-Uw logische app wacht tot alle takken te voltooien voordat u doorgaat werkstroom.
-Parallelle vertakkingen uitvoeren alleen wanneer hun `runAfter` eigenschapswaarden overeenkomen met de status van de voltooide bovenliggende stap. Bijvoorbeeld: beide `branchAction1` en `branchAction2` zijn ingesteld om uit te voeren, alleen wanneer de `parentAction` is voltooid met `Succeded` status.
+Uw logische app wacht tot alle vertakkingen te voltooien voordat u doorgaat werkstroom. Parallelle vertakkingen uitvoeren alleen wanneer hun `runAfter` eigenschapswaarden overeenkomen met de status van de voltooide bovenliggende stap. Bijvoorbeeld, beide `branchAction1` en `branchAction2` zijn ingesteld om uit te voeren alleen wanneer de `parentAction` is voltooid met `Succeded` status.
 
 > [!NOTE]
 > Voordat u begint, moet uw logische app al een stap waarin u parallelle vertakkingen kunt toevoegen.
 
 1. In de <a href="https://portal.azure.com" target="_blank">Azure-portal</a>, opent u uw logische app in Logic App Designer.
 
-2. Beweeg de muis over de pijl boven de stap waar u parallelle vertakkingen wilt.
-
-3. Kies de **plus** teken (**+**), kiest u **toevoegen van een parallelle vertakking**, en selecteer het item dat u wilt toevoegen.
+1. Plaats de muisaanwijzer boven de pijl boven de stap waarin u wilt toevoegen van parallelle vertakkingen. Kies de **plus** teken (**+**) die wordt weergegeven, en kies vervolgens **een parallelle vertakking toevoegen**. 
 
    ![Parallelle vertakking toevoegen](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   Het geselecteerde item wordt nu weergegeven in een parallelle vertakking.
+1. Zoek in het zoekvak en selecteer de actie die u wilt.
 
-4. Voor elke vertakking parallelle, voegt u de stappen die u wilt. Verplaats voor een opeenvolgende actie toevoegen aan een parallelle vertakking, de muis onder de actie waar u de opeenvolgende actie toevoegen. Kies de **plus** (**+**) aanmelding en de stap die u wilt toevoegen.
+   ![Zoek en selecteer de actie die u wilt](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![Stap aan parallelle vertakking toevoegen](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   Nu de geselecteerde actie wordt bijvoorbeeld weergegeven in de parallelle vertakking:
 
-5. Vertakkingen terug samen samenvoegen [deelnemen aan uw parallelle vertakkingen](#join-branches). 
+   ![Zoek en selecteer de actie die u wilt](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. Voeg nu de stappen die u wilt dat toe in elke parallelle vertakking. Nog een actie toevoegen aan een vertakking, de aanwijzer onder de actie waar u wilt een sequentiële actie toevoegen. Kies de de **plus** (**+**) teken dat wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+
+   ![Sequentiële actie aan parallelle vertakking toevoegen](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. Zoek in het zoekvak en selecteer de actie die u wilt.
+
+   ![Zoek en selecteer opeenvolgende actie](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   Nu de geselecteerde actie wordt bijvoorbeeld weergegeven in de huidige vertakking:
+
+   ![Zoek en selecteer opeenvolgende actie](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+Samen takken terug samenvoegen [deelnemen aan uw parallelle vertakkingen](#join-branches). 
 
 <a name="parallel-json"></a>
 
@@ -69,17 +79,17 @@ Als u in de codeweergave werkt, kunt u definiëren de parallelle structuur in JS
 ``` json
 {
   "triggers": {
-    "myTrigger": { }
+    "myTrigger": {}
   },
   "actions": {
     "parentAction": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {}
     },
     "branchAction1": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -88,7 +98,7 @@ Als u in de codeweergave werkt, kunt u definiëren de parallelle structuur in JS
     },
     "branchAction2": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -102,23 +112,29 @@ Als u in de codeweergave werkt, kunt u definiëren de parallelle structuur in JS
 
 <a name="join-branches"></a>
 
-## <a name="join-parallel-branches"></a>Parallelle vertakkingen koppelen
+## <a name="join-parallel-branches"></a>Deelnemen aan parallelle vertakkingen
 
-Om parallelle vertakkingen samenvoegen, voegt u toe een stap onderaan onder alle takken. Deze stap wordt uitgevoerd nadat alle de einddatum van de parallelle vertakkingen uitgevoerd.
+Om parallelle vertakkingen samenvoegen, moet u alleen een stap toevoegen aan de onderkant onder alle vertakkingen. Deze stap wordt uitgevoerd nadat alle de einddatum van de parallelle vertakkingen uitgevoerd.
 
-![Parallelle vertakkingen koppelen](media/logic-apps-control-flow-branches/join.png)
+![Deelnemen aan parallelle vertakkingen](media/logic-apps-control-flow-branches/join.png)
 
-1. In de [Azure-portal](https://portal.azure.com), zoeken en openen van uw logische app in Logic App-ontwerper. 
+1. In de [Azure-portal](https://portal.azure.com), zoeken en openen van uw logische app in Logic App Designer. 
 
-2. Onder de parallelle vertakkingen die u wilt toevoegen, voeg de stap die u wilt uitvoeren.
+1. Kies onder de parallelle vertakkingen die u wilt deelnemen, **nieuwe stap**. 
 
-   ![Een stap die lid wordt van parallelle vertakkingen toevoegen](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Stap om toe te voegen toevoegen](media/logic-apps-control-flow-branches/add-join-step.png)
 
-   De parallelle vertakkingen zijn nu samengevoegd.
+1. In het zoekvak, zoek en selecteer de actie die u wilt de stap die lid wordt van de branches.
+
+   ![Zoek en selecteer de actie die lid wordt van parallelle vertakkingen](media/logic-apps-control-flow-branches/join-steps.png)
+
+   Uw parallelle vertakkingen zijn nu samengevoegd.
+
+   ![Gekoppelde vertakkingen](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 
-## <a name="join-definition-json"></a>Deelnemen aan de definitie van JSON)
+## <a name="join-definition-json"></a>Lid worden van definitie (JSON)
 
 Als u in de codeweergave werkt, kunt u definiëren de joinstructuur in JSON-definitie van uw logische app in plaats daarvan, bijvoorbeeld:
 
@@ -171,11 +187,11 @@ Als u in de codeweergave werkt, kunt u definiëren de joinstructuur in JSON-defi
 ## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
-* Als u wilt verzenden of stemmen over de functies en suggesties, gaat u naar de [Azure Logic Apps gebruiker feedback site](http://aka.ms/logicapps-wish).
+* Als u wilt indienen of hierop stemmen op de functies en suggesties, gaat u naar de [site voor gebruikersfeedback van Azure Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Voer stappen uit op basis van een voorwaarde (voorwaardelijke instructies)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Voer stappen uit op basis van verschillende waarden (switch instructies)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Voer stappen uit op basis van verschillende waarden (switch-instructies)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Uitvoeren en herhaalt u stap (lussen)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Voer stappen uit op basis van Actiestatus van de gegroepeerde (scopes genoemd)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Voer stappen uit op basis van gegroepeerde Actiestatus (bereiken)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972807"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067700"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI in Azure Stack
 
@@ -168,7 +168,8 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
 1. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Meld u aan als een *gebruiker*: U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft.
+    * AAD-omgevingen
+      * Meld u aan als een *gebruiker*: U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
       > [!NOTE]
       > Als uw gebruikersaccount multi-factor authentication ingeschakeld heeft, kunt u de `az login command` zonder op te geven de `-u` parameter. Met de opdracht geeft u een URL en een code die u gebruiken moet om te verifiëren.
    
-   * Meld u aan als een *service-principal*: voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
+      * Meld u aan als een *service-principal*: voordat u zich aanmeldt, [maken van een service-principal via de Azure-portal](azure-stack-create-service-principals.md) of CLI en een rol toewijzen. Nu aanmelden met behulp van de volgende opdracht uit:
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS-omgevingen
+
+        * Meld u aan als een *service-principal*: 
+          1.    Bereid het .pem-bestand moet worden gebruikt voor service-principal-aanmelding.
+                * Op de clientcomputer waar de principal is gemaakt, de service principal-certificaat exporteren als een pfx met de persoonlijke sleutel (te vinden op het cert: \CurrentUser\My; de naam van het certificaat heeft dezelfde naam als de principal).
+
+                *   De pfx naar pem (gebruik OpenSSL Utility) converteren.
+
+          1.    Meld u aan bij de CLI. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 

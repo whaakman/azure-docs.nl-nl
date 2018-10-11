@@ -3,18 +3,16 @@ title: Implementeer containers met Helm in Kubernetes op Azure
 description: Het Helm verpakking-hulpprogramma gebruiken voor het implementeren van containers in een cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d95f7ad337e52aed47656c2ea60e6b193a427946
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055131"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068574"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)
 
@@ -26,32 +24,11 @@ In dit artikel leest u hoe het configureren en gebruiken van Helm in een Kuberne
 
 De stappen die in dit document wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en hebben een `kubectl` verbinding met het cluster. Als u deze items wilt zien, de [Quick Start voor AKS][aks-quickstart].
 
-## <a name="install-helm-cli"></a>Helm CLI installeren
-
-De CLI Helm is een client die wordt uitgevoerd op uw systeem voor de ontwikkeling en kunt u starten, stoppen en beheren van toepassingen met Helm.
-
-Als u de Azure Cloud Shell gebruikt, wordt de Helm-CLI al geïnstalleerd. Wilt u de Helm-CLI installeren op een Mac `brew`. Zie voor aanvullende installatie-opties voor [Helm installeren][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Uitvoer:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+U moet ook de Helm-CLI is geïnstalleerd, de client die wordt uitgevoerd op uw systeem voor de ontwikkeling en kunt u starten, stoppen en beheren van toepassingen met Helm. Als u de Azure Cloud Shell gebruikt, wordt de Helm-CLI al geïnstalleerd. Voor installatie-instructies op uw lokale platform Zie, [Helm installeren][helm-install].
 
 ## <a name="create-a-service-account"></a>Een service-account maken
 
-Voordat u Helm in een cluster RBAC is ingeschakeld implementeren kunt, moet u een service-account en een binding van de rol voor de Tiller-service. Voor meer informatie over het beveiligen van Helm / Tiller in een RBAC cluster ingeschakeld, Zie [Tiller, naamruimten en RBAC][tiller-rbac]. Als uw cluster niet RBAC is ingeschakeld, moet u deze stap overslaan.
+Voordat u Helm in een cluster AKS RBAC is ingeschakeld implementeren kunt, moet u een service-account en een binding van de rol voor de Tiller-service. Voor meer informatie over het beveiligen van Helm / Tiller in een RBAC cluster ingeschakeld, Zie [Tiller, naamruimten en RBAC][tiller-rbac]. Als uw AKS-cluster niet RBAC is ingeschakeld, moet u deze stap overslaan.
 
 Maak een bestand met de naam `helm-rbac.yaml` en kopieer de volgende YAML:
 
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-Maken van de service-account en de rol binding met de `kubectl create` opdracht:
+Maken van de service-account en de rol binding met de `kubectl apply` opdracht:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>Beveiligde Tiller en Helm
@@ -96,7 +73,7 @@ Voor het implementeren van een eenvoudige Tiller in een AKS-cluster, gebruikt u 
 helm init --service-account tiller
 ```
 
-Als u TLS/SSL tussen Helm en Tiller geconfigureerd bieden de `--tiller-tls-` parameters en de namen van uw eigen certificaten, zoals wordt weergegeven in het volgende voorbeeld:
+Als u TLS/SSL tussen Helm en Tiller geconfigureerd bieden de `--tiller-tls-*` parameters en de namen van uw eigen certificaten, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```console
 helm init \

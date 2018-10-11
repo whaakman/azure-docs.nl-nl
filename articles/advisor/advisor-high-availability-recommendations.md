@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 541ab91bf3a79b1b91fa237880f48bd8e0ccc152
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348069"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068347"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-aanbevelingen voor hoge beschikbaarheid
 
@@ -82,7 +82,7 @@ Schakel [voorlopig verwijderen](https://docs.microsoft.com/azure/storage/blobs/s
 Zie voor meer informatie over aanbevelingen van Advisor:
 * [Inleiding tot Azure Advisor](advisor-overview.md)
 * [Aan de slag met Advisor](advisor-get-started.md)
-* [Aanbevelingen van Advisor-kosten](advisor-performance-recommendations.md)
+* [Aanbevelingen van Advisor-kosten](advisor-cost-recommendations.md)
 * [Advisor-aanbevelingen voor prestaties](advisor-performance-recommendations.md)
 * [Advisor-aanbevelingen voor beveiliging](advisor-security-recommendations.md)
 

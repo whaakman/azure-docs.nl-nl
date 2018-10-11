@@ -1,19 +1,19 @@
 ---
 title: bestand opnemen
 description: bestand opnemen
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39030015"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070182"
 ---
 # <a name="internet-of-things-security-architecture"></a>Internet of Things-beveiligingsarchitectuur
 
@@ -185,7 +185,7 @@ In elk van de categorieën die worden beschreven in de Azure IoT-architectuur is
 
 Hier volgen enkele voorbeelden van bedreigingen in deze categorie:
 
-Adresvervalsing (spoofing): Kan een aanvaller vanaf een apparaat, op de software of hardwareniveau, en vervolgens toegang tot die het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is genomen van cryptografische sleutelmateriaal extraheren.
+**Adresvervalsing (spoofing)**: een aanvaller kan cryptografische sleutelmateriaal ophalen vanaf een apparaat, ofwel op het niveau van de software of hardware, en vervolgens toegang tot het systeem met een ander fysiek of virtueel apparaat onder de identiteit van het apparaat het sleutelmateriaal is afkomstig uit.
 
 **DOS-aanval**: een apparaat kan worden gerenderd waarvoor niet werkt of de communicatie door te keuzerondje frequenties of knippen draden verstoren. Gegevens, kan bijvoorbeeld helemaal niet een camera toezicht op waarop de stroom of de netwerk-verbinding opzettelijk toenemende rapporteren.
 

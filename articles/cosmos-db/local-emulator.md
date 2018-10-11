@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7067a71eea3ffbfadf006a102ee926fb15347f63
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a5481f9b2b443a0860ce0df5643427f357e1c294
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423643"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785368"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>De Azure Cosmos DB Emulator gebruiken voor lokaal ontwikkelen en testen
 
@@ -466,54 +466,6 @@ Voor het verzamelen van foutopsporingsgegevens, voert u de volgende opdrachten u
 2. Typ in het zoekvak Windows **Apps en onderdelen** en klik op **Apps en onderdelen (systeeminstellingen)**.
 3. Ga in de lijst met apps naar **Azure Cosmos DB Emulator**, selecteer de app, klik op **Verwijderen**, bevestig dit en klik nogmaals op **Verwijderen**.
 4. Wanneer de app is verwijderd, gaat u naar `C:\Users\<user>\AppData\Local\CosmosDBEmulator` en verwijdert u de map. 
-
-## <a name="change-list"></a>Lijst met wijzigingen
-
-U kunt het versienummer controleren door met de rechtermuisknop op het pictogram van de lokale emulator op de taakbalk te klikken en vervolgens te klikken op het menu-item Info over.
-
-### <a name="1220-released-on-april-20-2018"></a>1.22.0. Uitgebracht op 20 april 2018
-
-We hebben niet alleen de emulatorservices bijgewerkt voor pariteit met Cosmos DB-cloudservices, maar we hebben ook verbeterde PowerShell-documentatie en enkele foutoplossingen toegevoegd.
-
-### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 Uitgebracht op 27 maart 2018
-
-We hebben niet alleen de emulatorservices bijgewerkt voor pariteit met Cosmos DB-cloudservices, maar we hebben ook een nieuwe functie en twee foutoplossingen in deze release toegevoegd.
-
-#### <a name="features"></a>Functies
-
-1. De opdracht Start-CosmosDbEmulator bevat nu opties voor opstarten.
-
-#### <a name="bug-fixes"></a>Opgeloste fouten
-
-1. De Microsoft.Azure.CosmosDB.Emulator PowerShell-module zorgt er nu voor dat de `ServiceControllerStatus`-opsomming wordt geladen.
-
-2. De Microsoft.Azure.CosmosDB.Emulator PowerShell-module bevat nu een manifest, die niet aanwezig was in de eerste release.
-
-### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 Uitgebracht op 14 februari 2018
-
-Deze release bevat één nieuwe functie en twee oplossingen voor problemen. Dit is dankzij klanten die ons hebben geholpen bij het vinden en verhelpen van deze problemen.
-
-#### <a name="bug-fixes"></a>Opgeloste fouten
-
-1. De emulator werkt nu op computers met één of twee kernen (of virtuele CPU's)
-
-   Cosmos DB wijst taken voor het uitvoeren van de diverse services. Het aantal taken dat wordt toegewezen, is een meervoud zijn van het aantal kernen op een host. De standaard meervoudige waarde werkt goed in productieomgevingen wanneer het aantal kernen groot is. Op computers met één of twee processors worden geen taken toegewezen om deze services uit te voeren wanneer deze meervoudige waarde wordt toegepast.
-
-   We hebben dit gecorrigeerd door een onderdrukking van de configuratie toe te voegen aan de emulator. We passen nu een meervoud van 1 toe. Het aantal taken dat is toegewezen voor het uitvoeren van verschillende services, is nu gelijk zijn aan het aantal kernen op een host.
-
-   We zouden deze release alleen al voor het verhelpen van deze kwestie hebben uitgebracht. Veel ontwikkel-/testomgevingen die de emulator hosten, hebben één of twee kernen.
-
-2. De emulator vereist niet langer dat het herdistribueerbare Microsoft Visual C++ 2015-onderdeel is geïnstalleerd.
-
-   Nieuwe installaties van Windows (desktop- en server-edities) bevatten niet dit herdistribueerbare pakket. Daarom bundelen we nu de herdistribueerbare binaire bestanden met de emulator.
-
-#### <a name="features"></a>Functies
-
-Veel van de klanten die we hebben gesproken, zouden het handig vinden als de emulator scriptbaar zou zijn. Daarom hebben we in deze release enkele scriptfuncties toegevoegd. De emulator bevat nu een PowerShell-module voor het starten, stoppen en status ophalen en om zichzelf te verwijderen: `Microsoft.Azure.CosmosDB.Emulator`. 
-
-### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 Uitgebracht op 26 januari 2018
-
-* De pijplijn MongoDB-aggregatie is standaard ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

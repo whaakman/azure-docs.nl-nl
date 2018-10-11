@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220972"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068692"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -70,7 +70,7 @@ Azure Monitor kunt logboekgegevens verzamelen vanuit elke REST-client met behulp
 Door gegevens te controleren is alleen nuttig als uw inzicht in de werking van uw IT-omgeving kunt verhogen. Azure Monitor biedt verschillende functies en hulpprogramma's waarmee u inzicht in uw toepassingen en andere bronnen die ze afhankelijk zijn. [Bewakingsoplossingen](../monitoring/monitoring-solutions.md) en functies zoals [Application Insights](../application-insights/app-insights-overview.md) en Container-inzichten diep inzicht geven in verschillende aspecten van uw toepassing en de specifieke Azure-services. 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) Hiermee wordt de beschikbaarheid, prestaties en gebruik van uw webtoepassingen gecontroleerd of ze in de cloud of on-premises worden gehost. Hierbij wordt gebruikgemaakt van het platform van de krachtige analyse in Log Analytics krijgt u diep inzicht in bewerkingen van uw toepassing en een diagnose van fouten zonder te wachten op een gebruiker ze heeft gerapporteerd. Application Insights bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars en kan worden geïntegreerd met Visual Studio ter ondersteuning van uw DevOps-processen.
+[Application Insights](../application-insights/app-insights-overview.md) Hiermee wordt de beschikbaarheid, prestaties en gebruik van uw webtoepassingen gecontroleerd of ze in de cloud of on-premises worden gehost. Hierbij wordt gebruikgemaakt van het platform van de krachtige analyse in Log Analytics krijgt u diep inzicht in bewerkingen van uw toepassing en een diagnose van fouten zonder te wachten op een gebruiker ze heeft gerapporteerd. Application Insights bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars en kan worden geïntegreerd met Visual Studio ter ondersteuning van uw DevOps-processen.
 
 ![App Insights](media/overview/app-insights.png)
 

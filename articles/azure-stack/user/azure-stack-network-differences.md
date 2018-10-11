@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
 ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1863236a51d89dd311cd8aacfcd737faddf21ab0
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054446"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079188"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Overwegingen voor Azure Stack-netwerken
 
@@ -40,7 +40,7 @@ Dit artikel bevat een overzicht van de unieke overwegingen voor Azure Stack-netw
 |  | Virtual Machine Scale sets IP-configuraties | Ondersteund | Nog niet ondersteund. |
 |  | Persoonlijke toegang tot Services (Subnet) | Ondersteund | Nog niet ondersteund. |
 |  | Service-eindpunten | Ondersteund voor interne (niet-Internet) verbinding met Azure-Services. | Nog niet ondersteund. |
-| Alleen IPv4 wordt ondersteund. | Service-eindpuntbeleid | Ondersteund | Nog niet ondersteund. |
+| Alleen IPv4 wordt ondersteund. | Beleid voor service-eindpunten | Ondersteund | Nog niet ondersteund. |
 |  | Service-Tunnels | Ondersteund | Nog niet ondersteund.  |
 | Netwerkbeveiligingsgroepen | Uitgebreide beveiligingsregels | Ondersteund | Nog niet ondersteund. |
 |  | Effectieve beveiligingsregels | Ondersteund | Nog niet ondersteund. |

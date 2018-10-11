@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 413b94c1f1845e0dcda54b04882e5d6664b81380
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815491"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068499"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -324,6 +324,18 @@ De IoT Edge-daemon wordt afgedwongen proces-id in voor alle modules die verbindi
 
 ### <a name="resolution"></a>Oplossing
 Zorg ervoor dat de hetzelfde proces-id altijd door de aangepaste IoT Edge-module gebruikt wordt om berichten te verzenden naar de edgeHub. Bijvoorbeeld, zorg ervoor dat u `ENTRYPOINT` in plaats van `CMD` opdracht in uw Docker-bestand, aangezien `CMD` zal leiden tot een proces-id voor de module en een ander proces-id voor de bash-opdracht uitvoeren van de belangrijkste programma dat `ENTRYPOINT` zal leiden tot een een enkel proces-id.
+
+
+## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Firewall- en poortinstellingen configuratieregels voor IoT Edge-implementatie
+Azure IoT Edge kunt u communicatie tussen een on-premises Edge-server en Azure-cloud met ondersteunde protocollen van IoT Hub, Zie [een communicatieprotocol kiezen](../iot-hub/iot-hub-devguide-protocols.md). Voor een betere beveiliging zijn altijd communicatiekanalen tussen Azure IoT Edge en Azure IoT Hub geconfigureerd als uitgaande; Dit is gebaseerd op de [Services communicatiepatroon](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), die minimaliseert de kwetsbaarheid voor aanvallen voor een schadelijke entiteit om te verkennen. Binnenkomende communicatie is alleen vereist voor specifieke scenario's waar Azure IoT Hub om berichten naar de Azure IoT Edge-server (bijvoorbeeld Cloud naar apparaatmessaging), moet deze opnieuw zijn beveiligd met een beveiligde TLS-kanalen en meer kunnen beveiligd met X.509 certificaten en TPM-apparaatmodules. De Azure IoT Edge Security Manager bepaalt hoe deze communicatie kan worden tot stand gebracht, Zie [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+
+Hoewel IoT Edge verbeterde configuratie biedt voor het beveiligen van Azure IoT Edge-runtime en modules geïmplementeerd, is het nog steeds afhankelijk van de onderliggende machine en het netwerk. Het is dus van cruciaal belang om te controleren of het juiste netwerk en firewall-regels zijn ingesteld voor beveiligde Edge communicatie tussen de Cloud. De volgende kan worden gebruikt als richtlijn wanneer configuratie firewallregels voor de onderliggende servers waar Azure IoT Edge-runtime wordt gehost:
+
+|Protocol|Poort|binnenkomende|Uitgaand|Richtlijnen|
+|--|--|--|--|--|
+|MQTT|8883|GEBLOKKEERDE (standaard)|GEBLOKKEERDE (standaard)|<ul> <li>Uitgaand (uitgaand) te openen bij gebruik van MQTT als het communicatieprotocol configureren.<li>. 1883 voor MQTT wordt niet ondersteund door de IoT Edge. <li>Binnenkomende verbindingen voor (inkomend) moeten worden geblokkeerd.</ul>|
+|AMQP|5671|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Standaard communicatieprotocol voor IoT Edge. <li> Moet worden geconfigureerd om te worden geopend als Azure IoT Edge is niet geconfigureerd voor andere ondersteunde protocollen of AMQP het gewenste communicatieprotocol is.<li>5672 voor AMQP wordt niet ondersteund door de IoT Edge.<li>Deze poort blokkeren wanneer Azure IoT Edge-gebruik een andere IoT-Hub ondersteund protocol.<li>Binnenkomende verbindingen voor (inkomend) moeten worden geblokkeerd.</ul></ul>|
+|HTTPS|443|GEBLOKKEERDE (standaard)|OPEN (standaard)|<ul> <li>Uitgaand (uitgaand) te openen op 443 configureren voor IoT Edge inrichten, dit is vereist bij het gebruik van handmatige scripts of Azure IoT Device Provisioning Service (DPS). <li>Inkomende (inkomend) verbinding moet Open zijn alleen voor specifieke scenario's: <ul> <li>  Als u een transparante gateway met leaf-apparaten die methodeaanvragen kunnen worden verzonden hebt. Poort 443 hoeft in dit geval niet te worden geopend voor externe netwerken verbinding maken met IoTHub of IoTHub-services leveren via Azure IoT Edge. De binnenkomende regel kan zo worden beperkt tot alleen binnenkomende (binnenkomend) openen van het interne netwerk. <li> Voor de Client naar apparaat (C2D)-scenario's.</ul><li>80 voor HTTP wordt niet ondersteund door de IoT Edge.<li>Als niet-HTTP-protocollen (bijvoorbeeld AMQP-, MQTT) kunnen niet worden geconfigureerd in de onderneming; de berichten kunnen worden verzonden via WebSockets. In dat geval wordt poort 443 gebruikt voor communicatie van de WebSocket.</ul>|
 
 
 ## <a name="next-steps"></a>Volgende stappen

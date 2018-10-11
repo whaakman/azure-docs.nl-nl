@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888290"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077723"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -123,7 +123,7 @@ Op dit moment zou het mogelijk om naar uw app met te `HTTPS://` in plaats van `H
 
 ## <a name="step-6---management-tasks"></a>Stap 6 - beheertaken
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure-CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -198,14 +198,6 @@ Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u o
 
 > [!NOTE]
 > De vernieuwde certificaat is niet automatisch gebonden aan uw app, of u deze handmatig wordt verlengd of het automatisch vernieuwd. Als u wilt koppelen aan uw app, Zie [certificaten vernieuwen](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
-
-<a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>Waarom wordt mijn certificaat niet, automatisch vernieuwd?
-
-Als uw SSL-certificaat is geconfigureerd voor automatische verlenging, maar deze niet automatisch wordt vernieuwd, kunt u een in behandeling domeinverificatie mogelijk. Houd rekening met het volgende: 
-
-- GoDaddy, welke App Service-certificaten genereert, vereist domeinverificatie uit te voeren om de twee jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Het controleren van het e-mailbericht of verifieer uw domein wordt voorkomen dat het App Service-certificaat wordt automatisch vernieuwd. 
-- Vanwege een wijziging in GoDaddy-beleid moeten alle App Service-certificaten uitgegeven vóór 1 maart 2017 Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatische verlenging is ingeschakeld voor het certificaat). Controleer uw e-mail en voltooien van deze eenmalige domeinverificatie om door te gaan van de automatische verlenging van het App Service-certificaat. 
 
 ## <a name="more-resources"></a>Meer bronnen
 

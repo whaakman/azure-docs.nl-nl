@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin, jeedes
-ms.openlocfilehash: c188b800e2227a5c9f3a11d7d8d752af3efdf66a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 43b17c54014d2f1beedd02f9ec627dd087e65d5a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904219"
+ms.locfileid: "49069264"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-public-preview"></a>Hoe: claims worden weergegeven in tokens voor een specifieke app in een tenant (openbare Preview) aanpassen
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Hoe: claims worden weergegeven in tokens voor een specifieke app in een tenant (Preview) aanpassen
 
 > [!NOTE]
 > Deze functie vervangt en vervangt de [claims aanpassing](active-directory-saml-claims-customization.md) vandaag die wordt aangeboden via de portal. Op dezelfde toepassing, als u met behulp van de portal naast de grafiek/PowerShell-methode die in dit document, claims aanpassen tokens die zijn uitgegeven voor de configuratie in de portal wordt genegeerd door toepassing. Configuraties die zijn gemaakt via de methoden die in dit document worden niet doorgevoerd in de portal.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0368d9822df193fbf00d8a2069108e23100a58cd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809951"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079307"
 ---
 <a name="saas-sell-through-azure---apis"></a>SaaS-verkopen via Azure - API 's
 ==============================
@@ -63,12 +63,14 @@ Voor het registreren van een nieuwe toepassing met behulp van de Azure portal, m
 
 4.  Voer op de pagina voor het maken, uw toepassing\'s registratie-informatie:
     -   **Naam**: een zinvolle toepassingsnaam invoeren
-    -   **Toepassingstype**: Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+    -   **Toepassingstype**: 
+        - Selecteer **Systeemeigen** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) die lokaal op een apparaat zijn geïnstalleerd. Deze instelling wordt gebruikt voor openbare [systeemeigen clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) met OAuth.
+        - Selecteer **Web-app / API** voor [clienttoepassingen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) en [resource/API-Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) en openbare [gebruiker agent-gebaseerde clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Dezelfde toepassing kan zowel een client als resource/API beschikbaar maken.
     -   **Aanmeldings-URL**: voor Web-app/API-toepassingen, bieden de basis-URL van uw app. Bijvoorbeeld, **http://localhost:31544** mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers zouden deze URL vervolgens gebruiken voor het aanmelden bij een web-clienttoepassing.
     -   **Omleidings-URI**: voor systeemeigen toepassingen geeft u de URI die door Azure AD gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld **http://MyFirstAADApp**.
 
-        Voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![SaaS AD App-registraties](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) voor specifieke voorbeelden voor webtoepassingen of systeemeigen toepassingen, bekijk de Snelstartgids begeleide instellingen die beschikbaar in de sectie aan de slag van zijn de [Azure AD-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
 5.  Klik op **Create** als u klaar bent. Azure AD wijst een unieke toepassings-ID toe voor uw toepassing, en u\'re genomen om uw toepassing\'pagina voor de belangrijkste registratie s. Afhankelijk van of uw toepassing een webtoepassing of systeemeigen toepassing is, worden er verschillende opties geboden om extra mogelijkheden aan uw toepassing toe te voegen.
 
@@ -112,7 +114,7 @@ HTTP-methode
 |  Grant_type         | True         | Toekenningstype. De standaardwaarde is `client_credentials`.                    |
 |  Client_id          | True         |  Client/app-id die is gekoppeld aan de Azure AD-app.                  |
 |  client_secret      | True         |  Het wachtwoord dat is gekoppeld aan de Azure AD-app.                               |
-|  Resource           | True         |  De doelresource waarvoor het token is aangevraagd. De standaardwaarde is `b3cca048-ed2e-406c-aff2-40cf19fe7bf5`. |
+|  Resource           | True         |  De doelresource waarvoor het token is aangevraagd. De standaardwaarde is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
@@ -120,7 +122,7 @@ HTTP-methode
 
 |  **Naam**  | **Type**       |  **Beschrijving**    |
 | ---------- | -------------  | ------------------- |
-| 200 OK /    | TokenResponse  | De aanvraag is voltooid   |
+| 200 OK    | TokenResponse  | De aanvraag is voltooid   |
 |  |  |  |
 
 *TokenResponse*
@@ -170,6 +172,7 @@ Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een perman
 | x-ms-correlationid | Nee           | Een unieke tekenreeks-waarde voor de bewerking op de client. Dit komt overeen met alle gebeurtenissen van clientbewerking met gebeurtenissen op de server. Als deze waarde niet is opgegeven, wordt een gegenereerd en vindt u in de antwoordheaders. |
 | inhoudstype       | Ja          | `application/json`                                        |
 | Autorisatie      | Ja          | De JSON web token (JWT) bearer-token.                    |
+| x-ms-marketplace-token| Ja| De token queryparameter in de URL in wanneer de gebruiker wordt omgeleid naar de website SaaS ISV's van Azure. **Opmerking:** URL van de token waarde vanuit de browser worden ontsleuteld voordat u deze gebruikt.|
 |  |  |  |
   
 
@@ -178,14 +181,16 @@ Actie na de op oplossen eindpunt kan gebruikers een token omzetten in een perman
  ``` json       
     { 
         “id”: “”, 
+        “subscriptionName”: “”,
         “offerId”:””, 
-         “planId”:””, 
+         “planId”:””
     }     
 ```
 
 | **Parameternaam** | **Gegevenstype** | **Beschrijving**                       |
 |--------------------|---------------|---------------------------------------|
 | id                 | Reeks        | ID van de SaaS-abonnement.          |
+| subscriptionName| Reeks| De naam van de SaaS-abonnement instellen door de gebruiker in Azure terwijl u zich abonneert op de SaaS-service.|
 | OfferId            | Reeks        | Aanbiedings-ID die de gebruiker een abonnement op. |
 | planId             | Reeks        | Plan-ID die de gebruiker een abonnement op.  |
 |  |  |  |
@@ -224,7 +229,7 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | ID van de SaaS-abonnement.                              |
+| subscriptionId      | De unieke Id van saas-abonnement dat is verkregen na het oplossen van het token via API oplossen.                              |
 | API-versie         | De versie van de bewerking te gebruiken voor deze aanvraag. |
 |  |  |
 
@@ -237,19 +242,20 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 | If-Match/If-None-Match |   Nee         |   Validatie van sterke ETag-waarde.                                                          |
 | inhoudstype           |   Ja        |    `application/json`                                                                   |
 |  Autorisatie         |   Ja        |    De JSON web token (JWT) bearer-token.                                               |
+| x-ms-marketplace-sessie-modus| Nee | De vlag om in te schakelen testmodus terwijl u zich abonneert op een SaaS-aanbod. Als is ingesteld, het abonnement wordt niet in rekening gebracht. Dit is handig voor ISV-scenario's te testen. Stel deze in op **'is een'**|
 |  |  |  |
 
 *Hoofdtekst*
 
 ``` json
   { 
-      “planId”:””, 
+      “planId”:””
    }      
 ```
 
 | **De naam van element** | **Gegevenstype** | **Beschrijving**                      |
 |------------------|---------------|--------------------------------------|
-| planId           | Reeks        | Plan-ID die de gebruiker een abonnement op. |
+| planId           | (Vereist) Tekenreeks        | Plan-Id van de gebruiker van de SaaS-service is geabonneerd op.  |
 |  |  |  |
 
 *Responscodes*
@@ -264,6 +270,8 @@ Het eindpunt abonneren kan gebruikers een abonnement om een SaaS-service voor ee
 | 429                  | `RequestThrottleId`  | Service is bezet verwerken van aanvragen, voer later opnieuw uit.                  |
 | 503                  | `ServiceUnavailable` | Service is omlaag tijdelijk, probeer het later opnieuw.                          |
 |  |  |  |
+
+Volgen voor een 202-antwoord op de status van de aanvraagbewerking bij de bewerking-location-header. De verificatie is hetzelfde als andere Marketplace API's.
 
 *Antwoordheaders*
 
@@ -306,14 +314,14 @@ Het eindpunt van de wijziging kan de gebruiker van een plan op dat moment geabon
 
 ``` json
                 { 
-                    “planId”:””, 
+                    “planId”:””
                 } 
 ```
 
 
 |  **De naam van element** |  **Gegevenstype**  | **Beschrijving**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId           |  Reeks         | Plan-ID die de gebruiker een abonnement op.         |
+|  planId           |  (Vereist) Tekenreeks         | Plan-Id van de gebruiker van de SaaS-service is geabonneerd op.          |
 |  |  |  |
 
 *Responscodes*
@@ -377,6 +385,8 @@ De Delete-bewerking op het eindpunt abonneren kan een gebruiker verwijderen van 
 | 429                  | `RequestThrottleId`  | -Service is bezet het verwerken van aanvragen, probeer het later opnieuw.                  |
 | 503                  | `ServiceUnavailable` | Service is tijdelijk niet beschikbaar. Probeer het later opnieuw.                          |
 |  |  |  |
+
+Volgen voor een 202-antwoord op de status van de aanvraagbewerking bij de bewerking-location-header. De verificatie is hetzelfde als andere Marketplace API's.
 
 *Antwoordheaders*
 
@@ -457,7 +467,6 @@ Dit eindpunt kan een gebruiker voor het bijhouden van de status van een geactive
 | x-ms-correlationid | Ja          | Correlatie-ID is als doorgegeven door de client, anders wordt dit de correlatie-id op.                   |
 | x-ms-activityid    | Ja          | Een unieke tekenreeks-waarde voor het bijhouden van de aanvraag van de service. Dit wordt gebruikt voor alle aansluitingen. |
 | Opnieuw proberen na        | Ja          | Interval met welke client u kunt de status controleren.                                                       |
-| Bewerking-locatie | Ja          | Koppelen aan een resource om op te halen van de status van de bewerking.                                                        |
 |  |  |  |
 
 ### <a name="get-subscription"></a>Abonnement ophalen
@@ -493,9 +502,9 @@ De Get-actie op abonneren eindpunt kan een gebruiker een abonnement met een bepa
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “” 
   }
 ```
 | **Parameternaam**     | **Gegevenstype** | **Beschrijving**                               |
@@ -541,7 +550,7 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/subscriptions?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
 | **Parameternaam**  | **Beschrijving**                                       |
 |---------------------|-------------------------------------------------------|
@@ -566,9 +575,9 @@ De Get-actie op abonnementen eindpunt kan een gebruiker om op te halen van alle 
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “”
   }
 ```
 

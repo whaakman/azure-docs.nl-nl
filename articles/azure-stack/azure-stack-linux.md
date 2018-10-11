@@ -1,9 +1,9 @@
 ---
-title: Linux-installatiekopieën toevoegen aan Azure-Stack
-description: Meer informatie over hoe Linux installatiekopieën toevoegen aan Azure-Stack.
+title: Linux-installatiekopieën toevoegen aan Azure Stack
+description: Informatie over hoe Linux-installatiekopieën toevoegen aan Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,38 +12,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 64a860bc925b9c7499363c1fe39d03df88a9a51d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db52d145c3bfbd9415072be13ccb502969f07374
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935705"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077644"
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Linux-installatiekopieën toevoegen aan Azure-Stack
+# <a name="add-linux-images-to-azure-stack"></a>Linux-installatiekopieën toevoegen aan Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt virtuele Linux-machines (VM's) op de Stack Azure implementeren door een Linux-installatiekopie toe te voegen in de Stack Azure Marketplace. De eenvoudigste manier om een Linux-installatiekopie toevoegen aan Azure-Stack is via Marketplace-beheer. Deze installatiekopieën zijn voorbereid en getest op compatibiliteit met de Azure-Stack.
+U kunt virtuele Linux-machines (VM's) in Azure Stack implementeren met het toevoegen van een installatiekopie op basis van Linux in Azure Stack Marketplace. De eenvoudigste manier om een Linux-installatiekopie toevoegen aan Azure Stack is via Marketplace-beheer. Deze installatiekopieën zijn voorbereid en getest op compatibiliteit met Azure Stack.
 
 ## <a name="marketplace-management"></a>Marketplace-Management
 
-Linux-installatiekopieën downloaden vanuit Azure Marketplace, gebruik de procedures in het volgende artikel. Selecteer de Linux-installatiekopieën die u wilt bieden gebruikers op uw Azure-Stack. 
+Gebruik de procedures in het volgende artikel voor het downloaden van Linux-installatiekopieën op Azure Marketplace. Selecteer de Linux-installatiekopieën die u wilt bieden gebruikers in uw Azure Stack. 
 
-[Downloaden van de marketplace-items van Azure naar Azure Stack](azure-stack-download-azure-marketplace-item.md).
+[Marketplace-items van Azure naar Azure Stack downloaden](azure-stack-download-azure-marketplace-item.md).
 
-Houd er rekening mee dat er regelmatig updates zijn voor deze installatiekopieën, dus controleer Marketplace Management vaak om up-to-date te houden.
+Houd er rekening mee dat er zijn regelmatig updates naar deze afbeeldingen, dus kom Marketplace Management vaak om up-to-date te houden.
 
 ## <a name="prepare-your-own-image"></a>Uw eigen installatiekopie voorbereiden
 
- Waar mogelijk, downloaden de afbeeldingen die beschikbaar is via de Marketplace-Management die zijn voorbereid en getest voor Azure-Stack. 
+ Waar mogelijk, downloadt u de installatiekopieën die beschikbaar zijn via Marketplace-beheer die zijn voorbereid en getest voor Azure Stack. 
  
- De Azure Linux Agent (doorgaans aangeroepen `WALinuxAgent` of `walinuxagent`) is vereist, en niet alle versies van de agent zal werken op Azure-Stack. Moet u versie 2.2.18 of hoger als u uw eigen installatiekopie maken. Houd er rekening mee dat [cloud init](https://cloud-init.io/) wordt niet ondersteund op Azure-Stack op dit moment.
+ De Azure Linux Agent (ook wel genoemd `WALinuxAgent` of `walinuxagent`) is vereist, en niet alle versies van de agent werkt in Azure Stack. Moet u versie 2.2.18 of hoger als u uw eigen installatiekopie maken. Houd er rekening mee dat [cloud-init](https://cloud-init.io/) wordt niet ondersteund in Azure Stack op dit moment.
 
- U kunt uw eigen Linux-installatiekopie met de volgende instructies voorbereiden:
+ U kunt uw eigen Linux-installatiekopie met behulp van de volgende instructies voorbereiden:
 
-   * [Op basis van centOS distributies](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+   * [Op basis van centOS-distributies](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
    * [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -54,4 +54,4 @@ Houd er rekening mee dat er regelmatig updates zijn voor deze installatiekopieë
  
 Ga als volgt [de installatiekopie toevoegen aan de Marketplace](azure-stack-add-vm-image.md). Zorg ervoor dat de `OSType` parameter is ingesteld op `Linux`.
 
-Nadat u de installatiekopie aan de Marketplace hebt toegevoegd, een Marketplace-item is gemaakt en gebruikers een virtuele Linux-machine kunnen implementeren.
+Nadat u de installatiekopie hebt toegevoegd aan de Marketplace, een Marketplace-item wordt gemaakt en kunnen gebruikers een virtuele Linux-machine implementeren.

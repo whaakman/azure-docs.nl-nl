@@ -1,5 +1,5 @@
 ---
-title: Factoren die invloed op de prestaties van Azure AD Connect
+title: Factoren die invloed hebben op de prestaties van Azure AD Connect
 description: Dit document wordt uitgelegd hoe verschillende factoren van invloed zijn op de Azure AD Connect engine wordt ingericht. Deze factoren kunnen organisaties hun Azure AD Connect-implementatie om ervoor te zorgen dat deze voldoet aan de vereisten van de synchronisatie plannen.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 6ad8e04a3cd61061b44ca9b6a216f92d69a70f6b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902991"
+ms.locfileid: "49069010"
 ---
-# <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factoren die invloed op de prestaties van Azure AD Connect
+# <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factoren die invloed hebben op de prestaties van Azure AD Connect
 
 Azure AD Connect synchroniseert uw Active Directory naar Azure AD. Deze server is een essentieel onderdeel van het verplaatsen van uw gebruikers-id's naar de cloud. De primaire factoren die invloed hebben op de prestaties van een Azure AD Connect zijn:
 
@@ -41,7 +41,7 @@ Het volgende diagram toont een architectuur op hoog niveau van het inrichten van
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-De engine voor het inrichtingsproces verbinding maakt voor elk Active Directory-forest en de Azure AD. Het proces voor het lezen van gegevens van elke map heet importeren. Export verwijst naar het bijwerken van de mappen van de inrichting-engine. Synchronisatie evalueert de regels van hoe de objecten in de inrichting-engine worden overgebracht. Voor meer informatie over kunt u verwijzen naar [Azure AD Connect-synchronisatie: inzicht in de architectuur](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+De engine voor het inrichtingsproces verbindt voor elk Active Directory-forest en naar Azure AD. Het proces voor het lezen van gegevens van elke map heet importeren. Export verwijst naar het bijwerken van de mappen van de inrichting-engine. Synchronisatie evalueert de regels van hoe de objecten in de inrichting-engine worden overgebracht. Voor meer informatie over kunt u verwijzen naar [Azure AD Connect-synchronisatie: inzicht in de architectuur](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 Azure AD Connect maakt gebruik van de volgende ruimten met tijdelijke bestanden, regels en processen om de synchronisatie van Active Directory naar Azure AD:
 
@@ -62,15 +62,13 @@ Het profiel voor initiële synchronisatie is het proces voor het lezen van de ge
 
 ### <a name="delta-sync-profile"></a>Delta-sync-profiel
 
-Het optimaliseren van het synchronisatieproces dit profiel uitvoert alleen verwerken de wijzigingen (maakt, worden verwijderd en updates) van objecten in uw verbonden mappen, sinds de laatste synchronisatieproces. Het profiel van delta-synchronisatie wordt standaard elke 30 minuten uitgevoerd. Organisaties moeten streven naar het behouden van de tijd die nodig op onder de 30 minuten om te controleren of dat de Azure AD is bijgewerkt. U kunt de status van Azure AD Connect controleren met de [voor health monitoring agent](how-to-connect-health-sync.md) om te zien van eventuele problemen van het proces. De delta-sync-profiel bevat de volgende stappen uit:
+Het optimaliseren van het synchronisatieproces dit profiel uitvoert alleen verwerken de wijzigingen (maakt, worden verwijderd en updates) van objecten in uw verbonden mappen, sinds de laatste synchronisatieproces. Het profiel van delta-synchronisatie wordt standaard elke 30 minuten uitgevoerd. Organisaties moeten streven naar het behouden van de tijd die nodig op onder de 30 minuten om te controleren of dat de Azure AD is bijgewerkt. U kunt de status van Azure AD Connect controleren met de [voor health monitoring agent](how-to-connect-health-sync.md) om te zien of er problemen met het proces. De delta-sync-profiel bevat de volgende stappen uit:
 
 1. Delta-import op alle connectors
 2. Deltasynchronisatie op alle connectors
 3. Op alle connectors exporteren
 
 Er is een typische enterprise organisatie delta-sync-scenario:
-
-
 
 - ~ 1% van de objecten zijn verwijderd
 - ~ 1% van de objecten worden gemaakt
@@ -94,7 +92,7 @@ De volgende bewerkingen zijn opgenomen in een cyclus van een volledige synchroni
 3. Op alle connectors exporteren
 
 > [!NOTE]
-> Zorgvuldige planning is vereist bij het uitvoeren van bulksgewijze updates te veel objecten in uw Active Directory of Azure AD. Bulksgewijze updates zorgt ervoor dat het synchronisatieproces delta langer duren bij het importeren, aangezien veel objecten zijn gewijzigd. Lange invoer kunnen gebeuren, zelfs als de bulk-update heeft geen invloed op het synchronisatieproces. Bijvoorbeeld, licenties toewijzen aan een groot aantal gebruikers in Azure AD zorgt ervoor dat een cyclus lang importeren uit Azure AD, maar resulteert niet in de kenmerkwijzigingen in Active Directory.
+> Zorgvuldige planning is vereist bij het uitvoeren van bulksgewijze updates te veel objecten in uw Active Directory of Azure AD. Bulksgewijze updates zorgt ervoor dat het synchronisatieproces delta langer duren bij het importeren, aangezien veel objecten zijn gewijzigd. Lange invoer kunnen gebeuren, zelfs als de bulk-update niet van invloed zijn op het synchronisatieproces. Bijvoorbeeld, licenties toewijzen aan een groot aantal gebruikers in Azure AD zorgt ervoor dat een cyclus lang importeren uit Azure AD, maar resulteert niet in de kenmerkwijzigingen in Active Directory.
 
 ### <a name="synchronization"></a>Synchronisatie
 
@@ -103,7 +101,7 @@ Het proces synchroniseren runtime heeft de volgende prestatiekenmerken:
 * Synchronisatie is één thread, wat betekent dat de provisioning-engine geen parallelle verwerking van de uitvoeringsprofielen van verbonden mappen, objecten of kenmerken.
 * Importeren neemt lineair toe met het aantal objecten wordt gesynchroniseerd. Bijvoorbeeld, als 10.000 objecten 10 minuten om te importeren, duurt klikt u vervolgens 20.000 objecten ongeveer 20 minuten op dezelfde server.
 * Exporteren is ook lineaire.
-* De synchronisatie, zullen groeien exponentieel op basis van het aantal objecten met verwijzingen naar andere objecten. Lidmaatschappen van groepen en geneste groepen hebt de belangrijkste prestatie-impact, omdat de leden naar objecten of andere groepen verwijzen. Deze verwijzingen moeten worden gevonden en waarnaar wordt verwezen naar werkelijke objecten in de MV om uit te voeren van de synchronisatiecyclus.
+* De synchronisatie, zullen groeien exponentieel op basis van het aantal objecten met verwijzingen naar andere objecten. Lidmaatschappen van groepen en geneste groepen hebt de belangrijkste prestatie-impact omdat hun leden naar objecten of andere groepen verwijzen. Deze verwijzingen moeten worden gevonden en waarnaar wordt verwezen naar werkelijke objecten in de MV om uit te voeren van de synchronisatiecyclus.
 
 ### <a name="filtering"></a>Filteren
 
@@ -183,10 +181,10 @@ Houd rekening met de volgende aanbevelingen voor het optimaliseren van de presta
 - Gebruik de [aanbevolen hardwareconfiguratie](how-to-connect-install-prerequisites.md) op basis van de grootte van uw implementatie voor de Azure AD Connect-server.
 - Bij het upgraden van Azure AD Connect in grootschalige implementaties, kunt u overwegen [swing migratiemethode](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), om ervoor te zorgen dat u hebt de minimale downtime en de beste betrouwbaarheid. 
 - Gebruik SSD voor de SQL-database voor de beste prestaties te schrijven.
-- Filteren van het Active Directory-bereik op alleen de objecten die moet worden ingericht in Azure AD, met behulp van het domein, organisatie-eenheid of kenmerk filteren.
+- Filteren van het Active Directory-bereik zodanig dat alleen objecten die worden ingericht in Azure AD moeten, met behulp van het domein, organisatie-eenheid of kenmerk filteren.
 - Als u nodig hebt om te wijzigen van de standaardregels voor de stroom van kenmerk, eerst kopieert u de regel, wijzig vervolgens het exemplaar en de oorspronkelijke regel uitschakelen. Vergeet niet een volledige synchronisatie opnieuw uit te voeren.
 - Plan voldoende tijd voor de eerste volledige synchronisatie uitvoeren profiel.
-- De Deltasynchronisatie streven verwerkingscyclus wordt voltooid in 30 minuten. Als de delta-sync-profiel niet in 30 minuten voltooid, wijzigt u de standaardfrequentie synchroniseren om op te nemen van een delta-volledige synchronisatiecyclus.
+- Streven ernaar om uit te voeren van de delta-synchronisatiecyclus in 30 minuten. Als de delta-sync-profiel niet in 30 minuten voltooid, wijzigt u de standaardfrequentie synchroniseren om op te nemen van een delta-volledige synchronisatiecyclus.
 - Monitor uw [Azure AD Connect sync-status](how-to-connect-health-agent-install.md) in Azure AD.
 
 ## <a name="next-steps"></a>Volgende stappen

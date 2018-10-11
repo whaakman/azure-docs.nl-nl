@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15d68e4da6dd03751300f87ea5830c2db0470b60
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4d53c33daefaadb4c58ce500a5d564af7988b606
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604855"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077085"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Levering van berichten van Event Grid en probeer het opnieuw
 
@@ -22,7 +22,7 @@ Event Grid biedt duurzame levering. Het biedt een elk bericht ten minste eenmaal
 
 Op dit moment Event Grid elke gebeurtenis afzonderlijk naar abonnees worden verzonden. De abonnee ontvangt een matrix met een eenmalige gebeurtenis.
 
-## <a name="retry-intervals-and-duration"></a>Interval tussen nieuwe pogingen en de duur
+## <a name="retry-schedule-and-duration"></a>Schema voor nieuwe pogingen en de duur
 
 Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Als een eindpunt reageert niet of een foutcode retourneert, pogingen Event Grid levering op het volgende schema:
 
@@ -34,7 +34,7 @@ Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw prober
 6. 30 minuten
 7. 1 uur
 
-Event Grid wordt toegevoegd een kleine willekeurige bij alle intervallen. Levering van gebeurtenissen wordt eenmaal per uur opnieuw uitgevoerd na een uur.
+Event Grid wordt een willekeurig toepassen van kleine toegevoegd aan alle stappen voor opnieuw proberen. Levering van gebeurtenissen wordt eenmaal per uur opnieuw uitgevoerd na een uur.
 
 Event Grid verloopt standaard alle gebeurtenissen die niet worden bezorgd binnen 24 uur. U kunt [aanpassen van het beleid voor opnieuw proberen](manage-event-delivery.md) bij het maken van een gebeurtenisabonnement. U opgeven dat het maximum aantal bezorgingspogingen (de standaardwaarde is 30) en de gebeurtenis time-to-live (standaard is 1440 minuten).
 

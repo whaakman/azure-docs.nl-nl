@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297211"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068840"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B-gebruikers in Azure AD-toegang tot uw on-premises toepassingen
 
@@ -65,9 +65,9 @@ U kunt de on-premises B2B-gebruikersobjecten via lifecycle management-beleid beh
 - U kunt multi-factor authentication (MFA)-beleidsregels voor de gastgebruiker instellen zodat MFA tijdens de Application Proxy-verificatie wordt gebruikt. Zie voor meer informatie, [voorwaardelijke toegang voor gebruikers van B2B-samenwerking](conditional-access.md).
 - Alle sponsoring, beoordelingen, account verificaties, enzovoort die worden uitgevoerd op de cloud B2B gebruiker van toepassing op de on-premises gebruikers. Bijvoorbeeld, als de gebruiker van de cloud via uw lifecycle management-beleid wordt verwijderd, wordt de on-premises-gebruiker ook verwijderd door MIM Sync of Azure AD Connect sync. Zie voor meer informatie, [gasttoegang beheren met Azure AD-toegang beoordeelt](../governance/manage-guest-access-with-access-reviews.md).
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Gebruikersobjecten van B2B-Gast via MIM (Preview) maken
+### <a name="create-b2b-guest-user-objects-through-mim"></a>Gebruikersobjecten van B2B-Gast via MIM maken
 
-Zie voor meer informatie over hoe u MIM 2016 Service Pack 1 en de MIM-beheeragent voor Microsoft Graph gebruiken om u te maken van de Gast-gebruikersobjecten in de on-premises directory [samenwerking van Azure AD-business-to-business (B2B) met Microsoft Identity Manager (MIM) 2016 SP1 met Azure Application Proxy (openbare Preview)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+Zie voor meer informatie over hoe u MIM 2016 Service Pack 1 en de MIM-beheeragent voor Microsoft Graph gebruiken om u te maken van de Gast-gebruikersobjecten in de on-premises directory [samenwerking van Azure AD-business-to-business (B2B) met Microsoft Identity Manager (MIM) 2016 SP1 met Azure Application Proxy](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Gebruikersobjecten van B2B-Gast via een script (Preview) maken
 

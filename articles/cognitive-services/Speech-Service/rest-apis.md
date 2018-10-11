@@ -8,12 +8,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: dd43aff91568ba4bd93f27e88cc63a50b9d8e4bd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fea4f762a46963f923ba8f44644df37b29fc77a6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886433"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068733"
 ---
 # <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
@@ -21,7 +21,7 @@ De REST-API's van de service Azure Cognitive Services Speech zijn vergelijkbaar 
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
-De eindpunten voor de spraak-naar-tekst REST-API worden in de volgende tabel weergegeven. Gebruik de naam die overeenkomt met de regio van uw abonnement. Naslaginformatie over de **erkenning modi** hieronder om te vervangen `conversation` in beide gevallen `interactive` of `dictation` voor uw gewenste sceanrio in een bepaalde API-aanroep.
+De eindpunten voor de spraak-naar-tekst REST-API worden in de volgende tabel weergegeven. Gebruik de naam die overeenkomt met de regio van uw abonnement. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,52 +29,6 @@ De eindpunten voor de spraak-naar-tekst REST-API worden in de volgende tabel wee
 > Als u het akoestisch model of de taalmodel of de uitspraak van aangepast, kunt u uw aangepast eindpunt gebruiken.
 
 Deze API ondersteunt alleen korte uitingen. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten, geen tijdelijke of gedeeltelijke resultaten. De spraak-service heeft ook een [batch transcriptie](batch-transcription.md) API die langer audio kunt transcriberen.
-
-### <a name="recognition-modes"></a>Opname-modi
-
-Wanneer u rechtstreeks het REST-API of WebSocket-protocol gebruikt, moet de modus van erkenning opgeven: `interactive`, `conversation`, of `dictation`. De opname-modus wordt aangepast op basis van hoe de gebruikers zijn waarschijnlijk zullen spreek spraakherkenning. Kies de juiste opname-modus voor uw toepassing.
-
-> [!NOTE]
-> Opname-modi mogelijk verschillend gedrag in de REST-protocol dan in de WebSocket-protocol. De REST-API biedt bijvoorbeeld geen ondersteuning voor doorlopende spraakherkenning, zelfs in de conversatie of dictation-modus.
-> [!NOTE]
-> Deze modi zijn van toepassing wanneer u rechtstreeks de REST- of WebSocket-protocol. De [spraak SDK](speech-sdk.md) maakt gebruik van verschillende parameters om op te geven van de configuratie van de opname. Zie voor meer informatie de clientbibliotheek van uw keuze.
-
-De Service Microsoft Speech resultaat wordt slechts één erkenning woordgroep voor alle opname-modi. Er is een limiet van 15 seconden voor een enkele utterance bij het rechtstreeks gebruik van de REST-API of WebSocket-protocol.
-
-#### <a name="interactive-mode"></a>Interactieve modus
-
-In `interactive` modus, een gebruiker maakt korte aanvragen en wordt verwacht dat de toepassing naar een actie uitvoert in de reactie.
-
-De volgende kenmerken zijn typische van toepassingen interactieve modus:
-
-- Gebruikers weten dat ze naar een virtuele machine en niet naar een andere human aanspreekt.
-- Gebruikers van de toepassing van tevoren weet wat ze willen, en wel op basis van wat ze willen de toepassing te doen.
-- Uitingen doorgaans over de laatste 2-3 seconden.
-
-#### <a name="conversation-mode"></a>Conversatiemodus
-
-In `conversation` modus, gebruikers bezig zijn met een conversatie-mensen.
-
-De volgende kenmerken zijn typische van toepassingen met servermodus conversatie:
-
-- Gebruikers weten dat ze praten dan over naar een andere persoon.
-- Spraakherkenning verbetert de menselijke conversaties doordat een of beide deelnemers aan de gesproken tekst wilt zien.
-- Gebruikers niet altijd van plan bent ze wil instellen.
-- Gebruikers gebruiken vaak slang en andere informele spraak.
-
-#### <a name="dictation-mode"></a>De modus voor spraakherkenning
-
-In `dictation` modus, gebruikers voorgelezen langer uitingen tot de toepassing voor verdere verwerking.
-
-De volgende kenmerken zijn typische van toepassingen met servermodus dicteren:
-
-- Gebruikers weten dat ze praten dan over naar een virtuele machine.
-- Gebruikers worden de resultaten van de spraakherkenning herkenning tekst weergegeven.
-- Gebruikers plan vaak wat ze willen zeggen en meer formele taal gebruiken.
-- Gebruikers werknemers volledige zinnen die afgelopen 5-8 seconden.
-
-> [!NOTE]
-> In de modi Dicteren en conversatie retourneert de Speech-Service van Microsoft geen gedeeltelijke resultaten. In plaats daarvan retourneert de service na stilte grenzen in de audiostream stabiel woordgroep resultaten. Microsoft kan de spraak-protocol ter verbetering van de gebruikerservaring in deze modi continue erkenning verbeteren.
 
 
 ### <a name="query-parameters"></a>Queryparameters

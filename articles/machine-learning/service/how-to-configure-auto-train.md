@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163848"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079001"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configureren van uw geautomatiseerde machine learning-experiment
 
@@ -184,13 +184,13 @@ Deze tabel bevat de parameterinstellingen die beschikbaar zijn voor uw experimen
 Eigenschap |  Beschrijving | Standaardwaarde
 --|--|--
 `task`  |Geef het type van machine learning-probleem. Toegestane waarden zijn <li>classificatie</li><li>Regressie</li>    | Geen |
-`primary_metric` |Metrische gegevens die u optimaliseren wilt bij het bouwen van uw model. Als u de nauwkeurigheid van de gegevens als de primary_metric opgeeft, geautomatiseerde ML, ziet er bijvoorbeeld als u wilt zoeken van een model met maximale nauwkeurigheid. U kunt slechts één primary_metric per experiment opgeven. Toegestane waarden zijn <br/>**Classificatie**:<br/><li> nauwkeurigheid  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressie**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | Voor classificatie: nauwkeurigheid <br/>Voor regressie: spearman_correlation <br/> |
+`primary_metric` |Metrische gegevens die u optimaliseren wilt bij het bouwen van uw model. Als u de nauwkeurigheid van de gegevens als de primary_metric opgeeft, geautomatiseerde ML, ziet er bijvoorbeeld als u wilt zoeken van een model met maximale nauwkeurigheid. U kunt slechts één primary_metric per experiment opgeven. Toegestane waarden zijn <br/>**Classificatie**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regressie**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | Voor classificatie: nauwkeurigheid <br/>Voor regressie: spearman_correlation <br/> |
 `exit_score` |  U kunt een doelwaarde instellen voor uw primary_metric. Nadat een model wordt gevonden die voldoet aan het doel primary_metric, geautomatiseerde ML stopt doorlopen en het experiment wordt beëindigd. Als deze waarde is niet ingesteld (standaard), wordt automatisch ML experiment blijft om uit te voeren van het aantal iteraties opgegeven in de herhalingen. Neemt een double-waarde. Als het doel is nooit bereikt, klikt u vervolgens blijven automatisch ML totdat het aantal iteraties opgegeven in de herhalingen wordt bereikt.|   Geen
 `iterations` |Maximum aantal iteraties. Elke herhaling is gelijk aan een trainingstaak die in een pijplijn resulteert. Pijplijn is voorverwerking van gegevens en het model. Als u een model van hoge kwaliteit 250 of meer gebruikt | 100
 `Concurrent_iterations`|    Maximumaantal iteraties parallel worden uitgevoerd. Deze instelling werkt alleen voor externe compute.|    1
 `max_cores_per_iteration`   | Geeft het aantal kernen op de compute-doel moeten worden gebruikt met het trainen van één pijplijn. Als het algoritme kan gebruikmaken van meerdere kernen, verhoogt dit de prestaties op een computer meerdere kernen. U kunt dit instellen op-1 voor het gebruik van de beschikbare cores op de machine.|  1
 `max_time_sec` |    Beperkt de hoeveelheid tijd (seconden) een bepaalde iteratie nodig. Als een iteratie hoger is dan de opgegeven hoeveelheid, wordt die iteratie wordt geannuleerd. Als dat niet ingesteld, worden de iteratie blijft actief totdat deze is voltooid. |   Geen
-`n_cross_validations`   |Aantal cross-validatie splitsingen| Geen
+`n_cross_validations`   |Aantal cross-validatie splitsingen.| Geen
 `validation_size`   |Grootte van de validatie is ingesteld als percentage van alle training-voorbeeld.|  Geen
 `preprocess` | Waar/onwaar <br/>De waarde True schakelt experimenteren om uit te voeren voorverwerking van de invoer. Hieronder volgt een subset van voorverwerking<li>Ontbrekende gegevens: Imputes de ontbrekende gegevens numerieke met gemiddelde, tekst met de meeste exemplaar </li><li>Categorische waarden: Als het gegevenstype en het aantal unieke numerieke waarden minder dan 5 procent, omgezet in een hot-codering is </li><li>Enzovoort voor controle van de volledige lijst [de GitHub-opslagplaats](https://aka.ms/aml-notebooks)</li><br/>Opmerking: als gegevens sparse is u niet gebruiken voorverwerken = true |  False | 
 `blacklist_algos`   | Geautomatiseerde ML-experiment heeft veel verschillende algoritmen die er wordt geprobeerd. Configureer Automatische ML als u wilt uitsluiten van bepaalde algoritmen van het experiment. Dit is handig als u zich bewust bent verifiëringsalgoritme (s) werken niet goed voor uw gegevensset. Met uitzondering van de algoritmen kunt bespaart u compute-resources en trainingstijd.<br/>Toegestane waarden voor classificatie<br/><li>Logistieke regressie</li><li>SGD classificatie</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra structuren</li><li>versterking van kleurovergang</li><li>lgbm_classifier</li><br/>Toegestane waarden voor regressie<br/><li>Elastische netto</li><li>Kleurovergang Gradient boosting regressor zijn</li><li>DT regressor zijn</li><li>kNN regressor zijn</li><li>Lasso lars</li><li>SGD regressor zijn</li><li>RF regressor zijn</li><li>extra structuren regressor zijn</li>|   Geen
@@ -225,8 +225,7 @@ De volgende metrische gegevens worden opgeslagen in elke iteratie
 * AUC_macro
 * AUC_micro
 * AUC_weighted
-* AUC_weighted_max
-* nauwkeurigheid
+* accuracy
 * average_precision_score_macro
 * average_precision_score_micro
 * average_precision_score_weighted

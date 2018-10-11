@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: fe42380288c0f139a2bae80a12f0ebc428a4c286
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1aeabd2de529d2c6b3159d9cd65996fb5096d0a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993071"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069366"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box-limieten
 
@@ -35,7 +35,7 @@ Houd rekening met deze limieten bij het implementeren en uitvoeren van uw Micros
 
 ## <a name="data-box-limits"></a>Data Box-limieten
 
-- Data Box kan maximaal 5 miljoen bestanden opslaan.
+- Data Box kan maximaal 500 miljoen bestanden opslaan.
 
 ## <a name="azure-storage-limits"></a>Limieten voor Azure-opslag
 
@@ -44,7 +44,7 @@ In deze sectie beschrijft de limieten voor Azure Storage-service en de vereiste 
 Voor de meest recente informatie over limieten voor Azure storage-service en aanbevolen procedures voor de naamgeving van shares, containers en -bestanden, gaat u naar:
 
 - [Naamgeving van en verwijzen naar containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Naamgeving van en verwijzen naar bestandsshares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Naamgeving van en verwijzing naar shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok-blobs en pagina-blob-conventies](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]

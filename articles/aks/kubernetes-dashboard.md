@@ -1,32 +1,32 @@
 ---
-title: Beheren Azure Kubernetes-cluster met web-UI
-description: Informatie over het gebruik van de ingebouwde Kubernetes web UI-dashboard met Azure Kubernetes Service (AKS)
+title: Een Azure Kubernetes Service-cluster met de webdashboard beheren
+description: Informatie over het gebruik van de ingebouwde Kubernetes web UI-dashboard voor het beheren van een cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307922"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067581"
 ---
-# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-dashboard met Azure Kubernetes Service (AKS)
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-web-dashboard in Azure Kubernetes Service (AKS)
 
-Kubernetes biedt een webdashboard dat kan worden gebruikt voor eenvoudige beheerbewerkingen. In dit artikel ziet u hoe u toegang tot het Kubernetes-dashboard met de Azure CLI en leidt u door enkele eenvoudige dashboard-bewerkingen. Zie voor meer informatie over het Kubernetes-dashboard [Kubernetes Web UI-Dashboard][kubernetes-dashboard].
+Kubernetes biedt een webdashboard dat kan worden gebruikt voor eenvoudige beheerbewerkingen. Dit dashboard kunt u de status van de basisbewaking van statussen en metrische gegevens voor uw toepassingen weergeven, maken en implementeren van services en bewerken van bestaande toepassingen. In dit artikel ziet u hoe u toegang tot het Kubernetes-dashboard met de Azure CLI en leidt u door enkele eenvoudige dashboard-bewerkingen.
+
+Zie voor meer informatie over het Kubernetes-dashboard [Kubernetes Web UI-Dashboard][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 De stappen die in dit document wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en hebben een `kubectl` verbinding met het cluster. Als u maken van een AKS-cluster wilt, raadpleegt u de [Quick Start voor AKS][aks-quickstart].
 
-Ook moet de Azure CLI-versie 2.0.27 of later zijn geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
+U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
 
-## <a name="start-kubernetes-dashboard"></a>Kubernetes-dashboard starten
+## <a name="start-the-kubernetes-dashboard"></a>Start het Kubernetes-dashboard
 
 Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-browse] opdracht. Het volgende voorbeeld wordt het dashboard voor het cluster met de naam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
 
@@ -34,7 +34,9 @@ Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-bro
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het Kubernetes-API en opent een webbrowser naar de Kubernetes-dashboard.
+Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het Kubernetes-API en opent een webbrowser naar de Kubernetes-dashboard. Als een webbrowser niet aan het Kubernetes-dashboard wordt geopend, kopieert en plakt u de URL-adres dat is vermeld in de Azure CLI, doorgaans *http://127.0.0.1:8001*.
+
+![De overzichtspagina van het Kubernetes-web-dashboard](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ### <a name="for-rbac-enabled-clusters"></a>Voor clusters met RBAC-ingeschakeld
 
@@ -53,48 +55,57 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 U kunt nu toegang tot het Kubernetes-dashboard in uw cluster RBAC-functionaliteit. Gebruiken om het Kubernetes-dashboard starten, de [az aks Bladeren] [ az-aks-browse] opdracht zoals beschreven in de vorige stap.
 
-## <a name="run-an-application"></a>Een toepassing uitvoeren
+## <a name="create-an-application"></a>Een app maken
 
-Klik in het Kubernetes-dashboard op de **maken** knop in het bovenste venster. Geef de naam op voor de implementatie `nginx` en voer `nginx:latest` voor de naam van de container-installatiekopie. Onder **Service**, selecteer **externe** en voer `80` voor de poort en de doelpoort.
+Als u wilt zien hoe het Kubernetes-dashboard kan de complexiteit van beheertaken, laten we u een toepassing maken. U kunt een toepassing van het Kubernetes-dashboard maken door op te geven tekstinvoer, een YAML-bestand, of via een grafische wizard.
 
-Wanneer u klaar bent, klikt u op **implementeren** de implementatie te maken.
+Voor het maken van een toepassing, voert u de volgende stappen uit:
 
-![Dialoogvenster maken Kubernetes-Service](./media/container-service-kubernetes-ui/create-deployment.png)
+1. Selecteer de **maken** knop in het bovenste venster.
+1. Als u wilt de grafische wizard gebruikt, wilt **maken van een app**.
+1. Geef een naam voor de implementatie, zoals *nginx*
+1. Voer de naam in voor de container-installatiekopie moet worden gebruikt, zoals *nginx:1.15.5*
+1. Als u poort 80 voor webverkeer beschikbaar, wilt maken u een Kubernetes-service. Onder **Service**, selecteer **externe**, voert u **80** voor de poort en de doelpoort.
+1. Wanneer u klaar bent, selecteert u **implementeren** om de app te maken.
 
-## <a name="view-the-application"></a>De toepassing weergeven
+![Een app implementeren in het Kubernetes-web-dashboard](./media/kubernetes-dashboard/create-app.png)
 
-Status van de toepassing worden weergegeven op het Kubernetes-dashboard. Zodra de toepassing wordt uitgevoerd, heeft elk onderdeel van een groene selectievakje ernaast.
+Het duurt een minuut of twee voor een openbare externe IP-adres moet worden toegewezen aan de Kubernetes-service. Op de grootte links, onder **detectie en taakverdeling** Selecteer **Services**. De service van uw toepassing wordt weergegeven, met inbegrip van de *externe eindpunten*, zoals wordt weergegeven in het volgende voorbeeld:
 
-![Kubernetes-schillen](./media/container-service-kubernetes-ui/complete-deployment.png)
+![Lijst met services en eindpunten weergeven](./media/kubernetes-dashboard/view-services.png)
 
-Als u meer informatie over de toepassingspods, klikt u op **schillen** in het menu links, en selecteer vervolgens de **NGINX** schil. Hier ziet u pod-specifieke informatie zoals het gebruik van resources.
+Selecteer het adres van het eindpunt opent een browservenster naar de standaard-NGINX-pagina:
 
-![Kubernetes-Resources](./media/container-service-kubernetes-ui/running-pods.png)
+![De standaard-NGINX-pagina van de geïmplementeerde toepassing weergeven](./media/kubernetes-dashboard/default-nginx.png)
 
-Als u het IP-adres van de toepassing zoekt, klikt u op **Services** in het menu links, en selecteer vervolgens de **NGINX** service.
+## <a name="view-pod-information"></a>Pod-informatie weergeven
 
-![nginx weergeven](./media/container-service-kubernetes-ui/nginx-service.png)
+Het Kubernetes-dashboard kan bieden eenvoudige metrische gegevens controleren en het oplossen van problemen, zoals Logboeken.
+
+Meer informatie over uw toepassing schillen Selecteer **schillen** in het linkermenu. De lijst met beschikbare schillen wordt weergegeven. Kies uw *nginx* schil om informatie, zoals het gebruik van resources weer te geven:
+
+![Pod-informatie weergeven](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>De toepassing bewerken
 
-Naast het maken en toepassingen voor het weergeven, kan het Kubernetes-dashboard worden gebruikt om te bewerken en bijwerken van implementaties van toepassingen.
+Naast het maken en toepassingen voor het weergeven, kan het Kubernetes-dashboard worden gebruikt om te bewerken en bijwerken van implementaties van toepassingen. Aanvullende om redundantie te bieden voor de toepassing, laten we u het aantal NGINX replica's vergroten.
 
-Als u wilt een implementatie bewerken, klikt u op **implementaties** in het menu links, en selecteer vervolgens de **NGINX** implementatie. Selecteer ten slotte **bewerken** in de bovenste rechter navigatiebalk.
+Een implementatie bewerken:
 
-![Kubernetes bewerken](./media/container-service-kubernetes-ui/view-deployment.png)
+1. Selecteer **implementaties** in het menu links en kies vervolgens uw *nginx* implementatie.
+1. Selecteer **bewerken** in de bovenste rechter navigatiebalk.
+1. Zoek de `spec.replica` waarde, op rond regel 20. Als u wilt het aantal replica's voor de toepassing te verhogen, wijzig deze waarde van *1* naar *3*.
+1. Selecteer **Update** als u klaar bent.
 
-Zoek de `spec.replica` -waarde moet 1, wijzigt u deze waarde in 3. Het aantal replica's van de NGINX-implementatie wordt in dat geval, verhoogd van 1 tot 3.
+![De implementatie voor het bijwerken van het aantal replica's bewerken](./media/kubernetes-dashboard/edit-deployment.png)
 
-Selecteer **Update** als u klaar bent.
+Het duurt een paar minuten voor de nieuwe pods die moet worden gemaakt binnen een replicaset. Kies in het menu links **replicasets**, en kies vervolgens uw *nginx* replicaset. De lijst van schillen bevat nu het aantal bijgewerkte replica's, zoals wordt weergegeven in de volgende voorbeelduitvoer:
 
-![Kubernetes bewerken](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Informatie weergeven over de replicaset](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het Kubernetes-dashboard, de Kubernetes-documentatie.
-
-> [!div class="nextstepaction"]
-> [Kubernetes Web UI-Dashboard][kubernetes-dashboard]
+Zie voor meer informatie over het Kubernetes-dashboard, de [Kubernetes Web UI-Dashboard][kubernetes-dashboard].
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

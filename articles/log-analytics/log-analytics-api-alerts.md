@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6aaf9b42677064b31c56be96775692c75812e145
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044617"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079052"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API
 De Log Analytics Alert REST API kunt u waarschuwingen in Operations Management Suite (OMS) maken en beheren.  Dit artikel bevat informatie over de API en enkele voorbeelden voor het uitvoeren van verschillende bewerkingen.
@@ -138,6 +138,7 @@ Een planning moet slechts één actie bij waarschuwing hebben.  Waarschuwingsact
 |:--- |:--- |:--- |
 | Drempelwaarde |Criteria voor wanneer de actie wordt uitgevoerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
 | Severity |Het label dat wordt gebruikt om te classificeren waarschuwing wanneer ze worden geactiveerd.| Vereist voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
+| Onderdrukken |Optie voor het stoppen van meldingen van de waarschuwing. | Optioneel voor elke waarschuwing voordat of nadat ze zijn uitgebreid naar Azure. |
 | Actiegroepen |Id's van Azure ActionGroup waar de acties die vereist zijn opgegeven, zoals - e-mailberichten, SMSs, gesprekken, Webhooks, Automation-Runbooks, ITSM-Connectors, enzovoort.| Vereist wanneer waarschuwingen worden uitgebreid naar Azure|
 | Acties aanpassen|De standaarduitvoer voor select acties op basis van ActionGroup wijzigen| Optioneel voor elke waarschuwing kan worden gebruikt nadat er waarschuwingen zijn uitgebreid naar Azure. |
 | EmailNotification |E-mail verzenden naar meerdere ontvangers. | Niet vereist als de waarschuwingen worden uitgebreid naar Azure|
@@ -213,6 +214,37 @@ Gebruik de Put-methode met de ID van een bestaande actie om een actie van de ern
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>Onderdrukken
+Log Analytics op basis van query waarschuwingen geactiveerd telkens als drempelwaarde is bereikt of overschreden. Op basis van de logica in de query de impliciete, dit kan leiden tot ophalen voor een reeks intervallen geactiveerde waarschuwing en kan daarom meldingen ook verstuurd voortdurend. Om te voorkomen dat dergelijke scenario, kunt een gebruiker onderdrukken optie Log Analytics dat moet worden gewacht op een bepaald hoeveelheid tijd voordat de tweede keer voor de waarschuwingsregel wordt geactiveerd door melding instellen. Dus als onderdrukken is ingesteld voor 30 minuten. waarschuwing wordt vervolgens de eerste keer wordt gestart en verzenden van meldingen geconfigureerd. Maar wacht 30 minuten voordat de melding voor de waarschuwingsregel wordt opnieuw gebruikt. Waarschuwingsregel wordt nog uitgevoerd in de tussenperiode - alleen melding door Log Analytics is onderdrukt voor de opgegeven periode, ongeacht hoe vaak de waarschuwingsregel geactiveerd in deze periode.
+
+Onderdrukken van eigenschap van Log Analytics waarschuwingsregel is opgegeven met behulp van de *beperking* waarde en de onderdrukking periode via *DurationInMinutes* waarde.
+
+Volgende is een voorbeeldantwoord voor een actie met alleen een drempelwaarde, ernst en de eigenschap onderdrukken
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Gebruik de Put-methode met een unieke actie-ID om een nieuwe actie voor een schema met ernst.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Gebruik de Put-methode met de ID van een bestaande actie om een actie van de ernst voor een schema.  De hoofdtekst van de aanvraag moet de etag van de actie bevatten.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Actiegroepen
 Alle waarschuwingen in Azure, gebruik actiegroep als het standaardmechanisme voor het verwerken van acties. Met de actiegroep, kunt u uw acties één keer opgeven en koppel vervolgens de actie die u wilt meerdere waarschuwingen - binnen Azure. Zonder de noodzaak om te declareren dezelfde acties herhaaldelijk telkens opnieuw. Actiegroepen ondersteuning voor meerdere acties - inclusief e-mail, SMS, Spraakoproep, ITSM-verbinding, Automation-Runbook, Webhook URI en meer. 

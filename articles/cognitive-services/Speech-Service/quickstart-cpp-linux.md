@@ -5,16 +5,16 @@ description: Gesproken tekst leren herkennen in C++ onder Linux met behulp van d
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f3bcbc7bcbd57e9baa5a01f3a2ef572b09128260
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055914"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886242"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snelstart: Gesproken tekst herkennen in C++ onder Linux met behulp van de Speech SDK
 
@@ -24,7 +24,7 @@ In dit artikel maakt u een C++ consoletoepassing voor Ubuntu Linux 16.04. U gebr
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstart uit te voeren. U kunt er een gratis downloaden. Zie [Probeer de Speech-service gratis uit](get-started.md) voor meer informatie.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Probeer de Speech-service gratis uit](get-started.md) voor meer informatie.
 
 ## <a name="install-speech-sdk"></a>Speech SDK installeren
 
@@ -80,9 +80,9 @@ Download en installeer de SDK als volgt:
 
 1. Vervang in dit nieuwe bestand de tekenreeks `YourSubscriptionKey` door uw abonnementssleutel van de Speech-service.
 
-1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die gekoppeld is aan uw abonnement (bijvoorbeeld `westus` voor het gratis proefabonnement).
+1. Vervang de tekenreeks `YourServiceRegion` door de [regio](regions.md) die aan uw abonnement is gekoppeld (bijvoorbeeld `westus` voor het gratis proefabonnement).
 
-## <a name="build-the-app"></a>De app compileren
+## <a name="build-the-app"></a>De app bouwen
 
 > [!NOTE]
 > Zorg ervoor dat u de onderstaande opdrachten als _één opdrachtregel_ invoert. De eenvoudigste manier om dat te doen is om de opdracht te kopiëren met behulp van de knop **Kopiëren** naast elke opdracht en deze vervolgens bij de shell-prompt te plakken.
@@ -134,7 +134,7 @@ Zoek naar dit voorbeeld in de map `quickstart/cpp-linux`.
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Intents van gesproken inhoud herkennen met behulp van de Speech SDK voor C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C++](how-to-recognize-intents-from-speech-cpp.md)
 
 ## <a name="see-also"></a>Zie ook
 

@@ -1,9 +1,9 @@
 ---
-title: Regiobeheer van de in Azure Stack | Microsoft Docs
-description: Overzicht van regio management in Azure-Stack.
+title: Regiobeheer in Azure Stack | Microsoft Docs
+description: Overzicht van regio management in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
@@ -13,44 +13,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 0286ed9c7b3fe320b936d33fe3beaddccd6ac0fa
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 401b81ceb7ab71528a4ad11bc7d8944b4d732933
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247531"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078851"
 ---
-# <a name="region-management-in-azure-stack"></a>Regio management in Azure-Stack
+# <a name="region-management-in-azure-stack"></a>Regiobeheer in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure Stack maakt gebruik van het concept van regio's zijn logische entiteiten bestaat uit de hardwarebronnen die gezamenlijk de Stack van Azure-infrastructuur. U vindt in regiobeheer, alle resources die vereist zijn om te werken is de Azure-Stack-infrastructuur.
+Azure Stack maakt gebruik van het concept van regio's zijn logische entiteiten bestaat uit de hardwareresources die gezamenlijk de Azure Stack-infrastructuur. In de regio management vindt u alle resources die nodig zijn voor de Azure Stack-infrastructuur is uitgevoerd.
 
-Eén geïntegreerde implementatie (aangeduid als een *Azure Stack cloud*) vormt om één regio. Elke Azure-Stack Development Kit heeft één regio, met de naam **lokale**. Als u een tweede Azure Stack geïntegreerd systeem implementeren of van een ander exemplaar van de development kit op afzonderlijke hardware instellen, is deze Azure-Stack cloud een andere regio.
+Een geïntegreerd systeemimplementatie (aangeduid als een *Azure Stack-cloud*) vormt een enkele regio. Elke Azure Stack Development Kit heeft één regio, met de naam **lokale**. Als u een tweede geïntegreerde Azure Stack-systeem implementeren of van een ander exemplaar van de development kit op afzonderlijke hardware instellen, is deze Azure Stack-cloud in een andere regio.
 
-## <a name="information-available-through-the-region-management-tile"></a>Informatie die beschikbaar is via de tegel regio-management
+## <a name="information-available-through-the-region-management-tile"></a>Informatie is beschikbaar via de tegel van de regio-beheer
 
-Azure Stack beschikt over een reeks regio management mogelijkheden beschikbaar zijn in de **regio management** tegel. Deze tegel is beschikbaar voor een Azure-Stack-operator in het standaarddashboard in de beheerdersportal. U kunt via deze tegel controleren en bijwerken van uw Azure-Stack regio en de bijbehorende onderdelen, die specifiek zijn.
+Azure Stack is een set met mogelijkheden voor de regio beschikbaar zijn in de **regiobeheer** tegel. Deze tegel is beschikbaar voor Azure Stack-operators op de standaard-dashboard in de beheerdersportal. U kunt via deze tegel controleren en bijwerken van uw Azure Stack-regio en de bijbehorende onderdelen, die specifiek zijn.
 
- ![De regio management tegel](media/azure-stack-manage-region/image1.png)
+ ![De tegel van de regio-beheer](media/azure-stack-manage-region/image1.png)
 
  Als u een regio in de regio management tegel klikt, kunt u toegang tot de volgende informatie:
 
-  ![Beschrijving van deelvensters op de blade regio-management](media/azure-stack-manage-region/image2.png)
+  ![Beschrijving van de deelvensters op de beheerblade van de regio](media/azure-stack-manage-region/image2.png)
 
-1. **De resource-menu**. Hier kunt u toegang hebt tot specifieke infrastructuur management gebieden en weergeven en beheren van de Gebruikersresources zoals storage-accounts en virtuele netwerken.
+1. **Het resourcemenu**. Hier kunt u toegang hebt tot specifieke infrastructuur gebieden, en weergeven en beheren van resources, zoals opslagaccounts en virtuele netwerken van gebruiker.
 
-2. **Waarschuwingen**. Dit geeft een lijst van waarschuwingen van de hele systeem en biedt details over elk van deze waarschuwingen.
+2. **Waarschuwingen**. Dit geeft een lijst van systeembrede waarschuwingen en biedt details over elk van deze waarschuwingen.
 
-3. **Updates**. Hier kunt u de huidige versie van uw Azure-Stack-infrastructuur, beschikbare updates en de historie van updates weergeven. U kunt ook uw geïntegreerde systeem bijwerken.
+3. **Updates**. Hier kunt u de huidige versie van uw Azure Stack-infrastructuur, beschikbare updates en de historie van updates weergeven. U kunt ook uw geïntegreerd systeem bijwerken.
 
-4. **Resourceproviders**. Resourceproviders is de plaats voor het beheren van de gebruiker-functionaliteit van de onderdelen die zijn vereist voor het uitvoeren van de Azure-Stack. Elke resourceprovider wordt geleverd met een administratieve ervaring. Deze ervaring kan waarschuwingen bevatten voor de provider, meetgegevens en andere beheermogelijkheden die specifiek zijn voor de resourceprovider.
+4. **Resourceproviders**. Resourceproviders is de plaats voor het beheren van de functionaliteit van gebruiker door de onderdelen die vereist voor het uitvoeren van Azure Stack. Elke resourceprovider wordt geleverd met een administratieve ervaring. Deze ervaring kan waarschuwingen bevatten voor de specifieke provider, metrische gegevens en andere beheermogelijkheden die specifiek zijn voor de resourceprovider.
 
-5. **Infrastructuur functies**. Infrastructuur rollen zijn de onderdelen die nodig zijn voor het uitvoeren van de Azure-Stack. De infrastructuur-rollen die rapporteren van waarschuwingen worden weergegeven. Als u een rol selecteert, ziet u de waarschuwingen die zijn gekoppeld aan de rol en de rolexemplaren waarop deze rol wordt uitgevoerd.
+5. **Infrastructuur rollen**. Infrastructuur-rollen zijn de onderdelen die nodig zijn om uit te voeren van Azure Stack. De infrastructuur-rollen die rapporteren van waarschuwingen worden weergegeven. Als u een rol selecteert, ziet u de waarschuwingen die zijn gekoppeld aan de rol en de rolinstanties waarop deze rol wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Status en waarschuwingen in de Azure-Stack controleren](azure-stack-monitor-health.md)
-- [Beheren van updates in de Azure-Stack](azure-stack-updates.md)
+- [Controleprogramma wordt de status en waarschuwingen in Azure Stack](azure-stack-monitor-health.md)
+- [Updates beheren in Azure Stack](azure-stack-updates.md)

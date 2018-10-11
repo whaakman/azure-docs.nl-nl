@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036050"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867541"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Zelfstudie 7: Namen met een eenvoudige entiteit en woordenlijst extraheren
 
@@ -46,9 +46,9 @@ Een Simple-entiteit is een goede keuze voor dit type gegevens wanneer:
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
 
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json) en sla het op.
 
@@ -56,7 +56,7 @@ Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u
 
 3. Ga naar het gedeelte **Beheren**, open het tabblad **Versies**, kloon de versie en noem deze `simple`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam wordt gebruikt als onderdeel van de URL-route, kan de naam geen tekens bevatten die niet zijn toegestaan in een URL.
 
-## <a name="simple-entity"></a>Simple-entiteit
+## <a name="simple-entity"></a>Eenvoudige entiteit
 De Simple-entiteit detecteert een concept met enkelvoudige gegevens dat is opgenomen in woorden of woordgroepen.
 
 Laten we de volgende utterances uit een chatbot als voorbeeld nemen:
@@ -299,7 +299,7 @@ Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/maste
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Schermopname van het pop-updialoogvenster met woorden in het vak voor waarden")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. U moet de app opnieuw [trainen](#train-the-luis-app) en [publiceren](#publish-the-app-to-get-the-endpoint-URL) om de woordgroepenlijst te kunnen gebruiken.
+5. U moet de app opnieuw [trainen](#train) en [publiceren](#publish) om de woordgroepenlijst te kunnen gebruiken.
 
 6. Een eindpunt opnieuw opvragen met de dezelfde utterance: `This is the lead welder paperwork.`
 

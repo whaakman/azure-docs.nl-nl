@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 56b0f0ce39d421e80890ad0dbad9b7cfe0812cdb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902871"
+ms.locfileid: "49079126"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Hoe: geef optioneel claims voor uw Azure AD-app (Preview-versie)
 
@@ -35,18 +35,22 @@ Deze functie wordt gebruikt door ontwikkelaars van toepassingen om op te geven w
 
 Zie voor een lijst van standaard claims en hoe ze worden gebruikt in tokens, de [basisprincipes van tokens die zijn uitgegeven door Azure AD](v1-id-and-access-tokens.md). 
 
-Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) is token kleinere om optimale prestaties door clients.  Als gevolg hiervan meerdere claims voorheen opgenomen in de toegang en de ID-tokens zijn niet meer aanwezig zijn in v2.0-tokens en moeten worden gevraagd om specifiek op basis van de per toepassing.  
+Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) is token kleinere om optimale prestaties door clients.  Als gevolg hiervan meerdere claims voorheen opgenomen in de toegang en de ID-tokens zijn niet meer aanwezig zijn in v2.0-tokens en moeten worden gevraagd om specifiek op basis van de per toepassing.
+
+  
 
 **Tabel 1: toepassing**
 
 | Accounttype | V1.0-eindpunt | V2.0-eindpunt  |
 |--------------|---------------|----------------|
 | Persoonlijke Microsoft-account  | N.V.T. - RPS Tickets in plaats daarvan worden gebruikt | Binnenkort ondersteuning |
-| Azure AD-account            | Ondersteund                          | Ondersteund      |
+| Azure AD-account          | Ondersteund                          | Ondersteund met aanvullende opmerkingen      |
+
+> [!Important]
+> Op dit moment apps die ondersteuning bieden voor zowel persoonlijke accounts en Azure AD (geregistreerd via de [portal voor app-registratie](https://apps.dev.microsoft.com)) optioneel claims kan niet worden gebruikt.  Apps die zijn geregistreerd voor alleen Azure AD met behulp van het v2.0-eindpunt kunnen beschikt echter over de optionele claims die ze in het manifest wordt aangevraagd.
 
 ## <a name="standard-optional-claims-set"></a>Standard optioneel claims instellen
-
-De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld.  Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)hieronder. 
+De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld.  Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)hieronder.  Houd er rekening mee dat bij het toevoegen van claims voor de **toegangstoken**, dit geldt voor toegangstokens aangevraagd *voor* de toepassing (een web-API), niet de *door* de toepassing.  Dit zorgt ervoor dat, ongeacht de toegang tot uw API-client de juiste gegevens aanwezig in het toegangstoken dat ze gebruiken is voor verificatie op basis van uw API.
 
 > [!Note]
 >De meeste van deze claims kan worden opgenomen in JWTs voor v1.0 en v2.0-tokens, maar geen SAML-tokens, tenzij anders is aangegeven in de kolom Type Token.  Bovendien, terwijl optioneel claims worden alleen ondersteund voor AAD-gebruikers momenteel, wordt MSA-ondersteuning toegevoegd.  Wanneer MSA optioneel claims ondersteuning op het v2.0-eindpunt heeft, wordt de kolom Type gebruiker geven als een claim beschikbaar voor een AAD- of MSA-gebruikers is.  
@@ -241,7 +245,7 @@ Er zijn meerdere opties beschikbaar voor het bijwerken van de eigenschappen van 
             ]
       }
       ```
-      In dit geval zijn verschillende optionele claims toegevoegd aan elk type token dat de toepassing kan ontvangen. De ID-tokens bevat nu de UPN voor federatieve gebruikers in het volledige formulier (`<upn>_<homedomain>#EXT#@<resourcedomain>`). De toegangstokens ontvangt nu de claim auth_time. De SAML-tokens bevat nu de skypeId directory-schema-uitbreiding (in dit voorbeeld wordt de app-ID voor deze app is ab603c56068041afb2f6832e2a17e237).  De SAML-tokens wordt weergegeven de Skype-ID als `extension_skypeId`.
+      In dit geval zijn verschillende optionele claims toegevoegd aan elk type token dat de toepassing kan ontvangen. De ID-tokens bevat nu de UPN voor federatieve gebruikers in het volledige formulier (`<upn>_<homedomain>#EXT#@<resourcedomain>`). De toegangstokens die andere clients voor deze toepassing vragen bevat nu de claim auth_time. De SAML-tokens bevat nu de skypeId directory-schema-uitbreiding (in dit voorbeeld wordt de app-ID voor deze app is ab603c56068041afb2f6832e2a17e237).  De SAML-tokens wordt weergegeven de Skype-ID als `extension_skypeId`.
 
 1. Wanneer u klaar bent met het bijwerken van het manifest, klikt u op **opslaan** om op te slaan van het manifest
 

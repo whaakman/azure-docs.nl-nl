@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen - Language Understanding (LUIS)
+title: Veelgestelde vragen - Veelgestelde vragen - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: In dit artikel bevat antwoorden op veelgestelde vragen over Language Understanding (LUIS).
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0e604138c35e476d1635cb695923bb7d2b83de82
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831259"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067757"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -113,6 +113,10 @@ Zie de [Batch testen](luis-tutorial-batch-testing.md) zelfstudie.
 
 Zie [voorspelling verschillen tussen exemplaren van dezelfde app](luis-concept-prediction-score.md#differences-with-predictions).
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Sommige uitingen gaat u naar de verkeerde bedoelingen nadat ik wijzigingen in mijn app aangebracht. Het probleem lijkt niet meer zichtbaar in willekeurige volgorde. Hoe herstel ik deze? 
+
+Zie [Train met alle gegevens](luis-how-to-train.md#train-with-all-data).
+
 ## <a name="app-publishing"></a>App-publicatie
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Wat is de tenant-ID in het venster 'Toevoegen een sleutel aan uw app'?
@@ -155,7 +159,7 @@ Als u van het logboek voor de voorspelling analyse gebruikmaakt, test-uitingen i
 
 ### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft toegang tot mijn LUIS-app-gegevens voor een eigen doeleinden, bijvoorbeeld, ter verbetering van de LUIS of Microsoft in het algemeen?
 
-Nr. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers.
+Nee. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers.
 
 Meer informatie over [gebruikersprivacy](luis-user-privacy.md), [extra beveiliging, naleving](luis-concept-security.md#security-compliance), en [gegevensopslag](luis-concept-data-storage.md).
 
@@ -185,7 +189,7 @@ Als u een LUIS-sjabloon selecteren en selecteer de **Selecteer** knop in het dee
 ## <a name="luis-service"></a>LUIS-service
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS on-premises beschikbaar is of in een privécloud?
-Nr.
+Nee.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Ik gehoord over een functie voor Language Understanding of een demo maar ik niet meer weet wat het werd aangeroepen op de Build-conferentie 2018?

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb28a3d165bcb6cc5e63162053029ce14b0d7f8f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916414"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078133"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Met Azure ExpressRoute met Azure Site Recovery
 
@@ -49,7 +49,7 @@ Azure Site Recovery maakt herstel na noodgevallen van [virtuele Azure-machines](
 
 Voor noodherstel van Azure-VM is standaard ExpressRoute niet vereist voor replicatie. Nadat de virtuele machines, failover naar de doel-Azure-regio, kunt u ze openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
-Als u verbinding maken tussen uw on-premises datacenter en de Azure VM's in de regio van de gegevensbron al ExpressRoute gebruikt, kunt u van plan bent voor het opnieuw tot stand brengen van ExpressRoute-connectiviteit in de doelregio failover. Verbinding maken met de doelregio via een nieuwe virtuele netwerkverbinding of gebruikmaken van een afzonderlijke ExpressRoute-circuit en de verbinding voor herstel na noodgevallen kunt u hetzelfde ExpressRoute-circuit. De verschillende mogelijke scenario's worden beschreven [hier](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
+Als u verbinding maken tussen uw on-premises datacenter en de Azure VM's in de regio van de gegevensbron al ExpressRoute gebruikt, kunt u van plan bent voor het opnieuw tot stand brengen van ExpressRoute-connectiviteit in de doelregio failover. Verbinding maken met de doelregio via een nieuwe virtuele netwerkverbinding of gebruikmaken van een afzonderlijke ExpressRoute-circuit en de verbinding voor herstel na noodgevallen kunt u hetzelfde ExpressRoute-circuit. De verschillende mogelijke scenario's worden beschreven [hier](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute).
 
 U kunt virtuele Azure-machines repliceren naar een Azure-regio binnen hetzelfde geografische cluster als gedetailleerde [hier](../site-recovery/azure-to-azure-support-matrix.md#region-support). Als de gekozen Azure-doelregio niet binnen dezelfde geopolitieke regio als de bron valt, moet u mogelijk ExpressRoute Premium inschakelen. Raadpleeg voor meer informatie het [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [prijzen voor ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 

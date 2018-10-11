@@ -11,17 +11,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/9/2018
 ms.author: raiye
-ms.openlocfilehash: c0eff5054b186ebc701e88d793992c8729408b7d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f0fe3d66430c17c417de7ecd808069ba76a57ef5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605994"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069536"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="september-guest-os"></a>September-Gastbesturingssysteem
+> [!NOTE]
+> Het Gastbesturingssysteem September wordt momenteel geïmplementeerd voor Cloud Service-VM's die zijn geconfigureerd voor automatische updates. Wanneer de implementatie voltooid is, wordt deze versie beschikbaar voor het handmatig bijwerken via de Azure portal en -configuratiebestanden worden gemaakt. De volgende patches worden opgenomen in het Gastbesturingssysteem September. Deze lijst is onderhevig aan wijzigingen.
+
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 18-09 | [4457131] | Windows 10-beveiliging | 5.23 | 11 september 2018 |
+| Rel 18-09 | [4457145] | Alleen Windows-beveiliging | 2.78 | 11 september 2018 |
+| Rel 18-09 | [4457140] | Alleen Windows-beveiliging | 3.65 | 11 september 2018 |
+| Rel 18-09 | [4457143] | Alleen Windows-beveiliging | 4,58 | 11 september 2018 |
+| Rel 18-09 | [4457055], [4457030] | .NET 3.5, 4.5 beveiliging | 2.78 | 11 september 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x-beveiliging | 3.65 | 11 september 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x-beveiliging | 4,58 | 11 september 2018 |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4,58, 5.23 | 11 september 2018 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4,58 | 11 september 2018 |
+| N/A | [4343900] | Updatepakket augustus niet voor beveiliging | 2.78 | 14 augustus 2018 |
+| N/A | [4344152] | Augustus niet voor beveiliging .NET 3.5-updatepakket | 2.78 | 14 augustus 2018 |
+| N/A | [4344149] | Augustus niet voor beveiliging .NET 4 x rollup | 2.78 | 14 augustus 2018 |
+| N/A | [4343901] | Updatepakket augustus niet voor beveiliging | 3.65 | 14 augustus 2018 |
+| N/A | [4344150] | Augustus niet voor beveiliging .NET 3.5-updatepakket | 3.65 | 14 augustus 2018 |
+| N/A | [4344148] | Augustus niet voor beveiliging .NET 4 x rollup | 3.65 | 14 augustus 2018 |
+| N/A | [4343898] | Updatepakket augustus niet voor beveiliging | 4,58 | 14 augustus 2018 |
+| N/A | [4344153] | Augustus niet voor beveiliging .NET 3.5-updatepakket | 4,58 | 14 augustus 2018 |
+| N/A | [4344147] | Augustus niet voor beveiliging .NET 4 x rollup | 4,58 | 14 augustus 2018 |
 
 ## <a name="august-guest-os"></a>Augustus Guest OS
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -45,7 +70,6 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A | [4338815] |Updatepakket van juli niet voor beveiliging |4.57 | 10 juli 2018 |
 | N/A | [4338424] |Juli niet voor beveiliging .NET 3.5-updatepakket |3.64 | 10 juli 2018 |
 | N/A | [4338415] |Juli niet voor beveiliging .NET 4 x rollup |3.64 | 10 juli 2018 |
-
 
 ## <a name="july-guest-os"></a>Juli Guest OS
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -717,6 +741,27 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[2999802] |Ononderbroken lijnen in plaats van stippellijnen worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13, 2015 |
 | N/A |[2896881] |Lange aanmelding bij het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13, 2015 |
 
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4343887]: http://support.microsoft.com/kb/4343887
 [4343899]: http://support.microsoft.com/kb/4343899

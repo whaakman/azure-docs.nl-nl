@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-ID tokenverwijzing | Microsoft Docs
-description: Met behulp van id_tokens verzonden door de v1 en v2 eindpunten van Azure AD.
+description: Informatie over het gebruik van id_tokens verzonden door de v1.0 en v2.0-eindpunten van Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 85c8100dd567308500fac1c1d8577c84da98013f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e74d2cbada1d433bdaf4ebc905e88d66444b2e2f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815355"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078202"
 ---
 # <a name="id-tokens"></a>Id-tokens
 
@@ -64,11 +64,12 @@ Dit token v2.0 voorbeeld in weergeven [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAi
 
 |Claim | Indeling | Beschrijving |
 |-----|--------|-------------|
-|`aud` | Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In `id_tokens`, de doelgroep is van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
-|`iss` | Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`. De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
-|`iat` | int, een UNIX-timestamp | "Verleend aan" geeft aan wanneer de verificatie voor dit token is opgetreden. |
-|`nbf` | int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking.|
-|`exp` | int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT mag niet worden geaccepteerd voor verwerking. Het is belangrijk te weten dat een resource het token voordat deze tijd ook - weigeren kan als u bijvoorbeeld een wijziging in de verificatie is vereist of intrekken van een token is gedetecteerd. |
+|`aud` |  Tekenreeks, een URI van de App-ID | Hiermee geeft u de beoogde ontvanger van het token. In `id_tokens`, de doelgroep is van uw app toepassings-ID, toegewezen aan uw app in Azure portal. Uw app moet deze waarde te valideren en het token te negeren als de waarde komt niet overeen met. |
+|`iss` |  Tekenreeks, een STS-URI | Identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token en de Azure AD-tenant waarin de gebruiker is geverifieerd. Als het token is uitgegeven door het v2.0-eindpunt, de URI wordt beëindigd `/v2.0`.  De GUID die wordt aangegeven dat de gebruiker een consument gebruiker vanuit een Microsoft-account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Uw app moet de GUID-gedeelte van de claim gebruiken om het beperken van de set van tenants die kunnen zich aanmelden bij de app, indien van toepassing. |
+|`iat` |  int, een UNIX-timestamp | "Verleend aan" geeft aan wanneer de verificatie voor dit token is opgetreden.  |
+|`idp`|Tekenreeks, meestal een STS-URI | Registreert de identiteitsprovider waarmee het onderwerp van het token is geverifieerd. Deze waarde is gelijk aan de waarde van de claim van verlener, tenzij het gebruikersaccount niet in dezelfde tenant als de verlener - gasten, bijvoorbeeld. Als de claim is niet aanwezig is, betekent dit dat de waarde van `iss` in plaats daarvan kan worden gebruikt.  Voor persoonlijke accounts worden gebruikt in een context orgnizational (bijvoorbeeld een persoonlijk account is uitgenodigd voor een Azure AD-tenant), de `idp` claim mogelijk 'live.com' of een STS URI met de tenant van Microsoft-account `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`nbf` |  int, een UNIX-timestamp | De claim 'nbf"(niet voor) geeft de tijd waarbinnen de JWT moet niet worden geaccepteerd voor verwerking.|
+|`exp` |  int, een UNIX-timestamp | De claim 'exp' (verlooptijd) identificeert de verlooptijd op of na die de JWT mag niet worden geaccepteerd voor verwerking.  Het is belangrijk te weten dat een resource het token voordat deze tijd ook - weigeren kan als u bijvoorbeeld een wijziging in de verificatie is vereist of intrekken van een token is gedetecteerd. |
 | `c_hash`| Reeks |De hash van de code is opgenomen in de ID-tokens, alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-autorisatiecode. Het kan worden gebruikt om te valideren de echtheid van een autorisatiecode. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html). |
 |`at_hash`| Reeks |Toegang tot de token-hash is opgenomen in de ID tokens alleen wanneer de ID-token dat is uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om te valideren de echtheid van een toegangstoken. Zie voor meer informatie over het uitvoeren van deze validatie de [OpenID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Ondoorzichtige tekenreeks | Een interne claim die worden gebruikt door Azure AD om gegevens te noteren voor hergebruik van token. Moeten worden genegeerd.|

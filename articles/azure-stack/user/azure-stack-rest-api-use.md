@@ -3,22 +3,22 @@ title: Gebruik de Azure Stack-API | Microsoft Docs
 description: Informatie over het ophalen van een verificatie van Azure naar de API-aanvragen versturen naar Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346787"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078327"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -28,13 +28,13 @@ ms.locfileid: "37346787"
 
 U kunt de Application Programming Interface (API) gebruiken om bewerkingen zoals het toevoegen van een virtuele machine met uw Azure Stack-cloud te automatiseren.
 
-De API vereist dat uw client om te verifiëren bij de Microsoft Azure-eindpunt voor aanmelding. Het eindpunt retourneert een token te gebruiken in de header van elke aanvraag verzonden naar de Azure Stack-API. Microsoft Azure maakt gebruik van Oauth 2.0.
+De API vereist dat uw client om te verifiëren met het eindpunt van de aanmelding bij Microsoft Azure. Het eindpunt retourneert een token te gebruiken in de header van elke aanvraag verzonden naar de Azure Stack-API. Microsoft Azure maakt gebruik van Oauth 2.0.
 
 Dit artikel biedt voorbeelden die gebruikmaken van de **cURL** hulpprogramma voor het maken van Azure Stack-aanvragen. De toepassing, cURL, is een opdrachtregelprogramma met een bibliotheek voor het overbrengen van gegevens. Deze voorbeelden stapsgewijs door het proces van het ophalen van een token voor toegang tot de Azure Stack-API. De meeste moderne programmeertalen bieden Oauth 2.0-bibliotheken, die krachtige token management en verwerk taken hebt die het vernieuwen van het token.
 
 Bekijk het hele proces van het gebruik van de Azure Stack REST-API met een algemene REST-client, zoals **cURL**, om te begrijpen van de onderliggende aanvraagt en laat zien wat u kunt verwachten om in een nettolading van het antwoord te ontvangen.
 
-In dit artikel verkennen niet alle opties die beschikbaar zijn voor het ophalen van tokens, zoals interactieve aanmelding of het maken van de toegewezen App-id's. Zie voor informatie over deze onderwerpen, [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
+In dit artikel verkennen niet alle opties die beschikbaar zijn voor het ophalen van tokens, zoals interactief aanmelden of het maken van de toegewezen App-id's. Zie voor informatie over deze onderwerpen, [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Een token krijgen van Azure
 
@@ -85,7 +85,7 @@ Voor elke waarde:
     curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
     ```
 
-  Antwoord:
+  Reactie:
 
   ```
   {
@@ -150,7 +150,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 --data-urlencode "resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155"
 ```
 
-Antwoord:
+Reactie:
 
 ```
 {
@@ -175,7 +175,7 @@ Aanvraag:
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
-Antwoord:
+Reactie:
 
 ```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B

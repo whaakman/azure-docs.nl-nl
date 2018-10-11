@@ -1,26 +1,33 @@
 ---
-title: Permanente volumes maken met Azure Kubernetes Service
-description: Informatie over het gebruik van Azure-schijven permanente om volumes te maken voor de schillen in Azure Kubernetes Service (AKS)
+title: Dynamisch een schijfvolume voor meerdere schillen zijn gemaakt in Azure Kubernetes Service (AKS)
+description: Informatie over het dynamisch een permanent volume maken met Azure-schijven voor gebruik met meerdere gelijktijdige schillen in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 7048ab4e08d25fd5181857a4e7592d0bcb7d3b5f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 4fea0f63f3e28f25392ef909d9735c6129df69e7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885591"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067004"
 ---
-# <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Permanente volumes maken met Azure-schijven voor Azure Kubernetes Service (AKS)
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamisch maken en gebruiken van een permanent volume met de Azure-schijven in Azure Kubernetes Service (AKS)
 
-Een permanent volume vertegenwoordigt een stukje opslag die is ingericht voor gebruik met Kubernetes-schillen. Een permanent volume kan worden gebruikt door een of meer schillen en kan worden dynamisch of statisch ingericht. Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes]. In dit artikel leest u hoe het gebruik van permanente volumes met Azure-schijven in een cluster Azure Kubernetes Service (AKS).
+Een permanent volume vertegenwoordigt een stukje opslag die is ingericht voor gebruik met Kubernetes-schillen. Een permanent volume kan worden gebruikt door een of meer schillen en kan worden dynamisch of statisch ingericht. Dit artikel leest u hoe dynamisch permanente om volumes te maken met Azure-schijven voor gebruik door één pod in een cluster Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Een Azure-schijf kan alleen worden gekoppeld met *toegangsmodus* type *ReadWriteOnce*, waardoor het beschikbaar voor slechts één AKS-knooppunt. Als dat het delen van een permanent volume op meerdere knooppunten, kunt u overwegen [Azure Files][azure-files-pvc].
+> Een Azure-schijf kan alleen worden gekoppeld met *toegangsmodus* type *ReadWriteOnce*, waardoor het beschikbaar voor slechts één pod in AKS. Als u een permanent volume delen tussen meerdere schillen zijn wilt, gebruikt u [Azure Files][azure-files-pvc].
+
+Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes].
+
+## <a name="before-you-begin"></a>Voordat u begint
+
+In dit artikel wordt ervan uitgegaan dat u een bestaand AKS-cluster hebt. Als u een cluster AKS nodig hebt, raadpleegt u de Quick Start voor AKS [met de Azure CLI] [ aks-quickstart-cli] of [met behulp van de Azure-portal][aks-quickstart-portal].
+
+U ook moet de Azure CLI versie 2.0.46 of later geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Ingebouwde Opslagklassen
 
@@ -44,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Permanent volume claims zijn opgegeven in GiB maar Azure managed disks worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 4TiB voor S50 of P50 schijven. De doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van zowel de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie voor meer informatie, [prijs en prestaties van Managed Disks][managed-disk-pricing-performance].
+> Permanent volume claims zijn opgegeven in GiB maar Azure managed disks worden gefactureerd op basis van de SKU voor een specifieke grootte. Deze SKU's variëren van 32GiB voor S4 of P4 schijven tot 32TiB voor S80 of P80 schijven. De doorvoer en IOPS-prestaties van een Premium-beheerde schijf is afhankelijk van zowel de SKU en de exemplaargrootte van de knooppunten in het AKS-cluster. Zie voor meer informatie, [prijs en prestaties van Managed Disks][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Maken van een claim permanent volume
 
@@ -69,10 +76,10 @@ spec:
 > [!TIP]
 > Gebruik voor het maken van een schijf die gebruikmaakt van standard-opslag `storageClassName: default` in plaats van *beheerde premium*.
 
-Maken van de claim permanent volume met de [kubectl maken] [ kubectl-create] opdracht en geeft u uw *azure premium.yaml* bestand:
+Maken van de claim permanent volume met de [kubectl toepassen] [ kubectl-apply] opdracht en geeft u uw *azure premium.yaml* bestand:
 
 ```
-$ kubectl create -f azure-premium.yaml
+$ kubectl apply -f azure-premium.yaml
 
 persistentvolumeclaim/azure-managed-disk created
 ```
@@ -90,21 +97,28 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
 
-Maken van de schil met de [kubectl maken] [ kubectl-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
-$ kubectl create -f azure-pvc-disk.yaml
+$ kubectl apply -f azure-pvc-disk.yaml
 
 pod/mypod created
 ```
@@ -124,7 +138,7 @@ Volumes:
     Type:        Secret (a volume populated by a Secret)
     SecretName:  default-token-smm2n
     Optional:    false
-
+[...]
 Events:
   Type    Reason                 Age   From                               Message
   ----    ------                 ----  ----                               -------
@@ -189,11 +203,18 @@ metadata:
   name: mypodrestored
 spec:
   containers:
-    - name: myfrontendrestored
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypodrestored
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       azureDisk:
@@ -202,10 +223,10 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-Maken van de schil met de [kubectl maken] [ kubectl-create] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
+Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
-$ kubectl create -f azure-restored.yaml
+$ kubectl apply -f azure-restored.yaml
 
 pod/mypodrestored created
 ```
@@ -237,7 +258,7 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-schijven
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
@@ -251,3 +272,6 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-schijven
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
 [az-disk-show]: /cli/azure/disk#az-disk-show
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

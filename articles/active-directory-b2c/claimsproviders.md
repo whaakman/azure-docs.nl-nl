@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9159ade6e16c1d14149197e85cee8720dd98b09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b226aeac86084c56a49d00c2a2f8deddaf7b0f68
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381303"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068771"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders 
 
@@ -52,7 +52,7 @@ De **ClaimsProvider** element bevat de volgende onderliggende elementen:
 
 | Element | Gevallen | Beschrijving |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | Een tekenreeks zijn met de naam van de claimprovider. Bijvoorbeeld, als uw claimprovider het technische profiel Facebook bevat, is de domeinnaam Facebook.com. Deze domeinnaam wordt gebruikt voor alle technische profielen die zijn gedefinieerd in de claimprovider, tenzij deze overschreven door het technische profiel. |
+| Domain | 0:1 | Een tekenreeks zijn met de naam van de claimprovider. Bijvoorbeeld, als uw claimprovider het technische profiel Facebook bevat, is de domeinnaam Facebook.com. Deze domeinnaam wordt gebruikt voor alle technische profielen die zijn gedefinieerd in de claimprovider, tenzij deze overschreven door het technische profiel. Naam van het domein kan ook worden verwezen een **domain_hint**. Zie voor meer informatie de **aanmelden omleiden naar een provider voor sociale** sectie van [instellen direct aanmelden met behulp van Azure Active Directory B2C](direct-signin.md). |
 | Weergavenaam | 0:1 | Een tekenreeks zijn met de naam van de claimprovider die kan worden weergegeven aan gebruikers. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Een set technische profielen die worden ondersteund door de claimprovider |
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 968651e2bd06d54c8b735bf2418e0d84b94f315d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886379"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078559"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
@@ -185,7 +185,7 @@ Zie voor meer informatie, [ontwikkelen met de Table-API](tutorial-develop-table-
 Met de Gremlin-API, kunt u de Azure portal of Azure CLI om een container die staat voor een grafiek maken. U kunt ook omdat Azure Cosmos DB multi-modeldatabase, kunt u een van de andere API's te maken en schalen van de graph-container.
 
 > [!NOTE]
-> U kunt geen gebruiken `/id` als partitiesleutel voor een container in Gremlin-API. 
+> `/id` en `/label` worden niet ondersteund als de partitiesleutels weergeven voor een container in Gremlin-API.
 
 U kunt een hoekpunt of edge lezen met behulp van de partitiesleutel en -ID in Gremlin. Voor een grafiek met de regio ("VS") als de partitiesleutel en "Seattle" Als de recordsleutel, kunt u bijvoorbeeld een hoekpunt vinden met behulp van de volgende syntaxis:
 

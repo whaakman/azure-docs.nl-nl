@@ -1,34 +1,35 @@
 ---
-title: Maken van een interne load balancer van Azure Kubernetes Service (AKS)
+title: Een interne load balancer maken in Azure Kubernetes Service (AKS)
 description: Informatie over het maken en gebruiken van een interne load balancer om uw services met Azure Kubernetes Service (AKS) zichtbaar te maken.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 123fc08995416e0ff9c7e12a526deadc34b3a4a2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 75530c38ec3ecc5719ac5759d31bc38e7e886329
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001392"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069332"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes Service (AKS)
 
-Interne taakverdeling, wordt een Kubernetes-service toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk bevinden als het Kubernetes-cluster. Dit artikel leest u hoe het maken en gebruiken van een interne load balancer met Azure Kubernetes Service (AKS). Azure Load Balancer is beschikbaar in twee SKU's: Basic en Standard. AKS maakt gebruik van de basis-SKU.
+Om toegang te beperken tot uw toepassingen in Azure Kubernetes Service (AKS), kunt u maken en gebruiken van een interne load balancer. Een interne load balancer maakt een Kubernetes-service alleen toegankelijk is voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk bevinden als het Kubernetes-cluster. Dit artikel leest u hoe het maken en gebruiken van een interne load balancer met Azure Kubernetes Service (AKS).
+
+> [!NOTE]
+> Azure Load Balancer is beschikbaar in twee SKU's - *Basic* en *Standard*. Zie voor meer informatie, [vergelijking van Azure load balancer SKU][azure-lb-comparison]. AKS ondersteunt momenteel de *Basic* SKU. Als u wilt gebruiken de *Standard* SKU, kunt u de upstream [acs-engine][acs-engine].
 
 ## <a name="create-an-internal-load-balancer"></a>Een interne load balancer maken
 
-Voor het maken van een interne load balancer, door een servicemanifest te maken met het servicetype *LoadBalancer* en de *azure-load-balancer-interne* aantekening zoals wordt weergegeven in het volgende voorbeeld:
+Voor het maken van een interne load balancer, maakt u een servicemanifest met de naam `internal-lb.yaml` met het servicetype *LoadBalancer* en de *azure-load-balancer-interne* aantekening zoals wordt weergegeven in de volgende Voorbeeld:
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -36,31 +37,29 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
-Eenmaal is geïmplementeerd met `kubetctl apply`, een Azure load balancer is gemaakt en beschikbaar gemaakt in hetzelfde virtuele netwerk bevinden als het AKS-cluster.
+Eenmaal is geïmplementeerd met `kubectl apply -f internal-lb.yaml`, een Azure load balancer is gemaakt en beschikbaar gemaakt in hetzelfde virtuele netwerk bevinden als het AKS-cluster.
 
-![Afbeelding van AKS interne load balancer](media/internal-lb/internal-lb.png)
-
-Wanneer u de details van de service bekijkt, het IP-adres de *externe IP-adres* kolom is het IP-adres van de interne load balancer, zoals wordt weergegeven in het volgende voorbeeld:
+Wanneer u de details van de service bekijkt, het IP-adres van de interne load balancer wordt weergegeven in de *externe IP-adres* kolom. Het duurt een minuut of twee voor het IP-adres te wijzigen van *\<in behandeling\>* naar een werkelijke intern IP-adres, zoals weergegeven in het volgende voorbeeld:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   10s
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ```
 
 ## <a name="specify-an-ip-address"></a>Geef een IP-adres
 
-Als u gebruiken van een specifiek IP-adres met de interne load balancer wilt, voegt u toe de *loadBalancerIP* eigenschap in op de load balancer-specificaties. Het opgegeven IP-adres moet zich bevinden in hetzelfde subnet als het AKS-cluster en moet niet worden toegewezen aan een resource.
+Als u gebruiken van een specifiek IP-adres met de interne load balancer wilt, voegt u toe de *loadBalancerIP* eigenschap in op de load balancer YAML-manifest. Het opgegeven IP-adres moet zich bevinden in hetzelfde subnet als het AKS-cluster en moet niet worden toegewezen aan een resource.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
@@ -69,16 +68,16 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
-Wanneer u de details van de service bekijkt, het IP-adres op de *externe IP-adres* weerspiegelt het opgegeven IP-adres:
+Wanneer u de details van de service bekijkt, het IP-adres de *externe IP-adres* kolom geeft de opgegeven IP-adres:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
+NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
 
 ## <a name="use-private-networks"></a>Particuliere netwerken gebruikt
@@ -88,10 +87,10 @@ Wanneer u uw AKS-cluster maakt, kunt u geavanceerde netwerkinstellingen. Deze aa
 Geen wijzigingen aangebracht in de vorige stappen zijn nodig voor het implementeren van een interne load balancer in een AKS-cluster dat gebruik maakt van een particulier netwerk. De load balancer is gemaakt in dezelfde resourcegroep bevinden als uw AKS-cluster, maar verbonden met uw persoonlijke virtueel netwerk en subnet, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
-$ kubectl get service azure-vote-front
+$ kubectl get service internal-app
 
-NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
@@ -105,7 +104,7 @@ Als u een subnet voor de load balancer, voeg de *azure-load-balancer-interne-sub
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: internal-app
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
     service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "apps-subnet"
@@ -114,12 +113,14 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: internal-app
 ```
 
 ## <a name="delete-the-load-balancer"></a>De load balancer verwijderen
 
 Wanneer alle services die gebruikmaken van de interne load balancer zijn verwijderd, wordt de load balancer zelf ook verwijderd.
+
+U kunt ook rechtstreeks een service als met een Kubernetes-resource, zoals verwijderen `kubectl delete service internal-app`, die dan ook worden de onderliggende Azure load balancer verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -127,9 +128,11 @@ Meer informatie over Kubernetes-services op de [documentatie voor Kubernetes ser
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
+[acs-engine]: https://github.com/Azure/acs-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: networking-overview.md
 [deploy-advanced-networking]: networking-overview.md#configure-networking---cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus

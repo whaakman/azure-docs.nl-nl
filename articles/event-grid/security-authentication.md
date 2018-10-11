@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965448"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068181"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
 Azure Event Grid heeft drie typen verificatie:
 
-* Gebeurtenisabonnementen
-* Gebeurtenispublicatie
 * Levering van de WebHook-gebeurtenissen
+* Gebeurtenisabonnementen
+* Aangepast onderwerp publiceren
 
 ## <a name="webhook-event-delivery"></a>Levering van gebeurtenissen voor WebHook
 
@@ -37,18 +37,18 @@ Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger
 
 1. **ValidationCode handshake**: op het moment van de event-abonnement maken, EventGrid plaatst een 'abonnement validatiegebeurtenis' aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere EventGridEvent en het gegevensgedeelte van deze gebeurtenis bevat een `validationCode` eigenschap. Wanneer uw toepassing heeft vastgesteld dat de validatieaanvraag voor de voor een verwachte gebeurtenisabonnement is, moet de toepassingscode echo weer de validatiecode voor het EventGrid reageert. Dit mechanisme handshake wordt ondersteund in alle EventGrid versies.
 
-2. **ValidationURL handshake (handmatige handshake)**: In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt te kunnen zijn voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via een programma reageert met de code voor validatie. Daarom kan beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement met behulp van SDK/hulpprogramma's die gebruikmaken van deze nieuwe API-versie (2018-05-01-preview), EventGrid verzendt maakt een `validationUrl` eigenschap (naast de `validationCode` eigenschap) als onderdeel van de gegevens van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De validatie van de opgegeven URL is alleen voor ongeveer 10 minuten geldig. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. U moet het maken van het gebeurtenisabonnement opnieuw proberen te voordat u de handmatige validatie opnieuw uit.
+2. **ValidationURL handshake (handmatige handshake)**: In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt te kunnen zijn voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via een programma reageert met de code voor validatie. Beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u een gebeurtenisabonnement met behulp van SDK/hulpprogramma's die gebruikmaken van deze nieuwe API-versie (2018-05-01-preview), EventGrid verzendt maakt een `validationUrl` eigenschap als onderdeel van de gegevens van het abonnement validatie-gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De validatie van de opgegeven URL is alleen voor ongeveer 10 minuten geldig. Gedurende deze periode kan de Inrichtingsstatus van het gebeurtenisabonnement is `AwaitingManualAction`. Als u de handmatige validatie binnen 10 minuten niet voltooit, de Inrichtingsstatus is ingesteld op `Failed`. Hebt u om het gebeurtenisabonnement opnieuw voordat u de handmatige validatie probeert te maken.
 
-Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor de [Azure CLI](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API gebruikt, zorg er dan voor dat u `api-version=2018-05-01-preview` gebruikt.
+Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor de [Azure CLI](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API, zorg ervoor dat u `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Validatiedetails
 
 * Op het moment van gebeurtenis-abonnement maken/bijwerken plaatst Event Grid een gebeurtenis van de validatie-abonnement naar het doel-eindpunt. 
 * De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation '.
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
-* De eigenschap type gebeurtenis van de gebeurtenis is 'Microsoft.EventGrid.SubscriptionValidationEvent'.
-* De eigenschap gegevens van de gebeurtenis bevat de eigenschap 'validationCode' met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.
-* Als u van API-versie 2018-05-01-preview gebruikmaakt, bevat gegevens van de gebeurtenis ook een `validationUrl` eigenschap met een URL voor het handmatig valideren van het abonnement.
+* De eigenschap type gebeurtenis van de gebeurtenis is `Microsoft.EventGrid.SubscriptionValidationEvent`.
+* De eigenschap gegevens van de gebeurtenis bevat een `validationCode` eigenschap met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.
+* Als u API-versie 2018-05-01-preview gebruikt, bevat gegevens van de gebeurtenis ook een `validationUrl` eigenschap met een URL voor het handmatig valideren van het abonnement.
 * De matrix bevat alleen de validatiegebeurtenis. Andere gebeurtenissen worden verzonden in een afzonderlijke aanvraag nadat u echo terug van de code voor validatie.
 * De EventGrid DataPlane-SDK's zijn klassen die overeenkomt met de abonnement-validatie-gebeurtenisgegevens en abonnement validatie-antwoord.
 
@@ -78,7 +78,7 @@ Om te bewijzen dat eindpunt eigendom, echo wordt teruggestuurd de validatiecode 
 }
 ```
 
-U kunt ook handmatig het abonnement valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
+Of u kunt handmatig het abonnement valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
 
 U vindt een C#-voorbeeld dat laat hoe u zien voor het afhandelen van de abonnement-validatie-handshake op https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
 
@@ -87,21 +87,23 @@ U vindt een C#-voorbeeld dat laat hoe u zien voor het afhandelen van de abonneme
 Tijdens de event-abonnement maken, als er een foutbericht weergegeven zoals "de poging om te valideren van het opgegeven eindpunt https://your-endpoint-here is mislukt. Ga voor meer informatie naar https://aka.ms/esvalidation', betekent dit dat er een fout is opgetreden in de validatie-handshake. U kunt deze fout oplossen, controleert u of de volgende aspecten:
 
 * Hebt u controle over de toepassingscode in de doel-eindpunt? Bijvoorbeeld, als u een HTTP-trigger op basis van Azure-functie schrijft, hebt u toegang tot de toepassingscode wijzigingen aanbrengen?
-* Hebt u toegang tot de toepassingscode, implementeert u het mechanisme voor ValidationCode op basis van handshake zoals wordt weergegeven in het bovenstaande voorbeeld.
+* Hebt u toegang tot de toepassingscode, de ValidationCode op basis van handshake-mechanisme implementeren zoals wordt weergegeven in het bovenstaande voorbeeld.
 
-* Als u geen toegang tot de toepassingscode (bijvoorbeeld als u een service van derden die webhooks ondersteunen), kunt u de handmatige handshake-mechanisme. Als u wilt dit doet, zorg ervoor dat u met behulp van de API-versie 2018-05-01-preview (bijvoorbeeld met behulp van de hierboven beschreven EventGrid CLI-extensie) om te kunnen ontvangen van de validationUrl in de validatiegebeurtenis. De waarde van de eigenschap 'validationUrl' voor het voltooien van de handshake handmatig worden gevalideerd, en gaat u naar deze URL in uw webbrowser. Als de validatie is gelukt, ziet u een bericht in uw webbrowser dat validatie gelukt is, en u ziet dat het gebeurtenisabonnement provisioningState is 'geslaagd'. 
+* Als u geen toegang tot de toepassingscode (bijvoorbeeld als u een service van derden die webhooks ondersteunen), kunt u de handmatige handshake-mechanisme. Zorg ervoor dat u de API-versie 2018-05-01-preview of hoger (installatie Event Grid-Azure CLI-extensie) voor het ontvangen van de validationUrl in de validatiegebeurtenis. Voor het voltooien van de handshake handmatig worden gevalideerd, haal de waarde van de `validationUrl` eigenschap en gaat u naar deze URL in uw webbrowser. Als de validatie is gelukt, ziet u een bericht in uw webbrowser validatie is gelukt. U ziet dat het gebeurtenisabonnement provisioningState is 'geslaagd'. 
 
 ### <a name="event-delivery-security"></a>Gebeurtenis levering beveiliging
 
 U kunt de webhook-eindpunt kunt beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel een van deze queryparameters moet een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) die de webhook kunt gebruiken voor het herkennen van de gebeurtenis is afkomstig van Event Grid met geldige machtigingen. Event Grid bevat deze queryparameters in elke bezorging van gebeurtenissen naar de webhook.
 
-Tijdens het bewerken van het gebeurtenisabonnement, de queryparameters niet worden weergegeven of geretourneerd, tenzij de [--opnemen-full-eindpunt-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Tijdens het bewerken van het gebeurtenisabonnement, de queryparameters worden niet weergegeven of geretourneerd, tenzij de [--opnemen-full-eindpunt-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Ten slotte is het belangrijk te weten dat Azure Event Grid biedt alleen ondersteuning voor HTTPS-webhook-eindpunten.
 
 ## <a name="event-subscription"></a>Gebeurtenisabonnement
 
-Om u te abonneren op een gebeurtenis, hebt u de **Microsoft.EventGrid/EventSubscriptions/Write** machtiging voor de vereiste bron. U moet deze machtiging namelijk u een nieuw abonnement in het bereik van de resource schrijft. De vereiste resource verschilt afhankelijk van of u bent u zich op een systeemonderwerp of een aangepast onderwerp abonneert. Beide typen worden beschreven in deze sectie.
+U moet bewijzen dat u toegang tot de gebeurtenisbron en de handler hebt om u te abonneren op een gebeurtenis. Aan te tonen dat u eigenaar van een WebHook is in de voorgaande sectie behandeld. Als u een gebeurtenis-handler die niet van een WebHook (zoals een event hub of queue-opslag), moet u toegang voor schrijven naar die resource. Deze machtigingscontrole voorkomt dat een onbevoegde gebruiker verzenden van gebeurtenissen naar uw resource.
+
+Hebt u de **Microsoft.EventGrid/EventSubscriptions/Write** machtiging voor de desbetreffende bron van de gebeurtenis. U moet deze machtiging namelijk u een nieuw abonnement in het bereik van de resource schrijft. De vereiste resource verschilt afhankelijk van of u bent u zich op een systeemonderwerp of een aangepast onderwerp abonneert. Beide typen worden beschreven in deze sectie.
 
 ### <a name="system-topics-azure-service-publishers"></a>Systeemonderwerpen (uitgevers voor Azure-service)
 
@@ -115,9 +117,9 @@ Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw geb
 
 Bijvoorbeeld, om u te abonneren op een aangepast onderwerp met de naam **mytopic**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-## <a name="topic-publishing"></a>Onderwerp publiceren
+## <a name="custom-topic-publishing"></a>Aangepast onderwerp publiceren
 
-Onderwerpen over Shared Access Signature (SAS) of sleutelverificatie gebruiken. We raden SAS, maar sleutelverificatie biedt eenvoudige programmeren en is compatibel met veel bestaande webhook uitgevers. 
+Aangepaste onderwerpen Shared Access Signature (SAS) of sleutelverificatie gebruiken. We raden SAS, maar sleutelverificatie biedt eenvoudige programmeren en is compatibel met veel bestaande webhook uitgevers. 
 
 De verificatie-waarde in de HTTP-header te nemen. Gebruik voor SAS, **aeg-sas-token** voor de headerwaarde. Gebruik voor verificatie met een sleutel, **aeg-sas-sleutel** voor de headerwaarde.
 
@@ -185,7 +187,7 @@ Azure event grid ondersteunt de volgende acties:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-De laatste drie bewerkingen retourneren mogelijk geheime gegevens die buiten het normale leesbewerkingen wordt gefilterd. Het wordt aanbevolen om u toegang tot deze bewerkingen te beperken. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure-opdrachtregelinterface (CLI)](../role-based-access-control/role-assignments-cli.md), en de [REST-API](../role-based-access-control/role-assignments-rest.md).
+De laatste drie bewerkingen retourneren mogelijk geheime gegevens die buiten het normale leesbewerkingen wordt gefilterd. Het raadzaam dat u toegang tot deze bewerkingen beperken. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure-opdrachtregelinterface (CLI)](../role-based-access-control/role-assignments-cli.md), en de [REST-API](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Rol afdwingen op basis van de toegangscontrole (RBAC)
 
@@ -193,7 +195,7 @@ Gebruik de volgende stappen uit om af te dwingen van RBAC voor verschillende geb
 
 #### <a name="create-a-custom-role-definition-file-json"></a>Maak een aangepaste rol definitie-bestand (.json)
 
-Hieronder vindt u voorbeeld Event Grid roldefinities waarmee gebruikers op verschillende sets van acties uitvoeren.
+Hieronder vindt u voorbeeld Event Grid roldefinities die toestaat dat gebruikers verschillende acties uitvoeren.
 
 **EventGridReadOnlyRole.json**: alleen kunnen alleen-lezen bewerkingen.
 

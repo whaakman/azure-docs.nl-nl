@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 74310e50f37e40856d5fe379baec071b4773f80e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6094236269df881eac6f8cd2fd04183dd9d6df3b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801417"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068754"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -60,7 +60,7 @@ Er zijn verschillende manieren om te implementeren van modules voor een IoT Edge
 
 Volg de stappen in voor het implementeren van blob storage via Azure portal, [implementeren Azure IoT Edge-modules van de Azure-portal](how-to-deploy-modules-portal.md). Ga naar de module implementeren, Kopieer de URI van de installatiekopie en voorbereiden van de container maken voordat u opties op basis van het besturingssysteem van de container. Gebruik deze waarden in de **configureren van een implementatie-manifest** gedeelte van het artikel implementatie. 
 
-Geef de URI van de installatiekopie voor de blob storage-module: **mcr.microsoft.com/azure-blob-storage**. 
+Geef de URI van de installatiekopie voor de blob storage-module: **mcr.microsoft.com/azure-blob-storage:latest**. 
    
 Gebruik de volgende JSON-sjabloon voor de **Container maken opties** veld. Configureer de JSON met uw storage-accountnaam, de opslagaccountsleutel en de opslag directory verbindt.  
    
@@ -86,8 +86,10 @@ Werk in de opties voor het maken JSON, `\<your storage account name\>` met een w
 Werk in de opties voor het maken JSON, `<storage directory bind>` afhankelijk van uw besturingssysteem voor de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens.  
 
    * Linux-containers:  **\<opslagpad >: / blobroot**. Bijvoorbeeld: / srv/containerdata: / blobroot. Of, in mijn volume: / blobroot. 
-   * Windows-containers:  **\<opslagpad >: C: / BlobRoot**. Bijvoorbeeld: C: / ContainerData:C: / BlobRoot. Of, Mijn-volume: C: / blobroot. 
-
+   * Windows-containers:  **\<opslagpad >: C: / BlobRoot**. Bijvoorbeeld: C: / ContainerData:C: / BlobRoot. Of, Mijn-volume: C: / blobroot.
+   
+   > [!CAUTION]
+   > Wijzig niet de "/ blobroot ' voor Linux en" C:/BlobRoot' voor Windows, voor  **\<Storage directory binden >** waarden.
 
 U hoeft niet registerreferenties voor toegang tot Azure Blob-opslag op IoT Edge op te geven en u hoeft niet te declareren van routes voor uw implementatie. 
 
@@ -111,7 +113,7 @@ Gebruik de volgende stappen voor het maken van een nieuwe IoT Edge-oplossing met
    
    4. **Geef de modulenaam van een** -Geef een herkenbare naam voor uw module, zoals **Azure BLOB Storage**.
    
-   5. **Docker-installatiekopie opgeven voor de module** -Geef de URI van de installatiekopie: **mcr.microsoft.com/azure-blob-storage**
+   5. **Docker-installatiekopie opgeven voor de module** -Geef de URI van de installatiekopie: **mcr.microsoft.com/azure-blob-storage:latest**
 
 VS Code haalt de gegevens die u verstrekt, maakt u een IoT Edge-oplossing, en laadt deze in een nieuw venster. 
 
@@ -133,6 +135,9 @@ Sjabloon van de oplossing maakt een manifest implementatiesjabloon die uw blob s
 
    * Linux-containers:  **\<opslagpad >: / blobroot**. Bijvoorbeeld: / srv/containerdata: / blobroot. Of, in mijn volume: / blobroot.
    * Windows-containers:  **\<opslagpad >: C: / BlobRoot**. Bijvoorbeeld: C: / ContainerData:C: / BlobRoot. Of, Mijn-volume: C: / blobroot.
+   
+   > [!CAUTION]
+   > Wijzig niet de "/ blobroot ' voor Linux en" C:/BlobRoot' voor Windows, voor  **\<Storage directory binden >** waarden.
 
 5. Sla **deployment.template.json**.
 
@@ -159,7 +164,13 @@ U kunt de accountnaam en accountsleutel dat u hebt geconfigureerd voor de module
 
 Geef uw IoT Edge-apparaat als de blobeindpunt voor alle opslag aanvragen die u uitvoert. U kunt [maken van een verbindingsreeks voor een expliciete opslageindpunt](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) met behulp van de gegevens van de IoT Edge-apparaat en de accountnaam op die u hebt geconfigureerd. 
 
-De blobeindpunt voor Azure Blob-opslag op IoT Edge is `http://<IoT Edge device hostname>:11002/<account name>`. 
+1. Voor modules die zijn geïmplementeerd op de dezelfde edge-apparaat waarop de 'Azure Blob-opslag op IoT Edge' wordt uitgevoerd, het eindpunt van blob is: `http://<Module Name>:11002/<account name>`. 
+2. Voor modules die zijn geïmplementeerd op verschillende edge-apparaat, dan het edge-apparaat waar 'Azure Blob-opslag op IoT Edge' wordt uitgevoerd en is afhankelijk van uw installatie van de blob-eindpunt: `http://<device IP >:11002/<account name>` of `http://<IoT Edge device hostname>:11002/<account name>` of `http://<FQDN>:11002/<account name>`
+
+## <a name="logs"></a>Logboeken
+
+De logboeken in de container, kunt u vinden onder: 
+* Voor Linux: /blobroot/logs/platformblob.log
 
 ## <a name="deploy-multiple-instances"></a>Meerdere exemplaren implementeren
 

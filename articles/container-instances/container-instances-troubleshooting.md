@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f57bc41cddc997a69f92ba4e8ca66faaeb29738
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424599"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079347"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Algemene problemen in Azure Container Instances oplossen
 
@@ -89,11 +89,24 @@ Als de afbeelding kan niet worden opgehaald, gebeurtenissen, zoals hieronder wor
 ],
 ```
 
-## <a name="container-continually-exits-and-restarts"></a>Container voortdurend wordt afgesloten en opnieuw wordt opgestart
+## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Container voortdurend wordt afgesloten en opnieuw wordt opgestart (geen langdurig proces)
 
-Als uw container uitgevoerd tot ze voltooid en wordt automatisch opnieuw opgestart, moet u mogelijk om in te stellen een [beleid voor opnieuw opstarten](container-instances-restart-policy.md) van **OnFailure** of **nooit**. Als u opgeeft **OnFailure** en nog steeds Zie continu opnieuw wordt opgestart, kan er een probleem met de toepassing of het script dat wordt uitgevoerd in de container.
+Containergroepen standaard ingesteld op een [beleid voor opnieuw opstarten](container-instances-restart-policy.md) van **altijd**, zodat de containers in containergroep altijd opnieuw opstarten nadat ze volledig worden uitgevoerd. Mogelijk moet u deze optie om te wijzigen **OnFailure** of **nooit** als u van plan bent om uit te voeren van containers op basis van een taak. Als u opgeeft **OnFailure** en nog steeds Zie continu opnieuw wordt opgestart, kan er een probleem met de toepassing of het script dat wordt uitgevoerd in de container.
 
-De Container Instances-API bevat een `restartCount` eigenschap. Om te controleren of het aantal herstarten van apparaten voor een container, kunt u de [az container show] [ az-container-show] opdracht in de Azure CLI. In de volgende voorbeelduitvoer (die is afgekapt voor beknoptheid), ziet u de `restartCount` eigenschap aan het einde van de uitvoer.
+Bij het uitvoeren van containergroepen zonder langlopende processen ziet u mogelijk herhaalde wordt afgesloten en opnieuw opstarten met de installatiekopieën, zoals Ubuntu of Alpine. Verbinding maken via [EXEC](container-instances-exec.md) werkt niet naar de container heeft geen proces dat deze actief te houden. Om op te lossen dit ook een opdracht start als volgt met uw implementatie van de groep container naar de container actief blijft.
+
+```azurecli-interactive
+## Deploying a Linux container
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
+```
+
+```azurecli-interactive 
+## Deploying a Windows container
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+ --command-line "ping -t localhost"
+```
+
+De Container Instances API en Azure portal bevat een `restartCount` eigenschap. Om te controleren of het aantal herstarten van apparaten voor een container, kunt u de [az container show] [ az-container-show] opdracht in de Azure CLI. In het volgende voorbeeld uitvoert (die is afgekapt voor beknoptheid), ziet u de `restartCount` eigenschap aan het einde van de uitvoer.
 
 ```json
 ...

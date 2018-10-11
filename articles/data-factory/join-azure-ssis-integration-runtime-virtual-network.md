@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/10/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e6950c38db83efb57e5f3b1809aa6baa56532cd0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903042"
+ms.locfileid: "49068352"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Een Azure-SSIS integratieruntime toevoegen aan een virtueel netwerk
 Uw Azure-SSIS integratieruntime (IR) toevoegen aan een Azure-netwerk in de volgende scenario's: 
@@ -70,6 +70,8 @@ De volgende secties vindt u meer informatie.
 -   Zorg ervoor dat de resourcegroep van het virtuele netwerk kunt maken en verwijderen van bepaalde Azure-netwerkbronnen. Zie [vereisten voor de resourcegroep](#resource-group). 
 
 ### <a name="perms"></a> Vereiste machtigingen
+
+De gebruiker die de Azure-SSIS Integration Runtime maakt, moet de volgende machtigingen hebben:
 
 - Als u de SSIS-IR aan een Azure-netwerk van de huidige versie toevoegen bent, hebt u twee opties:
 

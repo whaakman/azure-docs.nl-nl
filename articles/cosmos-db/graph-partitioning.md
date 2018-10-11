@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: a513d186f895c33ef9329ce0464c70de5884330d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48891048"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078219"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Met behulp van een gepartitioneerde grafiek in Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Hieronder vindt u informatie die u bij het maken van een gepartitioneerde grafie
 
 - **Graph-query's hoeft op te geven van een partitiesleutel**. Als u wilt profiteren van de horizontale partitionering in Azure Cosmos DB, moet de partitiesleutel worden opgegeven wanneer een hoekpunt is geselecteerd, indien mogelijk. De volgende zijn query's voor het selecteren van een of meerdere hoekpunten in een gepartitioneerde grafiek:
 
-    - U kunt geen gebruiken momenteel wordt `/id` als partitiesleutel voor een container in Gremlin-API.
+    - `/id` en `/label` worden niet ondersteund als de partitiesleutels weergeven voor een container in Gremlin-API...
 
 
     - Selecteren en vervolgens een hoekpunt door-ID, **met behulp van de `.has()` stap om op te geven van de partitie-sleuteleigenschap**: 

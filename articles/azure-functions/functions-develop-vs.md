@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395540"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069174"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -198,6 +198,20 @@ U kunt ook de toepassingsinstellingen in een van deze andere manieren beheren:
 * [Met behulp van de Azure-portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Met behulp van de `--publish-local-settings` optie publiceren in Azure Functions Core Tools](functions-run-local.md#publish).
 * [Met behulp van de Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Functions controleren
+
+De aanbevolen manier voor het bewaken van de uitvoering van de functie in Azure is door te integreren met Azure Application Insights. Wanneer u een functie-app in Azure portal maakt, wordt deze integratie voor u uitgevoerd door standaard. Echter, wanneer u uw functie-app tijdens het publiceren van Visual Studio maakt, is niet de integratie in uw functie-app in Azure uitgevoerd. In plaats daarvan krijgt u ingebouwde logboekregistratie, waardoor wordt niet aanbevolen.
+
+Application Insights inschakelen voor uw functie-app in Azure:
+
+1. Maak een Application Insights-exemplaar in de [Azure-portal](https://portal.azure.com) en kopieer de instrumentatiesleutel. Voor meer informatie Zie [handmatig verbinding maken met een App Insights-resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Toevoegen van een app-instelling met de naam `APPINSIGHTS_INSTRUMENTATIONKEY` naar de instellingen voor de functie-app in Azure, zoals beschreven in [functie app-instellingen](#function-app-settings). Deze app-instelling bevat de instrumentatiesleutel die u in de vorige stap hebt gemaakt.
+
+1. Verwijder de `AzureWebJobsDashboard` app-instelling van de functie-app in Azure, dit wordt de ingebouwde logboekregistratie uitgeschakeld.  
+
+Zie voor meer informatie, [Monitor Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
