@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 7cab1d0594792437c03427177159b193765aa92e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b3aca33bea8f7847b7069bba3f2a6dcd143cf29c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870992"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079122"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -149,7 +149,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Waarom bestaan er gelaagde bestanden buiten de server eindpunt-naamruimte?**  
-    Azure File Sync geblokkeerd voordat u Azure File Sync-agentversie 3, de verplaatsing van gelaagde bestanden buiten het servereindpunt, maar op hetzelfde volume als het servereindpunt. Kopieerbewerkingen, verplaatst van niet-gelaagde bestanden en wordt verplaatst van gelaagde in andere volumes zijn niet beïnvloed. De reden voor dit gedrag is de impliciete veronderstelling dat bestand in Bestandenverkenner en andere Windows-API's hebben die bewerkingen op hetzelfde volume zijn (bijna) instanenous Wijzig de naam van bewerkingen worden verplaatst. Dit betekent verplaatst maakt Verkenner of andere verplaatsingsmethoden (zoals vanaf de opdrachtregel of PowerShell) wordt niet meer reageert geopend terwijl Azure File Sync de gegevens vanuit de cloud roept. Beginnen met [versie van Azure File Sync-agent 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure File Sync kunt u een gelaagd bestand buiten het servereindpunt verplaatsen. We te voorkomen dat de negatieve effecten die eerder is vermeld dat het gelaagde bestand bestaat als een gelaagd bestand buiten het servereindpunt en vervolgens terughalen van het bestand op de achtergrond. Dit betekent dat verplaatst op hetzelfde volume zijn instaneous en we hebben al het werk om in te trekken van het bestand op schijf na de verplaatsing is voltooid. 
+    Azure File Sync geblokkeerd voordat u Azure File Sync-agentversie 3, de verplaatsing van gelaagde bestanden buiten het servereindpunt, maar op hetzelfde volume als het servereindpunt. Kopieerbewerkingen, verplaatst van niet-gelaagde bestanden en wordt verplaatst van gelaagde in andere volumes zijn niet beïnvloed. De reden voor dit gedrag is de impliciete veronderstelling dat bestand in Bestandenverkenner en andere Windows-API's hebben die bewerkingen op hetzelfde volume zijn (bijna) instanenous Wijzig de naam van bewerkingen worden verplaatst. Dit betekent verplaatst maakt Verkenner of andere verplaatsingsmethoden (zoals vanaf de opdrachtregel of PowerShell) wordt niet meer reageert geopend terwijl Azure File Sync de gegevens vanuit de cloud roept. Beginnen met [versie van Azure File Sync-agent 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kunt u een gelaagd bestand buiten het servereindpunt verplaatsen. We te voorkomen dat de negatieve effecten die eerder is vermeld dat het gelaagde bestand bestaat als een gelaagd bestand buiten het servereindpunt en vervolgens terughalen van het bestand op de achtergrond. Dit betekent dat verplaatst op hetzelfde volume zijn instaneous en we hebben al het werk om in te trekken van het bestand op schijf na de verplaatsing is voltooid. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Ik ondervind een probleem met Azure File Sync op mijn server (sync, cloud cloudlagen, enzovoort). Moet ik verwijderen en opnieuw maken van mijn servereindpunt?**  

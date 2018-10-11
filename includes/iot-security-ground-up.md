@@ -1,19 +1,19 @@
 ---
 title: bestand opnemen
 description: bestand opnemen
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189304"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069935"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Beveiliging van Internet of Things vanaf de grond
 
@@ -62,7 +62,9 @@ Azure IoT Hub toegangscontrolebeleid in de cloud inschakelen activering en uitsc
 Beveiliging van aanvullende apparaatfuncties zijn onder andere:
 
 * Apparaten accepteren geen ongevraagde netwerkverbindingen. Ze stellen alle verbindingen en routes op een manier alleen uitgaand verkeer. Voor een apparaat een opdracht van de back-end ontvangt, moet het apparaat opnieuw verbinding maken om te controleren of er nog in behandeling opdrachten om te verwerken. Zodra een verbinding tussen het apparaat en IoT-Hub veilig is gemaakt, op het apparaat-berichten vanuit de cloud en apparaat naar de cloud kan transparant worden verzonden.
+
 * Apparaten alleen verbinding maken met of routes naar bekende services waarmee ze aan elkaar zijn gekoppeld, zoals een Azure IoT Hub tot stand brengen.
+
 * Niveau van het bestandssysteem autorisatie en verificatie per apparaat-id's, waardoor referenties voor toegang en machtigingen in de buurt gebruiken-onmiddellijk worden ingetrokken.
 
 ### <a name="secure-connectivity"></a>Beveiligde verbindingen
@@ -76,7 +78,9 @@ Schaalbaarheid vereist de mogelijkheid om veilig samenwerken met een breed scala
 Beveiligingsfuncties voor extra verbinding zijn onder andere:
 
 * Het communicatiepad tussen apparaten en Azure IoT Hub, of tussen gateways en Azure IoT Hub is beveiligd met behulp van industriestandaard Transport Layer Security (TLS) met Azure IoT Hub is geverifieerd met x.509-protocol.
+
 * Als u wilt voorkomen dat apparaten ongevraagde binnenkomende verbindingen, Azure IoT Hub een verbinding met het apparaat niet geopend. Het apparaat wordt alle verbindingen.
+
 * Azure IoT Hub blijvend berichten voor apparaten worden opgeslagen en wacht tot het apparaat verbinding maakt. Deze opdrachten worden opgeslagen voor twee dagen inschakelen van apparaten die verbinding maken sporadisch, vanwege de stroom of de connectiviteit problemen, om deze opdrachten te ontvangen. Azure IoT Hub onderhoudt een wachtrij per apparaat voor elk apparaat.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Verwerking en opslag in de cloud beveiligen
@@ -100,8 +104,13 @@ De oplossingsversnellers ontwikkelen in beveiligingsmaatregelen standaard inscha
 Elke oplossingsverbetering maakt exemplaren van Azure-services, zoals:
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): de gateway die de cloud met apparaten verbindt. U kunt schalen naar miljoenen verbindingen per hub en verwerken grote hoeveelheden gegevens met ondersteuning voor verificatie per apparaat helpt beveiligen van uw oplossing.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): een schaalbare, volledig geïndexeerd databaseservice voor de semi-gestructureerde gegevens die worden beheerd metagegevens voor de apparaten die u inricht, zoals kenmerken, configuratie en de eigenschappen voor beveiliging. Azure Cosmos DB biedt hoge prestaties en hoge doorvoer verwerkt, schema-agnostische indexering van gegevens en een geavanceerde SQL-QueryInterface.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): realtime-verwerking in de cloud waarmee u snel ontwikkelen en implementeren van een goedkope analyseoplossing realtime inzichten kunt van apparaten, sensoren, infrastructuur en toepassingen . De gegevens uit deze volledig beheerde service kan worden geschaald naar een volume behoud van hoge doorvoer, lage latentie en tolerantie.
+
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): een cloudplatform voor het bouwen van krachtige web- en mobiele apps die verbinding met gegevens waar dan ook; in de cloud of on-premises maken. Aansprekende mobiele apps bouwen voor iOS, Android en Windows. Integreren met uw Software as a Service (SaaS) en zakelijke toepassingen met out-of-the-box-connectiviteit met tientallen cloudgebaseerde services en zakelijke toepassingen. Code in uw favoriete taal en IDE – .NET, Node.js, PHP, Python of Java: sneller dan ooit webtoepassingen en API's bouwen.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Logic Apps-functie van Azure App Service helpt uw IoT-oplossing met uw bestaande line-of-business-systemen integreren en automatiseren van werkstroomprocessen worden uitgevoerd. Logic Apps kan ontwikkelaars werkstromen ontwerpen die na een trigger worden gestart en voer vervolgens een reeks stappen, regels en acties die gebruikmaken van krachtige connectors om te integreren in uw bedrijfsprocessen. Logic Apps biedt out-of-the-box verbinding met een uitgebreid ecosysteem van SaaS, op basis van cloud en on-premises toepassingen.
-* [**Azure blob-opslag**](https://azure.microsoft.com/services/storage/): betrouwbare, betaalbare cloudopslag voor de gegevens die uw apparaten naar de cloud verzenden.
+
+* [**Azure Blob-opslag**](https://azure.microsoft.com/services/storage/): betrouwbare, betaalbare cloudopslag voor de gegevens die uw apparaten naar de cloud verzenden.

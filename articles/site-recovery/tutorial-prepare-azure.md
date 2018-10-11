@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a92bfc9d682346c874ce91fc9835558402bae84
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915966"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078984"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voorbereiden voor replicatie van lokale machines
 
@@ -49,7 +49,7 @@ U kunt deze taken alleen uitvoeren als aan uw account de ingebouwde rol van Inze
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM's worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert. Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis. In deze zelfstudie gebruiken we West-Europa.
+Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM's worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert. Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis. In deze zelfstudie gebruiken we Europa - west.
 
 1. Selecteer in het menu van [Azure Portal](https://portal.azure.com) achtereenvolgens **Een resource maken** > **Opslag** > **Opslagaccount - blob, bestand, tabel, wachtrij**.
 2. Voer in **Opslagaccount maken** een naam voor het account in. Voor deze zelfstudies gebruiken we **contosovmsacct1910171607**. De naam die u selecteert moet uniek zijn in Azure, tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
@@ -70,7 +70,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Opslag** > **Back-up en siteherstel (OMS)**.
 2. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden. Voor deze reeks zelfstudies gebruiken we **ContosoVMVault**.
 3. Voor **Resourcegroep** gebruiken we **contosoRG**.
-4. Voor **Locatie**. gebruiken we **West-Europa**.
+4. Voor **Locatie**. gebruiken we **Europa - west**.
 5. Voor snelle toegang tot de kluis vanuit het dashboard, selecteert u **Aan dashboard vastmaken** > **Maken**.
 
    ![Een nieuwe kluis maken](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -87,7 +87,7 @@ Wanneer de Azure VM's zijn gemaakt vanuit de opslag na de failover, worden ze ge
 4. Geef de resourcegroep op waarin het netwerk wordt gemaakt. We gebruiken de bestaande resourcegroep **contosoRG**.
 5. Voer bij **Adresbereik** het bereik in voor het netwerk **10.0.0.0/24**. In dit netwerk gebruiken we geen subnet.
 6. Selecteer bij **Abonnement** het abonnement waarin u het netwerk wilt maken.
-7. Selecteer bij **Locatie** de optie **West-Europa**. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
+7. Selecteer bij **Locatie** de optie **Europa - west**. Het netwerk moet zich in dezelfde regio bevinden als de Recovery Services-kluis.
 8. We laten de standaardopties staan voor DDoS-basisbescherming zonder service-eindpunt op het netwerk.
 9. Klik op **Create**.
 

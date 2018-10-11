@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972552"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068533"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
 
 > [!IMPORTANT]
-> Inschakelen van Firewall-regels voor uw opslagaccount, wordt de toegang tot binnenkomende aanvragen voor gegevens, met inbegrip van andere Azure-services geblokkeerd.  Dit omvat het gebruik van de Portal voor het schrijven van Logboeken, enzovoort.  Voor deelnemende services kunt u functionaliteit via opnieuw inschakelen de [uitzonderingen](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) onderstaande sectie.  Voor toegang tot de Portal moet u dat doen op een computer in de vertrouwde grens (IP- of VNet) die u hebt ingesteld.
+> Inschakelen van Firewall-regels voor uw opslagaccount, wordt de toegang tot binnenkomende aanvragen voor gegevens, met inbegrip van andere Azure-services geblokkeerd.  Dit omvat het gebruik van de Portal voor het schrijven van Logboeken, enzovoort.  Azure-services die worden uitgevoerd van binnen een VNet kunnen toegang worden verleend door toe te staan van het subnet van het service-exemplaar.  Azure-services die niet uit binnen een VNet werken wordt geblokkeerd door de firewall.  Een beperkt aantal scenario's kan worden ingeschakeld via de [uitzonderingen](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) mechanisme die hieronder worden beschreven.  Voor toegang tot de Portal moet u dat doen op een computer in de vertrouwde grens (IP- of VNet) die u hebt ingesteld.
 >
 
 ## <a name="scenarios"></a>Scenario's

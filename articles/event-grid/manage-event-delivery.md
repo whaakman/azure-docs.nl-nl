@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5db53567b1df9e726fb0c507f0302536ea45b7f4
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: fcf3ecaff6e8ba1421496a96d01428946cf8ab8e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603767"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077779"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Dead-letter en beleid voor opnieuw proberen
 
@@ -48,7 +48,7 @@ Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabon
 
 Bij het maken van een Event Grid-abonnement, kunt u waarden voor hoe lang Event Grid proberen moet te leveren van de gebeurtenis instellen. Standaard Event Grid probeert 24 uur (1440 minuten) en probeert een maximum van 30 keer beter. U kunt een van deze waarden instellen voor uw event grid-abonnement. De waarde voor time-to-live-gebeurtenis moet een geheel getal tussen 1 en 1440 liggen. De waarde voor maximum aantal bezorgingspogingen moet een geheel getal tussen 1 en 30.
 
-U kunt geen configureren de [interval voor opnieuw proberen](delivery-and-retry.md#retry-intervals-and-duration).
+U kunt geen configureren de [opnieuw plannen](delivery-and-retry.md#retry-schedule-and-duration).
 
 Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
 

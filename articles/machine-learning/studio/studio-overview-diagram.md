@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: f1364435d2f7b50c642d1bb5b41708ec52bda533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946201"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902073"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Overzichtsdiagram van de mogelijkheden van Azure Machine Learning Studio
 Het diagram **Overzicht van de mogelijkheden van Microsoft Azure Machine Learning Studio** geeft u een overzicht van hoe u Machine Learning Studio kunt gebruiken om een predictive analytics-model op te zetten en dit te implementeren in de Azure-cloud.
@@ -47,7 +47,7 @@ Download het diagram **Microsoft Azure Machine Learning Studio Capabilities Over
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Meer hulp bij Machine Learning Studio
-* Voor een overzicht van Microsoft Azure Machine Learning raadpleegt u [Inleiding tot machine learning in Microsoft Azure](what-is-machine-learning.md)
+* Voor een overzicht van Microsoft Azure Machine Learning raadpleegt u [Inleiding tot machine learning in Microsoft Azure](../service/overview-what-is-azure-ml.md)
 * Zie [Wat is Azure Machine Learning Studio?](what-is-ml-studio.md) voor een overzicht van Machine Learning Studio.
 * Voor een gedetailleerde beschrijving van de machine learning-algoritmen die beschikbaar zijn in Machine Learning Studio, leest u [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) (Algoritmen kiezen voor Microsoft Azure Machine Learning).
 

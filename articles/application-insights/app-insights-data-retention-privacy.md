@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: ef79ff7c8e238a0a90912d099b4b9dfe2a387c1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577221"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079069"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Verzameling, retentie en opslag van gegevens in Application Insights
-
 
 Wanneer u installeert [Azure Application Insights] [ start] SDK in uw app, verzendt deze telemetrie over uw app naar de Cloud. Op een natuurlijke manier, verantwoordelijk ontwikkelaars meer willen weten precies welke gegevens worden verzonden, wat gebeurt er met de gegevens en hoe ze deze controle kunnen behouden. In het bijzonder, kan gevoelige gegevens worden verzonden, waarbij is opgeslagen, en hoe veilig is het? 
 
@@ -90,6 +89,8 @@ Dit mogelijk zou zijn door het schrijven van een [telemetrie processor-invoegtoe
 Onbewerkte gegevenspunten (dat wil zeggen, items die u kunt query's uitvoeren in Analytics en controleren in het zoekvak) zijn maximaal 90 dagen bewaard. Als u nodig hebt om gegevens langer duurt dan te houden, kunt u [continue export](app-insights-export-telemetry.md) om deze te kopiëren naar een opslagaccount.
 
 Cumulatieve gegevens (dat wil zeggen, aantal, gemiddelde en andere statistische gegevens die u in Metric Explorer ziet) worden bewaard in een interval van 1 minuut gedurende 90 dagen.
+
+[Fouten opsporen in momentopnamen](app-insights-snapshot-debugger.md) gedurende zeven dagen worden opgeslagen. Deze bewaarbeleid is ingesteld op basis van de per toepassing. Als u nodig hebt om deze waarde te verhogen, kunt u een toename van aanvragen door een ondersteuningsaanvraag opent in de Azure-portal.
 
 ## <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
 De gegevens zijn zichtbaar voor u en hebt u een organisatieaccount, leden van uw team. 
@@ -203,7 +204,7 @@ We raden niet expliciet instellen van uw toepassing alleen gebruik van TLS 1.2, 
 | Azure App Services  | Ondersteund, zijn configuratie vereist. | Ondersteuning is aangekondigd in April 2018. Lees de aankondiging voor [configuratiedetails](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Azure-functie-Apps | Ondersteund, zijn configuratie vereist. | Ondersteuning is aangekondigd in April 2018. Lees de aankondiging voor [configuratiedetails](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Ondersteund, varieert de configuratie door versie. | Raadpleeg voor gedetailleerde configuratie-informatie voor .NET 4.7 en eerdere versies [deze instructies](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Statusmonitor | Ondersteunde, configuratie is vereist | Afhankelijk van statusmonitor [configuratie van het besturingssysteem](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuratie .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) voor ondersteuning van TLS 1.2.
+|Status Monitor | Ondersteunde, configuratie is vereist | Afhankelijk van statusmonitor [configuratie van het besturingssysteem](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuratie .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) voor ondersteuning van TLS 1.2.
 |Node.js |  Ondersteund in v10.5.0, zijn configuratie vereist. | Gebruik de [officiële Node.js TLS/SSL-documentatie](https://nodejs.org/api/tls.html) voor een specifieke configuratie van de toepassing. |
 |Java | Ondersteund, JDK ondersteuning voor TLS 1.2 is toegevoegd in [JDK 6 update 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) en [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 gebruikt [TLS 1.2 standaard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux-distributies meestal afhankelijk zijn van [OpenSSL](https://www.openssl.org) voor ondersteuning van TLS 1.2.  | Controleer de [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) om te bevestigen van uw versie van OpenSSL wordt ondersteund.|

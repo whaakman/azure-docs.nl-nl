@@ -2,19 +2,18 @@
 title: Hyper-V naar Azure met Azure Site Recovery-replicatie oplossen | Microsoft Docs
 description: Hierin wordt beschreven hoe voor het oplossen van problemen met Hyper-V naar Azure met Azure Site Recovery-replicatie
 services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: rayne
-ms.openlocfilehash: d5282e5954aa50ce67d6341b194177a89bdbe6cc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.date: 10/10/2018
+ms.author: ramamill
+ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666398"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067384"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V naar Azure-replicatie en failover oplossen
 

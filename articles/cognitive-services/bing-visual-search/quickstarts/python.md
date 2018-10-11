@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 145749f52f64adf565eb33ab7fe92dd5494f9354
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16d3d0ddf77e37e32cc50961a3870b820ac2748e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223712"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884238"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Snelstart: Uw eerste Bing Visual Search-query in Python
 
@@ -47,7 +47,7 @@ Volg deze stappen voor het uitvoeren van deze toepassing:
 1. Maak een nieuw Python-project in uw favoriete IDE of editor.
 2. Maak een bestand met de naam visualsearch.py en voeg de code toe die wordt weergegeven in deze snelstart.
 3. Vervang de waarde `SUBSCRIPTION_KEY` door uw abonnementscode.
-3. Vervang de waarde `imagePath` door het pad van de te uploaden afbeelding.
+3. Vervang de waarde van `imagePath` door het pad van de te uploaden afbeelding.
 4. Voer het programma uit.
 
 
@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
 [Inzichten krijgen over een afbeelding met behulp van een inzichttoken](../use-insights-token.md)  
 [Zelfstudie: Afbeelding uploaden naar Bing Visual Search](../tutorial-visual-search-image-upload.md)
-[Zelfstudie: Bing Visual Search-app van één pagina](../tutorial-bing-visual-search-single-page-app.md)  
+[Zelfstudie: Bing Visual Search-app met één pagina](../tutorial-bing-visual-search-single-page-app.md)  
 [Overzicht van Bing Visual Search ](../overview.md)  
 [Proberen](https://aka.ms/bingvisualsearchtryforfree)  
 [Een toegangscode voor een gratis proefversie aanvragen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

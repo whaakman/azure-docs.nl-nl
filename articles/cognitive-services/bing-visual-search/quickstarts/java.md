@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 56e1b943f03128fa6703a7b15bd0d6ade09089d6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0e2f4d83904240cb32d3e162c4c873f0c8e469fd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222621"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885252"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Snelstart: Uw eerste Bing Visual Search-query in Java
 
@@ -39,7 +39,7 @@ Dit artikel bevat een eenvoudige consoletoepassing die een Bing Visual Search-AP
 
 U hebt [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
 
-In deze Quick Start kunt u een abonnementssleutel van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of een betaalde abonnementssleutel gebruiken.
+In deze snelstartgids kunt u een code van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of van een betaald abonnement gebruiken.
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
@@ -51,7 +51,7 @@ Volg deze stappen voor het uitvoeren van deze toepassing:
 2. Maak een nieuw Java-project in uw favoriete IDE of editor.
 3. Voeg de geleverde code toe aan een bestand met de naam `VisualSearch.java`.
 4. Vervang de waarde `subscriptionKey` door uw abonnementssleutel.
-4. Vervang de waarde `imagePath` door het pad van de te uploaden afbeelding.
+4. Vervang de waarde van `imagePath` door het pad van de te uploaden afbeelding.
 5. Voer het programma uit.
 
 
@@ -147,10 +147,10 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>Volgende stappen
 
 [Inzichten krijgen over een afbeelding met behulp van een inzichttoken](../use-insights-token.md)  
-[Zelfstudie: afbeelding uploaden naar Bing Visual Search](../tutorial-visual-search-image-upload.md)
-[Zelfstudie: Bing Visual Search-app van één pagina](../tutorial-bing-visual-search-single-page-app.md)  
+[Zelfstudie: Afbeelding uploaden naar Bing Visual Search](../tutorial-visual-search-image-upload.md)
+[Zelfstudie: Bing Visual Search-app met één pagina](../tutorial-bing-visual-search-single-page-app.md)  
 [Overzicht van Bing Visual Search ](../overview.md)  
-[Probeer het](https://aka.ms/bingvisualsearchtryforfree)  
-[Een gratis proeftoegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Proberen](https://aka.ms/bingvisualsearchtryforfree)  
+[Een toegangscode voor een gratis proefversie aanvragen](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Naslaginformatie over Bing Visual Search-API](https://aka.ms/bingvisualsearchreferencedoc)
 

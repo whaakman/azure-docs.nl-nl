@@ -1,20 +1,21 @@
 ---
-title: Inleiding tot akoestiek - Cognitive Services
+title: Wat is Project Acoustics?
+titlesuffix: Azure Cognitive Services
 description: De invoegtoepassing Project Acoustics Unity biedt occlusie, reverberatie en spatialisatie voor projecten die gericht zijn op virtual reality (VR) en traditionele schermen.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 08c6d8b8e229aabcc05fdfde2d8ffadf3a6346c2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180984"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901021"
 ---
 # <a name="what-is-project-acoustics"></a>Wat is Project Acoustics?
 De invoegtoepassing Project Acoustics Unity biedt occlusie, reverberatie en spatialisatie voor projecten die gericht zijn op virtual reality (VR) en traditionele schermen. De invoegtoepassing biedt een manier om game-akoestiek te ontwerpen waarmee de bedoelingen van de ontwerper als een laag over een met fysica gesimuleerde golfbeweging wordt aangebracht.

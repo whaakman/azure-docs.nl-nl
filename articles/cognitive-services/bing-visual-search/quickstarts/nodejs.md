@@ -6,22 +6,22 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13738c5bfd8fc75224bf934ae8be56e7c2edd69
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3490f7722ca0c1331ccea26cd18398cff1317aee
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225494"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887409"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Quickstart: Uw eerste Bing Visual Search-query in JavaScript
 
-Bing Visual Search-API retourneert informatie over een afbeelding die u opgeeft. U kunt de afbeelding opgeven met behulp van de URL van de afbeelding, een inzichttoken of door een afbeelding te uploaden. Zie [Wat is Bing Visual Search-API?](../overview.md) voor informatie over deze opties Dit artikel demonstreert het uploaden van een afbeelding. Het uploaden van een afbeelding kan handig zijn in mobiele scenario's waarbij u een foto neemt van een bekend oriëntatiepunt en er informatie over terugkrijgt. De inzichten kunnen bijvoorbeeld trivia bevatten over het oriëntatiepunt. 
+Bing Visual Search-API retourneert informatie over een afbeelding die u opgeeft. U kunt de afbeelding opgeven door de URL van de afbeelding te gebruiken, een inzichttoken of door een afbeelding te uploaden. Zie [Wat is Bing Visual Search-API?](../overview.md) voor informatie over deze opties. Dit artikel demonstreert het uploaden van een afbeelding. Het uploaden van een afbeelding kan handig zijn in mobiele scenario's waarbij u een foto neemt van een bekend oriëntatiepunt en er informatie over terugkrijgt. De inzichten kunnen bijvoorbeeld trivia bevatten over het oriëntatiepunt. 
 
-Als u een lokale afbeelding uploadt, toont het volgende de formuliergegevens die u moet opnemen in de hoofdtekst van de POST. De formuliergegevens moeten de header Content-Disposition bevatten. De parameter `name` moet worden ingesteld op ‘image’ en de parameter `filename` kan op een willekeurige tekenreeks worden ingesteld. De inhoud van het formulier is het binaire bestand van de afbeelding. De maximale afbeeldingsgrootte die u kunt uploaden, is 1 MB. 
+Als u een lokale afbeelding uploadt, toont het volgende de formuliergegevens die u in de POST moet opnemen. De formuliergegevens moeten de header Content-Disposition bevatten. De parameter `name` moet worden ingesteld op "image" en de parameter `filename` kan op een willekeurige tekenreeks worden ingesteld. De inhoud van het formulier is het binaire bestand van de afbeelding. De maximale afbeeldingsgrootte die u kunt uploaden is 1 MB. 
 
 ```
 --boundary_1234-abcd
@@ -38,7 +38,7 @@ Dit artikel bevat een eenvoudige consoletoepassing waarmee een Bing Visual Searc
 
 U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te voeren.
 
-In deze quickstart kunt u een abonnementssleutel van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of een betaalde abonnementssleutel gebruiken.
+In deze snelstartgids kunt u een code van een [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) of van een betaald abonnement gebruiken.
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
@@ -58,7 +58,7 @@ Volg deze stappen voor het uitvoeren van de toepassing:
   ```  
 4. Maak een bestand met de naam GetVisualInsights.js en voeg de volgende code toe.
 5. Vervang de waarde `subscriptionKey` door de abonnementscode.
-6. Vervang de waarde `imagePath` door het pad van de afbeelding die moet worden geüpload.
+6. Vervang de waarde van `imagePath` door het pad van de te uploaden afbeelding.
 7. Voer het programma uit.  
   ```
   node GetVisualInsights.js

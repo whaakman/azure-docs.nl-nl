@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7ff7167d60a4c22459622aea6a71130bd1e209fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1b9f1f1ff5e0a2a178b5a0b2a09f5513bf508b3f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868867"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079171"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-autorisatiecodestroom
 
@@ -178,8 +178,10 @@ Een geslaagde respons token ziet er als:
 | expires_in    | Hoe lang het toegangstoken is ongeldig (in seconden).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | De bereiken die de access_token is geldig voor.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | Een vernieuwingstoken OAuth 2.0. De app kan dit token gebruiken als u meer toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen. Refresh_tokens worden lange levensduur hebben en kan worden gebruikt voor toegang tot resources behouden gedurende langere tijd wordt opgelost. Raadpleeg voor meer informatie over het vernieuwen van een toegangstoken de [hieronder](#refresh-the-access-token). <br> **Opmerking:** alleen opgegeven als `offline_access` bereik is aangevraagd.                                               |
-| id_token      | Een niet-ondertekende JSON Web Token (JWT). De app kan worden gedecodeerd de segmenten van dit token informatie opvragen over de gebruiker die zijn aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze moet niet gebruiken voor autorisatie of grenzen voor netwerkbeveiliging. Zie voor meer informatie over id_tokens, de [ `id_token reference` ](id-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
+| id_token      | Een JSON Webtoken (JWT). De app kan worden gedecodeerd de segmenten van dit token informatie opvragen over de gebruiker die zijn aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze moet niet gebruiken voor autorisatie of grenzen voor netwerkbeveiliging. Zie voor meer informatie over id_tokens, de [ `id_token reference` ](id-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
+
 #### <a name="error-response"></a>Foutbericht
+
 Foutberichten ziet er als:
 
 ```json
