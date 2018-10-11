@@ -3,7 +3,7 @@ title: Verbinding maken met Azure Stack naar Azure met behulp van VPN
 description: Over het verbinden van virtuele netwerken in Azure Stack met virtuele netwerken in Azure met behulp van VPN.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bd36f423fe2c7acb05b805154da8f6e6c35f9455
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: dcbe222d8dd3d3c658e5778fdc4bc1cc01b5c12d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718131"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078882"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Verbinding maken met Azure Stack naar Azure met behulp van VPN
 

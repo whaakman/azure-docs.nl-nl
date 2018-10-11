@@ -3,7 +3,7 @@ title: Validatierapport voor Azure Stack | Microsoft Docs
 description: Het rapport Azure Stack-gereedheid Checker gebruiken om te bekijken van resultaten.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381910"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079443"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-validatierapport
 Het hulpprogramma Azure Stack-gereedheid van de Registercontrole voor validaties die ondersteuning bieden voor implementatie en het onderhoud van een Azure Stack-omgeving gebruiken. Het hulpprogramma schrijft de resultaten naar een .json-rapportbestand. Het rapport bevat gedetailleerde en samengevatte gegevens over de status van de vereisten voor de implementatie van Azure Stack. Het rapport bevat ook informatie over geheimen, rotatie voor bestaande Azure Stack-implementaties.  
@@ -61,7 +61,7 @@ Als u wilt een rapport dat wordt gefilterd op één type validatie weergeven, ge
 - AzureRegistration
 - Azure-identiteit
 - Taken   
-- Alle  
+- Alles  
 
 Bijvoorbeeld, om het rapport weer te geven samenvatting voor certificaten alleen, gebruik de volgende PowerShell-opdrachtregel: 
  > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate – Summary`

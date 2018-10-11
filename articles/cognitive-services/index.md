@@ -11,12 +11,12 @@ ms.date: 09/24/2018
 ms.topic: hub-page
 ms.prod: cognitive-services
 ms.technology: cognitive-services
-ms.openlocfilehash: 5403ec448725504c0b0a57a3d82853d0884c7c48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985420"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068465"
 ---
 <h1>Documentatie over Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.</p>
@@ -28,7 +28,7 @@ ms.locfileid: "46985420"
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
-                                <div class="cardImage"> 
+                                <div class="cardImage">
                                     <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
@@ -115,6 +115,8 @@ ms.locfileid: "46985420"
                         <h3>Spraak herkennen met behulp van Speech Service</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">C# gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Objective-C gebruiken</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">JavaScript gebruiken</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">C++ gebruiken</a></p>
                     </div>
                 </div>
@@ -274,7 +276,7 @@ ms.locfileid: "46985420"
                 <div class="card">
                     <div class="cardText">
                         <h3>Spraak-API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Speech Service</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">Speech Service-API</a></p>
                         <p><a href="/azure/cognitive-services/speech/home">Spraak-API voor Bing</a></p>
                         <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>

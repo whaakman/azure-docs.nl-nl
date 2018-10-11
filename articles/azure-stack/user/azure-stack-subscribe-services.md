@@ -3,7 +3,7 @@ title: In deze zelfstudie leert u hoe u zich kunt abonneren op een aanbieding va
 description: Deze zelfstudie leert u hoe u een nieuw abonnement op Azure Stack-services maken en testen van de aanbieding door te maken van een virtuele testmachine.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0e2fa9b01d27d68c1eab9097a20b6e350ba47f99
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028802"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076097"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Zelfstudie: maken en testen van een abonnement
 Deze zelfstudie leert u hoe u een abonnement met een aanbieding maakt en test het vervolgens. Voor het testen, wordt u zich aanmelden bij de gebruikersportal van Azure Stack als de beheerder van een cloud, Abonneer u op de aanbieding en vervolgens een virtuele machine te maken.

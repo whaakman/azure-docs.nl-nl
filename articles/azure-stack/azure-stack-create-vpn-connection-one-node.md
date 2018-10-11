@@ -3,7 +3,7 @@ title: Maken van een site-naar-site VPN-verbinding tussen twee virtuele netwerke
 description: Stapsgewijze procedure waarmee een cloudbeheerder gebruikt voor het maken van een site-naar-site VPN-verbinding tussen twee Azure Stack Development Kit omgevingen met één knooppunt.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718114"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078899"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Maken van een site-naar-site VPN-verbinding tussen twee virtuele netwerken in verschillende Azure Stack Development Kit-omgevingen
 ## <a name="overview"></a>Overzicht
@@ -157,7 +157,7 @@ Een manier om na te denken over dit meer algemeen, is dat de lokale netwerkgatew
 9. In **gedeelde sleutel (PSK)**, voer **12345**, en selecteer vervolgens **OK**.
 10. Op de **samenvatting** Selecteer **OK**.
 
-### <a name="create-a-vm"></a>Een virtuele machine maken
+### <a name="create-a-vm"></a>Een VM maken
 Voor het valideren van de gegevens die worden uitgewisseld via de VPN-verbinding, moet u de virtuele machines te verzenden en ontvangen van gegevens in elke Azure Stack Development Kit. Maak nu een virtuele machine in POC1, en deze vervolgens in het virtuele netwerk op uw VM-subnet.
 
 1. Selecteer in de Azure portal, **+ een resource maken**.

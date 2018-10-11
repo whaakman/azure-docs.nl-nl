@@ -3,7 +3,7 @@ title: Herstellen van problemen bij het certificaat voor Azure Stack | Microsoft
 description: Gebruik de Azure Stack-gereedheid van de vereisten om te controleren en oplossen van problemen bij het certificaat.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6bc7839e7db0022beaa9b31c390655f31d1d52c0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053462"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078629"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Oplossen van veelvoorkomende problemen met de Azure Stack PKI-certificaten
 De informatie in dit artikel kunt u te begrijpen en oplossen van veelvoorkomende problemen met de Azure Stack PKI-certificaten. U kunt problemen detecteren wanneer u Azure Stack gereedheid van de Registercontrole [valideren van Azure Stack PKI-certificaten](azure-stack-validate-pki-certs.md). Het hulpprogramma controleert om ervoor te zorgen dat de certificaten te voldoen aan de vereisten voor PKI van een Azure Stack-implementatie en Azure Stack-geheim rotatie en registreert de resultaten in een [report.json bestand](azure-stack-validation-report.md).  

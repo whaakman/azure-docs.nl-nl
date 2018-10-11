@@ -3,7 +3,7 @@ title: Verbinding maken met behulp van ExpressRoute met Azure Stack
 description: Leer hoe u virtuele netwerken in Azure Stack verbinden met virtuele netwerken in Azure met behulp van ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720494"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078695"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Verbinding maken met Azure Stack met behulp van Azure ExpressRoute
 
@@ -345,7 +345,7 @@ Volg de stappen in [een virtuele netwerkgateway configureren voor ExpressRoute m
 
 Als u wilt het ExpressRoute-circuit koppelen met de hub VNet, volg de stappen in [een virtueel netwerk verbinden met een ExpressRoute-circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-### <a name="peer-the-vnets"></a>De vnets koppelen
+### <a name="peer-the-vnets"></a>De VNets instellen als peers
 
 De hub koppelen en knooppunt VNets met behulp van de stappen in [een virtueel netwerk-peering maken met Azure portal](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). Bij het configureren van VNet-peering, zorg ervoor dat u de volgende opties:
 

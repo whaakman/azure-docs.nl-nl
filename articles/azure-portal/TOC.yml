@@ -1,0 +1,44 @@
+items:
+- name: Documentatie over het aanpassen van de Azure-portal
+  href: index.yml
+- name: Azure-dashboards
+  items:
+  - name: Azure-dashboards maken en delen
+    href: azure-portal-dashboards.md
+  - name: Dashboards met op rollen gebaseerd toegangsbeheer delen
+    href: azure-portal-dashboard-share-access.md
+  - name: Structuur van Azure-dashboards
+    href: azure-portal-dashboards-structure.md
+  - name: Op programmatische wijze Azure-dashboards maken
+    href: azure-portal-dashboards-create-programmatically.md
+- name: Instellingen
+  items:
+  - name: Sneltoetsen
+    href: azure-portal-keyboard-shortcuts.md
+  - name: Ondersteunde browsers en apparaten
+    href: ../azure-preview-portal-supported-browsers-devices.md
+  - name: Hoog contrast inschakelen of het thema wijzigen
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Gebruikersinstellingen exporteren of verwijderen
+    href: azure-portal-export-delete-settings.md
+  expanded: true
+- name: Resources
+  items:
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/updates/
+  - name: Uw vaardigheden ontwikkelen met Microsoft Learn
+    href: /learn/browse/?products=azure-portal
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-management-portal
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
+ms.openlocfilehash: d2918197e211cc40662d51fa9f6d6131df426ef6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079709"
