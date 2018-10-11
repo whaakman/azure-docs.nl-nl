@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4712c0b40209cd6d40703176f95a80f491d0364c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979097"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870313"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Quickstart: Een Cassandra-app compileren met Python en Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Voordat u een documentdatabase kunt maken, moet u een Cassandra-account maken me
 
 We gaan nu een Cassandra API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een opdrachtprompt. Maak een nieuwe map met de naam `git-samples`. Sluit de opdrachtprompt.
+1. Open een opdrachtprompt. Maak een nieuwe map met de naam `git-samples`. Sluit vervolgens de opdrachtprompt.
 
     ```bash
     md "C:\git-samples"
@@ -69,9 +69,9 @@ We gaan nu een Cassandra API-app klonen vanuit GitHub, de verbindingsreeks inste
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de code de databaseresources maakt, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn alle afkomstig uit het bestand pyquickstart.py. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string). 
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources met de code worden gemaakt, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn alle afkomstig uit het bestand pyquickstart.py. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string). 
 
-* De waarden van de gebruikersnaam en het wachtwoord zijn ingesteld met behulp van de pagina Verbindingsreeks in de Azure-portal. `path\to\cert` bevat een pad naar een X509 certificaat. 
+* De waarden van de gebruikersnaam en het wachtwoord zijn ingesteld met behulp van de pagina Verbindingsreeks in de Azure-portal. `path\to\cert` bevat een pad naar een X509-certificaat. 
 
    ```python
     ssl_opts = {
@@ -112,13 +112,13 @@ Deze stap is optioneel. Als u wilt weten hoe de code de databaseresources maakt,
 
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    batch = BatchStatement()
-    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
-    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
-    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
-    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
+    session.execute(insert_data, [1,'Lybkov','Seattle'])
+    session.execute(insert_data, [2,'Doniv','Dubai'])
+    session.execute(insert_data, [3,'Keviv','Chennai'])
+    session.execute(insert_data, [4,'Ehtevs','Pune'])
+    session.execute(insert_data, [5,'Dnivog','Belgaum'])
     ....
-    session.execute(batch)
+    
     ```
 
 * Voer een query uit om alle sleutelwaarden op te halen.
