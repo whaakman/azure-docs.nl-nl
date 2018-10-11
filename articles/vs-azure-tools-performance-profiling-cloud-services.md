@@ -25,7 +25,7 @@ ms.locfileid: "30292149"
 ## <a name="overview"></a>Overzicht
 U kunt de prestaties van een cloudservice testen in de volgende manieren:
 
-* Gebruik Azure Diagnostics verzamelen van informatie over aanvragen en verbindingen en site-statistieken die laten zien hoe de service uitvoert vanuit het oogpunt van de klant van bekijken. Als u wilt beginnen met, Zie [diagnostische gegevens configureren voor Azure Cloud Services en virtuele Machines](http://go.microsoft.com/fwlink/p/?LinkId=623009).
+* Gebruik Azure Diagnostics voor het verzamelen van informatie over aanvragen en verbindingen en site-statistieken die laten zien hoe de service wordt uitgevoerd vanuit het oogpunt van de klant. Als u wilt beginnen met, Zie [diagnostische gegevens configureren voor Azure Cloud Services en virtuele Machines](http://go.microsoft.com/fwlink/p/?LinkId=623009).
 * De profiler Visual Studio gebruiken om een gedetailleerde analyse van de rekenkundige aspecten van hoe de service wordt uitgevoerd. Zoals in dit onderwerp wordt beschreven, kunt u de profiler om prestaties te meten als een service wordt uitgevoerd in Azure. Zie voor meer informatie over het gebruik van de profiler om prestaties te meten als een service wordt lokaal uitgevoerd in een rekenemulator [testen van de prestaties van een Azure Cloud Service lokaal in de Compute-Emulator met behulp van de Visual Studio Profiler](http://go.microsoft.com/fwlink/p/?LinkId=262845).
 
 ## <a name="choosing-a-performance-testing-method"></a>Een methode voor Prestatietesten kiezen
@@ -107,7 +107,7 @@ Een profilering sessie wordt gemaakt voor elk exemplaar van een rol in uw clouds
 2. Kies het Azure Compute-knooppunt en kies vervolgens het knooppunt van de Azure-implementatie voor de cloudservice die u hebt geselecteerd voor het profiel wanneer u gepubliceerd vanuit Visual Studio.
 3. Profileringsoptimalisaties om rapporten te bekijken voor een exemplaar, selecteer de rol in de service, open het snelmenu voor een specifiek exemplaar en kies vervolgens **profilering rapport weergeven**.
    
-    Het rapport, een bestand .vsp wordt nu gedownload van Azure en de status van de download wordt weergegeven in de Azure Activity Log. Wanneer het downloaden is voltooid, het profilering rapport wordt weergegeven op een tabblad in de editor voor Visual Studio met de naam <Role name> *<Instance Number>* <identifier>.vsp. Gegevens van de samenvatting voor het rapport wordt weergegeven.
+    Het rapport, een bestand in het .vsp formaat, wordt nu gedownload van Azure en de status van de download wordt weergegeven in de Azure Activity Log. Wanneer het downloaden is voltooid, het profilering rapport wordt weergegeven op een tabblad in de editor voor Visual Studio met de naam <Role name> *<Instance Number>* <identifier>.vsp. Gegevens van de samenvatting voor het rapport wordt weergegeven.
 4. Om verschillende weergaven van het rapport in de lijst met huidige weergave, selecteer het type van de gewenste weergave. Zie voor meer informatie [extra rapportweergaven profilering](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
