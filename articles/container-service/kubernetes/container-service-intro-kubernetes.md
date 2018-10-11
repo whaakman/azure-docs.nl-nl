@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f12fc0baa055e62d4f15c0e42eb7add3661ea6fc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162106"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973589"
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Inleiding tot Azure Container Service voor Kubernetes
 
@@ -28,7 +28,7 @@ Met Azure Container Service profiteert u van de hoogwaardige functies van Azure 
 Azure Container Service is bedoeld om een hostomgeving voor containers te bieden door gebruik te maken van de open source tools en technologieën die tegenwoordig populair zijn onder onze klanten. Om dit te bereiken, maken we de standaard API-eindpunten van Kubernetes beschikbaar. Met behulp van deze standaard eindpunten kunt u gebruikmaken van alle software die geschikt is voor communicatie met een Kubernetes-cluster. U kunt bijvoorbeeld [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) of [draft](https://github.com/Azure/draft) gebruiken.
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service"></a>Een Kubernetes-cluster maken met Azure Container Service
-Als u Azure Container Service wilt gebruiken, implementeert u eerst een Azure Container Service-cluster met de [Azure CLI 2.0](container-service-kubernetes-walkthrough.md) of via de portal (zoek op de Marketplace naar **Azure Container Service**). Als u een ervaren gebruiker bent die meer controle wil over de Azure Resource Manager-sjablonen, kunt u het open source [acs-engine](https://github.com/Azure/acs-engine)-project gebruiken om uw eigen aangepaste Kubernetes-cluster te bouwen en het te implementeren via de `az` CLI.
+Als u Azure Container Service wilt gebruiken, implementeert u eerst een Azure Container Service-cluster met de [Azure CLI](container-service-kubernetes-walkthrough.md) of via de portal (zoek in Marketplace naar **Azure Container Service**). Als u een ervaren gebruiker bent die meer controle wil over de Azure Resource Manager-sjablonen, kunt u het open source [acs-engine](https://github.com/Azure/acs-engine)-project gebruiken om uw eigen aangepaste Kubernetes-cluster te bouwen en het te implementeren via de `az` CLI.
 
 ### <a name="using-kubernetes"></a>Kubernetes gebruiken
 Kubernetes automatiseert het implementeren, schalen en beheren van toepassingen in containers. De applicatie bevat een uitgebreide set functies, zoals:

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6bb13ad19f9b0b6137cdb2b4a9afbb2f325b9d36
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166334"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975051"
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Inleiding tot oplossingen voor Docker-containerhosting met Azure Container Service 
 
@@ -30,7 +30,7 @@ Azure Container Service biedt het voordeel van de hoogwaardige functies van Azur
 Azure Container Service is bedoeld om een hostomgeving voor containers te bieden door gebruik te maken van de open source tools en technologieën die tegenwoordig populair zijn onder onze klanten. Daarom worden er standaard-API-eindpunten beschikbaar gesteld voor uw gekozen orchestrator (DC/OS, Docker Swarm of Kubernetes). Met behulp van deze eindpunten kunt u gebruikmaken van alle software die geschikt is voor communicatie met deze eindpunten. In het geval van een Docker Swarm-eindpunt kunt u bijvoorbeeld kiezen om gebruik te maken van de Docker CLI (opdrachtregelinterface). Voor DC/OS kunt u kiezen voor de DCOS CLI. Voor Kubernetes zou u `kubectl` kunnen gebruiken.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Een Docker-cluster maken met behulp van Azure Container Service
-Als u Azure Container Service wilt gebruiken, moet u eerst een Azure Container Service-cluster implementeren via de portal (zoek in Marketplace naar **Azure Container Service**). U kunt hierbij gebruikmaken van een Azure Resource Manager-sjabloon ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) of [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)), maar u kunt ook de [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) gebruiken. De verstrekte snelstartsjablonen kunnen worden aangepast om aanvullende of geavanceerde Azure-configuratie toe te voegen. Zie [Een Azure Container Service-cluster implementeren](container-service-deployment.md) voor meer informatie.
+Als u Azure Container Service wilt gebruiken, moet u eerst een Azure Container Service-cluster implementeren via de portal (zoek in Marketplace naar **Azure Container Service**). U kunt hierbij gebruikmaken van een Azure Resource Manager-sjabloon ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) of [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)), maar u kunt ook de [Azure CLI](container-service-create-acs-cluster-cli.md) gebruiken. De verstrekte snelstartsjablonen kunnen worden aangepast om aanvullende of geavanceerde Azure-configuratie toe te voegen. Zie [Een Azure Container Service-cluster implementeren](container-service-deployment.md) voor meer informatie.
 
 ## <a name="deploying-an-application"></a>Een toepassing implementeren
 Voor orchestration met Azure Container Service kunt u kiezen uit Docker Swarm, DC/OS of Kubernetes. De implementatie van uw toepassing hangt af van de orchestrator die u kiest.
@@ -55,7 +55,8 @@ DC/OS in Azure Container Service omvat standaard het Marathon Orchestration Plat
 ![DC/OS Universe in Azure Container Service](media/dcos/universe.png)
 
 #### <a name="using-marathon"></a>Met Marathon
-Marathon is een clusterbreed initialisatie- en beheersysteem voor services in cgroups of, in het geval van Azure Container Service, voor containers in Docker-indeling. Marathon biedt een web-UI van waaruit u uw toepassingen kunt implementeren. U hebt hiertoe toegang via een URL die er ongeveer als volgt uitziet: `http://DNS_PREFIX.REGION.cloudapp.azure.com`. DNS\_VOORVOEGSEL en REGIO worden gedefinieerd tijdens de implementatie. Indien gewenst, kunt u ook uw eigen DNS-naam opgeven. Zie [DC/OS-containerbeheer via de Marathon-webgebruikersinterface](container-service-mesos-marathon-ui.md) voor meer informatie over het uitvoeren van een container met de Marathon-webgebruikersinterface.
+Marathon is een clusterbreed initialisatie- en beheersysteem voor services in cgroups of, in het geval van Azure Container Service, voor containers in Docker-indeling. Marathon biedt een web-UI van waaruit u uw toepassingen kunt implementeren. U krijgt toegang via een URL die er ongeveer uitziet als `http://DNS_PREFIX.REGION.cloudapp.azure.com`,
+waar zowel DNS\_VOORVOEGSEL als REGIO tijdens de implementatie worden gedefinieerd. Indien gewenst, kunt u ook uw eigen DNS-naam opgeven. Zie [DC/OS-containerbeheer via de Marathon-webgebruikersinterface](container-service-mesos-marathon-ui.md) voor meer informatie over het uitvoeren van een container met de Marathon-webgebruikersinterface.
 
 ![Lijst met Marathon-toepassingen](media/dcos/marathon-applications-list.png)
 
@@ -102,4 +103,4 @@ Toepassingen ontwikkelen met Azure Container Service (Build 2016)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Implementeer een Container Service-cluster met de [portal](container-service-deployment.md) of [Azure CLI 2.0](container-service-create-acs-cluster-cli.md).
+Implementeer een Container Service-cluster met de [portal](container-service-deployment.md) of [Azure CLI](container-service-create-acs-cluster-cli.md).

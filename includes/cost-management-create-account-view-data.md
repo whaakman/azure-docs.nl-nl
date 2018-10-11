@@ -5,16 +5,16 @@ services: cost-management
 author: bandersmsft
 ms.service: cost-management
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 09/17/2018
 ms.author: banders
 manager: dougeby
 ms.custom: include file
-ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4acc3f43f04c51e5303c8eba1d934580802312b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47017656"
 ---
 ## <a name="view-cost-data"></a>Kostengegevens weergeven
 
@@ -26,27 +26,27 @@ In dit voorbeeld toont het Management Dashboard de geconsolideerde kosten voor h
 
 Als u niet zeker weet wat het doel is van een rapport in een dashboard, beweegt u de muisaanwijzer over het symbool **i** om een uitleg te zien. Klik op een rapport in een dashboard om het volledige rapport weer te geven.
 
-U kunt ook rapporten weergeven via het rapportenmenu boven aan de portal. Laten we eens de uitgaven van Concorde aan Azure-resources in de afgelopen 30 dagen bekijken. Klik op **Cost** > **Cost Analysis** > **Actual Cost Analysis**. Wis alle waarden als er waarden zijn ingesteld voor labels, groepen of filters in het rapport.
+U kunt ook rapporten weergeven via het rapportenmenu boven aan de portal. Laten we eens de uitgaven van Concorde aan Azure-resources in de afgelopen 30 dagen bekijken. Klik op **Costs** > **Cost Analysis** > **Actual Cost Analysis**. Wis alle waarden als er waarden zijn ingesteld voor labels, groepen of filters in het rapport.
 
 ![Actual Cost Analysis](./media/cost-management-create-account-view-data/actual-cost-01.png)
 
-In dit voorbeeld zijn de totale kosten $ 75.970 en is het budget $ 130.000.
+In dit voorbeeld zijn de totale kosten $ 122.273 en is het budget $ 290.000.
 
 Nu gaan we de rapportindeling wijzigen en groepen en filters instellen om de resultaten voor Azure-kosten te verfijnen. Stel **Date Range** in op de afgelopen 30 dagen. Klik op het kolomsymbool in de rechterbovenhoek om het rapport op te maken als een staafdiagram en selecteer **Provider** onder Groups. Stel het filter voor **Provider** vervolgens in op **Azure**.
 
 ![Gefilterde Actual Cost Analysis](./media/cost-management-create-account-view-data/actual-cost-02.png)
 
-In dit voorbeeld bedragen de totale kosten van Azure-resources in de afgelopen 30 dagen $ 3.839.
+In dit voorbeeld bedragen de totale kosten van Azure-resources in de afgelopen 30 dagen $ 3309.
 
 Klik met de rechtermuisknop op de balk Provider (Azure) en zoom in op **Resource types**.
 
 ![inzoomen](./media/cost-management-create-account-view-data/actual-cost-03.png)
 
-In de volgende afbeelding ziet u de kosten die Contoso heeft gemaakt voor Azure-resources. Het totaalbedrag is $ 3.839. In dit voorbeeld is ongeveer de helft van de kosten voor lokaal redundante opslag en de andere helft voor verschillende VM-exemplaren.
+In de volgende afbeelding ziet u de kosten die Contoso heeft gemaakt voor Azure-resources. Het totaalbedrag is $ 3309. In dit voorbeeld is ongeveer de helft van de kosten voor Standard_A1-VM's en de andere helft voor verschillende Azure-services en VM-exemplaren.
 
 ![resourcetypen](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-Klik met de rechtermuisknop op een resourcetype en selecteer **Cost Entities** om de kostenentiteiten en de services weer te geven die de resource hebt gebruikt. In dit voorbeeld hebben de VM- en Workers-services in de DevOps $ 486,60 en $ 435,71 verbruikt. Dit is in totaal $ 922.
+Klik met de rechtermuisknop op een resourcetype en selecteer **Cost Entities** om de kostenentiteiten en de services weer te geven die de resource hebt gebruikt. In de volgende voorbeeldafbeelding is lokaal redundante opslag ingesteld als het resourcetype. Contoso|Azure/Storage heeft $ 15,65 verbruikt. Engineering|Azure Storage heeft $ 164,25 verbruikt. Shared Infrastructure|Azure/Storage heeft $ 116,58 verbruikt. De totale kosten voor de services bedroeg $ 296.
 
 ![kostenentiteiten en services](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

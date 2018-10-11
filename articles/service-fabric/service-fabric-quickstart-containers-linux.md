@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948397"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snelstartgids: Linux-containers implementeren op Service Fabric
 
@@ -65,7 +65,7 @@ Meld u aan en neem deel aan een [Linux-cluster](http://aka.ms/tryservicefabric).
 Service Fabric biedt verschillende hulpmiddelen waarmee u een cluster en de bijbehorende toepassingen kunt beheren:
 
 - Service Fabric Explorer, een op een browser gebaseerd hulpprogramma.
-- Service Fabric Command Line Interface (CLI), die wordt uitgevoerd boven op Azure CLI 2.0.
+- Service Fabric Command Line Interface (CLI), die wordt uitgevoerd boven op Azure CLI. 
 - PowerShell-opdrachten.
 
 In deze snelstart gebruikt u de Service Fabric CLI in Cloud Shell en Service Fabric Explorer. De volgende secties laten zien hoe u met behulp van deze hulpmiddelen het certificaat installeert dat nodig is om verbinding te maken met uw beveiligd cluster.

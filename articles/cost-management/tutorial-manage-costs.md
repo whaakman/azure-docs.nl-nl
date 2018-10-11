@@ -1,26 +1,29 @@
 ---
-title: 'Zelfstudie: kosten beheren met Azure Cost Management | Microsoft Docs'
+title: 'Zelfstudie: kosten beheren met Cloudyn in Azure | Microsoft Docs'
 description: In deze zelfstudie leest u hoe u kosten kunt beheren met behulp van kostentoewijzing en rapporten over showback en chargeback.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989632"
 ---
-# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Zelfstudie: kosten beheren met behulp van Azure Cost Management
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Zelfstudie: kosten beheren met Cloudyn
 
-In Azure Cost Management kunt u kosten beheren en showback-rapporten maken door kosten toe te wijzen op basis van tags. Het proces van kostentoewijzing houdt in dat er kosten worden toegewezen aan uw verbruikte cloudresources. Kosten worden volledig toegewezen als al uw resources met behulp van tags in categorieën zijn ingedeeld. Nadat de kosten zijn toegewezen, kunt u met dashboards en rapporten showback of chargeback bieden aan uw gebruikers. Als u aan de slag gaat met Cost Management, hebben veel resources mogelijk nog geen tags of kunnen er geen tags aan worden toegewezen.
+In Cloudyn kunt u kosten beheren en showback-rapporten maken door kosten toe te wijzen op basis van tags. Het proces van kostentoewijzing houdt in dat er kosten worden toegewezen aan uw verbruikte cloudresources. Kosten worden volledig toegewezen als al uw resources met behulp van tags in categorieën zijn ingedeeld. Nadat de kosten zijn toegewezen, kunt u met dashboards en rapporten showback of chargeback bieden aan uw gebruikers. Als u aan de slag gaat met Cloudyn hebben veel resources mogelijk nog geen tags of kunnen er geen tags aan worden toegewezen.
 
 Stel dat u engineering-kosten vergoed wilt hebben. U moet aan het engineering-team laten zien dat u een bepaald bedrag nodig hebt, op basis van resourcekosten. U kunt ze een rapport laten zien voor alle verbruikte resources met de tag *engineering*.
+
+In dit artikel worden de termen 'tags' en 'categorieën' soms door elkaar gebruikt. Categorieën zijn grote verzamelingen en kunnen veel zaken bevatten. Ze kunnen bedrijfsonderdelen, kostenplaatsen, webservices en andere zaken bevatten die worden getagd. Tags zijn naam/waarde-paren waarmee u resources kunt categoriseren en geconsolideerde factureringsgegevens kunt weergeven en beheren. Hiervoor past u dezelfde tag toe op meerdere resources en resourcegroepen. In eerdere versies van de Azure-portal werd naar een *tagnaam* verwezen als *sleutel*. Tags worden gemaakt en opgeslagen door één Azure-abonnement. Tags in AWS bestaan uit sleutel/waarde-paren. Omdat voor zowel Azure als AWS gebruik wordt gemaakt van de term *sleutel*, wordt in Cloudyn die term ook gebruikt. In Category Manager worden sleutels (tagnamen) gebruikt om tags samen te voegen.
 
 In deze zelfstudie leert u het volgende:
 
@@ -33,13 +36,22 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een Azure-account hebben.
-- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
+- U moet een proefregistratie of een betaald abonnement voor Cloudyn hebben.
+- [Niet-geactiveerde accounts moeten worden geactiveerd](activate-subs-accounts.md) in de Cloudyn-portal.
+- [Bewaking op gastniveau](azure-vm-extended-metrics.md) moet zijn ingeschakeld op uw virtuele machines.
+
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Aangepaste tags gebruiken voor het toewijzen van kosten
 
+Cloudyn ontvangt taggegevens van resourcegroepen van Azure en vult taggegevens automatisch in voor resources. In Cost Allocation kunt u de kosten per resourcetag bekijken.
+
+Met het Cost Allocation-model definieert u categorieën (tags) die intern worden toegepast op niet-gecategoriseerde (niet-getagde) resources. Zo kunnen uw kosten worden gegroepeerd en kunnen er regels worden opgegeven voor het verwerken van de niet-getagde kosten. De Cost Allocation-regels zijn opgeslagen instructies op basis waarvan kosten voor een specifieke service worden gedistribueerd naar andere services. Daarna worden voor de resources tags/categorieën weergegeven in *Cost Allocation*-rapporten. Selecteer hiervoor het model dat u hebt gemaakt.
+
+Houd er rekening mee dat de taggegevens van die resources niet worden weergegeven in de *Cost Analysis*-rapporten. Daarnaast worden de tags die worden toegepast in Cloudyn (met Cost Allocation) niet naar Azure verzonden, dus u ziet ze niet in de Azure-portal.
+
 Wanneer u kostentoewijzing start, is het eerste wat u doet het definiëren van het bereik met behulp van een kostenmodel. Het kostenmodel heeft geen invloed op de kosten, maar zorgt alleen voor de verdeling ervan. Wanneer u een kostenmodel maakt, kunt u uw gegevens segmenteren op kostenentiteit, rekening of abonnement, en op meerdere tags. Voorbeelden van veelgebruikte tags zijn een factureringstag, kostenplaats of groepsnaam. Tags kunnen ook helpen bij het uitvoeren van showback of chargeback naar andere onderdelen van uw organisatie.
 
-Als u een aangepast model voor de toewijzing van kosten wilt maken, selecteert u **Cost** &gt; **Cost Management** &gt; **Cost Allocation 360°** in het menu van het rapport.
+Als u een aangepast model voor de toewijzing van kosten wilt maken, selecteert u **Costs** &gt; **Cost Management** &gt; **Cost Allocation 360°** in het menu van het rapport.
 
 ![Selectie van Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -59,7 +71,7 @@ Stel dat u de Azure opslagkosten evenredig wilt verdelen over de virtuele machin
 
 
 
-In een ander voorbeeld is het bijvoorbeeld wenselijk om alle Azure-netwerkkosten toe te rekenen aan een specifieke bedrijfseenheid in uw organisatie. Hiervoor selecteert u eerst de service **Azure/Network** en **Explicit Distribution**. Vervolgens stelt u het distributiepercentage in op 100 en selecteert u de bedrijfseenheid, **G&amp;A** in de volgende afbeelding:
+In een ander voorbeeld is het bijvoorbeeld wenselijk om alle Azure-netwerkkosten toe te rekenen aan een specifieke bedrijfseenheid in uw organisatie. Hiervoor selecteert u eerst de service **Azure/Network** en vervolgens selecteert u onder **Define Allocation Rule** de optie **Explicit Distribution**. Vervolgens stelt u het distributiepercentage in op 100 en selecteert u de bedrijfseenheid, **G&amp;A** in de volgende afbeelding:
 
 ![Voorbeeld van toewijzingsregel van kostenmodel voor een specifieke bedrijfseenheid](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -97,9 +109,9 @@ Taggegevens in Cloudyn-rapporten zijn afkomstig van drie locaties:
     - Tags voor Cloudyn-entiteiten: door de gebruiker gedefinieerde metagegevens die zijn toegepast op Cloudyn entiteiten
     - Category Manager: een hulpprogramma voor het opschonen van gegevens waarmee u nieuwe tags kunt maken op basis van regels die worden toegepast op bestaande tags
 
-Als u tags van cloudproviders in kostenrapporten van Cloudyn wilt zien, moet u een aangepast model voor kostentoewijzing maken met behulp van Cost Allocation 360. Ga hiervoor naar **Cost** > **Cost Management** > **Cost Allocation 360**, selecteer de gewenste tags en definieer regels voor het afhandelen van kosten zonder tag. Maak vervolgens een nieuw kostenmodel. Daarna kunt u in Cost Allocation Analysis rapporten weergeven om tags van Azure-resources te bekijken, te filteren en te sorteren.
+Als u tags van cloudproviders in kostenrapporten van Cloudyn wilt zien, moet u een aangepast model voor kostentoewijzing maken met behulp van Cost Allocation 360. Ga hiervoor naar **Costs** > **Cost Management** > **Cost Allocation 360**, selecteer de gewenste tags en definieer regels voor het afhandelen van kosten zonder tag. Maak vervolgens een nieuw kostenmodel. Daarna kunt u in Cost Allocation Analysis rapporten weergeven om tags van Azure-resources te bekijken, te filteren en te sorteren.
 
-Tags van Azure-resources worden alleen weergegeven in rapporten van **Cost Allocation Analysis**.
+Tags van Azure-resources worden alleen weergegeven in **Costs** > **Cost Allocation Analysis**-rapporten.
 
 Factureringstags van cloudproviders worden weergegeven in alle kostenrapporten.
 

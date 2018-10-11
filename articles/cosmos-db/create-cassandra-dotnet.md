@@ -1,22 +1,21 @@
 ---
-title: 'Quickstart: Cassandra-API met .NET - Azure Cosmos DB | Microsoft Docs'
+title: 'Snelstart: Cassandra-API met .NET - Azure Cosmos DB'
 description: In deze quickstart ziet u hoe u de Cassandra-API in Azure Cosmos DB gebruikt om een profieltoepassing te maken met Azure Portal en .NET
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
+author: SnehaGunda
+ms.author: sngun
 ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 6ab7c0fa5f7e4d10b38ecee8f75372dda3b11a1c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 09/24/2018
+ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700577"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994952"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Quickstart: Een Cassandra-app bouwen met .NET en Azure Cosmos DB
 
@@ -27,7 +26,7 @@ ms.locfileid: "43700577"
 > * [Python](create-cassandra-python.md)
 >  
 
-Deze quickstart laat zien hoe u .NET en de [Cassandra-API](cassandra-introduction.md) van Azure Cosmos DB gebruikt om een profiel-app te maken door een voorbeeld uit GitHub te klonen. Deze quickstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
+Deze quickstart laat zien hoe u .NET en de [Cassandra-API](cassandra-introduction.md) van Azure Cosmos DB gebruikt om een profiel-app te maken door een voorbeeld uit GitHub te klonen. In deze snelstart ziet u ook hoe u de webportal van Azure gebruikt om een Azure Cosmos DB-account te maken.
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
@@ -35,9 +34,7 @@ Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
 
-Toegang tot het preview-programma van de Cassandra-API van Azure Cosmos DB. Als u nog geen toegang hebt aangevraagd, [meldt u zich nu aan](cassandra-introduction.md#sign-up-now).
-
-Daarnaast doet u het volgende: 
+U hebt verder nodig: 
 * Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 * Installeer [Git](https://www.git-scm.com/) zodat u het voorbeeld kunt klonen.
 
@@ -51,7 +48,7 @@ Daarnaast doet u het volgende:
 
 Nu gaan we werken met code. We gaan een Cassandra API-app klonen vanuit GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit vervolgens de opdrachtprompt.
+1. Open een opdrachtprompt. Maak een nieuwe map met de naam `git-samples`. Sluit de opdrachtprompt.
 
     ```bash
     md "C:\git-samples"
@@ -69,11 +66,11 @@ Nu gaan we werken met code. We gaan een Cassandra API-app klonen vanuit GitHub, 
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
     ```
 
-3. Open vervolgens het oplossingsbestand CassandraQuickStartSample in Visual Studio. 
+4. Open vervolgens het oplossingsbestand CassandraQuickStartSample in Visual Studio. 
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn allemaal afkomstig uit het bestand Program.cs in de map C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string).
+Deze stap is optioneel. Als u wilt weten hoe de code de databaseresources maakt, kunt u de volgende codefragmenten bekijken. De fragmenten zijn alle afkomstig uit het `Program.cs`-bestand dat is geïnstalleerd in de map `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample`. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-string).
 
 * Initialiseer de sessie door verbinding te maken met een eindpunt van het Cassandra-cluster. De Cassandra-API voor Azure Cosmos DB biedt alleen ondersteuning voor TLSv1.2. 
 
@@ -121,7 +118,7 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code wor
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. De verbindingsreeksinformatie stelt uw app in staat om te communiceren met de gehoste database.
 
-1. Klik in [Azure Portal](http://portal.azure.com/) op **Verbindingsreeks**. 
+1. Selecteer **Verbindingsreeks** in de [Azure-portal](http://portal.azure.com/).
 
     Gebruik de ![knop Kopiëren](./media/create-cassandra-dotnet/copy.png) aan de rechterkant van het scherm om de waarde USERNAME te kopiëren.
 
@@ -149,22 +146,22 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 5. Sla het bestand Program.cs op.
     
-## <a name="run-the-app"></a>De app uitvoeren
+## <a name="run-the-net-app"></a>De .Net-app uitvoeren
 
-1. Klik in Visual Studio op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager Console**.
+1. Selecteer in Visual Studio **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
 2. Ga naar de opdrachtprompt en gebruik de volgende opdracht om het pakket NuGet van het .NET-stuurprogramma te installeren. 
 
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Klik op Ctrl+F5 om de toepassing uit te voeren. Uw app wordt in het consolevenster weergegeven. 
+3. Druk op Ctrl+F5 om de toepassing uit te voeren. Uw app wordt in het consolevenster weergegeven. 
 
     ![De uitvoer bekijken en controleren](./media/create-cassandra-dotnet/output.png)
 
     Druk op Ctrl+C om de uitvoering van het programma te stoppen en het consolevenster te sluiten. 
     
-    U kunt nu Data Explorer openen in Azure Portal om deze nieuwe gegevens te bekijken, te wijzigen, een query erop uit te voeren of er iets anders mee te doen. 
+4. Open **Data Explorer** in de Azure-portal om deze nieuwe gegevens te bekijken, te wijzigen, een query erop uit te voeren of er iets anders mee te doen.
 
     ![De gegevens bekijken in Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
 

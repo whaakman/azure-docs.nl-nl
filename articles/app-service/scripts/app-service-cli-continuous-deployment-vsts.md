@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van Azure CLI-script - Een web-app maken met continue implementatie vanuit Visual Studio Team Services | Microsoft Docs
-description: Voorbeeld van Azure CLI-script - Een web-app maken met continue implementatie vanuit Visual Studio Team Services
+title: Voorbeeld van Azure CLI-script - Een web-app maken met continue implementatie vanuit Azure DevOps Services | Microsoft Docs
+description: Voorbeeld van Azure CLI-script - Een web-app maken met continue implementatie vanuit Azure DevOps Services
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,30 +16,30 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e3748654f85e32edeb6f0c7478418068aeb4ae5f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282875"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967032"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Een web-app maken met continue implementatie vanuit Visual Studio Team Services
+# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Een web-app maken met continue implementatie vanuit Azure DevOps
 
-In dit voorbeeldscript wordt een web-app gemaakt in App Service met de bijbehorende resources en wordt er vervolgens continue implementatie vanuit een opslagplaats van Visual Studio Team Services ingesteld. Voor dit voorbeeld hebt u het volgende nodig:
+In dit voorbeeldscript wordt een web-app gemaakt in App Service met de bijbehorende resources en wordt er vervolgens continue implementatie vanuit een Azure DevOps-opslagplaats ingesteld. Voor dit voorbeeld hebt u het volgende nodig:
 
-* Een opslagplaats van Visual Studio Team Services met toepassingscode, waarvoor u beheerdersbevoegdheden hebt.
-* Een [Personal Access Token (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) voor uw Visual Studio Team Services-account.
+* Een Azure DevOps-opslagplaats met toepassingscode, waarvoor u beheerdersbevoegdheden hebt.
+* Een [persoonlijk toegangstoken (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) voor uw Azure DevOps-organisatie.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u Azure CLI versie 2.0 of hoger nodig. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u Azure CLI versie 2.0 of hoger nodig. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

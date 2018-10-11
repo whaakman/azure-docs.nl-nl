@@ -9,12 +9,12 @@ ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c0e2aefe1222263b169e21490da079b165a57321
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 5e8eaca7f759842a8097184dafc1f3ea183b898c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42108475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993184"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>De Service Fabric Mesh CLI instellen
 De Service Fabric Mesh CLI is vereist voor het implementeren en beheren van resources in Service Fabric Mesh. 
@@ -23,7 +23,8 @@ Voor de preview is de Azure Service Fabric-NET CLI geschreven als een uitbreidin
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Als u liever de Azure CLI installeert en lokaal gebruikt, moet u versie 2.0.43 of hoger van Azure CLI installeren. Voer `az --version` uit om de versie te bekijken. Raadpleeg [Azure CLI 2.0 installeren][azure-cli-install] voor informatie over het installeren van of upgraden naar de nieuwste versie van de CLI.
+## <a name="install-the-service-fabric-mesh-cli-locally"></a>De Azure Service Fabric Mesh CLI lokaal installeren
+Als u liever de Azure CLI installeert en lokaal gebruikt, moet u versie 2.0.43 of hoger van Azure CLI installeren. Voer `az --version` uit om de versie te bekijken. Raadpleeg [De Azure CLI installeren][azure-cli-install] voor informatie over het installeren van of upgraden naar de nieuwste versie van de CLI.
 
 Installeer de Azure Service Fabric Mesh CLI-uitbreidingsmodule met behulp van de volgende opdracht. 
 

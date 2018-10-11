@@ -1,78 +1,78 @@
 ---
-title: Translator Speech-zelfstudie (C#) | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Informatie over het gebruik van de Translator speech-service om te vertalen tekst in realtime.
+title: 'Zelfstudie: Translator Speech-API C#'
+titleSuffix: Azure Cognitive Services
+description: Gebruik de Translator Speech-API om tekst in realtime te vertalen.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41987630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993864"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Zelfstudie: Microsoft Translator WPF-toepassing in C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Zelfstudie: Translator Speech-toepassing in C#
 
-Deze zelfstudie is een rondleiding door een interactieve spraak vertaalfunctie die gebruikmaakt van de Microsoft Translator Speech-vertaalservice, een onderdeel van Microsoft Cognitive Services in Azure. In deze zelfstudie leert u procedures om het volgende te doen:
+Deze zelfstudie is een rondleiding in een interactief hulpprogramma voor spraakomzetting dat gebruikmaakt van de Translator Speech-API van Azure Cognitive Services. U leert het volgende:
 
 > [!div class="checklist"]
-> * Geen lijst aanvragen met de talen die worden ondersteund door de service
-> * Audio opnemen en naar de service te verzenden
-> * Ontvangen en weergeven van vertalingen van de gesproken tekst als tekst
-> * (Optioneel) een gesproken (Text to Speech) versie van de vertaling afspelen
+> * Een lijst met talen aanvragen die worden ondersteund in de service voor spraakomzetting
+> * Audio opnemen en verzenden naar de service
+> * Vertalingen van spraak ontvangen en weergeven als tekst
+> * Een gesproken versie (tekst-naar-spraak) van de vertaling afspelen (optioneel)
 
-Een Visual Studio-oplossingsbestand voor deze toepassing is [beschikbaar op GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
+Een Visual Studio-oplossingsbestand voor deze toepassing is [beschikbaar in GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie moet u een versie van Visual Studio 2017, met inbegrip van de Community-versie. 
+Voor deze zelfstudie hebt u een editie van Visual Studio 2017 nodig, inclusief de Community-editie. 
 
-De Visual Studio-oplossing bouwt u ook een installatieprogramma voor de toepassing. U moet de [WiX Toolset](http://wixtoolset.org/) en de [WiX Toolset Visual Studio-extensie](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) om deze functionaliteit te ondersteunen.
+Met de Visual Studio-oplossing wordt ook een installatieprogramma voor de toepassing gebouwd. U hebt de [WiX Toolset](http://wixtoolset.org/) en de [WiX Toolset Visual Studio-extensie](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) nodig om deze functionaliteit te ondersteunen.
 
-U moet ook een abonnementssleutel voor de Translator Speech-service, die u uit het Microsoft Azure-dashboard verkrijgen kunt. Er is een gratis prijscategorie beschikbaar waarmee u voor de omzetting van spraak per maand gratis maximaal 10 uur. Deze laag is voldoende voor deze zelfstudie.
+U hebt ook een abonnementssleutel nodig voor de Translator Speech-service. Deze kunt u verkrijgen via het Microsoft Azure-dashboard. Er is een gratis prijslaag beschikbaar waarmee u gratis maximaal 10 uur spraak per maand kunt vertalen. Deze laag is voldoende voor deze zelfstudie.
 
-De derde partij [JSON.Net bibliotheek](https://www.newtonsoft.com/json) (van Newtonsoft) is ook vereist. Deze assembly wordt automatisch geïnstalleerd door NuGet als beide selectievakjes pakket herstellen in de Visual Studio-opties zijn ingeschakeld.
+De [JSON.Net-bibliotheek](https://www.newtonsoft.com/json) van derden (Newtonsoft) is ook vereist. Deze assembly wordt automatisch geïnstalleerd met NuGet als beide selectievakjes voor Pakket herstellen zijn ingeschakeld in de Visual Studio-opties.
 
-## <a name="trying-the-translation-app"></a>Probeert de NAT-app
+## <a name="trying-the-translation-app"></a>De vertaal-app uitproberen
 
-Na het openen van de oplossing Microsoft Speech Translator (`SpeechTranslator.sln`) druk op F5 om te bouwen en start de toepassing in Visual STudio.  Hoofdvenster van het programma wordt weergegeven.
+Nadat u de Speech Translator-oplossing (`SpeechTranslator.sln`) hebt geopend in Visual Studio, drukt u op F5 om de toepassing te bouwen en te starten.  Het hoofdvenster van het programma wordt weergegeven.
 
-![[Spraak Translator hoofdvenster]](media/speech-translator-main-window.png)
+![[Hoofdvenster van Speech Translator]](media/speech-translator-main-window.png)
 
-Kies op de eerste uitvoering **Accountinstellingen** uit de **instellingen** menu om de hier weergegeven venster te openen.
+Kies bij de eerste uitvoering in het menu **Instellingen** de optie **Accountinstellingen** om het venster te openen dat hier wordt weergegeven.
 
-![[Spraak Translator hoofdvenster]](media/speech-translator-settings-window.png)
+![[Hoofdvenster van Speech Translator]](media/speech-translator-settings-window.png)
 
-Plak de sleutel van uw Microsoft Translator Speech-abonnement in dit venster en klik vervolgens op **opslaan.** De sleutel wordt opgeslagen wordt uitgevoerd.
+Plak de Translator Speech-abonnementssleutel in dit venster en klik vervolgens op **Opslaan**. De sleutel wordt opgeslagen tijden uitvoerbewerkingen.
 
-Kies de audio-invoer en uitvoerapparaten die u wilt dat moet worden gebruikt en de en talen terug in het hoofdvenster. Als u de audio van de vertaling horen wilt, zorg ervoor dat de **TTS** (Text to Speech) optie is ingeschakeld. Als u zien speculatieve gedeeltelijke vertalingen terwijl u spreekt wilt, schakelt u de **gedeeltelijke resultaten** optie.
+Als u weer in het hoofdvenster bent, kiest u de geluidsinvoer- en uitvoerapparaten die u wilt gebruiken, en de bron- en doeltaal. Als u audio van de vertaling wilt horen, moet u ervoor zorgen dat de optie **TTS** (tekst-naar-spraak) is ingeschakeld. Als u speculatieve gedeeltelijke vertalingen wilt zien terwijl u spreekt, schakelt u de optie **Gedeeltelijke resultaten** in.
 
-Klik tot slot, **Start** om te beginnen met de vertaling. Stel dat u iets dat die u wilt hebben vertaald en bekijk de herkende tekst en de vertaling weergegeven in het venster. Als u de optie TTS hebt ingeschakeld, worden ook de vertaling horen.
+Klik ten slotte op **Start** om de vertaling te starten. Zeg iets wat u wilt laten vertalen, en kijk hoe de herkende tekst en de vertaling in het venster verschijnen. Als u de optie TTS hebt ingeschakeld, hoort u de vertaling ook.
 
-## <a name="obtaining-supported-languages"></a>Het ophalen van ondersteunde talen
+## <a name="obtaining-supported-languages"></a>Ondersteunde talen ophalen
 
-In dit artikel is geschreven ondersteunt de Microsoft Translator-service meer dan 60 talen voor tekstvertaling. Een kleiner aantal talen worden ondersteund voor spraakomzetting. Deze talen ondersteuning nodig hebt voor beide transcriptie (spraakherkenning) en voor de Text to Speech-uitvoer synthese.
+Ten tijde van dit schrijven biedt de Translator Speech-service ondersteuning voor tekstvertaling in meer dan zestig talen. Een kleiner aantal talen wordt ondersteund voor spraakomzetting. Voor dergelijke talen is ondersteuning vereist voor zowel transcriptie (spraakherkenning) als voor synthese (tekst-naar-spraak-uitvoer).
 
-Met andere woorden, voor spraakomzetting moet de source-taal een ondersteund voor transcriptie. De taal van de uitvoer is mogelijk een van de talen die worden ondersteund voor tekstvertaling, ervan uitgaande dat u wilt dat een tekst-resultaat. Als u de spraakuitvoer wilt, kunt u alleen in een taal die wordt ondersteund voor tekst naar spraak vertalen.
+Met andere woorden: voor spraakomzetting moet de brontaal zijn ondersteund voor transcriptie. De doeltaal kan elke taal zijn die wordt ondersteund voor tekstvertaling, aangenomen dat u een tekstresultaat wilt zien. Als u spraakuitvoer wilt, kunt u alleen vertalen in een taal die wordt ondersteund voor tekst-naar-spraak.
 
-Microsoft kan van tijd tot tijd ondersteuning voor nieuwe talen toevoegen. Daarom moet u niet programmeren enige kennis van ondersteunde talen in uw toepassing. In plaats daarvan biedt de Translator Speech-API een talen-eindpunt waarmee u om op te halen van de ondersteunde talen tijdens runtime. U kunt kiezen voor het ontvangen van een of meer lijsten van talen: 
+Zo nu en dan wordt in Microsoft ondersteuning toegevoegd voor nieuwe talen. Het is dus raadzaam om kennis van ondersteunde talen niet vast te leggen in uw toepassing. In plaats hiervan biedt de Translator Speech-API een eindpunt Talen waarmee u de ondersteunde talen tijdens de uitvoering kunt ophalen. U kunt ervoor kiezen om een of meer lijsten met talen te ontvangen: 
 
 | | |
 |-|-|
-|`speech`|De talen die worden ondersteund voor spraaktranscriptie. Bron talen voor vertaling van gesproken tekst kan zijn.|
-|`text`|De talen die worden ondersteund voor de vertaling van tekst-naar-tekst. Mag doeltalen voor vertaling van gesproken tekst als tekstuitvoer wordt gebruikt.|
-|`tts`|De stemmen voor spraaksynthese wordt ondersteund, elk gekoppeld aan een bepaalde taal. Mag doeltalen voor vertaling van gesproken tekst als tekst naar spraak wordt gebruikt. Een bepaalde taal kan worden ondersteund door meer dan één stem.|
+|`speech`|De ondersteunde talen voor spraaktranscriptie. Kunnen brontalen voor spraakomzetting zijn.|
+|`text`|De ondersteunde talen voor tekst-naar-tekst-vertaling. Kunnen doeltalen voor spraakomzetting zijn wanneer tekstuitvoer wordt gebruikt.|
+|`tts`|De stemmen die worden ondersteund voor spraaksynthese, elk gekoppeld aan een bepaalde taal. Kunnen doeltalen voor spraakomzetting zijn wanneer tekst-naar-spraak wordt gebruikt. Een bepaalde taal kan ondersteuning hebben voor meer dan één stem.|
 
-Het eindpunt van de talen geen een abonnementssleutel vereist en het gebruik ervan worden niet meegeteld in uw quotum. De URI is `https://dev.microsofttranslator.com/languages` en retourneert de resultaten in JSON-indeling.
+Voor het eindpunt Talen is geen abonnementssleutel vereist, en het gebruik van het eindpunt telt niet mee in uw quotum. De bijbehorende URI is `https://dev.microsofttranslator.com/languages` en de resultaten worden geretourneerd in de JSON-indeling.
 
-De methode `UpdateLanguageSettingsAsync()` in `MainWindow.xaml.cs`, wordt weergegeven, roept het eindpunt van de talen voor de lijst met ondersteunde talen. 
+Met de methode `UpdateLanguageSettingsAsync()` in `MainWindow.xaml.cs`, die hier wordt weergegeven, wordt het eindpunt Talen aangeroepen om de lijst met ondersteunde talen op te halen. 
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -188,54 +188,54 @@ private async Task UpdateLanguageSettingsAsync()
 }
 ```
 
-Deze methode wordt eerst een HTTP-aanvraag naar het eindpunt van de talen aanvragen van alle drie een lijst met talen (`text`, `speech`, en `tts`).
+Met deze methode wordt eerst een HTTP-aanvraag naar het eindpunt Talen gemaakt, waarbij alle drie de lijsten met talen worden aangevraagd (`text`, `speech` en `tts`).
 
-Het eindpunt van de talen van de aanvraag gebruikt `Accept-Languages` header om te bepalen van de taal waarin de namen van de talen die worden weergegeven. Bijvoorbeeld, geeft de taal Engels sprekers bekend als 'Duitse' 'Deutsch' in het Duits en 'Alemán' in het Spaans en de lijst met talen heet deze verschillen. De standaardtaal van het systeem wordt gebruikt voor deze header.
+Het eindpunt Talen maakt gebruik van de `Accept-Languages`-header van de aanvraag om de taal te bepalen waarin de namen van de talen worden weergegeven. De taal die in het Engels bijvoorbeeld ‘German’ wordt genoemd, heet ‘Deutsch’ in het Duits en ‘Alemán’ in het Spaans, en in de lijst met talen worden deze verschillen weergegeven. Voor deze header wordt de standaardtaal van het systeem gebruikt.
 
-Nadat de aanvraag is verzonden en de JSON-antwoord ontvangen, het antwoord is geparseerd in interne gegevensstructuur. Deze structuren worden gebruikt voor het maken van de menu's van taal en voor de taal. 
+Nadat de aanvraag is verzonden en het JSON-antwoord is ontvangen, wordt het antwoord geparseerd in interne gegevensstructuren. Deze structuren worden vervolgens gebruikt om de menu’s voor de brontaal en doeltaal samen te stellen. 
 
-Omdat de stemmen die beschikbaar zijn, is afhankelijk van de taal aan die door de gebruiker gekozen, is het niet mogelijk voor het instellen van het menu stem nog. In plaats daarvan worden de beschikbare stemmen voor elke taal opgeslagen voor later gebruik. De `ToLanguage_SelectionChanged` handler (in het bronbestand met dezelfde) het menu stem later bijgewerkt door het aanroepen van `UpdateVoiceComboBox()` wanneer de gebruiker ervoor kiest een taal naar. 
+Omdat de beschikbare stemmen afhankelijk zijn van de door de gebruiker gekozen doeltaal, kan het menu Stem nog niet worden ingesteld. In plaats hiervan worden de beschikbare stemmen voor elke taal opgeslagen voor later gebruik. Het menu Stem wordt later bijgewerkt met behulp van de `ToLanguage_SelectionChanged`-handler (in hetzelfde bronbestand) door `UpdateVoiceComboBox()` aan te roepen wanneer de gebruiker een doeltaal kiest. 
 
-Voor de lol, een taal naar willekeurig geselecteerd als de gebruiker heeft niet de toepassing voordat wordt uitgevoerd. (De menu-instellingen worden opgeslagen tussen sessies.)
+Als de gebruiker de toepassing nog nooit eerder heeft uitgevoerd, wordt een willekeurige doeltaal geselecteerd. (De menu-instellingen worden tussen sessies in opgeslagen.)
 
 ## <a name="authenticating-requests"></a>Aanvragen verifiëren
 
-Aanmelden bij de Microsoft Translator Speech-service moet u de sleutel van uw Azure-abonnement in de header verzenden als de waarde voor `Ocp-Apim-Subscription-Key` in de verbindingsaanvraag.
+U moet ter verificatie bij de Microsoft Translator Speech-service uw Azure-abonnementssleutel in de header verzenden als de waarde voor `Ocp-Apim-Subscription-Key` in de verbindingsaanvraag.
 
-## <a name="translation-overview"></a>Overzicht van de vertaling
+## <a name="translation-overview"></a>Vertalingsoverzicht
 
-De API vertalen (WebSockets eindpunt `wss://dev.microsofttranslator.com/speech/translate`) accepteert audio om te worden vertaald in mono, 16 kHz, 16-bits ondertekende WAVE-indeling. De service retourneert een of meer JSON-antwoorden met zowel de herkende en vertaalde tekst. Als de tekst naar spraak is aangevraagd, wordt een audiobestand verzonden.
+De Vertalen-API (WebSockets-eindpunt `wss://dev.microsofttranslator.com/speech/translate`) staat toe dat audio wordt vertaald in een mono, 16 kHz, 16-bit ondertekende WAVE-indeling. De service retourneert een of meer JSON-antwoorden met zowel de herkende als de vertaalde tekst. Als tekst-naar-spraak is aangevraagd, wordt een audiobestand verzonden.
 
-De gebruiker ervoor kiest de audiobron met behulp van de microfoon/bestandsinvoer-menu. De audio kan afkomstig zijn van een audio-apparaat (zoals een microfoon) of van een `.WAV` bestand.
+De gebruiker kiest de audiobron met behulp van het menu Microphone/File Input. De audio kan afkomstig zijn van een audio-apparaat (zoals een microfoon) of van een `.WAV`-bestand.
 
-De methode `StartListening_Click` wordt aangeroepen wanneer de gebruiker op de knop Start. Deze gebeurtenis-handler op zijn beurt roept `Connect()` om te beginnen met het proces voor het verzenden van audio naar het service-API-eindpunt. De `Connect()` methode worden de volgende taken uitgevoerd:
+De methode `StartListening_Click` wordt aangeroepen wanneer de gebruiker op de knop Start klikt. Met deze gebeurtenis-handler wordt vervolgens `Connect()` aangeroepen om te beginnen met het verzenden van audio naar het service-API-eindpunt. Met de methode `Connect()` worden de volgende taken uitgevoerd:
 
-
-> [!div class="checklist"]
-> * Ophalen van gebruikersinstellingen van het hoofdvenster en te valideren
-> * Tijdens de initialisatie van de audio-invoer en uitvoer van stromen
-> * Aanroepen van `ConnectAsync()` voor het afhandelen van de rest van het werk
-
-`ConnectAsync()`, op zijn beurt verwerkt de volgende taken:
 
 > [!div class="checklist"]
-> * Verificatie met Azure Subscription-key in kop `Ocp-Apim-Subscription-Key`
-> * Het maken van een `SpeechClient` exemplaar (gevonden in `SpeechClient.cs`) om te communiceren met de service
-> * Tijdens de initialisatie van `TextMessageDecoder` en `BinaryMessageDecoder` exemplaren (Zie `SpeechResponseDecoder.cs`) voor het afhandelen van reacties
-> * Verzenden van de audio via de `SpeechClient` exemplaar naar de Translator Speech-service
-> * Ontvangen en verwerken van de resultaten van de vertaling
+> * Gebruikersinstellingen ophalen uit het hoofdvenster en ze valideren
+> * De invoer- en uitvoerstroom voor audio initialiseren
+> * `ConnectAsync()` aanroepen om de rest van het werk af te handelen
 
-De verantwoordelijkheden van `SpeechClient` zijn minder:
+Met `ConnectAsync()` worden vervolgens de volgende taken afgehandeld:
 
 > [!div class="checklist"]
-> * Een WebSocket-verbinding te maken met de Translator Speech-service
-> * Audiogegevens verzenden en ontvangen van antwoorden via de socket
+> * Verifiëren met de Azure-abonnementssleutel in header `Ocp-Apim-Subscription-Key`
+> * Een `SpeechClient`-exemplaar maken (te vinden in `SpeechClient.cs`) om met de service te communiceren
+> * `TextMessageDecoder`- en `BinaryMessageDecoder`-exemplaren initialiseren (zie `SpeechResponseDecoder.cs`) om antwoorden te verwerken
+> * De audio via het `SpeechClient`-exemplaar verzenden naar de Translator Speech-service
+> * De resultaten van de vertaling ontvangen en verwerken
 
-## <a name="a-closer-look"></a>Een nader bekijken
+`SpeechClient` heeft minder verantwoordelijkheden:
 
-Deze moet duidelijker nu hoe onderdelen van de toepassing werken samen om uit te voeren van de NAT-aanvraag. Laten we eens wat code, ligt de focus op de relevante onderdelen.
+> [!div class="checklist"]
+> * Een WebSocket-verbinding met de Translator Speech-service tot stand brengen
+> * Audiogegevens verzenden en antwoorden ontvangen via de socket
 
-Hier volgt een gedeeltelijke versie van `Connect()` die instelling wordt weergegeven de audiostreams:
+## <a name="a-closer-look"></a>Nadere beschouwing
+
+Als het goed is, is het nu duidelijk hoe delen van de toepassing samenwerken om een vertaalaanvraag uit te voeren. Laten we wat code onder de loep nemen en daarbij focussen op de relevante onderdelen.
+
+Hier is een gedeeltelijke versie van `Connect()` waarin het instellen van audiostreams wordt getoond:
 
 ```csharp
 private void Connect()
@@ -357,11 +357,11 @@ private void Connect()
 }
 ```
 
-Een aanzienlijk deel van `Connect()` omvat het maken van een `SpeechClientOptions` exemplaar (Zie `SpeechClientOptions.cs`) voor het opslaan van de opties voor de vertaling. Opties omvatten de informatie die nodig zijn voor de verbinding met de service (zoals verificatiesleutel en de hostnaam) en de functies die worden gebruikt voor de vertaling. De velden die hier worden toegewezen aan de header-velden en HTTP-parameters die worden weergegeven door [de Translator Speech-API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
+Een aanzienlijk deel van `Connect()` omvat het maken van een `SpeechClientOptions`-exemplaar (zie `SpeechClientOptions.cs`) om de opties voor vertalen op te slaan. Opties zijn onder andere de benodigde informatie om verbinding te maken met de service (zoals verificatiesleutel en hostnaam) en de functies die worden gebruikt voor de vertaling. Deze velden worden toegewezen aan de header-velden en HTTP-parameters die beschikbaar zijn gemaakt met [de Translator Speech-API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
-`Connect()` ook maakt en initialiseert de audio-invoerapparaat (variabele `sampleProvider`) die fungeert als de bron van de spraak-naar-worden vertaald. Dit apparaat is een invoer hardwareapparaat zoals een microfoon of een bestand met de audiogegevens WAVE.
+Met `Connect()` wordt ook het geluidsinvoerapparaat gemaakt en geïnitialiseerd (variabele `sampleProvider`) dat dient als bron van de spraak die moet worden vertaald. Dit apparaat is een hardware-invoerapparaat, zoals een microfoon, of een bestand met WAVE-audiogegevens.
 
-Hier volgt de `ConnectAsync()` methode waarmee een instantie de `speechClient` klasse en hooks van anonieme functies voor het afhandelen van tekst en binaire antwoorden van de service.
+Hier is de methode `ConnectAsync()` waarmee de klasse `speechClient` wordt geïnstantieerd en anonieme functies worden gekoppeld voor het verwerken van tekstantwoorden en binaire antwoorden van de service.
 
 ```csharp
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
@@ -422,13 +422,13 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 }
 ```
 
-Na verificatie, met de methode maakt het `SpeechClient` exemplaar. De `SpeechClient` klasse (in `SpeechClient.cs`) Hiermee wordt de gebeurtenis-handlers van ontvangst tekst en binaire gegevens. Aanvullende handlers worden aangeroepen wanneer de verbinding is mislukt of de verbinding verbreekt.
+Na de verificatie wordt via de methode het `SpeechClient`-exemplaar gemaakt. Met de klasse `SpeechClient` (in `SpeechClient.cs`) worden gebeurtenis-handlers aangeroepen bij de ontvangst van binaire gegevens en tekstgegevens. Aanvullende handlers worden aangeroepen wanneer de verbinding mislukt of wordt verbroken.
 
-Binaire gegevens is audio (Text to Speech uitvoer) door de service wordt verzonden wanneer TTS is ingeschakeld. Tekstgegevens is een gedeeltelijke of volledige vertaling van de gesproken tekst. Dus nadat instantiëren, de methode van de functies voor het afhandelen van deze berichten hooks: audio opslaan voor later afspelen en tekst door deze in het venster wordt weergegeven.
+Binaire gegevens zijn audiogegevens (tekst-naar-spraak-uitvoer) die via de service worden verzonden wanneer TTS is ingeschakeld. Tekstgegevens zijn een gedeeltelijke of volledige vertaling van de gesproken tekst. Na het instantiëren worden met de methode functies gekoppeld om deze berichten te verwerken: audio wordt opgeslagen zodat deze later kan worden afgespeeld, en tekst wordt weergegeven in het venster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Dit codevoorbeeld is een uitgebreide-toepassing aan te tonen het gebruik van de Translator Speech-API. Er zijn daarom een geoorloofd aantal bewegende onderdelen om te begrijpen. U hebt de belangrijkste bits stapsgewijs. Het kan instructieve enkele onderbrekingspunten instellen in Visual Studio en helpen bij de vertaling zijn voor de rest. Als u de voorbeeldtoepassing begrijpt, bent u de Translator Speech-service gebruiken in uw eigen toepassingen voorzien.
+Dit codevoorbeeld is een toepassing met veel functies waarmee het gebruik van de Translator Speech-API wordt gedemonstreerd. Daarom is er een behoorlijk aantal bewegende delen waarvan u kennis moet nemen. U hebt nu de belangrijkste gedeelten bekeken. Verder kan het nuttig zijn om een paar breekpunten in Visual Studio te bepalen en het vertaalproces een keer te doorlopen. Als u de werking van de voorbeeldtoepassing onder de knie hebt, bent u er klaar voor om de Translator Speech-service te gebruiken in uw eigen toepassingen.
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Speech-API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
+> [ Naslaginformatie Microsoft Translator Speech-API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

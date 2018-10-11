@@ -1,6 +1,6 @@
 ---
-title: Gegevens voorbereiden voor de zelfstudie 'Classifying Iris' (Iris classificeren) in Machine Learning-services (preview) | Microsoft Docs
-description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel één en hier wordt het voorbereiden van gegevens besproken.
+title: Gegevens voorbereiden voor de zelfstudie 'Classifying Iris' (Iris classificeren) in Machine Learning-service (preview) | Microsoft Docs
+description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-service (preview) end-to-end gebruikt. Dit is deel één en hier wordt het voorbereiden van gegevens besproken.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,18 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722980"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990158"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Zelfstudie: classificeren van Iris deel 1 - gegevens voorbereiden
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
-Deze zelfstudie is **deel één van een serie van drie**. In deze zelfstudie doorloopt u de basisprincipes van Azure Machine Learning-services (preview) en leert u het volgende:
+Deze zelfstudie is **deel één van een serie van drie**. In deze zelfstudie doorloopt u de basisprincipes van Azure Machine Learning-service (preview) en leert u het volgende:
 
 > [!div class="checklist"]
 > * Een project maken in Azure Machine Learning Workbench
@@ -31,6 +34,8 @@ Deze zelfstudie is **deel één van een serie van drie**. In deze zelfstudie doo
 > * Python/PySpark-code genereren voor het aanroepen van het gegevensvoorbereidingspakket
 
 In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org/wiki/Iris_flower_data_set) gebruikt. 
+
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,11 +45,11 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 - Een Azure Machine Learning Experimenten-account
 - Azure Machine Learning Workbench moet zijn geïnstalleerd
 
-Als u nog niet aan deze vereisten voldoet, volgt u de stappen in het artikel [Snelstart: installeren en starten](../service/quickstart-installation.md) om uw accounts in te stellen en de toepassing Azure Machine Learning Workbench te installeren. 
+Als u nog niet aan deze vereisten voldoet, volgt u de stappen in het artikel [Snelstart: installeren en starten](quickstart-installation.md) om uw accounts in te stellen en de toepassing Azure Machine Learning Workbench te installeren. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Een nieuw project maken in Workbench
 
-Als u de stappen in het artikel [Quickstart: Install and start](../service/quickstart-installation.md) (Snelstart: installeren en starten) hebt gevolgd, hebt u dit project al gemaakt en kunt u doorgaan met de volgende sectie.
+Als u de stappen in het artikel [Quickstart: Install and start](quickstart-installation.md) (Snelstart: installeren en starten) hebt gevolgd, hebt u dit project al gemaakt en kunt u doorgaan met de volgende sectie.
 
 1. Open de app Azure Machine Learning Workbench en meld u indien nodig aan. 
    
@@ -62,7 +67,7 @@ Als u de stappen in het artikel [Quickstart: Install and start](../service/quick
    Projectnaam | myIris |Voer een unieke naam in die uw account aanduidt. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
    Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt.
    Projectbeschrijving | _leeg laten_ | Optioneel veld, nuttig voor het beschrijven van de projecten.
-   URL van GIT-opslagplaats Visualstudio.com |_leeg laten_ | Optioneel veld. U kunt een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   URL van GIT-opslagplaats Visualstudio.com |_leeg laten_ | Optioneel veld. U kunt een project koppelen aan een Git-opslagplaats in Azure DevOps voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Geselecteerde werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte die u hebt gemaakt voor uw Experimenten-account in Azure Portal. <br/>Als u de snelstart hebt gevolgd, hebt u een werkruimte met de naam IrisGarden. Selecteer anders de werkruimte die u hebt gemaakt bij het maken van uw Experimenten-account, of een andere werkruimte die u wilt gebruiken.
    Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die u kunt gebruiken om het product te verkennen. Deze sjabloon bevat de scripts en gegevens die u nodig hebt voor deze snelstart en andere zelfstudies op deze documentatiesite. 
 

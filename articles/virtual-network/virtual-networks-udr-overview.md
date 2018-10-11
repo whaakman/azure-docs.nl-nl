@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811910"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978901"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -105,13 +105,13 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen' is verschillend voor de Azure-portal en voor opdrachtregelprogramma's, evenals voor het implementatiemodel Azure Resource Manager en het klassieke implementatiemodel. De onderstaande tabel bevat de namen die worden gebruikt om te verwijzen naar elk 'volgend hoptype' in de verschillende hulpprogramma's en [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Volgend hoptype                   |Azure CLI 2.0 en PowerShell (Resource Manager) |Azure CLI 1.0 en PowerShell (klassiek)|
+|Volgend hoptype                   |Azure CLI en PowerShell (Resource Manager) |Azure CLI (klassiek) en PowerShell (klassiek)|
 |-------------                   |---------                                       |-----|
 |Gateway van een virtueel netwerk         |VirtualNetworkGateway                           |VPNGateway|
-|Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in CLI 1.0 in de asm-modus)|
-|Internet                        |Internet                                        |Internet (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Virtueel netwerk                 |VNetLocal                                       |VNETLocal (niet beschikbaar in de klassieke CLI in de asm-modus)|
+|Internet                        |Internet                                        |Internet (niet beschikbaar in de klassieke CLI in de asm-modus)|
 |Virtueel apparaat               |VirtualAppliance                                |VirtualAppliance|
-|Geen                            |Geen                                            |Null (niet beschikbaar in CLI 1.0 in de asm-modus)|
+|Geen                            |Geen                                            |Null (niet beschikbaar in de klassieke CLI in de asm-modus)|
 |Peering op virtueel netwerk         |VNet-peering                                    |Niet van toepassing|
 |Service-eindpunt voor virtueel netwerk|VirtualNetworkServiceEndpoint                   |Niet van toepassing|
 

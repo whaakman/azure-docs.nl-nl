@@ -1,25 +1,25 @@
 ---
-title: Met CSP-partnergegevens registeren bij Azure Cost Management | Microsoft Docs
-description: Gebruik uw CSP-partnergegevens om u te registreren bij Azure Cost Management.
+title: Met CSP-partnergegevens registeren bij Cloudyn in Azure | Microsoft Docs
+description: Gebruik uw CSP-partnergegevens om u te registreren bij Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/06/2018
+ms.date: 09/18/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 698ddab4f5bca5aacf79cb952a51c385a67eee32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578055"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985427"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registreren met het CSP-partnerprogramma en kostengegevens weergeven
 
-Als CSP-partner kunt u zich registreren bij Azure Cost Management. Uw registratie biedt toegang tot de Cloudyn-portal. In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
+Als CSP-partner kunt u zich registreren bij Cloudyn. Uw registratie biedt toegang tot de Cloudyn-portal. In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
 
 
 >[!NOTE]
@@ -35,12 +35,12 @@ Zie [Verbinding maken met de Partner Center API](https://msdn.microsoft.com/libr
 
 - Meld u aan bij Azure Portal op http://portal.azure.com.
 
-## <a name="register-with-azure-cost-management"></a>Registreren bij Azure Cost Management
+## <a name="register-with-cloudyn"></a>Registreren bij Cloudyn
 
 1. Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**.
-2. Klik onder **Overzicht** op **Cost Management**  
-    ![Pagina Cost Management](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. Klik op de pagina **Cost Management** op **Go to Cost Management** om de Cloudyn-registratiepagina in een nieuw venster te openen.
+2. Klik onder **Overzicht** op **Cloudyn**  
+    ![Cloudyn-pagina](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. Klik op de **Cloudyn**-pagina op **Go to Cloudyn** om de registratiepagina van Cloudyn te openen in een nieuw venster.
 4. Typ op de pagina voor de registratie van het proefabonnement in de Cloudyn-portal de naam van uw bedrijf en selecteer **Microsoft CSP Partner Program Administrator** en klik op **Volgende**.  
 5. Voer een **toepassings-id**, een **handels-id**, **geheime sleutel van de toepassing** in, en selecteer het **standaardprijsplan**. Als u de gegevens niet bij die hand hebt, meldt u zich aan bij de portal Partnercentrum [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) met uw primaire beheerdersaccount en voert u de volgende stappen uit:
   1. Ga naar **Dashboard** en klik achtereenvolgens op het symbool **Instellingen**, **Partnerinstellingen**en **App-beheer**.
@@ -62,7 +62,7 @@ De Partner Center API is standaard alleen toegankelijk voor directe CSP's. Een d
 Volg de stappen in [Registreren voor een proefabonnement](#create-a-trial-registration) voor het geven van toegang aan indirecte CSP-klanten of -partners, om een registratie voor een proefabonnement in te stellen. Voer vervolgens de volgende stappen uit voor het segmenteren van indirecte CSP-gegevens met behulp van Cloudyn-entiteitsgroepen. Wijs daarna de juiste gebruikersmachtigingen toe aan de entiteitsgroepen.
 
 1. Maak met deze gegevens een entiteitsgroep via [Entiteiten maken](tutorial-user-access.md#create-and-manage-entities).
-2. Volg de stappen in [Abonnementen toewijzen aan kostentiteiten](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Koppel de indirecte CSP-klant en de bijbehorende Azure-abonnementen aan de entiteit die u eerder hebt gemaakt.
+2. Volg de stappen in [Abonnementen toewijzen aan kostentiteiten](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Koppel de indirecte CSP-klant en de bijbehorende Azure-abonnementen aan de entiteit die u eerder hebt gemaakt.
 3. Volg de stappen in [Een gebruiker met beheerderstoegang maken](tutorial-user-access.md#create-a-user-with-admin-access) om een gebruikersaccount met beheerderstoegang te maken. Controleer vervolgens of het gebruikersaccount beheerderstoegang heeft tot de specifieke entiteiten die u eerder hebt gemaakt voor het indirecte account.
 
 Indirecte CSP-partners kunnen zich aanmelden bij de Cloudyn-portal met behulp van de accounts die u voor hen hebt gemaakt.
@@ -72,7 +72,7 @@ Indirecte CSP-partners kunnen zich aanmelden bij de Cloudyn-portal met behulp va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Quick Start hebt u de CSP-gegevens van uw Azure-abonnement gebruikt om u te registreren bij Cost Management. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga door naar de zelfstudie voor Cost Management voor meer informatie over Azure Cost Management.
+In deze snelstart hebt u de CSP-gegevens van uw Azure-abonnement gebruikt om u te registreren bij Cloudyn. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga voor meer informatie over Cloudyn verder met de zelfstudie voor Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Gebruik en kosten controleren](./tutorial-review-usage.md)

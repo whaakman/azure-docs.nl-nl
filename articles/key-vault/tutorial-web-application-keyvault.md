@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918907"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948880"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Zelfstudie: Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault
 
-In deze zelfstudie gaat u de stappen uitvoeren die nodig om een Azure-webtoepassing met behulp van beheerde service-identiteiten gegevens te laten lezen uit Key Vault. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie gaat u de stappen uitvoeren die nodig zijn om een Azure-webtoepassing met behulp van beheerde identiteiten voor Azure-resources gegevens te laten lezen uit Key Vault. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
 > * Een geheim opslaan in Key Vault.
 > * Een Azure-webtoepassing maken.
-> * Beheerde service-identiteiten inschakelen.
+> * Een beheerde identiteit voor de web-app inschakelen.
 > * De vereiste machtigingen verlenen aan de toepassing om gegevens te lezen uit Key Vault.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 Gebruik de volgende opdracht om u aan te melden bij Azure met behulp van de CLI:
 
@@ -218,9 +218,9 @@ Er zijn twee NuGet-pakketten die moeten zijn geïnstalleerd voor uw webtoepassin
 >[!IMPORTANT]
 > Er wordt een browservenster geopend en u ziet het bericht 502.5 - Process Failure. Dit is normaal gedrag. U moet de toepassings-id namelijk rechten toekennen voor het lezen van geheimen uit Key Vault.
 
-## <a name="enable-managed-service-identity"></a>Beheerde service-identiteit inschakelen
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Een beheerde identiteit voor de web-app inschakelen
 
-Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
+Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. In [Overzicht van beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) wordt het oplossen van dit probleem eenvoudiger gemaakt door Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD) te geven. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
 1. Ga terug naar de Azure CLI.
 2. Voer de opdracht identity assign uit om de identiteit voor deze toepassing te maken:
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->U kunt dit trouwens ook doen door naar de portal te gaan en **Managed service identity** op**On** te zetten in de eigenschappen van de webtoepassing.
+>U kunt dit ook doen door naar de portal te gaan en de instelling **Identity/System assigned** op **On** te zetten in de eigenschappen van de webtoepassing.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Rechten verlenen aan de toepassings-id
 

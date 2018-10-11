@@ -1,44 +1,46 @@
 ---
-title: Snelstartgids voor node.js voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
+title: 'Snelstart: Translator Speech-API Node.js'
+titlesuffix: Azure Cognitive Services
+description: Ontdek informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Translator Speech-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e652ee1e201e60d0d75f10bb8fceb4fbcd205381
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41988616"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954582"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Snelstartgids voor Microsoft Translator Speech-API met Node.js 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Snelstart: Translator Speech-API met Node.js 
 <a name="HOLTop"></a>
 
-In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
+In dit artikel leest u hoe de Translator Speech-API gebruikt voor het vertalen van gesproken woorden in een WAV-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Node.js 6](https://nodejs.org/en/download/) deze code uit te voeren.
+U hebt [Node.js 6](https://nodejs.org/en/download/) nodig om deze code uit te voeren.
 
-U moet installeren de [Websocket pakket](https://www.npmjs.com/package/websocket) voor Node.js.
+U moet het [Websocket-pakket](https://www.npmjs.com/package/websocket) voor Node.js installeren.
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16 kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam 'speak.wav'. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig uit uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code wordt omgezet in spraak in één taal.
+Met de volgende code wordt spraak van de ene naar de andere taal vertaald.
 
-1. Maak een nieuwe Node.js-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Node.js-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```nodejs
 /* To install this dependency, run:
@@ -155,9 +157,9 @@ function connect() {
 connect();
 ```
 
-**Spraak antwoord vertalen**
+**Gesproken antwoord vertalen**
 
-Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
+Deze handeling is geslaagd als het bestand 'speak2.wav' is gemaakt. Het bestand bevat de vertaling van de woorden die te horen zijn in 'speak.wav'.
 
 [Terug naar boven](#HOLTop)
 
@@ -168,5 +170,5 @@ Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. H
 
 ## <a name="see-also"></a>Zie ook 
 
-[Overzicht van Translator Speech](../overview.md)
-[API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
+[Translator Speech-overzicht](../overview.md)
+[API-naslagmateriaal](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

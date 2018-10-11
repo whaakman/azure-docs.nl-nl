@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960240"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -32,7 +32,7 @@ In deze zelfstudie leert u hoe u de volgende taken uitvoert bij het maken van ee
 
 - **Terraform configureren**: volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service-principal**: volg de aanwijzingen in de sectie **Create the service principal** (de service-principal maken) in het artikel [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) (een Azure-service-principal maken met Azure CLI 2.0). Noteer de waarden voor appId, displayName, password en tenant.
+- **Azure service-principal**: volg de aanwijzingen in de sectie **Create the service principal** (de service-principal maken) in het artikel [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) (een Azure-service-principal maken met Azure CLI). Noteer de waarden voor appId, displayName, password en tenant.
 
 ## <a name="create-the-directory-structure"></a>De mapstructuur maken
 De eerste stap is het maken van een map voor de Terraform-configuratiebestanden voor de oefening.
@@ -49,7 +49,7 @@ De eerste stap is het maken van een map voor de Terraform-configuratiebestanden 
     cd clouddrive
     ```
 
-1. Maak een map met de naam `terraform-aks-k8s`.
+1. Maak een directory met de naam `terraform-aks-k8s`.
 
     ```bash
     mkdir terraform-aks-k8s
@@ -295,7 +295,14 @@ In deze sectie ziet u hoe u de opdracht `terraform init` gebruikt om de resource
 
     ![Voorbeeld van de resultaten van de opdracht 'terraform init'](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Voer de opdracht `terraform plan` uit om het Terraform-plan te maken waarmee de infrastructuurelementen worden gedefinieerd. U moet voor de opdracht twee waarden invoeren: **var.client_id** en **var.client_secret**. Voer voor **var.client_id** de **appId**-waarde in die is gekoppeld aan uw service-principal. Voer voor **var.client_secret** de **password**-waarde in die is gekoppeld aan uw service-principal.
+1. Exporteer uw service-principal-referenties. Vervang de tijdelijke aanduidingen &lt;your-client-id> en &lt;your-client-secret> door de **appId**- en **wachtwoord**-waarden die aan uw service-principal zijn gekoppeld.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Voer de opdracht `terraform plan` uit om het Terraform-plan te maken waarmee de infrastructuurelementen worden gedefinieerd. 
 
     ```bash
     terraform plan -out out.plan
@@ -364,7 +371,7 @@ U kunt het gemaakte cluster controleren met de Kubernetes-hulpprogramma's.
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u Terraform en AKS gebruikt om een Kubernetes-cluster te maken. Hier volgen enkele aanvullende resources met meer informatie over Terraform in Azure: 
 
- [Terraform-hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
+ [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
  [Terraform Azure-documentatie voor providers](http://aka.ms/terraform)  
  [Terraform Azure-gegevensbron voor providers](http://aka.ms/tfgit)  
  [Terraform Azure-modules](http://aka.ms/tfmodules)

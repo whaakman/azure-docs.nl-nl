@@ -1,58 +1,59 @@
 ---
-title: Spraak vertaling API-documentatie | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Gebruik de API van Microsoft Translator spraak vertaling spraak-naar-spraak toevoegen en spraak naar tekstvertaling naar uw toepassingen.
+title: Wat is de Translator Speech-service?
+titleSuffix: Azure Cognitive Services
+description: Gebruik de API van de Translator Speech-service om spraak-naar-spraak- en spraak-naar-tekstvertaling toe te voegen aan uw toepassingen.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15f27e6b5b2fd7384958a660156855fc65f4e558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948771"
 ---
-# <a name="microsoft-translator-speech-api"></a>Spraak-API van Microsoft Translator
-De Microsoft Translator Speech-API kan end-to-end, realtime spraak vertalingen toevoegen aan toepassingen, hulpprogramma's of een oplossing die moeten worden vertaald meertalig spraak ongeacht de doel-OS of ontwikkelingstalen worden gebruikt. De API kan worden gebruikt voor beide spraak spraak en speech text vertaling.
+# <a name="what-is-translator-speech-api"></a>Wat is de Translator Speech-API?
+De Translator Speech-API kan worden gebruikt om end-to-end-, realtime, spraakomzettingen toe te voegen aan toepassingen, hulpprogramma's of oplossingen waarvoor meertalige spraakomzetting nodig is, ongeacht het doelbesturingssysteem of de ontwikkelingstalen. De API kan worden gebruikt voor zowel spraak-naar-spraak als spraak-naar-tekst.
 
-Microsoft Translator tekst API is een Azure-service, onderdeel van de [Microsoft cognitieve Services API verzameling](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) van machine learning en AI algoritmen in de cloud, gemakkelijk kunnen worden gebruikt in uw ontwikkelingsprojecten.
+De Translator Text-API is een Azure-service, is onderdeel van de [Azure Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)-verzameling voor Machine Learning en AI-algoritmen in de cloud en is direct te gebruiken in uw ontwikkelprojecten.
 
-Met de Microsoft Translator Speech-API clienttoepassingen stream spraak geluid om de service en ontvangen van een stream van de tekst en audio-gebaseerde resultaten, waaronder de herkende tekst in de taal van de bron en de vertaling in de doel-taal. Resultaten van de tekst worden geproduceerd door het toepassen van automatische Speech Recognition (ASR) aangedreven door diep neural netwerken voor de binnenkomende audiostroom. Onbewerkte ASR uitvoer is verder verbeterd door een nieuwe techniek aangeroepen TekstAlsWaar om beter intentie van de gebruiker weer te geven. Bijvoorbeeld, verwijderd TekstAlsWaar disfluencies (hmms en coughs), herhaalde woorden en herstelt de juiste leestekens en hoofdlettergebruik. De mogelijkheid om te maskeren of uitsluiten profanities is ook opgenomen. De opname- en NAT-engines zijn specifiek voor het afhandelen van eigen spraak getraind. 
+Met de Translator Speech-API kunnen clienttoepassingen gesproken audio streamen naar de service en een stream met tekst- en audioresultaten ontvangen, met daarin de herkende tekst in de brontaal en de vertaling in de doeltaal. Tekstresultaten worden geproduceerd door automatische spraakherkenning (Automatic Speech Recognition, ASR) toe te passen op de binnenkomende audiostream, mogelijk gemaakt door deep neural networks. De onbewerkte ASR-uitvoer wordt verder verbeterd met behulp van een nieuwe techniek, TrueText, zodat deze nog beter overeenkomt met de intentie van de gebruiker. TrueText verwijdert bijvoorbeeld onderbrekingen (hmm's en hoesten) en herhaalde woorden en zorgt voor correcte interpunctie en hoofdlettergebruik. Ook is de mogelijkheid om schuttingtaal te maskeren of uit te sluiten in de techniek opgenomen. De herkennings- en vertalingsengines zijn speciaal getraind om gesproken taal te verwerken. 
 
-De vertaling van spraak-service gebruikt Stiltedetectie om te bepalen van het einde van een utterance. Na een onderbreking in de stem activiteit, wordt de service stream terug uiteindelijke resultaat van de voltooide utterance. De service kunt terug gedeeltelijke resultaten, die tussenliggende erkenning en vertalingen voor een utterance in voortgang geeft ook verzenden. 
+De Translator Speech-service gebruikt stiltedetectie om het einde van een taaluiting te bepalen. Na een onderbreking in de stemactiviteit, streamt de service een definitief resultaat terug voor de voltooide taaluiting. De service kan ook gedeeltelijke resultaten terugsturen, zodat tussenliggende herkenningen en vertalingen zichtbaar zijn voor een lopende taaluiting. 
 
-Voor de vertaling van spraak-naar-spraak biedt de service de mogelijkheid om na te bootsen speech (spraak) uit de gesproken tekst in de doel-talen. Audio-naar-spraak wordt gemaakt in de indeling die is opgegeven door de client. WAV en MP3 indelingen zijn beschikbaar.
+De service biedt voor spraak-naar-spraakomzetting de mogelijkheid om spraak na te bootsen in de doeltalen (tekst-naar-spraak) op basis van de gesproken tekst. Tekst-naar-spraak-audio wordt gemaakt in de indeling die is opgegeven door de client. De indelingen WAV en MP3 zijn beschikbaar.
 
-De vertaling Speech-API wordt het WebSocket-protocol gebruikt voor een kanaal full-duplex-communicatie tussen de client en de server. 
+De Translator Speech-API maakt gebruik van het WebSocket-protocol voor een full-duplex-communicatiekanaal tussen de client en de server. 
 
 ## <a name="about-microsoft-translator"></a>Over Microsoft Translator
-Microsoft Translator is een vertaalservice cloud-gebaseerde computer. De kern van deze service wordt de [conversieprogramma tekst API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) en conversieprogramma Speech-API die verschillende Microsoft-producten en services inschakelen en worden gebruikt door duizenden bedrijven wereldwijd in hun toepassingen en werkstromen, zodat hun inhoud een wereldwijde doelgroep bereiken.
+Microsoft Translator is een cloudservice voor machinevertaling. Aan de basis van deze service staan de [Translator Text-API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) en de Translator Speech-API), die te vinden zijn in diverse Microsoft-producten en -services en door duizenden bedrijven over de hele wereld worden gebruikt in hun toepassingen en werkstromen om hun inhoud beschikbaar te maken voor een wereldwijd publiek.
 
 Meer informatie over de [Microsoft Translator-service](https://www.microsoft.com/en-us/translator/home.aspx)
 
-## <a name="microsoft-translator-neural-machine-translation-nmt"></a>Microsoft Translator Neural machinevertaling (NMT)
-De Microsoft Translator Speech-API wordt gebruikt voor de verouderde statistische machinevertaling (SMT) en de nieuwere neural machinevertaling (NMT) voor vertalingen.
+## <a name="microsoft-translator-neural-machine-translation-nmt"></a>Neurale machinevertalingen (NMT) van Microsoft Translator
+De Translator Speech-API maakt gebruik van zowel de oudere statistische machinevertalingen (SMT) als de nieuwere neurale machinevertalingen (NMT) om vertalingen te leveren.
 
-Statistische machinevertaling plateau een in termen van de prestaties verbeteren. Vertaling kwaliteit niet meer op een belangrijke manier voor algemene systemen met SMT helpen verbeteren. Een nieuwe vertaling op basis van AI-technologie is gebaseerd op Neural Networks (NN) dynamiek krijgen.
+Statistische machinevertaling heeft een plafond bereikt wat betreft prestatieverbeteringen. De vertaalkwaliteit wordt niet meer significant verbeterd voor algemene systemen die SMT gebruiken. Een nieuwe vertaaltechnologie op basis van AI-technologie, op basis van neurale netwerken (NN), wordt steeds vaker gebruikt.
 
-NMT biedt betere vertalingen niet alleen uit een onbewerkte vertaling kwaliteit verwerkt maar ook score berekenen omdat geluid meer beheersen, meer menselijke dan SMT die zijn. De belangrijkste reden voor deze soepele manier is dat NMT wordt gebruikt voor de volledige context van een zin om woorden. SMT duurt slechts de onmiddellijke context van een paar woorden voor en na elk woord.
+NMT biedt betere vertalingen, niet alleen op basis van de kwaliteitsscores van onbewerkte vertalingen, maar ook omdat deze soepeler en menselijker klinken dan SMT-vertalingen. De belangrijkste reden hiervoor is dat NMT gebruikmaakt van de volledige context van een zin bij het vertalen van woorden. Bij SMT wordt alleen gekeken naar de directe context van een paar woorden voor en na elk woord.
 
-NMT modellen zijn de kern van de API en niet zichtbaar is voor eindgebruikers. De alleen merkbare verschillen zijn:
-* De kwaliteit van de verbeterde vertaling, met name voor talen zoals Chinees en Japans Arabisch
-* Het niet compatibel is met de bestaande Hub aanpassingsfuncties (voor gebruik met de API van Microsoft Translator tekst)
+NMT-modellen vormen de kern van de API en zijn niet zichtbaar voor eindgebruikers. De enige merkbare verschillen zijn:
+* de verbeterde vertaalkwaliteit, met name voor talen zoals Chinees, Japans en Arabisch;
+* de incompatibiliteit met de bestaande Hub-aanpassingsfuncties (voor gebruik met de Microsoft Translator Text-API).
 
-Alle ondersteunde spraak vertaling talen zijn aangedreven door NMT. Daarom gebruikt alle spraak-naar-spraak vertaling NMT. 
+Alle ondersteunde talen voor spraakomzetting worden vertaald met behulp van NMT. Alle spraak-naar-spraakomzetting maakt dus gebruik van NMT. 
 
-Spraak tekst vertaling mag een combinatie van NMT en SMT, afhankelijk van de combinatie van taal gebruiken. Als de doel-taal wordt ondersteund door NMT, is de volledige vertaling NMT ingeschakeld. Als de taal van het doel wordt niet ondersteund door NMT, is de omzetting een hybride van NMT en SMT met Engels als een 'pivot' tussen de twee talen. 
+Spraak-naar-tekst kan een combinatie van NMT en SMT gebruiken, afhankelijk van de taalcombinatie. Als de doeltaal voor NMT wordt ondersteund, wordt de volledige vertaling verzorgd door NMT. Als de doeltaal wordt niet ondersteund door NMT, is de vertaling een hybride van NMT en SMT, waarbij Engels als tussenstap tussen de twee talen dient. 
 
-Weergave ondersteunde talen op [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
+Bekijk de ondersteunde talen op [Microsoft.com](https://www.microsoft.com/en-us/translator/languages.aspx). 
 
-Meer informatie over [hoe NMT werkt](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
+Meer informatie over [de werking van NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -60,9 +61,9 @@ Meer informatie over [hoe NMT werkt](https://www.microsoft.com/en-us/translator/
 > [Aanmelden](translator-speech-how-to-signup.md)
 
 > [!div class="nextstepaction"]
-> [Gaan coderen](quickstarts/csharp.md)
+> [Code schrijven](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Zie ook
-- [Cognitieve Services-documentatie pagina](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
-- [Cognitieve Services productpagina](https://azure.microsoft.com/services/cognitive-services/)
-- [Oplossing en de prijsgegevens](https://www.microsoft.com/en-us/translator/home.aspx) 
+- [Documentatiepagina van Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Productpagina van Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+- [Informatie over de oplossing en prijzen](https://www.microsoft.com/en-us/translator/home.aspx) 

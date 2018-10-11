@@ -1,29 +1,31 @@
 ---
-title: 'Azure-snelstart: een blob maken in objectopslag met Microsoft Azure Storage Explorer | Microsoft Docs'
-description: In deze snelstart gebruikt u Microsoft Azure Storage Explorer in object(blob)-opslag. Vervolgens gebruikt u Storage Explorer om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
+title: 'Snelstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag'
+description: In deze snelstart maakt u een container en een blob met behulp van Azure Storage Explorer. Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container bekijkt. U leert ook hoe u een momentopname van een blob maakt, hoe u containertoegangsbeleid beheert en hoe u een handtekening voor gedeelde toegang maakt.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399633"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996125"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Storage Explorer
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snelstart: Azure Storage Explorer gebruiken om een blob te maken in de objectopslag
 
-[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is een gebruikersinterface met meerdere platforms die wordt gebruikt om de inhoud van opslagaccounts te beheren. In deze handleiding wordt gedetailleerd uitgelegd hoe u Azure Storage Explorer kunt gebruiken om bestanden over te dragen tussen een lokale schijf en Azure Blob-opslag.
+In deze snelstart maakt u een container en een blob met behulp van [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Hierna leert u hoe u de blob naar uw lokale computer downloadt en hoe u alle blobs in een container bekijkt. U leert ook hoe u een momentopname van een blob maakt, hoe u containertoegangsbeleid beheert en hoe u een handtekening voor gedeelde toegang maakt.
+
+## <a name="prerequisites"></a>Vereisten
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze snelstartgids moet Azure Storage Explorer zijn geïnstalleerd. Als u dit programma wilt installeren, gaat u naar [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om het te downloaden voor Windows, Macintosh of Linux.
+Voor deze snelstart moet Azure Storage Explorer zijn geïnstalleerd. Zie [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) voor meer informatie over het installeren van Azure Storage Explorer voor Windows, Macintosh of Linux.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Aanmelden bij Storage Explorer
 

@@ -1,55 +1,57 @@
 ---
-title: Java-Quickstart voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
+title: 'Snelstart: Translator Speech-API Java'
+titlesuffix: Azure Cognitive Services
+description: Informatie en codevoorbeelden ophalen om u te helpen snel aan de slag te gaan met de Translator Speech-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41987453"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969458"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Snelstartgids voor Microsoft Translator Speech-API met Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Snelstart: Translator Speech-API met Java 
 <a name="HOLTop"></a>
 
-In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
+In dit artikel leest u hoe de Translator Speech-API gebruikt voor het vertalen van gesproken woorden in een WAV-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
+U hebt [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
 
-U moet de volgende bestanden.
+U hebt de volgende bestanden nodig.
 - [javax.websocket-api-1.1.jar (of nieuwer)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)
 - [jetty-http-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http)
-- [jetty-i/o-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
+- [jetty-io-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
 - [jetty-util-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util)
 - [websocket-api-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api)
 - [websocket-client-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client)
-- [websocket-gemeenschappelijke-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
+- [websocket-common-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (of nieuwer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+In de map met het uitvoerbare bestand dat u hebt gemaakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono. U kunt dit WAV-bestand verkrijgen via de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig op het [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code wordt omgezet in spraak in één taal.
+Met de volgende code wordt spraak van de ene naar de andere taal vertaald.
 
-1. Maak een nieuwe Java-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Java-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
-Config.Java:
+Config.java:
 
 ```java
 import java.util.*;
@@ -71,7 +73,7 @@ public class Config extends ClientEndpointConfig.Configurator {
 }
 ```
 
-Client.Java:
+Client.java:
 
 ```java
 import java.io.*;
@@ -214,7 +216,7 @@ See:
 }
 ```
 
-Speak.Java:
+Speak.java:
 
 ```java
 /*
@@ -263,9 +265,9 @@ public class Speak {
 }
 ```
 
-**Spraak antwoord vertalen**
+**Gesproken antwoord vertalen**
 
-Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
+Deze handeling is geslaagd als het bestand speak2.wav is gemaakt. Het bestand bevat de vertaling de woorden die te horen zijn in speak.wav.
 
 [Terug naar boven](#HOLTop)
 
@@ -276,5 +278,5 @@ Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. H
 
 ## <a name="see-also"></a>Zie ook 
 
-[Overzicht van Translator Speech](../overview.md)
-[API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
+[Translator Speech-overzicht](../overview.md)
+[API-naslagmateriaal](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
