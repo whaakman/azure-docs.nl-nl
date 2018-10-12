@@ -1,56 +1,43 @@
 ---
 title: Wat is Azure Scheduler? | Microsoft Docs
-description: Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd. En vervolgens worden deze acties automatisch gepland en uitgevoerd.
+description: Informatie over het maken, plannen en uitvoeren van geautomatiseerde taken die services binnen of buiten Azure aanroepen
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/18/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: klam
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22715111"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989165"
 ---
 # <a name="what-is-azure-scheduler"></a>Wat is Azure Scheduler?
-Met Azure Scheduler kunt u verklarend acties beschrijven die in de cloud moeten worden uitgevoerd. En vervolgens worden deze acties automatisch gepland en uitgevoerd.  In Scheduler wordt dit gedaan met behulp van [de Azure Portal](scheduler-get-started-portal.md), programmacode, de [REST-API](https://msdn.microsoft.com/library/mt629143.aspx) of Azure PowerShell.
 
-Scheduler maakt, onderhoudt en roept gepland werk aan.  Scheduler host geen workloads en voert geen programmacode uit. Scheduler *roept* programmacode aan die elders wordt gehost, in Azure, on-premises of bij een andere provider. Dit aanroepen gebeurt via HTTP, HTTPS, een opslagwachtrij, een Service Bus-wachtrij of een Service Bus-onderwerp.
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, dat buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
-Met Scheduler worden [taken](scheduler-concepts-terms.md) gepland, de resultaten van taken in het verleden bijgehouden die men kan bekijken, en daarbij gaat Scheduler heel deterministisch en betrouwbaar te werk bij het plannen van workloads die moeten worden uitgevoerd. Azure WebJobs (onderdeel van de functie Web Apps in Azure App Service) en andere Azure-planfuncties maken op de achtergrond gebruik van Scheduler. De [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) helpt met het beheer van de communicatie voor deze acties. Als zodanig ondersteunt Scheduler met gemak [complexe schema's en geavanceerde terugkeerpatronen](scheduler-advanced-complexity.md).
+[Azure Scheduler](https://azure.microsoft.com/services/scheduler/) helpt u bij het maken van [taken](../scheduler/scheduler-concepts-terms.md) die in de cloud worden uitgevoerd door declaratief acties te beschrijven. Vervolgens worden deze acties automatisch gepland en uitgevoerd door de service. U kunt bijvoorbeeld services binnen en buiten Azure aanroepen, zoals het aanroepen van HTTP of HTTPS-eindpunten, en berichten plaatsen in Azure Storage-wachtrijen en Azure Service Bus-wachtrijen of -onderwerpen. U kunt taken direct of op een later tijdstip uitvoeren. Scheduler ondersteunt met gemak [complexe schema's en geavanceerde terugkeerpatronen](../scheduler/scheduler-advanced-complexity.md). Scheduler geeft aan wanneer taken moeten worden uitgevoerd, houdt een geschiedenis bij van de taakresultaten die u kunt bekijken en plant op voorspelbare en betrouwbare wijze de uitvoering van workloads.
 
-Er zijn verschillende scenario's die zich goed lenen voor het gebruik van Scheduler. Bijvoorbeeld:
+Hoewel u Scheduler gebruiken kunt om geplande workloads te maken, onderhouden uit te voeren, host Scheduler de workload niet en voert het geen code uit. De service *roept* de service of programmacode aan die elders wordt gehost, bijvoorbeeld in Azure, on-premises of bij een andere provider. Dit aanroepen doet Scheduler via HTTP, HTTPS, een opslagwachtrij, een Service Bus-wachtrij of een Service Bus-onderwerp. Voor het maken, beheren en plannen van taken kunt u [Azure Portal](../scheduler/scheduler-get-started-portal.md), code, [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/) of [naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md) gebruiken. U kunt taken en [taakverzamelingen](../scheduler/scheduler-concepts-terms.md) bijvoorbeeld programmatisch maken, weergeven, bijwerken, beheren of verwijderen met scripts of in Azure Portal.
 
-* *Terugkerende acties van toepassingen*: periodiek verzamelen van gegevens van Twitter in een feed.
-* *Dagelijks onderhoud*: het dagelijks verwijderen van logboeken, het uitvoeren van back-ups en overige onderhoudstaken. Zo kan een beheerder er bijvoorbeeld voor kiezen elke dag om 1:00 uur een back-up te maken van de database.
+Andere Azure-planfuncties maken op de achtergrond gebruik van Scheduler, zoals [Azure WebJobs](../app-service/web-sites-create-web-jobs.md), een onderdeel van de functie [Web Apps](https://azure.microsoft.com/services/app-service/web/) in Azure App Service. U kunt de communicatie voor deze acties beheren met de [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/). helpt met het beheer van de communicatie voor deze acties.
 
-Met Scheduler kunt u programmacode gebruiken om taken en [taakverzamelingen](scheduler-concepts-terms.md) te maken, bij te werken, te verwijderen, weer te geven en te beheren, met behulp van scripts en in de portal.
+Hier volgen enkele scenario's waarbij Scheduler u kan helpen:
 
-## <a name="see-also"></a>Zie ook
- [Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie](scheduler-concepts-terms.md)
+* **Terugkerende app-acties uitvoeren**: zoals het regelmatig gegevens verzamelen van Twitter in een feed.
 
- [Aan de slag met behulp van Scheduler in Azure Portal](scheduler-get-started-portal.md)
+* **Dagelijks onderhoud uitvoeren**: het dagelijks verwijderen van logboeken, het uitvoeren van back-ups en overige onderhoudstaken. 
 
- [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
+  Als beheerder wilt u bijvoorbeeld de komende negen maanden elke dag om 01.00 uur een back-up maken van uw database.
 
- [Complexe schema's en geavanceerde terugkeerpatronen bouwen met Azure Scheduler](scheduler-advanced-complexity.md)
+## <a name="next-steps"></a>Volgende stappen
 
- [Naslaginformatie over REST API van Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)
-
- [Hoge beschikbaarheid en betrouwbaarheid van Azure Scheduler](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler-limieten, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
-
+* [Aan de slag met Scheduler in Azure Portal](scheduler-get-started-portal.md)
+* Meer informatie over [abonnementen en facturering voor Azure Scheduler](scheduler-plans-billing.md)
+* Informatie over [het bouwen van complexe schema's en geavanceerde terugkeerpatronen met Azure Scheduler](scheduler-advanced-complexity.md)

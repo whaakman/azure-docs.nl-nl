@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: een model implementeren voor Azure Machine Learning-services'
-description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services end-to-end gebruikt. Dit is deel 3, waarin het implementatiemodel wordt besproken.
+title: Een model implementeren voor Azure Machine Learning-service
+description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-service end-to-end gebruikt. Dit is deel 3, waarin het implementatiemodel wordt besproken.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918484"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946609"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Zelfstudie 3: Iris classificeren - Een model implementeren
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
 
 Deze zelfstudie is **deel 3 van een driedelige reeks**. In dit deel van de zelfstudie gebruikt u Machine Learning (preview) om:
@@ -38,7 +42,7 @@ In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org
 
 Voor deze zelfstudie hebt u het volgende nodig:
 - Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
-- Een experimenteel account en een Azure Machine Learning Workbench zijn geïnstalleerd, zoals beschreven in deze [snelstart](../service/quickstart-installation.md)
+- Een experimenteel account en een Azure Machine Learning Workbench zijn geïnstalleerd, zoals beschreven in deze [snelstart](quickstart-installation.md)
 - Het classificatiemodel van [deel 2 van de zelfstudie](tutorial-classifying-iris-part-2.md)
 - Een Docker-engine moet zijn geïnstalleerd en lokaal worden uitgevoerd
 
@@ -224,9 +228,9 @@ U kunt nu de realtime webservice maken.
 1. Gebruik de volgende opdracht om een realtime webservice te maken:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Met deze opdracht wordt een webservice-id gegenereerd die u later kunt gebruiken.
+   Met deze opdracht wordt een webservice-id gegenereerd die u later kunt gebruiken. Laat in een notitieblok de uitvoermap weg.
 
    De volgende schakelopties worden gebruikt met de opdracht **az ml service create realtime**:
 
@@ -276,9 +280,9 @@ Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-ins
    Als u een manifest wilt maken, gebruikt u de volgende opdracht en geeft u de model-id op die in de vorige stap is gegenereerd:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Er wordt nu een id voor het manifest gegenereerd.
+   Er wordt nu een id voor het manifest gegenereerd.  Laat in een notitieblok de uitvoermap weg.
 
 1. Een Docker-installatiekopie maken.
 

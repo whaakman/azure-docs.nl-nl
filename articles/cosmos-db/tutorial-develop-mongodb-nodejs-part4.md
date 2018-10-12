@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 583400dba7077ebab3ce80d6a03b26f13a659b35
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b6654afa27255b0ebd0cc80b94212f44bbf16f34
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696867"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960066"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Een MongoDB-app maken met Angular en Azure DB Cosmos - Deel 4: Een Azure DB Cosmos-account maken met de Azure CLI
 
@@ -37,7 +37,7 @@ Deel 4 van de zelfstudie bouwt voort op [deel 3](tutorial-develop-mongodb-nodejs
 
 Voltooi de stappen in [deel 3](tutorial-develop-mongodb-nodejs-part3.md) van de zelfstudie voordat u aan dit deel begint. 
 
-In dit gedeelte van de zelfstudie kunt u ofwel de Azure Cloud Shell gebruiken (in uw webbrowser) of de lokaal geïnstalleerde [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Als u de Azure CLI lokaal gebruikt, moet u met Azure CLI versie 2.0 of hoger hebben. Voer `az --version` uit bij de opdrachtprompt om uw versie te controleren. 
+In dit gedeelte van de zelfstudie kunt u ofwel de Azure Cloud Shell gebruiken (in uw webbrowser) of de lokaal geïnstalleerde [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

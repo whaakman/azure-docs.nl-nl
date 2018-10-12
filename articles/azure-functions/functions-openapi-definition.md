@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f2f4e7d96c4d8725d9d34314854665440d86ce8d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a085d7e25854a928778802d2b4ef50cf9e57eff9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095076"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960920"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>De OpenAPI-definitie maken voor een functie
 REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/)-bestand). Deze definitie bevat informatie over welke bewerkingen beschikbaar zijn in een API en hoe de gegevens van de aanvraag en respons voor de API moeten worden opgebouwd.
@@ -31,6 +31,9 @@ In deze zelfstudie leert u het volgende:
 > * Een OpenAPI-definitie genereren met OpenAPI-hulpprogramma’s
 > * De definitie wijzigen voor het leveren van aanvullende metagegevens
 > * De definitie testen door het aanroepen van de functie
+
+> [!IMPORTANT]
+> De OpenAPI-preview-functie is alleen vandaag beschikbaar in de runtime 1.x. Meer informatie over het maken van een 1.x-functie-app [vindt u hier](./functions-versions.md#creating-1x-apps).
 
 ## <a name="create-a-function-app"></a>Een functie-app maken
 

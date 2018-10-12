@@ -1,30 +1,30 @@
 ---
-title: 'Zelfstudie: kosten van gereserveerde instanties optimaliseren met Azure Cost Management | Microsoft Docs'
+title: 'Zelfstudie: kosten van gereserveerde instanties optimaliseren met Cloudyn in Azure| Microsoft Docs'
 description: In deze zelfstudie leert u hoe u de kosten van gereserveerde instanties voor Azure en Amazon Web Services (AWS) kunt optimaliseren.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177320"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987752"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Zelfstudie: gereserveerde instanties optimaliseren
 
-In deze zelfstudie leert u hoe u de kosten en het gebruik van gereserveerde instanties voor Azure en Amazon Web Services (AWS) kunt optimaliseren met Cost Management. Een gereserveerde instantie bij een provider van cloudservices is een verplichting tot een langetermijncontract waarbij u zich vooraf verplicht tot toekomstig gebruik van de virtuele machine. Dit kan mogelijk aanzienlijke besparingen bieden in vergelijking met het prijsmodel voor virtuele machines waarbij u betaalt op basis van gebruik. Mogelijke besparingen worden alleen gerealiseerd wanneer u de capaciteit van uw gereserveerde instanties volledig gebruikt.
+In deze zelfstudie leert u hoe u de kosten en het gebruik van gereserveerde instanties voor Azure en Amazon Web Services (AWS) kunt optimaliseren met Cloudyn. Een gereserveerde instantie bij een provider van cloudservices is een verplichting tot een langetermijncontract waarbij u zich vooraf verplicht tot toekomstig gebruik van de virtuele machine. Dit kan mogelijk aanzienlijke besparingen bieden in vergelijking met het prijsmodel voor virtuele machines waarbij u betaalt op basis van gebruik. Mogelijke besparingen worden alleen gerealiseerd wanneer u de capaciteit van uw gereserveerde instanties volledig gebruikt.
 
-In deze zelfstudie wordt uitgelegd hoe gereserveerde instanties van Azure en AWS worden ondersteund door Cost Management. Ook wordt beschreven hoe u de kosten van gereserveerde instanties kunt optimaliseren. Zorg er in de eerste plaats voor dat uw gereserveerde instanties volledig worden gebruikt. In deze zelfstudie leert u het volgende:
+In deze zelfstudie wordt uitgelegd hoe gereserveerde instanties van Azure en AWS worden ondersteund door Cloudyn. Ook wordt beschreven hoe u de kosten van gereserveerde instanties kunt optimaliseren. Zorg er in de eerste plaats voor dat uw gereserveerde instanties volledig worden gebruikt. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Inzicht krijgen in kosten van gereserveerde Azure-instanties
@@ -41,7 +41,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een Azure-account hebben.
-- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
+- U moet een proefregistratie of een betaald abonnement voor Cloudyn hebben.
 - U moet gereserveerde instanties in Azure of AWS hebben aangeschaft.
 
 ## <a name="understand-azure-ri-costs"></a>Inzicht krijgen in kosten van gereserveerde Azure-instanties
@@ -71,7 +71,7 @@ De rode balken geven de totale kosten weer van de aangeschafte gereserveerde ins
 
 ## <a name="benefits-of-ris"></a>Voordelen van gereserveerde instanties
 
-Elke aankoop van een gereserveerde instantie is van toepassing op een virtuele machine van een specifieke grootte en op een specifieke locatie. Bijvoorbeeld: D2s\_v3 die wordt uitgevoerd op de locatie VS - west, zoals wordt weergegeven op de volgende afbeelding:
+Elke aankoop van een gereserveerde instantie is van toepassing op een virtuele machine van een specifieke grootte en op een specifieke locatie. Bijvoorbeeld: D2s\_v3 die wordt uitgevoerd op de locatie US - west, zoals wordt weergegeven op de volgende afbeelding:
 
 ![Details van gereserveerde instanties voor Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
 
@@ -85,7 +85,7 @@ Een aanschaf waarbij het bereik wordt gedeeld, is het meest flexibel en wordt in
 
 ## <a name="optimize-azure-ri-costs"></a>De kosten van gereserveerde Azure-instanties optimaliseren
 
-Gereserveerde instanties en Hybrid Benefits worden als volgt door Azure Cost Management ondersteund:
+Gereserveerde instanties en Hybrid Benefits worden als volgt door Cloudyn ondersteund:
 
 - De kosten van prijsmodellen weergeven
 - Gebruik van gereserveerde instanties bijhouden
@@ -106,7 +106,7 @@ Navigeer in de Cloudyn-portal naar **Optimizer** > **RI Comparison** en selectee
 
 Selecteer in het rapport Reserved Instance Purchase Impact een VM-grootte (instantietype), locatie (regio), reserveringstermijn, aantal en de verwachte runtime. Vervolgens kunt u beoordelen of u met uw aankoop geld bespaart.
 
-Als u bijvoorbeeld een reservering koopt voor een virtuele machine van het type DS1\_v2 in VS - oost en deze een heel jaar 24 x 7 uitvoert, kunt u jaarlijks $ 369,48 besparen. Het break-evenpoint is met vijf maanden. Zie de volgende afbeelding:
+Als u bijvoorbeeld een reservering koopt voor een virtuele machine van het type DS1\_v2 in US - oost en deze een heel jaar 24 x 7 uitvoert, kunt u jaarlijks $ 369,48 besparen. Het break-evenpoint is met vijf maanden. Zie de volgende afbeelding:
 
 ![Break-evenpoint van gereserveerde instantie voor Azure](./media/tutorial-optimize-reserved-instances/azure03.png)
 
@@ -116,7 +116,7 @@ Als deze slechts 50% van de tijd wordt uitgevoerd, is het break-evenpoint met 10
 
 ## <a name="view-ri-costs"></a>De kosten van gereserveerde instanties weergeven
 
-Wanneer u een reservering koopt, verricht u een eenmalige betaling. Er zijn twee manieren om de betaling in Cost Management weer te geven:
+Wanneer u een reservering koopt, verricht u een eenmalige betaling. Er zijn twee manieren om de betaling in Cloudyn weer te geven:
 
 - Werkelijke kosten
 - Afgeschreven kosten

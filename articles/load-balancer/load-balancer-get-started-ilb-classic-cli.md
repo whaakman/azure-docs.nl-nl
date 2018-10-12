@@ -1,6 +1,6 @@
 ---
 title: Een interne load balancer maken - klassieke Azure CLI | Microsoft Docs
-description: Meer informatie over hoe u met de Azure CLI een interne load balancer maakt in het klassieke implementatiemodel
+description: Meer informatie over hoe u met de klassieke Azure CLI een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: 8f0ac03ff7b749e47692d03d65502df0a19bb758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb8929b31fa4325b996ddf4c5ec48e4acb0b930a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966892"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Aan de slag met het maken van een interne load balancer (klassiek) met behulp van de Azure CLI
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Aan de slag met het maken van een interne load balancer met behulp van de klassieke Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -44,11 +44,11 @@ U maakt als volgt een interne load balancer-set en servers die verkeer naar deze
 2. Voeg eindpunten toe die overeenkomen met de virtuele machines waarop het binnenkomende verkeer kan worden ontvangen.
 3. Configureer de servers om het verkeer te verzenden naar het virtuele IP-adres (VIP) van de instantie voor interne taakverdeling.
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Stapsgewijze instructies voor het maken van een interne load balancer met behulp van CLI
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>Stapsgewijze instructies voor het maken van een interne load balancer met behulp van de klassieke CLI
 
 In deze handleiding wordt beschreven hoe u een interne load balancer maakt op basis van bovenstaand scenario.
 
-1. Als u Azure CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
+1. Als u de klassieke CLI nog nooit hebt gebruikt, raadpleegt u [De Azure CLI installeren en configureren](../cli-install-nodejs.md) en volgt u de instructies tot het punt waar u uw Azure-account en -abonnement moet selecteren.
 2. Voer de opdracht **azure config mode** uit om over te schakelen naar de klassieke modus, zoals hieronder weergegeven.
 
     ```azurecli

@@ -1,6 +1,6 @@
 ---
-title: Voorbeeld van Azure CLI-script - Een web-app handmatig schalen met behulp van Azure CLI 2.0 | Microsoft Docs
-description: Voorbeeld van Azure CLI-script - Een web-app handmatig schalen met behulp van Azure CLI 2.0
+title: Voorbeeld van Azure CLI-script - Een web-app handmatig schalen met behulp van Azure CLI | Microsoft Docs
+description: Voorbeeld van Azure CLI-script - Een web-app handmatig schalen met behulp van Azure CLI
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282443"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988577"
 ---
 # <a name="scale-a-web-app-manually"></a>Een web-app handmatig schalen
 
@@ -31,7 +31,7 @@ Met dit voorbeeldscript maakt u een resourcegroep, een App Service-abonnement en
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u Azure CLI versie 2.0 of hoger nodig. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, hebt u Azure CLI versie 2.0 of hoger nodig. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Voorbeeldscript
 

@@ -1,29 +1,29 @@
 ---
-title: 'Zelfstudie: toegang beheren in Azure Cost Management | Microsoft Docs'
-description: In deze zelfstudie leest u hoe u de toegang tot gegevens van Cost Management kunt beheren met behulp van gebruikersaccounts die toegangsniveaus voor entiteiten bepalen.
+title: 'Zelfstudie: Toegang beheren met Cloudyn in Azure | Microsoft Docs'
+description: In deze zelfstudie leest u hoe u de toegang tot gegevens van Cloudyn kunt beheren met behulp van gebruikersaccounts die toegangsniveaus voor entiteiten bepalen.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188179"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957463"
 ---
-# <a name="tutorial-assign-access-to-cost-management-data"></a>Zelfstudie: toegang tot gegevens van Cost Management beheren
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Zelfstudie: Toegang beheren tot Cloudyn-gegevens
 
-De toegang tot gegevens van Cost Management wordt beheerd door middel van gebruikers of -entiteitsbeheer. Gebruikersaccounts van Cloudyn bepalen de toegang tot *entiteiten* en beheerfuncties. Er zijn twee soorten toegang: beheerder en gebruiker. Tenzij dit per gebruiker is gewijzigd, biedt beheerderstoegang gebruikers onbeperkte toegang tot alle functies in de portal van Cloudyn, met inbegrip van: beheer van gebruikers en lijsten met ontvangers, toegang als hoofdentiteit tot alle entiteitsgegevens. Gebruikerstoegang is bedoeld voor eindgebruikers om rapporten weer te geven en om rapporten te maken met de toegang die ze hebben tot entiteitsgegevens.
+De toegang tot gegevens van Cloudyn wordt beheerd door middel van gebruikers of -entiteitsbeheer. Gebruikersaccounts van Cloudyn bepalen de toegang tot *entiteiten* en beheerfuncties. Er zijn twee soorten toegang: beheerder en gebruiker. Tenzij dit per gebruiker is gewijzigd, biedt beheerderstoegang gebruikers onbeperkte toegang tot alle functies in de portal van Cloudyn, met inbegrip van: beheer van gebruikers en lijsten met ontvangers, toegang als hoofdentiteit tot alle entiteitsgegevens. Gebruikerstoegang is bedoeld voor eindgebruikers om rapporten weer te geven en om rapporten te maken met de toegang die ze hebben tot entiteitsgegevens.
 
 Entiteiten worden gebruikt om de hiërarchische structuur van de organisatie van uw bedrijf voor te stellen en vertegenwoordigen afdelingen, divisies en teams in uw organisatie in Cloudyn. De entiteitshiërarchie helpt u om nauwkeurig de uitgave bij te houden van de verschillende entiteiten.
 
-Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een account met beheerdersmachtigingen gemaakt in Cloudyn. Met behulp van dit account kunt u alle stappen in deze zelfstudie uitvoeren. In deze zelfstudie wordt aandacht besteed aan toegang tot gegevens van Cost Management en entiteitsbeheer. In deze zelfstudie leert u procedures om het volgende te doen:
+Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een account met beheerdersmachtigingen gemaakt in Cloudyn. Met behulp van dit account kunt u alle stappen in deze zelfstudie uitvoeren. In deze zelfstudie wordt aandacht besteed aan toegang tot gegevens van Cloudyn en entiteitsbeheer. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een gebruiker met beheerderstoegang maken
@@ -38,7 +38,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een Azure-account hebben.
-- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
+- U moet een proefregistratie of een betaald abonnement voor Cloudyn hebben.
 
 ## <a name="create-a-user-with-admin-access"></a>Een gebruiker met beheerderstoegang maken
 
@@ -50,7 +50,7 @@ Onder **User has admin access** is de hoofdentiteit van uw organisatie geselecte
   ![Een nieuwe gebruiker met beheerderstoegang toevoegen](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Een gebruiker met gebruikerstoegang maken
-Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cost Management zoals dashboards en rapporten, moeten beschikken over gebruikerstoegang om deze onderdelen weer te geven. Maak een nieuwe gebruiker die toegang heeft die vergelijkbaar is met de gebruiker die u hebt gemaakt met beheerderstoegang, maar met de volgende verschillen:
+Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cloudyn zoals dashboards en rapporten, moeten beschikken over gebruikerstoegang om deze onderdelen weer te geven. Maak een nieuwe gebruiker die toegang heeft die vergelijkbaar is met de gebruiker die u hebt gemaakt met beheerderstoegang, maar met de volgende verschillen:
 
 - Schakel **Allow User Management** en **Allow Recipient lists Management** uit, evenals het selectievakje Select all in de lijst **User has admin access**.
 - Selecteer in de lijst **User has user access** de entiteiten waartoe de gebruiker toegang moet hebben.
@@ -58,7 +58,7 @@ Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cost 
 
 ![Een nieuwe gebruiker met gebruikerstoegang toevoegen](.\media\tutorial-user-access\new-user-access.png)
 
-Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="delete-a-user"></a>Een gebruiker verwijderen
 
@@ -114,9 +114,9 @@ Klik in de Cloudyn-portal rechtsboven op het tandwielsymbool en selecteer **Clou
 
 U kunt ook meerdere accounts aan een entiteit koppelen. Selecteer de accounts en klik vervolgens op **Move**. Selecteer in het vak Move Accounts de entiteit waarnaar u het account wilt verplaatsen en klik vervolgens op **Save**. U wordt gevraagd te bevestigen dat u de accounts wilt verplaatsen. Klik op **Yes** en daarna op **OK**.
 
-Als u een Engelstalige zelfstudievideo wilt bekijken over het maken van een hiërarchie voor entiteitskosten, gaat u naar [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
+Als u een Engelstalige zelfstudievideo wilt bekijken over het maken van een hiërarchie voor entiteitskosten, gaat u naar [Creating a Cost Entity Hierarchy in Cloudyn](https://youtu.be/dAd9G7u0FmU).
 
-Als u een gebruiker bent van een Enterprise Agreement voor Azure, kunt u een video bekijken over het koppelen van accounts en abonnementen aan entiteiten. Ga hiervoor naar [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (ook Engelstalig vooralsnog).
+Als u een gebruiker bent van een Enterprise Agreement voor Azure, kunt u een video bekijken over het koppelen van accounts en abonnementen aan entiteiten. Ga hiervoor naar [Connecting to Azure Resource Manager with Cloudyn](https://youtu.be/oCIwvfBB6kk) (ook Engelstalig vooralsnog).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Fouten opsporen in een Azure Service Fabric Mesh-webtoepassing | Microsoft Docs'
+title: 'Zelfstudie: Fouten opsporen in een Azure Service Fabric Mesh-webtoepassing die in uw lokale ontwikkelcluster wordt uitgevoerd | Microsoft Docs'
 description: In deze zelfstudie gaat u fouten opsporen in een Azure Service Fabric Mesh-webtoepassing die op uw lokale cluster wordt uitgevoerd.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920986"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997009"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Zelfstudie: Fouten opsporen in een Service Fabric Mesh-webtoepassing
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Zelfstudie: Fouten opsporen in een Service Fabric Mesh-toepassing die in uw lokale ontwikkelcluster wordt uitgevoerd
 
-Deze zelfstudie is deel twee van een reeks en u leert hoe u fouten opspoort in een Azure Service Fabric Mesh-webtoepassing in uw lokale ontwikkelcluster.
+Deze zelfstudie is deel twee van een reeks en u leert hoe u een Azure Service Fabric Mesh-app bouwt en fouten opspoort in uw lokale ontwikkelcluster.
 
 In deze zelfstudie leert u:
 
@@ -34,9 +34,11 @@ In deze zelfstudie leert u:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * [Een Service Fabric Mesh-toepassing bouwen](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Fouten in de app lokaal opsporen
-> * [De app publiceren in Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Een Service Fabric Mesh-app maken in Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Fouten opsporen in een Service Fabric Mesh-app die wordt uitgevoerd in de lokale ontwikkelcluster
+> * [Een Service Fabric Mesh-app implementeren](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Een Service Fabric Mesh-app bijwerken](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh-bronnen opschonen](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -105,4 +107,4 @@ In dit deel van de zelfstudie hebt u het volgende geleerd:
 
 Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]
-> [Publish a Service Fabric Mesh web application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md) (Een Service Fabric Mesh-webtoepassing publiceren)
+> [Een Service Fabric Mesh-app implementeren](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

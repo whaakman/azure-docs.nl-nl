@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure-schijven beheren met de Azure CLI | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u Freeman Azure CLI 2.0 gebruikt voor het maken en beheren van Azure-schijven voor virtuele machines
+description: In deze zelfstudie leert u hoe u Freeman Azure CLI gebruikt voor het maken en beheren van Azure-schijven voor virtuele machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704484"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978315"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Zelfstudie: Azure-schijven beheren met de Azure CLI 2.0
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Zelfstudie: Azure-schijven beheren met de Azure CLI
 
 Virtuele machines (VM's) in Azure gebruiken schijven om het besturingssysteem, toepassingen en gegevens op te slaan. Wanneer u een VM maakt, is het van belang dat u een schijfgrootte en configuratie kiest die geschikt zijn voor de verwachte werkbelasting. In deze zelfstudie ziet u hoe u VM-schijven implementeert en beheert. U krijgt informatie over:
 
@@ -38,7 +38,7 @@ Virtuele machines (VM's) in Azure gebruiken schijven om het besturingssysteem, t
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="default-azure-disks"></a>Standaard Azure-schijven
 

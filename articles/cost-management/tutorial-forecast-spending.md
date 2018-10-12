@@ -1,24 +1,25 @@
 ---
-title: 'Zelfstudie: uitgaven voorspellen met Azure Cost Management | Microsoft Docs'
+title: 'Zelfstudie: uitgaven voorspellen met Cloudyn in Azure | Microsoft Docs'
 description: In deze zelfstudie leest u hoe u uitgaven kunt voorspellen met behulp van historische gegevens van gebruik en uitgaven.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953681"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Zelfstudie: toekomstige uitgaven voorspellen
 
-Azure Cost Management helpt u bij het voorspellen van toekomstige uitgaven aan de hand van historische gegevens van gebruik en uitgaven. U gebruikt rapporten van Cloudyn om gegevens van alle geschatte kosten weer te geven. De voorbeelden in deze zelfstudie laten zien hoe u kostenschattingen kunt controleren met behulp van de rapporten. In deze zelfstudie leert u het volgende:
+Cloudyn helpt u bij het voorspellen van toekomstige uitgaven aan de hand van historische gegevens van gebruik en uitgaven. U gebruikt rapporten van Cloudyn om gegevens van alle geschatte kosten weer te geven. De voorbeelden in deze zelfstudie laten zien hoe u kostenschattingen kunt controleren met behulp van de rapporten. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Toekomstige uitgaven voorspellen
@@ -28,7 +29,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een Azure-account hebben.
-- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
+- U moet een proefregistratie of een betaald abonnement voor Cloudyn hebben.
 
 ## <a name="forecast-future-spending"></a>Toekomstige uitgaven voorspellen
 
@@ -36,7 +37,7 @@ Cloudyn bevat rapporten voor kostenschatting om u helpen bij het voorspellen van
 
 Het rapport Current Month Projected Cost toont de kosten van uw services. De geschatte kosten worden bepaald aan de hand van de kosten aan het begin van de maand en van de vorige maand. Klik in het menu Reports boven aan de portal op **Cost** > **Projection and Budget** > **Current Month Projected Cost**. In de volgende afbeelding ziet u een voorbeeld.
 
-![geschatte kosten voor de huidige maand](./media/tutorial-forecast-spending/project-month01.png)
+![Geschatte kosten voor de huidige maand](./media/tutorial-forecast-spending/project-month01.png)
 
 In het voorbeeld kunt u zien voor welke services de uitgaven het hoogst zijn. De kosten voor Azure waren lager dan voor AWS. Als u kostenschattingen wilt zien voor virtuele machines van Azure, selecteert u **Azure/VM** in de lijst **Filter**.
 
@@ -48,11 +49,11 @@ Het rapport Annual Projected Cost bevat de geëxtrapoleerde kosten van uw servic
 
 Klik in het menu Reports boven aan de portal op **Cost** > **Projection and Budget** > **Annual Projected Cost**. In de volgende afbeelding ziet u een voorbeeld.
 
-![rapport met jaarlijkse geschatte kosten](./media/tutorial-forecast-spending/project-annual01.png)
+![Rapport met jaarlijkse geschatte kosten](./media/tutorial-forecast-spending/project-annual01.png)
 
 In het voorbeeld kunt u zien voor welke services de uitgaven het hoogst zijn. Net als in het voorbeeld voor een maand zijn de kosten voor Azure lager dan de kosten voor AWS. Als u kostenschattingen wilt zien voor virtuele machines van Azure, selecteert u **Azure/VM** in de lijst **Filter**.
 
-![jaarlijkse geschatte kosten van virtuele machines](./media/tutorial-forecast-spending/project-annual02.png)
+![Jaarlijkse geschatte kosten van virtuele machines](./media/tutorial-forecast-spending/project-annual02.png)
 
 In de afbeelding hierboven worden de jaarlijkse kosten van virtuele machines van Azure geschat op $ 28.374.
 

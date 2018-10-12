@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Een webtoepassing voor meerdere services maken, foutvrij maken en implementeren in Service Fabric Mesh | Microsoft Docs'
+title: 'Zelfstudie: Een toepassing voor meerdere services maken, foutvrij maken, implementeren en bewaken in Service Fabric Mesh | Microsoft Docs'
 description: In deze zelfstudie maakt u een Azure Service Fabric Mesh-toepassing voor meerdere services, bestaande uit een ASP.NET Core-website die communiceert met een back-endwebservice. U spoort de fouten in de toepassing lokaal op en publiceert de toepassing in Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920834"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979190"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Zelfstudie: Een webtoepassing voor meerdere services maken, foutvrij maken en implementeren in Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Zelfstudie: Een Service Fabric Mesh-toepassing met meerdere services bouwen, foutvrij maken, implementeren en upgraden
 
-Deze zelfstudie is deel één van een serie. U leert hoe u een Azure Service Fabric Mesh-toepassing maakt die een ASP.NET-webfront-end- en een ASP.NET Core Web API-back-endservice bevat. Vervolgens spoort u de fouten in de app op in uw lokale ontwikkelcluster en publiceert u de app in Azure. Als u klaar bent, hebt u een eenvoudige taken-app waarmee een service-naar-service-oproep wordt gedemonstreerd in een Service Fabric Mesh-toepassing die in Azure Service Fabric Mesh wordt uitgevoerd.
+Deze zelfstudie is deel één van een serie. U leert hoe u met Visual Studio een Azure Service Fabric Mesh-app maakt die een ASP.NET-webfront-end- en een ASP.NET Core Web API-back-endservice bevat. Vervolgens spoort u de fouten in de app op in uw lokale ontwikkelcluster. Daarna publiceert u de app naar Azure, brengt u wijzigingen aan in de configuratie en de code en werkt u de app bij. Als laatste gaat u ongebruikte Azure-resources opschonen zodat u niet hoeft te betalen voor wat u niet gebruikt.
+
+Wanneer u klaar bent, hebt u stapsgewijs de meeste van de fasen van het levenscyclusbeheer van de app doorlopen en een app gebouwd die een service-naar-serviceaanroep in een Service Fabric Mesh-app demonstreert.
 
 Als u de taken-app niet handmatig wilt maken, kunt u [de broncode downloaden](https://github.com/azure-samples/service-fabric-mesh) voor de voltooide toepassing en verdergaan met [Fouten in de app lokaal opsporen](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Service Fabric Mesh-toepassing maken bestaande uit een ASP.NET-webfront-end.
+> * Visual Studio gebruiken om een Service Fabric Mesh-app te maken bestaande uit een ASP.NET-webfront-end.
 > * Een model maken die de taakitems representeren.
 > * Een back-endservice maken en er gegevens uithalen.
 > * Een controller en DataContext toevoegen als deel van dat Model View Controller-patroon voor de back-endservice.
@@ -40,9 +42,11 @@ In deel 1 van de reeks leert u het volgende:
 
 In deze zelfstudiereeks leert u het volgende:
 > [!div class="checklist"]
-> * Een Service Fabric Mesh-toepassing bouwen
-> * [Fouten in de app lokaal opsporen](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [De app publiceren in Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Een Service Fabric Mesh-app maken in Visual Studio
+> * [Fouten opsporen in een Service Fabric Mesh-app die wordt uitgevoerd in de lokale ontwikkelcluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Een Service Fabric Mesh-app implementeren](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Een Service Fabric Mesh-app bijwerken](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh-bronnen opschonen](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Voor u met deze zelfstudie begint:
 
 * Controleer of u [uw ontwikkelomgeving hebt ingesteld](service-fabric-mesh-howto-setup-developer-environment-sdk.md). Hieronder valt het installeren van de Service Fabric-runtime, SDK, Docker en Visual Studio 2017.
 
-* De app voor deze zelfstudie moet voorlopig worden gebouwd met behulp van de Engelse landinstelling.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Een Service Fabric Mesh-project maken
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Een Service Fabric Mesh-project maken in Visual Studio
 
 Voer Visual Studio uit en selecteer **File** > **New** > **Project...**
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ Voeg aan het bestand service.yaml, onder `environmentVariables`, de volgende var
 
 > [!IMPORTANT]
 > Gebruik spaties, geen tabs, om de variabelen in te springen in het bestand service.yaml. Doet u dit niet, dan wordt het bestand niet gecompileerd. Tijdens het maken van de omgevingsvariabelen kunnen tabs worden ingevoegd. Vervang de tabs door spaties. Hoewel u fouten zult zien in de **build** met de opgespoorde fouten, wordt de app gewoon gestart. De app werkt echter pas als u de tabs door spaties hebt vervangen. Om er zeker van te zijn dat er geen tabs meer in het bestand service.yaml aanwezig zijn, kunt u witruimtes zichtbaar maken in de editor van Visual Studio via **Edit**  > **Advanced**  > **View White Space**.
+> Houd er rekening mee dat service.yaml-bestanden worden verwerkt met de Engelse landinstellingen.  Dus als u bijvoorbeeld een decimaal scheidingsteken nodig hebt, moet u een punt in plaats van een komma gebruiken.
 
 Het bestand **service.yaml** van het project **WebFrontEnd** moet er zoals dit uitzien, hoewel uw `ApiHostPort`-waarde waarschijnlijk anders is:
 
@@ -380,7 +380,7 @@ U bent nu klaar om de installatiekopie van de Service Fabric Mesh-toepassing in 
 In dit deel van de zelfstudie hebt u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een Service Fabric Mesh-toepassing maken bestaande uit een ASP.NET-webfront-end.
+> * Een Service Fabric Mesh-app maken bestaande uit een ASP.NET-webfront-end.
 > * Een model maken die de taakitems representeren.
 > * Een back-endservice maken en er gegevens uithalen.
 > * Een controller en DataContext toevoegen als deel van dat Model View Controller-patroon voor de back-endservice.
@@ -389,4 +389,4 @@ In dit deel van de zelfstudie hebt u het volgende geleerd:
 
 Ga door naar de volgende zelfstudie:
 > [!div class="nextstepaction"]
-> [Fouten opsporen in een Service Fabric Mesh-webtoepassing die lokaal wordt uitgevoerd](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Fouten opsporen in een Service Fabric Mesh-toepassing die in uw lokale ontwikkelcluster wordt uitgevoerd](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie over het bouwen van een model voor Azure Machine Learning-services (preview) | Microsoft Docs
-description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-services (preview) end-to-end gebruikt. Dit is deel twee en hierin wordt het experimenteren besproken.
+title: Zelfstudie over het bouwen van een model voor Azure Machine Learning-service (preview) | Microsoft Docs
+description: Deze volledige zelfstudie laat zien hoe u Azure Machine Learning-service (preview) end-to-end gebruikt. Dit is deel twee en hierin wordt het experimenteren besproken.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920054"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997307"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Zelfstudie 2: Iris classificeren - Een model bouwen
-Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
-Deze zelfstudie is **deel 2 van een driedelige reeks**. In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-services voor het volgende gebruikt:
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning-service (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
+
+Deze zelfstudie is **deel 2 van een driedelige reeks**. In dit gedeelte van de zelfstudie wordt uitgelegd hoe u Azure Machine Learning-service voor het volgende gebruikt:
 
 > [!div class="checklist"]
 > * Scripts openen en code controleren
@@ -39,7 +43,7 @@ In deze zelfstudie wordt de tijdloze [Iris-gegevensset](https://en.wikipedia.org
 
 Voor deze zelfstudie hebt u het volgende nodig:
 - Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
-- Een experimenteel account en een Azure Machine Learning Workbench zijn geïnstalleerd, zoals beschreven in deze [snelstart](../service/quickstart-installation.md)
+- Een experimenteel account en een Azure Machine Learning Workbench zijn geïnstalleerd, zoals beschreven in deze [snelstart](quickstart-installation.md)
 - Het project en de voorbereide Iris-gegevens uit [Zelfstudie deel 1](tutorial-classifying-iris-part-1.md)
 - Een Docker-engine moet zijn geïnstalleerd en lokaal worden uitgevoerd. De Community Edition van Docker is voldoende. Informatie over het installeren van Docker vindt u hier: https://docs.docker.com/engine/installation/.
 

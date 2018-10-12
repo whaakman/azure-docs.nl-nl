@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869573"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966857"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Zelfstudie: Een gesimuleerd apparaat gebruiken om connectiviteit met uw IoT-hub te testen
 
@@ -33,7 +33,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="prerequisites"></a>Vereisten
 
-De CLI-scripts die u in deze zelfstudie uitvoert, gebruiken de [Microsoft Azure IoT Extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Voer de volgende CLI-opdracht uit om deze extensie te installeren:
+De CLI-scripts die u in deze zelfstudie uitvoert, gebruiken de [Microsoft Azure IoT Extensie voor Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Voer de volgende CLI-opdracht uit om deze extensie te installeren:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -100,7 +100,7 @@ Om de primaire sleutel van het apparaat opnieuw in te stellen voor **MyTestDevic
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice
