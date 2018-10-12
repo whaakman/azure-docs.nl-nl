@@ -2,25 +2,18 @@
 title: Azure Data Box-schijf beperkt | Microsoft Docs
 description: Beschrijving van systeemlimieten en aanbevolen grootten voor de Microsoft Azure Data Box-schijf.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbaf1f10284fb520cc3a52a6c04c4150de3b6546
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960614"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092011"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limieten voor Azure Data Box-schijf (Preview)
 
@@ -28,7 +21,7 @@ ms.locfileid: "46960614"
 Houd rekening met deze limieten bij het implementeren en uitvoeren van uw oplossing Microsoft Azure Data Box-schijf. 
 
 > [!IMPORTANT] 
-> Azure Data Box-schijf is in Preview. Controleer de [gebruiksvoorwaarden voor de Preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
+> Azure Data Box-schijf is in Preview. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
 
 
 ## <a name="data-box-service-limits"></a>Data Box-service-limieten
@@ -47,7 +40,7 @@ In deze sectie beschrijft de limieten voor Azure Storage-service en de vereiste 
 Voor de meest recente informatie over limieten voor Azure storage-service en aanbevolen procedures voor de naamgeving van shares, containers en -bestanden, gaat u naar:
 
 - [Naamgeving van en verwijzen naar containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Naamgeving van en verwijzen naar bestandsshares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Naamgeving van en verwijzing naar shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok-blobs en pagina-blob-conventies](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
