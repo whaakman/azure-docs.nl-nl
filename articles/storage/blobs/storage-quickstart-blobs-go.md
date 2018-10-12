@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 93dc651767fc2be815fb706f71386ce72b382a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398573"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981712"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Go
 
@@ -23,11 +23,14 @@ In deze quickstart leert u hoe u de programmeertaal Go kunt gebruiken om blok-bo
 
 Dit zijn de vereisten voor het voltooien van deze snelstart: 
 * Installeer [Go 1.8 of hoger](https://golang.org/dl/)
-* Download en installeer [Azure Storage Blob-SDK voor Go](https://github.com/azure/azure-storage-blob-go/) met behulp van `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
+* Download en installeer [Azure Storage Blob-SDK voor Go](https://github.com/azure/azure-storage-blob-go/) met behulp van `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob`. 
+
+> [!WARNING]
+> Zorg ervoor dat u Azure in de URL in hoofdletters schrijft. Als u dit niet doet, kan dit importproblemen opleveren wanneer u aan het werk bent met de SDK. U moet Azure ook in uw importinstructies in hoofdletters schrijven.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 De [voorbeeldtoepassing](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) die in deze quickstart wordt gebruikt, is een Go-basistoepassing.  

@@ -1,28 +1,32 @@
 ---
-title: Zelfstudie - Gebruik en kosten bekijken in Azure Cost Management | Microsoft Docs
+title: 'Zelfstudie: Gebruik en kosten controleren met Cloudyn in Azure | Microsoft Docs'
 description: In deze zelfstudie bekijkt u gebruik en kosten om trends bij te houden, inefficiëntie te detecteren en waarschuwingen te maken.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35628122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987710"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Zelfstudie: Gebruik en kosten bekijken
 
-Azure Cost Management geeft gebruik en kosten weer, zodat u trends kunt bijhouden, inefficiëntie kunt detecteren en waarschuwingen kunt maken. Alle gegevens over gebruik en kosten worden weergegeven in Cloudyn-dashboards en -rapporten. Aan de hand van de voorbeelden in deze zelfstudie bekijkt u het gebruik en de kosten met behulp van dashboards en rapporten. In deze zelfstudie leert u het volgende:
+Cloudyn geeft gebruik en kosten weer, zodat u trends kunt bijhouden, inefficiëntie kunt detecteren en waarschuwingen kunt maken. Alle gegevens over gebruik en kosten worden weergegeven in Cloudyn-dashboards en -rapporten. Aan de hand van de voorbeelden in deze zelfstudie bekijkt u het gebruik en de kosten met behulp van dashboards en rapporten.
+
+Azure Cost Management biedt vergelijkbare functionaliteit als Cloudyn. Azure Cost Management is een systeemeigen Azure-oplossing voor kostenbeheer. Het helpt u kosten te analyseren, budgetten te maken en beheren, gegevens te exporteren en aanbevelingen voor optimalisatie te bekijken en er actie op te ondernemen om geld te besparen. Zie [Azure Cost Management](overview-cost-mgt.md) voor meer informatie.
+
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Gebruiks- en kostentrends bijhouden
@@ -35,7 +39,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 ## <a name="prerequisites"></a>Vereisten
 
 - U moet een Azure-account hebben.
-- U moet een proefregistratie of een betaald abonnement voor Azure Cost Management hebben.
+- U moet een proefregistratie of een betaald abonnement voor Cloudyn hebben.
 
 ## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
@@ -59,7 +63,7 @@ In het voorgaande voorbeeld is vanaf 2017-08-31 minder geld uitgegeven dan daarv
 
 In het voorbeeld ziet u duidelijk dat de kosten van Azure Storage afnemen vanaf 2017-08-31, terwijl de uitgaven voor andere Azure-services gelijk bleven. Wat veroorzaakte deze verlaging in de uitgaven? In dit voorbeeld waren enkele werknemers met vakantie, zodat ze de Storage-service niet gebruikten.
 
-Zie [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g) als u een zelfstudievideo wilt bekijken over het bijhouden van gebruiks- en kostentrends.
+Zie [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g) als u een zelfstudievideo wilt bekijken over het bijhouden van gebruiks- en kostentrends.
 
 ## <a name="detect-usage-inefficiencies"></a>Inefficiënt gebruik detecteren
 
@@ -83,7 +87,7 @@ Bekijk de id's van de VM-exemplaren door te klikken op het plusteken naast **Lis
 
 ![Lijst met kandidaten](./media/tutorial-review-usage/sizing03.png)
 
-Zie [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704) als u een zelfstudievideo wilt bekijken over het detecteren van inefficiënt gebruik.
+Zie [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) als u een zelfstudievideo wilt bekijken over het detecteren van inefficiënt gebruik.
 
 ## <a name="create-alerts-for-unusual-spending"></a>Waarschuwingen maken voor ongebruikelijke uitgaven
 

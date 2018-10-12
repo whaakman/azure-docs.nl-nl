@@ -1,27 +1,29 @@
 ---
-title: Overzicht van Azure Cost Management | Microsoft Docs
-description: Kostenbeheer van Azure is een kostenbeheeroplossing voor meerdere clouds, zodat u eenvoudig Azure- en andere cloudresources kunt gebruiken.
+title: Overzicht van Cloudyn in Azure | Microsoft Docs
+description: Cloudyn is een kostenbeheeroplossing voor meerdere clouds die helpt bij het gebruik van Azure- en andere cloudresources.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f0eac454d6ac937fc3313e4c50f8872e320c7ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162973"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985381"
 ---
-# <a name="what-is-azure-cost-management"></a>Wat is Azure Cost Management?
+# <a name="what-is-cloudyn"></a>Wat is Cloudyn?
 
-Met Azure Cost Management by Cloudyn, een dochteronderneming van Microsoft, kunt u het gebruik van de cloud en de uitgaven voor uw Azure-resources en andere cloudproviders (waaronder AWS en Google) volgen. Aan de hand van eenvoudige dashboard-rapporten krijgt u inzicht in de toewijzing van kosten en tevens factureringen en teruggaven. Met behulp van Cost Management kunt u uw cloud optimaliseren door weinig gebruikte resources te identificeren, die u vervolgens kunt aanpassen en beheren.
+Met Cloudyn, een dochteronderneming van Microsoft, kunt u het gebruik van de cloud en de uitgaven voor uw Azure-resources en andere cloudproviders (waaronder AWS en Google) volgen. Aan de hand van eenvoudige dashboard-rapporten krijgt u inzicht in de toewijzing van kosten en tevens factureringen en teruggaven. Met behulp van Cloudyn kunt u uw cloud optimaliseren door weinig gebruikte resources te identificeren, die u vervolgens kunt aanpassen en beheren.
 
-Zie [Introduction to Azure Cost Management](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo) (Inleiding tot Azure Cost Management) voor een inleidende video.
+Zie [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo) (Inleiding tot Azure Cloudyn) voor een inleidende video.
+
+Azure Cost Management biedt vergelijkbare functionaliteit als Cloudyn. Azure Cost Management is een systeemeigen Azure-oplossing voor kostenbeheer. Het helpt u kosten te analyseren, budgetten te maken en beheren, gegevens te exporteren en aanbevelingen voor optimalisatie te bekijken en er actie op te ondernemen om geld te besparen. Zie [Azure Cost Management](overview-cost-mgt.md) voor meer informatie.
 
 ## <a name="monitor-usage-and-spending"></a>Gebruik en uitgaven bewaken
 
@@ -29,12 +31,9 @@ Het bewaken van uw gebruik en uitgaven is cruciaal voor cloudinfrastructuren, om
 
 Rapporten kunnen uw uitgaven helpen bewaken voor het analyseren en volgen van het gebruik van, de kosten voor en de trends in de cloud. Door rapporten met overuren te gebruiken, kunt u afwijkingen in de trends detecteren. Ondoelmatigheden in de cloudimplementatie komen naar voren in optimalisatierapporten. In kostenanalyserapporten ziet u ook ondoelmatigheden.
 
-![Rapport met overuren](media\overview\cost-over-time-rpt.png)
-
-
 ## <a name="manage-costs"></a>Kosten beheren
 
-Met behulp van historische gegevens kunt u kosten beheren bij het analyseren van uw gebruik en kosten in de loop van de tijd om trends te herkennen. De trends worden vervolgens gebruikt om een schatting te maken van toekomstige uitgaven. Cost Management omvat tevens nuttige rapporten met geraamde kosten.
+Met behulp van historische gegevens kunt u kosten beheren bij het analyseren van uw gebruik en kosten in de loop van de tijd om trends te herkennen. De trends worden vervolgens gebruikt om een schatting te maken van toekomstige uitgaven. Cloudyn omvat tevens nuttige rapporten met geraamde kosten.
 
 Kostentoewijzing gaat over het beheer van kosten door het analyseren van uw kosten op basis van uw taggingbeleid. U kunt tags gebruiken voor uw aangepaste accounts, resources en entiteiten om de kostentoewijzing te verfijnen. Category Manager organiseert uw tags voor extra overzicht. En u gebruikt kostentoewijzing voor factureringen/terugstortingen om de kosten van resourcegebruik en aanverwante kosten te tonen om consumptief gedrag te beïnvloeden of tenantklanten te factureren.
 
@@ -44,14 +43,12 @@ Waarschuwingen helpen u de kosten beheren doordat u automatisch op de hoogte wor
 
 ## <a name="improve-efficiency"></a>Efficiëntie verbeteren
 
-Met Cost Management kunt u het optimale VM-gebruik vaststellen en inactieve VM's identificeren of inactieve VM's en niet-gekoppelde schijven verwijderen. Met behulp van gegevens uit rapporten over optimaal en inefficiënt rangschikken op afmetingen kunt u een plan opstellen om inactieve VM's uit bedrijf te halen. Optimaliseringsrapporten worden momenteel echter niet ondersteund voor CSP-partneraccounts of -abonnementen.
-
-![aanbevelingen betreffende afmetingen](.\media\overview\sizing.png)
+Met Cloudyn kunt u het optimale VM-gebruik vaststellen en inactieve VM's identificeren of inactieve VM's en niet-gekoppelde schijven verwijderen. Met behulp van gegevens uit rapporten over optimaal en inefficiënt rangschikken op afmetingen kunt u een plan opstellen om inactieve VM's uit bedrijf te halen. Optimaliseringsrapporten worden momenteel echter niet ondersteund voor CSP-partneraccounts of -abonnementen.
 
 Als u gereserveerde AWS-instanties van virtuele machines hebt ingericht, kunt u het gebruik van gereserveerde instanties verbeteren aan de hand van optimaliseringsrapporten. Hierin ziet u aanbevelingen voor aanschafbeleid, kunt u ongebruikte reserveringen wijzigen en inrichtingen plannen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U bent nu bekend met Cost Management. In de volgende stap registreert u uw cloudomgeving en onderzoekt u uw gegevens.
+U bent nu bekend met Cloudyn. In de volgende stap registreert u uw cloudomgeving en onderzoekt u uw gegevens.
 
 - [Een individueel Azure-abonnement registreren](quick-register-azure-sub.md)

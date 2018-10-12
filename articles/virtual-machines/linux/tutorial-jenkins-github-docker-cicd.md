@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d1d760c2642e0c986e50570630d31dda11d17478
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920702"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964734"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Zelfstudie: Een infrastructuur voor ontwikkeling maken op een virtuele Linux-machine in Azure met Jenkins, GitHub en Docker
 
@@ -37,7 +37,7 @@ U kunt een CI/CD-pijplijn (continue integratie en implementatie) gebruiken voor 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-jenkins-instance"></a>Een Jenkins-instantie maken
 In een vorige zelfstudie over [Het aanpassen van een virtuele Linux-machine bij de eerste keer opstarten](tutorial-automate-vm-deployment.md), hebt u geleerd hoe u de aanpassing van de virtuele machine met cloud-init moet automatiseren. Deze zelfstudie gebruikt een cloud-init-bestand om Jenkins en een Docker te installeren op een virtuele machine. Jenkins, een populaire open-source automatiseringsserver, integreert naadloos met Azure, wat continue integratie (CI) en continue levering (CD) mogelijk maakt. Voor meer zelfstudies over het gebruik van Jenkins bekijkt u [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
@@ -241,7 +241,7 @@ In deze zelfstudie configureerde u GitHub om een Jenkins build-taak uit te voere
 > * Een Docker-kopie van uw app maken
 > * Controleren of de GitHub-doorvoeracties een nieuwe Docker-installatiekopie bouwen en de lopende app bijwerken
 
-Ga naar de volgende zelfstudie voor meer informatie over het integreren van Jenkins met Visual Studio Team Services.
+Ga naar de volgende zelfstudie voor meer informatie over het integreren van Jenkins met Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Apps implementeren met Jenkins en Team Services](tutorial-build-deploy-jenkins.md)
+> [Apps implementeren met Jenkins en Azure DevOps Services](tutorial-build-deploy-jenkins.md)

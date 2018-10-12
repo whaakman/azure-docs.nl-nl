@@ -10,14 +10,18 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918769"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967894"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Zelfstudie: Iris classificeren via de opdrachtregelinterface
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
 
 In deze zelfstudie leert u de opdrachtregelprogramma's in Azure Machine Learning-preview-functies te gebruiken om het volgende te doen: 
@@ -34,7 +38,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
   
   Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-- Azure Machine Learning Workbench toepassing geïnstalleerd zoals beschreven in [Snelstart: Azure Machine Learning-services installeren en starten](../service/quickstart-installation.md). 
+- Azure Machine Learning Workbench toepassing geïnstalleerd zoals beschreven in [Snelstart: Azure Machine Learning-services installeren en starten](quickstart-installation.md). 
 
   >[!IMPORTANT]
   >Maak geen Azure Machine Learning-serviceaccounts aan, want u doet dat met behulp van de CLI in dit artikel.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Een nieuw project maken dat is gekoppeld aan een Git-opslagplaats in de cloud
-U kunt een nieuw project maken dat is gekoppeld aan een VSTS (Visual Studio Team Service) Git-opslagplaats. Telkens wanneer een experiment wordt ingediend, wordt een momentopname van de hele projectmap opgenomen in de externe Git-opslagplaats. Zie [Een Git-opslagplaats gebruiken met een Machine Learning Workbench-project](using-git-ml-project.md) voor meer informatie.
+U kunt een nieuw project maken dat is gekoppeld aan een Azure DevOps Git-opslagplaats. Telkens wanneer een experiment wordt ingediend, wordt een momentopname van de hele projectmap opgenomen in de externe Git-opslagplaats. Zie [Een Git-opslagplaats gebruiken met een Machine Learning Workbench-project](using-git-ml-project.md) voor meer informatie.
 
 > [!NOTE]
-> Azure Machine Learning biedt alleen ondersteuning voor lege Git-opslagplaatsen die in VSTS worden gemaakt.
+> Azure Machine Learning biedt alleen ondersteuning voor lege Git-opslagplaatsen die zijn gemaakt in Azure DevOps.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Als u een foutmelding krijgt met de mededeling dat de URL van de opslagplaats mogelijk ongeldig is of dat de gebruiker geen toegang heeft, kunt u een beveiligingstoken maken in VSTS (onder _Beveiliging_, menu _Persoonlijke toegangstokens toevoegen_) en het argument `--vststoken` gebruiken bij het maken van uw project. 
+> Als u een foutmelding krijgt met de mededeling dat de URL van de opslagplaats mogelijk ongeldig is of dat de gebruiker geen toegang heeft, kunt u een beveiligingstoken maken in Azure DevOps (onder _Beveiliging_, menu _Persoonlijke toegangstokens toevoegen_) en het argument `--vststoken` gebruiken bij het maken van uw project. 
 
 ### <a name="sample_create"></a>Een nieuw project maken van een voorbeeld
 In dit voorbeeld maakt u een nieuw project met een voorbeeldproject als sjabloon.

@@ -1,6 +1,6 @@
 ---
 title: 'Snelstart: openbare Standard Load Balancer maken - Azure CLI | Microsoft Docs'
-description: In deze snelstart vindt u meer informatie over het maken van een openbare load balancer met behulp van Azure CLI
+description: In deze snelstart vindt u meer informatie over het maken van een openbare load balancer met Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,20 +17,20 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2b6623b614a254635cb758f615271dac826f08b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e4429c5ec808b561360f5088236b16a9fa6a276a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439741"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955126"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Snelstart: Standard Load Balancer maken om taken van VM's te verdelen via Azure CLI 2.0
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snelstart: Standard Load Balancer maken om taken van VM's te verdelen via Azure CLI
 
 In deze snelstart wordt getoond hoe u Standard Load Balancer maakt. U test de load balancer door twee virtuele machines (VM's) te implementeren waarop een Ubuntu-server wordt uitgevoerd en waarbij de taken van een web-app gelijkelijk over twee VM's worden verdeeld.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie versie 2.0.28 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie versie 2.0.28 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 

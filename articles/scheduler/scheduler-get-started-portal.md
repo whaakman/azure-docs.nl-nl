@@ -1,155 +1,152 @@
 ---
-title: Aan de slag met Azure Scheduler in Azure Portal | Microsoft Docs
-description: Aan de slag met Azure Scheduler in Azure-portal
+title: Geplande taken maken met Azure Scheduler - Azure Portal | Microsoft Docs
+description: Leer hoe u uw eerste geautomatiseerde taak kunt maken, plannen en uitvoeren met Azure Scheduler in de Azure Portal
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/10/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949584"
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Aan de slag met Azure Scheduler in Azure-portal
-Het is eenvoudig om geplande taken te maken in Azure Scheduler. In deze zelfstudie leert u een taak te maken: U komt ook te weten hoe de controle- en beheerfuncties van Scheduler werken.
+# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Uw eerste taak plannen en maken met Azure Scheduler - Azure Portal
 
-## <a name="create-a-job"></a>Een taak maken
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).  
-2. Klik op **+Nieuw** > typ *Scheduler* in het zoekvak > selecteer **Scheduler** in de resultaten > klik op **Maken**.
-   
-    ![][marketplace-create]
-3. We gaan een taak maken waarbij we eenvoudig http://www.microsoft.com/ bestoken met een GET-aanvraag. In het scherm **Scheduler-taak** voert u de volgende gegevens in:
-   
-   1. **Naam:** `getmicrosoft`  
-   2. **Abonnement:** uw Azure-abonnement   
-   3. **Taakverzameling:** selecteer een bestaande taakverzameling of klik op **Nieuw** > typ een naam.
-4. Definieer vervolgens in **Actie-instellingen** de volgende waarden:
-   
-   1. **Actietype:** ` HTTP`  
-   2. **Methode:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Tot slot gaan we een planning definiëren. De taak kan worden gedefinieerd als een eenmalige taak, maar we kiezen een schema voor een terugkerende taak:
-   
-   1. **Terugkeerpatroon**:`Recurring`
-   2. **Start**: de datum van vandaag
-   3. **Herhaald elke**:`12 Hours`
-   4. **Beëindigen op**: twee dagen na de huidige datum  
-      
-      ![][recurrence-schedule]
-6. Klik op **Maken**.
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, dat buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
-## <a name="manage-and-monitor-jobs"></a>Taken beheren en controleren
-Zodra een taak is gemaakt, wordt deze weergegeven in het belangrijkste Azure-dashboard. Klik op de taak, waarna een nieuw venster wordt geopend met de volgende tabbladen:
+In deze zelfstudie leert u hoe u gemakkelijk een taak kunt maken en plannen en die taak vervolgens kunt bewaken en beheren. 
 
-1. Eigenschappen  
-2. Actie-instellingen  
-3. Planning  
-4. Geschiedenis
-5. Gebruikers
+Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>.
+
+## <a name="create-job"></a>Taak maken
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).  
+
+1. Selecteer **Een resource maken** in het hoofdmenu van Azure. Voer in het zoekvak ‘Planner’ in. Selecteer in de lijst met resultaten **Planner** en kies daarna **Maken**.
+
+   ![Scheduler-resource maken](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
+
+   Maak nu een taak die een GET-aanvraag naar deze URL verzendt: `http://www.microsoft.com/` 
+
+1. Voer onder **Scheduler-taak** deze informatie in:
+
+   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   |----------|---------------|-------------| 
+   | **Naam** | getMicrosoft | De naam van uw taak | 
+   | **Jobverzameling** | <*job-collection-name*> | Maak een taakverzameling of selecteer een bestaande verzameling. | 
+   | **Abonnement** | <*Azure-subscription-name*> | De naam van uw Azure-abonnement | 
+   |||| 
+
+1. Selecteer **Actie-instellingen - Configureren**, verstrek deze informatie en kies vervolgens **OK** als u klaar bent:
+
+   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   |----------|---------------|-------------| 
+   | **Actie** | **Http** | Het type actie dat moet worden uitgevoerd | 
+   | **Methode** | **Get** | De aan te roepen methode | 
+   | **URL** | **http://www.microsoft.com** | De doel-URL | 
+   |||| 
    
-   ![][job-overview]
+   ![Taak definiëren](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
+
+1. Selecteer **Schema - Configureren**, definieer het schema en selecteer vervolgens **OK** als u klaar bent:
+
+   U kunt maar een taak per keer maken, maar in dit voorbeeld wordt een terugkerend schema ingesteld.
+
+   | Eigenschap | Voorbeeldwaarde | Beschrijving |
+   |----------|---------------|-------------| 
+   | **Terugkeerpatroon** | **Terugkerend** | Voer een eenmalige of terugkerende taak in | 
+   | **Beginnen op** | <*datum van vandaag*> | De begindatum van de taak | 
+   | **Herhaald elke** | **1 uur** | Het interval en de frequentie voor het terugkeerpatroon | 
+   | **Einde** | **Beëindigen op** twee dagen na de huidige datum | De einddatum van de taak | 
+   | **UTC-offset** | **UTC +08:00** | Het tijdverschil tussen Coordinated Universal Time (UTC) en de waargenomen tijd op uw locatie | 
+   |||| 
+
+   ![Schema definiëren](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
+
+1. Kies **Gereed** als u klaar bent.
+
+   Nadat u uw taak hebt gemaakt, implementeert Azure deze en wordt de taak op het Azure-dashboard weergegeven. 
+
+1. Kies **Vastmaken aan dashboard** als Azure een melding weergeeft dat de implementatie is geslaagd. Kies anders het pictogram **Meldingen** (met de bel) op de Azure-werkbalk en kies vervolgens **Vastmaken aan dashboard**.
+
+## <a name="monitor-and-manage-jobs"></a>Taken controleren en beheren
+
+Kies uw taak op het Azure-dashboard om uw taak te controleren, bewaken en beheren. Onder **Instellingen** staan de gebieden die u kunt controleren en beheren voor uw taak:
+
+![Taakinstellingen](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
+
+Selecteer een gebied voor meer informatie over deze gebieden:
+
+* [**Eigenschappen**](#properties)
+* [**Actie-instellingen**](#action-settings)
+* [**Planning**](#schedule)
+* [**Geschiedenis**](#history)
+* [**Gebruikers**](#users)
+
+<a name="properties"></a>
 
 ### <a name="properties"></a>Eigenschappen
-Deze eigenschappen zijn alleen-lezen en beschrijven de beheermetagegevens voor de Scheduler-taak.
 
-   ![][job-properties]
+Selecteer **Eigenschappen** om alleen-lezeneigenschappen te bekijken die de beheermetagegevens voor uw taak beschrijven.
+
+![Taakeigenschappen weergeven](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
+
+<a name="action-settings"></a>
 
 ### <a name="action-settings"></a>Actie-instellingen
-Door op een taak in het scherm **Taken** te klikken, kunt u die taak configureren. Hiermee kunt u geavanceerde instellingen configureren, als u deze nog niet hebt geconfigureerd in de wizard Snelle invoer.
 
-Voor alle actietypen kunt u het beleid voor opnieuw proberen en de foutactie wijzigen.
+Selecteer **Actie-instellingen** om de geavanceerde instellingen van uw taak te wijzigen. 
 
-Voor de actietypen HTTP- en HTTPS-taak, kunt u de methode wijzigen in een toegestane HTTP-term. U kunt ook de koptekst en elementaire verificatiegegevens toevoegen, verwijderen of wijzigen.
+![Actie-instellingen controleren](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-Voor actietypen Opslagwachtrij kunt u het opslagaccount, de wachtrijnaam, de SAS-token en de hoofdtekst wijzigen.
+| Actietype | Beschrijving | 
+|-------------|-------------| 
+| Alle typen | U kunt het **Beleid voor opnieuw proberen** en de instellingen voor **foutacties** wijzigen. | 
+| HTTP en HTTPS | U kunt **Methode** wijzigen naar elke toegestane methode. U kunt ook de koptekst en elementaire verificatiegegevens toevoegen, verwijderen of wijzigen. | 
+| Opslagwachtrij| U kunt het opslagaccount, de naam van de wachtrij, het SAS-token en de hoofdtekst wijzigen. | 
+| Service Bus | U kunt de naamruimte, het onderwerp of wachtrijpad, de verificatie-instellingen, het transporttype, de berichtkenmerken en de hoofdtekst van het bericht wijzigen. | 
+||| 
 
-Voor Service Bus-actietypen kunt u de naamruimte, het onderwerp/wachtrijpad, de verificatie-instellingen, het transporttype, de berichtkenmerken en de hoofdtekst van het bericht wijzigen.
-
-   ![][job-action-settings]
+<a name="schedule"></a>
 
 ### <a name="schedule"></a>Planning
-Hiermee kunt u het schema opnieuw configureren als u de planning wilt wijzigen die u hebt gemaakt in de wizard Snelle invoer.
 
-Dit is een kans om [complexe schema's en een geavanceerd terugkeerpatroon in uw taak in te bouwen](scheduler-advanced-complexity.md)
+Als u een schema via de taakwizard instelt, kunt u dat schema wijzigen, zoals de begindatum en -tijd, het terugkeerschema en de einddatum en -tijd voor terugkerende taken.
+U kunt ook meer [complexe schema's en geavanceerde terugkeerpatronen bouwen](scheduler-advanced-complexity.md).
 
-U kunt de startdatum en -tijd wijzigen evenals de einddatum en -tijd (als het om een terugkerende taak gaat.)
+Om uw taakschema weer te geven of te wijzigen, selecteert u **Schema**:
 
-   ![][job-schedule]
+![Taakplanning weergeven](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
+
+<a name="history"></a>
 
 ### <a name="history"></a>Geschiedenis
-Op het tabblad **Geschiedenis** worden geselecteerde metrische gegevens weergegeven voor elke keer dat er in het systeem voor de geselecteerde taak een taak is uitgevoerd. Deze metrische gegevens bestaan uit realtime-waarden die betrekking hebben op de status van uw exemplaar van Scheduler:
 
-1. Status  
-2. Details  
-3. Nieuwe pogingen
-4. Terugkeerpatroon: 1e, 2e, 3e enzovoorts.
-5. Starttijd van de uitvoering  
-6. Eindtijd van de uitvoering
-   
-   ![][job-history]
+Selecteer **Geschiedenis** om metrische gegevens weer te geven voor elke taak uitvoering van een geselecteerde taak. Deze metrische gegevens bieden realtimewaarden over de gezondheid van uw taak, zoals de status, het aantal nieuwe pogingen, het aantal terugkerende acties, de begintijd en de eindtijd.
 
-U kunt op een uitvoering klikken om de **Geschiedenisdetails** ervan weer te geven, zoals onder andere het volledige antwoord voor elke uitvoering. Vanuit dit dialoogvenster kunt u ook het antwoord naar het Klembord kopiëren.
+![Taakgeschiedenis en metrische gegevens weergeven](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-   ![][job-history-details]
+Selecteer elke uitvoering onder **Geschiedenis** om de historische gegevens voor elke uitvoering, zoals de volledige respons voor elke uitvoering, weer te geven. 
+
+![Historische gegevens voor een taak weergeven](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
+
+<a name="users"></a>
 
 ### <a name="users"></a>Gebruikers
-Met op rollen gebaseerd toegangsbeheer (RBAC) van Azure beschikt u over geavanceerd toegangsbeheer voor Azure Scheduler. Voor meer informatie over het tabblad Gebruikers, zie [Op rollen gebaseerd toegangsbeheer in Azure](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="see-also"></a>Zie ook
- [Wat is Scheduler?](scheduler-intro.md)
+U kunt toegang tot Azure Scheduler voor elke gebruiker op detailniveau beheren door op rollen gebaseerd toegangsbeheer (RBAC) in Azure te gebruiken. Raadpleeg [Toegang beheren met RBAC](../role-based-access-control/role-assignments-portal.md) voor meer informatie over het instellen van toegang op basis van rollen
 
- [Scheduler-concepten en terminologie entiteitenhiërarchie](scheduler-concepts-terms.md)
+## <a name="next-steps"></a>Volgende stappen
 
- [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
-
- [Complexe schema's en geavanceerde terugkeerpatronen bouwen met Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Naslaginformatie over de REST-API van Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Naslaginformatie over Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)
-
- [Hoge beschikbaarheid en betrouwbaarheid Scheduler](scheduler-high-availability-reliability.md)
-
- [Limieten, standaardwaarden en foutcodes van Scheduler](scheduler-limits-defaults-errors.md)
-
- [Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* Meer informatie over [concepten, terminologie en entiteitenhiërarchie](scheduler-concepts-terms.md)
+* [Complexe schema's en geavanceerde terugkeerpatronen bouwen](scheduler-advanced-complexity.md)
+* Meer informatie over [hoge beschikbaarheid en betrouwbaarheid van Scheduler](scheduler-high-availability-reliability.md)
+* Meer informatie over [limieten, quota, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)

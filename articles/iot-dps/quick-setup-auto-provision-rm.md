@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523441"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999038"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>IoT Hub Device Provisioning-service instellen met een Azure Resource Manager-sjabloon
 
-U kunt [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) gebruiken voor het programmatisch instellen van de benodigde Azure-cloudresources voor het inrichten van uw apparaten. Deze stappen laten zien hoe u een IoT-hub en een nieuwe IoT Hub Device Provisioning-service maakt en deze twee services aan elkaar koppelt met een Azure Resource Manager-sjabloon. Deze snelstart maakt gebruik van [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) voor het uitvoeren van de benodigde programmatische stappen voor het maken van een resourcegroep en het implementeren van de sjabloon, maar u kunt ook gewoon [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby of andere programmeertalen gebruiken om deze stappen uit te voeren en de sjabloon te implementeren. 
+U kunt [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) gebruiken voor het programmatisch instellen van de benodigde Azure-cloudresources voor het inrichten van uw apparaten. Deze stappen laten zien hoe u een IoT-hub en een nieuwe IoT Hub Device Provisioning-service maakt en deze twee services aan elkaar koppelt met een Azure Resource Manager-sjabloon. Deze snelstart maakt gebruik van [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) voor het uitvoeren van de benodigde programmatische stappen voor het maken van een resourcegroep en het implementeren van de sjabloon, maar u kunt ook gewoon [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby of andere programmeertalen gebruiken om deze stappen uit te voeren en de sjabloon te implementeren. 
 
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-- Voor deze snelstart moet u Azure CLI lokaal uitvoeren. Azure CLI versie 2.0 of hoger moet geïnstalleerd zijn. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Voor deze snelstart moet u Azure CLI lokaal uitvoeren. Azure CLI versie 2.0 of hoger moet geïnstalleerd zijn. Voer `az --version` uit om de versie te bekijken. Als u de CLI wilt installeren of upgraden, raadpleegt u [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Aanmelden bij Azure en een resourcegroep maken

@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden van Azure CLI 2.0 - Een aangepaste VM-installatiekopie gebruiken | Microsoft Docs
-description: Voorbeelden van Azure CLI 2.0
+title: Voorbeelden van Azure CLI - Een aangepaste VM-installatiekopie gebruiken | Microsoft Docs
+description: Azure CLI-voorbeelden
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c13b8275b69579e6645a5a0fa0c9d446c0246a48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a74e84b05269acc0d9f98a221b9e496dbe5fc75f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697497"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986078"
 ---
-# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>Een virtuele-machineschaalset maken op basis van een aangepaste VM-installatiekopie met Azure CLI 2.0
+# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Een virtuele-machineschaalset maken op basis van een aangepaste VM-installatiekopie met de Azure CLI
 Met dit script maakt u een virtuele-machineschaalset die gebruikmaakt van een aangepaste VM-installatiekopie als bron voor VM-exemplaren.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -50,6 +50,6 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 | [az group delete](/cli/azure/ad/group#delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg voor meer informatie over Azure CLI 2.0 de [Azure CLI 2.0-documentatie](https://docs.microsoft.com/cli/azure/overview).
+Raadpleeg de [documentatie van Azure CLI](https://docs.microsoft.com/cli/azure/overview) voor meer informatie over de Azure CLI.
 
-U kunt extra Azure CLI 2.0-scriptvoorbeelden voor virtuele machines vinden in de [Azure-documentatie voor virtuele-machineschaalsets](../cli-samples.md).
+U kunt extra Azure CLI-scriptvoorbeelden voor virtuele machines vinden in de [Azure-documentatie voor virtuele-machineschaalsets](../cli-samples.md).

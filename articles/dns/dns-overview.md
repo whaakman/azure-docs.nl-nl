@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574178"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967622"
 ---
 # <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
@@ -52,6 +52,14 @@ Uw domeinen en records kunnen worden beheerd met behulp van Azure Portal, Azure 
 Azure DNS ondersteunt ook privé-DNS-domeinen, die nu in openbare preview zijn. Hiermee kunt u uw eigen aangepaste domeinnamen gebruiken in uw privé virtuele netwerken in plaats van de door Azure geleverde namen die vandaag beschikbaar zijn.
 
 Zie voor meer informatie [Azure DNS gebruiken voor privédomeinen](private-dns-overview.md).
+
+## <a name="alias-records"></a>Aliasrecords
+
+Azure DNS ondersteunt alias-recordsets. U kunt een alias-recordset gebruiken om te verwijzen naar een Azure-resource, zoals een openbaar IP-adres van Azure of een Traffic Manager-profiel. Als het IP-adres van de onderliggende resource verandert, wordt de alias-recordset automatisch bijgewerkt tijdens DNS-omzetting. De alias-record set verwijst naar het service-exemplaar en het service-exemplaar is gekoppeld aan een IP-adres. 
+
+Bovendien kunt u nu uw apex of domein zonder voorvoegsel (bijvoorbeeld contoso.com) laten verwijzen naar een Traffic Manager-profiel met behulp van een aliasrecord.
+
+Zie [Overzicht van Azure DNS-aliasrecords](dns-alias.md) voor meer informatie.
 
 
 ## <a name="next-steps"></a>Volgende stappen

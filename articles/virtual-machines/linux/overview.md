@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820314"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949518"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
 Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, virtuele machines, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
@@ -91,7 +91,7 @@ Als u met Azure aan de slag wilt gaan, hebt u het volgende nodig: een Azure-acco
 Het eerste wat u moet doen, is een Azure-account maken.  Ga naar [deze pagina](https://azure.microsoft.com/pricing/free-trial/) om direct te beginnen.
 
 ### <a name="install-the-cli"></a>De CLI installeren
-U kunt uw nieuwe Azure-account direct gebruiken via Azure Portal ,een beheerinterface die via een browser werkt.  Als u de Azure-cloud wilt beheren via de opdrachtregel, installeert u de `azure-cli`.  Installeer de [Azure CLI 2.0](/cli/azure/install-azure-cli) op uw Mac of Linux-werkstation.
+U kunt uw nieuwe Azure-account direct gebruiken via Azure Portal ,een beheerinterface die via een browser werkt.  Als u de Azure-cloud wilt beheren via de opdrachtregel, installeert u de `azure-cli`.  Installeer de [Azure CLI](/cli/azure/install-azure-cli) op uw Mac of Linux-werkstation.
 
 ### <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 U hebt nu toegang tot een Azure-account, Azure Portal en de Azure CLI.  De volgende stap is het maken van een SSH-sleutelpaar dat wordt gebruikt om via SSH toegang te krijgen tot Linux zonder een wachtwoord te gebruiken.  [Maak SSH-sleutels in Linux en Mac OS](mac-create-ssh-keys.md) om aanmelding zonder wachtwoord mogelijk te maken en betere beveiliging in te stellen.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616323"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993388"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snelstart: Een Java Reliable Services-toepassing maken voor Service Fabric
 
@@ -101,7 +101,7 @@ Meld u aan en neem deel aan een [Linux-cluster](http://aka.ms/tryservicefabric).
 Service Fabric biedt verschillende hulpmiddelen waarmee u een cluster en de bijbehorende toepassingen kunt beheren:
 
 * Service Fabric Explorer, een op een browser gebaseerd hulpprogramma.
-* Service Fabric Command Line Interface (CLI), die wordt uitgevoerd boven op Azure CLI 2.0.
+* Service Fabric Command Line Interface (CLI), die wordt uitgevoerd boven op Azure CLI.
 * PowerShell-opdrachten.
 
 In deze snelstart gebruikt u de Service Fabric CLI en Service Fabric Explorer.

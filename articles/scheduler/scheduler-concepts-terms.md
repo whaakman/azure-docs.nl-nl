@@ -1,200 +1,323 @@
 ---
-title: Scheduler-concepten, -termen en -entiteiten | Microsoft Docs
-description: Azure Scheduler-concepten, -terminologie en -entiteitenhiërarchie, inclusief jobs en jobverzamelingen.  Toont een uitgebreid voorbeeld van een geplande job.
+title: Concepten, termen en entiteiten - Azure Scheduler | Microsoft Docs
+description: De concepten, terminologie en entiteitenhiërarchie, inclusief jobs en jobverzamelingen, in Azure Scheduler leren
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418839"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981158"
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Schedulerconcepten, -terminologie en -entiteitenhiërarchie
-## <a name="scheduler-entity-hierarchy"></a>Scheduler-entiteitenhiërarchie
-In de volgende tabel worden de belangrijkste resources beschreven die door de Scheduler-API beschikbaar worden gemaakt of worden gebruikt:
+# <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepten, terminologie en entiteiten in Azure Scheduler
 
-| Resource | Beschrijving |
-| --- | --- |
-| **Jobverzameling** |Een jobverzameling bevat een aantal jobs en onderhoudt instellingen, quota en vertragingen die worden gedeeld door jobs binnen de verzameling. Een jobverzameling wordt gemaakt door de eigenaar van een abonnement en groepeert jobs op basis van gebruiks- of toepassingsgrenzen. Een jobverzameling is beperkt tot één regio. U kunt er ook quota mee afdwingen om het gebruik van alle jobs in die verzameling te beperken. De quota omvatten MaxJobs en MaxRecurrence. |
-| **Job** |Een job definieert één terugkerende actie, met eenvoudige of complexe strategieën, die moet worden uitgevoerd. Acties omvatten mogelijk HTTP-, opslagwachtrij-, Service Bus-wachtrij- of Service Bus-onderwerpaanvragen. |
-| **Jobgeschiedenis** |Een jobgeschiedenis bevat de details van de uitvoering van een job. Hierin wordt aangegeven of de job is geslaagd of mislukt. U vindt hierin ook alle responsdetails. |
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) vervangt Azure Scheduler, die buiten gebruik wordt gesteld. [Probeer in plaats daarvan Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) als u taken wilt plannen. 
 
-## <a name="scheduler-entity-management"></a>Scheduler-entiteitsbeheer
-Op een hoog niveau maken de Scheduler-API en de Service Management-API de volgende bewerkingen beschikbaar op de resources:
+## <a name="entity-hierarchy"></a>Entiteitenhiërarchie
 
-| Mogelijkheid | Beschrijving en URI-adres |
-| --- | --- |
-| **Beheer van jobverzameling** |GET-, PUT- en DELETE-ondersteuning voor het maken en wijzigen van jobverzamelingen en de daarin opgenomen jobs. Een jobverzameling is een container voor jobs en is toegewezen aan quota en gedeelde instellingen. Voorbeelden van quota, die verderop worden beschreven, zijn maximum aantal jobs en kleinste terugkeerpatroon. <p>PUT en DELETE:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Jobbeheer** |Ondersteuning voor GET, PUT, POST, PATCH en DELETE voor het maken en wijzigen van jobs. Alle jobs moeten behoren tot een jobverzameling die al bestaat. Er wordt dus niet impliciet een gemaakt. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
-| **Beheer van jobgeschiedenis** |Ondersteuning voor GET voor het ophalen van een geschiedenis van 60 dagen van uitgevoerde jobs, zoals de verstreken tijd van jobs en de resultaten van het uitvoeren van jobs. Voegt ondersteuning toe voor querytekenreeksparameters om te filteren op basis van toestand en status. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
+De volgende entiteiten of resources worden door de REST API voor Azure Scheduler beschikbaar gemaakt en gebruikt:
+
+| Entiteit | Beschrijving |
+|--------|-------------|
+| **Job** | Definieert één terugkerende actie, met eenvoudige of complexe strategieën, die moet worden uitgevoerd. Acties omvatten mogelijk HTTP-, opslagwachtrij-, Service Bus-wachtrij- of Service Bus-onderwerpaanvragen. | 
+| **Jobverzameling** | Bevat een aantal jobs en onderhoudt instellingen, quota en vertragingen die worden gedeeld door jobs binnen de verzameling. Als eigenaar van een Azure-abonnement kunt u jobverzamelingen maken en jobs groeperen op basis van gebruiks- of toepassingsgrenzen. Een jobverzameling heeft de volgende kenmerken: <p>- Beperkt tot één regio. <br>- U kunt er quota mee afdwingen, zodat u het gebruik voor alle jobs in een verzameling kunt beperken. <br>- Quota omvatten MaxJobs en MaxRecurrence. | 
+| **Jobgeschiedenis** | Beschrijft de details voor de uitvoering van een job, bijvoorbeeld details over status en antwoorden. |
+||| 
+
+## <a name="entity-management"></a>Entiteitsbeheer
+
+Op hoog niveau maakt de REST API van de Scheduler deze bewerkingen voor het beheren van entiteiten beschikbaar.
+
+### <a name="job-management"></a>Jobbeheer
+
+Biedt ondersteuning voor bewerkingen voor het maken en bewerken van jobs. Alle jobs moeten behoren tot een bestaande jobverzameling. Er wordt er dus niet impliciet een gemaakt. Zie [Scheduler REST API - Jobs](https://docs.microsoft.com/rest/api/scheduler/jobs) voor meer informatie. Hier is het URI-adres voor deze bewerkingen:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+
+### <a name="job-collection-management"></a>Beheer van jobverzameling
+
+Ondersteunt bewerkingen voor het maken en bewerken van jobs en jobverzamelingen, die worden toegewezen aan quota en gedeelde instellingen. Quota specificeren bijvoorbeeld het maximum aantal jobs en het kleinste terugkeerpatroon. Zie [Scheduler REST API - Job Collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections) (Scheduler REST API - Jobverzamelingen) voor meer informatie. Hier is het URI-adres voor deze bewerkingen:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+
+### <a name="job-history-management"></a>Beheer van jobgeschiedenis
+
+Biedt ondersteuning voor de GET-bewerking voor het ophalen van een geschiedenis van 60 dagen van uitgevoerde jobs, bijvoorbeeld de verstreken tijd van jobs en de resultaten van het uitvoeren van jobs. Omvat ondersteuning voor querytekenreeksparameters om te filteren op basis van toestand en status. Zie [Scheduler REST API - Jobs - List Job History](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory) (Scheduler REST API - Jobs - Lijst met jobgeschiedenissen) voor meer informatie. Hier is het URI-adres voor deze bewerking:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
 
 ## <a name="job-types"></a>Jobtypen
-Er zijn meerdere typen jobs: HTTP-jobs (inclusief HTTPS-jobs die ondersteuning bieden voor SSL), opslagwachtrijjobs Service Bus-wachtrijjobs en Service Bus-onderwerpjobs. HTTP-jobs zijn ideaal als u een eindpunt van een bestaande workload of service hebt. U kunt opslagwachtrijjobs gebruiken om berichten te posten naar opslagwachtrijen, zodat die jobs ideaal zijn voor workloads die gebruikmaken van opslagwachtrijen. Zo zijn Service Bus-jobs ook ideaal voor workloads die gebruikmaken van Service Bus-wachtrijen en -onderwerpen.
 
-## <a name="the-job-entity-in-detail"></a>De entiteit "job" in detail
-Op basisniveau bevat een geplande job verschillende onderdelen:
+Azure Scheduler ondersteunt meerdere jobtypen: 
 
-* De actie die moet worden uitgevoerd wanneer de timer van de job wordt gestart  
-* (Optioneel) De tijd voor het uitvoeren van de job  
-* (Optioneel) Wanneer en hoe vaak de job moet worden herhaald  
-* (Optioneel) Een actie die moet worden gestart als de primaire actie mislukt  
+* HTTP-jobs, inclusief HTTP-jobs die SSL ondersteunen, voor wanneer u het eindpunt voor een bestaande service of workload hebt.
+* Opslagwachtrijjobs voor workloads die opslagwachtrijen gebruiken, zoals het posten van berichten naar opslagwachtrijen
+* Service Bus-wachtrijjobs voor workloads die gebruikmaken van Service Bus-wachtrijen
+* Service Bus-onderwerpjobs voor workloads die gebruikmaken van Service Bus-onderwerpen
 
-Intern bevat een geplande job ook door het systeem geleverde gegevens, zoals de volgende geplande uitvoeringstijd.
+## <a name="job-definition"></a>Jobdefinitie
 
-De volgende code geeft een uitgebreid voorbeeld van een geplande job. Details hierover vindt u in de volgende secties.
+Op hoog niveau bevat een Scheduler-job uit de volgende basisonderdelen:
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+* De actie die wordt uitgevoerd wanneer de timer van de job wordt gestart
+* Optioneel: de tijd voor het uitvoeren van de job
+* Optioneel: wanneer en hoe vaak de job moet worden herhaald
+* Optioneel: een foutactie die wordt uitgevoerd als de primaire actie mislukt
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+De job bevat ook door het systeem geleverde gegevens, zoals volgende geplande uitvoeringstijd van de job. De codedefinitie van de job is een object in de indeling JSON (JavaScript Object Notation). Deze bevat drie elementen:
 
-Zoals u in het voorbeeld van een geplande job hierboven ziet, heeft een jobdefinitie verschillende onderdelen:
+| Element | Vereist | Beschrijving | 
+|---------|----------|-------------| 
+| [**startTime**](#start-time) | Nee | De begintijd voor de taak, met een tijdverschuiving in de [indeling ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**action**](#action) | Ja | De details van de primaire actie, die een **errorAction**-object kan omvatten | 
+| [**errorAction**](#error-action) | Nee | De details van de secundaire actie, die wordt uitgevoerd als de eerste actie mislukt |
+| [**recurrence**](#recurrence) | Nee | Details als frequentie en interval van een terugkerende job | 
+| [**retryPolicy**](#retry-policy) | Nee | De details voor hoe vaak een actie moet worden herhaald | 
+| [**state**](#state) | Ja | De details van de huidige status van de job |
+| [**status**](#status) | Ja | De details van de huidige status van de job, die onder controle staan van de service |
+||||
 
-* Begintijd ("startTime")  
-* Actie ("action"), die een foutactie ("errorAction") bevat
-* Terugkeerpatroon ("recurrence")  
-* Toestand ("state")  
-* Status ("status"  
-* Beleid voor opnieuw proberen ("retryPolicy")  
+Hier is een voorbeeld dat een uitgebreide jobdefinitie laat zien voor een HTTP-actie, waarvan meer details van het element in latere secties ter sprake komen: 
 
-Hieronder vindt u een toelichting van elk van deze onderdelen:
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z",
+   "action": {
+      "type": "Http",
+      "request": {
+         "uri": "http://contoso.com/some-method", 
+         "method": "PUT",          
+         "body": "Posting from a timer",
+         "headers": {
+            "Content-Type": "application/json"
+         },
+         "retryPolicy": { 
+             "retryType": "None" 
+         },
+      },
+      "errorAction": {
+         "type": "Http",
+         "request": {
+            "uri": "http://contoso.com/notifyError",
+            "method": "POST"
+         }
+      }
+   },
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]
+      },
+      "count": 10,
+      "endTime": "2012-11-04"
+   },
+   "state": "Disabled",
+   "status": {
+      "lastExecutionTime": "2007-03-01T13:00:00Z",
+      "nextExecutionTime": "2007-03-01T14:00:00Z ",
+      "executionCount": 3,
+      "failureCount": 0,
+      "faultedCount": 0
+   }
+}
+```
+
+<a name="start-time"></a>
 
 ## <a name="starttime"></a>startTime
-De "startTime" is de starttijd. Hiermee kan de aanroeper bij de verbinding een tijdzoneverschil opgeven in [ISO 8601-notatie](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="action-and-erroraction"></a>action en errorAction
-De "action" is de actie die bij elke herhaling wordt aangeroepen en beschrijft een type serviceaanroep. De actie is datgene wat wordt uitgevoerd volgens de opgegeven planning. Scheduler biedt ondersteuning voor HTTP-, opslagwachtrij-, Service Bus-onderwerp- en Service Bus-wachtrijacties.
+In het object **startTime** kunt u de begintijd en een tijdverschuiving aangeven in de [indeling ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-De actie in het bovenstaande voorbeeld is een HTTP-actie. Hieronder volgt een voorbeeld van een opslagwachtrijactie:
+<a name="action"></a>
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
+## <a name="action"></a>action
+
+De Scheduler-job voert een primaire **action** uit op basis van het opgegeven schema. Scheduler biedt ondersteuning voor HTTP-, opslagwachtrij-, Service Bus-onderwerp- en Service Bus-wachtrijacties. Als de primaire **action** mislukt, kan er een secundaire [**errorAction**](#errorAction) worden uitgevoerd die de fout afhandelt. Het object **action** beschrijft de volgende elementen:
+
+* Het servicetype van de actie
+* De details van de actie
+* Een alternatieve **errorAction**
+
+Het vorige voorbeeld beschrijft een HTTP-actie. Hier volgt een voorbeeld van een opslagwachtrijactie:
+
+```json
+"action": {
+   "type": "storageQueue",
+   "queueMessage": {
+      "storageAccount": "myStorageAccount",  
+      "queueName": "myqueue",                
+      "sasToken": "TOKEN",                   
+      "message": "My message body"
     }
+}
+```
 
-Hieronder volgt een voorbeeld van een Service Bus-onderwerpactie.
+Hier volgt een voorbeeld van een Service Bus-wachtrijactie:
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+```json
+"action": {
+   "type": "serviceBusQueue",
+   "serviceBusQueueMessage": {
+      "queueName": "q1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {  
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",  
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-Hieronder volgt een voorbeeld van een Service Bus-wachtrijactie:
+Hier volgt een voorbeeld van een Service Bus-onderwerpactie:
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Kan netMessaging of AMQP zijn "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Een bericht",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+```json
+"action": {
+   "type": "serviceBusTopic",
+   "serviceBusTopicMessage": {
+      "topicPath": "t1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-De "errorAction" is de foutafhandeling, de actie die wordt aangeroepen wanneer de primaire actie mislukt. U kunt deze variabele gebruiken om een eindpunt voor foutafhandeling aan te roepen of een gebruikersmelding te verzenden. Dit kan worden gebruikt om een secundair eindpunt te bereiken in het geval dat het primaire eindpunt niet beschikbaar is (bijvoorbeeld in het geval van een noodgeval op de site van het eindpunt). Het kan ook worden gebruikt voor de kennisgeving van een eindpunt voor foutafhandeling. Net als de primaire actie kan ook de foutactie een eenvoudige of samengestelde logica zijn op basis van andere acties. Zie [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx) (Een Shared Access Signature maken en gebruiken) voor meer informatie over het maken van een SAS-token.
+Zie [Autoriseren met Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md) voor meer informatie over SAS-tokens (Shared Access Signature).
+
+<a name="error-action"></a>
+
+## <a name="erroraction"></a>errorAction
+
+Als de primaire **action** van de job mislukt, kan er een **errorAction** worden uitgevoerd die de fout afhandelt. In de primaire **action** kunt u een **errorAction**-object opgeven zodat een foutafhandelingseindpunt kan worden aangeroepen of een melding voor de gebruiker worden verzonden. 
+
+Als er bijvoorbeeld een noodgeval optreedt bij het primaire eindpunt, kunt u **errorAction** gebruiken om een secundair eindpunt aan te roepen of om een foutafhandelingseindpunt te rapporteren. 
+
+Net als de primaire **action** kunt u voor de foutactie eenvoudige of samengestelde logica gebruiken op basis van andere acties. 
+
+<a name="recurrence"></a>
 
 ## <a name="recurrence"></a>recurrence
-Recurrence heeft meerdere onderdelen:
 
-* Frequentie ("frequency"): minuut, uur, dag, week, maand of jaar  
-* Interval ("interval"): interval voor de opgegeven herhaling  
-* Voorgeschreven planning ("schedule"): geef de minuten, uren, weekdagen, maanden en maanddagen op van het terugkeerpatroon  
-* Aantal ("count"): het aantal herhalingen  
-* Eindtijd ("endTime"): na de opgegeven eindtijd worden geen jobs uitgevoerd  
+Een job wordt herhaald als de JSON-definitie van de job het object **recurrence** omvat, bijvoorbeeld:
 
-Een job wordt herhaald als hiervoor in de JSON-definitie van de job een terugkerend object is opgegeven. Als zowel "count" als "endTime" worden opgegeven, wordt de voltooiingsregel die het eerst is vermeld, uitgevoerd.
+```json
+"recurrence": {
+   "frequency": "Week",
+   "interval": 1,
+   "schedule": {
+      "hours": [10, 22],
+      "minutes": [0, 30],
+      "weekDays": ["Monday", "Wednesday", "Friday"]
+   },
+   "count": 10,
+   "endTime": "2012-11-04"
+},
+```
 
-## <a name="state"></a>state
-De toestand (state) van de job is een van deze vier waarden: enabled, disabled, completed, or faulted (ingeschakeld, uitgeschakeld, voltooid of mislukt). U kunt voor jobs een PUT of PATCH uitvoeren om ze bij te werken met de status enabled (ingeschakeld) of disabled (uitgeschakeld). Als een job is voltooid of mislukt, is dat een eindtoestand die niet kan worden bijgewerkt (hoewel de job nog steeds kan worden verwijderd met DELETE). De eigenschap state kan er bijvoorbeeld als volgt uitzien:
+| Eigenschap | Vereist | Waarde | Beschrijving | 
+|----------|----------|-------|-------------| 
+| **frequency** | Ja, als **recurrence** wordt gebruikt | Minuut, Uur, Dag, Week, Maand, Jaar | De tijdseenheid tussen de opgetreden gevallen | 
+| **interval** | Nee | 1 tot en met 1000 | Een positief geheel getal dat het aantal tijdseenheden tussen de opgetreden gevallen bepaalt op basis van **frequency** | 
+| **schedule** | Nee | Varieert | De details voor complexere en geavanceerdere schema's. Zie **hours**, **minutes**, **weekDays**, **months** en **monthDays** | 
+| **hours** | Nee | 1 tot 24 | Een matrix met de uuraanduidingen voor wanneer de job moet worden uitgevoerd | 
+| **minutes** | Nee | 1 tot 24 | Een matrix met de minuutaanduidingen voor wanneer de job moet worden uitgevoerd | 
+| **months** | Nee | 1 tot 12 | Een matrix met de maanden voor wanneer de job moet worden uitgevoerd | 
+| **monthDays** | Nee | Varieert | Een matrix met de dagen van de maand voor wanneer de job moet worden uitgevoerd | 
+| **weekDays** | Nee | Maandag, Dinsdag, Woensdag, Donderdag, Vrijdag, Zaterdag, Zondag | Een matrix met de dagen van de week voor wanneer de job moet worden uitgevoerd | 
+| **count** | Nee | <*geen*> | Het aantal opgetreden gevallen. Het standaardgeval is oneindige herhaling. **count** en **endTime** mogen niet tegelijk worden gebruikt, maar er wordt voldaan aan de regel die het eerst wordt voltooid. | 
+| **endTime** | Nee | <*geen*> | De datum en tijd waarop het terugkeerpatroon moet worden gestopt. Het standaardgeval is oneindige herhaling. **count** en **endTime** mogen niet tegelijk worden gebruikt, maar er wordt voldaan aan de regel die het eerst wordt voltooid. | 
+||||
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-Voltooide en mislukte jobs worden na 60 dagen verwijderd.
+Zie [Complexe schema's en geavanceerde terugkeerpatronen bouwen](../scheduler/scheduler-advanced-complexity.md) voor meer informatie over deze elementen.
 
-## <a name="status"></a>status
-Nadat een Scheduler-job is gestart, wordt informatie over de huidige status van de job geretourneerd. Dit object kan niet worden ingesteld door de gebruiker, maar wordt door het systeem ingesteld. Het is echter opgenomen in het jobobject (in plaats van een afzonderlijke gekoppelde resource) zodat de status van een job eenvoudig kan worden verkregen.
-
-De jobstatus bevat de tijd van de vorige uitvoering (indien van toepassing), het tijdstip van de volgende geplande uitvoering (voor jobs die in uitvoering zijn) en het aantal keer dat de job is uitgevoerd.
+<a name="retry-policy"></a>
 
 ## <a name="retrypolicy"></a>retryPolicy
-Als een Scheduler-job is mislukt, is het mogelijk om een beleid voor opnieuw proberen op te geven, om te bepalen of en hoe wordt geprobeerd om de actie opnieuw uit te voeren. Dit wordt bepaald door het object **retryType**: dat is ingesteld op **none** (geen) als er geen beleid voor opnieuw proberen is opgegeven, zoals hierboven. Het is ingesteld op **fixed** (vast) als er wel een beleid voor opnieuw proberen is opgegeven.
 
-Om een beleid voor opnieuw proberen in te stellen, kunnen twee extra instellingen worden opgegeven: een interval voor nieuwe poging (**retryInterval**) en het aantal nieuwe pogingen (**retryCount**).
+In het geval dat een Scheduler-job mislukt, kunt u een beleid voor opnieuw proberen instellen. Dit bepaalt of en hoe de actie wordt herhaald. Standaard wordt de job vier maal herhaald met een interval van dertig seconden. U kunt dit beleid meer of minder agressief maken; bijvoorbeeld dat een actie tweemaal per dag wordt herhaald:
 
-Het interval voor een nieuwe poging, dat met het object **retryInterval** wordt opgegeven, is het interval tussen nieuwe pogingen. De standaardwaarde is 30 seconden, de configureerbare minimumwaarde is 15 seconden en de maximumwaarde is 18 maanden. Dit interval wordt gedefinieerd in de ISO 8601-notatie. Op dezelfde manier wordt de waarde van het aantal nieuwe pogingen opgegeven met het object **retryCount**; dit is het aantal keren dat een nieuwe poging wordt gedaan. De standaardwaarde is 4 en de maximumwaarde is 20\. **retryInterval** en **retryCount** zijn beide optioneel. Ze hebben hun standaardwaarden als **retryType** is ingesteld op **fixed** en er niet expliciet waarden zijn opgegeven.
+```json
+"retryPolicy": { 
+   "retryType": "Fixed",
+   "retryInterval": "PT1D",
+   "retryCount": 2
+},
+```
+
+| Eigenschap | Vereist | Waarde | Beschrijving | 
+|----------|----------|-------|-------------| 
+| **retryType** | Ja | **Vast**, **Geen** | Bepaalt of u een beleid voor opnieuw proberen opgeeft (**vast**) of niet (**geen**). | 
+| **retryInterval** | Nee | PT30S | Geeft het interval en de frequentie op tussen herhaalpogingen in de [indeling ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). De minimumwaarde is 15 seconden; de maximumwaarde is 18 maanden. | 
+| **retryCount** | Nee | 4 | Geeft het aantal nieuwe herhaalpogingen op. De maximumwaarde is 20. | 
+||||
+
+Zie [High availability and reliability](../scheduler/scheduler-high-availability-reliability.md) (Hoge beschikbaarheid en betrouwbaarheid) voor meer informatie.
+
+<a name="status"></a>
+
+## <a name="state"></a>state
+
+De status van een job is **Ingeschakeld**, **Uitgeschakeld**, **Voltooid** of **Mislukt**, bijvoorbeeld: 
+
+`"state": "Disabled"`
+
+Als u jobs wilt wijzigen in de status **Ingeschakeld** of **Uitgeschakeld**, kunt u de bewerking PUT of PATCH voor die jobs gebruiken.
+Als een job echter de status **Voltooid** of **Mislukt** heeft, kunt u de status niet bijwerken, hoewel u een DELETE-bewerking voor de job kunt uitvoeren. Voltooide en mislukte jobs worden na zestig dagen verwijderd. 
+
+<a name="status"></a>
+
+## <a name="status"></a>status
+
+Als een job is gestart, wordt informatie over de status van de job geretourneerd via het object **status**, dat alleen onder controle van Scheduler staat. U kunt het object **status** echter vinden in het object **job**. Hier ziet u de informatie die de status van een job bevat:
+
+* Tijd voor de vorige uitvoering (indien van toepassing)
+* Tijd voor de volgende geplande uitvoering voor actieve jobs
+* Het aantal uitvoeringen van een job
+* Het aantal mislukkingen (indien van toepassing)
+* Het aantal fouten (indien van toepassing)
+
+Bijvoorbeeld:
+
+```json
+"status": {
+   "lastExecutionTime": "2007-03-01T13:00:00Z",
+   "nextExecutionTime": "2007-03-01T14:00:00Z ",
+   "executionCount": 3,
+   "failureCount": 0,
+   "faultedCount": 0
+}
+```
 
 ## <a name="see-also"></a>Zie ook
- [Wat is Scheduler?](scheduler-intro.md)
 
- [Aan de slag met behulp van Scheduler in Azure Portal](scheduler-get-started-portal.md)
-
- [Plannen en facturering in Azure Scheduler](scheduler-plans-billing.md)
-
- [Complexe schema's en geavanceerde terugkeerpatronen bouwen met Azure Scheduler](scheduler-advanced-complexity.md)
-
- [Naslaginformatie over REST API van Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)
-
- [Hoge beschikbaarheid en betrouwbaarheid van Azure Scheduler](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler-limieten, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler uitgaande verificatie](scheduler-outbound-authentication.md)
-
+* [Wat is Azure Scheduler?](scheduler-intro.md)
+* [Concepten, terminologie en entiteitenhiërarchie](scheduler-concepts-terms.md)
+* [Complexe schema's en geavanceerde terugkeerpatronen bouwen](scheduler-advanced-complexity.md)
+* [Limieten, quota, standaardwaarden en foutcodes](scheduler-limits-defaults-errors.md)
+* [Naslaginformatie over REST API van Azure Scheduler](https://docs.microsoft.com/rest/api/schedule)
+* [Naslaginformatie over Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md)

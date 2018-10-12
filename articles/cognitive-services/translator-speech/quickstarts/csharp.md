@@ -1,42 +1,44 @@
 ---
-title: C# Quickstart voor Azure Cognitive Services, Microsoft Translator Speech-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Speech-API in Microsoft Cognitive Services op Azure.
+title: 'Snelstart: Translator Speech-API C#'
+titlesuffix: Azure Cognitive Services
+description: Ontdek informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met de Translator Speech-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c8c1945d8343ad966fe4b09f67099bccdae4be29
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7d1f5968fe6ddffce3194f070b6a17aca4d3d9ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128534"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995037"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Snelstartgids voor Microsoft Translator Speech-API met C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Snelstart: Translator Speech-API met C# 
 <a name="HOLTop"></a>
 
-In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de omzetting van woorden die in een wav-bestand.
+In dit artikel leest u hoe de Translator Speech-API gebruikt voor het vertalen van gesproken woorden in een WAV-bestand.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.)
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.)
 
-U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling.
+In de map met het uitvoerbare bestand dat u maakt op basis van de volgende code moet ook een WAV-bestand staan met de naam speak.wav. Dit WAV-bestand moet de standaardindeling hebben: PCM, 16-bits, 16 kHz, mono.
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft Translator Speech-API**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en de **Microsoft Translator Speech-API**. U hebt een betaalde abonnementssleutel nodig op het [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 ## <a name="translate-speech"></a>Spraak vertalen
 
-De volgende code wordt omgezet in spraak in één taal.
+Met de volgende code wordt spraak van de ene naar de andere taal vertaald.
 
-1. Maak een nieuwe C#-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw C#-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```csharp
 using System;
@@ -142,9 +144,9 @@ namespace TranslateSpeechQuickStart
 }
 ```
 
-**Spraak antwoord vertalen**
+**Gesproken antwoord vertalen**
 
-Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. Het bestand bevat de vertaling van gesproken in "speak.wav" woorden.
+Deze handeling is geslaagd als het bestand 'speak2.wav' is gemaakt. Het bestand bevat de vertaling van de woorden die te horen zijn in 'speak.wav'.
 
 [Terug naar boven](#HOLTop)
 
@@ -155,5 +157,5 @@ Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. H
 
 ## <a name="see-also"></a>Zie ook 
 
-[Overzicht van Translator Speech](../overview.md)
-[API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
+[Translator Speech-overzicht](../overview.md)
+[API-naslagmateriaal](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

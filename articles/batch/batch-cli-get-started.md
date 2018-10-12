@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493693"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950145"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Batch-resources beheren met Azure CLI
 
-Azure CLI 2.0 is de nieuwe opdrachtregel van Azure voor het beheren van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Azure CLI 2.0 is geoptimaliseerd voor het beheren van Azure-resources vanaf de opdrachtregel. U kunt de Azure CLI gebruiken om uw Azure Batch-accounts te beheren en om resources zoals pools, functies en taken te beheren. Met de Azure CLI kunt u scripts maken om veel van dezelfde taken uit te voeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch PowerShell-cmdlets.
+Azure CLI is de nieuwe opdrachtregel van Azure voor het beheren van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. De Azure CLI is geoptimaliseerd voor het beheren van Azure-resources vanaf de opdrachtregel. U kunt de Azure CLI gebruiken om uw Azure Batch-accounts te beheren en om resources zoals pools, functies en taken te beheren. Met de Azure CLI kunt u scripts maken om veel van dezelfde taken uit te voeren die u ook uitvoert met de Batch-API's, Azure Portal en Batch PowerShell-cmdlets.
 
-Dit artikel biedt een overzicht van het gebruik van [Azure CLI versie 2.0](https://docs.microsoft.com/cli/azure) met Batch. Zie [Aan de slag met Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) voor een overzicht van het gebruik van CLI met Azure.
+Dit artikel biedt een overzicht van het gebruik van [Azure CLI versie 2.0](https://docs.microsoft.com/cli/azure) met Batch. Zie [Aan de slag met Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) voor een overzicht van het gebruik van CLI met Azure.
 
 ## <a name="set-up-the-azure-cli"></a>De Azure CLI instellen
 
@@ -47,12 +47,9 @@ U kunt voor elke opdracht in de Azure CLI Help-tekst weergeven door `-h` toe te 
 
 Gebruik bij twijfel de opdrachtregeloptie `-h` voor hulp bij een willekeurige Azure CLI-opdracht.
 
-> [!NOTE]
-> In eerdere versies van de Azure CLI werd `azure` gebruikt vóór een CLI-opdracht. In versie 2.0 worden alle opdrachten nu voorafgegaan door `az`. Vergeet niet om uw scripts bij te werken met de nieuwe syntaxis van versie 2.0.
->
->  
 
-Raadpleeg de naslagdocumentatie van Azure CLI voor informatie over [Azure CLI-opdrachten voor Batch](https://docs.microsoft.com/cli/azure/batch). 
+
+Raadpleeg de naslagdocumentatie van Azure CLI voor informatie over [Azure CLI-opdrachten voor Batch](/cli/azure/batch). 
 
 ## <a name="log-in-and-authenticate"></a>Aanmelden en verifiëren
 
@@ -63,7 +60,7 @@ Als u de Azure CLI wilt gebruiken met Batch, moet u zich aanmelden en verifiëre
 
 ### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in [Aanmelden met de Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
+Er zijn een aantal manieren om u aan te melden bij Azure, zoals u kunt lezen in [Aanmelden met de Azure CLI](/cli/azure/authenticate-azure-cli):
 
 1. [Interactief aanmelden](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Meld u interactief aan wanneer u zelf Azure CLI-opdrachten uitvoert vanaf de opdrachtregel.
 2. [Aanmelden met een service-principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Meld u aan met een service-principal wanneer u Azure CLI-opdrachten uitvoert vanuit een script of een toepassing.
@@ -87,7 +84,7 @@ Als u de Azure CLI wilt gebruiken voor het beheren van Batch-resources, zoals po
 
 Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
 
-- **Met behulp van Azure AD-verificatie (Azure Active Directory).** 
+- **Met behulp van Azure AD-verificatie (Azure Active Directory)** 
 
     Verificatie met Azure AD is de standaardinstelling als u de Azure CLI gebruikt met Batch en wordt aanbevolen voor de meeste scenario's. 
     
@@ -101,9 +98,9 @@ Er zijn twee mogelijkheden voor verificatie van uw Batch-account:
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Met behulp van gedeelde sleutelverificatie.**
+- **Met behulp van gedeelde sleutelverificatie**
 
-    Bij [gedeelde sleutelverificatie](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) worden de toegangssleutels van uw account gebruikt om Azure CLI-opdrachten te verifiëren voor de Batch-service.
+    Bij [gedeelde sleutelverificatie](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) worden de toegangssleutels van uw account gebruikt om Azure CLI-opdrachten te verifiëren voor de Batch-service.
 
     Als u Azure CLI-scripts maakt om het aanroepen van Batch-opdrachten te automatiseren, kunt u gebruikmaken van gedeelde sleutelverificatie of van een service-principal van Azure AD. In sommige scenario's kan gedeelde sleutelverificatie een eenvoudigere oplossing zijn dan het maken van een service-principal.  
 
@@ -173,7 +170,6 @@ De volgende tips kunnen helpen bij het oplossen van problemen met Azure CLI:
 * Gebruik `-v` en `-vv` om **uitgebreide** opdrachtuitvoer weer te geven. Als u de vlag `-vv` toevoegt, toont de Azure CLI de werkelijke REST-aanvragen en -antwoorden. Deze schakelopties zijn handig voor het weergeven van de volledige foutuitvoer.
 * U kunt **opdrachtuitvoer weergeven als JSON** met de `--json`-optie. `az batch pool show pool001 --json` wordt bijvoorbeeld weergegeven als eigenschappen van pool001 in de JSON-indeling. Vervolgens kunt u deze uitvoer kopiëren en aanpassen om te worden gebruikt in een `--json-file` (zie [JSON-bestanden](#json-files) eerder in dit artikel).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
