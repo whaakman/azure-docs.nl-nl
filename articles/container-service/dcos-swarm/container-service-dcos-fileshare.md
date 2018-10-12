@@ -1,6 +1,6 @@
 ---
 title: Bestandsshare voor Azure DC/OS-cluster
-description: Maken en koppelen van een bestandsshare bij een DC/OS-cluster in Azure Container Service
+description: Een bestandsshare maken en aan een DC/OS-cluster koppelen in Azure Container Service
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331199"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973493"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Maken en koppelen van een bestandsshare bij een DC/OS-cluster
+# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Een bestandsshare maken en aan een DC/OS-cluster koppelen
 
-Deze zelfstudie details over het maken van een bestandsshare in Azure en op elke agent en de hoofdserver van de DC/OS-cluster te koppelen. Instellen van een bestandsshare, kunt gemakkelijker delen van bestanden in uw cluster, zoals configuratie, toegang en Logboeken. De volgende taken worden uitgevoerd in deze zelfstudie:
+In deze zelfstudie wordt uitgelegd hoe u een bestandsshare in Azure kunt maken en deze aan elke agent en master van de DC/OS-cluster kunt koppelen. Als u een bestandsshare maakt, kunt u gemakkelijker bestanden, zoals configuratie-, toegangs- en logboekbestanden, in uw cluster delen. In deze zelfstudie worden de volgende taken uitgevoerd:
 
 > [!div class="checklist"]
 > * Een Azure-opslagaccount maken
 > * Een bestandsshare maken
-> * De share in de DC/OS-cluster koppelen
+> * De share koppelen in de DC/OS-cluster
 
-U moet een ACS-DC/OS-cluster de stappen in deze zelfstudie. Indien nodig, [dit voorbeeldscript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) kunt maken voor u.
+U hebt een ACS DC/OS-cluster nodig om de stappen in deze zelfstudie te kunnen uitvoeren. Zo nodig kan [dit voorbeeldscript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) er een voor u maken.
 
-Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u wilt upgraden, raadpleegt u [Azure CLI installeren]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Een bestandsshare maken in Microsoft Azure
 
-Voordat u een Azure-bestandsshare met een ACS-DC/OS-cluster, moet de storage-account en een bestandsshare worden gemaakt. Voer het volgende script voor het maken van de opslag en bestandsshare. Werk de parameters met thoes uit uw omgeving.
+Voordat u een Azure-bestandsshare met een ACS DC/OS-cluster gebruikt, moeten het opslagaccount en de bestandsshare worden gemaakt. Voer het volgende script uit om het opslag- en bestandsshare te maken. Werk de parameters bij met de parameters uit uw omgeving.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,15 +52,15 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 az storage share create -n $DCOS_PERS_SHARE_NAME
 ```
 
-## <a name="mount-the-share-in-your-cluster"></a>De share in het cluster koppelen
+## <a name="mount-the-share-in-your-cluster"></a>De share in uw cluster koppelen
 
-De bestandsshare moet vervolgens worden gekoppeld aan elke virtuele machine in uw cluster. Deze taak is voltooid met het hulpprogramma cifs/protocol. De koppelingsbewerking kan handmatig worden voltooid op elk knooppunt van het cluster of door een script uitgevoerd op elk knooppunt in het cluster.
+Vervolgens moet de bestandsshare in elke virtuele machine in uw cluster worden gekoppeld. Deze taak wordt uitgevoerd met behulp van het cifs-hulpprogramma/-protocol. De koppelingsbewerking kan handmatig in elk knooppunt van het cluster worden uitgevoerd of door een script voor elk knooppunt in het cluster uit te voeren.
 
-In dit voorbeeld worden twee scripts uitgevoerd, een Azure-bestandsshare en een tweede dit script uitvoeren op elk knooppunt van de DC/OS-cluster koppelen.
+In dit voorbeeld worden twee scripts uitgevoerd: een om de Azure-bestandsshare te koppelen en een tweede om dit script op elk knooppunt van het DC/OS-cluster uit te voeren.
 
-Eerst zijn de Azure-opslag-accountnaam en toegangssleutel nodig. Voer de volgende opdrachten om op te halen van deze informatie. Let op elk, deze waarden worden gebruikt in een later stadium.
+Eerst zijn de naam en toegangssleutel voor het Azure-opslagaccount nodig. Voer de volgende opdrachten uit om deze informatie te verkrijgen. Noteer ze, want deze waarden worden in een latere stap gebruikt.
 
-Opslagaccountnaam:
+Naam van opslagaccount:
 
 ```azurecli-interactive
 STORAGE_ACCT=$(az storage account list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[?contains(name, '$DCOS_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
@@ -73,27 +73,27 @@ Toegangssleutel voor opslagaccount:
 az storage account keys list --resource-group $DCOS_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCT --query "[0].value" -o tsv
 ```
 
-Vervolgens de FQDN-naam van de DC/OS-master ophalen en opslaan in een variabele.
+Haal vervolgens de FQDN van de DC/OS-master op en sla deze op in een variabele.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Kopieer uw persoonlijke sleutel naar het hoofdknooppunt. Deze sleutel is vereist voor het maken van een ssh-verbinding met alle knooppunten in het cluster. Werk de gebruikersnaam als een niet-standaard-waarde is gebruikt bij het maken van het cluster. 
+Kopieer uw persoonlijke sleutel naar het hoofdknooppunt. Deze code is nodig om een ssh-verbinding met alle knooppunten in het cluster te maken. Werk de gebruikersnaam bij als geen standaardwaarde is gebruikt bij het maken van het cluster. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Een SSH-verbinding maken met het model (of het eerste model) van uw DC/OS gebaseerde-cluster. Werk de gebruikersnaam als een niet-standaard-waarde is gebruikt bij het maken van het cluster.
+Maak een SSH-verbinding met de master (of de eerste master) van uw op DC/OS gebaseerde cluster. Werk de gebruikersnaam bij als geen standaardwaarde is gebruikt bij het maken van het cluster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Maak een bestand met de naam **cifsMount.sh**, en kopieer de volgende inhoud in de App. 
+Maak een bestand met de naam **cifsMount.sh** en kopieer de volgende inhoud naar het bestand. 
 
-Dit script wordt gebruikt voor het koppelen van de Azure-bestandsshare. Update de `STORAGE_ACCT_NAME` en `ACCESS_KEY` variabelen met de informatie die eerder zijn verzameld.
+Dit script wordt gebruikt om de Azure-bestandsshare te koppelen. Werk de variabelen `STORAGE_ACCT_NAME` en `ACCESS_KEY` bij met de informatie die u eerder hebt verzameld.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -114,7 +114,7 @@ sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/$SHARE_NAME /mnt/s
 ```
 Maak een tweede bestand met de naam **getNodesRunScript.sh** en kopieer de volgende inhoud in het bestand. 
 
-Dit script detecteert alle clusterknooppunten en voert de **cifsMount.sh** script om de bestandsshare op elk koppelen.
+Dit script detecteert alle clusterknooppunten en voert vervolgens het script **cifsMount.sh** uit om de bestandsshare voor elk knooppunt te koppelen.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -132,24 +132,24 @@ do
   done
 ```
 
-Voer het script voor het koppelen van de Azure-bestandsshare op alle knooppunten van het cluster.
+Voer het script voor het koppelen van de Azure-bestandsshare uit op alle knooppunten van het cluster.
 
 ```azurecli-interactive
 sh ./getNodesRunScript.sh
 ```  
 
-De bestandsshare is nu openen op `/mnt/share/dcosshare` op elk knooppunt van het cluster.
+De bestandsshare is nu toegankelijk op `/mnt/share/dcosshare` in elk knooppunt van het cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie een Azure is-bestandsshare beschikbaar gesteld aan een DC/OS-cluster met behulp van de stappen uit:
+In deze zelfstudie werd een Azure-bestandsshare voor een DC/OS-cluster beschikbaar gemaakt aan de hand van de volgende stappen:
 
 > [!div class="checklist"]
 > * Een Azure-opslagaccount maken
 > * Een bestandsshare maken
-> * De share in de DC/OS-cluster koppelen
+> * De share koppelen in de DC/OS-cluster
 
-Ga naar de volgende zelfstudie voor meer informatie over het integreren van een Azure Container register met DC/OS in Azure.  
+Ga naar de volgende zelfstudie om te leren over de integratie van een Azure Container Registry met DC/OS in Azure.  
 
 > [!div class="nextstepaction"]
 > [Load balancing gebruiken voor toepassingen](container-service-dcos-acr.md)

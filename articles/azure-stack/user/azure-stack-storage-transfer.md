@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 77b25b7a5291786fe81953499c730fdac506e5c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078781"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092657"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Gebruik van hulpmiddelen voor het overbrengen van gegevens voor Azure Stack
 
@@ -157,7 +157,7 @@ In dit voorbeeld wordt ervan uitgegaan dat u hebt [geïnstalleerd PowerShell voo
 ```PowerShell  
 # begin
 
-$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
 $GraphAudiance = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
@@ -240,7 +240,7 @@ Met de huidige compatibele Azure PowerShell-moduleversie voor Azure Stack is 1.2
 
    Zie voor meer informatie, [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>Azure-CLI
 
 De Azure-CLI is de opdrachtregelervaring van Azure voor het beheren van Azure-resources. U kunt installeren op macOS, Linux en Windows en uitvoeren vanaf de opdrachtregel.
 

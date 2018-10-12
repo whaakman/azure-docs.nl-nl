@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4585b6d4e9e3f6c64e1c583b947f979b8edc5a74
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830253"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113934"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
-Azure Functions wordt uitgevoerd in twee verschillende modi: verbruiksabonnement en Azure App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) app-model. Zie voor meer informatie over de werking van de toegewezen App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Azure Functions wordt uitgevoerd in twee verschillende modi: verbruiksabonnement en Azure App Service-plan. Het verbruiksabonnement rekencapaciteit automatisch toegewezen wanneer uw code wordt uitgevoerd. Uw app is uitgeschaald wanneer dat nodig is om belasting te verwerken en omlaag worden geschaald wanneer de code wordt niet uitgevoerd. U hoeft te betalen voor niet-actieve virtuele machines of vooraf capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [serverloze](https://azure.microsoft.com/solutions/serverless/) app-model. Zie voor meer informatie over de werking van de toegewezen App Service-plan de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 > [!NOTE]  
 > [Linux-hosting](functions-create-first-azure-function-azure-cli-linux.md) is momenteel alleen beschikbaar op een App Service-plan.
@@ -53,7 +53,7 @@ Het verbruiksabonnement is de standaardinstelling hostingabonnement en biedt de 
 * U betaalt alleen wanneer uw functies worden uitgevoerd.
 * Automatisch opwaarts schalen, zelfs tijdens perioden van hoge laden.
 
-## <a name="app-service-plan"></a>App Service-abonnement
+## <a name="app-service-plan"></a>App Service-plan
 
 In de toegewezen App Service-plan, uw functie-apps worden uitgevoerd via exclusieve virtuele machines op Basic, Standard, Premium en geïsoleerd SKU's, die is hetzelfde als andere apps in App Service. Toegewezen virtuele machines worden toegewezen aan uw functie-app, wat betekent dat de host functies kan worden [altijd wordt uitgevoerd](#always-on). App Service-plannen ondersteuning voor Linux.
 
@@ -74,7 +74,7 @@ Bij het uitvoeren van JavaScript-functies op een App Service-plan, moet u een pl
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-### <a name="always-on"></a>Altijd aan
+### <a name="always-on"></a>Altijd beschikbaar
 
 Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** instellen zodat uw functie-app correct wordt uitgevoerd. Op een App Service-plan gaat de functions-runtime niet-actieve na een paar minuten van inactiviteit, zodat alleen HTTP-triggers '' uw functies inschakelt. Altijd is op alleen beschikbaar op een App Service-plan. Functie-apps die het automatisch door het platform wordt geactiveerd op een verbruiksabonnement.
 

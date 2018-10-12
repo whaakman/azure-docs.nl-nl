@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424021"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091977"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Application Insights Profiler inschakelen voor Azure-machines, Service Fabric en Azure Cloudservices
 
@@ -48,7 +48,7 @@ Om in te schakelen volledig Profiler, moet u de configuratie op drie locaties:
 
    ![Locatie van de instrumentatiesleutel](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Voor het voltooien van de Application Insights-exemplaar in te stellen voor Profiler, voert u de procedure die wordt beschreven in [Profiler inschakelen. U hoeft te koppelen van de web-apps, omdat de stappen specifiek voor de resource voor de app-services zijn. Zorg ervoor dat de Profiler is ingeschakeld in de **Profiler configureren** deelvenster.
+1. Voor het voltooien van de Application Insights-exemplaar in te stellen voor Profiler, voert u de procedure die wordt beschreven in [Profiler inschakelen](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). U hoeft te koppelen van de web-apps, omdat de stappen specifiek voor de resource voor de app-services zijn. Zorg ervoor dat de Profiler is ingeschakeld in de **Profiler configureren** deelvenster.
 
 
 ## <a name="set-up-the-application-source-code"></a>De broncode van de toepassing instellen
@@ -163,7 +163,7 @@ Als u uw omgeving instelt, het volgende doen:
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
-1. Om ervoor te zorgen dat u [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger, is voldoende om te bevestigen dat de *ServiceConfiguration.\*. cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
+1. Om ervoor te zorgen dat u [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger, is voldoende om te bevestigen dat de *ServiceConfiguration.\*.cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
 
 1. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* bestand voor de toepassingsrol van uw, zoals hier wordt weergegeven:  
 
@@ -191,7 +191,7 @@ Als u uw omgeving instelt, het volgende doen:
 >  * De sleutel die wordt gebruikt door de `ApplicationInsights` sink.  
 >  * De sleutel die wordt gebruikt door de `ApplicationInsightsProfiler` sink.  
 >
-> U vindt de daadwerkelijke instrumentation sleutelwaarde die wordt gebruikt door de `ApplicationInsights` sink in de *ServiceConfiguration.\*. cscfg* bestanden.  
+> U vindt de daadwerkelijke instrumentation sleutelwaarde die wordt gebruikt door de `ApplicationInsights` sink in de *ServiceConfiguration.\*.cscfg* bestanden.  
 > Na de release van Visual Studio 15.5 Azure SDK, alleen de instrumentatiesleutels die worden gebruikt door de toepassing en de `ApplicationInsightsProfiler` sink moeten met elkaar overeen.
 
 

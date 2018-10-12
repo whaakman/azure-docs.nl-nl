@@ -11,15 +11,15 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 66dda70e2f9b4c0235434fd91a061b43e2489bdf
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
+ms.openlocfilehash: a04a372e52c682af428938514eac5d5e0f4274f0
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915857"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093711"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner voor VMware naar Azure
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type VMware-naar-Azure.
@@ -84,8 +84,8 @@ Het hulpprogramma heeft twee belangrijke fasen: profileren en rapporten generere
 
 | Serververeiste | Beschrijving|
 |---|---|
-|Profileren en meten van doorvoer| <ul><li>Besturingssysteem: Windows Server 2016 of Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Het niveau voor VMware vCenter-statistieken moet worden ingesteld op niveau 2 of hoger</li><li>Poort 443 toestaan: de Site Recovery Deployment Planner gebruikt deze poort voor verbinding met de vCenter-server/ESXi-host</ul></ul>|
-| Rapporten genereren | Een Windows-pc of Windows-server met Excel 2013 of hoger |
+|Profileren en meten van doorvoer| <ul><li>Besturingssysteem: Windows Server 2016 of Windows Server 2012 R2<br>(bij voorkeur met minimaal de [aanbevolen waarden voor de configuratieserver](https://aka.ms/asr-v2a-on-prem-components))</li><li>Machineconfiguratie: 8 vCPU's, 16 GB RAM, 300 GB harde schijf</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internettoegang tot Azure vanaf deze server</li><li>Azure Storage-account</li><li>Beheerderstoegang op de server</li><li>Minimaal 100 GB vrije schijfruimte (uitgaande van 1000 virtuele machines met een gemiddelde van elk drie schijven, geprofileerd voor 30 dagen)</li><li>Instellingen voor VMware vCenter-statistieken niveau kunnen 1 of hoger niveau worden</li><li>VCenter-poort (standaard 443) toestaan: Site Recovery Deployment Planner gebruikt deze poort voor verbinding maken met de vCenter-server/ESXi-host</ul></ul>|
+| Rapporten genereren | Een Windows-PC of Windows Server met Excel 2013 of hoger.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable voor Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) is alleen vereist als u doorgeeft - optie van de gebruiker in de opdracht voor het rapport genereren voor het ophalen van de meest recente configuratiegegevens voor de virtuele machine van de virtuele machines. De Planner Depolyment maakt verbinding met vCenter-server. VCenter-poort (standaard 443)-poort verbinding maken met vCenter server toestaan.</li>|
 | Gebruikersmachtigingen | Alleen-lezen-machtiging voor het gebruikersaccount dat tijdens het profileren wordt gebruikt voor toegang tot de VMware vCenter-server of VMware vSphere ESXi-host |
 
 > [!NOTE]
