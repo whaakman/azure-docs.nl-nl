@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248582"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091620"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Voorbereidingen voor het implementeren van modellen op IoT Edge
 
@@ -45,9 +45,6 @@ Voor meer informatie over het registreren van uw apparaat en het installeren van
 
 Azure IoT Edge-modules zijn gebaseerd op containerinstallatiekopieën. Als u wilt uw model implementeert naar een IoT Edge-apparaat, gebruik de volgende stappen voor het registreren van uw model in de werkruimte van een Azure Machine Learning-service en een Docker-installatiekopie te maken. 
 
-> [!IMPORTANT]
-> Als u Azure Machine Learning gebruikt met het trainen van uw model die mogelijk al zijn geregistreerd in uw werkruimte, slaat u stap 3 in dit geval.
-
 1. Initialiseren van de werkruimte en laad de config.json-bestand:
 
     ```python
@@ -58,6 +55,9 @@ Azure IoT Edge-modules zijn gebaseerd op containerinstallatiekopieën. Als u wil
     ```    
 
 1. Registreer het model in uw werkruimte. Vervang de standaardtekst door uw model pad, de naam, de labels en de beschrijving:
+
+    > [!IMPORTANT]
+    > Als u Azure Machine Learning te trainen het model gebruikt, kan deze al worden geregistreerd in de werkruimte. Als dit het geval is, moet u deze stap overslaan. Een lijst van modellen die zijn geregistreerd bij deze werkruimte wilt bekijken, gebruikt u `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
@@ -81,9 +81,9 @@ Azure IoT Edge-modules zijn gebaseerd op containerinstallatiekopieën. Als u wil
 
 1. Maak een **scoring-script** met de naam `score.py`. Dit bestand wordt gebruikt om uit te voeren van het model in de afbeelding. Het omvat de volgende functies:
 
-    * De `init()` functie, die doorgaans in een globale objecttoegang het model laadt. Deze functie wordt uitgevoerd slechts eenmaal wanneer de Docker-container wordt gestart. 
+    * De functie `init()`, die het model doorgaans in een algemeen object laadt. Deze functie wordt slechts één keer uitgevoerd wanneer de Docker-container wordt gestart. 
 
-    * De `run(input_data)` -functie maakt gebruik van het model om te voorspellen van een waarde op basis van de ingevoerde gegevens. Invoer en uitvoer aan het run doorgaans gebruikt u JSON-serialisatie en het deserialiseren, maar andere indelingen worden ondersteund.
+    * De functie `run(input_data)` gebruikt het model om een waarde te voorspellen op basis van de invoergegevens. De in- en uitvoer van de uitvoerbewerking maken doorgaans gebruik van JSON voor serialisatie en deserialisatie, maar andere indelingen worden ook ondersteund.
 
     Zie voor een voorbeeld: de [installatiekopie classificatie zelfstudie](tutorial-deploy-models-with-aml.md#make-script).
 

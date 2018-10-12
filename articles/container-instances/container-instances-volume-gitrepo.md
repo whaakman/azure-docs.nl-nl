@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 9f693299d2466b560e0957a77e898e1b10433fb0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1df251522c6ca14c5eb8967771fd609c04ffe2ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857384"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114940"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Koppelen van een volume gitRepo in Azure Container Instances
 
@@ -89,17 +89,17 @@ Bijvoorbeeld, de Azure CLI `--gitrepo-url` parameter voor een privé-GitHub-opsl
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Geef een gebruikersnaam (u kunt "azuredevopsuser" gebruiken zoals in het volgende voorbeeld) in combinatie met een geldige PAT voor een Azure DevOps Git-opslagplaats:
+Geef een gebruikersnaam (u kunt "azurereposuser" gebruiken zoals in het volgende voorbeeld) in combinatie met een geldige PAT voor een Azure-opslagplaatsen Git-opslagplaats:
 
 ```azurecli
---gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-Voor meer informatie over persoonlijke toegangstokens van GitHub en Azure DevOps, Zie de volgende:
+Voor meer informatie over persoonlijke toegangstokens van GitHub en Azure-opslagplaatsen, Zie de volgende:
 
 GitHub: [het maken van een persoonlijk toegangstoken voor de opdrachtregel][pat-github]
 
-Azure DevOps: [persoonlijke toegangstokens voor het verifiëren van toegang maken][pat-vsts]
+Azure-opslagplaatsen: [persoonlijke toegangstokens voor het verifiëren van toegang maken][pat-repos]
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -112,7 +112,7 @@ Informatie over het koppelen van andere typen in Azure Container Instances:
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fe86e94e745ae9ba65636ab0d1ccfead83261515
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055742"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094255"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -95,6 +95,9 @@ Terwijl er wordt gewerkt aan een betere ervaring vandaag de dag bent u verantwoo
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan ik gekoppelde gegevensschijven in een clusterknooppunttype (virtuele-machineschaalset) coderen?
 Ja.  Zie voor meer informatie, [een cluster maken met gekoppelde gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [schijven (PowerShell) versleutelen](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), en [schijven (CLI) coderen](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan ik virtuele machines met lage prioriteit gebruiken in een clusterknooppunttype (virtuele-machineschaalset)?
+Nee. Virtuele machines met lage prioriteit worden niet ondersteund. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Wat zijn de mappen en processen die ik wil uitgesloten wanneer er een antivirusprogramma wordt uitgevoerd in mijn cluster?
 

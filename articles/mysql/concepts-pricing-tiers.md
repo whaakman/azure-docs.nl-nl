@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422592"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091790"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database voor MySQL Prijscategorieën
 
@@ -45,8 +45,8 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| US - centraal | X | X |
-| US - oost | X | X |
+| US - centraal |  | X |
+| US - oost |  | X |
 | US - oost 2 | X | X |
 | US - noord-centraal | X | X |
 | US - zuid-centraal | X | X |
@@ -96,9 +96,9 @@ U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kun
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 
-De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag bereikt, afhankelijk van wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslag hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte is minder dan 250 MB bereikt.  
+De server wordt als alleen-lezen gemarkeerd wanneer de beschikbare opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag, al naar gelang wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. Als u in een ander geval 5 GB aan opslagruimte hebt ingericht, wordt de server als alleen-lezen gemarkeerd indien de beschikbare opslagruimte minder dan 250 MB wordt.  
 
-Terwijl de service probeert te maken van de server alleen-lezen, alle nieuwe schrijftransactieaanvragen geblokkeerd en kunnen bestaande actieve transacties blijft om uit te voeren. Wanneer de server is ingesteld op alleen-lezen, voert alle daaropvolgende schrijfbewerkingen en transactie is mislukt. Lezen query's blijven doorwerken. Nadat u de ingerichte opslag verhoogt, wordt de server zijn klaar om te accepteren schrijftransacties opnieuw.
+Terwijl de service probeert om de server alleen-lezen te maken, worden alle nieuwe transactieaanvragen voor schrijven geblokkeerd en worden bestaande actieve transacties verder uitgevoerd. Indien de server op alleen-lezen is ingesteld, zullen alle daaropvolgende schrijfbewerkingen en transactiedoorvoeringen mislukken. Leesquery’s blijven gewoon werken. Pas nadat u de ingerichte opslagruimte hebt vergroot, is de server weer klaar om nieuwe schrijftransacties te accepteren.
 
 U wordt aangeraden dat u een waarschuwing instellen om u te waarschuwen als de opslag van uw server bijna de drempelwaarde is bereikt, zodat u kunt te voorkomen dat de status alleen-lezen. Zie voor meer informatie de documentatie over [over het instellen van een waarschuwing](howto-alert-on-metric.md).
 

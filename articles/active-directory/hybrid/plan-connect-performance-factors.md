@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069010"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093963"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factoren die invloed hebben op de prestaties van Azure AD Connect
 
@@ -30,7 +30,7 @@ Azure AD Connect synchroniseert uw Active Directory naar Azure AD. Deze server i
 | Configuratie| Hoe Azure AD Connect-processen de mappen en gegevens. |
 | Belasting| De frequentie van object wordt gewijzigd. De belasting kunnen variëren tijdens een uur, dag of week. Mogelijk moet u afhankelijk van het onderdeel ontwerp voor piekbelasting of gemiddelde belasting. |
 
-Het doel van dit document is om te beschrijven van de prestatie-overwegingen invloed op de prestaties van de inrichting-engine van Azure AD Connect. De andere onderdelen van Azure AD Connect, zoals [Azure AD Connect health](how-to-connect-health-agent-install.md) en agents worden niet op de hier beschreven.
+Het doel van dit document is om te beschrijven van de factoren die invloed op de prestaties van de Azure AD Connect engine wordt ingericht. Groot of complex organisaties (organisaties meer dan 100.000 objecten inrichting) kunnen de aanbevelingen gebruiken voor het optimaliseren van hun Azure AD Connect-implementatie, als ze een prestatieproblemen die hier wordt beschreven. De andere onderdelen van Azure AD Connect, zoals [Azure AD Connect health](how-to-connect-health-agent-install.md) en agents worden niet op de hier beschreven.
 
 > [!IMPORTANT]
 > Microsoft biedt geen ondersteuning voor wijzigen of uitvoeren van Azure AD Connect buiten de acties die officieel is gedocumenteerd. Alle andere acties kunnen resulteren in een inconsistente of niet-ondersteunde status van de Azure AD Connect-synchronisatie. Daarom biedt Microsoft geen technische ondersteuning voor dergelijke implementaties.

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423541"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093438"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database voor PostgreSQL Prijscategorieën
 
@@ -46,8 +46,8 @@ COMPUTE-resources worden verstrekt als vCores, die staan voor de logische CPU va
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| US - centraal | X | X |
-| US - oost | X | X |
+| US - centraal |  | X |
+| US - oost |  | X |
 | US - oost 2 | X | X |
 | US - noord-centraal | X | X |
 | US - zuid-centraal | X | X |
@@ -97,7 +97,7 @@ U kunt uw i/o-gebruik in Azure portal of met behulp van Azure CLI-opdrachten kun
 
 ### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
 
-De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag bereikt, afhankelijk van wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslag hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte is minder dan 250 MB bereikt.  
+De server wordt als alleen-lezen gemarkeerd wanneer de beschikbare opslagruimte kleiner is dan 5 GB of 5% van de ingerichte opslag, al naar gelang wat kleiner is. Bijvoorbeeld, als u 100 GB aan opslag hebt ingericht, en het gebruik van de werkelijke gaat via 95 GB, de server is gemarkeerd als alleen-lezen. Als u in een ander geval 5 GB aan opslagruimte hebt ingericht, wordt de server als alleen-lezen gemarkeerd indien de beschikbare opslagruimte minder dan 250 MB wordt.  
 
 Wanneer de server is ingesteld op alleen-lezen, alle bestaande sessies worden beëindigd en niet-doorgevoerde transacties worden teruggedraaid. Alle daaropvolgende schrijfbewerkingen en de transactie wordt doorgevoerd mislukken. Alle volgende lezen query's werken ononderbroken.  
 

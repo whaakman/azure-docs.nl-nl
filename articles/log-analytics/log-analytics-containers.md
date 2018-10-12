@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043257"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115366"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -36,7 +36,7 @@ De oplossing laat zien welke containers worden uitgevoerd, welke containerinstal
 - Service Fabric
 - Red Hat OpenShift
 
-Als u geïnteresseerd bent in de prestaties van uw workloads controleren geïmplementeerd voor Kubernetes-omgevingen gehost op een AKS (Azure Container Service), raadpleegt u [Monitor Azure Container Service](../monitoring/monitoring-container-health.md).  De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
+Als u geïnteresseerd bent in het controleren van de prestaties van uw workloads die zijn geïmplementeerd in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS), raadpleegt u [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-health.md). De Container Monitoring-oplossing bevat geen ondersteuning voor het controleren van dit platform.  
 
 Het volgende diagram toont de relaties tussen verschillende hosts van de container en agents met Log Analytics.
 

@@ -1,48 +1,43 @@
 ---
 title: Inrichten van Azure Batch-pool in een virtueel netwerk | Microsoft Docs
-description: U kunt een Batch-pool in een virtueel netwerk maken zodat rekenknooppunten veilig met andere virtuele machines in het netwerk, zoals een bestandsserver communiceren kunnen.
+description: Het maken van een Batch-pool in een Azure-netwerk, zodat rekenknooppunten veilig met andere virtuele machines in het netwerk, zoals een bestandsserver communiceren kunnen.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9e8bd6819601cc4436e3432ee390f2ae82a0d94a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058131"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091949"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Een Azure Batch-pool in een virtueel netwerk maken
 
-
 Wanneer u een Azure Batch-pool maakt, kunt u inrichten van de pool in een subnet van een [virtueel Azure-netwerk](../virtual-network/virtual-networks-overview.md) (VNet) die u opgeeft. In dit artikel wordt uitgelegd hoe u een Batch-pool in een VNet instelt. 
-
-
 
 ## <a name="why-use-a-vnet"></a>Waarom een VNet gebruiken?
 
-
 Een Azure Batch-pool heeft instellingen om toe te staan van rekenknooppunten om te communiceren met elkaar - voorbeeld, om uit te voeren taken met meerdere instanties. Deze instellingen hoeven niet een apart VNet. Standaard de knooppunten kunnen niet communiceren met virtuele machines die geen deel uitmaken van de Batch-pool, zoals een licentieserver of een bestandsserver. Als u wilt toestaan pool van rekenknooppunten om veilig te communiceren met andere virtuele machines, of met een on-premises netwerk, kunt u de pool in een subnet van een Azure VNet inrichten. 
-
-
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Authentication** (Verificatie). Het gebruik van een Azure VNet vereist dat de Batch-client-API gebruikmaakt van Azure Active Directory-verificatie (AD). Azure Batch-ondersteuning voor Azure AD wordt beschreven in [Oplossingen van Batch-service verifiëren met Active Directory](batch-aad-auth.md). 
 
-* **Een Azure VNet**. Als u wilt een VNet met een of meer subnetten van tevoren voorbereid, kunt u de Azure-portal, Azure PowerShell, de Azure-opdrachtregelinterface (CLI) of andere methoden. Zie voor het maken van een Azure Resource Manager gebaseerd VNet, [maken van een virtueel netwerk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Zie voor het maken van een klassiek VNet [een virtueel netwerk (klassiek) maken met meerdere subnetten](../virtual-network/create-virtual-network-classic.md).
+* **Een Azure VNet**. Zie de volgende sectie voor vereisten voor VNet- en configuratie. Als u wilt een VNet met een of meer subnetten van tevoren voorbereid, kunt u de Azure-portal, Azure PowerShell, de Azure-opdrachtregelinterface (CLI) of andere methoden.  
+  * Zie voor het maken van een Azure Resource Manager gebaseerd VNet, [maken van een virtueel netwerk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Een Resource Manager gebaseerd VNet wordt aanbevolen voor nieuwe implementaties en wordt alleen ondersteund op groepen in de configuratie van de virtuele Machine.
+  * Zie voor het maken van een klassiek VNet [een virtueel netwerk (klassiek) maken met meerdere subnetten](../virtual-network/create-virtual-network-classic.md). Een klassieke VNet wordt alleen ondersteund op groepen in de Cloud Services-configuratie.
 
-### <a name="vnet-requirements"></a>Vereisten voor VNet
+## <a name="vnet-requirements"></a>Vereisten voor VNet
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
-    
+
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Een pool maken met een VNet in de portal
 
 Nadat u uw VNet hebt gemaakt en toegewezen subnet, kunt u een Batch-pool maken met dit VNet. Volg deze stappen voor het maken van een groep van toepassingen vanuit Azure portal: 
-
-
 
 1. Ga in Azure Portal naar uw Batch-account. Dit account moet zich in hetzelfde abonnement en dezelfde regio als de resourcegroep met de VNet die u wilt gebruiken. 
 2. In de **instellingen** venster aan de linkerkant, selecteer de **Pools** menu-item.

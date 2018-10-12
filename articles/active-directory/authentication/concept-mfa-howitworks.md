@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041693"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114155"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Hoe het werkt: Azure multi-factor Authentication
 
@@ -42,15 +42,6 @@ Multi-factor Authentication wordt geleverd als onderdeel van de volgende aanbied
 > [!NOTE]
 > Nieuwe klanten kunnen niet meer Azure multi-factor Authentication aanschaffen als zelfstandige aanbieding met 1 September 2018. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
 
-### <a name="auth-provider-or-mfa-license"></a>Authentication-Provider of MFA-licentie
-
-Als u Azure AD Premium of een andere licentie-bundel met Azure AD Premium hebt, hebt u al Azure MFA. Uw organisatie hoeft niet verder niets meer om uit te breiden de functionaliteit van de verificatie in twee stappen voor alle gebruikers. U hoeft alleen een licentie toewijzen aan een gebruiker en vervolgens u MFA kunt inschakelen.
-
-Als u geen licenties die Azure MFA bevatten of beschikt niet over voldoende licenties voor alle gebruikers, en vervolgens kunt u een [MFA-verificatieprovider](concept-mfa-authprovider.md) om uit te breiden de volledige functionaliteit van MFA voor gebruikers die ze nodig hebt.
-
-> [!IMPORTANT]
-> Als u geen voldoende licenties voor al uw gebruikers hebt, kunt u een per gebruiker multi-factor Authentication-Provider voor de rest van uw organisatie maken. Maak een per authenticatie multi-factor Authentication-Provider niet. Als u dit doet, kan het uiteindelijke betaalt voor aanvragen voor verificatie van gebruikers die al licenties hebt.
-
 ## <a name="supportability"></a>Ondersteuning
 
 Omdat de meeste gebruikers gewend zijn om te verifiëren met behulp van alleen wachtwoorden, is het belangrijk dat uw organisatie voor alle gebruikers met betrekking tot dit proces communiceert. Bewustzijn verkleint de kans dat gebruikers contact opnemen met de helpdesk voor kleine problemen met betrekking tot MFA. Er zijn echter enkele scenario's tijdelijk uitschakelen MFA waar nodig is. Gebruik de volgende richtlijnen om te begrijpen hoe u deze scenario's:
@@ -65,8 +56,8 @@ Omdat de meeste gebruikers gewend zijn om te verifiëren met behulp van alleen w
 
 - Ophalen van een stapsgewijze MFA [implementatieplan](https://aka.ms/MFADeploymentPlan)
 
-- Meer informatie vinden over [uw gebruikers-licentieverlening](concept-mfa-licensing.md)
+- Bekijk detailinformatie over de [licentieverlening aan uw gebruikers](concept-mfa-licensing.md)
 
-- Meer informatie over [welke versie u wilt implementeren](concept-mfa-whichversion.md)
+- Bekijk detailinformatie over [welke versie u moet implementeren](concept-mfa-whichversion.md)
 
-- Vind antwoorden op [Veelgestelde vragen](multi-factor-authentication-faq.md)
+- Raadpleeg de antwoorden op [veelgestelde vragen](multi-factor-authentication-faq.md)

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71fdf609badd6c8a9f4db5a5a1d2aa70c8c2e5f5
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 62eb28c6cdb2dd6c1ddff1487826c01ef3bf6e3e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887469"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091586"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes op Azure Stack implementeren
 
@@ -39,6 +39,8 @@ U kunt Kubernetes te gebruiken:
 - Ontwikkel toepassingen met grote aantallen schaalbare en kan worden bijgewerkt, die kunnen worden geïmplementeerd in een paar seconden. 
 - Vereenvoudig het ontwerp van uw toepassing en de betrouwbaarheid verbeteren door verschillende Helm-toepassingen. [Helm](https://github.com/kubernetes/helm) is een open-source verpakking-hulpprogramma dat helpt u bij het installeren en beheren van de levenscyclus van toepassingen met Kubernetes.
 - Eenvoudig bewaken en de status van uw toepassingen met schaal opsporen en functionaliteit van een upgrade uitvoert.
+
+U wordt enkel gefactureerd voor de compute-gebruik door de ondersteuning van uw cluster knooppunten vereist. Zie voor meer informatie, [gebruik en facturering in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
 ## <a name="prerequisites"></a>Vereisten 
 

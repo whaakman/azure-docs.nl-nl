@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817123"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114980"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -166,7 +166,7 @@ Als uw organisatie de NPS-extensie implementeert voor MFA on-premises toepassing
 
 | Azure AD-tenant-type | Vertrouwde IP-adressen functieopties |
 |:--- |:--- |
-| Beheerd |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
+| Managed |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
 | Federatief |**Alle federatieve gebruikers**: alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven. |
 
 De goedgekeurde IP-adressen overslaan werkt alleen in het bedrijfsintranet. Als u selecteert de **alle federatieve gebruikers** optie en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, de gebruiker heeft om te verifiëren met behulp van verificatie in twee stappen. Het proces is hetzelfde, zelfs als de gebruiker een AD FS claim geeft. 
@@ -322,11 +322,11 @@ De _multi-factor Authentication onthouden_ functie voor apparaten en browsers di
 
 ### <a name="how-the-feature-works"></a>De werking van de functie
 
-De functie van de multi-factor Authentication onthouden stelt een permanente cookies in de browser wanneer een gebruiker selecteert de **niet opnieuw vragen gedurende X dagen** optie bij het aanmelden. De gebruiker is niet opnieuw gevraagd voor meervoudige verificatie van die dezelfde browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of hun cookies wist, worden ze opnieuw gevraagd te bevestigen. 
+De functie van de multi-factor Authentication onthouden stelt een permanente cookies in de browser wanneer een gebruiker selecteert de **niet opnieuw vragen gedurende X dagen** optie bij het aanmelden. De gebruiker is niet opnieuw gevraagd voor meervoudige verificatie van die dezelfde browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of hun cookies wist, worden ze opnieuw gevraagd te bevestigen.
 
-De **niet opnieuw vragen gedurende X dagen** optie op niet-browsertoepassingen, ongeacht of de app ondersteunt met moderne verificatie wordt niet weergegeven. Gebruik van deze apps _vernieuwingstokens_ die elk uur nieuwe toegangstokens bieden. Wanneer een vernieuwingstoken is gevalideerd, wordt Azure AD gecontroleerd dat de laatste verificatie in twee stappen is opgetreden in het opgegeven aantal dagen. 
+De **niet opnieuw vragen gedurende X dagen** optie op niet-browsertoepassingen, ongeacht of de app ondersteunt met moderne verificatie wordt niet weergegeven. Gebruik van deze apps _vernieuwingstokens_ die elk uur nieuwe toegangstokens bieden. Wanneer een vernieuwingstoken is gevalideerd, wordt Azure AD gecontroleerd dat de laatste verificatie in twee stappen is opgetreden in het opgegeven aantal dagen.
 
-De functie vermindert het aantal verificaties op web-apps, waarbij elke keer normaal gevraagd. De functie verhoogt het aantal authenticaties voor moderne verificatie-clients die normaal gesproken om de 90 dagen vraagt.
+De functie vermindert het aantal verificaties op web-apps, waarbij elke keer normaal gevraagd. De functie verhoogt het aantal authenticaties voor moderne verificatie-clients die normaal gesproken om de 90 dagen vraagt. Het aantal authenticaties in combinatie met beleid voor voorwaardelijke toegang kan ook worden verhogen.
 
 >[!IMPORTANT]
 >De **multi-factor Authentication onthouden** functie is niet compatibel met de **aangemeld blijven** functie van AD FS, wanneer gebruikers verificatie voor AD FS via meerdere factoren van Azure uitvoeren Authentication-Server of een oplossing van derden met meervoudige verificatie.

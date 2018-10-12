@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3cfff932834682471990236c9e96b499e20d33f1
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870839"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092555"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 
@@ -148,10 +148,9 @@ Wanneer u service-eindpunten voor Azure SQL Database, bekijk de volgende punten:
 
 #### <a name="expressroute"></a>ExpressRoute
 
-Als uw netwerk is verbonden met het Azure-netwerk door het gebruik van [ExpressRoute][expressroute-indexmd-744v], elk circuit is geconfigureerd met twee openbare IP-adressen op de Microsoft Edge. De twee IP-adressen worden gebruikt om verbinding maken met Microsoft-Services, zoals aan Azure Storage met behulp van openbare Azure-Peering.
-
-Als u wilt toestaan dat communicatie tussen uw circuit en Azure SQL Database, moet u IP-netwerkregels voor openbare IP-adressen van uw circuits maken. Om te zoeken in de openbare IP-adressen van uw ExpressRoute-circuit, opent u een ondersteuningsticket met ExpressRoute met behulp van de Azure-portal.
-
+Als u [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) vanuit uw on-premises voor openbare peering of Microsoft-peering, moet u de NAT IP-adressen die worden gebruikt. Voor openbare peering gebruikt elk ExpressRoute-circuit standaard twee NAT IP-adressen. Deze worden toegepast op Azure-serviceverkeer wanneer het verkeer het Microsoft Azure-backbone-netwerk binnenkomt. Voor Microsoft-peering worden de NAT IP-adressen die worden gebruikt opgegeven door de klant of de serviceprovider. Voor toegang tot uw serviceresources moet u deze openbare IP-adressen toestaan in de instelling voor IP-firewall voor de resource. Wanneer u op zoek bent naar de IP-adressen van uw ExpressRoute-circuit, opent u [een ondersteuningsticket met ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via de Azure Portal. Meer informatie over [NAT voor openbare peering en Microsoft-peering met ExpressRoute.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  
+Als u wilt toestaan dat communicatie tussen uw circuit en Azure SQL Database, moet u IP-netwerkregels voor openbare IP-adressen van uw NAT bevinden.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.

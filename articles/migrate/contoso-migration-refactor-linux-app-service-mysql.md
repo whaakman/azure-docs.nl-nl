@@ -2,16 +2,17 @@
 title: Een Contoso Linux helpdesk-app naar de Azure App Service en Azure MySQL herstructureren | Microsoft Docs
 description: Informatie over hoe Contoso on-premises Linux app promotiebewerkingen door te migreren naar Azure App Service met behulp van GitHub voor de weblaag en Azure SQL Database.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3f85d9d18aa49a378c63fa1f1692c7dc665489be
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296515"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092998"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migratie van Contoso: een Contoso Linux helpdesk-app voor meerdere regio's met Azure App Service, Traffic Manager en Azure MySQL herstructureren
 
@@ -34,6 +35,7 @@ Artikel 10: Een Linux-app op Azure-Web-Apps en Azure MySQL herstructureren | De 
 [Artikel 11: Herstructureren TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 [Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt van de SmartHotel360-app met behulp van een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 In dit artikel migreert Contoso een app met twee lagen Linux Apache MySQL PHP (LAMP) servicedesk (osTicket) naar Azure. Als u wilt deze open-source-app wilt gebruiken, kunt u het downloaden van [GitHub](https://github.com/osTicket/osTicket).
 
@@ -111,7 +113,7 @@ Contoso wordt als volgt het migratieproces voltooid:
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | De database is gebaseerd op de open-source MySQL-Server-engine. Het biedt een volledig beheerde, bedrijfsklare community MySQL-database als een service voor ontwikkeling en implementatie. | Prijzen op basis van compute, opslag en back-upvereisten. [Meer informatie](https://azure.microsoft.com/pricing/details/mysql/).
 
  
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Hier volgt wat Contoso moet worden uitgevoerd in dit scenario.
 

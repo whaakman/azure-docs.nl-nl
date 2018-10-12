@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9b521f48f5bed8ae44d8406eb692a3ce244cf221
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902260"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114189"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -39,7 +39,7 @@ De volgende tabel geeft een kort overzicht van het bereik van duurzaamheid en be
 | Een storing in de gehele regio                                                                                     | Nee                              | Nee                               | Ja                                  | Ja                                  |
 | Leestoegang tot uw gegevens (in de regio van een externe, geo-replicatie) in het geval van de gehele regio niet beschikbaar zijn | Nee                              | Nee                               | Nee                                   | Ja                                  |
 | Die zijn bedoeld voor ___ duurzaamheid van objecten gedurende een bepaald jaar                                          | ten minste 99,999999999% (11 9's) | ten minste 99,9999999999% (12 9's) | ten minste 99,99999999999999% (16 9's) | ten minste 99,99999999999999% (16 9's) |
-| Typen ondersteunde opslagaccounts weergegeven                                                                   | GPv1-en gpv2-Opslagaccounts Blob                | GPv1 (via PowerShell, Azure CLI of resource provider API), GPv2                             | GPv1-en gpv2-Opslagaccounts Blob                     | GPv1-en gpv2-Opslagaccounts Blob                     |
+| Typen ondersteunde opslagaccounts weergegeven                                                                   | GPv1-en gpv2-Opslagaccounts Blob                | GPv2, GPv1 (via PowerShell, Azure CLI of resource provider API)                             | GPv1-en gpv2-Opslagaccounts Blob                     | GPv1-en gpv2-Opslagaccounts Blob                     |
 | SLA voor beschikbaarheid voor lezen aanvragen | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,99% (99,9% voor de koude Toegangslaag) |
 | Beschikbaarheids-SLA voor schrijfaanvragen voor | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) | Ten minste 99,9% (99% voor de koude toegangslaag) |
 

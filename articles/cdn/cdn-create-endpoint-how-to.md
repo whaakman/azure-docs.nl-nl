@@ -3,8 +3,8 @@ title: Maak een Azure CDN-eindpunt | Microsoft Docs
 description: In dit artikel laat zien hoe een nieuw eindpunt van Azure Content Delivery Network (CDN), met inbegrip van geavanceerde instellingen maken.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: media
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 16a939c69d9ed9be597306765f316ffe32db6665
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094033"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093677"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt maken
 In dit artikel beschrijft alle instellingen voor het maken van een [Azure Content Delivery Network (CDN)](cdn-overview.md) -eindpunt in een bestaande CDN-profiel. Nadat u een profiel en een eindpunt hebt gemaakt, kunt u beginnen met het leveren van inhoud aan uw klanten. Zie voor een snelstartgids over het maken van een profiel en eindpunt, [Quickstart: maken van een Azure CDN-profiel en een eindpunt](cdn-create-new-endpoint.md).

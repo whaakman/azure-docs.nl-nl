@@ -3,15 +3,15 @@ title: Schijven uitsluiten van beveiliging met Azure Site Recovery | Microsoft D
 description: In dit artikel wordt beschreven waarom en hoe u een of meer VM-schijven kunt uitsluiten van replicatie voor Hyper-V-naar-Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 14b825b7b7f14efc0bf35a1e61e40e6248a4d3d1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 38b7e965a85bf7014167f9a5c3fd66202c02e0fa
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920617"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091909"
 ---
 # <a name="exclude-disks-from-replication"></a>Schijven uitsluiten van replicatie
 In dit artikel wordt beschreven hoe u schijven uitsluit van replicatie. Door schijven uit te sluiten, kunt u de verbruikte replicatiebandbreedte optimaliseren of de resources aan de doelzijde waarvan deze schijven gebruikmaken, optimaliseren.

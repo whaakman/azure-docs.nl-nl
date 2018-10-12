@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 344768e08fbd70aaae4fdb250b00cc968ed8eae1
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 41823d697139e039703cd47e0bfe3380fd2d20d6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067021"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116083"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Maken of lid van parallelle vertakkingen voor werkstroomacties in Azure Logic Apps
 
@@ -56,7 +56,7 @@ Uw logische app wacht tot alle vertakkingen te voltooien voordat u doorgaat werk
 
    ![Zoek en selecteer de actie die u wilt](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Voeg nu de stappen die u wilt dat toe in elke parallelle vertakking. Nog een actie toevoegen aan een vertakking, de aanwijzer onder de actie waar u wilt een sequentiële actie toevoegen. Kies de de **plus** (**+**) teken dat wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+1. Voeg nu de stappen die u wilt dat toe in elke parallelle vertakking. Nog een actie toevoegen aan een vertakking, de aanwijzer onder de actie waar u wilt een sequentiële actie toevoegen. Kies de **plus** (**+**) teken dat wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
    ![Sequentiële actie aan parallelle vertakking toevoegen](media/logic-apps-control-flow-branches/add-sequential-action.png)
 

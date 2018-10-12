@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348565"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094204"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen voor capaciteitsplanning
 Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -78,7 +78,7 @@ De duurzaamheidslaag wordt gebruikt om aan te geven aan het systeem de rechten v
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Goudkleurig             | 5                              | Volledige-node-SKU's die zijn toegewezen aan één klant (bijvoorbeeld L32s, GS5, G5, DS15_v2, D15_v2) | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Gedurende 2 uur per UD waarmee extra tijd voor replica's te herstellen van eerdere fouten kan worden onderbroken |
 | Zilver           | 5                              | Virtuele machines van één kern of hoger                                                        | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
-| Brons           | 1                              | Alles                                                                                | Niet worden door de Service Fabric-cluster vertraagd           | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
+| Brons           | 1                              | Alle                                                                                | Niet worden door de Service Fabric-cluster vertraagd           | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
 
 > [!WARNING]
 > Knooppunttypen met de duurzaamheid Brons verkrijgen _geen bevoegdheden_. Dit betekent dat infrastructuur-taken die invloed hebben op uw staatloze werkbelastingen worden niet worden gestopt of uitgesteld, kan dit gevolgen hebben voor uw workloads. Gebruik alleen Brons voor typen die alleen staatloze werkbelastingen worden uitgevoerd. Voor productieworkloads, Zilver uitgevoerd of hoger wordt aanbevolen. 
@@ -165,6 +165,7 @@ Voor werkbelastingen voor productie:
 - De lokale SSD van 14 GB is een minimale vereiste. Onze aanbeveling is een minimum van 50 GB. Voor uw werkbelastingen, met name wanneer Windows-containers, zijn grotere schijven vereist. 
 - Gedeeltelijke kern als Standard A0 VM-SKU's worden niet ondersteund voor productieworkloads.
 - Standard A1-SKU wordt niet ondersteund voor productieworkloads voor betere prestaties.
+- Virtuele machines met lage prioriteit worden niet ondersteund.
 
 > [!WARNING]
 > Wijzigen van het primaire knooppunt VM-SKU-grootte op een cluster wordt uitgevoerd, is een bewerking waarbij de vergroten/verkleinen en gedocumenteerd in [virtuele-Machineschaalset scale-out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentatie.

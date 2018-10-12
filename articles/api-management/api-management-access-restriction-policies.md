@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269511"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092538"
 ---
 # <a name="api-management-access-restriction-policies"></a>Beleid voor toegangsbeperking API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -136,9 +136,6 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
  De `rate-limit-by-key` beleid voorkomt gebruikspieken API op basis van per sleutel door het beperken van het aantal aanroepen naar een opgegeven getal gedurende een opgegeven periode. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen naar de limiet moeten worden geteld. Wanneer dit beleid wordt geactiveerd de oproepende functie ontvangt een `429 Too Many Requests` antwoordstatuscode.  
   
  Zie voor meer informatie en voorbeelden van dit beleid [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
-  
-> [!IMPORTANT]
->  Dit beleid kan slechts één keer per beleidsdocument worden gebruikt.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -288,13 +285,10 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie v
 -   **Beleid bereiken:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Gebruiksquotum instellen op sleutel  
- De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen moeten worden geteld naar het quotum. Wanneer dit beleid wordt geactiveerd de oproepende functie ontvangt een `403 Forbidden` antwoordstatuscode.
+ De `quota-by-key` beleid zorgt ervoor dat een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per sleutel. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door met behulp van een beleidsexpressie voor een. Optionele incrementele voorwaarde kan worden toegevoegd om op te geven welke aanvragen moeten worden geteld naar het quotum. Als er meerdere beleidsregels opgehoogd dezelfde sleutelwaarde, wordt er slechts één keer verhoogd per aanvraag. Als de oproep is bereikt, wordt de oproepende functie ontvangt een `403 Forbidden` antwoordstatuscode.
   
  Zie voor meer informatie en voorbeelden van dit beleid [geavanceerde aanvraagbeperking met Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
-> [!IMPORTANT]
->  Dit beleid kan slechts één keer per beleidsdocument worden gebruikt.  
->   
 >  [Beleidsexpressies](api-management-policy-expressions.md) kan niet worden gebruikt in een van de kenmerken van het beleid voor dit beleid.  
   
 ### <a name="policy-statement"></a>Beleidsverklaring  

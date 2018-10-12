@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163474"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115319"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trainen van modellen met geautomatiseerde machine learning in de cloud
 
@@ -190,10 +190,10 @@ U kunt de dezelfde Jupyter-widget gebruiken als het account dat in [de zelfstudi
 from azureml.train.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
-Hier volgt een statische afbeelding van de widget.  In het notitieblok, kunt u klikken op elke regel in de tabel om te zien van de eigenschappen voor de uitvoerbewerking en uitvoer van Logboeken voor die worden uitgevoerd.   U kunt ook de vervolgkeuzelijst boven de grafiek gebruiken om een grafiek van elke beschikbare metrische gegevens voor elke herhaling van weer te geven.
+Hier ziet u een statische afbeelding van de widget.  In het notitieblok, kunt u klikken op elke regel in de tabel om te zien van de eigenschappen voor de uitvoerbewerking en uitvoer van Logboeken voor die worden uitgevoerd.   U kunt ook de vervolgkeuzelijst boven de grafiek gebruiken om een grafiek van elke beschikbare metrische gegevens voor elke herhaling van weer te geven.
 
-![widget tabel](./media/how-to-auto-train-remote/table.png)
-![widget tekengebied](./media/how-to-auto-train-remote/plot.png)
+![tabel van widget](./media/how-to-auto-train-remote/table.png)
+![grafiek van widget](./media/how-to-auto-train-remote/plot.png)
 
 De widget wordt weergegeven een URL die u gebruiken kunt om te zien en de details uitvoering van afzonderlijke verkennen.
  
@@ -203,7 +203,7 @@ Logboeken zoeken op de DSVM onder de map/Tmp/azureml_run / {iterationid} / azure
 
 ## <a name="example"></a>Voorbeeld
 
-De `automl/03.auto-ml-remote-execution.ipynb` notebook concepten in dit artikel laat zien.  Dit notitieblok ophalen:
+De [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook concepten in dit artikel laat zien.  Dit notitieblok ophalen:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

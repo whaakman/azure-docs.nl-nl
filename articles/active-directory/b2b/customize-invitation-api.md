@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985810"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091762"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samenwerking API en aanpassingen
 
@@ -79,7 +79,7 @@ Zie voor meer informatie: https://graph.microsoft.io/docs/authorization/permissi
 
 
 ## <a name="powershell"></a>PowerShell
-Het is nu mogelijk om te gebruiken van PowerShell toe te voegen en externe gebruikers uitnodigen voor een organisatie eenvoudig. Maak een uitnodiging met de cmdlet:
+U kunt PowerShell gebruiken toe te voegen en externe gebruikers uitnodigen voor een organisatie eenvoudig. Maak een uitnodiging met de cmdlet:
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ U kunt de volgende opties gebruiken:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-U kunt ook de uitnodiging voor API-verwijzing in uitchecken [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+### <a name="invitation-status"></a>Status van de uitnodiging
+
+Nadat u een externe gebruiker een uitnodiging verzenden, kunt u de **Get-AzureADUser** cmdlet om te zien als ze het hebt geaccepteerd. De volgende eigenschappen van Get-AzureADUser worden ingevuld wanneer een externe gebruiker wordt een uitnodiging verzonden:
+
+* **UserState** geeft aan of de uitnodiging **PendingAcceptance** of **geaccepteerde**.
+* **UserStateChangedOn** geeft de tijdstempel weer voor de meest recente wijziging op de **UserState** eigenschap.
+
+U kunt de **Filter** optie voor het filteren van de resultaten door **UserState**. In het volgende voorbeeld laat zien hoe resultaten om weer te geven alleen gebruikers met een uitnodiging voor een in behandeling te filteren. Het voorbeeld ziet u ook de **lijst indeling** optie, waarmee u de eigenschappen om weer te geven. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> Zorg ervoor dat u hebt de nieuwste versie van de AzureAD PowerShell-module of AzureADPreview PowerShell-module. 
+
+## <a name="see-also"></a>Zie ook
+
+Bekijk de uitnodiging voor API-verwijzing in [ https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation ](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## <a name="next-steps"></a>Volgende stappen
 

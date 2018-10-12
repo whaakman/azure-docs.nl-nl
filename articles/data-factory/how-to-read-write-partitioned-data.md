@@ -1,6 +1,6 @@
 ---
-title: Het lezen of schrijven gepartitioneerd gegevens in Azure Data Factory | Microsoft Docs
-description: Informatie over het lezen of schrijven gepartitioneerde in Azure Data Factory.
+title: Het lezen of schrijven van gegevens in Azure Data Factory gepartitioneerd | Microsoft Docs
+description: Informatie over het lezen of schrijven gepartitioneerde gegevens in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053707"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091046"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Het lezen of schrijven gepartitioneerd gegevens in Azure Data Factory
-Azure Data Factory ondersteund in versie 1, lezen of schrijven van gepartitioneerde gegevens met behulp van de SliceStart/SliceEnd/WindowStart/WindowEnd systeemvariabelen. U kunt dit gedrag met behulp van een pipeline-parameter en van de trigger geplande tijd/begintijd als een waarde van de parameter bereiken in de huidige versie van Data Factory. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Het lezen of schrijven van gegevens in Azure Data Factory gepartitioneerd
 
-## <a name="use-a-pipeline-parameter"></a>Gebruik de parameter van een pijplijn 
-In versie 1, kunt u de eigenschap partitionedBy en SliceStart systeemvariabele, zoals wordt weergegeven in het volgende voorbeeld gebruiken: 
+In Azure Data Factory versie 1, kunt u lezen of schrijven gepartitioneerde gegevens met behulp van de **SliceStart**, **SliceEnd**, **WindowStart**, en **WindowEnd** systeemvariabelen. In de huidige versie van Data Factory, kunt u dit gedrag bewerkstelligen met behulp van de pijplijnparameter van een en van een trigger begin- of geplande tijd als een waarde van de parameter. 
+
+## <a name="use-a-pipeline-parameter"></a>Een pijplijnparameter gebruiken 
+
+In Data Factory versie 1, kunt u de **partitionedBy** eigenschap en **SliceStart** systeemvariabele zoals wordt weergegeven in het volgende voorbeeld: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ In versie 1, kunt u de eigenschap partitionedBy en SliceStart systeemvariabele, 
 ],
 ```
 
-Zie voor meer informatie over de eigenschap partitonedBy [versie 1 Azure Blob-connector](v1/data-factory-azure-blob-connector.md#dataset-properties) artikel. 
+Voor meer informatie over de **partitonedBy** eigenschap, Zie [gegevens naar of van Azure Blob-opslag kopiëren met behulp van Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-Een manier om dit gedrag is de volgende acties uitvoeren in de huidige versie van Data Factory: 
+Om dit gedrag in de huidige versie van Data Factory: 
 
-1. Definieer een **pipeline-parameter** van het type tekenreeks. In het volgende voorbeeld is de naam van de pipeline-parameter **windowStartTime**. 
-2. Stel **folderPath** in de definitie van de gegevensset om te verwijzen naar de waarde van parameter van de pijplijn. 
-3. De werkelijke waarde voor de parameter doorgeven bij het aanroepen van de pijplijn op aanvraag, of geeft u een trigger geplande tijd/begintijd dynamisch tijdens runtime. 
+1. Definieer een *pipeline-parameter* van het type **tekenreeks**. In het volgende voorbeeld wordt de naam van de pijplijnparameter is **windowStartTime**. 
+2. Stel **folderPath** in de definitie van de gegevensset om te verwijzen naar de waarde van de pijplijnparameter. 
+3. De werkelijke waarde voor de parameter doorgeven als u de pijplijn op aanvraag aanroepen. U kunt ook van een trigger begin- of geplande tijdstip in runtime dynamisch doorgeven. 
 
 ```json
 "folderPath": {
@@ -50,8 +52,9 @@ Een manier om dit gedrag is de volgende acties uitvoeren in de huidige versie va
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>In waarde van een trigger doorgeven
-In de volgende daling trigger vensterdefinitie, begintijd van de trigger is doorgegeven als een waarde voor de pipeline-parameter **windowStartTime**: 
+## <a name="pass-in-a-value-from-a-trigger"></a>Vanuit een trigger in een waarde doorgeven
+
+In de volgende tumblingvenstertrigger venster Triggerdefinitie, de begintijd van de trigger wordt doorgegeven als een waarde voor de pijplijnparameter **windowStartTime**: 
 
 ```json
 {
@@ -80,7 +83,7 @@ In de volgende daling trigger vensterdefinitie, begintijd van de trigger is door
 
 ## <a name="example"></a>Voorbeeld
 
-Hier volgt een voorbeeld gegevenssetdefinitie:
+Hier volgt een voorbeelddefinitie voor de gegevensset:
 
 ```json
 {
@@ -116,7 +119,7 @@ Hier volgt een voorbeeld gegevenssetdefinitie:
 }
 ```
 
-De definitie van de pijplijn: 
+Pijplijndefinitie van de: 
 
 ```json
 {
@@ -176,4 +179,6 @@ De definitie van de pijplijn:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een volledig overzicht van het maken van een gegevensfactory met een pipeline [Snelstartgids: Maak een gegevensfactory](quickstart-create-data-factory-powershell.md). 
+
+Zie voor een volledige procedure voor het maken van een data factory die een pijplijn, [Snelstartgids: een data Factory](quickstart-create-data-factory-powershell.md). 
+

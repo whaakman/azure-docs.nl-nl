@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c4600eda74fbc0ae53f30dac00e0127a984a4fff
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390959"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093412"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-versieprofielen gebruiken met Python in Azure Stack
 
@@ -129,7 +129,7 @@ De voorbeelden zijn niet noodzakelijkerwijs in de volgorde die wordt weergegeven
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  Om uit te voeren in dit voorbeeld, moet Ubuntu 16.04-LTS en WindowsServer 2012 R2 Datacenter afbeeldingen aanwezig zijn in Azure Stack-marktplaats. Dit kunnen zijn [gedownload van Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) of [toegevoegd aan Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  Om uit te voeren in dit voorbeeld, moet Ubuntu 16.04-LTS en WindowsServer 2012 R2 Datacenter afbeeldingen aanwezig zijn in Azure Stack marketplace. Dit kunnen zijn [gedownload van Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) of [toegevoegd aan Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
 8. Voet het voorbeeld uit.
 

@@ -3,8 +3,8 @@ title: Vervaldatum van webinhoud in Azure CDN beheren | Microsoft Docs
 description: Informatie over het beheren van Azure Web Apps/Cloud Services, ASP.NET of IIS-inhoud in Azure CDN is verlopen.
 services: cdn
 documentationcenter: .NET
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: mazha
-ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: magattus
+ms.openlocfilehash: d4ae0c4d5924fab8fcdaf1b4da5c8183a3a5fd0f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426015"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092470"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Vervaldatum van webinhoud in Azure CDN beheren
 > [!div class="op_single_selector"]

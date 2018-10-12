@@ -1,6 +1,6 @@
 ---
-title: Een beheerde gegevensschijf koppelen aan een virtuele machine van Windows - Azure | Microsoft Docs
-description: Klik hier voor meer informatie over het nieuwe beheerde gegevensschijf koppelen aan een virtuele machine van Windows in de Azure portal met het implementatiemodel van Resource Manager.
+title: Een beheerde gegevensschijf koppelen aan een Windows-VM - Azure | Microsoft Docs
+description: Hoe u een beheerde gegevensschijf koppelen aan een virtuele Windows-machine met behulp van de Azure-portal.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,73 +13,71 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913413"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093898"
 ---
-# <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Hoe u een beheerde gegevensschijf koppelen aan een virtuele machine van Windows in de Azure portal
+# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Een beheerde gegevensschijf koppelen aan een virtuele Windows-machine met behulp van Azure portal
 
-In dit artikel leest u hoe een nieuwe beheerde gegevensschijf koppelen aan virtuele Windows-machines in de Azure portal. Voordat u dit doet, controleert u de volgende tips:
-
-* De omvang van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie [grootten voor virtuele machines](sizes.md).
-* Voor een nieuwe schijf hoeft u niet eerst maken omdat Azure gemaakt wanneer u dit aansluit.
-
-U kunt ook [een gegevensschijf met behulp van Powershell koppelen](attach-disk-ps.md).
-
+In dit artikel wordt beschreven hoe u een nieuwe beheerde gegevensschijf koppelen aan een Windows virtuele machine (VM) met behulp van de Azure-portal. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie, [grootten voor virtuele machines](sizes.md).
 
 
 ## <a name="add-a-data-disk"></a>Een gegevensschijf toevoegen
-1. Klik in het menu aan de linkerkant op **virtuele Machines**.
-2. Selecteer de virtuele machine in de lijst.
-3. Klik op de pagina virtuele machine op **schijven**.
-4. Op de **schijven** pagina, klikt u op **+ gegevensschijf toevoegen**.
+
+1. In de [Azure-portal](https://portal.azure.com), selecteer in het menu aan de linkerkant, **virtuele machines**.
+2. Selecteer een virtuele machine in de lijst.
+3. Op de **virtuele machine** weergeeft, schakelt **schijven**.
+4. Op de **schijven** weergeeft, schakelt **gegevensschijf toevoegen**.
 5. Selecteer in de vervolgkeuzelijst voor de nieuwe schijf, **maken-schijf**.
-6. In de **-beheerde schijven maken** pagina, typ een naam voor de schijf en pas deze zo nodig de overige instellingen. Klik op **Maken** wanneer u klaar bent.
-7. In de **schijven** pagina, klikt u op **opslaan** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.
-6. Nadat Azure de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen voor de schijf van de virtuele machine onder **gegevensschijven**.
+6. In de **beheerde schijf maken** pagina, typ een naam voor de schijf en de andere instellingen naar behoefte aanpassen. Als u gereed bent, selecteert u **Maken**.
+7. In de **schijven** weergeeft, schakelt **opslaan** om op te slaan van de configuratie van de nieuwe schijven voor de virtuele machine.
+8. Nadat Azure de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **gegevensschijven**.
 
 
-## <a name="initialize-a-new-data-disk"></a>Initialiseer de gegevensschijf van een nieuwe
+## <a name="initialize-a-new-data-disk"></a>Een nieuwe gegevensschijf initialiseren
 
-1. Verbinding maken met de virtuele machine.
-1. Klik op het startmenu in de virtuele machine en het type **diskmgmt.msc** en treffers **Enter**. Schijf-beheermodule wordt geopend.
-2. Schijfbeheer herkent dat u een nieuwe, niet-geïnitialiseerde schijf hebt en de **schijf initialiseren** venster weergegeven.
-3. Zorg ervoor dat de nieuwe schijf is geselecteerd en klik op **OK** voor het initialiseren.
-4. De nieuwe schijf wordt weergegeven als **niet-toegewezen**. Klik met de rechtermuisknop op de schijf en selecteer **Nieuw eenvoudig volume**. De **Wizard Nieuw eenvoudig Volume** wordt geopend.
-5. Doorloop de wizard, alle standaardinstellingen, houden wanneer u klaar bent Selecteer **voltooien**.
-6. Sluit de module Schijfbeheer.
-7. Krijgt u een pop-upvenster die u de nieuwe schijf formatteren moet voordat u deze kunt gebruiken. Klik op **schijf formatteren**.
-8. In de **nieuwe schijf formatteren** dialoogvenster, Controleer de instellingen en klik vervolgens op **Start**.
-9. Krijg een waarschuwing dat de schijven formatteert, worden alle gegevens, klikt u **OK**.
-10. Wanneer de indeling voltooid is, klikt u op **OK**.
+1. Maak verbinding met de VM.
+1. Selecteer de Windows **Start** menu in de actieve virtuele machine en voer **diskmgmt.msc** in het zoekvak in. De **Schijfbeheer** -console wordt geopend.
+2. Schijfbeheer herkent dat u een nieuwe, niet-geïnitialiseerde schijfruimte hebt en de **schijf initialiseren** venster wordt weergegeven.
+3. Controleer of de nieuwe schijf is geselecteerd en selecteer vervolgens **OK** voor het initialiseren.
+4. De nieuwe schijf wordt weergegeven als **niet-toegewezen**. Klik met de rechtermuisknop op de schijf en selecteer **Nieuw eenvoudig volume**. De **Wizard Nieuw eenvoudig Volume** venster wordt geopend.
+5. Doorloop de wizard, blijven alle van de standaardinstellingen, en wanneer u klaar bent, selecteert **voltooien**.
+6. Sluiten **Schijfbeheer**.
+7. Een pop-upvenster weergegeven de melding die u nodig hebt om de opmaak van de nieuwe schijf voordat u deze kunt gebruiken. Selecteer **schijf formatteren**.
+8. In de **nieuwe schijf formatteren** venster, Controleer de instellingen en selecteer vervolgens **Start**.
+9. Een waarschuwing weergegeven de melding dat de schijven formatteert, worden alle gegevens. Selecteer **OK**.
+10. Wanneer de opmaak voltooid is, selecteert u **OK**.
 
-## <a name="use-trim-with-standard-storage"></a>Gebruik TRIM met standard-opslag
+## <a name="use-trim-with-standard-storage"></a>TRIM gebruiken met standard storage
 
-Als u een standard-opslag (HDD) gebruikt, moet u TRIM inschakelen. TRIM worden niet-gebruikte blokken op de schijf verwijderd, zodat u wordt alleen gefactureerd voor opslag die u daadwerkelijk gebruikt. Dit kunt besparen op kosten als u grote bestanden maken en deze vervolgens te verwijderen. 
+Als u een standard-opslag (HDD) gebruikt, moet u inschakelen de **TRIM** opdracht. De **TRIM** opdracht verwijdert niet-gebruikte blokken op de schijf, zodat u wordt gefactureerd voor alleen voor opslag die u daadwerkelijk gebruikt. Met behulp van **TRIM**, u kosten kunt besparen als u grote bestanden maakt en vervolgens later verwijderen. 
 
-U kunt deze opdracht om te controleren van de beperkende instelling uitvoeren. Open een opdrachtprompt op de virtuele machine van Windows en typ:
+Om te controleren of de **TRIM** instellen, open een opdrachtprompt op de Windows-VM en voer de volgende opdracht:
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Als de opdracht 0 retourneert, wordt ' trim ' correct ingeschakeld. Als deze 1 retourneert, voert u de volgende opdracht voor het vrijmaken van opslagruimte inschakelen:
+Als de opdracht 0 retourneert, **TRIM** correct is ingeschakeld. Anders uitgevoerd de volgende opdracht uit om in te schakelen als deze 1 retourneert, **TRIM**:
+
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-Na het verwijderen van gegevens van de schijf, kunt u ervoor zorgen dat de beperkende leegmaken goed door het uitvoeren van bewerkingen met ' trim ' defragmentatie:
+Nadat u gegevens van de schijf verwijderd, kunt u controleren of de **TRIM** leegmaken goed door het uitvoeren van bewerkingen met Defragmentatie **TRIM**:
 
 ```
 defrag.exe <volume:> -l
 ```
 
-U kunt er ook voor zorgen dat het hele volume wordt verkleind door het formatteren van het volume.
+U kunt ook het volume om te controleren of dat het hele volume wordt bijgesneden opmaken.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als uw toepassing gebruikt de D: station voor het opslaan van gegevens, kunt u [wijzigen van de stationsletter van de tijdelijke schijf Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+- U kunt ook [een gegevensschijf koppelen met behulp van PowerShell](attach-disk-ps.md).
+- Als uw toepassing moet u de *D:* station voor het opslaan van gegevens, kunt u [wijzigen van de stationsletter van de tijdelijke schijf Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

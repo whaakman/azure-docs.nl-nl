@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2308897737014befb831cbef9880065856c20c77
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868793"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114665"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption: Bring Your Own Key-ondersteuning
 
@@ -66,7 +66,14 @@ Wanneer TDE is eerst geconfigureerd voor gebruik van een TDE-beveiliging uit Key
   > [!NOTE]
   > Als de Azure AD Identity **per ongeluk is verwijderd of de machtigingen van de server worden ingetrokken** met behulp van de key vault-toegangsbeleid, de server verliest de toegang tot de key vault en TDE versleuteld databases binnen 24 uur zijn verwijderd.
 
-- Azure Key Vault zonder een VNet of de firewall configureren.  Als SQL verliest de toegang tot de key vault, worden versleuteld TDE databases binnen 24 uur verwijderd.
+- Als u firewalls en virtuele netwerken voor Azure Key Vault, moet u het volgende configureren: 
+  - Zodat toegang vanaf 'Geselecteerde netwerken' 
+  - Bestaande virtuele netwerken toevoegen en selecteer het SQL-Database-netwerk, indien van toepassing (dit is optioneel voor singleton-databases en vereist is voor beheerde exemplaren) 
+  - Vertrouwde Microsoft-services om over te slaan van de firewall toestaan: Ja gekozen 
+         
+    > [!NOTE] 
+    > Als TDE versleuteld SQL-databases geen toegang meer tot de key vault omdat ze de firewall niet overslaan, de databases binnen 24 uur zijn verwijderd.
+
 - Controle en rapportage van alle versleutelingssleutels inschakelen: Key Vault biedt u logboeken die gemakkelijk zijn te injecteren in andere security information en event management (SIEM) hulpprogramma's. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is een voorbeeld van een service die al is geïntegreerd.
 - Om hoge beschikbaarheid van de versleutelde databases te garanderen, configureert u elke logische server met twee Sleutelkluizen van Azure die zich in verschillende regio's bevinden.
 

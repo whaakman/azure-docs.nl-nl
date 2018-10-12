@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 843ff39f49141ff78219771a6d4af2e9e6e7644b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017479"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113917"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -22,12 +22,9 @@ Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden va
 
 U kunt aan de slag met een kleine hoeveelheid gegevens voor een concepttest. Maar hoe meer gegevens u hebt opgegeven, hoe meer natuurlijke en professional geluiden in uw stem.
 
-
 ## <a name="prerequisites"></a>Vereisten
 
-De **tekst naar spraak** stem aanpassing functie is momenteel in private preview. [Vul het aanvraagformulier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) worden overwogen om toegang te krijgen.
-
-U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Verbinding maken met uw abonnement aan de aangepaste spraak-portal als volgt:
+U moet een Azure-account en een abonnement met de spraak-service. [Maak een](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Verbinding maken met uw abonnement op de portal voor aangepaste spraak zoals hier wordt weergegeven.
 
 1. Aanmelden bij de [aangepaste spraak portal](https://customvoice.ai) met behulp van het Microsoft-account die u hebt gebruikt om toe te passen om toegang te krijgen.
 
@@ -37,7 +34,6 @@ U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](
 
 3. Kies op de pagina abonnementen **verbinding maken met bestaande abonnement**. Houd er rekening mee dat Speech Services biedt ondersteuning voor verschillende regio's. De regio waar de abonnementssleutel van uw is gemaakt en zorg ervoor dat u uw sleutel verbinding met de juiste onderliggende portal maken controleren.  
 
-     
 4. Plak uw abonnementssleutel in de tabel, zoals wordt weergegeven in het volgende voorbeeld. Elk abonnement heeft twee sleutels, en u kunt een van beide.
 
      ![Abonnement toevoegen](media/custom-voice/add-subscription.png)

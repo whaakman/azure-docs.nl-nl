@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: e8d85144b89d81e67d5ac225f0b6467230608ce0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3cd0a88747379edb15385014fcc93287d95295e0
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106806"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114036"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van PowerShell
 
@@ -175,6 +175,9 @@ Een gebruiker toegewezen beheerde identiteit toewijzen aan een bestaande VM in A
    ```
 3. Ophalen van de eigenschappen van de virtuele machine met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt een beheerde identiteit voor de gebruiker toegewezen aan de Azure-VM toewijst, gebruikt u de `-IdentityType` en `-IdentityID` overschakelen op de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet.  De waarde voor de`-IdentityId` parameter wordt de `Id` u in de vorige stap hebt genoteerd.  Vervang `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden.
 
+   > [!WARNING]
+   > Als u wilt behouden een eerder door de gebruiker toegewezen beheerde identiteiten die aan de virtuele machine is toegewezen, query de `Identity` eigenschap van de VM-object (bijvoorbeeld `$vm.Identity`).  Als een gebruiker toegewezen beheerde identiteiten worden geretourneerd, opnemen in de volgende opdracht samen met de nieuwe gebruiker toegewezen beheerde identiteit die u wilt toewijzen aan de virtuele machine.
+
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
@@ -189,7 +192,7 @@ Een gebruiker toegewezen beheerde identiteit toewijzen aan een bestaande VM in A
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Verwijderen van een gebruiker toegewezen beheerde identiteit van een Azure VM
 
-Als uw virtuele machine meerdere beheerde identiteiten gebruiker toegewezen, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. De `<USER ASSIGNED IDENTITY NAME>` is van de gebruiker toegewezen beheerde identiteit van de naam van eigenschap, die op de virtuele machine moet blijven. Deze informatie kan worden gevonden in de sectie van de identiteit van het gebruik van de virtuele machine `az vm show`:
+Als uw virtuele machine meerdere beheerde identiteiten gebruiker toegewezen, kunt u alles behalve het laatste item met de volgende opdrachten verwijderen. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. De `<USER ASSIGNED IDENTITY NAME>` is van de gebruiker toegewezen beheerde identiteit van de naam van eigenschap, die op de virtuele machine moet blijven. Deze informatie kan worden gevonden door het opvragen van de `Identity` eigenschap van de VM-object.  Bijvoorbeeld, `$vm.Identity`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm

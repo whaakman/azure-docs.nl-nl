@@ -8,212 +8,190 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 535f59b1b0dc56b183c8a019d101b4fd4f1bfad6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435757"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116122"
 ---
-# <a name="integrate-azure-active-directory-with-box"></a>Azure Active Directory integreren met Box
+# <a name="tutorial-azure-active-directory-integration-with-box"></a>Zelfstudie: Azure Active Directory-integratie met Box
 
-In deze zelfstudie leert u hoe u Azure Active Directory (Azure AD) integreren met Box.
+In deze zelfstudie leert u hoe u vak integreren met Azure Active Directory (Azure AD).
 
-Azure AD integreren met Box, krijgt u de volgende voordelen:
+Vak integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot de Box heeft.
-- U kunt uw gebruikers krijgen automatisch aangemeld met Box (eenmalige aanmelding of SSO) met hun Azure AD-accounts inschakelen.
-- U kunt uw accounts in één centrale locatie, de Azure-portal beheren.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij vak (Single Sign-On) met hun Azure AD-accounts inschakelen.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Zie voor meer informatie over SaaS-app-integratie met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Box, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een abonnement in het SSO-ingeschakeld
+- Een vak eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Wanneer u de stappen in deze zelfstudie hebt getest, raden we aan dat u doen *niet* een productie-omgeving gebruiken.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik uw productie-omgeving, niet als dat nodig is.
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. 
-
-Het scenario dat wordt beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Vak uit de galerie toevoegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="add-box-from-the-gallery"></a>Vak uit de galerie toevoegen
-Voor het configureren van de integratie van Azure AD met Box, vak uit de galerie toevoegt aan uw lijst met beheerde SaaS-apps door het volgende te doen:
+## <a name="adding-box-from-the-gallery"></a>Vak uit de galerie toevoegen
+Voor het configureren van de integratie van Box in Azure AD, moet u het vak in de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-1. In de [Azure-portal](https://portal.azure.com), selecteer in het linkerdeelvenster **Azure Active Directory**. 
+**Als u wilt toevoegen vak uit de galerie, moet u de volgende stappen uitvoeren:**
 
-    ![De Azure Active Directory-knop][1]
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-1. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
+    ![image](./media/box-tutorial/selectazuread.png)
 
-    ![Het venster 'Enterprise Application'][2]
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+
+    ![image](./media/box-tutorial/a_select_app.png)
     
-1. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het venster.
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De 'nieuwe toepassing"knop][3]
+    ![image](./media/box-tutorial/a_new_app.png)
 
-1. Typ in het zoekvak **vak**, selecteer **vak** in de lijst met resultaten en selecteer vervolgens **toevoegen**.
+4. Typ in het zoekvak **vak**, selecteer **vak** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Het vak in de lijst met resultaten](./media/box-tutorial/tutorial_box_search.png)
-### <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
+     ![image](./media/box-tutorial/tutorial_Box_addfromgallery.png)
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met Box, op basis van een testgebruiker met de naam "Britta Simon."
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-Voor eenmalige aanmelding om te werken, moet Azure AD de Box-gebruiker en het bijbehorende equivalent identificatie in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en dezelfde gebruiker in Box worden ingesteld.
+In deze sectie maakt u configureren en testen Azure AD eenmalige aanmelding met Box op basis van een testgebruiker 'Julia steen' genoemd.
 
-Toewijzen als het selectievakje in voor het maken van de relatie koppeling *gebruikersnaam* de waarde van de *gebruikersnaam* in Azure AD.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Box is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Box tot stand worden gebracht.
 
-Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Box, voltooi de bouwstenen die u in de volgende vijf secties.
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Box, u nodig hebt voor de volgende bouwstenen:
+
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker vak](#create-a-box-test-user)**  : als u wilt een equivalent van Britta Simon hebben in het vak dat is gekoppeld aan de Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw Box-toepassing door de volgende te doen:
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Box-toepassing.
 
-1. In de Azure-portal in de **vak** venster van de integratie van toepassing, selecteer **eenmalige aanmelding**.
+**Voor het configureren van Azure AD eenmalige aanmelding met Box, moet u de volgende stappen uitvoeren:**
 
-    ![De koppeling "Single sign-on"][4]
+1. In de [Azure-portal](https://portal.azure.com/)op de **vak** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-1. In de **eenmalige aanmelding** venster in de **modus voor één aanmelding** Schakel **SAML gebaseerde aanmelding**.
- 
-    ![Het venster "Single sign-on"](./media/box-tutorial/tutorial_box_samlbase.png)
+    ![image](./media/box-tutorial/b1_b2_select_sso.png)
 
-1. Onder **in het domein en URL's**, doet u het volgende:
+2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster, klikt u op **Selecteer** voor **SAML** modus voor eenmalige aanmelding inschakelen.
 
-    !['Vak domein en URL's ' eenmalige aanmelding informatie](./media/box-tutorial/url3.png)
+    ![image](./media/box-tutorial/b1_b2_saml_sso.png)
 
-    a. In de **aanmeldings-URL** vak, typ een URL in de volgende indeling: *https://\<subdomein >. box.com*.
+3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
 
-    b. In de **id** tekstvak, type **box.net**.
-     
+    ![image](./media/box-tutorial/b1-domains_and_urlsedit.png)
+
+4. Op de **SAML-basisconfiguratie** sectie, voert u de volgende stappen uit:
+
+    a. In de **aanmeldings-URL** tekstvak typt u een URL met behulp van het volgende patroon: `https://<SUBDOMAIN>.account.box.com`
+
+    b. In de **id** tekstvak, een URL typen:`box.net`
+
+    ![image](./media/box-tutorial/tutorial_box_url.png)
+
     > [!NOTE] 
-    > De bovenstaande waarden zijn niet echt. Deze bijwerken met de werkelijke aanmeldings-URL en -id. De waarden, neem contact op met de [vak client ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
+    > De aanmeldings-URL-waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [vak ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) om de waarde.
+ 
+5. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van de **federatieve metagegevens-XML**  en sla deze op uw computer.
 
-1. Onder **SAML-handtekeningcertificaat**, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
+    ![image](./media/box-tutorial/tutorial_Box_certificate.png)
 
-    ![De downloadkoppeling certificaat](./media/box-tutorial/tutorial_box_certificate.png) 
+6. Volg de procedure in voor meer informatie over het configureren van eenmalige aanmelding voor uw toepassing [een SSO instellen op uw eigen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown). 
 
-1. Selecteer **Opslaan**.
-
-    ![Configureren van eenmalige aanmelding opslaan](./media/box-tutorial/tutorial_general_400.png)
-    
-1. Volg de procedure in voor meer informatie over het configureren van eenmalige aanmelding voor uw toepassing [een SSO instellen op uw eigen](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
-
-> [!NOTE] 
-> Als u niet de instellingen voor eenmalige aanmelding voor uw Box-account inschakelen, moet u mogelijk contact op met de [vak client ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) en geeft u het gedownloade XML-bestand.
-
-> [!TIP]
-> Als u de app instelt, vindt u een beknopte versie van de voorgaande instructies in de [Azure-portal](https://portal.azure.com). Nadat u hebt toegevoegd in de app de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad, en vervolgens toegang tot de ingesloten in de documentatie bij de **configuratie** sectie aan de onderkant. Zie voor meer informatie over de functie ingesloten documentatie [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
->
+>[!NOTE]
+>Als u zich niet aan de SSO-instellingen configureren voor uw Box-account, moet u voor het verzenden van de gedownloade **federatieve metagegevens-XML** naar [vak ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-In deze sectie maakt maken u testgebruiker Britta Simon in Azure portal door het volgende te doen:
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-![Maak een testgebruiker Azure AD][100]
+1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
 
-1. Selecteer in de Azure portal, in het linkerdeelvenster **Azure Active Directory**.
+    ![image](./media/box-tutorial/d_users_and_groups.png)
 
-    ![De Azure Active Directory-koppeling](./media/box-tutorial/create_aaduser_01.png)
+2. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
 
-1. Selecteer voor een lijst van de huidige gebruikers, **gebruikers en groepen** > **alle gebruikers**.
+    ![image](./media/box-tutorial/d_adduser.png)
 
-    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/box-tutorial/create_aaduser_02.png)
+3. In de eigenschappen van de gebruiker de volgende stappen uitvoeren.
 
-1. Aan de bovenkant van de **alle gebruikers** venster **toevoegen**.
+    ![image](./media/box-tutorial/d_userproperties.png)
 
-    ![De knop toevoegen](./media/box-tutorial/create_aaduser_03.png)
+    a. In de **naam** veld **BrittaSimon**.
+  
+    b. In de **gebruikersnaam** veldtype **brittasimon@yourcompanydomain.extension**  
+    Bijvoorbeeld: BrittaSimon@contoso.com
 
-    De **gebruiker** venster wordt geopend.
-
-1. In de **gebruiker** venster de volgende handelingen uit:
-
-    ![Het venster van de gebruiker](./media/box-tutorial/create_aaduser_04.png)
-
-    a. In de **naam** in het vak **BrittaSimon**.
-
-    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
-
-    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer **eigenschappen**, selecteer de **Show wachtwoord** selectievakje en noteer de waarde die wordt weergegeven in het wachtwoord.
 
     d. Selecteer **Maken**.
  
 ### <a name="create-a-box-test-user"></a>Maak een testgebruiker vak
 
-In deze sectie maakt u testgebruiker Britta Simon in Box. Vak biedt ondersteuning voor just-in-time inrichting, dat standaard is ingeschakeld. Als een gebruiker nog niet bestaat, wordt een nieuw bestand wordt gemaakt wanneer u probeert te krijgen tot de Box. Er is geen actie vereist van u te maken van de gebruiker.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Box. Vak biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot de Box als deze nog niet bestaat.
+>[!Note]
+>Als u maken van een gebruiker handmatig wilt, neem dan contact op met [vak ondersteuningsteam](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u gebruiker Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan vak. Om dit te doen, het volgende doen:
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan vak.
 
-![De de gebruikersrol toewijzen][200]
+1. Selecteer in de Azure portal, **bedrijfstoepassingen**, selecteer **alle toepassingen**.
 
-1. Open in de Azure-portal, de **toepassingen** weergeven, gaat u naar de **Directory** weergeven en selecteer vervolgens **bedrijfstoepassingen** > **alle toepassingen**.
+    ![image](./media/box-tutorial/d_all_applications.png)
 
-    ![De 'Zakelijke toepassingen' en 'Alle Application' koppelingen][201] 
+2. Selecteer in de lijst met toepassingen, **vak**.
 
-1. In de **toepassingen** in de lijst met **vak**.
+    ![image](./media/box-tutorial/tutorial_Box_app.png)
 
-    ![De koppeling](./media/box-tutorial/tutorial_box_app.png)  
+3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
 
-1. Selecteer in het linkerdeelvenster **gebruikers en groepen**.
+    ![image](./media/box-tutorial/d_leftpaneusers.png)
 
-    ![De koppeling 'Gebruikers en groepen'][202]
+4. Selecteer de **toevoegen** knop en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
 
-1. Selecteer **toevoegen** en klikt u op de **toevoegen toewijzing** venster **gebruikers en groepen**.
+    ![image](./media/box-tutorial/d_assign_user.png)
 
-    ![Het deelvenster toewijzing toevoegen][203]
+4. In de **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst met gebruikers, en klik op de **Selecteer** knop aan de onderkant van het scherm.
 
-1. In de **gebruikers en groepen** venster in de **gebruikers** in de lijst met **Britta Simon**.
-
-1. Selecteer de **Selecteer** knop.
-
-1. In de **toevoegen toewijzing** venster **toewijzen**.
+5. In de **toevoegen toewijzing** dialoogvenster Selecteer de **toewijzen** knop.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw configuratie Azure AD eenmalige aanmelding testen met behulp van het toegangsvenster.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u selecteert de **vak** tegel in het toegangsvenster, u opent de aanmeldingspagina voor aanmelden bij uw Box-toepassing.
+Wanneer u selecteert de **vak** tegel in het toegangsvenster, krijgt u de aanmeldingspagina voor aanmelden bij uw Box-toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Inrichten van gebruikers configureren](box-userprovisioning-tutorial.md)
 
-
-
-<!--Image references-->
-
-[1]: ./media/box-tutorial/tutorial_general_01.png
-[2]: ./media/box-tutorial/tutorial_general_02.png
-[3]: ./media/box-tutorial/tutorial_general_03.png
-[4]: ./media/box-tutorial/tutorial_general_04.png
-
-[100]: ./media/box-tutorial/tutorial_general_100.png
-
-[200]: ./media/box-tutorial/tutorial_general_200.png
-[201]: ./media/box-tutorial/tutorial_general_201.png
-[202]: ./media/box-tutorial/tutorial_general_202.png
-[203]: ./media/box-tutorial/tutorial_general_203.png
 

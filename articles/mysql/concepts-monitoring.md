@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 10/03/2018
+ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981918"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091552"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Bewaking in Azure Database for MySQL
-Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database for MySQL biedt verschillende metrische gegevens geven inzicht in het gedrag van de resources voor het ondersteunen van de MySQL-server. 
+Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database for MySQL biedt verschillende metrische gegevens inzicht in het gedrag van uw server geven.
 
 ## <a name="metrics"></a>Metrische gegevens
 Alle metrische gegevens van Azure hebben een frequentie van één minuut en elke metrische waarde biedt 30 dagen van de geschiedenis. U kunt waarschuwingen configureren op de metrische gegevens. Zie voor stapsgewijze instructies [over het instellen van waarschuwingen](howto-alert-on-metric.md). Andere taken omvatten het instellen van geautomatiseerde acties, het uitvoeren van geavanceerde analyses en het archiveren van geschiedenis. Zie voor meer informatie de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
@@ -41,6 +41,9 @@ Deze metrische gegevens zijn beschikbaar voor Azure Database voor MySQL:
 |seconds_behind_master|Vertraging van replicatie in een paar seconden|Count|Het aantal seconden dat de replica-server is achtergebleven op basis van de hoofd-server.|
 |network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
 |network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
+
+## <a name="server-logs"></a>Serverlogboeken
+U kunt langzame query's op uw server logboekregistratie inschakelen. Deze logboeken zijn ook beschikbaar via Azure diagnostische logboeken in OMS Log Analytics, Event Hubs en Storage-Account. Voor meer informatie over logboekregistratie, gaat u naar de [serverlogboeken](concepts-server-logs.md) pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie [over het instellen van waarschuwingen](howto-alert-on-metric.md) voor hulp bij het maken van een waarschuwing voor metrische gegevens.

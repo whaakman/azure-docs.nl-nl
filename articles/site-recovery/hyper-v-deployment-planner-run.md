@@ -4,15 +4,15 @@ description: Dit artikel leert u hoe u kunt het uitvoeren van de Site Recovery d
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 432e1164e56c6afadfc76ec980de99837c106dc5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919983"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094187"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>De Azure Site Recovery-implementatieplanner voor Hyper-V naar Azure uitvoeren
 
@@ -222,7 +222,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
-#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Een rapport genereren voor de Azure-regio Zuid-India met de Indiase roepie en een specifieke aanbiedings-id
+#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Een rapport genereren voor de Azure-regio India - zuid met de Indiase roepie en een specifieke aanbiedings-id
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

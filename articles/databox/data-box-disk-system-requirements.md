@@ -2,31 +2,25 @@
 title: Systeemvereisten voor Microsoft Azure Data Box-schijf | Microsoft Docs
 description: Meer informatie over de software en netwerkvereisten voor uw Azure Data Box-schijf
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299845"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092249"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box-schijf (Preview)
 
 Dit artikel beschrijft de belangrijke systeemvereisten voor uw oplossing Microsoft Azure Data Box-schijf en de clients die verbinding maken met de Data Box-schijf. Het is raadzaam dat u de informatie voordat u uw Data Box-schijf implementeert, en vervolgens terug naar deze zo nodig tijdens de implementatie en het volgende gebruik verwijzen zorgvuldig te controleren.
 
 > [!IMPORTANT]
-> Data Box-schijf is in Preview. Raadpleeg de [gebruiksvoorwaarden voor de Preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
+> Data Box-schijf is in Preview. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
 
 De systeemvereisten zijn de ondersteunde platforms voor clients verbinding maken met schijven, ondersteunde opslagaccounts en opslagtypen.
 
@@ -65,8 +59,8 @@ Hier volgt een lijst van de typen ondersteunde opslag voor de Data Box-schijf.
 
 | **Opslagaccount** | **Opmerkingen** |
 | --- | --- |
-| Klassiek | Standaard |
-| Algemeen gebruik  |Standaard; zowel V1 als V2 worden ondersteund. Warme en koude lagen worden ondersteund. |
+| Klassiek | Standard |
+| Algemeen doel  |Standaard; zowel V1 als V2 worden ondersteund. Warme en koude lagen worden ondersteund. |
 
 
 ## <a name="supported-storage-types"></a>Ondersteunde opslagtypen

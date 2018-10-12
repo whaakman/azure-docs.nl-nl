@@ -1,10 +1,10 @@
 ---
-title: Wat is Azure CDN facturering? | Microsoft Docs
-description: Deze Veelgestelde vragen wordt de werking van Azure CDN facturering beschreven.
+title: Inzicht in facturering voor Azure CDN | Microsoft Docs
+description: Deze Veelgestelde vragen wordt beschreven hoe de facturering voor Azure CDN werkt.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: v-deasim
-ms.openlocfilehash: 218c493c772dc8fd212efaf60a0599fa2e896411
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163516"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091808"
 ---
-# <a name="understanding-azure-cdn-billing"></a>Wat is Azure CDN facturering?
+# <a name="understanding-azure-cdn-billing"></a>Inzicht in facturering voor Azure CDN
 
-Deze Veelgestelde vragen over de facturering structuur voor inhoud die wordt gehost door Azure inhoud Delivery Network (CDN) wordt beschreven.
+Deze Veelgestelde vragen over de facturering structuur voor inhoud die wordt gehost door Azure Content Delivery Network (CDN) wordt beschreven.
 
-## <a name="what-is-a-billing-region"></a>Wat is er een facturering regio?
-Een facturering regio is een geografische regio gebruikt om te bepalen welk percentage van Azure CDN gebruikt voor het leveren van objecten. De huidige facturering zones en hun regio's zijn:
+## <a name="what-is-a-billing-region"></a>Wat is er een regio voor facturering?
+Een regio voor facturering is een geografische gebied gebruikt om te bepalen welk tarief wordt in rekening gebracht voor het leveren van objecten uit Azure CDN. De huidige factureringsperiode zones en hun regio's zijn als volgt:
 
 - Zone 1: Noord-Amerika, Europa, Midden-Oosten en Afrika
 
@@ -38,51 +38,51 @@ Een facturering regio is een geografische regio gebruikt om te bepalen welk perc
 
 - Zone 5: India
 
-Zie voor meer informatie over punt-of-presence (POP) regio's [Azure CDN POP-locaties per regio](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Bijvoorbeeld, een pop-server zich bevindt in Mexico is in de regio Noord-Amerika en daarom is opgenomen in de zone 1. 
+Zie voor meer informatie over point-of-presence (POP)-regio's [Azure CDN POP-locaties op regio](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Bijvoorbeeld, een pop-server zich bevindt in Mexico is in de regio Noord-Amerika en daarom is opgenomen in zone 1. 
 
-Zie voor meer informatie over prijzen voor Azure CDN [Content Delivery Network prijzen](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Zie voor meer informatie over de prijzen voor Azure CDN [prijzen van Content Delivery Network](https://azure.microsoft.com/is-is/pricing/details/cdn/).
 
-## <a name="how-are-delivery-charges-calculated-by-region"></a>Hoe worden levering kosten berekend per regio?
-De Azure CDN facturering regio is gebaseerd op de locatie van de bronserver leveren van de inhoud voor de eindgebruiker. Het doel (fysieke locatie) van de client wordt niet beschouwd als de facturering regio.
+## <a name="how-are-delivery-charges-calculated-by-region"></a>Hoe worden de levering van kosten per regio berekend?
+De regio voor facturering van Azure CDN is gebaseerd op de locatie van de bronserver leveren van de inhoud voor de eindgebruiker. De bestemming (fysieke locatie) van de client wordt niet beschouwd als de regio voor facturering.
 
-Bijvoorbeeld, als een gebruiker op Mexico een aanvraag indient en deze aanvraag wordt uitgevoerd door een server die zich in een POP-Verenigde Staten vanwege peering of verkeer voorwaarden, de facturering regio worden de Verenigde Staten.
+Bijvoorbeeld, als een gebruiker zich in Mexico Hiermee wordt een aanvraag en deze aanvraag wordt uitgevoerd door een server die zich in een POP-Verenigde Staten vanwege peering of verkeer voorwaarden, is de regio voor facturering de Verenigde Staten.
 
-## <a name="what-is-a-billable-azure-cdn-transaction"></a>Wat is een factureerbare Azure CDN-transactie?
-Elk verzoek HTTP (S) die op de CDN eindigt is een factureerbare gebeurtenis, waaronder alle antwoordtypen: geslaagd, mislukt of andere. Verschillende antwoorden mogelijk echter ander verkeer bedragen te genereren. Bijvoorbeeld: *304 niet gewijzigd* en andere reacties alleen een header weinig verkeer genereren omdat ze een klein header-reactie; op deze manier foutberichten (bijvoorbeeld *404 niet gevonden*) zijn factureerbare maar een kleine kosten in rekening worden vanwege de nettolading van de kleine antwoord.
+## <a name="what-is-a-billable-azure-cdn-transaction"></a>Wat is een factureerbare Azure CDN-transacties?
+Een HTTP (S)-aanvraag die op het CDN eindigt is een factureerbare gebeurtenis, waaronder alle antwoordtypen: geslaagd, mislukt of andere. Verschillende reacties kunnen echter een ander verkeer bedragen genereren. Bijvoorbeeld, *304 niet gewijzigd* en andere alleen-header antwoorden genereren weinig verkeer, omdat ze een kleine header-reactie; op dezelfde manier foutberichten (bijvoorbeeld *404 niet gevonden*) zijn factureerbaar maar vanwege de kleine responslading een kleine kosten.
 
-## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Welke Azure kosten zijn gekoppeld aan Azure CDN gebruiken?
-Met behulp van Azure CDN ook leidt ertoe dat sommige gebruikskosten voor de services voor uw objecten aan de oorsprong gebruikt. Deze kosten zijn meestal een klein deel van de totale kosten van CDN-gebruik.
+## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Welke andere Azure-kosten zijn gekoppeld aan Azure CDN gebruiken?
+Met behulp van Azure CDN ook leidt tot enige kosten voor het gebruik van de services die worden gebruikt als de oorsprong van de objecten. Deze kosten zijn doorgaans een fractie van de totale kosten van de CDN-gebruik.
 
-Als u voor uw inhoud Azure Blob-opslag als de oorsprong gebruikt, u ook de volgende worden opslagkosten in rekening voor de opvulling van de cache:
+Als u voor de inhoud van uw Azure Blob-opslag als de oorsprong gebruikt, worden er ook de volgende kosten voor opslag voor de cache opvullingen:
 
-- Werkelijke GB gebruikt: de werkelijke opslag van de bronobjecten.
+- Werkelijke GB gebruikt: de werkelijke opslag van uw bronobjecten.
 
-- Overdrachten in GB: de hoeveelheid gegevens overgedragen naar de CDN-caches te vullen.
+- Overdrachten in GB: de hoeveelheid gegevens die zijn overgebracht naar het vullen van de caches van het CDN.
 
-- Transacties: indien nodig voor het vervullen van de cache.
+- Transacties: indien nodig om in te vullen van de cache.
 
-Zie voor meer informatie over Azure Storage facturering [wat Azure Storage facturering – bandbreedte, transacties en capaciteit](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+Zie voor meer informatie over de facturering voor Azure Storage, [inzicht in Azure Storage Billing-bandbreedte, transacties en capaciteit](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Als u *gehoste service levering*, u wordt kosten als volgt:
+Als u *leveren van services die worden gehost*, u kosten in rekening gebracht als volgt:
 
-- Azure compute-tijd: de compute-exemplaren die als de oorsprong fungeren.
+- Azure-rekentijd: de rekenprocessen die als de oorsprong fungeren.
 
-- Azure compute-overdracht: de gegevens worden overgedragen van de compute-exemplaren voor het vervullen van de Azure CDN-caches.
+- Azure-rekenen overdracht: de gegevens worden overgedragen van de compute-exemplaren om in te vullen van de Azure CDN-cache.
 
-Als de client gebruikt byte-bereikaanvragen (ongeacht de oorsprong-service), wordt de volgende overwegingen toepassen:
+Als de client gebruikt de byte-bereikaanvragen (ongeacht de oorsprong service), de volgende overwegingen zijn van toepassing:
 
-- Een *byte bereikaanvraag* is een factureerbare transactie bij de CDN. Wanneer een client een aanvraag van het bereik aan bytes uitgeeft, wordt deze aanvraag is voor een subset (bereik) van het object. De CDN reageert met slechts een gedeeltelijke gedeelte van de inhoud die is aangevraagd. Deze gedeeltelijk antwoord is een factureerbare transactie en de mate waarin de overdracht is beperkt tot de grootte van het bereik antwoord (plus headers).
+- Een *bytebereik aanvraag* is een factureerbare transactie op het CDN. Wanneer een client een bytebereik aanvraag uitgeeft, wordt deze aanvraag is voor een subset (bereik) van het object. Het CDN reageert met slechts een gedeeltelijke gedeelte van de inhoud die is aangevraagd. Het gedeeltelijke antwoord is een factureerbare transactie en de overdracht is beperkt tot de grootte van het bereik antwoord (plus headers).
 
-- Als u een aanvraag ontvangt voor alleen deel uitmaken van een object (door het opgeven van een koptekst bereik in bytes), kan de CDN het gehele object ophalen in de cache. Als gevolg hiervan, hoewel de factureerbare transactie vanaf de CDN voor een gedeeltelijk antwoord is, de factureerbare transactie vanuit de oorsprong u mogelijk de volledige grootte van het object.
+- Wanneer een aanvraag is ontvangen voor alleen die deel uitmaken van een object (door het opgeven van een byte-range-header), kan het CDN het gehele object ophalen in de cache. Als gevolg hiervan, zelfs als de factureerbare transactie uit het CDN een gedeeltelijk antwoord is, de factureerbare transactie uit de oorsprong kan betrekking hebben op volledige grootte van het object.
 
-## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hoeveel overdrachtactiviteit gebeurt ter ondersteuning van de cache?
-Telkens wanneer die een CDN pop-locatie moet voor het vervullen van de cache, maakt een aanvraag naar de oorsprong voor het object in de cache wordt opgeslagen. Als gevolg hiervan een factureerbare transactie op elke Cachemisser leidt ertoe dat de oorsprong. Het aantal missers in cache is afhankelijk van een aantal factoren:
+## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Hoeveel overdrachtactiviteit plaatsvindt voor de ondersteuning van de cache?
+Telkens wanneer die een CDN pop-locatie moet invullen van de cache, wordt een aanvraag naar de oorsprong van het object in de cache worden opgeslagen. Als gevolg hiervan is de oorsprong leidt tot een factureerbare transactie op elke cachemisser. Het aantal missers in cache is afhankelijk van een aantal factoren:
 
-- Hoe caching geschikte de inhoud is: als de inhoud hoge TTL heeft (time-to-live) / verlopen waarden en wordt regelmatig geopend zodat deze blijft populaire in cache, wordt de grote meerderheid van de belasting wordt verwerkt door het CDN. Een typische goede Cachetreffer ratio is en 90%, wat betekent dat er minder dan 10% van aanvragen van clients hebben om terug te keren naar de oorsprong, die voor een cache ontbreekt of het object vernieuwen.
+- Hoe gecachet kan worden de inhoud is: als de inhoud hoge TTL heeft (time-to-live) / vervaldatum waardeert en is regelmatig geopend, zodat deze blijft populair zijn in de cache en vervolgens het overgrote deel van de belasting wordt verwerkt door het CDN. Een typische goede Cachetreffer verhouding is ook dat meer dan 90%, wat betekent dat er minder dan 10% van de aanvragen van clients hebben om terug te keren naar de oorsprong, voor een cache ontbreekt of het object vernieuwen.
 
-- Het aantal knooppunten moet het object te laden: telkens wanneer een knooppunt wordt een object vanuit de oorsprong geladen, worden er accountkosten in een factureerbare transactie. Als gevolg hiervan resulteert meer globale inhoud (toegankelijk via meer knooppunten) in meer factureerbare transacties.
+- Het aantal knooppunten moet het object te laden: telkens wanneer een knooppunt een object van de oorsprong laadt, worden er een factureerbare transactie accountkosten. Als gevolg hiervan resulteert meer globale inhoud (toegankelijk vanaf meer knooppunten) in meer gefactureerde transacties.
 
-- De invloed van de TTL: een hogere TTL-waarde voor een object betekent dat deze moeten worden opgehaald uit de oorsprong minder vaak. Het betekent ook dat in cache-clients, zoals browsers, het object langer, waardoor de transacties naar de CDN kan verminderen.
+- De invloed van de TTL: een hogere TTL-waarde voor een object betekent dat nodig is om te worden opgehaald uit de oorsprong minder vaak. Het betekent ook clients zoals browsers, kunnen het object langer, waardoor de transacties naar het CDN kan verminderen in de cache.
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Hoe kan ik mijn kosten meest effectief beheren?
-De langste TTL mogelijk instellen op uw inhoud. 
+De langste TTL mogelijk instellen voor uw inhoud. 

@@ -3,16 +3,17 @@ title: On-premises workloads evalueren voor Contoso migratie naar Azure | Micros
 description: Meer informatie over hoe Contoso de on-premises computers voor migratie naar Azure met behulp van Azure Migrate en Data Migration Assistant beoordeelt.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3969286b4a748a9dde8c126f91a5b19ee14a7c0d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 34409197a080b4d755b76f140111b7694925b5df
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303311"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094051"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: on-premises workloads evalueren voor migratie naar Azure
 
@@ -35,6 +36,7 @@ Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure | Contoso wordt
 [Artikel 11: Herstructureren Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 [Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 
 ## <a name="overview"></a>Overzicht
@@ -43,7 +45,7 @@ Contoso acht migreren naar Azure, wil het bedrijf een technische en financiële 
 
 Aan de slag en meer inzicht in de betreffende technologieën, Contoso beoordeelt twee van de on-premises apps, in de volgende tabel samengevat. Het bedrijf beoordeelt voor migratiescenario's die rehost en herstructureren apps voor migratie. Meer informatie over het opnieuw hosten en herstructurering de [Contoso Migratieoverzicht](contoso-migration-overview.md).
 
-App-naam | Platform | App-lagen | Details
+Naam van app | Platform | App-lagen | Details
 --- | --- | --- | ---
 SmartHotel360<br/><br/> (beheert Contoso reizen vereisten) | Wordt uitgevoerd op Windows met een SQL Server-database | App met twee lagen. De front-end-ASP.NET-website wordt uitgevoerd op één virtuele machine (**WEBVM**) en de SQL-Server wordt uitgevoerd op een andere virtuele machine (**SQLVM**). | VM's zijn VMware, die worden uitgevoerd op een ESXi host die wordt beheerd door vCenter-Server.<br/><br/> U kunt de voorbeeld-app vanuit downloaden [GitHub](https://github.com/Microsoft/SmartHotel360).
 osTicket<br/><br/> (Contoso-servicedesk-app) | Wordt uitgevoerd op Linux/Apache met MySQL PHP (LAMP) | App met twee lagen. Een front-end-PHP-website wordt uitgevoerd op één virtuele machine (**OSTICKETWEB**) en de MySQL-database wordt uitgevoerd op een andere virtuele machine (**OSTICKETMYSQL**). | De app wordt gebruikt door de klant service-apps voor het bijhouden van problemen voor interne werknemers en externe klanten.<br/><br/> U kunt het voorbeeld van downloaden [GitHub](https://github.com/osTicket/osTicket).
@@ -111,7 +113,7 @@ In dit scenario, Contoso downloadt en Data Migration Assistant voor het evaluere
     - **OSTICKETWEB** Apache 2 en PHP 7.0 wordt uitgevoerd.
     - **OSTICKETMYSQL** MySQL 5.7.22 wordt uitgevoerd.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Contoso en andere gebruikers moeten voldoen aan de volgende vereisten voor de evaluatie:
 
@@ -481,7 +483,7 @@ Een evaluatie heeft een betrouwbaarheidsclassificatie van van 1 ster tot 5 sterr
 - De betrouwbaarheidsclassificatie is handig als u de *prestatie gebaseerde schaling*. Azure Migrate mogelijk niet voldoende gegevenspunten voor groottebepaling op basis van gebruik van. Voor *zoals on-premises* grootte, de betrouwbaarheidsclassificatie is altijd 5 sterren omdat Azure Migrate alle gegevenspunten heeft heeft om de grootte van de virtuele machine.
 - De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten:
 
-   Beschikbaarheid van de gegevenspunten | Betrouwbaarheidswaardering
+   Beschikbaarheid van de gegevenspunten | Betrouwbaarheidsclassificatie
    --- | ---
    0%-20% | 1 ster
    21%-40% | 2 sterren

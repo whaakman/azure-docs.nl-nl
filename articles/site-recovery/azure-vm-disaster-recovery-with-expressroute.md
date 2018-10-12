@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: manayar
-ms.openlocfilehash: 2e8df15da0572e037dedb9e0dd27a0728953ba4a
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: c3fc8edf1601b3bb6f670df64d444edc9dcfbd6d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079426"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114873"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integratie van Azure ExpressRoute met herstel na noodgevallen voor Azure VM 's
 
@@ -166,7 +166,7 @@ Deze configuratie helpt te beschermen tegen fouten in het primaire ExpressRoute-
 
 In deze configuratie wordt slechts één Expressroute-circuit. Hoewel het circuit een redundante verbinding heeft in het geval een uitvalt, wordt een enkele route-circuit niet flexibiliteit bieden als uw peering regio uitvalt. Houd rekening met het volgende:
 
-- U kunt virtuele Azure-machines te repliceren naar een Azure-regio in de [dezelfde geografische locatie](azure-to-azure-support-matrix.md#region-support). Als het doel-Azure-regio is niet op dezelfde locatie als de bron, moet u ExpressRoute Premium inschakelen als u een enkel ExpressRoute-circuit. Meer informatie over [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [prijzen voor ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- U kunt virtuele Azure-machines repliceren naar een Azure-regio in de [dezelfde geografische locatie](azure-to-azure-support-matrix.md#region-support). Als het doel-Azure-regio is niet op dezelfde locatie als de bron, moet u ExpressRoute Premium inschakelen als u een enkel ExpressRoute-circuit. Meer informatie over [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [prijzen voor ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - U kan geen verbinding maken bron en doel-vnet's tegelijkertijd aan het circuit als dezelfde IP-adresruimte wordt gebruikt voor de doelregio. In dit scenario geldt het volgende:    
     -  Verbreken van verbinding met de gegevensbron aan clientzijde, en vervolgens de doel-kant-verbinding tot stand te brengen. Deze wijziging verbinding kan scripts worden gebruikt als onderdeel van een plan voor herstel van Site Recovery. Houd rekening met het volgende:
         - In een regionale storing optreedt, als de primaire regio niet toegankelijk is, is kan de verbinding verbreken-bewerking mislukken. Dit kan gevolgen voor het maken van verbinding naar de doelregio.

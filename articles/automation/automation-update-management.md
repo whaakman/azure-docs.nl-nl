@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6127e300ee46dbd33f8537f0138963cd4e3b5cc8
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887452"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094136"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -517,7 +517,7 @@ Zie voor meer informatie over het integreren van de oplossing voor beheer met Sy
 
 Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die zijn ingesteld om te worden opgenomen, zijn geïnstalleerd. Wanneer Patches of pakketten zijn ingesteld om op te nemen en een classificatie ook is geselecteerd, worden de opgenomen items en de items die voldoen aan de classificatie geïnstalleerd.
 
-Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket dat specifcally uitgesloten heeft, is is het pakket niet geïnstalleerd.
+Het is belangrijk te weten dat uitsluitingen insluitingen overschrijven. Bijvoorbeeld, als u een uitsluitingsregel van definieert `*`, en er zijn geen patches of pakketten worden geïnstalleerd als ze zijn al uitgesloten. Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket dat specifcally uitgesloten heeft, is is het pakket niet geïnstalleerd.
 
 ## <a name="patch-linux-machines"></a>Patch voor Linux-machines
 

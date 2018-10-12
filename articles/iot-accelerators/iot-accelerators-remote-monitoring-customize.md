@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b3cd0e1e1d1f3940a103f614cf2746b2770e3f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127343"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092045"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>De oplossingsverbetering voor externe bewaking aanpassen
 
@@ -460,9 +460,15 @@ Als u wilt de visualisaties en presentatie-laag in de oplossing voor externe con
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over de resources beschikbaar voor het aanpassen van de web-UI in de oplossingsverbetering voor externe controle.
+In dit artikel hebt u geleerd over de resources beschikbaar voor het aanpassen van de web-UI in de oplossingsverbetering voor externe controle. Zie voor meer informatie over het aanpassen van de gebruikersinterface van de volgende artikelen:
+
+* [Een aangepaste pagina toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-page.md)
+* [Een aangepaste service toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-service.md)
+* [Een aangepaste raster toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Een aangepaste fly-out toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Een aangepaste paneel toevoegen aan het dashboard in de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Zie voor meer informatie over de oplossingsverbetering voor externe controle [architectuur voor externe controle](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Zie voor meer informatie over het aanpassen van de oplossing voor externe controle [aanpassen en opnieuw implementeren van een microservice](iot-accelerators-microservices-example.md)
+Zie voor meer informatie over het aanpassen van de oplossing voor externe controle microservices [aanpassen en opnieuw implementeren van een microservice](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

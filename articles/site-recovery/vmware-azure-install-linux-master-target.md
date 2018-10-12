@@ -3,15 +3,15 @@ title: Installeren van een Linux-hoofddoelserver voor failover van Azure naar on
 description: Voordat het opnieuw met het beveiligen van een virtuele Linux-machine, moet u een Linux-hoofddoelserver. Leer hoe u een te installeren.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921066"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094119"
 ---
 # <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoelserver installeren
 Nadat u uw virtuele machines naar Azure failover, kunt u de virtuele machines om de on-premises site weer failover. Als u wilt uitvoeren van een failback, moet u opnieuw beveiligen van de virtuele machine van Azure naar de on-premises site. Voor dit proces moet u een on-premises hoofddoelserver om het verkeer te ontvangen. 
@@ -311,7 +311,7 @@ Wacht totdat het script is voltooid. Als het hoofddoel correct is geregistreerd,
 
 Nadat de installatie is voltooid, moet u de configuratieserver registreren via de opdrachtregel.
 
-1. Noteer de IP-adres van de configuratieserver. Overzicht van HDInsight HBase
+1. Noteer de IP-adres van de configuratieserver. U hebt deze nodig in de volgende stap.
 
 2. Voer de volgende opdracht op de hoofddoelserver installeren en registreren van de server met de configuratieserver.
 

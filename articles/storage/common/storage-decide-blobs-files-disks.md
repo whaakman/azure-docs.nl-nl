@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530954"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091709"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Bepalen wanneer u Azure-Blobs, Azure Files of Azure-schijven gebruiken
 
@@ -64,8 +64,8 @@ De volgende tabel vergelijkt Azure Files met Azure-schijven.
 |Opschonen|Automatisch|Handmatig|  
 |Toegang met behulp van REST|Bestanden in de VHD kunnen niet worden geopend.|Bestanden die zijn opgeslagen in een share kunnen worden geopend.|  
 |Maximale grootte|4 TiB-schijf|5 TiB-bestandsshare en 1 TiB-bestand in de share|  
-|Max 8KB IOps|500 IOP 's|1000 IOps|  
-|Doorvoer|Maximaal 60 MiB/s per schijf|Maximaal 60 MiB/s per bestandsshare|  
+|Max. aantal IOP 's|500 IOP 's|1000 IOps|  
+|Doorvoer|Maximaal 60 MiB/s per schijf|Het doel is 60 MiB/s per bestandsshare (ophalen voor hogere i/o-grootte hoger)|  
 
 ## <a name="next-steps"></a>Volgende stappen
 

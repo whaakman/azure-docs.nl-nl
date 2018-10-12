@@ -2,16 +2,17 @@
 title: Overzicht van Contoso migratie naar Azure | Microsoft Docs
 description: Biedt een overzicht van de strategie voor clientmigratie en scenario's die worden gebruikt door Contoso hun on-premises datacentrum migreren naar Azure.
 author: rayne-wiselman
+manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 1a86f12fddf9b18700f2c4a2aff840512dfe4a6f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 30be44b91dbfba0c292c55670e920052d2c8ae3d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303639"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092861"
 ---
 # <a name="contoso-migration-overview"></a>Migratie van Contoso: overzicht
 
@@ -61,7 +62,7 @@ Artikel 1: overzicht | Overzicht van de serie artikelen, strategie voor de migra
 [Artikel 11: Herstructureren Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 [Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar    
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar 
-
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 In dit artikel die Contoso u alle Infrastructuurelementen stelt moet alle scenario's voor migratie te voltooien. 
 

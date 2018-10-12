@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f79b1d4c1afc4d5a516a46a9bf6cb1790034b279
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986299"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116708"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Tijdsynchronisatie voor virtuele Linux-machines in Azure
 
@@ -44,7 +44,7 @@ Interactie van de virtuele machine met de host kunnen ook invloed op de klok. Ti
 
 Zonder tijd synchronisatie werkt, zou de klok op de virtuele machine fouten oplopen. Wanneer er slechts één VM, het effect mogelijk niet significant, tenzij de werkbelasting is zeer nauwkeurige vereist. Maar in de meeste gevallen we hebben meerdere, met elkaar verbonden virtuele machines die gebruikmaken van de tijd voor het bijhouden van transacties en wat de behoeften van de tijd consistent is gedurende de volledige implementatie. Wanneer de tijd tussen virtuele machines anders is, ziet u kan de volgende gevolgen:
 
-- Beveiligingsprotocollen, zoals Kerberos of technologie afhankelijk zijn van het certificaat zijn afhankelijk van de tijd consistent wordt in de systemen. 
+- Verificatie mislukt. Beveiligingsprotocollen, zoals Kerberos of technologie afhankelijk zijn van het certificaat zijn afhankelijk van de tijd consistent wordt in de systemen.
 - Het is moeilijk te achterhalen wat zich in een systeem hebben voorgedaan als Logboeken (of andere gegevens) niet op tijd akkoord gaat. Dezelfde gebeurtenis wilt bekijken, zoals het op verschillende tijdstippen, maken de correlatie moeilijk is opgetreden.
 - Als de klok is uitgeschakeld, kan de facturering onjuist worden berekend.
 

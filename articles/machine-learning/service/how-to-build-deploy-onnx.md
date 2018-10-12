@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d58f580ecd4a4bcd984602f4efda8a2291573bc4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 190b7fff24c9d6b3dee86471b56ad68c962e51ce
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239276"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116875"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>U kunt ONNX- en Azure Machine Learning: maken en interoperabele AI-modellen implementeren
 
@@ -197,10 +197,10 @@ De volgende notebooks laten zien hoe u kunt ONNX-modellen maken en deze implemen
 + `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
 
 De volgende notebooks laten zien hoe u bestaande ONNX-modellen met Azure Machine Learning implementeren: 
-+ `/onnx/onnx-inference-mnist.ipynb` 
-+ `/onnx/onnx-inference-emotion-recognition.ipynb`
++ [u kunt onnx/onnx-Deductie-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
++ [u kunt onnx/onnx-Deductie-emotion-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
  
-Dit notitieblok ophalen:
+Deze laptops ophalen:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

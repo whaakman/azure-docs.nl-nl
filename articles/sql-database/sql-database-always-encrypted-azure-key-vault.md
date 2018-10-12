@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2d735225782398b4e22a42816586a56cab54b763
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 79613ab7a0e96405abbb3b380800f5ba951c3bdc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870193"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092691"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in Azure Key Vault
 
@@ -55,6 +55,7 @@ Nu dat uw client-app is geconfigureerd en u de toepassings-ID hebt, is het tijd 
 
 U kunt snel een key vault maken het volgende script uit te voeren. Zie voor een gedetailleerde uitleg van deze cmdlets en meer informatie over het maken en configureren van een key vault [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
 
+```powershell
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
@@ -72,7 +73,7 @@ U kunt snel een key vault maken het volgende script uit te voeren. Zie voor een 
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
     Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
-
+```
 
 
 
@@ -88,7 +89,7 @@ U moet de verbinding later in de zelfstudie reeks, dus wanneer u de database heb
 1. Ga naar **SQL-databases** > **Clinic** > **databaseverbindingsreeksen tonen**.
 2. Kopieer de verbindingsreeks voor **ADO.NET**.
    
-    ![Kopieer de verbindingsreeks](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
+    ![De verbindingsreeks kopiëren](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Verbinding maken met de database via SQL Server Management Studio
 Open SSMS en maak verbinding met de server met de Clinic-database.
@@ -96,7 +97,7 @@ Open SSMS en maak verbinding met de server met de Clinic-database.
 1. Open SQL Server Management Studio. (Ga naar **Connect** > **Database-Engine** openen de **verbinding maken met Server** venster als deze niet geopend is.)
 2. Voer uw servernaam en referenties. Naam van de server kan worden gevonden op de blade SQL-database en in de connection string u eerder hebt gekopieerd. Typ de naam van de volledige server, met inbegrip van *database.windows.net*.
    
-    ![Kopieer de verbindingsreeks](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
+    ![De verbindingsreeks kopiëren](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
 
 Als de **nieuwe firewallregel** venster wordt geopend, aanmelden bij Azure en laat SSMS een nieuwe firewallregel maken voor u.
 
@@ -107,6 +108,7 @@ In deze sectie maakt u een tabel voor het opslaan van de gegevens. Het in eerste
 2. Met de rechtermuisknop op de **Clinic** database en klik op **nieuwe Query**.
 3. Plak de volgende Transact-SQL (T-SQL) in het nieuwe queryvenster en **Execute** deze.
 
+```sql
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
@@ -120,7 +122,7 @@ In deze sectie maakt u een tabel voor het opslaan van de gegevens. Het in eerste
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
-
+```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Versleutelen van de kolommen (Always Encrypted configureren)
 SSMS bevat een wizard waarmee u eenvoudig configureren altijd versleuteld door het instellen van de hoofdsleutel van de kolom, kolomversleutelingssleutel en versleutelde kolommen voor u.
@@ -183,9 +185,10 @@ Nu dat Always Encrypted is ingesteld, kunt u een toepassing die wordt uitgevoerd
 
 Deze twee regels met code uitvoeren in de Package Manager-Console.
 
+```powershell
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
+```
 
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Wijzigen van de verbindingsreeks om in te schakelen Always Encrypted
@@ -204,6 +207,7 @@ De volgende trefwoord toevoegen aan uw verbindingsreeks.
 ### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>Altijd versleuteld met SqlConnectionStringBuilder inschakelen
 De volgende code laat zien hoe u om in te schakelen van altijd versleuteld door in te stellen [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) naar [ingeschakeld](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
+```CS
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
@@ -211,10 +215,12 @@ De volgende code laat zien hoe u om in te schakelen van altijd versleuteld door 
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="register-the-azure-key-vault-provider"></a>De Azure Key Vault-provider registreren
 De volgende code laat zien hoe de Azure Key Vault-provider registreren met de ADO.NET-stuurprogramma.
 
+```C#
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()
@@ -230,8 +236,7 @@ De volgende code laat zien hoe de Azure Key Vault-provider registreren met de AD
        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
     }
-
-
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>Altijd versleutelde console voorbeeldtoepassing
 Dit voorbeeld laat zien hoe u:
@@ -244,7 +249,7 @@ Dit voorbeeld laat zien hoe u:
 Vervang de inhoud van **Program.cs** door de volgende code. Vervang de verbindingsreeks voor de globale connectionString-variabele in de regel die rechtstreeks voorafgaat aan de methode Main met uw geldige verbindingsreeks vanuit Azure portal. Dit is de enige wijziging die u moet aanbrengen in deze code.
 
 De app om te zien van altijd versleuteld in actie uitvoeren.
-
+```CS
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -584,7 +589,7 @@ De app om te zien van altijd versleuteld in actie uitvoeren.
         public DateTime BirthDate { get; set; }
     }
     }
-
+```
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>Controleer of dat de gegevens worden versleuteld
@@ -592,7 +597,9 @@ U kunt snel controleren dat de werkelijke gegevens op de server is versleuteld d
 
 Voer de volgende query uit op de Clinic-database.
 
+```sql
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 U kunt zien dat de versleutelde kolommen geen gegevens als tekst zonder opmaak bevatten.
 
@@ -608,12 +615,13 @@ Voeg de *Versleutelingsinstelling kolom = ingeschakeld* parameter tijdens de ver
    
     ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Voer de volgende query uit op de Clinic-database.
-   
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
-     U ziet nu de gegevens als tekst zonder opmaak in het versleutelde kolommen.
 
-    ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+   ```sql
+      SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   ```
+
+     U ziet nu de gegevens als tekst zonder opmaak in het versleutelde kolommen.
+     ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

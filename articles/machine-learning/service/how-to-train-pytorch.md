@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 281fafe858f2000a19fe3c6a26a4ffd587557361
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 27d4ad03e4a7f911fe3c9981618337a2fff51317
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816018"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114614"
 ---
 # <a name="how-to-train-pytorch-models"></a>Hoe PyTorch-modellen kunt trainen
 
@@ -80,7 +80,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Deze code wordt aangegeven dat de volgende nieuwe parameters voor de PyTorch-constructor:
-Parameter | Beschrijving | Normaal
+Parameter | Beschrijving | Standaard
 --|--|--
 `node_count` |  Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node` |  Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt. | `1`
@@ -101,10 +101,10 @@ run = exp.submit(pt_est)
 
 ## <a name="examples"></a>Voorbeelden
 Zie voor een zelfstudie op één knooppunt PyTorch training:
-* `training/01.train-hyperparameter-tune-deploy-with-pytorch`
+* [training/01.Train-hyperparameter-Tune-Deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
 Voor een zelfstudie over gedistribueerde PyTorch met Horovod, Zie:
-* `training/02.distributed-pytorch-with-horovod`
+* [training/02.distributed-pytorch-met-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
 
 Deze laptops ophalen:
 

@@ -3,16 +3,17 @@ title: Opnieuw opbouwen van een Contoso-app voor on-premises naar Azure | Micros
 description: Meer informatie over hoe een app naar Azure met behulp van Azure App Services, de Kubernetes-service, CosmosDB, Azure Functions en Cognitive services in Contoso opnieuw opgebouwd.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042479"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092969"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migratie van Contoso: opnieuw opbouwen van een on-premises app naar Azure
 
@@ -35,7 +36,8 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 [Artikel 10: Een Linux-app naar Azure WebApps en Azure MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert naar Azure Web Apps op meerdere locaties, geïntegreerd met GitHub voor continue levering. Zij migreren de app-database naar een Azure MySQL-exemplaar. | Beschikbaar
 [Artikel 11: Herstructureren TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Ziet u hoe Contoso migreert de on-premises Team Foundation Server (TFS)-implementatie is door te migreren naar Azure DevOps-Services in Azure. | Beschikbaar
 [Artikel 12: Opnieuw ontwerpen van een app naar Azure-containers en SQL Database](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
-Artikel 13: Opnieuw opbouwen van een app naar Azure | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | In dit artikel.
+Artikel 13: Opnieuw opbouwen van een app naar Azure | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | In dit artikel
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 In dit artikel worden de twee lagen Windows gemigreerd door Contoso. NET SmartHotel360-app die worden uitgevoerd op virtuele VMware-machines naar Azure. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
 

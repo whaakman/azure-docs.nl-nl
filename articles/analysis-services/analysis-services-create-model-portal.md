@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 837601a55bbe97e904f3dece9f4c87563d6dd4e9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054495"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092674"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Een model maken in Azure portal
 
 De functie Azure Analysis Services web designer (preview) in Azure portal biedt een snelle en eenvoudige manier om te maken en bewerken van modellen in tabelvorm en query uitvoeren op model gegevens rechtstreeks in uw browser. 
 
-Houd er rekening mee, is de webdesigner **preview**. Functionaliteit is beperkt. Voor meer geavanceerde model ontwikkelen en testen is het raadzaam het gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
+> [!IMPORTANT]
+> Deze functie is afgeschaft. Het kan worden verwijderd of aanzienlijk gewijzigd in een toekomstige update. Het verdient dat u stoppen met het gebruik van deze functies in nieuwe en bestaande projecten voor compatibiliteit met toekomstige updates. Voor meer geavanceerde model ontwikkelen en testen is het raadzaam het gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
+
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

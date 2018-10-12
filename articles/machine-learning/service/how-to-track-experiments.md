@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984599"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115179"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
@@ -148,7 +148,7 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -213,7 +213,7 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
 ## <a name="view-run-details"></a>Details van de uitvoering weergeven
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Monitor uitvoeren met Jupyter-notebook widgets
-Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoerd, kunt u de voortgang van de uitvoering met een Jupyter-notebook widget bekijken. Als de uitvoering verzenden de widget is asynchroon en vindt u live updates elke 10-15 seconden totdat de taak is voltooid.
+Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoerd, kunt u de voortgang van de uitvoering met een Jupyter-notebook widget bekijken. Net als het indienen van de run, is de widget asynchroon en biedt deze elke 10-15 seconden live updates totdat de taak is voltooid.
 
 1. Bekijk de Jupyter-widget tijdens het wachten op voor het uitvoeren om te voltooien.
 
@@ -224,7 +224,7 @@ Wanneer u gebruikt de **ScriptRunConfig** methode om in te dienen wordt uitgevoe
 
   ![Schermafbeelding van de Jupyter-notebook widget](./media/how-to-track-experiments/widgets.PNG)
 
-### <a name="get-log-results-upon-completion"></a>Resultaten van de logboekbestanden na voltooiing ophalen
+### <a name="get-log-results-upon-completion"></a>Resultaten van logboeken weergeven bij voltooiing
 
 Model trainen en bewaking optreden op de achtergrond, zodat u andere taken uitvoeren kunt terwijl u wacht. U kunt ook wachten totdat het model opleiding vóór het uitvoeren van meer code is voltooid. Bij het gebruik **ScriptRunConfig**, kunt u ```run.wait_for_completion(show_output = True)``` om weer te geven wanneer het trainen van het model is voltooid. De ```show_output``` vlag biedt uitgebreide uitvoer. 
   
@@ -247,8 +247,8 @@ U kunt ook eventuele uitvoer of de logboeken voor de uitvoering weergeven of dow
 
 ## <a name="example-notebooks"></a>Voorbeeld-laptops
 De volgende notebooks illustratie van concepten in dit artikel:
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.Getting-Started/01.Train-within-notebook/01.Train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 
 Deze laptops ophalen: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630406"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090362"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Rapport van Azure Stack-gebruiksgegevens naar Azure 
 
@@ -95,10 +95,6 @@ Voor Azure Stack multinode, worden Enterprise Agreement (EA) en CSP-abonnementen
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Werk in onafhankelijke clouds rapportage over gebruiksgegevens gebruikt?
 
 In de Azure Stack Development Kit vereist gebruiksrapportage voor gegevens abonnementen die zijn gemaakt in de globale Azure-systeem. Abonnementen die zijn gemaakt in een van de soevereine clouds (Azure Government, Azure Duitsland en Azure China clouds) kunnen niet worden geregistreerd met Azure, zodat ze bieden geen ondersteuning voor rapportage van gegevens over het gebruik.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Hoe kunnen gebruikers gegevens over gebruik Azure Stack in de Azure-factureringsportal identificeren?
-
-Gebruikers kunnen de Azure Stack-gebruiksgegevens in het gebruik van informatie bestand zien. Als u wilt weten over het ophalen van het gebruiksbestand voor meer informatie, raadpleegt u de [gebruiksbestand downloaden van het artikel Azure-Accountcentrum](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Het gebruik van informatie bestand bevat de Azure Stack-meters die Azure Stack-opslag en virtuele machines identificeren. Alle resources die worden gebruikt in Azure Stack worden gerapporteerd in de regio met de naam "Azure Stack."
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Waarom niet het gebruik in Azure Stack gerapporteerd overeenkomt met het rapport gegenereerd op basis van Azure-Accountcentrum?
 

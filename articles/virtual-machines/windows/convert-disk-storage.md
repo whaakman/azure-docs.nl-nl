@@ -13,31 +13,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 6cfbc458a4bd751b8b871501d19db641e3980767
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719321"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093813"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure managed disks-opslag van standard naar premium, en vice versa
+# <a name="update-the-storage-type-of-a-managed-disk"></a>Het opslagtype van een beheerde schijf bijwerken
 
-Managed Disks biedt drie opties voor opslag: [Premium SSD](../windows/premium-storage.md), standaard SSD(Preview) en [Standard HDD](../windows/standard-storage.md). Hiermee kunt u gemakkelijk schakelen tussen de opties met minimale downtime op basis van uw prestatiebehoeften. Dit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de schijftypen.
+Azure Managed Disks biedt drie opties voor het type opslag: [Premium SSD](../windows/premium-storage.md), [Standard-SSD](../windows/disks-standard-ssd.md), en [Standard HDD](../windows/standard-storage.md). U kunt een beheerde schijf tussen opslagtypen met minimale downtime, op basis van uw prestatiebehoeften overschakelen. Schakelen tussen opslagtypen wordt niet ondersteund voor een niet-beheerde schijf. u kunt echter eenvoudig [niet-beheerde schijven converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md).
 
-In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure PowerShell. Als u wilt installeren of upgraden, raadpleegt [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+In dit artikel laat zien hoe een beheerde schijf converteren van standard naar premium, en vice versa, met behulp van Azure PowerShell. Als u wilt installeren of upgraden van PowerShell, Zie [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="prerequisites"></a>Vereisten
 
-* De conversie moet opnieuw worden opgestart van de virtuele machine, dus plan de migratie van uw opslag schijven tijdens een reeds bestaande onderhoudsperiode. 
-* Als u niet-beheerde schijven, eerst [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) in dit artikel gebruiken om over te schakelen tussen de opties voor opslag. 
-* Dit artikel gebruikmaken van de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). U moet ook `Connect-AzureRmAccount` uitvoeren om een verbinding met Azure tot stand te brengen.
+* Omdat de conversie opnieuw moet opstarten van de virtuele machine (VM), moet u plannen dat de migratie van uw opslag schijven tijdens een reeds bestaande onderhoudsperiode. 
+* Als u een niet-beheerde schijf eerst [converteren naar een beheerde schijf](convert-unmanaged-to-managed-disks.md) waarmee u kunt het schakelen tussen de opslagtypen. 
+* De voorbeelden in dit artikel moet de Azure PowerShell-moduleversie 6.0.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Voer [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) voor het maken van een verbinding met Azure.
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Alle beheerde schijven van een virtuele machine converteren van standard naar premium, en vice versa
+## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Alle beheerde schijven van een virtuele machine converteren van standard naar premium
 
-Het volgende voorbeeld ziet hoe u wilt overschakelen van alle schijven van een virtuele machine van standaard naar premium storage. Voor het gebruik van premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor premium-opslag.
+Het volgende voorbeeld ziet hoe u wilt overschakelen van alle schijven van een virtuele machine van standaard naar premium storage. Voor het gebruik van premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor premium-opslag:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -79,9 +79,10 @@ foreach ($disk in $vmDisks)
 
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Een beheerde schijf converteren van standard naar premium, en vice versa
 
-Voor uw workload ontwikkelen en testen, kunt u de combinatie van standard en premium-schijven om uw kosten lager zijn. U kunt dit kunt uitvoeren door te upgraden naar premium-opslag, alleen de schijven die betere prestaties nodig hebben. Het volgende voorbeeld laat zien hoe om over te schakelen van één schijf van een virtuele machine van standard naar premium storage, en vice versa. Voor het gebruik van premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld verandert ook in een grootte die ondersteuning biedt voor premium-opslag.
+## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Een beheerde schijf converteren van standard naar premium
+
+Voor uw workload ontwikkelen en testen, kunt u een combinatie van standard en premium-schijven om uw kosten te beperken. De taken dit het geval is, voer een upgrade naar premium-opslag betere alleen op deze schijven waarvoor prestaties. Het volgende voorbeeld laat zien hoe om over te schakelen van één schijf van een virtuele machine van standard naar premium storage, en vice versa. Voor het gebruik van premium-beheerde schijven, de virtuele machine moet gebruiken een [VM-grootte](sizes.md) die ondersteuning biedt voor premium-opslag. In dit voorbeeld laat ook zien hoe overschakelen naar een grootte die ondersteuning biedt voor premium-opslag:
 
 ```azurepowershell-interactive
 
@@ -116,9 +117,9 @@ Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Een beheerde schijf converteren van standard HDD naar standard-SSD, en vice versa
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Een beheerde schijf converteren van standard HDD naar standard-SSD
 
-Het volgende voorbeeld laat zien hoe om over te schakelen van één schijf van een virtuele machine van de standaard harde schijf naar de standard-SSD, en vice versa.
+Het volgende voorbeeld laat zien hoe om over te schakelen van één schijf van een virtuele machine van de standaard harde schijf naar de standard-SSD, en vice versa:
 
 ```azurepowershell-interactive
 
@@ -148,5 +149,5 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een alleen-lezen kopie van een virtuele machine maken met behulp van [momentopnamen](snapshot-copy-managed-disk.md).
+Een alleen-lezen kopie van een virtuele machine maken met behulp van een [momentopname](snapshot-copy-managed-disk.md).
 

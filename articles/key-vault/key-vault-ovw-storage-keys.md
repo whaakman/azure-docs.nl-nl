@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067734"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114597"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Opslagaccountsleutels
 
@@ -38,24 +38,19 @@ ms.locfileid: "49067734"
 -------------------------
 
 1. Haal de resource-ID van het Azure-Opslagaccount dat u wilt beheren.
-    a. Als we een storage-account maken 
+    a. Na het maken van een opslagaccount voert u de volgende opdracht om op te halen van de resource-ID van het opslagaccount dat u wilt beheren
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
-2. Haal de resource-ID van het Azure-Opslagaccount dat u wilt beheren.
-    ```
-    az storage account show -n storageaccountname (Take ID out of this)
-    ```
-3. Aanvraag-ID van Azure Key Vault de service principal ophalen 
+2. Aanvraag-ID van Azure Key Vault de service principal ophalen 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
-4. Opslag sleutel Operator-rol toewijzen aan Azure Key Vault-identiteit
+3. Opslag sleutel Operator-rol toewijzen aan Azure Key Vault-identiteit
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
-5. Maken van een Key Vault beheerde Storage-Account.     <br /><br />
-   Onderstaande opdracht vraagt u Key Vault voor de sleutel opnieuw genereren om de 90 dagen.
+4. Maken van een Key Vault beheerde Storage-Account.     <br /><br />
    Onderstaande opdracht vraagt u Key Vault voor uw opslagtoegangssleutels regelmatig opnieuw genereren met een punt opnieuw genereren. Hieronder, zijn we een periode van 90 dagen voor opnieuw regenereren instellen. Na 90 dagen wordt Key Vault opnieuw genereren 'key1' en de actieve sleutel uit 'key2' naar 'key1' wisselen.
    ### <a name="key-regeneration"></a>Sleutel opnieuw genereren
     ```

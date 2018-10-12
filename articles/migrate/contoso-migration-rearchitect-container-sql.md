@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 80234610eda264976f3ec20da2a0ef12c73ccba6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9fd83124585e3a0eb19c43e278eeeacb6ec4409c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035705"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094102"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migratie van Contoso: opnieuw ontwerpen van een on-premises-app op een Azure-container en de Azure SQL Database
 
@@ -35,6 +35,7 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 [Artikel 11: Herstructureren TFS op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 Artikel 12: Opnieuw ontwerpen van een app op Azure-Containers en Azure SQL Database | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | In dit artikel
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar 
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 In dit artikel worden twee lagen Windows WPF-, XAML forms SmartHotel360-app die worden uitgevoerd op virtuele VMware-machines naar Azure gemigreerd door Contoso. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -515,16 +516,16 @@ Als een eerste stap is voor beheerders van Contoso een Azure Cosmos-database inr
 
 1. Een Azure Cosmos DB-resource maken ze vanuit de Azure Marketplace.
 
-    ![Breid uit](./media/contoso-migration-rearchitect-container-sql/extend1.png)
+    ![Verlengen](./media/contoso-migration-rearchitect-container-sql/extend1.png)
 
 2. Ze bieden een databasenaam (**contososmarthotel**), selecteert u de SQL-API en plaatst u de resource in de productie-resourcegroep, in de primaire regio in de VS-Oost 2.
 
-    ![Breid uit](./media/contoso-migration-rearchitect-container-sql/extend2.png)
+    ![Verlengen](./media/contoso-migration-rearchitect-container-sql/extend2.png)
 
 3. In **aan de slag**, selecteren ze **Data Explorer**, en een nieuwe verzameling toevoegen.
 4. In **verzameling toevoegen** ze bieden id's en opslagcapaciteit en doorvoer.
 
-    ![Breid uit](./media/contoso-migration-rearchitect-container-sql/extend3.png)
+    ![Verlengen](./media/contoso-migration-rearchitect-container-sql/extend3.png)
 
 5. In de portal, ze de nieuwe database openen > **verzameling** > **documenten** en klikt u op **Nieuw Document**.
 6. Ze plak de volgende JSON-code in het documentvenster. Dit is de voorbeeldgegevens in de vorm van een enkele tweet.
@@ -548,11 +549,11 @@ Als een eerste stap is voor beheerders van Contoso een Azure Cosmos-database inr
     }
     ```
 
-    ![Breid uit](./media/contoso-migration-rearchitect-container-sql/extend4.png)
+    ![Verlengen](./media/contoso-migration-rearchitect-container-sql/extend4.png)
 
 7. Ze Zoek het Cosmos DB-eindpunt en de verificatiesleutel. Deze worden gebruikt in de app verbinding maken met de verzameling. In de database, klikt de gebruiker op **sleutels**, en kopieer de URI en primaire sleutel naar Kladblok.
 
-    ![Breid uit](./media/contoso-migration-rearchitect-container-sql/extend5.png)
+    ![Verlengen](./media/contoso-migration-rearchitect-container-sql/extend5.png)
 
 ### <a name="update-the-sentiment-app"></a>De sentiment-app bijwerken
 

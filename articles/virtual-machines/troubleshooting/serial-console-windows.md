@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ceff8f6134f04409a4df1045a764c06597d997fc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885116"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092827"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -83,12 +83,12 @@ Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gev
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
 2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 30`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Opnieuw opstarten van het systeem voor het opstartmenu worden ingeschakeld
 
 > [!NOTE] 
-> De time-out die u hebt ingesteld voor het opstartmenu manager worden weergegeven is van invloed op de opstarttijd van uw besturingssysteem in de toekomst. Hoewel het mogelijk aanvaardbaar is voor sommige om toe te voegen een 30 tweede time-out om ervoor te zorgen dat de boot manager zichtbaar zijn via de seriële console, kunnen anderen een kortere time-out wilt. De time-outwaarde op een waarde die u vertrouwd met bent instellen.
+> De time-out die u hebt ingesteld voor het opstartmenu manager worden weergegeven is van invloed op de opstarttijd van uw besturingssysteem in de toekomst. Hoewel het mogelijk aanvaardbaar is voor sommige om toe te voegen een 10 tweede time-out om ervoor te zorgen dat de boot manager zichtbaar zijn via de seriële console, kunnen anderen een kortere of langere time-out wilt. De time-outwaarde op een waarde die u vertrouwd met bent instellen.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Seriële Console voor NMI aanroepen in de Windows-VM's gebruiken
 Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.

@@ -1,6 +1,6 @@
 ---
-title: Analyzers in Azure Search | Microsoft Docs
-description: Analyzers toewijzen aan velden van doorzoekbare tekst in een index te vervangen standaard standaard Lucene met aangepaste, vooraf gedefinieerde of taalspecifieke alternatieven.
+title: Analyse in Azure Search | Microsoft Docs
+description: De analyzers toewijzen aan doorzoekbare velden in een index te vervangen standaard standard Lucene met aangepaste, vooraf gedefinieerde of taalspecifieke alternatieven.
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -8,90 +8,90 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: e858966fb5a15b84af1952399a5eff3ca50d0d59
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795694"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116367"
 ---
 # <a name="analyzers-in-azure-search"></a>Analyse in Azure Search
 
-Een *analyzer* is een onderdeel van [zoeken in volledige tekst](search-lucene-query-architecture.md) verantwoordelijk voor het verwerken van tekst in de queryreeksen en geïndexeerde documenten. De volgende transformaties zijn typische tijdens de analyse:
+Een *analyzer* is een onderdeel van [zoeken in volledige tekst](search-lucene-query-architecture.md) verantwoordelijk voor het verwerken van tekst in querytekenreeksen en geïndexeerde documenten. De volgende transformaties zijn gangbaar tijdens de analyse:
 
 + Niet-essentiële woorden (stopwoorden) en leestekens worden verwijderd.
-+ Woordgroepen en afgebroken woorden zijn onderverdeeld in onderdelen.
-+ Hoofdletters woorden zijn kleine geïntegreerd.
-+ Woorden worden teruggebracht tot hoofdmap formulieren zodat een overeenkomst ongeacht tijd kan worden gevonden.
++ Zinnen en afgebroken woorden zijn onderverdeeld in onderdelen.
++ Hoofdletters woorden zijn lager-indeling.
++ Woorden worden verkort tot hoofdmap formulieren zodat een overeenkomst ongeacht de tegenwoordige kan worden gevonden.
 
-Taalkundige analyzers converteren een tekst invoer voor primitieve of hoofdmap formulieren die efficiënt zijn voor gegevens opslaan en ophalen. Conversie van deze gebeurtenis treedt op tijdens het indexeren, wanneer de index is samengesteld, en vervolgens nogmaals tijdens de zoekopdracht wanneer de index wordt gelezen. Is het meer waarschijnlijk de zoekresultaten die u verwacht dat als u de dezelfde tekst analyzer voor beide bewerkingen gebruiken ophalen.
+Taalkundige analyse converteren tekstinvoer in primitief of root-formulieren zijn die op efficiënte informatie opslaan en ophalen. Conversie treedt op tijdens het indexeren, wanneer de index is gemaakt, en vervolgens nogmaals tijdens de zoekopdracht als de index wordt gelezen. U waarschijnlijk de zoekresultaten die u verwacht dat als u de dezelfde tekst analyzer voor beide bewerkingen gebruiken.
 
-Azure Search gebruikt de [standaard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) als standaardwaarde. U kunt de standaardinstelling op basis van door veld negeren. Dit artikel beschrijft het bereik van de keuzes en aanbevolen procedures voor het aangepaste analyse biedt. Het bevat ook een van de voorbeeldconfiguraties voor belangrijke scenario's.
+Maakt gebruik van Azure Search de [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) als standaardwaarde. U kunt de standaardinstelling op basis van de door veld negeren. In dit artikel wordt het bereik van de opties beschreven en biedt aanbevolen procedures voor het aangepaste analyse. Het biedt ook een van de voorbeeldconfiguraties voor belangrijke scenario's.
 
 ## <a name="supported-analyzers"></a>Ondersteunde analyzers
 
 De volgende lijst wordt beschreven welke analyzers worden ondersteund in Azure Search.
 
-| Category | Beschrijving |
+| Categorie | Beschrijving |
 |----------|-------------|
-| [Standaard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | De standaardinstelling. Er is geen specificatie of configuratie vereist. Deze algemene analyzer voert ook voor de meeste scenario's en talen.|
-| Vooraf gedefinieerde analyzers | Aangeboden als een voltooide product bedoeld om te worden gebruikt als-is met beperkte aanpassing. <br/>Er zijn twee typen: gespecialiseerde- en taalinstellingen. De reden waarom ze 'vooraf gedefinieerde', is dat u ernaar te met de naam met niets aanpassing verwijzen. <br/><br/>[Gespecialiseerde analyzers (taal networkdirect)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) worden gebruikt als invoer voor tekst speciale verwerking of minimale vereist. Vooraf gedefinieerde niet taalanalyse omvatten **Asciifolding**, **sleutelwoord**, **patroon**, **eenvoudige**, **stoppen**, **Witruimte**.<br/><br/>[Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) worden gebruikt wanneer u uitgebreide taalkundige ondersteuning nodig hebt voor afzonderlijke talen. Azure Search ondersteunt 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |
-|[Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Een door de gebruiker gedefinieerde configuratie uit een combinatie van bestaande elementen, die bestaan uit één tokenizer (vereist) en optionele filters (char of token).|
+| [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standaard. Er is geen specificatie of configuratie vereist. Deze algemene analyzer wordt uitgevoerd voor de meeste scenario's en talen.|
+| Vooraf gedefinieerde analyzers | Als een voltooide product bedoeld om te worden gebruikt als aangeboden-is, met beperkte aanpassingen. <br/>Er zijn twee typen: gespecialiseerde en taal. Wat is dan "vooraf gedefinieerde" het is u ernaar te verwijzen met de naam, met geen aanpassingen. <br/><br/>[(Taal-neutraal) analyzers gespecialiseerde](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) worden gebruikt als invoer van tekst speciale verwerking of minimale vereist. Vooraf gedefinieerde niet taalanalyse bevatten **Asciifolding**, **sleutelwoord**, **patroon**, **eenvoudige**, **stoppen**, **Witruimte**.<br/><br/>[Taalanalyse](https://docs.microsoft.com/rest/api/searchservice/language-support) worden gebruikt wanneer u geavanceerde linguïstische ondersteuning nodig hebt voor de afzonderlijke talen. Azure Search biedt ondersteuning voor 35 Lucene taalanalyse en 50 analyzers voor Microsoft-verwerking van natuurlijke taal. |
+|[Analysevoorzieningen aanpassen](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Een gebruiker gedefinieerde configuratie van een combinatie van bestaande elementen, die bestaat uit één tokenizer (vereist) en optionele filters (char of token).|
 
-U kunt een vooraf gedefinieerde analyzer, zoals **patroon** of **stoppen**, gebruik van alternatieve opties beschreven in [vooraf gedefinieerde Analyzer verwijzing](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Slechts enkele van de vooraf gedefinieerde analyzers hebt opties die u kunt instellen. Zoals met elke aanpassing, Geef uw nieuwe configuratie met een naam, zoals *myPatternAnalyzer* te onderscheiden van de analysefunctie voor Lucene-patroon.
+U kunt een vooraf gedefinieerde analyzer, zoals **patroon** of **stoppen**, gebruik van andere opties beschreven in [vooraf gedefinieerde Analyzer verwijzing](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Slechts een paar van de vooraf gedefinieerde analyzers hebt opties die u kunt instellen. Als met een aanpassing, Geef uw nieuwe configuratie met een naam, zoals *myPatternAnalyzer* te onderscheiden van het patroon van Lucene analyzer.
 
 ## <a name="how-to-specify-analyzers"></a>Analyzers opgeven
 
-1. (voor aangepaste analyzers alleen) Maak een **analyzer** sectie in de definitie van de index. Zie voor meer informatie [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) en ook [aangepaste Analyzers > maken](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
+1. (voor alleen aangepaste analyse) Maak een **analyzer** sectie in het definitie van de index. Zie voor meer informatie, [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) en ook [aangepaste Analyzers > maken](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. Op een [veld definitie](https://docs.microsoft.com/rest/api/searchservice/create-index) in de index, stelt u de **analyzer** eigenschap in op de naam van een doel analyzer (bijvoorbeeld `"analyzer" = "keyword"`. Geldige waarden zijn naam van een vooraf gedefinieerde analyzer, taalanalyse of aangepaste analyzer ook in het indexschema dat is gedefinieerd.
+2. Op een [veld definitie](https://docs.microsoft.com/rest/api/searchservice/create-index) in de index, stelt u de **analyzer** eigenschap op de naam van een analyse van het doel (bijvoorbeeld `"analyzer" = "keyword"`. Geldige waarden zijn de naam van een vooraf gedefinieerde analyzer, taal-analysefunctie of aangepaste analysefunctie ook in het indexschema zijn gedefinieerd.
 
-3. U kunt desgewenst in plaats van een **analyzer** eigenschap, kunt u verschillende analyzers voor indexering en uitvoeren van query's met behulp van instellen de **indexAnalyzer** en **searchAnalyzer'** veld parameters. 
+3. (Optioneel) in plaats van een **analyzer** eigenschap, kunt u verschillende analyzers om te indexeren en query's uitvoeren met behulp van instellen de **indexAnalyzer** en **searchAnalyzer'** veld de parameters. 
 
-3. Een analyzer toe te voegen aan de velddefinitie van een leidt ertoe dat een schrijfbewerking voor de index. Als u een **analyzer** aan een bestaande index Let op de volgende stappen uit:
+3. Aan de velddefinitie van een toe te voegen een analyzer leidt tot een schrijfbewerking voor de index. Als u een **analyzer** aan een bestaande index, houd er rekening mee de volgende stappen uit:
  
  | Scenario | Impact | Stappen |
  |----------|--------|-------|
- | Een nieuw veld toevoegen | minimale | Als het veld nog niet in het schema bestaat, is er geen veld revisie omdat het veld heeft nog geen fysieke aanwezigheid in uw index. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor deze taak.|
- | Een analyzer toevoegen aan een bestaand geïndexeerde veld. | Opnieuw samenstellen | De omgekeerde index voor dat veld compleet moet worden gemaakt en de inhoud voor deze velden moet opnieuw worden geïndexeerd. <br/> <br/>Voor indexen momenteel actieve ontwikkeld [verwijderen](https://docs.microsoft.com/rest/api/searchservice/delete-index) en [maken](https://docs.microsoft.com/rest/api/searchservice/create-index) de index van de definitie van de nieuwe velden kunnen worden opgepikt. <br/> <br/>Voor de indexen in de productieomgeving, moet u een nieuw veld om de bijgewerkte definitie opgeven en vervolgens gebruiken maken. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) opnemen van het nieuwe veld. Onderhoud van geplande index later kunt u de index te verwijderen van verouderde velden opruimen. |
+ | Een nieuw veld toevoegen | Minimale | Als het veld nog niet in het schema bestaat, is er geen veld revisie omdat het veld nog geen fysieke aanwezigheid in uw index. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) voor deze taak.|
+ | Een analyzer toevoegen aan een bestaand geïndexeerde veld. | Opnieuw maken | De omgekeerde index voor dat veld moet worden gemaakt vanaf het begin van en de inhoud voor deze velden moet worden geïndexeerd. <br/> <br/>Voor indexen in ontwikkeling, [verwijderen](https://docs.microsoft.com/rest/api/searchservice/delete-index) en [maken](https://docs.microsoft.com/rest/api/searchservice/create-index) de index om op te halen de velddefinitie van de nieuwe. <br/> <br/>Voor indexen in de productieomgeving, moet u een nieuw veld om te bieden de definitie van de herziene en gaan gebruiken. Gebruik [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index) en [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) om op te nemen van het nieuwe veld. Later, als onderdeel van de index voor gepland onderhoud, kunt u de index te verwijderen van verouderde velden opschonen. |
 
 ## <a name="tips-and-best-practices"></a>Tips en best practices
 
-Deze sectie vindt u advies over het werken met analyzers.
+Deze sectie vindt u advies over het werken met analysefuncties.
 
-### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Een analyzer voor alleen-lezen tenzij er specifieke vereisten
+### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Een analyzer voor lezen / schrijven, tenzij u specifieke vereisten hebt
 
-Azure Search kunt u verschillende analyzers voor indexeren opgeven en zoek via aanvullende `indexAnalyzer` en `searchAnalyzer` veld parameters. Als u niets opgeeft, wordt de analyzer ingesteld met de `analyzer` eigenschap wordt gebruikt voor het indexeren en het zoeken. Als `analyzer` is niet is opgegeven, wordt de standaard standaard Lucene analyzer gebruikt.
+Azure Search kunt u opgeven van verschillende analyzers voor indexeren en zoeken via extra `indexAnalyzer` en `searchAnalyzer` veld parameters. Als u niets opgeeft, wordt de analyzer instellen met de `analyzer` eigenschap wordt gebruikt voor zowel indexeren en zoeken. Als `analyzer` is opgegeven, wordt de standaard Standard Lucene analyzer gebruikt.
 
-In het algemeen is het gebruik van de dezelfde analyzer voor indexering en uitvoeren van query's, tenzij anders dicteren de specifieke vereisten. Zorg ervoor dat grondig te testen. Wanneer de verwerking van tekst op zoeken en indexeren tijd verschilt, loopt u het risico van de query de voorwaarden en geïndexeerde wanneer de zoekopdracht en indexering analyzer configuraties zijn niet uitgelijnd komt niet overeen.
+In het algemeen is het gebruik van de dezelfde analyzer voor indexering en uitvoeren van query's, tenzij u specifieke vereisten standaardclientconfiguratie. Moet u grondig testen. Wanneer de verwerking van de tekst op zoeken en indexeren tijd verschilt, loopt u het risico van toewijzingsbron query de voorwaarden en geïndexeerd wanneer de zoekopdracht en indexering analyzer configuraties zijn niet uitgelijnd.
 
 ### <a name="test-during-active-development"></a>Tijdens het ontwikkelen van actieve testen
 
-Het overschrijven van de standaard analyzer vereist het opnieuw opbouwen van een index. Indien mogelijk, kiezen welke analyzers tijdens active ontwikkeling, alvorens een index in productie wilt gebruiken.
+Overschrijven van de standaard analyzer vereist het opnieuw opbouwen van een index. Indien mogelijk, bepalen op welke analyzers moet worden gebruikt tijdens de ontwikkeling, voordat u een index aanloop naar productie.
 
 ### <a name="inspect-tokenized-terms"></a>Tokens voorwaarden controleren
 
-Als een zoekopdracht niet de verwachte resultaten worden geretourneerd, is het meest waarschijnlijke scenario token verschillen tussen de term in op de query- en tokens voorwaarden in de index. Als de tokens niet hetzelfde zijn, niet overeenkomt met voordoen. Als u wilt controleren tokenizer-uitvoer, wordt u aangeraden de [analyseren API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) als een hulpprogramma onderzoek. Het antwoord bestaat van tokens, zoals die worden gegenereerd door een specifieke analyzer.
+Als een zoekopdracht niet de verwachte resultaten worden geretourneerd, is het meest waarschijnlijke scenario token verschillen tussen de invoer van de termijn voor de query en tokens voorwaarden in de index. Als de tokens niet hetzelfde zijn, mislukt de overeenkomsten om te realiseren. Als u wilt controleren tokenizer-uitvoer, wordt u aangeraden de [analyseren API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) als een hulpprogramma voor onderzoek. De reactie bestaat van tokens, zoals die worden gegenereerd door een specifieke analyzer.
 
-### <a name="compare-english-analyzers"></a>Engels analyzers vergelijken
+### <a name="compare-english-analyzers"></a>Engelse analyzers vergelijken
 
-De [zoeken Analyzer Demo](http://alice.unearth.ai/) is een derde partij demo-app met een side-by-side vergelijking van de standaard Lucene analyzer, Lucene de Engelse taal analyzer en Microsoft Engelse natuurlijke taal processor. De index is vastgesteld; Deze bevat tekst uit een populaire artikel. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de aangrenzende deelvensters, zodat u een beeld van hoe elk analyzer dezelfde tekenreeks verwerkt. 
+De [Search Analyzer-Demo](http://alice.unearth.ai/) is een derde partij demo-app van de vergelijking van de standaard Lucene analyzer, de Engelse taal-analysefunctie van Lucene en Microsofts Engelse natuurlijke taal processor van side-by-side. De index is opgelost; Deze bevat tekst uit een populaire verhaal. Voor elke invoer zoeken opgeeft u, resultaten van elke analyzer worden weergegeven in de deelvensters van de aangrenzende, zodat u een beeld van hoe elke analyzer dezelfde tekenreeks verwerkt. 
 
 ## <a name="examples"></a>Voorbeelden
 
-De volgende voorbeelden tonen analyzer definities voor enkele belangrijke scenario's.
+De voorbeelden hieronder ziet u analyzer definities voor enkele belangrijke scenario's.
 
 <a name="Example1"></a>
 ### <a name="example-1-custom-options"></a>Voorbeeld 1: Aangepaste opties
 
-In dit voorbeeld ziet u de definitie van een analyzer met aangepaste opties. Aangepaste opties voor char filters, tokenizers en token filters zijn opgegeven afzonderlijk als benoemde constructies en vervolgens waarnaar wordt verwezen in de definitie analyzer. Vooraf gedefinieerde elementen worden gebruikt als-is en gewoon waarnaar wordt verwezen door de naam.
+In dit voorbeeld ziet u een definitie van een analyzer met aangepaste opties. Aangepaste opties voor char filters, tokenizers en token filters worden afzonderlijk opgegeven als benoemde constructies en vervolgens waarnaar wordt verwezen in de definitie van de analyzer. Vooraf gedefinieerde elementen worden gebruikt als-is en eenvoudig waarnaar wordt verwezen door de naam.
 
-Stap voor stap in dit voorbeeld:
+Stap voor stap in het volgende voorbeeld:
 
-* Analyzers zijn een eigenschap van de veldklasse voor een doorzoekbaar veld.
-* Een aangepaste analyzer is onderdeel van de indexdefinitie van een. Hierdoor kan licht worden aangepast (bijvoorbeeld één optie in één filter aanpassen) of op meerdere plaatsen zijn aangepast.
-* In dit geval wordt de aangepaste analyzer is 'my_analyzer', die weer gebruikmaakt van een aangepaste standaard tokenizer 'my_standard_tokenizer' en twee token filters: kleine letters en aangepaste asciifolding filter 'my_asciifolding'.
-* Het definieert ook een aangepaste 'map_dash' char filter ter vervanging van alle streepjes met onderstrepingstekens voordat tokeniseren (de standaard tokenizer-einden op dash maar niet op onderstrepingsteken).
+* Analysefuncties zijn een eigenschap van de veldklasse voor een doorzoekbaar veld.
+* Een aangepaste analysefunctie maakt deel uit van een definitie van de index. Hierdoor kan licht worden aangepast (bijvoorbeeld één optie in één filter aanpassen) of op meerdere plaatsen worden aangepast.
+* In dit geval wordt de aangepaste analyzer is 'my_analyzer', die op zijn beurt maakt gebruik van een aangepaste standard tokenizer "my_standard_tokenizer" en twee token filters: kleine letters en aangepaste asciifolding filter 'my_asciifolding'.
+* Het definieert ook een aangepaste 'map_dash' char filter ter vervanging van alle streepjes met onderstrepingstekens voordat tokeniseren (de standaard tokenizer-einden op dash maar niet op een onderstrepingsteken).
 
 ~~~~
   {
@@ -134,7 +134,7 @@ Stap voor stap in dit voorbeeld:
      "tokenizers":[
         {
            "name":"my_standard_tokenizer",
-           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizer",
+           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizerV2",
            "maxTokenLength":20
         }
      ],
@@ -149,11 +149,11 @@ Stap voor stap in dit voorbeeld:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Voorbeeld 2: De standaard analyzer overschrijven
+### <a name="example-2-override-the-default-analyzer"></a>Voorbeeld 2: De analyzer standaard overschrijven
 
-De standaard analyzer is de standaardinstelling. Stel dat u wilt de standaard vervangen door een andere vooraf gedefinieerde analyzer, zoals de analyzer patroon. Als u geen aangepaste instellingsopties bent, moet u alleen opgeven met de naam in de velddefinitie van het.
+De analysefunctie voor Standard is de standaardinstelling. Stel dat u wilt de standaardwaarde vervangen door een andere vooraf gedefinieerde analyzer, zoals de analyzer patroon. Als u geen aangepaste instellingen bent, moet u alleen opgeven met de naam in de velddefinitie van het.
 
-Het element 'analyzer' overschrijft de standaard analyzer op basis van veld veld. Er is geen globale overschrijving. In dit voorbeeld `text1` maakt gebruik van de analyzer patroon en `text2`, die een analyzer niet opgeven, gebruikt de standaardinstallatielocatie.
+Het element 'analyzer' overschrijft de standaard analyzer op basis van de door veld. Er is geen globale onderdrukking. In dit voorbeeld `text1` maakt gebruik van de analyzer patroon en `text2`, die een analyzer niet opgeeft, gebruikt de standaard.
 
 ~~~~
   {
@@ -181,9 +181,9 @@ Het element 'analyzer' overschrijft de standaard analyzer op basis van veld veld
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Voorbeeld 3: Verschillende analyzers voor indexerings- en bewerkingen
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Voorbeeld 3: Verschillende analyzers voor indexeren en zoeken
 
-De API's bevatten extra indexkenmerken voor het opgeven van verschillende analyzers voor indexeren en de zoekcriteria. De `searchAnalyzer` en `indexAnalyzer` kenmerken moeten worden opgegeven als een paar, vervangt het enkelvoudige `analyzer` kenmerk.
+De API's bevatten extra indexkenmerken voor het opgeven van verschillende analyzers voor indexeren en zoeken. De `searchAnalyzer` en `indexAnalyzer` kenmerken moeten worden opgegeven als een paar, vervangen de één `analyzer` kenmerk.
 
 
 ~~~~
@@ -210,7 +210,7 @@ De API's bevatten extra indexkenmerken voor het opgeven van verschillende analyz
 <a name="Example4"></a>
 ### <a name="example-4-language-analyzer"></a>Voorbeeld 4: Taalanalyse
 
-Velden met tekenreeksen in verschillende talen kunt een taalanalyse gebruiken, terwijl andere velden behoudt u de standaardwaarde (of een aantal andere vooraf gedefinieerde of aangepaste analyzer gebruiken). Als u een taalanalyse gebruikt, moet het worden gebruikt voor bewerkingen voor indexering en zoeken. Velden die gebruikmaken van een taalanalyse kan hebben verschillende analyzers voor indexering en zoeken.
+Velden met tekenreeksen in verschillende talen kunt een taalanalyse, terwijl andere velden de standaardwaarde (of enige andere vooraf gedefinieerde of aangepaste analyzer gebruiken). Als u een taalanalyse gebruikt, moet deze worden gebruikt voor indexeren en zoeken. Velden die gebruikmaken van een taalanalyse kan hebben verschillende analyzers voor indexeren en zoeken.
 
 ~~~~
   {
@@ -241,19 +241,19 @@ Velden met tekenreeksen in verschillende talen kunt een taalanalyse gebruiken, t
 
 ## <a name="next-steps"></a>Volgende stappen
 
-+ Bekijk onze uitgebreide uitleg van [hoe volledige tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md). In dit artikel bevat voorbeelden waarin wordt uitgelegd gedrag dat vindt op het eerste gezicht lijken.
++ Bekijk onze uitgebreide uitleg van [hoe volledige tekst zoeken werkt in Azure Search](search-lucene-query-architecture.md). In dit artikel bevat voorbeelden waarin wordt uitgelegd gedragingen die op het oppervlak vindt lijkt.
 
-+ Probeer extra querysyntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) voorbeeld in deze sectie of van [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
++ Probeer van aanvullende query-syntaxis van de [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) voorbeeld in deze sectie of [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in de portal.
 
-+ Meer informatie over het toepassen van [taalspecifieke lexicale analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Meer informatie over het toepassen van [taalspecifieke lexicale analyse](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
-+ [Configureren van aangepaste analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor minimale verwerking of speciale verwerking op afzonderlijke velden.
++ [Configureren van aangepaste analyse](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) voor minimale verwerking of gespecialiseerde verwerking op afzonderlijke velden.
 
-+ [Standard- en Engelse analyzers vergelijken](http://alice.unearth.ai/) in aangrenzende deelvensters op deze demo-website. 
++ [Standaard- en Engelse analyzers vergelijken](http://alice.unearth.ai/) in aangrenzende deelvensters op deze demo-website. 
 
 ## <a name="see-also"></a>Zie ook
 
- [REST-API documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [REST-API voor Search-documenten](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
  [Vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 

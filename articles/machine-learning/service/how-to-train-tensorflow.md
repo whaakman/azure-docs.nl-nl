@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 43302bd449b2a25e3e1a65da5ae2a70c3660cb09
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815015"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114977"
 ---
 # <a name="how-to-train-tensorflow-models"></a>Hoe TensorFlow modellen kunt trainen
 
@@ -86,7 +86,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 De bovenstaande code wordt aangegeven dat de volgende nieuwe parameters voor de TensorFlow-constructor:
 
-Parameter | Beschrijving | Normaal
+Parameter | Beschrijving | Standaard
 --|--|--
 `node_count` | Het aantal knooppunten moet worden gebruikt voor de trainingstaak. | `1`
 `process_count_per_node` | Het aantal processen (of 'werknemers') om uit te voeren op elk knooppunt.|`1`
@@ -127,7 +127,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 
 Let op de volgende parameters voor de TensorFlow-constructor in de bovenstaande code:
 
-Parameter | Beschrijving | Normaal
+Parameter | Beschrijving | Standaard
 --|--|--
 `worker_count` | Het aantal werknemers. | `1`
 `parameter_server_count` | Het aantal parameter-servers. | `1`
@@ -171,13 +171,13 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>Voorbeelden
 Zie voor een zelfstudie op één knooppunt TensorFlow-training:
-* `training/03.train-hyperparameter-tune-deploy-with-tensorflow `
+* [training/03.Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
 Voor een zelfstudie over gedistribueerde TensorFlow met Horovod, Zie:
-* `training/04.distributed-tensorflow-with-horovod`
+* [training/04.distributed-tensorflow-met-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
 
 Voor een zelfstudie over systeemeigen gedistribueerde TensorFlow, Zie:
-* `training/05.distributed-tensorflow-with-parameter-server`
+* [training/05.distributed-tensorflow-met-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
 
 Deze laptops ophalen:
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a77306f408e87d5055a292d6f403cc041790eba
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985308"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093864"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekst herkennen
 
@@ -29,7 +29,7 @@ Computer Vision kan herkennen gedrukte en handgeschreven tekst in afbeeldingen a
 
 - De afbeelding moet in JPEG, PNG of BMP-indeling worden gepresenteerd
 - De afbeelding moet kleiner zijn dan 4 megabyte (MB)
-- De afmetingen van de afbeelding moeten liggen tussen 40, 40 en 3200 x 3200 pixels
+- De afmetingen van de afbeelding moet tussen 50 x 50 en 4200 x 4200 pixels
 
 > [!NOTE]
 > Deze technologie is momenteel in preview en is alleen beschikbaar voor Engelse tekst.

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041571"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115107"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-app-manifest
 
@@ -43,7 +43,7 @@ Apps die met Azure Active Directory (Azure AD integreren) moeten zijn geregistre
 | `appId` | Id-reeks | Hiermee geeft u de unieke id voor de app die is toegewezen aan een app door Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Het type matrix | Hiermee geeft u de verzameling toepassingsrollen die mogelijk zijn gedeclareerd in een app. Deze rollen kunnen worden toegewezen aan gebruikers, groepen of service-principals. Zie voor meer voorbeelden en informatie [app-rollen in uw toepassing toevoegen en deze ontvangen in het token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | tekenreeks | Een bitmasker dat Hiermee configureert u de `groups` claim uitgegeven in een OAuth 2.0-toegangstoken dat de app wordt verwacht dat of de gebruiker. De Bitmaskerwaarden zijn:<br>0: geen<br>1: beveiligingsgroepen en Azure AD-rollen<br>2: gereserveerd<br>4: gereserveerd<br>Het bitmasker instelt op 7 krijgt alle van de beveiligingsgroepen, distributiegroepen en Azure AD-maprollen die de aangemelde gebruiker lid van is. | `1` |
-| `optionalClaims` | tekenreeks | De optionele claims die in het token wordt geretourneerd door de service voor beveiligingstokens voor deze specifieke app. Zie voor meer informatie, [optionele claims](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | tekenreeks | De optionele claims die in het token wordt geretourneerd door de service voor beveiligingstokens voor deze specifieke app.<br>Op dit moment niet de apps die ondersteuning bieden voor zowel persoonlijke accounts en Azure AD (geregistreerd via de portal van de registratie van de app) optioneel claims gebruiken. Apps die zijn geregistreerd voor alleen Azure AD met behulp van het v2.0-eindpunt kunnen beschikt echter over de optionele claims die ze in het manifest wordt aangevraagd. Zie voor meer informatie, [optionele claims](active-directory-optional-claims.md). | `null` |
 | `id` | Id-reeks | De unieke id voor de app in de map. Deze ID is niet de id die wordt gebruikt om de app in een transactie protocol te identificeren. Het wordt gebruikt voor de verwijzing naar het object in de directory-query's. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | String-matrix | Gebruiker gedefinieerde URI(s) unieke identificatie van een Web-app binnen de Azure AD-tenant of binnen een gecontroleerd aangepast domein als de app met meerdere tenants. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | tekenreeks | Hiermee geeft u de koppelingen met de gebruiksvoorwaarden en privacyverklaring van de app. De gebruiksvoorwaarden en privacyverklaring worden opgehaald voor gebruikers via de ervaring van de gebruiker toestemming. Zie voor meer informatie, [hoe: gebruiksvoorwaarden en privacyverklaring toevoegen voor Azure AD-apps geregistreerd](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |

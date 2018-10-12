@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818961"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116190"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -53,13 +53,14 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 | Toepassingsgateways |[Diagnostische logboekregistratie voor Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Logboekanalyse voor Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch-diagnostische logboeken](../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Azure Database voor MySQL diagnostische logboeken](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL diagnostische logboeken](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Cognitive Services | Het schema is niet beschikbaar. |
 | CDN (Content Delivery Network) | [Diagnostische logboeken voor CDN in Azure](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB-logboekregistratie](../cosmos-db/logging.md) |
 | Data Factory | [Data Factory's met behulp van Azure Monitor bewaken](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Diagnostische logboeken openen voor Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Diagnostische logboeken openen voor Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| DB voor PostgreSQL |  Het schema is niet beschikbaar. |
 | Event Hubs |[Diagnostische logboeken in Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Het schema is niet beschikbaar. |
 | Azure Firewall | Het schema is niet beschikbaar. |
@@ -104,6 +105,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.DataLakeAnalytics/accounts|Aanvragen|Logboeken van de aanvraag|
 |Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken van de aanvraag|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Langzame-querylogboeken van MySQL|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL-Server-logboeken|
 |Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetrie van apparaten|

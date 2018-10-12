@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e338e32e570ce98854e059ecdda21d99fda728
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018619"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49117249"
 ---
 1. [![Azure-notitieblokken](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[voorbeeldnotitieblokken importeren in Azure-notitieblokken](https://aka.ms/aml-clone-azure-notebooks).
-1.  Maken van een werkruimte en het configuratiebestand (**config.json**) met behulp van instructies in [het configureren van een ontwikkelomgeving voor de service Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-2. Selecteer `+New` in de werkbalk om toe te voegen uw **config.json** -bestand naar dezelfde map als de notebook.
-3. Open het notitieblok.
+[voorbeeldnotitieblokken importeren in Azure-notitieblokken](https://aka.ms/aml-clone-azure-notebooks). (Uw organisatie mogelijk [administrator toestemming](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) voordat u zich kunt aanmelden.)
+1. Raadpleeg het Leesmij-bestand in de geïmporteerde-bibliotheek voor meer instructies voor het uitvoeren van de notebooks.

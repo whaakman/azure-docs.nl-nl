@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 82674aec8d62388d0d0f26e730f66b8b078a5d75
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c1858fca1ca5f6bc48f5225ecf2d52dee055c91
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904228"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092742"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - schaal een migratie naar Azure
 
@@ -37,7 +37,7 @@ In dit artikel is een in een reeks artikelen waarin hoe het fictieve bedrijf Con
 [Artikel 11: Herstructureren Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Azure DevOps-Services in Azure. | Beschikbaar
 [Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en app-databases met Azure SQL Database. | Beschikbaar    
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar 
-Artikel 14: Schaal van een migratie naar Azure | Na het proberen van combinaties van de migratie, wordt de Contoso nu voorbereid om te schalen naar een volledige migratie naar Azure. | In dit artikel
+Artikel 14: Schaal van een migratie naar Azure | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | In dit artikel
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
@@ -65,7 +65,7 @@ Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor deze migrati
 
 Na het vastmaken omlaag doelstellingen en vereisten, Contoso beoordeelt de IT-footprint en identificeert het migratieproces.
 
-## <a name="current-app"></a>Huidige app
+## <a name="current-deployment"></a>Huidige implementatie
 
 Na het plannen en instellen van een [Azure-infrastructuur](contoso-migration-infrastructure.md) en uitproberen van verschillende combinaties van proof of concept (POC) migratie zoals beschreven in de bovenstaande tabel, Contoso is gereed om te zetten op een volledige migratie naar Azure op schaal. Hier volgt wat Contoso wil migreren.
 

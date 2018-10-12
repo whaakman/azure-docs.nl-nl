@@ -9,18 +9,18 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/01/2018
-ms.openlocfilehash: b78a199df9f457b09bb487df74a646363fb172b9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 925173f85301d6481ae3b9cf891041239b06bc8f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815066"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113713"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Een model implementeren als een webservice op een FPGA met Azure Machine Learning
 
 U kunt een model implementeren als een webservice op [programmable gate arrays (FPGA's) veld](concept-accelerate-with-fpgas.md).  Met behulp van FPGA's biedt zeer lage latentie inferentietaken, zelfs met een enkele batchgrootte.   
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
@@ -170,7 +170,7 @@ Azure Machine Learning-modellen die worden uitgevoerd op FPGA's bieden ondersteu
 
 ## <a name="sample-notebook"></a>Voorbeeld-notebook
 
-Concepten in dit artikel wordt uitgelegd in de `project-brainwave/project-brainwave-quickstart.ipynb` notebook.
+Concepten in dit artikel wordt uitgelegd in de [project-brainwave/project-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) notebook.
 
 Dit notitieblok ophalen:
 

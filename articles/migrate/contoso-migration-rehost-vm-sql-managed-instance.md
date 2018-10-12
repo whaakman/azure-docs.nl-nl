@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 12baa21c8661012cd7ef96217724150a3d8c56f3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303421"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116139"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: een on-premises-app op een virtuele machine van Azure en SQL Database Managed Instance Rehost
 
@@ -40,6 +40,7 @@ Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar 
 [Artikel 11: Herstructureren Team Foundation Server op Azure DevOps-Services](contoso-migration-tfs-vsts.md) | Contoso worden gemigreerd van de on-premises Team Foundation Server-implementatie door te migreren naar Azure DevOps-Services in Azure. | Beschikbaar
 [Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso zijn app SmartHotel is gemigreerd naar Azure en rearchitects vervolgens de app. Contoso-rearchitects van de laag van de web-app als een Windows-container en rearchitects van de app-database met behulp van Azure SQL Database. | Beschikbaar
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service, Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 
 
@@ -138,7 +139,7 @@ Service | Beschrijving | Kosten
 
  
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Contoso en andere gebruikers moeten voldoen aan de volgende vereisten voor dit scenario:
 

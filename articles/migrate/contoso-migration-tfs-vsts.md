@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a304cb08ec001587af5e6ea740853bd8435824e7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297922"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116960"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migratie van Contoso: een Team Foundation Server-implementatie voor Azure DevOps Services herstructureren
 
@@ -35,6 +35,7 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 Artikel 11: Herstructureren een TFS-implementatie in Azure DevOps-Services | De dev-app TFS migreren naar Azure DevOps-Services in Azure | In dit artikel
 [Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
 [Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | Beschikbaar
+[Artikel 14: Schaal van een migratie naar Azure](contoso-migration-scale.md) | Na het proberen van migratie combinaties, bereidt Contoso worden uitgebreid naar een volledige migratie naar Azure. | Beschikbaar
 
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
@@ -100,7 +101,7 @@ Hier ziet u hoe Contoso de migratie wordt voltooid:
 1. In de Azure-portal, beheerders van Contoso een opslagaccount maken (**contosodevmigration**).
 2. Ze plaatsen het account in de secundaire regio die ze voor failover - centraal VS gebruiken. Ze een algemeen standard-account met lokaal redundante opslag gebruiken.
 
-    ![Opslagaccount](./media/contoso-migration-tfs-vsts/storage1.png) 
+    ![Storage-account](./media/contoso-migration-tfs-vsts/storage1.png) 
 
 
 **Meer hulp nodig?**
@@ -294,15 +295,15 @@ Beheerders van Contoso genereren de DACPAC als volgt:
 
     **SqlPackage.exe /sourceconnectionstring: "Data Source = SQLSERVERNAME\INSTANCENAME; Initial Catalog = Tfs_ContosoDev; Integrated Security = True" /targetFile:C:\TFSMigrator\Tfs_ContosoDev.dacpac /action:extract /p:ExtractAllTableData = true /p: ik gnoreUserLoginMappings = true /p:IgnorePermissions = true /p:Storage = geheugen** 
 
-    ![Back-up](./media/contoso-migration-tfs-vsts/backup1.png)
+    ![Backup](./media/contoso-migration-tfs-vsts/backup1.png)
 
 2. Het volgende bericht wordt weergegeven nadat de opdracht wordt uitgevoerd.
 
-    ![Back-up](./media/contoso-migration-tfs-vsts/backup2.png)
+    ![Backup](./media/contoso-migration-tfs-vsts/backup2.png)
 
 3. Ze controleren of de eigenschappen van de DACPACfile
 
-    ![Back-up](./media/contoso-migration-tfs-vsts/backup3.png)
+    ![Backup](./media/contoso-migration-tfs-vsts/backup3.png)
 
 ### <a name="update-the-file-to-storage"></a>Het bestand bijwerken naar opslag
 
