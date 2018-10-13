@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077113"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309192"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Overzicht van plannen, aanbiedingen, quota en abonnementen
 
@@ -40,7 +40,7 @@ Wanneer u een service leveren, volgt u deze stappen op hoog niveau:
 2. Maak een plan waarop een of meer services. Bij het maken van een abonnement selecteren of maken van quota's die de resourcelimieten van elke service in de planning definiëren.
 3. Maak een aanbieding met een of meer abonnementen. De aanbieding zijn basisplannen en optioneel aanvullende plannen.
 
-Nadat u het aanbieding hebt gemaakt, worden uw gebruikers kunnen abonneren op deze toegang tot de services en resources vindt u de aanbieding. Gebruikers kunnen zich abonneren op net zoveel aanbiedingen als ze willen. Het volgende diagram toont een eenvoudig voorbeeld van een gebruiker die is geabonneerd op twee aanbiedingen. Ieder aanbod heeft een abonnement of twee en elk abonnement biedt hen toegang tot services.
+Nadat u het aanbieding hebt gemaakt, worden uw gebruikers kunnen abonneren op deze toegang tot de services en resources vindt u de aanbieding. Gebruikers kunnen zich abonneren op net zoveel aanbiedingen als ze willen. De volgende afbeelding toont een eenvoudig voorbeeld van een gebruiker die is geabonneerd op twee aanbiedingen. Ieder aanbod heeft een abonnement of twee en elk abonnement biedt hen toegang tot services.
 
 ![Tenantabonnement met aanbiedingen en plannen](media/azure-stack-key-features/image4.png)
 
@@ -50,7 +50,7 @@ De abonnementen zijn groepen van een of meer services. Als Azure Stack-operators
 
 ### <a name="quotas"></a>Quota
 
-U kunt voor hulp bij het beheren van uw cloud-capaciteit, vooraf geconfigureerde quota gebruiken of een nieuw quotum voor elke service in een plan maken. Quota's definiëren de bovenste limieten die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kan bijvoorbeeld toestaan dat een gebruiker te maken van maximaal vijf virtuele machines (VM's). U kunt extra quota's instellen op de virtuele machines, zoals het RAM-geheugen en CPU-kernen.
+Voor hulp bij het beheren van de cloudcapaciteit van de, kunt u vooraf geconfigureerde *quota*, of een nieuw quotum voor elke service in een plan maken. Quota's definiëren de bovenste limieten die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kan bijvoorbeeld toestaan dat een gebruiker te maken van maximaal vijf virtuele machines (VM's).
 
 U kunt quota's per regio configureren. Een plan waarmee compute-services voor een regio kan bijvoorbeeld een quotum van twee VM's met 4 GB RAM en 8 CPU-kernen hebben.
 
@@ -61,11 +61,11 @@ Meer informatie over [quotatypen in Azure Stack](azure-stack-quota-types.md).
 
 ### <a name="base-plan"></a>Basisplan
 
-Bij het maken van een aanbieding, kan de service-beheerder een basisplan bevatten. Deze basisplannen zijn standaard opgenomen als een gebruiker zich op deze aanbieding abonneert. Wanneer een gebruiker zich abonneert, hebben ze toegang tot alle resourceproviders die zijn opgegeven in deze basisplannen (met de bijbehorende quota.)
+Bij het maken van een aanbieding, kan de service-beheerder een basisplan bevatten. Deze basisplannen zijn standaard opgenomen als een gebruiker zich op deze aanbieding abonneert. Wanneer een gebruiker zich abonneert, hebben ze toegang tot alle resourceproviders die zijn opgegeven in deze basisplannen (met de bijbehorende quota).
 
 ### <a name="add-on-plans"></a>Aanvullende plannen
 
-Aanvullende plannen zijn optioneel plannen die u aan een aanbieding toevoegt. Aanvullende plannen worden niet standaard opgenomen in het abonnement. Aanvullende plannen zijn aanvullende plannen (met quota's) beschikbaar zijn in een aanbieding die een abonnement aan hun abonnementen toevoegen kunt. U kunt bijvoorbeeld een basisplan met beperkte resources voor een proefversie, en een aanvullende plan met meer resources voor klanten die zich conformeerde aan de service wilt aanbieden.
+Aanvullende plannen zijn optioneel plannen die u aan een aanbieding toevoegt. Aanvullende plannen zijn niet opgenomen in de standaardinstelling in het abonnement. Aanvullende plannen zijn aanvullende plannen (met quota's) beschikbaar zijn in een aanbieding die een abonnement aan hun abonnementen toevoegen kunt. U kunt bijvoorbeeld een basisplan met beperkte resources voor een proefversie, en een aanvullende plan met meer resources voor klanten die zich conformeerde aan de service wilt aanbieden.
 
 ## <a name="offers"></a>Aanbiedingen
 
@@ -81,8 +81,8 @@ Elke combinatie van een gebruiker met een aanbieding is een unieke abonnement. E
 
 ### <a name="default-provider-subscription"></a>Standaard-providerabonnement
 
-De Provider standaard abonnement wordt automatisch gemaakt wanneer u de Azure Stack Development Kit implementeren. Dit abonnement kan worden gebruikt om het beheren van Azure Stack, aanvullende resourceproviders te implementeren en plannen en aanbiedingen voor gebruikers maken. Omwille van beveiliging en licentieverlening mag niet het worden gebruikt voor het uitvoeren van de klantwerkbelastingen en toepassingen.
+Het abonnement van de provider standaard wordt automatisch gemaakt wanneer u de Azure Stack Development Kit implementeren. Dit abonnement kan worden gebruikt om het beheren van Azure Stack, aanvullende resourceproviders te implementeren en plannen en aanbiedingen voor gebruikers maken. Omwille van beveiliging en licentieverlening moet deze niet worden gebruikt om uit te voeren van de klantwerkbelastingen en toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een plan maken](azure-stack-create-plan.md)
+Zie voor meer informatie over het plannen en aanbiedingen [maken van een plan](azure-stack-create-plan.md).
