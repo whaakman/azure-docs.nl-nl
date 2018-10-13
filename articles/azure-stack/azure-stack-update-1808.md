@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870924"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310895"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -40,7 +40,7 @@ De Azure Stack 1808 update build-nummer **1.1808.0.97**.
 Deze update bevat de volgende verbeteringen voor Azure Stack.
 
 <!--  2682594   | IS  --> 
-- **Alle Azure Stack-omgevingen gebruik nu de indeling van de tijdzone Coordinated Universal Time (UTC).**  Alle gegevens vastleggen en gerelateerde gegevens nu wordt weergegeven in UTC-notatie. Als u een van een vorige versie die niet is geïnstalleerd met behulp van UTC update, wordt uw omgeving is bijgewerkt voor gebruik van UTC. 
+- **Alle Azure Stack-omgevingen gebruik nu de indeling van de tijdzone Coordinated Universal Time (UTC).**  Alle logboekgegevens en gerelateerde gegevens nu weergegeven in UTC-notatie. Als u een van een vorige versie die niet is geïnstalleerd met behulp van UTC update, wordt uw omgeving is bijgewerkt voor gebruik van UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Beheerde schijven worden ondersteund.** U kunt nu beheerde schijven gebruiken in Azure Stack virtuele machines en virtuele-machineschaalsets. Zie voor meer informatie, [Azure Stack Managed Disks: verschillen en overwegingen](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -52,7 +52,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - **Voorbereiden voor de host van de extensie**. De host van de extensie kunt u helpen bij het beveiligde Azure Stack door het aantal vereiste TCP/IP-poorten te verminderen. U kunt met de update 1808 voorbereiden, bereid u voor uw Azure Stack voor extensie-host. Zie voor meer informatie, [voorbereiden voor de host van de extensie voor Azure Stack](/azure/azure-stack/azure-stack-extension-host-prepare).
 
 <!-- IS --> 
-- **Galerij-items voor Virtual Machine Scale Sets zijn nu ingebouwde**. Het galerie-item voor virtuele-Machineschaalset is nu beschikbaar in de gebruiker en beheerder portals gemaakt zonder deze te downloaden.  Als u een naar 1808 upgrade is beschikbaar na voltooiing van de upgrade.  
+- **Galerie-items voor de virtuele-Machineschaalsets nu zijn ingebouwd in**. Het galerie-item voor virtuele-Machineschaalset is nu beschikbaar in de gebruiker en beheerder portals gemaakt zonder deze te downloaden.  Als u een naar 1808 upgrade is beschikbaar na voltooiing van de upgrade.  
 
 <!-- IS, ASDK --> 
 - **Virtuele-Machineschaalset schalen**. U kunt de portal gebruiken om [schaal van een virtuele-Machineschaalset](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
@@ -61,10 +61,10 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - **Ondersteuning voor aangepaste configuraties voor beleid voor IPSec/IKE** voor [VPN-gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Marketplace-item voor Kubernetes**. U kunt nu met behulp van Kubernetes-clusters implementeren de [Kubernetes Marketplace-item](azure-stack-solution-template-kubernetes-cluster-add.md). Gebruikers kunnen selecteert u het Kubernetes-item en vul een aantal parameters voor het implementeren van een Kubernetes-cluster in Azure Stack. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Kubernetes-implementaties in een paar stappen.
+- **Marketplace-item voor Kubernetes**. U kunt nu met behulp van Kubernetes-clusters implementeren de [Kubernetes Marketplace-item](azure-stack-solution-template-kubernetes-cluster-add.md). Gebruikers kunnen selecteert u het Kubernetes-item en vul een aantal parameters voor het implementeren van een Kubernetes-cluster in Azure Stack. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Kubernetes-implementaties voor ontwikkelen en testen in een paar stappen.
 
 <!-- | IS ASDK--> 
-- **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Blockchain-implementaties in een paar stappen.
+- **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te aan gebruikers voor het instellen van Blockchain-implementaties voor ontwikkelen en testen in een paar stappen.
 
 <!-- | IS ASDK--> 
 - **De API-versie profiel 2017-03-09-profiel is bijgewerkt naar 2018-03-01-hybride**. API-profielen opgeven voor de Azure-resource-provider en de API-versie voor Azure REST-eindpunten. Zie voor meer informatie over profielen [beheren API-versieprofielen in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -145,6 +145,13 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces
 
+<!-- TBD - IS -->
+- U ziet mogelijk de volgende waarschuwingen herhaaldelijk worden weergegeven en klik vervolgens op uw Azure Stack-systeem verdwijnen:
+   - *Rolinstantie infrastructuur niet beschikbaar*
+   - *Schaal eenheid knooppunt is offline*
+   
+  Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
+
 - Bij het uitvoeren van [Test AzureStack](azure-stack-diagnostic-test.md) nadat de update 1808, een waarschuwingsbericht wordt weergegeven van de Baseboard Management Controller (BMC) wordt weergegeven. U kunt deze waarschuwing negeren.
 
 <!-- 2468613 - IS --> 
@@ -170,7 +177,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - De technische documentatie voor Azure Stack is gericht op de meest recente versie. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
 
 <!-- TBD - IS ASDK --> 
-- U ziet een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, klikt u op **Dashboard bewerken**, klik met de rechtermuisknop en selecteer **opnieuw ingesteld op standaardstatus**.
+- U ziet een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, klikt u op **Dashboard bewerken**, met de rechtermuisknop op en selecteer **opnieuw ingesteld op standaardstatus**.
 
 <!-- 2930718 - IS ASDK --> 
 - In de beheerdersportal bij het openen van de details van elk gebruikersabonnement na het sluiten van de blade en te klikken op **Recent**, de naam van het abonnement wordt niet weergegeven.
@@ -226,7 +233,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 
 <!-- 2812138 | IS --> 
-- U ziet mogelijk een waarschuwing voor **opslag** onderdeel waarvoor u de volgende gegevens:
+- U ziet mogelijk een waarschuwing voor **opslag** onderdeel met de volgende informatie:
 
    - NAAM: Storage service interne communicatiefout  
    - ERNST: kritiek  

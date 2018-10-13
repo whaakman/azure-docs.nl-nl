@@ -3,18 +3,18 @@ title: Over Spraakomzetting
 description: Een overzicht van de mogelijkheden van de vertaling van gesproken tekst
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432186"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165434"
 ---
 # <a name="about-the-speech-translation-api"></a>Over de Spraakomzettings-API
 
@@ -32,7 +32,7 @@ De Spraakomzettings-API maakt gebruik van dezelfde technologieën die verschille
 
 Onderliggende vertaling-engine van Microsoft zijn twee verschillende manieren: statistische machinevertalingen (SMT) en neurale machinevertalingen (NMT). De laatste, een benadering van kunstmatige intelligentie die gebruikmaakt van neurale netwerken, is de moderne aanpak van machinevertalingen. NMT biedt betere vertalingen, niet alleen meer nauwkeurige, maar ook meer gestroomlijnde en natuurlijke. De belangrijkste reden hiervoor is dat NMT gebruikmaakt van de volledige context van een zin bij het vertalen van woorden.
 
-Vandaag de dag is Microsoft gemigreerd naar NMT voor de meest populaire talen die gebruikmaakt van SMT alleen voor minder vaak gebruikte talen. Alle [beschikbare talen voor spraak-naar-spraak vertaling](language-support.md#speech-translation) worden aangestuurd door NMT. Spraak naar tekst converteren kan gebruikmaken van SMT of NMT, afhankelijk van de combinatie van taal. Als de doeltaal door NMT wordt ondersteund, is de volledige vertaling NMT aangestuurde. Als de doel-taal wordt niet ondersteund door NMT, is de omzetting van een hybride van NMT en SMT, met behulp van Engels als een "draaien" tussen de twee talen.
+Vandaag de dag is Microsoft gemigreerd naar NMT voor de meest populaire talen die gebruikmaakt van SMT alleen voor minder vaak gebruikte talen. Alle [beschikbare talen voor spraak-naar-spraak vertaling](language-support.md#speech-translation) worden aangestuurd door NMT. Spraak naar tekst converteren kan gebruikmaken van SMT of NMT, afhankelijk van de combinatie van taal. Als de doeltaal voor NMT wordt ondersteund, wordt de volledige vertaling verzorgd door NMT. Als de doel-taal wordt niet ondersteund door NMT, is de omzetting van een hybride van NMT en SMT, met behulp van Engels als een "draaien" tussen de twee talen.
 
 De verschillen tussen modellen zijn intern voor de NAT-engine. Eindgebruikers kunnen u alleen de kwaliteit van de verbeterde vertaling met name voor Chinese, Japans en Arabisch ziet.
 

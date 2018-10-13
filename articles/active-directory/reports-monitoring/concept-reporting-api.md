@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7de7c87e5cf1747f4899f33d9e6b9cbf0bb430e1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1e6ad35702b15090202278cfdead62b245040302
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060584"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309617"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory reporting API
 
@@ -33,6 +33,7 @@ Dit artikel bevat een roadmap voor toegang tot de rapportagegegevens met behulp 
 
 Als u problemen ondervindt, raadpleegt u [over het verkrijgen van ondersteuning voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
+In dit artikel is van toepassing op Azure AD Graph API.  Zie voor vergelijkbare informatie met betrekking tot Microsoft Graph API [directoryAudit resourcetype](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit).
 
 ## <a name="prerequisites"></a>Vereisten
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634435"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166998"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -224,6 +224,17 @@ Het doel van de bewaking van wijzigingen in de registersleutels is op de spelden
 |&nbsp;&nbsp;&nbsp;&nbsp;Controleert de lijst met bekende of gebruikte systeem-dll's; Dit systeem wordt voorkomen dat mensen misbruik van zwakke Toepassingsmachtigingen voor directory door slepen en neerzetten in Trojaans paard versies van systeem-dll's.|
 > |**HKEY\_lokale\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De lijst met pakketten kunnen ontvangen van meldingen van gebeurtenissen van Winlogon, het model van de ondersteuning voor interactief aanmelden voor het besturingssysteem Windows controleert.|
+
+## <a name="network-requirements"></a>Netwerkvereisten
+
+De volgende adressen moeten specifiek voor wijzigingen bijhouden. Communicatie met deze adressen wordt gedaan via poort 443.
+
+|Azure openbaar  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.Azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Gebruik bijhouden
 

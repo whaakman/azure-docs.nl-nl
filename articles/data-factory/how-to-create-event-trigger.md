@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867046"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309344"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Een trigger die een pijplijn in reactie op een gebeurtenis wordt uitgevoerd
 
@@ -80,7 +80,7 @@ De volgende tabel bevat een overzicht van de schema-elementen die betrekking op 
 Deze sectie bevat voorbeelden van triggerinstellingen voor de op basis van gebeurtenissen.
 
 -   **Blobpad begint met**('/ containername /'), ontvangt u gebeurtenissen voor elke blob in de container.
--   **Blobpad begint met**('/ containername/blobs/mapnaam'), ontvangt u gebeurtenissen voor alle blobs in de containername container en de mapnaam map.
+-   **Blobpad begint met**('/ containername/blobs/mapnaam'), ontvangt u gebeurtenissen voor alle blobs in de containername container en de mapnaam map. U kunt ook verwijzen naar een submap. bijvoorbeeld, ' / containername/blobs/mapnaam/submapnaam /'.
 -   **Blobpad begint met**('/ containername/blobs/foldername/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt in de map mapnaam onder de container containername ontvangt.
 -   **Het pad naar eindigt met**('bestand.txt') – Receive-opdrachten gebeurtenissen voor een blob met de naam bestand.txt op elk pad.
 -   **Het pad naar eindigt met**('/ containername/blobs/file.txt') – gebeurtenissen voor een blob met de naam bestand.txt onder container containername ontvangt.

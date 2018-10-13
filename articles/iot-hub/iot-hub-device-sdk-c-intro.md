@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 0c2f39ed1610598ab4f7f857da3df817089bcb38
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e29dcde80da75fa70fe6dcbf35d7f319a5ca3cb
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044736"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311148"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device-SDK voor C
 
@@ -87,29 +87,29 @@ Als u niet bekend met het hulpprogramma device explorer bent, geeft de volgende 
 
 1. Zie voor het installeren van het hulpprogramma device explorer [over het gebruik van de Device Explorer voor IoT Hub-apparaten](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-2. Als u het programma uitvoert, ziet u deze interface:
+1. Als u het programma uitvoert, ziet u deze interface:
 
   ![Schermafbeelding van de dubbele Device Explorer](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
-3. Voer uw **IoT Hub-verbindingsreeks** in het eerste veld en klikt u op **Update**. Deze stap configureert u het hulpprogramma, zodat deze met IoT Hub communiceren kan. 
+1. Voer uw **IoT Hub-verbindingsreeks** in het eerste veld en klikt u op **Update**. Deze stap configureert u het hulpprogramma, zodat deze met IoT Hub communiceren kan. 
 
 De **Connection String** kunt u vinden onder **IoT Hub-Service** > **instellingen** > **beleid voor gedeelde toegang**  >  **iothubowner**.
 
-4. Wanneer de IoT Hub-verbindingsreeks is geconfigureerd, klikt u op de **Management** tabblad:
+1. Wanneer de IoT Hub-verbindingsreeks is geconfigureerd, klikt u op de **Management** tabblad:
 
   ![Device Explorer dubbele / Management-schermafbeelding](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Dit tabblad is waar u de apparaten die zijn geregistreerd in uw IoT-hub beheren.
 
-5. U maakt een apparaat door te klikken op de **maken** knop. Er wordt een dialoogvenster weergegeven met een reeks vooraf gevulde sleutels (primaire en secundaire). Voer een **apparaat-ID** en klik vervolgens op **maken**.
+1. U maakt een apparaat door te klikken op de **maken** knop. Er wordt een dialoogvenster weergegeven met een reeks vooraf gevulde sleutels (primaire en secundaire). Voer een **apparaat-ID** en klik vervolgens op **maken**.
 
   ![Schermafbeelding van het apparaat maken](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
-6. Wanneer het apparaat wordt gemaakt, wordt er door de apparaten updates lijst met alle geregistreerde apparaten, inclusief de functie die u zojuist hebt gemaakt. Als u met de rechtermuisknop op het nieuwe apparaat, ziet u dit menu:
+1. Wanneer het apparaat wordt gemaakt, wordt er door de apparaten updates lijst met alle geregistreerde apparaten, inclusief de functie die u zojuist hebt gemaakt. Als u met de rechtermuisknop op het nieuwe apparaat, ziet u dit menu:
 
   ![Device Explorer dubbele met de rechtermuisknop op resultaat](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-7. Als u ervoor kiest **Kopieer de verbindingsreeks voor het geselecteerde apparaat**, de verbindingsreeks naar het Klembord is gekopieerd. Bewaar een kopie van de verbindingsreeks van het apparaat. U hebt deze nodig bij het uitvoeren van de voorbeeldtoepassingen die worden beschreven in de volgende secties.
+1. Als u ervoor kiest **Kopieer de verbindingsreeks voor het geselecteerde apparaat**, de verbindingsreeks naar het Klembord is gekopieerd. Bewaar een kopie van de verbindingsreeks van het apparaat. U hebt deze nodig bij het uitvoeren van de voorbeeldtoepassingen die worden beschreven in de volgende secties.
 
 Wanneer u de bovenstaande stappen hebt voltooid, bent u klaar om te beginnen met het uitvoeren van code. De meeste voorbeelden hebben een constante aan de bovenkant van de belangrijkste bron-bestand waarmee u een verbindingsreeks invoeren. Bijvoorbeeld, de bijbehorende regel van de **iothub\_client\_voorbeeld\_mqtt** toepassing als volgt wordt weergegeven.
 
@@ -320,7 +320,7 @@ Gebruik de **IoTHubMessage\_GetByteArray** functie om op te halen van het berich
 
 Wanneer u klaar bent met het verzenden van gebeurtenissen en die berichten ontvangt, kunt u initialisatie van de IoT-bibliotheek. Om dit te doen, voert u de volgende aanroep van de functie:
 
-```
+```c
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 

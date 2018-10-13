@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19351d31331431e3b5137676061aadc681c496a7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575471"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166624"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -197,6 +197,9 @@ De **HTTP 202** antwoord bevat ook een **locatie** response-header die verwijst 
 ### <a name="get-all-instances-status"></a>Status van alle exemplaren ophalen
 
 U kunt ook de status van alle exemplaren query. Verwijder de `instanceId` van de aanvraag 'Get status exemplaar'. De parameters zijn hetzelfde als de 'Get-exemplaar status.' 
+
+Eén ding te onthouden is dat `connection` en `code` zijn optioneel. Als u anonieme verificatie op de functie hebt en vervolgens de code is niet vereist.
+Als u niet wilt gebruiken van de verbindingsreeks voor een andere blob-opslag dan gedefinieerd in de app-instelling van het AzureWebJobsStorage, kunt u de verbinding queryreeks-parameter veilig negeren.
 
 #### <a name="request"></a>Aanvraag
 

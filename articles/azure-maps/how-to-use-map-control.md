@@ -3,17 +3,17 @@ title: Het gebruik van Azure Maps Map Control | Microsoft Docs
 description: Informatie over het gebruik van de Map Control van Azure Maps-client-side Javascript-bibliotheek.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 45890b4bd474c010b2b086be0405b79d340aeebd
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 850f9b28c112c11fd98a8abc81a1811cd26d81cc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603156"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166018"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps Map Control gebruiken
 
@@ -32,7 +32,7 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
 
-3. Toevoegen als u wilt weergeven van een nieuwe kaart in uw browser, een **#map** verwijzing in de `<style>` element:
+3. Voor het renderen van een nieuwe kaart in uw browser, Voeg een **#map** verwijzing in de `<style>` element:
 
     ```html
     <style>
@@ -43,14 +43,14 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
     </style>
     ```
 
-4. Als u wilt het kaartbesturingselement initialiseren, definieert u een nieuwe sectie in de HTML-tekst en een script maken. Gebruik de accountsleutel van uw eigen Azure-kaarten in het script. Als u nodig hebt voor het maken van een account of het vinden van uw sleutel, Zie [over het beheren van uw Azure kaarten-account en sleutels](how-to-manage-account-keys.md).
+4. Voor het initialiseren van het kaartbesturingselement, definieert een nieuwe sectie in de HTML-tekst en een script maken. Gebruik de accountsleutel van uw eigen Azure-kaarten in het script. Als u nodig hebt voor het maken van een account of het vinden van uw sleutel, Zie [over het beheren van uw Azure kaarten-account en sleutels](how-to-manage-account-keys.md). De **setLanguage** methode Hiermee geeft u de taal die moet worden gebruikt voor Kaartlabels en besturingselementen. Zie voor meer informatie over ondersteunde talen [ondersteunde talen](https://docs.microsoft.com/azure/azure-maps/supported-languages).
 
     ```html
     <div id="map">
         <script>
-            var MapsAccountKey = "<_your account key_>";
+            atlas.setSubscriptionKey("<_your account key_>");
+            atlas.setLanguage("en");
             var map = new atlas.Map("map", {
-                "subscription-key": MapsAccountKey,
                 center: [-122.33263,47.59093],
                 zoom: 12
             });

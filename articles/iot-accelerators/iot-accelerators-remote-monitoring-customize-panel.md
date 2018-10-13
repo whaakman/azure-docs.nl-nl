@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 656a2375b8b1033e9b698d5d8e1e2bbc32b32a79
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094561"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165875"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Een aangepaste paneel toevoegen aan het dashboard in de Remote Monitoring solution accelerator-Webgebruikersinterface
 
@@ -35,7 +35,7 @@ Als u wilt de stappen in deze handleiding hebt voltooid, moet u de volgende soft
 
 U moet de stappen in de [een aangepaste pagina toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-page.md) artikel voordat u doorgaat.
 
-## <a name="add-a-panel"></a>Een paneel toevoegen
+## <a name="add-a-panel"></a>Een deelvenster toevoegen
 
 Als u wilt toevoegen een deelvenster aan de web-UI, moet u de bronbestanden die definiëren van het paneel toevoegen en wijzig vervolgens het dashboard om het deelvenster weer te geven.
 
@@ -82,7 +82,7 @@ De celdefinitie van de volgende toevoegen aan het raster in de pagina-inhoud:
           </Cell>
 ```
 
-## <a name="test-the-fly-out"></a>Test het fly-out
+## <a name="test-the-flyout"></a>De flyout testen
 
 Als de web UI niet al lokaal wordt uitgevoerd, voert u de volgende opdracht uit in de hoofdmap van de lokale kopie van de opslagplaats:
 

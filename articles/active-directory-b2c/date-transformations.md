@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542766"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167644"
 ---
 # <a name="date-claims-transformations"></a>Datum claims transformaties
 
@@ -92,7 +92,7 @@ Converteert een **datum** ClaimType naar een **datum-/** ClaimType. De claimtran
 
 | Item | TransformationClaimType | Gegevenstype | Opmerkingen |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | datum | Het ClaimType moet worden geconverteerd. |
+| InputClaim | InputClaim | date | Het ClaimType moet worden geconverteerd. |
 | outputClaim | outputClaim | Datum/tijd | Het ClaimType dat wordt gegenereerd nadat deze ClaimsTransformation is aangeroepen. |
 
 Het volgende voorbeeld ziet u de conversie van de claim `dateOfBirth` (gegevenstype datum) op een andere claim `dateOfBirthWithTime` (gegevenstype datum/tijd).
@@ -158,7 +158,7 @@ Als u wilt de claimtransformatie uitvoeren, moet u eerst om op te halen van de h
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -173,7 +173,7 @@ Als u wilt de claimtransformatie uitvoeren, moet u eerst om op te halen van de h
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Invoerparameters die zijn opgegeven:
-    - **operator**: groter is dan
+    - **operator**: later zijn dan
     - **timeSpanInSeconds**: 7776000 (90 dagen)
 - Uitvoerclaims: 
     - **resultaat**: true

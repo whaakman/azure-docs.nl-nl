@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268796"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166879"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure Stack
 
@@ -130,7 +130,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 11. Geef de SQL Server-details voor de server-exemplaar dat is gebruikt voor het hosten van de App Service resource provider-databases en selecteer vervolgens **volgende**. Het installatieprogramma evalueert de eigenschappen van de SQL-verbinding.
 
     > [!NOTE]
-    > Het installatieprogramma wil test de verbinding met de SQL-Server voordat u doorgaat. Maar als u naar een bestaand virtueel netwerk implementeert, kan deze Connectiviteitstest-bestand. Krijgt u een waarschuwing en een prompt om door te gaan. Als de informatie over SQL Server juist is, blijven de implementatie.
+    > Het installatieprogramma wil test de verbinding met de SQL-Server voordat u doorgaat. Maar als u naar een bestaand virtueel netwerk implementeert, deze Connectiviteitstest mislukken. Krijgt u een waarschuwing en een prompt om door te gaan. Als de informatie over SQL Server juist is, blijven de implementatie.
     >
     > Het installatieprogramma wordt gecontroleerd dat de SQL-Server ingeschakeld op het niveau van de SQL Server database-containment is van Azure App Service op Azure Stack 1.3 en hoger.  Als dat niet het geval is, wordt u gevraagd met de volgende uitzondering:
     > ```sql

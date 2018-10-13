@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: d9d40a111faefee705c3ce1987c380ee2ba695ec
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040184"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311113"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestatiebewaking met Log Analytics
 
@@ -66,7 +66,7 @@ De beste manier om de Log Analytics-Agent toevoegen aan uw cluster is via de vir
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>De agent via het Resource Manager-sjabloon toevoegen
 
-Voorbeeld van Resource Manager-sjablonen die bij het implementeren van een Azure Log Analytics-werkruimte en een agent toevoegen aan elk van de knooppunten is beschikbaar voor [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) of [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Voorbeeld van Resource Manager-sjablonen die bij het implementeren van een Azure Log Analytics-werkruimte en een agent toevoegen aan elk van de knooppunten is beschikbaar voor [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) of [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 U kunt downloaden en wijzigen van deze sjabloon voor het implementeren van een cluster die het beste bij uw behoeften.
 

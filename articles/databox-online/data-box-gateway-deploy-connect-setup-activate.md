@@ -1,26 +1,19 @@
 ---
 title: Verbinding maken, configureren en Azure Data Box-Gateway moet worden geactiveerd in Azure portal | Microsoft Docs
 description: Derde zelfstudie voor het implementeren van Data Box Gateway u verbinding maken, instellen en activeren van uw virtuele apparaat.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419472"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166743"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Zelfstudie: Verbinding maken, instellen, activeren van Azure Data Box-Gateway (Preview) 
 
@@ -40,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 
 > [!IMPORTANT]
-> - Data Box-Gateway is in preview. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
+> - Data Box Gateway verkeert in de preview-fase. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -88,7 +81,7 @@ U bent nu op de **Dashboard** van uw apparaat.
    
     Bij het configureren van netwerkinstellingen, houd rekening met het volgende:
 
-    - Als DHCP is ingeschakeld in uw omgeving, worden automatisch netwerkinterfaces geconfigureerd. Daarom kan worden een IP-adres, subnet, gateway en DNS automatisch toegewezen.
+    - Als DHCP is ingeschakeld in uw omgeving, worden netwerkinterfaces automatisch geconfigureerd. Daarom kan worden een IP-adres, subnet, gateway en DNS automatisch toegewezen.
     - Als DHCP niet is ingeschakeld, kunt u statische IP-adressen kunt toewijzen, indien nodig.
     - U kunt uw netwerk-interface configureren als IPv4.
    
@@ -127,7 +120,7 @@ U bent nu op de **Dashboard** van uw apparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over gegevensgateway in onderwerpen zoals:
+In deze zelfstudie bent u meer te weten gekomen over verschillende onderwerpen met betrekking tot Data Box Gateway, zoals:
 
 > [!div class="checklist"]
 > * Verbinding maken met het virtuele apparaat

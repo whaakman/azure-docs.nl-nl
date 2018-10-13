@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: barbkess
 ms.reviewer: baselden
-ms.openlocfilehash: 750bf1905a3ca352e181dcd5b7fcecdfc8d04f76
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: d2ede423a92fe9e0d45155d9470d63689bc8d281
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465500"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165530"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resources voor het migreren van toepassingen naar Azure Active Directory
 
-Bronnen voor hulp bij het migreren van toegang tot toepassingen en -verificatie met Azure Active Directory (Azure AD). 
+Bronnen voor hulp bij het migreren van toegang tot toepassingen en -verificatie met Azure Active Directory (Azure AD). Vul deze korte enquête (https://aka.ms/AppsMigrationFeedback) feedback wilt geven over uw ervaring migreren apps naar Azure AD (met inbegrip van blokkeringen voor de migratie, moet u voor hulpprogramma's / richtlijnen of de redenen voor het behoud van uw on-premises id-provider). 
 
 | Resource  | Beschrijving  |
 |:-----------|:-------------|

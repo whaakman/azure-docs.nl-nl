@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 07e9126b73b0282f61567fe8d06f785bf9a04fef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803474"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167525"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementeren van cloud-gebaseerde Azure multi-factor Authentication
 
@@ -105,6 +105,8 @@ Om te bevestigen dat uw beleid voor voorwaardelijke toegang werkt, test u aanmel
 ## <a name="next-steps"></a>Volgende stappen
 
 Gefeliciteerd, u de Azure multi-factor Authentication in de cloud hebt ingesteld.
+
+Waarom is een gebruiker wordt gevraagd of niet wordt gevraagd om uit te voeren van MFA? Zie de sectie [rapport van Azure AD-aanmeldingen in de rapporten in de Azure multi-factor Authentication-document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 Zie het artikel voor het configureren van extra instellingen zoals goedgekeurde IP-adressen, aangepaste spraakberichten en Fraudewaarschuwingen [Azure multi-factor Authentication configureren instellingen](howto-mfa-mfasettings.md).
 

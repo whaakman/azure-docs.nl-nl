@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
-ms.reviewer: vanto, carlrab
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 8d3a14228d31c8f4507dbcac7b9bd47ae1c4de0a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/11/2018
+ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902149"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311198"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Een overzicht van de mogelijkheden van Azure SQL Database-beveiliging
 
@@ -37,7 +37,7 @@ Uw gegevens worden beveiligd met SQL Database via gegevensversleuteling. Voor ge
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
 
 - [Versleuteling op celniveau](https://msdn.microsoft.com/library/ms179331.aspx) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
-- Als u een Hardware Security Module of centraal beheer van uw versleutelingssleutelhiërarchie nodig heeft, kunt u overwegen om [Azure Key Vault met SQL Server in een virtuele Azure-machine](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx) te gebruiken.
+-  Als u een Hardware Security Module of Bring Your Own Key (BYOK)-technologie voor Transparent Data Encryption nodig hebt, kunt u overwegen [Azure SQL Transparent Data Encryption: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).
 
 ### <a name="data-discovery--classification"></a>Gegevensdetectie en classificatie
 

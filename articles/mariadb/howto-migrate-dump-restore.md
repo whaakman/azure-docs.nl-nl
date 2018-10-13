@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998743"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309532"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Uw MariaDB-database migreren naar Azure Database voor MariaDB met behulp van dumpen en terugzetten
 Dit artikel wordt uitgelegd twee algemene manieren om te back-up en herstellen van databases in uw Azure Database voor MariaDB
@@ -30,7 +30,9 @@ Als u wilt in deze gebruiksaanwijzing kunt doorlopen, moet u beschikken over:
 Gebruik algemene hulpprogramma's en hulpprogramma's, zoals MySQL Workbench, mysqldump, Toad of Navicat op afstand verbinding maken en herstellen van gegevens in Azure Database voor MariaDB. Gebruik deze hulpprogramma's op de clientcomputer met een internetverbinding verbinding maakt met de Azure Database voor MariaDB. Een versleuteld met SSL-verbinding gebruiken voor aanbevolen procedures voor beveiliging, Zie ook [configureren van SSL-verbindingen in Azure Database voor MariaDB](concepts-ssl-connection-security.md). U hoeft niet de om dumpbestanden te verplaatsen naar een locatie speciale cloud bij het migreren naar Azure Database voor MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Veelvoorkomende toepassingen voor dumpen en terugzetten
-U kunt MySQL-hulpprogramma's zoals mysqldump en mysqlpump met dump en load-databases in een Azure Database voor MariaDB-server in verschillende algemene scenario's. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+U kunt MySQL-hulpprogramma's zoals mysqldump en mysqlpump met dump en load-databases in een Azure Database voor MariaDB-server in verschillende algemene scenario's. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Gebruik database dumpen wanneer u de volledige database migreert. Deze aanbeveling heeft bij het verplaatsen van een grote hoeveelheid gegevens of wanneer u wilt beperken van de serviceonderbreking voor live sites of toepassingen. 
 -  Zorg ervoor dat alle tabellen in de database de InnoDB-opslag-engine gebruiken bij het laden van gegevens in Azure Database voor MariaDB. Azure Database voor MariaDB ondersteunt alleen InnoDB-opslag-engine en daarom biedt geen ondersteuning voor alternatieve opslag-engines. Als uw tabellen zijn geconfigureerd met andere opslag-engines, kunt u deze naar de InnoDB-engine-indeling voor de migratie naar Azure Database voor MariaDB converteren.

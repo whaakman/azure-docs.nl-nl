@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6127e300ee46dbd33f8537f0138963cd4e3b5cc8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094136"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167678"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -35,30 +35,30 @@ Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegev
 
 ![Processtroom voor het beheer van bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, u onboarding moet als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, moet u onboarding als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
 
 Zodra een CVE release is, duurt het 2-3 uur voor de patch voor Linux-machines voor evaluatie wordt weergegeven.  Het duurt 15-12 uur voor de patch om weer te geven voor de beoordeling nadat deze is vrijgegeven voor Windows-machines.
 
-Nadat een computer een scan voor naleving van updates voert, verzendt de agent de informatie in bulk naar Azure Log Analytics. Op een Windows-computer, wordt de nalevingsscan standaard elke 12 uur uitgevoerd.
+Nadat een computer is voltooid scannen voor Updatevereisten, stuurt de agent de informatie in bulk door naar Azure Log Analytics. Op een Windows-computer, is de nalevingsscan standaard elke 12 uur uitgevoerd.
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten als de MMA opnieuw wordt opgestart, voordat de installatie van de update en na installatie van update gestart.
 
 Voor een Linux-computer wordt de nalevingsscan standaard elke drie uur uitgevoerd. Als de MMA-agent opnieuw is opgestart, wordt een nalevingsscan gestart binnen 15 minuten.
 
-De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waarmee u bent geconfigureerd om te synchroniseren met. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, afhankelijk van wanneer WSUS laatste synchronisatie met Microsoft Update, wordt de resultaten afwijken van wat Microsoft-Updates wordt weergegeven. Dit is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats in plaats van naar een openbare opslagplaats.
+De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waarmee u bent geconfigureerd om te synchroniseren met. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, afhankelijk van wanneer WSUS laatste synchronisatie met Microsoft Update, wordt de resultaten afwijken van wat Microsoft-Updates wordt weergegeven. Dit gedrag is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats in plaats van naar een openbare opslagplaats.
 
 > [!NOTE]
 > Beheer van updates vereist voor het correct rapporteren aan de service, bepaalde URL's en poorten worden ingeschakeld. Zie voor meer informatie over deze vereisten, [netwerk planning voor Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatiebereik. 
 
-De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en toekennen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd.
+De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en instellen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd.
 
-Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent uit te voeren van de installatie van vereiste updates.
+Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent om de vereiste updates te installeren.
 
 Op de datum en tijd die is opgegeven in de update-implementatie, uitvoeren de doelcomputers de implementatie parallel. Vóór de installatie wordt een scan uitgevoerd om te controleren of de updates nog steeds vereist. Voor WSUS-clientcomputers, als de updates niet zijn goedgekeurd in WSUS, mislukt de update-implementatie.
 
-Met een apparaat dat is geregistreerd voor updatebeheer in meerdere Log Analytics-werkruimten (multihoming) wordt niet ondersteund.
+Met een apparaat dat is geregistreerd voor updatebeheer in meer dan één Log Analytics-werkruimten (multihoming) wordt niet ondersteund.
 
 ## <a name="clients"></a>Clients
 
@@ -70,7 +70,7 @@ De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken evaluaties.         |
 |Windows Server 2008 R2 SP1 en hoger     |.NET framework 4.5 of hoger is vereist. ([.NET Framework downloaden](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 of hoger is vereist. ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 wordt aanbevolen voor hogere mate van betrouwbaarheid.  ([Downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
-|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Patch toepassen op classificatie gebaseerde vereist 'yum' om terug te keren beveiligingsgegevens die CentOS heeft geen buiten het vak.         |
+|CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates. Patch toepassen op classificatie gebaseerde vereist 'yum' om terug te keren beveiligingsgegevens CentOS hoeft niet dezelfde kant.         |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Ubuntu 14.04 LTS en 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
@@ -92,7 +92,7 @@ Windows-agents moeten worden geconfigureerd om te communiceren met een WSUS-serv
 
 #### <a name="linux"></a>Linux
 
-Voor Linux, moet de computer toegang hebben tot een opslagplaats voor updates. De opslagplaats van de update kan privé of openbaar zijn. TLS 1.1 of TLS 1.2 is vereist om te communiceren met updatebeheer. Een Log Analytics-Agent voor Linux die geconfigureerd voor rapportage aan meerdere Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.
+Voor Linux, moet de computer toegang hebben tot een opslagplaats voor updates. De opslagplaats van de update kan privé of openbaar zijn. TLS 1.1 of TLS 1.2 is vereist om te communiceren met updatebeheer. Een Log Analytics-Agent voor Linux die geconfigureerd voor rapportage aan meer dan één Log Analytics-werkruimten wordt niet ondersteund met deze oplossing.
 
 Zie voor meer informatie over het installeren van de Log Analytics-Agent voor Linux en de nieuwste versie te downloaden, [Operations Management Suite-Agent voor Linux](https://github.com/microsoft/oms-agent-for-linux). Zie voor meer informatie over het installeren van de Log Analytics-Agent voor Windows [Operations Management Suite-Agent voor Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -209,13 +209,13 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | --- | --- |
 | Naam |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
-| Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Voor meer informatie over meer Zie [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
+| Groepen om bij te werken (preview)|Definieer een query op basis van een combinatie van het abonnement, resourcegroepen, locaties en tags aan het bouwen van een dynamische groep virtuele Azure-machines om op te nemen in uw implementatie. Zie voor meer informatie, [dynamische groepen](automation-update-management.md#using-dynamic-groups)|
 | Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates opnemen/uitsluiten|Hiermee opent u de **opnemen/uitsluiten** pagina. Er zijn updates moeten worden opgenomen of uitgesloten op een afzonderlijk tabblad. Zie voor meer informatie over hoe de insluiting wordt verwerkt, [opgenomen gedrag](automation-update-management.md#inclusion-behavior) |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
 | Scripts die voorafgaan aan en scripts die volgen|Selecteer de scripts worden uitgevoerd vóór en na de implementatie|
-| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde kan niet worden zijn minder dan 30 minuten en niet meer dan 6 uur |
+| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner zijn dan 30 minuten en niet meer dan 6 uur |
 | Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
 
 Update-implementaties kunnen ook programmatisch worden gemaakt. Zie voor meer informatie over het maken van een Update-implementatie met de REST-API, [configuraties van Software-Update - maken](/rest/api/automation/softwareupdateconfigurations/create). Er is ook een voorbeeldrunbook dat kan worden gebruikt om een wekelijkse Update-implementatie te maken. Zie voor meer informatie over dit runbook, [een wekelijkse update-implementatie voor een of meer virtuele machines in een resourcegroep maken](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
@@ -273,6 +273,7 @@ De volgende adressen zijn vereist voor het beheer van updates. Communicatie met 
 |*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.Azure-automation.us|
 
 Zie voor meer informatie over de poorten die vereist dat de Hybrid Runbook Worker [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -494,7 +495,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Met behulp van dynamische groepen (preview)
 
-Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtuele Azure-machines voor update-implementaties. Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Bij het definiëren van uw query die de volgende items kunnen samen worden gebruikt voor het vullen van de dynamische groep
+Updatebeheer biedt de mogelijkheid om u te richten op een dynamische groep virtuele Azure-machines voor update-implementaties. Deze groepen zijn gedefinieerd door een query, wanneer een update-implementatie begint, de leden van die groep worden geëvalueerd. Bij het definiëren van uw query, kunnen de volgende items samen worden gebruikt voor het vullen van de dynamische groep
 
 * Abonnement
 * Resourcegroepen
@@ -515,9 +516,9 @@ Zie voor meer informatie over het integreren van de oplossing voor beheer met Sy
 
 ## <a name="inclusion-behavior"></a>Opname-gedrag
 
-Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die zijn ingesteld om te worden opgenomen, zijn geïnstalleerd. Wanneer Patches of pakketten zijn ingesteld om op te nemen en een classificatie ook is geselecteerd, worden de opgenomen items en de items die voldoen aan de classificatie geïnstalleerd.
+Opname van de update kunt u opgeven van specifieke updates om toe te passen. Patches of pakketten die opgenomen zijn, zijn geïnstalleerd. Wanneer Patches of pakketten opgenomen worden en een classificatie ook is geselecteerd, worden de opgenomen items en de items die voldoen aan de classificatie geïnstalleerd.
 
-Het is belangrijk te weten dat uitsluitingen insluitingen overschrijven. Bijvoorbeeld, als u een uitsluitingsregel van definieert `*`, en er zijn geen patches of pakketten worden geïnstalleerd als ze zijn al uitgesloten. Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket dat specifcally uitgesloten heeft, is is het pakket niet geïnstalleerd.
+Het is belangrijk te weten dat uitsluitingen insluitingen overschrijven. Bijvoorbeeld, als u een uitsluitingsregel van definieert `*`, en er zijn geen patches of pakketten worden geïnstalleerd als ze zijn al uitgesloten. Voor Linux-machines als een pakket opgenomen is, maar een afhankelijk pakket die is uitgesloten, heeft is het pakket niet geïnstalleerd.
 
 ## <a name="patch-linux-machines"></a>Patch voor Linux-machines
 
@@ -535,7 +536,7 @@ De naam van het pakket om uit te sluiten is in Red Hat Enterprise Linux, Red Hat
 
 ### <a name="critical--security-patches-arent-applied"></a>Kritieke / beveiligingspatches worden niet toegepast
 
-Wanneer u updates voor een Linux-machine implementeert, kunt u de updateclassificaties selecteren. Hiermee worden de updates die worden toegepast op computers die voldoen aan de opgegeven criteria gefilterd. Dit filter is lokaal toegepast op de computer wanneer de update wordt geïmplementeerd.
+Wanneer u updates voor een Linux-machine implementeert, kunt u de updateclassificaties selecteren. Hiermee worden de updates die worden toegepast op de computer en die voldoen aan de opgegeven criteria gefilterd. Dit filter is lokaal toegepast op de computer wanneer de update wordt geïmplementeerd.
 
 Omdat update verrijking updatebeheer in de cloud uitvoert, kunnen voor sommige updates worden gemarkeerd in Update Management dat gevolgen voor de beveiliging, zelfs als de lokale computer beschikt niet over die informatie. Als gevolg hiervan, als u essentiële updates op een Linux-machine toepassen, zijn er updates die niet zijn gemarkeerd als gevolgen voor de beveiliging op machine en de updates worden niet toegepast.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060668"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312524"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure-VM-schijven
 
@@ -25,7 +25,7 @@ In dit artikel richt zich op het gebruik van standard-SSD en HDD-schijven. Zie v
 
 Er zijn twee manieren om te maken van standard-schijven voor virtuele Azure-machines:
 
-**Niet-beheerde schijven**: dit type schijf is de oorspronkelijke methode waarbij u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan elke Azure-VM-grootte, met inbegrip van de virtuele machines die voornamelijk gebruikmaken van Premium-opslag, zoals de DSv2 en GS-serie. Azure VM's ondersteunen verschillende standaardschijven koppelen zodat maximaal 256 gaat dit opslagruimte per virtuele machine. Als u de grootte van de preview-schijven gebruikt, kunt u maximaal ongeveer 2 gaat dit opslagruimte per virtuele machine hebben. 
+**Niet-beheerde schijven**: dit type schijf is de oorspronkelijke methode waarbij u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan elke Azure-VM-grootte, met inbegrip van de virtuele machines die voornamelijk gebruikmaken van Premium-opslag, zoals de DSv2 en GS-serie. Azure VM's ondersteunen verschillende standaardschijven koppelen zodat maximaal 256 TiB opslagruimte per virtuele machine. Als u de grootte van de preview-schijven gebruikt, kunt u maximaal ongeveer 2 gaat dit opslagruimte per virtuele machine hebben.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): deze functie wordt de storage-accounts die voor u gebruikt voor de VM-schijven beheerd. U geeft het type (Premium-SSD-, Standard-SSD- of Standard HDD) en de grootte van de schijf die u nodig hebt en Azure maakt en beheert de schijf voor u. U hoeft te bekommeren plaatsen van de schijven voor meerdere opslagaccounts om ervoor te zorgen, u binnen de grenzen van de schaalbaarheid voor de storage-accounts blijven--Azure regelt die voor u.
 

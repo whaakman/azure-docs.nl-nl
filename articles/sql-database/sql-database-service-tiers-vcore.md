@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/09/2018
-ms.openlocfilehash: e93de9b3642e0b01bf65b6761d8832b0d4c2a431
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/12/2018
+ms.openlocfilehash: a0d8e225718361c096b914245d73064edb1715c4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901682"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166352"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>vCore-servicelaag, Azure Hybrid Use Benefit en migratie
 
@@ -66,9 +66,13 @@ In het op vCore gebaseerde aankoopmodel, kunt u uw bestaande licenties voor gere
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migratie van DTU-model naar het vCore-model
 
-### <a name="migration-of-single-databases-with-geo-replication-links"></a>Migratie van afzonderlijke databases met geo-replicatiekoppelingen
+### <a name="migration-of-a-database"></a>Migratie van een database
 
-Migreren naar uit op basis van DTU-model voor het vcores-model is vergelijkbaar met het upgraden of downgraden van de relaties geo-replicatie tussen Standard en Premium-databases. Het is niet vereist geo-replicatie, maar de gebruiker beëindigd, moet de sequentiëren van regels naleven. Wanneer een upgrade uitvoert, moet u eerst de secundaire database upgraden en werk vervolgens de primaire. Wanneer de Downgrade uitvoert, de volgorde omgekeerd: u moet eerst downgraden van de primaire database en vervolgens gebruik maken van de secundaire server. 
+Migreren van een database van het op DTU gebaseerde aankoopmodel naar het vCore-aanschafmodel is vergelijkbaar met het upgraden of downgraden tussen Standard en Premium-databases in het op DTU gebaseerde aankoopmodel.
+
+### <a name="migration-of-databases-with-geo-replication-links"></a>Migratie van databases met geo-replicatiekoppelingen
+
+Migreren naar uit op basis van DTU-model voor het vcores-model is vergelijkbaar met het upgraden of downgraden van de relaties geo-replicatie tussen Standard en Premium-databases. Het is niet vereist geo-replicatie, maar de gebruiker beëindigd, moet de sequentiëren van regels naleven. Wanneer een upgrade uitvoert, moet u eerst de secundaire database upgraden en werk vervolgens de primaire. Wanneer de Downgrade uitvoert, de volgorde omgekeerd: u moet eerst downgraden van de primaire database en vervolgens gebruik maken van de secundaire server.
 
 Bij het gebruik van geo-replicatie tussen twee elastische pools, is het raadzaam dat u één groep als de primaire en de andere – als de secundaire opgeven. Migreren elastische pools moeten in dat geval gebruikt u dezelfde richtlijnen.  Het is echter dat technisch gezien is het mogelijk dat een elastische pool zowel primaire als secundaire databases bevat. In dit geval, moeten als u wilt migreren naar behoren u behandelen de adresgroep met het gebruik van de hogere als 'primaire' en volg de regels sequentiëren dienovereenkomstig.  
 
@@ -88,15 +92,15 @@ De volgende tabel bevat richtlijnen voor de specifieke migratiescenario's:
 
 \* Elke 100 DTU in Standard-laag vereist ten minste 1 vCore en elke 125 DTU in Premium-laag vereist ten minste 1 vCore
 
-### <a name="migration-of-failover-groups"></a>Migratie van failover-groepen 
+### <a name="migration-of-failover-groups"></a>Migratie van failover-groepen
 
-Migratie van failover-groepen met meerdere databases moet afzonderlijke migratie van de primaire en secundaire databases. Tijdens dat proces wordt toepassen de dezelfde overwegingen en sequentiëren regels. Nadat de databases worden geconverteerd naar het vCore-model, wordt de failovergroep blijft van kracht met de dezelfde beleidsinstellingen. 
+Migratie van failover-groepen met meerdere databases moet afzonderlijke migratie van de primaire en secundaire databases. Tijdens dat proces wordt toepassen de dezelfde overwegingen en sequentiëren regels. Nadat de databases worden geconverteerd naar het vCore-model, wordt de failovergroep blijft van kracht met de dezelfde beleidsinstellingen.
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Het maken van een secundaire geo-replicatie
 
 U kunt alleen een geo-secundaire met behulp van dezelfde servicelaag als de primaire maken. Voor de database met de snelheid voor het genereren van hoge logboek, is het raadzaam dat de secundaire wordt gemaakt met de dezelfde compute groot is als de primaire. Als u een geo-secundaire in de elastische pool voor een enkele primaire database maakt, wordt aanbevolen dat de groep heeft de `maxVCore` instellen die overeenkomt met de compute-grootte van de primaire database. Als u een geo-secundaire in de elastische pool voor een primaire in een andere elastische pool maakt, wordt aanbevolen dat de groepen dezelfde hebben `maxVCore` instellingen
 
-### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Met behulp van database-exemplaar een database op basis van DTU te converteren naar een op vCore gebaseerde database.
+### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Met behulp van de database-exemplaar een database op basis van DTU te converteren naar een database op basis van vCore
 
 U kunt een database met een grootte op basis van DTU compute kopiëren naar een database met een grootte vCore gebaseerde computercapaciteit zonder beperkingen of speciale combineren, zolang de doelgrootte berekenen biedt ondersteuning voor de maximale grootte van de brondatabase. Het database-exemplaar wordt gemaakt van een momentopname van gegevens vanaf de begintijd van de kopieerbewerking en voert geen synchronisatie van gegevens tussen de bron en het doel.
 

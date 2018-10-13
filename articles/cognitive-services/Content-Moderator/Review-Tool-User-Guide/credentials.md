@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024652"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309652"
 ---
 # <a name="manage-credentials"></a>Referenties beheren
 
@@ -66,11 +66,11 @@ Let ook op uw regio-id voor uw API-eindpunt. Bijvoorbeeld, **westus** is de regi
 
 ### <a name="resource-id"></a>Resource-id
 
-Besproken in deze sectie in de [met behulp van uw Azure-account met het hulpprogramma voor beoordeling en API](credentials.md#how-to-use-your-azure-account-with-the-review-tool) sectie. Dit veld is meestal leeg, tenzij u uw Azure-Resource-Id aan dit veld toevoegen, zoals wordt beschreven in de vorige sectie.
+Deze set met velden wordt beschreven in de vorige sectie [het Azure-account gebruiken met het hulpprogramma voor beoordeling en API](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Dit veld is meestal leeg, tenzij u uw Azure-Resource-Id aan dit veld toevoegen, zoals wordt beschreven in de vorige sectie.
 
 ### <a name="workflows"></a>Werkstromen
 
-We deze set velden in de vorige sectie besproken op [met uw Azure-sleutel voor het uitvoeren van de werkstromen](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Standaard, het beoordelingsprogramma maakt gebruik van de automatisch gegenereerde proefversie sleutel voor het uitvoeren van de werkstromen en dat is wat wordt eerst weergegeven. De andere twee velden kunnen met behulp van lijsten termijn en afbeelding in de tekst op het scherm en evalueren afbeelding operations respectievelijk.
+Deze set met velden wordt beschreven in de vorige sectie [het Azure-account gebruiken met de werkstromen in het controlehulpprogramma](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Standaard, het beoordelingsprogramma maakt gebruik van de automatisch gegenereerde proefversie sleutel voor het uitvoeren van de werkstromen en dat is wat wordt eerst weergegeven. De andere twee velden kunnen met behulp van lijsten termijn en afbeelding in de tekst op het scherm en evalueren afbeelding operations respectievelijk.
 
 ## <a name="next-steps"></a>Volgende stappen
 

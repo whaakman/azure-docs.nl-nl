@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400439"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165178"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Over het koppelen van Blob-opslag als een bestandssysteem met blobfuse
 
@@ -27,7 +27,7 @@ Deze handleiding wordt beschreven hoe u blobfuse gebruikt, en het koppelen van e
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Blobfuse installeren in Linux
-Blobfuse binaire bestanden zijn beschikbaar op [de Microsoft-software-opslagplaatsen voor Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). Als u wilt installeren blobfuse, een van deze opslagplaatsen te configureren.
+Blobfuse binaire bestanden zijn beschikbaar op [de Microsoft-software-opslagplaatsen voor Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) voor Ubuntu en RHEL-distributies. Om te kunnen installeren blobfuse op deze distributies, configureert u een van de opslagplaatsen in de lijst. U kunt ook de binaire bestanden van de installatiestappen volgen broncode bouwen [hier](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) als er geen binaire bestanden beschikbaar voor uw distributie zijn.
 
 ### <a name="configure-the-microsoft-package-repository"></a>De opslagplaats van het Microsoft-pakket configureren
 Configureer de [Linux Pakketopslagplaats voor Microsoft-producten](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -89,7 +89,7 @@ Blobfuse moet uw referenties worden opgeslagen in een tekstbestand met de volgen
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ Als u dit bestand hebt gemaakt, zorg ervoor dat de toegang beperken, zodat er ge
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Als u het configuratiebestand op Windows hebt gemaakt, controleert u of om uit te voeren `dos2unix` opschonen en converteren naar Unix-indeling. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Maak een lege map voor koppelen
 ```bash

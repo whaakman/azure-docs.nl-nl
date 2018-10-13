@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722007"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166964"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -81,7 +81,8 @@ Geheime rotatie met behulp van de onderstaande instructies uitgevoerd, wordt dez
 
    > [!IMPORTANT]  
    > Zorg ervoor dat de geheime rotatie is nog niet is uitgevoerd op uw omgeving. Als de geheime rotatie is al uitgevoerd, moet u Azure Stack bijwerken naar versie 1807 of hoger voordat u geheime rotatie uitvoert. 
-1.  Informeer de gebruikers van elke onderhoudsbewerkingen. Normale onderhoudsvensters, zo veel mogelijk tijdens de kantooruren plannen. Onderhoudsbewerkingen mogelijk van invloed op zowel de werkbelastingen van de gebruiker en de portal bewerkingen.
+1.  Operators mogelijk waarschuwingen openen en sluiten van automatisch tijdens het draaien van geheimen met Azure Stack.  Dit is verwacht gedrag en de waarschuwingen kunnen worden genegeerd.  Operators kunnen de geldigheid van deze waarschuwingen controleren door het uitvoeren van Test-AzureStack.  Voor operators SCOM gebruiken voor het bewaken van Azure Stack-systemen, plaatsen van een systeem in de onderhoudsmodus wordt voorkomen dat deze waarschuwingen hun ITSM-systemen is bereikt, maar blijft het een waarschuwing als door het Azure Stack-systeem niet meer bereikbaar is. 
+2. Informeer de gebruikers van elke onderhoudsbewerkingen. Normale onderhoudsvensters, zo veel mogelijk tijdens de kantooruren plannen. Onderhoudsbewerkingen mogelijk van invloed op zowel de werkbelastingen van de gebruiker en de portal bewerkingen.
     > [!note]  
     > De volgende stappen zijn alleen van toepassing wanneer u externe geheimen voor Azure Stack.
 3. Bereid een nieuwe set vervanging externe certificaten. De nieuwe set komt overeen met de certificaat-specificaties die worden beschreven in de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).

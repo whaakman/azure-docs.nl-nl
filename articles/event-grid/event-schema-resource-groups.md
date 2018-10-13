@@ -5,24 +5,24 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058727"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310569"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-gebeurtenisschema voor resourcegroepen
 
 Dit artikel bevat de eigenschappen en het schema voor de resource-group-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
-Azure-abonnementen en resourcegroepen uitzenden van hetzelfde type als de gebeurtenis. De typen gebeurtenissen zijn die betrekking hebben op wijzigingen in de resources. Het belangrijkste verschil is dat resourcegroepen-gebeurtenissen voor resources binnen de resourcegroep verzenden en Azure-abonnementen verzenden van gebeurtenissen voor resources in het abonnement.
+Azure-abonnementen en resourcegroepen uitzenden van hetzelfde type als de gebeurtenis. De typen gebeurtenissen zijn gerelateerd aan wijzigingen van resources of acties. Het belangrijkste verschil is dat resourcegroepen-gebeurtenissen voor resources binnen de resourcegroep verzenden en Azure-abonnementen verzenden van gebeurtenissen voor resources in het abonnement.
 
-Resource-gebeurtenissen worden gemaakt voor PUT, PATCH, en verwijderen van bewerkingen die worden verzonden naar `management.azure.com`. Maak geen gebeurtenissen POST als GET-bewerkingen. Bewerkingen die worden verzonden naar het vlak van gegevens (zoals `myaccount.blob.core.windows.net`) Maak geen gebeurtenissen.
+Resource-gebeurtenissen worden gemaakt voor PUT, PATCH, POST en verwijderen van bewerkingen die worden verzonden naar `management.azure.com`. KRIJGEN operations gebeurtenissen niet maken. Bewerkingen die worden verzonden naar het vlak van gegevens (zoals `myaccount.blob.core.windows.net`) gebeurtenissen niet maken. De actie-gebeurtenissen bieden gebeurtenisgegevens voor bewerkingen zoals het weergeven van de sleutels voor een resource.
 
-Wanneer u zich op gebeurtenissen voor een resourcegroep abonneert, ontvangt uw eindpunt alle gebeurtenissen voor die resourcegroep. De gebeurtenissen kunnen gebeurtenis die u wilt zien, zoals het bijwerken van een virtuele machine, maar ook gebeurtenissen die misschien niet belangrijk voor u, zoals het schrijven van een nieuwe vermelding in de geschiedenis van de implementatie bevatten. U kunt alle gebeurtenissen ontvangen op uw eindpunt en schrijven van code die verwerkt de gebeurtenissen die u wilt verwerken, of kunt u een filter instellen bij het maken van het gebeurtenisabonnement.
+Wanneer u zich op gebeurtenissen voor een resourcegroep abonneert, ontvangt uw eindpunt alle gebeurtenissen voor die resourcegroep. De gebeurtenissen kunnen gebeurtenis die u wilt zien, zoals het bijwerken van een virtuele machine, maar ook gebeurtenissen die misschien niet belangrijk voor u, zoals het schrijven van een nieuwe vermelding in de geschiedenis van de implementatie bevatten. U kunt alle gebeurtenissen ontvangen op uw eindpunt en schrijven van code waarmee de gebeurtenissen die u wilt verwerken wordt verwerkt. Of u kunt een filter instellen bij het maken van het gebeurtenisabonnement.
 
 Via een programma om gebeurtenissen te verwerken, kunt u gebeurtenissen sorteren door te kijken de `operationName` waarde. Bijvoorbeeld, het eindpunt van de gebeurtenis kan alleen gebeurtenissen worden verwerkt voor bewerkingen die gelijk zijn aan `Microsoft.Compute/virtualMachines/write` of `Microsoft.Storage/storageAccounts/write`.
 
@@ -36,12 +36,15 @@ Resourcegroepen introduceren management gebeurtenissen van Azure Resource Manage
 
 | Gebeurtenistype | Beschrijving |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | Deze gebeurtenis treedt op slaagt wanneer een resource maken of bijwerken van de bewerking. |
-| Microsoft.Resources.ResourceWriteFailure | Treedt op wanneer een resource maken of update-bewerking is mislukt. |
-| Microsoft.Resources.ResourceWriteCancel | Deze gebeurtenis treedt op is wanneer een resource maken of bijwerken van de bewerking geannuleerd. |
-| Microsoft.Resources.ResourceDeleteSuccess | Treedt op wanneer een resource delete-bewerking is geslaagd. |
-| Microsoft.Resources.ResourceDeleteFailure | Treedt op wanneer een resource delete-bewerking is mislukt. |
-| Microsoft.Resources.ResourceDeleteCancel | Treedt op wanneer een resource delete-bewerking is geannuleerd. Deze gebeurtenis treedt op wanneer de sjabloonimplementatie van een is geannuleerd. |
+| Microsoft.Resources.ResourceActionCancel | Treedt op wanneer de actie voor de resource is geannuleerd. |
+| Microsoft.Resources.ResourceActionFailure | Treedt op wanneer de actie voor de resource is mislukt. |
+| Microsoft.Resources.ResourceActionSuccess | Treedt op wanneer de actie voor de resource is geslaagd. |
+| Microsoft.Resources.ResourceDeleteCancel | Deze gebeurtenis treedt op wanneer verwijderen bewerking is geannuleerd. Deze gebeurtenis treedt op wanneer de sjabloonimplementatie van een is geannuleerd. |
+| Microsoft.Resources.ResourceDeleteFailure | Deze gebeurtenis treedt op wanneer het verwijderen van bewerking mislukt. |
+| Microsoft.Resources.ResourceDeleteSuccess | Deze gebeurtenis treedt op wanneer verwijderbewerking is geslaagd. |
+| Microsoft.Resources.ResourceWriteCancel | Deze gebeurtenis treedt op wanneer maken of update-bewerking is geannuleerd. |
+| Microsoft.Resources.ResourceWriteFailure | Deze gebeurtenis treedt op wanneer maken of bijwerken van de bewerking mislukt. |
+| Microsoft.Resources.ResourceWriteSuccess | Deze gebeurtenis treedt op wanneer maken of update-bewerking is geslaagd. |
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
@@ -171,13 +174,69 @@ Het volgende voorbeeld ziet u het schema voor een **ResourceDeleteSuccess** gebe
 }]
 ```
 
+Het volgende voorbeeld ziet u het schema voor een **ResourceActionSuccess** gebeurtenis. Hetzelfde schema wordt gebruikt voor **ResourceActionFailure** en **ResourceActionCancel** gebeurtenissen met verschillende waarden voor `eventType`.
+
+```json
+[{   
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+  "eventType": "Microsoft.Resources.ResourceActionSuccess",
+  "eventTime": "2018-10-08T22:46:22.6022559Z",
+  "id": "{ID}",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+      "action": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/{subscription-id}",
+        "roleAssignmentId": "{ID}",
+        "roleDefinitionId": "{ID}",
+        "principalId": "{ID}",
+        "principalType": "ServicePrincipal"
+      }     
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "aio": "{token}",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/identity/claims/identityprovider": "{URL}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",       "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey/listKeys?api-version=2017-04-01"
+    },
+    "resourceProvider": "Microsoft.EventHub",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+    "operationName": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+}]
+```
+
 ## <a name="event-properties"></a>Eigenschappen van gebeurtenis
 
 Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet schrijfbaar. Event Grid biedt deze waarde. |
 | Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
 | type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
 | eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
@@ -194,9 +253,9 @@ Het gegevensobject heeft de volgende eigenschappen:
 | claims | object | De eigenschappen van de claims. Zie voor meer informatie, [JWT-specificatie](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | tekenreeks | Een bewerking-ID voor het oplossen van problemen. |
 | httpRequest | object | De details van de bewerking. Dit object is alleen opgenomen wanneer u een bestaande resource bijwerkt of een bron te verwijderen. |
-| resourceProvider | tekenreeks | De resourceprovider wanneer de bewerking wordt uitgevoerd. |
+| resourceProvider | tekenreeks | De resourceprovider voor de bewerking. |
 | resourceUri | tekenreeks | De URI van de resource in de bewerking. |
-| operationName | tekenreeks | De bewerking die werd uitgevoerd. |
+| operationName | tekenreeks | De bewerking die werd gemaakt. |
 | status | tekenreeks | De status van de bewerking. |
 | subscriptionId | tekenreeks | De abonnements-ID van de resource. |
 | tenant-id | tekenreeks | De tenant-ID van de resource. |

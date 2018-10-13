@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064453"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309498"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Serverless database computing met Azure Functions
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Serverless database computing met behulp van Azure Cosmos DB en Azure Functions
 
-Alles over de mogelijkheid om zich te richten op afzonderlijke onderdelen van de logica die herhaalbare en stateless is serverloze computing. Deze onderdelen vereisen geen infrastructuurbeheer en ze resources verbruiken alleen voor de seconden of milliseconden, ze worden uitgevoerd voor. De spil van de serverloze computing verplaatsing zijn functies, die in de Azure-ecosysteem door beschikbaar worden gesteld [Azure Functions](https://azure.microsoft.com/services/functions).
+Alles over de mogelijkheid om zich te richten op afzonderlijke onderdelen van de logica die herhaalbare en stateless is serverloze computing. Deze onderdelen vereisen geen infrastructuurbeheer en ze resources verbruiken alleen voor de seconden of milliseconden, ze worden uitgevoerd voor. De spil van de serverloze computing verplaatsing zijn functies, die in de Azure-ecosysteem door beschikbaar worden gesteld [Azure Functions](https://azure.microsoft.com/services/functions). Voor meer informatie over andere omgevingen zonder server worden uitgevoerd in Azure zien [serverloos in Azure](https://azure.microsoft.com/solutions/serverless/) pagina. 
 
 Met de ingebouwde integratie tussen [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) en Azure Functions, kunt u databasetriggers, invoerbindingen en uitvoerbindingen rechtstreeks vanuit uw Azure Cosmos DB-account. Met behulp van Azure Functions en Azure Cosmos DB, kunt u maken en implementeren van gebeurtenisgestuurde serverloze apps met lage latentie toegang tot uitgebreide gegevens voor een globale gebruikersgroep.
 

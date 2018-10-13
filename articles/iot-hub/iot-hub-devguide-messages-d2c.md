@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: a4ebb64d14b325680a65ffd52f6a07836c1e6ede
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585676"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311317"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Berichtroutering gebruik apparaat-naar-cloud-berichten te verzenden naar verschillende eindpunten
 
@@ -21,7 +21,7 @@ ms.locfileid: "47585676"
 
 Berichtroutering, kunt u het verzenden van berichten van uw apparaten naar de cloud services op een geautomatiseerde, schaalbare en betrouwbare manier. Routering van berichten kan worden gebruikt voor: 
 
-* **Verzenden van apparaat telemetrie messsages, evenals gebeurtenissen** namelijk levenscyclusgebeurtenissen voor het apparaat en apparaatdubbel gebeurtenissen met de ingebouwde-eindpunt en aangepaste eindpunten wijzigen. Meer informatie over [routering eindpunten](##routing-endpoints).
+* **Verzenden van apparaat telemetrie messsages, evenals gebeurtenissen** namelijk levenscyclusgebeurtenissen voor het apparaat en apparaatdubbel gebeurtenissen met de ingebouwde-eindpunt en aangepaste eindpunten wijzigen. Meer informatie over [routering eindpunten](#routing-endpoints).
 
 * **Filteren van gegevens voordat deze routering naar verschillende eindpunten** door toe te passen van uitgebreide query's. Berichtroutering, kunt u een query uitvoeren op de eigenschappen van berichten en de berichttekst, evenals de device twin tags en de apparaatdubbeleigenschappen. Meer informatie over het gebruik van [query's in berichtroutering](iot-hub-devguide-routing-query-syntax.md).
 

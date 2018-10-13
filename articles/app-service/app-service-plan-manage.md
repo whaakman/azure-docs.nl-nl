@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449356"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166063"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Een App Service-plan in Azure beheren
 
@@ -57,6 +57,12 @@ U kunt een lege App Service-plan maken of u kunt een plan maken als onderdeel va
 
 Kunt u een app verplaatsen naar een andere App Service-plan, zolang het bronplan en het doelabonnement zijn de _dezelfde resourcegroep bevinden en geografische regio_.
 
+> [!NOTE]
+> Azure heeft elke nieuwe App Service-plan geïmplementeerd in een implementatie-eenheid, intern een webruimte genoemd. Elke regio kan veel webruimten hebben, maar uw app kan alleen worden verplaatst tussen abonnementen die zijn gemaakt in de dezelfde webruimte. Een App Service Environment is een geïsoleerde webruimte, zodat apps kunnen worden verplaatst tussen abonnementen in hetzelfde App Service-omgeving, maar niet tussen abonnementen in verschillende App Service-omgevingen.
+>
+> U kunt de webruimte die u wilt dat bij het maken van een plan niet opgeven, maar het is mogelijk om ervoor te zorgen dat een plan is gemaakt in de dezelfde webruimte als een bestaand plan. In het kort alle abonnementen die zijn gemaakt met dezelfde resourcegroep en regio combinatie worden geïmplementeerd in de dezelfde webruimte. Bijvoorbeeld, als u een plan hebt gemaakt in resourcegroep A en B-regio, wordt klikt u vervolgens een plan dat u later in de resourcegroep A en B regio maken geïmplementeerd in de dezelfde webruimte. Houd er rekening mee dat abonnementen niet webruimten verplaatsen nadat ze zijn gemaakt, zodat u een plan kan niet naar 'de dezelfde webruimte verplaatsen' als een ander abonnement door deze te verplaatsen naar een andere resourcegroep.
+> 
+
 1. In de [Azure-portal](https://portal.azure.com), blader naar de app die u wilt verplaatsen.
 
 1. Zoek in het menu van de **App Service-Plan** sectie.
@@ -67,16 +73,7 @@ Kunt u een app verplaatsen naar een andere App Service-plan, zolang het bronplan
 
 1. In de **App Service-plan** selector, selecteer een bestaande wilt verplaatsen van deze app in.   
 
-> [!IMPORTANT]
-> De **Selecteer App Service-plan** pagina wordt gefilterd op de volgende criteria: 
-> - Er bestaat in dezelfde resourcegroep bevinden 
-> - Er bestaat in dezelfde geografische regio 
-> - Er bestaat in de dezelfde webruimte  
-> 
-> Een _webruimte_ is een logische constructie in App Service die een groepering van serverbronnen definieert. Een geografische gebied (zoals VS-West) bevat veel webruimten toewijzen als klanten die gebruikmaken van App Service. U kunt de App Service-resources op dit moment niet verplaatsen tussen webruimten. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+De **Selecteer App Service-plan** pagina toont alleen de plannen die zich in dezelfde resourcegroep bevinden en geografische regio bevinden als de huidige app App Service-plan.
 
 Elk abonnement heeft een eigen prijscategorie. Bijvoorbeeld, het verplaatsen van een site in een **gratis** laag naar een **Standard** laag kunt u alle apps die zijn toegewezen voor het gebruik van de functies en resources van de **Standard** laag. Een app vanuit een plan voor hogere lagen verplaatsen naar een lagere lagen plan betekent echter dat u niet langer toegang tot bepaalde functies hebben. Als uw app gebruikmaakt van een functie die is niet beschikbaar in het doelabonnement, krijgt u een fout die laat zien welke functie worden gebruikt die niet beschikbaar is. 
 

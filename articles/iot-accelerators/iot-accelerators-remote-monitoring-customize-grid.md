@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71f2164c9c419604c513261df7e1264060a2c374
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e1c694847a1ec16d4d7a7b1118df71cb06396186
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094563"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165927"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Een aangepaste raster toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface
 
@@ -38,7 +38,7 @@ U kunt de stappen in de volgende artikelen moet uitvoeren voordat u doorgaat:
 - [Een aangepaste pagina toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-page.md).
 - [Een aangepaste service toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-service.md)
 
-## <a name="add-a-grid"></a>Toevoegen van een raster
+## <a name="add-a-grid"></a>Een raster toevoegen
 
 Een raster toevoegen aan de web-UI, moet u de bronbestanden die het raster definiëren toevoegen en wijzigen van bestaande bestanden zodat de web-UI op de hoogte van het nieuwe onderdeel.
 
@@ -188,11 +188,11 @@ De vorige opdracht wordt uitgevoerd de Webinterface lokaal op [ http://localhost
 
 Er zijn twee opties voor het inschakelen van een gebruiker om rijen te selecteren in het raster:
 
-### <a name="hard-select-rows"></a>Vaste Selecteer rijen
+### <a name="hard-select-rows"></a>Harde-Selecteer rijen
 
 Als een gebruiker nodig heeft om te reageren op meerdere rijen op hetzelfde moment, gebruikt u de selectievakjes in rijen:
 
-1. Vaste selectie van rijen inschakelen door toe te voegen een **checkboxColumn** naar de **columnDefs** geleverd aan het raster. **checkboxColumn** is gedefinieerd in **/src/components/shared/pcsGrid/pcsGrid.js**:
+1. Harde-selectie van rijen inschakelen door toe te voegen een **checkboxColumn** naar de **columnDefs** geleverd aan het raster. **checkboxColumn** is gedefinieerd in **/src/components/shared/pcsGrid/pcsGrid.js**:
 
     ```js
     this.columnDefs = [
@@ -214,7 +214,7 @@ Als een gebruiker nodig heeft om te reageren op meerdere rijen op hetzelfde mome
     };
     ```
 
-1. Geef context knoppen op de pagina als u een rij in het raster hard hebt geselecteerd:
+1. Context knoppen op de pagina opgeven als een rij in het raster harde geselecteerd is:
 
     ```js
     this.contextBtns = [
@@ -234,7 +234,7 @@ Als een gebruiker nodig heeft om te reageren op meerdere rijen op hetzelfde mome
     }
     ```
 
-1. Wanneer een context wordt geklikt, krijgt u de vaste schijf geselecteerde items voor uw werk op:
+1. Wanneer een context wordt geklikt, krijgt u de harde-geselecteerde items voor uw werk op:
 
     ```js
     doSomething = () => {
@@ -245,7 +245,7 @@ Als een gebruiker nodig heeft om te reageren op meerdere rijen op hetzelfde mome
 
 ### <a name="soft-select-rows"></a>Voorlopig Selecteer rijen
 
-Als de gebruiker is alleen nodig heeft om te reageren op een enkele rij, configureert u een voorlopig Selecteer koppeling voor een of meer kolommen in de **columnDefs**.
+Als de gebruiker is alleen nodig heeft om te reageren op een enkele rij, configureert u een koppeling voorlopig selecteren voor een of meer kolommen in de **columnDefs**.
 
 1. In **exampleGridConfig.js**, toevoegen **SoftSelectLinkRenderer** als de **cellRendererFramework** voor een **columnDef**.
 
@@ -260,7 +260,7 @@ Als de gebruiker is alleen nodig heeft om te reageren op een enkele rij, configu
     };
     ```
 
-1. Wanneer een voorlopig Selecteer koppeling wordt geklikt, wordt de **onSoftSelectChange** gebeurtenis. Voer de actie vereist is voor die rij, zoals het openen van een details van elk gewenst moment-out. In dit voorbeeld schrijft u gewoon naar de console:
+1. Wanneer een voorlopig-Selecteer-koppeling wordt geklikt, wordt de **onSoftSelectChange** gebeurtenis. Welke actie vereist is voor die rij, zoals het openen van een details-flyout uitvoeren In dit voorbeeld schrijft u gewoon naar de console:
 
     ```js
     onSoftSelectChange = (rowId, rowEvent) => {
@@ -281,6 +281,6 @@ Als de gebruiker is alleen nodig heeft om te reageren op een enkele rij, configu
 
 In dit artikel hebt u geleerd over de resources beschikbaar om u te helpen bij het toevoegen of aanpassen van pagina's in de web-UI in de oplossingsverbetering voor externe controle.
 
-Nu u een raster hebt gedefinieerd, wordt de volgende stap is het [een aangepaste fly-out toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-flyout.md) die wordt weergegeven op de voorbeeldpagina.
+Nu u een raster hebt gedefinieerd, wordt de volgende stap is het [een aangepaste flyout toevoegen aan de Remote Monitoring solution accelerator-Webgebruikersinterface](iot-accelerators-remote-monitoring-customize-flyout.md) die wordt weergegeven op de voorbeeldpagina.
 
 Zie voor meer informatie over de oplossingsverbetering voor externe controle [architectuur voor externe controle](iot-accelerators-remote-monitoring-sample-walkthrough.md).

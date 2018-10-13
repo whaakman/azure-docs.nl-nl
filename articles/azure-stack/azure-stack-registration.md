@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902277"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310450"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -45,7 +45,7 @@ U moet de volgende voldaan voordat u registreert:
 
 Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
-- De abonnements-ID voor een Azure-abonnement. Alleen EA, CSP of CSP van gedeelde services abonnementen worden ondersteund voor registratie. CSP's nodig hebt om te bepalen of u wilt [gebruikt u een abonnement CSP of CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Als u de ID, aanmelden bij Azure, klikt u op **alle services**. Klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de abonnement-ID.
+- De abonnements-ID voor een Azure-abonnement. Alleen EA, CSP of CSP van gedeelde services abonnementen worden ondersteund voor registratie. CSP's nodig hebt om te bepalen of u wilt [gebruikt u een abonnement CSP of APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Als u de ID, aanmelden bij Azure, klikt u op **alle services**. Klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de abonnement-ID.
 
   > [!Note]  
   > Duitsland-cloudabonnementen worden momenteel niet ondersteund.

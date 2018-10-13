@@ -1,25 +1,19 @@
 ---
 title: Systeemvereisten voor Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Meer informatie over de software en netwerkvereisten voor uw Azure Data Box-Gateway
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 16d9604100d3ec37cef7ad4ebbdc376967006e15
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991569"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166692"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systeemvereisten voor Azure Data Box-Gateway (Preview)
 
@@ -31,7 +25,7 @@ De systeemvereisten voor het virtuele apparaat Data Box-Gateway zijn onder ander
 - **Netwerkvereisten voor het apparaat** -vindt u informatie over eventuele netwerkvereisten voor de bewerking van het virtuele apparaat.
 
 > [!IMPORTANT]
-> Data Box-Gateway is in Preview. Raadpleeg de [gebruiksvoorwaarden voor de Preview-versie](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
+> Data Box Gateway is in de previewfase. Lees de [gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert. 
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Ondersteund besturingssysteem voor clients die zijn verbonden met het apparaat
 
@@ -134,7 +128,7 @@ U wordt aangeraden dat u uw firewall-regels voor uitgaand verkeer, op basis van 
 
 De volgende vereisten zijn van toepassing op ten minste internetbandbreedte die beschikbaar is voor uw gegevens in het Gateway-apparaten.
 
-- Uw Data Box-Gateway is een speciale 20 Mbps internetbandbreedte (of meer) beschikbaar te allen tijde. Deze bandbreedte moet niet worden gedeeld met andere toepassingen. 
+- Uw Data Box Gateway te allen tijde beschikt over een toegewezen internetbandbreedte van 20 Mbps (of meer). Deze bandbreedte mag niet worden gedeeld met andere toepassingen. 
 - Uw Data Box-Gateway is een speciale 32 Mbps internetbandbreedte (of meer) bij het gebruik van netwerkbeperking.
 
 ## <a name="next-step"></a>Volgende stap

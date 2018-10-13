@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van de OData-bronnen met behulp van Azure Data Factory | Microsoft Docs
-description: Ontdek hoe u gegevens uit OData-bronnen naar gegevensarchieven ondersteunde sink kopiëren met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+description: Informatie over het kopiëren van gegevens uit OData-bronnen voor ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,49 +13,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: aaec710dd6c12f96a479a1f41603351512da1df6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054667"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166131"
 ---
-# <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Gegevens kopiëren van de OData-bron met behulp van Azure Data Factory
+# <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Gegevens kopiëren van een OData-bron met behulp van Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-odata-connector.md)
+> * [Versie 1:](v1/data-factory-odata-connector.md)
 > * [Huidige versie](connector-odata.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van een OData-bron. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een OData-bron. Het artikel is gebaseerd op [Kopieeractiviteit in Azure Data Factory](copy-activity-overview.md), die een algemeen overzicht van Kopieeractiviteit geeft.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit OData-bron kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit een OData-bron kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevens opslaat of Kopieeractiviteit als bronnen en sinks ondersteunt, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md#supported-data-stores-and-formats).
 
-In het bijzonder ondersteunt deze OData-connector:
+Om precies ondersteunt deze OData-connector:
 
-- OData **versie 3.0 en 4.0**.
-- Kopiëren van gegevens met behulp van de volgende verificaties: **anoniem**, **Basic**, en **Windows**.
+- OData versie 3.0 en 4.0.
+- Kopiëren van gegevens met behulp van een van de volgende verificaties: **anoniem**, **Basic**, of **Windows**.
 
-## <a name="getting-started"></a>Aan de slag
+## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke naar OData-connector.
+De volgende secties bevatten meer informatie over eigenschappen die u gebruiken kunt voor het definiëren van Data Factory-entiteiten die specifiek voor een OData-connector zijn.
 
-## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde Service
+## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
+De volgende eigenschappen worden ondersteund voor een gekoppelde OData-service:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op: **OData** |Ja |
-| url | De URL van de hoofdmap van de OData-service. |Ja |
-| authenticationType | Het soort verificatie gebruikt voor verbinding met de OData-bron.<br/>Toegestane waarden zijn: **anoniem**, **Basic**, en **Windows**. Houd er rekening mee dat OAuth wordt niet ondersteund. | Ja |
-| Gebruikersnaam | Geef de gebruikersnaam als u basisverificatie of Windows-verificatie gebruikt. | Nee |
-| wachtwoord | Wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam opgeven. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+| type | De **type** eigenschap moet worden ingesteld op **OData**. |Ja |
+| url | De basis-URL van de OData-service. |Ja |
+| authenticationType | Het type verificatie gebruikt voor verbinding met de OData-bron. Toegestane waarden zijn **anoniem**, **Basic**, en **Windows**. OAuth wordt niet ondersteund. | Ja |
+| Gebruikersnaam | Geef **gebruikersnaam** als u basisverificatie of Windows-verificatie gebruikt. | Nee |
+| wachtwoord | Geef **wachtwoord** voor de gebruiker-account u hebt opgegeven voor **gebruikersnaam**. Dit veld als markeert een **SecureString** type voor het veilig opslaan in Data Factory. U kunt ook [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) gebruiken om te verbinden met het gegevensarchief. U kunt Azure Integration Runtime of een zelf-hostende Integration Runtime (als het gegevensarchief bevindt zich in een particulier netwerk). Indien niet opgegeven, wordt de standaard Azure Integration Runtime wordt gebruikt. |Nee |
 
-**Voorbeeld 1: anonieme verificatie gebruikt**
+**Voorbeeld 1: Anonieme verificatie gebruikt**
 
 ```json
 {
@@ -74,7 +75,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
 }
 ```
 
-**Voorbeeld 2: met behulp van basisverificatie**
+**Voorbeeld 2: Met behulp van basisverificatie**
 
 ```json
 {
@@ -84,7 +85,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
         "typeProperties": {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
-            "userName": "<username>",
+            "userName": "<user name>",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -98,7 +99,7 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
 }
 ```
 
-**Voorbeeld 3: het gebruik van Windows-verificatie**
+**Voorbeeld 3: Met behulp van Windows-verificatie**
 
 ```json
 {
@@ -124,14 +125,16 @@ De volgende eigenschappen worden ondersteund voor de gekoppelde OData-service:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door OData-gegevensset.
+Deze sectie bevat een lijst met eigenschappen die ondersteuning biedt voor de OData-gegevensset.
 
-Om gegevens te kopiëren uit OData, stel de eigenschap type van de gegevensset **ODataResource**. De volgende eigenschappen worden ondersteund:
+Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets en secties, [gegevenssets en gekoppelde services](concepts-datasets-linked-services.md). 
+
+Om gegevens te kopiëren uit OData-, stel de **type** eigenschap van de gegevensset in **ODataResource**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de gegevensset moet worden ingesteld op: **ODataResource** | Ja |
-| pad | Pad naar de OData-bron. | Ja |
+| type | De **type** eigenschap van de gegevensset moet worden ingesteld op **ODataResource**. | Ja |
+| pad | Het pad naar de OData-resource. | Ja |
 
 **Voorbeeld**
 
@@ -155,18 +158,20 @@ Om gegevens te kopiëren uit OData, stel de eigenschap type van de gegevensset *
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door OData-bron.
+Deze sectie bevat een lijst met eigenschappen die ondersteuning biedt voor de OData-bron.
+
+Zie voor een volledige lijst van eigenschappen die beschikbaar zijn voor het definiëren van activiteiten en secties, [pijplijnen](concepts-pipelines-activities.md). 
 
 ### <a name="odata-as-source"></a>OData als bron
 
-Om gegevens te kopiëren uit OData, stelt u het brontype in de kopieerbewerking te **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren uit OData-, stel de **bron** type in de Kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de Kopieeractiviteit **bron** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
-| query | Opties voor OData-query om gegevens te filteren. Voorbeeld: "? $select = naam, beschrijving & $top = 5 '.<br/><br/>Houd er rekening mee ten minste OData-connector worden gegevens gekopieerd van de gecombineerde URL: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Raadpleeg [OData-URL onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
+| type | De **type** eigenschap van de Kopieeractiviteit-bron moet worden ingesteld op **RelationalSource**. | Ja |
+| query | OData-queryopties voor het filteren van gegevens. Voorbeeld: `"?$select=Name,Description&$top=5"`.<br/><br/>**Houd er rekening mee**: de OData-connector worden gegevens gekopieerd van de gecombineerde URL: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Zie voor meer informatie, [OData-URL-onderdelen](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nee |
 
-**Voorbeeld:**
+**Voorbeeld**
 
 ```json
 "activities":[
@@ -200,16 +205,16 @@ Om gegevens te kopiëren uit OData, stelt u het brontype in de kopieerbewerking 
 
 ## <a name="data-type-mapping-for-odata"></a>Toewijzing voor OData-gegevenstype
 
-Bij het kopiëren van gegevens uit OData, worden de volgende toewijzingen van OData-gegevenstypen gebruikt voor Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
+Wanneer u gegevens uit OData-kopieert, worden de volgende toewijzingen tussen de OData-gegevenstypen en Azure Data Factory tussentijdse gegevenstypen gebruikt. Zie voor meer informatie hoe Copy Activity in het schema en de gegevens van een brontype toegewezen aan de sink [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md).
 
-| OData-gegevenstype | Data factory tussentijdse gegevenstype |
+| OData-gegevenstype | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
 | Edm.Boolean | BOOL |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | decimale |
-| Edm.Double | Double |
+| Edm.Decimal | decimaal |
+| Edm.Double | Double-waarde |
 | Edm.Single | Enkelvoudig |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
@@ -220,9 +225,10 @@ Bij het kopiëren van gegevens uit OData, worden de volgende toewijzingen van OD
 | Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
-> [!Note]
-> OData complexe gegevenstypen (zoals Object) worden niet ondersteund.
+> [!NOTE]
+> Complexe gegevenstypen voor OData (zoals **Object**) worden niet ondersteund.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).
+
+Zie voor een lijst met gegevensarchieven die Kopieeractiviteit ondersteunt als bronnen en sinks in Azure Data Factory, [ondersteunde gegevensarchieven en indelingen](copy-activity-overview.md##supported-data-stores-and-formats).

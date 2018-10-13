@@ -1,27 +1,20 @@
 ---
 title: Verbinding maken, configureren en Azure Data Box Edge moet worden geactiveerd in Azure portal | Microsoft Docs
 description: Derde zelfstudie voor het implementeren van Data Box Edge u verbinding maken en instellen op, en activeer uw fysieke apparaat.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 83bc1d81eaa930fc16c895f4e3b8b9bf1b1ad28c
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3d6742bec54e612b5dca6d9ef6c4f67a33929448
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832200"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166573"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-edge-preview"></a>Zelfstudie: Verbinding maken, instellen, activeren van Azure Data Box Edge (Preview) 
 
@@ -39,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 > Data Box Edge is beschikbaar als preview. Lees de [Gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing bestelt en implementeert. 
 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u configureren en van uw gegevens in Edge instellen, zorg ervoor dat:
 

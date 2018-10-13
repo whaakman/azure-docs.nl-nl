@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 3565793347a8c9704e51e893e5aa916cf54cab8e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115570"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167661"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -135,6 +135,21 @@ U lost dit probleem, moet u de volgende stappen uitvoeren:
 2. Controleer of de Firewall en Proxy-instellingen correct zijn geconfigureerd:
     - Als de server zich achter een firewall bevindt, controleert u of poort 443, uitgaand is toegestaan. Als de firewall verkeer tot specifieke domeinen beperkt, controleert u of de domeinen die worden vermeld in de Firewall [documentatie](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) toegankelijk zijn.
     - Als de server zich achter een proxy, de brede, door het machine of app-specifieke proxy-instellingen configureren met de volgende stappen in de Proxy [documentatie](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+
+<a id="endpoint-noactivity-sync"></a>**Servereindpunt heeft een status van "Geen activiteit" en de status van de server op de blade geregistreerde servers is 'Online'**  
+
+De status van een server-eindpunt van 'Geen activiteit' betekent dat het servereindpunt is niet geregistreerd voor synchronisatie-activiteit in de afgelopen twee uur.
+
+Een servereindpunt kan synchronisatieactiviteiten niet aanmelden voor de volgende redenen:
+
+- De server heeft het maximum aantal gelijktijdige synchronisatiesessies bereikt. Azure File Sync ondersteunt momenteel 2 ActiveSync sessies per processor- of maximaal 8 active synchronisatiesessies per server.
+
+- De server heeft een actieve sessie VSS-synchronisatie (SnapshotSync). Wanneer een synchronisatiesessie VSS actief voor een servereindpunt is, kunnen een synchronisatiesessie start totdat de VSS-synchronisatiesessie is voltooid andere servereindpunten op de server niet starten.
+
+Huidige synchronisatie-activiteit op een server, Zie [hoe controleer ik de voortgang van een huidige synchronisatiesessie?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Als de status van de server op de blade geregistreerde servers 'Offline weergegeven' is, voert u de stappen die zijn beschreven de [servereindpunt heeft een status van 'Geen activiteit' of 'In behandeling' en de status van de server op de blade geregistreerde servers "Weergegeven als offline" ](#server-endpoint-noactivity) sectie.
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Als ik een bestand rechtstreeks in mijn Azure-bestandsshare via SMB of via de portal gemaakt, hoe lang duurt om het bestand te synchroniseren met servers in de groep voor synchronisatie?**  

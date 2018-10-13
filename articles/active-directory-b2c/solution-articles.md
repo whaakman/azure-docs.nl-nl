@@ -4,16 +4,16 @@ description: Dit artikel vindt u koppelingen naar oplossing en trainingsinformat
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
-ms.date: 09/07/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: bdacbe425aa3140f8a3d60fdf121712d1e6eda3e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 74598aa83a9ed47ee85ef71593745faccfb81ee3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541599"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165944"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Oplossingen en Training voor Azure Active Directory B2C
 
@@ -22,6 +22,7 @@ Azure Active Directory (Azure AD) B2C kunnen organisaties bedrijfsoplossingen wa
 | Titel | Beschrijving |
 | ----- | ----------- |
 | [Klant-identiteitsbeheer met Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | In dit overzicht van de service, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) van de Azure AD B2C team biedt ons een overzicht van hoe de service werkt, en ook weer te geven hoe we kunnen snel verbinding B2C moet maken met een ASP.NET Core-toepassing. |
+| [Voordelen van het gebruik van Azure AD B2C](https://aka.ms/b2coverview) | Informatie over de voordelen en algemene scenario's van Azure AD B2C en hoe uw toepassingen kunnen gebruikmaken van deze CIAM-service. |
 | [Verkrijgen van Expertise in Azure AD B2C: een cursus voor ontwikkelaars](https://aka.ms/learnAADB2C) | In deze end-to-end-cursus leert ontwikkelaars via een volledige gaan gebruiken in het ontwikkelen van toepassingen met Azure AD B2C als verificatiemechanisme. Tien uitgebreide modules met labs dekken alles van het instellen van een Azure-abonnement voor het maken van aangepaste beleid dat definieert de transporten die uw klanten te bereiken. |
 | [Inschakelen van partners, leveranciers en klanten toegang tot toepassingen met Azure active Directory](https://aka.ms/aadexternalidentities) | Elke organisatie geslaagd, ongeacht de grootte, de bedrijfstak, of de naleving en de beveiligingspostuur, is afhankelijk van organisatie-mogelijkheid om te werken samen met andere organisaties en verbinding maken met klanten.<br><br>Bundeling van Azure AD, Azure AD B2C, en Azure AD B2B-samenwerking, deze handleiding wordt de waarde voor het bedrijf en het mechanisme van gebouw een toepassing of web-ervaring die voorziet in een geconsolideerde verificatie-ervaring die zijn afgestemd op de context van uw werknemers, zakelijke partners en leveranciers en klanten. |
 | [Migreren toepassing verificatie bij Azure AD B2C in een hybride omgeving](https://aka.ms/MigratetoAADB2C) | In moderne organisaties vandaag, digitale transformatie en verplaatst naar de cloud gebeurt in fasen, die de meeste organisaties werkt met ten minste tijdelijk een hybride identiteit-omgeving.<br><br>Deze handleiding is gericht op het maken van het migratieplan voor het verplaatsen van uw eerste toepassing in Azure AD B2C en bevat informatie over de overwegingen voor het in dat geval in een hybride identiteit-omgeving. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498246"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311334"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 
@@ -113,7 +113,7 @@ Er zijn meerdere opties voor het vereisen van verificatie in twee stappen. De be
 
 Hieronder vindt u opties en prestaties voor het inschakelen van verificatie in twee stappen:
 
-**Optie 1**: [multi-factor Authentication inschakelen door het veranderen van gebruikersstatus](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**Optie 1**: [multi-factor Authentication inschakelen door het veranderen van gebruikersstatus](../active-directory/authentication/howto-mfa-userstates.md).   
 **Voordeel**: dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide [Azure multi-factor Authentication in de cloud en Azure multi-factor Authentication-Server](../active-directory/authentication/concept-mfa-whichversion.md). Met deze methode vereist dat gebruikers verificatie uitvoeren telkens wanneer ze zich aanmelden en vervangt beleid voor voorwaardelijke toegang.
 
 **Optie 2**: [multi-factor Authentication inschakelen met beleid voor voorwaardelijke toegang](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ Hieronder vindt u opties en prestaties voor het inschakelen van verificatie in t
 
 Dit is de meest flexibele manier om in te schakelen van verificatie in twee stappen voor uw gebruikers. Als u een beleid voor voorwaardelijke toegang werkt alleen voor Azure multi-factor Authentication in de cloud en is een premium-functie van Azure AD. U vindt meer informatie over deze methode in [implementeren van cloud-gebaseerde Azure multi-factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Optie 3**: multi-factor Authentication inschakelen met beleid voor voorwaardelijke toegang door het evalueren van de gebruiker en meld u risico's van [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md).   
+**Optie 3**: multi-factor Authentication inschakelen met beleid voor voorwaardelijke toegang door het evalueren van de gebruiker en meld u risico's van [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Voordeel**: deze optie kunt u naar:
 
 - Detecteren van mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie.
@@ -131,7 +131,7 @@ Dit is de meest flexibele manier om in te schakelen van verificatie in twee stap
 Deze methode maakt gebruik van de risico-evaluatie van de Azure AD Identity Protection om te bepalen of verificatie in twee stappen vereist is op basis van gebruiker en aanmeldingsrisico voor alle cloudtoepassingen. Deze methode is een Azure Active Directory P2-licentie vereist. U vindt meer informatie over deze methode in [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Optie 1, meervoudige verificatie inschakelen door het veranderen van de status van de gebruiker, overschrijft de beleidsregels voor voorwaardelijke toegang. Aangezien de opties 2 en 3 gebruikt beleidsregels voor voorwaardelijke toegang, kunt u de optie 1 met hen niet gebruiken.
+> Optie 1, meervoudige verificatie inschakelen door het veranderen van de status van de gebruiker, overschrijft beleid voor voorwaardelijke toegang. Aangezien de opties 2 en 3 gebruikt beleidsregels voor voorwaardelijke toegang, kunt u de optie 1 met hen niet gebruiken.
 
 Organisaties die geen extra lagen van identiteitsbeveiliging, zoals verificatie, toevoegen zijn gevoeliger voor referentie diefstal aanval. Een referentie diefstal aanval kan leiden tot inbreuk op gegevens.
 

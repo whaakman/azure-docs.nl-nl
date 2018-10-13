@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 78ae04d3c51cf8039dcdd067594afafae606f5e3
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298197"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310552"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -165,5 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Onboarding alle onderdelen van uw micro-service voor Application Insights. Bekijk [ondersteunde platforms](app-insights-platforms.md).
 - Zie [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en -gegevensmodel.
 - Meer informatie over het [uitbreiden en telemetrie filteren](app-insights-api-filtering-sampling.md).
-- [Application Insights confg-verwijzing](app-insights-configuration-with-applicationinsights-config.md)
+- [Application Insights-config-verwijzing](app-insights-configuration-with-applicationinsights-config.md)
 

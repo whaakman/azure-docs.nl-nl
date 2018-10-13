@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452204"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311232"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -29,7 +29,9 @@ Gebruik het id-register als u wilt:
 * Per-apparaat/per-module toegang tot het apparaat of de module gerichte eindpunten van uw hub beheren.
 
 > [!NOTE]
-> Het id-register bevat niet alle toepassingsspecifieke-metagegevens.
+> * Het id-register bevat niet alle toepassingsspecifieke-metagegevens.
+> * Moduledubbel voor identiteits- en -module is in openbare preview. Onder de functie wordt ondersteund op de identiteit van de module wanneer deze algemeen beschikbaar.
+>
 
 ## <a name="identity-registry-operations"></a>Registerbewerkingen voor identiteit
 
@@ -40,7 +42,6 @@ De id-register van IoT Hub wordt aangegeven dat de volgende bewerkingen:
 * Apparaat of de module identiteit op ID opgehaald
 * Apparaat-of-module verwijderen
 * Lijst van maximaal 1000 identiteiten
-> Moduledubbel voor identiteits- en -module is in openbare preview. Onder de functie wordt ondersteund op de identiteit van de module wanneer deze algemeen beschikbaar.
 * Apparaat-id's exporteren naar Azure blob-opslag
 * Apparaat-id's importeren uit Azure blob-opslag
 

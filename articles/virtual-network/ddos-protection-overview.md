@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/13/2018
 ms.author: jdial
-ms.openlocfilehash: f25da8c1eedc31209a67ae05aef9dded45b706e0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae1a77921cdb3eba003ff6dc8b4885866f2fbe5e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962399"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310350"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Overzicht van Azure DDoS Protection Standard
 
@@ -29,7 +29,7 @@ Distributed denial of service (DDoS)-aanvallen zijn enkele van de grootste probl
 Azure DDoS protection, gecombineerd met aanbevolen procedures voor de toepassing-ontwerp, bieden beveiliging tegen DDoS-aanvallen. Azure DDoS protection biedt de volgende Servicelagen:
 
 - **Basic**: automatisch ingeschakeld als onderdeel van het Azure-platform. Verkeer altijd controleren en realtime oplossing voor veelvoorkomende aanvallen op netwerkniveau, bieden de dezelfde beveiliging die door Microsoft online services wordt gebruikt. De volledige omvang van het wereldwijde netwerk van Azure kan worden gebruikt om te distribueren en te verhelpen aanval verkeer tussen regio's. Beveiliging is beschikbaar voor IPv4 en IPv6-Azure [openbare IP-adressen](virtual-network-public-ip-address.md).
-- **Standard**: biedt u aanvullende risicobeperkende mogelijkheden ten opzichte van de basis-servicelaag die geschikt zijn specifiek voor Azure Virtual Network-resources. DDoS Protection Standard is eenvoudig om in te schakelen, en vereist geen wijzigingen in de toepassing. Beveiligingsbeleid voor apps zijn afgestemd op door middel van controle van toegewezen netwerkverkeer en machine learning-algoritmen. Beleidsregels worden toegepast op het openbare IP-adressen die zijn gekoppeld aan resources die zijn geïmplementeerd in virtuele netwerken, zoals Azure Load Balancer, Azure Application Gateway en Azure Service Fabric-instanties. Realtime telemetrie is beschikbaar via Azure Monitor weergaven tijdens een aanval en voor de geschiedenis. Uitgebreide aanval risicobeperking analytics zijn beschikbaar via diagnostische instellingen. Beveiliging van de toepassingslaag kan worden toegevoegd via de [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of door een 3e partij firewall installeren vanuit Azure Marketplace. Beveiliging is van toepassing op IPv4 Azure [openbare IP-adressen](virtual-network-public-ip-address.md).
+- **Standard**: biedt u aanvullende risicobeperkende mogelijkheden ten opzichte van de basis-servicelaag die geschikt zijn specifiek voor Azure Virtual Network-resources. DDoS Protection Standard is eenvoudig om in te schakelen, en vereist geen wijzigingen in de toepassing. Beveiligingsbeleid voor apps zijn afgestemd op door middel van controle van toegewezen netwerkverkeer en machine learning-algoritmen. Beleid wordt toegepast op het openbare IP-adressen die zijn gekoppeld aan resources die zijn geïmplementeerd in virtuele netwerken, zoals Azure Load Balancer, Azure Application Gateway en Azure Service Fabric-exemplaren, maar deze beveiliging is niet van toepassing op App Service-omgevingen. Realtime telemetrie is beschikbaar via Azure Monitor weergaven tijdens een aanval en voor de geschiedenis. Uitgebreide aanval risicobeperking analytics zijn beschikbaar via diagnostische instellingen. Beveiliging van de toepassingslaag kan worden toegevoegd via de [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of door een 3e partij firewall installeren vanuit Azure Marketplace. Beveiliging is van toepassing op IPv4 Azure [openbare IP-adressen](virtual-network-public-ip-address.md).
 
 ![Azure DDoS Protection Basic vs. Standard](./media/ddos-protection-overview/ddoscomparison.png)
 

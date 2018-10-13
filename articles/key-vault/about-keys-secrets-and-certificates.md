@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: b1330f2f912f3e5974a43e43f649576561fbcc11
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079222"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311351"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 
 Azure Key Vault kunt Microsoft Azure-toepassingen en gebruikers kunnen opslaan en gebruiken van verschillende gegevenstypen geheim/sleutel:
 
 - Cryptografische sleutels: biedt ondersteuning voor meerdere sleuteltypen en algoritmen, en maakt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. 
-- Geheimen: Hiermee kunnen gebruikers geheimen zoals wachtwoorden veilig opslaan. Geheimen zijn geen specifieke semantiek beperkte grootte octet objecten. 
+- Geheimen: Biedt een veilige opslag van geheimen zoals wachtwoorden en tekenreeksen voor databaseverbindingen.
 - Certificaten: Ondersteunt certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
 - Azure Storage: Sleutels van een Azure Storage-account voor u kunt beheren. Intern, Key Vault kan de sleutels (sync) met een Azure Storage-Account weergeven en opnieuw te genereren (roteren) periodiek de sleutels. 
 
@@ -94,7 +94,7 @@ Cryptografische sleutels in Key Vault worden weergegeven als JSON-Websleutel [JW
 
      Zie voor meer informatie over geografische grenzen [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Key Vault ondersteunt RSA- en elliptische-sleutels. Toekomstige versies kunnen ondersteuning voor andere typen sleutels zoals symmetrische.
+Key Vault ondersteunt RSA- en elliptische-sleutels. 
 
 -   **EG**: 'Soft' elliptische-sleutel.
 -   **EG HSM**: "Harde" elliptische-sleutel.
@@ -105,7 +105,7 @@ Key Vault ondersteunt RSA-sleutels van de grootte 2048, 3072 en 4096. Key Vault 
 
 ### <a name="cryptographic-protection"></a>Cryptografische beveiliging
 
-De cryptografische modules die Key Vault gebruikt, of HSM of software zijn gevalideerd voor FIPS (Federal Information Processing Standards). U hoeft te doen niets om uit te voeren in de FIPS-modus. Als u **maken** of **importeren** sleutels als HSM-beveiliging, ze moeten worden verwerkt binnen een HSM gevalideerd voor FIPS 140-2 Level 2 of hoger zijn gegarandeerd. Als u **maken** of **importeren** sleutels als softwarebeveiliging, ze zijn verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 Level 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](#keys-and-key-types).
+De cryptografische modules die Key Vault gebruikt, of HSM of software zijn gevalideerd voor FIPS (Federal Information Processing Standards). U hoeft te doen niets om uit te voeren in de FIPS-modus. Sleutels **gemaakt** of **geïmporteerd** als HSM-beveiliging worden verwerkt binnen een HSM, gevalideerd voor FIPS 140-2 Level 2 of hoger. Sleutels **gemaakt** of **geïmporteerd** als softwarebeveiliging, worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 Level 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>EG algoritmen
  De volgende algoritme-id's worden ondersteund met de EG en EG-HSM-sleutels in Key Vault. 
@@ -136,8 +136,8 @@ De cryptografische modules die Key Vault gebruikt, of HSM of software zijn geval
 
 Key Vault ondersteunt de volgende bewerkingen voor sleutels objecten:  
 
--   **Maak**: Hiermee kan een client een sleutel te maken in Key Vault. De waarde van de sleutel wordt gegenereerd door Key Vault en opgeslagen, en naar de client niet is vrijgegeven. Asymmetrische (en in de toekomst, Elliptic Curve en Symmetric) sleutels kunnen worden gemaakt in Key Vault.  
--   **Importeren**: Hiermee kan een client aan een bestaande sleutel importeert naar Key Vault. Asymmetrische sleutels kunnen worden geïmporteerd in Key Vault met behulp van een aantal methoden die andere pakketten in een JWK-constructie. In de toekomst Elliptic Curve en Symmetric worden ook geleverd hetzelfde.
+-   **Maak**: Hiermee kan een client een sleutel te maken in Key Vault. De waarde van de sleutel wordt gegenereerd door Key Vault en opgeslagen, en naar de client niet is vrijgegeven. Asymmetrische sleutels kunnen worden gemaakt in Key Vault.  
+-   **Importeren**: Hiermee kan een client aan een bestaande sleutel importeert naar Key Vault. Asymmetrische sleutels kunnen worden geïmporteerd in Key Vault met behulp van een aantal methoden die andere pakketten in een JWK-constructie. 
 -   **Update**: Hiermee kan een client met voldoende machtigingen voor het wijzigen van de metagegevens (belangrijke kenmerken) die zijn gekoppeld aan een sleutel die eerder zijn opgeslagen in Key Vault.  
 -   **Verwijder**: Hiermee kan een client met voldoende machtigingen voor het verwijderen van een sleutel uit Key Vault.  
 -   **Lijst met**: kan een lijst van alle sleutels in een opgegeven Key Vault-client.  
@@ -226,7 +226,7 @@ Zie voor meer informatie over het werken met sleutels [belangrijke bewerkingen i
 
 ### <a name="working-with-secrets"></a>Werken met geheimen
 
-Geheimen in Key Vault zijn octet reeksen met een maximale grootte van 25 k bytes. De service Key Vault biedt geen semantiek voor geheimen. Het gewoon accepteert de gegevens, versleutelt deze, slaat deze en retourneert een geheime id ('id'). De id kan worden gebruikt om op te halen van het geheim op een later tijdstip.  
+Vanuit het perspectief van een ontwikkelaar, van Key Vault-API's accepteren en geheime waarden als tekenreeksen retourneren. Intern, Key Vault worden opgeslagen en beheerd van geheimen als reeksen octetten (8-bits-bytes), met een maximale grootte van 25 k bytes. De service Key Vault biedt geen semantiek voor geheimen. Het gewoon accepteert de gegevens, versleutelt deze, slaat deze en retourneert een geheime id ('id'). De id kan worden gebruikt om op te halen van het geheim op een later tijdstip.  
 
 Voor zeer gevoelige gegevens moeten clients kunt u extra beveiligingslagen voor gegevens. Versleutelen van gegevens met behulp van een afzonderlijke protection-tenantsleutel voorafgaand aan opslag in Key Vault is een voorbeeld.  
 
@@ -247,7 +247,7 @@ Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in elke react
 
 #### <a name="date-time-controlled-operations"></a>Beheerde bewerkingen voor datum / tijd
 
-Van een geheim **ophalen** bewerking werkt voor geen nog geldig is en verlopen geheimen, buiten de *nbf* / *exp* venster. Aanroepen van een geheim **ophalen** bewerking, voor een geheim niet nog geldig kan worden gebruikt voor testdoeleinden. Bij het ophalen van (**ophalen**ing) een geheim verlopen, kan worden gebruikt voor herstelbewerkingen.
+Van een geheim **ophalen** bewerking werkt voor geen nog geldig is en verlopen geheimen, buiten de *nbf* / *exp* venster. Aanroepen van een geheim **ophalen** bewerking, voor een geheim niet nog geldig kan worden gebruikt voor testdoeleinden. Bij het ophalen van (**ophalen**appclassifica) een geheim verlopen, kan worden gebruikt voor herstelbewerkingen.
 
 Zie voor meer informatie over gegevenstypen [gegevenstypen](#data-types).  
 
@@ -263,7 +263,7 @@ De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in 
   - *Stel*: een geheim maken  
   - *Verwijder*: een geheim verwijderen  
   - *herstellen*: herstellen van een verwijderde geheim
-  - *back-up*: back-up van een geheim in een key vault
+  - *back-up*: Maak een Back-up van een geheim in een key vault
   - *herstellen*: een back-ups herstellen van een key vault-geheim
 
 - Machtigingen voor beschermde bewerkingen
@@ -281,7 +281,7 @@ U kunt aanvullende toepassingsspecifieke metagegevens opgeven in de vorm van tag
 
 Key Vault-certificaten-ondersteuning biedt voor het beheer van uw x509 certificaten en het volgende gedrag:  
 
--   Kan de eigenaar van een certificaat om een certificaat via een proces voor het maken van Key Vault of via het importeren van een bestaand certificaat te maken. Dit omvat zowel zelfondertekend en de certificeringsinstantie die certificaten worden gegenereerd.
+-   Kan de eigenaar van een certificaat om een certificaat via een proces voor het maken van Key Vault of via het importeren van een bestaand certificaat te maken. Bevat zowel zelfondertekende en de certificeringsinstantie die certificaten worden gegenereerd.
 -   Kan de eigenaar van een Key Vault-certificaat voor het implementeren van veilige opslag en het beheer van X509 certificaten zonder interactie met privésleutelmateriaal.  
 -   Kan de eigenaar van een certificaat te maken van een beleid dat zorgt ervoor dat de Key Vault voor het beheren van de levenscyclus van een certificaat.  
 -   Kan certificaat eigenaren contact op met informatie voor melding over gebeurtenissen van de levenscyclus van de vervaldatum en -verlenging van het certificaat opgeven.  
@@ -406,7 +406,7 @@ Als het beleid van het certificaat is ingesteld op automatische verlenging, word
 -   Voordat u certificaatvernieuwing
 -   Na het vernieuwen van een certificaat, waarin wordt vermeld als het certificaat is verlengd of als er een fout optreedt, waarvoor handmatige verlenging van het certificaat.  
 
- Als een certificaat van beleid is ingesteld op handmatig worden wordt vernieuwd (alleen e-mail) en vervolgens een melding verzonden wanneer het is nu tijd om het certificaat te vernieuwen.  
+ Wanneer een certificaatbeleid of is ingesteld op handmatig worden vernieuwd (alleen voor e-mail), wordt een melding wordt verzonden wanneer het is nu tijd om het certificaat te vernieuwen.  
 
 ### <a name="certificate-access-control"></a>Certificaat-toegangsbeheer
 
