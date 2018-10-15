@@ -77,6 +77,7 @@
 #### [Hoge beschikbaarheid in Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Hoge beschikbaarheid in Windows met SOFS File Share voor een (A)SCS-exemplaar](sap-high-availability-guide-wsfc-file-share.md)
 #### [Hoge beschikbaarheid in SUSE Linux voor een (A)SCS-exemplaar](high-availability-guide-suse.md)
+#### [Hoge beschikbaarheid in een Red Hat Enterprise Linux for (A)SCS-exemplaar](high-availability-guide-rhel.md)
 ### Voorbereiding van Azure-infrastructuur
 #### [Windows met gedeelde schijven voor een (A)SCS-exemplaar](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows met SOFS File Share voor een (A)SCS-exemplaar](sap-high-availability-infrastructure-wsfc-file-share.md)

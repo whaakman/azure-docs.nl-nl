@@ -1,23 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7056f5478838eec1cccf6329e172d86ea90d4dd8
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986508"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311045"
 documentType: LandingData
-title: Azure Data Box voor offlineoverdracht
+title: Documentatie voor Azure Data Box - Offline overdracht
 metadata:
-  title: Documentatie voor Azure Data Box voor offlineoverdracht
-  description: Met de Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor offlineoverdracht wanneer u wordt beperkt door tijd, het netwerk of de kosten.
+  title: Documentatie voor Azure Data Box - Offline overdracht
+  description: Gebruik de Data Box-apparaten voor offline gegevensoverdracht naar Azure wanneer u wordt beperkt door tijd, het netwerk of de kosten.
   services: databox
   author: alkohli
   manager: twooley
   ms.service: databox
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 10/12/2018
   ms.author: alkohli
 abstract:
   description: Met Azure Data Box-producten kunt u snel, goedkoop en betrouwbaar honderden terabytes aan gegevens overdragen naar Azure. Gebruik de Data Box-apparaten voor offlineoverdracht wanneer u wordt beperkt door tijd, het netwerk of de kosten.<p>Afhankelijk van de gegevensgrootte kiest u Data Box Disk, Data Box <SUP>(preview)</SUP> of Data Box Heavy <SUP>(preview)</SUP>. Voor elk apparaat wordt de overdracht naar Azure uitgevoerd in vier stappen (bestellen, ontvangen, gegevens naar apparaat kopiëren en apparaat retourneren aan Azure). In Azure Datacenter worden gegevens geüpload en vervolgens gewist.</p><p>Gebruik onze snelstartgidsen en zelfstudies voor meer informatie over hoe u Data Box kunt gebruiken voor uw offlinegegevensoverdracht.</p>
