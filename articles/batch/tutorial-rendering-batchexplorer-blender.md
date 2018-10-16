@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036362"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392548"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Zelfstudie: Een Blender-scène met Batch Explorer renderen
 
@@ -24,11 +24,11 @@ In deze zelfstudie leert u het volgende:
 > * Meerdere frames renderen
 > * De gerenderde framebestanden bekijken en installeren
 
-Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure Batch-account met een gekoppeld opslagaccount.  Bekijk een van de Batch-snelstarts, zoals het [CLI-artikel](https://docs.microsoft.com/azure/batch/quick-create-cli) voor het maken van een Batch-account.
+U hebt een abonnement op basis van betalen-per-gebruik of een andere betaalde Azure-optie nodig om renderingtoepassingen in Batch te kunnen gebruiken op basis van betalen per gebruik. Licenties op basis van betalen per gebruik worden niet ondersteund als u gebruikmaakt van een gratis Azure-aanbieding die een financieel tegoed biedt.
+
+U hebt een Azure Batch-account nodig met een gekoppeld opslagaccount.  Bekijk een van de Batch-snelstarts, zoals het [CLI-artikel](https://docs.microsoft.com/azure/batch/quick-create-cli) voor het maken van een Batch-account.
 
 Een kerngeheugenquotum met lage prioriteit van ten minste 50 kernen is vereist voor de VM-grootte en het aantal virtuele machines die zijn opgegeven in deze zelfstudie; het standaardquotum kan worden gebruikt, maar dan moet een kleinere virtuele machine worden gebruikt, waardoor het langer duurt om de installatiekopieën te renderen. Het proces voor het aanvragen van een verbeterd kerngeheugenquotum wordt beschreven in [dit artikel](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 

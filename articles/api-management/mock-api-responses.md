@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/27/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936980"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094892"
 ---
 # <a name="mock-api-responses"></a>Gesimuleerde antwoorden van een API
 
 Back-end API's worden geïmporteerd in een APIM API of handmatig gemaakt en beheerd. Met de stappen in deze zelfstudie leert u hoe u APIM kunt gebruiken om een lege API te maken en deze handmatig te beheren. Deze zelfstudie laat zien hoe u beleid kunt instellen voor een API zodat deze een gesimuleerd antwoord retourneert. Deze methode maakt het voor ontwikkelaars mogelijk om verder te gaan met het implementeren en testen van de instantie van APIM, zelfs wanneer de back-end niet beschikbaar is voor het verzenden van echte antwoorden. De mogelijkheid voor het maken van gesimuleerde antwoorden kan nuttig zijn bij een aantal scenario's:
 
-+ Als de API-façade eerst is ontworpen en de implementatie van de back-end later komt. Of als de back-end parallel wordt ontwikkeld.
++ Als de API-kant het eerst wordt ontworpen en de back-end implementatie later volgt. Of als de back-end parallel wordt ontwikkeld.
 + Wanneer de back-end tijdelijk niet operationeel is of niet kan worden geschaald.
 
 In deze zelfstudie leert u het volgende:
@@ -46,7 +46,7 @@ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-s
 
 De stappen in deze sectie laten zien hoe u een lege API zonder back-end maakt. Ook ziet u hoe u een bewerking kunt toevoegen aan de API. Bij het aanroepen van de bewerking na het voltooien van de stappen in deze sectie, treedt een fout op. U ontvangt geen foutmeldingen na voltooiing van de stappen in de sectie 'Antwoordsimulatie inschakelen'.
 
-1. Selecteer **API's** bij **API MANAGEMENT**.
+1. Selecteer **API's** in de service **API Management**.
 2. Selecteer **+ API toevoegen** in het linkermenu.
 3. Selecteer **Lege API** uit de lijst.
 4. Voer '*Test API*' in als **weergavenaam**.
@@ -57,14 +57,13 @@ De stappen in deze sectie laten zien hoe u een lege API zonder back-end maakt. O
 
 1. Selecteer de API die u in de vorige stap hebt gemaakt.
 2. Klik op **+ Bewerking toevoegen**.
-
-    ![Gesimuleerd bewerkingsantwoord](./media/mock-api-responses/mock-api-responses02.png)
+    ![Gesimuleerd bewerkingsantwoord](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Instelling|Waarde|Beschrijving|
     |---|---|---|
+    |**Weergavenaam**|*Testaanroep*|Deze naam wordt weergegeven in de **ontwikkelaarsportal**.|
     |**URL** (HTTP-woord)|GET|U kunt kiezen uit een van de vooraf gedefinieerde HTTP-woorden.|
     |**URL** |*/test*|Een URL-pad voor de API. |
-    |**Weergavenaam**|*Testaanroep*|Deze naam wordt weergegeven in de **ontwikkelaarsportal**.|
     |**Beschrijving**||Geef een beschrijving van de bewerking die wordt gebruikt voor documentatie voor de ontwikkelaars met behulp van deze API in de **ontwikkelaarsportal**.|
     |Tabblad **Query**||U kunt queryparameters toevoegen. Naast het invoeren van een naam en beschrijving, kunt u waarden opgeven die kunnen worden toegewezen aan deze parameter. Een van de waarden kan worden gemarkeerd als standaardwaarde (optioneel).|
     |Tabblad **Aanvraag**||U kunt aanvraaginhoudstypen, voorbeelden en schema's definiëren. |
@@ -75,18 +74,19 @@ De stappen in deze sectie laten zien hoe u een lege API zonder back-end maakt. O
 5. Selecteer **200 OK** uit de lijst.
 6. Selecteer **+ Weergave toevoegen** onder de kop **Representaties** aan de rechterkant.
 7. Voer '*application/json*' in het zoekvak in en selecteer het inhoudstype **application/json**.
-8. Voer in het tekstvak **Voorbeeld** '*{'sampleField': 'test'}*' in.
-9. Selecteer **Opslaan**.
+8. Voer in het tekstvak **Voorbeeld** `{ 'sampleField' : 'test' }` in.
+9. Selecteer **Maken**.
 
 ## <a name="enable-response-mocking"></a>Antwoordsimulatie inschakelen
 
 1. Selecteer de API die u in de stap 'Een test-API maken' hebt gemaakt.
 2. Selecteer de testbewerking die u hebt toegevoegd.
-2. Klik in het venster aan de rechterkant op het tabblad **Ontwerpen**.
-3. Klik in het venster **Binnenkomende verwerking** op het potlood.
-4. Selecteer in het tabblad **Simuleren** **Statische antwoorden** voor **Gedrag simuleren**.
-5. In het **API Management wordt het volgende antwoord geretourneerd:** text box, type **200 OK, application/json**. Deze selectie geeft aan dat uw API het voorbeeldantwoord zou moeten retourneren dat u hebt gedefinieerd in de vorige sectie.
-6. Selecteer **Opslaan**.
+3. Klik in het venster aan de rechterkant op het tabblad **Ontwerpen**.
+4. Klik in het venster **Binnenkomende verwerking** op het potlood.
+5. Selecteer in het tabblad **Simuleren** **Statische antwoorden** voor **Gedrag simuleren**.
+6. In het **API Management wordt het volgende antwoord geretourneerd:** text box, type **200 OK, application/json**. Deze selectie geeft aan dat uw API het voorbeeldantwoord zou moeten retourneren dat u hebt gedefinieerd in de vorige sectie.
+    ![Antwoordsimulatie inschakelen](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+7. Klik op **Opslaan**.
 
 ## <a name="test-the-mocked-api"></a>De gesimuleerde API testen
 
@@ -97,8 +97,9 @@ De stappen in deze sectie laten zien hoe u een lege API zonder back-end maakt. O
     > [!TIP]
     > Een gele balk met de tekst **Simuleren is ingeschakeld** geeft aan dat reacties die zijn geretourneerd door API Management een simulatiebeleid en niet een daadwerkelijk antwoord van de back-end verzenden.
 
-3. Selecteer **Verzenden** om een testaanroep uit te voeren.
-4. Het **HTTP-antwoord** geeft de JSON weer die is opgegeven als een voorbeeld in de eerste sectie van de zelfstudie.
+4. Selecteer **Verzenden** om een testaanroep uit te voeren.
+5. Het **HTTP-antwoord** geeft de JSON weer die is opgegeven als een voorbeeld in de eerste sectie van de zelfstudie.
+    ![Antwoordsimulatie inschakelen](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Video
 

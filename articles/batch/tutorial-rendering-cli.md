@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 09/25/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f721af16e894ec24e85cdb1ff100d83d58ffadd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954599"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392802"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Zelfstudie: Een scène renderen met Azure Batch 
 
-Azure Batch biedt mogelijkheden voor rendering in de cloud waarbij u betaalt op basis van gebruik. De Batch-renderingservice ondersteunt rendering-apps als Autodesk Maya, 3ds Max, Arnold en V-Ray. In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een kleine scène rendert met Batch met behulp van de Azure-opdrachtregelinterface. In deze zelfstudie leert u procedures om het volgende te doen:
+Azure Batch biedt mogelijkheden voor rendering in de cloud waarbij u betaalt op basis van gebruik. Azure Batch ondersteunt rendering-apps zoals Autodesk Maya, 3ds Max, Arnold en V-Ray. In deze zelfstudie wordt stapsgewijs uitgelegd hoe u een kleine scène rendert met Batch met behulp van de Azure-opdrachtregelinterface. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een scène uploaden naar Azure Storage
@@ -27,11 +27,11 @@ Azure Batch biedt mogelijkheden voor rendering in de cloud waarbij u betaalt op 
 > * De pool schalen en een scène met meerdere frames renderen
 > * Gerenderde uitvoer downloaden
 
-In deze zelfstudie rendert u een 3ds Max-scène met Batch met behulp van de ray-tracing renderer [Arnold](https://www.autodesk.com/products/arnold/overview). 
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+In deze zelfstudie rendert u een 3ds Max-scène met Batch met behulp van de ray-tracing renderer [Arnold](https://www.autodesk.com/products/arnold/overview). De Azure Batch-pool maakt gebruik van een Microsoft Azure Marketplace-installatiekopie met vooraf geïnstalleerde grafische en renderingtoepassingen die betalen per gebruik-licenties bieden.
 
 ## <a name="prerequisites"></a>Vereisten
+
+U hebt een abonnement op basis van betalen-per-gebruik of een andere betaalde Azure-optie nodig om renderingtoepassingen in Batch te kunnen gebruiken op basis van betalen per gebruik. Licenties op basis van betalen per gebruik worden niet ondersteund als u gebruikmaakt van een gratis Azure-aanbieding die een financieel tegoed biedt.
 
 De 3ds Max-voorbeeldscène voor deze zelfstudie staat op [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), samen met een Bash-voorbeeldscript en JSON-configuratiebestanden. De 3ds Max-scène is afkomstig uit de [voorbeeldbestanden van Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-voorbeeldbestanden zijn beschikbaar onder de Creative Commons-licentie Naamsvermelding-NietCommercieel-GelijkDelen. Copyright © Autodesk, Inc.)
 

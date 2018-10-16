@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 181e31530960f031dd2785b852c0ae15c21af782
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186305"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406379"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Zelfstudie: een Azure Database for PostgreSQL ontwerpen met Azure Portal
 
@@ -85,7 +85,7 @@ De Azure Database for PostgreSQL-service gebruikt een firewall op serverniveau. 
 
 2.  Selecteer **Verbindingsbeveiliging** op de serverpagina. 
 
-3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. In deze zelfstudie gaat u alle IP-adressen toestaan door het volgende in te voeren: **Regelnaam = AllowAllIps**, **Begin-IP-adres = 0.0.0.0** en **Eind-IP-adres = 255.255.255.255**. Klik daarna op **Opslaan**. U kunt een specifieke firewallregel instellen voor een kleiner IP-bereik zodat u vanaf uw netwerk verbinding kunt maken.
+3.  Klik in het tekstvak onder **Regelnaam** en voeg een nieuwe firewallregel toe om het IP-bereik voor connectiviteit op de goedgekeurde lijst te plaatsen. Voer uw IP-bereik in. Klik op **Opslaan**.
 
    ![Azure Database voor PostgreSQL - Een firewallregel maken](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

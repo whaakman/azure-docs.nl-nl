@@ -4,28 +4,29 @@ description: Volg de stappen in deze snelstartgids om een nieuw Azure Media Serv
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: azure media services, streamen
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42024035"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223539"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snelstartgids: Videobestanden streamen - .NET
 
 > [!NOTE]
 > De nieuwste versie van Azure Media Services is momenteel in preview en wordt ook wel v3 of versie 3 genoemd. Als u wilt werken met API's van v3, moet u een nieuw Media Services-account maken. De procedure hiervoor wordt ook beschreven in deze snelstartgids. 
 
-Deze snelstartgids laat zien hoe u met Azure Media Services eenvoudig video's kunt streamen naar allerlei verschillende browsers en apparaten. Met het voorbeeld in dit onderwerp wordt inhoud gecodeerd die u toegankelijk maakt via een HTTPS-URL. 
+Deze snelstartgids laat zien hoe u met Azure Media Services eenvoudig video's kunt coderen en streamen naar allerlei verschillende browsers en apparaten. De invoerinhoud kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag.
+Met het voorbeeld in dit onderwerp wordt inhoud gecodeerd die u toegankelijk maakt via een HTTPS-URL. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
 
 Als u deze snelstartgids hebt voltooid, weet u hoe u een video kunt streamen.  
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969288"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220883"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
@@ -155,6 +155,12 @@ Nadat u de sjabloon hebt gedefinieerd, kunt u de resources in Azure implementere
 * [Resources implementeren met Resource Manager-sjablonen en Azure Portal](resource-group-template-deploy-portal.md)
 * [Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Veilige implementatiemethoden
+
+Wanneer u een complexe service in Azure implementeert, moet u uw service mogelijk implementeren in meerdere regio's en de status ervan controleren voordat u doorgaat met de volgende stap. Gebruik [Azure Deployment Manager](deployment-manager-overview.md) voor de coördinatie van een gefaseerde implementatie van de service. Door de implementatie van uw service te faseren, kunt u potentiële problemen opsporen voordat de service is geïmplementeerd voor alle regio's. Als u deze voorzorgsmaatregelen niet nodig hebt, zijn de implementaties uit de voorgaande sectie de betere optie.
+
+Deployment Manager bevindt zich momenteel in openbare preview.
+
 ## <a name="tags"></a>Tags
 Resource Manager biedt een tagfunctie waarmee u resources kunt categoriseren volgens uw vereisten voor beheer of facturering. Gebruik tags wanneer u een verzameling complexe resourcegroepen en resources hebt en u deze assets moet visualiseren op een manier die relevant voor u is. U kunt bijvoorbeeld resources taggen die een vergelijkbare rol hebben in uw organisatie of bij dezelfde afdeling horen. Zonder tags kunnen gebruikers in uw organisatie meerdere resources maken die later mogelijk moeilijk zijn te identificeren en te beheren. Bijvoorbeeld als u alle resources voor een bepaald project wilt verwijderen. Als deze resources niet van een tag zijn voorzien voor het project, moet u er handmatig naar zoeken. Taggen kan een belangrijke manier zijn om onnodige kosten in uw abonnement te voorkomen. 
 
@@ -176,20 +182,6 @@ In het volgende voorbeeld ziet u een tag die is toegepast op een virtuele machin
   }
 ]
 ```
-
-Gebruik de volgende PowerShell-cmdlet om alle resources met een tagwaarde op te halen:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-Of voer de volgende Azure CLI-opdracht uit:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-U kunt ook getagde resources via Azure Portal weergeven.
 
 Het [gebruiksrapport](../billing/billing-understand-your-bill.md) voor uw abonnement bevat tagnamen en -waarden, zodat u de kosten op basis van tags kunt opdelen. Zie [Tags gebruiken om uw Azure-resources te organiseren](resource-group-using-tags.md) voor meer informatie over tags.
 
@@ -228,29 +220,8 @@ In sommige gevallen wilt u code of scripts uitvoeren die toegang hebben tot reso
 
 U kunt kritieke resources ook expliciet vergrendelen om te voorkomen dat gebruikers deze wijzigen of verwijderen. Zie voor meer informatie [Resources vergrendelen met Azure Resource Manager](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Activiteitenlogboeken
-Resource Manager registreert alle bewerkingen waarmee een resource wordt gemaakt, gewijzigd of verwijderd. U kunt de activiteitenlogboeken gebruiken om fouten te vinden bij foutoplossing of om te controleren hoe een gebruiker in uw organisatie een resource heeft gewijzigd. U kunt de logboeken filteren op veel verschillende waarden, inclusief welke gebruiker de bewerking heeft gestart. Zie voor meer informatie over het werken met de activiteitenlogboeken [View activity logs to manage Azure resources](resource-group-audit.md) (Activiteitenlogboeken weergeven met Resource Manager).
-
 ## <a name="customized-policies"></a>Aangepast beleid
 Met Resource Manager kunt u aangepaste beleidsregels maken voor het beheer van resources. De soorten beleid die u maakt, kunnen diverse scenario's bevatten. U kunt een naamgevingsconventie voor resources afdwingen, u kunt beperken welke typen resources en resource-exemplaren kunnen worden geïmplementeerd of u kunt beperken welke regio's als host voor een bepaald type resource kunnen fungeren. U kunt een tagwaarde voor resources verplicht stellen, om te organiseren dat facturering per afdeling plaatsvindt. U maakt beleid om kostenverlaging te stimuleren en consistentie binnen uw abonnement te waarborgen. 
-
-U definieert beleid met JSON en past dat beleid vervolgens toe op uw abonnement of binnen een resourcegroep. Beleidsregels zijn anders dan op rollen gebaseerd toegangsbeheer, omdat ze worden toegepast op resourcetypen.
-
-Het volgende voorbeeld bevat een beleid dat zorgt voor consistentie van tags doordat wordt opgegeven dat alle resources een costCenter-tag moeten bevatten.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 Er zijn nog veel meer soorten beleid die u kunt maken. Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie.
 

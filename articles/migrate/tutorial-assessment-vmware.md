@@ -4,15 +4,15 @@ description: Beschrijft hoe u met behulp van de service Azure Migrate on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/20/2018
+ms.date: 09/21/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00d416d6211d9a67a69eb22620bdac6a501e23e7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666661"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161876"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>On-premises virtuele VMware-machines detecteren en beoordelen voor migratie naar Azure
 
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 - **VMware**: de VM’s die u wilt migreren, moeten worden beheerd door vCenter Server van versie 5.5, 6.0 of 6.5. Daarnaast hebt u één ESXi-host met versie 5.0 of hoger nodig om de collector-VM te implementeren.
 - **vCenter Server-account**: u hebt een alleen-lezen-account nodig voor toegang tot de vCenter Server. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
 - **Machtigingen**: op de vCenter Server hebt u machtigingen nodig om een virtuele machine te maken door een bestand in .OVA-indeling te importeren.
-- **Instellingen voor statistieken**: de instellingen voor statistieken voor de vCenter Server moeten worden ingesteld op niveau 3 voordat u de implementatie begint. Als ze lager zijn dan niveau 3, werkt de evaluatie wel, maar worden de prestatiegegevens voor opslag en netwerk niet verzameld. De aanbeveling van de grootte wordt in dit geval gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
+- **Instellingen voor statistieken**: deze vereiste is alleen van toepassing op het model met eenmalige detectie. Het model met eenmalige detectie werkt alleen als de instellingen voor statistieken voor de vCenter Server op niveau 3 zijn ingesteld voordat u de implementatie begint. Als ze lager zijn dan niveau 3, werkt de evaluatie wel, maar worden de prestatiegegevens voor opslag en netwerk niet verzameld. De aanbeveling van de grootte wordt in dit geval gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Een account voor detectie van virtuele machines maken
 
@@ -47,7 +47,7 @@ Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machi
 - Wijs om de toegang te beperken de rol Geen toegang met het object Doorgeven naar onderliggend object toe aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
 
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -57,10 +57,9 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zoek naar **Azure Migrate** en selecteer de service **Azure Migrate** in de zoekresultaten. Klik vervolgens op **Maken**.
 3. Geef een projectnaam op en het Azure-abonnement voor het project.
 4. Maak een nieuwe resourcegroep.
-5. Geef de locatie op waar u het project wilt maken en klik op **Maken**. U kunt alleen een Azure Migrate-project maken in de regio US - west-centraal of US - oost. U kunt de migratie echter wel plannen voor elke Azure-doellocatie. De opgegeven locatie voor het project wordt alleen gebruikt om de metagegevens op te slaan die zijn verzameld van on-premises virtuele machines.
+5. Geef de geografie op waarin u het project wilt maken en klik op **Maken**. U kunt een Azure Migrate-project alleen maken in de geografie van de Verenigde Staten. U kunt de migratie echter wel plannen voor elke Azure-doellocatie. De opgegeven geografie voor het project wordt alleen gebruikt om de metagegevens op te slaan die zijn verzameld van on-premises virtuele machines.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
-
 
 
 ## <a name="download-the-collector-appliance"></a>Het collector-apparaat downloaden
@@ -68,7 +67,15 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat wordt genoemd. Deze virtuele machine detecteert on-premises virtuele VMware-machines en stuurt metagegevens van deze machines naar de service Azure Migrate. Om het collector-apparaat in te stellen, downloadt u een .OVA-bestand en importeert u het op de on-premises vCenter Server om de virtuele machine te maken.
 
 1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
-2. Klik in **Machines detecteren** op **Downloaden** om het .OVA-bestand te downloaden.
+2. In **Machines detecteren** zijn er twee opties beschikbaar voor het apparaat. Klik op **Downloaden** om het juiste apparaat te downloaden op basis van uw voorkeur.
+
+    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter Server om metagegevens over de virtuele machines te verzamelen. Voor het verzamelen van prestatiegegevens van de virtuele machines baseert het apparaat zich op de historische prestatiegegevens die zijn opgeslagen in de vCenter Server en worden de prestatiegeschiedenis van de laatste maand verzameld. In dit model verzamelt Azure Migrate het gemiddelde meteritem (versus piektellers) voor alle metrische gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie is, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie is voltooid. Als u wilt dat de wijzigingen worden weergegeven, moet u opnieuw een detectie van dezelfde omgeving uitvoeren voor hetzelfde project.
+
+    b. **Continue detectie:** het apparaat voor dit model profileert continu de on-premises omgeving om realtime gebruiksgegevens voor elke virtuele machine te verzamelen. In dit model worden piektellers verzameld voor elk metrisch gegeven (CPU-gebruik, geheugengebruik enzovoort). Dit model is voor het verzamelen van prestatiegegevens niet afhankelijk van de instellingen voor statistieken in vCenter Server. U kunt de continue profilering op elk gewenst moment stoppen vanaf het apparaat.
+
+    > [!NOTE]
+    > De functionaliteit van de continue detectie is in preview.
+
 3. Kopieer de project-id en -sleutel uit **Projectreferenties kopiëren**. U hebt deze nodig tijdens de configuratie van collector.
 
     ![.OVA-bestand downloaden](./media/tutorial-assessment-vmware/download-ova.png)
@@ -83,53 +90,50 @@ Controleer of het .OVA-bestand veilig is voordat u het implementeert.
     - Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. De gegenereerde hash moet overeenkomen met deze instellingen.
 
+#### <a name="one-time-discovery"></a>Eenmalige detectie
+
   Voor OVA-versie 1.0.9.14
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+  **Algoritme** | **Hash-waarde**
+  --- | ---
+  MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+  SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+  SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
   Voor OVA-versie 1.0.9.12
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+  **Algoritme** | **Hash-waarde**
+  --- | ---
+  MD5 | d0363e5d1b377a8eb08843cf034ac28a
+  SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+  SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   Voor OVA-versie 1.0.9.8
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+  **Algoritme** | **Hash-waarde**
+  --- | ---
+  MD5 | b5d9f0caf15ca357ac0563468c2e6251
+  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    Voor OVA-versie 1.0.9.7
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+  Voor OVA-versie 1.0.9.7
 
-    Voor OVA-versie 1.0.9.5
+  **Algoritme** | **Hash-waarde**
+  --- | ---
+  MD5 | d5b6a03701203ff556fa78694d6d7c35
+  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | fb11ca234ed1f779a61fbb8439d82969
-    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
-    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+#### <a name="continuous-discovery"></a>Continue detectie
 
-    Voor OVA-versie 1.0.9.2
+  Voor OVA-versie 1.0.10.4
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | 7326020e3b83f225b794920b7cb421fc
-    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
-    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+  **Algoritme** | **Hash-waarde**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>De collector-VM maken
 
@@ -170,7 +174,7 @@ Importeer het gedownloade bestand naar de vCenter Server.
     - Selecteer in **Collection scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. Lees [hier](how-to-scale-assessment.md) meer over hoe u een grotere omgeving kunt detecteren.
 
 7. Geef in **Specify migration project** de Azure Migrate project-id en -sleutel op die u hebt gekopieerd in de portal. Als u deze niet hebt gekopieerd, opent u Azure Portal vanuit de collector-VM. Klik op de **overzichtspagina** van het project op **Machines detecteren** en kopieer de waarden.  
-8. In **View collection progress** bekijkt u de detectie en controleert u of metagegevens die vanuit de virtuele machines worden verzameld, zich binnen het bereik bevinden. De collector geeft aan hoe lang de detectie ongeveer zal duren. Lees [hier](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) meer over welke gegevens worden verzameld door de collector Azure Migrate.
+8. In **Voortgang van verzamelen weergeven** kunt u de detectiestatus controleren. Meer informatie] https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)over welke gegevens er worden verzameld door de Azure Migrate Collector.
 
 > [!NOTE]
 > De collector ondersteunt alleen 'Engels (Verenigde Staten)' als de taal van het besturingssysteem en de taal van de gebruikersinterface van de collector.
@@ -180,9 +184,11 @@ Importeer het gedownloade bestand naar de vCenter Server.
 
 ### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 
-De detectietijd is afhankelijk van het aantal virtuele machines dat u detecteert. Nadat de collector is uitgevoerd, duurt het voor 100 virtuele machines gewoonlijk ongeveer een uur voordat de detectie is voltooid.
+Voor eenmalige detectie is de detectietijd afhankelijk van het aantal virtuele machines dat u detecteert. Voor 100 virtuele machines duurt het nadat de collector is uitgevoerd, ongeveer een uur voordat de configuratie- en prestatiegegevens zijn verzameld. U kunt direct nadat de detectie is uitgevoerd een evaluatie maken (zowel op basis van prestaties als on-premises-evaluaties).
 
-1. Klik in het Migration Planner-project op **Manage** > **Machines**.
+Voor continue detectie (in preview) zal de collector continu de on-premises omgeving profileren en worden er met een interval van een uur voortdurend prestatiegegevens verzonden. U kunt de machines in de portal controleren vanaf een uur nadat de detectie is gestart. Het is raadzaam om ten minste een dag te wachten met het maken van evaluaties op basis van prestaties voor de virtuele machines.
+
+1. Klik in het migratieproject op **Beheren** > **Machines**.
 2. Controleer of de virtuele machines die u wilt detecteren in de portal worden weergegeven.
 
 
@@ -197,6 +203,9 @@ Nadat virtuele machines zijn gedetecteerd, kunt u ze groeperen en een evaluatie 
 5. Klik op **Evaluatie maken** om de groep en de evaluatie te maken.
 6. Nadat de evaluatie is gemaakt, kunt u deze bekijken in **Overzicht** > **Dashboard**.
 7. Klik op **Evaluatie exporteren** om deze te downloaden als een Excel-bestand.
+
+> [!NOTE]
+> Voor continue detectie is het raadzaam om na het starten van detectie ten minste een dag te wachten met het maken van een evaluatie. Als u een bestaande evaluatie wilt bijwerken met de meest recente prestatiegegevens, kunt u de opdracht **Opnieuw berekenen** voor de evaluatie gebruiken om deze bij te werken.
 
 ### <a name="assessment-details"></a>Evaluatiedetails
 
@@ -248,13 +257,23 @@ Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebr
    81%-100% | 5 sterren
 
 Het kan voorkomen dat niet alle gegevenspunten beschikbaar zijn voor een evaluatie. Dit kan de volgende oorzaken hebben:
-- De instelling voor statistieken in vCenter Server is niet ingesteld op niveau 3. Als de instelling voor statistieken in vCenter Server op een lager niveau dan niveau 3 is ingesteld, worden de prestatiegegevens voor de schijf en het netwerk niet verzameld vanuit vCenter Server. In dat geval wordt de aanbeveling van Azure Migrate voor de schijf en het netwerk niet gebaseerd op gebruik. Als er geen rekening wordt gehouden met de IOPS/doorvoer van de schijf, kan in Azure Migrate niet worden bepaald of voor de schijf een premium-schijf in Azure nodig is. In dat geval adviseert Azure Migrate Standard-schijven voor alle schijven.
+
+**Eenmalige detectie**
+
+- De instelling voor statistieken in vCenter Server is niet ingesteld op niveau 3. Omdat het model voor eenmalige detectie afhankelijk is van de instellingen voor statistieken in vCenter Server, worden de prestatiegegevens voor de schijf en het netwerk niet verzameld vanuit vCenter Server als de instelling voor statistieken in vCenter Server is ingesteld op een lager niveau dan niveau 3. In dat geval wordt de aanbeveling van Azure Migrate voor de schijf en het netwerk niet gebaseerd op gebruik. Als er geen rekening wordt gehouden met de IOPS/doorvoer van de schijf, kan in Azure Migrate niet worden bepaald of voor de schijf een premium-schijf in Azure nodig is. In dat geval adviseert Azure Migrate Standard-schijven voor alle schijven.
 - De instelling voor statistieken in vCenter Server is korte tijd op niveau 3 ingesteld geweest voordat de detectie begon. Laten we het scenario als voorbeeld nemen waarin u het niveau van de instelling voor statistieken vandaag bijvoorbeeld op 3 zet en morgen (na 24 uur) met de detectie begint met behulp van het collector-apparaat. Als u een evaluatie voor één dag maakt, hebt u alle gegevenspunten en is de betrouwbaarheidsclassificatie van de evaluatie 5 sterren. Maar als u de duur van de prestaties in de evaluatie-eigenschappen wijzigt in één maand, gaat de betrouwbaarheidsclassificatie omlaag, omdat de prestatiegegevens voor schijven en netwerken voor de laatste maand niet beschikbaar zijn. Als u rekening wilt houden met de prestatiegegevens voor de laatste maand, kunt u het beste de instelling voor statistieken in vCenter Server op niveau 3 laten staan gedurende één maand voordat u met de detectie begint.
-- Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als er VM's zijn die gedurende een bepaalde tijd uitgeschakeld zijn geweest, zal vCenter Server voor die periode geen prestatiegegevens hebben.
+
+**Continue detectie**
+
+- U hebt uw omgeving niet geprofileerd gedurende de periode waarvoor u de evaluatie maakt. Bijvoorbeeld, als u de evaluatie maakt waarbij de duur van de prestaties is ingesteld op 1 dag, moet u na het starten van de detectie minimaal een dag wachten voordat alle gegevenspunten zijn verzameld.
+
+**Veelvoorkomende redenen**  
+
+- Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als er VM's zijn die gedurende een bepaalde periode uitgeschakeld zijn geweest, kunnen er voor die periode geen prestatiegegevens worden verzameld.
 - Er zijn enkele VM's gemaakt tijdens de periode waarover de evaluatie wordt berekend. Als u bijvoorbeeld een evaluatie maakt voor de prestatiegeschiedenis van de laatste maand, maar er een week geleden enkele VM's in de omgeving zijn gemaakt. In dergelijke gevallen is de prestatiegeschiedenis van de nieuwe virtuele machines niet voor de hele periode beschikbaar.
 
 > [!NOTE]
-> Als de betrouwbaarheidsclassificatie van een evaluatie lager dan 4 sterren is, raden we u aan om de instelling voor statistieken in vCenter Server op 3 te zetten, te wachten gedurende de periode waarover u de evaluatie wilt uitvoeren (1 dag/1 week/1 maand) en vervolgens een detectie en evaluatie uit te voeren. Als de voorgaande stappen niet kunnen worden uitgevoerd, wordt de grootte mogelijk niet op betrouwbare wijze ingesteld. In dat geval doet u er verstandig aan over te schakelen naar *instelling van de grootte op basis van 'zoals on-premises'* door de evaluatie-eigenschappen te wijzigen.
+> Als de betrouwbaarheidsclassificatie van een evaluatie lager is dan 4 sterren, raden we voor een model voor eenmalige detectie aan om de instelling voor statistieken in vCenter Server op 3 te zetten, te wachten gedurende de periode waarover u de evaluatie wilt uitvoeren (1 dag/1 week/1 maand) en vervolgens een detectie en evaluatie uit te voeren. Wacht voor het model voor continue detectie minimaal een dag tot het apparaat de omgeving heeft geprofileerd en *bereken de evaluatie dan opnieuw*. Als de voorgaande stappen niet kunnen worden uitgevoerd, wordt de grootte mogelijk niet op betrouwbare wijze ingesteld. In dat geval doet u er verstandig aan over te schakelen naar *instelling van de grootte op basis van 'zoals on-premises'* door de evaluatie-eigenschappen te wijzigen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050224"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408909"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snelstart: een Azure Database for PostgreSQL-server maken in Azure Portal
 
@@ -50,7 +50,7 @@ Volg deze stappen voor het maken van een Azure Database for PostgreSQL-server:
     Aanmeldgegevens van serverbeheerder |*myadmin*| Uw eigen aanmeldingsaccount dat moet worden gebruikt om verbinding te maken met de server. De aanmeldingsnaam voor de beheerder mag niet **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** of **public** zijn. De naam mag niet met **pg_** beginnen.
     Wachtwoord |Uw wachtwoord| Een nieuw wachtwoord voor het beheerdersaccount voor de server. Dit wachtwoord moet tussen 8 en 128 tekens bevatten. Uw wachtwoord moet tekens bevatten uit drie van de volgende categorieën: Nederlandse hoofdletters, Nederlandse kleine letters, cijfers (0 tot en met 9) en niet-alfanumerieke tekens (!, $, #, %, enzovoort).
     Locatie|De regio het dichtst bij uw gebruikers| De locatie die zich het dichtst bij uw gebruikers bevindt.
-    Versie|De nieuwste versie| De nieuwste versie van PostgreSQL, tenzij u specifieke andere vereisten hebt.
+    Versie|De meest recente primaire versie| De nieuwste primaire versie van PostgreSQL, tenzij u specifieke andere vereisten hebt.
     Prijscategorie | **Algemeen**, **Gen 4**, **2 vCores**, **5 GB**, **7 dagen**, **Geografisch redundant** | De reken-, opslag- en back-upconfiguraties voor de nieuwe server. Selecteer **Prijscategorie**. Selecteer vervolgens het tabblad **Algemeen**. *Gen 4*, *2 vCores*, *5 GB* en *7 dagen* zijn de standaardwaarden voor **Bewerking voor compute**, **vCore**, **Opslag** en **Bewaarperiode voor back-up**. U kunt deze schuifregelaars laten zoals ze zijn. Als u serverback-ups in geografisch redundante opslag wilt inschakelen, selecteert u **Geografisch redundant** in het gedeelte **Redundantieopties voor back-up**. Selecteer **OK** om deze geselecteerde prijscategorie op te slaan. Deze selecties worden afgebeeld in de volgende schermopname.
 
     > [!IMPORTANT]
@@ -78,17 +78,10 @@ In Azure Database for PostgreSQL wordt een firewall op serverniveau gemaakt. De 
 
 3. Selecteer onder de kop **Firewallregels** het lege tekstvak in de kolom **Regelnaam** om te beginnen met het maken van de firewallregel. 
 
-    Voor deze quickstart gaan we alle IP-adressen tot de server toelaten. Vul in het tekstvak in elke kolom de volgende waarden in:
+   Vul in de vakken een naam in en het eerste en laatste adres van het IP-adresbereik van de clients die toegang moeten krijgen tot uw server. Als het één IP-adres betreft, gebruik dan dezelfde waarde voor het begin-IP-adres en eind-IP-adres.
 
-    Regelnaam | Start-IP | Eind-IP 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Firewallregels instellen](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Firewallregels instellen](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > Voor productie-exemplaren moet u de firewallregels instellen voor het accepteren van inkomende aanvragen van bekende IP-adressen.  Deze instellingen zijn alleen bedoeld als voorbeeld.
-      >
 
 4. Selecteer **Opslaan** op de bovenste werkbalk van de pagina **Verbindingsbeveiliging**. Ga pas verder als u de melding ziet dat de verbindingsbeveiliging is bijgewerkt.
 

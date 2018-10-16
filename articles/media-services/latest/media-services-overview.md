@@ -4,7 +4,7 @@ description: Dit artikel biedt een algemeen overzicht van Media Services en beva
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, stream, uitzenden, live, offline
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 07/14/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325928"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221927"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Wat is Azure Media Services v3?
 
@@ -55,7 +55,7 @@ v3 is gebaseerd op een geïntegreerde API-gebied dat functionaliteit voor zowel 
 Deze versie biedt de volgende mogelijkheden:  
 
 * **Transformaties** waarmee u eenvoudige werkstromen voor mediaverwerking of analytische taken kunt definiëren. Transformeren is een proces voor het verwerken van uw video- en audiobestanden. U kunt het proces vervolgens herhaaldelijk toepassen om alle bestanden in de inhoudsbibliotheek te verwerken door het verzenden van taken naar de transformatie.
-* **Taken** voor het verwerken (coderen of analyseren) van uw video's. De invoerinhoud voor een taak kan worden opgegeven met HTTP (s) URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag. 
+* **Taken** voor het verwerken (coderen of analyseren) van uw video's. De invoerinhoud voor een taak kan worden opgegeven met HTTPS-URL's, SAS-URL's of paden naar bestanden in Azure Blob-opslag. Op dit moment biedt AMS v3 geen ondersteuning voor gesegmenteerde overdrachtscodering via HTTPS-URL's.
 * **Meldingen** voor het controleren van de taakvoortgang of taakstatus, of het starten/stoppen van live kanalen en foutgebeurtenissen. Meldingen zijn geïntegreerd met het meldingssysteem van Azure Event Grid. U kunt zich eenvoudig abonneren op gebeurtenissen voor verschillende resources in Azure Media Services. 
 * Gebruik sjablonen van **Azure Resource Management** voor het maken en implementeren van bijvoorbeeld transformaties, streaming-eindpunten en kanalen.
 * **Toegangsbeheer op basis van rollen** kan worden ingesteld op het niveau van de resource, zodat u de toegang tot specifieke resources zoals transformaties en kanalen kunt bepalen.
@@ -126,7 +126,7 @@ Microsoft genereert en ondersteunt de volgende clientbibliotheken:
 |API-referenties|SDK’s/hulpprogramma’s|Voorbeelden|
 |---|---|---|---|
 |[REST-ref](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman-voorbeelden](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[REST API op basis van Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI-ref](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI-voorbeelden](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[Azure CLI-ref](https://aka.ms/ams-v3-cli-ref)|[Azure-CLI](https://aka.ms/ams-v3-cli)|[Azure CLI-voorbeelden](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
 |[.NET-ref](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-voorbeelden](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
 ||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (kies het tabblad **.NET CLI**)|[.NET Core-voorbeelden](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
 |[Java-ref](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||

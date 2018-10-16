@@ -3,18 +3,17 @@ title: Privé-Docker-containerregisters in Azure
 description: Kennismaking met de Azure Container Registry-service, waarmee u cloudgebaseerde, beheerde en persoonlijke Docker-registers kunt maken.
 services: container-registry
 author: stevelas
-manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/08/2018
+ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: f282d7d6950278d0c270009256cf054a0d630e60
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5d60144c6b3aada74e4b89c905085835dd5b32d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031322"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Inleiding tot privé-Docker-containerregisters in Azure
 
@@ -28,12 +27,12 @@ Zie het [Docker-overzicht](https://docs.docker.com/engine/docker-overview/) Voor
 
 Haal installatiekopieën op vanuit een Azure-containerregister en push ze naar verschillende implementatiedoelen:
 
-* **Schaalbare indelingssystemen** die toepassingen in een container beheren voor verschillende hostclusters, waaronder [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) en [Kubernetes](http://kubernetes.io/docs/).
+* **Schaalbare indelingssystemen** die toepassingen in een container beheren in hostclusters, waaronder [Kubernetes](http://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) en [Docker Swarm](https://docs.docker.com/swarm/).
 * **Azure-services** die het bouwen en uitvoeren van toepassingen op schaal ondersteunen, waaronder [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) en andere.
 
-Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) of [Jenkins](https://jenkins.io/).
+Ontwikkelaars kunnen ook naar een containerregister pushen als onderdeel van een ontwikkelingswerkstroom met containers. Bijvoorbeeld naar een containerregister vanuit doorlopende integratie- implementatieprogramma's als [Azure DevOps Services](https://www.visualstudio.com/docs/overview) of [Jenkins](https://jenkins.io/).
 
-Configureer [ACR Build](#azure-container-registry-build)-buildtaken om toepassingsinstallatiekopieën automatisch opnieuw te bouwen wanneer de basisinstallatiekopieën zijn bijgewerkt. Gebruik ACR Build om installatiekopiebuilds te automatiseren wanneer uw team code registreert in een Git-opslagplaats. *ACR Build is momenteel beschikbaar als preview-product.*
+Configureer [ACR Tasks](#azure-container-registry-build) om toepassingsinstallatiekopieën automatisch opnieuw te bouwen wanneer de basisinstallatiekopieën zijn bijgewerkt. Gebruik ACR Tasks om installatiekopiebuilds te automatiseren wanneer uw team code registreert in een Git-opslagplaats.
 
 ## <a name="key-concepts"></a>Belangrijkste concepten
 
@@ -51,14 +50,14 @@ Configureer [ACR Build](#azure-container-registry-build)-buildtaken om toepassin
 
 * **Container**: een container definieert een softwaretoepassing en de afhankelijkheden opgenomen in een compleet bestandssysteem inclusief code, runtime, systeemwerkset en bibliotheken. U kunt Docker-containers uitvoeren op basis van Windows- of Linux-installatiekopieën die u ophaalt uit een containerregister. Containers die op een enkele machine worden uitgevoerd, delen de kernel van het besturingssysteem. Docker-containers zijn volledig overdraagbaar naar alle grote distributies van Linux, macOS en Windows.
 
-## <a name="azure-container-registry-build-preview"></a>Azure Container Registry Build (preview)
+## <a name="azure-container-registry-tasks"></a>Azure Container Registry Tasks
 
-[Azure Container Registry Build](container-registry-build-overview.md) (ACR Build) is een suite met functies in Azure Container Registry die gestroomlijnde en efficiënte Docker-containerinstallatiekopiebuilds maakt in Azure. Gebruik ACR Build om uw interne ontwikkelingsactiviteiten uit te breiden naar de cloud door `docker build`-bewerkingen te offloaden naar Azure. Configureer buildtaken om uw container-OS- en frameworkpatchingpijplijn te automatiseren en automatisch installatiekopieën te maken wanneer uw team code met bronbeheer doorvoert.
+[Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) is een reeks functies in Azure Container Registry om gestroomlijnde en efficiënte Docker-containerinstallatiekopiebuilds te maken in Azure. Gebruik ACR Tasks om uw interne ontwikkelingsactiviteiten uit te breiden naar de cloud door `docker build`-bewerkingen te offloaden naar Azure. Configureer buildtaken om uw container-OS- en frameworkpatchingpijplijn te automatiseren en automatisch installatiekopieën te maken wanneer uw team code met bronbeheer doorvoert.
 
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+[Taken met meerdere stappen](container-registry-tasks-overview.md#multi-step-tasks-preview), een preview-functie van ACR Tasks, biedt een stapsgewijze taakdefinitie en -uitvoering voor het ontwikkelen, testen en patchen van containerinstallatiekopieën in de cloud. Taakstappen definiëren afzonderlijke ontwikkel- en pushbewerkingen voor containerinstallatiekopieën. Ze kunnen ook de uitvoering definiëren van een of meer containers, waarbij elke stap de container als uitvoeringsomgeving gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een containerregister maken met Azure Portal](container-registry-get-started-portal.md)
 * [Een containerregister maken met de Azure-CLI](container-registry-get-started-azure-cli.md)
-* [OS- en frameworkpatching automatiseren met ACR Build](container-registry-build-overview.md) (preview)
+* [OS- en frameworkpatching automatiseren met ACR Tasks](container-registry-tasks-overview.md)

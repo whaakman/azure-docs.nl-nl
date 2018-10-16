@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097882"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419522"
 ---
-# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Zelfstudie: een Azure Resource Manager-sjabloon maken voor het implementeren van een versleuteld opslagaccount
+# <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Zelfstudie: Een Azure Resource Manager-sjabloon maken voor het implementeren van een versleuteld opslagaccount
 
 Uitleg over hoe u meer informatie kunt vinden om een Azure Resource Manager-sjabloon te voltooien.
 
@@ -112,9 +112,14 @@ De variabele die is gedefinieerd in de sjabloon gebruiken:
 Het doel van deze zelfstudie is om een sjabloon te definiëren voor het maken van een versleuteld opslagaccount.  Met de voorbeeldsjabloon wordt alleen een niet-versleuteld basisopslagaccount gemaakt. Als u de aan versleuteling gerelateerde configuratie wilt vinden, kunt u de sjabloonverwijzing van het Azure-opslagaccount gebruiken.
 
 1. Browse naar [Azure-sjablonen](https://docs.microsoft.com/azure/templates/).
-2. Selecteer in de inhoudsopgave aan de linkerkant **Verwijzing**->**Opslag**->**Opslagaccounts**. U kunt ook **opslag** invoeren in het veld **Filteren op**.  De pagina bevat het schema voor het definiëren van de gegevens van een opslagaccount.
-3. Bekijk de aan versleuteling gerelateerde informatie.  
-4. Voeg de volgende json toe in het element eigenschappen van de resourcedefinitie voor het opslagaccount:
+2. Voer in **Filteren op titel** **opslagaccounts** in.
+3. Selecteer **Verwijzing/Sjabloonverwijzing/Opslag/Opslagaccounts** zoals wordt weergegeven in de volgende schermafbeelding:
+
+    ![Resource Manager-sjabloon verwijzing opslagaccount](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-sjabloon-bronnen-verwijzing-opslagaccounts
+1. Bekijk de aan versleuteling gerelateerde informatie.  
+1. Voeg de volgende json toe in het element eigenschappen van de resourcedefinitie voor het opslagaccount:
 
     ```json
     "encryption": {
@@ -151,7 +156,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u met sjabloonverwijzing een bestaande sjabloon kunt aanpassen. De gebruikte sjabloon in deze zelfstudie bevat slechts één Azure-resource.  In de volgende zelfstudie ontwikkelt u een sjabloon met meerdere resources. Sommige resources hebben afhankelijke resources.
+In deze zelfstudie hebt u geleerd hoe u met sjabloonverwijzing een bestaande sjabloon kunt aanpassen. Voor informatie over hoe u meerdere exemplaren van een opslagaccount maakt, zie:
 
 > [!div class="nextstepaction"]
-> [Meerdere resources maken](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Meerdere exemplaren maken](./resource-manager-tutorial-create-multiple-instances.md)

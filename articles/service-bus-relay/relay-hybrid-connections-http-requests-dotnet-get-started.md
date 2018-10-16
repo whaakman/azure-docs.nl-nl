@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918763"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451219"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Aan de slag met HTTP-aanvragen voor hybride verbindingen van Relay in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,14 @@ Maak in Visual Studio een C#-consoletoepassing om berichten naar de Relay te stu
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. De toepassingen uitvoeren
-1. Voer de servertoepassing uit.
-2. Voer de clienttoepassing uit en voer wat tekst in.
-3. Zorg ervoor dat de servertoepassingsconsole de tekst weergeeft die in de clienttoepassing is ingevoerd.
+1. Voer de servertoepassing uit. U ziet de volgende tekst in het consolevenster:
+
+    ```
+    Online
+    Server listening
+    ```
+1. Voer de clienttoepassing uit. U ziet `hello!` in het clientvenster. De client heeft een HTTP-aanvraag verzonden naar de server en de server heeft gereageerd met een `hello!`. 
+3. Nu kunt u de consolevensters sluiten door in beide consolevenster op **Enter** te drukken. 
 
 Gefeliciteerd, u hebt een end-to-end toepassing met hybride verbindingen gemaakt.
 

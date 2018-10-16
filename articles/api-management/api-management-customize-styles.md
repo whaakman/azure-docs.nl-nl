@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00e6f2ed866afd13343df37de625e2913f613dfa
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33933704"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092400"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>De stijl van de pagina's van de ontwikkelaarsportal aanpassen
 
@@ -82,5 +82,4 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Aanpassen van de stijl van elementen op pagina's van de **ontwikkelaars**portal
 > * Uw wijziging bekijken
 
-> [!div class="nextstepaction"]
-> [Met sjablonen het Azure API Management-ontwikkelaarsportal aanpassen](api-management-developer-portal-templates.md)
+Misschien wilt u wel weten hoe u [de Azure API Management-ontwikkelaarsportal aanpast met behulp van sjablonen](api-management-developer-portal-templates.md).

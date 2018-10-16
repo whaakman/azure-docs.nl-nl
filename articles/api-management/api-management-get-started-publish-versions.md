@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1cbe63184578f7d1e72992577a11c58b9b83a002
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937311"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092690"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Meerdere versies van uw API publiceren 
 
@@ -44,7 +44,7 @@ In deze zelfstudie leert u het volgende:
 
 ![Contextmenu van API - versie toevoegen](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. Selecteer **Conferentie-API** uit de lijst van de API.
+1. Selecteer **Demo Conference API** in de lijst met API's.
 2. Selecteer het contextmenu (**...** ) ernaast.
 3. Selecteer **+ Versie toevoegen**.
 
@@ -58,37 +58,39 @@ Met Azure API Management kunt u de manier kiezen waarop u het aanroepers mogelij
 ![Versiescherm toevoegen](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Laat **pad** geselecteerd als uw **versiebeheerschema**.
-2. Voeg **v1** toe als uw **versie-id**.
+2. Voeg **v1** toe als **Naam** en **Versie-id**.
 
     > [!TIP]
     > Als u **header** of **querytekenreeks** selecteert als een versiebeheerschema, moet u een extra waarde opgeven: de naam van de header of query-tekenreeksparameter.
 
-3. Geef een beschrijving als u wenst.
-4. Selecteer **Maken** voor het instellen van uw nieuwe versie.
-5. Onder **Grote conferentie API** in de lijst API ziet u nu twee verschillende API's: **Origineel** en **v1**.
+3. Selecteer **Maken** voor het instellen van uw nieuwe versie.
+4. Onder **Demo Conference API** in de lijst met API's ziet u nu twee verschillende API's: **Origineel** en **v1**.
 
     ![Versies vermeld in een API in Azure Portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Als u een versie aan een niet-samengestelde API toevoegt, wordt automatisch een **Origineel** gemaakt dat reageert op de standaard-URL. Dit zorgt ervoor dat eventuele bestaande aanroepfuncties niet worden onderbroken door het proces van het toevoegen van een versie. Als u een nieuwe API met versies maakt die aan het begin zijn ingeschakeld, wordt geen Origineel gemaakt.
 
-6. U kunt nu **v1** bewerken en configureren als een API die verschilt van het **Origineel**. Wijzigingen in één versie hebben geen invloed op een andere.
+5. U kunt nu **v1** bewerken en configureren als een API die verschilt van het **Origineel**. Wijzigingen in één versie hebben geen invloed op een andere.
 
 ## <a name="add-the-version-to-a-product"></a>Voeg de versie toe aan een product
 
 Als aanroepers de nieuwe versie willen zien, moet deze worden toegevoegd aan een **product**.
 
 1. Selecteer **Producten** via de klassieke implementatiemodel-pagina.
+
+    ![API Management-producten](media/api-management-getstarted-publish-versions/Products.png)
+
 2. Selecteer **Onbeperkt**.
 3. Selecteer **API's**.
 4. Selecteer **Toevoegen**.
-5. Selecteer **Conferentie-API, versie v1**.
+5. Selecteer **Demo Conference API, versie v1**.
 6. Navigeer naar de service-beheerpagina en selecteer **API's**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Blader door de portal voor ontwikkelaars om de versie te zien
 
 1. Selecteer **ontwikkelaarsportal** in het menu bovenaan.
-2. Selecteer **API's**. Zoals u ziet toont **Conferentie-API** de versies **Origineel** en **v1**.
+2. Selecteer **API's**. Bij **Demo Conference API** ziet u de versies **Origineel** en **v1**.
 3. Selecteer **v1**.
 4. U ziet de **Verzoek-URL** van de eerste bewerking in de lijst. Het laat zien dat het API URL-pad **v1** bevat.
 
@@ -107,4 +109,4 @@ In deze zelfstudie leert u het volgende:
 Ga door naar de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Upgraden en schaal aanpassen](upgrade-and-scale.md)
+> [De stijl van de pagina's van de ontwikkelaarsportal aanpassen](api-management-customize-styles.md)

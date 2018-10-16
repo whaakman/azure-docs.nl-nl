@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637870"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092966"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Beheerde labs in Azure Lab Services en DevTest Labs vergelijken
 U kunt twee soorten labs maken: **beheerde labs** met Azure Lab Services en **aangepaste labs** met Azure DevTest Labs. Als u alleen wilt invoeren wat u nodig hebt in een lab en de service de voor het lab vereiste infrastructuur wilt laten instellen, dient u een van de **beheerde labs** te kiezen. Op dit moment is het **leslokaallab** het enige type beheerde Lab dat u met Azure Lab-Services kunt maken. Als u uw eigen infrastructuur wilt beheren, maakt u een lab met behulp van Azure DevTest Labs.
 
 De volgende secties bevatten meer informatie over deze labs. 
 
-## <a name="managed-labs"></a>Beheerde labs
-Beheerde labs bieden verschillende soorten labs die geschikt zijn voor uw specifieke behoeften. Azure Lab Services ondersteunt momenteel alleen het **leslokaallab** als beheerd lab. Met beheerde labs kunt u meteen aan de slag met een minimale installatie. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor het lab, van het inrichten van de VM's tot de afhandeling van fouten, en het schalen van de infrastructuur. Als u wilt een beheerd lab maken, moet u eerst een lab-account voor uw organisatie maken. Het lab-account fungeert als het centrale account waarin alle labs in de organisatie worden beheerd. 
+## <a name="managed-lab-types"></a>Beheerde labtypen
+Met Azure Lab Services kunt u labs maken waarvan de infrastructuur wordt beheerd door Azure. In dit artikel worden deze beheerde labs genoemd. Beheerde labs bieden verschillende soorten labs die geschikt zijn voor uw specifieke behoeften. Op dit moment is **leslokaallab** het enige type beheerde lab dat wordt ondersteund. 
+
+Met beheerde labs kunt u meteen aan de slag met een minimale installatie. De service zelf is verantwoordelijk voor het volledige beheer van de infrastructuur voor het lab, van het inrichten van de VM's tot de afhandeling van fouten, en het schalen van de infrastructuur. Als u een beheerd lab, bijvoorbeeld een leslokaallab, wilt maken, moet u eerst een labaccount voor uw organisatie maken. Het lab-account fungeert als het centrale account waarin alle labs in de organisatie worden beheerd. 
 
 Wanneer u Azure-resources in deze beheerde labs maakt en gebruikt, worden deze door de service in interne abonnementen van Microsoft gemaakt en beheerd. Ze worden niet in uw eigen Azure-abonnement gemaakt. De service houdt het gebruik van deze resources bij in de interne Microsoft-abonnementen. Dit gebruik wordt weer in rekening gebracht op uw Azure-abonnement dat het lab-account bevat.   
 
@@ -51,11 +53,11 @@ Hier volgen enkele **gebruikscases van DevTest Labs**:
 - Bied uw klanten trainingssessies aan met een lab dat is geconfigureerd met de nieuwste versie van uw product. Geef elke klant een beperkt aantal uren voor het gebruik van het lab. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Beheerde labs versus DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>Beheerde labtypen versus DevTest Labs
 In de volgende tabel worden twee soorten testlaboratoria vergeleken die worden ondersteund door Azure Lab Services: 
 
 | Functies | Beheerde labs | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Beheer van Azure-infrastructuur in het lab. |  Automatisch beheerd door de service | U beheert zelf  |
 | Ingebouwde tolerantie voor problemen in de infrastructuur | Automatisch afgehandeld door de service | U beheert zelf  |
 | Abonnementsbeheer | Service verwerkt de toewijzing van resources binnen Microsoft-abonnementen die de service ondersteunen. Schalen wordt automatisch afgehandeld door de service. | U beheert zelf in uw eigen Azure-abonnement. Er is geen automatische schaling van abonnementen. |

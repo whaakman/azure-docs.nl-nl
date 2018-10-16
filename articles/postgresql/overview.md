@@ -2,20 +2,20 @@
 title: Overzicht van de relationele databaseservice Azure Database for PostgreSQL
 description: Dit biedt een overzicht van de relationele databaseservice Azure Database for PostgreSQL.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/02/2018
-ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 06/15/2018
+ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737228"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092154"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Wat is Azure Database for PostgreSQL?
 
@@ -56,7 +56,7 @@ De Azure Database for PostgreSQL-service gebruikt opslagversleuteling voor niet-
 Standaard is de Azure Database for PostgreSQL-service zo geconfigureerd dat [SSL-verbindingsbeveiliging](./concepts-ssl-connection-security.md) is vereist voor gegevens die zich door het netwerk verplaatsen. Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld. Desgewenst kunt u uitschakelen dat SSL is vereist voor het maken van verbinding met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit.
 
 ## <a name="contacts"></a>Contactpersonen
-Voor eventuele vragen of suggesties over het werken met Azure Database for MySQL stuurt u een e-mailbericht naar het Azure Database for MySQL-team ([@AskAzure DB voor PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Let op: dit is geen alias voor technische ondersteuning.
+Voor eventuele vragen of suggesties over het werken met Azure Database for PostgreSQL stuurt u een e-mailbericht naar het Azure Database for PostgreSQL-team ([@AskAzure DB voor PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Let op: dit is geen alias voor technische ondersteuning.
 
 Overweeg ook de volgende aanspreekpunten, indien van toepassing:
 - Als u contact wilt opnemen met Azure-ondersteuning, kunt u een [ticket indienen vanuit Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185848"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038286"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Zelfstudie: de operatorweergave van Azure IoT Central aanpassen
 
@@ -50,9 +50,9 @@ Als systeembouwer kunt u bepalen welke informatie in een apparaatdashboard wordt
 
     ![Selecteer het verbonden airco-apparaat](media/tutorial-customize-operator/selectdevice.png)
 
-    Wanneer u een wijziging aanbrengt aan een apparaat, zoals **Connected Air Conditioner-1**, maakt u een wijziging in de onderliggende sjabloon. Zie [Een nieuwe versie van de apparaatsjabloon maken](howto-version-devicetemplate.md) voor meer informatie.
+    In een apparaat, bijvoorbeeld **Connected Air Conditioner-1**, kunt u **Sjabloon bewerken** selecteren als u de onderliggende sjabloon wilt wijzigen. Zie [Een nieuwe versie van de apparaatsjabloon maken](howto-version-devicetemplate.md) voor meer informatie.
 
-3. Als u het dashboard wilt bewerken, kiest u **Dashboard**:
+3. Als u het dashboard wilt bewerken, kiest u **Dashboard** en vervolgens **Sjabloon bewerken**:
 
     ![Dashboardpagina apparaatsjabloon](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ Als systeembouwer kunt u bepalen welke informatie in een apparaatdashboard wordt
 
     ![Dashboardindeling bewerken](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Klik op **Gereed** wanneer u klaar bent.
+
 ## <a name="configure-your-settings-layout"></a>De indeling van uw instellingen configureren
 
 Als systeembouwer kunt u ook de operatorweergave van de apparaatinstellingen configureren. Een operator gebruikt de pagina met apparaatinstellingen om een apparaat te configureren. Een operator gebruikt de instellingenpagina bijvoorbeeld om de doeltemperatuur voor het koelapparaat in te stellen.
 
-1. Als u de indeling van de instellingen voor het verbonden airco-apparaat wilt bewerken, kiest u **Instellingen**:
+1. Als u de indeling van de instellingen voor het verbonden airco-apparaat wilt bewerken, kiest u **Instellingen** en vervolgens **Sjabloon bewerken**:
 
     ![De pagina Instellingen](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ Als systeembouwer kunt u ook de operatorweergave van de apparaatinstellingen con
 
     ![De indeling van de instellingen bewerken](media/tutorial-customize-operator/settingslayout.png)
 
+3. Klik op **Gereed** wanneer u klaar bent.
+
 > [!NOTE]
-> In de **ontwerpmodus** kunt u niet de waarden van de instellingen bewerken.
+> In de modus **Sjabloon bewerken** kunt u niet de waarden van de instellingen bewerken.
 
 ## <a name="configure-your-properties-layout"></a>De indeling van de eigenschappen configureren
 
 Naast het dashboard en instellingen kunt u ook de operatorweergave van de apparaateigenschappen configureren. Een operator maakt gebruik van de pagina met apparaateigenschappen voor het beheren van metagegevens van apparaten. Een operator maakt bijvoorbeeld gebruik van de eigenschappenpagina om een serienummer van een apparaat te bekijken of om de contactgegevens van de fabrikant bij te werken.
 
-1. Als u de indeling van de eigenschappen voor het verbonden airco-apparaat wilt bewerken, kiest u **Eigenschappen**:
+1. Als u de indeling van de eigenschappen voor het verbonden airco-apparaat wilt bewerken, selecteert u **Eigenschappen** en vervolgens **Sjabloon bewerken**:
 
     ![De pagina Eigenschappen](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Naast het dashboard en instellingen kunt u ook de operatorweergave van de appara
 
     ![De indeling van de eigenschappen bewerken](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Klik op **Gereed** wanneer u klaar bent.
+
 > [!NOTE]
-> In de **ontwerpmodus** kunt u niet de waarden van de eigenschappen bewerken.
+> In de modus **Sjabloon bewerken** kunt u niet de waarden van de eigenschappen bewerken.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Een voorbeeld van het verbonden airco-apparaat weergeven als een operator
 
-In de **ontwerpmodus** kunt u de pagina's van het dashboard, de instellingen en de eigenschappen voor een operator aanpassen. Als u de **ontwerpmodus** uitschakelt, kunt u de toepassing als een operator bekijken.
+In de modus **Sjabloon bewerken** kunt u de pagina's van het dashboard, de instellingen en de eigenschappen voor een operator aanpassen. Buiten de modus **Sjabloon bewerken** kunt u de toepassing bekijken als een operator.
 
-1. Als u het verbonden airco-apparaat als een operator wilt weergeven, moet u de **ontwerpmodus** uitschakelen. Als u de **ontwerpmodus** wilt uitschakelen, schakelt uit **Ontwerpmodus** rechtsboven op de pagina uit.
+1. Als u het verbonden airco-apparaat als een operator wilt bekijken, moet u op **Gereed** klikken om de modus Sjabloon bewerken uit te schakelen. Hiermee gaat u terug naar de operatorweergave van het apparaat.
 
-2. Als u het serienummer van dit apparaat wilt bijwerken, bewerkt u de waarde in de tegel met het serienummer en kiest u **Opslaan**:
+2. Als u de locatie van dit apparaat wilt bijwerken, bewerkt u de waarde in de tegel Locatie en kiest u **Opslaan**:
 
     ![Een eigenschapswaarde wijzigen](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ In de **ontwerpmodus** kunt u de pagina's van het dashboard, de instellingen en 
 
 Wanneer een systeembouwer of operator zich bij een Azure IoT Central-toepassing aanmeldt, wordt er een startpagina weergegeven. U kunt als systeembouwer de inhoud van deze startpagina configureren en de voor een operator meest nuttige en relevante inhoud opnemen.
 
-1. Voor het aanpassen van de standaardstartpagina, gaat u naar de **Start**pagina en schakelt u **Ontwerpmodus** in rechtsboven op de pagina. Bij het inschakelen van de **ontwerpmodus** schuift vanaf rechts een venster naar buiten met een lijst met objecten die u aan uw startpagina kunt toevoegen.
+1. Als u de standaardstartpagina wilt aanpassen, gaat u naar de **startpagina** en selecteert u rechtsboven op de pagina de optie **Bewerken**. Na het selecteren van **Bewerken** schuift vanaf rechts een deelvenster naar buiten met een lijst met objecten die u aan de startpagina kunt toevoegen.
 
     ![Pagina Application Builder](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ Wanneer een systeembouwer of operator zich bij een Azure IoT Central-toepassing 
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Voorbeeld van de standaardstartpagina weergeven als operator
 
-Als u een voorbeeld van de startpagina wilt weergeven als een operator, schakelt u **Ontwerpmodus** in de rechterbovenhoek van de pagina uit:
+Als u als operator een voorbeeld van de startpagina wilt weergeven en wilt stoppen met bewerken, selecteert u **Gereed** in de rechterbovenhoek van de pagina
 
 ![De ontwerpmodus in- en uitschakelen](media/tutorial-customize-operator/operatorviewhome.png)
 
