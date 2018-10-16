@@ -1,19 +1,19 @@
 ---
 title: Informatie over Azure IoT Hub MQTT-ondersteuning | Microsoft Docs
 description: Handleiding voor ontwikkelaars - ondersteuning voor apparaten die verbinding maken met een IoT Hub apparaat gerichte eindpunt via het MQTT-protocol. Bevat informatie over ingebouwde MQTT-ondersteuning in de Azure IoT device SDK's.
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42060103"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344962"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -107,7 +107,7 @@ Voor Device Explorer:
 
 MQTT verbinding maken met en pakketten verbreken, problemen met IoT Hub een gebeurtenis op de **bewerkingen controleren** kanaal. Deze gebeurtenis heeft aanvullende informatie die kan helpen bij het oplossen van problemen met de netwerkverbinding.
 
-De apparaat-app kunt opgeven een **wordt** bericht de **CONNECT** pakket. De apparaat-app moet gebruiken `devices/{device_id}/messages/events/{property_bag}` of `devices/{device_id}/messages/events/{property_bag}` als de **wordt** onderwerpnaam voor het definiëren van **wordt** berichten moeten worden doorgestuurd als een telemetrie-bericht. In dit geval als de netwerkverbinding is gesloten, maar een **verbinding VERBREKEN** pakket niet eerder is ontvangen van het apparaat en IoT Hub verzendt de **wordt** bericht opgegeven de **CONNECT** pakket naar het kanaal telemetrie. Het kanaal telemetrie mag ofwel de standaard **gebeurtenissen** eindpunt of een aangepast eindpunt dat is gedefinieerd door de IoT Hub-routering. Het bericht heeft de **iothub-MessageType** eigenschap met de waarde **wordt** zijn toegewezen.
+De apparaat-app kunt opgeven een **wordt** bericht de **CONNECT** pakket. De apparaat-app moet gebruiken `devices/{device_id}/messages/events/` of `devices/{device_id}/messages/events/{property_bag}` als de **wordt** onderwerpnaam voor het definiëren van **wordt** berichten moeten worden doorgestuurd als een telemetrie-bericht. In dit geval als de netwerkverbinding is gesloten, maar een **verbinding VERBREKEN** pakket niet eerder is ontvangen van het apparaat en IoT Hub verzendt de **wordt** bericht opgegeven de **CONNECT** pakket naar het kanaal telemetrie. Het kanaal telemetrie mag ofwel de standaard **gebeurtenissen** eindpunt of een aangepast eindpunt dat is gedefinieerd door de IoT Hub-routering. Het bericht heeft de **iothub-MessageType** eigenschap met de waarde **wordt** zijn toegewezen.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL-configuratie
 
@@ -228,6 +228,8 @@ Zie voor meer informatie, [ontwikkelaarsgids van Device twins][lnk-devguide-twin
 
 ### <a name="update-device-twins-reported-properties"></a>Bijwerken van de apparaatdubbel-gerapporteerde eigenschappen
 
+Voor het bijwerken van gerapporteerde eigenschappen, hiermee het apparaat wordt een aanvraag naar IoT Hub via een publicatie via een aangewezen MQTT-onderwerp. Na het verwerken van de aanvraag, reageert de IoT Hub de status van het slagen of mislukken van de bijwerkbewerking via een publicatie naar een ander onderwerp. In dit onderwerp kunt u kunt zich abonneren door het apparaat om er een melding over het resultaat van de dubbele update-aanvraag. Naar implment dit type aanvraag/antwoord interactie in MQTT, we gebruikmaken van het begrip van de aanvraag-id (`$rid`) in eerste instantie wordt geleverd door het apparaat in de aanvraag voor update. Deze aanvraag-id is ook opgenomen in het antwoord van IoT Hub kunt u toestaan dat het apparaat het antwoord op de specifieke eerdere aanvraag correleren.
+
 De volgende procedure wordt beschreven hoe een apparaat updates van de gerapporteerde eigenschappen gewijzigd in de apparaatdubbel in IoT Hub:
 
 1. Een apparaat moet zich eerst abonneren op de `$iothub/twin/res/#` onderwerp van de bewerking antwoorden krijgen van IoT-Hub.
@@ -253,6 +255,20 @@ De mogelijke waarden zijn:
 | 400 | Ongeldige aanvraag. Ongeldige JSON |
 | 429 | Te veel aanvragen (beperkt), als per [IoT-Hub beperking][lnk-quotas] |
 | 5** | Server-fouten |
+
+Het python-codefragment hieronder ziet u het dubbele eigenschappen updateproces gerapporteerd via MQTT (met behulp van Paho MQTT client):
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+Gerapporteerd bij voltooiing van de dubbele eigenschappen updatebewerking hierboven, het bericht van de publicatie van IoT Hub heeft het volgende onderwerp: `$iothub/twin/res/204/?$rid=1&$version=6`, waarbij `204` wordt de statuscode die slagen, aangeeft `$rid=1` komt overeen met de aanvraag-ID geleverd door het apparaat in de code en `$version` overeenkomt met de versie van de sectie gerapporteerde eigenschappen van dubbele apparaten na de update.
 
 Zie voor meer informatie, [ontwikkelaarsgids van Device twins][lnk-devguide-twin].
 

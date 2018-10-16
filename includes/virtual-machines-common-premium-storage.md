@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 097fc837807d28e02732cf8820afac74c33e16d9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240065"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49347076"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 
@@ -51,7 +51,7 @@ Hier volgen enkele van de functies van Premium Storage:
 
 * **Premium storage-schijven**
 
-    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-serie VM's. Premium Storage ondersteunt een groot aantal Azure-VM's. U hebt de mogelijkheid van acht schijfgrootten voor algemene beschikbaarheid: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GB), P20 (512 GiB) P30 (1024 GiB), P40 (2048 GiB), P50 (4095 GiB). Ook drie schijfgrootten preview: P60 8192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Schijfgrootten P4, P6, P60, P70 en P80 zijn momenteel alleen ondersteund voor Managed Disks. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine. We beschrijven de specificaties in meer detail in [schaalbaarheids- en prestatiedoelen van Premium Storage](#scalability-and-performance-targets).
+    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-serie VM's. Premium Storage ondersteunt een groot aantal Azure-VM's. U hebt de mogelijkheid van acht schijfgrootten voor algemene beschikbaarheid: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GB), P20 (512 GiB) P30 (1024 GiB), P40 (2048 GiB), P50 (4095 GiB). Ook drie schijfgrootten preview: P60 8192 GiB (8 TiB), P70 16,348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Schijfgrootten P4, P6, P15, P60, P70 en P80 zijn momenteel alleen ondersteund voor Managed Disks. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine. We beschrijven de specificaties in meer detail in [schaalbaarheids- en prestatiedoelen van Premium Storage](#scalability-and-performance-targets).
 
 * **Premium-pagina-blobs**
 
@@ -149,7 +149,7 @@ Zie voor meer informatie, [schaalbaarheids- en prestatiedoelen voor Azure Storag
 Als u premium storage-accounts voor niet-beheerde schijven gebruikt en uw toepassing is groter dan de schaalbaarheidsdoelen van een enkel opslagaccount, is het raadzaam om te migreren naar managed disks. Als u niet migreren naar managed disks wilt, moet u uw toepassing gebruik meerdere opslagaccounts maken. Partities voor uw gegevens vervolgens over de storage-accounts. Bijvoorbeeld, als u koppelen 51-TB schijven op meerdere virtuele machines wilt, verdeeld over deze twee opslagaccounts. 35 TB is de limiet voor één premium storage-account. Zorg ervoor dat één premium storage-account nooit meer dan 35 TB ingerichte schijven heeft.
 
 ### <a name="premium-storage-disk-limits"></a>Limieten voor Premium Storage-schijf
-Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 of P20, P30, P40 of P50. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
+Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht GA typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 (beheerde schijven alleen), P20, P30 of P40 of P50. Ook drie schijfgrootten preview: P60 P70 en P80. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
 
 | Premium-schijven Type | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---|| -------|| -------|| -------| | Schijfgrootte | 32 giB | 64 giB | 128 giB | 256 GB | 512 giB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 8192 giB (8 TiB) | 16.384 giB (16 TiB) | 32.767 giB (32 TiB) || IOP's per schijf | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12.500 | 15.000 | 20.000 || Doorvoer per schijf | 25 MB per seconde | 50 MB per seconde | 100 MB per seconde | 125 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde | 480 MB per seconde | 750 MB per seconde | 750 MB per seconde |
 

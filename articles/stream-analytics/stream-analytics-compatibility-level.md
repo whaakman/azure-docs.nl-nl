@@ -7,13 +7,13 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 10/15/2018
+ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699107"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343574"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Compatibiliteitsniveau voor Azure Stream Analytics-taken
  
@@ -68,5 +68,5 @@ De volgende belangrijke wijzigingen zijn geïntroduceerd in compatibiliteitsnive
   * **huidige versie:** bestaat niet meer automatisch opgewaardeerd van tekenreekswaarden met datum/tijdzone-informatie naar DateTime-type. Als gevolg hiervan, wordt informatie over de tijdzone bewaard. 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gids voor probleemoplossing voor Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+* [Azure Stream Analytics-invoer oplossen](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics-Resource health-blade](stream-analytics-resource-health.md)

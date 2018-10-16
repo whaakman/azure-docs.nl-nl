@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979223"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343160"
 ---
 # <a name="chunked-transfer-encoding"></a>Gesegmenteerde overdrachtscodering
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Om te transcriberen spraak naar tekst, kunt u voor het verzenden van de audio als één geheel segment of de audio in kleine stukken afgeknipt Microsoft the spraakherkennings-API. Voor het efficiënt audio streamen en transcriptie latentie wordt verminderd, is het raadzaam dat u [gesegmenteerde overdrachtscodering](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) het streamen van audio naar de service. Andere implementaties kunnen leiden tot hogere latentie van de gebruiker beschouwd. Zie voor meer informatie de [Audio Streams](../concepts.md#audio-streams) pagina.
 

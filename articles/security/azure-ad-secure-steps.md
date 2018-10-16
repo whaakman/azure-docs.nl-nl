@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505606"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341568"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten
 
@@ -44,7 +44,7 @@ Alle ingesteld? Aan de slag in de controlelijst.
 
 ## <a name="step-1---strengthen-your-credentials"></a>Stap 1: het Optimaliseer het gebruik van uw referenties 
 
-De meeste enterprise beveiligingsinbreuken afkomstig zijn met een account met een van een aantal methoden, zoals wachtwoord spray, inbreuk opnieuw afspelen of phishing aangetast. Meer informatie over deze aanvallen in deze video:
+De meeste enterprise beveiligingsinbreuken afkomstig zijn met een account met een van een aantal methoden, zoals wachtwoord spray, inbreuk opnieuw afspelen of phishing aangetast. Meer informatie over deze aanvallen in deze video (1U 15 miljoen):
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 Als gebruikers in uw identiteitssysteem zwakke wachtwoorden en ze niet met multi-factor authentication te versterken, het een paar niet als of wanneer u verkeren – alleen "hoe vaak."
@@ -145,7 +145,7 @@ Microsoft Azure-services en functies bieden u configureerbare beveiliging, contr
 
 [AD FS met Azure AD Connect Health Monitoring](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) biedt u meer inzicht krijgen in de potentiële problemen en zichtbaarheid van aanvallen op uw AD FS-infrastructuur. Azure AD Connect Health biedt waarschuwingen met meer informatie, stappen voor het oplossen en koppelingen naar gerelateerde documentatie; gebruiksanalyse voor verschillende metrische gegevens met betrekking tot verificatieverkeer; bewaking van toepassingsprestaties en rapporten.
 
-![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
+![Azure AD Connect Health (Engelstalig)](media/azure-ad/azure-ad-sec-steps4.png)
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Azure AD Identity Protection-gebeurtenissen controleren
 
@@ -169,7 +169,7 @@ Azure AD biedt de mogelijkheid om toegang tot bronnen met behulp van beveiliging
 
 Met [Azure AD-toegangsbeoordelingen](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview), kunt u lidmaatschap van groepen, toegang tot bedrijfstoepassingen, beheren en toewijzingen van bevoorrechte rollen om ervoor te zorgen dat u een norm voor informatiebeveiliging die geeft gebruikers geen toegang voor onderhouden perioden met een uitgebreid tijd wanneer ze deze niet nodig.
 
-## <a name="summary"></a>Overzicht
+## <a name="summary"></a>Samenvatting
 
 Er zijn veel aspecten van een beveiligde infrastructuur voor identiteiten, maar deze controlelijst vijf stap helpt u snel een veiligere en veilige identiteitsinfrastructuur uitvoeren:
 

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 52726d9145d2065da70eea55a03b47ad1602f1f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: f1b2f9c7ee9d2fbeec51315a5e348b197fb4c06b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868551"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342497"
 ---
 # <a name="azure-sql-database-managed-instance-deployment-model-with-virtual-network-and-near-100-sql-server-compatibility"></a>Azure SQL Database Managed Instance-implementatiemodel met virtual network en bijna 100% compatibiliteit met SQL Server
 
@@ -105,7 +105,7 @@ Meer informatie over het verschil tussen service-lagen in [Managed Instance-bron
 
 ### <a name="business-critical-service-tier-preview"></a>Zakelijke kritieke-laag (preview)
 
-Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het biedt de hoogste herstelmogelijkheden bij fouten met behulp van verschillende geïsoleerde altijd op replica's.
+Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het biedt de hoogste herstelmogelijkheden bij fouten met behulp van verschillende geïsoleerde replica's.
 
 De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag bedrijfskritiek service:
 
@@ -209,7 +209,7 @@ Het volgende diagram geeft een overzicht van de compatibiliteit van gebied in he
 
 Beheerd exemplaar voordelen wordt altijd-up-to-date in de cloud, betekent dat sommige functies in on-premises SQL Server kunnen een verouderd, buiten gebruik gesteld of alternatieven zijn. Er zijn specifieke gevallen wanneer hulpprogramma's nodig hebt voor het herkennen van dat een bepaalde functie in een iets andere manier werkt of service wordt niet uitgevoerd in een omgeving die u volledig geen zeggenschap:
 
-- Hoge beschikbaarheid is ingebouwd en vooraf is geconfigureerd. Always On hoge beschikbaarheid-functies worden niet weergegeven in een dezelfde manier als bij SQL IaaS-implementaties
+- Hoge beschikbaarheid is ingebouwd in en vooraf geconfigureerd met behulp van technologie die vergelijkbaar is met [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automatische back-ups en punt in tijd herstel. Klanten kan initiëren `copy-only` back-ups die niet leiden tot met automatische back-keten problemen.
 - Beheerd exemplaar is niet toegestaan voor het volledige fysieke paden op te geven, zodat alle bijbehorende scenario's moeten anders worden ondersteund: DB herstellen biedt geen ondersteuning voor het verplaatsen met, DB maken kunnen geen fysieke paden, BULK INSERT werkt met Azure-Blobs alleen, enzovoort.
 - Beheerd exemplaar ondersteunt [Azure AD-verificatie](sql-database-aad-authentication.md) als cloud-alternatief voor het Windows-verificatie.

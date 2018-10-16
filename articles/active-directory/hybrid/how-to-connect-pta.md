@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8055faad3cd546e538def5e7292287b49ce96cb4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314508"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320319"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Aanmelden van gebruikers met Azure Active Directory Pass through-verificatie
 
@@ -69,7 +69,7 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Snel aan de slag](how-to-connect-pta-quick-start.md) : aan de slag en Azure AD Pass-through-verificatie wordt uitgevoerd.
-- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
+- [Migreren van AD FS naar Pass-through-verificatie](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -een uitgebreide handleiding voor het migreren van AD FS (of andere technologieën voor federatie) naar Pass-through-verificatie.
 - [Vergrendeling van het smart](../authentication/howto-password-smart-lockout.md) -mogelijkheid Smart Lockout configureren op uw tenant om te beveiligen van gebruikersaccounts.
 - [Huidige beperkingen](how-to-connect-pta-current-limitations.md) -informatie over welke scenario's worden ondersteund en welke niet.
 - [Technische details](how-to-connect-pta-how-it-works.md) -te begrijpen hoe deze functie werkt.

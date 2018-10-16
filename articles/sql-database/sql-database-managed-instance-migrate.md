@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 6d03a6016d26e7885bedd4a0b56cbab9dab4873e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869879"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345302"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -38,9 +38,9 @@ Op hoog niveau, is het proces van de database-migratie ziet eruit zoals:
 
 ## <a name="assess-managed-instance-compatibility"></a>Beoordeling van compatibiliteit met Managed Instance
 
-Bepaal eerst of Managed Instance compatibel met de vereisten voor de database van uw toepassing is. Beheerd exemplaar is zodanig ontworpen dat eenvoudige lift- and -shift-migratie voor de meeste van bestaande toepassingen die gebruikmaken van on-premises SQL Server of op virtuele machines. Echter, u hebt mogelijk soms functies of mogelijkheden die nog niet worden ondersteund en de kosten van de implementatie van een tijdelijke oplossing zijn te hoog. 
+Bepaal eerst of Managed Instance compatibel met de vereisten voor de database van uw toepassing is. Beheerd exemplaar is zodanig ontworpen dat eenvoudige lift- and -shift-migratie voor de meeste van bestaande toepassingen die gebruikmaken van on-premises SQL Server of op virtuele machines. Echter, u hebt mogelijk soms functies of mogelijkheden die nog niet worden ondersteund en de kosten van de implementatie van een tijdelijke oplossing zijn te hoog.
 
-Gebruik [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) voor het detecteren van potentieel compatibiliteit die invloed hebben op database-functionaliteit op Azure SQL Database. DMA biedt nog geen ondersteuning voor beheerd exemplaar als doel van de migratie, maar het wordt aanbevolen om analyse uitvoeren op Azure SQL-Database en zorgvuldig lijst gerapporteerde functiepariteit en compatibiliteitsproblemen op basis van de productdocumentatie. Zie [Azure SQL Database-functies](sql-database-features.md) om te controleren of er zijn enkele gerapporteerde belemmeringen dat niet blockers in het beheerde exemplaar, omdat de meeste van de blokkering problemen te voorkomen dat een migratie naar Azure SQL Database zijn verwijderd met beheerde Het exemplaar. Voor het exemplaar, functies, zoals query's die databaseoverschrijdend, transacties tussen databases binnen dezelfde instantie, gekoppelde server met andere SQL bronnen, CLR, globale tijdelijke tabellen, exemplaar niveau weergaven, Service Broker en dergelijke zijn beschikbaar in beheerde instanties. 
+Gebruik [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) voor het detecteren van potentieel compatibiliteit die invloed hebben op database-functionaliteit op Azure SQL Database. DMA biedt nog geen ondersteuning voor beheerd exemplaar als doel van de migratie, maar het wordt aanbevolen om analyse uitvoeren op Azure SQL-Database en zorgvuldig lijst gerapporteerde functiepariteit en compatibiliteitsproblemen op basis van de productdocumentatie. Zie [Azure SQL Database-functies](sql-database-features.md) om te controleren of er zijn enkele gerapporteerde belemmeringen dat niet blockers in het beheerde exemplaar, omdat de meeste van de blokkering problemen te voorkomen dat een migratie naar Azure SQL Database zijn verwijderd met beheerde Het exemplaar. Voor het exemplaar, functies, zoals query's die databaseoverschrijdend, transacties tussen databases binnen dezelfde instantie, gekoppelde server met andere SQL bronnen, CLR, globale tijdelijke tabellen, exemplaar niveau weergaven, Service Broker en dergelijke zijn beschikbaar in beheerde instanties.
 
 Als er enkele blokkerende problemen die niet worden verwijderd in Azure SQL Database Managed Instance gerapporteerd zijn, moet u mogelijk rekening houden met een andere optie, zoals [SQL Server op virtuele Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Hier volgen enkele voorbeelden:
 
@@ -64,12 +64,12 @@ Zie voor meer informatie over het maken van de VNet-infrastructuur en een beheer
 
 ## <a name="select-migration-method-and-migrate"></a>Kies migratiemethode en migreren
 
-Beheerd exemplaar doelen gebruikersscenario's massale databasemigratie van on-premises of IaaS-database-implementaties vereisen. Ze zijn beste keuze als u wilt lift- and -shift de back-end van de toepassingen die regelmatig instantieniveau gebruiken en / of functionaliteiten tussen meerdere databases. Als dit uw scenario, kunt u een volledige instantie verplaatsen naar een bijbehorende omgeving in Azure zonder te hoeven rearchitecture uw toepassingen. 
+Beheerd exemplaar doelen gebruikersscenario's massale databasemigratie van on-premises of IaaS-database-implementaties vereisen. Ze zijn beste keuze als u wilt lift- and -shift de back-end van de toepassingen die regelmatig instantieniveau gebruiken en / of functionaliteiten tussen meerdere databases. Als dit uw scenario, kunt u een volledige-exemplaar kunt verplaatsen naar een bijbehorende omgeving in Azure zonder de noodzaak opnieuw ontwerpen van uw toepassingen.
 
 Voor het verplaatsen van SQL-exemplaren, moet u zorgvuldig plannen:
 
--   De migratie van alle databases die moeten worden CO-locaties (die zijn uitgevoerd op hetzelfde exemplaar)
--   De migratie van objecten op exemplaarniveau die uw toepassing afhankelijk is, met inbegrip van aanmeldingen, referenties, SQL Agent-taken en Operators en triggers voor server op. 
+- De migratie van alle databases die moeten worden CO-locaties (die zijn uitgevoerd op hetzelfde exemplaar)
+- De migratie van objecten op exemplaarniveau die uw toepassing afhankelijk is, met inbegrip van aanmeldingen, referenties, SQL Agent-taken en Operators en triggers voor server op.
 
 Managed Instance is een volledig beheerde service waarmee u een aantal van de reguliere DBA activiteiten voor het platform delegeren terwijl ze zijn ingebouwd in. Sommige niveau Instantiegegevens hoeft daarom niet worden gemigreerd, zoals onderhoudstaken voor regelmatige back-ups of de Always On configureren als [hoge beschikbaarheid](sql-database-high-availability.md) is ingebouwd in.
 
@@ -80,7 +80,7 @@ Beheerd exemplaar biedt ondersteuning voor de volgende database migratieopties (
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
-De [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatie-opties op de openbare Preview opgenomen Azure SQL Database Managed Instance en SQL Server in een Azure Virtual machines. DMS is de aanbevolen methode van de migratie voor workloads van uw onderneming. 
+De [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is een volledig beheerde service die is ontworpen om in te schakelen naadloze migratie van meerdere databasebronnen naar Azure Data platforms met minimale downtime. Deze service stroomlijnt de vereiste taken voor het verplaatsen van bestaande van derden en SQL Server-databases naar Azure. Implementatie-opties op de openbare Preview opgenomen Azure SQL Database Managed Instance en SQL Server in een Azure Virtual machines. DMS is de aanbevolen methode van de migratie voor workloads van uw onderneming.
 
 Als u SQL Server Integration Services (SSIS) op uw SQL Server on-premises, DMS biedt nog geen ondersteuning voor migratie SSIS-catalogus (SSISDB) die SSIS-pakketten opslaat, maar u kunt Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) inrichten die wordt een nieuwe SSISDB maken in Azure SQL Database- / MI en vervolgens u kunt uw pakketten te implementeren, Zie [Azure-SSIS IR maken in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -88,7 +88,7 @@ Zie voor meer informatie over dit scenario en configuratiestappen voor DMS [Migr
 
 ### <a name="native-restore-from-url"></a>Systeemeigen terugzetten vanuit URL
 
-HERSTELLEN van systeemeigen back-ups (.bak-bestanden) die van SQL Server on-premises of [SQL Server op virtuele Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), beschikbaar op [Azure Storage](https://azure.microsoft.com/services/storage/), is een van de belangrijkste mogelijkheden op SQL database Managed Instance die kunnen snel en eenvoudig offline migratie-database. 
+HERSTELLEN van systeemeigen back-ups (.bak-bestanden) die van SQL Server on-premises of [SQL Server op virtuele Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), beschikbaar op [Azure Storage](https://azure.microsoft.com/services/storage/), is een van de belangrijkste mogelijkheden op SQL database Managed Instance die kunnen snel en eenvoudig offline migratie-database.
 
 Het volgende diagram biedt een overzicht op hoog niveau van het proces:
 
@@ -121,6 +121,7 @@ Wanneer u zich op een volledig beheerd platform, worden de voordelen die automat
 Bovendien hoeft niet te hoeven maken over het instellen van hoge beschikbaarheid als [hoge beschikbaarheid](sql-database-high-availability.md) is ingebouwd in.
 
 Als u wilt de beveiliging versterken, kunt u overwegen sommige van de functies die beschikbaar zijn:
+
 - Azure Active Directory-verificatie op databaseniveau
 - Gebruik [geavanceerde beveiligingsfuncties](sql-database-security-overview.md) zoals [controle](sql-database-managed-instance-auditing.md), [detectie van bedreigingen](sql-advanced-threat-protection.md), [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), en [dynamische Gegevensmaskering](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) voor het beveiligen van uw exemplaar.
 

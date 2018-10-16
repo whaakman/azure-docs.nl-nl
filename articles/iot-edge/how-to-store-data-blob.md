@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2a52735a7f573534c6d643e778a898a888dfc81f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114580"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344843"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Gegevens aan de rand met Azure Blob Storage Store op IoT Edge (preview)
 
@@ -81,7 +81,7 @@ Gebruik de volgende JSON-sjabloon voor de **Container maken opties** veld. Confi
    }
    ```   
    
-Werk in de opties voor het maken JSON, `\<your storage account name\>` met een willekeurige naam. Update `\<your storage account key\>` met een 64-byte base64-sleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64) waarmee u de lengte in bytes. U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules.
+Werk in de opties voor het maken JSON, `\<your storage account name\>` met een willekeurige naam. Update `\<your storage account key\>` met een 64-byte base64-sleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) waarmee u de lengte in bytes. U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules.
 
 Werk in de opties voor het maken JSON, `<storage directory bind>` afhankelijk van uw besturingssysteem voor de container. Geef de naam van een [volume](https://docs.docker.com/storage/volumes/) of het absolute pad naar een map op uw IoT Edge-apparaat dat is waar u de blob-module voor het opslaan van de gegevens.  
 
@@ -150,7 +150,7 @@ Sjabloon van de oplossing maakt een manifest implementatiesjabloon die uw blob s
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Geef een naam op voor naam van het opslagaccount en een 64-byte base64 sleutel opgeven voor de opslagaccountsleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules. 
+8. Geef een naam op voor naam van het opslagaccount en een 64-byte base64 sleutel opgeven voor de opslagaccountsleutel. U kunt een sleutel met de hulpprogramma's zoals genereren [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). U gebruikt deze referenties voor toegang tot de blob-opslag van andere modules. 
 
 9. Sla **.env**. 
 

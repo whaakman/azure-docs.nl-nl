@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 38f7f82d293409a49c41381cedaa1f7600068cd3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077723"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319401"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -78,7 +78,7 @@ Uit dezelfde **Certificaatconfiguratie** pagina die u hebt gebruikt in stap 3, k
 
 Kies de gewenste domein-verificatiemethode. 
 
-Er zijn vier typen domeinverificatie wordt ondersteund door App Service-certificaten: App Service, het domein en handmatige verificatie. Deze verificatietypen worden uitgelegd in meer details in de [geavanceerde sectie](#advanced).
+Er zijn drie soorten domeinverificatie wordt ondersteund door App Service-certificaten: App Service, het domein en handmatige verificatie. Deze verificatietypen worden uitgelegd in meer details in de [geavanceerde sectie](#advanced).
 
 > [!NOTE]
 > **App Service-verificatie** is de meest geschikte optie bij het domein dat u wilt controleren of al aan een App Service-app in hetzelfde abonnement toegewezen is. Het maakt gebruik van het feit dat de App Service-app al het domeineigendom is geverifieerd.

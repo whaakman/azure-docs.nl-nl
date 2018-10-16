@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: a0fa11633efc610407755ebc109649f3fefdcb55
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585812"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345013"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Aan de slag met de Bing Speech-Service-clientbibliotheken
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech-Service biedt naast het maken van directe HTTP-aanvragen via een REST-API, ontwikkelaars en Speech clientbibliotheken in verschillende talen. De spraak-clientbibliotheken:
 
@@ -33,9 +34,6 @@ Op dit moment zijn de volgende Bing Speech-clientbibliotheken beschikbaar:
 - [JavaScript-bibliotheek](GetStartedJSWebsockets.md)
 - [Java-clientbibliotheek voor Android](GetStartedJavaAndroid.md)
 - [Objective-C-bibliotheek voor iOS](Get-Started-ObjectiveC-iOS.md)
-
-> [!NOTE] 
-Sinds September 2018, de nieuwe [Spraakservice](../../speech-service/index.yml) algemeen beschikbaar is geworden. We raden u aan [het gratis proberen](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

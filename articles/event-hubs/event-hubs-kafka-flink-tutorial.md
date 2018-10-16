@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b724ddfc1214ac17c2138dc9875896cf3353f0c7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3642c1b7d3de751ecb8a72edaecfe7a15c0acbdb
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746623"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320829"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Gebruik Apache Flink met Azure Eventhubs voor Apache Kafka
 Deze zelfstudie leert u hoe verbinding maken met Apache Flink gebeurtenishubs Kafka-functionaliteit zonder te wijzigen van uw clients protocol of uitvoeren van uw eigen clusters. Biedt ondersteuning voor Azure Event Hubs [Apache Kafka, versie 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -29,11 +29,14 @@ In deze zelfstudie leert u het volgende:
 > * Flink producent uitvoeren 
 > * Flink consument uitvoeren
 
+> [!NOTE]
+> Dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink)
+
 ## <a name="prerequisites"></a>Vereisten
 
 Voor deze zelfstudie, zorg ervoor dat u de volgende vereisten:
 
-* Lees de [Event Hubs voor Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) artikel. 
+* Lees het artikel [Event Hubs voor Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) door. 
 * Een Azure-abonnement. Als u nog geen account hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Voer op Ubuntu `apt-get install default-jdk` uit om de JDK te installeren.
@@ -49,11 +52,11 @@ Een Event Hubs-naamruimte is vereist om te verzenden of ontvangen van alle Event
 
 ## <a name="clone-the-example-project"></a>De voorbeeldproject klonen
 
-Nu dat u een verbindingsreeks Event Hubs waarvoor Kafka is ingeschakeld hebt, kloon de opslagplaats van de Azure Event Hubs en navigeer naar de `flink` submap:
+Nu dat u een verbindingsreeks Event Hubs waarvoor Kafka is ingeschakeld hebt, de Azure Event Hubs voor Kafka-opslagplaats te klonen en navigeer naar de `flink` submap:
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/flink
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/flink
 ```
 
 ## <a name="run-flink-producer"></a>Flink producent uitvoeren
@@ -129,7 +132,10 @@ In deze zelfstudie, het geleerde verbinden Flink Apache Kafka-functionaliteit ev
 > * Flink producent uitvoeren 
 > * Flink consument uitvoeren
 
-Ga verder met het volgende artikel voor meer informatie over Event Hubs voor Apache Kafka:
+Zie voor meer informatie over Event Hubs en Event Hubs voor Kafka, het volgende onderwerp:  
 
-> [!div class="nextstepaction"]
-> [Gebruik Akka gegevensstromen met Azure Eventhubs voor Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+* [Meer informatie over Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Meer informatie over Eventhubs voor Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Meer voorbeelden van de Event Hubs voor Kafka GitHub verkennen](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Gebruik [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) om [gebeurtenissen van Kafka on-premises te streamen naar Event Hubs waarvoor Kafka is ingeschakeld in de cloud](event-hubs-kafka-mirror-maker-tutorial.md).
+* Meer informatie over het streamen naar Kafka ingeschakelde Event Hubs met behulp [systeemeigen Kafka toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md) of [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

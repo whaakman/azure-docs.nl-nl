@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ROBOTS: NOINDEX
-ms.openlocfilehash: 664b696d5323177eaac2e7ce7b80a7c81ce601f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949397"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343024"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech-API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## <a name="Introduction"></a>Inleiding
 
@@ -58,7 +59,7 @@ Clients moeten het volgende eindpunt gebruiken voor toegang tot de Text to Speec
 
 De volgende tabel ziet u de HTTP-headers die worden gebruikt voor spraak synthese aanvragen.
 
-Koptekst |Waarde |Opmerkingen
+Header |Waarde |Opmerkingen
 ----|----|----
 Inhoudstype | toepassing/ssml + xml | De invoer inhoudstype.
 X-Microsoft-uitvoerindeling | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.

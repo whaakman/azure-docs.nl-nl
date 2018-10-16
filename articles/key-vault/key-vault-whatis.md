@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497600"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342554"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
@@ -35,7 +35,7 @@ Azure Key Vault is een hulpprogramma voor het veilig opslaan en openen van gehei
 
 Er zijn fundamenteel 3 manieren om te verifiëren naar Key Vault
 
-1. **Met behulp van [beheerde Service-identiteit](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**aanbevolen en aanbevolen om**): wanneer u een App op een virtuele Machine in Azure implementeert, kunt u een identiteit toewijzen aan uw virtuele Machine die toegang heeft tot Key Vault. U kunt identiteiten ook toewijzen aan andere azure-resources die worden vermeld [hier](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Het voordeel met deze methode is de app / service wordt niet beheerd door de draaihoek van het eerste geheim. Azure draait automatisch de identiteit. 
+1. **Met behulp van [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**aanbevolen en beste praktijken**): wanneer u een App op een virtuele Machine in Azure implementeert, kunt u een identiteit toewijzen aan uw virtuele Machine die heeft toegang tot Key Vault. U kunt identiteiten ook toewijzen aan andere azure-resources die worden vermeld [hier](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Het voordeel met deze methode is de app / service wordt niet beheerd door de draaihoek van het eerste geheim. Azure draait automatisch de identiteit. 
 2. **Met behulp van Service-Principal en certificaat:** de 2e optie is het gebruik van een Service-Principal en een bijbehorende certificaat dat toegang tot de Key Vault heeft. De plicht draaien van het certificaat is op de toepassingseigenaar van de of de ontwikkelaar en kan daarom dit wordt niet aanbevolen
 3. **Met behulp van Service-Principal en geheim:** de 3e optie (niet aanbevolen optie) is een Service-Principal en een geheim gebruiken om te verifiëren naar Key Vault
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 83c23933acf1ed621728991fbdeea088911cf36c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078661"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319724"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Veelgestelde vragen - Hyper-V naar Azure-replicatie
 
@@ -135,7 +135,7 @@ Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunte
 
 Voor replicatie, moet een ondersteund besturingssysteem op een Hyper-V-virtuele machine worden uitgevoerd. Bovendien hebben de virtuele machine moet voldoen aan de vereisten voor Azure-VM's. [Meer informatie](hyper-v-azure-support-matrix.md#replicated-vms) in de ondersteuningsmatrix.
 
-###<a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
+### <a name="how-often-can-i-replicate-to-azure"></a>Hoe vaak kan ik repliceren naar Azure?
 
 Hyper-V-machines kunnen elke 30 seconden (met uitzondering van premium storage), 5 minuten of 15 minuten worden gerepliceerd.
 
@@ -207,6 +207,3 @@ Nadat uw on-premises infrastructuur opnieuw actief is, kunt u failover terug. Fa
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan ik een failback uitvoeren naar een andere locatie?
 Ja, als u een failover naar Azure, kunt u failover naar een andere locatie als de oorspronkelijke map is niet beschikbaar. [Meer informatie](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
-
-
-

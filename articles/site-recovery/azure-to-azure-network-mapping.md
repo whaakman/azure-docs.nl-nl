@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 0e73abf0fc170079d4b2bc093df45c998e68d184
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056818"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320523"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Virtuele netwerken in verschillende Azure-regio's toewijzen
 
@@ -106,7 +106,7 @@ Als het Bronsubnet en het doelsubnet hebt verschillende adresruimten, wordt de e
 De failover-VM met - het volgende beschikbare IP-adres wordt toegewezen aan het einde van het adresbereik van het subnet dat is: 10.0.0.254 </br>
 
 **Opmerking:** de terminologie **productie vNet** wordt verwezen naar het 'doelnetwerk' toegewezen tijdens de configuratie van het herstel na noodgevallen.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Als het doelnetwerk gekozen niet de productie-vNet is, maar hetzelfde subnetbereik bevinden als het productienetwerk heeft 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Als het doelnetwerk gekozen niet de productie-vNet is, maar hetzelfde subnetbereik bevinden als het productienetwerk heeft 
 
 - De herstel-IP (doel-IP) is een statisch IP-adres met de **hetzelfde IP-adres** (dat wil zeggen, statische IP-adres geconfigureerd) als gereserveerd voor Failover. De opgegeven hetzelfde IP-adres beschikbaar is.
 - Als het geconfigureerde statische IP-adres al aan een andere virtuele machine/apparaat toegewezen is, wordt het volgende beschikbare IP-adres van het einde van het adresbereik van het subnet zijn op het IP-adres voor de recovery.

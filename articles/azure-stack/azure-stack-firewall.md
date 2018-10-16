@@ -1,6 +1,6 @@
 ---
-title: Azure Stack firewall plannen voor Azure-Stack geïntegreerd systemen | Microsoft Docs
-description: Beschrijft de Azure-Stack firewall overwegingen voor implementaties met meerdere knooppunten verbonden met een Azure-Stack Azure.
+title: Azure Stack-firewall plannen voor Azure Stack-geïntegreerde systemen | Microsoft Docs
+description: Beschrijft de aandachtspunten voor de firewall van Azure Stack voor implementaties met meerdere knooppunten Azure Stack Azure-verbinding.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,57 +12,57 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604213"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343642"
 ---
-# <a name="azure-stack-firewall-integration"></a>Integratie van Azure Stack-firewall
-Het verdient aanbeveling dat u een firewall-apparaat gebruiken voor het beveiligde Azure-Stack. Hoewel firewalls bij zaken als gedistribueerde denial-of-service (DDOS) aanvallen, inbraakdetectie en inhoudscontrole helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services zoals blobs, tabellen en wachtrijen geworden.
+# <a name="azure-stack-firewall-integration"></a>Azure Stack-firewall-integratie
+Het verdient aanbeveling dat u een firewall-apparaat gebruiken om te beveiligen Azure Stack. Hoewel firewalls bij items zoals gedistribueerde denial-of-service (DDOS)-aanvallen, inbraakdetectie en inhoudsinspectie helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services, zoals blobs, tabellen en wachtrijen.
 
-Op basis van het identiteitsmodel van Azure Active Directory (Azure AD) of Windows Server Active Directory Federation Services (AD FS), mogelijk moet u voor het publiceren van het AD FS-eindpunt. Als een niet-verbonden implementatiemodus wordt gebruikt, moet u de AD FS-eindpunt publiceren. Zie voor meer informatie de [datacenter integratie identiteit artikel](azure-stack-integrate-identity.md).
+Op basis van het identiteitsmodel Azure Active Directory (Azure AD) of Windows Server Active Directory Federation Services (AD FS), mogelijk moet u de AD FS-eindpunt publiceert. Als een niet-verbonden implementatiemodus wordt gebruikt, moet u het eindpunt van AD FS publiceren. Zie voor meer informatie de [datacenter-integratie identiteit artikel](azure-stack-integrate-identity.md).
 
-De Azure Resource Manager (beheerder), beheerdersportal en Sleutelkluis (beheerder) eindpunten vereisen per se geen externe publiceren. Bijvoorbeeld, als een serviceprovider mogelijk wilt u de kwetsbaarheid te beperken en alleen Azure-Stack van beheren in uw netwerk en niet vanaf het internet.
+De Azure Resource Manager (beheerder), de beheerdersportal en de Key Vault (beheerder)-eindpunten vereisen per se geen externe publiceren. Als een serviceprovider kunt u bijvoorbeeld voor het beperken van de kwetsbaarheid voor aanvallen en Azure Stack uit alleen beheren in uw netwerk en niet vanaf het internet.
 
-Voor ondernemingen, kan het externe netwerk het bestaande bedrijfsnetwerk zijn. In een dergelijk scenario moet u deze eindpunten voor het gebruik van Azure-Stack van het bedrijfsnetwerk publiceren.
+Voor ondernemingen, kan het externe netwerk het bestaande bedrijfsnetwerk zijn. In een dergelijk scenario, moet u deze eindpunten voor het gebruik van Azure Stack van het bedrijfsnetwerk publiceren.
 
 ### <a name="network-address-translation"></a>Network Address Translation
-NAT (Network Address Translation) is de aanbevolen methode om toe te staan voor de implementatie van virtuele machine (DVM) voor toegang tot externe bronnen en het internet tijdens de implementatie, evenals de Emergency Recovery Console (ERCS) virtuele machines of bevoegde eindpunt (PEP) tijdens registratie en het oplossen van problemen.
+NAT (Network Address Translation) is de aanbevolen methode om toe te staan van de implementatie van virtuele machine (DVM) voor toegang tot de externe bronnen en het internet tijdens de implementatie, evenals de Emergency Recovery Console (ERCS) virtuele machines of bevoegde eindpunt (PEP) tijdens registratie en het oplossen van problemen.
 
-NAT kan ook een alternatief voor het openbare IP-adressen op het externe netwerk of openbare VIP's worden. Het is echter niet aanbevolen omdat deze wordt beperkt van de gebruikerservaring van de tenant en verhoogt de complexiteit. De twee opties zijn een 1:1-NAT waarvoor nog steeds vereist een openbaar IP-adres per gebruiker IP-adres op de groep op, of veel: 1 NAT waarvoor een NAT-regel per gebruiker VIP die bevat koppelingen naar alle poorten die een gebruiker kan gebruiken.
+NAT kan ook een alternatief voor het openbare IP-adressen op het externe netwerk of de openbare VIP's zijn. Het is echter niet aanbevolen om dit te doen omdat het beperken van de gebruikerservaring van de tenant en verhoogt de complexiteit. De twee opties voor een NAT-1:1 apparaat die nog steeds een openbaar IP-adres per gebruiker IP-adres op de groep of veel vereist zou zijn: 1 NAT waarvoor een NAT-regel per gebruiker VIP die koppelingen naar alle poorten bevat van een gebruiker kan gebruiken.
 
-Enkele van de nadelen van het gebruik van de NAT voor openbare VIP zijn:
-- NAT voegt overhead bij het beheren van firewallregels omdat gebruikers hun eigen eindpunten en hun eigen regels voor publicatie in de software gedefinieerde netwerken (SDN)-stack beheren. Gebruikers moeten contact opnemen met de Azure-Stack-operator hun VIP's gepubliceerd ophalen en bijwerken van de lijst met poorten.
-- Tijdens het gebruik van NAT beperkt de gebruikerservaring, geeft deze volledig beheer aan de operator over publicatieaanvragen afhandelt.
-- Voor hybride cloud scenario's met Azure, kunt u Azure biedt geen ondersteuning voor de instelling van een VPN-tunnel naar een eindpunt met NAT bevinden.
+Enkele van de nadelen van het gebruik van NAT voor openbaar VIP-adres zijn:
+- NAT wordt overhead toegevoegd bij het beheren van firewall-regels, omdat gebruikers hun eigen eindpunten en hun eigen regels voor publicatie in de stack software gedefinieerde netwerken (SDN beheren). Gebruikers moeten contact opnemen met de Azure Stack-operators om hun VIP's gepubliceerd en bijwerken van de lijst met poorten.
+- Zolang de NAT-gebruik beperkt de gebruikerservaring, biedt het volledig beheer met de operator over het publiceren van aanvragen.
+- Overweeg voor hybride cloud met Azure, Azure biedt geen ondersteuning voor het instellen van een VPN-tunnel naar een eindpunt met behulp van NAT bevinden.
 
-### <a name="ssl-decryption"></a>SSL-ontsleuteling
-Het verdient aanbeveling momenteel SSL ontsleuteling op alle Azure-Stack-verkeer uitschakelen. Als dit wordt ondersteund in toekomstige updates, worden richtlijnen gegeven die over het inschakelen van SSL-ontsleuteling voor Azure-Stack.
+### <a name="ssl-decryption"></a>SSL-decodering
+Het is momenteel aanbevolen om uit te schakelen SSL ontsleutelen op alle Azure Stack-verkeer. Als dit wordt ondersteund in toekomstige updates, wordt informatie over het inschakelen van SSL-ontsleuteling voor Azure Stack worden opgegeven.
 
-## <a name="edge-firewall-scenario"></a>Edge-firewall-scenario
-In de implementatie van een edge Azure Stack geïmplementeerd rechtstreeks achter de router van de rand of de firewall. In deze scenario's wordt ondersteund voor de firewall moet boven de rand (Scenario 1), waarbij het ondersteunt zowel actieve en actief / passief firewallconfiguraties of fungeert als het apparaat van rand (Scenario 2) waar deze alleen actief / actief-firewall ondersteunt de configuratie van vertrouwen op gelijk Cost Multi Path (ECMP) met BGP of statische routering voor failover.
+## <a name="edge-firewall-scenario"></a>Scenario voor edge-firewall
+Azure Stack is geïmplementeerd in een edge-implementatie, rechtstreeks achter de edge router of de firewall. In deze scenario's wordt ondersteund voor de firewall om te worden boven de rand (Scenario 1), waar deze ondersteunt zowel actief / actief en actief-passief firewallconfiguraties of fungeert als het apparaat van rand (Scenario 2) waar het ondersteunt alleen actief / actief-firewall configuratie van Relying Party op gelijk kosten meervoudige pad (ECMP) met BGP of statische routering voor failover.
 
-Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor het openbare VIP-adresgroep van het externe netwerk tijdens de implementatie. In een edge-scenario, is het niet raadzaam openbaar routeerbare IP-adressen in een ander netwerk gebruiken om beveiligingsredenen. Dit scenario kan een gebruiker om de ervaring voor de volledige zelf gecontroleerde cloud zoals in een openbare cloud zoals Azure.  
+Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor de openbare VIP-groep van het externe netwerk tijdens de implementatie. In een scenario edge, wordt deze niet aanbevolen voor gebruik van openbaar routeerbare IP's op een ander netwerk voor uit veiligheidsoverwegingen. In dit scenario kan een gebruiker de volledige zelf beheerde cloud-ervaring in een openbare cloud, zoals Azure-ervaring.  
 
 ![Voorbeeld van Azure Stack edge firewall](.\media\azure-stack-firewall\firewallScenarios.png)
 
-## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet- of perimeternetwerk netwerk firewall bedrijfsscenario
-In het intranet of een perimeternetwerk implementatie in een onderneming, Azure Stack geïmplementeerd op een firewall multi ingedeeld of tussen de edge-firewall en de interne, zakelijke netwerkfirewall. Het verkeer wordt dan gedistribueerd tussen de veilige, perimeternetwerk (of DMZ) en niet-beveiligde zones als die hieronder worden beschreven:
+## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet- of perimeter network firewall bedrijfsscenario
+In een enterprise-implementatie van intranet of een perimeternetwerk, Azure Stack geïmplementeerd op een ingedeeld in de multi-zone-firewall of tussen de edge-firewall en firewall van het interne, zakelijke netwerk. Het verkeer wordt dan gedistribueerd tussen de beveiligde, perimeternetwerk bevinden (of DMZ) en niet-beveiligde zones als hieronder beschreven:
 
-- **Beveiligde zone**: dit is het interne netwerk die gebruikmaakt van de interne of zakelijke routeerbare IP-adressen. Beveiligd netwerk kan worden verdeeld, uitgaande toegang tot internet via een NAT hebben op de Firewall en meestal toegankelijk is vanaf een willekeurige plaats in uw datacentrum via het interne netwerk. Alle Azure-Stack-netwerken moeten zich bevinden in de beveiligde zone, met uitzondering van het externe netwerk openbare VIP-adresgroep.
-- **Perimeter zone**. Het perimeternetwerk is waar externe of internetgericht toepassingen zoals webservers worden doorgaans geïmplementeerd. Dit wordt meestal bewaakt door een firewall tegen aanvallen zoals DDoS en inbraakdetectie (hacken) terwijl nog steeds opgegeven binnenkomend verkeer vanuit het internet. Alleen externe netwerk openbare vaste IP-adresgroep van Azure-Stack moet zich bevinden in de DMZ zone.
-- **Niet-beveiligde zone**. Dit is het externe netwerk, het internet. Deze **is niet** aanbevolen voor het implementeren van Azure-Stack in de niet-beveiligde zone.
+- **Beveiligde zone**: dit is het interne netwerk dat gebruikmaakt van interne of zakelijke routeerbare IP-adressen. Het beveiligde netwerk kan worden onderverdeeld, uitgaande toegang tot internet via NAT hebben op de Firewall en meestal toegankelijk is vanaf een willekeurige plaats in uw datacenter via het interne netwerk. Alle Azure Stack-netwerken moeten zich bevinden in de veilige zone, met uitzondering van het externe netwerk openbare VIP-groep.
+- **Perimeter-zone**. Het perimeternetwerk is wanneer het externe of internetgerichte toepassingen, zoals webservers worden doorgaans geïmplementeerd. Dit wordt meestal bewaakt door een firewall om te voorkomen dat aanvallen, zoals DDoS en indringers (hacken) terwijl u nog steeds opgegeven binnenkomend verkeer van internet. Alleen het externe netwerk openbare VIP-groep van Azure Stack moet zich bevinden in de DMZ-zone.
+- **Niet-beveiligde zone**. Dit is het externe netwerk, het internet. Deze **is niet** aanbevolen om te implementeren, Azure Stack in de niet-beveiligde zone.
 
-![Voorbeeld van Azure Stack perimeter netwerk](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Voorbeeld van Azure Stack perimeter network](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Meer informatie
-Meer informatie over [poorten en protocollen die worden gebruikt door Azure Stack eindpunten](azure-stack-integrate-endpoints.md).
+Meer informatie over [poorten en protocollen die worden gebruikt door Azure Stack-eindpunten](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure-Stack PKI-vereisten](azure-stack-pki-certs.md)
+[Azure Stack-PKI-vereisten](azure-stack-pki-certs.md)
 

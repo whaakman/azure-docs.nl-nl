@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434922"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343721"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Verzenden van de Gast OS metrische gegevens in de Azure Monitor-metriek opslaan met behulp van Resource Manager-sjabloon voor een virtuele-machineschaalset voor Windows
 
@@ -81,7 +81,7 @@ De definitie van de virtuele-Machineschaalset niet vinden in de sectie met resou
 In de virtuele machine schaalset bron, vinden de **virtualMachineProfile** sectie. Toevoegen van een nieuw profiel met de naam **extensionsProfile** voor het beheren van extensies.  
 
 
-In de **extensionProfile**, een nieuwe extensie toevoegen aan de sjabloon, zoals aangegeven in de **VMSS-WAD-extensie sectie**.  Deze sectie is het Managed Service Identity (MSI)-extensie die ervoor zorgt de metrische gegevens worden verzonden dat, worden geaccepteerd door Azure Monitor. De **naam** veld kan een willekeurige naam bevatten. 
+In de **extensionProfile**, een nieuwe extensie toevoegen aan de sjabloon, zoals aangegeven in de **VMSS-WAD-extensie sectie**.  In deze sectie wordt de beheerde identiteit voor Azure-resources-extensie die ervoor zorgt de metrische gegevens worden verzonden dat, worden geaccepteerd door Azure Monitor. De **naam** veld kan een willekeurige naam bevatten. 
 
 De volgende code uit de MSI-extensie ook wordt toegevoegd de extensie voor diagnostische gegevens en configuratie als een extensie-resource met de virtuele machine scale set bron. U kunt prestatiemeteritems behoefte toevoegen/verwijderen. 
 
@@ -89,7 +89,7 @@ De volgende code uit de MSI-extensie ook wordt toegevoegd de extensie voor diagn
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

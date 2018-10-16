@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310895"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321815"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -145,13 +145,6 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces
 
-<!-- TBD - IS -->
-- U ziet mogelijk de volgende waarschuwingen herhaaldelijk worden weergegeven en klik vervolgens op uw Azure Stack-systeem verdwijnen:
-   - *Rolinstantie infrastructuur niet beschikbaar*
-   - *Schaal eenheid knooppunt is offline*
-   
-  Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
-
 - Bij het uitvoeren van [Test AzureStack](azure-stack-diagnostic-test.md) nadat de update 1808, een waarschuwingsbericht wordt weergegeven van de Baseboard Management Controller (BMC) wordt weergegeven. U kunt deze waarschuwing negeren.
 
 <!-- 2468613 - IS --> 
@@ -174,7 +167,7 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="portal"></a>Portal
 
-- De technische documentatie voor Azure Stack is gericht op de meest recente versie. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
+- De technische documentatie voor Azure Stack is gericht op de nieuwste versie van Azure Stack. Vanwege een portal-wijzigingen tussen versies, kunnen wat u ziet wanneer u de Azure Stack-portals afwijken van wat u in de documentatie ziet. 
 
 <!-- TBD - IS ASDK --> 
 - U ziet een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, klikt u op **Dashboard bewerken**, met de rechtermuisknop op en selecteer **opnieuw ingesteld op standaardstatus**.
@@ -214,6 +207,14 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 
 ### <a name="health-and-monitoring"></a>Status en bewaking
+
+<!-- TBD - IS -->
+- U ziet mogelijk de volgende waarschuwingen herhaaldelijk worden weergegeven en klik vervolgens op uw Azure Stack-systeem verdwijnen:
+   - *Rolinstantie infrastructuur niet beschikbaar*
+   - *Schaal eenheid knooppunt is offline*
+   
+  Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
+
 <!-- 1264761 - IS ASDK --> 
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
 

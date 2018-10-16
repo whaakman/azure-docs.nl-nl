@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996652"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322070"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Wijzigen van een virtuele-machineschaalset
 Gedurende de levenscyclus van uw toepassingen moet u wijzigen of bijwerken van uw virtuele-machineschaalset. Deze updates kunnen bevatten informatie over het bijwerken van de configuratie van de schaalset of wijzigen van de configuratie van de toepassing. In dit artikel wordt beschreven hoe u een bestaande schaalset met de REST-API's, Azure PowerShell of Azure CLI te wijzigen.
@@ -126,7 +126,7 @@ Deze eigenschappen bieden een overzicht van de huidige runtimestatus van de virt
 
 
 ### <a name="the-scale-set-vm-model-view"></a>De modelweergave VM-schaalset
-Net als bij hoe een schaalset een model-view is, elke virtuele machine in de schaalset heeft een eigen modelweergave. Om te vragen de modelweergave voor een schaalset, kunt u het volgende gebruiken:
+Net als bij hoe een schaalset een model-view is, elk VM-exemplaar in de schaalset heeft een eigen modelweergave. Om te vragen de modelweergave voor een bepaalde VM-instantie in een schaalset, kunt u het volgende gebruiken:
 
 - REST-API met [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) als volgt:
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Deze eigenschappen beschrijven de configuratie van de virtuele machine zelf, niet de configuratie van de schaalset als geheel. Het model met een schaalset heeft bijvoorbeeld `overprovision` als een eigenschap, maar niet door het model voor een virtuele machine in een schaalset. Dit verschil is omdat overmatige inrichting een eigenschap voor de schaalset als een volledige, niet voor afzonderlijke virtuele machines in de schaalset is (Zie voor meer informatie over de piekvraag [ontwerpoverwegingen voor schaalsets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Deze eigenschappen beschrijven de configuratie van de VM-exemplaar, niet de configuratie van de schaalset als geheel. Het model met een schaalset heeft bijvoorbeeld `overprovision` als een eigenschap, maar niet door het model voor een VM-instantie in een schaalset. Dit verschil is omdat overmatige inrichting een eigenschap voor de schaalset als een volledige, niet voor afzonderlijke VM-exemplaren in de schaalset is (Zie voor meer informatie over de piekvraag [ontwerpoverwegingen voor schaalsets](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>De instantieweergave van de VM-schaalset
-Net als bij hoe een schaalset een weergave met een exemplaar is, elke virtuele machine in de schaalset heeft een eigen exemplaar weergeven. Om te vragen de instantieweergave van een schaalset, kunt u het volgende gebruiken:
+Net als bij hoe een schaalset een weergave met een exemplaar van is, elk VM-exemplaar in de schaalset heeft zijn eigen exemplaar weergeven. Om te vragen de instantieweergave van een bepaalde VM-instantie in een schaalset, kunt u het volgende gebruiken:
 
 - REST-API met [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) als volgt:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Deze eigenschappen beschrijven de huidige runtimestatus van de virtuele machine zelf, met eventuele uitbreidingen die zijn toegepast op de schaalset.
+Deze eigenschappen beschrijven de huidige runtimestatus van de VM-exemplaar, waaronder eventuele uitbreidingen die zijn toegepast op de schaalset.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Het bijwerken van de wereldwijde schaal instellen eigenschappen

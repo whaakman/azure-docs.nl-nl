@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222785"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318959"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Aanpassen van de Azure AD-functionaliteit voor self-service voor wachtwoord opnieuw instellen
 
@@ -55,7 +55,9 @@ Active Directory Federation Services (AD FS)-beheerders kunnen een koppeling toe
 
 Om toe te voegen een koppeling naar de AD FS-aanmeldingspagina, gebruikt u de volgende opdracht uit op uw AD FS-server. Gebruikers kunnen deze pagina gebruiken om in te voeren van de SSPR-werkstroom.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>De aanmelding bij pagina- en toegangsbeheer deelvenster uiterlijk aanpassen
 
@@ -65,8 +67,8 @@ De afbeeldingen die u kiest, worden weergegeven in de volgende omstandigheden:
 
 * Nadat een gebruiker moet hun gebruikersnaam invoeren
 * Als de gebruiker toegang heeft tot de aangepaste URL:
-    * Door door te geven de *w /* parameter voor het wachtwoord opnieuw instellen pagina, zoals "https://login.microsoftonline.com/?whr=contoso.com"
-    * Door door te geven de *gebruikersnaam* parameter voor het wachtwoord opnieuw instellen pagina, zoals "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Door door te geven de `whr` parameter voor het wachtwoord opnieuw instellen pagina, zoals "https://login.microsoftonline.com/?whr=contoso.com"
+    * Door door te geven de `username` parameter voor het wachtwoord opnieuw instellen pagina, zoals "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 Meer informatie vinden over het configureren van aangepaste huisstijl in het artikel [Huisstijlwijzigingen naar de aanmeldingspagina in Azure AD](../fundamentals/customize-branding.md).
 

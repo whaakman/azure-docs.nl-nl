@@ -7,16 +7,30 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963080"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339998"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
+
+## <a name="cognitive-services-speech-sdk-101"></a>Cognitive Services Speech SDK 1.0.1
+
+Verbeteringen van de betrouwbaarheid en oplossingen voor problemen:
+
+* Los mogelijke fatale fout vanwege een racevoorwaarde in herkenning wordt verwijderd
+* Los de mogelijke fatale fout in het geval van niet-ingestelde eigenschappen.
+* Aanvullende fout en het controleren van de parameter.
+* Objective-c oplossen mogelijk fatale fout wordt veroorzaakt door de naam in NSString te overschrijven.
+* Objectice C: aanpassen zichtbaarheid van de API
+* JavaScript: problemen met betrekking tot de gebeurtenissen en de nuttige informatie.
+* Verbeteringen in de documentatie bij.
+
+In onze [voorbeeldopslagplaats](https://aka.ms/csspeech/samples), een nieuwe steekproef voor JavaScript is toegevoegd.
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: release 2018-September
 

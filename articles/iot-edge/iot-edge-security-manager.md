@@ -2,19 +2,19 @@
 title: Azure IoT Edge-beveiligingsbeheer | Microsoft Docs
 description: Beheert de koers beveiliging van IoT Edge-apparaat en de integriteit van beveiligingsservices.
 services: iot-edge
-keywords: beveiliging, -element, enclave, IoT Edge
+keywords: beveiliging, veilige element, enclave, t, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126340"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321164"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge-beveiligingsbeheer
 
@@ -113,7 +113,7 @@ De HSM-PAL isoleert alle hoofdmap van de vertrouwensrelatie hardware voor het is
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Beveiligde silicon hoofdmap van de vertrouwensrelatie hardware
 
-Beveiligde silicon is nodig om anker vertrouwen in de hardware van de IoT Edge-apparaten.  Beveiligde silicon worden geleverd in verschillende om op te nemen Trusted Platform Module (TPM), ingesloten beveiligde Element (eSM), ARM Trustzone, Intel SGX en aangepaste beveiligde silicon technologieën.  Het gebruik van beveiligde silicon vertrouwensbasis op apparaten wordt sterk aanbevolen gegeven van de bedreigingen die zijn gekoppeld aan een fysiek de toegankelijkheid van de IoT-apparaten.
+Beveiligde silicon is nodig om anker vertrouwen in de hardware van de IoT Edge-apparaten.  Beveiligde silicon worden geleverd in verschillende om op te nemen Trusted Platform Module (TPM), ingesloten beveiligde Element (eSE), ARM TrustZone, Intel SGX en aangepaste beveiligde silicon technologieën.  Het gebruik van beveiligde silicon vertrouwensbasis op apparaten wordt sterk aanbevolen gegeven van de bedreigingen die zijn gekoppeld aan een fysiek de toegankelijkheid van de IoT-apparaten.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Integratie van IoT Edge security manager en onderhoud
 

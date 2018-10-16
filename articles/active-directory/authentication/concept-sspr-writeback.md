@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804528"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319367"
 ---
 # <a name="what-is-password-writeback"></a>Wat is wachtwoord terugschrijven?
 
@@ -25,7 +25,7 @@ Wachtwoord terugschrijven wordt ondersteund in omgevingen die gebruikmaken van:
 
 * [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
 * [Synchronisatie van wachtwoord-hashes](../hybrid/how-to-connect-password-hash-synchronization.md)
-* [Pass through-verificatie](../hybrid/how-to-connect-pta.md)
+* [Pass-through-verificatie](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
 > Wachtwoord terugschrijven wordt niet meer voor klanten die werken met Azure AD Connect-versies 1.0.8641.0 en oudere wanneer de [Azure Access Control service (ACS) op 7 November 2018 buiten gebruik is gesteld](../develop/active-directory-acs-migration.md). Azure AD Connect-versies 1.0.8641.0 en ouder wordt geen bestanden meer worden het terugschrijven van wachtwoorden op dat moment omdat ze afhankelijk van ACS voor deze functionaliteit zijn.
@@ -43,6 +43,7 @@ Wachtwoord terugschrijven biedt:
 
 > [!Note]
 > Gebruikersaccounts die zijn opgeslagen in beveiligde groepen in on-premises Active Directory kunnen niet worden gebruikt met het terugschrijven van wachtwoorden. Zie voor meer informatie over beveiligde groepen [beveiligde accounts en groepen in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor wachtwoord terugschrijven
 
@@ -69,28 +70,30 @@ Wanneer een federatieve of wachtwoord-hash gesynchroniseerd pogingen van gebruik
 1. Een controle wordt uitgevoerd om te zien welke type wachtwoord op de gebruiker heeft. Als het wachtwoord on-premises worden beheerd is:
    * Een controle wordt uitgevoerd om te zien of de Write-back-service actief en werkend. Als dit het geval is, wordt de gebruiker kunt doorgaan.
    * Als de Write-back-service niet actief is, wordt de gebruiker geïnformeerd dat hun wachtwoord nu kan niet worden teruggezet.
-2. Vervolgens de gebruiker de juiste verificatie-gates is geslaagd en bereikt de **wachtwoord opnieuw instellen** pagina.
-3. De gebruiker selecteert een nieuw wachtwoord en bevestigt het.
-4. Wanneer de gebruiker selecteert **indienen**, het leesbare wachtwoord is versleuteld met een symmetrische sleutel die is gemaakt tijdens de installatieprocedure voor het terugschrijven van wachtwoorden.
-5. Het versleutelde wachtwoord is opgenomen in een nettolading wordt verzonden via een HTTPS-kanaal aan uw tenant-specifieke service bus-omleiding (die is ingesteld voor u tijdens de installatieprocedure voor het terugschrijven van wachtwoorden). Deze relay wordt beveiligd door een willekeurig gegenereerd wachtwoord dat alleen de installatie van uw on-premises kent.
-6. Nadat het bericht heeft bereikt van de servicebus, wordt het eindpunt opnieuw instellen van wachtwoorden automatisch ontwaakt en ziet dat er een aanvraag in behandeling.
-7. De gebruiker zoekt de service vervolgens met behulp van de cloud ankerkenmerk. Voor deze zoekactie te voltooien:
+1. Vervolgens de gebruiker de juiste verificatie-gates is geslaagd en bereikt de **wachtwoord opnieuw instellen** pagina.
+1. De gebruiker selecteert een nieuw wachtwoord en bevestigt het.
+1. Wanneer de gebruiker selecteert **indienen**, het leesbare wachtwoord is versleuteld met een symmetrische sleutel die is gemaakt tijdens de installatieprocedure voor het terugschrijven van wachtwoorden.
+1. Het versleutelde wachtwoord is opgenomen in een nettolading wordt verzonden via een HTTPS-kanaal aan uw tenant-specifieke service bus-omleiding (die is ingesteld voor u tijdens de installatieprocedure voor het terugschrijven van wachtwoorden). Deze relay wordt beveiligd door een willekeurig gegenereerd wachtwoord dat alleen de installatie van uw on-premises kent.
+1. Nadat het bericht heeft bereikt van de servicebus, wordt het eindpunt opnieuw instellen van wachtwoorden automatisch ontwaakt en ziet dat er een aanvraag in behandeling.
+1. De gebruiker zoekt de service vervolgens met behulp van de cloud ankerkenmerk. Voor deze zoekactie te voltooien:
 
    * Het gebruikersobject moet bestaan in het Active Directory-connectorgebied.
    * Het gebruikersobject moet worden gekoppeld aan het bijbehorende (MV) metaverse-object.
    * Het gebruikersobject moet worden gekoppeld aan het bijbehorende Azure Active Directory-connector-object.
-   * De koppeling van de Active Directory-connector-object naar de MV ze beschikken over de synchronisatieregel `Microsoft.InfromADUserAccountEnabled.xxx` op de koppeling. <br> <br>
+   * De koppeling van de Active Directory-connector-object naar de MV ze beschikken over de synchronisatieregel `Microsoft.InfromADUserAccountEnabled.xxx` op de koppeling.
+   
    De synchronisatie-engine wordt gebruikt als de oproep afkomstig van de cloud is, de **waarde voor cloudAnchor** kenmerk om te controleren of de Azure Active Directory-connector space-object. Het volgt de koppeling op naar het MV-object, en volgt de koppeling op naar het Active Directory-object. Omdat er meerdere Active Directory-objecten (meerdere forests) voor dezelfde gebruiker zijn, de synchronisatie-engine is afhankelijk van de `Microsoft.InfromADUserAccountEnabled.xxx` koppeling naar het juiste abonnement kiezen.
 
    > [!Note]
    > Als gevolg van deze logica voor wachtwoord moet terugschrijven in om te werken van Azure AD Connect kunnen communiceren met de primaire domeincontroller (PDC) emulator. Als u deze handmatig inschakelt moet, kunt u Azure AD Connect verbinding met de PDC-emulator. Met de rechtermuisknop op de **eigenschappen** van de Active Directory-synchronisatieconnector, selecteert u vervolgens **mappartities configureren**. Zoek daar de **verbindingsinstellingen** sectie en selecteer het vak met de titel **gebruik alleen domeincontrollers**. Zelfs als de gewenste domeincontroller niet een PDC-emulator is, probeert Azure AD Connect om verbinding met de PDC voor het terugschrijven van wachtwoorden te maken.
 
-8. Nadat de gebruiker is-account gevonden, wordt een poging tot opnieuw instellen van het wachtwoord rechtstreeks in de juiste Active Directory-forest wordt uitgevoerd.
-9. Als het wachtwoord set-bewerking geslaagd is, wordt de gebruiker gemeld dat hun wachtwoord is gewijzigd.
+1. Nadat de gebruiker is-account gevonden, wordt een poging tot opnieuw instellen van het wachtwoord rechtstreeks in de juiste Active Directory-forest wordt uitgevoerd.
+1. Als het wachtwoord set-bewerking geslaagd is, wordt de gebruiker gemeld dat hun wachtwoord is gewijzigd.
    > [!NOTE]
    > Als de wachtwoord-hash van de gebruiker is gesynchroniseerd met Azure AD met behulp van wachtwoord-hashsynchronisatie, is er een kans dat de on-premises Wachtwoordbeleid toepassen zwakkere dan het wachtwoordbeleid van de cloud is. In dit geval wordt de on-premises-beleid afgedwongen. Dit beleid zorgt ervoor dat uw on-premises-beleid wordt afgedwongen in de cloud, ongeacht als u wachtwoord-hashsynchronisatie of Federatie gebruiken voor eenmalige aanmelding.
+   >
 
-10. Als het wachtwoord bewerking mislukt instelt, is een fout wordt gevraagd om de gebruiker en probeer het opnieuw. De bewerking kan mislukken omdat:
+1. Als het wachtwoord bewerking mislukt instelt, is een fout wordt gevraagd om de gebruiker en probeer het opnieuw. De bewerking kan mislukken omdat:
    * De service is niet beschikbaar.
    * Het wachtwoord dat ze geselecteerd niet voldoet aan beleidsregels van de organisatie.
    * Kan de gebruiker in de lokale Active Directory vinden.
@@ -107,10 +110,10 @@ Wachtwoord terugschrijven is een zeer veilige service. Om te zorgen dat uw gegev
    * Nadat de service bus relay is gemaakt, wordt er een sterke symmetrische sleutel gemaakt die wordt gebruikt voor het versleutelen van het wachtwoord als het gaat via de kabel. Deze sleutel is alleen aanwezig in de geheime store van uw bedrijf in de cloud, die sterk is vergrendeld en gecontroleerd, net als elk ander wachtwoord in de map.
 * **Branche standaard Transport Layer Security (TLS)**
    1. Wanneer een wachtwoord opnieuw instellen of wijzigen bewerking wordt uitgevoerd in de cloud, het leesbare wachtwoord is versleuteld met de openbare sleutel.
-   2. Het versleutelde wachtwoord wordt geplaatst in een HTTPS-bericht dat wordt verzonden via een versleuteld kanaal met behulp van Microsoft-SSL-certificaten naar uw service bus relay.
-   3. Nadat het bericht wordt ontvangen in de servicebus, wordt uw on-premises-agent wordt weer actief en wordt geverifieerd bij de servicebus met behulp van het wachtwoord dat eerder is gegenereerd.
-   4. De on-premises agent neemt het gecodeerde bericht en ontsleutelt deze met behulp van de persoonlijke sleutel.
-   5. De on-premises-agent probeert het wachtwoord via de API van AD DS SetPassword in te stellen. Deze stap is wat afdwinging van uw Active Directory on-premises Wachtwoordbeleid toepassen (zoals de complexiteit, leeftijd, geschiedenis en filters) is toegestaan in de cloud.
+   1. Het versleutelde wachtwoord wordt geplaatst in een HTTPS-bericht dat wordt verzonden via een versleuteld kanaal met behulp van Microsoft-SSL-certificaten naar uw service bus relay.
+   1. Nadat het bericht wordt ontvangen in de servicebus, wordt uw on-premises-agent wordt weer actief en wordt geverifieerd bij de servicebus met behulp van het wachtwoord dat eerder is gegenereerd.
+   1. De on-premises agent neemt het gecodeerde bericht en ontsleutelt deze met behulp van de persoonlijke sleutel.
+   1. De on-premises-agent probeert het wachtwoord via de API van AD DS SetPassword in te stellen. Deze stap is wat afdwinging van uw Active Directory on-premises Wachtwoordbeleid toepassen (zoals de complexiteit, leeftijd, geschiedenis en filters) is toegestaan in de cloud.
 * **Bericht verloopbeleid voor**
    * Als het bericht bevindt zich in servicebus, omdat uw on-premises service niet actief is, een time-out optreedt en wordt verwijderd na enkele minuten. De time-out en het verwijderen van het bericht verhoogt de beveiliging nog verder.
 

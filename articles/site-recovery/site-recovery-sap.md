@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921428"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318687"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Beveiligen van een implementatie met meerdere lagen SAP NetWeaver-toepassing met behulp van Site Recovery
 
@@ -71,10 +71,10 @@ Voor herstel na noodgevallen (DR), moet u een failover uitvoeren naar een secund
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Virtuele machines met SAP-Webdispatcher van toepassingen 
 Het onderdeel Web Dispatcher wordt gebruikt als een load balancer voor SAP-verkeer tussen de SAP-toepassingsservers. Azure Load Balancer wordt voor het bereiken van hoge beschikbaarheid voor het onderdeel Web Dispatcher gebruikt voor het implementeren van de parallelle Webdispatcher-installatie in een round robin-configuratie voor de distributie van HTTP (S)-verkeer tussen de beschikbare Web coördinatoren in de groep balancer. Dit zal worden gerepliceerd met behulp van Azure Site Recovery (ASR) en automatiseringsscripts wordt gebruikt voor het configureren van load balancer op de Dr-regio. 
 
-####<a name="vms-running-application-servers-pool"></a>Virtuele machines met servers van toepassingen
+#### <a name="vms-running-application-servers-pool"></a>Virtuele machines met servers van toepassingen
 Voor het beheren van aanmeldingsgroepen voor ABAP-toepassingsservers, wordt de transactie SMLG gebruikt. De load balancer-functie binnen de berichtenserver van de centrale Services wordt gebruikt voor het distribueren van werkbelasting tussen SAP-toepassingen voor servers voor SAPGUIs en RFC verkeer. Dit zal worden gerepliceerd met behulp van Azure Site Recovery 
 
-####<a name="vms-running-sap-central-services-cluster"></a>Virtuele machines met SAP Central Services cluster
+#### <a name="vms-running-sap-central-services-cluster"></a>Virtuele machines met SAP Central Services cluster
 Deze referentiearchitectuur centrale Services worden uitgevoerd op virtuele machines in de toepassingslaag. De centrale Services is een potentieel single point of failure (SPOF) bij de implementatie op een enkele virtuele machine, normale implementatie als hoge beschikbaarheid geen vereiste is.<br>
 
 Voor het implementeren van een oplossing voor hoge beschikbaarheid, kan een gedeelde schijfcluster of een cluster van de bestandsshare worden gebruikt. Voor meer informatie over het configureren van virtuele machines voor een gedeelde schijfcluster gebruik van Windows Server-failovercluster. Cloud-Witness wordt aanbevolen als een quorumwitness. 
@@ -110,7 +110,7 @@ Hieronder ziet u de aanbeveling voor herstel na noodgeval voor elke laag in dit 
 **Active directory virtuele machines** |  Active directory-replicatie 
 **SQL database-servers** |  SQL AlwaysOn replicatie
 
-##<a name="replicate-virtual-machines"></a>Virtuele machines repliceren
+## <a name="replicate-virtual-machines"></a>Virtuele machines repliceren
 
 Als u wilt beginnen met het repliceren van alle SAP-toepassing virtuele machines naar het datacenter van Azure disaster recovery, volg de instructies in [een virtuele machine repliceren naar Azure](azure-to-azure-walkthrough-enable-replication.md).
 

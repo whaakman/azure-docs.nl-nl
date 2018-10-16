@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: dac5425f72ff57e412be664e1bc0c84aee3dec1f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 99d723eee6bd5b60289af5490e4b1cd6a855cabb
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060627"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319146"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Windows PowerShell-scripts gebruiken om ontwikkel- en testomgevingen te publiceren
 
@@ -52,6 +52,7 @@ Het script publiceren bevat specifieke Publiceren stappen voor het implementeren
 De Windows PowerShell-module die Visual Studio gegenereerd bevat functies die gebruikmaakt van het script publiceren. Deze Azure PowerShell-functies zijn niet bedoeld om te worden gewijzigd. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ### <a name="json-configuration-file"></a>JSON-configuratiebestand
+
 Het JSON-bestand wordt gemaakt in de **configuraties** map en bevat configuratiegegevens die Hiermee geeft u precies welke resources om te implementeren naar Azure. De naam van het bestand dat door Visual Studio gegenereerd is project-naam-WAWS-dev.json als u een website of project de naam-VM-dev.json gemaakt als u een virtuele machine hebt gemaakt. Hier volgt een voorbeeld van een JSON-configuratiebestand die wordt gegenereerd wanneer u een website maakt. De meeste van de waarden behoeven geen uitleg. Naam van de website wordt gegenereerd door Azure, zodat deze mogelijk niet overeen met de projectnaam van uw.
 
 ```json
@@ -159,29 +160,29 @@ Als u een Windows PowerShell-script voordat nooit hebt uitgevoerd, moet u eerst 
 Zie voor meer informatie, [hoe: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). U kunt ook het maken van uw Web Deploy-pakket, automatiseren zoals beschreven in [aanpassen en uitbreiden van de scripts[(#customizing-and-extending-publish-scripts) publiceren]
 
 1. In **Solution Explorer**, open het contextmenu voor het script en kies vervolgens **openen met PowerShell ISE**.
-2. Als Windows PowerShell-scripts op deze computer voor het eerst uitvoert, open een opdrachtpromptvenster met Administrator-bevoegdheden en typ de volgende opdracht:
+1. Als Windows PowerShell-scripts op deze computer voor het eerst uitvoert, open een opdrachtpromptvenster met Administrator-bevoegdheden en typ de volgende opdracht:
 
     ```powershell
     Set-ExecutionPolicy RemoteSigned
     ```
 
-3. Aanmelden bij Azure met behulp van de volgende opdracht uit.
+1. Aanmelden bij Azure met behulp van de volgende opdracht uit.
 
     ```powershell
     Add-AzureAccount
     ```
 
-    Als u hierom wordt gevraagd, voert u uw gebruikersnaam en wachtwoord.
+Als u hierom wordt gevraagd, voert u uw gebruikersnaam en wachtwoord.
 
-    Houd er rekening mee dat wanneer u het script automatiseren, deze methode van het leveren van Azure-referenties niet werkt. In plaats daarvan moet u de `.publishsettings` bestand referenties op te geven. Één keer, dat u gebruikt de opdracht **Get-AzurePublishSettingsFile** downloaden van het bestand van Azure, en daarna gebruiken **importeren AzurePublishSettingsFile** om het bestand te importeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor gedetailleerde instructies.
+Houd er rekening mee dat wanneer u het script automatiseren, deze methode van het leveren van Azure-referenties niet werkt. In plaats daarvan moet u de `.publishsettings` bestand referenties op te geven. Één keer, dat u gebruikt de opdracht **Get-AzurePublishSettingsFile** downloaden van het bestand van Azure, en daarna gebruiken **importeren AzurePublishSettingsFile** om het bestand te importeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor gedetailleerde instructies.
 
-4. (Optioneel) Als u maken van Azure-resources, zoals de virtuele machine wilt, database, en website zonder de publicatie van uw webtoepassing gebruiken de **publiceren WebApplication.ps1** opdracht met de **-configuratie**argument ingesteld op de JSON-configuratiebestand. Met deze opdrachtregel maakt gebruik van de JSON-configuratiebestand om te bepalen welke resources om te maken. Omdat deze gebruikmaakt van de standaardinstellingen voor de andere argumenten voor de opdrachtregel, de resources zijn gemaakt, maar uw web-App niet publiceren. De uitgebreide optie geeft u meer informatie over wat er gebeurt.
+1. (Optioneel) Als u maken van Azure-resources, zoals de virtuele machine wilt, database, en website zonder de publicatie van uw webtoepassing gebruiken de **publiceren WebApplication.ps1** opdracht met de **-configuratie**argument ingesteld op de JSON-configuratiebestand. Met deze opdrachtregel maakt gebruik van de JSON-configuratiebestand om te bepalen welke resources om te maken. Omdat deze gebruikmaakt van de standaardinstellingen voor de andere argumenten voor de opdrachtregel, de resources zijn gemaakt, maar uw web-App niet publiceren. De uitgebreide optie geeft u meer informatie over wat er gebeurt.
 
     ```powershell
     Publish-WebApplication.ps1 -Verbose –Configuration C:\Path\WebProject-WAWS-dev.json
     ```
 
-5. Gebruik de **publiceren WebApplication.ps1** opdracht zoals wordt weergegeven in een van de volgende voorbeelden aanroepen van het script en publiceren van uw webtoepassing. Als u wilt overschrijven de standaardinstellingen voor het gebruik van de andere argumenten, zoals de naam van het abonnement, publiceren pakketnaam, referenties voor virtuele machine of de referenties van de database-server, kunt u deze parameters opgeven. Gebruik de **– uitgebreid** optie voor meer informatie over de voortgang van het publicatieproces.
+1. Gebruik de **publiceren WebApplication.ps1** opdracht zoals wordt weergegeven in een van de volgende voorbeelden aanroepen van het script en publiceren van uw webtoepassing. Als u wilt overschrijven de standaardinstellingen voor het gebruik van de andere argumenten, zoals de naam van het abonnement, publiceren pakketnaam, referenties voor virtuele machine of de referenties van de database-server, kunt u deze parameters opgeven. Gebruik de **– uitgebreid** optie voor meer informatie over de voortgang van het publicatieproces.
 
     ```powershell
     Publish-WebApplication.ps1 –Configuration C:\Path\WebProject-WAWS-dev-json `
@@ -191,27 +192,29 @@ Zie voor meer informatie, [hoe: een Web-implementatiepakket maken in Visual Stud
     -Verbose
     ```
 
-    Als u een virtuele machine maakt, wordt de opdracht ziet eruit als het volgende. Dit voorbeeld toont ook hoe u de referenties voor meerdere databases. Voor de virtuele machines die deze scripts maken, is het SSL-certificaat niet vanuit een vertrouwde basis-CA. Daarom moet u gebruik van de **– AllowUntrusted** optie.
+Als u een virtuele machine maakt, wordt de opdracht ziet eruit als het volgende. Dit voorbeeld toont ook hoe u de referenties voor meerdere databases. Voor de virtuele machines die deze scripts maken, is het SSL-certificaat niet vanuit een vertrouwde basis-CA. Daarom moet u gebruik van de **– AllowUntrusted** optie.
 
-    ```powershell
-    Publish-WebApplication.ps1 `
-    -Configuration C:\Path\ADVM-VM-test.json `
-    -SubscriptionName Contoso `
-    -WebDeployPackage C:\Path\ADVM.zip `
-    -AllowUntrusted `
-    -VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
-    -DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
-    -Verbose
-    ```
+```powershell
+Publish-WebApplication.ps1 `
+-Configuration C:\Path\ADVM-VM-test.json `
+-SubscriptionName Contoso `
+-WebDeployPackage C:\Path\ADVM.zip `
+-AllowUntrusted `
+-VMPassword @{name = "vmUserName"; password = "YourPasswordHere"} `
+-DatabaseServerPassword @{Name="server1";Password="adminPassword1"}, @{Name="server2";Password="adminPassword2"} `
+-Verbose
+```
 
-    Het script kunt maken van databases, maar het database-servers niet maken. Als u maken van een database-server wilt, kunt u de **New-AzureSqlDatabaseServer** functie in de Azure-module.
+Het script kunt maken van databases, maar het database-servers niet maken. Als u maken van een database-server wilt, kunt u de **New-AzureSqlDatabaseServer** functie in de Azure-module.
 
 ## <a name="customizing-and-extending-the-publish-scripts"></a>Aanpassen en uitbreiden van de scripts publiceren
+
 U kunt het script publiceren en JSON-configuratiebestand aanpassen. De functies in de Windows PowerShell-module **AzureWebAppPublishModule.psm1** zijn niet bedoeld om te worden gewijzigd. Als u alleen wilt opgeven van een andere database of sommige van de eigenschappen van de virtuele machine wijzigen, bewerkt u de JSON-configuratiebestand. Als u wilt om uit te breiden de functionaliteit van het script voor het automatiseren van het bouwen en testen van uw project, kunt u de functie stubs in implementeren **publiceren WebApplication.ps1**.
 
 Voor het automatiseren van het bouwen van uw project, voeg code die wordt aangeroepen MSBuild naar `New-WebDeployPackage` zoals wordt weergegeven in dit codevoorbeeld. Het pad naar de MSBuild-opdracht is afhankelijk van de versie van Visual Studio die u hebt geïnstalleerd. Als u het juiste pad, kunt u de functie **Get-MSBuildCmd**, zoals wordt weergegeven in dit voorbeeld.
 
 ### <a name="to-automate-building-your-project"></a>Voor het automatiseren van het bouwen van uw project
+
 1. Voeg de `$ProjectFile` parameter in de sectie Algemene parameters.
 
     ```powershell
@@ -221,7 +224,7 @@ Voor het automatiseren van het bouwen van uw project, voeg code die wordt aanger
     $ProjectFile,
     ```
 
-2. Kopieer de functie `Get-MSBuildCmd` aan het scriptbestand.
+1. Kopieer de functie `Get-MSBuildCmd` aan het scriptbestand.
 
     ```powershell
     function Get-MSBuildCmd
@@ -242,7 +245,7 @@ Voor het automatiseren van het bouwen van uw project, voeg code die wordt aanger
     }
     ```
 
-3. Vervang `New-WebDeployPackage` met de volgende code en vervang de tijdelijke aanduidingen bij het maken van de regel `$msbuildCmd`. Deze code is voor Visual Studio 2017. Als u Visual Studio 2015 gebruikt, wijzigt u de **VisualStudioVersion** eigenschap `14.0` (`12.0` voor Visual Studio 2013).
+1. Vervang `New-WebDeployPackage` met de volgende code en vervang de tijdelijke aanduidingen bij het maken van de regel `$msbuildCmd`. Deze code is voor Visual Studio 2017. Als u Visual Studio 2015 gebruikt, wijzigt u de **VisualStudioVersion** eigenschap `14.0` (`12.0` voor Visual Studio 2013).
 
     ```powershell
     function New-WebDeployPackage
@@ -250,15 +253,15 @@ Voor het automatiseren van het bouwen van uw project, voeg code die wordt aanger
         #Write a function to build and package your web application
     ```
 
-    Gebruik MsBuild.exe voor het bouwen van uw webtoepassing. Zie voor meer informatie over, MSBuild-Naslaggids op: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
+Gebruik MsBuild.exe voor het bouwen van uw webtoepassing. Zie voor meer informatie over, MSBuild-Naslaggids op: [http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
 
-    ```powershell
-    Write-VerboseWithTime 'Build-WebDeployPackage: Start'
+```powershell
+Write-VerboseWithTime 'Build-WebDeployPackage: Start'
 
-    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+$msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
 
-    Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
-    ```
+Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
+```
 
 ### <a name="start-execution-of-the-build-command"></a>Uitvoering van de build-opdracht kan worden gestart
 
@@ -293,7 +296,7 @@ return $WebDeployPackage
     }
     ```
 
-2. Aanroepen van het aangepaste script uit vanaf de opdrachtregel doorgegeven met de `$Project` argument, zoals in het volgende voorbeeld:
+1. Aanroepen van het aangepaste script uit vanaf de opdrachtregel doorgegeven met de `$Project` argument, zoals in het volgende voorbeeld:
 
     ```powershell
     .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
@@ -303,9 +306,10 @@ return $WebDeployPackage
     -Verbose
     ```
 
-    Voor het automatiseren van uw toepassing testen, voeg code toe aan `Test-WebApplication`. Zorg ervoor dat u Verwijder opmerkingen bij de regels in **publiceren WebApplication.ps1** waar deze functies worden genoemd. Als u een van de implementatie niet opgeeft, kunt u handmatig het ontwikkelen van uw project met Visual Studio, en voer het script publiceren om te publiceren naar Azure.
+Voor het automatiseren van uw toepassing testen, voeg code toe aan `Test-WebApplication`. Zorg ervoor dat u Verwijder opmerkingen bij de regels in **publiceren WebApplication.ps1** waar deze functies worden genoemd. Als u een van de implementatie niet opgeeft, kunt u handmatig het ontwikkelen van uw project met Visual Studio, en voer het script publiceren om te publiceren naar Azure.
 
 ## <a name="publishing-function-summary"></a>Publiceren functie samenvatting
+
 Voor informatie over functies die u bij de opdrachtprompt van Windows PowerShell gebruiken kunt, gebruikt u de opdracht `Get-Help function-name`. De help bevat parameter Help-informatie en voorbeelden. De dezelfde help-tekst is ook in de script-bronbestanden **AzureWebAppPublishModule.psm1** en **publiceren WebApplication.ps1**. Het script en de help worden in de taal van uw Visual Studio gelokaliseerd.
 
 **AzureWebAppPublishModule**

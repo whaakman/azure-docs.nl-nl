@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973946"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345353"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snelstartgids: De Bing-spraakherkenning REST-API gebruiken
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Met de cloud gebaseerde Bing Speech-Service, kunt u toepassingen ontwikkelen met behulp van de REST-API aan Converteer gesproken audio naar tekst.
 
@@ -62,7 +63,7 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 
 In de volgende tabel vindt u enkele voorbeelden van URI's-service.
 
-| Opname-modus  | Taal | Uitvoerindeling | Service-URI |
+| Herkennings-modus  | Taal | Uitvoerindeling | Service-URI |
 |---|---|---|---|
 | `interactive` | pt-BR | Standaard | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | `conversation` | nl-NL | Gedetailleerd |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
@@ -78,7 +79,7 @@ De volgende velden moeten worden ingesteld in de aanvraagheader:
 - `Ocp-Apim-Subscription-Key`: Telkens wanneer die aanroepen van de service, moet u uw abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` header. Speech Service biedt ook ondersteuning voor autorisatie doorgegeven tokens in plaats van abonnementssleutels. Zie voor meer informatie, [verificatie](../How-to/how-to-authentication.md).
 - `Content-type`: De `Content-type` veld Beschrijving van de indeling en codec van de audio-stream. Op dit moment alleen WAV-bestand en PCM Mono 16000 codering wordt ondersteund. De waarde van de Content-type voor deze indeling is `audio/wav; codec=audio/pcm; samplerate=16000`.
 
-De `Transfer-Encoding` veld is optioneel. Als u dit veld ingesteld op `chunked`, kunt u de audio afgeknipt in kleine chunks. Zie voor meer informatie, [gesegmenteerde overdrachtscodering overdracht](../How-to/how-to-chunked-transfer.md).
+Het veld `Transfer-Encoding` is optioneel. Als u dit veld ingesteld op `chunked`, kunt u de audio afgeknipt in kleine chunks. Zie voor meer informatie, [gesegmenteerde overdrachtscodering overdracht](../How-to/how-to-chunked-transfer.md).
 
 Hier volgt een voorbeeld-aanvraagheader:
 

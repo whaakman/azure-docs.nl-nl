@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/12/2018
 ms.author: raiye
-ms.openlocfilehash: 239482151384ff555d86e3d639bfe1d75b0d0ceb
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 437fc63641ed6a28f34b4b7cb96dbdc0888c50f5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604889"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321866"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -42,6 +42,9 @@ Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases
 Weet over het bijwerken van het Gastbesturingssysteem? Controleer [dit] [ cloud updates] uit.
 
 ## <a name="news-updates"></a>Nieuws
+
+###### <a name="october-12-2018"></a>**12 oktober 2018**
+Het Gastbesturingssysteem September heeft uitgegeven.
 
 ###### <a name="september-12-2018"></a>**Op 12 september 2018**
 Het Gastbesturingssysteem augustus heeft uitgegeven.
@@ -93,8 +96,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-5.23_201809-01 |12 oktober 2018 |Post 5,25 |
 | WA-GUEST-OS-5.22_201808-01 |Op 12 september 2018 |Post 5,24 |
-| WA-GUEST-OS-5.21_201807-02 |3 augustus 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |3 augustus 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 juli 2018 |Op 12 september 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018 |
 |~~WA-GUEST-OS-5.18_201804-01~~ |4 mei 2018 |3 juli 2018 |
@@ -113,8 +117,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-4.58_201809-01 |12 oktober 2018 |Post 4,60 |
 | WA-GUEST-OS-4.57_201808-01 |Op 12 september 2018 |Post 4,59 |
-| WA-GUEST-OS-4.56_201807-02 |3 augustus 2018 |Post 4,58 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |3 augustus 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 juli 2018 |Op 12 september 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018 |
 |~~WA-GUEST-OS-4.53_201804-01~~ |4 mei 2018 |3 juli 2018 |
@@ -133,8 +138,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-3.65_201809-01 |12 oktober 2018 |Post 3.67 |
 | WA-GUEST-OS-3.64_201808-01 |Op 12 september 2018 |Post 3,66 |
-| WA-GUEST-OS-3.63_201807-02 |3 augustus 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |3 augustus 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 juli 2018 |Op 12 september 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018 |
 |~~WA-GUEST-OS-3.60_201804-01~~ |4 mei 2018 |3 juli 2018 |
@@ -153,8 +159,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen |
 | --- | --- | --- |
+| WA-GUEST-OS-2.78_201809-01 |12 oktober 2018 |Post 2,80 |
 | WA-GUEST-OS-2.77_201808-01 |Op 12 september 2018 |Post 2,79 |
-| WA-GUEST-OS-2.76_201807-02 |3 augustus 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |3 augustus 2018 |12 oktober 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 juli 2018 |Op 12 september 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018|
 |~~WA-GUEST-OS-2.73_201804-01~~ |4 mei 2018 |3 juli 2018 |

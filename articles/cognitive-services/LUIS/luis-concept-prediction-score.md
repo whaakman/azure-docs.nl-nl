@@ -1,26 +1,26 @@
 ---
-title: Inzicht in de voorspelling score geretourneerd door LUIS
+title: Voorspelling score - Intents, entiteiten - LUIS
 titleSuffix: Azure Cognitive Services
-description: Informatie over wat de voorspelling score betekent LUIS
+description: Een voorspelling score geeft aan dat de mate van vertrouwen die LUIS voor voorspellingsresultaten heeft.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56bec5ef4730e47b5c79263af5d1942df5a73f04
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032222"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341341"
 ---
 # <a name="prediction-score"></a>Voorspellingsscore
 Een voorspelling score geeft aan dat de mate van vertrouwen die LUIS voor voorspellingsresultaten heeft. 
 
-De score van een voorspelling is meestal tussen nul (0) en één (1). Een voorbeeld van een zeer vertrouwen LUIS-score is 0,99. Een voorbeeld van een score van lage vertrouwen is 0,01. 
+De score van een voorspelling is tussen de nul (0) en één (1). Een voorbeeld van een zeer vertrouwen LUIS-score is 0,99. Een voorbeeld van een score van lage vertrouwen is 0,01. 
 
 |Score-waarde|Betrouwbaarheid|
 |--|--|

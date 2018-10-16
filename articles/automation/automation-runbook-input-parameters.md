@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056622"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344860"
 ---
 # <a name="runbook-input-parameters"></a>Invoerparameters voor runbook
 
@@ -73,6 +73,10 @@ U kunt vervolgens de volgende waarde doorgeven aan de parameter:
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> Als u geen waarde doorgeven aan een optionele `[String]` typeparameter waarvoor een _standaardwaarde_ van `$null`, wordt de waarde van de parameter een _lege tekenreeks_, **niet** `$null`.
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Invoerparameters die zijn opgegeven in grafische runbooks configureren
 

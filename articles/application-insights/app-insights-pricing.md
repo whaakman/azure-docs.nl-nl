@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060162"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319452"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Prijzen en gegevensvolumes in Application Insights beheren
 
@@ -159,6 +159,10 @@ U kunt een script voor het instellen van het prijsplan met behulp van Azure Reso
 ## <a name="limits-summary"></a>Samenvatting van limieten
 
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## <a name="disable-daily-cap-e-mails"></a>Dagelijkse limiet e-mailberichten uitschakelen
+
+Uitschakelen van de dagelijkse limiet-e-mails volume onder de **configureren** sectie van uw Application Insights-resource in de **gebruik en geraamde kosten** venster **daglimiet** . Er zijn instellingen voor e-mailbericht verzenden wanneer de limiet is bereikt, en wanneer een aanpasbare waarschuwingsniveau is bereikt. Als u wilt alle dagelijks uitschakelen gerelateerde cap volume e-mailberichten Schakel beide vakken.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 748cb4612b2b5aed26ba8197cfad0782f2645e1e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37902126"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344486"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>High performance computing-grootten van virtuele machines
 
@@ -56,9 +56,21 @@ Een rekenintensieve VM implementeren vanaf een van de installatiekopieën in de 
   > Op de installatiekopieën op basis van CentOS HPC kernel-updates zijn uitgeschakeld in de **yum** configuratiebestand. Dit is omdat de Linux RDMA-stuurprogramma's worden gedistribueerd als een RPM-pakket en updates voor stuurprogramma's niet werkt mogelijk als de kernel wordt bijgewerkt.
   > 
  
-### <a name="cluster-configuration"></a>Clusterconfiguratie 
-    
-MPI-opdrachten uitvoeren op geclusterde virtuele machines is aanvullende configuratie vereist. Op een cluster met virtuele machines moet u bijvoorbeeld vertrouwensrelatie tussen de rekenknooppunten. Zie voor de standaardinstellingen, [een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+### <a name="cluster-configuration-options"></a>Cluster-configuratie-opties
+
+Azure biedt verschillende opties voor het maken van clusters van Linux HPC-VM's die kan communiceren met behulp van de RDMA-netwerk, met inbegrip van: 
+
+* **Virtuele machines** -de RDMA-compatibele HPC-VM's implementeren in dezelfde beschikbaarheidsset (bij gebruik van het implementatiemodel Azure Resource Manager). Als u het klassieke implementatiemodel, implementeert u de virtuele machines in dezelfde cloudservice. 
+
+* **Virtuele-machineschaalsets** - In een VM-schaalset instellen, zorgt u ervoor dat u de implementatie beperken tot één plaatsingsgroep. Bijvoorbeeld in een Resource Manager-sjabloon instellen de `singlePlacementGroup` eigenschap `true`. 
+
+* **Azure CycleCloud** -maken van een HPC-cluster in [Azure CycleCloud](/azure/cyclecloud/) MPI-opdrachten uitvoeren op Linux-knooppunten.
+
+* **Azure Batch** -maakt een [Azure Batch](/azure/batch/) van toepassingen voor het uitvoeren van MPI-workloads op Linux-rekenknooppunten. Zie voor meer informatie, [gebruik RDMA-compatibele of met GPU exemplaren in de Batch-pools](../../batch/batch-pool-compute-intensive-sizes.md). Zie ook de [Batch scheepswerf](https://github.com/Azure/batch-shipyard) voor het uitvoeren van werkbelastingen op basis van een container op Batch-project.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) ondersteunt diverse Linux-distributies worden uitgevoerd op rekenknooppunten in RDMA-compatibele Azure-VM's geïmplementeerd, beheerd door een Windows Server-hoofdknooppunt. Zie voor een voorbeeldimplementatie [maken HPC Pack Linux RDMA-Cluster in Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+
+Afhankelijk van uw eigen keuze aan voor Clusterbeheer, aanvullende configuratie nodig om MPI-opdrachten uitvoeren. Op een cluster met virtuele machines moet u mogelijk bijvoorbeeld vertrouwensrelatie tussen de knooppunten van het door de SSH-sleutels genereren of door het zonder wachtwoord uitproberen SSH vertrouwensrelatie tot stand brengen.
 
 ### <a name="network-topology-considerations"></a>Aandachtspunten voor topologie van netwerk
 * Op de RDMA-functionaliteit virtuele Linux-machines in Azure worden Eth1 is gereserveerd voor RDMA-netwerkverkeer. Wijzig niet alle instellingen Eth1 of gegevens in het configuratiebestand verwijzen naar dit netwerk. Eth0 is gereserveerd voor reguliere Azure netwerkverkeer.
@@ -66,8 +78,7 @@ MPI-opdrachten uitvoeren op geclusterde virtuele machines is aanvullende configu
 * De RDMA-netwerk in Azure reserveert de ruimte adres 172.16.0.0/16. 
 
 
-## <a name="using-hpc-pack"></a>Met behulp van HPC Pack
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), van Microsoft gratis HPC-cluster en taak management-oplossing, is een optie voor u de rekenintensieve instanties gebruiken met Linux. De meest recente versies van HPC Pack-ondersteuning van verschillende Linux-distributies worden uitgevoerd op rekenknooppunten geïmplementeerd in Azure VM's, beheerd door een Windows Server-hoofdknooppunt. HPC Pack kunt met RDMA-compatibele Linux-rekenknooppunten met Intel MPI, plannen en uitvoeren van Linux MPI-toepassingen die toegang hebben tot de RDMA-netwerk. Zie [aan de slag met Linux-rekenknooppunten in een HPC Pack-cluster in Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+
 
 ## <a name="other-sizes"></a>Andere grootten
 - [Algemeen doel](sizes-general.md)
@@ -78,8 +89,6 @@ MPI-opdrachten uitvoeren op geclusterde virtuele machines is aanvullende configu
 - [Vorige generaties](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-
-- Om te beginnen implementeren en gebruiken van rekenintensieve grootten met RDMA op Linux, Zie [een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 - Meer informatie over hoe u [Azure compute units (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
 

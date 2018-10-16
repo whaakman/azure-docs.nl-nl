@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 78ae04d3c51cf8039dcdd067594afafae606f5e3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310552"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341120"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetriecorrelatie in Application Insights
 
@@ -105,17 +105,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Open tracerings- en Application Insights
 
-[Open tracering](http://opentracing.io/) en Application Insights die er ongeveer zo uitziet gegevensmodellen 
+De [Open tracering van gegevensmodel specificatie](http://opentracing.io/) en Application Insights-gegevensmodellen toewijzen in de volgende manier:
 
-- `request`, `pageView` wordt toegewezen aan **Span** met `span.kind = server`
-- `dependency` toegewezen aan **Span** met `span.kind = client`
-- `id` van een `request` en `dependency` wordt toegewezen aan **Span.Id**
-- `operation_Id` toegewezen aan **TraceId**
-- `operation_ParentId` toegewezen aan **verwijzing** van het type `ChildOf`
+| Application Insights                  | Tracering openen                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span` met `span.kind = server`                  |
+| `Dependency`                          | `Span` met `span.kind = client`                  |
+| `Id` van `Request` en `Dependency`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `Reference` van het type `ChildOf` (het bovenliggende bereik)   |
 
-Zie [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en -gegevensmodel.
+Zie voor meer informatie over de Application Insights-gegevensmodel [gegevensmodel](application-insights-data-model.md). 
 
-Zie [specificatie](https://github.com/opentracing/specification/blob/master/specification.md) en [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) voor definities van Open tracering concepten.
+Zie de Open tracering [specificatie](https://github.com/opentracing/specification/blob/master/specification.md) en [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) voor definities van Open tracering concepten.
 
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetriecorrelatie in .NET

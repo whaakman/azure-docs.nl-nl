@@ -1,24 +1,25 @@
 ---
-title: Een eindpunt aangepaste spraak - Custom Speech Service maken
-titlesuffix: Azure Cognitive Services
-description: Informatie over het maken van een aangepaste spraak-naar-tekst-eindpunt met de Custom Speech Service.
+title: Maak een aangepaste spraak-eindpunt met Custom Speech Service op Azure | Microsoft Docs
+description: Informatie over het maken van een aangepaste spraak-naar-tekst-eindpunt met de Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219020"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340798"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Een aangepast spraak naar tekst-eindpunt maken
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Nadat u hebt aangepaste akoestische modellen of taalmodellen die zijn gemaakt, kunt u ze kunt implementeren in een aangepast eindpunt voor spraak-naar-tekst. 
 
 ## <a name="create-an-endpoint"></a>Een eindpunt maken

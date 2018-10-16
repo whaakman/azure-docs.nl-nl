@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984061"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345183"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Verzenden van de Gast OS metrische gegevens in de Azure Monitor-metriek opslaan met een Resource Manager-sjabloon voor een Windows-Machine
 
@@ -64,7 +64,7 @@ Toevoegen van een opslagaccount-ID voor de **variabelen** gedeelte van de sjablo
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Deze extensie Managed Service Identity (MSI) toevoegen aan de sjabloon aan de bovenkant van de sectie 'resources'.  De extensie zorgt ervoor dat Azure Monitor accepteert de metrische gegevens worden verzonden.  
+Deze beheerde identiteiten voor Azure-resources-extensie toevoegen aan de sjabloon aan de bovenkant van de sectie 'resources'.  De extensie zorgt ervoor dat Azure Monitor accepteert de metrische gegevens worden verzonden.  
 
 ```json
 //Find this code 

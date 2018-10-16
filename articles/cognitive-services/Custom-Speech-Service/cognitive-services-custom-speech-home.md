@@ -1,24 +1,24 @@
 ---
-title: Wat is Custom Speech Service?
-titlesuffix: Azure Cognitive Services
+title: Aangepaste Speech Service-overzicht in Azure | Microsoft Docs
 description: Custom Speech Service is een cloudgebaseerde service waarmee gebruikers spraakmodellen kunnen aanpassen voor spraak-naar-teksttranscriptie.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222740"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342290"
 ---
 # <a name="what-is-custom-speech-service"></a>Wat is Custom Speech Service?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service is een cloudgebaseerde service waarmee gebruikers spraakmodellen kunnen aanpassen voor spraak-naar-teksttranscriptie.
 Als u met Custom Speech Service aan de slag wilt, raadpleegt u de [Custom Speech Service-portal](https://cris.ai).
@@ -44,7 +44,7 @@ Als u bijvoorbeeld een app aan het bouwen bent om met gesproken opdrachten te zo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het gebruik van de Custom Speech Service, de [Custom Speech Service-portal] (https://cris.ai)).
+Zie voor meer informatie over het gebruik van de Custom Speech Service, de [Custom Speech Service Portal](https://cris.ai).
 
 * [Aan de slag](cognitive-services-custom-speech-get-started.md)
 * [Veelgestelde vragen](cognitive-services-custom-speech-faq.md)

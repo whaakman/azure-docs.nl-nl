@@ -1,9 +1,9 @@
 ---
 title: Gebruikers toevoegen voor Azure Stack ADFS | Microsoft Docs
-description: Informatie over het toevoegen van gebruikers voor AD FS-implementaties van Azure-Stack
+description: Meer informatie over het toevoegen van gebruikers voor AD FS-implementaties van Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,26 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: jeffgilb
+ms.date: 10/15/2018
+ms.author: patricka
 ms.reviewer: unknown
-ms.openlocfilehash: 5774750edc5b7380275d4f20aee3be47f2f62b4d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f8abacbcb05d1346931b5c2e1097660cfbd8e594
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29554563"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344163"
 ---
-# <a name="add-users-in-the-azure-stack-development-kit"></a>Gebruikers toevoegen in de Azure-Stack Development Kit
+# <a name="add-azure-stack-users-in-ad-fs"></a>Azure Stack-gebruikers toevoegen in AD FS
+U kunt de **Active Directory: gebruikers en Computers** module Extra gebruikers toevoegen aan een Azure Stack-omgeving gebruik te maken van AD FS als de id-provider.
 
-*Van toepassing op: Azure stapelen Development Kit*
+## <a name="add-windows-server-active-directory-users"></a>Windows Server Active Directory-gebruikers toevoegen
+> [!TIP]
+> In dit voorbeeld gebruikt de standaard azurestack.local ASDK active directory. 
 
-Om extra gebruikers toevoegen aan de implementatie Development Kit, moet u ze toevoegen aan de Azure-Stack Development Kit-map met de Microsoft Management Console vanaf de Azure-Stack-hostcomputer.
-1.  Open Microsoft Management Console op de hostcomputer Azure-Stack.
-2.  Klik op **bestand > toevoegen of verwijderen module**.
-3.  Selecteer **Active Directory-gebruikers en Computers** > **AzureStack.local** > **gebruikers**.
+1.  Meld u aan bij een computer met een account om toegang tot de Windows-beheerprogramma's en open een nieuwe Microsoft Management Console (MMC).
+2.  Klik op **bestand > toevoegen of verwijderen-module**.
+3.  Selecteer **Active Directory: gebruikers en Computers** > **AzureStack.local** > **gebruikers**.
 4.  Klik op **actie** > **nieuwe** > **gebruiker**.
-5.  Geef in het nieuwe Object – gebruiker venster en bevestig een wachtwoord
+5.  Typ in het nieuw Object – gebruiker venster, en een wachtwoord te bevestigen
 6.  Klik op **volgende** om te voltooien van de waarden en klik op Voltooien om de gebruiker te maken.
 
 
+## <a name="next-steps"></a>Volgende stappen
+[Service-principals maken](azure-stack-create-service-principals.md)

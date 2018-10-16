@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 13b21c4f8fde2b11722d012c207ed75447a7f970
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114637"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321730"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -27,7 +27,7 @@ Dit artikel wordt beschreven voor het wachtwoordbeleid en -vereisten voor wachtw
 
 Met een twee-gate-beleid, **beheerders niet hebben de mogelijkheid om de beveiligingsvragen gebruiken als**.
 
- Een twee-gate-beleid vereist twee soorten verificatiegegevens, zoals een e-mailadres *en* een telefoonnummer. Een twee-gate-beleid van toepassing is in de volgende omstandigheden:
+Een twee-gate-beleid vereist twee soorten verificatiegegevens, zoals een e-mailadres *en* een telefoonnummer. Een twee-gate-beleid van toepassing is in de volgende omstandigheden:
 
 * De volgende Azure-beheerdersrollen zijn hierbij betrokken:
   * Helpdesk-beheerder
@@ -50,29 +50,17 @@ Met een twee-gate-beleid, **beheerders niet hebben de mogelijkheid om de beveili
   * CRM-servicebeheerder
   * Power BI-servicebeheerder
 
-* Als de 30 dagen in een proefabonnement zijn verstreken
-
-  of
-
-* Een aangepast domein is aanwezig, bijvoorbeeld contoso.com
-
-  of
-
+* Als de 30 dagen zijn verstreken in een proefabonnement; of
+* Een aangepast domein is aanwezig, zoals contoso.com; of
 * Azure AD Connect synchroniseert identiteiten van uw on-premises directory
 
 ### <a name="exceptions"></a>Uitzonderingen
 
 Een beleid voor één gate vereist een stukje authenticatiegegevens, zoals een e-mailadres *of* telefoonnummer. Een één-gate-beleid van toepassing is in de volgende omstandigheden:
 
-* Het is binnen de eerste 30 dagen van een proefabonnement
-
-  of
-
-* Een aangepast domein niet aanwezig (*. onmicrosoft.com)
-
-  en
-
-  Azure AD Connect is niet identiteiten synchroniseren
+* Het is binnen de eerste 30 dagen van een proefabonnement; of
+* Een aangepast domein niet aanwezig (*. onmicrosoft.com); en
+* Azure AD Connect is niet identiteiten synchroniseren
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-beleidsregels die van toepassing op alle gebruikersaccounts
 
@@ -117,7 +105,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 ### <a name="check-the-expiration-policy-for-a-password"></a>Het vervalbeleid voor wachtwoord controleren
 
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
-2. Voer een van de volgende opdrachten:
+1. Voer een van de volgende opdrachten:
 
    * Als u wilt zien als het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld *aprilr@contoso.onmicrosoft.com*) of de gebruikers-ID van de gebruiker die u wilt controleren: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Om te zien de **wachtwoord verloopt nooit** instellen voor alle gebruikers, voert u de volgende cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 ### <a name="set-a-password-to-expire"></a>Stel een wachtwoord verlopen
 
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
-2. Voer een van de volgende opdrachten:
+1. Voer een van de volgende opdrachten:
 
    * Als u wilt het wachtwoord van een gebruiker zo instellen dat het wachtwoord is verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Om in te stellen de wachtwoorden voor alle gebruikers in de organisatie, zodat ze zijn verlopen, gebruikt u de volgende cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Als u wilt beginnen, moet u [downloaden en installeren van de Azure AD PowerShel
 ### <a name="set-a-password-to-never-expire"></a>Stel een wachtwoord op nooit verlopen
 
 1. Verbinding maken met Windows PowerShell met behulp van de administrator-referenties van uw bedrijf.
-2. Voer een van de volgende opdrachten:
+1. Voer een van de volgende opdrachten:
 
    * Om het wachtwoord van een gebruiker op nooit verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Om in te stellen de wachtwoorden voor alle gebruikers in een organisatie op nooit verlopen, moet u de volgende cmdlet uitvoeren: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

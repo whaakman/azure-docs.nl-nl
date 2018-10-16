@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995343"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342395"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Aan de slag met de spraak-API in JavaScript
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 U kunt ontwikkelen van toepassingen die Converteer gesproken audio naar tekst met behulp van de spraak-API. Maakt gebruik van de JavaScript-clientbibliotheek de [Speech Service WebSocket-protocol](../API-Reference-REST/websocketprotocol.md), waarmee u te communiceren en te ontvangen tekst tegelijkertijd worden omgezet. Dit artikel helpt u aan de slag met de spraak-API in JavaScript.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a585155e1d1050498754f5b9a7ec3dfc82d7a2c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721552"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319928"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken van verschillende implementatiemodellen met behulp van de portal
 
@@ -83,8 +83,8 @@ De volgende tabel toont een voorbeeld van hoe het voorbeeld VNets en lokale site
 
 | Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |
 |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |VS - west | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |VS - oost |ClassicVNetLocal (10.0.0.0/24) |
+| ClassicVNet |(10.0.0.0/24) |US - west | RMVNetLocal (192.168.0.0/16) |
+| RMVNet | (192.168.0.0/16) |US - oost |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Sectie 1: de klassieke VNet-instellingen configureren
 
@@ -182,8 +182,8 @@ Voordat u een virtuele netwerkgateway maakt, moet u eerst het gatewaysubnet make
 
 | Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite |Openbare IP-adres van gateway|
 |:--- |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |VS - west | RMVNetLocal (192.168.0.0/16) |Het openbare IP-adres dat is toegewezen aan de gateway ClassicVNet|
-| RMVNet | (192.168.0.0/16) |VS - oost |ClassicVNetLocal (10.0.0.0/24) |Het openbare IP-adres dat is toegewezen aan de gateway RMVNet.|
+| ClassicVNet |(10.0.0.0/24) |US - west | RMVNetLocal (192.168.0.0/16) |Het openbare IP-adres dat is toegewezen aan de gateway ClassicVNet|
+| RMVNet | (192.168.0.0/16) |US - oost |ClassicVNetLocal (10.0.0.0/24) |Het openbare IP-adres dat is toegewezen aan de gateway RMVNet.|
 
 De lokale netwerkgateway geeft het adresbereik en het openbare IP-adres dat is gekoppeld aan uw klassieke VNet en de virtuele netwerkgateway. Als u deze stappen bij wijze van oefening doen, raadpleegt u de voorbeelden van waarden.
 
@@ -294,7 +294,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>Sectie 6: de verbindingen controleren
+## <a name="verify"></a>Sectie 6: de verbindingen controleren
 
 U kunt uw verbindingen controleren met behulp van de Azure portal of PowerShell. Tijdens het controleren, moet u mogelijk Wacht een minuut of twee als de verbinding wordt gemaakt. Als een verbinding geslaagd is, verandert de status van de connectiviteit van 'Verbinding maken' in 'Verbonden'.
 

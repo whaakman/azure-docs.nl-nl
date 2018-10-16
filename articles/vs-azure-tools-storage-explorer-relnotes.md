@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 70e4e131cd83c6e80bc9b61a91cfd98adee0c952
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7e73f676f47de8256928224aae55ea30eb414ddf
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116943"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344747"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -27,13 +27,13 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux.
 
-## <a name="version-143"></a>Versie 1.4.3
-10/11/2018
+## <a name="version-144"></a>Versie 1.4.4
+10/15/2018
 
-### <a name="download-azure-storage-explorer-143"></a>Azure Storage Explorer 1.4.3 downloaden
-- [Azure Storage Explorer 1.4.3 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.4.3 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.4.3 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-144"></a>Azure Storage Explorer 1.4.4 downloaden
+- [Azure Storage Explorer 1.4.4 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.4.4 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.4.4 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfixes
 * De Azure Resource Management Api-versie is teruggedraaid als u wilt deblokkeren Azure US Government-gebruikers. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -90,6 +90,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 
 ## <a name="previous-releases"></a>Vorige versies
 
+* [Versie 1.4.3](#version-143)
 * [Versie 1.4.2](#version-142)
 * [Versie 1.4.1](#version-141)
 * [Versie 1.3.0](#version-130)
@@ -118,6 +119,62 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.4.3 rel
 * [Versie 0.7.20160129.1](#version-07201601291)
 * [Versie 0.7.20160105.0](#version-07201601050)
 * [Versie 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-143"></a>Versie 1.4.3
+10/11/2018
+
+### <a name="hotfixes"></a>Hotfixes
+* De Azure Resource Management Api-versie is teruggedraaid als u wilt deblokkeren Azure US Government-gebruikers. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Het laden van kringvelden CSS-animaties te verminderen de hoeveelheid GPU die worden gebruikt door de Storage Explorer nu gebruiken. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Nieuw
+* Externe resource-bijlagen, bijvoorbeeld voor SAS-verbindingen en emulatoren, is aanzienlijk verbeterd. U kunt nu het volgende doen:
+   * Pas de weergavenaam van de resource die u wilt toevoegen. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Koppelen aan meerdere lokale emulators met behulp van verschillende poorten. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Gekoppelde resources toevoegen aan Snelweergavetoegang. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer biedt nu ondersteuning voor voorlopig verwijderen. U kunt:
+   * Configureer een beleid voor voorlopig verwijderen met de rechtermuisknop op het knooppunt van de Blob-Containers voor uw opslagaccount.
+   * Voorlopig verwijderde weergeven blobs in de Blob-Editor door te selecteren ' Active en blobs verwijderd ' in de vervolgkeuzelijst naast de navigatiebalk.
+   * Voorlopig verwijderde blobs ongedaan.
+
+### <a name="fixes"></a>Oplossingen
+* De actie "CORS-instellingen configureren" is niet meer beschikbaar is op Premium Storage-accounts omdat Premium Storage-accounts bieden geen ondersteuning voor CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Er is nu een Shared Access Signature-eigenschap voor SAS-Services die zijn gekoppeld. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* De actie 'Standaard Toegangslaag ingesteld' is nu beschikbaar voor Blob- en GPV2-Storage-accounts die zijn vastgemaakt aan Snelweergavetoegang. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Soms mislukt Storage Explorer om weer te geven van klassieke opslagaccounts. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Bekende problemen
+* Bij het gebruik van emulators, zoals Azure Storage-Emulator of Azurite, moet u deze luistert voor verbindingen op hun standaardpoorten. Anders pas Opslagverkenner weer verbinding te maken met.
+* Als u Visual Studio voor Mac en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te omzeilen, ~ /. IdentityService/AadConfigurations. Als u in dat geval heeft niet de blokkering opheffen u, stuur een reactie op [dit probleem](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of problemen bij het gebruik van Azurite voor opslag.
+* In zeldzame gevallen kan de focus structuur ophalen vastgelopen op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden vanaf uw OneDrive-map werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron.
+* Wanneer die gericht is op Azure Stack, mislukken bepaalde bestanden als toevoeg-blobs uploaden.
+* Na het klikken op 'Annuleren' voor een taak, duren het even voor die taak annuleren. Dit is omdat we de annuleren filter-oplossing beschreven [hier](https://github.com/Azure/azure-storage-node/issues/317).
+* Als u de verkeerde PINCODE/Smartcard-certificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
+* Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde storage-account van Azure Stack.
+* De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Voor gebruikers op Ubuntu 17.04, moet u GConf installeren, kunt u dit doen door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-142"></a>Versie 1.4.2
 24-09-2018

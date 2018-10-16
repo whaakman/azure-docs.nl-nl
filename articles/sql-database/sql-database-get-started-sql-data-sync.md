@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 82390ae304fc4d6873efc4a5073725a02b915eaa
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870584"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318806"
 ---
 # <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>SQL Data Sync instellen om gegevens te synchroniseren tussen Azure SQL Database en SQL Server on-premises
 
@@ -61,7 +61,7 @@ Voor volledige PowerShell-voorbeelden die laten hoe u SQL Data Sync configureert
    2. In de **metagegevensdatabase voor synchronisatie** sectie, kiest u of u wilt maken van een nieuwe database (aanbevolen) of een bestaande database wilt gebruiken.
 
         > [!NOTE]
-        > Microsoft raadt aan dat u maakt een nieuwe, lege database om te gebruiken als de metagegevensdatabase voor synchronisatie. Gegevenssynchronisatie tabellen in deze database maakt en een frequente werkbelasting wordt uitgevoerd. Deze database wordt automatisch gedeeld als de metagegevensdatabase voor synchronisatie voor al uw groepen synchroniseren in de geselecteerde regio. U kunt de metagegevensdatabase voor synchronisatie of de naam niet wijzigen zonder slepen en neerzetten.
+        > Microsoft raadt aan dat u maakt een nieuwe, lege database om te gebruiken als de metagegevensdatabase voor synchronisatie. Gegevenssynchronisatie tabellen in deze database maakt en een frequente werkbelasting wordt uitgevoerd. Deze database wordt automatisch gedeeld als de metagegevensdatabase voor synchronisatie voor al uw groepen synchroniseren in de geselecteerde regio. U kunt de metagegevensdatabase voor synchronisatie of de naam niet wijzigen zonder het verwijderen van alle synchronisatiegroepen en Synchronisatieagents in de regio.
 
         Als u ervoor hebt gekozen **nieuwe database**, selecteer **nieuwe database maken.** De **SQL-Database** pagina wordt geopend. Op de **SQL-Database** pagina, een naam en het configureren van de nieuwe database. Selecteer vervolgens **OK**.
 

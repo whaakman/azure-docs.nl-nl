@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060098"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319860"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een intern VNET integreren met Application Gateway
 
-##<a name="overview"> </a> Overzicht
+## <a name="overview"> </a> Overzicht
 
 De API Management-service kan worden geconfigureerd in een Virtueelnetwerk in de interne modus, waardoor het alleen toegankelijk vanuit het Virtueelnetwerk. Azure Application Gateway is een PAAS-Service, waarmee u een Layer 7 load balancer. Het fungeert als een omgekeerde proxy-service en biedt onder de aanbieding van een Web Application Firewall (WAF).
 
@@ -43,7 +43,7 @@ Als u wilt volgen de stappen in dit artikel, moet u het volgende hebben:
 
 * Certificaten - pfx en het cer voor de API-hostnaam en pfx voor de hostnaam van de developer-portal.
 
-##<a name="scenario"> </a> Scenario
+## <a name="scenario"> </a> Scenario
 
 In dit artikel wordt uitgelegd hoe u gebruik van een geïntegreerde API Management-service voor interne en externe gebruikers en maken deze fungeren als een enkel frontend voor zowel on-premises en cloud-API's. U ziet ook hoe u kunt alleen een subset van uw API's (in het voorbeeld dat ze zijn gemarkeerd in het groen) beschikbaar voor extern verbruik met behulp van routering functionaliteit beschikbaar is in Application Gateway.
 
@@ -349,7 +349,7 @@ DNS-naam van de toepassingsgateway moet worden gebruikt voor het maken van een C
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Samenvatting
+## <a name="summary"> </a> Samenvatting
 Azure API Management geconfigureerd in een VNET biedt een interface voor één gateway voor alle geconfigureerde API's, ongeacht of deze gehoste on-premises of in de cloud. Application Gateway integreren met API Management biedt de flexibiliteit van selectief inschakelen van bepaalde API's toegankelijk zijn via het Internet, evenals een Web Application Firewall biedt een frontend naar uw API Management-exemplaar.
 
 ##<a name="next-steps"> </a> De volgende stappen

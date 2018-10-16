@@ -9,14 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 09/24/2018
 ms.topic: hub-page
-ms.prod: cognitive-services
-ms.technology: cognitive-services
-ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 87c10bbcec2467808220c3d2351976fb4676e92b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068465"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318993"
 ---
 <h1>Documentatie over Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Ontdek hoe u intelligente algoritmen kunt compileren voor apps, websites en bots zodat deze kunnen zien, horen en spreken en de behoeften van uw gebruikers kunnen begrijpen via natuurlijke communicatiemethoden. Aan de hand van zelfstudies, snelstarts, API-verwijzingen en voorbeelden leert u hoe.</p>

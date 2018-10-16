@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930287"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344010"
 ---
 # <a name="start-and-stop-azure-stack"></a>Starten en stoppen van de Azure Stack
 U moet de procedures in dit artikel voor het correct afsluiten en opnieuw opstarten van Azure Stack-services. Afsluiten wordt fysiek uit de gehele Azure Stack-omgeving aansturen. Opstarten bevoegdheden op alle functies van de infrastructuur en tenantresources stuurt naar de energiestatus die in het geval vóór afsluiten was.
@@ -90,4 +90,4 @@ Voer de volgende stappen uit als de infrastructuur en tenant-services niet is 2 
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-Meer informatie over het diagnostisch hulpprogramma voor Azure Stack en uitgeven van logboekregistratie, Zie [diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md).
+Meer informatie over [diagnostische hulpprogramma's voor Azure Stack](azure-stack-diagnostics.md)

@@ -9,30 +9,33 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b3e1fd5331b97fc2120819b17f7fbba57dadf7b1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115179"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345047"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Bijhouden van experimenten en training metrische gegevens in Azure Machine Learning
 
 U kunt in de Azure Machine Learning-service uw experimenten volgen en controleren van metrische gegevens voor het verbeteren van het proces voor het model maken. In dit artikel leert u over de verschillende manieren om toe te voegen van logboekregistratie voor uw trainingsscript over het verzenden van het experiment met **start_logging** en **ScriptRunConfig**, het controleren van de voortgang van een actieve taak, en hoe u de resultaten van een uitvoering wilt weergeven. 
 
+>[!NOTE]
+> Code in dit artikel is getest met Azure Machine Learning SDK versie 0.168 
+
 ## <a name="list-of-training-metrics"></a>Overzicht van metrische gegevens voor training 
 
 De volgende metrische gegevens kunnen worden toegevoegd aan een run tijdens het trainen van een experiment. Voor een meer gedetailleerd overzicht van wat er op een uitvoering kunnen worden bijgehouden, raadpleegt u de [SDK-referentiedocumentatie](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
-|Type| Funkce Pythonu | Opmerkingen|
-|----|:----:|:----:|
-|Scalaire waarden | `run.log(name, value, description='')`| Meld u aan een metrische waarde de uitvoeren met de opgegeven naam. Logboekregistratie van een metrische waarde aan een run zorgt ervoor dat deze metrische gegevens worden opgeslagen in de record uitvoeren in het experiment.  U kunt de dezelfde metrische gegevens meerdere keren binnen een uitvoering, het resultaat wordt beschouwd als een vector van deze metrische gegevens vastleggen.|
-|Lijsten| `run.log_list(name, value, description='')`|Meld u aan de metrische waarde van een lijst met de uitvoering met de opgegeven naam.|
-|Rij| `run.log_row(name, description=None, **kwargs)`|Met behulp van *log_row* maakt u de metrische waarde een tabel met kolommen zoals beschreven in kwargs. Elke benoemde parameter genereert een kolom met de opgegeven waarde.  *log_row* kan eenmaal worden aangeroepen voor het melden van een willekeurige tuple of meerdere keren in een lus voor het genereren van een volledige tabel.|
-|Tabel| `run.log_table(name, value, description='')`| Meld u aan een tabel metrische waarde de uitvoeren met de opgegeven naam. |
-|Installatiekopieën| `run.log_image(name, path=None, plot=None)`|Een installatiekopie van metrische gegevens om de uitvoerregistratie te melden. Log_image gebruiken om aan te melden voor een afbeelding of een matplotlib getekend met het uitvoeren.  Deze installatiekopieën worden zichtbaar en vergelijkbare in de record uitvoeren.|
-|Een uitvoering taggen| `run.tag(key, value=None)`|Tag de uitvoering met een tekenreekssleutel en een optionele tekenreeks-waarde.|
-|Bestand of map uploaden|`run.upload_file(name, path_or_stream)`|Upload een bestand naar de record uitvoeren. Wordt uitgevoerd automatisch vastleggen bestand in de map met de opgegeven uitvoer, die standaard ". / levert ' voor de meeste typen die worden uitgevoerd.  Gebruik upload_file alleen als aanvullende bestanden moeten worden geüpload of een map met de uitvoer is niet opgegeven. Het is raadzaam toe te voegen `outputs` op de naam, zodat deze wordt het geüpload naar de map voor uitvoer. U kunt alle bestanden die gekoppeld zijn een lijst met deze record door te voeren met de naam `run.get_file_names()`|
+|Type| Funkce Pythonu | Voorbeeld | Opmerkingen|
+|----|:----|:----|:----|
+|Scalaire waarden | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Meld u een numerieke of tekenreekswaarde voor de uitvoering met de opgegeven naam. Logboekregistratie van een metrische waarde aan een run zorgt ervoor dat deze metrische gegevens worden opgeslagen in de record uitvoeren in het experiment.  U kunt de dezelfde metrische gegevens meerdere keren binnen een uitvoering, het resultaat wordt beschouwd als een vector van deze metrische gegevens vastleggen.|
+|Lijsten| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Meld u een lijst met waarden voor de uitvoering met de opgegeven naam.|
+|Rij| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Met behulp van *log_row* maakt u een metrische waarde met meerdere kolommen zoals beschreven in kwargs. Elke benoemde parameter genereert een kolom met de opgegeven waarde.  *log_row* kan eenmaal worden aangeroepen voor het melden van een willekeurige tuple of meerdere keren in een lus voor het genereren van een volledige tabel.|
+|Tabel| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Meld u aan een dictionary-object de uitvoeren met de opgegeven naam. |
+|Installatiekopieën| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Meld u aan een installatiekopie van de record uitvoeren. Log_image gebruiken om aan te melden voor een afbeelding of een matplotlib getekend met het uitvoeren.  Deze installatiekopieën worden zichtbaar en vergelijkbare in de record uitvoeren.|
+|Een uitvoering taggen| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Tag de uitvoering met een tekenreekssleutel en een optionele tekenreeks-waarde.|
+|Bestand of map uploaden|`run.upload_file(name, path_or_stream)`| Run.upload_file ("best_model.pkl", ". / model.pkl") | Upload een bestand naar de record uitvoeren. Wordt uitgevoerd automatisch vastleggen bestand in de map met de opgegeven uitvoer, die standaard ". / levert ' voor de meeste typen die worden uitgevoerd.  Gebruik upload_file alleen als aanvullende bestanden moeten worden geüpload of een map met de uitvoer is niet opgegeven. Het is raadzaam toe te voegen `outputs` op de naam, zodat deze wordt het geüpload naar de map voor uitvoer. U kunt alle bestanden die gekoppeld zijn een lijst met deze record door te voeren met de naam `run.get_file_names()`|
 
 > [!NOTE]
 > Metrische gegevens voor hoeken, een lijst met rijen en tabellen kunt type hebben: float, geheel getal of tekenreeks.
@@ -141,7 +144,7 @@ In dit voorbeeld is een vervolg op het basismodel sklearn Ridge van boven. Hierv
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},

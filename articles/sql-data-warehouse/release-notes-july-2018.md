@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288001"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318837"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juli 2018.
@@ -30,7 +30,7 @@ Naast de prestaties van de runtime, de [Onderzoeksanalist onderzoek](https://gig
 ![Azure SQL Data Warehouse is sneller en goedkoper dan Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>bron: [Onderzoeksanalist analist onderzoeksrapport: Data Warehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###<a name="query-concurrency"></a>Query gelijktijdigheid
+### <a name="query-concurrency"></a>Query gelijktijdigheid
 SQL Data Warehouse zorgt er ook voor dat de gegevens toegankelijk voor uw organisatie is. Microsoft heeft uitgebreid, de service ter ondersteuning van 128 gelijktijdige query's zodat meer gebruikers in de dezelfde database zoeken kunnen en niet door andere aanvragen worden geblokkeerd. Ter vergelijking beperkt Amazon Redshift maximum aantal gelijktijdige query's tot 50, beperken van toegang tot de gegevens binnen de organisatie.
 
 SQL Data Warehouse biedt deze query prestaties en query gelijktijdigheid winst zonder een toename van de prijs en het bouwen van de unieke architectuur met omdat opslag en Computing.

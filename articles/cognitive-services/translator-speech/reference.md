@@ -10,19 +10,20 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978706"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340440"
 ---
 # <a name="translator-speech-api"></a>Translator Speech-API
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Deze service biedt een streaming-API om te transcriberen conversatie spraak in één taal in de tekst van een andere taal. De API voor tekst naar spraak mogelijkheden voor het weer de vertaalde tekst uitspreken kan ook worden geïntegreerd. De Translator Speech-API kunt scenario's zoals realtime omzetting van gesprekken zoals te zien is in Skype Translator.
 
-Met de spraak-API van Translator clienttoepassingen streamen gesproken audio naar de service en het ontvangen van een stream van de resultaten op basis van tekst, waaronder de herkende tekst in de source-taal en de vertaling in de doel-taal. Resultaten van de tekst worden geproduceerd door toe te passen van automatische spraakherkenning Recognition (ASR) mogelijk gemaakt door deep neural networks naar de binnenkomende stream audio. Onbewerkte ASR-uitvoer is verder door de nieuwe techniek TrueText om beter aan bedoeling van gebruikers te worden verbeterd. TrueText verwijdert bijvoorbeeld disfluencies (hmms en coughs) en de juiste interpunctie terugzetten hoofdletters en kleine letters. De mogelijkheid om te maskeren of uitsluiten profanities is ook opgenomen. De opname- en NAT-engines zijn speciaal getraind om af te handelen conversatie spraak. Stiltedetectie de Translator Speech-service gebruikt om te bepalen van het einde van een utterance. Na een onderbreking in de stem-activiteit, wordt de service stream weer een definitieve resultaat voor de voltooide utterance. De service kan ook verzenden terug gedeeltelijke resultaten, zodat tussenliggende herkenningen en vertalingen voor een utterance wordt uitgevoerd. De definitieve resultaten voor biedt de service de mogelijkheid om na te bootsen spraak (tekst naar spraak) van de gesproken tekst in de doel-talen. Text to Speech audio wordt gemaakt in de indeling die is opgegeven door de client. WAV en MP3-indelingen zijn beschikbaar.
+Met de spraak-API van Translator clienttoepassingen streamen gesproken audio naar de service en het ontvangen van een stream van de resultaten op basis van tekst, waaronder de herkende tekst in de source-taal en de vertaling in de doel-taal. Tekstresultaten worden geproduceerd door automatische spraakherkenning (Automatic Speech Recognition, ASR) toe te passen op de binnenkomende audiostream, mogelijk gemaakt door deep neural networks. Onbewerkte ASR-uitvoer is verder door de nieuwe techniek TrueText om beter aan bedoeling van gebruikers te worden verbeterd. TrueText verwijdert bijvoorbeeld disfluencies (hmms en coughs) en de juiste interpunctie terugzetten hoofdletters en kleine letters. Ook is de mogelijkheid om schuttingtaal te maskeren of uit te sluiten in de techniek opgenomen. De herkennings- en vertalingsengines zijn speciaal getraind om gesproken taal te verwerken. Stiltedetectie de Translator Speech-service gebruikt om te bepalen van het einde van een utterance. Na een onderbreking in de stemactiviteit, streamt de service een definitief resultaat terug voor de voltooide taaluiting. De service kan ook gedeeltelijke resultaten terugsturen, zodat tussenliggende herkenningen en vertalingen zichtbaar zijn voor een lopende taaluiting. De definitieve resultaten voor biedt de service de mogelijkheid om na te bootsen spraak (tekst naar spraak) van de gesproken tekst in de doel-talen. Tekst-naar-spraak-audio wordt gemaakt in de indeling die is opgegeven door de client. De indelingen WAV en MP3 zijn beschikbaar.
 
 Translator Speech-API maakt gebruik van de WebSocket-protocol voor een kanaal full-duplex-communicatie tussen de client en de server. Een toepassing moet deze stappen om de service te gebruiken:
 

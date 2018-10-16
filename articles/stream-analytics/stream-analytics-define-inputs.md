@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9b75db835b0bdcc18cb82f427250630fb936d817
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579289"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341208"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -39,7 +39,7 @@ Azure Event Hubs biedt zeer schaalbare gebeurtenis ingestors publiceren / abonne
 `EventEnqueuedUtcTime` de tijdstempel van de aankomst van een gebeurtenis in een event hub en de standaard-tijdstempel van gebeurtenissen die afkomstig zijn van Gebeurtenishubs met Stream Analytics. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord.
 
 ### <a name="consumer-groups"></a>Consumergroepen
-Configureer elke Stream Analytics event hub-gegevens invoeren in een eigen consumentengroep hebben. Wanneer een taak bevat een self-join of is van meerdere invoergegevens, sommige invoer kan worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkele consumergroep. Om te voorkomen dat de Event Hubs-limiet van vijf gebruikers per consumergroep per partitie, maar het is een aanbevolen procedure om een consumentengroep voor elke Stream Analytics-taak toe te wijzen. Er is ook een limiet van 20 consumergroepen per event hub. Zie voor meer informatie, [oplossen Azure Stream Analytics met Event Hub-ontvangers](stream-analytics-event-hub-consumer-groups.md).
+Configureer elke Stream Analytics event hub-gegevens invoeren in een eigen consumentengroep hebben. Wanneer een taak bevat een self-join of is van meerdere invoergegevens, sommige invoer kan worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkele consumergroep. Om te voorkomen dat de Event Hubs-limiet van vijf gebruikers per consumergroep per partitie, maar het is een aanbevolen procedure om een consumentengroep voor elke Stream Analytics-taak toe te wijzen. Er is ook een limiet van 20 consumergroepen per event hub. Zie voor meer informatie, [oplossen Azure Stream Analytics-invoer](stream-analytics-troubleshoot-input.md).
 
 ### <a name="stream-data-from-event-hubs"></a>Gegevens streamen vanuit Event Hubs
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure portal op de invoer van de stream-gegevens van een event hub:

@@ -3,19 +3,19 @@ title: 'Zelfstudie: Bouw een installatiekopie voor het verwerken van app - C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Verken een eenvoudige Windows-app die gebruikmaakt van de Computer Vision-API in Microsoft Cognitive Services. OCR uitvoeren en werken met visuele kenmerken in een afbeelding miniaturen te maken.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295849"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342650"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Zelfstudie: Bouw een installatiekopie voor het verwerken van app - C&#35;
 
@@ -32,7 +32,7 @@ Verken een eenvoudige Windows-toepassing die gebruikmaakt van de Computer Vision
 Daarna wordt ingegaan op de voorbeeld-app, zorg ervoor dat u hebt voldaan aan de volgende vereisten:
 
 * U moet hebben [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) of hoger.
-* U moet de abonnementssleutel van een hebben voor Computer Vision. Als u een abonnementssleutel, Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* U moet beschikken over een abonnementssleutel voor Computer Vision. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md) voor meer informatie over het verkrijgen van een abonnementssleutel.
 
 ## <a name="get-the-sample-app"></a>De voorbeeld-app downloaden
 

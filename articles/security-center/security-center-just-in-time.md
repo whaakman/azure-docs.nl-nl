@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124147"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320336"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-tijd
 
@@ -111,6 +111,33 @@ Onder **JIT-VM-configuratie**, kunt u ook toevoegen en configureren van een nieu
 > [!NOTE]
 >Wanneer JIT-VM-toegang is ingeschakeld voor een VM, Azure Security Center maakt weigeren alle regels voor binnenkomend verkeer voor de geselecteerde poorten in de netwerkbeveiligingsgroepen die zijn gekoppeld. De regels is de hoogste prioriteit van uw Netwerkbeveiligingsgroepen of lagere prioriteit dan de bestaande regels die er nog. Dit is afhankelijk van een analyse uitgevoerd door Azure Security Center waarmee wordt bepaald of een regel beveiligd is.
 >
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Just-in-time binnen een virtuele machine instellen
+
+Als u wilt kunt u eenvoudig just-in-time-toegang voor uw virtuele machines implementeert, kunt u een virtuele machine om toe te staan alleen just-in-time toegang rechtstreeks vanuit de virtuele machine instellen.
+
+1. Selecteer in de Azure portal, **virtuele machines**.
+2. Klik op de virtuele machine die u wilt beperken tot just-in-time-toegang.
+3. In het menu, klikt u op **configuratie**.
+4. Onder **Just-in-time-toegang** klikt u op **just-in-time-beleid inschakelen**. 
+
+Hiermee kunt just-in-time-toegang voor de virtuele machine met behulp van de volgende instellingen:
+
+- Windows-servers:
+    - RDP-poort 3389
+    - toegang tot 3 uur
+    - Toegestane bron-IP-adressen is ingesteld op Per aanvraag
+- Linux-servers:
+    - SSH-poort 22
+    - toegang tot 3 uur
+    - Toegestane bron-IP-adressen is ingesteld op Per aanvraag
+     
+Als een virtuele machine al just is-in-time ingeschakeld, wanneer u gaat u naar de configuratiepagina zich kunt u kunt zien dat just-in-time is ingeschakeld en kunt u de koppeling te openen van het beleid in Azure Security Center te bekijken en wijzigen van de instellingen.
+
+![JIT-configuratie in de virtuele machine](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Aanvragen van toegang tot een virtuele machine
 
 Om aan te vragen tot een virtuele machine:

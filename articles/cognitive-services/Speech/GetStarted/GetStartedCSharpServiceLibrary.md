@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967554"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343688"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Snelstartgids: Gebruik de Bing Speech-service-bibliotheek voor opname in C&#35; voor .NET Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 De servicebibliotheek is voor ontwikkelaars die hun eigen cloudservice hebt en wilt Speech Service aanroepen vanuit hun service. Als u de spraakherkenningsservice aanroepen vanuit afhankelijk van de apparaat-apps wilt, moet u deze SDK niet gebruiken. (Gebruik andere-clientbibliotheken of de REST-API's voor die.)
 

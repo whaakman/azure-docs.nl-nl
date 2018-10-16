@@ -33,7 +33,6 @@
 ### [Ruby on Rails-webtoepassing](ruby-rails-web-app.md)
 ### [Cassandra en Node.js-client](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [RDMA-cluster voor het uitvoeren van MPI-toepassingen](rdma-cluster.md)
 ### HPC Pack
 #### [Een cluster maken voor Linux-workloads](hpcpack-cluster-powershell-script.md)
 #### [Een cluster met Linux-knooppunten beheren](hpcpack-cluster.md)

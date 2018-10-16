@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9170f6f90b9e9b0a310f3b078c82dcab3f179fb3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042782"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321305"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
 Azure Active Directory (Azure AD) kunt u het maken, onderhoud en verwijderen van gebruikers-id's in de cloud automatiseren ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) toepassingen, zoals Dropbox, Salesforce, ServiceNow en meer.
 
@@ -42,6 +43,7 @@ Azure Active Directory (Azure AD) kunt u het maken, onderhoud en verwijderen van
 * Rapportage en activiteit Logboeken om te helpen bij het bewaken en problemen oplossen.
 
 ## <a name="why-use-automated-provisioning"></a>Waarom een geautomatiseerde inrichting gebruiken?
+
 Enkele veelvoorkomende redenen voor het gebruik van deze functie zijn onder andere:
 
 * De kosten, inefficiënt en menselijke fouten die zijn gekoppeld aan handmatige inrichting processen voorkomen.
@@ -69,6 +71,7 @@ De **Azure AD-inrichtingsservice** gebruikers inricht voor SaaS-apps en andere s
 Azure AD-functies geïntegreerde vooraf ondersteuning voor diverse populaire SaaS-apps en HR-systemen, evenals de algemene ondersteuning voor apps die specifieke onderdelen van de standaard SCIM 2.0 implementeren.
 
 ### <a name="pre-integrated-applications"></a>Vooraf geïntegreerde toepassingen
+
 Zie voor een lijst van alle toepassingen waarvoor Azure AD biedt ondersteuning voor een vooraf geïntegreerde inrichting connector, de [lijst met zelfstudies voor toepassingen voor het inrichten van gebruikers](../saas-apps/tutorial-list.md).
 
 Neem contact op met de Azure AD een bericht via engineeringteam om aan te vragen van inrichting ondersteuning voor aanvullende toepassingen indienen de [forum met feedback van Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -77,6 +80,7 @@ Neem contact op met de Azure AD een bericht via engineeringteam om aan te vragen
 > In de order voor een toepassing voor de ondersteuning van geautomatiseerde gebruikersinrichting, moet deze eerst de benodigde Gebruikersbeheer API's waarmee externe programma's voor het automatiseren van het maken, onderhoud en verwijdering van gebruikers opgeven. Er zijn daarom niet alle SaaS-apps compatibel zijn met deze functie. Het technische team van Azure AD worden vervolgens een inrichting connector naar deze apps bouwen voor apps die ondersteuning voor gebruikersbeheer API's bieden, en dit werk met prioriteit wordt toegepast door de behoeften van de huidige en potentiële klanten. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>Het verbinden van toepassingen die ondersteuning bieden voor SCIM 2.0
+
 Voor meer informatie over het algemeen verbinding maken met toepassingen die SCIM implementeren 2.0 - op basis van gebruiker-management-API's, Zie [SCIM gebruiken voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory met toepassingen](use-scim-to-provision-users-and-groups.md).
 
     
@@ -124,6 +128,7 @@ In het scherm voor het beheren van toepassing inrichting is geconfigureerd in de
 Wanneer Azure AD het bronsysteem is, de provisioning-service gebruikt de [differentiële Query-functie van de Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) om gebruikers en groepen te bewaken. De inrichtingsservice wordt een eerste synchronisatie uitgevoerd tegen het bronsysteem en doelsysteem, gevolgd door periodieke incrementele synchronisaties. 
 
 ### <a name="initial-sync"></a>Initiële synchronisatie
+
 Wanneer de provisioning-service wordt gestart, wordt de eerste synchronisatie heeft eerder een uitgevoerd:
 
 1. Query uitvoeren op alle gebruikers en groepen uit het bronsysteem bij het ophalen van alle kenmerken die zijn gedefinieerd de [kenmerktoewijzingen](customize-application-attributes.md).
@@ -137,6 +142,7 @@ Wanneer de provisioning-service wordt gestart, wordt de eerste synchronisatie he
 Sommige toepassingen, zoals ServiceNow, Google Apps en Box-ondersteuning niet alleen inrichten van gebruikers, maar ook groepen en leden wordt ingericht. In deze gevallen, als groep inrichten is ingeschakeld de [toewijzingen](customize-application-attributes.md), wordt de inrichtingsservice synchroniseert de gebruikers en groepen en vervolgens het groepslidmaatschap later te synchroniseren. 
 
 ### <a name="incremental-syncs"></a>Incrementele synchronisaties
+
 Na de initiële synchronisatie zullen alle volgende synchronisaties:
 
 1. Query uitvoeren op het bronsysteem voor alle gebruikers en groepen die zijn bijgewerkt sinds de laatste watermerk is opgeslagen.
@@ -160,7 +166,8 @@ De provisioning-service blijft back to back incrementele synchronisaties voor on
 * Een nieuwe initiële synchronisatie wordt geactiveerd vanwege een wijziging in de kenmerktoewijzingen of bereikfilters toevoegen. Dit ook wist u alle opgeslagen watermerk en zorgt ervoor dat alle bronobjecten moet opnieuw worden geëvalueerd.
 * Het inrichtingsproces gaat in quarantaine (Zie hieronder) vanwege een hoog aantal fouten bij, en in quarantaine voor meer dan vier weken blijft. In dat geval kan wordt de service automatisch uitgeschakeld.
 
-### <a name="errors-and-retries"></a>Fouten en nieuwe pogingen 
+### <a name="errors-and-retries"></a>Fouten en nieuwe pogingen
+
 Als een afzonderlijke gebruiker kan niet worden toegevoegd, bijgewerkt of verwijderd in het doelsysteem vanwege een fout in het doelsysteem, klikt u vervolgens de bewerking wordt opnieuw geprobeerd in de volgende synchronisatiecyclus. Als de gebruiker mislukken blijft, begint de nieuwe pogingen worden uitgevoerd met een lagere frequentie, geleidelijk terug naar slechts één poging per dag te schalen. Los de fout op door beheerders moet om te controleren of de [auditlogboeken](check-status-user-account-provisioning.md) voor 'proces-escrow' gebeurtenissen om te bepalen van de hoofdmap veroorzaken en de juiste actie ondernemen. Veelvoorkomende fouten kunnen opnemen:
 
 * Gebruikers niet met een kenmerk is ingevuld in het bronsysteem die is in het doelsysteem vereist
@@ -169,6 +176,7 @@ Als een afzonderlijke gebruiker kan niet worden toegevoegd, bijgewerkt of verwij
 Deze fouten kunnen worden opgelost door aan te passen van de kenmerkwaarden voor de betrokken gebruiker in het bronsysteem, of door de kenmerktoewijzingen als u wilt niet leiden tot conflicten aan te passen.   
 
 ### <a name="quarantine"></a>Quarantaine
+
 Als de meeste of alle van de aanroepen opzichte van het doelsysteem consistent ten mislukt vanwege een fout (zoals in het geval van ongeldige beheerdersreferenties), en vervolgens de inrichtingstaak krijgt de status 'in quarantaine plaatsen'. Hiermee wordt aangegeven in de [inrichting overzichtsrapport](check-status-user-account-provisioning.md), en via e-mail als e-mailmeldingen zijn geconfigureerd in Azure portal. 
 
 Wanneer het in quarantaine, de frequentie van incrementele synchronisaties geleidelijk teruggebracht tot één keer per dag. 
@@ -219,33 +227,33 @@ Overzicht van de factoren die invloed hebben op de tijd die nodig zijn om uit te
 * Het aantal en de grootte van de toegewezen groepen. Toegewezen groepen synchroniseren duurt langer dan het synchroniseren van gebruikers. Zowel het aantal en de grootte van de toegewezen groepen invloed hebben op prestaties. Als een toepassing heeft [toewijzingen ingeschakeld voor synchronisatie van de groep object](customize-application-attributes.md#editing-group-attribute-mappings)en eigenschappen, zoals namen groeperen lidmaatschappen naast gebruikers worden gesynchroniseerd. Deze extra wordt gesynchroniseerd duurt langer dan alleen synchroniseren gebruikersobjecten.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hoe kan ik zien als gebruikers juist worden ingericht?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Hoe kan ik zien als gebruikers juist worden ingericht?
 
 Alle bewerkingen die worden uitgevoerd door de gebruiker inrichtingsservice worden vastgelegd in de Azure AD auditlogboeken. Dit omvat alle lees- en schrijfbewerkingen die zijn aangebracht in de bron en doel-systemen, evenals de gegevens van de gebruiker is gelezen of geschreven tijdens elke bewerking.
 
 Zie voor informatie over hoe de lees de auditlogboeken beschikbaar zijn in Azure portal, de [inrichting handleiding over rapportering](check-status-user-account-provisioning.md).
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hoe los ik problemen met het inrichten van gebruikers?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hoe los ik problemen met het inrichten van gebruikers?
 
 Zie voor instructies over het automatisch inrichten van gebruikers oplossen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers voor een toepassing](application-provisioning-config-problem.md).
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Wat zijn de aanbevolen procedures voor het implementeren van automatisch inrichten van gebruikers?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Wat zijn de aanbevolen procedures voor het implementeren van automatisch inrichten van gebruikers?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 Zie voor een voorbeeld van stapsgewijze implementatie-plan voor het inrichten van uitgaande gebruikers naar een toepassing, de [identiteit Deployment Guide voor het inrichten van gebruikers](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequently-asked-questions"></a>Meer veelgestelde vragen
+## <a name="more-frequently-asked-questions"></a>Meer veelgestelde vragen
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met B2B-gebruikers in Azure AD?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met B2B-gebruikers in Azure AD?
 
 Ja, is het mogelijk om te gebruiken van de Azure AD-gebruiker inrichten van gebruikers van B2B inrichten (of Gast)-service in Azure AD SaaS-toepassingen.
 
 De SaaS-toepassing moet echter voor B2B-gebruikers kunnen zich aanmelden bij de SaaS-toepassing met behulp van Azure AD, hebben de SAML gebaseerde eenmalige aanmeldings-mogelijkheid geconfigureerd op een specifieke manier. Zie voor meer informatie over het configureren van SaaS-toepassingen voor de ondersteuning van aanmeldingen van gebruikers van B2B [configureren SaaS-apps voor B2B-samenwerking]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met dynamische groepen in Azure AD?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met dynamische groepen in Azure AD?
 
 Ja. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', de Azure AD-gebruiker inrichtingsservice kunt inrichten of ongedaan maken inrichting gebruikers in een SaaS-toepassing is afhankelijk van of ze lid van zijn een [dynamische groep](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dynamische groepen werken ook met de optie 'alle gebruikers en groepen synchroniseren'.
 
@@ -255,7 +263,7 @@ Gebruik van dynamische groepen kan echter van invloed op de algehele prestaties 
 
 * Wanneer u dynamische groepen, moeten de regels zorgvuldig worden nagedacht met gebruiker inrichting en ongedaan maken inrichting in gedachten, omdat een verlies van het lidmaatschap van een opheffen van inrichtingen gebeurtenis leidt.
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met geneste groepen in Azure AD?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Wordt er automatisch gebruikers inrichten voor SaaS-apps werken met geneste groepen in Azure AD?
 
 Nee. Wanneer geconfigureerd voor 'sync alleen toegewezen gebruikers en groepen', is de Azure AD-gebruiker inrichtingsservice niet kunnen lezen of het inrichten van gebruikers die zich in de geneste groepen. Het is alleen kan lezen en inrichten van gebruikers die directe leden van de groep expliciet toegewezen.
 
@@ -264,6 +272,7 @@ Dit is een beperking van '-groep op basis van toewijzingen voor toepassingen', d
 Als tijdelijke oplossing, u moet expliciet toewijzen (of anderszins [in het bereik van](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) de groepen met de gebruikers die moeten worden ingericht.
 
 ## <a name="related-articles"></a>Verwante artikelen:
+
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](../saas-apps/tutorial-list.md)
 * [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](customize-application-attributes.md)
 * [Expressies schrijven voor kenmerktoewijzingen](functions-for-customizing-application-data.md)

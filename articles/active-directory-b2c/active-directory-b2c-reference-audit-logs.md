@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969656"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320234"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Toegang tot Azure AD B2C-auditlogboeken
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) verzendt auditlogboeken dat activiteit
 > [!IMPORTANT]
 > Auditlogboeken worden alleen gedurende zeven dagen bewaard. Plannen om te downloaden en opslaan van uw logboeken met behulp van een van de methoden die hieronder wordt weergegeven als u een langere bewaartermijn nodig. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Overzicht van activiteiten in de B2C-categorie van de auditlogboeken beschikbaar
 De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 |Type activiteit |Beschrijving  |
 |---------|---------|
@@ -38,10 +38,10 @@ De **B2C** categorie in auditlogboeken bevat de volgende soorten activiteiten:
 > [!NOTE]
 > Voor gebruikersactiviteiten object CRUD, raadpleegt u de **hoofddirectory** categorie.
 
-##<a name="example-activity"></a>Voorbeeld van de activiteit
+## <a name="example-activity"></a>Voorbeeld van de activiteit
 Het volgende voorbeeld ziet u de gegevens die zijn vastgelegd wanneer een gebruiker zich met een externe id-provider aanmeldt: ![Audit Logs - voorbeeld](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Auditlogboeken openen via de Azure Portal
 1. Ga naar de [Azure Portal](https://portal.azure.com). Zorg ervoor dat u zich in uw B2C-directory.
 2. Klik op **Azure Active Directory** in de werkbalk met Favorieten aan de linkerkant 
     
@@ -62,18 +62,18 @@ Hier ziet u een lijst van activiteiten die zijn geregistreerd in de afgelopen ze
 - Als u op een specifieke rij in de lijst klikt, ziet een contextuele vak aan de rechterkant u aanvullende kenmerken die zijn gekoppeld aan de activiteit
 - Klik op **downloaden** voor het downloaden van de activiteiten als een csv-bestand
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Auditlogboeken openen via de Azure AD rapportage-API
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Auditlogboeken openen via de Azure AD rapportage-API
 Auditlogboeken worden gepubliceerd naar de dezelfde pijplijn als andere activiteiten voor Azure Active Directory, zodat ze kunnen worden geopend via de [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Vereisten
 Als u wilt verifiëren met de Azure AD rapportage-API moet u eerst het registreren van een toepassing. Zorg ervoor dat u de stappen in [vereisten voor toegang tot de rapportage-API's Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>Toegang tot de API
+### <a name="accesing-the-api"></a>Toegang tot de API
 Voor het downloaden van de auditlogboeken van Azure AD B2C via de API, moet u de logboeken om te filteren de **B2C** categorie. Als u wilt filteren op categorie, gebruikt u de queryreeks-parameter bij het aanroepen van de Azure AD reporting API-eindpunt, zoals hieronder wordt weergegeven:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>PowerShell-script
+### <a name="powershell-script"></a>PowerShell-script
 Het volgende script geeft een voorbeeld van een query uitvoeren op de rapportage-API van Azure AD en de resultaten opslaan als een JSON-bestand met behulp van PowerShell:
 
 ```powershell

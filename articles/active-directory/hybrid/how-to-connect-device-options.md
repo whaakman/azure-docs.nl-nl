@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311974"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320557"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opties voor
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opties voor
 
 De volgende documentatie bevat informatie over de verschillende opties voor apparaten beschikbaar in Azure AD Connect. Azure AD Connect kunt u de volgende twee bewerkingen configureren: 
 * **Hybride Azure AD join**: als uw omgeving een on-premises heeft AD-footprint en u wilt dat de voordelen van Azure AD, kunt u hybride Azure AD gekoppelde apparaten implementeren. Deze apparaten lid zijn van zowel uw on-premises Active Directory en uw Azure Active Directory.

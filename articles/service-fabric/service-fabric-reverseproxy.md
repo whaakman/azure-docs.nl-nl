@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 84869a93dfe2f979e207257ebac80773a172a776
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 04f233384ad0d02cb5b7056df1e5fdfc74b9bec8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017921"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344622"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omgekeerde proxy in Azure Service Fabric
 Omgekeerde proxy die is ingebouwd in Azure Service Fabric kunt u microservices die worden uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die http-eindpunten hebben.
@@ -155,6 +155,8 @@ Voor services die in containers worden uitgevoerd, kunt u de omgevingsvariabele 
     var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
 ```
 Voor het lokale cluster `Fabric_NodeIPOrFQDN` is standaard ingesteld op 'localhost'. Start het lokale cluster met de `-UseMachineName` parameter om ervoor te zorgen dat containers omgekeerde proxy's die worden uitgevoerd op het knooppunt kunnen bereiken. Zie voor meer informatie, [configureren van uw ontwikkelomgeving instellen om op te sporen containers](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
+
+Service Fabric-services die worden uitgevoerd binnen containers met Docker Compose vereisen een speciale docker-compose.yml *poorten sectie* http: of https: configuratie. Zie voor meer informatie, [ondersteuning voor implementatie van Docker Compose in Azure Service Fabric](service-fabric-docker-compose.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Instellen en configureren van omgekeerde proxy op een cluster](service-fabric-reverseproxy-setup.md).

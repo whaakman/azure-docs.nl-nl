@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669339"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346101"
 ---
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 * **Azure-abonnement** : het implementeren van meer dan een paar rekenintensieve instanties, kunt u een abonnement op gebruiksbasis of andere Aankoopopties. Als u een [gratis account van Azure](https://azure.microsoft.com/free/) gebruikt, kunt u slechts een paar Azure Compute-resources van Azure gebruiken.
 
-* **Prijzen en beschikbaarheid** -deze VM-grootten worden alleen aangeboden in de standaard prijscategorie. Controleren [producten beschikbaar per regio] (https://azure.microsoft.com/regions/services/) voor beschikbaarheid in Azure-regio's. 
+* **Prijzen en beschikbaarheid** -deze VM-grootten worden alleen aangeboden in de standaard prijscategorie. Controleer [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/) voor beschikbaarheid in Azure-regio's. 
 * **Quotum voor kerngeheugens** : mogelijk moet u het quotum voor kerngeheugens in uw Azure-abonnement van de standaardwaarde verhogen. Uw abonnement kan het aantal kernen dat u in een bepaalde groottefamilie VM implementeren kunt, met inbegrip van de H-serie ook beperken. Om aan te vragen een quotaverhoging [opent u een ondersteuningsaanvraag online klant](../articles/azure-supportability/how-to-create-azure-support-request.md) gratis. (De standaardlimieten kunnen variëren, afhankelijk van uw abonnementscategorie).
   
   > [!NOTE]
@@ -37,4 +37,3 @@ Deze interface kunt de RDMA-functionaliteit om te communiceren via een netwerk I
 > IP-via IB wordt niet ondersteund in Azure. Alleen RDMA over IB wordt ondersteund.
 >
 
-Implementeer de RDMA-compatibele HPC-virtuele machines in dezelfde beschikbaarheidsset of VM-schaalset (wanneer u het Azure Resource Manager-implementatiemodel) of dezelfde cloudservice (als u het klassieke implementatiemodel gebruikt). Als u een VM-schaalset gebruikt, zorgt u ervoor dat u de implementatie tot één plaatsingsgroep beperken; bijvoorbeeld in een Resource Manager-sjabloon instellen de *singlePlacementGroup* eigenschap *waar*. Voer de aanvullende vereisten voor RDMA-compatibele HPC-VM's toegang hebben tot de Azure-RDMA-netwerk.

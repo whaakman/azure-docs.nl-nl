@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: d278e47979e696183b703f7e67e39757d854fdb2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 258eb744cf86fcd14250be8f2e8ec18b5a0fada3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857734"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319418"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuratie van het netwerk in Azure Kubernetes Service (AKS)
 
@@ -73,23 +73,19 @@ Het IP-adres-plan voor een AKS-cluster bestaat uit een virtueel netwerk, ten min
 
 Het standaard maximum aantal schillen per knooppunt in een AKS-cluster varieert tussen de basisopties en geavanceerde netwerken en de methode van implementatie van het cluster.
 
-### <a name="default-maximum"></a>Standaard maximale
-
-Dit zijn de *standaard* maximumwaarden bij het implementeren van een AKS-cluster zonder op te geven het maximum aantal schillen tijdens de implementatie:
-
 | Implementatiemethode | Basic | Geavanceerd | Kan worden geconfigureerd tijdens de implementatie |
 | -- | :--: | :--: | -- |
-| Azure-CLI | 110 | 30 | Ja |
-| Resource Manager-sjabloon | 110 | 30 | Ja |
+| Azure-CLI | 110 | 30 | Ja (maximaal 110) |
+| Resource Manager-sjabloon | 110 | 30 | Ja (maximaal 110) |
 | Portal | 110 | 30 | Nee |
 
 ### <a name="configure-maximum---new-clusters"></a>Maximum - nieuwe clusters configureren
 
-Een ander maximum aantal schillen per knooppunt opgeven wanneer u een AKS-cluster implementeert:
+Het configureren van het maximum aantal schillen per knooppunt kunt u *alleen tijdens de cluster implementatie*. Als u met de Azure CLI of met een Resource Manager-sjabloon implementeert, kunt u de maximale schillen per knooppuntwaarde zo hoog 110 instellen.
 
-* **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken] [ az-aks-create] opdracht.
-* **Resource Manager-sjabloon**: Geef de `maxPods` eigenschap in de [ManagedClusterAgentPoolProfile] object wanneer u een cluster met een Resource Manager-sjabloon implementeert.
-* **Azure-portal**: U kunt het maximale aantal schillen per knooppunt niet wijzigen wanneer u een cluster met de Azure portal implementeert. Geavanceerde VPN-clusters zijn beperkt tot 30 schillen per knooppunt bij de implementatie in Azure portal.
+* **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken] [ az-aks-create] opdracht. De maximumwaarde is 110.
+* **Resource Manager-sjabloon**: Geef de `maxPods` eigenschap in de [ManagedClusterAgentPoolProfile] object wanneer u een cluster met een Resource Manager-sjabloon implementeert. De maximumwaarde is 110.
+* **Azure-portal**: U kunt het maximale aantal schillen per knooppunt niet wijzigen wanneer u een cluster met de Azure portal implementeert. Geavanceerde VPN-clusters zijn beperkt tot 30 schillen per knooppunt wanneer u implementeert met behulp van de Azure portal.
 
 ### <a name="configure-maximum---existing-clusters"></a>Maximum - bestaande clusters configureren
 

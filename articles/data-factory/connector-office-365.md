@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 3caae8ecae66178bc538d0b9d1240293028f33ad
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867354"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318313"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Gegevens uit Office 365 kopiëren naar Azure met behulp van Azure Data Factory (Preview) 
 
@@ -55,7 +55,7 @@ Als u wilt gegevens uit Office 365 kopiëren naar Azure, moet u de volgende vere
 
 Als dit de eerste keer dat u gegevens voor deze context aanvraagt (een combinatie van welke gegevens worden tabel toegang, welke bestemming-account is de gegevens worden geladen in en welke gebruikers-id is, zodat de gegevens toegangsaanvraag), ziet u de copy-activiteit status als 'Wordt uitgevoerd' en alleen wanneer u klikt op in ['Details' koppeling onder acties](copy-activity-overview.md#monitoring) wordt de status weergegeven als 'RequestingConsent'.  Een lid van de groep data access goedkeurder nodig voor het goedkeuren van de aanvraag in het Privileged Access Management voordat de gegevensextractie verder kunt gaan.
 
-Raadpleeg [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) op hoe de fiatteur kan goedkeuren de gegevens toegang tot aanvraag en Raadpleeg [hier](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) voor een uitleg over de algehele integratie met Privileged Access Management, waaronder over het instellen van de gegevens groep voor toegang tot goedkeurder.
+Raadpleeg [hier](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Approving-data-access-requests) op hoe de fiatteur kan goedkeuren de gegevens toegang tot aanvraag en Raadpleeg [hier](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#integration-with-privileged-access-management) voor een uitleg over de algehele integratie met Privileged Access Management, waaronder over het instellen van de gegevens groep voor toegang tot goedkeurder.
 
 ## <a name="policy-validation"></a>Validatie van het gebruikersbeleid
 
@@ -124,7 +124,7 @@ Als u wilt kopiëren van gegevens van Office 365, zijn de volgende eigenschappen
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **Office365Table** | Ja |
-| tableName | Naam van de gegevensset om op te halen van Office 365. Raadpleeg hier voor een lijst van beschikbare voor het ophalen van Office 365-gegevenssets. | Ja |
+| tableName | Naam van de gegevensset om op te halen van Office 365. Raadpleeg [hier](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) voor een lijst van beschikbare voor het ophalen van Office 365-gegevenssets. | Ja |
 | Predikaat | Een predicaatexpressie die kan worden gebruikt voor het filteren van de specifieke rijen om uit te pakken uit Office 365.  Raadpleeg hier als u wilt weten welke kolommen kunnen worden gebruikt voor predicaatfiltrering voor elke tabel en de indeling van de expressie filter. | Nee<br>(Als er geen predicaat wordt opgegeven, de standaardwaarde is om gegevens te extraheren voor de afgelopen 30 dagen) |
 
 **Voorbeeld**

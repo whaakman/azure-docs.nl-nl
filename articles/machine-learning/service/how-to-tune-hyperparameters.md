@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1171ff64bea99d7bc736a5a4fe88d9c08324b9d9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116467"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344129"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Afstemmen van hyperparameters voor uw model
 
@@ -36,6 +36,8 @@ In uitgebreide machineleren / machine learning-scenario's modelprestaties is afh
 
 Azure Machine Learning kunt u hyperparameter verkennen automatiseren op een efficiënte manier, waardoor u veel tijd en resources. U het bereik van waarden hyperparameter opgeven en een maximum aantal training wordt uitgevoerd. Het systeem vervolgens automatisch meerdere gelijktijdige uitvoeringen met verschillende configuraties worden gestart en de configuratie die in de beste prestaties resulteert, gemeten door de metrische gegevens die u zoekt. Trainingsuitvoeringen van slecht presterende zijn automatisch vroege beëindigd, verspilling van compute-resources beperken. Deze resources worden in plaats daarvan gebruikt om andere configuraties hyperparameter verkennen.
 
+>[!NOTE]
+> Code in dit artikel is getest met Azure Machine Learning SDK versie 0.168 
 
 ## <a name="define-search-space"></a>Search ruimte definiëren
 
@@ -164,7 +166,7 @@ Meld u met deze metriek in uw trainingsscript met het volgende voorbeeld-fragmen
 
 ```Python
 from azureml.core.run import Run
-run_logger = Run.get_submitted_run()
+run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 

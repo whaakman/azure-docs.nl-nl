@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288251"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318534"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditing in Azure SQL datawarehouse
 
@@ -112,7 +112,7 @@ Voordat het instellen van audit, auditing selectievakje in als u een ['Downlevel
 
 ## <a id="subheading-3"></a>Analyseren van controlelogboeken en -rapporten
 
-###<a name="server-level-policy-audit-logs"></a>De logboeken voor controle op serverniveau beleid
+### <a name="server-level-policy-audit-logs"></a>De logboeken voor controle op serverniveau beleid
 De logboeken voor controle op serverniveau worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag in uw Azure-abonnement. Deze worden opgeslagen als een verzameling van blob-bestanden in een container met de naam **sqldbauditlogs**.
 
 Zie voor meer informatie over de hiërarchie van de map storage naamgevingsregels en logboekindeling, de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Er zijn verschillende methoden die u gebruiken kunt om blob auditing logboeken w
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>De logboeken voor controle op databaseniveau beleid
+### <a name="database-level-policy-audit-logs"></a>De logboeken voor controle op databaseniveau beleid
 De logboeken voor controle op databaseniveau worden samengevoegd in een verzameling van Store tabellen met een **SQLDBAuditLogs** voorvoegsel in de Azure storage-account dat u hebt gekozen tijdens de installatie. U kunt met behulp van een hulpprogramma zoals logboekbestanden weergeven [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
 Een rapportsjabloon vooraf geconfigureerde dashboard is beschikbaar als een [downloadbare Excel-werkblad](http://go.microsoft.com/fwlink/?LinkId=403540) waarmee u snel analyseren logboekgegevens. Als u de sjabloon op uw auditlogboeken, moet u Excel 2013 of later en Power Query, die u kunt [download hier](http://www.microsoft.com/download/details.aspx?id=39379).

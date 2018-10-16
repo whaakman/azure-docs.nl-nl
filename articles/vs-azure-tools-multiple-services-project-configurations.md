@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055477"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318211"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Uw Azure-project configureren in Visual Studio te gebruiken serviceconfiguraties met meerdere
 
@@ -75,8 +75,9 @@ Voor het maken van een verbindingsreeks selecteert **instelling toevoegen** en s
 Selecteer voor nieuwe of bestaande met verbindingsreeksen, **...** * aan de rechterkant van de **waarde** veld om te openen de **Create Storage Connection String** dialoogvenster:
 
 1. Onder **verbinding maken met behulp van**, kiest u de **uw abonnement** optie voor het selecteren van een storage-account van een abonnement. Visual Studio haalt vervolgens de referenties van het storage-account automatisch uit de `.publishsettings` bestand.
-1. Selecteren **referenties handmatig worden ingevoerd** kunt u de accountnaam opgeven en de sleutel rechtstreeks met behulp van gegevens vanuit Azure portal. De accountsleutel te kopiëren: een. Ga naar het opslagaccount in de Azure portal en selecteer **sleutels beheren**.
-    2. Als u wilt kopiëren van de accountsleutel, gaat u naar het opslagaccount in Azure portal, selecteer **instellingen > toegangssleutels**, gebruikt u de knop kopiëren aan de primaire toegangssleutel naar het Klembord kopiëren.
+1. Selecteren **referenties handmatig worden ingevoerd** kunt u de accountnaam opgeven en de sleutel rechtstreeks met behulp van gegevens vanuit Azure portal. De accountsleutel kopiëren:
+    1. Ga naar het opslagaccount in de Azure portal en selecteer **sleutels beheren**.
+    1. Als u wilt kopiëren van de accountsleutel, gaat u naar het opslagaccount in Azure portal, selecteer **instellingen > toegangssleutels**, gebruikt u de knop kopiëren aan de primaire toegangssleutel naar het Klembord kopiëren.
 1. Selecteer een van de opties voor de verbinding. **Geef aangepaste eindpunten** vraagt u om op te geven specifieke URL's voor blobs, tabellen en wachtrijen. Aangepaste eindpunten kunt u gebruikmaken van [aangepaste domeinen](storage/blobs/storage-custom-domain-name.md) en voor het beheren van toegang tot meer exact. Zie [Azure Storage-verbindingsreeksen configureren](./storage/common/storage-configure-connection-string.md).
 1. Selecteer **OK**, klikt u vervolgens **bestand > Opslaan** configuratie bijwerken met de nieuwe verbindingsreeks.
 

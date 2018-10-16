@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: da5e03e5fd3259157ee33744b614e2be3e284eb8
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901922"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321288"
 ---
 # <a name="calchistogram-method"></a>Methode CalcHistogram
 
@@ -35,10 +35,12 @@ Naam  |Waarde | Vereist?  |Beschrijving
 **markering**    |Tekenreeks met tekst | Ja  |Een query-expressie waarmee de entiteiten die voor het berekenen van histogrammen.
 **Model** |Tekenreeks met tekst | Nee |Selecteer de naam van het model dat u wilt zoeken.  Op dit moment wordt de standaardwaarde aan *nieuwste*.
 **Kenmerken** | Tekenreeks met tekst | Nee<br>Standaard: | Een door komma's gescheiden lijst die Hiermee geeft u de kenmerkwaarden weer die zijn opgenomen in het antwoord. Kenmerknamen zijn hoofdlettergevoelig.
-**Aantal** |Aantal | Nee<br>Standaard: 10 |Het aantal resultaten dat moet worden geretourneerd.
+**count** |Aantal | Nee<br>Standaard: 10 |Het aantal resultaten dat moet worden geretourneerd.
 **offset**  |Aantal | Nee<br>Standaard: 0 |De index van het eerste resultaat om terug te keren.
-<br>
+**Time-out**  |Aantal | Nee<br>Standaard: 1000 |Time-out in milliseconden. Alleen interpretaties gevonden voordat de time-out is verstreken, worden geretourneerd.
+
 ## <a name="response-json"></a>Antwoord (JSON)
+
 Naam | Beschrijving
 --------|---------
 **markering**  |De markering-parameter van de aanvraag.
@@ -53,7 +55,7 @@ Naam | Beschrijving
 **histogrammen [.count .histogram [j] x]**  |Het aantal overeenkomende entiteiten met de waarde van dit kenmerk.
 **afgebroken** | Waar, als de aanvraag is een time-out.
 
- <br>
+
 #### <a name="example"></a>Voorbeeld:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

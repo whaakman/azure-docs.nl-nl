@@ -1,5 +1,5 @@
 ---
-title: Wat is de beveiliging van een basislijn voor de voorwaardelijke toegang van Azure Active Directory? -preview | Microsoft Docs
+title: Wat is de beveiliging van een basislijn voor de voorwaardelijke toegang van Azure Active Directory? - preview | Microsoft Docs
 description: Meer informatie over hoe basisbeveiliging zorgt ervoor dat u ten minste het niveau van de basislijn van de beveiliging is ingeschakeld in uw Azure Active Directory-omgeving hebt.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleid voor voorwaardelijke toegang
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222264"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345127"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Wat is basislijn protection (preview)?  
 
@@ -86,7 +86,7 @@ Tijdens het beheren van beleid voor aangepaste voorwaardelijke toegang vereist e
 
 De directory-rollen die zijn opgenomen in het Basisbeleid zijn de meeste bevoegdheden Azure AD-rollen. 
 
-Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [Managed Service Identity (MSI)](../managed-identities-azure-resources/overview.md) of [service-principals met certificaten](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
+Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [beheerde identiteiten voor een Azure-resources](../managed-identities-azure-resources/overview.md) of [service-principals met certificaten](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
 
 Basislijn-beleid van toepassing op verouderde verificatiestromen zoals POP, IMAP, oudere Office-bureaublad-client. 
 

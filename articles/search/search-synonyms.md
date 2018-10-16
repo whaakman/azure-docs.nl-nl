@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9f887b065cf4fcc295873ee969030c67d17d9e2f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093211"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318466"
 ---
 # <a name="synonyms-in-azure-search"></a>Synoniemen Azure Search
 
@@ -148,6 +148,8 @@ De synoniemenfunctie herschrijft de oorspronkelijke query met synoniemen met de 
 Synoniem functie is van toepassing op zoekquery's en geldt niet voor filters of facetten. Op deze manier zijn suggesties gebaseerd op de oorspronkelijke termijn; synoniem overeenkomsten worden niet weergegeven in het antwoord.
 
 Synoniem uitbreidingen niet van toepassing op jokertekens zoektermen; voorvoegsel, fuzzy, en de regex-voorwaarden niet worden uitgebreid.
+
+Als u één query die van toepassing synoniem uitbreiding en jokertekens, reguliere expressie of fuzzy zoekopdrachten is uitvoeren wilt, kunt u de query's met de OR-syntaxis kunt combineren. Bijvoorbeeld, de term zou zijn als u wilt combineren synoniemen met jokertekens voor eenvoudige query-syntaxis, `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Tips voor het bouwen van een synoniemtoewijzing
 

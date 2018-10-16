@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344873"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320302"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 en OAuth 2.0 namens-stroom
 De OAuth 2.0 namens-stroom fungeert de use-case waar een toepassing wordt aangeroepen met een service of web-API, dat op zijn beurt vereist is voor het aanroepen van een andere service of web-API. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -33,7 +33,7 @@ De OAuth 2.0 namens-stroom fungeert de use-case waar een toepassing wordt aanger
 
 
 > [!IMPORTANT]
-> De [impliciete](v2-oauth2-implicit-grant-flow.md) kan niet worden gebruikt voor de stroom op-andere gebruikers-Of - kuuroorden hun toegangstoken (impliciete stroom) moeten doorgeven aan een vertrouwelijke client van de middelste laag om uit te voeren OBO stromen. Zie [beperkingen](#client-limitations) voor meer informatie waarop clients op-andere gebruikers-Of aanroepen kunnen uitvoeren.  
+> Vanaf mei 2018, een `id_token` kan niet worden gebruikt voor de stroom op-andere gebruikers-Of - kuuroorden moeten slagen voor een **toegang** token gebruikt voor een middelste laag vertrouwelijke client om uit te voeren OBO stromen. Zie [beperkingen](#client-limitations) voor meer informatie waarop clients op-andere gebruikers-Of aanroepen kunnen uitvoeren.
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
 Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [OAuth 2.0-autorisatiecode verlenen stroom](v2-oauth2-auth-code-flow.md). Op dit moment de toepassing heeft een toegangstoken *voor API A* (token A) met claims van de gebruiker en toestemming voor toegang tot de middelste laag web-API (A-API). Nu moet API A maken van een geverifieerde aanvraag naar de downstream web-API (API-B).

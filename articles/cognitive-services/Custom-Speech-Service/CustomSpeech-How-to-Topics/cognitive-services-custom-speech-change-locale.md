@@ -1,24 +1,25 @@
 ---
-title: Ondersteunde landen en talen - Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Ondersteunde landinstellingen en talen in de Custom Speech Service op Azure | Microsoft Docs
 description: Overzicht van ondersteunde talen van Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 34af6673689244364ab3a1fe3f2a6ab056ea8598
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8493aeb3c1c2436900ae626ad0f34cbe8b060163
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223952"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342165"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Ondersteunde landinstellingen in de Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 De Custom Speech Service ondersteunt momenteel aanpassing van modellen in de volgende landinstellingen:
 
 | Modeltype | Taalondersteuning |

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298316"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321787"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Oplossen van self-service voor wachtwoord opnieuw instellen
 
@@ -173,16 +173,14 @@ Voor meer granulatie, verwijzen naar de bijgewerkte lijst [Microsoft Azure Datac
 
 Voor meer informatie, Controleer de vereisten van de verbinding in de [vereisten voor Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md) artikel.
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>De Azure AD Connect Sync-service opnieuw starten
 
 U lost problemen met de netwerkverbinding of andere tijdelijke problemen met de service door de Azure AD Connect Sync-service opnieuw te starten:
 
    1. Als beheerder, selecteer **Start** op de server met Azure AD Connect.
-   2. ENTER **services.msc** in het zoekveld en selecteer **Enter**.
-   3. Zoek de **Microsoft Azure AD Sync** vermelding.
-   4. Met de rechtermuisknop op de servicevermelding, selecteert u **opnieuw**, en wacht totdat de bewerking is voltooid.
+   1. ENTER **services.msc** in het zoekveld en selecteer **Enter**.
+   1. Zoek de **Microsoft Azure AD Sync** vermelding.
+   1. Met de rechtermuisknop op de servicevermelding, selecteert u **opnieuw**, en wacht totdat de bewerking is voltooid.
 
    ![De Azure AD Sync-service opnieuw starten][Service restart]
 
@@ -193,15 +191,15 @@ Deze stappen opnieuw de verbinding maken met de cloudservice en los eventuele on
 Om op te lossen problemen met de netwerkverbinding, uitschakelen en de functie wachtwoord terugschrijven vervolgens opnieuw in te schakelen:
 
    1. Als beheerder, opent u de wizard Azure AD Connect-configuratie.
-   2. In **verbinding maken met Azure AD**, Voer uw Azure AD-hoofdbeheerder referenties.
-   3. In **verbinding maken met AD DS**, Voer uw beheerdersreferenties AD Domain Services.
-   4. In **uw gebruikers identificeren**, selecteer de **volgende** knop.
-   5. In **optionele functies**, schakel de **wachtwoord terugschrijven** selectievakje.
-   6. Selecteer **volgende** via de resterende dialoogpagina's zonder iets te wijzigen totdat u de **klaar om te configureren** pagina.
-   7. Zorg ervoor dat de **klaar voor het configureren van de pagina** ziet u de **wachtwoord terugschrijven** als de optie **uitgeschakeld** en selecteer vervolgens de groene **configureren** om uw wijzigingen doorvoeren.
-   8. In **voltooid**, schakel de **nu synchroniseren** optie en selecteer vervolgens **voltooien** om de wizard te sluiten.
-   9. Open de wizard Azure AD Connect-configuratie opnieuw.
-   10. Herhaal stap 2-8, maar zorg ervoor dat u selecteert de **wachtwoord terugschrijven** kiezen op de **optionele functies** pagina om de service opnieuw in te schakelen.
+   1. In **verbinding maken met Azure AD**, Voer uw Azure AD-hoofdbeheerder referenties.
+   1. In **verbinding maken met AD DS**, Voer uw beheerdersreferenties AD Domain Services.
+   1. In **uw gebruikers identificeren**, selecteer de **volgende** knop.
+   1. In **optionele functies**, schakel de **wachtwoord terugschrijven** selectievakje.
+   1. Selecteer **volgende** via de resterende dialoogpagina's zonder iets te wijzigen totdat u de **klaar om te configureren** pagina.
+   1. Zorg ervoor dat de **klaar voor het configureren van de pagina** ziet u de **wachtwoord terugschrijven** als de optie **uitgeschakeld** en selecteer vervolgens de groene **configureren** om uw wijzigingen doorvoeren.
+   1. In **voltooid**, schakel de **nu synchroniseren** optie en selecteer vervolgens **voltooien** om de wizard te sluiten.
+   1. Open de wizard Azure AD Connect-configuratie opnieuw.
+   1. Herhaal stap 2-8, maar zorg ervoor dat u selecteert de **wachtwoord terugschrijven** kiezen op de **optionele functies** pagina om de service opnieuw in te schakelen.
 
 Deze stappen opnieuw de verbinding maken met onze service in de cloud en los eventuele onderbrekingen die u mogelijk ondervindt.
 
@@ -215,10 +213,11 @@ Het is raadzaam dat u deze stap uitvoeren nadat u de eerste twee stappen dat eer
 
 > [!WARNING]
 > Als u de out-of-the-box-synchronisatieregels hebt aangepast *back-up voordat u doorgaat met de upgrade en handmatig opnieuw nadat u klaar bent.*
+>
 
-   1. Download de nieuwste versie van Azure AD Connect uit de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Omdat u Azure AD Connect al hebt geïnstalleerd, moet u een in-place upgrade voor het bijwerken van uw Azure AD Connect-installatie naar de nieuwste versie uitvoeren.
-   3. Het gedownloade pakket uitvoeren en volg de aanwijzingen op het scherm instructies voor het bijwerken van uw Azure AD Connect-computer.
+1. Download de nieuwste versie van Azure AD Connect uit de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Omdat u Azure AD Connect al hebt geïnstalleerd, moet u een in-place upgrade voor het bijwerken van uw Azure AD Connect-installatie naar de nieuwste versie uitvoeren.
+1. Het gedownloade pakket uitvoeren en volg de aanwijzingen op het scherm instructies voor het bijwerken van uw Azure AD Connect-computer.
 
 De vorige stappen moeten uw verbinding met onze cloudservice opnieuw tot stand te brengen en los eventuele onderbrekingen die u mogelijk ondervindt.
 
@@ -228,34 +227,33 @@ Als het installeren van de meest recente versie van de Azure AD Connect-server h
 
 Azure AD Connect vereist een Active Directory **wachtwoord opnieuw instellen** machtiging voor het terugschrijven van wachtwoorden uitvoeren. Als u wilt weten of Azure AD Connect de vereiste machtiging voor een bepaalde on-premises Active Directory-gebruikersaccount heeft, kunt u de effectieve machtiging voor Windows-functie:
 
-   1. Aanmelden bij de Azure AD Connect-server en start de **Synchronization Service Manager** hiervoor **Start** > **Synchronization Service**.
-   2. Onder de **Connectors** tabblad, selecteert u de on-premises **Active Directory Domain Services** -connector en selecteer vervolgens **eigenschappen**.  
-
+1. Aanmelden bij de Azure AD Connect-server en start de **Synchronization Service Manager** hiervoor **Start** > **Synchronization Service**.
+1. Onder de **Connectors** tabblad, selecteert u de on-premises **Active Directory Domain Services** -connector en selecteer vervolgens **eigenschappen**.  
    ![Effectieve machtiging - stap 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. Selecteer in het pop-upvenster **verbinding maken met Active Directory-Forest** en noteer de **gebruikersnaam** eigenschap. Deze eigenschap is de AD DS-account gebruikt door Azure AD Connect directorysynchronisatie wordt uitgevoerd. Voor Azure AD Connect om uit te voeren van het terugschrijven van wachtwoorden, het AD DS-account moet zijn opnieuw ingesteld wachtwoord machtiging.  
+1. Selecteer in het pop-upvenster **verbinding maken met Active Directory-Forest** en noteer de **gebruikersnaam** eigenschap. Deze eigenschap is de AD DS-account gebruikt door Azure AD Connect directorysynchronisatie wordt uitgevoerd. Voor Azure AD Connect om uit te voeren van het terugschrijven van wachtwoorden, het AD DS-account moet zijn opnieuw ingesteld wachtwoord machtiging.  
    
    ![Effectieve machtiging - stap 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Aanmelden bij een on-premises domeincontroller en start de **Active Directory: gebruikers en Computers** toepassing.
-   5. Selecteer **weergave** en zorg ervoor dat de **geavanceerde functies** optie is ingeschakeld.  
+1. Aanmelden bij een on-premises domeincontroller en start de **Active Directory: gebruikers en Computers** toepassing.
+1. Selecteer **weergave** en zorg ervoor dat de **geavanceerde functies** optie is ingeschakeld.  
    
    ![Effectieve machtiging - stap 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Zoek naar het Active Directory-gebruikersaccount dat u wilt controleren. Met de rechtermuisknop op de accountnaam en selecteer **eigenschappen**.  
+1. Zoek naar het Active Directory-gebruikersaccount dat u wilt controleren. Met de rechtermuisknop op de accountnaam en selecteer **eigenschappen**.  
    
    ![Effectieve machtiging - stap 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. In het pop-upvenster, gaat u naar de **Security** tabblad en selecteer **Geavanceerd**.  
+1. In het pop-upvenster, gaat u naar de **Security** tabblad en selecteer **Geavanceerd**.  
    
    ![Effectieve machtiging - stap 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. In de **geavanceerde beveiligingsinstellingen voor de beheerder** pop-upvenster, Ga naar de **effectieve toegang** tabblad.
-   9. Selecteer **selecteert u een gebruiker**, selecteert u de AD DS-account wordt gebruikt door Azure AD Connect (Zie stap 3) en selecteer vervolgens **effectieve toegang weergeven**.  
-   
+1. In de **geavanceerde beveiligingsinstellingen voor de beheerder** pop-upvenster, Ga naar de **effectieve toegang** tabblad.
+1. Selecteer **selecteert u een gebruiker**, selecteert u de AD DS-account wordt gebruikt door Azure AD Connect (Zie stap 3) en selecteer vervolgens **effectieve toegang weergeven**.
+
    ![Effectieve machtiging - stap 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Schuif naar beneden en zoek naar **wachtwoord opnieuw instellen**. Als er een vinkje is, is het AD DS-account gemachtigd opnieuw instellen van het wachtwoord van het geselecteerde Active Directory-gebruikersaccount.  
+1. Schuif naar beneden en zoek naar **wachtwoord opnieuw instellen**. Als er een vinkje is, is het AD DS-account gemachtigd opnieuw instellen van het wachtwoord van het geselecteerde Active Directory-gebruikersaccount.  
    
    ![Effectieve machtiging - stap 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Goed om u te helpen, vragen we u om zoveel mogelijk details mogelijk te bieden b
     * Is dit een alleen-cloud-gebruiker?
 * **Licentieverlening**: de gebruiker beschikt over een Azure AD Premium of Azure AD Basic-licentie toegewezen?
 * **Logboek voor toepassingsgebeurtenissen**: als u het terugschrijven van wachtwoorden en de fout in uw on-premises infrastructuur is, omvatten een gecomprimeerde kopie van het logboek voor toepassingsgebeurtenissen van de Azure AD Connect-server.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "De Azure AD Sync-service opnieuw starten"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "De ondersteuningscode bevindt zich in de rechterbenedenhoek van het venster"

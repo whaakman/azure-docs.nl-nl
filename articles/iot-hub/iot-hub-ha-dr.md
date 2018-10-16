@@ -7,14 +7,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 04a3f4bbe1f0534d0eed88fbb8eb6ada4000a4f0
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620396"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341970"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hoge beschikbaarheid en herstel na noodgevallen
+
 Als een eerste stap voor het implementeren van een robuuste IoT moeten oplossing, architecten, ontwikkelaars en eigenaren van bedrijven de actieve tijdsduur van de doelstellingen voor de oplossingen die ze bouwt definiëren. Deze doelstellingen kunnen voornamelijk op basis van specifieke zakelijke doelstellingen voor elk scenario worden gedefinieerd. In deze context, het artikel [technische richtlijnen voor Azure Business Continuity](https://docs.microsoft.com/azure/architecture/resiliency/) beschrijft een algemene framework waarmee u kunt denken over zakelijke continuïteit en herstel na noodgevallen. De [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](https://msdn.microsoft.com/library/dn251004.aspx) document bevat architectuurrichtlijnen voor strategieën voor Azure-toepassingen om hoge beschikbaarheid (HA) en herstel na noodgevallen (DR) te realiseren.
 
 Dit artikel worden de HA en DR-functies die specifiek door de IoT Hub-service worden aangeboden. Zijn de brede gebieden die in dit artikel worden besproken:
@@ -24,20 +25,23 @@ Dit artikel worden de HA en DR-functies die specifiek door de IoT Hub-service wo
 - Regio-overkoepelende HA bereiken
 
 Afhankelijk van de doelstellingen van uw actieve tijdsduur u voor uw IoT-oplossingen definieert, moet u bepalen welke van de opties worden hieronder beschreven aanbevolen gesorteerde uw bedrijfsdoelstellingen. Een van deze alternatieven HA-/ DR opnemen in uw IoT-oplossing vereist een zorgvuldige evaluatie van de wisselwerking tussen de:
+
 - Tolerantieniveau die u nodig hebt 
 - Implementatie en onderhoud complexiteit
 - COGS impact
 
-
 ## <a name="intra-region-ha"></a>HA intra-regio
+
 De IoT Hub-service biedt intra-regio HA door het implementeren van redundantie in bijna alle lagen van de service. De [SLA gepubliceerd door de IoT Hub-service](https://azure.microsoft.com/support/legal/sla/iot-hub) wordt bereikt door gebruik van deze redundantie. Er zijn geen extra werk is vereist voor de ontwikkelaars van een IoT-oplossing om te profiteren van deze HA-functies. Hoewel IoT-Hub een redelijk beschikbaarheidsgarantie biedt, kunnen nog steeds tijdelijke fouten worden verwacht net als bij elk platform voor gedistribueerde computing. Als u net aan de slag met uw oplossingen migreren naar de cloud van een on-premises-oplossing, uw focus moet wilt verschuiven van optimaliseren "gemiddelde tijd tussen storingen" 'gemiddelde tijd om te herstellen'. Met andere woorden, zijn tijdelijke fouten normale worden overwogen bij het werken met de cloud in de samenstelling. Juiste [beleid voor opnieuw proberen](iot-hub-reliability-features-in-sdks.md) moet zijn ingebouwd in de onderdelen die interactie met een cloudtoepassing te bekommeren om tijdelijke fouten.
 
 > [!NOTE]
 > Sommige Azure-services biedt ook extra beveiligingslagen beschikbaarheid binnen een regio door te integreren met [Beschikbaarheidszones (AZs)](../availability-zones/az-overview.md). AZs worden momenteel niet ondersteund door de IoT Hub-service.
 
 ## <a name="cross-region-dr"></a>Regio-overkoepelende DR
-Er zijn mogelijk sommige zeldzame gevallen wanneer een datacenter optreedt in de uitgebreide onderbrekingen vanwege stroomstoringen of andere fouten met betrekking tot fysieke activa. Dergelijke gebeurtenissen zijn zeldzaam tijdens die de intra-regio HA-mogelijkheden die hierboven worden beschreven mogelijk niet altijd helpen. IoT Hub biedt meerdere oplossingen voor het herstellen van deze uitgebreide onderbrekingen. De opties voor herstel beschikbaar voor klanten in een dergelijke situatie zijn "Microsoft gestart failover" en 'handmatige failover'. De fundamentele verschil tussen de twee is dat Microsoft de voormalige Start en de gebruiker de laatste. Handmatige failover biedt ook een lagere beoogde hersteltijd (RTO) in vergelijking met de failover-optie van Microsoft gestart. De specifieke RTO's die bij elke optie worden aangeboden worden in de onderstaande secties besproken. Wanneer een van deze opties om uit te voeren van failover van een IoT-hub van de primaire regio wordt uitgevoerd, de hub volledig functioneel in de bijbehorende wordt [Azure geokoppeling regio](../best-practices-availability-paired-regions.md).
 
+Er zijn mogelijk sommige zeldzame gevallen wanneer een datacenter optreedt in de uitgebreide onderbrekingen vanwege stroomstoringen of andere fouten met betrekking tot fysieke activa. Dergelijke gebeurtenissen zijn zeldzaam tijdens die de intra-regio HA-mogelijkheden die hierboven worden beschreven mogelijk niet altijd helpen. IoT Hub biedt meerdere oplossingen voor het herstellen van deze uitgebreide onderbrekingen. 
+
+De opties voor herstel beschikbaar voor klanten in een dergelijke situatie zijn "Microsoft geïnitieerde failover" en 'handmatige failover'. De fundamentele verschil tussen de twee is dat Microsoft de voormalige Start en de gebruiker de laatste. Handmatige failover biedt ook een lagere beoogde hersteltijd (RTO) in vergelijking met de Microsoft geïnitieerde failover-optie. De specifieke RTO's die bij elke optie worden aangeboden worden in de onderstaande secties besproken. Wanneer een van deze opties om uit te voeren van failover van een IoT-hub van de primaire regio wordt uitgevoerd, de hub volledig functioneel in de bijbehorende wordt [Azure geokoppeling regio](../best-practices-availability-paired-regions.md).
 
 Beide opties voor deze failover bieden de volgende herstelpuntdoelen (RPO's):
 
@@ -45,11 +49,13 @@ Beide opties voor deze failover bieden de volgende herstelpuntdoelen (RPO's):
 | --- | --- |
 | ID-register |0-5 minuten gegevensverlies |
 | Dubbele apparaatgegevens |0-5 minuten gegevensverlies |
-| Cloud-naar-apparaat berichten ** |0-5 minuten gegevensverlies |
-| Bovenliggende ** en apparaat-taken |0-5 minuten gegevensverlies |
+| Cloud-naar-apparaatberichten<sup>1</sup> |0-5 minuten gegevensverlies |
+| Bovenliggende<sup>1</sup> en apparaattaken |0-5 minuten gegevensverlies |
 | Apparaat-naar-cloud-berichten |Alle ongelezen berichten gaan verloren |
 | Bewerkingen controleren van berichten |Alle ongelezen berichten gaan verloren |
 | Van cloud-naar-apparaat-Feedbackberichten |Alle ongelezen berichten gaan verloren |
+
+<sup>1</sup>cloud-naar-apparaat-berichten en bovenliggende taken kunnen niet ophalen hersteld als onderdeel van handmatige failover in de preview-product van deze functie.
 
 Nadat de failoverbewerking voor de IoT hub is voltooid, worden alle bewerkingen van het apparaat en de back-end-toepassingen verwacht blijven werken zonder een handmatige tussenkomst.
 
@@ -58,10 +64,12 @@ Nadat de failoverbewerking voor de IoT hub is voltooid, worden alle bewerkingen 
 >
 > - Na een failover, kunnen de gebeurtenissen verzonden via Event Grid worden gebruikt via de dezelfde abonnementen eerder hebt geconfigureerd, zolang deze Event Grid-abonnementen beschikbaar blijven.
 >
-> - Cloud-naar-apparaat-berichten en bovenliggende taken kunnen niet ophalen hersteld als onderdeel van handmatige failover in de preview-product van deze functie.
 
-### <a name="microsoft-initiated-failover"></a>Failover van de Microsoft gestart
-Microsoft gestart failover wordt uitgevoerd door Microsoft in zeldzame gevallen failover alle IoT hubs vanaf een getroffen regio naar de bijbehorende geokoppeling regio. Dit proces is een standaardoptie (geen enkele manier waarop gebruikers zich afmelden) en zonder tussenkomst van de gebruiker vereist. Microsoft behoudt zich het recht om een van de te bepalen wanneer deze optie zal worden uitgeoefend. Dit mechanisme heeft geen betrekking heeft op een toestemming van de gebruiker voordat de failover van de hub van de gebruiker wordt uitgevoerd. Microsoft gestart failover heeft een beoogde hersteltijd (RTO) van 2-26 uur. De grote RTO is, omdat Microsoft moet de failoverbewerking namens de betrokken klanten in die regio uitvoeren. Als u een minder belangrijke IoT-oplossing die het bestand is tegen een uitvaltijd van ongeveer een dag worden uitgevoerd, is het geschikt voor u een afhankelijkheid op deze optie om te voldoen aan de doelstellingen van de herstel na noodgevallen voor uw IoT-oplossing. De totale tijd voor runtime bewerkingen om te worden volledig operationeel zodra dit proces wordt geactiveerd, wordt beschreven in de sectie 'Tijd hebt om te herstellen'.
+### <a name="microsoft-initiated-failover"></a>Microsoft geïnitieerde failover
+
+Microsoft geïnitieerde failover wordt uitgevoerd door Microsoft in zeldzame gevallen failover alle IoT hubs vanaf een getroffen regio naar de bijbehorende geokoppeling regio. Dit proces is een standaardoptie (geen enkele manier waarop gebruikers zich afmelden) en zonder tussenkomst van de gebruiker vereist. Microsoft behoudt zich het recht om een van de te bepalen wanneer deze optie zal worden uitgeoefend. Dit mechanisme heeft geen betrekking heeft op een toestemming van de gebruiker voordat de failover van de hub van de gebruiker wordt uitgevoerd. Failover geïnitieerd van Microsoft heeft een beoogde hersteltijd (RTO) van 2-26 uur. 
+
+De grote RTO is, omdat Microsoft moet de failoverbewerking namens de betrokken klanten in die regio uitvoeren. Als u een minder belangrijke IoT-oplossing die het bestand is tegen een uitvaltijd van ongeveer een dag worden uitgevoerd, is het geschikt voor u een afhankelijkheid op deze optie om te voldoen aan de doelstellingen van de herstel na noodgevallen voor uw IoT-oplossing. De totale tijd voor runtime bewerkingen om te worden volledig operationeel zodra dit proces wordt geactiveerd, wordt beschreven in de sectie 'Tijd hebt om te herstellen'.
 
 ### <a name="manual-failover-preview"></a>Handmatige failover (preview-versie)
 
@@ -89,13 +97,14 @@ Failover wordt teruggestuurd naar de oude primaire regio kan worden bereikt door
 
 Terwijl de FQDN-naam (en dus de connection string) van de IoT hub-instantie de dezelfde na failover blijft, verandert het onderliggende IP-adres. De totale tijd voor de runtime-bewerkingen worden uitgevoerd op uw IoT hub-instantie om te worden volledig operationeel nadat de failoverproces wordt geactiveerd kan daarom worden uitgedrukt met behulp van de volgende functie.
 
-Tijd om te herstellen RTO = [10 min - 2 uur voor handmatige failover | 2-26 uur voor Microsoft failover geïnitieerd] + DNS-doorgifte vertraging + tijd die nodig is door de clienttoepassing verifiëren.%12%0 een in de cache opgeslagen IoT Hub-IP-adres.
+Tijd om te herstellen RTO = [10 min - 2 uur voor handmatige failover | 2-26 uur voor failover Microsoft geïnitieerde] + DNS-doorgifte vertraging + tijd die nodig is door de clienttoepassing verifiëren.%12%0 een in de cache opgeslagen IoT Hub-IP-adres.
 
 > [!IMPORTANT]
 > Het IP-adres van de IoT-hub niet in cache opslaan de IoT-SDK's. Het is raadzaam dat het IP-adres van de IoT-hub niet in de gebruikerscode communicatie met de SDK's moet cache.
 
 ## <a name="achieve-cross-region-ha"></a>Interregionaal HA bereiken
-Als uw bedrijfsdoelen uptime niet worden voldaan door de RTO bepaalt Microsoft gestart failover of handmatige failover opties bieden, moet u rekening houden met een per apparaat regio-overkoepelende automatische failover-mechanisme implementeren.
+
+Als uw bedrijfsdoelen uptime niet worden voldaan door de RTO bepaalt dat Microsoft geïnitieerde failover of handmatige failover opties bieden, moet u rekening houden met een per apparaat regio-overkoepelende automatische failover-mechanisme implementeren.
 Een volledige verwerking van de implementatietopologieën in IoT-oplossingen is buiten het bereik van dit artikel. Het artikel behandelt de *regionale failover* implementatiemodel ten behoeve van hoge beschikbaarheid en herstel na noodgevallen.
 
 In een regionale failover-model, de oplossing back-end wordt voornamelijk in één datacenterlocatie. Een secundaire IoT-hub en de back-end zijn geïmplementeerd in een ander datacenterlocatie. Als de IoT-hub in de primaire regio een storing heeft of de netwerkverbinding van het apparaat naar de primaire regio wordt onderbroken, apparaten een secundaire service-eindpunt gebruiken. U kunt de oplossing beschikbaarheid verbeteren door het implementeren van een model interregionale failover in plaats van binnen één regio blijft. 
@@ -107,20 +116,25 @@ Op een hoog niveau voor het implementeren van een model regionale failover met I
    > [!NOTE]
    > IoT hub-service is niet een ondersteunde eindpunt van het type in Azure Traffic Manager. De aanbeveling is de voorgestelde concierge-service integreren met Azure traffic manager door het implementeren van de eindpunt-statustest API.
 
-* **Replicatie voor Identity-registry**: om te worden gebruikt, de secundaire IoT-hub alle apparaat-id's die u verbinding met de oplossing maken kunnen moet bevatten. De oplossing moet bewaren van back-ups via geo-replicatie van apparaat-id's en upload deze naar de secundaire IoT-hub voordat u overschakelt van de actieve eindpunt voor de apparaten. De exportfunctie van apparaat-id van IoT-Hub is handig in deze context. Voor meer informatie, Zie [Ontwikkelaarshandleiding voor IoT Hub - identiteitsregister] [Ontwikkelaarshandleiding voor IoT Hub - identiteitsregister].
-* **Samenvoegen van logische**: wanneer de primaire regio weer beschikbaar is, alle de status en gegevens die zijn gemaakt op de secundaire site moeten worden gemigreerd terug naar de primaire regio. Deze status en gegevens, voornamelijk betrekking hebben op apparaat-id's en metagegevens van de toepassing, die moet worden samengevoegd met de primaire IoT-hub en andere toepassingsspecifieke winkels in de primaire regio. Ter vereenvoudiging van deze stap, moet u idempotente bewerkingen. Idempotente bewerkingen Minimaliseer de neveneffecten van de uiteindelijke consistente distributie van gebeurtenissen en van duplicaten of out volgorde bezorging van gebeurtenissen. Bovendien moet de toepassingslogica worden ontworpen te tolereren mogelijke inconsistenties of iets verouderd staat. Deze situatie kan optreden vanwege de extra tijd die nodig is voor het systeem herstel knooppuntservice op basis van de doelstellingen voor herstelpunten (RPO).
+* **Replicatie voor Identity-registry**: om te worden gebruikt, de secundaire IoT-hub alle apparaat-id's die u verbinding met de oplossing maken kunnen moet bevatten. De oplossing moet bewaren van back-ups via geo-replicatie van apparaat-id's en upload deze naar de secundaire IoT-hub voordat u overschakelt van de actieve eindpunt voor de apparaten. De exportfunctie van apparaat-id van IoT-Hub is handig in deze context. Zie voor meer informatie, [het Ontwikkelaarshandleiding voor IoT Hub - identiteitsregister](iot-hub-devguide-identity-registry.md).
+
+* **Samenvoegen van logische**: wanneer de primaire regio weer beschikbaar is, alle de status en gegevens die zijn gemaakt op de secundaire site moeten worden gemigreerd terug naar de primaire regio. Deze status en gegevens, voornamelijk betrekking hebben op apparaat-id's en metagegevens van de toepassing, die moet worden samengevoegd met de primaire IoT-hub en andere toepassingsspecifieke winkels in de primaire regio. 
+
+Ter vereenvoudiging van deze stap, moet u idempotente bewerkingen. Idempotente bewerkingen Minimaliseer de neveneffecten van de uiteindelijke consistente distributie van gebeurtenissen en van duplicaten of out volgorde bezorging van gebeurtenissen. Bovendien moet de toepassingslogica worden ontworpen te tolereren mogelijke inconsistenties of iets verouderd staat. Deze situatie kan optreden vanwege de extra tijd die nodig is voor het systeem herstel knooppuntservice op basis van de doelstellingen voor herstelpunten (RPO).
 
 ## <a name="choose-the-right-hadr-option"></a>Kies de juiste HA-/ DR-optie
-Heres een samenvatting van de HA-/ DR-opties die zijn gepresenteerd in dit artikel die kan worden gebruikt als een het referentiekader van de juiste optie die geschikt is voor uw oplossing kiezen
+
+Hier volgt een samenvatting van de HA-/ DR-opties in dit artikel die kan worden gebruikt als een het referentiekader van de juiste optie die geschikt is voor uw oplossing te kiezen.
 
 | HA-/ DR-optie | RTO | RPO | Handmatige interventie nodig is? | Complexiteit van de implementatie | Impact van de extra kosten|
 | --- | --- | --- | --- | --- | --- | --- |
-| Failover van de Microsoft gestart |2 - 26 uur|Raadpleeg de bovenstaande RPO-tabel|Nee|Geen|Geen|
+| Microsoft geïnitieerde failover |2 - 26 uur|Raadpleeg de bovenstaande RPO-tabel|Nee|Geen|Geen|
 | Handmatige failover |10 minuten - 2 uur|Raadpleeg de bovenstaande RPO-tabel|Ja|Zeer laag. U hoeft alleen te activeren met deze bewerking via de portal.|Geen|
 | Cross-regio HA |< 1 minuut|Afhankelijk van de replicatiefrequentie van uw aangepaste HA-oplossing|Nee|Hoog|> 1 x de kosten van 1 IoT-hub|
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Volg deze koppelingen voor meer informatie over Azure IoT Hub:
 
-* [Aan de slag met IoT-Hubs (zelfstudie)](quickstart-send-telemetry-dotnet.md)
+* [Aan de slag met IoT-Hubs (snelstartgids)](quickstart-send-telemetry-dotnet.md)
 * [Wat is Azure IoT Hub?](about-iot-hub.md)

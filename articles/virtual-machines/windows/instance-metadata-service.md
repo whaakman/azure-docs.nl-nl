@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d7917ad65b3e3fd1abacdb624a03b3f62c7fc07f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fef04a853800237c6eb2443165d2b528a9e9b3db
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221551"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342531"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -310,7 +310,7 @@ subnetadres / | Subnetadres van de virtuele machine | 2017-04-02
 ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | VM-mac-adres | 2017-04-02 
 scheduledevents | Zie [geplande gebeurtenissen](scheduled-events.md) | 2017-08-01
-identity | (Preview) Beheerde Service-identiteit. Zie [een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | (Preview) Beheerde identiteiten voor Azure-resources. Zie [een toegangstoken verkrijgen](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 

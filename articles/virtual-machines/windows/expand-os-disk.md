@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.openlocfilehash: 3ea57a834bfbb1583c53bbb1be80daffe1f05de6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 097aa128affb6a7ac0770c861ab70ec9d04e2d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380264"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319112"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Over het uitbreiden van de besturingssysteemschijf van een virtuele machine
 
@@ -210,9 +210,6 @@ Nadat u de schijf hebt uitgebreid voor de virtuele machine, moet u het besturing
 4.  Op de **DISKPART** vragen, typ `extend [size=<size>]`. Hiermee wordt het geselecteerde volume door *grootte* in megabytes (MB).
 
 
-##<a name="next-steps"></a>Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 U kunt ook Koppel de schijven met behulp van de [Azure-portal](attach-managed-disk-portal.md).
-
-
-

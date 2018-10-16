@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730946"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341868"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -22,7 +22,7 @@ Azure Storage biedt een uitgebreide set met mogelijkheden voor beveiliging die s
 - Alle gegevens die zijn geschreven naar Azure Storage automatisch versleuteld met behulp van [Storage Service Encryption (SSE)](storage-service-encryption.md). Zie voor meer informatie, [standaard codering aankondiging voor Azure Blobs, bestanden, Table en Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) en op rollen gebaseerd toegangsbeheer (RBAC) worden ondersteund voor Azure Storage voor zowel resource management-bewerkingen en bewerkingen voor gegevens, als volgt:   
     - U kunt RBAC-rollen binnen het bereik van het opslagaccount dat aan beveiligings-principals en het gebruik van Azure AD te autoriseren resource management-bewerkingen zoals Sleutelbeheer toewijzen.
-    - Azure AD-integratie wordt ondersteund in de Preview-versie van bewerkingen op de services Blob en wachtrij. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount, of een afzonderlijke container of wachtrij wilt een beveiligings-principal of een beheerde service-identiteit. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).   
+    - Azure AD-integratie wordt ondersteund in de Preview-versie van bewerkingen op de services Blob en wachtrij. U kunt RBAC-rollen binnen het bereik van een abonnement, resourcegroep, opslagaccount, of een afzonderlijke container of wachtrij wilt een beveiligings-principal of een beheerde identiteit voor Azure-resources kunt toewijzen. Zie voor meer informatie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).   
 - Gegevens in transit tussen een toepassing en Azure kunnen worden beveiligd met behulp van [Clientversleuteling](../storage-client-side-encryption.md), HTTPS en SMB 3.0.  
 - Besturingssysteem en gegevensschijven die worden gebruikt door virtuele machines van Azure kunnen worden versleuteld met [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Gedelegeerde toegang tot de gegevensobjecten in Azure Storage kan worden verleend met behulp van [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).

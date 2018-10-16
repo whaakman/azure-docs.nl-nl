@@ -6,19 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b4935dc95ccf525c0a40b10dcc8c59ec8aba710e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056834"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339675"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Datacenter-integratie Azure Stack - DNS
-Mogelijk moet toegang hebben tot Azure Stack-eindpunten (`portal`, `adminportal`, `management`, `adminmanagement`, enz.)  van buiten Azure Stack moet u de Azure Stack-DNS-services integreren met de DNS-servers die als host van de DNS-zones die u wilt gebruiken in Azure Stack.
+Mogelijk moet toegang hebben tot Azure Stack-eindpunten (**portal**, **adminportal**, **management**, **adminmanagement**, enz.)  van buiten Azure Stack moet u de Azure Stack-DNS-services integreren met de DNS-servers die als host van de DNS-zones die u wilt gebruiken in Azure Stack.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack-DNS-naamruimte
 U bent op te geven van enkele belangrijke gegevens met betrekking tot DNS wanneer u Azure Stack implementeren.

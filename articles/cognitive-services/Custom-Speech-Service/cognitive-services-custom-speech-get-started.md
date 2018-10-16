@@ -1,24 +1,24 @@
 ---
-title: Aan de slag met de Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Aan de slag met de Custom Speech Service op Azure | Microsoft Docs
 description: Abonneer u op de Custom Speech service en de serviceactiviteiten koppelen aan een Azure-abonnement naar een model te trainen en een implementatie.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225239"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339930"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Aan de slag met Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Verken de belangrijkste functies van de Custom Speech Service en meer informatie over het bouwen, implementeren en gebruiken van akoestische en modellen voor de behoeften van uw toepassing. Uitgebreidere documentatie en stapsgewijze instructies vindt u nadat u bent aangemeld op de Custom Speech Services-portal.
 
@@ -34,7 +34,7 @@ Voordat u met de bovenstaande speelt in het voorbeeld moet u zich abonneren op C
 U kunt een clientbibliotheek en voorbeeld via downloaden [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). Het gedownloade zip-bestand moet worden uitgepakt naar een map van uw keuze, veel gebruikers selecteert u de map Visual Studio 2015.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Het maken van een aangepast akoestisch model
-Voor het aanpassen van het akoestisch model voor een bepaald domein, is een verzameling spraakgegevens vereist. Deze verzameling bestaat uit een reeks audiobestanden met spraakgegevens en een tekstbestand met transcripties van elk audiobestand. De gegevens moet een vertegenwoordiger van het scenario waarin u wilt gebruiken de herkenning
+Om het ​​akoestische model aan een bepaald domein aan te passen, is een verzameling spraakgegevens vereist. Deze verzameling bestaat uit een reeks audiobestanden met spraakgegevens en een tekstbestand met transcripties van elk audiobestand. De gegevens moet een vertegenwoordiger van het scenario waarin u wilt gebruiken de herkenning
 
 Bijvoorbeeld: als u wilt de gesproken tekst in een omgeving met veel ruis factory beter te herkennen, audio-bestanden van mensen in een ruis factory spreken moeten bestaan.
 Als u geïnteresseerd bent in de prestaties optimaliseren voor een enkele spreker, zoals u wilt alle van FDR Fireside Chats transcriberen en vervolgens de audio-bestanden moeten bestaan uit veel voorbeelden van deze spreker alleen.
@@ -52,7 +52,7 @@ Wanneer u aangepaste akoestische modellen en/of taalmodellen hebt gemaakt, kunne
 U vindt een gedetailleerde beschrijving over het maken van een eindpunt aangepaste speech text [hier](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Met behulp van een aangepaste spraak-eindpunt
-Aanvragen worden verzonden naar een eindpunt van de spraak-naar-tekst CRI op een vergelijkbare manier als het standaardeindpunt voor Azure Cognitive Services spraak. Houd er rekening mee dat deze eindpunten identiek aan de Standaardeindpunten van de spraak-API zijn. Dezelfde functionaliteit die beschikbaar is via de REST-API voor de spraak-API of clientbibliotheek is dus ook de beschikbaar voor uw aangepast eindpunt.
+Aanvragen worden verzonden naar een eindpunt van de spraak-naar-tekst CRI op een vergelijkbare manier als het standaardeindpunt voor Microsoft Cognitive Services spraak. Houd er rekening mee dat deze eindpunten identiek aan de Standaardeindpunten van de spraak-API zijn. Dezelfde functionaliteit die beschikbaar is via de REST-API voor de spraak-API of clientbibliotheek is dus ook de beschikbaar voor uw aangepast eindpunt.
 
 U vindt een gedetailleerde beschrijving over het gebruik van een aangepaste spraak-naar-tekst-eindpunt [hier](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

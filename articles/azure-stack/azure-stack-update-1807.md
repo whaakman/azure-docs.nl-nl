@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868816"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345268"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 update
 
@@ -232,6 +232,14 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 
 ### <a name="health-and-monitoring"></a>Status en bewaking
+
+<!-- TBD - IS -->
+- U ziet mogelijk de volgende waarschuwingen herhaaldelijk worden weergegeven en klik vervolgens op uw Azure Stack-systeem verdwijnen:
+   - *Rolinstantie infrastructuur niet beschikbaar*
+   - *Schaal eenheid knooppunt is offline*
+   
+  Voer de [Test AzureStack](azure-stack-diagnostic-test.md) cmdlet om te controleren of de status van de instanties van de infrastructuur en schaal eenheid knooppunten. Als er geen problemen zijn gedetecteerd door [Test AzureStack](azure-stack-diagnostic-test.md), kunt u deze waarschuwingen negeren. Als er een probleem is gedetecteerd, kunt u proberen om de infrastructuur-rolinstantie of knooppunt met de beheerportal of PowerShell te starten.
+
 <!-- 1264761 - IS ASDK -->  
 - Mogelijk ziet u waarschuwingen voor de **Health controller** onderdeel waarvoor u de volgende gegevens:  
 

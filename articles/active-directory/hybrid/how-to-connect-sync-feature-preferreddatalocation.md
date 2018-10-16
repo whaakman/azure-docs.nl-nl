@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 56adc97f6872bc3e87e6ba3426cd8f24aa8703e1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311589"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318383"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: gewenste gegevenslocatie voor Office 365-resources configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het kenmerk voor de gewenste gegevenslocatie configureren in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand maakt gebruik van meerdere geografische gebieden mogelijkheden in Office 365, gebruikt u dit kenmerk om de geo-locatie van Office 365-gegevens van de gebruiker toe te wijzen. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
@@ -31,7 +31,7 @@ Standaard bevinden Office 365-resources voor uw gebruikers zich in hetzelfde geo
 Door het kenmerk **preferredDataLocation**, kunt u geo van een gebruiker definiëren. Je kunt van de gebruiker Office 365 resources, zoals het postvak en OneDrive, in hetzelfde geografische gebied als de gebruiker, en nog één tenant voor uw hele organisatie.
 
 > [!IMPORTANT]
-> Meerdere geografische gebieden is momenteel beschikbaar voor klanten met een minimum van 5000 abonnementen voor Office 365-Services. Neem contact op met uw Microsoft-vertegenwoordiger voor meer informatie.
+> Meerdere geografische gebieden is momenteel beschikbaar voor klanten met een minimum van 2500 abonnementen voor Office 365-Services. Neem contact op met uw Microsoft-vertegenwoordiger voor meer informatie.
 >
 >
 

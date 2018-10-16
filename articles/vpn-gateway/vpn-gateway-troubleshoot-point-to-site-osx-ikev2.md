@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: bc8e95b07d984505fc0e5fdad41fe120463b5b0e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585522"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339047"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Problemen met punt-naar-Site VPN-verbindingen van Mac OS X-VPN-clients oplossen
 
@@ -66,7 +66,9 @@ Als u de vorige stappen en alles juist is geconfigureerd, downloadt u [Wireshark
 1. Filteren op *isakmp* en bekijk de **IKE_SA** pakketten. U zou het mogelijk om te kijken naar de details van het voorstel SA onder de **nettolading: Security Association**. 
 2. Controleer of de client en de server een gemeenschappelijke set hebben.
 
-  ![pakket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  ![pakket](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+  
+3. Als er geen serverreactie op de Netwerktraceringen is, controleert u of dat u IKEv2-protocol op de pagina configuratie van de Azure-Gateway op de website van Azure Portal hebt ingeschakeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie, [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

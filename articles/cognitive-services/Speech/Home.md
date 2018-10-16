@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: ca1045bcec889e1de47b44a44322579f8b60598f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586186"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340355"
 ---
 # <a name="what-is-bing-speech"></a>Wat is de Bing Speech?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 De cloud gebaseerde Microsoft Bing Speech-API biedt ontwikkelaars een eenvoudige manier om te maken van krachtige functies voor spraak ingeschakelde in hun toepassingen, zoals voice opdrachtbesturingselement, met behulp van natuurlijke taal gesprek, en spraaktranscriptie en dicteren dialoogvenster voor de gebruiker. De Microsoft Speech-API ondersteunt zowel *spraak naar tekst* en *tekst naar spraak* conversie.
 
 - **Spraak naar tekst** API converteert menselijke spraak naar tekst die kan worden gebruikt als invoer of opdrachten voor het beheren van uw toepassing.
 - **Tekst naar spraak** API converteert tekst naar audio stromen die kunnen worden afgespeeld op de gebruiker van uw toepassing.
-
-> [!NOTE] 
-> Sinds September 2018, de nieuwe [spraakservice](../speech-service/index.yml) algemeen beschikbaar is geworden. We raden u aan [het gratis proberen](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Spraak naar tekst (spraakherkenning)
 

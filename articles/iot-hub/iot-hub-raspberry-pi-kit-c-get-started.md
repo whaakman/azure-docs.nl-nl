@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 8962f41d971ac88134f639a61ef0b42c60bbd419
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161489"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318755"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi verbinden met Azure IoT Hub (C)
 
@@ -61,10 +61,9 @@ De volgende items zijn optioneel:
 * 6-F/M meestal bedrading.
 * Een gedempt 10-mm-LED.
 
-
 > [!NOTE] 
-Deze items zijn optioneel, omdat de ondersteuning voor het voorbeeld van code sensorgegevens gesimuleerde.
-
+> Deze items zijn optioneel, omdat de ondersteuning voor het voorbeeld van code sensorgegevens gesimuleerde.
+>
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -97,7 +96,8 @@ Bereid de microSD-kaart voor de installatie van de installatiekopie van het Rasp
    ![SPI en SSH op Raspberry Pi inschakelen](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-Om in te schakelen SSH en SPI, vindt u meer referentiedocumenten op [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) en [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+> Om in te schakelen SSH en SPI, vindt u meer referentiedocumenten op [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) en [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+>
 
 ### <a name="connect-the-sensor-to-pi"></a>Verbinding maken met de sensor Pi
 
@@ -171,6 +171,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
 
    > [!NOTE] 
    > Als u **geen een fysieke BME280**, kunt u '--gesimuleerde gegevens ' als opdrachtregelparameter temperatuur en vochtigheid gegevens simuleren. `sudo ./setup.sh --simulated-data`
+   >
 
 ### <a name="build-and-run-the-sample-application"></a>De voorbeeldtoepassing bouwen en uitvoeren
 
@@ -179,6 +180,7 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    ```bash
    cmake . && make
    ```
+   
    ![Uitvoer maken](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. De voorbeeldtoepassing uitvoeren met de volgende opdracht:
@@ -188,8 +190,8 @@ Pi inschakelen met behulp van de micro USB-kabel en de voeding. De Ethernet-kabe
    ```
 
    > [!NOTE] 
-   Zorg ervoor dat u kopiëren en plakken de apparaatverbindingsreeks in enkele aanhalingstekens.
-
+   > Zorg ervoor dat u kopiëren en plakken de apparaatverbindingsreeks in enkele aanhalingstekens.
+   >
 
 Hier ziet u de volgende uitvoer ziet u de sensorgegevens en de berichten die worden verzonden naar uw IoT-hub.
 

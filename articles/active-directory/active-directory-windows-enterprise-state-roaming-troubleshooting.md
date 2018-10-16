@@ -18,25 +18,26 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c9d22bab6d45bd301b37d367c5dd380ff6cd7a1a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022795"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321917"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming-instellingen in Azure Active Directory oplossen
 
 Dit onderwerp bevat informatie over het oplossen en diagnosticeren van problemen met het Enterprise State Roaming, en geeft een lijst van bekende problemen.
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Voorbereidende stappen voor probleemoplossing 
+
 Voordat u begint met het oplossen van problemen, Controleer of dat de gebruiker en apparaat correct hebt geconfigureerd en dat aan alle vereisten van het Enterprise State Roaming wordt voldaan door het apparaat en de gebruiker. 
 
 1. Windows 10, is met de meest recente updates en een minimale versie 1511 (OS Build 10586 of hoger) geïnstalleerd op het apparaat. 
-2. Het apparaat is Azure AD een domein of toegevoegd aan hybrid Azure AD. Zie voor meer informatie, [over het verkrijgen van een apparaat onder het beheer van Azure AD](device-management-introduction.md).
-3. Zorg ervoor dat **Enterprise State Roaming** is ingeschakeld voor de tenant in Azure AD, zoals beschreven in [om in te schakelen Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-enable.md). U kunt inschakelen voor alle gebruikers of voor een geselecteerde groep gebruikers voor roaming.
-4. De gebruiker moet al een Azure Active Directory Premium-licentie worden toegewezen.  
-25. Het apparaat moet opnieuw worden opgestart en de gebruiker moet opnieuw aanmelden voor toegang tot functies Enterprise State Roaming.
+1. Het apparaat is Azure AD een domein of toegevoegd aan hybrid Azure AD. Zie voor meer informatie, [over het verkrijgen van een apparaat onder het beheer van Azure AD](device-management-introduction.md).
+1. Zorg ervoor dat **Enterprise State Roaming** is ingeschakeld voor de tenant in Azure AD, zoals beschreven in [om in te schakelen Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-enable.md). U kunt inschakelen voor alle gebruikers of voor een geselecteerde groep gebruikers voor roaming.
+1. De gebruiker moet al een Azure Active Directory Premium-licentie worden toegewezen.  
+1. Het apparaat moet opnieuw worden opgestart en de gebruiker moet opnieuw aanmelden voor toegang tot functies Enterprise State Roaming.
 
 ## <a name="information-to-include-when-you-need-help"></a>Gegevens op te nemen wanneer u hulp nodig hebt
 Als u uw probleem met de onderstaande richtlijnen niet kan oplossen, kunt u contact op met onze ondersteuningsmedewerkers. Wanneer u contact met hen opnemen, zijn onder andere de volgende informatie:
@@ -55,13 +56,15 @@ In deze sectie bevat suggesties over het oplossen en diagnosticeren van probleme
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Controleer of de synchronisatie en de instellingenpagina "Uw instellingen synchroniseren" 
 
 1. Nadat u uw Windows 10-pc's toevoegen aan een domein dat is geconfigureerd voor het Enterprise State Roaming toestaan, moet u zich aanmelden met uw werkaccount. Ga naar **instellingen** > **Accounts** > **uw synchronisatie-instellingen** en controleer of synchronisatie en de afzonderlijke instellingen op, en dat de bovenkant van de instellingenpagina geeft aan dat u met uw werkaccount synchroniseert. Controleer of hetzelfde account wordt ook gebruikt als uw account voor aanmelding in **instellingen** > **Accounts** > **je Info**. 
-2. Controleer of synchroniseren tussen meerdere computers werkt door enkele wijzigingen doorgevoerd op de oorspronkelijke computer, zoals het verplaatsen van de taakbalk op de bovenste of rechts van het scherm. Bekijk de wijziging wordt doorgegeven aan de tweede machine binnen vijf minuten. 
+1. Controleer of synchroniseren tussen meerdere computers werkt door enkele wijzigingen doorgevoerd op de oorspronkelijke computer, zoals het verplaatsen van de taakbalk op de bovenste of rechts van het scherm. Bekijk de wijziging wordt doorgegeven aan de tweede machine binnen vijf minuten. 
+
   * Vergrendelen en ontgrendelen van het scherm (Win + L) kan helpen bij het activeren van een synchronisatie.
   * U moet aanmelden met hetzelfde account op beide computers voor synchronisatie moet werken, zoals Enterprise State Roaming is gekoppeld aan het gebruikersaccount en niet het computeraccount.
 
 **Potentiële problemen**: als de besturingselementen in de **instellingen** pagina zijn niet beschikbaar en u ziet het bericht "Sommige Windows-functies zijn alleen beschikbaar als u een Microsoft-account of werkaccount." Dit probleem kan optreden voor apparaten die zijn ingesteld op domein en geregistreerd bij Azure AD, maar het apparaat is niet nog is geverifieerd bij Azure AD. Een mogelijke oorzaak is dat het apparaatbeleid moet worden toegepast, maar deze toepassing verloopt asynchroon en door een paar uur kan worden vertraagd. 
 
 ### <a name="verify-the-device-registration-status"></a>Status van de apparaatregistratie controleren
+
 Enterprise State Roaming vereist dat het apparaat worden geregistreerd bij Azure AD. Hoewel niet specifiek zijn voor Enterprise State Roaming, volgens de onderstaande instructies kunt bevestigen dat de Windows 10-Client is geregistreerd, en doet dit door de vingerafdruk, URL voor Azure AD-instellingen, NGC, en andere informatie.
 
 1.  Open de opdrachtprompt verlaagde bevoegdheden. Om dit te doen in Windows, opent u het uitvoeren starten (Win + R) en typ "cmd" om te openen.
@@ -74,6 +77,7 @@ Enterprise State Roaming vereist dat het apparaat worden geregistreerd bij Azure
 **Potentiële problemen**: het veld voor **SettingsUrl** leeg is en het apparaat wordt niet gesynchroniseerd. De gebruiker kan hebben laatst vastgelegd in op het apparaat voordat Enterprise State Roaming is ingeschakeld in de Azure Active Directory-Portal. Het apparaat opnieuw starten en de gebruikersaanmelding hebben. Probeer (optioneel) dat de IT-beheerder uitschakelen en opnieuw inschakelen van gebruikers kunnen synchronisatie-instellingen en Enterprise-App-gegevens in de portal. Eenmaal opnieuw ingeschakeld, start het apparaat opnieuw en de gebruikersaanmelding hebben. Als het probleem hiermee niet is opgelost **SettingsUrl** mag niet leeg zijn in het geval van een certificaat voor beschadigde apparaten. In dit geval wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming en meervoudige verificatie 
+
 Onder bepaalde omstandigheden, kan Enterprise State Roaming niet kunnen synchroniseren van gegevens als Azure multi-factor Authentication is geconfigureerd. Raadpleeg het ondersteuningsdocument over voor meer informatie over deze problemen [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Potentiële problemen**: als uw apparaat is geconfigureerd voor meervoudige verificatie vereisen in de Azure Active Directory-portal, schakelt u mogelijk naar instellingen synchroniseren tijdens het aanmelden bij een Windows 10-apparaat met een wachtwoord. Dit type configuratie van multi-factor Authentication is bedoeld voor het beveiligen van een Azure-beheerdersaccount. Beheerder gebruikers nog steeds mogelijk om te synchroniseren met het aanmelden bij hun Windows 10-apparaten met hun Microsoft Passport voor Work PINCODE of door te voeren van multi-factor Authentication bij het openen van andere Azure-services zoals Office 365.
@@ -81,8 +85,8 @@ Onder bepaalde omstandigheden, kan Enterprise State Roaming niet kunnen synchron
 **Potentiële problemen**: synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u zich aanmelden en meld u af met de Microsoft Passport for Work-PINCODE of multi-Factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
 
 ### <a name="event-viewer"></a>Logboeken
-Voor geavanceerde probleemoplossing, kan de logboeken worden gebruikt om fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen u vinden onder Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync Azure** en voor identiteit-problemen met synchronisatie **Microsoft** > **Windows** > **AAD**.
 
+Voor geavanceerde probleemoplossing, kan de logboeken worden gebruikt om fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen u vinden onder Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync Azure** en voor identiteit-problemen met synchronisatie **Microsoft** > **Windows** > **AAD**.
 
 ## <a name="known-issues"></a>Bekende problemen
 
@@ -108,8 +112,6 @@ Zorg ervoor dat de Windows 10 v1511-client heeft de juli 2016 cumulatieve Update
 
 Om te voorkomen dat gegevens worden gelekt, gegevens die worden beveiligd met [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) worden niet gesynchroniseerd via Enterprise State Roaming voor apparaten die gebruikmaken van de Windows 10 Verjaardag Update.
 
-
-
 **Aanbevolen actie**  
 Geen. Toekomstige updates voor Windows kunnen dit probleem te verhelpen.
 
@@ -134,6 +136,7 @@ Zorg ervoor dat de Windows 10 v1511-client heeft de cumulatieve Update ([KB31407
 ---
 
 ### <a name="sync-does-not-work-on-devices-that-use-smart-card-for-login"></a>Synchronisatie werkt niet op apparaten die gebruikmaken van de smartcard voor aanmelding
+
 Als u probeert aan te melden met uw Windows-apparaat via een smartcard of virtuele smartcard, zal werken niet meer instellingen synchroniseren.     
 
 **Aanbevolen actie**  
@@ -142,6 +145,7 @@ Geen. Toekomstige updates voor Windows kunnen dit probleem te verhelpen.
 ---
 
 ### <a name="domain-joined-device-is-not-syncing-after-leaving-corporate-network"></a>Aan domein toegevoegd apparaat wordt niet gesynchroniseerd na het bedrijfsnetwerk verlaten     
+
 Domein-apparaten die zijn geregistreerd bij Azure AD kunnen synchronisatie mislukt optreden als het apparaat buiten het bedrijf voor langere tijd is en domeinverificatie kan niet worden voltooid.
 
 **Aanbevolen actie**  
@@ -149,8 +153,9 @@ Verbind het apparaat met een bedrijfsnetwerk, zodat de synchronisatie kan worden
 
 ---
 
- ### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>Azure AD join-apparaat niet wordt gesynchroniseerd en de gebruiker heeft een gemengde case User Principal Name.
- Als de gebruiker een gemengde aanvraag UPN (bijvoorbeeld de gebruikersnaam in plaats van gebruikersnaam heeft) en de gebruiker zich op een Azure AD join-apparaat dat is bijgewerkt van Windows 10 bouwen 10586 naar 14393, kan het apparaat van de gebruiker niet kunnen synchroniseren. 
+### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>Azure AD join-apparaat niet wordt gesynchroniseerd en de gebruiker heeft een gemengde case User Principal Name.
+
+Als de gebruiker een gemengde aanvraag UPN (bijvoorbeeld de gebruikersnaam in plaats van gebruikersnaam heeft) en de gebruiker zich op een Azure AD join-apparaat dat is bijgewerkt van Windows 10 bouwen 10586 naar 14393, kan het apparaat van de gebruiker niet kunnen synchroniseren. 
 
 **Aanbevolen actie**  
 De gebruiker moet loskoppelen en opnieuw lid worden van het apparaat naar de cloud. Dit doet, meld u aan als de lokale beheerder-gebruiker en loskoppelen van het apparaat door te gaan naar **instellingen** > **System** > **over** en selecteer 'beheren of werk of school verbreken'. Opschonen van de volgende bestanden en Azure AD Join van het apparaat opnieuw in **instellingen** > **System** > **over** en selecteer ' verbinden met werk of School'. Doorgaan met het apparaat toevoegen aan Azure Active Directory en de stroom voltooien.
@@ -162,6 +167,7 @@ In de stap opruimen, opschonen van de volgende bestanden:
 ---
 
 ### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Gebeurtenis-ID 6065:80070533 die deze gebruiker kan niet aanmelden omdat dit account is momenteel uitgeschakeld.  
+
 In Logboeken onder de SettingSync/Debug-Logboeken, kan deze fout worden weergegeven wanneer de referenties van de gebruiker zijn verlopen. Het kan ook optreden wanneer de tenant is automatisch geen AzureRMS ingericht. 
 
 **Aanbevolen actie**  
@@ -170,12 +176,14 @@ In het eerste geval is, hebben de gebruikers hun referenties en meld u aan op he
 ---
 
 ### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>Gebeurtenis-ID 1098: Fout: 0xCAA5001C Token broker-bewerking is mislukt  
+
 In Logboeken onder logboeken van de AAD/operationeel voor deze fout kan worden weergegeven met gebeurtenis 1104: AAD Cloud Azië en Stille Oceaan-invoegtoepassing aanroep Get-token heeft fout geretourneerd: 0xC000005F. Dit probleem doet zich voor als er niet beschikken over machtigingen of eigendom kenmerken.  
 
 **Aanbevolen actie**  
 Doorgaan met de hier vermelde stappen [KB3196528](https://support.microsoft.com/kb/3196528).  
 
 ## <a name="related-topics"></a>Verwante onderwerpen
+
 * [Enterprise state roaming overzicht](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Enterprise state roaming in Azure Active Directory inschakelen](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Instellingen en gegevensroaming Veelgestelde vragen](active-directory-windows-enterprise-state-roaming-faqs.md)

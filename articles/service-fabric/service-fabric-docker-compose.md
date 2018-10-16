@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Docker Compose implementatie Preview
-description: Azure Service Fabric accepteert Docker Compose indeling voor het indelen van bestaande containers met behulp van Service Fabric te vereenvoudigen. Deze ondersteuning is momenteel in preview.
+title: Azure Service Fabric Docker Compose implementatie-Preview
+description: Azure Service Fabric accepteert Docker Compose-indeling voor het indelen van bestaande containers met behulp van Service Fabric te vereenvoudigen. Deze ondersteuning is momenteel in preview.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ff846717287fb2b125b549f6ca0de6c7908d4c35
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641778"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344810"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Ondersteuning voor de implementatie van docker Compose in Azure Service Fabric (Preview)
 
-Maakt gebruik van docker de [docker-compose.yml](https://docs.docker.com/compose) bestand voor het definiëren van toepassingen met meerdere container. Zodat het eenvoudig voor klanten bekend zijn met Docker u bestaande containertoepassingen op Azure Service Fabric indeelt, hebben we systeemeigen ondersteuning voor de implementatie van Docker Compose preview opgenomen in het platform. Service Fabric kan accepteren versie 3 en hoger van `docker-compose.yml` bestanden. 
+Docker maakt gebruik van de [docker-compose.yml](https://docs.docker.com/compose) bestand voor het definiëren van toepassingen met meerdere containers. Mogelijk te maken voor klanten bekend zijn met Docker voor het indelen van bestaande containertoepassingen op Azure Service Fabric, hebben we ondersteuning voor Preview-versie voor de implementatie van Docker Compose systeemeigen opgenomen in het platform. Service Fabric accepteert versie 3 en hoger van `docker-compose.yml` bestanden. 
 
-Omdat deze ondersteuning in preview is, wordt alleen een subset van Compose richtlijnen ondersteund. Bijvoorbeeld: toepassingsupgrades worden niet ondersteund. U kunt echter altijd verwijderen en implementeren van toepassingen in plaats van de upgrade.
+Omdat deze ondersteuning in preview is, wordt alleen een subset van de Compose-instructies ondersteund. Toepassingsupgrades worden bijvoorbeeld niet ondersteund. U kunt echter altijd verwijderen en implementeren van toepassingen in plaats van de upgrade.
 
-Maak het cluster wilt gebruiken deze preview, met versie 5.7 of hoger van de Service Fabric-runtime via de Azure portal samen met de bijbehorende SDK. 
+Voor het gebruik van deze Preview-versie, maakt u uw cluster met versie 5.7 of hoger van de Service Fabric-runtime via de Azure-portal samen met de bijbehorende SDK. 
 
 > [!NOTE]
-> Deze functie is Preview-versie en wordt niet ondersteund in productie.
-> De volgende voorbeelden zijn gebaseerd op de runtimeversie 6.0 en SDK versie 2.8.
+> Deze functie is beschikbaar als preview en wordt niet ondersteund in de productieomgeving.
+> De onderstaande voorbeelden zijn gebaseerd op de runtime-versie 6.0 en SDK-versie 2.8.
 
-## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Een bestand Docker Compose op Service Fabric implementeren
+## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Een Docker Compose-bestand in Service Fabric implementeren
 
-De volgende opdrachten een Service Fabric-toepassing maken (met de naam `fabric:/TestContainerApp`), die u kunt bewaken en beheert, zoals een andere Service Fabric-toepassing. U kunt de naam van de opgegeven toepassing voor statusquery's gebruiken.
-Service Fabric herkent 'DeploymentName' als de id van de implementatie opstellen.
+De volgende opdrachten maakt u een Service Fabric-toepassing (met de naam `fabric:/TestContainerApp`), die u kunt controleren en beheren, zoals elke andere Service Fabric-toepassing. U kunt de naam van de opgegeven toepassing voor statusquery's gebruiken.
+Service Fabric herkent 'DeploymentName' als de id van de implementatie voor opstellen.
 
 ### <a name="use-powershell"></a>PowerShell gebruiken
 
-Een implementatie voor Service Fabric opstellen maken van een docker-compose.yml-bestand met de volgende opdracht in PowerShell:
+Een Service Fabric-Compose-implementatie van een docker-compose.yml-bestand maken door het uitvoeren van de volgende opdracht uit in PowerShell:
 
 ```powershell
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` en `RegistryPassword` verwijzen naar de container register gebruikersnaam en wachtwoord. Nadat u de implementatie hebt voltooid, kunt u de status ervan controleren met behulp van de volgende opdracht:
+`RegistryUserName` en `RegistryPassword` verwijzen naar de container registry gebruikersnaam en wachtwoord. Nadat u de implementatie hebt voltooid, kunt u de status ervan controleren met behulp van de volgende opdracht uit:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
 ```
 
-Gebruik de volgende opdracht voor het verwijderen van de implementatie opstellen via PowerShell:
+Als u wilt verwijderen van de implementatie voor opstellen via PowerShell, gebruikt u de volgende opdracht uit:
 
 ```powershell
 Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
-Gebruik de volgende opdracht voor het starten van een upgrade van de implementatie opstellen via PowerShell:
+Voor het starten van een upgrade van de implementatie opstellen via PowerShell, gebruikt u de volgende opdracht uit:
 
 ```powershell
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
@@ -70,27 +70,27 @@ Nadat de upgrade is geaccepteerd, kan voortgang van de upgrade worden bijgehoude
 Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 ```
 
-### <a name="use-azure-service-fabric-cli-sfctl"></a>Gebruik van Azure Service Fabric CLI (sfctl)
+### <a name="use-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric-CLI (sfctl) gebruiken
 
-U kunt ook de volgende Service Fabric CLI-opdracht gebruiken:
+U kunt ook de volgende Service Fabric-CLI-opdracht gebruiken:
 
 ```azurecli
 sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
-Als u de implementatie hebt gemaakt, kunt u de status ervan controleren met behulp van de volgende opdracht:
+Nadat u de implementatie hebt gemaakt, kunt u de status ervan controleren met behulp van de volgende opdracht uit:
 
 ```azurecli
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Gebruik de volgende opdracht voor het verwijderen van de implementatie opstellen:
+Als u wilt verwijderen van de implementatie voor opstellen, gebruik de volgende opdracht:
 
 ```azurecli
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Gebruik de volgende opdracht voor het starten van een upgrade van de implementatie opstellen:
+Voor het starten van een upgrade van de implementatie opstellen, gebruik de volgende opdracht:
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
@@ -102,45 +102,54 @@ Nadat de upgrade is geaccepteerd, kan voortgang van de upgrade worden bijgehoude
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
-## <a name="supported-compose-directives"></a>Richtlijnen voor ondersteunde opstellen
+## <a name="supported-compose-directives"></a>Ondersteunde Compose-instructies
 
-Deze preview ondersteunt een subset van de configuratieopties uit de opstellen versie 3-indeling, met inbegrip van de volgende primitieven:
+Deze Preview-versie ondersteunt een subset van de configuratieopties van de Compose versie 3-indeling, met inbegrip van de volgende primitieven:
 
 * Services > implementeren > replica's
 * Services > implementeren > plaatsing > beperkingen
 * Services > implementeren > Resources > limieten
     * cpu-shares
     * -geheugen
-    * -geheugen-swap
+    * -geheugen-wisselen
 * Services > opdrachten
 * Services > omgeving
 * Services > poorten
-* Services > afbeelding
+* Services > installatiekopie
 * Services > isolatie (alleen voor Windows)
 * Services > logboekregistratie > stuurprogramma
 * Services > logboekregistratie > stuurprogramma > Opties
 * Volume & implementeren > Volume
 
-Instellen van het cluster voor het afdwingen van de resource-limieten, zoals beschreven in [Service Fabric resource governance](service-fabric-resource-governance.md). Alle andere Docker Compose richtlijnen worden niet ondersteund voor deze preview.
+Instellen van het cluster voor het afdwingen van resourcebeperkingen, zoals beschreven in [Service Fabric-resourcebeheer](service-fabric-resource-governance.md). Alle andere Docker Compose richtlijnen worden niet ondersteund voor deze Preview-versie.
+
+### <a name="ports-section"></a>Sectie poorten
+
+Geef de http- of https-protocol in de sectie poorten die worden gebruikt door de Service Fabric service-listener. Dit zorgt ervoor dat de eindpunt-protocol correct is gepubliceerd met de naming-service om toe te staan van omgekeerde proxy voor het doorsturen van aanvragen:
+* Om te routeren naar niet-beveiligde Service Fabric-Compose-services, geef **/http**. Bijvoorbeeld- **"80:80 / http"**.
+* Als u wilt doorsturen naar beveiligde Service Fabric-Compose-services, geef **/https**. Bijvoorbeeld- **"443:443 / https"**.
+
+> [!NOTE]
+> De syntaxis van de sectie /http en /https poorten is specifiek voor Service Fabric voor het registreren van de correcte URL van de Service Fabric-listener.  Als de Docker compose syntaxis van bestanden via een programma is gevalideerd, kan dit ertoe leiden dat een validatiefout.
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName berekening
 
-Als de naam van de service die u in een bestand Compose opgeeft een volledig gekwalificeerde domeinnaam is (dat wil zeggen, bevat een punt [.]), de DNS-naam geregistreerd door het Service Fabric `<ServiceName>` (inclusief de punt). Als dat niet het geval is, moet u elk padsegment in de naam van de toepassing wordt een domeinlabel in de service DNS-naam met het eerste padsegment om het domeinlabel op het hoogste niveau.
+Als de naam van de service die u in een opstellen-bestand opgeeft een volledig gekwalificeerde domeinnaam is (dat wil zeggen, bevat een punt [.]), de DNS-naam die is geregistreerd door Service Fabric is `<ServiceName>` (inclusief de punt). Als dat niet het geval is, moet u elk padsegment in de naam van de toepassing wordt een domeinlabel in de naam van het DNS-service, met het eerste padsegment steeds het domeinlabel op het hoogste niveau.
 
-Als de naam van de opgegeven toepassing is bijvoorbeeld `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` zou de geregistreerde DNS-naam zijn.
+Bijvoorbeeld, als de naam van de opgegeven toepassing is `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` zou de geregistreerde DNS-naam.
 
-## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Het opstellen van implementatie (exemplaar definitie) ten opzichte van de Service Fabric-app-model (typedefinitie)
+## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>(In het definitie exemplaar) implementatie voor opstellen ten opzichte van Service Fabric-app-model (typedefinitie)
 
-Een docker-compose.yml-bestand wordt een implementeerbaar van containers, waaronder de eigenschappen en de configuraties beschreven.
-Het bestand kan bijvoorbeeld omgevingsvariabelen en poorten bevatten. U kunt ook implementatieparameters, zoals plaatsingsbeperkingen en limieten voor DNS-namen, in de docker-compose.yml-bestand opgeven.
+Een docker-compose.yml-bestand beschrijft een implementeerbare set van containers, waaronder eigenschappen en configuraties.
+Het bestand kan bijvoorbeeld, omgevingsvariabelen en poorten bevatten. U kunt ook implementatieparameters, zoals plaatsingsbeperkingen bronlimieten en DNS-namen, in het docker-compose.yml-bestand opgeven.
 
-De [Service Fabric-toepassingsmodel](service-fabric-application-model.md) maakt gebruik van service typen en de toepassingstypen, waarbij u veel exemplaren van een toepassing van hetzelfde type kan hebben. U kunt bijvoorbeeld één exemplaar per klant hebben. Dit model op basis van het type ondersteunt meerdere versies van hetzelfde toepassingstype dat geregistreerd bij de runtime.
+De [Service Fabric-toepassingsmodel](service-fabric-application-model.md) maakt gebruik van service-typen en de toepassingstypen, waar u veel exemplaren van hetzelfde type kunt hebben. U kunt bijvoorbeeld één toepassingsexemplaar per klant hebben. Dit model op basis van het type biedt ondersteuning voor meerdere versies van hetzelfde toepassingstype dat geregistreerd met de runtime.
 
-Bijvoorbeeld kan een klant een toepassing met het type 1.0 AppTypeA geïnstantieerd, en klant B kan een andere toepassing die zijn gemaakt met hetzelfde type en dezelfde versie hebben. Definieert u de soorten toepassingen in de Toepassingsmanifesten en u de naam en de implementatie van een toepassingsparameters opgeven wanneer u de toepassing maakt.
+Bijvoorbeeld een klant kan een toepassing gemaakt met het type 1.0 van AppTypeA hebben, en klant B kan een andere toepassing gemaakt met hetzelfde type en dezelfde versie hebben. U definieert de soorten toepassingen in de Toepassingsmanifesten en u de naam en de implementatie van een toepassingsparameters opgeven wanneer u de toepassing maakt.
 
-Dit model biedt flexibiliteit, wel we hebben ook plannen voor de ondersteuning van een eenvoudigere, op basis van het exemplaar implementatiemodel waar typen impliciete van het manifestbestand zijn. In dit model wordt elke toepassing een eigen onafhankelijk manifest. We bekijkt deze inspanningen met ondersteuning voor docker-compose.yml, dit is een implementatie op basis van een exemplaar-indeling.
+Hoewel dit model biedt een flexibiliteit, zijn we ook plannen voor de ondersteuning van een eenvoudigere, op basis van een exemplaar implementatiemodel waar typen impliciete van het manifestbestand zijn. In dit model krijgt elke toepassing een eigen onafhankelijke manifest. We zijn beschikbaar als Preview inspanningen door het toevoegen van ondersteuning voor docker-compose.yml, dit is een exemplaar op basis van implementatie-indeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Lees informatie over de [toepassingsmodel Service Fabric](service-fabric-application-model.md)
+* Lees de [Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [Aan de slag met Service Fabric-CLI](service-fabric-cli.md)

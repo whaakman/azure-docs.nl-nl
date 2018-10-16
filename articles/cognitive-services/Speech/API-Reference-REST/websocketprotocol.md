@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962773"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341817"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protocol
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech is een cloud-platform die mogelijkheden voor de meest geavanceerde algoritmen die beschikbaar zijn voor het converteren van de gesproken audio naar tekst. De Bing Speech-protocol bepaalt de [verbindingsinstellingen](#connection-establishment) tussen toepassingen en de service en die worden uitgewisseld tussen tegenhangers berichten voor de spraakherkenning ([berichten client afkomstig](#client-originated-messages) en [berichten afkomstig is van een service](#service-originated-messages)). Bovendien [telemetrieberichten](#telemetry-schema) en [foutafhandeling](#error-handling) worden beschreven.
 
@@ -148,7 +149,7 @@ De belangrijkste berichten verzonden door de client naar de services zijn `speec
 
 De volgende headers zijn vereist voor alle berichten die afkomstig zijn van een client.
 
-| Koptekst | Waarde |
+| Header | Waarde |
 |----|----|
 | Pad | Het pad weergegeven die zijn opgegeven in dit document |
 | X-RequestId | UUID in 'niet-dash'-indeling |
@@ -248,7 +249,7 @@ Speech Service maakt gebruik van de eerste `audio` -mailbericht met een unieke a
 
 De volgende headers zijn vereist voor alle `audio` berichten.
 
-| Koptekst         |  Waarde     |
+| Header         |  Waarde     |
 | ------------- | ---------------- |
 | Pad | `audio` |
 | X-RequestId | UUID in 'niet-dash'-indeling |

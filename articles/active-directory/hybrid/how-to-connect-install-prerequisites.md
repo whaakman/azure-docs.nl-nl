@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: addb99478025757257bce465a02287ebedd40bb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314977"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321628"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -29,11 +29,11 @@ Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Conn
 Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 
 ### <a name="azure-ad"></a>Azure AD
-* Een Azure-abonnement of een [Azure-proefabonnement](https://azure.microsoft.com/pricing/free-trial/). Dit abonnement is alleen vereist voor toegang tot de Azure-portal en niet voor het gebruik van Azure AD Connect. Als u PowerShell of Office 365 gebruikt, klikt u vervolgens hoeft niet u een Azure-abonnement op Azure AD Connect gebruiken. Als u een Office 365-licentie hebt, kunt u ook de Office 365-portal gebruiken. Met een betaalde licentie voor Office 365, kunt u ook ophalen bij de Azure-portal vanuit de Office 365-portal.
-  * U kunt ook de [Azure-portal](https://portal.azure.com). Deze portal heeft een Azure AD-licentie nodig.
+* Een Azure AD-tenant. U krijgt een met een [gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/). U kunt een van de volgende portals voor het beheren van Azure AD Connect:
+  * De [Azure-portal](https://portal.azure.com).
+  * De [Office-portal](https://portal.office.com).  
 * [Toevoegen en controleer of het domein](../active-directory-domains-add-azure-portal.md) u van plan bent te gebruiken in Azure AD. Bijvoorbeeld, als u van plan bent te gebruiken van contoso.com voor uw gebruikers en zorg ervoor dat dit domein is geverifieerd en u niet alleen het standaarddomein contoso.onmicrosoft.com gebruikt.
 * Een Azure AD-tenant kan door 50k-standaardobjecten. Bij het controleren van uw domein, wordt de limiet wordt verhoogd tot 300 kB-objecten. Als u nog meer objecten in Azure AD, moet u een ondersteuningsaanvraag in als u de limiet voor rekenquota nog verder wilt openen. Als u meer dan 500 k-objecten, moet u een licentie, zoals Office 365, Azure AD Basic, Azure AD Premium of Enterprise Mobility and Security.
-* ADSyncPrep is een PowerShell-script-module die functies die worden gebruikt voor uw Active Directory-omgeving voorbereiden voor Azure AD Connect biedt.  ADSyncPrep vereist de [Online v1.1 van Microsoft voor Azure AD PowerShell-Module](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Versie 2 werkt niet. U kunt installeren de module met de `Install-Module` cmdlet.  Zie de koppeling voor meer informatie.
 
 ### <a name="prepare-your-on-premises-data"></a>Uw on-premises gegevens voorbereiden
 * Gebruik [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) voor het identificeren van fouten, zoals duplicaten en opmaak problemen in uw directory voordat u met Azure AD synchroniseert en Office 365.
@@ -47,7 +47,7 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 * Het verdient [de Active Directory-Prullenbak inschakelen](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-server
-* Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials. De server moet gebruikmaken van Windows Server standard of hoger.
+* Azure AD Connect kan niet worden geïnstalleerd op Small Business Server of Windows Server Essentials voordat 2019 (Windows Server Essentials 2019 wordt ondersteund). De server moet gebruikmaken van Windows Server standard of hoger.
 * De Azure AD Connect-server moet een volledige GUI geïnstalleerd hebben. Het is **niet ondersteund** te installeren op server core.
 * Azure AD Connect moet worden geïnstalleerd op Windows Server 2008 of hoger. Deze server kan een domeincontroller of lidserver zijn als met express-instellingen. Als u aangepaste instellingen, de server kan ook worden zelfstandige en hoeft niet te worden toegevoegd aan een domein.
 * Als u Azure AD Connect op Windows Server 2008 of Windows Server 2008 R2 installeert, Controleer of de meest recente hotfixes toepassen van Windows Update. De installatie kan niet beginnen met een niet-gepatchte server.
@@ -69,8 +69,8 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 
 ### <a name="accounts"></a>Accounts
 * Een globale beheerder van Azure AD-account voor de Azure AD-tenant die u wilt integreren in. Dit account moet een **school-of organisatieaccount** en mag niet een **Microsoft-account**.
-* Als u expresinstellingen gebruiken of een van DirSync upgrade, moet u een Enterprise-beheerdersaccount hebben voor uw lokale Active Directory.
-* [Accounts in Active Directory](reference-connect-accounts-permissions.md) als u het installatiepad van aangepaste instellingen.
+* Als u expresinstellingen gebruiken of een van DirSync upgrade, moet u een Enterprise-beheerdersaccount hebben voor uw on-premises Active Directory.
+* [Accounts in Active Directory](reference-connect-accounts-permissions.md) als u het installatiepad van aangepaste instellingen of een Enterprise-beheerder-account voor uw on-premises Active Directory.
 
 ### <a name="connectivity"></a>Connectiviteit
 * De Azure AD Connect-server moet DNS-omzetting voor intranet en internet. De DNS-server moet kunnen omzetten van namen van zowel uw on-premises Active Directory en de Azure AD-eindpunten.
@@ -184,7 +184,6 @@ Wanneer u Azure AD Connect gebruikt om Active Directory Federation Services of d
 Hier volgt een lijst van onderdelen die Azure AD Connect installeert op de server waarop Azure AD Connect is geïnstalleerd. Deze lijst is voor een basisinstallatie van Express. Als u een andere SQL Server op de pagina installatie synchronisatie services gebruiken wilt, is SQL Express LocalDB niet lokaal geïnstalleerd.
 
 * Azure AD Connect Health (Engelstalig)
-* Microsoft Online Services-aanmeldhulp voor IT-Professionals (geïnstalleerd, maar er zijn geen afhankelijkheid van het)
 * Microsoft SQL Server 2012 Command Line Utilities
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client

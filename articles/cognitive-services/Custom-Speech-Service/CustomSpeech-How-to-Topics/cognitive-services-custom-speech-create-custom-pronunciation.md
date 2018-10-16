@@ -1,24 +1,25 @@
 ---
-title: Aangepaste uitspraak - Custom Speech Service gebruiken
-titlesuffix: Azure Cognitive Services
-description: Informatie over het maken van een taalmodel met de Custom Speech Service.
+title: Gebruik aangepaste uitspraak met Custom Speech Service op Azure | Microsoft Docs
+description: Informatie over het maken van een taalmodel met de Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223471"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339811"
 ---
 # <a name="enable-custom-pronunciation"></a>Aangepaste uitspraak inschakelen
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Aangepaste uitspraak kan gebruikers de fonetische formulier en de weergave van een woord of een term definiëren. Dit is handig voor het verwerken van aangepaste voorwaarden, zoals productnamen of afkortingen. Alles wat u nodig is een uitspraak van bestand (een eenvoudige txt-bestand).
 
 Hier ziet u hoe het werkt. U kunt verschillende aangepaste uitspraak van vermeldingen invoeren in een enkele txt-bestand. De structuur is als volgt:

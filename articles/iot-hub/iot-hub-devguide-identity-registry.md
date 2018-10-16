@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311232"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319129"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -198,6 +198,9 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 > [!NOTE]
 > Verbindingsstatus kan alleen bestaan uit de IoT Hub-weergave van de status van de verbinding. Updates voor deze status kunnen worden uitgesteld, afhankelijk van het netwerk en configuraties.
 
+> [!NOTE]
+> Het apparaat SDK's bieden momenteel geen ondersteuning met behulp van de `+` en `#` tekens in de **deviceId**.
+
 ## <a name="module-identity-properties"></a>Identiteitseigenschappen van module
 
 Module-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
@@ -216,6 +219,9 @@ Module-id's worden weergegeven als JSON-documenten met de volgende eigenschappen
 | connectionState |alleen-lezen |Een veld verbindingsstatus aangeeft: beide **verbonden** of **verbroken**. Dit veld geeft de IoT Hub-weergave van de status van het apparaat verbinding. **Belangrijke**: dit veld moet alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. Status van de verbinding wordt alleen voor apparaten die gebruikmaken van MQTT- of AMQP bijgewerkt. Bovendien is gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts vijf minuten. Daarom kunnen er fout-positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
 | connectionStateUpdatedTime |alleen-lezen |Een tijdelijke indicator, met de datum en tijd van laatste status van de verbinding is bijgewerkt. |
 | lastActivityTime |alleen-lezen |Een tijdelijke aanduiding die laat zien de datum en de laatste keer dat het apparaat verbinding, ontvangen of een bericht verzonden. |
+
+> [!NOTE]
+> Het apparaat SDK's bieden momenteel geen ondersteuning met behulp van de `+` en `#` tekens in de **deviceId** en **moduleId**.
 
 ## <a name="additional-reference-material"></a>Meer referentiemateriaal dat beschikbaar is
 

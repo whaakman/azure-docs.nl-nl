@@ -11,33 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729583"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343840"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Tenant-registratie in Azure Stack beheren
 
 *Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-In dit artikel bevat informatie over de bewerkingen die u gebruiken kunt voor het beheren van uw tenant-registraties en hoe tenantgebruik wordt bijgehouden. Hier vindt u meer informatie over het toevoegen, lijst of tenant toewijzingen verwijderen. U kunt PowerShell of de facturering API-eindpunten gebruiken voor het beheren van uw gebruik bijhouden.
+In dit artikel bevat informatie over de werking van de registratie. U kunt deze bewerkingen te gebruiken:
+- Tenant-registraties beheren
+- Gebruik bijhouden van tenant beheren
+
+Hier vindt u meer informatie over het toevoegen, lijst of tenant toewijzingen verwijderen. U kunt PowerShell of de facturering API-eindpunten gebruiken voor het beheren van uw gebruik bijhouden. Hier vindt u meer informatie over het toevoegen, lijst of tenant toewijzingen verwijderen. U kunt PowerShell of de facturering API-eindpunten gebruiken voor het beheren van uw gebruik bijhouden.
 
 ## <a name="add-tenant-to-registration"></a>Tenant registratie toevoegen
 
-Als u toevoegen van een nieuwe tenant aan uw registratie, wilt zodat hun gebruik wordt gerapporteerd bij een Azure-abonnement verbonden met de tenant Azure Active Directory (Azure AD) gebruikt u deze bewerking.
+Als u wilt toevoegen van een nieuwe tenant aan uw registratie gebruikt u de bewerking. Tenantgebruik wordt vermeld onder een Azure-abonnement verbonden met de tenant Azure Active Directory (Azure AD).
 
-U kunt deze bewerking ook gebruiken als u wilt wijzigen van het abonnement dat is gekoppeld aan een tenant, kunt u New-PUT-AzureRMResource opnieuw aanroepen. De oude toewijzing wordt overschreven.
+U kunt de bewerking ook gebruiken als u wilt wijzigen van het abonnement dat is gekoppeld aan een tenant. Aanroepen van PUT/New-AzureRMResource als u wilt overschrijven van de vorige toewijzing.
 
-Houd er rekening mee dat slechts één Azure-abonnement gekoppeld aan een tenant worden kan. Als u probeert een tweede abonnement toevoegen aan een bestaande tenant, is het eerste abonnement overschreven. 
+U kunt een enkel Azure-abonnement koppelen aan een tenant. Als u probeert een tweede abonnement toevoegen aan een bestaande tenant, is het eerste abonnement overschreven.
 
 ### <a name="use-api-profiles"></a>Gebruik API-profielen
 
-De cmdlets in dit artikel is vereist dat u een API-profiel opgeven bij het uitvoeren van PowerShell. API-profielen vertegenwoordigen een verzameling Azure-resource-providers en hun API-versies. Ze helpen u de juiste versie van de API gebruiken bij interactie met meerdere Azure-clouds, bijvoorbeeld bij het werken met de globale Azure en Azure Stack. Profielen worden opgegeven door een naam die overeenkomt met de datum waarop de release. Met dit artikel, moet u gebruiken de **03-09-2017** profiel.
+De cmdlets van de registratie is vereist dat u een API-profiel opgeven bij het uitvoeren van PowerShell. API-profielen vertegenwoordigen een verzameling Azure-resource-providers en hun API-versies. Ze helpen u de juiste versie van de API gebruiken bij interactie met meerdere Azure-clouds. Bijvoorbeeld, werken u met meerdere clouds bij het werken met de globale Azure en Azure Stack. Profielen Geef een naam die overeenkomt met de datum waarop de release. U moet gebruiken de **03-09-2017** profiel.
 
 Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versieprofielen in Azure Stack](user/azure-stack-version-profiles.md). Zie voor instructies over het ophalen van en uitvoeren met API-profiel met PowerShell [gebruik API-versieprofielen voor PowerShell in Azure Stack](user/azure-stack-version-profiles-powershell.md).
 
@@ -46,7 +50,7 @@ Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versiep
 | Parameter                  | Beschrijving |
 |---                         | --- |
 | registrationSubscriptionID | De Azure-abonnement dat is gebruikt voor de registratie. |
-| customerSubscriptionID     | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt van de aanbieding van Cloud Service Provider (CSP). Dit betekent via Partner Center in de praktijk. Als een klant meer dan één tenant heeft, kan dit abonnement moet worden gemaakt in de tenant die wordt gebruikt voor aanmelding bij Azure Stack. |
+| customerSubscriptionID     | De Azure-abonnement (niet Azure Stack) die horen bij de klant worden geregistreerd. Moet worden gemaakt van de aanbieding van Cloud Service Provider (CSP) tot en met de Partner Center. Als een klant meer dan één tenant heeft, moet u een abonnement voor de tenant voor aanmelding bij Azure Stack gemaakt. |
 | ResourceGroup              | De resourcegroep in Azure waarop uw registratie zijn opgeslagen. |
 | registrationName           | De naam van de registratie van uw Azure Stack. Er is een object dat is opgeslagen in Azure. De naam is meestal in de vorm azurestack-CloudID, waarbij CloudID is in de Cloud-ID van uw Azure Stack-implementatie. |
 

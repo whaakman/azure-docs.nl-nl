@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 297ba626d8b80d9362476ca4578e34140df5f91a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248650"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319707"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview-versie)
 Dit artikel ziet u hoe u de API HTTP Data Collector gebruikt om gegevens te verzenden naar Log Analytics van een REST-API-client.  Dit wordt beschreven hoe u gegevens die zijn verzameld door het script of een toepassing opmaken, opnemen in een aanvraag en die aanvraag heeft geautoriseerd door Log Analytics.  Voorbeelden zijn bedoeld voor PowerShell, C# en Python.
@@ -56,7 +56,7 @@ Voor het gebruik van de API HTTP Data Collector, maakt u een POST-aanvraag met d
 | API-versie |De versie van de API voor gebruik met deze aanvraag. Het is momenteel, 2016-04-01. |
 
 ### <a name="request-headers"></a>Aanvraagheaders
-| Koptekst | Beschrijving |
+| Header | Beschrijving |
 |:--- |:--- |
 | Autorisatie |De autorisatie-handtekening. Later in dit artikel, kunt u lezen over het maken van een HMAC-SHA256-header. |
 | Log-Type |Geef het recordtype van de gegevens die wordt verzonden. Het logboektype ondersteunt momenteel alleen alfanumerieke tekens. Het ondersteunt geen numerieke waarden of speciale tekens bevatten. De maximale grootte voor deze parameter is 100 tekens. |
@@ -101,7 +101,7 @@ De voorbeelden in de volgende secties hebben voorbeeldcode voor het maken van ee
 ## <a name="request-body"></a>Aanvraagtekst
 De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met de eigenschap naam / waarde-paren opnemen in deze indeling:
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -114,7 +114,7 @@ De hoofdtekst van het bericht moet zich in JSON. Er moet een of meer records met
 
 U kunt meerdere records samen in één aanvraag batch met behulp van de volgende indeling hebben. Alle records moet hetzelfde type zijn.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -218,7 +218,7 @@ Voer deze stappen om de variabelen voor de autorisatie-header voor elk voorbeeld
 U kunt ook de variabelen voor de Logboektype en JSON-gegevens wijzigen.
 
 ### <a name="powershell-sample"></a>Voorbeeld van PowerShell
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -301,7 +301,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### <a name="c-sample"></a>C#-voorbeeld
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -387,7 +387,7 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-2-sample"></a>Voorbeeld van Python 2
-```
+```python
 import json
 import requests
 import datetime

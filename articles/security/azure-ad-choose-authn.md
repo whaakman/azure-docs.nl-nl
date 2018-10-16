@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: b40004e80bf12782b29f5e156a59fb40c807fe57
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2521fe3c7ff14765878a7e98a605a9ebbac7cc7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296033"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345166"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -52,11 +52,11 @@ Als u ervoor deze verificatiemethode kiest, zorgt Azure AD aanmeldingsproces voo
 **Azure AD wachtwoord-hashsynchronisatie**. De eenvoudigste manier om in te schakelen in Azure AD-verificatie voor on-premises directory-objecten. Gebruikers kunnen gebruiken dezelfde gebruikersnaam en wachtwoord dat ze on-premises gebruiken zonder dat u hoeft geen aanvullende infrastructuur te implementeren. Wachtwoord-hashsynchronisatie voor sommige premiumfuncties van Azure AD, zoals Identity Protection, vereist voor ongeacht welke verificatiemethode die u kiest.
 
 > [!NOTE] 
-> Wachtwoorden worden nooit opgeslagen in ongecodeerde tekst of versleuteld met een algoritme voor omkeerbare in Azure AD. Zie voor meer informatie over het proces van synchronisatie van wachtwoordhashes, [implementeren u wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
+> Wachtwoorden worden nooit opgeslagen in ongecodeerde tekst of versleuteld met een algoritme voor omkeerbare in Azure AD. Zie voor meer informatie over het proces van synchronisatie van wachtwoordhashes, [implementeren u wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
 
 **Azure AD Pass-through-verificatie**. Biedt een eenvoudige wachtwoordvalidatie voor services van Azure AD-verificatie met behulp van een softwareagent die wordt uitgevoerd op een of meer on-premises servers. De servers valideren de gebruikers rechtstreeks met uw on-premises Active Directory, die zorgt ervoor dat de validatie van het wachtwoord in de cloud gebeurt niet. 
 
-Bedrijven die een beveiligingsvereiste af te dwingen onmiddellijk on-premises gebruiker account Staten, wachtwoordbeleid, en aanmelden uren kunnen deze verificatiemethode te gebruiken. Zie voor meer informatie over het proces van het werkelijke Pass through-verificatie, [aanmelden van gebruikers met Azure AD-Pass through-verificatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+Bedrijven die een beveiligingsvereiste af te dwingen onmiddellijk on-premises gebruiker account Staten, wachtwoordbeleid, en aanmelden uren kunnen deze verificatiemethode te gebruiken. Zie voor meer informatie over het proces van het werkelijke Pass through-verificatie, [aanmelden van gebruikers met Azure AD-Pass through-verificatie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta).
 
 ### <a name="federated-authentication"></a>Federatieve verificatie
 Als u ervoor deze verificatiemethode kiest, uitgeschakeld handen van Azure AD het verificatieproces uit naar een afzonderlijke verificatiesysteem vertrouwde, zoals on-premises Active Directory Federation Services (AD FS), voor het valideren van het wachtwoord van gebruikers.
@@ -88,17 +88,17 @@ De volgende sectie kunt u bepalen welke verificatiemethode is geschikt voor u me
 > [!NOTE]
 > Het wachtwoord verlopen en account vergrendelde Staten op dit moment niet worden gesynchroniseerd met Azure AD met Azure AD Connect. 
 
-Raadpleeg [implementatie van wachtwoord-hashsynchronisatie](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization) voor instructies voor implementatie.
+Raadpleeg [implementatie van wachtwoord-hashsynchronisatie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) voor instructies voor implementatie.
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>Cloud-verificatie: Pass through-verificatie  
 
 * **Inspanning**. Voor Pass through-verificatie, moet u een of meer (we raden drie) lightweight agents zijn geïnstalleerd op bestaande servers. Deze agents moeten toegang hebben tot uw on-premises Active Directory Domain Services, met inbegrip van uw on-premises AD-domeincontrollers. Ze moeten uitgaande toegang tot het Internet en toegang tot uw domeincontrollers. Daarom wordt deze niet ondersteund voor het implementeren van de agents in een perimeternetwerk bevinden. 
 
-    Pass through-verificatie is vereist voor onbeperkte netwerktoegang tot domeincontrollers. Alle netwerkverkeer is versleuteld en beperkt tot verificatieaanvragen. Zie voor meer informatie over dit proces de [grondig onderzoek van beveiliging](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive) op Pass through-verificatie.
+    Pass through-verificatie is vereist voor onbeperkte netwerktoegang tot domeincontrollers. Alle netwerkverkeer is versleuteld en beperkt tot verificatieaanvragen. Zie voor meer informatie over dit proces de [grondig onderzoek van beveiliging](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-security-deep-dive) op Pass through-verificatie.
 
 * **Gebruikerservaring**. Ter verbetering van de aanmeldingservaring voor gebruikers implementeren naadloze eenmalige aanmelding met Pass through-verificatie. Naadloze eenmalige aanmelding wordt voorkomen dat onnodige prompts nadat gebruikers zich aanmelden.
 
-* **Geavanceerde scenario's**. Pass through-verificatie wordt de account on-premises beleid afgedwongen op het moment van aanmelden. Bijvoorbeeld: toegang is geweigerd bij het account van een on-premises gebruiker status is uitgeschakeld, vergrendeld of [wachtwoord verlopen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) of valt buiten het aantal uren wanneer de gebruiker zich aanmeldt is toegestaan. 
+* **Geavanceerde scenario's**. Pass through-verificatie wordt de account on-premises beleid afgedwongen op het moment van aanmelden. Bijvoorbeeld: toegang is geweigerd bij het account van een on-premises gebruiker status is uitgeschakeld, vergrendeld of [wachtwoord verlopen](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) of valt buiten het aantal uren wanneer de gebruiker zich aanmeldt is toegestaan. 
 
     Organisaties waarvoor meervoudige verificatie met pass-through-verificatie moeten de Azure multi-factor Authentication (MFA) gebruiken. Organisaties niet een methode van derden of on-premises meervoudige verificatie gebruiken. Geavanceerde functies is vereist dat de wachtwoord-hashsynchronisatie wordt geïmplementeerd of er u pass-through-verificatie. Een voorbeeld is het rapport de referenties zijn gelekt van Identity Protection.
 
@@ -108,9 +108,9 @@ Raadpleeg [implementatie van wachtwoord-hashsynchronisatie](https://docs.microso
 
 * **Overwegingen met betrekking tot**. Wanneer de agents de referenties van een gebruiker vanwege een fout aanzienlijke on-premises kunnen niet worden gevalideerd, kunt u wachtwoord-hashsynchronisatie als een back-verificatiemethode voor Pass through-verificatie. Failover naar wachtwoord-hashsynchronisatie niet automatisch plaatsvindt en moet u Azure AD Connect gebruiken om over te schakelen van de methode voor eenmalige aanmelding handmatig. 
 
-    Voor andere overwegingen op Pass through-verificatie, met inbegrip van alternatieve ID-ondersteuning, Zie [Veelgestelde vragen over](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Voor andere overwegingen op Pass through-verificatie, met inbegrip van alternatieve ID-ondersteuning, Zie [Veelgestelde vragen over](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq).
 
-Raadpleeg [Pass through-verificatie implementeren](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) voor instructies voor implementatie.
+Raadpleeg [Pass through-verificatie implementeren](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) voor instructies voor implementatie.
 
 ### <a name="federated-authentication"></a>Federatieve verificatie
 
@@ -122,7 +122,7 @@ Raadpleeg [Pass through-verificatie implementeren](https://docs.microsoft.com/az
 
     * Verificatie waarvoor smartcards of certificaten.
     * On-premises MFA-servers of meervoudige providers van derden.
-    * Verificatie met behulp van oplossingen voor verificatie van derden. Zie de [federatiecompatibiliteitslijst van Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility).
+    * Verificatie met behulp van oplossingen voor verificatie van derden. Zie de [federatiecompatibiliteitslijst van Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
     * Meld u op dat vereist een sAMAccountName, bijvoorbeeld domein\gebruikersnaam, in plaats van een UPN (User Principal Name), bijvoorbeeld user@domain.com.
 
 * **Zakelijke continuïteit**. Federatieve systemen moeten doorgaans een matrix met load balancing van servers, bekend als een farm. Deze farm is geconfigureerd in een interne netwerk en de topologie van de perimeter-netwerk om te hoge beschikbaarheid voor verificatieaanvragen.
@@ -136,7 +136,7 @@ Voor een nonroutable-domein dat kan worden geverifieerd in Azure AD, moet u extr
 Raadpleeg [Federation-Servers implementeren](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) voor instructies voor implementatie.
 
 > [!NOTE] 
-> Wanneer u uw Azure AD-oplossing voor hybride identiteit implementeert, moet u een van de ondersteunde topologieën van Azure AD Connect implementeren. Meer informatie over ondersteunde en niet-ondersteunde configuraties op [topologieën voor Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-topologies).
+> Wanneer u uw Azure AD-oplossing voor hybride identiteit implementeert, moet u een van de ondersteunde topologieën van Azure AD Connect implementeren. Meer informatie over ondersteunde en niet-ondersteunde configuraties op [topologieën voor Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies).
 
 ## <a name="architecture-diagrams"></a>Architectuurdiagrammen
 
@@ -160,11 +160,11 @@ De architectuur op hoog niveau onderdelen die vereist zijn voor elke methode voo
 |:-----|:-----|:-----|:-----|
 |Waar wordt authenticatie uitgevoerd?|In de cloud|In de cloud na de uitwisseling van een beveiligd-wachtwoordverificatie verificatie met de on-premises authentication-agent|On-premises|
 |Wat zijn de vereisten van de on-premises server buiten de provisioning-systeem: Azure AD Connect?|Geen|Een server voor elke extra verificatie-agent|Twee of meer AD FS-servers<br><br>Twee of meer WAP-servers in het perimeternetwerk/DMZ-netwerk|
-|Wat zijn de vereisten voor on-premises Internet en netwerken buiten de provisioning-systeem?|Geen|[Uitgaande toegang tot Internet](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) vanaf de servers met verificatie-agents|[Binnenkomende toegang tot Internet](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) aan de WAP-servers in het perimeternetwerk<br><br>Inkomend verkeer van toegang tot het netwerk naar AD FS-servers van WAP-servers in het perimeternetwerk<br><br>Netwerktaakverdeling|
+|Wat zijn de vereisten voor on-premises Internet en netwerken buiten de provisioning-systeem?|Geen|[Uitgaande toegang tot Internet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) vanaf de servers met verificatie-agents|[Binnenkomende toegang tot Internet](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) aan de WAP-servers in het perimeternetwerk<br><br>Inkomend verkeer van toegang tot het netwerk naar AD FS-servers van WAP-servers in het perimeternetwerk<br><br>Netwerktaakverdeling|
 |Is er een SSL-certificaat is vereist?|Nee|Nee|Ja|
-|Is er een oplossing voor statuscontrole?|Niet vereist|De status van de agent is geleverd door [Azure Active Directory-beheercentrum](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health (Engelstalig)](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
-|Krijg de gebruikers eenmalige aanmelding bronnen in de cloud van apparaten binnen het bedrijfsnetwerk domein?|Ja, met [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Ja, met [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Ja|
-|Welke typen aanmelden worden ondersteund?|UserPrincipalName + wachtwoord<br><br>Geïntegreerde Windows-verificatie met behulp van [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternatieve aanmeldings-ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|UserPrincipalName + wachtwoord<br><br>Geïntegreerde Windows-verificatie met behulp van [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternatieve aanmeldings-ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|UserPrincipalName + wachtwoord<br><br>sAMAccountName + wachtwoord<br><br>Geïntegreerde Windows-verificatie<br><br>[Certificaat- en smart card-verificatie](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternatieve aanmeldings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|Is er een oplossing voor statuscontrole?|Niet vereist|De status van de agent is geleverd door [Azure Active Directory-beheercentrum](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health (Engelstalig)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
+|Krijg de gebruikers eenmalige aanmelding bronnen in de cloud van apparaten binnen het bedrijfsnetwerk domein?|Ja, met [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja, met [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja|
+|Welke typen aanmelden worden ondersteund?|UserPrincipalName + wachtwoord<br><br>Geïntegreerde Windows-verificatie met behulp van [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternatieve aanmeldings-ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + wachtwoord<br><br>Geïntegreerde Windows-verificatie met behulp van [naadloze eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternatieve aanmeldings-ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + wachtwoord<br><br>sAMAccountName + wachtwoord<br><br>Geïntegreerde Windows-verificatie<br><br>[Certificaat- en smart card-verificatie](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternatieve aanmeldings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Is Windows Hello voor bedrijven ondersteund?|[Model van de belangrijkste vertrouwensrelatie](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Model van de vertrouwensrelatie certificaat met Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Model van de belangrijkste vertrouwensrelatie](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Model van de vertrouwensrelatie certificaat met Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Model van de belangrijkste vertrouwensrelatie](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Model van de vertrouwensrelatie certificaat](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Wat zijn de opties voor meervoudige verificatie?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Aangepaste besturingselementen met voorwaardelijke toegang *](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Aangepaste besturingselementen met voorwaardelijke toegang *](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA-server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Externe MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Aangepaste besturingselementen met voorwaardelijke toegang *](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/controls#custom-controls-1)|
 |De status van de gebruiker-account worden ondersteund?|Uitgeschakelde accounts<br>(maximaal 30 minuten vertraging)|Uitgeschakelde accounts<br><br>Account vergrendeld<br><br>Het account is verlopen<br><br>Wachtwoord is verlopen<br><br>Aanmelden-uren|Uitgeschakelde accounts<br><br>Account vergrendeld<br><br>Het account is verlopen<br><br>Wachtwoord is verlopen<br><br>Aanmelden-uren|

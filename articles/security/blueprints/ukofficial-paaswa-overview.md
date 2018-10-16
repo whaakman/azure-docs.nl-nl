@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297552"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321985"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS Web-toepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -52,7 +52,6 @@ Als onderdeel van de implementatie-architectuur, veilige opslag inrichten, bewak
 Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de implementatiearchitectuur vindt u in de [architectuur](#deployment-architecture) sectie.
 
 - Azure Active Directory
-- Beheerde service-identiteit
 - App Service
 - Web-app
 - API-app
@@ -107,13 +106,13 @@ Azure Web Apps biedt een volledig beheerde hostomgeving voor web-App ontwikkeld 
 
 App Service is [ISO, SOC en PCI-](https://www.microsoft.com/TrustCenter/) en verificatie van gebruikers met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) of via sociaal aanmelden ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), en [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 
-Basic-, Standard en Premium-abonnementen zijn voor productieworkloads en draaien op specifieke virtuele Machine-instanties. Elke instantie kan meerdere toepassingen en domeinen ondersteunen. App-services ook ondersteuning voor [IP-adresbeperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar de goedgekeurde IP-adressen, indien nodig, evenals [beheerde Service-identiteit](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) voor beveiligde verbinding met andere PaaS-services zoals [ Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Extra beveiliging is vereist als host fungeert voor uw apps in een persoonlijke, exclusieve Azure-omgeving en is ideaal voor apps waarvoor een veilige verbindingen met uw on-premises netwerk, of extra prestaties en schaal onze Isolated-abonnement.
+Basic-, Standard en Premium-abonnementen zijn voor productieworkloads en draaien op specifieke virtuele Machine-instanties. Elke instantie kan meerdere toepassingen en domeinen ondersteunen. App-services ook ondersteuning voor [IP-adresbeperkingen](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) voor het beveiligen van verkeer naar de goedgekeurde IP-adressen, indien nodig, evenals [beheerde identiteiten voor een Azure-resources](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) voor beveiligde verbinding met andere PaaS-services zoals [voor Key Vault](https://azure.microsoft.com/services/key-vault/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Extra beveiliging is vereist als host fungeert voor uw apps in een persoonlijke, exclusieve Azure-omgeving en is ideaal voor apps waarvoor een veilige verbindingen met uw on-premises netwerk, of extra prestaties en schaal onze Isolated-abonnement.
 
 Deze sjabloon implementeert de volgende functies van App Service:
 
 - [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) laag voor App Service-Plan
 - Meerdere Web-App [implementatiesites](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): ontwikkelings-, Preview, QA, UAT en natuurlijk productie (standaard sleuf).
-- [Beheerde Service-identiteit](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) verbinding maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt voor toegang tot [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) verbinding maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt voor toegang tot [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Integratie met [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) om prestaties te bewaken
 - [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Metrische gegevens [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -164,7 +163,7 @@ Gedetailleerde informatie over het beveiligen van Azure Storage vindt u de [beve
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault in deze blauwdruk
 
-- Bevat de toegangssleutel voor opslag met leestoegang verleend aan de [beheerde Service-identiteit](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) van de klant gerichte web-app
+- Bevat de toegangssleutel voor opslag met leestoegang verleend aan de [beheerde identiteit](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) van de klant gerichte web-app
 - Het wachtwoord van de SQL Server DBA bevat (in een afzonderlijke kluis)
 - Logboekregistratie van diagnostische gegevens
 
