@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: abc4fa4129a596c3f3304dc37af3a9b659f45473
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a3b039b1ea492c44505c427ec171cf7a4a5fad01
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595498"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062432"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Een Xamarin.Android-app maken
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -64,6 +64,11 @@ U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden geb
    > U kunt de code die toegang heeft tot de back-end van uw mobiele app bekijken om gegevens op te vragen en in te voegen. Deze code vindt u in het C#-bestand ToDoActivity.cs.
    >
    >
+
+## <a name="troubleshooting"></a>Problemen oplossen
+Als u er problemen zijn met het bouwen van de oplossing, voert u NuGet Package Manager uit en werkt u de `Xamarin.Android`-ondersteuningspakketten bij. Quick Start-projecten bevatten mogelijk niet altijd de nieuwste versies.
+
+Alle ondersteuningspakketten waarnaar wordt verwezen in uw project, moeten dezelfde versie hebben. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Offlinesynchronisatie toevoegen aan uw app](app-service-mobile-xamarin-android-get-started-offline-data.md)
