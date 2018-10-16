@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.openlocfilehash: 124e936b619e3078c71094156bf91a437a28492b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862765"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343671"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics preview-functies
 
@@ -67,9 +67,9 @@ Ontwikkelaars kunnen nu aangepaste deserializers in C# voor het deserialiseren v
 
 Het is nu mogelijk voor het partitioneren van de uitvoer van uw Azure Stream Analytics naar Blob-opslag op basis van een andere kolom in de query.
 
-### <a name="managed-service-identity-msi-authentication-to-azure-data-lake-storage"></a>Beheerde Service Identity (MSI) verificatie met Azure Data Lake Storage
+### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Beheerde identiteiten Azure-resources te verifiëren bij Azure Data Lake Storage
 
-U kunt nu uw realtime pijplijnen met verificatie op basis van MSI tijdens het schrijven naar Azure Data Lake Storage Gen1 uitvoeren zodat u kunt taken via een programma te maken. Ga voor meer informatie naar [gebruik beheerde identiteiten die verificatie van Azure Stream Analytics-taken naar Azure Data Lake Storage-Gen1 uitvoer](stream-analytics-managed-identities-adls.md).
+U kunt nu uw realtime pijplijnen met beheerde identiteiten voor Azure-resources op basis van verificatie tijdens het schrijven naar Azure Data Lake Storage Gen1 uitvoeren zodat u kunt taken via een programma te maken. Ga voor meer informatie naar [identiteiten beheerde gebruiken voor Azure-resources te verifiëren Azure Stream Analytics-taken naar Azure Data Lake Storage-Gen1 uitvoer](stream-analytics-managed-identities-adls.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

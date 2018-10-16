@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
-ms.translationtype: MT
+ms.openlocfilehash: b4df9d3b107945b2c0797875718f3266b7fd0b10
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628927"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166540"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Het gebruik en facturering voor Azure Stack als een Cloudserviceprovider beheren 
 
@@ -35,7 +35,7 @@ Het volgende diagram toont de stappen die u moet uw gedeelde services-account ki
 
 ![Het proces voor het inschakelen van gebruik en beheer als een Cloudserviceprovider.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>Een CSP of CSPSS abonnement maken
+## <a name="create-a-csp-or-apss-subscription"></a>Een CSP of APSS abonnement maken
 
 ### <a name="cloud-service-provider-subscription-types"></a>Cloud Service Provider-abonnementstypen
 
@@ -44,13 +44,13 @@ U moet het type gedeelde services-account dat u voor Azure Stack gebruikt kiezen
  - Cloudserviceprovider 
  - Partner Services gedeeld abonnement 
 
-#### <a name="csp-shared-services"></a>CSP gedeelde Services
+#### <a name="azure-partner-shared-services"></a>Gedeelde Services van Azure-Partner
 
-Cloud Service Provider gedeelde Services (CSPSS)-abonnementen zijn de beste keuze voor registratie wanneer een directe CSP of een CSP-Distributor werkt Azure Stack.
+Azure Partner gedeelde Services (APSS)-abonnementen worden de beste keuze voor registratie bij een directe CSP of een CSP-Distributor werkt Azure Stack.
 
-CSPSS abonnementen worden gekoppeld aan een tenant gedeelde services. Wanneer u zich registreert voor Azure Stack, moet u referenties opgeven voor een account dat is eigenaar van het abonnement. Het account dat u gebruikt voor het registreren van Azure Stack kan afwijken van de administrator-account dat u voor de implementatie gebruikt van het netwerk. Bovendien, de twee accounts doen *niet* moet deel uitmaken van hetzelfde domein bevinden. Met andere woorden, kunt u implementeren met behulp van de tenant die u al gebruikt. U kunt bijvoorbeeld ContosoCSP.onmicrosoft.com gebruiken en vervolgens registreren met behulp van een andere tenant, bijvoorbeeld IURContosoCSP.onmicrosoft.com. U moet Houd er rekening mee dat u zich met behulp van ContosoCSP.onmicrosoft.com aanmelden wanneer u dit dag to do Azure Stack-beheer doet. Wanneer u zich aanmeldt bij Azure met behulp van IURContosoCSP.onmicrosoft.com wanneer u nodig hebt voor van registratiebewerkingen.
+APSS abonnementen worden gekoppeld aan een tenant gedeelde services. Wanneer u zich registreert voor Azure Stack, moet u referenties opgeven voor een account dat is eigenaar van het abonnement. Het account dat u gebruikt voor het registreren van Azure Stack kan afwijken van de administrator-account dat u voor de implementatie gebruikt van het netwerk. Bovendien, de twee accounts doen *niet* moet deel uitmaken van hetzelfde domein bevinden. Met andere woorden, kunt u implementeren met behulp van de tenant die u al gebruikt. U kunt bijvoorbeeld ContosoCSP.onmicrosoft.com gebruiken en vervolgens registreren met behulp van een andere tenant, bijvoorbeeld IURContosoCSP.onmicrosoft.com. U moet Houd er rekening mee dat u zich met behulp van ContosoCSP.onmicrosoft.com aanmelden wanneer u dit dag to do Azure Stack-beheer doet. Wanneer u zich aanmeldt bij Azure met behulp van IURContosoCSP.onmicrosoft.com wanneer u nodig hebt voor van registratiebewerkingen.
 
-Raadpleeg de volgende voor een beschrijving van CSPSS abonnementen en instructies voor het maken van abonnement [toevoegen Azure Partner gedeelde Services](https://msdn.microsoft.com/partner-center/shared-services).
+Raadpleeg de volgende voor een beschrijving van APSS abonnementen en instructies voor het maken van abonnement [toevoegen Azure Partner gedeelde Services](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>CSP-abonnementen
 
@@ -58,7 +58,7 @@ Cloud Service Provider (CSP)-abonnementen zijn de beste keuze voor registratie w
 
 ## <a name="register-azure-stack"></a>Azure Stack registreren
 
-Gebruik het CSPSS abonnement gemaakt na de informatie in de vorige sectie om te registreren Azure Stack met Azure. Zie voor meer informatie, [Azure Stack registreren met uw Azure-abonnement](azure-stack-registration.md).
+Gebruik het APSS abonnement gemaakt na de informatie in de vorige sectie om te registreren Azure Stack met Azure. Zie voor meer informatie, [Azure Stack registreren met uw Azure-abonnement](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Eindklant toevoegen
 
@@ -72,7 +72,7 @@ Inschrijving met een Azure Stack kunt doen:
  - Azure Stack-gebruiksgegevens doorsturen naar Azure Commerce en factureren van een Azure-abonnement.
  - Gebruik van elke klant een rapport over een ander abonnement met een multitenant Azure Stack-implementatie. Multitenancy kan Azure Stack voor de ondersteuning van verschillende organisaties op hetzelfde exemplaar van Azure Stack.
 
-Er is een standaardabonnement voor elke Azure Stack, en veel tenant-abonnementen. Het standaardabonnement is een Azure-abonnement dat in rekening gebracht wordt als er geen een tenant-specifieke abonnement. Het moet abonnement geregistreerd als eerste zijn. Voor meerdere tenants voor gebruiksrapporten te werken, moet het abonnement een CSP of CSPSS-abonnement.
+Er is een standaardabonnement voor elke Azure Stack, en veel tenant-abonnementen. Het standaardabonnement is een Azure-abonnement dat in rekening gebracht wordt als er geen een tenant-specifieke abonnement. Het moet abonnement geregistreerd als eerste zijn. Voor meerdere tenants voor gebruiksrapporten te werken, moet het abonnement een CSP of APSS-abonnement.
 
 De registratie wordt vervolgens bijgewerkt met een Azure-abonnement voor elke tenant die u wilt gebruiken van Azure Stack. Tenant-abonnementen moeten van het CSP-type en moeten getotaliseerd naar de partner die eigenaar is van het standaardabonnement. Met andere woorden, registreren u iemand anders van klanten niet.
 

@@ -1,0 +1,111 @@
+items:
+- name: Basisprincipes van Azure IoT
+  href: /azure/iot-fundamentals
+- name: Azure Digital Twins
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Over Azure Digital Twins
+    href: about-digital-twins.md
+- name: Snelstartgidsen
+  items:
+  - name: Beschikbare ruimten zoeken
+    href: quickstart-view-occupancy-dotnet.md
+- name: Zelfstudies
+  items:
+  - name: Een gebouw bewaken met Digital Twins
+    items:
+    - name: Implementeren en configureren
+      href: tutorial-facilities-setup.md
+    - name: Omstandigheden inrichten en bewaken
+      href: tutorial-facilities-udf.md
+    - name: Meldingen versturen met Logic Apps
+      href: tutorial-facilities-events.md
+    - name: Gebeurtenissen visualiseren met TSI
+      href: tutorial-facilities-analyze.md
+- name: Concepten
+  items:
+  - name: Objectmodel en graaf voor ruimtelijke intelligentie van Digital Twins
+    href: concepts-objectmodel-spatialgraph.md
+  - name: Apparaatconnectiviteit en inkomende telemetriegegevens
+    href: concepts-device-ingress.md
+  - name: Gegevensverwerking en door gebruikers gedefinieerde functies
+    href: concepts-user-defined-functions.md
+  - name: Routering van gebeurtenissen en berichten
+    href: concepts-events-routing.md
+  - name: Servicebeperkingen van de openbare preview
+    href: concepts-service-limits.md
+  - name: Beveiliging
+    items:
+    - name: Aanbevolen procedures voor beveiliging
+      href: security-best-practices.md
+    - name: Toegangsbeheer op basis van rollen
+      href: security-role-based-access-control.md
+    - name: Roltoewijzingen maken en beheren
+      href: security-create-manage-role-assignments.md
+    - name: Verificatie via beheer-API's
+      href: security-authenticating-apis.md
+- name: Handleidingen
+  items:
+  - name: Multitenant-toepassingen inschakelen
+    href: how-to-multitenant-applications.md
+  - name: Door gebruikers gedefinieerde functies maken
+    href: how-to-user-defined-functions.md
+  - name: Gebeurtenissen en berichten via eindpunten routeren
+    href: how-to-egress-endpoints.md
+  - name: Digital Twins Swagger gebruiken
+    href: how-to-use-swagger.md
+- name: Verwant
+  items:
+  - name: Oplossingen
+    items:
+    - name: IoT-oplossingsversnellers
+      href: /azure/iot-accelerators
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platformservices
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: IoT Service-SDK's
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Kaarten
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device-SDK's
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Resources
+  items:
+  - name: Azure Digital Twins-voorbeelden voor C# (.NET)
+    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
+  - name: REST API voor Azure Digital Twins
+    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/digital-twins/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuredigitaltwins
+  - name: Verhalen van klanten
+    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
+  - name: Azure IoT-ontwikkelaarscentrum
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Video's
+    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
+ms.openlocfilehash: ac70217527d885eeaaa52d4715421d2560393d91
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49323006"
