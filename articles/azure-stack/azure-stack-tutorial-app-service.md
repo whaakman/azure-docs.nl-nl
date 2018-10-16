@@ -1,6 +1,6 @@
 ---
-title: Web- en API-apps beschikbaar te maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
-description: Zelfstudie voor het installeren van de App Service-resourceprovider en maken biedt die uw gebruikers Azure Stack bieden de mogelijkheid om web en API-apps te maken.
+title: Web apps en API apps beschikbaar te maken voor uw Azure Stack-gebruikers | Microsoft Docs
+description: Zelfstudie voor het installeren van de resourceprovider App Service en maak biedt die uw Azure Stack-gebruikers bieden de mogelijkheid te maken van web apps en API apps.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,60 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 0171dba639e480a04cdd1c7f23d546d01121fb42
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 0a9b87ccfd49ba04a8dff8ef48bea023ff94b222
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247395"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340714"
 ---
-# <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Zelfstudie: web- en API-apps beschikbaar maken voor uw Azure-Stack gebruikers
+# <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Zelfstudie: web-apps en API-apps beschikbaar te maken voor uw Azure Stack-gebruikers
 
-Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) Azure Functions- en web- en API-toepassingen maken. Door uw gebruikers toegang geven tot deze op aanvraag, cloud-gebaseerde apps, kunt u ze bespaart tijd en bronnen.
+Als de beheerder van een Azure Stack-cloud, kunt u aanbiedingen waarmee uw gebruikers kunnen maken (tenants) maken van Azure Functions- en web- en API-toepassingen. Door uw gebruikers toegang geven tot deze op aanvraag, op basis van cloud-apps, kunt u ze besparen tijd en resources.
 
-Dit als u wilt instellen, kun je het:
+Dit als u wilt instellen, u het volgende doen:
 
 > [!div class="checklist"]
-> * Implementeert de bronprovider van App Service
+> * De App Service-resourceprovider implementeren
 > * Een aanbieding maken
 > * Testen van de aanbieding
 
-## <a name="deploy-the-app-service-resource-provider"></a>Implementeert de bronprovider van App Service
+## <a name="deploy-the-app-service-resource-provider"></a>De App Service-resourceprovider implementeren
 
-1. [Voorbereiden van de host Azure Stack Development Kit](azure-stack-app-service-before-you-get-started.md). Dit omvat de bronprovider van SQL Server die vereist is voor het maken van een aantal apps te implementeren.
-2. [Download het installatieprogramma en helper scripts](azure-stack-app-service-deploy.md).
+1. [Voorbereiden van de host van de Azure Stack Development Kit](azure-stack-app-service-before-you-get-started.md). Dit omvat de resourceprovider van SQL Server, die vereist is voor het maken van sommige apps implementeren.
+2. [Het installatieprogramma en helper scripts downloaden](azure-stack-app-service-deploy.md).
 3. [Voer het script helper voor het maken van de vereiste certificaten](azure-stack-app-service-deploy.md).
 4. [Installeer de App Service-resourceprovider](azure-stack-app-service-deploy.md) (het duurt een paar uur te installeren en voor alle worker-rollen worden weergegeven.)
 5. [De installatie valideren](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
 
 ## <a name="create-an-offer"></a>Een aanbieding maken
 
-U kunt bijvoorbeeld een aanbieding waarmee gebruikers maken DNN web content management systems maken. De SQL Server-service die u al hebt ingeschakeld door het installeren van de resource-provider voor SQL Server vereist.
+U kunt bijvoorbeeld een aanbieding waarmee gebruikers kunnen maken van DNN web content management systems maken. De SQL Server-service die u al ingeschakeld door het installeren van de resourceprovider van SQL Server vereist.
 
-1.  [Een quotum](azure-stack-setting-quotas.md) en noem deze *AppServiceQuota*. Selecteer **Microsoft.Web** voor de **Namespace** veld.
-2.  [Maak een plan](azure-stack-create-plan.md). Naam *TestAppServicePlan*, selecteer de **Microsoft.SQL** service en de **AppService quotum** quotum.
+1.  [Definieert een quotum op](azure-stack-setting-quotas.md) en noem het *AppServiceQuota*. Selecteer **Microsoft.Web** voor de **Namespace** veld.
+2.  [Maak een plan](azure-stack-create-plan.md). Geef het de naam *TestAppServicePlan*, selecteer de **Microsoft.SQL** service en de **AppService quotum** quotum.
 
     > [!NOTE]
-    > Als gebruikers wilt laten maken van andere apps, andere services vereist zijn in het plan. Azure Functions moet bijvoorbeeld de **Microsoft.Storage** service in het plan, terwijl Wordpress vereist **Microsoft.MySQL**.
+    > Als u wilt dat gebruikers andere apps te maken, andere services vereist zijn in het plan. Bijvoorbeeld: Azure Functions heeft de **Microsoft.Storage** service in het abonnement, terwijl Wordpress vereist **Microsoft.MySQL**.
 
-3.  [Maken van een aanbieding](azure-stack-create-offer.md), naam **TestAppServiceOffer** en selecteer de **TestAppServicePlan** plan.
+3.  [Maak een aanbieding](azure-stack-create-offer.md), geef deze de naam **TestAppServiceOffer** en selecteer de **TestAppServicePlan** plan.
 
 ## <a name="test-the-offer"></a>Testen van de aanbieding
 
-Nu dat u de App Service-resourceprovider hebt geïmplementeerd en een aanbieding hebt gemaakt, u als een gebruiker aanmelden kunt, Abonneer u op de aanbieding en een app maken.
+Nu dat u de App Service-resourceprovider hebt geïmplementeerd en een aanbieding hebt gemaakt, kunt u aanmelden als een gebruiker, Abonneer u op de aanbieding, en een app maken.
 
-In dit voorbeeld maakt u een inhoudsbeheersysteem DNN Platform. Eerst maakt u een SQL-database en vervolgens de DNN web-app.
+In dit voorbeeld maken we een DNN Platform content management-systeem. U maakt eerst een SQL-database en vervolgens de DNN web-app.
 
-### <a name="subscribe-to-the-offer"></a>Abonneren op de aanbieding
+### <a name="subscribe-to-the-offer"></a>Abonneer u op de aanbieding
 
-1. Aanmelden bij de Azure-Stack-portal (https://portal.local.azurestack.external) als een tenant.
-2. Selecteer **Neem een abonnement op** >, voer **TestAppServiceSubscription** onder **weergavenaam** > **selecteert u een aanbieding**  >  **TestAppServiceOffer** > **maken**.
+1. Aanmelden bij de Azure Stack-portal (https://portal.local.azurestack.external) als een tenant.
+2. Selecteer **Neem een abonnement** >, voer **TestAppServiceSubscription** onder **weergavenaam** > **selecteert u een aanbieding**  >  **TestAppServiceOffer** > **maken**.
 
-### <a name="create-a-sql-database"></a>Een SQL Database maken
+### <a name="create-a-sql-database"></a>Een SQL-database maken
 
 1. Selecteer **+**  >  **gegevens en opslag** > **SQL-Database**.
 2. Behoud de standaardwaarden, met uitzondering van de volgende velden:
@@ -73,17 +73,17 @@ In dit voorbeeld maakt u een inhoudsbeheersysteem DNN Platform. Eerst maakt u ee
     - **Databasenaam**: DNNdb
     - **Maximale grootte in MB**: 100
     - **Abonnement**: TestAppServiceOffer
-    - **Resourcegroep**: DNN RG
+    - **Resourcegroep**: DNN-RG
 
-3. Selecteer **aanmeldingsinstellingen**, geef referenties op voor de database en selecteer vervolgens **OK**. U gebruikt deze referenties verderop in deze zelfstudie.
-4. Onder **SKU** > Selecteer de SQL-SKU die u hebt gemaakt voor de SQL Server die als host fungeert > en selecteer vervolgens **OK**.
+3. Selecteer **Login Settings**, geef referenties op voor de database en selecteer vervolgens **OK**. U gebruikt deze referenties verderop in deze zelfstudie.
+4. Onder **SKU** > Selecteer de SQL-SKU die u hebt gemaakt voor de SQL-Server die als host fungeert > en selecteer vervolgens **OK**.
 5. Selecteer **Maken**.
 
 ### <a name="create-a-dnn-app"></a>Een DNN-app maken
 
 1. Selecteer **+**  >  **alle** > **DNN Platform preview** > **maken** .
 2. Voer *DNNapp* onder **appnaam** en selecteer **TestAppServiceOffer** onder **abonnement**.
-3. Selecteer **vereiste instellingen configureren** > **nieuw** > in te voeren een **App Service-abonnement** naam.
+3. Selecteer **vereiste instellingen configureren** > **nieuw** > in te voeren een **App Service-plan** naam.
 4. Selecteer **prijscategorie** > **F1 gratis** > **Selecteer** > **OK**.
 5. Selecteer **Database** en voer de referenties voor de SQL-database die u eerder hebt gemaakt.
 6. Selecteer **Maken**.
@@ -93,11 +93,11 @@ In dit voorbeeld maakt u een inhoudsbeheersysteem DNN Platform. Eerst maakt u ee
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Implementeert de bronprovider van App Service
+> * De App Service-resourceprovider implementeren
 > * Een aanbieding maken
 > * Testen van de aanbieding
 
-Voorafgaande aan de volgende zelfstudie voor meer informatie over hoe:
+Ga verder met de volgende zelfstudie voor meer informatie over het:
 
 > [!div class="nextstepaction"]
 > [Apps implementeren op Azure en Azure Stack](user/azure-stack-solution-pipeline.md)

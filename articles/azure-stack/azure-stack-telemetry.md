@@ -1,6 +1,6 @@
 ---
-title: Azure Stack telemetrie | Microsoft Docs
-description: Beschrijft hoe u configureert Azure Stack telemetrie-instellingen met behulp van PowerShell.
+title: Telemetrie van Azure Stack | Microsoft Docs
+description: Beschrijft hoe u Azure Stack met behulp van PowerShell telemetrie-instellingen configureert.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,104 +12,104 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: ed3f09f942bdaa803ae8024d5c02230173190107
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248194"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341052"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetrie
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Systeemgegevens Azure Stack telemetrie automatisch naar Microsoft via de gebruikerservaring verbonden geüpload. Microsoft-teams gebruiken de gegevens die Azure-Stack telemetrie verzamelt voor een betere gebruikerservaringen. Deze gegevens worden ook gebruikt voor beveiliging, status, kwaliteit en analyse van prestaties.
+Azure Stack-telemetrie wordt automatisch systeemgegevens geüpload naar Microsoft via de gebruikerservaring verbonden. Microsoft-teams gebruiken de gegevens die door Azure Stack telemetrie wordt verzameld voor het verbeteren van klantervaring. Deze gegevens wordt ook gebruikt voor beveiliging, status, kwaliteit en analyse van prestaties.
 
-Voor een Azure-Stack-operator telemetrie waardevolle inzichten in bedrijfsimplementaties kan bieden en biedt u een stem waarmee toekomstige versies van de vorm van Azure-Stack.
+Telemetrie-voor Azure Stack-operators, krijgt u inzicht in de enterprise-implementaties en biedt u een stem waarmee toekomstige versies van de vorm van Azure Stack.
 
 > [!NOTE]
-> U kunt ook Azure Stack voor het doorsturen van gebruiksgegevens naar Azure voor facturering configureren. Dit is vereist voor meerdere knooppunten Azure Stack-klanten betalen-als-gebruik facturering kiezen. Rapportage over het gebruik van telemetrie onafhankelijk wordt beheerd en is niet vereist voor meerdere knooppunten klanten die kiezen voor het capaciteitsmodel of voor gebruikers van Azure Stack Development Kit. Voor deze scenario's, rapportage over het gebruik kan worden uitgeschakeld [met het registratiescript](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
+> U kunt ook Azure Stack voor het doorsturen van gebruiksgegevens naar Azure voor facturering. Dit is vereist voor meerdere knooppunten Azure Stack-klanten die betalen als u-gebruik facturering. Rapportage over het gebruik van de telemetriegegevens onafhankelijk van elkaar wordt beheerd en is niet vereist zijn voor klanten met meerdere knooppunten die het capaciteitsmodel of voor gebruikers van Azure Stack Development Kit. Voor deze scenario's, rapportage over het gebruik kan worden uitgeschakeld [met behulp van het script voor de registratie](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-Azure Stack telemetrie is gebaseerd op het onderdeel Windows Server 2016 verbonden gebruikerservaring en telemetrie dat gebruikmaakt van de [Event Tracing voor Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technologie voor het verzamelen en opslaan van gebeurtenissen en de gegevens. Azure Stack-onderdelen gebruikt dezelfde technologie voor het publiceren van gebeurtenissen en gegevens die worden verzameld met behulp van openbare besturingssysteem logboekregistratie en tracering API's. Voorbeelden van deze onderdelen Azure Stack zijn deze providers: netwerkbron, Opslagresource Resource bewaking en Update-Resource. Het onderdeel verbonden gebruikerservaring en telemetrie versleutelt gegevens met behulp van SSL en gebruikt vastmaken certificaat voor het verzenden van gegevens via HTTPS naar de Microsoft Data Management-service.
+Azure Stack-telemetrie is gebaseerd op de verbonden gebruikerservaring van Windows Server 2016 en telemetrie-onderdeel dat gebruikmaakt van de [Event Tracing voor Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technologie voor het verzamelen en opslaan van gegevens over gebeurtenissen en. Azure Stack-onderdelen gebruikt dezelfde technologie voor het publiceren van gebeurtenissen en gegevens die worden verzameld met behulp van openbare besturingssysteem logboekregistratie en tracering van API's. Voorbeelden van deze Azure Stack-onderdelen zijn deze providers: netwerkbron, Opslagresource Resource bewaking en resources bijwerken. Het onderdeel gebruikerservaring verbonden en telemetrie versleutelt gegevens met behulp van SSL en maakt gebruik van certificaten vast te maken voor het verzenden van gegevens via HTTPS naar de Microsoft Data Management-service.
 
 > [!IMPORTANT]
-> Schakel telemetrie gegevensstroom door moet poort 443 (HTTPS) openen in uw netwerk. Het onderdeel verbonden gebruikerservaring en telemetrie verbindt met de Microsoft Data Management-service op https://v10.vortex-win.data.microsoft.com. Het onderdeel verbonden gebruikerservaring en telemetrie ook verbinding maakt met https://settings-win.data.microsoft.com voor het downloaden van configuratie-informatie.
+> Om in te schakelen telemetriegegevensstroom, moet poort 443 (HTTPS) openen in uw netwerk. Het onderdeel gebruikerservaring verbonden en telemetrie maakt verbinding met de Microsoft Data Management-service op https://v10.vortex-win.data.microsoft.com. Het onderdeel gebruikerservaring verbonden en telemetrie ook verbinding maakt met https://settings-win.data.microsoft.com voor het downloaden van configuratie-informatie.
 
-## <a name="privacy-considerations"></a>Privacyoverwegingen
+## <a name="privacy-considerations"></a>Privacy-overwegingen
 
-De ETW-service stuurt telemetrische gegevens terug naar de beveiligde cloud-opslag. Het principe van minimale bevoegdheden begeleidt toegang tot telemetriegegevens. Alleen medewerkers van Microsoft met een geldige bedrijfsbehoefte toegang krijgen tot de telemetriegegevens. Microsoft geen persoonlijke klantgegevens met derden, deelt, met uitzondering van de klant goeddunken of voor het beperkte doel dat wordt beschreven in de [privacyverklaring van Microsoft](https://privacy.microsoft.com/PrivacyStatement). Zakelijke rapporten die worden gedeeld met de OEM's en partners bevatten verzamelde, geanonimiseerde gegevens. Beslissingen delen van gegevens worden gemaakt door een interne Microsoft-team, met inbegrip van privacy, juridische en data management belanghebbenden.
+De ETW-service stuurt telemetrische gegevens terug naar een beveiligde cloud-opslag. Het principe van minimale bevoegdheden ligt door toegang tot de telemetrische gegevens. Alleen Microsoft-personeel met een geldige zakelijke behoeften toegang krijgen tot de telemetrische gegevens. Microsoft biedt geen persoonlijke klantgegevens met derden, delen, met uitzondering van de klant goeddunken of voor de beperkte toepassing beschreven in de [privacyverklaring van Microsoft](https://privacy.microsoft.com/PrivacyStatement). Zakelijke rapporten die worden gedeeld met OEM's en partners bevatten verzamelde, geanonimiseerde gegevens. Beslissingen voor het delen van gegevens worden gemaakt door een interne Microsoft-team, met inbegrip van privacy, juridische en management belanghebbenden.
 
-Microsoft gelooft en procedures, afhankelijk van de informatie. We willen verzamelen alleen de informatie die nodig, en opslaan voor alleen zolang als nodig om een service te bieden of voor analyse. Veel van de informatie over hoe de Azure-Stack-systeem en de Azure-services werken wordt binnen zes maanden verwijderd. Samengevat of cumulatieve gegevens voor een langere periode worden behouden.
+Microsoft streeft ernaar en informatie tot procedures. We streven ernaar om het verzamelen van alleen de informatie die nodig, en op te slaan voor alleen zo lang die nodig is voor het leveren van een service of voor analyse. Veel van de informatie over hoe de Azure Stack-systeem en de Azure-services werken binnen zes maanden verwijderd. Samengevatte of geaggregeerde gegevens worden bewaard voor een langere periode.
 
-We begrijpen dat de privacy en beveiliging van klantgegevens belangrijk is.  Microsoft gaat een benadering attente en uitgebreid naar de privacy van klanten en de bescherming van gegevens van de klant in Azure-Stack. IT-beheerders hebben besturingselementen voor het aanpassen van functies en privacy-instellingen op elk gewenst moment. Onze inzet voor transparantie en een vertrouwensrelatie is uitgeschakeld:
+We begrijpen dat de privacy en beveiliging van informatie over de klant is belangrijk.  Microsoft hanteert een doordachte en uitgebreide benadering privacy van klanten en de bescherming van gegevens van de klant in Azure Stack. IT-beheerders hebben besturingselementen voor het aanpassen van functies en privacy-instellingen op elk gewenst moment. Onze toewijding aan transparantie en vertrouwen is duidelijk:
 
 - We openen met klanten over de typen gegevens die we verzamelen.
-- We enterprise-klanten plaatsen in besturingselement: zij hun eigen privacy-instellingen kunnen aanpassen.
-- We plaatsen klant privacy en beveiliging eerst.
-- We transparante over het gebruik telemetrische gegevens opgehaald.
-- We gebruiken telemetriegegevens gebruikerservaringen verbeteren.
+- We plaatsen enterprise-klanten in besturingselement, kunnen ze hun eigen privacy-instellingen aanpassen.
+- We plaats privacy van klanten en beveiliging eerst.
+- We transparante over hoe telemetrische gegevens wordt gebruikt.
+- We telemetriegegevens gebruikt om betere klantervaringen.
 
-Microsoft biedt geen plan voor het verzamelen van gevoelige gegevens, zoals creditcardnummers, gebruikersnamen en wachtwoorden, e-mailadressen of vergelijkbare gevoelige informatie. Als we bepalen dat gevoelige informatie per ongeluk is ontvangen, wordt deze verwijderd.
+Microsoft niet van plan bent voor het verzamelen van gevoelige gegevens, zoals creditcardnummers, gebruikersnamen en wachtwoorden, e-mailadressen of vergelijkbare gevoelige informatie. Als we ontdekken dat gevoelige informatie per ongeluk is ontvangen, wordt het verwijderen.
 
-## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Voorbeelden van hoe de telemetriegegevens maakt gebruik van Microsoft
+## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Voorbeelden van hoe Microsoft de telemetriegegevens die zijn gebruikt
 
-Telemetrie speelt een belangrijke rol bij het snel vaststellen en oplossen van kritieke betrouwbaarheidsproblemen in implementaties van klanten en configuraties. Inzicht in telemetriegegevens kunt identificeren van problemen met services of hardwareconfiguraties. De mogelijkheid van Microsoft om deze gegevens van klanten en verbeteringen van de schijf met het ecosysteem wordt gegeven van de balk voor de kwaliteit van de geïntegreerde Azure Stack-oplossingen.
+Telemetrie speelt een belangrijke rol bij het helpen om snel te identificeren en oplossen van problemen voor betrouwbaarheid in implementaties van klanten en configuraties. Inzichten op basis van telemetrische gegevens kunt identificeren van problemen met de services of hardwareconfiguraties. Microsoft kan deze gegevens ophalen van klanten en station verbeteringen aan het ecosysteem, genereert de balk voor de kwaliteit van de geïntegreerde Azure Stack-oplossingen.
 
-Telemetrie kunt u ook Microsoft beter inzicht in hoe de onderdelen voor het implementeren van klanten, gebruikmaken van de functies en services gebruiken om hun zakelijke doelstellingen te realiseren. Deze inzichten te prioriteren van technische investeringen in de gebieden die direct gebruikerservaringen en werkbelastingen gevolgen kunnen.
+Telemetrie helpt ook bij Microsoft om beter te begrijpen hoe de onderdelen voor het implementeren van klanten, gebruik van functies en services gebruiken om hun zakelijke doelstellingen te realiseren. Deze inzichten kunnen prioriteiten op de belangrijkste gebieden direct klantervaringen en werkbelastingen gevolgen kunnen.
 
-Voorbeelden zijn het gebruik van de klant van containers, opslag- en netwerkconfiguraties die gekoppeld aan Azure-Stack-rollen zijn. We gebruiken ook de inzichten station verbeteringen en intelligence in Azure Stack-beheer en controle van oplossingen. Deze verbeteringen maken het gemakkelijker voor klanten om problemen te diagnosticeren en geld doordat minder ondersteuning besparen aanroepen naar Microsoft.
+Enkele voorbeelden zijn het gebruik van de klant van containers, opslag- en netwerkconfiguraties die gekoppeld aan Azure Stack-rollen zijn. We gebruiken ook de inzichten station verbeteringen en intelligentie in Azure Stack-beheer en controle van oplossingen. Deze verbeteringen maken het gemakkelijker voor klanten om problemen te diagnosticeren en geld door minder ondersteuning kunnen besparen aanroepen naar Microsoft.
 
-## <a name="manage-telemetry-collection"></a>Verzameling van telemetrie beheren
+## <a name="manage-telemetry-collection"></a>Verzamelen van telemetriegegevens beheren
 
-Wordt niet aanbevolen het uitschakelen van telemetrie in uw organisatie. Echter, in sommige scenario's dit kan nodig zijn.
+We niet aanbevolen het uitschakelen van telemetrie in uw organisatie. Echter, in sommige scenario's dit kan nodig zijn.
 
-In deze scenario's, kunt u het niveau van de telemetrie naar Microsoft verzonden met behulp van registerinstellingen voordat u Azure-Stack implementeert of met behulp van de telemetrie-eindpunten nadat u Azure-Stack implementeert.
+In deze scenario's kunt u het telemetrieniveau van de naar Microsoft verzonden met behulp van de instellingen in het register voordat u implementeert in Azure Stack, of met behulp van de telemetrie-eindpunten, nadat u Azure Stack implementeren configureren.
 
 ### <a name="telemetry-levels-and-data-collection"></a>Telemetrie-niveaus en gegevensverzameling
 
-Voordat u de telemetrie-instellingen wijzigt, moet u de telemetrie-niveaus en welke gegevens worden verzameld op elk niveau begrijpen.
+Voordat u telemetrie-instellingen wijzigt, moet u de telemetrie-niveaus en welke gegevens worden verzameld op elk niveau begrijpen.
 
-De telemetrie-instellingen zijn gegroepeerd in vier niveaus (0-3) die cumulatieve en gecategoriseerd als de wordt gevolgd zijn:
+De telemetrie-instellingen zijn gegroepeerd in vier niveaus (0-3) die cumulatief en gecategoriseerd als de volgende manier zijn:
 
 **0 (beveiliging)**</br>
-Beveiligingsgegevens. Gegevens die vereist zijn om het besturingssysteem te beveiligen. Dit omvat gegevens over de instellingen van het onderdeel verbonden gebruikerservaring en Telemetrie en Windows Defender. Er is geen telemetrie die specifiek zijn voor Azure-Stack is verzonden op dit niveau.
+Alleen beveiligingsgegevens. De informatie die vereist zijn ter beveiliging van het besturingssysteem. Dit omvat gegevens over de instellingen voor gebruikerservaring verbonden en telemetrie-onderdeel en de Windows Defender. Er is geen specifiek voor Azure Stack telemetrie wordt verzonden op dit niveau.
 
 **1 (basis)**</br>
-Beveiligingsgegevens en Basisstatus en -kwaliteit gegevens. Basic apparaatgegevens, met inbegrip van: gegevens met betrekking tot de kwaliteit, app-compatibiliteit, app-gebruiksgegevens, en de gegevens uit de **beveiliging** niveau. Uw telemetrie-niveau wordt ingesteld op Basic schakelt Azure Stack telemetrie. De gegevens die worden verzameld op dit niveau omvat:
+Beveiligingsgegevens, en Basisbewaking van statussen en kwaliteit. Basic apparaatgegevens, met inbegrip van: gegevens met betrekking tot kwaliteit, app-compatibiliteit, basisgegevens, en de gegevens uit de **Security** niveau. Uw telemetrieniveau instellen op Basic kunnen Azure Stack telemetrie. De gegevens die zijn verzameld op dit niveau bevat:
 
-- *Basic apparaatgegevens* die zorgt voor een goed begrip over de typen en configuraties van systeemeigen en virtuele Windows Server 2016-exemplaren in het ecosysteem. Dit omvat:
+- *Basic apparaatgegevens* die zorgt voor een goed begrip over de typen en -configuraties van systeemeigen en virtuele Windows Server 2016-instanties in het ecosysteem. Dit omvat:
 
-  - Machine kenmerken, zoals de OEM en het model.
-  - Kenmerken, netwerken, zoals het aantal netwerkadapters en de snelheid.
-  - Kenmerken processor en geheugen, zoals het aantal kernen en de hoeveelheid geheugen is geïnstalleerd.
-  - Opslagkenmerken, zoals het aantal stations, type station en de grootte van de schijf.
+  - Machine-kenmerken, zoals de OEM, en het model.
+  - Kenmerken, zoals het aantal netwerkadapters en de snelheid van toegang.
+  - Processor en geheugen kenmerken, zoals het aantal kernen en de hoeveelheid geheugen die is geïnstalleerd.
+  - Opslagkenmerken, zoals het aantal schijven, type station en grootte van de schijf.
 
-- *Telemetrie-functionaliteit*, met inbegrip van de hoeveelheid geüploade gebeurtenissen, Verwijderde gebeurtenissen en de meest recente gegevens uploaden tijd.
-- *Informatie met betrekking tot kwaliteit* die helpt Microsoft bij het ontwikkelen van een basiskennis van hoe Azure-Stack is uitvoert. Bijvoorbeeld: de telling van kritieke waarschuwingen op een specifieke hardwareconfiguratie.
-- *Compatibiliteitsgegevens* die zorgt voor een goed begrip over die Resource Providers worden geïnstalleerd op een systeem- en een virtuele machine. Hiermee wordt de mogelijke compatibiliteitsproblemen geïdentificeerd.
+- *Telemetrie-functionaliteit*, met inbegrip van de hoeveelheid geüploade gebeurtenissen, Verwijderde gebeurtenissen en de meest recente gegevens uploadtijd.
+- *Informatie met betrekking tot kwaliteit* die helpt Microsoft bij het ontwikkelen van een basiskennis hebt van hoe Azure Stack wordt uitgevoerd. Bijvoorbeeld, het aantal kritieke waarschuwingen op een specifieke hardwareconfiguratie.
+- *Compatibiliteit* die zorgt voor een goed begrip over welke Resource-Providers geïnstalleerd op een systeem- en een virtuele machine. Hiermee wordt aangegeven voor mogelijke compatibiliteitsproblemen.
 
 **2 (uitgebreid)**</br>
-Als u meer inzicht, waaronder: hoe het besturingssysteem en de Azure-Stack-services worden gebruikt, hoe deze services uitvoeren, geavanceerde betrouwbaarheid gegevens en gegevens van de **beveiliging** en **Basic** niveaus.
+Extra inzichten, met inbegrip van: hoe het besturingssysteem en Azure Stack-services worden gebruikt, hoe deze services uitvoeren, geavanceerde betrouwbaarheid gegevens en gegevens van de **Security** en **Basic** niveaus.
 
 > [!NOTE]
 > Dit is de standaardinstelling voor telemetrie.
 
 **3 (volledig)**</br>
-Alle gegevens die nodig zijn om te bepalen en te helpen bij het oplossen van problemen, plus gegevens uit de **beveiliging**, **Basic**, en **uitgebreid** niveaus.
+Alle gegevens die nodig zijn om te identificeren en te helpen problemen op te lossen, plus gegevens uit de **Security**, **Basic**, en **uitgebreid** niveaus.
 
 > [!IMPORTANT]
-> Deze niveaus telemetrie zijn alleen van toepassing op Microsoft Azure-Stack-onderdelen. Niet-Microsoft-software-onderdelen en services die worden uitgevoerd in de Host van de levenscyclus van Hardware van Azure-Stack hardwarepartners kunnen communiceren met hun cloud-services buiten deze niveaus telemetrie. U moet samenwerken met uw Azure-Stack hardware solution provider over hun beleid Telemetrie en hoe u kunt aanmelden of opt-out.
+> Deze niveaus telemetrie zijn alleen van toepassing op Microsoft Azure Stack-onderdelen. Niet-Microsoft-software-onderdelen en services die worden uitgevoerd in de Host van de levenscyclus van Hardware van Azure Stack-hardware-partners kunnen communiceren met hun cloud-services buiten deze telemetrie-niveaus. U moet werken met uw Azure Stack-solution-provider voor hardware om te begrijpen van hun beleid telemetrie, en hoe u kunt ervoor kiezen of opt-out.
 
-Windows- en Azure Stack telemetrie uitschakelen, schakelt ook SQL telemetrie. Zie voor meer informatie over de gevolgen van de telemetrie-instellingen voor Windows Server, de [Windows telemetrie technisch document](https://aka.ms/winservtelemetry).
+Het uitschakelen van Windows-en Azure Stack, schakelt ook SQL telemetrie. Zie voor meer informatie over de gevolgen van de telemetrie-instellingen voor Windows Server, de [technisch document Windows-telemetrie](https://aka.ms/winservtelemetry).
 
-### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: de telemetrie-niveau instellen in het Windows-register
+### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: Stel het telemetrieniveau van de in de Windows-register
 
-De Windows-register-Editor kunt u handmatig de telemetrie-niveau instellen op de fysieke computer voordat u Azure-Stack implementeert. Als een management-beleid al, zoals Groepsbeleid bestaat, wordt deze registerinstelling overschreven.
+De Windows-register-Editor kunt u het telemetrieniveau van de handmatig instellen op de fysieke hostcomputer voordat u Azure Stack implementeren. Als een management-beleid al, zoals Groepsbeleid bestaat, overschrijft deze instelling in het register.
 
-Voordat u Azure-Stack implementeert op de host van de kit ontwikkeling, start CloudBuilder.vhdx op en voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid:
+Voordat u implementeert Azure Stack op de host van development kit, opstarten naar CloudBuilder.vhdx en voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid:
 
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
@@ -122,16 +122,16 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-### <a name="asdk-and-multi-node-enable-or-disable-telemetry-after-deployment"></a>ASDK en met meerdere knooppunten: in- of uitschakelen van telemetrie na implementatie
+### <a name="asdk-and-multi-node-enable-or-disable-telemetry-after-deployment"></a>ASDK en meerdere knooppunten: in- of uitschakelen telemetrie na de implementatie
 
-Als u wilt in- of uitschakelen van telemetrie na de implementatie, moet u aan de bevoorrechte eindpunt (PEP) die wordt weergegeven op de ERCS virtuele machines toegang hebben.
+Als u wilt in- of uitschakelen telemetrie na de implementatie, moet u beschikken over naar de bevoegde eindpunt (PEP) die wordt weergegeven op de ERCS virtuele machines.
 
 1. Om in te schakelen: `Set-Telemetry -Enable`
-2. Uitschakelen: `Set-Telemetry -Disable`
+2. Om uit te schakelen: `Set-Telemetry -Disable`
 
-Parameterdetails van de:
-> . PARAMETER Enable - inschakelen telemetrie uploaden van gegevens</br>
-> . Uitschakelen van de PARAMETER - uitschakelen telemetrie uploaden van gegevens  
+Details van de PARAMETER:
+> . Inschakelen van de PARAMETER - inschakelen telemetrie gegevens uploaden</br>
+> . Uitschakelen van de PARAMETER - uitschakelen telemetrie gegevens uploaden  
 
 **Script telemetrie inschakelen:**
 
@@ -163,6 +163,4 @@ if($psSession)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Het implementatiepakket Azure Stack development kit downloaden](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
-
-- [Azure-Stack development kit implementeren](azure-stack-run-powershell-script.md)
+[Azure Stack registreren bij Azure](azure-stack-registration.md)

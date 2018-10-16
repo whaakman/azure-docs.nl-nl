@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309192"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318126"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Overzicht van plannen, aanbiedingen, quota en abonnementen
 
@@ -52,7 +52,7 @@ De abonnementen zijn groepen van een of meer services. Als Azure Stack-operators
 
 Voor hulp bij het beheren van de cloudcapaciteit van de, kunt u vooraf geconfigureerde *quota*, of een nieuw quotum voor elke service in een plan maken. Quota's definiëren de bovenste limieten die een gebruikersabonnement kunt inrichten of gebruiken. Een quotum kan bijvoorbeeld toestaan dat een gebruiker te maken van maximaal vijf virtuele machines (VM's).
 
-U kunt quota's per regio configureren. Een plan waarmee compute-services voor een regio kan bijvoorbeeld een quotum van twee VM's met 4 GB RAM en 8 CPU-kernen hebben.
+U kunt quota's per regio configureren. Een plan waarmee compute-services voor een regio kan bijvoorbeeld een quotum van twee virtuele machines hebben.
 
 >[!NOTE]
 >In de Azure Stack Development Kit, slechts één regio (met de naam *lokale*) beschikbaar is.
