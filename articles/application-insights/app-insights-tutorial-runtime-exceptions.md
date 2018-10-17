@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815110"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298997"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Runtime-uitzonderingen vinden en diagnosticeren met behulp van Azure Application Insights
 
@@ -101,6 +101,15 @@ Alle gegevens die door Application Insights worden verzameld, worden opgeslagen 
     ![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Klik op **Impact analyseren** om Application Insights Analytics te openen.  Het wordt gevuld met enkele query's die details bieden over mislukte aanvragen, zoals getroffen gebruikers, browsers en regio's.<br><br>![Analytische gegevens](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>Werkitem toevoegen
+Als u Application Insights aansluit op een trackingsysteem zoals Azure DevOps of GitHub, kunt u direct vanuit Application Insights een werkitem maken.
+
+1. Ga terug naar het deelvenster **Uitzonderingseigenschappen** in Application Insights.
+2. Klik op **Nieuw werkitem**.
+3. Het deelvenster **Nieuw werkitem** wordt geopend, waarin al gegevens over de uitzondering zijn ingevuld.  U kunt aanvullende informatie toevoegen voordat u opslaat.
+
+    ![Nieuw werkitem](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u hebt geleerd runtime-uitzonderingen te identificeren, kunt u doorgaan naar de volgende zelfstudie om te leren hoe u prestatieproblemen kunt identificeren en diagnosticeren.

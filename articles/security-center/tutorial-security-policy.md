@@ -3,7 +3,7 @@ title: Azure Security Center-zelfstudie - Beveiligingsbeleidsregels opstellen en
 description: Azure Security Center-zelfstudie - Beveiligingsbeleidsregels opstellen en beoordelen
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358605"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027058"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Zelfstudie: Beveiligingsbeleidsregels opstellen en beoordelen
 Security Center helpt ervoor te zorgen dat beveiligingsvereisten van het bedrijf en de overheid worden nageleefd, door middel van beveiligingsbeleidsregels waarmee de gewenste configuratie van uw workloads kunnen worden gedefinieerd. Wanneer u beleidsregels voor uw Azure-abonnementen definieert en deze aanpast aan het type workload of de vertrouwelijkheid van uw gegevens, kan Security Center beveiligingsaanbevelingen geven voor beveiliging van uw computer-, toepassings-, netwerk-, gegevens en opslag-, identiteit en toegangresources. In deze zelfstudie leert u het volgende:
@@ -42,8 +42,7 @@ In Security Center wordt voor elk van uw Azure-abonnementen automatisch een stan
 
   ![Beveiligingsbeleid](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. Selecteer bij **BELEIDSONDERDELEN** de optie **Beveiligingsbeleid**.
-4. Selecteer **Aan** voor elke beveiligingsconfiguratie die u wilt bewaken. Security Center zal de configuratie van uw omgeving voortdurend bewaken, en wanneer er een beveiligingsprobleem is, wordt door Security Center een beveiligingsaanbeveling gegenereerd. Selecteer **Uit** als de beveiligingsconfiguratie niet aanbevolen of niet relevant is. Zo hebt u bijvoorbeeld in een ontwikkel-/testomgeving misschien niet hetzelfde beveiligingsniveau nodig als in een productie-omgeving. Klik op **Opslaan** nadat u de beleidsregels hebt geselecteerd die van toepassing zijn op uw omgeving.
+3. Stel onder **Compute en apps**, **Netwerk** en **Gegevens** elke beveiligingsconfiguratie die u wilt bewaken in op **Aan**. Security Center zal de configuratie van uw omgeving voortdurend bewaken, en wanneer er een beveiligingsprobleem is, wordt door Security Center een beveiligingsaanbeveling gegenereerd. Selecteer **Uit** als de beveiligingsconfiguratie niet aanbevolen of niet relevant is. Zo hebt u bijvoorbeeld in een ontwikkel-/testomgeving misschien niet hetzelfde beveiligingsniveau nodig als in een productie-omgeving. Klik op **Opslaan** nadat u de beleidsregels hebt geselecteerd die van toepassing zijn op uw omgeving.
 
   ![Beveiligingsconfiguratie](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

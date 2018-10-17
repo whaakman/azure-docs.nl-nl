@@ -1,6 +1,6 @@
 ## <a name="create-a-project-zip-file"></a>Een ZIP-bestand van het project maken
 
-Maak een ZIP-archief van alle bestanden in uw project. De volgende opdracht maakt gebruik van het standaardhulpprogramma in de terminal:
+Zorg ervoor dat u zich nog steeds in de hoofdmap van het voorbeeldproject bevindt. Maak een ZIP-archief van alle bestanden in uw project. De volgende opdracht maakt gebruik van het standaardhulpprogramma in de terminal:
 
 ```
 # Bash

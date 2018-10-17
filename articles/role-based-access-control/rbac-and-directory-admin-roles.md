@@ -1,5 +1,5 @@
 ---
-title: Klassieke abonnementsbeheerdersrollen vs. Azure RBAC-rollen vs. Azure AD-beheerdersrollen | Microsoft Docs
+title: Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen | Microsoft Docs
 description: In dit artikel worden de verschillende rollen in Azure beschreven, te weten klassieke abonnementsbeheerdersrollen, RBAC-rollen (rollen op basis van toegangsbeheer) van Azure en beheerdersrollen van Azure AD (Azure Active Directory)
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714091"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304064"
 ---
-# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Klassieke abonnementsbeheerdersrollen vs. Azure RBAC-rollen vs. Azure AD-beheerdersrollen
+# <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Klassieke abonnementsbeheerdersrollen, Azure RBAC-rollen en Azure AD-beheerdersrollen
 
 Als u nieuw bent bij Azure, is het misschien lastig om een goed beeld te krijgen van de verschillende rollen in Azure. In dit artikel vindt u informatie over de volgende rollen en wanneer u elk type rol moet gebruiken:
 - Klassieke abonnementsbeheerdersrollen
@@ -44,15 +44,15 @@ Accountbeheerder, Servicebeheerder en Medebeheerder zijn de drie klassieke abonn
 
 | Klassiek abonnement beheerder | Limiet | Machtigingen | Opmerkingen |
 | --- | --- | --- | --- |
-| Accountbeheerder | 1 per Azure-account | <ul><li>[Azure-accountcentrum](https://account.azure.com/Subscriptions) openen</li><li>Alle abonnementen in een account beheren</li><li>Nieuwe abonnementen maken</li><li>Abonnementen annuleren</li><li>De facturering voor een abonnement wijzigen</li><li>De servicebeheerder wijzigen</li></ul> | Conceptueel gezien de factureringseigenaar van het abonnement.|
-| Servicebeheerder | 1 per Azure-abonnement | <ul><li>Services beheren in de [Azure-portal](https://portal.azure.com)</li><li>Gebruikers de rol van medebeheerder geven</li></ul> | Voor een nieuw abonnement is het standaard zo dat de accountbeheerder ook de servicebeheerder is.<br>De servicebeheerder heeft dezelfde toegang als een gebruiker met de rol van eigenaar op abonnementsniveau. |
+| Accountbeheerder | 1 per Azure-account | <ul><li>[Azure-accountcentrum](https://account.azure.com/Subscriptions) openen</li><li>Alle abonnementen in een account beheren</li><li>Nieuwe abonnementen maken</li><li>Abonnementen annuleren</li><li>De facturering voor een abonnement wijzigen</li><li>De servicebeheerder wijzigen</li></ul> | Conceptueel gezien de factureringseigenaar van het abonnement.<br>De accountbeheerder heeft geen toegang tot de Azure-portal. |
+| Servicebeheerder | 1 per Azure-abonnement | <ul><li>Services beheren in de [Azure-portal](https://portal.azure.com)</li><li>Gebruikers de rol van medebeheerder geven</li></ul> | Voor een nieuw abonnement is het standaard zo dat de accountbeheerder ook de servicebeheerder is.<br>De servicebeheerder heeft dezelfde toegang als een gebruiker met de rol van eigenaar op abonnementsniveau.<br>De servicebeheerder heeft volledige toegang tot de Azure-portal. |
 | Medebeheerder | 200 per abonnement | <ul><li>Deze rol heeft dezelfde toegangsrechten als de rol Servicebeheerder, maar kan de koppeling van abonnementen aan Azure-adreslijsten niet wijzigen</li><li>Gebruikers toewijzen aan de rol Medebeheerder, maar kan de servicebeheerder niet wijzigen</li></ul> | De medebeheerder heeft dezelfde toegang als een gebruiker met de rol van eigenaar op abonnementsniveau. |
 
 In de Azure-portal kunt u zien wie er is toegewezen aan de rol van servicebeheerder en van accountbeheerder door de eigenschappen van uw abonnement te bekijken.
 
 ![Accountbeheerder en Servicebeheerder in de Azure-portal](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-Zie [Azure-abonnementsbeheerders toevoegen of wijzigen](../billing/billing-add-change-azure-subscription-administrator.md) in de documentatie van Azure Billing voor meer informatie over het toevoegen of wijzigen van abonnementsbeheerders.
+Zie [Azure-abonnementsbeheerders toevoegen of wijzigen](../billing/billing-add-change-azure-subscription-administrator.md) in de documentatie van Azure Billing voor meer informatie over het toevoegen of wijzigen van klassieke abonnementsbeheerders.
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure-account en Azure-abonnementen
 

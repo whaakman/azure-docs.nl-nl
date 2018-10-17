@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918083"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391467"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
 U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken om uw toepassingen te implementeren in Azure. In dit artikel leest u hoe u een Java-toepassing implementeert in een schaalset voor virtuele Azure-machines (VMSS).  
@@ -31,7 +31,7 @@ U kunt Ansible ook gebruiken om de implementatie en configuratie van resources i
 
 ## <a name="get-host-information"></a>Hostgegevens ophalen
 
-In deze sectie ziet u hoe u met Ansible hostgegevens kunt ophalen voor een groep virtuele Azure-machines. Hieronder ziet u een voorbeeld van een Ansible-playbook. Met de code worden de openbare IP-addressen en load balancer binnen de opgegeven resourcegroup opgehaald en wordt een hostgroep met de naam **saclesethosts** gemaakt in de inventaris. 
+In deze sectie ziet u hoe u met Ansible hostgegevens kunt ophalen voor een groep virtuele Azure-machines. Hieronder ziet u een voorbeeld van een Ansible-playbook. Met de code worden de openbare IP-adressen en load balancer binnen de opgegeven resourcegroup opgehaald en wordt een hostgroep met de naam **saclesethosts** gemaakt in de inventaris. 
 
 Sla het volgende voorbeeld-playbook op als `get-hosts-tasks.yml`: 
 

@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, configuratie van gewenste status, u
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e09a1b1c1a849e9957c2969da2b8e4c1d00347ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053773"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297687"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Een inleiding tot Azure Automation
 
@@ -65,7 +65,7 @@ Doorzoek de [Automation-galerie](automation-runbook-gallery.md) op runbooks en m
 
 Azure Automation beheert de gehele levenscyclus van uw infrastructuur en toepassingen. Voorzie het systeem van informatie over de manier waarop de organisatie werkbelastingen levert en onderhoudt. Ontwerp in algemene talen zoals PowerShell, de configuratie van de gewenste status, Python en grafische runbooks. Genereer een volledige inventarisatie van geïmplementeerde resources voor doelitems, rapportage en naleving. Stel de wijzigingen vast die kunnen leiden tot een onjuiste configuratie en die kunnen zorgen voor een betere operationele naleving.
 
-* **Resources bouwen/implementeren**: implementeer virtuele machines in een hybride omgeving met behulp van Runbooks en Azure Resource Manager-sjablonen. Integreer met ontwikkelingsprogramma's zoals Jenkins en Visual Studio Team-services.
+* **Resources bouwen/implementeren**: implementeer virtuele machines in een hybride omgeving met behulp van Runbooks en Azure Resource Manager-sjablonen. Integreer met ontwikkelingsprogramma's zoals Jenkins en Azure DevOps.
 * **VM's configureren**: evalueer en configureer Windows- en Linux-machines met de gewenste configuratie voor infrastructuur en toepassing.
 * **Controle**: stel wijzigingen op machines vast die problemen veroorzaken en die oplossingen bieden voor of escaleren met beheersystemen.
 * **Beveiliging**: plaats virtuele machines in quarantaine als er een beveiligingswaarschuwing wordt gegeven. Stel in-guest vereisten in.

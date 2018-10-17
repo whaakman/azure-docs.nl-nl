@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e99d6e917df1bf3bbb4658524f1b3e249a01da72
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433881"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054635"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Zelfstudie: Een app met meerdere containers (preview) maken in Web App for Containers
 
-Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. In deze zelfstudie leert u hoe u een app met meerdere containers maakt met behulp van WordPress en MySQL. U gaat deze snelstart in Cloud Shell doen, maar u kunt deze opdrachten ook lokaal uitvoeren met [Cloud ShellI](/cli/azure/install-azure-cli) (2.0.32 of hoger).
+Met behulp van [Web App for Containers](app-service-linux-intro.md) kunt u op een flexibele manier Docker-installatiekopieën gebruiken. In deze zelfstudie leert u hoe u een app met meerdere containers maakt met behulp van WordPress en MySQL. U maakt deze zelfstudie in Cloud Shell af, maar u kunt deze opdrachten ook lokaal uitvoeren met het opdrachtregelhulpprogramma [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 of later).
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
@@ -588,6 +588,30 @@ Wanneer de database is gemaakt, wordt in Cloud Shell informatie weergegeven die 
 }
 ```
 
+### <a name="create-a-multi-container-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
+
+Maak in Cloud Shell een [web-app](app-service-linux-intro.md) met meerdere containers in de resourcegroep `myResourceGroup` en in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
+
+```bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
+```
+
+Wanneer de web-app is gemaakt, toont Cloud Shell soortgelijke uitvoer als in het volgende voorbeeld:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
 ### <a name="configure-database-variables-in-wordpress"></a>Databasevariabelen in WordPress configureren
 
 Als u de WordPress-app wilt verbinden met deze nieuwe MySQL-server, configureert u een aantal specifieke WordPress-omgevingsvariabelen. Als u deze wijziging wilt aanbrengen, gebruikt u de opdracht [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. App-instellingen zijn hoofdlettergevoelig en door spaties gescheiden.
@@ -645,30 +669,6 @@ Wanneer de app-instelling is gemaakt, toont Cloud Shell soortgelijke informatie 
     "value": "TRUE"
   }
 ]
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>Een app met meerdere containers maken (Kubernetes)
-
-Maak in Cloud Shell een [web-app](app-service-linux-intro.md) met meerdere containers in de resourcegroep `myResourceGroup` en in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vergeet niet om de _\<app_naam>_ te vervangen door een unieke app-naam.
-
-```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-Wanneer de web-app is gemaakt, toont Cloud Shell soortgelijke uitvoer als in het volgende voorbeeld:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
 ```
 
 ### <a name="browse-to-the-app"></a>Bladeren naar de app

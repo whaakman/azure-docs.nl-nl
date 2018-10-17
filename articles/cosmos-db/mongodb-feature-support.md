@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928683"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050337"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>API-ondersteuning voor MongoDB voor MongoDB-functies en -syntaxis
 
@@ -316,11 +316,11 @@ Unieke indexen zijn beschikbaar in alle MongoDB-accounts.
 
 ## <a name="time-to-live-ttl"></a>TTL (time-to-live)
 
-Azure Cosmos DB biedt ondersteuning voor een relatieve TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan via [Azure Portal](https://portal.azure.com) worden ingeschakeld voor MongoDB-API-verzamelingen.
+Azure Cosmos DB biedt ondersteuning voor een relatieve TTL (time-to-live) op basis van de tijdstempel van het document. TTL kan via de [Azure-portal](https://portal.azure.com) worden ingeschakeld voor MongoDB-API-verzamelingen.
 
 ## <a name="user-and-role-management"></a>Gebruikers- en rolbeheer
 
-Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via [Azure Portal](https://portal.azure.com) (pagina Verbindingsreeks).
+Azure Cosmos DB biedt nog geen ondersteuning voor gebruikers en rollen. Azure Cosmos DB biedt op rollen gebaseerd toegangsbeheer (RBAC), wachtwoorden voor lezen/schrijven en wachtwoorden met het kenmerk Alleen-lezen die kunnen worden verkregen via de [Azure-portal](https://portal.azure.com) (pagina Verbindingsreeks).
 
 ## <a name="replication"></a>Replicatie
 

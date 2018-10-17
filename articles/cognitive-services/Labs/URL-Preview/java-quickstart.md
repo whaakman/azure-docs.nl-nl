@@ -1,31 +1,33 @@
 ---
-title: Java-Quick Start voor het voorbeeld in de Project-URL - cognitieve Microsoft-Services | Microsoft Docs
-description: Het voorbeeldscript aan de slag met behulp van de evaluatieversie van de URL-Project in Microsoft cognitieve Services in Azure.
+title: 'Snelstart: URL-voorbeelden voor een project, Java'
+titlesuffix: Azure Cognitive Services
+description: Voorbeeldscript om aan de slag te gaan met URL-voorbeelden van een project met Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345290"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867105"
 ---
-# <a name="url-preview-java-quickstart"></a>Quick Start-URL Preview Java
+# <a name="quickstart-url-preview-with-java"></a>Snelstart: URL-voorbeeld met Java
 
-Het volgende Java-voorbeeld wordt een voorbeeld-Url voor de website van SwiftKey: https://swiftkey.com/en.
+In het volgende voorbeeld van Java wordt een URL-voorbeeld gemaakt voor de SwiftKey-website: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-## <a name="request"></a>Aanvragen 
+## <a name="request"></a>Aanvraag 
 
-De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en voegt u een queryreeks voor 'https://swiftkey.com/en'.  Vervolgens stuurt de aanvraag en wijst het antwoord op een tekenreeks op voor de JSON-tekst bevatten.
+Met de volgende code wordt een `WebRequest` gemaakt, de koptekst van de toegangssleutel ingesteld en een query-tekenreeks toegevoegd voor https://swiftkey.com/en.  Vervolgens wordt de aanvraag verzonden en het antwoord toegewezen aan een tekenreeks die de JSON-tekst moet bevatten.
 
 ````
     // construct URL of search request (endpoint + query string)
@@ -49,12 +51,12 @@ De volgende code maakt een `WebRequest`, stelt u de koptekst van de toegang en v
 
 ## <a name="complete-code"></a>Volledige code
 
-De Bing antwoord zoeken-API retourneert resultaten van de zoekmachine Bing.
-1. Downloaden en installeren van de bibliotheek gson.
-2. Maak een nieuwe Java-project in uw favoriete IDE of -editor.
-3. Voeg de code hieronder.
-4. De waarde subscriptionKey vervangen door een geldig toegangssleutel voor uw abonnement.
-5. Voer het programma.
+Met de Bing Answer Search-API worden resultaten geretourneerd uit de Bing-zoekmachine.
+1. Download of installeer de gson-bibliotheek.
+2. Maak een nieuw Java-project in uw favoriete IDE of editor.
+3. Voeg de onderstaande code toe.
+4. Vervang de waarde van subscriptionKey door een geldige toegangssleutel voor uw abonnement.
+5. Voer het programma uit.
 
 ````
 package UrlPreviewpkg;
@@ -166,7 +168,7 @@ class SearchResults{
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](csharp.md)
-- [JavaScript Quick Start](javascript.md)
-- [Knooppunt Quick Start](node-quickstart.md)
-- [Snelstartgids voor PYthon](python-quickstart.md)
+- [Snelstartgids voor C#](csharp.md)
+- [Snelstartgids voor JavaScript](javascript.md)
+- [Snelstartgids voor Node](node-quickstart.md)
+- [Snelstartgids voor Python](python-quickstart.md)

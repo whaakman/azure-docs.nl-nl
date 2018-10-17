@@ -3,7 +3,7 @@ title: 'Snelstart voor Azure Security Center: uw Windows-computers naar Security
 description: In deze snelstart leert u hoe u Microsoft Monitoring Agent op een Windows-computer inricht.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702654"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022997"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snelstart: Windows-computers onboarden naar Azure Security Center
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door Microsoft Monitoring Agent in te richten.
@@ -34,19 +34,19 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 
 ## <a name="add-new-windows-computer"></a>Nieuwe Windows-computer toevoegen
 
-1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Meld u aan bij de [Azure-portal](https://azure.microsoft.com/features/azure-portal/).
 2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
  ![Overzicht van Security Center][2]
 
-3. Selecteer in het hoofdmenu van Security Center de optie **Onboarding naar geavanceerde beveiliging**.
-4. Selecteer **Wilt u niet-Azure-computers toevoegen?**
+3. Selecteer in het hoofdmenu van Security Center de optie **Aan de slag**.
+4. Selecteer het tabblad **Aan de slag**.
 
-   ![Onboarden naar geavanceerde beveiliging][3]
+   ![Aan de slag][3]
 
-5. Bij **Nieuwe niet-Azure-computers toevoegen** wordt een lijst met uw Log Analytics-werkruimten weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
+5. Klik op **Configureren** onder **Nieuwe niet-Azure-computers toevoegen**. Een lijst met uw Log Analytics-werkruimten wordt weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
 
-    ![Niet-Azure-computer toevoegen][4]
+    ![Niet-Azure-computer toevoegen](./media/quick-onboard-windows-computer/non-azure.png)
 
   De blade **Agent toewijzen** wordt geopend, met een koppeling om een Windows-agent en sleutels voor uw werkruimte-id te downloaden, zodat u de agent kunt configureren.
 
@@ -104,7 +104,7 @@ In deze snelstart richt u Microsoft Monitoring Agent in op een Windows-computer.
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

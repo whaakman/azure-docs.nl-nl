@@ -1,5 +1,5 @@
 ---
-title: Zelfstudie - CI/CD van Jenkins voor Azure VM's met Team Services | Microsoft Docs
+title: Zelfstudie - CI/CD van Jenkins voor Azure VM's met Azure DevOps Services | Microsoft Docs
 description: In deze zelfstudie leert u hoe u continue integratie (CI) en continue implementatie (CD) van een Node.js-app kunt instellen met Jenkins voor Azure VM's vanuit Release Management in Visual Studio Team Services of Microsoft Team Foundation Server
 author: tomarcher
 manager: jpconnock
@@ -13,42 +13,44 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: cfe67fbed61b4af9b4a4f5b490397ca1a6e1d752
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390592"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299488"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Visual Studio Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Azure DevOps Services
 
-Continue integratie en continue implementatie vormen een pijplijn waarmee u uw code kunt maken, vrijgeven en implementeren. Visual Studio Team Services bevat een volledige set met CI/CD automatiseringsfuncties voor de implementatie naar Azure. Jenkins is een populair extern CI/CD-serverhulpprogramma dat ook CI/CD-automatisering bevat. U kunt Team Services en Jenkins samen gebruiken als u de manier waarop u uw cloud-app of -service levert, wilt aanpassen.
+Continue integratie en continue implementatie vormen een pijplijn waarmee u uw code kunt maken, vrijgeven en implementeren. Azure DevOps Services bevat een volledige set met CI/CD automatiseringsfuncties voor de implementatie naar Azure. Jenkins is een populair extern CI/CD-serverhulpprogramma dat ook CI/CD-automatisering bevat. U kunt Azure DevOps Services en Jenkins samen gebruiken als u de manier waarop u uw cloud-app of -service levert, wilt aanpassen.
 
-In deze zelfstudie gebruikt u Jenkins om een Node.js-web-app te maken. Vervolgens gebruikt u Team Services of Team Foundation Server om deze te implementeren in een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) met virtuele Linux-machines (VM's). In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie gebruikt u Jenkins om een Node.js-web-app te maken. Vervolgens gebruikt u Azure DevOps om deze te implementeren
+
+naar een [implementatiegroep](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts) die virtuele Linux-machines (VM's) bevat. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * De voorbeeld-app downloaden.
 > * Jenkins-invoegtoepassingen configureren.
 > * Een Jenkins Freestyle-project configureren voor Node.js.
-> * Jenkins configureren voor de integratie met Team Services.
+> * Jenkins configureren voor de integratie met Azure DevOps Services.
 > * Een Jenkins-service-eindpunt maken.
-> * Een implementatiegroep voor de virtuele Azure-machines maken.
-> * Een Team Services-releasedefinitie maken.
+> * Een implementatiegroep maakt voor de virtuele Azure-machines.
+> * Een Azure Pipelines-release-pijplijn maken.
 > * Handmatige en door CI geactiveerde implementaties uitvoeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 * U hebt toegang nodig tot een Jenkins-server. Zie [Een Jenkins-hoofdserver maken op een virtuele Azure-machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template) als u nog geen Jenkins-server hebt gemaakt. 
 
-* Aanmelden bij uw Team Services-account (**https://{uwaccount}.visualstudio.com**). 
-  U kunt een [gratis Team Services-account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308) krijgen.
+* Meld u aan bij uw Azure DevOps Services-organisatie (**https://{uworganisatie}.visualstudio.com**). 
+  U kunt een [gratis Azure DevOps Services-organisatie](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308) krijgen.
 
   > [!NOTE]
-  > Zie [Verbinding maken met Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) voor meer informatie.
+  > Zie [Verbinding maken met Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts) voor meer informatie.
 
 *  U hebt een virtuele Linux-machine nodig voor een implementatiedoel.  Zie [Virtuele Linux-machines maken en beheren met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm) voor meer informatie.
 
-*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie [Netwerkbeveiligingsgroepen maken met Azure Portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic) voor meer informatie.
+*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie [Netwerkbeveiligingsgroepen maken met de Azure-portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic) voor meer informatie.
 
 ## <a name="get-the-sample-app"></a>De voorbeeld-app downloaden
 
@@ -89,22 +91,22 @@ Eerst moet u twee Jenkins-invoegtoepassingen configureren: **NodeJS** en **Conti
 6. Selecteer op de tabblad **Maken** de optie **Shell uitvoeren** en typ de opdracht `npm install` om ervoor te zorgen dat alle afhankelijkheden worden bijgewerkt.
 
 
-## <a name="configure-jenkins-for-team-services-integration"></a>Jenkins configureren voor de integratie met Team Services
+## <a name="configure-jenkins-for-azure-devops-services-integration"></a>Jenkins configureren voor de integratie met Azure DevOps Services
 
 > [!NOTE]
-> Zorg ervoor dat het persoonlijke toegangstoken (PAT) dat u gebruikt voor de volgende stappen, de machtiging *Release* (lezen, schrijven, uitvoeren en beheren) in Team Services bevat.
+> Zorg ervoor dat het persoonlijke toegangstoken (PAT) dat u gebruikt voor de volgende stappen, de machtiging *Release* (lezen, schrijven, uitvoeren en beheren) in Azure DevOps Services bevat.
  
-1.  Maak een PAT in uw Team Services-account als u dit nog niet hebt. In Jenkins is deze informatie vereist om toegang te krijgen tot uw Team Services-account. Zorg ervoor dat u de tokengegevens opslaat voor latere stappen in deze sectie.
+1.  Maak een PAT in uw Azure DevOps Services-organisatie als u er nog geen hebt. In Jenkins is deze informatie vereist om toegang te krijgen tot uw Azure DevOps Services-organisatie. Zorg ervoor dat u de tokengegevens opslaat voor latere stappen in deze sectie.
   
-    Lees [Hoe maak ik een persoonlijk toegangstoken voor VSTS en TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) voor meer informatie over het genereren van een token.
+    Lees [Hoe maak ik een persoonlijk toegangstoken voor Azure DevOps Services?](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) voor meer informatie over het genereren van een token.
 2. Selecteer op het tabblad **Acties na maken** de optie **Actie na maken toevoegen**. Selecteer **De artefacten archiveren**.
 3. Geef voor **Te archiveren bestanden** de optie `**/*` op om alle bestanden op te nemen.
 4. Selecteer **Actie na maken toevoegen** als u nog een actie wilt maken.
-5. Selecteer **Release activeren in TFS/Team Services**. Geef de URI voor uw Team Services-account op, zoals **https://{uwaccountnaam}.visualstudio.com**.
-6. Geef de naam van het **teamproject** op.
-7. Kies een naam voor de releasedefinitie. (U maakt deze releasedefinitie later in Team Services.)
-8. Kies de referenties om verbinding te maken met uw Team Services of Team Foundation Server-omgeving:
-   - Laat **Gebruikersnaam** leeg als u Team Services gebruikt. 
+5. Selecteer **Release activeren in TFS/Team Services**. Voer de URI voor uw Azure DevOps Services-organisatie in, bijvoorbeeld **https://{naam-van-uw-organisatie}.visualstudio.com**.
+6. Voer de naam van het **project** in.
+7. Kies een naam voor de release-pijplijn. (U maakt deze release-pijplijn later in Azure DevOps Services.)
+8. Kies de referenties om verbinding te maken met uw Azure DevOps Services of Team Foundation Server-omgeving:
+   - Laat **Gebruikersnaam** leeg als u Azure DevOps Services gebruikt. 
    - Geef een gebruikersnaam en wachtwoord op als u een on-premises versie van Team Foundation Server gebruikt.    
    ![Jenkins-acties na maken configureren](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Sla het Jenkins-project op.
@@ -112,9 +114,9 @@ Eerst moet u twee Jenkins-invoegtoepassingen configureren: **NodeJS** en **Conti
 
 ## <a name="create-a-jenkins-service-endpoint"></a>Een Jenkins-service-eindpunt maken
 
-Via een service-eindpunt kan Team Services verbinding maken met Jenkins.
+Via een service-eindpunt kan Azure DevOps Services verbinding maken met Jenkins.
 
-1. Open de pagina **Services** in Team Services, open de lijst **Nieuw service-eindpunt** en selecteer **Jenkins**.
+1. Open de pagina **Services** in Azure DevOps Services, open de lijst **Nieuw service-eindpunt** en selecteer **Jenkins**.
    ![Een Jenkins-eindpunt toevoegen](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. Geef een naam voor de verbinding op.
 3. Geef de URL van uw Jenkins-server op en selecteer de optie **Niet-vertrouwde SSL-certificaten accepteren**. Een voorbeeld-URL is **http://{UwJenkinsURL}.westcentralus.cloudapp.azure.com**.
@@ -124,7 +126,7 @@ Via een service-eindpunt kan Team Services verbinding maken met Jenkins.
 
 ## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Een implementatiegroep voor de virtuele Azure-machines maken
 
-U hebt een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) nodig om de Team Services-agent te registreren, zodat de releasedefinitie kan worden geïmplementeerd op uw virtuele machine. Met implementatiegroepen kunt u eenvoudig logische groepen met doelmachines voor implementatie definiëren en de vereiste agent installeren op elke machine.
+U hebt een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) nodig om de Azure DevOps Services-agent te registreren, zodat de release-pijplijn kan worden geïmplementeerd op uw virtuele machine. Met implementatiegroepen kunt u eenvoudig logische groepen met doelmachines voor implementatie definiëren en de vereiste agent installeren op elke machine.
 
    > [!NOTE]
    > In de volgende procedure moet u ervoor zorgen dat u de vereiste onderdelen hebt geïnstalleerd en *moet u het script niet uitvoeren met sudo-bevoegdheden.*
@@ -137,15 +139,15 @@ U hebt een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts
 6. Selecteer **Script kopiëren naar Klembord** om het script te kopiëren.
 7. Meld u aan bij uw virtuele machine van uw implementatiedoel en voer het script uit. Voer het script niet uit met sudo-bevoegdheden.
 8. Na de installatie wordt u gevraagd om implementatiegroepstags. Accepteer de standaardwaarden.
-9. Controleer in Team Services uw zojuist geregistreerde virtuele machine in **Doelen** onder **Implementatiegroepen**.
+9. Controleer in Azure DevOps Services uw zojuist geregistreerde virtuele machine in **Doelen** onder **Implementatiegroepen**.
 
-## <a name="create-a-team-services-release-definition"></a>Een Team Services-releasedefinitie maken
+## <a name="create-a-azure-pipelines-release-pipeline"></a>Een Azure Pipelines-release-pijplijn maken
 
-Met een releasedefinitie geeft u het proces op dat in Team Services wordt gebruikt om de app te implementeren. In dit voorbeeld voert u een shellscript uit.
+Met een release-pijplijn geeft u het proces op dat in Azure DevOps Services wordt gebruikt om de app te implementeren. In dit voorbeeld voert u een shellscript uit.
 
-Een releasedefinitie in Team Services maken:
+De release-pijplijn in Azure Pipelines maken:
 
-1. Open het tabblad **Releases** van de hub **Release &amp; maken** en selecteer **Releasedefinitie maken**. 
+1. Open het tabblad **Releases** van de hub **Release &amp; maken** en selecteer **Release-pijplijn maken**. 
 2. Selecteer de sjabloon **Leeg** door eerst een **Leeg proces** te kiezen.
 3. Selecteer in de sectie **Artefacten** de optie **+ artefacten toevoegen** en kies **Jenkins** voor **Brontype**. Selecteer de verbinding voor uw Jenkins-service-eindpunt. Selecteer vervolgens de Jenkins-brontaak en selecteer **Toevoegen**.
 4. Selecteer het beletselteken naast **Omgeving 1**. Selecteer **Implementatiegroepsfase toevoegen**.
@@ -155,8 +157,8 @@ Een releasedefinitie in Team Services maken:
 8. Voor **Scriptpad** typt u **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
 9. Selecteer **Geavanceerd**, en schakel vervolgens **Werkmap opgeven** in.
 10. Voor **Werkmap** typt u **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
-11. Wijzig de naam van de releasedefinitie in de naam die u hebt opgegeven op het tabblad **Acties na maken** van de build in Jenkins. In Jenkins is deze naam vereist om een nieuwe release te activeren wanneer de bronartefacten zijn bijgewerkt.
-12. Selecteer **Opslaan** en selecteer **OK** om de releasedefinitie op te slaan.
+11. Wijzig de naam van de release-pijplijn in de naam die u hebt opgegeven op het tabblad **Acties na maken** van de build in Jenkins. In Jenkins is deze naam vereist om een nieuwe release te activeren wanneer de bronartefacten zijn bijgewerkt.
+12. Selecteer **Opslaan** en selecteer **OK** om de release-pijplijn op te slaan.
 
 ## <a name="execute-manual-and-ci-triggered-deployments"></a>Handmatige en door CI geactiveerde implementaties uitvoeren
 
@@ -167,7 +169,7 @@ Een releasedefinitie in Team Services maken:
 5. Open in uw browser de URL van een van de servers die u hebt toegevoegd aan de implementatiegroep. Typ bijvoorbeeld **http://{ip-adres-van-uw-server}**.
 6. Ga naar de Git-bronopslagplaats en wijzig de inhoud van de kop **h1** in het bestand app/views/index.jade met gewijzigde tekst.
 7. Voer uw wijziging door.
-8. Na een paar minuten ziet u dat er een nieuwe release is gemaakt op de pagina **Releases** van Team Services of Team Foundation Server. Open de release om te zien welke implementatie wordt uitgevoerd. Gefeliciteerd!
+8. Na een paar minuten ziet u dat er een nieuwe release is gemaakt op de pagina **Releases** van Azure DevOps. Open de release om te zien welke implementatie wordt uitgevoerd. Gefeliciteerd!
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Problemen met de Jenkins-invoegtoepassing oplossen
 
@@ -175,13 +177,13 @@ Als u problemen ondervindt met de Jenkins-invoegtoepassingen, kunt u in [Jenkins
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u de implementatie van een app in Azure geautomatiseerd met Jenkins voor de build en Team Services voor de release. U hebt geleerd hoe u:
+In deze zelfstudie hebt u de implementatie van een app in Azure geautomatiseerd met Jenkins voor de build en Azure DevOps Services voor de release. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Uw app maakt in Jenkins.
-> * Jenkins configureert voor de integratie met Team Services.
+> * Jenkins configureren voor de integratie met Azure DevOps Services.
 > * Een implementatiegroep maakt voor de virtuele Azure-machines.
-> * Een releasedefinitie maakt waarmee u de virtuele machines configureert en de app wordt geïmplementeerd.
+> * Een release-pijplijn maakt waarmee u de virtuele machines configureert en de app wordt geïmplementeerd.
 
 Ga naar de volgende zelfstudie voor meer informatie over het implementeren van een LAMP-stack (Linux, Apache, MySQL en PHP).
 

@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051609"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586288"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
 Met Azure Key Vault kunt u de volgende problemen oplossen
-- Met Azure Key Vault kunt u veilig de toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen opslaan en strikt beheren
-- U kunt Azure Key Vault ook gebruiken als een oplossing voor sleutelbeheer. Met Azure Key Vault kunt u eenvoudig de versleutelingssleutels maken en beheren waarmee uw gegevens worden versleuteld. 
-- Azure Key Vault is ook een service waarmee u eenvoudig openbare en persoonlijke SSL/TLS-certificaten (Secure Sockets Layer/Transport Layer Security) kunt inrichten, beheren en implementeren voor gebruik met Azure en uw interne verbonden bronnen. 
-- De geheimen en sleutels kunnen worden beveiligd door software of met FIPS 140-2 niveau 2-validatie-HSM's
+- **Geheimenbeheer** - Met Azure Key Vault kunt u veilig de toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen opslaan en strikt beheren
+- **Sleutelbeheer** - U kunt Azure Key Vault ook gebruiken als een oplossing voor sleutelbeheer. Met Azure Key Vault kunt u eenvoudig de versleutelingssleutels maken en beheren waarmee uw gegevens worden versleuteld. 
+- **Certificaatbeheer** - Azure Key Vault is ook een service waarmee u eenvoudig openbare en persoonlijke SSL/TLS-certificaten (Secure Sockets Layer/Transport Layer Security) kunt inrichten, beheren en implementeren voor gebruik met Azure en uw interne verbonden bronnen. 
+- **Sla geheimen op met hardwarebeveiligingsmodules (HSM's)** - De geheimen en sleutels kunnen worden beveiligd door software of met FIPS 140-2 niveau 2-validatie-HSM's
 
 ## <a name="why-use-azure-key-vault"></a>Waarom zou ik Azure Key Vault gebruiken?
 
@@ -65,7 +65,7 @@ Bij het opslaan van waardevolle gegevens moet u verschillende stappen uitvoeren.
 
 - Het wegnemen van de noodzaak tot interne kennis van Hardware Security Modules
 - Het op korte termijn omhoog schalen om de gebruikspieken van uw organisatie aan te kunnen.
-- Het repliceren van de inhoud van uw Key Vault binnen een regio en naar een secundaire regio. Key Vault zorgt voor een maximale beschikbaarheid en de beheerder hoeft geen actie te ondernemen om de failover te activeren.
+- Het repliceren van de inhoud van uw Key Vault binnen een regio en naar een secundaire regio. Dat zorgt voor een maximale beschikbaarheid en de beheerder hoeft geen actie te ondernemen om de failover te activeren.
 - Het bieden van standaard Azure-beheeropties via de portal, Azure CLI en PowerShell.
 - Het automatiseren van bepaalde taken voor certificaten die u aanschaft bij openbare CA's, zoals registreren en verlengen.
 
@@ -73,7 +73,7 @@ Bovendien kunt u met sleutelkluizen van Azure toepassingsgeheimen van elkaar sch
 
 ### <a name="integrate-with-other-azure-services"></a>Integreren met andere Azure-services
 
-Als een beveiligd archief in Azure wordt Key Vault gebruikt voor het vereenvoudigen van scenario's zoals [Azure Disk Encryption](../security/azure-security-disk-encryption.md), de [altijd versleuteld]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)-functionaliteit in SQL Server en Azure SQL [Azure-web-apps]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault zelf kan worden geïntegreerd met opslagaccounts, Event Hubs en Log Analytics.
+Key Vault wordt als een beveiligd archief in Azure gebruikt voor het vereenvoudigen van scenario's zoals [Azure Disk Encryption](../security/azure-security-disk-encryption.md), de [altijd versleuteld]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)-functionaliteit in SQL Server en Azure SQL Database, en [Azure-webtoepassingen]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault zelf kan worden geïntegreerd met opslagaccounts, Event Hubs en Log Analytics.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917038"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391365"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover- en failback-overschakeling uitvoeren van naar Azure gerepliceerde VMware-VM’s en fysieke servers
 
@@ -67,7 +67,7 @@ Verifieer de VM-eigenschappen en zorg ervoor dat de VM voldoet aan de [Azure-ver
 1. Klik in **Instellingen** > **Gerepliceerde items** op de VM > **Failover**.
 
 2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
-   - **Laatste** (standaard): met deze optie worden eerst alle gegevens naar Site Recovery verzonden gegevens verwerkt. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
+   - **Laatste**: met deze optie worden eerst alle gegevens naar Site Recovery verzonden gegevens verwerkt. Dit biedt het laagste RPO (Recovery Point Objective), omdat de na de failover gemaakte Azure-VM alle gegevens heeft die naar Site Recovery is gerepliceerd toen de failover werd geactiveerd.
    - **Laatst verwerkte punt**: met deze optie wordt een failover-overschakeling van de VM uitgevoerd naar het laatste door Site Recovery verwerkte herstelpunt. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
    - **Laatste toepassingsconsistente punt**: met deze optie wordt er een failover-overschakeling uitgevoerd van de VM naar het laatste door Site Recovery verwerkte toepassingsconsistente herstelpunt.
    - **Aangepast**: geef een herstelpunt op.
@@ -82,11 +82,14 @@ In sommige scenario's vereist de failover extra verwerking die circa acht tot ti
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Verbinding maken met een virtuele machine in Azure waarvoor een failover is uitgevoerd
 
-1. Na de failover gaat u naar de virtuele machine en valideert u door [verbinding te maken](../virtual-machines/windows/connect-logon.md) met deze machine.
-2. Na de validatie klikt u op **Doorvoeren** om het herstelpunt van de virtuele machine te voltooien na de failover. Na het doorvoeren worden alle andere herstelpunten verwijderd. Hiermee is de failover voltooid.
+1. Als u verbinding wilt maken met virtuele Azure-machines met behulp van RDP/SSH na een failover, volgt u de procedure die [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) wordt beschreven.
+2. Na de failover gaat u naar de virtuele machine en valideert u door [verbinding te maken](../virtual-machines/windows/connect-logon.md) met deze machine.
+3. Na de validatie klikt u op **Doorvoeren** om het herstelpunt van de virtuele machine te voltooien na de failover. Na het doorvoeren worden alle andere herstelpunten verwijderd. Hiermee is de failover voltooid.
 
 >[!TIP]
 > Met **Herstelpunt wijzigen** kunt u een ander herstelpunt kiezen nadat de failover is uitgevoerd, als u niet tevreden bent met de desbetreffende virtuele machine. Na het **doorvoeren** is deze optie niet meer beschikbaar.
+
+Volg de stappen die [hier](site-recovery-failover-to-azure-troubleshoot.md) worden beschreven om eventuele verbindingsproblemen na een failover op te lossen.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Opnieuw beveiligen van de Azure-VM voorbereiden
 

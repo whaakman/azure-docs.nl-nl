@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een Azure Stream Analytics-taak met CI/CD met behulp van VSTS'
-description: In dit artikel wordt beschreven hoe u een Stream Analytics-taak met CI/CD implementeert met behulp van VSTS.
+title: Een Azure Stream Analytics-taak met CI/CD implementeren met behulp van Azure DevOps Services-zelfstudie
+description: In dit artikel wordt beschreven hoe u een Stream Analytics-taak met CI/CD implementeert met behulp van Azure DevOps Services.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,22 +9,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: adacbaf718c5ef293b4ee3fa833083704aa41f5c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920544"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297938"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Zelfstudie: Een Azure Stream Analytics-taak met CI/CD met behulp van VSTS
-In deze zelfstudie wordt beschreven hoe u continue integratie en implementatie instelt voor een Azure Stream Analytics-taak met behulp van Visual Studio-teamservices. 
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Zelfstudie: Een Azure Stream Analytics-taak met CI/CD implementeren met behulp van Azure Pipelines
+This tutorial descriIn deze zelfstudie wordt beschreven hoe u continue integratie en implementatie instelt voor een Azure Stream Analytics-taak met behulp van Azure Pipelines. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Broncodebeheer aan uw project toevoegen
-> * Een build-definitie in Team Services maken
-> * Een release-definitie in Team Services maken
+> * Een build-pijplijn in Azure Pipelines maken
+> * Een release-pijplijn in Azure Pipelines maken
 > * Automatisch een upgrade en een toepassing implementeren
 
 ## <a name="prerequisites"></a>Vereisten
@@ -33,7 +33,7 @@ Zorg ervoor dat u het volgende hebt voordat u begint:
 * Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
 * Installeer [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) en de workload **Azure-ontwikkeling** of **Gegevensopslag en verwerking**.
 * Maak een [Stream Analytics-project in Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Maak een [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/)-account.
+* Maak een [Azure DevOps](https://visualstudio.microsoft.com/team-services/)-organisatie.
 
 ## <a name="configure-nuget-package-dependency"></a>Afhankelijkheid van NuGet-pakket configureren
 Om automatisch een build te kunnen maken en automatisch te implementeren op een willekeurige computer, moet u het NuGet-pakket `Microsoft.Azure.StreamAnalytics.CICD` gebruiken. Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. Zie [Stream Analytics CI/CD-hulpprogramma's](stream-analytics-tools-for-visual-studio-cicd.md) voor meer informatie.
@@ -47,34 +47,35 @@ Voeg **packages.config** toe aan de projectmap.
 </packages>
 ```
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Uw Visual Studio-oplossing delen met een nieuwe Git-opslagplaats van Team Services
-Deel de bronbestanden van uw toepassing met een teamproject in Team Services zodat u builds kunt genereren.  
+## <a name="share-your-visual-studio-solution-to-a-new-azure-repos-git-repo"></a>Uw Visual Studio-oplossing delen met een nieuwe Git-opslagplaats van Azure Repos
+
+Deel de bronbestanden van uw toepassing met een project in Azure DevOps zodat u builds kunt genereren.  
 
 1. Maak een nieuwe Git-opslagplaats voor uw project door op de statusbalk in de linkeronderhoek van Visual Studio **Add to Source Control** en vervolgens **Git** te selecteren. 
 
-2. Ga naar de **Synchronization**-weergave in **Team Explorer** en selecteer onder **Push to Visual Studio Team Services** de knop **Publish Git Repo**.
+2. Ga naar de **Synchronization**-weergave in **Team Explorer** en selecteer onder **Push to Azure DevOps Services** de knop **Publish Git Repo**.
 
    ![Git-opslagplaats pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. Controleer uw e-mail en selecteer uw account in de vervolgkeuzelijst **Team Services Domain**. Voer de naam van de opslagplaats in en selecteer **Publish repository**.
+3. Controleer uw e-mail en selecteer uw organisatie in de vervolgkeuzelijst **Azure DevOps Services Domain**. Voer de naam van de opslagplaats in en selecteer **Publish repository**.
 
    ![Git-opslagplaats pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    Als u de opslagplaats pusht, wordt er een nieuw teamproject voor uw account gemaakt met dezelfde naam als de lokale opslagplaats. Als u de repro in een bestaand teamproject wilt maken, klikt u naast de naam van de **opslagplaats** op **Advanced** en selecteert u een teamproject. U kunt uw code in de browser weergeven door **See it on the web** te selecteren.
+    Als u de opslagplaats pusht, wordt er een nieuw project voor uw organisatie gemaakt met dezelfde naam als de lokale opslagplaats. Als u de opslagplaats in een bestaand project wilt maken, klikt u naast de **naam van de opslagplaats** op **Advanced** en selecteert u een teamproject. U kunt uw code in de browser weergeven door **See it on the web** te selecteren.
  
-## <a name="configure-continuous-delivery-with-vsts"></a>Continue levering configureren met VSTS
-Een definitie van een Team Services-build beschrijft een werkstroom die bestaat uit build-stappen die achtereenvolgens worden uitgevoerd. Meer informatie over [Definities van Team Services-builds](https://www.visualstudio.com/docs/build/define/create). 
+## <a name="configure-continuous-delivery-with-azure-devops"></a>Continue levering configureren met Azure DevOps
+Een build-pijplijn van Azure Pipelines beschrijft een werkstroom die bestaat uit build-stappen die achtereenvolgens worden uitgevoerd. Meer informatie over [build-pijplijnen van Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
 
-Een definitie van een Team Services-release beschrijft een werkstroom waarmee een toepassingspakket in een cluster wordt geïmplementeerd. Als de definities van de build en de release samen worden gebruikt, wordt hiermee de hele werkstroom uitgevoerd, te beginnen met bronbestanden en te eindigen met het uitvoeren van een toepassing in uw cluster. Meer informatie over [release-definities ](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) van Team Services.
+Een release-pijplijn van Azure Pipelines beschrijft een werkstroom waarmee een toepassingspakket in een cluster wordt geïmplementeerd. Als de build- en release-pijplijnen samen worden gebruikt, wordt hiermee de hele werkstroom uitgevoerd, te beginnen met bronbestanden en te eindigen met het uitvoeren van een toepassing in uw cluster. Meer informatie over [release-pijplijnen](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) van Azure Pipelines.
 
-### <a name="create-a-build-definition"></a>Een build-definitie maken
-Open een webbrowser en navigeer naar het teamproject dat u zojuist hebt gemaakt in [Visual Studio Team Services](https://app.vsaex.visualstudio.com/). 
+### <a name="create-a-build-pipeline"></a>Een build-pijplijn maken
+Open een webbrowser en navigeer naar het project dat u zojuist hebt gemaakt in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Selecteer op het tabblad **Build & Release** de optie **Builds** en vervolgens **+New**.  Selecteer **VSTS Git** en **Continue**.
+1. Selecteer op het tabblad **Build & Release** de optie **Builds** en vervolgens **+New**.  Selecteer **Azure DevOps Services Git** en **Continue**.
     
     ![Bron selecteren](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. Klik in **Select a template** op **Empty Process** om met een lege definitie te beginnen.
+2. Klik in **Select a template** op **Empty Process** om met een lege pijplijn te beginnen.
     
     ![Build-sjabloon kiezen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -82,7 +83,7 @@ Open een webbrowser en navigeer naar het teamproject dat u zojuist hebt gemaakt 
     
     ![Triggerstatus](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. Builds worden ook getriggerd na pushen of inchecken. Als u de voortgang van de build wilt controleren, schakelt u over naar het tabblad **Builds**.  Als u hebt gecontroleerd dat de build correct wordt uitgevoerd, moet u een releasedefinitie definiëren waarmee uw toepassing in een cluster wordt geïmplementeerd. Klik met de rechtermuisknop op het beletselteken naast uw builddefinitie en selecteer **Edit**.
+4. Builds worden ook getriggerd na pushen of inchecken. Als u de voortgang van de build wilt controleren, schakelt u over naar het tabblad **Builds**.  Als u hebt gecontroleerd dat de build correct wordt uitgevoerd, moet u een release-pijplijn definiëren waarmee uw toepassing in een cluster wordt geïmplementeerd. Klik met de rechtermuisknop op het beletselteken naast uw build-pijplijn en selecteer **Edit**.
 
 5.  Voer in **Tasks** "Hosted" in als de **Agent queue**.
     
@@ -125,17 +126,17 @@ Open een webbrowser en navigeer naar het teamproject dat u zojuist hebt gemaakt 
     
     ![Eigenschappen instellen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. Klik op **Save & Queue** om de builddefinitie te testen.
+12. Klik op **Save & Queue** om de build-pijplijn te testen.
     
     ![Te overschrijven parameters instellen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### <a name="failed-build-process"></a>Mislukt buildproces
-Mogelijk ontvangt u fouten wegens implementatieparameters van null als u geen sjabloonparameters hebt overschreven in de **Azure Resource Group Deployment**-taak van uw builddefinitie. Ga terug naar de builddefinitie en overschrijf de parameters van null om de fout op te lossen.
+Mogelijk ontvangt u fouten wegens implementatieparameters van null als u geen sjabloonparameters hebt overschreven in de **Azure Resource Group Deployment**-taak van uw build-pijplijn. Ga terug naar de build-pijplijn en overschrijf de parameters van null om de fout op te lossen.
 
    ![Buildproces mislukt](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>Wijzigingen doorvoeren en pushen om een release te activeren
-Controleer of de pijplijn voor continue integratie functioneert door enkele codewijzigingen aan Team Services na te gaan.    
+Controleer of de pijplijn voor continue integratie correct functioneert door enkele codewijzigingen aan te brengen in Azure DevOps.    
 
 Terwijl u de code schrijft, worden de wijzigingen automatisch in Visual Studio bijgehouden. Voer wijzigingen door in de lokale Git-opslagplaats door het pictogram voor wijzigingen in behandeling te selecteren in de statusbalk rechtsonder.
 
@@ -143,17 +144,17 @@ Terwijl u de code schrijft, worden de wijzigingen automatisch in Visual Studio b
 
     ![Wijzigingen doorvoeren en pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
 
-2. Selecteer het pictogram voor de statusbalk met niet-gepubliceerde wijzigingen of de synchronisatieweergave in Team Explorer. Selecteer **Push** om de code bij te werken in Team Services/TFS.
+2. Selecteer het pictogram voor de statusbalk met niet-gepubliceerde wijzigingen of de synchronisatieweergave in Team Explorer. Selecteer **Push** om de code bij te werken in Azure DevOps.
 
     ![Wijzigingen doorvoeren en pushen](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-Als u de wijzigingen naar Team Services pusht, wordt er automatisch een build geactiveerd.  Als de builddefinitie is voltooid, wordt er automatisch een release gemaakt en wordt gestart met het bijwerken van de toepassing in het cluster.
+Als u de wijzigingen naar Azure DevOps Services pusht, wordt er automatisch een build geactiveerd.  Als de build-pijplijn is voltooid, wordt er automatisch een release gemaakt en wordt gestart met het bijwerken van de taak in het cluster.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Wanneer u een resourcegroep niet meer nodig hebt, verwijdert u de resourcegroep, de streamingtaak en alle gerelateerde resources. Door de taak te verwijderen, voorkomt u dat de streaming-eenheden die door de taak worden verbruikt, in rekening worden gebracht. Als u denkt dat u de taak in de toekomst nog gaat gebruiken, kunt u deze stoppen en later opnieuw starten wanneer dat nodig is. Als u deze taak niet meer gaat gebruiken, verwijdert u alle resources die in deze zelfstudie zijn gemaakt. Daarvoor voert u de volgende stappen uit:
 
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.  
+1. Klik in het menu aan de linkerkant in de Azure-portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt.  
 2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen

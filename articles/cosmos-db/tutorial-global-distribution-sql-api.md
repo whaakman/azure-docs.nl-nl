@@ -11,21 +11,21 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 1d0a660845052f51af84b78584787760e01f16a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 624c5e78287fac57b06f6b5112d2523e31256ae0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542643"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049765"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Wereldwijde distributie van Azure Cosmos DB instellen met behulp van de SQL-API
 
-In dit artikel laten we zien hoe Azure Portal kan worden gebruikt voor het instellen van wereldwijde distributie van Azure DB Cosmos en hoe u daarmee verbinding kunt maken met behulp van de SQL-API.
+In dit artikel laten we zien hoe de Azure-portal kan worden gebruikt voor het instellen van wereldwijde distributie van Azure DB Cosmos en hoe u daarmee verbinding kunt maken met behulp van de SQL-API.
 
 Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Wereldwijde distributie configureren met behulp van de Azure-portal
 > * Wereldwijde distributie configureren met behulp van de [SQL-API's](sql-api-introduction.md)
 
 <a id="portal"></a>
@@ -164,7 +164,7 @@ En daarmee is deze zelfstudie voltooid. Informatie over het beheren van de consi
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Wereldwijde distributie configureren met behulp van de Azure-portal
 > * Wereldwijde distributie configureren met behulp van de SQL-API's
 
 U kunt nu doorgaan met de volgende zelfstudie voor informatie over lokaal ontwikkelen met behulp van de lokale Azure Cosmos DB-emulator.

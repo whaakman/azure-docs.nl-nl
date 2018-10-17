@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 608d15afaaff15ad960a0fe8b7a56854f41662b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cf20a4a93ef1b5bfb9c7818f35be5e75e45a3d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993405"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901087"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Uw eerste Linux-functie maken vanuit Azure CLI (preview)
 
-Met Azure Functions kunt u uw functies voor Linux hosten in een standaardcontainer van Azure App Service. U kunt ook [uw eigen aangepaste container](functions-create-function-linux-custom-image.md) gebruiken. Deze functionaliteit is momenteel alleen in preview en vereist [de runtime van Functions 2.0](functions-versions.md), die ook in preview is.
+Met Azure Functions kunt u uw functies voor Linux hosten in een standaardcontainer van Azure App Service. U kunt ook [uw eigen aangepaste container](functions-create-function-linux-custom-image.md) gebruiken. Deze functionaliteit is momenteel alleen in preview en vereist [de Functions 2.0-runtime](functions-versions.md).
 
 In deze quickstart wordt stapsgewijs uitgelegd hoe u Azure Functions gebruikt met de Azure CLI voor het maken van uw eerste functie-app voor Linux, gehost in de standaardcontainer van App Service. De functiecode zelf wordt vanuit een opslagplaats met voorbeelden van GitHub geïmplementeerd naar de installatiekopie.    
 
@@ -83,6 +83,18 @@ Omdat `myAppServicePlan` een Linux-abonnement is, wordt de ingebouwde docker-ins
 
 >[!NOTE]  
 >De opslagplaats met voorbeelden bevat momenteel twee scriptbestanden: [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) en [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). Via het bestand .deployment wordt aan het implementatieproces doorgegeven dat deploy.sh moet worden gebruikt als het [aangepaste implementatiescript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In de huidige preview-versie moeten scripts de functie-app implementeren naar een Linux-installatiekopie.  
+
+## <a name="configure-the-function-app"></a>De functie-app configureren
+
+Het project in de GitHub-opslagplaats vereist de versie 1.x van de Functions-runtime. Door de toepassingsinstelling `FUNCTIONS_WORKER_RUNTIME` in te stellen op `~1`, dwingt u de functie-app de meest recente 1.x-versie te gebruiken. Stel toepassingsinstellingen in met de opdracht [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+
+In de volgende Azure CLI-opdracht is `< app_name> de naam van uw functie-app.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~1
+```
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

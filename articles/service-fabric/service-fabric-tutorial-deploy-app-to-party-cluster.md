@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: dc105c02354e0e83c4f9a1bad7c94a98643effd0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 68ff8ae6a055ee609e3b4f87c4847c6f2a55a9da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918595"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300695"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-toepassing implementeren naar een cluster in Azure
 
@@ -36,7 +36,7 @@ In deze zelfstudie leert u het volgende:
 > * [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md).
 > * De toepassing implementeren in een extern cluster.
 > * [Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
-> * [CI/CD configureren met behulp van Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+> * [CI/CD configureren met behulp van Azure-pijplijnen](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -62,10 +62,10 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 Voor deze zelfstudie kunt u de stemtoepassing op twee manieren met behulp van Visual Studio implementeren naar een Service Fabric-cluster:
 
 * Publiceren naar een (extern) testcluster. 
-* Publiceren naar een bestaand cluster in uw abonnement. U kunt Service Fabric-clusters maken via [Azure Portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+* Publiceren naar een bestaand cluster in uw abonnement. U kunt Service Fabric-clusters maken via de [Azure-portal](https://portal.azure.com), met behulp van [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- of [Azure CLI](./scripts/cli-create-cluster.md)-scripts, of vanuit een [Azure Resource Manager-sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Veel services gebruiken de omgekeerde proxy om met elkaar te communiceren. Clusters die zijn gemaakt vanuit Visual Studio en clusters van derden hebben omgekeerde proxy standaard ingeschakeld. Als u een bestaand cluster gebruikt, moet u [de omgekeerde proxy in het cluster inschakelen](service-fabric-reverseproxy-setup.md#).
+> Veel services gebruiken de omgekeerde proxy om met elkaar te communiceren. Clusters die zijn gemaakt vanuit Visual Studio en clusters van derden hebben omgekeerde proxy standaard ingeschakeld. Als u een bestaand cluster gebruikt, moet u [de omgekeerde proxy in het cluster inschakelen](service-fabric-reverseproxy-setup.md).
 
 
 ### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>Het eindpunt van de stem-webservice vinden voor uw Azure-abonnement
@@ -78,7 +78,7 @@ De front-endwebservice luistert op een specifieke poort. Wanneer de toepassing i
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Open deze poort voor uw Azure-abonnement met behulp van een taakverdelingsregel in Azure. Gebruik hiervoor een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of de ga naar de load balancer voor dit cluster in [Azure Portal](https://portal.azure.com).
+Open deze poort voor uw Azure-abonnement met behulp van een taakverdelingsregel in Azure. Gebruik hiervoor een [PowerShell-script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) of de ga naar de load balancer voor dit cluster in de [Azure-portal](https://portal.azure.com).
 
 ### <a name="join-a-party-cluster"></a>Deelnemen aan een Party-cluster
 

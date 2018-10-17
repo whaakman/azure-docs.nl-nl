@@ -8,22 +8,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095764"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391162"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren naar Azure App Service met behulp van de Jenkins-invoegtoepassing 
 
 Om een Java-web-app te implementeren naar Azure, kunt u de Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) of de [Jenkins-invoegtoepassing voor Azure App Service](https://plugins.jenkins.io/azure-app-service) gebruiken. De Jenkins-invoegtoepassing versie 1.0 ondersteunt doorlopende implementatie door middel van de Web Apps-functie van Azure App Service via:
-* Git of FTP
+* Bestand uploaden
 * Docker voor Web Apps op Linux
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Jenkins configureren om Web Apps te implementeren via Git of FTP
+> * Jenkins configureren om Web Apps te implementeren via bestandsupload.
 > * Jenkins configureren om Web App voor Containers te implementeren
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Een Jenkins-exemplaar maken en configureren
@@ -37,7 +37,7 @@ Als u nog geen Jenkins-master hebt, begint u met de [oplossingssjabloon](install
 
 U kunt de Jenkins-invoegtoepassing gebruiken om een web-app te implementeren in elke taal die wordt ondersteund door Web Apps, zoals C#, PHP, Java en Node.js. In deze zelfstudie gebruiken we een [eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample). Om de opslagplaats naar uw eigen GitHub-account te vertakken, selecteert u de knop **Fork** in de rechterbovenhoek van de GitHub-interface.  
 > [!NOTE]
-> De Java JDK en Maven zijn vereist om de build van het Java-project uit te voeren. Installeer deze onderdelen op de Jenkins-master, of op de VM-agent als u de agent gebruikt voor continue integratie. 
+> De Java JDK en Maven zijn vereist om de build van het Java-project uit te voeren. Installeer deze onderdelen op de Jenkins-master, of op de VM-agent als u de agent gebruikt voor continue integratie. Als u een Java SE-toepassing implementeert, is ook ZIP nodig op de build-server.
 
 Om de onderdelen te installeren, meldt u zich bij het Jenkins-exemplaar aan met SSH en voert u de volgende opdrachten uit:
 
@@ -60,7 +60,11 @@ U hebt een Azure-service-principal nodig om te kunnen implementeren naar Azure.
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Jenkins configureren om Web Apps te implementeren door bestanden te uploaden
 
-Om uw project te implementeren naar Web Apps, kunt u uw build-artefacten (bijvoorbeeld een WAR-bestand in Java) uploaden via Git of FTP.
+Als u uw project wilt implementeren in Web Apps, kunt u uw build-artefacten uploaden door middel van een bestandsupload. Azure App Service biedt ondersteuning voor meerdere implementatieopties. De Jenkins-invoegtoepassing van de Azure App Service maakt het eenvoudig voor u: de implementatieoptie wordt afgeleid van het bestandstype. 
+
+* Voor Java EE-toepassingen wordt er een [WAR-implementatie](/azure/app-service/app-service-deploy-zip#deploy-war-file) toegepast.
+* Voor Java SE-toepassingen wordt er een [ZIP-implementatie](/azure/app-service/app-service-deploy-zip#deploy-zip-file) toegepast.
+* Voor andere talen wordt er een [Git-implementatie](/azure/app-service/app-service-deploy-local-git) toegepast.
 
 Voordat u de taak in Jenkins instelt, hebt u een Azure App Service-plan en een web-app nodig om de Java-app uit te voeren.
 
@@ -127,7 +131,7 @@ De Jenkins-invoegtoepassing voor Azure App Service is pijplijn-gereed. U kunt he
 
 Web Apps op Linux ondersteunt implementatie met behulp van Docker. Om uw web-app te implementeren met behulp van Docker, moet u een Dockerfile opgeven dat uw web-app met een serviceruntime in een Docker-installatiekopie verpakt. De Jenkins-invoegtoepassing voert vervolgens de build van de installatiekopie uit, pusht deze naar een Docker-register en implementeert deze naar uw web-app.
 
-Web Apps op Linux ondersteunt ook traditionele implementatiemethoden, zoals Git en FTP, maar alleen voor ingebouwde talen (.NET Core, Node.js, PHP en Ruby). Voor andere talen moet u uw toepassingscode en serviceruntime samen in een Docker-installatiekopie verpakken en Docker gebruiken voor de implementatie.
+Web Apps op Linux ondersteunt ook traditionele implementatiemethoden, zoals Git en bestandsupload, maar alleen voor ingebouwde talen (.NET Core, Node.js, PHP en Ruby). Voor andere talen moet u uw toepassingscode en serviceruntime samen in een Docker-installatiekopie verpakken en Docker gebruiken voor de implementatie.
 
 Voordat u de taak in Jenkins instelt, hebt u een web-app op Linux nodig. U hebt ook een containerregister nodig om uw persoonlijke installatiekopieën voor Docker-containers op te slaan en te beheren. U kunt DockerHub gebruiken om het containerregister te maken. In dit voorbeeld gebruiken we Azure Container Registry.
 
@@ -232,5 +236,5 @@ In deze zelfstudie hebt u de Jenkins-invoegtoepassing voor Azure App Service geb
 U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Jenkins configureert om Azure App Service te implementeren via FTP 
+> * Jenkins configureert om Azure App Service te implementeren via bestandsupload 
 > * Jenkins configureert om Web App voor Containers te implementeren 

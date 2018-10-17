@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918916"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296105"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Zelfstudie: Bewaking en diagnose van een ASP.NET Core-toepassing in Service Fabric met behulp van Application Insights
 
@@ -38,7 +38,7 @@ In deze zelfstudiereeks leert u het volgende:
 > * [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md)
 > * [De toepassing implementeren in een extern cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Een HTTPS-eindpunt toevoegen aan een front-endservice van ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [CI/CD configureren met behulp van Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [CI/CD configureren met behulp van Azure-pijplijnen](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Controle en diagnostische gegevens voor de toepassing instellen
 
 ## <a name="prerequisites"></a>Vereisten
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>Een Application Insights-resource instellen
 
-Application Insights is het beheerplatform voor toepassingsprestaties van Azure en het aanbevolen platform van Service Fabric om toepassingen te controleren en te onderzoeken. Als u een Application Insights-resource wilt maken, navigeert u naar [Azure Portal](https://portal.azure.com). Klik op **Een resource maken** in het navigatiemenu links om Azure Marketplace te openen. Klik op **Bewaking en beheer** en vervolgens op **Application Insights**.
+Application Insights is het beheerplatform voor toepassingsprestaties van Azure en het aanbevolen platform van Service Fabric om toepassingen te controleren en te onderzoeken. Als u een Application Insights-resource wilt maken, navigeert u naar de [Azure-portal](https://portal.azure.com). Klik op **Een resource maken** in het navigatiemenu links om Azure Marketplace te openen. Klik op **Bewaking en beheer** en vervolgens op **Application Insights**.
 
 ![Een nieuwe AI-resource maken](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -174,7 +174,7 @@ Voel u ook vrij om een aantal van de stemopties te *verwijderen* nadat u een paa
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>De telemetrie en het toepassingsoverzicht in Application Insights bekijken
 
-Ga naar uw Application Insights-resource in Azure Portal.
+Ga naar uw Application Insights-resource in de Azure-portal.
 
 Klik op **Overzicht** om terug te gaan naar de landingspagina van uw resource. Klik vervolgens op **Zoeken** in de rechterbovenhoek om de traceringen binnen te zien komen. Het duurt enkele minuten voordat de traceringen in Application Insights verschijnen. In het geval dat u er geen ziet, wacht u even en klikt u bovenaan op de knop **Vernieuwen**.
 ![Traceringen zien in AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)

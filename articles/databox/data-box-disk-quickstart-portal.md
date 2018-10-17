@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143420"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378343"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Quickstart: De Azure Data Box Disk implementeren met de Azure-portal (preview)
 
@@ -41,7 +41,7 @@ Voordat u begint:
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure Portal op [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Meld u aan bij de Azure-portal op [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Bestellen
 
@@ -68,12 +68,12 @@ De Data Box Disks worden verzonden in een UPS Express Box. Open de doos en contr
 
 Deze stap neemt ongeveer 5 minuten in beslag.
 
-1. Gebruik de meegeleverde kabel om de schijf aan te sluiten op een Windows-computer met een ondersteunde versie. Ga naar [Systeemvereisten voor Azure Data Box Disk](data-box-disk-system-requirements.md) voor meer informatie over ondersteunde besturingssysteemversies. 
+1. Gebruik de meegeleverde kabel om de schijf aan te sluiten op een Windows-/Linux-computer met een ondersteunde versie. Ga naar [Systeemvereisten voor Azure Data Box Disk](data-box-disk-system-requirements.md) voor meer informatie over ondersteunde besturingssysteemversies. 
 2. Ontgrendel de schijf als volgt:
 
     1. Ga in de Azure-portal naar **Algemeen > Apparaatdetails** en haal de wachtwoordsleutel op.
-    2. Download en extraheer het Data Box Disk-ontgrendelingsprogramma op de computer die wordt gebruikt om de gegevens naar schijven te kopiëren. 
-    3. Voer *DataBoxDiskUnlock.exe* uit en geef de wachtwoordsleutel op. Voor elke schijf die opnieuw wordt geplaatst, voert u het ontgrendelingshulpprogramma opnieuw uit en geeft de wachtwoordsleutel op. **Gebruik niet het BitLocker-dialoogvenster of de BitLocker-sleutel voor het ontgrendelen van de schijf.** 
+    2. Download en extraheer het Data Box Disk-ontgrendelingsprogramma voor het specifieke besturingssysteem op de computer die wordt gebruikt om de gegevens naar schijven te kopiëren. 
+    3. Voer het Data Box Disk-ontgrendelingsprogramma uit en geef de wachtwoordsleutel op. Voor elke schijf die opnieuw wordt geplaatst, voert u het ontgrendelingshulpprogramma opnieuw uit en geeft de wachtwoordsleutel op. **Gebruik niet het BitLocker-dialoogvenster of de BitLocker-sleutel voor het ontgrendelen van de schijf.** Ga naar [Schijven ontgrendelen op een Windows-client]() of [Schijven ontgrendelen op een Linux-client]() voor meer informatie over het ontgrendelen van schijven.
     4. De stationsletter die is toegewezen aan de schijf wordt weergegeven in het hulpprogramma. Noteer de letter van het schijfstation. Deze wordt in de volgende stappen gebruikt.
 
 ## <a name="copy-data-and-verify"></a>Gegevens kopiëren en verifiëren
@@ -86,9 +86,9 @@ De duur van deze bewerking hangt af van de hoeveelheid gegevens.
 
     > [!NOTE] 
     > - Alle containers en blobs moeten voldoen aan de [Azure-naamgevingsregels](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
-    > - Zorg ervoor dat de bestanden de ~4,7 TiB voor blok-blobs en ~8 TiB voor pagina-blobs niet overschrijden.
+    > - Zorg ervoor dat de bestanden de ~4,75 TiB voor blok-blobs en ~8 TiB voor pagina-blobs niet overschrijden.
 
-2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam de `AzureExpressDiskService.cmd` in de map *AzureImportExport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
+2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam de `DataBoxDiskValidation.cmd` in de map *AzureImportExport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
 3. Ontkoppel de schijf. 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Uw ASP.NET-app implementeren naar Azure Virtual Machines met het Azure DevOps-project | VSTS-zelfstudie
+title: Uw ASP.NET-app implementeren naar Azure Virtual Machines met het Azure DevOps-project | Azure DevOps Services-zelfstudie
 description: Met het DevOps-project kunt u eenvoudig aan de slag in Azure. Met het Azure DevOps-project kunt u een ASP.NET-app eenvoudig in slechts enkele stappen implementeren naar Azure Virtual Machines.
 ms.author: mlearned
 ms.manager: douge
@@ -9,25 +9,25 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: b5a9ce204f68d812da4dfcfebb18b79b9c70c6c9
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b05e2c2c46aa9bfa8c92d3d3c5c83d018c547b9f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967343"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299131"
 ---
 # <a name="tutorial--deploy-your-aspnet-app-to-azure-virtual-machines-with-the-azure-devops-project"></a>Zelfstudie: Uw ASP.NET-app implementeren naar Azure Virtual Machines met het Azure DevOps-project
 
-Het Azure DevOps-project geeft een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een van de voorbeeldtoepassingen kiest voor het maken van een CI (Continue integratie) en CD-pijplijn (Continue levering) naar Azure.  Het DevOps-project maakt automatisch Azure-resources, zoals een nieuwe Azure-VM, maakt en configureert een versiepijplijn in VSTS die een builddefinitie voor CI bevat, stelt een versiedefinitie in voor CD en maakt vervolgens een Azure Application Insights-resource voor bewaking.
+Het Azure DevOps-project geeft een vereenvoudigde ervaring waar u uw bestaande code en Git-opslagplaats gebruikt of een van de voorbeeldtoepassingen kiest voor het maken van een CI (Continue integratie) en CD-pijplijn (Continue levering) naar Azure.  Het DevOps-project maakt automatisch Azure-resources, zoals een nieuwe Azure-VM, maakt en configureert een release-pijplijn in Azure DevOps die een build-pijplijn voor CI bevat, stelt een release-pijplijn in voor CD en maakt vervolgens een Application Insights-resource voor bewaking.
 
 U gaat het volgende doen:
 
 > [!div class="checklist"]
 > * Een Azure DevOps-project maken voor een ASP.NET-app
-> * VSTS en een Azure-abonnement configureren 
-> * De definitie van de build van VSTS-CI bestuderen
-> * De definitie van het Release Management van VSTS-CD bestuderen
-> * Wijzigingen doorvoeren in VSTS en automatisch implementeren naar Azure
+> * Azure DevOps Services en een Azure-abonnement configureren 
+> * De Azure DevOps Services CI-pijplijn onderzoeken
+> * De Azure DevOps Services CD-pijplijn onderzoeken
+> * Wijzigingen doorvoeren in Azure DevOps Services en automatisch implementeren naar Azure
 > * Azure Application Insights-bewaking configureren
 > * Resources opschonen
 
@@ -37,9 +37,9 @@ U gaat het volgende doen:
 
 ## <a name="create-an-azure-devops-project-for-an-aspnet-app"></a>Een Azure DevOps-project maken voor een ASP.NET-app
 
-Het Azure DevOps-project maakt een CI-/CD-pijplijn in VSTS.  U kunt een **nieuw VSTS**-account maken of een **bestaand account** gebruiken.  Het Azure DevOps-project maakt ook **Azure-resources**, zoals virtuele machines, in het **Azure-abonnement** van uw keuze.
+Het Azure DevOps-project maakt een CI-/CD-pijplijn in Azure.  U kunt een **nieuwe Azure DevOps Services**-organisatie maken of een **bestaande organisatie** gebruiken.  Het Azure DevOps-project maakt ook **Azure-resources**, zoals virtuele machines, in het **Azure-abonnement** van uw keuze.
 
-1. Meld u aan bij [Microsoft Azure Portal](https://portal.azure.com).
+1. Meld u aan bij de [Microsoft Azure-portal](https://portal.azure.com).
 
 1. Kies het pictogram **+ Nieuw** in de linkernavigatiebalk en zoek naar **DevOps-project**.  Kies **Maken**.
 
@@ -51,61 +51,61 @@ Het Azure DevOps-project maakt een CI-/CD-pijplijn in VSTS.  U kunt een **nieuw 
 
 1. Het toepassingsframework dat u in de vorige stappen hebt gekozen bepaalt welk type implementatiedoel hier beschikbaar is voor de Azure-service.  Selecteer de **virtuele machine** en kies **Volgende**.
 
-## <a name="configure-vsts-and-an-azure-subscription"></a>VSTS en een Azure-abonnement configureren
+## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Azure DevOps Services en een Azure-abonnement configureren
 
-1. Maak een **nieuw** VSTS-account of kies een **bestaand** account.  Kies een **naam** voor uw VSTS-project.  
+1. Maak een **nieuwe** Azure DevOps Services-organisatie of kies een **bestaande** organisatie.  Kies een **naam** voor uw Azure DevOps-project.  
 
 1. Selecteer uw **Azure-abonnement**.  U kunt ook de koppeling **Wijzigen** selecteren en meer configuratiegegevens invoeren. U kunt bijvoorbeeld de locatie van de Azure-resources wijzigen.
  
 1. Voer een **virtuele-machinenaam**, **gebruikersnaam** en **wachtwoord** voor uw nieuwe Azure-VM-resource in, en kies **Gereed**.
 
-1. Het duurt enkele minuten voor de virtuele machine van Azure klaar is.  Een voorbeeld-ASP.NET-toepassing wordt in een opslagplaats in uw VSTS-account ingesteld; een build en versie worden uitgevoerd en uw toepassing wordt geïmplementeerd naar de zojuist gemaakte Azure-VM.  
+1. Het duurt enkele minuten voor de virtuele machine van Azure klaar is.  Een voorbeeld-ASP.NET-toepassing wordt in een opslagplaats in uw Azure DevOps Services-organisatie ingesteld; een build en release worden uitgevoerd en uw toepassing wordt geïmplementeerd naar de zojuist gemaakte Azure-VM.  
 
-    Wanneer u klaar bent, wordt het **dashboard** voor het Azure DevOps-project geladen in Azure Portal.  U kunt ook rechtstreeks vanuit **Alle resources** in **Azure Portal** naar het **dashboard van het Azure DevOps-project** navigeren.  
+    Wanneer u klaar bent, wordt het **dashboard** voor het Azure DevOps-project geladen in de Azure-portal.  U kunt ook rechtstreeks vanuit **Alle resources** in de **Azure-portal** naar het **dashboard van het Azure DevOps-project** navigeren.  
 
-    Dit dashboard biedt meer inzicht in uw VSTS-**codeopslagplaats**, **VSTS-CI/CD-pijplijn** en uw lopende **toepassing in Azure**.    
+    Dit dashboard biedt inzicht in uw Azure DevOps Services-**codeopslagplaats**, **Azure-CI/CD-pijplijn** en uw actieve **toepassing in Azure**.    
 
     ![Dashboardweergave](_img/azure-devops-project-vms/dashboardnopreview.png)
 
-1. Het Azure DevOps-project configureert automatisch een CI-build- en versie-trigger die automatisch eventuele codewijzigingen in uw opslagplaats implementeert.  U kunt verder aanvullende opties configureren in VSTS.  Aan de rechterkant van het dashboard selecteert u **Bladeren** om de lopende toepassing weer te geven.
+1. Het Azure DevOps-project configureert automatisch een CI-build- en release-trigger die automatisch eventuele codewijzigingen in uw opslagplaats implementeert.  U kunt verder aanvullende opties configureren in Azure DevOps.  Aan de rechterkant van het dashboard selecteert u **Bladeren** om de lopende toepassing weer te geven.
     
-## <a name="examine-the-vsts-ci-build-definition"></a>De definitie van de build van VSTS-CI bestuderen
+## <a name="examine-the-azure-devops-services-ci-pipeline"></a>De Azure DevOps Services CI-pijplijn onderzoeken
+ 
+Het Azure DevOps-project configureert automatisch een volledige Azure-CI/CD-pijplijn in uw Azure DevOps Services-organisatie.  U kunt de pijplijn verkennen en aanpassen.  Volg de onderstaande stappen om vertrouwd te raken met de Azure DevOps Services-build-pijplijn.
 
-Het Azure DevOps-Project configureert automatisch een volledige VSTS-CI-/CD-pijplijn in uw VSTS-account.  U kunt de pijplijn verkennen en aanpassen.  Volg de stappen hieronder om vertrouwd te raken met de definitie van de VSTS-build.
+1. Selecteer **Pijplijnen bouwen** **boven in** het **Azure DevOps-projectdashboard**.  Met deze koppeling opent u een tabblad in de browser met de Azure DevOps Services-build-pijplijn voor het nieuwe project.
 
-1. Selecteer **Pijplijnen bouwen** **bovenin** het **Azure DevOps-projectdashboard**.  Met deze koppeling opent u een tabblad in de browser met de definitie van de VSTS-build voor het nieuwe project.
-
-1. Beweeg de muisaanwijzer naar de rechterkant van de builddefinitie naast het veld **Status**. Selecteer het **weglatingsteken** dat wordt weergegeven.  Met deze actie opent u een menu waar u diverse acties kunt uitvoeren zoals **Een nieuwe build in de wachtrij plaatsen**, **Een build onderbreken** en **De builddefinitie bewerken**.
+1. Beweeg de muisaanwijzer naar de rechterkant van de build-pijplijn naast het veld **Status**. Selecteer het **weglatingsteken** dat wordt weergegeven.  Met deze actie opent u een menu waar u diverse acties kunt uitvoeren zoals **een nieuwe build in de wachtrij plaatsen**, **een build onderbreken** en **de build-pijplijn bewerken**.
 
 1. Selecteer **Bewerken**.
 
-1. In deze weergave **onderzoekt u de verschillende taken** voor uw builddefinitie.  De build voert verschillende taken uit, zoals het ophalen van bronnen uit de VSTS Git-opslagplaats, het herstellen van afhankelijkheden en het publiceren van uitvoer die wordt gebruikt voor implementaties.
+1. In deze weergave **onderzoekt u de verschillende taken** voor uw build-pijplijn.  De build voert verschillende taken uit, zoals het ophalen van bronnen uit de Git-opslagplaats van Azure DevOps Services, het herstellen van afhankelijkheden en het publiceren van uitvoer die wordt gebruikt voor implementaties.
 
-1. Selecteer boven de builddefinitie de **naam van de builddefinitie**.
+1. Selecteer bovenaan de build-pijplijn de **naam van de build-pijplijn**.
 
-1. Wijzig de **naam** van uw builddefinitie in een gebruiksvriendelijkere naam.  Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
+1. Wijzig de **naam** van de build-pijplijn in een gebruiksvriendelijkere naam.  Selecteer **Opslaan en wachtrij** en selecteer vervolgens **Opslaan**.
 
-1. Selecteer onder de naam van uw builddefinitie de optie **Geschiedenis**.  U ziet een audittrail van recente wijzigingen voor de build.  VSTS houdt alle wijzigingen in de builddefinitie bij en biedt de mogelijkheid om versies te vergelijken.
+1. Selecteer onder de naam van de build-pijplijn de optie **Geschiedenis**.  U ziet een audittrail van recente wijzigingen voor de build.  Azure DevOps Services houdt alle wijzigingen in de build-pijplijn bij en biedt de mogelijkheid om versies te vergelijken.
 
 1. Selecteer **Triggers**.  Het Azure DevOps-project maakt automatisch een CI-trigger en met elke doorvoering naar de opslagplaats wordt een nieuwe build gestart.  Kies desgewenst of u vertakkingen van het CI-proces wilt opnemen of uitsluiten.
 
 1. Selecteer **Retentie**.  Op basis van uw scenario kunt u beleidsregels opgeven om een bepaald aantal builds te behouden of te verwijderen.
 
-## <a name="examine-the-vsts-cd-release-management-definition"></a>De definitie van het Release Management van VSTS-CD bestuderen
+## <a name="examine-the-azure-devops-services-cd-pipeline"></a>De Azure DevOps Services CD-pijplijn onderzoeken
 
-Het Azure DevOps-project maakt en configureert automatisch de benodigde stappen om vanuit uw VSTS-account te implementeren naar uw Azure-abonnement.  Deze stappen omvatten het configureren van een Azure-serviceverbinding om VSTS te verifiëren bij uw Azure-abonnement.  Er wordt ook automatisch een VSTS-versiedefinitie gemaakt; deze verstrekt de CD naar de virtuele machine van Azure.  Volg de onderstaande stappen voor meer informatie over de VSTS-releasedefinitie.
+Het Azure DevOps-project maakt en configureert automatisch de benodigde stappen om vanuit uw Azure DevOps Services-organisatie te implementeren naar uw Azure-abonnement.  Deze stappen omvatten het configureren van een Azure-serviceverbinding om Azure DevOps Services te verifiëren bij uw Azure-abonnement.  De automatisering maakt ook een Azure DevOps Services-CD-pijplijn en deze levert de CD aan de Azure-VM.  Volg de stappen hieronder om meer te weten te komen over de Azure DevOps Services-CD-pijplijn.
 
-1. Selecteer **Build en release** en kies **Releases**.  Het Azure DevOps-project heeft een VSTS-versiedefinitie gemaakt om implementaties naar Azure te beheren.
+1. Selecteer **Build en release** en kies **Releases**.  Het Azure DevOps-project heeft een Azure DevOps Services-release-pijplijn gemaakt om implementaties naar Azure te beheren.
 
-1. Selecteer links van de browser het **weglatingsteken** naast uw releasedefinitie en kies **Bewerken**.
+1. Selecteer links van de browser het **beletselteken** naast uw release-pijplijn en kies **Bewerken**.
 
-1. De releasedefinitie bevat een **pijplijn** die het versieproces definieert.  Onder **Artefacten** selecteert u **Neerzetten**.  De builddefinitie die u in de vorige stappen hebt onderzocht, produceert de uitvoer die wordt gebruikt voor het artefact. 
+1. De release-pijplijn bevat een **pijplijn** die het releaseproces definieert.  Onder **Artefacten** selecteert u **Neerzetten**.  De build-pijplijn die u in de vorige stappen hebt onderzocht, produceert de uitvoer die wordt gebruikt voor het artefact. 
 
-1. Selecteer rechts van het pictogram **Neerzetten** het **pictogram** **Continue implementatietrigger** (zie eruit als een bliksemflits.)  Deze versiedefinitie heeft een ingeschakelde CD-trigger.  Telkens wanneer er een nieuw build-artefact beschikbaar is, start de trigger een implementatie.  U kunt de trigger desgewenst uitschakelen, zodat uw implementaties handmatig moeten worden uitgevoerd. 
+1. Selecteer rechts van het pictogram **Neerzetten** het **pictogram** **Continue implementatietrigger** (zie eruit als een bliksemflits.)  Deze release-pijplijn heeft een ingeschakelde CD-trigger.  Telkens wanneer er een nieuw build-artefact beschikbaar is, start de trigger een implementatie.  U kunt de trigger desgewenst uitschakelen, zodat uw implementaties handmatig moeten worden uitgevoerd. 
 
 1. Selecteer aan de linkerkant van de browser de optie **Taken** en kies uw **omgeving**.  
 
-1. De taken zijn de activiteiten die door het implementatieproces worden uitgevoerd en ze zijn gegroepeerd in **fasen**.  Er zijn twee **fasen** voor deze versiedefinitie.  De eerste fase bevat een **Azure Resource Group Deployment**-taak die de virtuele machine configureert voor implementatie en de nieuwe virtuele machine toevoegt aan een **VSTS-implementatiegroep**.  Met de VM-implementatiegroep in VSTS kunt u logische groepen van **implementatiedoel**machines beheren.
+1. De taken zijn de activiteiten die door het implementatieproces worden uitgevoerd en ze zijn gegroepeerd in **fasen**.  Er zijn twee **fasen** voor deze release-pijplijn.  De eerste fase bevat een **Azure Resource Group Deployment**-taak die de virtuele machine configureert voor implementatie en de nieuwe virtuele machine toevoegt aan een **Azure DevOps-implementatiegroep**.  Met de VM-implementatiegroep in Azure DevOps kunt u logische groepen van **implementatiedoel**machines beheren.
 
 1. In deze tweede fase is een **IIS-web-app-beheer**taak gemaakt om een IIS-website te maken op de virtuele machine.  Een tweede **IIS-web-app-implementatie**taak is gemaakt om de site te implementeren.
 
@@ -117,17 +117,17 @@ Het Azure DevOps-project maakt en configureert automatisch de benodigde stappen 
 
 1. Selecteer **Logboeken**.  De logboeken bevatten nuttige informatie over het implementatieproces.  Ze kunnen worden weergegeven tijdens en na de implementaties.
 
-## <a name="commit-changes-to-vsts-and-automatically-deploy-to-azure"></a>Wijzigingen doorvoeren in VSTS en automatisch implementeren naar Azure 
+## <a name="commit-changes-to-azure-devops-services-and-automatically-deploy-to-azure"></a>Wijzigingen doorvoeren in Azure DevOps Services en automatisch implementeren naar Azure 
 
-U bent nu klaar om met een team samen te werken aan uw app met een CI/CD-proces dat automatisch uw meest recente werk aan uw website implementeert.  Elke wijziging in de VSTS git-opslagplaats start een build in VSTS, en met een VSTS-versiebeheerdefinitie wordt een implementatie uitgevoerd naar uw Azure-VM.  Volg de onderstaande stappen of gebruik andere technieken om wijzigingen door te voeren in uw opslagplaats.  De codewijzigingen starten het CI/CD-proces en implementeren uw nieuwe wijzigingen automatisch op de IIS-website op de virtuele machine van Azure.
+U bent nu klaar om met een team samen te werken aan uw app met een CI/CD-proces dat automatisch uw meest recente werk aan uw website implementeert.  Bij elke wijziging in de Git-opslagplaats van Azure DevOps Services wordt er een build gestart in Azure DevOps Services en worden uw wijzigingen naar de virtuele machine van Azure geïmplementeerd via een Azure DevOps Services-CD-pijplijn.  Volg de onderstaande stappen of gebruik andere technieken om wijzigingen door te voeren in uw opslagplaats.  De codewijzigingen starten het CI/CD-proces en implementeren uw nieuwe wijzigingen automatisch op de IIS-website op de virtuele machine van Azure.
 
-1. Selecteer **Code** in het VSTS-menu en navigeer naar uw opslagplaats.
+1. Selecteer **Code** in het menu van Azure DevOps Services en navigeer naar uw opslagplaats.
 
 1. Navigeer naar de map **Views\Home**, selecteer het **weglatingsteken** naast het bestand **Index.cshtml** en kies **Bewerken**.
 
 1. Breng een wijziging aan in het bestand; voeg bijvoorbeeld wat tekst toe in een van de **div-tags**.  Selecteer in de rechterbovenhoek **Doorvoeren**.  Selecteer nogmaals **Doorvoeren** om de wijziging te pushen. 
 
-1. In een paar seconden wordt er in **VSTS een build gestart**, waarna er een versie wordt uitgevoerd om de wijzigingen te implementeren.  Bewaak de **buildstatus** met het dashboard van het DevOps-project of in de browser met uw VSTS-account.
+1. In een paar seconden wordt er in **Azure DevOps Services een build gestart**, waarna er een versie wordt uitgevoerd om de wijzigingen te implementeren.  Bewaak de **buildstatus** met het DevOps-projectdashboard of in de browser met uw Azure DevOps Services-organisatie.
 
 1. Wanneer de versie is voltooid, **vernieuwt u de toepassing** in de browser om te controleren of u uw wijzigingen kunt zien.
 
@@ -135,9 +135,9 @@ U bent nu klaar om met een team samen te werken aan uw app met een CI/CD-proces 
 
 Met Azure Application Insights kunt u eenvoudig de prestaties en het gebruik van een webtoepassing controleren.  Het Azure DevOps-project heeft automatisch een Application Insights-resource voor uw toepassing geconfigureerd.  U kunt verder diverse waarschuwingen en bewakingsopties configureren, indien nodig.
 
-1. Navigeer naar het dashboard van het **Azure DevOps-project** in **Azure Portal**.  Kies rechtsonder in het dashboard de koppeling **Application Insights** voor uw app.
+1. Navigeer naar het dashboard van het **Azure DevOps-project** in de **Azure-portal**.  Kies rechtsonder in het dashboard de koppeling **Application Insights** voor uw app.
 
-1. De blade **Application Insights** wordt geopend in Azure Portal.  Deze weergave bevat controlegegevens over gebruik, prestaties en beschikbaarheid voor uw app.
+1. De blade **Application Insights** wordt geopend in de Azure-portal.  Deze weergave bevat controlegegevens over gebruik, prestaties en beschikbaarheid voor uw app.
 
     ![Application Insights](_img/azure-devops-project-github/appinsights.png) 
 
@@ -162,25 +162,25 @@ Met Azure Application Insights kunt u eenvoudig de prestaties en het gebruik van
  > [!NOTE]
  > Met de onderstaande stappen worden resources permanent verwijderd.  Gebruik deze functionaliteit alleen nadat u de prompts zorgvuldig hebt gelezen.
 
-Als u aan het testen bent, kunt u resources opschonen om te voorkomen dat kosten oplopen.  Wanneer u de virtuele machine van Azure en verwante resources die in deze zelfstudie zijn gemaakt, niet meer nodig hebt, kunt u ze verwijderen met de functionaliteit **Verwijderen** op het dashboard van het Azure DevOps-project.  **Wees voorzichtig**, want met de functionaliteit Verwijderen verwijdert u de gegevens die door het Azure DevOps-project zijn gemaakt in zowel Azure als VSTS. Als ze zijn verwijderd, kunt u ze niet meer terughalen.
+Als u aan het testen bent, kunt u resources opschonen om te voorkomen dat kosten oplopen.  Wanneer u de virtuele machine van Azure en verwante resources die in deze zelfstudie zijn gemaakt, niet meer nodig hebt, kunt u ze verwijderen met de functionaliteit **Verwijderen** op het dashboard van het Azure DevOps-project.  **Wees voorzichtig**, want met de functionaliteit Verwijderen verwijdert u de gegevens die door het Azure DevOps-project zijn gemaakt in zowel Azure als Azure DevOps. Als ze zijn verwijderd, kunt u ze niet meer terughalen.
 
-1. Navigeer vanuit **Azure Portal** naar het **Azure DevOps-project**.
+1. Navigeer vanuit de **Azure-portal** naar het **Azure DevOps-project**.
 2. Selecteer **rechtsboven** in het dashboard de optie **Verwijderen**.  Na het lezen van de prompt selecteert u **Ja** om de resources **definitief te verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt deze build en versiedefinities desgewenst wijzigen om te voldoen aan de behoeften van uw team. U kunt dit CI/CD-patroon ook als een sjabloon voor uw andere projecten gebruiken.  U hebt geleerd hoe u:
+U kunt de build- en release-pijplijn desgewenst wijzigen in overeenstemming met de behoeften van uw team. U kunt dit CI/CD-patroon ook als een sjabloon voor uw andere projecten gebruiken.  U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een Azure DevOps-project maken voor een ASP.NET-app
-> * VSTS en een Azure-abonnement configureren 
-> * De definitie van de build van VSTS-CI bestuderen
-> * De definitie van het Release Management van VSTS-CD bestuderen
-> * Wijzigingen doorvoeren in VSTS en automatisch implementeren naar Azure
+> * Azure DevOps Services en een Azure-abonnement configureren 
+> * De Azure DevOps Services CI-pijplijn onderzoeken
+> * De Azure DevOps Services CD-pijplijn onderzoeken
+> * Wijzigingen doorvoeren in Azure DevOps Services en automatisch implementeren naar Azure
 > * Azure Application Insights-bewaking configureren
 > * Resources opschonen
 
-Raadpleeg deze zelfstudie voor meer informatie over de VSTS-pijplijn:
+Raadpleeg deze zelfstudie voor meer informatie over de Azure-CI/CD-pijplijn:
 
 > [!div class="nextstepaction"]
-> [CD-proces aanpassen](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [CD-proces aanpassen](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

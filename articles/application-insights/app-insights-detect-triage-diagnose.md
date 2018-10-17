@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23947317"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050235"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Overzicht van Application Insights voor DevOps
 
@@ -64,7 +64,7 @@ Maar belangrijker is dat er per e-mail een waarschuwing over een storing naar he
 ## <a name="monitor-performance"></a>Prestaties bewaken
 Op de overzichtspagina in Application Insights bevindt zich een diagram met diverse [belangrijke metrische gegevens](app-insights-web-monitor-performance.md).
 
-![Diverse metrische gegevens](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Schermafbeelding met een overzicht van KPI-grafieken](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 De laadtijd van een browserpagina wordt afgeleid van telemetriegegevens die rechtstreeks vanaf webpagina's worden verzonden. De serverreactietijd, het aantal serveraanvragen en het aantal mislukte aanvragen worden allemaal in de webserver gemeten en van daaruit naar Application Insights verzonden.
 
@@ -72,7 +72,7 @@ Marcela maakt zich enigszins ongerust als ze het diagram met de serverreactietij
 
 Ze opent de serverdiagrammen:
 
-![Diverse metrische gegevens](./media/app-insights-detect-triage-diagnose/06.png)
+![Diverse metrische gegevens](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 Er zijn geen tekenen die wijzen op een beperking van een resource, dus misschien dat de dalen in de diagrammen met de serverreactietijden gewoon op toeval berusten.
 
@@ -154,7 +154,7 @@ Uitzonderingen en gebeurtenissen worden weergegeven in de blade [Diagnostische g
 ## <a name="monitor-proactively"></a>Proactief bewaken
 Marcela zit niet de hele dag te wachten totdat er waarschuwingen binnenkomen. Steeds nadat er een nieuwe implementatie is uitgevoerd, bekijkt ze de [reactietijden](app-insights-web-monitor-performance.md), zowel het algemene cijfer en de tabel met de langzaamste aanvragen, als het aantal uitzonderingen.  
 
-![Het diagram met de reactietijden en het raster met reactietijden van de server.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Het diagram met de reactietijden en het raster met reactietijden van de server.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 Ze kan het effect van de prestaties van elke implementatie beoordelen, en dit elke week vergelijken met dat van de afgelopen week. Als er een plotselinge verslechtering optreedt, wordt dat meteen aangekaart met de relevante ontwikkelaars.
 
@@ -168,8 +168,6 @@ Als er daarentegen in het diagram met het aantal uitzonderingen een dramatisch e
 Een nuttige classificatietechniek is om het zelf uit te proberen. Als u tegen hetzelfde probleem aanloopt, weet u dat het een echt probleem is.
 
 Welke fractie van de gebruikers heeft hier last van? Voor een ruwe schatting moet u het aantal fouten delen door het aantal sessies.
-
-![Diagrammen van mislukte aanvragen en sessies](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 Als er trage reactietijden zijn, vergelijkt u de tabel met de aanvragen die het traagste reageren met de gebruiksfrequentie van elke pagina.
 
@@ -203,7 +201,6 @@ Het ontwikkelteam van Fabrikam Bank kiest zo voor een meer gestructureerde benad
 * Het team stelt op de overzichtspagina van Application Insights prestatiedoelen in als specifieke metingen.
 * Ze bouwen al vanaf het begin prestatiemetingen in het ontwerp van de toepassing in, zoals de metrische gegevens waarmee de voortgang van de gebruiker via 'trechters' wordt gemeten.  
 
-
 ## <a name="monitor-user-activity"></a>Gebruikersactiviteit bewaken
 Wanneer de reactietijd consistent goed is en er slechts enkele uitzonderingen zijn, kan het ontwikkelteam zich gaan bezighouden met de gebruikerservaring. De teamleden kunnen dan nadenken over hoe ze de gebruikerservaring kunnen verbeteren, en hoe ze meer gebruikers kunnen aanmoedigen om de gewenste doelstellingen te realiseren.
 
@@ -211,7 +208,7 @@ Application Insights kan ook worden gebruikt om erachter te komen wat gebruikers
 
 Een normaal traject dat een gebruiker aflegt door de website verloopt bijvoorbeeld volgens een duidelijk trechterpatroon. Veel klanten bekijken de tarieven van verschillende soorten leningen. Een kleiner aantal gaat een stap verder en vult een offerteaanvraagformulier in. Van mensen die een offerte ontvangen, gaat een klein aantal nog een stap verder en neemt de lening.
 
-![Aantal paginaweergaven](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Aantal paginaweergaven](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 Door na te denken over waar het grootste aantal klanten afhaakt, kan het bedrijf een manier bedenken die ertoe moet leiden om meer gebruikers naar het einde van de ‘trechter’ te leiden. In sommige gevallen ligt dat misschien aan een fout in de gebruikerservaring (UX), als bijvoorbeeld de knop 'Volgende' moeilijk is te vinden, of als de instructies niet duidelijk zijn. Maar het is waarschijnlijker dat de oorzaken van meer zakelijke aard zijn, bijvoorbeeld omdat het rentepercentage van de lening te hoog is.
 

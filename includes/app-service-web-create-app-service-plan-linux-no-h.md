@@ -2,10 +2,10 @@ Maak in Cloud Shell een App Service-plan in de resourcegroep met de opdracht [`a
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `myAppServicePlan` in de prijscategorie **Standard** (`--sku S1`) en in een Linux-container (`--is-linux`).
+In het volgende voorbeeld wordt een App Service-plan gemaakt met de naam `myAppServicePlan` in de prijscategorie **Basic** (`--sku B1`) en in een Linux-container (`--is-linux`).
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 ```
 
 Wanneer het App Service-plan is gemaakt, toont de Azure CLI soortgelijke informatie als in het volgende voorbeeld:

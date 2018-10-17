@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918460"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296768"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Zelfstudie: een Java- en MySQL-web-app bouwen in Azure
 
@@ -40,7 +40,7 @@ In deze zelfstudie leert u het volgende:
 > * De app implementeren in Azure
 > * De app bijwerken en opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in de Azure Portal controleren
+> * De app in de Azure-portal controleren
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -297,7 +297,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ```
 
 ### <a name="get-ftp-deployment-credentials"></a>FTP-implementatiereferenties verkrijgen 
-U kunt uw web-app op verschillende manieren in Azure App Service implementeren, zoals met FTP, lokale Git, GitHub, Visual Studio Team Services en Bitbucket. In dit voorbeeld gebruikt u FTP voor het implementeren van het .WAR-bestand dat eerder op uw lokale machine in Azure App Service is gebouwd.
+U kunt uw web-app op verschillende manieren in Azure App Service implementeren, zoals met FTP, lokale Git, GitHub, Azure DevOps en Bitbucket. In dit voorbeeld gebruikt u FTP voor het implementeren van het .WAR-bestand dat eerder op uw lokale machine in Azure App Service is gebouwd.
 
 Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
 
@@ -421,7 +421,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Uw Azure-web-app beheren
 
-Ga naar [Azure Portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
+Ga naar de [Azure-portal](https://portal.azure.com) om de web-app te zien die u hebt gemaakt.
 
 Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-web-app.
 
@@ -429,7 +429,7 @@ Klik vanuit het linkermenu op **App Service** en klik op de naam van uw Azure-we
 
 Standaard toont de pagina van uw web-app de pagina **Overzicht**. Deze pagina geeft u een overzicht van hoe uw app presteert. Hier kunt u ook algemene beheertaken uitvoeren, zoals stoppen, starten, opnieuw opstarten en verwijderen. De tabbladen aan de linkerkant van de pagina tonen de verschillende configuratiepagina's die u kunt openen.
 
-![App Service-pagina in Azure Portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![App Service-pagina in de Azure-portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
 Deze tabbladen op de pagina bevatten de vele handige functies die u kunt toevoegen aan uw web-app. De volgende lijst bevat slechts enkele van de mogelijkheden:
 * Een aangepaste DNS-naam toewijzen
@@ -456,7 +456,7 @@ az group delete --name myResourceGroup
 > * De app implementeren in Azure
 > * De app bijwerken en opnieuw implementeren
 > * Logboeken met diagnostische gegevens vanaf Azure streamen
-> * De app in Azure Portal beheren
+> * De app in de Azure-portal beheren
 
 Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan een web-app kunt toewijzen.
 

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436689"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378275"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -50,13 +50,13 @@ Er is een aantal dingen dat u niet kunt doen wanneer u een ILB AS-omgeving gebru
 
 -   Op IP-gebaseerd SSL gebruiken.
 -   IP-adressen toewijzen aan specifieke apps.
--   Een certificaat kopen en gebruiken met een app via Azure Portal. U kunt certificaten rechtstreeks bij een certificeringsinstantie verkrijgen en ze gebruiken met uw apps. U kunt ze niet verkrijgen via Azure Portal.
+-   Een certificaat kopen en gebruiken met een app via de Azure-portal. U kunt certificaten rechtstreeks bij een certificeringsinstantie verkrijgen en ze gebruiken met uw apps. U kunt ze niet verkrijgen via de Azure-portal.
 
 ## <a name="create-an-ilb-ase"></a>Een ILB AS-omgeving maken ##
 
 Ga als volgt te werk om een ILB AS-omgeving te maken:
 
-1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **App Service Environment**.
+1. Selecteer in de Azure-portal achtereenvolgens **Een resource maken** > **Web** > **App Service Environment**.
 
 1. Selecteer uw abonnement.
 
@@ -103,7 +103,7 @@ Als u het **VIP-type** instelt op **Intern**, wordt de naam van de AS-omgeving n
 
 Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van een app in een AS-omgeving.
 
-1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **Web-app**.
+1. Selecteer in de Azure-portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **Web-app**.
 
 1. Voer de naam van de app in.
 
@@ -205,11 +205,11 @@ Als het domein van de ILB AS-omgeving voor meerdere zaken buiten deze AS-omgevin
 
 Elke app die wordt gemaakt, heeft twee eindpunten. In een ILB AS-omgeving hebt u *&lt;app-naam>.&lt;Domein voor ILB AS-omgeving>* en *&lt;app-naam>.scm.&lt;Domein voor ILB AS-omgeving>*. 
 
-De SCM-sitenaam leidt naar de Kudu-console, genaamd de **Geavanceerde portal**, binnen Azure Portal. Met behulp van de Kudu-console kunt u omgevingsvariabelen bekijken, de schijf verkennen, een console gebruiken, en nog veel meer. Zie [Kudu-console voor Azure App Service][Kudu] voor meer informatie. 
+De SCM-sitenaam leidt naar de Kudu-console, genaamd de **Geavanceerde portal**, binnen de Azure-portal. Met behulp van de Kudu-console kunt u omgevingsvariabelen bekijken, de schijf verkennen, een console gebruiken, en nog veel meer. Zie [Kudu-console voor Azure App Service][Kudu] voor meer informatie. 
 
-In de App Service met meerdere tenants en in een Externe AS-omgeving is sprake van eenmalige aanmelding tussen Azure Portal en de Kudu-console. Voor de ILB AS-omgeving moet u, echter, uw publicatiereferenties gebruiken om u aan te melden bij de Kudu-console.
+In de App Service met meerdere tenants en in een Externe AS-omgeving is sprake van eenmalige aanmelding tussen de Azure-portal en de Kudu-console. Voor de ILB AS-omgeving moet u, echter, uw publicatiereferenties gebruiken om u aan te melden bij de Kudu-console.
 
-Op internet gebaseerde CI-systemen, zoals GitHub en Visual Studio Team Services, werken nog steeds met een ILB AS-omgeving, als de buildagent toegankelijk is via internet en zich op hetzelfde netwerk bevindt als de ILB AS-omgeving. Als de buildagent dus, in het geval van Visual Studio Team Services, is gemaakt in hetzelfde VNET als de ILB AS-omgeving (verschillende subnetten vormen geen probleem), kan met deze agent code worden opgehaald uit VSTS-git en geïmplementeerd in de ILB AS-omgeving. Als u niet zelf een buildagent wilt maken, moet u een CI-systeem met een pull-model gebruiken, zoals Dropbox.
+Op internet gebaseerde CI-systemen, zoals GitHub en Azure DevOps, werken nog steeds met een ILB AS-omgeving, als de buildagent toegankelijk is via internet en zich op hetzelfde netwerk bevindt als de ILB AS-omgeving. Als de buildagent dus, in het geval van Azure DevOps, is gemaakt in hetzelfde VNET als de ILB AS-omgeving (verschillende subnetten vormen geen probleem), kan met deze agent code worden opgehaald uit Azure DevOps-git en worden geïmplementeerd in de ILB AS-omgeving. Als u niet zelf een buildagent wilt maken, moet u een CI-systeem met een pull-model gebruiken, zoals Dropbox.
 
 De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. Dit domein wordt weergegeven in het publicatieprofiel van de app en in de portalblade van de app (**Overzicht** > **Essentials** en ook **Eigenschappen**). Als u een ILB AS-omgeving hebt met het subdomein *contoso.net* en een app met de naam *mytest*, gebruikt u *mytest.contoso.net* voor FTP en *mytest.scm.contoso.net* voor webimplementatie.
 

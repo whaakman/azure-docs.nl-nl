@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 68c3306656ade6ce95a3f18fec19de32bd9cf319
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: c8d72e473831da13e05598256bcb24660003368a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170834"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300780"
 ---
 # <a name="web-apps-overview"></a>Overzicht van Web Apps
 
 *Azure App Service Web Apps* (of kortweg Web Apps) is een service voor het hosten van webtoepassingen, REST-API's en mobiele back-ends. U kunt er in uw favoriete taal programmeren, of het nu .NET, .NET Core, Java, Ruby, Node.js, PHP of Python is. Toepassingen kunnen eenvoudig worden uitgevoerd en geschaald in op Windows gebaseerde omgevingen. Voor op Linux gebaseerde omgevingen bekijkt u [App Service in Linux](containers/app-service-linux-intro.md). 
 
-Web Apps voegen niet alleen de kracht van Microsoft Azure aan uw toepassing toe, zoals beveiliging, taakverdeling, automatisch schalen en geautomatiseerd beheer. U kunt ook profiteren van de DevOps-mogelijkheden, zoals continue implementatie van VSTS, GitHub, Docker Hub en andere bronnen, pakketbeheer, faseringsomgevingen, aangepast domein en SSL-certificaten. 
+Web Apps voegen niet alleen de kracht van Microsoft Azure aan uw toepassing toe, zoals beveiliging, taakverdeling, automatisch schalen en geautomatiseerd beheer. U kunt ook profiteren van de DevOps-mogelijkheden, zoals continue implementatie van Azure DevOps, GitHub, Docker Hub en andere bronnen, pakketbeheer, faseringsomgevingen, aangepast domein en SSL-certificaten. 
 
 Met App Service betaalt u voor de Azure-rekenresources die u gebruikt. De rekenresources die u gebruikt, zijn vastgesteld door het _App Service-plan_ waarmee u uw Web-Apps uitvoert. Zie [Overzicht van Azure App Service-plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) voor meer informatie.
 
@@ -35,7 +35,7 @@ Met App Service betaalt u voor de Azure-rekenresources die u gebruikt. De rekenr
 Hier volgen enkele belangrijke functies van App Service Web Apps:
 
 * **Meerdere talen en frameworks**: Web Apps biedt uitstekende ondersteuning voor ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP of Python. U kunt ook [PowerShell en andere scripts of uitvoerbare bestanden](web-sites-create-web-jobs.md) als achtergrondservices uitvoeren.
-* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Visual Studio Team Services, GitHub, BitBucket, Docker Hub of Azure Container Registry. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Beheer uw apps in Web Apps met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](/cli/azure/install-azure-cli).
+* **DevOps-optimalisatie**: stel [continue integratie en implementatie](app-service-continuous-deployment.md) in met Azure DevOps, GitHub, BitBucket, Docker Hub of Azure Container Registry. Verhoog updateniveaus via [test- en faseringsomgevingen](web-sites-staged-publishing.md). Beheer uw apps in Web Apps met [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de [platformoverschrijdende opdrachtregelinterface (CLI)](/cli/azure/install-azure-cli).
 * **Globale schaling met hoge beschikbaarheid**: u kunt handmatig of automatisch [omhoog](web-sites-scale.md) schalen of [uit](../monitoring-and-diagnostics/insights-how-to-scale.md)schalen. U kunt uw apps overal in de globale datacenterinfrastructuur van Microsoft hosten; de [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) van App Service belooft hoge beschikbaarheid.
 * **Verbindingen met SaaS-platforms en on-premises gegevens**: u kunt kiezen uit meer dan 50 [connectors](../connectors/apis-list.md) voor bedrijfssystemen (zoals SAP), SaaS-services (zoals Salesforce) en internetservices (zoals Facebook). Toegang tot on-premises gegevens met [hybride verbindingen](../biztalk-services/integration-hybrid-connection-overview.md) en [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Beveiliging en naleving**: App Service voldoet aan de vereisten van [ISO, SOC en PCI](https://www.microsoft.com/en-us/trustcenter). Verifieer gebruikers met [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) of via sociaal aanmelden ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) en [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Maak [IP-adresbeperkingen](app-service-ip-restrictions.md) en [ beheer service-identiteiten](app-service-managed-service-identity.md).

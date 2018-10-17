@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: a1e8c53263093554bb616ec130cd17a0d6d4339c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302912"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380128"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
@@ -61,7 +61,7 @@ De container is nu klaar om te worden gebouwd en verpakt in een Service Fabric-t
 ## <a name="create-an-azure-sql-db"></a>Een Azure SQL DB maken
 Wanneer de toepassing Fabrikam Fiber CallCenter in productie wordt uitgevoerd, moeten de gegevens persistent worden gemaakt in een database. Er is momenteel geen manier om behoud van gegevens in een container te waarborgen, daarom kunt u productiegegevens niet opslaan in SQL Server in een container.
 
-Wij raden [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell) aan. Als u een beheerde SQL Server-database in Azure wilt instellen en uitvoeren, voert u het volgende script uit.  Wijzig de scriptvariabelen indien nodig. *client-IP* is het IP-adres van uw ontwikkelcomputer.  Als u zich achter een bedrijfsfirewall bevindt, is het IP-adres van uw ontwikkelcomputer mogelijk geen IP-adres dat beschikbaar is voor internet.  U kunt de serverfirewallregel voor de SQL-database ook instellen via [Azure Portal](https://portal.azure.com), waarin het IP-adres van uw computer wordt vermeld.
+Wij raden [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell) aan. Als u een beheerde SQL Server-database in Azure wilt instellen en uitvoeren, voert u het volgende script uit.  Wijzig de scriptvariabelen indien nodig. *client-IP* is het IP-adres van uw ontwikkelcomputer.  Als u zich achter een bedrijfsfirewall bevindt, is het IP-adres van uw ontwikkelcomputer mogelijk geen IP-adres dat beschikbaar is voor internet.  U kunt de serverfirewallregel voor de SQL-database ook instellen via de [Azure-portal](https://portal.azure.com), waarin het IP-adres van uw computer wordt vermeld.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -225,7 +225,7 @@ Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepas
 ![Fabrikam-webvoorbeeld][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Continue integratie en implementatie (CI/CD) met een Service Fabric-cluster instellen
-Zie [Zelfstudie: Een toepassing met CI/CD implementeren in een Service Fabric-cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) voor meer informatie over het gebruik van VSTS om de implementatie van de toepassing van CI/CD in een Service Fabric-cluster te configureren. De procedure die in de zelfstudie is beschreven is dezelfde voor dit project (FabrikamFiber), maar sla het downloaden van het voorbeeld van de stemtoepassing gewoon over en vervang Voting als de naam van de opslagplaats door FabrikamFiber.
+Zie [Tutorial: Deploy an application with CI/CD to a Service Fabric cluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) (Zelfstudie: Een toepassing met CI/CD implementeren in een Service Fabric-cluster) voor meer informatie over het gebruik van Azure DevOps om de implementatie van de toepassing van CI/CD in een Service Fabric-cluster te configureren. De procedure die in de zelfstudie is beschreven is dezelfde voor dit project (FabrikamFiber), maar sla het downloaden van het voorbeeld van de stemtoepassing gewoon over en vervang Voting als de naam van de opslagplaats door FabrikamFiber.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Vergeet als u klaar bent niet om alle resources die u hebt gemaakt te verwijderen.  De eenvoudigste manier hiervoor is om de resourcegroepen te verwijderen die het Service Fabric-cluster, Azure SQL DB en Azure Container Registry bevatten.
@@ -254,8 +254,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een Azure Container Registry maken
 > * Een Service Fabric-toepassing implementeren in Azure
 
-In het volgende gedeelte van de zelfstudie krijgt u informatie over het instellen van [bewaking voor de container](service-fabric-tutorial-monitoring-wincontainers.md).
-
+In het volgende deel van de zelfstudie leert u hoe u [een containertoepassing met CI/CD in een Service Fabric-cluster kunt implementeren](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

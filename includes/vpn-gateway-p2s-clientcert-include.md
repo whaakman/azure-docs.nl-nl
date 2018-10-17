@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 8a49653b4083cbfd17656d701225dcb14f91f637
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01a62fe7abb8a79f9afc08c0ff707cdfbb97ddac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197054"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44343160"
 ---
 Op elke clientcomputer die via punt-naar-site verbinding maakt met een VNet, moet een clientcertificaat zijn geïnstalleerd. Het clientcertificaat wordt gegenereerd op basis van het basiscertificaat en wordt op elke clientcomputer geïnstalleerd. Als er geen geldig clientcertificaat is geïnstalleerd en de client probeert verbinding te maken met het VNet, mislukt de verificatie.
 
@@ -30,5 +29,6 @@ U kunt clientcertificaten genereren via de volgende methoden:
 
   * [Instructies voor Windows 10 PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): bij deze instructies zijn Windows 10 en PowerShell vereist voor het genereren van certificaten. De certificaten die worden gegenereerd, kunnen op alle ondersteunde P2S-clients worden ondersteund.
   * [MakeCert-instructies](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): gebruik MakeCert als u geen toegang hebt tot een Windows 10-computer om certificaten te genereren. MakeCert is buiten gebruik gesteld, maar u kunt het nog wel gebruiken om certificaten te genereren. De certificaten die worden gegenereerd, kunnen op alle ondersteunde P2S-clients worden ondersteund.
+  * [Instructies voor Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
   Als u aan de hand van de voorgaande instructies een clientcertificaat genereert van een zelfondertekend basiscertificaat, wordt het certificaat automatisch geïnstalleerd op de computer die u hebt gebruikt om het certificaat te genereren. Als u een clientcertificaat op een andere clientcomputer wilt installeren, moet u het certificaat als .pfx exporteren, samen met de gehele certificaatketen. Hiermee maakt u een .pfx-bestand dat de gegevens van het basiscertificaat bevat die nodig zijn om de client succesvol te laten verifiëren. Zie [Certificaten - een clientcertificaat exporteren](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) voor informatie over het exporteren van een certificaat.

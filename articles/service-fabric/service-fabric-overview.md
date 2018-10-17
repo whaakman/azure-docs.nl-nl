@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: fdb710868a75f64c3fe9f3742482c70ff86f4365
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207832"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299811"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Overzicht van Azure Service Fabric
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u gemakkelijk schaalbare en betrouwbare microservices en containers verpakt, implementeert en beheert. Service Fabric biedt ook een oplossing voor de grote uitdaging van het ontwikkelen en beheren van systeemeigen cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. Service Fabric is het platform van de nieuwe generatie voor het ontwikkelen en beheren van deze hoogwaardige zakelijke tier-1-toepassingen op cloudschaal die in containers worden uitgevoerd.
@@ -51,7 +51,7 @@ Service Fabric kan overal worden uitgevoerd. U kunt in diverse omgevingen cluste
 
 Voor ontwikkeling onder Windows is de SDK van Service Fabric .NET geïntegreerd met Visual Studio en Powershell. Zie [Uw ontwikkelomgeving voorbereiden in Windows](service-fabric-get-started.md). Voor ontwikkeling onder Linux is de SDK van Service Fabric Java geïntegreerd met Eclipse, en wordt Yeoman gebruikt voor het genereren van sjablonen voor Java, .NET Core en containertoepassingen. Zie [Uw ontwikkelomgeving voorbereiden in Linux](service-fabric-get-started.md)
 
-Zie [Service Fabric-clusters maken onder Windows Server of Linux](service-fabric-deploy-anywhere.md) voor meer informatie, of voor Azure voor het maken van een cluster [via Azure Portal](service-fabric-cluster-creation-via-portal.md).
+Zie [Service Fabric-clusters maken onder Windows Server of Linux](service-fabric-deploy-anywhere.md) voor meer informatie, of voor Azure voor het maken van een cluster [via de Azure-portal](service-fabric-cluster-creation-via-portal.md).
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Staatloze en stateful microservices voor Service Fabric
 Met Service Fabric kunt u toepassingen bouwen die uit microservices of containers bestaan. Staatloze microservices (zoals protocolgateways en webproxy's) handhaven buiten een aanvraag en de reactie erop van de service geen veranderlijke status. Azure Cloud Services-werkrollen zijn een voorbeeld van een staatloze service. Stateful microservices (zoals gebruikersaccounts, databases, apparaten, winkelwagentjes en wachtrijen) handhaven een veranderlijke, gezaghebbende status, buiten de aanvraag en de reactie erop. De huidige toepassingen op internetschaal bestaan uit een combinatie van staatloze en stateful microservices. 
@@ -66,7 +66,7 @@ Dankzij de mogelijkheden die het beheer van de Service Fabric-toepassingslevensc
 
 De meeste toepassingen bestaan uit een combinatie van staatloze en stateful microservices, containers en andere uitvoerbare bestanden die gezamenlijk zijn geïmplementeerd. Dankzij krachtige typen voor de toepassingen maakt Service Fabric de implementatie mogelijk van meerdere exemplaren van de toepassingen. Elk exemplaar wordt beheerd, en onafhankelijk bijgewerkt. Bovendien kan Service Fabric containers of elk uitvoerbaar bestand implementeren en ze betrouwbaar maken. Service Fabric kan bijvoorbeeld .NET, ASP.NET Core, node.js, Windows-containers, Linux-containers, virtuele Java-computers, scripts, Angular of letterlijk alles waaruit uw toepassing bestaat, implementeren.
 
-Service Fabric is geïntegreerd met CI/CD-hulpprogramma's als [Visual Studio-teamservices](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) en [Octopus Deploy](https://octopus.com/), en kan worden gebruikt met elk ander bekend CI/CD-hulpprogramma.
+Service Fabric is geïntegreerd met CI/CD-hulpprogramma's als [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) en [Octopus Deploy](https://octopus.com/), en kan worden gebruikt met elk ander bekend CI/CD-hulpprogramma.
 
 Zie [Toepassingslevenscyclus](service-fabric-application-lifecycle.md) voor meer informatie. Zie [Een toepassing implementeren die door een gast kan worden uitgevoerd](service-fabric-deploy-existing-app.md) voor meer informatie over het implementeren van code.
 

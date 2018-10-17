@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309742"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161914"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snelstart: Telemetrie verzenden van een apparaat naar een IoT-hub (iOS)
 
@@ -33,16 +33,10 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 - De voorbeeldcode downloaden uit [Azure-voorbeelden](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - De nieuwste versie van [XCode](https://developer.apple.com/xcode/), met de nieuwste versie van de iOS-SDK. Deze snelstart is getest met XCode 9.3 en iOS 11.3.
 - De nieuwste versie van [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- Het CLI-hulpprogramma iothub-explorer voor het lezen van telemetrie uit IoT Hub. Installeer eerst [Node.js](https://nodejs.org) versie 4.x.x of hoger, en voer vervolgens deze opdracht uit: 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
@@ -64,14 +58,6 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
    ```
 
    Noteer de apparaatverbindingsreeks, die er ongeveer zo uitziet: `Hostname=...=`. U gebruikt deze waarde verderop in het artikel.
-
-1. U hebt ook een _service verbindingsreeks_ nodig, zodat back-end-toepassingen verbinding kunnen maken met uw IoT-hub en apparaat-naar-cloud-berichten ophalen. Met de volgende opdracht haalt u de serviceverbindingsreeks voor uw IoT-hub op:
-
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   Noteer de serviceverbindingsreeks, die er ongeveer zo uitziet: `Hostname=...=`. U gebruikt deze waarde verderop in het artikel.
 
 ## <a name="send-simulated-telemetry"></a>Gesimuleerde telemetrie verzenden
 
@@ -119,19 +105,19 @@ In de volgende schermafbeelding ziet u voorbeelduitvoer van de gesimuleerde tele
 
 ## <a name="read-the-telemetry-from-your-hub"></a>De telemetrie van uw hub lezen
 
-De voorbeeld-app die u hebt uitgevoerd op de XCode-emulator toont gegevens over van het apparaat verzonden berichten. U kunt de gegevens ook via uw IoT-hub bekijken terwijl ze worden ontvangen. Het `iothub-explorer` CLI-hulpprogramma maakt verbinding met het servicezijde-eindpunt **Gebeurtenissen** op uw IoT-hub. 
+De voorbeeld-app die u hebt uitgevoerd op de XCode-emulator toont gegevens over van het apparaat verzonden berichten. U kunt de gegevens ook via uw IoT-hub bekijken terwijl ze worden ontvangen. De IoT Hub CLI-extensie kan verbinding maken met het eindpunt **Events** aan de servicezijde van uw IoT-hub. De extensie ontvangt de berichten die van het gesimuleerde apparaat naar de cloud worden verzonden. Een back-endtoepassing van IoT Hub wordt meestal uitgevoerd in de cloud om berichten van apparaat naar cloud te ontvangen en verwerken.
 
-Open een nieuw terminalvenster. Voer de volgende opdracht uit, waarbij u {de verbindingsreeks van uw hub-service} vervangt door de service-verbindingsreeks die u aan het begin van dit artikel hebt opgehaald:
+Voer de volgende Azure CLI-opdrachten uit en vervang daarbij `{YourIoTHubName}` door de naam van uw IoT-hub:
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
+
+In de volgende schermafbeelding ziet u de uitvoer op het moment dat de extensie telemetriegegevens ontvangt die door het gesimuleerde apparaat naar de hub zijn verzonden:
 
 De volgende schermafbeelding geeft het soort telemetrie weer dat u in uw terminalvenster ziet:
 
 ![Telemetrie bekijken](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-Als u een foutmelding krijgt bij het uitvoeren van de iothub-explorer-opdracht, controleer dan goed of u de *serviceverbindingsreeks* gebruikt voor uw IoT-hub, in plaats van de *apparaatverbindingsreeks*  voor uw IoT-apparaat. Beide verbindingsreeksen beginnen met **Hostname = {iothubname}**, maar de serviceverbindingsreeks bevat de eigenschap **SharedAccessKeyName**, terwijl de apparaatverbindingsreeks **DeviceID** bevat. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

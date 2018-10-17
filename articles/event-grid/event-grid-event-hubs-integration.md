@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616512"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163223"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Big data streamen naar een datawarehouse
 
@@ -139,7 +139,7 @@ Nadat de functie is gepubliceerd, kunt u zich abonneren op de gebeurtenis.
 
 ## <a name="subscribe-to-the-event"></a>Abonneren op de gebeurtenis
 
-1. Ga naar de [Azure Portal](https://portal.azure.com/). Selecteer de resourcegroep en de functie-app.
+1. Ga naar de [Azure-portal](https://portal.azure.com/). Selecteer de resourcegroep en de functie-app.
 
    ![Functie-app weergeven](media/event-grid-event-hubs-integration/view-function-app.png)
 
@@ -184,6 +184,7 @@ U bent nu klaar met het instellen van uw gebeurtenishub, SQL-datawarehouse, Azur
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* Zie voor meer informatie over de verschillen in de Azure-berichtenservices [Kiezen tussen Azure-services die berichten bezorgen](compare-messaging-services.md).
 * Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
-* Zie [Event Hubs Capture inschakelen met behulp van Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md) voor een inleiding tot Event Hubs Capture.
+* Zie [Event Hubs Capture inschakelen met behulp van de Azure-portal](../event-hubs/event-hubs-capture-enable-through-portal.md) voor een inleiding tot Event Hubs Capture.
 * Zie het Engelstalige artikel [An overview, how Event Hubs Capture integrates with Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) voor meer informatie over het instellen en uitvoeren van het voorbeeld.

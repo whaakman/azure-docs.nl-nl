@@ -3,7 +3,7 @@ title: 'Snelstartgids voor Azure Security Center: uw Linux-computers naar Securi
 description: Deze snelstartgids laat zien hoe u uw Linux-computers naar Security Center kunt onboarden.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630094"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025390"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snelstartgids: Linux-computers naar Azure Security Center onboarden
 Nadat u de onboarding van uw Azure-abonnementen hebt uitgevoerd, kunt u Security Center inschakelen voor Linux-resources die buiten Azure worden uitgevoerd, bijvoorbeeld on-premises of in andere clouds, door de Linux-agent in te richten.
@@ -34,18 +34,17 @@ U moet u zich in de Standard-prijscategorie van Security Center bevinden voordat
 
 ## <a name="add-new-linux-computer"></a>Nieuwe Linux-computer toevoegen
 
-1. Meld u aan bij de [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Meld u aan bij de [Azure-portal](https://azure.microsoft.com/features/azure-portal/).
 2. Ga naar het **Microsoft Azure**-menu en selecteer **Security Center**. **Security Center - Overzicht** wordt geopend.
 
  ![Overzicht van Security Center][2]
 
-3. Selecteer in het hoofdmenu van Security Center de optie **Onboarding naar geavanceerde beveiliging**.
-4. Selecteer **Wilt u niet-Azure-computers toevoegen?**
-   ![Onboarden naar geavanceerde beveiliging][3]
+3. Selecteer in het hoofdmenu van Security Center de optie **Aan de slag**.
+4. Selecteer het tabblad **Aan de slag**. ![Aan de slag][3]
 
-5. Bij **Nieuwe niet-Azure-computers toevoegen** wordt een lijst met uw Log Analytics-werkruimtes weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
+5. Klik op **Configureren** onder **Nieuwe niet-Azure-computers toevoegen**, waarna een lijst met uw Log Analytics-werkruimten wordt weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
 
-    ![Niet-Azure-computer toevoegen][4]
+    ![Niet-Azure-computer toevoegen](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.  Selecteer op de pagina **Agent toewijzen** onder **AGENT VOOR LINUX DOWNLOADEN EN VRIJGEVEN** de knop **Kopiëren** om de opdracht *wget* te kopiëren.
 
@@ -91,7 +90,7 @@ In deze snelstartgids hebt u de agent op een Linux-computer ingericht. Voor meer
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png
