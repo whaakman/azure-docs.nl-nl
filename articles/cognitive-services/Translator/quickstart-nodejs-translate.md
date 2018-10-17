@@ -1,25 +1,25 @@
 ---
-title: Tekst vertalen van Translator Text met Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API met Node.js in Cognitive Services.
+title: 'Snelstart: tekst vertalen - Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 6d862125dc6c248afa8d8322ec1b008959abb7cd
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fe81b7fffd1705cb940e3aa52f397cf0f2cf1b14
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768987"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122171"
 ---
 # <a name="quickstart-translate-text-with-nodejs"></a>Snelstart: tekst vertalen met Node.js
 
-In deze snelstart vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
+In deze snelstartgids vertaalt u tekst vanuit één taal naar een andere taal met de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -33,7 +33,7 @@ Met de volgende code wordt brontekst vertaald vanuit één taal naar een andere 
 
 1. Maak een nieuw Node.js-project in uw favoriete code-editor.
 2. Voeg de onderstaande code toe.
-3. Vervang de waarde `subscriptionKey` met een geldige toegangssleutel voor uw abonnement.
+3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
 4. Voer het programma uit.
 
 ```javascript
@@ -127,7 +127,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere resources, met inbegrip van transliteratie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van transcriptie en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Node.js-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=javascript)

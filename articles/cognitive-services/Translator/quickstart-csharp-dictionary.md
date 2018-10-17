@@ -1,25 +1,27 @@
 ---
-title: 'Translator Text: alternatieve vertalingen zoeken met C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart zoekt u alternatieve vertalingen en voorbeelden van termen in context met de Translator Text-API met C# in Cognitive Services.
+title: 'Snelstart: Alternatieve vertalingen zoeken - -Translator Text-API, C#'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f45e7281456f9ae09912a2ee665cb480dc5052f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43768935"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365253"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Snelstart: alternatieve vertalingen zoeken en gebruiken met C&#35;
 
-In deze snelstart zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
+In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
+
+De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -248,7 +250,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)

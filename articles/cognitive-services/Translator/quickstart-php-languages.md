@@ -1,21 +1,21 @@
 ---
-title: Translator Text gebruiken om ondersteunde talen op te halen met PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met PHP in Cognitive Services.
+title: 'Snelstartgids: Ondersteunde talen ophalen - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 95b48f15ffe8cea14f9ffb7612193b819e03f5f3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2924a61a31037fcf52986d250007b906ffb40b98
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769047"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128704"
 ---
 # <a name="quickstart-get-supported-languages-with-php"></a>Snelstartgids: ondersteunde talen ophalen met PHP
 
@@ -177,4 +177,4 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
-> [PHP-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)
+> [PHP-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)

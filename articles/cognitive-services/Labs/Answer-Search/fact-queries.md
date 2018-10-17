@@ -1,28 +1,29 @@
 ---
-title: Project antwoord feit zoekquery - cognitieve Microsoft-Services | Microsoft Docs
-description: Query's voor feiten Project antwoord zoekactie
+title: 'Quickstart: Query naar feiten met Project Answer Search'
+titlesuffix: Azure Cognitive Services
+description: Query's naar feiten met behulp van Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345266"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868331"
 ---
-# <a name="query-for-facts"></a>Query voor gegevens
+# <a name="quickstart-query-for-facts"></a>Quickstart: Query naar feiten
 
-Als de query een feit, zoals een datum of persoonsgegevens knowledge is, het antwoord kan bevatten `facts` antwoorden. Feit antwoorden bevatten relevante resultaten van de leden in-documenten hebt uitgepakt.  Deze query's altijd retourneren webpagina's, en [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) query-afhankelijke zijn.
+Als de query wordt uitgevoerd voor een feit zoals een datum of identificeerbare kennis, kan het antwoord `facts`-antwoorden bevatten. Feitantwoorden bevatten relevante resultaten die zijn opgehaald uit alinea's in webdocumenten.  Deze query's retourneren altijd webpagina's, waarbij [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) afhankelijk van de query zijn.
 
-Query's zoals valentines + 2016, wanneer + is + ramadan worden beschouwd als de datum-gerelateerde query's. Als Bing wordt vastgesteld dat de query betrekking heeft op datum, het antwoord bevat een `facts` antwoord. 
+Query's, zoals valentijn+2016 en wanneer+ is+ramadan worden beschouwd als datumgerelateerde query's. Als Bing vaststelt dat de query datumgerelateerd is, bevat het antwoord een `facts`-antwoord. 
 
-Het volgende voorbeeld wordt een date-gerelateerde `facts` antwoord. 
+Het volgende voorbeeld wordt een datumgerelateerd `facts`-antwoord. 
 
 **Query:**
 ````
@@ -30,7 +31,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-**Antwoord:** de `subjectName` veld bevat een weergave-versie van de query van de gebruiker die u als een label gebruiken kunt bij het weergeven van het feit. Als de queryreeks valentines + 2016 is, Bing mogelijk wijzigen van jou dag 2016. Het beschrijvingsveld bevat het feit.
+**Antwoord:** het veld `subjectName` bevat een weergaveversie van de query van de gebruiker die u als label kunt gebruiken bij het weergeven van het feit. Als de queryreeks valentijn+2016 is, kan Bing dit wijzigen in Valentijnsdag 2016. Het beschrijvingsveld bevat het feit.
 
 ````
 {   
@@ -58,7 +59,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-De query 'Waarom is de lucht blauw?' een voorbeeld van een antwoord kennis-gerelateerde retourneert.
+De query 'Waarom is de lucht blauw?' retourneert een voorbeeld van een kennisgerelateerd antwoord.
 
 **Query:**
 
@@ -67,7 +68,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-**Antwoord:** de `value/description` veld bevat de kennis of informatie aangevraagd door de query.
+**Antwoord:** het veld `value/description` bevat de kennis of informatie aangevraagd door de query.
 
 ````
   "facts": {
@@ -113,14 +114,14 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-## <a name="tabular-data"></a>Tabelgegevens
-In sommige gevallen kunnen de gegevens worden geretourneerd als `_type: StructuredValue/TabularData`. De volgende query haalt tabelgegevens met tegengestelde informatie over koffie en thee.
+## <a name="tabular-data"></a>Gegevens in tabelvorm
+In sommige gevallen kunnen feiten worden geretourneerd als `_type: StructuredValue/TabularData`. De volgende query haalt gegevens in tabelvorm met tegengestelde informatie over koffie en thee op.
 
 ````
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
 ````
-De `facts` resultaten zijn de volgende rijen en cellen:
+De `facts`-resultaten bevatten de volgende rijen en cellen:
 ````
     "value": [
       {
@@ -198,7 +199,7 @@ De `facts` resultaten zijn de volgende rijen en cellen:
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](c-sharp-quickstart.md)
-- [Java-Quick Start](java-quickstart.md)
-- [Knooppunt Quick Start](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Snelstart voor C#](c-sharp-quickstart.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor Node](node-quickstart.md)
+- [Snelstart voor Python](python-quickstart.md)

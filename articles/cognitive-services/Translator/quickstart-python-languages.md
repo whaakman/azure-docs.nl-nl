@@ -1,25 +1,25 @@
 ---
-title: Translator Text gebruiken om ondersteunde talen op te halen met Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Java in Cognitive Services.
+title: 'Snelstart: ondersteunde talen ophalen - Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 3ae3c6be814f79541e39eddd3be137b71cc1a494
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769027"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121733"
 ---
 # <a name="quickstart-get-supported-languages-with-python"></a>Snelstart: Ondersteunde talen ophalen met Python
 
-In deze snelstart haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API.
+In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -164,7 +164,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Python-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=python)

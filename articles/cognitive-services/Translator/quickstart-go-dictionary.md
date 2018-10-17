@@ -1,21 +1,21 @@
 ---
-title: 'Translator Text: alternatieve vertalingen zoeken met Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids zoekt u alternatieve vertalingen en voorbeelden van termen in context met de Translator Text-API met Go in Cognitive Services.
+title: 'Snelstart: alternatieve vertalingen zoeken -Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: a076418dbf969a61107c28f191457fc336a8b907
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43769108"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128873"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Snelstartgids: alternatieve vertalingen zoeken en gebruiken met Go
 

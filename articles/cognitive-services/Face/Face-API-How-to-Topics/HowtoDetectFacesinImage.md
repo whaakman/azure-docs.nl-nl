@@ -1,64 +1,65 @@
 ---
-title: Vlakken detecteren in afbeeldingen met de Face-API | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: De Face-API in cognitieve Services gebruiken voor het detecteren van vlakken in afbeeldingen.
+title: 'Voorbeeld: Gezichten in afbeeldingen detecteren - Face-API'
+titleSuffix: Azure Cognitive Services
+description: De Face-API gebruiken voor het detecteren van gezichten in afbeeldingen.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 57cd0915450428399fd680638aa4fae2cdbe17c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344523"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124045"
 ---
-# <a name="how-to-detect-faces-in-image"></a>Het vaststellen van bespreekt in afbeelding
+# <a name="example-how-to-detect-faces-in-image"></a>Voorbeeld: Gezichten in een afbeelding detecteren
 
-Deze handleiding wordt gedemonstreerd hoe kunt detecteren vlakken van een installatiekopie, met face-kenmerken zoals geslacht, leeftijd of pose hebt uitgepakt. De voorbeelden zijn geschreven in C# met behulp van de clientbibliotheek Face-API. 
+Deze handleiding demonstreert hoe u gezichten herkent van een afbeelding, met de gezichtskenmerken als geslacht, leeftijd of de geëxtraheerde houding. De voorbeelden zijn geschreven in C# met de Face-API-clientbibliotheek. 
 
-## <a name="concepts"></a> Concepten
+## <a name="concepts"></a>Concepten
 
-Als u niet bekend met een van de volgende concepten in deze handleiding bent, raadpleegt u de definities van onze [verklarende woordenlijst](../Glossary.md) op elk gewenst moment: 
+Als u niet bekend bent met een van de volgende concepten in deze handleiding, raadpleegt u de definities van onze [Woordenlijst](../Glossary.md) op elk gewenst moment: 
 
-- Gezichtsherkenning
-- Face monumenten
-- HEAD vormen
-- Face-kenmerken
+- Gezichtsdetectie
+- Gezichtsoriëntatiepunten
+- Hoofdhouding
+- Gezichtskenmerken
 
-## <a name="preparation"></a> Voorbereiding
+## <a name="preparation"></a>Voorbereiding
 
-In dit voorbeeld wordt gedemonstreerd de volgende functies: 
+In dit voorbeeld worden de volgende functies toegelicht: 
 
-- Vlakken van een installatiekopie te detecteren en ze te markeren met behulp van rechthoekige framing
-- De locaties van pupillen, de neus of mond te analyseren en ze vervolgens te markeren in de afbeelding
-- Analyse van de head pose, geslacht en leeftijd van het oppervlak
+- Gezichten detecteren in een afbeelding en ze markeren met behulp van rechthoekige framing
+- Analyseren van de locaties van pupillen, neus of mond en ze vervolgens te markeren in de afbeelding
+- Analyseren van de hoofdhouding, geslacht en leeftijd van het gezicht
 
-Om deze functies worden uitgevoerd, moet u een installatiekopie met ten minste één wissen face voorbereiden. 
+U moet een afbeelding voorbereiden met ten minste één helder gezicht om deze functies uit te voeren. 
 
-## <a name="step1"></a> Stap 1: Machtig de API-aanroep
+## <a name="step-1-authorize-the-api-call"></a>Stap 1: De API-aanroep autoriseren
 
-Elke aanroep van de Face-API is een abonnementssleutel vereist. Deze sleutel moet worden doorgegeven via een queryreeksparameter of opgegeven in de aanvraagheader. Als u wilt doorgeven van de sleutel van het abonnement via de queryreeks, raadpleegt u de aanvraag-URL voor de [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) als een voorbeeld:
+Voor elke aanroep naar de Face-API is een abonnementssleutel vereist. Deze sleutel moet worden doorgegeven via een tekenreeksparameter, of zijn opgegeven in de aanvraagheader. Als u de abonnementssleutel via query-tekenreeks wilt doorgeven, raadpleegt u de aanvraag-URL voor de [Face - Detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) als een voorbeeld:
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription Key>
 ```
 
-Als alternatief kan de abonnementssleutel ook worden opgegeven in de HTTP-aanvraag-header: **ocp-apim-subscription-key: &lt;Abonnementssleutel&gt;**  wanneer u een clientbibliotheek, de abonnementssleutel wordt doorgegeven via de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
+Als alternatief, kan de abonnementssleutel ook worden opgegeven in de HTTP-aanvraagheader: **ocp-apim-subscription-key: &lt;Abonnementssleutel&gt;** Wanneer u een clientbibliotheek gebruikt, wordt de abonnementssleutel doorgegeven via de constructor van de klasse FaceServiceClient. Bijvoorbeeld:
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-## <a name="step2"></a> Stap 2: Een installatiekopie uploaden naar de service en face detectie uitvoeren
+## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>Stap 2: Een afbeelding naar de service uploaden en gezichtsdetectie uitvoeren
 
-De eenvoudigste manier om uit te voeren face detection is door een afbeelding rechtstreeks te uploaden. Dit wordt gedaan door het verzenden van een aanvraag "POST" met het inhoudstype application/octet-stream met de gegevens lezen uit een JPEG-afbeelding. De maximale grootte van de afbeelding is 4 MB.
+De eenvoudigste manier voor het uitvoeren van gezichtsdetectie is door het rechtstreeks uploaden van een afbeelding. Dit wordt gedaan door een aanvraag "POST" te sturen met het inhoudstype toepassing/octet-stream, met de gegevens gelezen uit een JPEG-afbeelding. De maximale grootte van de parameter is 4 MB.
 
-Met behulp van de clientbibliotheek wordt face detection middels het uploaden gedaan door door te geven in een Stream-object. Zie het voorbeeld hieronder:
+Met behulp van de clientbibliotheek, wordt gezichtsdetectie met behulp van uploaden uitgevoerd door het doorgeven in een Stream-object. Zie het voorbeeld hieronder:
+
 ```CSharp
 using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 {
@@ -72,9 +73,10 @@ using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 }
 ```
 
-Houd er rekening mee dat de methode DetectAsync van FaceServiceClient async is. De aangeroepen methode moet worden gemarkeerd als async, ook als u wilt de await-component gebruiken.
-Als de installatiekopie al op het web is en een URL, kan face detection worden uitgevoerd door ook de URL. In dit voorbeeld worden de aanvraagtekst een JSON-tekenreeks, die de URL bevat.
-Met behulp van de clientbibliotheek kan face detection door middel van een URL worden uitgevoerd met een andere overload van de methode DetectAsync.
+Houd er rekening mee dat de methode DetectAsync van FaceServiceClient asynchroon is. De aanroepende methode moet worden gemarkeerd ook als asynchroon om de await-component te gebruiken.
+Als de afbeelding al op het web is en een URL bevat, kan gezichtsdetectie worden uitgevoerd door ook een URL te verstrekken. In dit voorbeeld is de aanvraagbody een JSON-tekenreeks die de URL bevat.
+Met behulp van de clientbibliotheek, kan gezichtsdetectie met behulp van een URL eenvoudig met behulp van een andere overbelasting van de methode DetectAsync worden uitgevoerd.
+
 ```CSharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
@@ -86,17 +88,18 @@ foreach (var face in faces)
 }
 ``` 
 
-De FaceRectangle-eigenschap die wordt geretourneerd met gedetecteerde vlakken is in wezen locaties op het vlak in pixels. Normaal gesproken deze rechthoek bevat de ogen, eyebrows, de neus en de mond – de bovenkant van het hoofd, oren en de kin zijn niet opgenomen. Als u een volledige head of halverwege geschoten Staand (een foto-ID type afbeelding) bijsnijdt, wilt u mogelijk Vouw het gebied van de rechthoekige face-frame, omdat het gebied van het oppervlak mogelijk te klein voor sommige toepassingen. Een gezicht preciezer, vinden met behulp van face monumenten (zoek face-functies of richting mechanismen geconfronteerd) die worden beschreven in de volgende sectie wordt bewijzen nuttig.
+De eigenschap FaceRectangle die wordt geretourneerd met gedetecteerde gezichten bestaat in feite uit locaties op het gezicht in pixels. Normaal gesproken bevat deze rechthoek de ogen, wenkbrauwen, de neus en de mond – uitgezonderd de bovenkant van de hoofd, oren en de kin. Als u een volledige hoofd- of halve staande opname (een foto-ID-type installatiekopie) bijsnijdt, kunt u het gebied van het rechthoekige gezichtsframe uitbreiden omdat het gebied van het gezicht mogelijk te klein is voor sommige toepassingen. Om een gezicht nog preciezer te zoeken zal het gebruik van gezichtsoriëntatiepunten (gezichtsfuncties of gezichtsrichtingmechanismen) zoals beschreven in de volgende sectie zijn nut bewijzen.
 
-## <a name="step3"></a> Stap 3: Begrijpen en gebruiken van face monumenten
+## <a name="step-3-understanding-and-using-face-landmarks"></a>Stap 3: Begrip en gebruik van gezichtsoriëntatiepunten
 
-Face monumenten zijn een aantal gedetailleerde punten op een gezicht; doorgaans punten face-onderdelen, zoals de pupillen, canthus of neus. Face monumenten zijn optionele kenmerken die tijdens de detectie van face kunnen worden geanalyseerd. U kunt beide pass 'true' als een Booleaanse waarde in de queryparameter returnFaceLandmarks bij het aanroepen van de [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), of de optionele parameter returnFaceLandmarks voor de klasse FaceServiceClient DetectAsync methode in volgorde van gebruik de monumenten face opnemen in de resultaten.
+Gezichtsoriëntatiepunten bestaan uit een reeks van gedetailleerde punten op een gezicht; normaal gesproken punten van gezichtsonderdelen zoals de pupillen, de ooghoek of de neus. Gezichtsoriëntatiepunten zijn optionele kenmerken die tijdens de gezichtsdetectie kunnen worden geanalyseerd. U kunt beide 'waar' als een Booleaanse waarde voor de queryparameter returnFaceLandmarks doorgeven bij het aanroepen van de [Gezicht - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), of de optionele parameter returnFaceLandmarks gebruiken voor de klasse FaceServiceClient DetectAsync-methode om de gezichtsoriëntatiepunten in de richtingsresultaten op te nemen.
 
-Er zijn standaard 27 vooraf gedefinieerde kenmerkende punten. De volgende afbeelding toont hoe alle 27 punten worden gedefinieerd:
+Standaard zijn er 27 oriëntatiepunten vooraf gedefinieerde punten. De volgende afbeelding toont hoe alle 27 punten zijn gedefinieerd:
 
 ![HowToDetectFace](../Images/landmarks.1.jpg)
 
-De geretourneerde punten zijn in pixels, net als de rechthoekige face-frame-eenheden. Waardoor u ze eenvoudiger markeren specifieke punten in de installatiekopie van het van belang. De volgende code toont de locaties van de neus en pupillen ophalen:
+De punten worden geretourneerd in eenheden van pixels, net als bij het rechthoekige frame van het gezicht. Daarom wordt het gemakkelijker om specifieke nuttige plaats in de afbeelding te markeren. De volgende code verschijnt bij het ophalen van de locaties van de neus en de pupillen:
+
 ```CSharp
 var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
  
@@ -116,7 +119,7 @@ foreach (var face in faces)
 }
 ``` 
 
-Naast de markering face-functies in een installatiekopie, worden face monumenten ook gebruikt voor het berekenen van de richting van het oppervlak nauwkeurig. Bijvoorbeeld, definiëren we de richting van het oppervlak als vector vanaf het midden van de mond naar het midden van de ogen. De volgende code wordt dit in detail uitgelegd:
+Naast de markering van gezichtsfuncties in een afbeelding, worden gezichtsoriëntatiepunten ook gebruikt voor een nauwkeurige berekening van de richting van het gezicht. We kunnen bijvoorbeeld de richting van het gezicht definiëren als een vector uit het midden van de mond naar het midden van de ogen. De code hieronder legt dit in detail uit:
 
 ```CSharp
 var landmarks = face.FaceLandmarks;
@@ -140,21 +143,22 @@ Vector faceDirection = new Vector(
     centerOfTwoEyes.Y - centerOfMouth.Y);
 ``` 
 
-De richting van de zijde is in weet, kunt u vervolgens het frame rechthoekige face wilt uitlijnen op het vlak draaien. Het is duidelijk dat met face monumenten meer detail en -hulpprogramma bieden kunt.
+Met de kennis van de richting waarin het gezicht zich bevindt, kunt u vervolgens het rechthoekige gezichtsframe draaien om dit met het gezicht uit te lijnen. Het is duidelijk dat met het gebruik van gezichtsoriëntatiepunten meer details en een hulpprogramma bieden.
 
-## <a name="step4"></a> Stap 4: Met behulp van andere face-kenmerken
+## <a name="step-4-using-other-face-attributes"></a>Stap 4: Gebruik van andere gezichtskenmerken
 
-API detecteren naast face monumenten, Face – kunt ook verschillende kenmerken van een gezicht analyseren. Deze kenmerken zijn onder andere:
+Naast de gezichtsoriëntatiepunten, kan Gezicht - Detecteren API ook diverse andere kenmerken van een gezicht analyseren. Deze kenmerken zijn onder andere:
 
 - Leeftijd
 - Geslacht
-- Intensiteit glimlach
-- Analyseert haar
-- Een 3D-head pose
+- Glimlach-intensiteit
+- Gezichtshaar
+- Een 3D-hoofdhouding
 
-Deze kenmerken worden voorspeld met behulp van statistische algoritmen en mag niet altijd 100% nauwkeurig zijn. Ze zijn echter nog steeds handig als u wilt classificeren vlakken door deze kenmerken. Raadpleeg voor meer informatie over elk van de kenmerken van de [verklarende woordenlijst](../Glossary.md).
+Deze kenmerken worden voorspeld met behulp van statistische algoritmen en zijn mogelijk niet altijd 100% nauwkeurig. Ze zijn echter nog steeds nuttig als u gezichten wilt classificeren met deze kenmerken. Raadpleeg voor meer informatie over elk van de kenmerken de [Woordenlijst](../Glossary.md).
 
-Hieronder vindt u een eenvoudig voorbeeld van het extraheren van face kenmerken tijdens de detectie van face:
+Hieronder volgt een eenvoudig voorbeeld van het extraheren van gezichtskenmerken tijdens gezichtsdetectie:
+
 ```CSharp
 var requiredFaceAttributes = new FaceAttributeType[] {
                 FaceAttributeType.Age,
@@ -180,12 +184,13 @@ foreach (var face in faces)
     var glasses = attributes.Glasses;
 }
 ``` 
-## <a name="summary"></a> Samenvatting
 
-In deze handleiding hebt u geleerd, de functionaliteit van [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API, hoe deze vlakken kunt detecteren voor lokale geüpload installatiekopieën of afbeelding-URL's op het web; hoe vlakken kunnen worden gedetecteerd door te retourneren van de rechthoekige face frames; en hoe deze ook kunt analyseren Face monumenten, 3D head vormt en andere face-kenmerken.
+## <a name="summary"></a>Samenvatting
 
-Raadpleeg voor meer informatie over API de API-Naslaggids voor [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+In deze handleiding hebt u de functionaliteiten van [Gezicht - Detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API geleerd, hoe dit gezichten kan detecteren voor lokale geüploade afbeeldingen of afbeelding-URL's op het web ; hoe dit gezichten kan detecteren door rechthoekige gezichtsframes te retourneren; en hoe dit ook gezichtsoriëntatiepunten, 3D-gezichtshoudingen en andere gezichtskenmerken kan analyseren.
 
-## <a name="related"></a> Verwante onderwerpen
+Raadpleeg voor meer informatie over API-details, de API-naslaggids voor [Gezicht - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-[Het identificeren van bespreekt in afbeelding](HowtoIdentifyFacesinImage.md)
+## <a name="related-topics"></a>Verwante onderwerpen
+
+[Gezichten in een afbeelding identificeren](HowtoIdentifyFacesinImage.md)

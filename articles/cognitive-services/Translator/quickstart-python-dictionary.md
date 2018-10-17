@@ -1,25 +1,25 @@
 ---
-title: 'Translator Text: alternatieve vertalingen zoeken met Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart zoekt u alternatieve vertalingen en voorbeelden van termen in context met de Translator Text-API met Python in Cognitive Services.
+title: 'Snelstart: alternatieve vertalingen zoeken -Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 4f7c91bfa6fe82f19e84e13b4b7442b59b126cb9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768995"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122719"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>Snelstart: alternatieve vertalingen zoeken en gebruiken met Python
 
-In deze snelstart zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
+In deze snelstartgids zoekt u details van mogelijke alternatieve vertalingen voor een term plus gebruiksvoorbeelden van deze alternatieve vertalingen met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -233,7 +233,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Python-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=python)

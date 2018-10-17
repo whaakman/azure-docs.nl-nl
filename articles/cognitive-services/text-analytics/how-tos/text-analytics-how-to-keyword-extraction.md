@@ -1,36 +1,37 @@
 ---
-title: Instructies sleutel woordgroep extractie in Text Analytics REST-API (Microsoft cognitieve Services in Azure) | Microsoft Docs
-description: Het uitpakken van sleutel woordgroepen met de tekst Analytics REST-API in Microsoft cognitieve Services op Azure in deze zelfstudie scenario.
+title: 'Voorbeeld: Sleuteltermen extraheren in de Text Analytics'
+titleSuffix: Azure Cognitive Services
+description: Leer hoe u sleuteltermen extraheert met de Text Analytics REST-API.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344691"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605484"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Het uitpakken van sleutel zinnen in Tekstanalyse
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Voorbeeld: Sleuteltermen extraheren in de Text Analytics
 
-De [sleutel woordgroep extractie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evalueert ongestructureerde tekst is en retourneert een lijst met belangrijke termen voor elk JSON-document. 
+De [Sleuteltermextractie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) evalueert ongestructureerde tekst en retourneert voor elk JSON-document een lijst met sleuteltermen. 
 
-Deze mogelijkheid is handig als u nodig hebt om snel te identificeren de belangrijkste punten in een verzameling van documenten. Bijvoorbeeld, bepaalde invoertekst 'de voeding delicious is en er zijn prachtige personeel', stuurt de service te bespreken de belangrijkste punten: 'voeding' en 'prachtige personeel'.
+Deze functie is handig als u snel de belangrijkste punten moet identificeren van een verzameling documenten. Bijvoorbeeld, bij de invoertekst "het eten was heerlijk en de bediening fantastisch", retourneert de service de belangrijkste gespreksonderwerpen: 'eten' en "bediening fantastisch".
 
-Uitpakken van sleutel woordgroep ondersteunt momenteel, Nederlands, Duits, Engels en Japans. Andere talen zijn Preview-versie. Zie voor meer informatie [ondersteunde talen](../text-analytics-supported-languages.md).
+Op dit moment ondersteunt Sleuteltermextractie Engels, Duits, Spaans en Japans. Andere talen bevinden zich in preview-fase. Zie voor meer informatie [Ondersteunde talen](../text-analytics-supported-languages.md).
 
 ## <a name="preparation"></a>Voorbereiding
 
-Uitpakken van sleutel woordgroep werkt het beste als u hieraan groter segmenten van tekst om te werken op. Dit is het tegenovergestelde van gevoel analyse, die beter presteert op kleinere blokken van tekst. Als u de beste resultaten vanuit beide bewerkingen, overweeg dienovereenkomstig reorganisatie van de invoer.
+Sleuteltermextractie werkt het beste wanneer u grotere segmenten tekst geeft. Dit is het tegenovergestelde van sentimentanalyse, wat beter presteert op kleinere blokken tekst. Overweeg dienovereenkomstig herstructurering van de invoer voor de beste resultaten uit beide bewerkingen.
 
-Moet u de JSON-documenten in deze indeling hebben: id, de tekst, de taal
+U moet JSON-documenten in deze indeling hebben: id, tekst, taal
 
-De documentgrootte van het moet onder 5000 tekens per document en u kunt maximaal 1000 hebben items (id's) per verzameling. De verzameling is in de hoofdtekst van de aanvraag verzonden. Het volgende voorbeeld wordt een afbeelding van inhoud die u voor het ophalen van de belangrijkste woordgroep kan indienen.
+De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Het volgende voorbeeld geeft de inhoud die u kunt indienen voor sleuteltermextractie.
 
 ```
     {
@@ -64,34 +65,34 @@ De documentgrootte van het moet onder 5000 tekens per document en u kunt maximaa
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Stap 1: De aanvraag structureren
+## <a name="step-1-structure-the-request"></a>Stap 1: Structuur van de aanvraag
 
-Meer informatie over de definitie van de aanvraag kunnen worden gevonden in [hoe de tekst Analytics-API aan te roepen](text-analytics-how-to-call-api.md). De volgende punten worden aangepast voor het gemak:
+Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST** aanvraag. Bekijk de API-documentatie voor deze aanvraag: [sleutel zinnen API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Maak een **POST**-aanvraag. Bekijk de API-documentatie voor deze aanvraag: [Key Phrases-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Het HTTP-eindpunt voor het ophalen van de belangrijkste woordgroep ingesteld. Het omvat de `/keyphrases` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Stel het HTTP-eindpunt in voor sleuteltermextractie. Deze moet de `/keyphrases`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases` bevatten
 
-+ Stel een aanvraagheader om op te nemen van de toegangssleutel voor Text Analytics-bewerkingen. Zie voor meer informatie [eindpunten zoeken en toegangssleutels](text-analytics-how-to-access-key.md).
++ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
-+ Geef de JSON-documenten verzameling die u hebt voorbereid voor deze analyse in de aanvraagtekst.
++ Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API testen console** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) aan de structuur van een aanvraag en dit bericht naar de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) om de aanvraag te structureren en POST deze in de service.
 
 ## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag posten
 
-Analyse wordt na ontvangst van de aanvraag uitgevoerd. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag mag maximaal 1 MB.
+Analyse wordt uitgevoerd na ontvangst van de aanvraag. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag kan maximaal 1 MB zijn.
 
-Intrekken van de service staatloze is. Er zijn geen gegevens worden opgeslagen in uw account. Resultaten worden direct in het antwoord geretourneerd.
+Terughalen als de service staatloos is. Er worden geen gegevens opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
 
 ## <a name="step-3-view-results"></a>Stap 3: Resultaten weergeven
 
-Alle POST-verzoeken retourneren een JSON-indeling van antwoord met de id's en eigenschappen gedetecteerd.
+Alle POST-verzoeken retourneren een ingedeeld JSON-antwoord met de id's en gedetecteerde eigenschappen.
 
-Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten naar een toepassing die JSON accepteert stream of sla de uitvoer naar een bestand op het lokale systeem en vervolgens importeren in een toepassing waarmee u kunt sorteren en manipuleren van de gegevens zoeken.
+Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een toepassing die JSON accepteert of u kunt de uitvoer opslaan als lokaal bestand en vervolgens importeren in een toepassing waarmee u kunt sorteren, zoeken en de gegevens kunt manipuleren.
 
-Een voorbeeld van de uitvoer voor het ophalen van de belangrijkste woordgroep wordt volgende weergegeven:
+Een voorbeeld van de uitvoer voor sleuteltermextractie:
 
 ```
     "documents": [
@@ -138,24 +139,24 @@ Een voorbeeld van de uitvoer voor het ophalen van de belangrijkste woordgroep wo
         }
 ```
 
-Zoals vermeld, de analyzer vindt wordt verwijderd van niet-essentiële woorden en houdt enkelvoudige termen of woordgroepen die lijken te zijn van het onderwerp of een object van een zin. 
+Zoals is vermeld, de analyzer vindt en verwijdert niet-essentiële woorden, en houdt enkelvoudige termen of zinnen die een onderwerp of het object van een zin lijken te zijn. 
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd concepten en werkstroom voor het uitpakken van sleutel woordgroep Text Analytics gebruiken in cognitieve Services. Samengevat:
+In dit artikel hebt kennis gemaakt met concepten en werkstromen voor sleuteltermextractie met behulp van Text Analytics in Cognitive Services. Samenvatting:
 
-+ [Sleutel woordgroep extractie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) is beschikbaar voor de geselecteerde talen.
-+ JSON-documenten in de aanvraagtekst bevatten een code-id, tekst en taal.
-+ POST-aanvraag is een `/keyphrases` eindpunt, met een persoonlijk [toegang krijgen tot sleutel en een eindpunt](text-analytics-how-to-access-key.md) die geldig is voor uw abonnement.
-+ Antwoorduitvoer, die uit sleutel woorden en woordgroepen voor elk document-ID bestaat, kan worden gestreamd naar alle Apps die JSON accepteert, zoals Excel en Power BI, enzovoort.
++ [Sleuteltermextractie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) is beschikbaar in bepaalde talen.
++ JSON-documenten in de aanvraagbody omvatten een id, tekst en taalcode.
++ POST-aanvraag is een `/keyphrases`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
++ De antwoorduitvoer, die uit de sleutelwoorden en belangrijke woordgroepen voor elk document-ID bestaat, kan worden gestreamd naar alle apps die JSON accepteren, met inbegrip van Excel en Power BI, om er maar een paar te noemen.
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van tekst Analytics](../overview.md)  
- [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md)</br>
- [Tekst Analytics productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Overzicht van Text Analytics](../overview.md)  
+ [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
+ [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Tekstanalyse API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [Text Analytics-API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)

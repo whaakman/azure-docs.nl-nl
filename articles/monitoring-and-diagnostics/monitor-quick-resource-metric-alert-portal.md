@@ -9,12 +9,12 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263045"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982858"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde
 
@@ -47,7 +47,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 6. Stel de waarden in zoals weergegeven in het volgende diagram.
 
-    ![Configureer de logische app-trigger in het portalpaneel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configureer de logische app-trigger in het portalpaneel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. Selecteer in de ontwerpfunctie de trigger **Terugkeerpatroon**.
 

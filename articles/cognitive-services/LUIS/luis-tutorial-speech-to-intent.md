@@ -1,102 +1,102 @@
 ---
-title: Gebruik spraak SDK voor C# met LUIS
+title: Speech C# SDK met LUIS gebruiken
 titleSuffix: Azure Cognitive Services
-description: De spraak-service kunt u een enkele aanvraag gebruiken voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. De spraak-NuGet-pakket, al is opgenomen als een verwijzing maakt gebruik van het project.
+description: Met de Speech-service kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech NuGet-pakket, dat al als referentie is opgenomen.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fb17e2d8c0ef1df5a6d4965730d3ddd3764d58f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868748"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883921"
 ---
-# <a name="integrate-speech-service"></a>Integreer Speech-service
-De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. Het project gebruikmaakt van de gesproken tekst [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al is opgenomen als een verwijzing. 
+# <a name="integrate-speech-service"></a>Speech-service integreren
+Met de [Speech-service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u één aanvraag gebruiken om audio te ontvangen en JSON-objecten met LUIS-voorspelling te retourneren. In dit artikel downloadt en gebruikt u een C#-project in Visual Studio om een utterance in te spreken in een microfoon en LUIS-voorspellingsinformatie te ontvangen. Het project maakt gebruik van het Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-pakket, dat al als referentie is opgenomen. 
 
-Voor dit artikel, moet u een gratis [LUIS] [ LUIS] website-account voor het importeren van de toepassing.
+Voor dit artikel hebt u een gratis [LUIS][LUIS]-websiteaccount nodig om de toepassing te importeren.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS-eindpuntsleutel maken
-In de Azure-portal [maken](luis-how-to-azure-subscription.md#create-luis-endpoint-key) een **Language Understanding** (LUIS)-sleutel. 
+[Maak](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in de Microsoft Azure-portal een **Language Understanding** (LUIS)-sleutel. 
 
-## <a name="import-human-resources-luis-app"></a>Importeren van Human Resources LUIS app
-De intenties en uitingen voor dit artikel zijn van het Human Resources LUIS-app beschikbaar is via de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download de [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) bestand opslaan met de `.json` -extensie en [importeren](luis-how-to-start-new-app.md#import-new-app) in LUIS. 
+## <a name="import-human-resources-luis-app"></a>Human Resources LUIS-app importeren
+De intenties en utterances voor dit artikel zijn afkomstig van de Human Resources LUIS-app beschikbaar in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github-opslagplaats. Download het bestand [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), sla het op met de extensie `.json` en [importeer](luis-how-to-start-new-app.md#import-new-app) het in LUIS. 
 
-Deze app heeft intenties en entiteiten uitingen met betrekking tot het Human Resources-domein. Voorbeeld-uitingen zijn onder andere:
+Deze app heeft intenties, entiteiten en utterances gerelateerd aan het Human Resources-domein. Hier zijn enkele voorbeelden van utterances:
 
 |Voorbeelden van utterances|
 |--|
-|Wie is de manager van John Smith?|
-|Wie het beheren van John Smith?|
-|Waar bevindt zich formulier 123456?|
-|Heb ik een betaalde tijd uitgeschakeld?|
+|Wie is Jan Smits manager?|
+|Wie is de manager van Jan Smit?|
+|Waar kan ik formulier 123456 vinden?|
+|Heb ik nog betaald verlof?|
 
 
-## <a name="add-keyphrase-prebuilt-entity"></a>Toevoegen van KeyPhrase vooraf gemaakte entiteiten
-Na het importeren van de app, selecteer **entiteiten**, klikt u vervolgens **vooraf gemaakte entiteiten beheren**. Voeg de **KeyPhrase** entiteit. De entiteit KeyPhrase sleutels onderwerp van de utterance worden uitgepakt.
+## <a name="add-keyphrase-prebuilt-entity"></a>Vooraf gemaakte KeyPhrase-entiteit toevoegen
+Wanneer u de app hebt geïmporteerd, selecteert u **Entiteiten** en klikt u op **Vooraf gemaakte entiteiten beheren**. Voeg de entiteit **KeyPhrase** toe. De entiteit KeyPhrase extraheert het belangrijkste onderwerp uit de utterance.
 
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
-1. Selecteer in de bovenste, rechts navigatiebalk de **trainen** knop met het trainen van de LUIS-app.
+1. Selecteer, in de navigatiebalk rechtsboven, de knop **Train** om de LUIS-app te trainen.
 
-2. Selecteer **beheren** in de rechterbovenhoek van de balk, schakelt u vervolgens **sleutels en eindpunten** in het linkernavigatievenster. 
+2. Selecteer **Beheren** in de balk rechtsboven en schakel **Sleutels en eindpunten** in het linkernavigatievenster in. 
 
-3. Op de **sleutels en eindpunten** pagina, wijzen de LUIS-sleutel hebt gemaakt de [maken LUIS eindpuntsleutel](#create-luis-endpoint-key) sectie.
+3. Wijs op de pagina **Sleutels en eindpunten** de LUIS-sleutel toe die is gemaakt in de sectie [LUIS-eindpuntsleutel maken](#create-luis-endpoint-key).
 
-  Op deze pagina, verzamelen van de app-ID, de regio te publiceren en abonnements-ID van de sleutel LUIS gemaakt in de [maken LUIS eindpuntsleutel](#create-luis-endpoint-key) sectie. U moet de code voor het gebruik van deze waarden verderop in dit artikel te wijzigen. 
+  Verzamel op deze pagina de app-id, het publicatiegebied en de abonnement-id van de LUIS-sleutel die is gemaakt in de sectie [LUIS-eindpuntsleutel maken](#create-luis-endpoint-key). U moet de code wijzigen om deze waarden later in dit artikel te gebruiken. 
   
-  Voer **niet** gratis starter-toets gebruiken voor deze oefening. Alleen een **Language Understanding** sleutel hebt gemaakt in Azure portal werkt voor deze oefening. 
+  Gebruik **niet** de gratis startersleutel voor deze oefening. Alleen een **Language Understanding**-sleutel die in de Microsoft Azure-portal is gemaakt, werkt voor deze oefening. 
 
-  https://**regio**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?-abonnementssleutel =**LUISKEY**& q =
+  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
-4. De LUIS-app publiceren door het selecteren van de **publiceren** knop in de rechterbovenhoek van de balk. 
+4. Publiceer de LUIS-app door de knop **Publiceren** te selecteren in de balk rechtsboven. 
 
-## <a name="audio-device"></a>Audio-apparaat
-In dit artikel wordt de audio-apparaat op uw computer. Die een hoofdtelefoon, microfoon of een ingebouwde audio-apparaat kan zijn. Controleer de audio invoer niveaus om te zien als u dan u gewend bent als u wilt dat uw spraak gedetecteerd door de audio-apparaat harder te spreken. 
+## <a name="audio-device"></a>Audioapparaat
+In dit artikel wordt het audioapparaat op uw computer gebruikt. Dat kan een headset met microfoon of een ingebouwd audioapparaat zijn. Controleer de audio-invoerniveaus om te zien of u harder moet spreken dan normaal om uw spraak door het audioapparaat te laten detecteren. 
 
-## <a name="download-the-luis-sample-project"></a>Het project LUIS Sample downloaden
- Klonen of downloaden de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) opslagplaats. Open de [spraak naar intentie project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) met Visual Studio en herstel de NuGet-pakketten. Het Visual Studio-oplossingsbestand is.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+## <a name="download-the-luis-sample-project"></a>Het LUIS-voorbeeldproject downloaden
+ Kloon of download de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples)-opslagplaats. Open het [spraak-naar-intentie-project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) met Visual Studio en herstel de NuGet-pakketten. Het Visual Studio-oplossingsbestand is .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
-De spraak-SDK is al opgenomen als een verwijzing. 
+De Speech-SDK is al opgenomen als verwijzing. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 weergeven Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Schermopname van Visual Studio 2017 met Microsoft.CognitiveServices.Speech NuGet-pakket")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>De C#-code wijzigen
-Open de `Program.cs` bestand en wijzig de volgende variabelen:
+Open het bestand `Program.cs` en wijzig de volgende variabelen:
 
-|De naam van variabele|Doel|
+|Naam van de variabele|Doel|
 |--|--|
-|LUIS_assigned_endpoint_key|Komt overeen met de eindpunt-URL's abonnementssleutel waarde vanuit de pagina publiceren toegewezen|
-|LUIS_endpoint_key_region|Komt overeen met de eerste subdomein eindpunt-URL, bijvoorbeeld `westus`|
-|LUIS_app_ID|Komt overeen met de eindpunt-URL-route te volgen **apps /**|
+|LUIS_assigned_endpoint_key|Komt overeen met de toegekende waarde van de subsleutelwaarde van de eindpunt-URL van de pagina Publiceren|
+|LUIS_endpoint_key_region|Komt overeen met het eerste subdomein van de eindpunt-URL, bijvoorbeeld `westus`|
+|LUIS_app_ID|Komt overeen met de route van de eindpunt-URL na **apps /**|
 
-De `Program.cs` bestand al heeft het Human Resources-intents toegewezen.
+De Human Resources-intenties zijn al toegewezen aan het bestand `Program.cs`.
 
-Ontwikkel en voer de app. 
+Bouw de app en voer deze uit. 
 
-## <a name="test-code-with-utterance"></a>Testen van code met utterance
-In de microfoon praat "Wie zijn de goedgekeurde tandartsen in Redmond?".
+## <a name="test-code-with-utterance"></a>Code testen met utterance
+Zeg in de microfoon "Wie zijn erkende tandartsen in Redmond?"
 
 [!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-De juiste intentie **GetEmployeeBenefits**, met een betrouwbaarheid van 85% is gevonden. De entiteit keyPhrase is geretourneerd. 
+De juiste intentie, **GetEmployeeBenefits**, is gevonden met een betrouwbaarheid van 85%. De keyPhrase-entiteit is geretourneerd. 
 
-De SDK spraak retourneert het gehele LUIS-antwoord. 
+De Speech-SDK retourneert het hele LUIS-antwoord. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u niet meer nodig hebt, verwijdert u de app LUIS HumanResources. Om dit te doen, selecteert u de app en vervolgens op de werkbalk boven de lijst met een contextuele **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS HumanResources-app niet meer nodig hebt, kunt u deze verwijderen. Dit kunt u doen door de app te selecteren en vervolgens **Verwijderen** te selecteren op de contextuele werkbalk boven de lijst. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
-Houd er rekening mee te verwijderen van de LUIS-Samples-directory wanneer u klaar bent met behulp van de voorbeeldcode.
+Vergeet niet om de map LUIS-Samples te verwijderen wanneer u klaar bent met de voorbeeldcode.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [LUIS integreren met een BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [LUIS integreren met een bot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

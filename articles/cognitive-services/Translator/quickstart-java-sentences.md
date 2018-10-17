@@ -1,25 +1,25 @@
 ---
-title: Zinslengten ophalen in Translator Text met Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Snelstart: zinlengtes ophalen - Translator Text, Java'
+titleSuffix: Azure Cognitive Services
 description: In deze snelstart vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met Java in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 1e68f6b888aa670644ef1e05e5f4f3e26cf70b18
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43768960"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122617"
 ---
 # <a name="quickstart-get-sentence-lengths-with-java"></a>Snelstart: zinslengten ophalen met Java
 
-In deze snelstart vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API.
+In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -162,7 +162,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Java-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)

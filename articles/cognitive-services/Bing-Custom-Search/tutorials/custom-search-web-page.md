@@ -1,135 +1,136 @@
 ---
-title: 'Bing Custom Search: Een webpagina aangepast zoeken maken | Microsoft Docs'
-description: Beschrijft hoe u voor het configureren van een exemplaar voor aangepast zoeken en te integreren met een webpagina
+title: 'Zelfstudie: Een webpagina voor aangepaste zoekopdrachten maken - Bing Aangepaste zoekopdrachten'
+titlesuffix: Azure Cognitive Services
+description: In deze zelfstudie wordt beschreven hoe u een exemplaar voor aangepaste zoekopdrachten maakt en integreert met een webpagina.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979995"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815372"
 ---
-# <a name="build-a-custom-search-web-page"></a>Een Aangepaste zoekopdrachten-webpagina bouwen
+# <a name="tutorial-build-a-custom-search-web-page"></a>Zelfstudie: Een webpagina voor aangepaste zoekopdrachten maken
 
-Bing aangepaste zoekopdrachten kunt maken op maat gemaakte zoekervaringen voor onderwerpen waarin u geïnteresseerd bent. Bijvoorbeeld, als u over een gevechtssporten-website die u een zoekfunctie kunt, kunt u de domeinen, subsites en webpagina's die Bing zoeken. Uw gebruikers te zien die zijn afgestemd op de inhoud die ze in plaats van een wisselbestand via algemene zoekresultaten die mogelijk niet relevant inhoud bevatten die het belangrijkst zoekresultaten. 
+Met Bing Aangepaste zoekopdrachten kunt u op maat gemaakte zoekervaringen maken voor onderwerpen die u interesseren. Als u bijvoorbeeld een website over martial arts hebt die een zoekervaring biedt, kunt u de domeinen, subsites en webpagina's opgeven waarin Bing moet zoeken. Uw gebruikers zien dan zoekresultaten die zijn afgestemd op de inhoud die ze interessant vinden in plaats van dat ze door pagina's met algemene zoekresultaten moeten bladeren die mogelijk niet-relevante inhoud bevatten. 
 
-Deze zelfstudie wordt gedemonstreerd hoe u een exemplaar voor aangepast zoeken configureert en integreren deze in een nieuwe webpagina.
+Deze zelfstudie laat zien hoe u een exemplaar voor aangepaste zoekopdrachten maakt en integreert met een nieuwe webpagina.
 
-De taken die gedekt zijn:
+De behandelde taken zijn:
 
 > [!div class="checklist"]
-> - Een exemplaar voor aangepast zoeken maken
-> - Actieve vermeldingen toe te voegen
-> - Geblokkeerde vermeldingen toe te voegen
-> - Vastgemaakte items toevoegen
+> - Een exemplaar voor aangepaste zoekopdrachten maken
+> - Actieve vermeldingen toevoegen
+> - Geblokkeerde vermeldingen toevoegen
+> - Vastgemaakte vermeldingen toevoegen
 > - Aangepaste zoekopdrachten integreren met een webpagina
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u wilt volgen, samen met de zelfstudie, moet u een abonnementssleutel voor de Bing Custom Search-API.  Als u een sleutel, Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+- Als u deze zelfstudie wilt volgen, hebt u een abonnementssleutel nodig voor de Bing Aangepaste zoekopdrachten-API.  Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) voor meer informatie.
 - Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken.
 
-## <a name="create-a-custom-search-instance"></a>Een exemplaar voor aangepast zoeken maken
+## <a name="create-a-custom-search-instance"></a>Een exemplaar voor aangepaste zoekopdrachten maken
 
-Een Bing Custom Search-exemplaar maken:
+Een exemplaar voor aangepaste zoekopdrachten met Bing maken:
 
-1. Open een internetbrowser.  
+1. Open een browser.  
   
-2. Navigeer naar de aangepaste zoekopdrachten [portal](https://customsearch.ai).  
+2. Ga naar de [portal](https://customsearch.ai) voor aangepaste zoekopdrachten.  
   
-3. Aanmelden bij de portal met een Microsoft-account (MSA). Als u een MSA hebt, klikt u op **maken van een Microsoft-account**. Als het de eerste keer is met behulp van de portal, wordt u gevraagd voor machtigingen voor toegang tot uw gegevens. Klik op **Ja**.  
+3. Meld u aan bij de portal met een Microsoft-account (MSA). Als u geen MSA hebt, klikt u op **Get Started**. Als dit de eerste keer is dat u de portal gebruikt, wordt u gevraagd om de service toegang te geven tot uw gegevens. Klik op **Ja**.  
   
-4. Na het aanmelden, klikt u op **nieuwe aangepaste zoekopdrachten**. In de **maken van een nieuw exemplaar voor aangepast zoeken** venster, Geef een naam die zinvol is en een beschrijving van het type inhoud dat de zoekopdracht retourneert. U kunt de naam op elk gewenst moment wijzigen.  
+4. Als u bent aangemeld, klikt u op **Create new instance**. Voer in het venster **Create a new custom search instance** een beschrijvende naam in die duidelijk aangeeft wat voor inhoud de zoekopdracht retourneert. U kunt de naam overigens altijd wijzigen.  
   
-  ![Schermopname van het maken van een nieuwe aangepaste exemplaar zoekvak](../media/newCustomSrch.png)  
+  ![Schermafbeelding van het vak voor het invoeren van een naam voor het nieuwe exemplaar voor aangepaste zoekopdrachten](../media/newCustomSrch.png)  
   
-5. Klik op OK, een URL en of u wilt opnemen subpagina's van de URL opgeeft.  
+5. Klik op OK, geef een URL op en schakel het selectievakje in als u subpagina's wilt opnemen.  
   
-  ![Schermafbeelding van de URL van de definitie van pagina](../media/newCustomSrch1-a.png)  
+  ![Schermafbeelding van pagina voor opgeven van URL](../media/newCustomSrch1-a.png)  
 
 
-## <a name="add-active-entries"></a>Actieve vermeldingen toe te voegen
+## <a name="add-active-entries"></a>Actieve vermeldingen toevoegen
 
-Als u wilt opnemen in resultaten van bepaalde websites of URL's, voeg deze toe aan de **Active** tabblad.
+Als u resultaten van bepaalde websites of URL's wilt opnemen, voegt u deze toe aan het tabblad **Active**.
 
-1.  Op de **configuratie** pagina, klikt u op de **Active** tabblad en voer de URL van een of meer websites die u wilt opnemen in uw zoekopdracht.
+1.  Klik op de pagina **Configuration** op het tabblad **Active** en voer de URL in van een of meer websites die u wilt opnemen in de zoekopdracht.
 
-    ![Schermopname van het actieve tabblad definitie-Editor](../media/customSrchEditor.png)
+    ![Schermafbeelding van het tabblad Active](../media/customSrchEditor.png)
 
-2.  Om te bevestigen dat uw exemplaar resultaten retourneert, voert u een query in het voorbeeldvenster aan de rechterkant. Bing retourneert alleen resultaten voor openbare websites die deze heeft geïndexeerd.
+2.  Controleer of het exemplaar resultaten retourneert door een query in te voeren in het voorbeeldvenster aan de rechterkant. Bing retourneert alleen resultaten voor openbare websites die zijn geïndexeerd door de service.
 
-## <a name="add-blocked-entries"></a>Geblokkeerde vermeldingen toe te voegen
+## <a name="add-blocked-entries"></a>Geblokkeerde vermeldingen toevoegen
 
-Als u wilt uitsluiten resultaten van bepaalde websites of URL's, voeg deze toe aan de **geblokkeerd** tabblad.
+Als u resultaten van bepaalde websites of URL's wilt uitsluiten, voegt u deze toe aan het tabblad **Blocked**.
 
-1. Op de **configuratie** pagina, klikt u op de **geblokkeerd** tabblad en voer de URL van een of meer websites die u wilt uitsluiten van uw zoekopdracht.
+1. Klik op de pagina **Configuration** op het tabblad **Blocked** en voer de URL in van een of meer websites die u wilt uitsluiten van de zoekopdracht.
 
-    ![Schermafbeelding van de definitie van de Editor tabblad geblokkeerd](../media/blockedCustomSrch.png)
+    ![Schermafbeelding van het tabblad Blocked](../media/blockedCustomSrch.png)
 
 
-2. Om te bevestigen dat uw exemplaar niet van resultaten op het geblokkeerde websites retourneren, voert u een query in het voorbeeldvenster aan de rechterkant. 
+2. Controleer of het exemplaar geen resultaten retourneert van de geblokkeerde websites door een query in te voeren in het voorbeeldvenster aan de rechterkant. 
 
-## <a name="add-pinned-entries"></a>Vastgemaakte items toevoegen
+## <a name="add-pinned-entries"></a>Vastgemaakte vermeldingen toevoegen
 
-Als u wilt vastmaken van een specifieke webpagina aan het begin van de lijst met zoekresultaten, toevoegen de webpagina's en query term voor de **vastgehouden** tabblad. De **vastgehouden** tabblad bevat een lijst van webpagina's en query term-paren die de webpagina die wordt weergegeven als het beste resultaat voor een specifieke query opgeven. De webpagina is vastgemaakt alleen als de querytekenreeks van de gebruiker overeenkomt met de pincode van de query-tekenreeks op basis van de voorwaarde van de pincode. [Meer informatie](../define-your-custom-view.md#pin-to-top).
+Als u een bepaalde webpagina altijd aan het begin van de lijst met zoekresultaten wilt weergeven, voegt u de webpagina en zoekterm toe aan het tabblad **Pinned**. Het tabblad **Pinned** bevat een lijst van paren van webpagina's en zoektermen die de webpagina opgeven die als het beste resultaat wordt weergegeven voor een specifieke query. De webpagina wordt alleen vastgemaakt als de querytekenreeks van de gebruiker overeenkomt met de querytekenreeks van de vastgemaakte webpagina, op basis van de voorwaarde voor overeenkomst van de vastgemaakte pagina. [Meer informatie](../define-your-custom-view.md#pin-to-top).
 
-1. Op de **configuratie** pagina, klikt u op de **vastgehouden** tabblad en voer de termijn van webpagina's en query van de webpagina die u laten retourneren als de bovenste resultaat wilt.  
+1. Klik op de pagina **Configuration** op het tabblad **Pinned** en voer de webpagina en zoekterm in van de webpagina die u als het bovenste resultaat in de lijst wilt weergeven.  
   
-2. Standaard queryreeks van de gebruiker exact overeenkomen met de queryreeks van uw pincode voor Bing om terug te keren van de webpagina als het beste resultaat. Om te wijzigen van de voorwaarde voor overeenkomst, bewerkt u de pincode (Klik op het potloodpictogram), klikt u op Exact in de **Query-voorwaarde voor overeenkomst** kolom en selecteert u de voorwaarde voor overeenkomst die geschikt is voor uw toepassing.  
+2. De standaardinstelling is dat de queryreeks van de gebruiker exact moet overeenkomen met de queryreeks van de vastgemaakte webpagina om door Bing als het beste resultaat te worden geretourneerd. Om de voorwaarde voor overeenkomst te wijzigen, bewerkt u de vastgemaakte webpagina (klik op het potloodpictogram), klikt u op Exact in de kolom **Query match condition** en selecteert u de voorwaarde voor overeenkomst die geschikt is voor uw toepassing.  
   
-    ![Schermafbeelding van de definitie van de Editor vastgemaakt tabblad](../media/pinnedCustomSrch.png)
+    ![Schermafbeelding van het tabblad Pinned](../media/pinnedCustomSrch.png)
   
-3. Voer ter bevestiging dat uw exemplaar van de opgegeven webpagina als het beste resultaat retourneert de zoekterm die u hebt vastgemaakt in het voorbeeldvenster aan de rechterkant.
+3. Controleer of uw exemplaar de opgegeven webpagina als het beste resultaat retourneert door in het voorbeeldvenster aan de rechterkant de zoekterm in te voeren die u hebt vastgemaakt.
 
 ## <a name="configure-hosted-ui"></a>Gehoste gebruikersinterface configureren
 
-Custom Search biedt een gehoste-gebruikersinterface voor het renderen van de JSON-antwoord van uw exemplaar voor aangepast zoeken. Voor het definiëren van uw gebruikersinterface-ervaring:
+Custom Search biedt een gehoste gebruikersinterface voor het weergeven van het JSON-antwoord van het exemplaar voor aangepaste zoekopdrachten. Volg deze stappen om de ervaring in de gebruikersinterface te definiëren:
 
-1. Klik op de **gebruikersinterface die wordt gehost** tabblad.  
+1. Klik op het tabblad **Hosted UI**.  
   
-2. Selecteer een indeling.  
+2. Selecteer een lay-out.  
   
-  ![Schermafbeelding van de gebruikersinterface die wordt gehost Selecteer stap lay-out](./media/custom-search-hosted-ui-select-layout.png)  
+  ![Schermafbeelding van het selecteren van een lay-out voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Selecteer een kleurenthema.  
   
-  ![Schermafbeelding van de gebruikersinterface die wordt gehost kleurthema selecteren](./media/custom-search-hosted-ui-select-color-theme.png)  
+  ![Schermafbeelding van het selecteren van een kleurenthema voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Als u nodig hebt voor het afstemmen van de kleurthema beter integreren met uw web-app, klikt u op **aanpassen thema**. Niet alle kleur configuraties van toepassing op alle lay-out-thema's. Als u wilt een kleur wijzigen, voert u de kleur van de hexadecimale RGB-waarde (bijvoorbeeld #366eb8) in het bijbehorende tekstvak. Of klik op de kleurknop en klik vervolgens op de tint die bij u past. Altijd Denk over toegankelijkheid bij het selecteren van kleuren.
+  Als u het kleurenthema wilt afstemmen voor een betere integratie met uw web-app, klikt u op **Customize theme**. Niet alle kleurconfiguraties zijn van toepassing op alle lay-outthema's. Als u een kleur wilt wijzigen, voert u de hexadecimale RGB-waarde van de kleur (bijvoorbeeld #366eb8) in het bijbehorende tekstvak in. U kunt ook op de kleurknop klikken en vervolgens op de gewenste tint. Denk altijd aan toegankelijkheid bij het selecteren van kleuren.
   
-  ![Schermafbeelding van de gebruikersinterface die wordt gehost kleurthema aanpassen](./media/custom-search-hosted-ui-customize-color-theme.png)  
+  ![Schermafbeelding van het aanpassen van een kleurenthema voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
-4. Geef extra configuratieopties.  
+4. Geef aanvullende configuratieopties op.  
   
-  ![Schermafbeelding van de stap van de aanvullende configuraties die worden gehost UI](./media/custom-search-hosted-ui-additional-configurations.png)  
+  ![Schermafbeelding van het opgeven van aanvullende configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Als u wilt ophalen, geavanceerde configuraties, klikt u op **geavanceerde configuraties weergeven**. Deze configuraties, zoals toegevoegd *koppelingsdoel* aan opties voor het doorzoeken van Web *filters inschakelen* afbeeldings- en Video-opties, en *tijdelijke aanduiding vak Zoeken* aan diverse Opties.
+  Als u geavanceerde configuraties wilt ophalen, klikt u op **Show advanced configurations**. U ziet dan opties zoals *Link target* onder Web search, *Enable filters* onder Image search en Video search, en *Search box text placeholder* onder Miscellaneous.
 
-  ![Schermafbeelding van de stap van de geavanceerde configuraties gebruikersinterface die wordt gehost](./media/custom-search-hosted-ui-advanced-configurations.png)  
+  ![Schermafbeelding van het opgeven van geavanceerde configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Selecteer uw abonnementssleutels in de vervolgkeuzelijsten. Of u kunt de abonnementssleutel handmatig invoeren. Zie voor meer informatie over het ophalen van de sleutels [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Selecteer uw abonnementssleutels in de vervolgkeuzelijsten. U kunt de abonnementssleutel ook handmatig invoeren. Zie [Cognitive Services uitproberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api) voor informatie over het opvragen van sleutels.  
   
-  ![Schermafbeelding van de stap van de aanvullende configuraties die worden gehost UI](./media/custom-search-hosted-ui-subscription-key.png)
+  ![Schermafbeelding van het opgeven van aanvullende configuraties voor de gehoste gebruikersinterface](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE[publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
-## <a name="consuming-hosted-ui"></a>Gehoste gebruikersinterface verbruikt
+## <a name="consuming-hosted-ui"></a>Gehoste gebruikersinterface implementeren
 
-Er zijn twee manieren gebruiken voor de gehoste-gebruikersinterface.  
+Er zijn twee manieren om de gehoste-gebruikersinterface te gebruiken.  
 
-- Optie 1: Het opgegeven JavaScript-fragment in uw toepassing integreren.
-- Optie 2: Gebruik de HTML-eindpunt opgegeven.
+- Optie 1: het opgegeven JavaScript-fragment integreren in uw toepassing.
+- Optie 2: het opgegeven HTML-eindpunt gebruiken.
 
-De rest van deze zelfstudie ziet u **optie 1: Javascript-fragment**.  
+In de rest van deze zelfstudie wordt de **optie met het Javascript-fragment toegelicht**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Uw Visual Studio-oplossing instellen
 
@@ -137,21 +138,21 @@ De rest van deze zelfstudie ziet u **optie 1: Javascript-fragment**.
   
 2. Selecteer in het menu **Bestand** de optie **Nieuw** en kies vervolgens **Project**.  
   
-3. In de **nieuw Project** venster **Visual C# / Web-/ ASP.NET Core-webtoepassing**, Geef uw project de naam en klik vervolgens op **OK**.  
+3. Selecteer **Visual C# / Web / ASP.NET Core Web Application** in het venster **New Project**, geef het project een naam en klik vervolgens op **OK**.  
   
-  ![Schermopname van het venster Nieuw project](./media/custom-search-new-project.png)  
+  ![Schermafbeelding van het dialoogvenster New Project](./media/custom-search-new-project.png)  
   
-4. In de **nieuwe ASP.NET Core-webtoepassing** venster **webtoepassing** en klikt u op **OK**.  
+4. Selecteer in het venster **New ASP.NET Core Web Application** de optie **Web Application** en klik op **OK**.  
   
-  ![Schermopname van het venster Nieuw project](./media/custom-search-new-webapp.png)  
+  ![Schermafbeelding van het dialoogvenster New Project](./media/custom-search-new-webapp.png)  
 
-## <a name="edit-indexcshtml"></a>Index.cshtml bewerken
+## <a name="edit-indexcshtml"></a>index.cshtml bewerken
 
-1. In de **Solution Explorer**, vouw **pagina's** en dubbelklikt u op **index.cshtml** om het bestand te openen.  
+1. Vouw in de **Solution Explorer** het onderdeel **Pages** uit en dubbelklik op **index.cshtml** om het bestand te openen.  
   
-  ![Schermopname van solution explorer met pagina's uitgebreid en index.cshtml geselecteerd](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+  ![Schermafbeelding van Solution Explorer met Pages uitgevouwen en index.cshtml geselecteerd](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
-2. In index.cshtml, alles begin van regel 7 en hieronder worden verwijderd.  
+2. Verwijder in index.cshtml alles vanaf regel 7.  
   
   ```razor
   @page
@@ -161,7 +162,7 @@ De rest van deze zelfstudie ziet u **optie 1: Javascript-fragment**.
   }    
   ```  
   
-3. Voeg een regel break-element en een div-element om te fungeren als een container.  
+3. Voeg een regeleinde (br) toe en een div-element om te fungeren als een container.  
   
   ```html
   @page
@@ -173,7 +174,7 @@ De rest van deze zelfstudie ziet u **optie 1: Javascript-fragment**.
   <div id="customSearch"></div>
   ```  
   
-4. In de **gebruikersinterface die wordt gehost** pagina, blader naar de sectie met de titel **gebruiken van de gebruikersinterface**. Klik op de *eindpunten* voor toegang tot de JavaScript-fragment. U kunt ook op het codefragment ophalen door te klikken op **productie** en vervolgens de **gebruikersinterface die wordt gehost** tabblad.
+4. Blader op de pagina **Hosted UI** omlaag naar de sectie **Consuming the UI**. Klik op *Endpoints* voor toegang tot het JavaScript-fragment. U kunt ook naar het codefragment gaan door te klikken op **Production** en vervolgens op het tabblad **Hosted UI**.
   
   <!-- Get new screenshot after prod gets new bits
   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
@@ -196,19 +197,19 @@ De rest van deze zelfstudie ziet u **optie 1: Javascript-fragment**.
   </div>
   ```  
   
-6. In de **Solution Explorer**, klik met de rechtermuisknop op **wwwroot** en klikt u op **weergeven in Browser**.  
+6. Klik in de **Solution Explorer** met de rechtermuisknop op **wwwroot** en klik op **View in Browser**.  
   
-  ![Schermopname van solution explorer-weergave in de Browser te selecteren in het contextmenu wwwroot](./media/custom-search-webapp-view-in-browser.png)  
+  ![Schermafbeelding van de optie View in Browser in het contextmenu van wwwroot in Solution Explorer](./media/custom-search-webapp-view-in-browser.png)  
 
-Uw nieuwe aangepaste zoekopdrachten-webpagina moet er ongeveer als volgt uitzien:
+De nieuwe webpagina voor aangepaste zoekopdrachten moet er ongeveer als volgt uitzien:
 
-![Schermafbeelding van de webpagina aangepast zoeken](./media/custom-search-webapp-browse-index.png)
+![Schermafbeelding van webpagina voor aangepaste zoekopdrachten](./media/custom-search-webapp-browse-index.png)
 
-Uitvoeren van een zoekopdracht wordt resultaten als volgt weergegeven:
+Het uitvoeren van een zoekopdracht levert resultaten op als deze:
 
-![Schermafbeelding van de aangepaste zoekresultaten](./media/custom-search-webapp-results.png)
+![Schermafbeelding van resultaten van aangepaste zoekopdrachten](./media/custom-search-webapp-results.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bing Custom Search-eindpunt (C#) aanroepen](../call-endpoint-csharp.md)
+> [Bing Aangepaste zoekopdrachten-eindpunt aanroepen (C#)](../call-endpoint-csharp.md)

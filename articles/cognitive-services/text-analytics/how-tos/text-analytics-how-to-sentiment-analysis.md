@@ -1,42 +1,43 @@
 ---
-title: Hoe kan ik gevoel analyse in Text Analytics REST-API (Microsoft cognitieve Services in Azure) | Microsoft Docs
-description: Klik hier voor meer informatie over het detecteren van gevoel met de tekst Analytics REST-API in Microsoft cognitieve Services op Azure in deze zelfstudie scenario.
+title: 'Voorbeeld: Gevoel analyseren met de REST-API van Text Analytics'
+titleSuffix: Azure Cognitive Services
+description: Leer hoe u gevoel detecteert met behulp van de REST-API van Text Analytics.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 7ffd8bbe47409b459fdd308cd8d670d32f56649b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344692"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605892"
 ---
-# <a name="how-to-detect-sentiment-in-text-analytics"></a>Het vaststellen van gevoel in Tekstanalyse
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Voorbeeld: Gevoel detecteren in Text Analytics
 
-De [gevoel Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) tekstinvoer wordt geëvalueerd en retourneert een score gevoel voor elk document, variërend van 0 (negatief) tot 1 (positief).
+De [Sentimentanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) evalueert tekstinvoer en retourneert een gevoelsscore voor elk document, variërend van 0 (negatief) tot 1 (positief).
 
-Deze functie is nuttig voor het detecteren van positieve en negatieve gevoel in sociale media, klant revisies en discussieforums. Inhoud is die u hebt opgegeven; modellen en trainingsgegevens worden geleverd door de service.
+Deze mogelijkheid is handig voor het detecteren van een positief en negatief gevoel in sociale media, klantbeoordelingen en discussieforums. Inhoud is die u hebt opgegeven; modellen en trainingsgegevens worden geleverd door de service.
 
-Op dit moment ondersteunt gevoel Analysis Engels, Duits, Spaans en Frans. Andere talen zijn Preview-versie. Zie voor meer informatie [ondersteunde talen](../text-analytics-supported-languages.md).
+Op dit moment ondersteunt Sentimentanalyse Engels, Duits, Spaans en Frans. Andere talen bevinden zich in preview-fase. Zie voor meer informatie [Ondersteunde talen](../text-analytics-supported-languages.md).
 
 ## <a name="concepts"></a>Concepten
 
-Tekstanalyse maakt gebruik van een machine learning-algoritme classificatie voor het genereren van een gevoel score tussen 0 en 1. Scores dichter bij 1 aangeven positief gevoel terwijl scores dichter bij 0 negatieve gevoel geven. Het model is pretrained met een uitgebreide hoofdtekst van de tekst gevoel koppelingen. Het is momenteel niet mogelijk om uw eigen trainingsgegevens te leveren. Het model wordt een combinatie van technieken tijdens de analyse van tekst, met inbegrip van de verwerking van tekst, onderdeel van spraak analyse, word plaatsing en word koppelingen. Zie voor meer informatie over de algoritme [Tekstanalyse Introducing](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
+Text Analytics maakt gebruik van een machine learning-classificatiealgoritme voor het genereren van een gevoelsscore tussen 0 en 1. Scores dicht bij 1 wijzen op een positief gevoel, terwijl scores dicht bij 0 op een negatief gevoel wijzen. Het model is vooraf getraind met een uitgebreide hoofdtekst met gevoelskoppelingen. Het is momenteel niet mogelijk om uw eigen trainingsgegevens te verstrekken. Het model gebruikt een combinatie van technieken tijdens de tekstanalyse, met inbegrip van de verwerking van tekst, analyse van woordsoorten, woordplaatsing en woordkoppelingen. Zie voor meer informatie over het algoritme [Introductie Text Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
-Gevoel analyse wordt uitgevoerd op het hele document, in plaats van het uitpakken van gevoel voor een bepaalde entiteit in de tekst. In de praktijk is er een neiging voor score berekenen voor nauwkeurigheid verbeteren wanneer documenten één of twee zinnen in plaats van een groot blok van tekst bevatten. Tijdens een beoordelingsfase objectiviteit bepaalt het model of een document in zijn geheel doelstelling of gevoel bevat. Een document dat is voornamelijk serviceniveaudoelstelling wordt niet uitgevoerd aan de gevoel detectie woordgroep, wat resulteert in een.50 score, met het niet verder verwerken. Voor documenten die u in de pijplijn is doorgaat, genereert de volgende fase een score boven of onder.50, afhankelijk van de mate van gevoel gedetecteerd in het document.
+Sentimentanalyse wordt uitgevoerd op het hele document, in plaats van een gevoel voor een bepaalde entiteit in de tekst te extraheren. In de praktijk is er een neiging voor het scoren van nauwkeurigheid te verbeteren wanneer documenten één of twee zinnen bevatten in plaats van een grote blok tekst. Tijdens een fase van de evaluatie objectiviteit bepaalt het model of een document als geheel objectief is of gevoel bevat. Een document dat voornamelijk objectief is, gaat niet in de richting van de gevoelsdetectiefrase, wat resulteert in een .50 score, met geen verdere verwerking. Voor de documenten die doorgaan in de pijplijn, genereert de volgende fase een score boven of onder de .50, afhankelijk van de mate van gevoel gedetecteerd in het document.
 
 ## <a name="preparation"></a>Voorbereiding
 
-Gevoel analyse levert een hogere kwaliteitsresultaat als u kleinere reeksen tekst om te werken geeft op. Dit is het tegenovergestelde van sleutel woordgroep extraheren die beter presteert op grotere blokken tekst. Als u de beste resultaten vanuit beide bewerkingen, overweeg dienovereenkomstig reorganisatie van de invoer.
+Gevoelsanalyse produceert een hoger kwaliteitsresultaat wanneer u ze kleinere segmenten van tekst aanbiedt om op te werken. Dit is het tegenovergestelde van sleuteltermextractie, wat beter presteert op grotere blokken tekst. Overweeg dienovereenkomstig herstructurering van de invoer voor de beste resultaten uit beide bewerkingen.
 
-Moet u de JSON-documenten in deze indeling hebben: id, de tekst, de taal
+U moet JSON-documenten in deze indeling hebben: id, tekst, taal
 
-De documentgrootte van het moet onder 5000 tekens per document en u kunt maximaal 1000 hebben items (id's) per verzameling. De verzameling is in de hoofdtekst van de aanvraag verzonden. Hier volgt een voorbeeld van inhoud die u voor gevoel analyse indienen mogelijk.
+De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor gevoelsanalyse kan indienen.
 
 ```
     {
@@ -70,33 +71,33 @@ De documentgrootte van het moet onder 5000 tekens per document en u kunt maximaa
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Stap 1: De aanvraag structureren
+## <a name="step-1-structure-the-request"></a>Stap 1: Structuur van de aanvraag
 
-Meer informatie over de definitie van de aanvraag kunnen worden gevonden in [hoe de tekst Analytics-API aan te roepen](text-analytics-how-to-call-api.md). De volgende punten worden aangepast voor het gemak:
+Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST** aanvraag. Bekijk de API-documentatie voor deze aanvraag: [gevoel Analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Sentimentanalyse-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Het HTTP-eindpunt voor het ophalen van de belangrijkste woordgroep ingesteld. Het omvat de `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Stel het HTTP-eindpunt in voor sleuteltermextractie. Deze moet de `/sentiment`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment` bevatten
 
-+ Stel een aanvraagheader om op te nemen van de toegangssleutel voor Text Analytics-bewerkingen. Zie voor meer informatie [eindpunten zoeken en toegangssleutels](text-analytics-how-to-access-key.md).
++ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
-+ Geef de JSON-documenten verzameling die u hebt voorbereid voor deze analyse in de aanvraagtekst.
++ Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse.
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API testen console** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) aan de structuur van de aanvraag en dit bericht naar de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) om de aanvraag te structureren en POST deze in de service.
 
 ## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag posten
 
-Analyse wordt na ontvangst van de aanvraag uitgevoerd. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag mag maximaal 1 MB.
+Analyse wordt uitgevoerd na ontvangst van de aanvraag. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag kan maximaal 1 MB zijn.
 
-Intrekken van de service staatloze is. Er zijn geen gegevens worden opgeslagen in uw account. Resultaten worden direct in het antwoord geretourneerd.
+Terughalen als de service staatloos is. Er worden geen gegevens opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
 
 
 ## <a name="step-3-view-results"></a>Stap 3: Resultaten weergeven
 
-De analyzer gevoel classificeert tekst als het hoofdzakelijk positief of negatief, een score in het bereik van 0 tot en met 1 toewijzen. Waarden in de buurt 0,5 zijn neutrale of onbepaalde. Een score van 0,5 geeft neutraliteit. Als een tekenreeks kan niet worden geanalyseerd voor gevoel of geen gevoel heeft, de score is altijd 0,5 exact. Als u in een Spaanse tekenreeks met een code voor de Engelse taal doorgeeft, is de score 0,5.
+De gevoelsanalyse classificeert tekst als voornamelijk positief of negatief, en wijst een score toe in het bereik van 0 tot 1. Waarden dicht bij 0,5 zijn neutraal of onbepaald. Een score van 0,5 geeft neutraliteit aan. Als een tekenreeks niet kan worden geanalyseerd op gevoel of geen gevoel heeft, is de score altijd precies 0,5. Bijvoorbeeld, als u in een Spaanse tekenreeks doorgeeft met een Engelse taalcode is de score 0,5.
 
-Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten naar een toepassing die JSON accepteert stream of sla de uitvoer naar een bestand op het lokale systeem en vervolgens importeren in een toepassing waarmee u kunt sorteren en manipuleren van de gegevens zoeken.
+Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een toepassing die JSON accepteert of u kunt de uitvoer opslaan als lokaal bestand en vervolgens importeren in een toepassing waarmee u kunt sorteren, zoeken en de gegevens kunt manipuleren.
 
 Het volgende voorbeeld ziet het antwoord voor de documentenverzameling in dit artikel.
 
@@ -130,20 +131,20 @@ Het volgende voorbeeld ziet het antwoord voor de documentenverzameling in dit ar
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd concepten en werkstroom voor gevoel analyse Text Analytics gebruiken in cognitieve Services. Samengevat:
+In dit artikel hebt u concepten en de werkstroom geleerd voor gevoelsanalyse met behulp van Text Analytics in Cognitive Services. Samenvatting:
 
-+ [Gevoel analysis API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) is beschikbaar voor de geselecteerde talen.
-+ JSON-documenten in de aanvraagtekst bevatten een code-id, tekst en taal.
-+ POST-aanvraag is een `/sentiment` eindpunt, met een persoonlijk [toegang krijgen tot sleutel en een eindpunt](text-analytics-how-to-access-key.md) die geldig is voor uw abonnement.
-+ Antwoorduitvoer, die uit een score gevoel voor elk document-ID bestaat, kan worden gestreamd naar alle Apps die JSON accepteert, zoals Excel en Power BI, enzovoort.
++ [Gevoelsanalyse API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) is beschikbaar voor de geselecteerde talen.
++ JSON-documenten in de aanvraagbody omvatten een id, tekst en taalcode.
++ POST-aanvraag is een `/sentiment`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
++ Antwoorduitvoer, die uit een gevoelsscore voor elk document-ID bestaat, kan worden gestreamd naar alle apps die JSON, met inbegrip van Excel en Power BI om er maar enkele te noemen, accepteren.
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van tekst Analytics](../overview.md)  
- [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md)</br>
- [Tekst Analytics productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Overzicht van Text Analytics](../overview.md)  
+ [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
+ [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Uitpakken van sleutel zinnen](text-analytics-how-to-keyword-extraction.md)
+> [Sleuteltermen extraheren](text-analytics-how-to-keyword-extraction.md)

@@ -1,21 +1,21 @@
 ---
-title: Het schrift van tekst converteren in Translator Text met Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API met Ruby in Cognitive Services.
+title: 'Snelstart: tekstscript converteren - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids converteert u tekst in één taal van het ene script naar het andere met de Translator Text-API met Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 56872ed6b6d7168fb1bf2c45de8104a592af34e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769072"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121750"
 ---
 # <a name="quickstart-transliterate-text-with-ruby"></a>Snelstartgids: tekst transcriberen met behulp van Ruby
 
@@ -95,7 +95,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Ruby-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

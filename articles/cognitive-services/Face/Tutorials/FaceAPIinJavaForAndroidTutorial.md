@@ -1,21 +1,21 @@
 ---
-title: Face-API Java voor Android-zelfstudie | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze zelfstudie maakt u een eenvoudige Android-app die gebruikmaakt van de service Cognitive Services Face waarmee gezichten in een afbeelding kunnen worden herkend en omlijst.
+title: 'Zelfstudie: Gezichten in een afbeelding detecteren en omlijsten - Face-API, Java voor Android'
+titleSuffix: Azure Cognitive Services
+description: In deze zelfstudie maakt u een Android-app die gebruikmaakt van de Face-API om gezichten in een afbeelding te detecteren en omlijsten.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: nolachar
-ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 50185588b77f01bced9462d5fd1ad67bb5de6e08
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125633"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129723"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Zelfstudie: een Android-app maken om gezichten in een afbeelding te herkennen en te omlijsten
 
@@ -23,7 +23,7 @@ In deze zelfstudie maakt u een eenvoudige Android-toepassing die gebruikmaakt va
 
 ![Android-schermafbeelding van een foto met gezichten in een rood vierkant](../Images/android_getstarted2.1.PNG)
 
-In deze zelfstudie leert u:
+In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > - Een Android-app maken

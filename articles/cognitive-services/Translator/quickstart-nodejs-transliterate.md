@@ -1,25 +1,25 @@
 ---
-title: Het schrift van tekst converteren in Translator Text met Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API met Node.js in Cognitive Services.
+title: 'Snelstart: tekstscript converteren - Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart converteert u tekst in één taal van het ene script naar het andere met de Translator Text-API met Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: b16af911e5822deaa7cc7bcfe792245ae154eb26
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 53ebcd6c37141a783303dd71666d5c8d4805ca49
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768983"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127685"
 ---
 # <a name="quickstart-transliterate-text-with-nodejs"></a>Snelstart: tekst translitereren met Node.js
 
-In deze snelstart converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
+In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -116,7 +116,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Node.js-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=javascript)

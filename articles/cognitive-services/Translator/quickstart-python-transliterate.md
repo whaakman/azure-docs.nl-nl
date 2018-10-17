@@ -1,25 +1,25 @@
 ---
-title: Het schrift van tekst converteren in Translator Text met Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API met Python in Cognitive Services.
+title: 'Snelstart: tekstscript converteren - Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids converteert u tekst in één taal van het ene script naar het andere met de Translator Text-API met Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 41fb0f72c5974a1ab034680a820dca6aa7bbdc6d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768996"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122108"
 ---
 # <a name="quickstart-transliterate-text-with-python"></a>Snelstart: Tekst translitereren met Python
 
-In deze snelstart converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
+In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -99,7 +99,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Python-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=python)

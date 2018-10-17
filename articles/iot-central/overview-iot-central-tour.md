@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629368"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498263"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Kennismaking met de gebruikersinterface van Azure IoT Central
 
@@ -39,7 +39,7 @@ Gebruik het linkernavigatiemenu om toegang te krijgen tot de verschillende gebie
 
 | Menu | Beschrijving |
 | ---- | ----------- |
-| ![Linkernavigatiemenu](media/overview-iot-central-tour/navigationbar.png) | <ul><li>De knop **Start** geeft de startpagina van uw toepassing weer. Als maker kunt u de startpagina voor uw operators aanpassen.</li><li>Met de knop **Device Explorer** ziet u een lijst van zowel de apparaatsjablonen die in uw toepassing zijn gedefinieerd als de gesimuleerde en echte apparaten die aan elke apparaatsjabloon zijn gekoppeld. Als operator gebruikt u de **Device Explorer** om uw verbonden apparaten te beheren.</li><li>Met de knop **Apparaatsets** kunt u apparaatsets bekijken en maken. Als operator kunt u de apparaatsets maken als een logische verzameling apparaten die door een query wordt gespecificeerd.</li><li>Met de knop **Analyse** worden analytische gegevens weergegeven die zijn afgeleid van telemetriegegevens van apparaten en apparaatsets. Als operator kunt u uw apparaatgegevens aangepast weergeven voor meer inzicht in uw toepassing.</li><li>Met de knop **Application Builder** worden de hulpprogramma's weergegeven die een maker gebruikt, bijvoorbeeld het hulpprogramma **Apparaatsjabloon maken**.</li><li>Met de knop **Beheer** worden de beheerpagina's van de toepassing weergegeven waar een administrator de instellingen, gebruikers en rollen van een toepassing kan beheren.</li></ul> |
+| ![Linkernavigatiemenu](media/overview-iot-central-tour/navigationbar.png) | <ul><li>De knop **Start** geeft de startpagina van uw toepassing weer. Als maker kunt u de startpagina voor uw operators aanpassen.</li><li>Met de knop **Device Explorer** ziet u een lijst van zowel de apparaatsjablonen die in uw toepassing zijn gedefinieerd als de gesimuleerde en echte apparaten die aan elke apparaatsjabloon zijn gekoppeld. Als operator gebruikt u de **Device Explorer** om uw verbonden apparaten te beheren.</li><li>Met de knop **Apparaatsets** kunt u apparaatsets bekijken en maken. Als operator kunt u de apparaatsets maken als een logische verzameling apparaten die door een query wordt gespecificeerd.</li><li>Met de knop **Analyse** worden analytische gegevens weergegeven die zijn afgeleid van telemetriegegevens van apparaten en apparaatsets. Als operator kunt u uw apparaatgegevens aangepast weergeven voor meer inzicht in uw toepassing.</li><li>De knop **Taken** schakelt bulksgewijs beheer van apparaten doordat u taken kunt maken en uitvoeren voor het uitvoeren van updates op schaal.</li><li>Met de knop **Application Builder** worden de hulpprogramma's weergegeven die een maker gebruikt, bijvoorbeeld het hulpprogramma **Apparaatsjabloon maken**.</li><li>Met de knop **Beheer** worden de beheerpagina's van de toepassing weergegeven waar een administrator de instellingen, gebruikers en rollen van een toepassing kan beheren.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Zoeken, hulp en ondersteuning
 
@@ -81,6 +81,12 @@ Op de pagina _Apparaatsets_ worden de apparaatsets getoond die door de maker zij
 ![Analysepagina](media/overview-iot-central-tour/analytics.png)
 
 De pagina Analyse bevat diagrammen met informatie over hoe de apparaten die met uw toepassing zijn verbonden, zich gedragen. Een operator gebruikt deze pagina om problemen met de verbonden apparaten te controleren en te onderzoeken. De maker kan de diagrammen die op deze pagina worden weergegeven, definiëren. Raadpleeg voor meer informatie het artikel [Create custom analytics for your Azure IoT Central application](howto-create-analytics.md) (Aangepaste analyses maken voor uw Azure IoT Central-toepassing).
+
+## <a name="jobs"></a>Taken
+
+![Pagina Taken](media/overview-iot-central-tour/jobs.png)
+
+Met de taakpagina kunt u bulksgewijze beheerbewerkingen van uw apparaten uitvoeren. De opbouwfunctie maakt gebruik van deze pagina om apparaateigenschappen, instellingen en opdrachten bij te werken. Zie voor meer informatie, het artikel [Een taak uitvoeren](howto-run-a-job.md).
 
 ## <a name="application-builder"></a>Application Builder
 

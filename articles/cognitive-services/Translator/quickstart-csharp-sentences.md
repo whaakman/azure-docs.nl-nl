@@ -1,31 +1,33 @@
 ---
-title: Zinslengten ophalen in Translator Text met C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met C# in Cognitive Services.
+title: 'Snelstartgids: Zin lengtes - Translator Text-API, C# ophalen'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b3e7f1099b1a7584435646fe3fae237cd458967f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43768928"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364343"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>Snelstart: Zinslengten ophalen met C&#35;
 
-In deze snelstart vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API.
+In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API.
+
+De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code op Windows uit te voeren. (De gratis Community-editie volstaat.)
 
-Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Lees hoe u zich kunt [registreren voor de Translator Text-API](translator-text-how-to-signup.md).
+Als u de Translator Text-API wilt gebruiken, moet u ook een abonnementssleutel hebben. Zie [Hoe u zich registreert voor de Translator Text-API](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>BreakSentence-aanvraag
 
@@ -110,7 +112,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
-> [C#-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [C#-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=c%23)

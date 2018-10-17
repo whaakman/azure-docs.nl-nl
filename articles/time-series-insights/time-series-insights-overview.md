@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630718"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365567"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Wat is Azure Time Series Insights?
 
@@ -33,6 +33,12 @@ Time Series Insights heeft vier belangrijke taken:
 Als u een toepassing bouwt, hetzij voor intern gebruik of voor gebruik door externe klanten, kan Time Series Insights worden gebruikt als een back-end voor het indexeren, opslaan en samenvoegen van tijdreeksgegevens. U kunt daarnaast een aangepaste visualisatie en gebruikerservaring samenstellen.  Time Series Insights stelt query-API's beschikbaar om dit scenario mogelijk te maken.  
 
 Als u niet zeker weet of uw gegevens een tijdreeks vormen, kunt u aan de hand van de volgende beschrijving vaststellen of het wel of geen tijdreeksgegevens betreft.  Tijdreeksgegevens tonen aan hoe een asset of proces verandert in de loop der tijd.  De gegevens zijn uniek doordat ze een tijdstempel hebben en tijd wordt het meest zinvol uitgedrukt als een as.  Tijdreeksgegevens komen meestal binnen in volgorde van tijd en worden doorgaans behandeld als een invoeging in plaats van een update van de database.  Omdat Time Series Insights elke nieuwe gebeurtenis vastlegt en opslaat als een rij, worden wijzigingen gemeten in de loop van de tijd, zodat u terug kunt kijken en toekomstige wijzigingen kunt voorspellen.  In grote volumes kan het opslaan, indexeren, uitvoeren van query's, analyseren en visualiseren van tijdreeksgegevens lastig zijn.  
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>In deze video krijgt u een overzicht van Time Series Insights, een cloud-gebaseerd IoT analytics-platform.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Primaire scenario's
 

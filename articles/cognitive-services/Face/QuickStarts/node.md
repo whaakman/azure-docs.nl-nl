@@ -1,25 +1,25 @@
 ---
-title: Snelstart voor de Face-API met Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Snelstart: Gezichten in een afbeelding detecteren - Face-API, Node.js'
+titleSuffix: Azure Cognitive Services
 description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met Node.js in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 15e6db9c9d92e60f18bf2d7708403fd8b0b7a990
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 53d5ed6c13c2f2822374134d8b403493079e1956
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "43768916"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123994"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-nodejs"></a>Snelstart: Gezichten in een afbeelding detecteren met behulp van Node.js
 
-In deze snelstart detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
+In deze snelstartgids detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,7 +27,7 @@ U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonn
 
 ## <a name="face---detect-request"></a>Face - Detect-aanvraag
 
-Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (gezicht herkennen) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
+Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
 
 * Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
 * Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
@@ -36,7 +36,7 @@ Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft
 
 U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
 
-1. Kopieer de volgende code naar een editor.
+1. Kopieer de volgende code in een editor.
 1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
 1. Wijzig indien nodig de `uriBase`-waarde in de locatie waar u uw abonnementssleutels hebt verkregen.
 1. Stel `imageUri` eventueel in op de afbeelding die u wilt analyseren.

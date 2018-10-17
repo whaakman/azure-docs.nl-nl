@@ -1,21 +1,21 @@
 ---
-title: 'Translator Text: taal bepalen op basis van tekst met Ruby | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Ruby in Cognitive Services.
+title: 'Snelstart: taal bepalen op basis van tekst - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: b692b66454cc86e6d81aec9c3139b39a905d0d66
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2b138b5c28047487da2ca7a72169a10a125eaf5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769040"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121700"
 ---
 # <a name="quickstart-identify-language-from-text-with-ruby"></a>Snelstartgids: taal bepalen op basis van tekst met Ruby
 

@@ -1,21 +1,21 @@
 ---
-title: Zinslengten ophalen in Translator Text met PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met PHP in Cognitive Services.
+title: 'Snelstart: zinlengtes ophalen - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart vindt u de lengte van zinnen in tekst met behulp van de Translator Text-API met PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: e93a8e3fa900933bc3a169f4527f898e8431a194
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 63c2822e7b61eb437a43fb394cfa3cc8172d9af3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769076"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124742"
 ---
 # <a name="quickstart-get-sentence-lengths-with-php"></a>Snelstartgids: lengtes van zinnen ophalen met PHP
 
@@ -129,4 +129,4 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
-> [PHP-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)
+> [PHP-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)

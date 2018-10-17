@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003693"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729989"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snelstart: een pijplijn voor cognitief zoeken maken met vaardigheden en voorbeeldgegevens
 
@@ -28,10 +28,13 @@ In deze snelstart probeert u de verrijkingspijplijn uit in [Azure Portal](https:
 
 U kunt cognitief zoeken uitproberen in een Azure Search-service in de volgende gebieden:
 
-* Zuid-centraal VS
-* West-Europa
+* US - zuid-centraal
+* Europa -west
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+> [!NOTE]
+> Cognitief zoeken is een openbare preview. Het uitvoeren van vaardighedensets, het extraheren van afbeeldingen en normaliseren worden momenteel gratis aangeboden. De prijzen voor deze mogelijkheden worden op een later moment bekend gemaakt. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,7 +57,7 @@ Registreer u eerst voor de Azure Search-service.
 
 1. Maak een resourcegroep voor alle resources die u in deze snelstart gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de snelstart hebt voltooid.
 
-1. Kies bij locatie voor **Zuid-centraal VS** of **West-Europa**. Op dit moment is de preview alleen in deze regio's beschikbaar.
+1. Kies bij locatie voor **US - zuid-centraal** of **Europa - west**. Op dit moment is de preview alleen in deze regio's beschikbaar.
 
 1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
 

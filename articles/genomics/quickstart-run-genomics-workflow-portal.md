@@ -1,25 +1,25 @@
 ---
-title: 'Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics | Microsoft Docs'
+title: 'Snelstart: een werkstroom uitvoeren via Microsoft Genomics'
 description: In de snelstartgids wordt uitgelegd hoe u invoergegevens kunt laden in Azure Blob Storage en een werkstroom kunt uitvoeren via de service Microsoft Genomics.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023135"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731084"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
 
-Microsoft Genomics is een schaalbare, veilige service voor secundaire analyse waarbij genomen snel kunnen worden verwerkt. Hierbij wordt begonnen met onbewerkte leesbewerkingen en worden vervolgens uitgelijnde leesbewerkingen en variant-aanroepen geproduceerd. Ga in een paar stappen aan de slag: 
+In deze snelstartgids wordt uitgelegd hoe u invoergegevens kunt laden in Azure Blob Storage en een werkstroom kunt uitvoeren via de service Microsoft Genomics. Microsoft Genomics is een schaalbare, veilige service voor secundaire analyse waarbij genomen snel kunnen worden verwerkt. Hierbij wordt begonnen met onbewerkte leesbewerkingen en worden vervolgens uitgelijnde leesbewerkingen en variant-aanroepen geproduceerd. 
+
+Ga in een paar stappen aan de slag: 
 1.  Instellen: maak een Genomics Microsoft-account via Azure Portal en installeer de Python-client voor Microsoft Genomics in uw lokale omgeving. 
 2.  Invoergegevens uploaden: maak een Microsoft Azure-opslagaccount via Azure Portal en upload vervolgens de invoerbestanden. De invoerbestanden moeten leesbewerkingen voor eindsequenties zijn (fastq- of bam-bestanden).
 3.  Uitvoeren: gebruik de opdrachtregelinterface van Microsoft Genomics voor het uitvoeren van werkstromen via de service Microsoft Genomics. 

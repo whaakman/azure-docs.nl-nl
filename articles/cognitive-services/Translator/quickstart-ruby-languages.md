@@ -1,21 +1,21 @@
 ---
-title: Translator Text gebruiken om ondersteunde talen op te halen met Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Ruby in Cognitive Services.
+title: 'Snelstart: ondersteunde talen ophalen - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstarts haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 1080d79f6dddfd57816989b7d1c4f95348493ad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f000d2c4c1519f26b4d82a36803b86f016716c5e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769039"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121835"
 ---
 # <a name="quickstart-get-supported-languages-with-ruby"></a>Snelstartgids: ondersteunde talen ophalen met Ruby
 

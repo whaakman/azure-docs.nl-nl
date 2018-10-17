@@ -1,21 +1,21 @@
 ---
-title: 'Translator Text: alternatieve vertalingen zoeken met Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids zoekt u alternatieve vertalingen en voorbeelden van termen in context met de Translator Text-API met Java in Cognitive Services.
+title: 'Snelstart: Alternatieve vertalingen zoeken -Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 0abb9c1a39b8183730bacde285eff05607754191
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0e7fc3d51772df40bd5da7c762c15c40ad5744f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769063"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127071"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-java"></a>Snelstartgids: alternatieve vertalingen zoeken en gebruiken met Java
 

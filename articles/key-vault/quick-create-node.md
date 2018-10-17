@@ -8,32 +8,32 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023493"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714391"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app 
 
-In deze snelstart wordt getoond hoe u een geheim in Key Vault kunt opslaan en het er met een web-app kunt uithalen. Om de geheime waarde te bekijken, zou u deze moeten uitvoeren in Azure. In de snelstart wordt gebruikgemaakt van Node.js en beheerde service-identiteiten (MSI's)
+In deze snelstart wordt getoond hoe u een geheim in Key Vault kunt opslaan en het er met een web-app kunt uithalen. Om de geheime waarde te bekijken, zou u deze moeten uitvoeren in Azure. In de snelstart wordt gebruikgemaakt van Node.js en beheerde identiteiten voor Azure-resources.
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
 > * Een geheim opslaan in Key Vault.
 > * Een geheim lezen uit Key Vault.
 > * Een Azure-webtoepassing maken.
-> * [Beheerde service-identiteiten inschakelen](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
+> * Schakel een [beheerde identiteit](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) in voor de web-app.
 > * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit Key Vault.
 
 Controleer voordat u verdergaat of u bekend bent met de [basisbeginselen](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-Om te begrijpen waarom de onderstaande zelfstudie de aanbevolen procedure is, moeten we enkele concepten begrijpen. Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen/gebruikers eerst worden geverifieerd bij Key Vault, dat wil zeggen een geheim presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, dient dit eerste geheim ook periodiek te worden gerouleerd. Maar met [Managed Service Identity](../active-directory/managed-service-identity/overview.md) krijgen toepassingen die worden uitgevoerd in Azure een identiteit die automatisch wordt beheerd door Azure. Dit helpt bij het oplossen van het **probleem van het introduceren van geheimen** waar gebruikers/toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim
+Om te begrijpen waarom de onderstaande zelfstudie de aanbevolen procedure is, moeten we enkele concepten begrijpen. Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen/gebruikers eerst worden geverifieerd bij Key Vault, dat wil zeggen een geheim presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, dient dit eerste geheim ook periodiek te worden gerouleerd. Maar met [beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) krijgen toepassingen die worden uitgevoerd in Azure een identiteit die automatisch wordt beheerd door Azure. Dit helpt bij het oplossen van het **probleem van het introduceren van geheimen** waar gebruikers/toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -150,15 +150,15 @@ Hieronder vindt u de paar stappen die moeten worden uitgevoerd
     Met de bovenstaande opdracht wordt ook een door Git-ingeschakelde app gemaakt waarmee u vanuit de lokale Git in Azure kunt implementeren. 
     De lokale Git wordt met de volgende URL geconfigureerd: https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git
 
-- Een implementatiegebruiker maken Als de vorige opdracht is uitgevoerd, kunt u een externe Azure-instantie aan de lokale Git-opslagplaats toevoegen. Vervang <url> door de URL van de externe Git-instantie die u hebt verkregen via Git inschakelen voor uw app.
+- Een implementatiegebruiker maken Als de vorige opdracht is uitgevoerd, kunt u een Azure-instantie aan de lokale Git-opslagplaats toevoegen. Vervang <url> door de URL van de externe Git-instantie die u hebt verkregen via Git inschakelen voor uw app.
 
     ```
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>Beheerde service-identiteit inschakelen
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Een beheerde identiteit voor de web-app inschakelen
 
-Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
+Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. In [Overzicht van beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) wordt het oplossen van dit probleem eenvoudiger gemaakt door Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD) te geven. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
 Voer de opdracht identity assign uit om de identiteit voor deze toepassing te maken:
 
@@ -166,7 +166,7 @@ Voer de opdracht identity assign uit om de identiteit voor deze toepassing te ma
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-U kunt dit trouwens ook doen door naar de portal te gaan en **Managed service identity** op**On** te zetten in de eigenschappen van de webtoepassing.
+U kunt dit ook doen door naar de portal te gaan en de instelling **Identity/System assigned** op **Aan** te zetten in de eigenschappen van de webtoepassing.
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Machtigingen toewijzen aan uw toepassing voor het lezen van geheimen uit Key Vault
 

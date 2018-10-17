@@ -1,21 +1,21 @@
 ---
-title: 'Translator Text: alternatieve vertalingen zoeken met PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids zoekt u alternatieve vertalingen en voorbeelden van termen in context met de Translator Text-API met PHP in Cognitive Services.
+title: 'Snelstart: alternatieve vertalingen zoeken -Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart vindt u alternatieve vertalingen en voorbeelden van termen in context met behulp van de Translator Text-API met PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f3f98d42a327602352735db97ad1844061aa3a2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 85b19be02ed019a9834783c8f6c951593e0fd0d5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769051"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123093"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>Snelstartgids: alternatieve vertalingen zoeken en gebruiken met PHP
 

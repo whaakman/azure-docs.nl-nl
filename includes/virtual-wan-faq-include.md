@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008818"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874133"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Wat is het verschil tussen een gateway van een virtueel Azure-netwerk (VPN Gateway) en een Azure Virtual WAN-VPN-gateway?
 
@@ -21,7 +21,11 @@ Virtual WAN biedt grootschalige site-naar-site-connectiviteit en is ontworpen me
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Welke apparaatproviders (virtuele WAN-partners) worden bij de introductie ondersteund? 
 
-Op dit moment bieden Citrix en Riverbed ondersteuning voor de volledig geautomatiseerde Virtual WAN-ervaring. Zie [Virtual WAN-partners](https://go.microsoft.com/fwlink/p/?linkid=2019615) voor meer informatie.
+Veel partners bieden momenteel ondersteuning voor de volledig geautomatiseerde Virtual WAN-ervaring. Zie [Virtual WAN-partners](https://go.microsoft.com/fwlink/p/?linkid=2019615) voor meer informatie. 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Wat zijn de stappen voor automatisering voor Virtual WAN-partners?
+
+Zie [Automatisering voor Virtual WAN-partners](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) voor meer informatie.
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Moet ik een apparaat van een voorkeurspartner gebruiken?
 
@@ -41,7 +45,7 @@ Ja, met Virtual WAN worden nieuwe Resource Manager-resources geïntroduceert. Zi
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Hoeveel VPN-apparaten kunnen verbinding maken met één hub?
 
-Per virtuele hub worden maximaal 100 verbindingen ondersteund. Elke verbinding bestaat uit twee tunnels die zich in een actief/actief-configuratie bevinden. De tunnels eindigen in een Azure Virtual Hub-VPN-gateway.
+Per virtuele hub worden maximaal 1000 verbindingen ondersteund. Elke verbinding bestaat uit twee tunnels die zich in een actief/actief-configuratie bevinden. De tunnels eindigen in een Azure Virtual Hub-VPN-gateway.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Kan het on-premises VPN-apparaat verbinding maken met meerdere hubs?
 
@@ -66,7 +70,6 @@ Nee. Het NVA-VNet kan geen virtuele netwerkgateway hebben als deze is verbonden 
 ### <a name="is-there-support-for-bgp"></a>Is er ondersteuning voor BGP?
 
 Ja, BGP wordt ondersteund. Om ervoor te zorgen dat de routes van een NVA-VNet op de juiste wijze worden geadverteerd, moet BGP op knooppunten worden uitgeschakeld als deze zijn verbonden met een NVA-VNet dat op zijn beurt is verbonden met een virtuele hub. Verbind vervolgens de spaak-VNets met de virtuele hub om ervoor te zorgen dat spaak-VNet-routes naar on-premises systemen worden doorgevoerd.
-Kan ik verkeer beheren met behulp van de UDR in de virtuele hub?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Kan ik verkeer beheren met behulp van de UDR in de virtuele hub?
 
@@ -94,7 +97,7 @@ Ja.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Waarin verschilt Virtual WAN van de bestaande Azure Virtual Network-gateway?
 
-VPN in een Virtual Network-gateway is beperkt tot 30 tunnels. U moet Virtual WAN gebruiken voor grootschalige VPN-verbindingen. U kunt maximaal honderd vertakkingsverbindingen met 2 Gbps verbinden in de hub. Een verbinding is een actief-actief-tunnel van het on-premises VPN-apparaat naar de virtuele hub. Per regio kan er één hub zijn. Dat betekent dat u verbinding kunt maken met meer dan honderd vertakkingen via hubs.
+VPN in een Virtual Network-gateway is beperkt tot 30 tunnels. U moet Virtual WAN gebruiken voor grootschalige VPN-verbindingen. Voor vertakkingen kunt u maximaal 1000 verbindingen van 2 Gbps maken in de hub. Dit geldt voor alle regio's behalve de regio West Central. Voor de regio West Central is 20 Gbps beschikbaar. In de toekomst gaan we 20 Gbps uitrollen in andere regio's. Een verbinding is een actief-actief-tunnel van het on-premises VPN-apparaat naar de virtuele hub. Per regio kan er één hub zijn. Dit betekent dat u meer dan 1000 vertakkingen kunt verbinden via de hubs.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Heeft Virtual WAN vanaf elke locatie ExpressRoute nodig?
 
@@ -102,7 +105,7 @@ Nee, Virtual WAN heeft niet vanaf elke locatie ExpressRoute nodig. Standaard wor
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Is er een doorvoerlimiet in het netwerk bij gebruik van Azure Virtual WAN?
 
-Het aantal vertakkingen is beperkt tot honderd verbindingen per hub/regio en tot een totaal van 2 G in de hub.
+Het aantal vertakkingen is beperkt tot 1000 verbindingen per hub/regio tot een totaal van 2 G in de hub. De uitzondering is West Central US, met een totaal van 20 Gbps. In de toekomst gaan we 20 Gbps uitrollen in andere regio's.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Kan het on-premises apparaat in Virtual WAN meerde ISP's parallel gebruiken of is er altijd sprake van één VPN-tunnel?
 
@@ -110,7 +113,7 @@ Ja, u kunt active-active-tunnels gebruiken (2 tunnels = 1 Azure Virtual WAN-verb
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Hoe wordt het verkeer naar de Azure-backbone geleid?
 
-Het verkeer volgt het volgende patroon: vertakkingsapparaat->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->vertakkingsapparaat.
+Het verkeer volgt het volgende patroon: vertakkingsapparaat->ISP->Microsoft Edge->Microsoft DC->Microsoft Edge->ISP->vertakkingsapparaat
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Wat is er met dit model op elke locatie nodig? Alleen een internetverbinding?
 

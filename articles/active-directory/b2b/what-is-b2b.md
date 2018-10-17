@@ -1,90 +1,85 @@
 ---
 title: Wat is Azure Active Directory B2B-samenwerking? | Microsoft Docs
-description: Azure Active Directory B2B-samenwerking ondersteunt uw externe bedrijfsrelaties door zakelijke partners selectief toegang te krijgen tot uw bedrijfstoepassingen.
+description: Azure Active Directory B2B-samenwerking ondersteunt gastgebruikerstoegang, zodat u veilig resources kunt delen en samenwerken met externe partners.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 04/26/2018
+ms.topic: overview
+ms.date: 09/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: 51a969ae215583a0be8d75ff1de11173e0696a22
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: MT
+ms.reviewer: mal
+ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644388"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982605"
 ---
-# <a name="what-is-azure-ad-b2b-collaboration"></a>Wat is Azure AD B2B-samenwerking? (Engelstalig artikel)
+# <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Wat is gastgebruikerstoegang in Azure Active Directory B2B?
 
-Azure Active Directory (Azure AD) business-to-business (B2B) functionaliteit voor samenwerking in inschakelen elke organisatie met behulp van Azure AD veilig werken met gebruikers van een andere organisatie, kleine of grote. Organisaties kunnen worden met of zonder Azure AD en hoeft niet eens te hebben van een IT-afdeling.
+Azure Active Directory (Azure AD) business-to-business B2B-samenwerking laat u uw bedrijfstoepassingen en services veilig delen met gastgebruikers van andere organisaties, zonder controle te verliezen over uw eigen bedrijfsgegevens. Veilig en zeker werken met externe partners, groot of klein, zelfs als ze niet beschikken over de Azure AD of een IT-afdeling. Een eenvoudig uitnodigings- en inwisselproces laat uw partners hun eigen referenties gebruiken voor toegang tot resources van uw bedrijf. Ontwikkelaars kunnen gebruikmaken van Azure AD business-to-business API's voor het aanpassen van het uitnodigingsproces of toepassingen schrijven, zoals selfservice aanmeldingsportals.
 
-Organisaties met behulp van Azure AD krijgt u toegang tot documenten, bronnen en toepassingen naar hun partners, behoud van volledige controle over hun eigen zakelijke gegevens. Ontwikkelaars kunnen gebruikmaken van de Azure AD business-to-business API's voor het schrijven van toepassingen die samenbrengen die twee organisaties in meer veilig. Bovendien is het eenvoudig voor eindgebruikers om te navigeren.
+Bekijk de video voor informatie over hoe u veilig kan samenwerken met gastgebruikers door ze uit te nodigen om zich aan te melden bij de apps en services van uw bedrijf met behulp van hun eigen identiteiten.
 
 De volgende video biedt een handig overzicht.
+
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
-## <a name="key-benefits-of-azure-ad-b2b-collaboration"></a>Belangrijkste voordelen van Azure AD B2B-samenwerking
-
-### <a name="work-with-any-user-from-any-partner"></a>Werken met alle gebruikers van een partner
-
-- Partners gebruiken hun eigen referenties
-- Er is geen vereiste voor partners Azure AD gebruiken
-- Er zijn geen externe mappen of ingewikkelde installatie vereist
-
-### <a name="simple-and-secure-collaboration"></a>Eenvoudige en veilige samenwerking
-
-- Toegang bieden tot alle zakelijke Apps en gegevens, terwijl geavanceerde, Azure AD aangestuurde autorisatiebeleid toepassen
-- Gemakkelijk voor gebruikers
-- Geavanceerde beveiliging van apps en gegevens
-
-### <a name="no-management-overhead"></a>Er is geen beheeroverhead
-
-- Er zijn geen externe beheer van account of wachtwoord
-- Er is geen synchronisatie of handmatige levenscyclusbeheer van account
-- Er zijn geen externe administratieve overhead
-
-## <a name="easily-add-b2b-collaboration-users"></a>Eenvoudig toevoegen van gebruikers van B2B-samenwerking
-
-Als beheerder, kunt u eenvoudig gebruikers van B2B-samenwerking (Gast) toevoegen aan uw organisatie in de [Azure-portal](https://portal.azure.com).
-
-![gastgebruikers toevoegen](media/what-is-b2b/adding-b2b-users-admin.png)
-
-### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>Uw medewerkers om de eigen identiteit inschakelen
-
-B2B-deelnemers kunnen zich aanmelden met een identiteit van hun keuze. Als de gebruiker beschikt niet over een Microsoft-account of een Azure AD-account: een voor hem naadloos op het moment van inwisseling van de aanbieding gemaakt.
-
-### <a name="delegate-to-application-and-group-owners"></a>Delegeren aan de toepassing en eigenaren van groepen
-
-Als een toepassing of de eigenaar van de groep, kunt u B2B-gebruikers rechtstreeks aan een toepassing die u interessante toevoegen of het is een Microsoft-toepassing of niet. Beheerders kunnen delegeren machtiging B2B-gebruikers toevoegen aan niet-beheerders. Niet-beheerders kunnen gebruiken de [deelvenster van de Azure AD-toepassing](https://myapps.microsoft.com) gebruikers van B2B-samenwerking toevoegen aan toepassingen of -groepen.
-
-![Toegangsvenster](media/what-is-b2b/access-panel.png)
+## <a name="collaborate-with-any-partner-using-their-identities"></a>Samenwerken met een partner met behulp van hun identiteit
+Met Azure AD B2B gebruikt de partner hun eigen oplossing voor identiteitsbeheer, zonder externe administratieve overhead voor uw organisatie. 
+- De partner maakt gebruik van hun eigen identiteiten en referenties; Azure AD is niet vereist. 
+- U hoeft te beheren externe accounts of wachtwoorden. 
+- U hoeft accounts niet te synchroniseren of account levenscycli niet te beheren.  
 
 ![lid toevoegen](media/what-is-b2b/add-member.png)
 
-### <a name="authorization-policies-protect-your-corporate-content"></a>Autorisatiebeleid beveiligen van uw zakelijke inhoud
+## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Uitnodigen van gastgebruikers met een eenvoudige uitnodiging en inwisselproces
+Gastgebruikers melden zich met hun eigen werk-, school- of sociale identiteiten aan bij uw apps en services. Als de gastgebruiker geen Microsoft-account of een Azure AD-account heeft, wordt er een gemaakt voor hen wanneer ze hun uitnodiging inwisselen. 
+- Nodig gastgebruikers uit met behulp van de identiteit van de e-mail van hun keuze.
+- Stuur een directe koppeling naar een app of een uitnodiging naar het toegangsvenster van de gastgebruiker. 
+- Gastgebruikers volgen een paar eenvoudige inwisselstappen om zich aan te melden.
 
-Beleid voor voorwaardelijke toegang zoals multi-factor authentication kunnen worden afgedwongen:
-- Op het tenantniveau van de
-- Op het toepassingsniveau van de
-- Voor specifieke gebruikers om zakelijke apps en gegevens te beveiligen
+![toegangsvenster](media/what-is-b2b/consentscreen.png)
 
-### <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Gebruik API's en voorbeeldcode eenvoudig toepassingen voor onboarding
+## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Gebruik beleidsrichtlijnen voor het veilig delen van uw apps en services
+U kunt een autorisatiebeleid voeren om uw zakelijke inhoud te beveiligen. Beleid voor voorwaardelijke toegang zoals meervoudige verificatie kan worden afgedwongen:
+- Op tenantniveau.
+- Op toepassingsniveau.
+- Voor specifieke gastgebruikers om zakelijke apps en gegevens te beschermen.
+
+![gastgebruikers toevoegen](media/what-is-b2b/tutorial-mfa-policy-2.png)
+
+
+## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Gastgebruikers eenvoudig toevoegen in de Azure AD portal
+
+Als beheerder kunt u eenvoudig gastgebruikers toevoegen aan uw organisatie in de Azure Portal.
+- Maak een nieuwe gastgebruiker in Azure AD, vergelijkbaar met hoe u een nieuwe gebruiker wilt toevoegen.
+- De gastgebruiker ontvangt onmiddellijk een aangepaste uitnodiging waarmee ze aanmelden bij hun Toegangsvenster.
+- Gastgebruikers in de map kunnen aan apps of groepen worden toegewezen.  
+
+![gastgebruikers toevoegen](media/what-is-b2b/adding-b2b-users-admin.png)
+
+## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Toepassings- en groepseigenaars toestaan om hun eigen gastgebruikers te beheren
+
+U kunt beheer van gastgebruikers overdragen aan toepassingseigenaars zodat ze gastgebruikers rechtstreeks kunnen toevoegen aan een toepassing die ze willen delen, ongeacht of het een Microsoft-toepassing is of niet. 
+ - Administrators stellen selfservice app en groepsbeheer in.
+ - Niet-administrators gebruiken hun [Toegangsvenster](https://myapps.microsoft.com) om gastgebruikers aan toepassingen of groepen toe te voegen.
+
+![gastgebruikers toevoegen](media/what-is-b2b/access-panel-manage-app.png)
+
+## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API's en voorbeeldcode gebruiken om toepassingen voor onboarding eenvoudig te compileren
 
 Breng uw externe partners aan boord op manieren die zijn aangepast aan de behoeften van uw organisatie.
+- Gebruik de [B2B-samenwerkingsuitnodiging API's](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) voor het aanpassen van uw onboarding-ervaringen, met inbegrip van het maken van selfservice aanmeldingsportals. 
+- Gebruik de voorbeeldcode die we voor een selfservice portal bieden [op Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-Gebruik de [B2B-samenwerking uitnodiging API's](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) voor het aanpassen van uw onboarding-ervaringen, met inbegrip van het maken van aanmelding selfserviceportals. We bieden voorbeeldcode voor een selfservice portal [op Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
-
-![Meld u aan portal](media/what-is-b2b/sign-up-portal.png)
-
-Met Azure AD B2B-samenwerking krijgt u de volledige kracht van Azure AD om te beveiligen van uw partnerrelaties op een manier die eindgebruikers makkelijk en intuïtief vinden.
+![registratieportal](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Hoe voeg beheerders van Azure Active Directory gebruikers van B2B-samenwerking toe?](add-users-administrator.md)
-- [Hoe voeg informatiemedewerkers gebruikers van B2B-samenwerking toe?](add-users-information-worker.md)
-- [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md)
-- [Licentieverlening voor Azure AD B2B collaboration](licensing-guidance.md)
-- En zoals altijd verbinding maken met het productteam feedback, discussies en suggesties via onze [Microsoft Tech-Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+- [Licentierichtlijnen voor Azure AD B2B-samenwerking](licensing-guidance.md)
+- [Gastgebruikers voor B2B-samenwerking toevoegen in de portal](add-users-administrator.md)
+- [Het inwisselproces van de uitnodiging begrijpen](redemption-experience.md)
+- En zoals altijd verbinding maken met het productteam voor feedback, discussies en suggesties via onze [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

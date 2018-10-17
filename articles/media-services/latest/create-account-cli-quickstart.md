@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767099"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735999"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Snelstartgids: Een Azure Media Services-account maken
 
@@ -56,9 +56,9 @@ az group create -n <myresourcegroup> -l westus2
 
 ## <a name="create-an-azure-storage-account"></a>Een Azure Storage-account maken
 
-Als u een Media Services-account gaat maken, moet u de id van een Azure Storage-accountresource opgeven. Het opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account. 
+Als u een Media Services-account gaat maken, moet u de id van een Azure Storage-accountresource opgeven. De opgegeven opslagaccount wordt gekoppeld aan uw Media Services-account. 
 
-U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-account, maar een onbeperkt aantal **secundaire** opslagaccounts. Media Services ondersteunt **GPv2**-accounts (General-purpose v2) of **GPv1**-accounts (General-purpose v1). Blob-accounts kunt u niet instellen als **primaire** account. Zie [Opties voor Azure Storage-account](../../storage/common/storage-account-options.md) voor meer informatie over opslagaccounts. 
+U kunt maar één **primaire** opslagaccount koppelen aan uw Media Services-account, maar een onbeperkt aantal **secundaire** opslagaccounts. Media Services ondersteunt **algemeen gebruik v2** of **algemeen gebruik v1**-accounts. Blob-opslagaccounts zijn niet toegestaan als **primaire** account. Zie [Overzicht van Azure-opslagaccount](../../storage/common/storage-account-overview.md) voor meer informatie over opslagaccounts. 
 
 Met de volgende opdracht maakt u het opslagaccount dat wordt gekoppeld aan het Media Services-account (primair). Vervang in het onderstaande script de tijdelijke aanduiding *storageaccountforams*. De accountnaam moet uit minder dan 24 tekens bestaan.
 
@@ -82,7 +82,7 @@ az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <stor
 
 Als u de resources in de resourcegroep niet meer nodig hebt, met inbegrip van het Media Services-account dat u hebt gemaakt in deze snelstartgids, verwijdert u de resourcegroep.
 
-Voer in de **CloudShell** de volgende opdracht uit:
+Voer in **CloudShell** de volgende opdracht uit:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

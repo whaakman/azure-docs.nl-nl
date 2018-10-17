@@ -1,32 +1,33 @@
 ---
-title: Hoe kan ik taaldetectie in op Text Analytics REST-API (Microsoft cognitieve Services in Azure) | Microsoft Docs
-description: Het vaststellen van de taal met de tekst Analytics REST-API in Microsoft cognitieve Services op Azure in deze zelfstudie scenario.
+title: 'Voorbeeld: Taaldetectie met de REST-API van Text Analytics'
+titleSuffix: Azure Cognitive Services
+description: Leer hoe u met behulp van de Text Analytics-REST API taal detecteert.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: f8e2d9a36533c298addcf42d3cb2061e9c2d1ac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344690"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604549"
 ---
-# <a name="how-to-detect-language-in-text-analytics"></a>Het vaststellen van de taal in Tekstanalyse
+# <a name="example-how-to-detect-language-in-text-analytics"></a>Voorbeeld: Hoe taal detecteren in Text Analytics
 
-De [taal detectie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) tekst invoer- en voor elk document dat wordt geëvalueerd en retourneert de taal-id's met een score die aangeeft van de sterkte van de analyse. Tekstanalyse herkent maximaal 120 talen.
+De [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evalueert tekstinvoer voor elk document en retourneert de taal-id's met een score die wijst op de sterkte van de analyse. Text Analytics herkent maximaal 120 talen.
 
-Deze functie is nuttig voor inhoud opslaat die verzamelen willekeurige tekst waarin de taal is onbekend. U kunt de resultaten van deze analyse om te bepalen welke taal wordt gebruikt in het invoerdocument parseren. Het antwoord geeft ook een score dat overeenkomt met het vertrouwen van het model (een waarde tussen 0 en 1).
+Deze mogelijkheid is handig voor inhoudsarchieven die willekeurige tekst verzamelen, waarin de taal onbekend is. U kunt de resultaten van deze analyse parseren om te bepalen welke taal wordt gebruikt in het ingevoerde document. Het antwoord retourneert ook een score die overeenkomt met het vertrouwen van het model (een waarde tussen 0 en 1).
 
 ## <a name="preparation"></a>Voorbereiding
 
-Moet u de JSON-documenten in deze indeling hebben: id, de tekst
+U moet JSON-documenten in deze indeling hebben: id, tekst
 
-De documentgrootte van het moet onder 5000 tekens per document en u kunt maximaal 1000 hebben items (id's) per verzameling. De verzameling is in de hoofdtekst van de aanvraag verzonden. Hier volgt een voorbeeld van inhoud die u voor de taal wordt gedetecteerd verzenden mogelijk.
+De documentgrootte moet onder maximaal 5000 tekens per document zijn, en u kunt maximaal 1000 items (id's) per verzameling hebben. De verzameling is in de hoofdtekst van de aanvraag ingediend. Hier volgt een voorbeeld van de inhoud die u voor taaldetectie kan indienen.
 
    ```
     {
@@ -55,37 +56,37 @@ De documentgrootte van het moet onder 5000 tekens per document en u kunt maximaa
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Stap 1: De aanvraag structureren
+## <a name="step-1-structure-the-request"></a>Stap 1: Structuur van de aanvraag
 
-Meer informatie over de definitie van de aanvraag kunnen worden gevonden in [hoe de tekst Analytics-API aan te roepen](text-analytics-how-to-call-api.md). De volgende punten worden aangepast voor het gemak:
+Meer informatie over de definitie van de aanvraag kunt u vinden in [De Text Analytics-API aanroepen](text-analytics-how-to-call-api.md). De volgende punten zijn voor uw gemak opnieuw geformuleerd:
 
-+ Maak een **POST** aanvraag. Bekijk de API-documentatie voor deze aanvraag: [taal Detection-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Maak een **POST**-aanvraag. Controleer de API-documentatie voor deze aanvraag: [Taaldetectie-API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
-+ Het HTTP-eindpunt voor de taaldetectie instellen. Het omvat de `/languages` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Het HTTP-eindpunt voor taaldetectie instellen. Deze moet de `/languages`-resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages` bevatten
 
-+ Stel een aanvraagheader om op te nemen van de toegangssleutel voor Text Analytics-bewerkingen. Zie voor meer informatie [eindpunten zoeken en toegangssleutels](text-analytics-how-to-access-key.md).
++ Stel een aanvraagheader in om de toegangssleutel voor de Text Analytics-bewerkingen op te nemen. Zie voor meer informatie [Eindpunten en toegangssleutels zoeken](text-analytics-how-to-access-key.md).
 
-+ Geef de JSON-documenten verzameling die u hebt voorbereid voor deze analyse in de aanvraagtekst.
++ Verstrek in de hoofdtekst van de aanvraag de JSON-documentenverzameling die u hebt voorbereid voor deze analyse
 
 > [!Tip]
-> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API testen console** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) aan de structuur van een aanvraag en dit bericht naar de service.
+> Gebruik [Postman](text-analytics-how-to-call-api.md) of open de **API-testconsole** in de [documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) om de aanvraag te structureren en POST deze in de service.
 
 ## <a name="step-2-post-the-request"></a>Stap 2: De aanvraag posten
 
-Analyse wordt na ontvangst van de aanvraag uitgevoerd. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag mag maximaal 1 MB.
+Analyse wordt uitgevoerd na ontvangst van de aanvraag. De service accepteert maximaal 100 aanvragen per minuut. Elke aanvraag kan maximaal 1 MB zijn.
 
-Intrekken van de service staatloze is. Er zijn geen gegevens worden opgeslagen in uw account. Resultaten worden direct in het antwoord geretourneerd.
+Terughalen als de service staatloos is. Er worden geen gegevens opgeslagen in uw account. Resultaten worden onmiddellijk in het antwoord geretourneerd.
 
 
 ## <a name="step-3-view-results"></a>Stap 3: Resultaten weergeven
 
-Alle POST-verzoeken retourneren een JSON-indeling van antwoord met de id's en eigenschappen gedetecteerd.
+Alle POST-verzoeken retourneren een ingedeeld JSON-antwoord met de id's en gedetecteerde eigenschappen.
 
-Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten naar een toepassing die JSON accepteert stream of sla de uitvoer naar een bestand op het lokale systeem en vervolgens importeren in een toepassing waarmee u kunt sorteren en manipuleren van de gegevens zoeken.
+Uitvoer wordt onmiddellijk geretourneerd. U kunt de resultaten streamen naar een toepassing die JSON accepteert of u kunt de uitvoer opslaan als lokaal bestand en vervolgens importeren in een toepassing waarmee u kunt sorteren, zoeken en de gegevens kunt manipuleren.
 
-Resultaten voor de voorbeeldaanvraag moeten eruitzien als in de volgende JSON. U ziet dat het een document met meerdere items is. Uitvoer is in het Engels. Taal-id's zijn onder andere een beschrijvende naam en een taalcode in [ISO 639 1](https://www.iso.org/standard/22109.html) indeling.
+Resultaten voor de voorbeeldaanvraag moeten eruitzien als de volgende JSON. Merk op dat er één document met meerdere items is. Uitvoer is in het Engels. Taal-id's zijn onder andere een beschrijvende naam en een taalcode in [ISO 639-1](https://www.iso.org/standard/22109.html) indeling.
 
-Het hoogst mogelijke vertrouwensniveau van de analyse wordt uitgedrukt in een positieve score van 1.0.
+Een positief score van 1.0 staat voor het hoogst mogelijke vertrouwensniveau van de analyse.
 
 
 
@@ -147,7 +148,7 @@ Het hoogst mogelijke vertrouwensniveau van de analyse wordt uitgedrukt in een po
 
 ### <a name="ambiguous-content"></a>Niet-eenduidige inhoud
 
-Als de analyzer kan de invoer niet parseren (bijvoorbeeld, wordt ervan uitgegaan dat u een bestaande uitsluitend uit cijfers tekstblok verzonden), wordt hiermee `(Unknown)`.
+Als de analyzer de invoer niet kan parseren (bijvoorbeeld, veronderstel dat u een tekstblok hebt ingediend, dat uitsluitend bestaat uit cijfers verzonden), het retourneert het resultaat`(Unknown)`.
 
 ```
     {
@@ -160,9 +161,9 @@ Als de analyzer kan de invoer niet parseren (bijvoorbeeld, wordt ervan uitgegaan
         }
       ]
 ```
-### <a name="mixed-language-content"></a>Gemengde inhoud taal
+### <a name="mixed-language-content"></a>Gemengde talen inhoud
 
-Taal van gemengde inhoud binnen hetzelfde document retourneert de taal met de grootste weergave in de inhoud, maar met een lagere positief classificatie weerspiegeling van de marginale robuuste van die beoordeling. Invoer is in het volgende voorbeeld wordt een combinatie van Engels, Spaans en Frans. De analyzer telt tekens in elk segment om te bepalen van de belangrijkste taal.
+Gemengde talen inhoud binnen hetzelfde document retourneert de taal met de grootste weergave in de inhoud, maar met een lagere positieve classificatie, die de marginale sterkte van deze evaluatie weergeeft. De invoer in het volgende voorbeeld is een combinatie van Engels, Spaans en Frans. De analyzer telt tekens in elk segment om te bepalen van de overheersende taal.
 
 **Invoer**
 
@@ -179,7 +180,7 @@ Taal van gemengde inhoud binnen hetzelfde document retourneert de taal met de gr
 
 **Uitvoer**
 
-Er bestaat een resulterende uitvoer van de belangrijkste taal, met een score van minder dan 1.0, die wijzen op een zwakkere mate van betrouwbaarheid.
+Resulterende uitvoer bestaat uit de overheersende taal, met een score van minder dan 1,0 die wijst op een zwakkere mate van betrouwbaarheid.
 
 ```
 {
@@ -201,18 +202,18 @@ Er bestaat een resulterende uitvoer van de belangrijkste taal, met een score van
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd concepten en werkstroom voor de taaldetectie Text Analytics gebruiken in cognitieve Services. Hieronder vindt u een snelle herinnering van de belangrijkste punten eerder beschreven en gedemonstreerd:
+In dit artikel hebt u concepten en werkstroom geleerd voor taaldetectie met behulp van de Text Analytics in Cognitive Services. Hier volgt een snelle herinnering van de belangrijkste punten eerder uitgelegd en gedemonstreerd:
 
-+ [Taaldetectie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) is 120 talen beschikbaar.
-+ JSON-documenten in de aanvraagtekst bevatten een id en de tekst.
-+ POST-aanvraag is een `/languages` eindpunt, met een persoonlijk [toegang krijgen tot sleutel en een eindpunt](text-analytics-how-to-access-key.md) die geldig is voor uw abonnement.
-+ Antwoorduitvoer, die uit de taal-id's voor elk document-ID bestaat, kan worden gestreamd naar alle Apps die JSON accepteert, zoals Excel en Power BI, enzovoort.
++ [Taaldetectie API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) is beschikbaar in 120 talen.
++ JSON-documenten in de aanvraagbody omvatten een id en tekst.
++ POST-aanvraag is een `/languages`-eindpunt die een persoonlijke [toegangssleutel en een eindpunt](text-analytics-how-to-access-key.md) gebruikt die geldig zijn voor uw abonnement.
++ Antwoorduitvoer, die uit de taal-id's voor elk document-ID bestaat, kan worden gestreamd naar alle apps die JSON accepteert, met inbegrip van Excel en Power BI om er maar een paar te noemen.
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van tekst Analytics](../overview.md)  
- [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md)</br>
- [Tekst Analytics productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Overzicht van Text Analytics](../overview.md)  
+ [Veelgestelde vragen](../text-analytics-resource-faq.md)</br>
+ [Text Analytics-productpagina](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Volgende stappen
 

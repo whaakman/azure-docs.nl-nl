@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41919756"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578353"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Beveiligingsrapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory-portal
 
@@ -29,9 +29,9 @@ Azure Active Directory detecteert verdachte activiteit die is gekoppeld aan uw g
 
 De gedetecteerde risico's worden gebruikt om het volgende te berekenen:
 
-- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie [Riskante aanmeldingen](../identity-protection/overview.md#risky-sign-ins) voor meer informatie. 
+- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie [Het risicobeleid voor aanmelden configureren](../identity-protection/howto-sign-in-risk-policy.md) voor meer informatie. 
 
-- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie [Gebruikers voor wie wordt aangegeven dat ze risico lopen](../identity-protection/overview.md#users-flagged-for-risk) voor meer informatie.  
+- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie [Het risicobeleid voor gebruikers configureren](../identity-protection/howto-user-risk-policy.md) voor meer informatie.  
 
 In Azure Portal kunt u de beveiligingsrapporten vinden op de blade **Azure Active Directory** in het gedeelte **Beveiliging**.  
 
@@ -78,13 +78,13 @@ Dit rapport biedt de volgende mogelijkheden:
 
 Het rapport over gebruikers voor wie wordt aangegeven dat ze risico lopen in de Azure Active Directory Premium-edities biedt u het volgende:
 
-- Een [lijst met gebruikersaccounts](../identity-protection/overview.md#users-flagged-for-risk) die mogelijk zijn aangetast 
+- Een lijst met gebruikersaccounts die mogelijk zijn aangetast 
 
 - Verzamelde informatie over de gedetecteerde [risicogebeurtenistypen](concept-risk-events.md)
 
 - Een optie voor het downloaden van het rapport
 
-- Een optie voor het configureren van een [beleid voor herstel van gebruikersrisico's](../identity-protection/overview.md#user-risk-security-policy)  
+- Een optie voor het configureren van een [beleid voor herstel van gebruikersrisico's](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Riskante aanmeldingen](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Wanneer u een gebruiker selecteert, krijgt u een gedetailleerde rapportweergave 
 ![Riskante aanmeldingen](./media/concept-user-at-risk/324.png)
 
 
-Als u een risicogebeurtenis wilt onderzoeken, selecteert u de gebeurtenis in de lijst om de bijbehorende blade **Details** te openen. Op de blade **Details** kunt u een [risicogebeurtenis handmatig sluiten](../identity-protection/overview.md#closing-risk-events-manually) of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
+Als u een risicogebeurtenis wilt onderzoeken, selecteert u de gebeurtenis in de lijst om de bijbehorende blade **Details** te openen. Op de blade **Details** kunt u een risicogebeurtenis handmatig sluiten of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
 
 
 ![Riskante aanmeldingen](./media/concept-user-at-risk/325.png)

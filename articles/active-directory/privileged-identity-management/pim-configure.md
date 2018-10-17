@@ -13,16 +13,16 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186208"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465857"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
-Met Azure Active Directory (AD) Privileged Identity Management kunt u toegang binnen de organisatie beheren, controleren en bewaken. Dit is inclusief toegang tot resources in Azure AD, Azure-resources (preview) en andere Microsoft-onlineservices zoals Office 365 en Microsoft Intune.
+Met Azure Active Directory (Azure AD) Privileged Identity Management kunt u toegang binnen de organisatie beheren, controleren en bewaken. Dit is inclusief toegang tot resources in Azure AD, Azure-resources en andere Microsoft-onlineservices zoals Office 365 en Microsoft Intune.
 
 > [!NOTE]
 > Wanneer u Privileged Identity Management inschakelt voor uw tenant, is een geldige betaalde versie of proefversie van Azure AD Premium P2 of Enterprise Mobility + Security E5 vereist voor elke gebruiker die een van de voordelen van de service ontvangt of gebruikt. Voorbeelden zijn gebruikers/gebruikers in een groep die:
@@ -39,11 +39,11 @@ Organisaties willen het aantal mensen beperken dat toegang heeft tot beveiligde 
 
 Azure AD Privileged Identity Management maakt het volgende mogelijk in uw organisatie:
 
-- Zien welke gebruikers bevoorrechte rollen hebben voor het beheren van Azure-resources (preview), en aan welke gebruikers beheerdersrollen zijn toegewezen in Azure AD
-- JIT-beheerderstoegang op aanvraag inschakelen voor Microsoft-onlineservices zoals Office 365 en Intune, en voor Azure-resources (preview) van abonnementen, resourcegroepen en afzonderlijke resources zoals virtuele machines 
--   Een historisch overzicht zien van activering door beheerders, waaronder wat beheerders wijzigen in Azure-resources (preview)
+- Zien welke gebruikers bevoorrechte rollen hebben voor het beheren van Azure-resources, en aan welke gebruikers beheerdersrollen zijn toegewezen in Azure AD
+- JIT-beheerderstoegang op aanvraag inschakelen voor Microsoft-onlineservices zoals Office 365 en Intune, en voor Azure-resources van abonnementen, resourcegroepen en afzonderlijke resources zoals virtuele machines 
+- Een historisch overzicht zien van activering door beheerders, waaronder wat beheerders hebben gewijzigd in Azure-resources
 - Waarschuwingen ontvangen over wijzigingen in beheerderstoewijzingen
-- Goedkeuring vereisen voor het activeren van bevoorrechte Azure AD-beheerdersrollen (preview) 
+- Goedkeuring vereisen voor het activeren van bevoorrechte Azure AD-beheerdersrollen
 - Lidmaatschap van beheerdersrollen controleren en gebruikers vragen om een reden voor vernieuwd lidmaatschap
 
 In Azure AD kunnen met Azure AD Privileged Identity Management de gebruikers worden beheerd die zijn toegewezen aan de ingebouwde Azure AD-organisatierollen, zoals Globale beheerder. In Azure kunnen met Azure AD Privileged Identity Management de gebruikers en groepen worden beheerd die zijn toegewezen via Azure RBAC-rollen, inclusief Eigenaar of Inzender.
@@ -100,17 +100,17 @@ Voor Azure RBAC-rollen geldt dat alleen een abonnementsbeheerder, een resource-e
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Overzicht van Privileged Identity Management (toegangspunt)
 
-Azure AD Privileged Identity Management biedt ondersteuning voor het beheer van Azure AD-adreslijstrollen en rollen voor Azure-resources (preview). De functie van rollen voor Azure-resources verschillen van beheerdersrollen in Azure AD. Azure-resourcerollen bieden gedetailleerde machtigingen voor de resource waaraan ze zijn toegewezen, en aan alle onderliggende resources in de hiërarchie van de resource (overname genoemd). [Meer informatie over RBAC, resourcehiërarchie en overname](../../role-based-access-control/role-assignments-portal.md). PIM kan voor zowel Azure AD-adreslijstrollen als Azure-resources (preview) worden beheerd door de desbetreffende koppeling te volgen onder de sectie Beheren van het toegangspunt Overzicht van PIM in het linkernavigatiemenu.
+Azure AD Privileged Identity Management biedt ondersteuning voor het beheer van Azure AD-adreslijstrollen en rollen voor Azure-resources. De functie van rollen voor Azure-resources verschillen van beheerdersrollen in Azure AD. Azure-resourcerollen bieden gedetailleerde machtigingen voor de resource waaraan ze zijn toegewezen, en aan alle onderliggende resources in de hiërarchie van de resource (overname genoemd). [Meer informatie over RBAC, resourcehiërarchie en overname](../../role-based-access-control/role-assignments-portal.md). PIM kan voor zowel Azure AD-adreslijstrollen als Azure-resources worden beheerd door de desbetreffende koppeling te volgen onder de sectie Beheren van het toegangspunt Overzicht van PIM in het linkernavigatiemenu.
 
 PIM biedt via de sectie Taken in het linkernavigatiemenu snel toegang tot opties voor het activeren van rollen, het bekijken van openstaande activeringen/aanvragen en van goedkeuringen die nog in behandeling zijn (voor Azure AD-adreslijstrollen), evenals beoordelingen die wachten op uw reactie.
 
-Wanneer u een optie kiest in de sectie Taken onder het toegangspunt Overzicht, ziet u resultaten voor zowel Azure AD-adreslijstrollen als Azure-resourcerollen (preview).
+Wanneer u een optie kiest in de sectie Taken onder het toegangspunt Overzicht, ziet u resultaten voor zowel Azure AD-adreslijstrollen als Azure-resourcerollen.
 
 ![Snel starten](./media/pim-configure/quick-start.png)
 
-Mijn rollen bevatten een lijst met actieve en in aanmerking komende roltoewijzingen voor Azure AD-adreslijstrollen en Azure-resourcerollen (preview). [Meer informatie over het activeren van in aanmerking komende roltoewijzingen](pim-how-to-activate-role.md).
+Mijn rollen bevatten een lijst met actieve en in aanmerking komende roltoewijzingen voor Azure AD-adreslijstrollen en Azure-resourcerollen. [Meer informatie over het activeren van in aanmerking komende roltoewijzingen](pim-how-to-activate-role.md).
 
-Het activeren van rollen voor Azure-resources (preview) is een nieuwe functie die in aanmerking komende leden van een rol de gelegenheid biedt om activering te plannen voor een toekomstige datum/tijd, gekoppeld aan een specifieke activeringsduur binnen de maximale periode die is ingesteld door beheerders.
+Het activeren van rollen voor Azure-resources is een nieuwe functie die in aanmerking komende leden van een rol de gelegenheid biedt om activering te plannen voor een toekomstige datum/tijd, gekoppeld aan een specifieke activeringsduur binnen de maximale periode die is ingesteld door beheerders.
 
 ![](./media/pim-configure/activations.png)
 
@@ -126,15 +126,15 @@ Azure AD Privileged Identity Manager beschikt over een beheerdashboard met belan
 * Het aantal gebruikers dat aan elke bevoorrechte rol is toegewezen  
 * Het aantal in aanmerking komende en permanente beheerders
 * Een grafiek met daarin activeringen van bevoorrechte rollen in uw adreslijst
-*   Het aantal Just-In-Time, tijdsgebonden en permanente toewijzingen voor Azure-resourcerollen (preview)
-*   Gebruikers en groepen met nieuwe roltoewijzingen van de afgelopen dertig dagen (Azure-resourcerollen)
+* Het aantal Just-In-Time, tijdsgebonden en permanente toewijzingen voor Azure-resourcerollen
+* Gebruikers en groepen met nieuwe roltoewijzingen van de afgelopen dertig dagen (Azure-resourcerollen)
 
 
 ![PIM-dashboard - schermafbeelding](./media/pim-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Beheer van bevoorrechte rollen
 
-Met Azure AD Privileged Identity Management kunt u beheertaken voor de beheerders uitvoeren door permanente of in aanmerking komende beheerders toe te voegen of te verwijderen voor Azure AD-adreslijstrollen. Met PIM voor Azure-resources (preview) kunnen eigenaars, beheerders van gebruikerstoegang en globale beheerders die het beheer van abonnementen in hun tenant inschakelen, gebruikers of groepen toewijzen aan Azure-resourcerollen als in aanmerking komend (Just-In-Time toegang), als tijdsgebonden toegang (geen activering vereist) met een begin- en einddatum/-tijd of permanent (indien ingeschakeld in de rolinstellingen).
+Met Azure AD Privileged Identity Management kunt u beheertaken voor de beheerders uitvoeren door permanente of in aanmerking komende beheerders toe te voegen of te verwijderen voor Azure AD-adreslijstrollen. Met PIM voor Azure-resources kunnen eigenaars, beheerders van gebruikerstoegang en globale beheerders die het beheer van abonnementen in hun tenant inschakelen, gebruikers of groepen toewijzen aan Azure-resourcerollen als in aanmerking komend (Just-In-Time toegang), als tijdsgebonden toegang (geen activering vereist) met een begin- en einddatum/-tijd of permanent (indien ingeschakeld in de rolinstellingen).
 
 ![PIM-beheerders toevoegen/verwijderen - schermafbeelding](./media/pim-configure/PIM_AddRemove.png)
 
@@ -146,13 +146,13 @@ Met behulp van [rolinstellingen](pim-how-to-change-default-settings.md) kunt u d
 * De melding bij rolactivering
 * De informatie die een gebruiker moet opgeven tijdens het activeren van de rol
 * Nummer van het serviceticket of incident
-* [Vereisten voor goedkeuringswerkstroom - Preview](./azure-ad-pim-approval-workflow.md)
+* [Vereisten voor goedkeuringswerkstroom](./azure-ad-pim-approval-workflow.md)
 
 ![PIM-instellingen - activering van beheerder - schermafbeelding](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
 In de bovenstaande afbeelding zijn de knoppen voor **Multi-Factor Authentication** uitgeschakeld. Voor bepaalde, zeer bevoorrechte rollen, is MFA vereist voor een nog betere beveiliging.
 
-Rolinstellingen voor Azure-resourcerollen (preview) stellen beheerders in staat om instellingen voor Just-In-Time directe toewijzingen te configureren, zoals:
+Rolinstellingen voor Azure-resourcerollen stellen beheerders in staat om instellingen voor Just-In-Time directe toewijzingen te configureren, zoals:
 
 - De mogelijkheid om gebruikers of groepen toe te wijzen aan rollen zonder een einddatum/-tijd (permanente toewijzing)
 - De standaardduur van een toewijzing (indien niet permanent)
@@ -173,7 +173,7 @@ Rolactivering kan worden aangepast. In de instellingen van PIM kunt u de duur va
 
 ## <a name="review-role-activity"></a>Rolactiviteit controleren
 
-Er zijn twee manieren om bij te houden hoe uw werknemers en beheerders bevoorrechte rollen gebruiken. De eerste optie is met behulp van [de controlegeschiedenis voor adreslijstrollen](pim-how-to-use-audit-log.md). De logboeken die samen de controlegeschiedenis vormen, bevatten informatie over wijzigingen in toewijzingen van bevoorrechte rollen, de activeringsgeschiedenis van een rol en wijzigingen in de instellingen voor Azure-resourcerollen (preview). 
+Er zijn twee manieren om bij te houden hoe uw werknemers en beheerders bevoorrechte rollen gebruiken. De eerste optie is met behulp van [de controlegeschiedenis voor adreslijstrollen](pim-how-to-use-audit-log.md). De logboeken die samen de controlegeschiedenis vormen, bevatten informatie over wijzigingen in toewijzingen van bevoorrechte rollen, de activeringsgeschiedenis van een rol en wijzigingen in de instellingen voor Azure-resourcerollen. 
 
 ![Activeringsgeschiedenis voor PIM - schermopname](./media/pim-configure/PIM_ActivationHistory.png)
 

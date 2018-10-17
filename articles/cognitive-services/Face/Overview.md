@@ -1,99 +1,99 @@
 ---
-title: Overzicht van de API-Service wordt geconfronteerd | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: De verklarende woordenlijst verklaart de termen die u kunt tegenkomen bij het werken met de Face-API-Service.
+title: Wat is de Face-API-Service?
+titleSuffix: Azure Cognitive Services
+description: De woordenlijst verklaart de termen die u kunt tegenkomen wanneer u met de Face-API-Service werkt.
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: overview
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: MT
+ms.openlocfilehash: 15de899be5ab85e9fe84ba1b6284bc9419fcf8a1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048666"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123467"
 ---
-# <a name="what-is-face-api"></a>Wat is Face-API?
+# <a name="what-is-the-face-api-service"></a>Wat is de Face-API-Service?
 
-Welkom bij de Microsoft Face-API een cloudservice waarmee u de meest geavanceerde face-algoritmen. Face-API heeft twee belangrijkste functies: geconfronteerd detectie met kenmerken en wordt geconfronteerd herkenning.
+Welkom bij de Face-API-Service, een cloud-gebaseerde service die de meest geavanceerde gezichtsalgoritmen verstrekt. Face-API heeft twee belangrijke functies: gezichtsdetectie met kenmerken en gezichtsherkenning.
 
 ## <a name="face-detection"></a>Gezichtsdetectie
 
-Face-API detecteert maximaal 64 menselijke vlakken met hoge precisie face locatie in een afbeelding. En de installatiekopie van het bestand in bytes of een geldige URL kan worden opgegeven.
+Face-API detecteert maximaal 64 gezichten van mensen met hoge precisie gezichtslocatie in een afbeelding. En de afbeelding kan worden opgegeven per bestand in bytes of een geldige URL.
 
-![Overzicht - Face-detectie](./Images/Face.detection.jpg)
+![Overzicht - Gezichtsdetectie](./Images/Face.detection.jpg)
 
-Face-rechthoek (links, top, breedte en hoogte) die aangeeft de face-locatie in de afbeelding wordt geretourneerd, samen met elk face gedetecteerd. Face detection extraheert eventueel een reeks face-gerelateerde kenmerken, zoals pose, geslacht, leeftijd, head pose, analyseert haar en glas. Zie voor meer informatie [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Gezichtsrechthoek (links, boven, breedte en hoogte) waarmee wordt aangegeven dat de gezichts-locatie in de afbeelding wordt geretourneerd, samen met elk gedetecteerd gezicht. Gezichtsdetectie extraheert (optioneel) een reeks face-gerelateerde kenmerken zoals houding, geslacht, leeftijd, hoofdhouding, gezichtshaar en bril. Ga voor meer informatie naar [Gezicht - Detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="face-recognition"></a>Face erkenning
+## <a name="face-recognition"></a>Gezichtsherkenning
 
-Face erkenning wordt veel gebruikt in veel scenario's, waaronder beveiliging, natuurlijke gebruikersinterface Inhoudsanalyse installatiekopie en beheer, mobiele apps en robotics. Vier face erkenning functies zijn beschikbaar: geconfronteerd verificatie, zoeken naar vergelijkbare vlakken face groepering en identificatie.
+Gezichtsherkenning wordt op grote schaal gebruikt in veel scenario’s met inbegrip van beveiliging, natuurlijke gebruikersinterface, kopie inhoudsanalyse en beheer, mobiele apps en robotica. U vindt vier gezichtsherkenningsfuncties: gezichtsverificatie, soortgelijke gezichten zoeken, gezichten groeperen en identificatie van personen.
 
-### <a name="face-verification"></a>Gezichtcontrole
+### <a name="face-verification"></a>Gezichtsverificatie
 
-Face-API verificatie voert een verificatie op basis van twee gedetecteerde vlakken of verificatie van één gedetecteerde face op één persoon-object. Voor meer informatie gedetailleerde, Zie [geconfronteerd: Controleer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Face-API-verificatie voert een authenticatie uit op basis van twee gedetecteerde gezichten of een authenticatie van een gedetecteerd gezicht voor één persoon-object. Ga voor meer gedetailleerde informatie naar [Gezicht - Verifiëren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-### <a name="finding-similar-face"></a>Zoeken naar vergelijkbare Face
+### <a name="finding-similar-face"></a>Vergelijkbare gezichten zoeken
 
-Uitgaande van een gezicht doel gedetecteerd en een set candidate vlakken om te zoeken met, vindt de service een kleine set vlakken die meest op het vlak van het doel lijken. Twee werkende modi `matchFace` en `matchPerson` worden ondersteund. `matchPerson` modus geeft aan dat vergelijkbare vlakken na het toepassen van een drempelwaarde dezelfde persoon afgeleid van [geconfronteerd: Controleer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). `matchFace` modus negeert de drempelwaarde dezelfde persoon en retourneert de bovenste vergelijkbare candidate vlakken. Het volgende voorbeeld nemen, candidate vlakken worden vermeld.
-![Overzicht - Face Zoek vergelijkbare](./Images/FaceFindSimilar.Candidates.jpg) en query face ![overzicht - Face Zoek vergelijkbare](./Images/FaceFindSimilar.QueryFace.jpg)
+Opgegeven een doel-gedetecteerd gezicht en een set potentiële gezichten om mee te zoeken, zoekt de service een kleine set gezichten die meest op het doelgezicht lijken. Twee werkingsmodi werken `matchFace` en `matchPerson` worden ondersteund. `matchPerson`-modus retourneert gelijkende gezichten na het toepassen van een drempelwaarde van dezelfde persoon afgeleid van [Gezicht - Verifiëren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). `matchFace`-modus negeert de drempelwaarde voor dezelfde persoon en retourneert de meest soortgelijke potentiële gezichten. Het volgende voorbeeld nemen, potentiële gezichten worden weergegeven.
+![Overzicht - Zoek gelijkende gezichten](./Images/FaceFindSimilar.Candidates.jpg) en query gezicht is ![Overzicht - Zoek gelijkende gezichten](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Vier vergelijkbare vlakken, vinden `matchPerson` modus retourneert (a) en (b), die deel uitmaken van dezelfde persoon met query face. `matchFace` modus retourneert (a), (b), (c) en (d), exact vier kandidaten zelfs als lage overeenkomsten. Zie voor meer informatie [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Om vier gelijkende gezichten te zoeken, `matchPerson`-modus retourneert (a) en (b), die behoren tot dezelfde persoon met query gezicht. `matchFace`-modus retourneert (a), (b), (c) en (d), precies vier kandidaten, zelfs als er weinig gelijkenis is. Ga voor meer informatie naar [Gezicht - Gelijkende vinden](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
-### <a name="face-grouping"></a>Gezichten groeperen
+### <a name="face-grouping"></a>Gezichtsgroepering
 
-Uitgaande van een reeks onbekende vlakken, onderverdeeld face-API automatisch groeperen in verschillende groepen op basis van de overeenkomst. Elke groep is een niet-aaneengesloten juiste subset van de oorspronkelijke onbekende gezicht ingesteld en vergelijkbare vlakken bevat. En de vlakken in dezelfde groep kunnen worden overwogen te behoren tot het object met dezelfde persoon. Zie voor meer informatie [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Opgegeven één set met onbekende gezichten, verdeelt face-API ze automatisch in verschillende groepen op basis van overeenkomsten. Elke groep is een niet-aaneengesloten juiste subset van de oorspronkelijke onbekende gezichtsset en bevat soortgelijke gezichten. En al de gezichten in dezelfde groep kunnen worden beschouwd als behorend tot hetzelfde persoonsobject. Ga voor meer informatie naar [Gezicht - Groeperen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-### <a name="face-identification"></a>Gezichtidentificatie
+### <a name="face-identification"></a>Gezichtsidentificatie
 
-Face-API kan worden gebruikt om personen op basis van een gezicht gedetecteerd en een gebruikers-database (gedefinieerd als een LargePersonGroup/PersonGroup) te identificeren. Deze database vooraf maken, welke na verloop van tijd kunnen worden bewerkt.
+Face-API kan worden gebruikt om personen op basis van een gedetecteerde gezicht en een personen-database (gedefinieerd als een LargePersonGroup/PersonGroup) te identificeren. Deze database, vooraf gemaakt, kan na verloop van tijd worden bewerkt.
 
-De volgende afbeelding is een voorbeeld van een LargePersonGroup/PersonGroup met de naam 'myfriends'. Elke groep mag de 1.000.000/10.000 persoon objecten bevatten. Elk object persoon kan ondertussen tot 248 vlakken geregistreerd hebben.
+De volgende afbeelding is een voorbeeld van een LargePersonGroup/PersonGroup met de naam "myfriends". Elke groep kan maximaal 1.000.000/10.000 persoonsobjecten bevatten. Elk persoonsobject kan ondertussen tot 248 gezichten geregistreerd hebben.
 
 ![Overzicht - LargePersonGroup/PersonGroup](./Images/person.group.clare.jpg)
 
-Nadat een LargePersonGroup/PersonGroup is gemaakt en getraind, kan identificatie op basis van de groep en een nieuwe gedetecteerde gezicht worden uitgevoerd. Als de face wordt geïdentificeerd als een persoon-object in de groep, wordt de persoon-object geretourneerd.
+Nadat een LargePersonGroup/PersonGroup is gemaakt en getraind, kan de identificatie worden uitgevoerd op basis van de groep en een nieuw gedetecteerd gezicht. Als het gezicht wordt geïdentificeerd als een persoonsobject in de groep, wordt het persoonsobject geretourneerd.
 
-Zie voor meer informatie over identificatie van de persoon die de volgende API-handleidingen:
+Voor meer informatie over de identificatie van personen, raadpleegt u de volgende API-handleidingen:
 
-[Geconfronteerd: bepalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
-[PersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
-[PersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)
-[PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) 
- [LargePersonGroup - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)
-[LargePersonGroup persoon - maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)
-[LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)
+[Gezicht - Identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
+[PersonGroup - Maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
+[PersonGroup persoon - Maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)
+[PersonGroup - Trainen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) 
+ [LargePersonGroup - Maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)
+[LargePersonGroup persoon - Maken](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)
+[LargePersonGroup - Trainen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)
 
-### <a name="face-storage"></a>Opslag van gezichten
+### <a name="face-storage"></a>Gezichtsopslag
 
-Face-opslag kunnen een standaardabonnement voor het opslaan van aanvullende persistente vlakken bij gebruik van LargePersonGroup/PersonGroup persoon objecten ([PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) of LargeFaceLists/FaceLists ([FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) voor de identificatie of gelijkenis die overeenkomt met de Face-API. De opgeslagen afbeeldingen worden in rekening gebracht volgens $0,5 per 1000 vlakken en deze snelheid is naar rato per dag. Gratis laag abonnementen zijn gratis, maar beperkt tot 1000 totale personen.
+Gezichtsopslag laat een Standard-abonnement toe extra permanente gezichten op te slaan wanneer u LargePersonGroup/PersonGroup persoonsobjecten gebruikt ([PersonGroup persoon - Gezicht toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup persoon - Gezicht toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)) of LargeFaceLists/FaceLists ([FaceList - Gezicht toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - Gezicht toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)) voor identificatie of gelijkenisovereenkomst met de Face-API. De opgeslagen afbeeldingen worden als volgt in rekening gebracht: $0,5 per 1000 gezichten. Dit tarief is per dag pro rato. De gratis laag abonnementen zijn gratis, maar beperkt tot een totaal van 1000 personen.
 
-Prijzen voor Face-opslag is naar rato per dag. Bijvoorbeeld, als uw account gebruikt 10.000 persistente vlakken per dag voor de eerste helft van de maand en er is geen de tweede helft u alleen voor de 10.000 vlakken wordt gefactureerd voor de dagen opgeslagen. U kunt ook als elke dag in de maand een paar uur 1000 vlakken aanhouden en verwijder deze elke nacht, wordt u nog steeds gefactureerd voor 1000 persistente vlakken elke dag.
+De prijs voor Gezichtsopslag is per dag pro rato. Als uw account elke dag bijvoorbeeld 10000 permanente gezichten in de eerste helft van de maand gebruikt, maar geen in de tweede helft, wordt u alleen gefactureerd voor de 10000 gezichten voor de dagen waarop deze zijn opgeslagen. Nog een voorbeeld: als u elke dag gedurende de maand enkele uren 1000 permanente gezichten gebruikt en deze dan elke nacht verwijdert, wordt u nog steeds gefactureerd voor 1000 permanente gezichten per dag.
 
-## <a name="getting-started-tutorials"></a>Zelfstudies aan de slag
+## <a name="getting-started-tutorials"></a>Zelfstudies voor Aan de slag
 
-De volgende zelfstudies demonstreren de basic Face-API-functies en processen voor abonnementen:
+De volgende zelfstudies demonstreren de Face-API-basisfuncties en processen voor abonnementen:
 
-- [Aan de slag met Face-API in CSharp-zelfstudie](Tutorials/FaceAPIinCSharpTutorial.md)
-- [Aan de slag met Face-API in Java voor Android-zelfstudie](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
-- [Aan de slag met Face-API in Python-zelfstudie](Tutorials/FaceAPIinPythonTutorial.md)
+- [Aan de slag met de Face-API in CSharp-zelfstudie](Tutorials/FaceAPIinCSharpTutorial.md)
+- [Aan de slag met de Face-API in Java voor Android-zelfstudie](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+- [Aan de slag met de Face-API in Python-zelfstudie](Tutorials/FaceAPIinPythonTutorial.md)
 
 ## <a name="sample-apps"></a>Voorbeeld-apps
 
-Bekijk deze voorbeeldtoepassingen die gebruik maken van Face-API.
+Bekijk deze voorbeeldtoepassingen die gebruik maken van de Face-API.
 
-- [Microsoft Face-API: De bibliotheek voor Windows-Client & voorbeeld](https://github.com/Microsoft/Cognitive-Face-Windows)
-  - WPF voorbeeld-app die u laat zien van verschillende scenario's voor Face-detectie, analyse en identificatie.
+- [Microsoft Face-API: Windows Clientbibliotheek en voorbeeld](https://github.com/Microsoft/Cognitive-Face-Windows)
+  - WPF voorbeeld-app die verschillende scenario's laat zien Gezichtsdetectie, analyse en identificatie.
 - [FamilyNotes UWP-app](https://github.com/Microsoft/Windows-appsample-familynotes)
-  - Universal Windows Platform (UWP) voorbeeld-app waarin informatie over het gebruik van spraak, Cortana inkt en camera via een serie Opmerking delen scenario.
-- [Voorbeeld van video Frame-analyse](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
-  - Universal Windows Platform (UWP) voorbeeld-app waarin live video gegevensstromen in bijna realtime met Face-, Computer Vision- en Emotion-API's analyseren.
+  - Universal Windows Platform (UWP)- voorbeeld-app waarin het gebruik van spraak, Cortana, inkt en camera via een scenario met delen van familienotities.
+- [Videoframe analysevoorbeeld](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
+  - Universal Windows Platform (UWP)-voorbeeld-app toont de analyse van live video gegevensstromen bijna in realtime met behulp van de Face-, Computer Vision en Emotion-API's.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
 
-- [Face-API-versie 1.0 Release-opmerkingen](ReleaseNotes.md)
-- [Het vaststellen van bespreekt in afbeelding](Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
-- [Het identificeren van bespreekt in afbeelding](Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+- [Face-API-versie 1.0 Opmerkingen bij de release](ReleaseNotes.md)
+- [Gezichten in een afbeelding detecteren](Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+- [Gezichten in een afbeelding identificeren](Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)

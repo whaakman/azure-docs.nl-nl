@@ -1,27 +1,28 @@
 ---
 title: Technologieën en oplossingen voor Azure IoT (Internet of Things)
 description: Dit is de verzameling PaaS-/SaaS-technologieën en -oplossingen die beschikbaar zijn voor het bouwen van een Azure IoT-oplossing.
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631408"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067331"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-technologieën en -oplossingen: PaaS en SaaS
 
 Microsoft heeft een portfolio gebouwd die ondersteuning biedt voor de behoeften van alle klanten, waardoor iedereen toegang heeft tot de voordelen van digitale transformatie. De Azure IoT-productportofolio is een overzicht van de beschikbare PaaS-/SaaS-technologieën en -oplossingen. Het geeft twee beschikbare paden weer voor het bouwen van uw eigen oplossing:
+
 - PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT-oplossingsversnellers](https://www.azureiotsolutions.com/). Dit is een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
+
 - SaaS (Software as a Service): ga snel aan de slag met [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), de nieuwe SaaS-oplossing voor het ontwikkelen van IoT-toepassingen, zonder de complexiteit van de IoT-oplossing. Als uw organisatie niet beschikt over de resources voor het bouwen van uw eigen IoT-oplossing, is Azure IoT Central de beste keuze. Dit is een IoT-oplossing zonder code waarmee u in enkele minuten modellen, dashboards en regels kunt maken.
 
-![Azure IoT-technologieën en -oplossingen][img-paas-saas-technologies-solutions]
+![Azure IoT-technologieën en -oplossingen](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>Oplossingen
 
@@ -77,9 +78,9 @@ Het kiezen van uw Azure IoT-product is een belangrijk onderdeel van het plannen 
 
 Uw keuze voor welk product u wilt gebruiken om uw IoT-oplossing te maken, wordt uiteindelijk bepaald door:
 
-* Uw zakelijke vereisten.
+* Uw zakelijke vereisten
 * Het type oplossing dat u wilt maken.
-* De kwalificaties van uw organisatie voor het maken en op de lange termijn onderhouden van de oplossing.
+* De kwalificaties van uw organisatie voor het maken en op de lange termijn onderhouden van de oplossing
 
 ## <a name="technologies-paas"></a>Technologieën (PaaS)
 
@@ -96,20 +97,12 @@ Verbind al uw apparaten met Azure IoT met behulp van de open-source [apparaat-SD
 ### <a name="edge"></a>Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is een IoT-service (Internet of Things). Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel ‘naar de marge’. Door delen van uw werkbelasting naar de marge te verplaatsen, is er sprake van een verminderde redundantie en kunt u offlinescenario’s gebruiken.
 
-
 ### <a name="data-and-analytics"></a>Gegevens en analyse
 Maak gebruik van een breed scala aan PaaS-voordelen voor Azure-gegevens en -analyses in uw IoT-oplossing: van slimme cloudfuncties in de marge met Azure Machine Learning, tot het op een kostenbesparende manier opslaan van IoT-apparaatgegevens met Azure Data lake, en het visualiseren van een groot aantal gegevens van IoT-apparaten met [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
 
 ### <a name="visualization-and-integration"></a>Visualisatie en integratie
 Microsoft Azure biedt een volledige cloudoplossing die een constant groeiende verzameling geïntegreerde cloudservices combineert met een toonaangevende toezegging voor de beveiliging en privacy van uw gegevens. Meer informatie over [Microsoft Azure](https://azure.microsoft.com/).
 
-
-
-
-
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de sectie [Aan de slag](/azure/iot-hub/iot-hub-get-started) voor snelle en eenvoudige informatie over IoT-functies. Of volg een van de [zelfstudies](/azure/iot-edge/tutorial-simulate-device-windows) voor een uitgebreidere praktische uitleg.
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+Ga naar de sectie [Aan de slag in de IoT Hub-documentatie](/azure/iot-hub/iot-hub-get-started) voor snelle en eenvoudige informatie over IoT-functies. Of volg een van de [IoT Edge-zelfstudies](/azure/iot-edge/tutorial-simulate-device-windows) voor een uitgebreidere praktische uitleg.

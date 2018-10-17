@@ -1,41 +1,41 @@
 ---
-title: Face-API Python-zelfstudie | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Informatie over het gebruik van de Face-API met de SDK voor Python menselijke vlakken in een installatiekopie in cognitieve Services detecteren.
+title: 'Zelfstudie: Gezichten in een afbeelding detecteren en omlijsten - Face-API, Python'
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het gebruik van de Face-API met de Python-SDK voor het detecteren van menselijke gezichten in een afbeelding.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: MT
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049108"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127734"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>Aan de slag met Face-API in Python-zelfstudie
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Zelfstudie: Gezichten in een afbeelding detecteren en omlijsten met de Face-API en Python 
 
-In deze zelfstudie leert u Python SDK voor het detecteren van menselijke vlakken in een installatiekopie van de Face-API aanroepen.
+In deze zelfstudie leert u om de Face-API aan te roepen via de Python-SDK voor het detecteren van menselijke gezichten in een afbeelding.
 
-## <a name="prerequisites"></a> Vereisten
+## <a name="prerequisites"></a>Vereisten
 
-Als u wilt gebruiken de zelfstudie, moet u het volgende doen:
+Als u de zelfstudie wilt gebruiken, moet u het volgende doen:
 
-- Python 2.7 + of Python 3.5 + installeren.
-- Pip installeren.
+- Installeer Python 2.7 + of Python 3.5 +.
+- Installeer pip.
 - Installeer de Python-SDK voor de Face-API als volgt:
 
 ```bash
 pip install cognitive_face
 ```
 
-- Verkrijgen van een [abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) voor cognitieve Microsoft-Services. U kunt uw primaire of uw secundaire sleutel gebruiken in deze zelfstudie. (Houd er rekening mee dat als u wilt een Face-API gebruikt, u moet een geldig abonnementssleutel hebben.)
+- Haal een [abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) op voor Microsoft Cognitive Services. U kunt uw primaire of uw secundaire sleutel gebruiken in deze zelfstudie. (Houd er rekening mee dat voor het gebruik van Face-API's, u een geldig abonnementssleutel moet hebben.)
 
-## <a name="sdk-example"></a> Detecteren van een gezicht in een installatiekopie
+## <a name="detect-a-face-in-an-image"></a>Een gezicht detecteren in een afbeelding
 
 ```python
 import cognitive_face as CF
@@ -52,15 +52,15 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Hieronder volgt een voorbeeld-resultaat. Het is een `list` van gedetecteerde vlakken. Elk item in de lijst een `dict` instantie waar `faceId` is een unieke ID voor de gedetecteerde face en `faceRectangle` beschrijft de positie van de gedetecteerde gezicht. De ID van een gezicht verloopt binnen 24 uur.
+Hieronder volgt een voorbeeld van resultaat. Het is een `list` van gedetecteerde gezichten. Elk item in de lijst is een `dict` instantie waar `faceId` een unieke ID is voor het gedetecteerde gezicht en `faceRectangle` beschrijft de positie van het gedetecteerde gezicht. Een gezichts-ID verloopt binnen 24 uur.
 
 ```python
 [{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Rechthoeken rond de vlakken tekenen
+## <a name="draw-rectangles-around-the-faces"></a>Rechthoeken rond de gezichten tekenen
 
-U kunt met behulp van de json-coördinaten die u hebt ontvangen van de vorige opdracht rechthoeken tekenen op de installatiekopie naar elke face visueel te vertegenwoordigen. U moet `pip install Pillow` gebruiken de `PIL` installatiekopieën module.  Voeg het volgende toe aan de bovenkant van het bestand:
+U kunt met behulp van de json-coördinaten die u hebt ontvangen van de vorige opdracht, rechthoeken tekenen op de afbeelding om elk gezicht visueel te vertegenwoordigen. U hebt `pip install Pillow` nodig om de `PIL` beeldmodule te gebruiken.  Voeg het volgende toe aan de bovenkant van het bestand:
 
 ```python
 import requests
@@ -68,7 +68,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Vervolgens, nadat `print(faces)`, het volgende opnemen in uw script:
+Vervolgens, nadat `print(faces)`, voeg het volgende toe in uw script:
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,9 +93,9 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Aanvullende informatie
+## <a name="further-exploration"></a>Verder verkennen
 
-Als u wilt, kunt u verder verkennen de Face-API biedt deze zelfstudie een voorbeeld van een GUI. Uit te voeren, eerst installeren [wxPython](https://wxpython.org/pages/downloads/) Voer de onderstaande opdrachten.
+Deze zelfstudie bevat een voorbeeld van een GUI om u verder te helpen de Face-API te verkennen. Installeer eerst [wxPython](https://wxpython.org/pages/downloads/) om het uit te voeren en voer vervolgens de onderstaande opdrachten uit.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Samenvatting
+## <a name="summary"></a>Samenvatting
 
-In deze zelfstudie hebt u geleerd het basisproces voor het gebruik van de Face-API via de SDK voor Python wordt aangeroepen. Raadpleeg voor meer informatie over API-details de instructies en [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+In deze zelfstudie hebt u het basisproces voor het gebruik van de Face-API via het aanroepen van de Python-SDK geleerd. Raadpleeg voor meer informatie over API-details, de instructies en [API-verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Verwante onderwerpen
+## <a name="related-topics"></a>Verwante onderwerpen
 
-- [Aan de slag met Face-API in CSharp](FaceAPIinCSharpTutorial.md)
-- [Aan de slag met Face-API in Java voor Android](FaceAPIinJavaForAndroidTutorial.md)
+- [Aan de slag met de Face-API in CSharp](FaceAPIinCSharpTutorial.md)
+- [Aan de slag met de Face-API in Java voor Android](FaceAPIinJavaForAndroidTutorial.md)

@@ -5,16 +5,16 @@ description: Leer hoe u gesproken tekst herkent in Java onder Android met behulp
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432782"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883870"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snelstartgids: Gesproken tekst herkennen in Java onder Android met behulp van de Speech SDK
 
@@ -25,11 +25,11 @@ De toepassing is gebaseerd op het Microsoft Cognitive Services Speech SDK Maven-
 De Speech SDK is op dit moment compatibel met Android-apparaten met 32-bits of 64-bits ARM-processors.
 
 > [!NOTE]
-> Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices SDK en het Roobo-apparaat.
+> Zie [Speech Devices SDK](speech-devices-sdk.md) voor de Speech Devices-SDK en het Roobo-apparaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids uit te voeren. U kunt gratis een sleutel downloaden. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
+U hebt een abonnementssleutel voor de Speech-service nodig om deze snelstartgids te doorlopen. U kunt er gratis een krijgen. Zie [Speech-service gratis uitproberen](get-started.md) voor meer informatie.
 
 ## <a name="create-and-configure-a-project"></a>Een project maken en configureren
 
@@ -112,7 +112,7 @@ De tekst en de grafische weergave van uw gebruikersinterface moeten er nu ongeve
 
 ## <a name="add-sample-code"></a>Voorbeeldcode toevoegen
 
-1. Open het bronbestand `MainActivity.java`. Vervang alle code na de instructie `package` door de volgende code.
+1. Open het bronbestand `MainActivity.java`. Vervang alle code in het bestand door de volgende code.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
@@ -141,12 +141,12 @@ Klik op de knop in de toepassing om een sectie voor spraakherkenning te starten.
 ![Schermafbeelding van de Android-toepassing](media/sdk/qs-java-android-13-gui-on-device.png)
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-U kunt dit voorbeeld vinden in de map `quickstart/java-android`.
+Zoek naar dit voorbeeld in de map `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor Java](how-to-recognize-intents-from-speech-java.md)
+> [Intenties van gesproken inhoud herkennen met behulp van de Speech-SDK voor Java](how-to-recognize-intents-from-speech-java.md)
 
 ## <a name="see-also"></a>Zie ook
 

@@ -1,25 +1,25 @@
 ---
-title: 'Translator Text: taal bepalen op basis van tekst met Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Go in Cognitive Services.
+title: 'Snelstart: taal bepalen op basis van tekst - Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 29fac1a079455a65cc3d430c3030fed99f5cfce1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43769107"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129706"
 ---
 # <a name="quickstart-identify-language-from-text-with-go"></a>Snelstart: taal bepalen op basis van tekst met Go
 
-In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
+In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -135,7 +135,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Verken Go-pakketten voor Cognitive Services-API's uit de [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) in GitHub.
+Verken Go-pakketten voor Cognitive Services-API's uit de [Azure SDK voor Go](https://github.com/Azure/azure-sdk-for-go) op GitHub.
 
 > [!div class="nextstepaction"]
-> [Go-pakketten verkennen in GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Go-pakketten verkennen op GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

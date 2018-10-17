@@ -1,25 +1,25 @@
 ---
-title: 'Translator Text: taal bepalen op basis van tekst met Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Node.js in Cognitive Services.
+title: 'Snelstart: taal bepalen op basis van tekst - Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8e6fecf74d1291e9660076572d385bb234edc222
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: bb2118c9c05cff093bb5affe91a388986ba85a38
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768976"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126204"
 ---
 # <a name="quickstart-identify-language-from-text-with-nodejs"></a>Snelstart: taal bepalen op basis van tekst met Node.js
 
-In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
+In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -130,7 +130,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
-> [Node.js-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Node.js-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=javascript)

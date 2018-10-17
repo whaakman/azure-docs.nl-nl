@@ -1,25 +1,25 @@
 ---
-title: 'Translator Text: taal bepalen op basis van tekst met Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Java in Cognitive Services.
+title: 'Snelstart: taal bepalen op basis van tekst - Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API met Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: bf7d10e447fa536a4ff4310bacc14729f3c6b3b1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 244ba0bb3836923536cd77fa697b4250f751668e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43768959"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129417"
 ---
 # <a name="quickstart-identify-language-from-text-with-java"></a>Snelstart: taal bepalen op basis van tekst met Java
 
-In deze snelstart bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
+In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -171,7 +171,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Java-voorbeelden op GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)

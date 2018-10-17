@@ -1,25 +1,25 @@
 ---
-title: Het schrift van tekst converteren in Translator Text met Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API met Java in Cognitive Services.
+title: 'Snelstart: Tekstscript converteren - Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids converteert u tekst in één taal van het ene script naar het andere met de Translator Text-API met Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 6f7353ba0a51bdeec2450d7435f3b738687db766
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 47d0462dcf7e54a3c2b2e2ea8b713b02af2baf37
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43768948"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297420"
 ---
 # <a name="quickstart-transliterate-text-with-java"></a>Snelstart: tekst transcriberen met behulp van Java
 
-In deze snelstart converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
+In deze snelstartgids converteert u tekst in één taal van het ene schrift naar het andere met de Translator Text-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -159,7 +159,7 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Bekijk de voorbeeldcode voor deze snelstart en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten in GitHub.
+Bekijk de voorbeeldcode voor deze snelstartgids en andere resources, met inbegrip van vertaling en taalidentificatie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
 > [Bekijk Java-voorbeelden in GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)

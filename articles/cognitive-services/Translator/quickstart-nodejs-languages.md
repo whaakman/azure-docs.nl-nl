@@ -1,21 +1,21 @@
 ---
-title: Translator Text gebruiken om ondersteunde talen op te halen met Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Node.js in Cognitive Services.
+title: 'Snelstart: ondersteunde talen ophalen - Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids haalt u een lijst met ondersteunde talen op voor vertaling, transliteratie en opzoeken in woordenlijsten en voorbeelden met behulp van de Translator Text-API met Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: dd37aab3707c6f06b8cc2e942366e19746694252
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43768992"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122855"
 ---
 # <a name="quickstart-get-supported-languages-with-nodejs"></a>Snelstartgids: ondersteunde talen ophalen met Node.js
 

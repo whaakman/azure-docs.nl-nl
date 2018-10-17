@@ -1,25 +1,25 @@
 ---
-title: Snelstart voor de Face-API met PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met PHP in Cognitive Services.
+title: 'Snelstart: Gezichten in een afbeelding detecteren - Face-API, PHP'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart detecteert u gezichten in een afbeelding met behulp van de Face-API met PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
-ms.openlocfilehash: 972def677a8ac0abd86bc436fc1b1373b5496df9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 976cd87ca5637f4ee9b517093b6fbb6b498c5471
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "43768911"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126952"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-php"></a>Snelstart: Gezichten in een afbeelding detecteren met behulp van PHP
 
-In deze snelstart detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
+In deze snelstartgids detecteert u menselijke gezichten in een afbeelding met behulp van de Face-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -27,7 +27,7 @@ U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonn
 
 ## <a name="face---detect-request"></a>Face - Detect-aanvraag
 
-Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (gezicht herkennen) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
+Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) om gezichten in een afbeelding te detecteren en gezichtskenmerken te retourneren, waaronder:
 
 * Face ID: de unieke ID die wordt gebruikt in verschillende Face-API-scenario's.
 * Gezichtsrechthoek: de coördinaten die de locatie van het gezicht in de afbeelding aangeven (links, boven, breedte en hoogte).
@@ -36,9 +36,9 @@ Gebruik de methode [Face - Detect](https://westcentralus.dev.cognitive.microsoft
 
 U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
 
-1. Kopieer de volgende code naar een editor.
+1. Kopieer de volgende code in een editor.
 1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
-1. Wijzig zo nodig `uriBase` in de locatie waar u de abonnementssleutels hebt verkregen.
+1. Wijzig zo nodig `uriBase` om de locatie te gebruiken waar u de abonnementssleutels hebt verkregen.
 1. Stel `imageUrl` eventueel in op de afbeelding die u wilt analyseren.
 1. Sla het bestand op met de extensie `.php`.
 1. Open het bestand in een browservenster met PHP-ondersteuning.

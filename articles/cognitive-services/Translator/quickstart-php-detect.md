@@ -1,21 +1,21 @@
 ---
-title: 'Translator Text: taal bepalen op basis van tekst met PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API met PHP in Cognitive Services.
+title: 'Snelstartgids: taal bepalen op basis van tekst met Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstartgids bepaalt u de taal van de brontekst met behulp van de Translator Text-API met PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 2888ea96ac31d56f6870b2f2ccbb04ff8328a1b8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb643503f72f9cf21c83f35477ca6878d8938339
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769079"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125966"
 ---
 # <a name="quickstart-identify-language-from-text-with-php"></a>Snelstartgids: taal bepalen op basis van tekst met PHP
 
@@ -138,4 +138,4 @@ Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u in het vo
 Bekijk de voorbeeldcode voor deze snelstartgids en andere, zoals vertaling en transliteratie, evenals andere Translator Text-voorbeeldprojecten op GitHub.
 
 > [!div class="nextstepaction"]
-> [PHP-voorbeelden in GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)
+> [PHP-voorbeelden op GitHub bekijken](https://aka.ms/TranslatorGitHub?type=&language=php)
