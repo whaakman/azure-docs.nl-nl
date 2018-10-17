@@ -1,40 +1,40 @@
 ---
-title: C#-Snelstartgids voor Azure cognitieve Services, Bing entiteit Search API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing entiteit zoeken-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstart: Bing Entiteiten zoeken-API, C#'
+titlesuffix: Azure Cognitive Services
+description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Entiteiten zoeken-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 928cddf5017890bddd25b9da3584d230cc44483a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 8d9ee2944b00b8a877b166c23979ed5f6a9b7951
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345570"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814796"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-c"></a>Quick Start voor Microsoft Bing entiteit zoekopdracht API met C# 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-c"></a>Snelstart voor Bing Entiteiten zoeken-API met C# 
 
-Dit artikel laat zien hoe u de [Bing entiteit zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API met C#.
+In dit artikel leest u hoe u de API [Bing Entiteiten zoeken](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) gebruikt met C#.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) naar deze code in Windows worden uitgevoerd. (De editie free Community blijft werken.)
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.)
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing-API van zoekservice entiteit**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U moet beschikken over een [account voor de Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de **Bing Entiteiten zoeken-API**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
 ## <a name="search-entities"></a>Entiteiten zoeken
 
-Volg deze stappen voor het uitvoeren van deze toepassing.
+Volg deze stappen om deze toepassing uit te voeren.
 
-1. Maak een nieuwe C#-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw C#-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```csharp
 using System;
@@ -143,7 +143,7 @@ namespace EntitySearchSample
 
 **Antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -211,6 +211,6 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bing entiteit Search-zelfstudie](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing entiteit zoeken overzicht](../search-the-web.md )
-> [API-referentiemateriaal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Zelfstudie over Bing Entiteiten zoeken](../tutorial-bing-entities-search-single-page-app.md)
+> [Overzicht van Bing Entiteiten zoeken](../search-the-web.md )
+> [API-handleiding](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

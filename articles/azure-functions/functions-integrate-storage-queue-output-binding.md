@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094991"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854521"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Berichten aan een Azure Storage-wachtrij toevoegen met behulp van Functions
 
@@ -25,7 +25,7 @@ In Azure Functions bieden invoer- en uitvoerbindingen een verklarende manier om 
 
 ![Wachtrijbericht weergegeven in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereisten
 
 Dit zijn de vereisten voor het voltooien van deze snelstart:
 
@@ -39,15 +39,19 @@ In deze sectie gebruikt u de gebruikersinterface van de portal om een Queue Stor
 
 1. Open in Azure Portal de pagina Functie-app voor de functie-app die u hebt gemaakt in [Uw eerste functie maken vanuit Azure Portal](functions-create-first-azure-function.md). Selecteer hiervoor **Alle services > Functie-apps** en selecteer vervolgens de functie-app.
 
-2. Selecteer de functie die u in deze eerdere snelstartgids hebt gemaakt.
+1. Selecteer de functie die u in deze eerdere snelstartgids hebt gemaakt.
 
 1. Selecteer **Integreren > Nieuwe uitvoer > Azure Queue Storage**.
 
 1. Klik op **Selecteren**.
-    
+
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Gebruik bij **Azure Queue Storage-uitvoer** de instellingen die zijn opgegeven in de tabel na deze schermopname: 
+1. Als een bericht **Extensies niet geïnstalleerd** wordt weergegeven, kiest u **Installeren** om de Storage-bindingenextensie te installeren in de functie-app. Dit kan een paar minuten duren.
+
+    ![De Storage-bindingextensie installeren](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Gebruik bij **Azure Queue Storage-uitvoer** de instellingen die zijn opgegeven in de tabel na deze schermopname: 
 
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,52 +61,58 @@ In deze sectie gebruikt u de gebruikersinterface van de portal om een Queue Stor
     | **Opslagaccountverbinding** | AzureWebJobsStorage | U kunt de opslagaccountverbinding gebruiken die al door de functie-app wordt gebruikt of u kunt een nieuwe maken.  |
     | **Wachtrijnaam**   | outqueue    | De naam van de wachtrij waarmee u verbinding moet maken in uw opslagaccount. |
 
-4. Klik op **Opslaan** om de binding toe te voegen.
- 
+1. Klik op **Opslaan** om de binding toe te voegen.
+
 Nu u een uitvoerbinding hebt gedefinieerd, moet u de code bijwerken, zodat u de binding kunt gebruiken om berichten aan een wachtrij toe te voegen.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Code toevoegen die gebruikmaakt van de uitvoerbinding
 
 In deze sectie voegt u code toe waarmee een bericht wordt geschreven naar de uitvoerwachtrij. Het bericht bevat de waarde die wordt doorgegeven aan de HTTP-trigger in de querytekenreeks. Als de querytekenreeks bijvoorbeeld `name=Azure` bevat, is het wachtrijbericht: *Naam wordt doorgegeven aan de functie: Azure*.
 
-1. Selecteer de functie om de functiecode in de editor weer te geven. 
+1. Selecteer de functie om de functiecode in de editor weer te geven.
 
-2. Voor een C#-functie voegt u een methodeparameter voor de binding toe en schrijft u code om deze te gebruiken:
+1. Werk de functiecode bij, afhankelijk van de functietaal:
 
-   Voeg een parameter **outputQueueItem** toe aan de methodehandtekening zoals weergegeven in het volgende voorbeeld. De parameternaam is dezelfde naam die u hebt ingevoerd bij **Naam van de berichtparameter** tijdens het maken van de binding.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Voeg een parameter **outputQueueItem** toe aan de methodehandtekening zoals weergegeven in het volgende voorbeeld.
 
-   Voeg in de hoofdtekst van de C#-functie, net voor de instructie `return`, code toe die gebruikmaakt van de parameter om een wachtrijbericht te maken.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    Voeg in de hoofdtekst van de functie, net voor de instructie `return`, code toe die gebruikmaakt van de parameter om een wachtrijbericht te maken.
 
-3. Voeg voor een JavaScript-functie code toe die gebruikmaakt van de uitvoerbinding voor het object `context.bindings` om een wachtrijbericht te maken. Voeg deze code toe vóór de instructie `context.done`.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Selecteer **Opslaan** om de wijzigingen op te slaan.
- 
-## <a name="test-the-function"></a>De functie testen 
+    Voeg code toe die gebruikmaakt van de uitvoerbinding voor het object `context.bindings` om een wachtrijbericht te maken. Voeg deze code toe vóór de instructie `context.done`.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Selecteer **Opslaan** om de wijzigingen op te slaan.
+
+## <a name="test-the-function"></a>De functie testen
 
 1. Nadat de codewijzigingen zijn opgeslagen, selecteert u **Uitvoeren**. 
 
     ![Voeg een Queue Storage-uitvoerbinding toe aan een functie in Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   U ziet dat de **Aanvraagtekst** de waarde `name` *Azure* bevat. Deze waarde ziet u in het wachtrijbericht dat wordt gemaakt wanneer de functie wordt aangeroepen.
-
-   In plaats van hier **Uitvoeren** te selecteren, kunt u de functie aanroepen door een URL in te voeren in een browser en de waarde `name` op te geven in de querytekenreeks. De browsermethode kunt u bekijken in de [vorige snelstartgids](functions-create-first-azure-function.md#test-the-function).
+    U ziet dat de **Aanvraagtekst** de waarde `name` *Azure* bevat. Deze waarde ziet u in het wachtrijbericht dat wordt gemaakt wanneer de functie wordt aangeroepen.
+    
+    In plaats van hier **Uitvoeren** te selecteren, kunt u de functie aanroepen door een URL in te voeren in een browser en de waarde `name` op te geven in de querytekenreeks. De browsermethode kunt u bekijken in de [vorige snelstartgids](functions-create-first-azure-function.md#test-the-function).
 
 2. Raadpleeg de logboeken om er zeker van te zijn dat de functie is voltooid. 
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419539"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017445"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Zelfstudie: Azure Data Box Gateway inrichten in VMware (preview)
 
@@ -94,7 +94,7 @@ Voor het maken van een virtueel apparaat hebt u het volgende nodig:
 
 Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de hypervisor.
 
-1. Kopieer de installatiekopie van het virtuele apparaat naar uw systeem. U hebt deze virtuele-installatiekopie (twee bestanden) via de Azure-portal gedownload. Noteer de locatie waar u de installatiekopie naar hebt gekopieerd, want u gaat deze installatiekopie verderop in de procedure gebruiken.
+1. Kopieer de installatiekopie van het virtuele apparaat naar uw systeem. U hebt deze virtuele-installatiekopie (twee bestanden) via de Azure-portal gedownload. Noteer de locatie waar u de installatiekopie naartoe hebt gekopieerd, want u hebt deze installatiekopie verderop in de procedure nodig.
 
 2. Meld u aan bij de ESXi-server met behulp van de vSphere-client. U moet beheerdersbevoegdheden hebben om een virtuele machine te kunnen maken.
 
@@ -104,7 +104,10 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. In het rechterdeelvenster bij **Gegevensopslag** selecteert u de gegevensopslag waarin u de VMDK wilt uploaden. De gegevensopslag moet van het type VMFS 5 zijn. De gegevensopslag moet ook voldoende vrije ruimte hebben voor het besturingssysteem en gegevensschijven.
+4. In het rechterdeelvenster bij **Gegevensopslag** selecteert u de gegevensopslag waarin u de VMDK wilt uploaden. 
+
+    - De gegevensopslag moet van het type VMFS5 zijn. 
+    - De gegevensopslag moet ook voldoende vrije ruimte hebben voor het besturingssysteem en gegevensschijven.
    
 5. Klik met de rechtermuisknop op **Browsen in de gegevensopslag** en selecteer deze.
 
@@ -145,11 +148,11 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
 15. Selecteer op de pagina **Opslag selecteren** een gegevensopslag die u wilt gebruiken voor het inrichten van uw virtuele machine. Klik op **Volgende**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Op de pagina **Instellingen aanpassen** stelt u de **CPU** in op 4, het **geheugen** op 8192 MB (of meer) en de **harde schijf 1** op 2 TB (of meer). Kies het type **SCSI harde schijf** dat u wilt toevoegen. In dit geval was dat LSI Logic SAS. **De statische IDE-schijven worden niet ondersteund.** De **harde schijf 1** is de virtuele gegevensschijf. Houd er rekening mee dat u de schijf eenmaal ingericht niet kunt verkleinen.
+16. Op de pagina **Instellingen aanpassen** stelt u de **CPU** in op 4, het **geheugen** op 8192 MB (of meer) en de **harde schijf 1** op 2 TB (of meer). Kies **SCSI harde schijf** om toe te voegen. In dit geval was dat LSI Logic SAS. **De statische IDE-schijven worden niet ondersteund.** De **harde schijf 1** is de virtuele gegevensschijf. Houd er rekening mee dat u de schijf eenmaal ingericht niet kunt verkleinen.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    Op dezelfde pagina klikt u op **Harde schijf toevoegen** en selecteert u vervolgens **Bestaande harde schijf**. Hiermee wordt een besturingssysteemschijf toegevoegd. 
+    Op dezelfde pagina klikt u op **Harde schijf toevoegen** en selecteert u vervolgens **Bestaande harde schijf**. Selecteer het VMDK-bestand in de gegevensopslag. Hiermee wordt een besturingssysteemschijf toegevoegd. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

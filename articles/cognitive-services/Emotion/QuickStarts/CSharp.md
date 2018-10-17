@@ -1,39 +1,41 @@
 ---
-title: Emotion -API C# snel aan de slag | Microsoft Docs
-description: Ophalen van informatie en een voorbeeld van code kunt u snel aan de slag met behulp van de Emotion-API met C# in cognitieve Services.
+title: 'Snelstart: Emoties op gezichten in een afbeelding herkennen - Emotion-API, C#'
+titlesuffix: Azure Cognitive Services
+description: Hier vindt u informatie en een codevoorbeeld om snel aan de slag te gaan met de Emotion-API en C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016562"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239367"
 ---
-# <a name="emotion-api-c-quick-start"></a>Emotion -API C# snel starten
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
 
 > [!IMPORTANT]
-> De Video API Preview is op 30 oktober 2017 beëindigd. Als u wilt extraheren eenvoudig inzichten van video's, probeert de nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/). Ook kunt u deze ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. Zie voor meer informatie, de [Video indexeerfunctie Preview](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) overzicht.
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Dit artikel vindt u informatie en een voorbeeld van code kunt u snel aan de slag met behulp van de [Emotion-API herkennen methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met C#. U kunt deze gebruiken voor het herkennen van de emoties uitgedrukt in een of meer personen in een installatiekopie van. 
+Dit artikel bevat informatie en een codevoorbeeld om snel aan de slag te gaan met de [Emotion-API-herkenningsmethode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) en C#. U kunt deze gebruiken om de emoties van een of meer mensen in een afbeelding te herkennen.
 
 ## <a name="prerequisites"></a>Vereisten
-* Ophalen van de cognitieve Services [Emotion-API-vensters SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).
-* Vraag uw gratis [abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/).
+* Haal de Cognitive Services [Emotion-API-Windows-SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/) op.
+* Haal uw gratis [abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) op.
 
-## <a name="emotion-recognition-c-example-request"></a>Emotion erkenning C#-voorbeeldaanvraag
+## <a name="emotion-recognition-c-example-request"></a>Emotieherkenning - C#-voorbeeldaanvraag
 
-Een nieuwe Console-oplossing in Visual Studio maakt en vervolgens Program.cs vervangen door de volgende code. Wijzig de `string uri` gebruiken de regio waar u de sleutels van uw abonnement hebt verkregen. Vervang de **Ocp-Apim-Subscription-Key** waarde met de sleutel geldig abonnement. De abonnementssleutel vindt u bij de Azure portal. In het navigatievenster aan de linkerkant onder de **sleutels** sectie, blader naar de resource Emotion-API. Op deze manier kunt u de juiste krijgen verbinding URI in de **overzicht** Configuratiescherm voor uw resource vermeld onder **eindpunt**.
+Maak een nieuwe consoleoplossing in Visual Studio en vervang Program.cs dan door de volgende code. Wijzig `string uri` om de regio te gebruiken waar u de abonnementssleutels hebt verkregen. Vervang de waarde **Ocp-Apim-Subscription-Key** door een geldige abonnementssleutel. U vindt de abonnementssleutel in Azure Portal. In het navigatiedeelvenster links bladert u onder het gedeelte **Sleutels** naar uw Emotion-API-resource. Op vergelijkbare wijze kunt u de juiste verbindings-URI voor uw resource bij **Eindpunt** verkrijgen in het deelvenster **Overzicht**.
 
-![Uw API-sleutels voor resource](../../media/emotion-api/keys.png)
+![Uw API-resourcesleutels](../../media/emotion-api/keys.png)
 
-U kunt een bibliotheek zoals de reactie van uw aanvraag verwerken `Newtonsoft.Json`. Als een reeks beheerbare objecten aangeroepen Tokens kunt u een JSON-tekenreeks verwerken. Deze bibliotheek toevoegen aan uw pakket, met de rechtermuisknop op het project in Solution Explorer en selecteer **Nuget-pakketten beheren**. Zoek vervolgens naar **Newtonsoft**. Het eerste resultaat moet **Newtonsoft.Json**. Selecteer **Installeren**. U kunt nu verwijzen naar deze bibliotheek in uw toepassing.
+Voor het verwerken van het antwoord op uw aanvraag gebruikt u een bibliotheek zoals `Newtonsoft.Json`. Op deze manier kunt u een JSON-tekenreeks verwerken als een reeks beheerbare objecten, ook wel tokens genoemd. Als u deze bibliotheek wilt toevoegen aan uw pakket, klikt u in Solution Explorer met de rechtermuisknop op uw project en selecteert u **NuGet-pakketten beheren**. Zoek dan naar **Newtonsoft**. Het eerste resultaat moet **Newtonsoft.Json** zijn. Selecteer **Installeren**. U kunt nu in uw toepassing verwijzen naar deze bibliotheek.
 
 ![Newtonsoft.Json installeren](../../media/emotion-api/newtonsoft-nuget.png)
 
@@ -71,10 +73,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -120,14 +122,14 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Herkent emoties steekproef antwoord
-Een geslaagde aanroep retourneert een matrix met face-vermeldingen en hun bijbehorende emotion-scores. Ze zijn gerangschikt op face rechthoek grootte in aflopende volgorde. Een leeg antwoord geeft aan dat er geen vlakken zijn gedetecteerd. Een emotion-vermelding bevat de volgende velden:
+## <a name="recognize-emotions-sample-response"></a>Voorbeeldantwoord voor herkennen van emoties
+Een geslaagde aanroep retourneert een matrix van gezichtsvermeldingen en de bijbehorende emotiescores. Deze worden gerangschikt op basis van de rechthoekgrootte van het gezicht (aflopende volgorde). Een leeg antwoord geeft aan dat er geen gezichten zijn gedetecteerd. Een emotievermelding bevat de volgende velden:
 
-* faceRectangle: locatie van de rechthoek van gezicht in de afbeelding
-* scores: Emotion scores voor elk vlak in de afbeelding 
+* faceRectangle: locatie van de rechthoek met het gezicht in de afbeelding
+* scores: emotiescores voor elk gezicht in de afbeelding
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991870"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730661"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Zelfstudie: API's voor cognitief zoeken aanroepen (preview)
 
@@ -32,6 +32,9 @@ In deze zelfstudie maakt u REST API-aanroepen om de volgende taken uit te voeren
 Uitvoer is een volledige doorzoekbare index in Azure Search. U kunt de index uitbreiden met andere standaardfuncties, zoals [synoniemen](search-synonyms.md), [scoreprofielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyses](search-analyzers.md) en [filters](search-filters.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+
+> [!NOTE]
+> Cognitief zoeken is een openbare preview. Het uitvoeren van vaardighedensets, het extraheren van afbeeldingen en normaliseren worden momenteel gratis aangeboden. De prijzen voor deze mogelijkheden worden op een later moment bekend gemaakt. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -53,7 +56,7 @@ Registreer u eerst voor de Azure Search-service.
 
 1. Maak een resourcegroep voor alle resources die u in deze zelfstudie gaat maken. Dit vergemakkelijkt het opschonen van de resources nadat u de zelfstudie hebt voltooid.
 
-1. Kies bij locatie voor **Zuid-centraal VS** of **West-Europa**. Op dit moment is de preview alleen in deze regio's beschikbaar.
+1. Kies bij locatie voor **US - zuid-centraal** of **Europa - west**. Op dit moment is de preview alleen in deze regio's beschikbaar.
 
 1. Voor de prijscategorie kunt u een **Gratis** service maken om de zelfstudies en snelstarts te voltooien. Voor nadere analyse met behulp van uw eigen gegevens, maakt u een [betaalde service](https://azure.microsoft.com/pricing/details/search/) zoals **Basic** of **Standard**. 
 
@@ -124,7 +127,7 @@ Aangezien dit uw eerste aanvraag is, controleert u Azure Portal om te bevestigen
 Als u een 403- of 404-fout krijgt, controleert u de constructie van de aanvraag: `api-version=2017-11-11-Preview` moet in het eindpunt staan, `api-key` in de header na `Content-Type`, en de waarde ervan moet geldig voor een zoekservice zijn. U kunt de header hergebruiken voor de overige stappen in deze zelfstudie.
 
 > [!TIP]
-> Voordat u veel werk uitvoert, is het goed om te controleren of de zoekservice wordt uitgevoerd in een van de ondersteunde locaties die de preview-functie bieden: Zuid-centraal VS of West-Europa.
+> Voordat u veel werk uitvoert, is het goed om te controleren of de zoekservice wordt uitgevoerd in een van de ondersteunde locaties die de preview-functie bieden: US - zuid-centraal of Europa - west.
 
 ## <a name="create-a-skillset"></a>Een set vaardigheden maken
 

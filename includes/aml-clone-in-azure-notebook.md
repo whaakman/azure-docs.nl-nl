@@ -9,20 +9,25 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: dfde11c509ef25b0c0bae314c937fc43fa78aef4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 0ece66c176241b53e333071ccfb1882e7018df4c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47020775"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874124"
 ---
-* **Azure-notitieblokken** -gratis Jupyter notebooks onder in de Azure-cloud gebaseerd
-    1. [![Azure-notitieblokken](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-    [voorbeeldnotitieblokken importeren in Azure-notitieblokken](https://aka.ms/aml-clone-azure-notebooks).
-    1.  Maken van een werkruimte en het configuratiebestand (**config.json**) met behulp van instructies in [het configureren van een ontwikkelomgeving voor de service Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-    1. Selecteer `+New` in de werkbalk van de Azure-Notebook om toe te voegen uw **config.json** -bestand naar dezelfde map als de notebook.
-    1. Open het notitieblok.
+### <a name="azure-notebooks---free-jupyter-based-notebooks-in-the-azure-cloud"></a>**Azure Notebooks**: gratis Jupyter-notebooks in de Azure-cloud
+De SDK is al voor u geïnstalleerd en geconfigureerd in Azure Notebooks.
+  
+1. Voltooi de snelstartgids [Aan de slag](../articles/machine-learning/service/quickstart-get-started.md) om een werkruimte te maken en Azure Notebooks te starten.
+1. Ga naar [Azure Notebooks](https://notebooks.azure.com/)
+1. Ga in de bibliotheek `Getting Started` die u hebt gemaakt tijdens de snelstartgids naar de map `tutorials`
+1. Open het notebook.
 
-* **Uw eigen Jupyter-notebook-server**
-
-    Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks) en volg de **Leesmij-bestand** instructies voor het installeren van software voor uw server.
+### <a name="your-own-jupyter-notebook-server"></a>**Uw eigen Jupyter Notebook-server**
+1. Voltooi de [snelstartgids Aan de slag met Python SDK](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) om de SDK te installeren en een werkruimte te maken.
+1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
+1. Kopieer de map `aml_config` die u hebt gemaakt tijdens de snelstartgids naar de gekloonde map.
+1. Start de notebookserver vanuit de gekloonde map.
+1. Ga naar de map `tutorials`.
+1. Open het notebook.

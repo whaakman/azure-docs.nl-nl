@@ -1,52 +1,53 @@
 ---
-title: Gebruik de Custom Vision Service voorspelling endpoint - Azure Cognitive Services | Microsoft Docs
-description: Informatie over het gebruik van de API voor het testen van installatiekopieën met de classificatie Custom Vision Service via een programma.
+title: 'Voorbeeld: gebruik een voorspellingseindpunt om afbeeldingen programmatisch te testen met classificatie: Custom Vision'
+titlesuffix: Azure Cognitive Services
+description: Lees hoe u de API gebruikt om afbeeldingen programmatisch te testen met uw Custom Vision Service-classificatie.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: MT
+ms.openlocfilehash: 3a81f3cef6aaeb5c98022d9fc93f4d84f3f58a6e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341790"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363646"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Het eindpunt voorspelling gebruiken voor het testen van installatiekopieën via een programma met een classificatie voor Custom Vision Service
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Het voorspellingseindpunt gebruiken om afbeeldingen programmatisch te testen met een Custom Vision Service-classificatie
 
-Nadat u uw model te trainen, kunt u installatiekopieën programmatisch testen door indienen bij de Voorspellings-API. 
+Nadat u uw model hebt getraind, kunt u afbeeldingen programmatisch testen door ze in te dienen bij de voorspellings-API. 
 
 > [!NOTE]
-> Dit document wordt gedemonstreerd met behulp van C# om in te dienen een installatiekopie voor de voorspelling API. Zie voor meer informatie en voorbeelden van het gebruik van de API, de [voorspelling API-verwijzing](https://go.microsoft.com/fwlink/?linkid=865445).
+> In dit document ziet u hoe u een afbeelding bij de voorspellings-API kunt indienen met behulp van C#. Zie het document [Referentie voorspellings-API](https://go.microsoft.com/fwlink/?linkid=865445) voor meer informatie en voorbeelden van het gebruik van de API.
 
-## <a name="get-the-url-and-prediction-key"></a>De URL- en voorspellingsgegevens sleutel ophalen
+## <a name="get-the-url-and-prediction-key"></a>De URL en voorspellingssleutel ophalen
 
-Uit de [Custom Vision webpagina](https://customvision.ai), selecteert u uw project en selecteer vervolgens de __prestaties__ tabblad. Om weer te geven informatie over het gebruik van de Voorspellings-API, met inbegrip van de __voorspelling-sleutel__, selecteer __voorspelling URL__. Voor projecten die zijn gekoppeld aan een Azure-Resource, uw __voorspelling-sleutel__ ook te vinden de [Azure Portal](https://portal.azure.com) -pagina voor gekoppelde Azure-Resource onder __sleutels__. Kopieer de volgende informatie voor gebruik in de toepassing:
+Op de [Custom Vision-webpagina](https://customvision.ai) selecteert u uw project en vervolgens selecteert u het tabblad __Prestaties__. Als u informatie over het gebruik van de voorspellings-API wilt weergeven, inclusief de __voorspellingssleutel__, selecteert u __Voorspellings-URL__. Voor projecten die aan een Azure-resource zijn gekoppeld, kunt u uw __voorspellingssleutel__ ook vinden op de [Azure Portal](https://portal.azure.com)-pagina voor bijbehorende Azure-resources onder __Sleutels__. Kopieer de volgende informatie voor gebruik in de toepassing:
 
 * __URL__ voor het gebruik van een __afbeeldingsbestand__.
-* __Voorspelling-sleutel__ waarde.
+* De waarde __Voorspellingssleutel__.
 
 > [!TIP]
-> Als u meerdere pogingen hebt, kunt u bepalen welke waarde wordt gebruikt door ingesteld als standaard. Selecteer de herhaling van de __iteraties__ sectie en selecteer vervolgens __standaard__ aan de bovenkant van de pagina.
+> Als u meerdere iteraties hebt, kunt u regelen welke iteratie wordt gebruikt door deze als standaard in te stellen. Selecteer de iteratie in de sectie __Iteraties__ en selecteer vervolgens __Standaard maken__ bovenaan de pagina.
 
-![Het tabblad prestaties wordt weergegeven met een rode rechthoek rond de voorspelling-URL.](./media/use-prediction-api/prediction-url.png)
+![Het tabblad Prestaties wordt weergegeven met een rode rechthoek rondom de voorspellings-URL.](./media/use-prediction-api/prediction-url.png)
 
 ## <a name="create-the-application"></a>De toepassing maken
 
-1. Vanuit Visual Studio, maak een nieuwe C#-consoletoepassing.
+1. Maak in Visual Studio een nieuwe C#-consoletoepassing.
 
-2. Gebruik de volgende code als de hoofdtekst van de __Program.cs__ bestand.
+2. Gebruik de volgende code als de hoofdtekst van het bestand __Program.cs__.
 
     > [!IMPORTANT]
-    > Wijzig de volgende informatie:
+    > Voer de volgende informatie in:
     >
-    > * Stel de __naamruimte__ op de naam van uw project.
-    > * Stel de __voorspelling-sleutel__ waarde die u eerder in de regel die met begint ontvangen `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Stel de __URL__ waarde die u eerder in de regel die met begint ontvangen `string url =`.
+    > * Stel de __naamruimte__ in op de naam van uw project.
+    > * Stel in de regel die met `client.DefaultRequestHeaders.Add("Prediction-Key",` begint de waarde voor de __voorspellingssleutel__ in die u eerder hebt ontvangen.
+    > * Stel in de regel die met `string url =` begint de __URL__-waarde in die u eerder hebt ontvangen.
 
     ```csharp
     using System;
@@ -103,9 +104,9 @@ Uit de [Custom Vision webpagina](https://customvision.ai), selecteert u uw proje
     }
     ```
 
-## <a name="use-the-application"></a>Gebruik van de toepassing
+## <a name="use-the-application"></a>De toepassing gebruiken
 
-Wanneer de toepassing wordt uitgevoerd, voert u het pad naar een afbeeldingsbestand. De afbeelding wordt verzonden naar de API en de resultaten worden geretourneerd als een JSON-document. De volgende JSON wordt een voorbeeld van het antwoord
+Wanneer u de toepassing uitvoert, voert u het pad naar een afbeeldingsbestand in. De afbeelding wordt ingediend bij de API en de resultaten worden geretourneerd als JSON-document. De volgende JSON is een voorbeeld van het antwoord
 
 ```json
 {
@@ -122,4 +123,4 @@ Wanneer de toepassing wordt uitgevoerd, voert u het pad naar een afbeeldingsbest
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Exporteer het model voor mobiel gebruik](export-your-model.md)
+[Het model voor mobiele gebruik](export-your-model.md)

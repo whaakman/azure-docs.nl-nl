@@ -21,10 +21,10 @@ items:
       href: event-hubs-quickstart-powershell.md
   - name: Gebeurtenissen verzenden naar een Event Hub
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
     - name: C
@@ -37,10 +37,10 @@ items:
       href: event-hubs-node-get-started-send.md
   - name: Gebeurtenissen ontvangen van een Event Hub
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: Java
       href: event-hubs-java-get-started-receive-eph.md
     - name: Aan de slag
@@ -79,15 +79,8 @@ items:
     href: event-hubs-features.md
   - name: Overzicht van de gebeurtenisprocessorhost
     href: event-hubs-event-processor-host.md
-  - name: Filters voor IP-verbinding
-    href: event-hubs-ip-filtering.md
-  - name: Service-eindpunten voor virtueel netwerk
-    href: event-hubs-service-endpoints.md
   - name: Programmeergids
     href: event-hubs-programming-guide.md
-  - name: Integreren met Event Grid
-    href: ../event-grid/event-grid-event-hubs-integration.md
-    maintainContext: true
   - name: Beheerde identiteit voor Azure-resources
     href: event-hubs-managed-service-identity.md
   - name: Op rollen gebaseerd toegangsbeheer (preview)
@@ -100,8 +93,6 @@ items:
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Beschikbaarheid en consistentie
     href: event-hubs-availability-and-consistency.md
-  - name: Doorvoereenheden automatisch schalen
-    href: event-hubs-auto-inflate.md
   - name: Diagnostische logboeken
     href: event-hubs-diagnostic-logs.md
   - name: AMQP 1.0-protocolhandleiding
@@ -111,6 +102,12 @@ items:
   items:
   - name: Een Event Hub maken
     href: event-hubs-create.md
+  - name: IP-verbindingsfilters gebruiken
+    href: event-hubs-ip-filtering.md
+  - name: Service-eindpunten voor virtueel netwerk gebruiken
+    href: event-hubs-service-endpoints.md
+  - name: Doorvoereenheden automatisch schalen
+    href: event-hubs-auto-inflate.md
   - name: Event Hubs voor Apache Kafka
     items:
     - name: Event-hubs maken waarvoor Apache Kafka is ingeschakeld
@@ -188,9 +185,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: a86952f2f9857cd70f7b45957dfcbf67cd63ff80
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 87a0088b54385a0a1af225db6f285dbf892253e7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351968"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362786"

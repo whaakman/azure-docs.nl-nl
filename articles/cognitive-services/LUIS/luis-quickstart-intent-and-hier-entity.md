@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042122"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831021"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Zelfstudie 5: contextgerelateerde gegevens herkennen
 In deze zelfstudie zoekt u gerelateerde gegevens op basis van context. Een bestemmings- en doellocatie voor de fysieke verhuizing tussen twee gebouwen zijn bijvoorbeeld aan elkaar gerelateerd. Voor het maken van een werkorder zijn mogelijk beide gegevenselementen vereist - deze zijn aan elkaar gerelateerd.  
@@ -44,9 +44,9 @@ De entiteit Hierarchical is geschikt voor dit type gegevens omdat het volgende g
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Bestaande app gebruiken
-Ga door met de in de laatste zelfstudie gemaakt app, **HumanResources**. 
+Ga door met de in de laatste zelfstudie gemaakt app, **Human Resources**. 
 
-Als u niet over de app HumanResources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
+Als u niet over de app Human Resources uit de vorige zelfstudie beschikt, voert u de volgende stappen uit:
 
 1.  Download het [JSON-bestand van de app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json) en sla het op.
 
@@ -61,7 +61,7 @@ Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te
 
 2. Selecteer **Entities** in het menu aan de linkerkant.
 
-3. Selecteer de drie puntjes (***...***) rechts van de cijferentiteit in de lijst. Selecteer **Verwijderen**. 
+3. Schakel het selectievakje links van de cijferentiteit in de lijst in. Selecteer **Verwijderen**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Uitingen toevoegen aan de intentie MoveEmployee
 

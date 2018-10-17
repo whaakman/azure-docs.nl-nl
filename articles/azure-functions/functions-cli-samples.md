@@ -1,49 +1,44 @@
 ---
-title: Voorbeelden van Azure CLI - Azure Functions | Microsoft Docs
-description: Voorbeelden van Azure CLI - Azure Functions
+title: Azure CLI-voorbeelden - Azure Functions | Microsoft Docs
+description: Azure CLI-voorbeelden - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
+manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
 ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 99ea221dcd236d3e8c42aec25d651b5fda2ae1d1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27740098"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887426"
 ---
-# <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
+# <a name="azure-cli-samples"></a>Azure CLI-voorbeelden
 
-De volgende tabel bevat koppelingen naar bash scripts voor Azure-functies die gebruikmaken van de Azure CLI.
+De volgende tabel bevat links naar bash-scripts voor Azure Functions die gebruikmaken van de Azure CLI.
 
 | | |
 |-|-|
-|**App maken**||
-| [Maken van een functie-app voor uitvoering zonder server](scripts/functions-cli-create-serverless.md) | Hiermee maakt een functie-app in een plan verbruik.  |
-| [Een functie-app maken in App Service-abonnement](scripts/functions-cli-create-app-service-plan.md) | Een functie-app maken in een specifieke App Service-abonnement. |
+|<a name="create"></a>**App maken**||
+| [Een functie-app maken voor serverloze uitvoering](scripts/functions-cli-create-serverless.md) | Hiermee maakt u een functie-app in een verbruiksabonnement.  |
+| [Een functie-app maken in een App Service-abonnement](scripts/functions-cli-create-app-service-plan.md) | Hiermee maakt u een functie-app in een bepaald App Service-abonnement. |
 | | |
 |**Integreren**||
-| [Een functie-app maken en verbinding maken met een opslagaccount](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Een functie-app maken en verbinden met een opslagaccount. |
-| [Een functie-app maken en maak verbinding met een Azure-Cosmos-database](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Een functie-app maken en verbinden met een Cosmos Azure DB. |
+| [Een functie-app maken en deze verbinden met een opslagaccount](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Hiermee maakt u een functie-app en verbindt u deze met een opslagaccount. |
+| [Een functie-app maken en deze verbinden met een Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Hiermee maakt u een functie-app en verbindt u deze met een Azure Cosmos DB. |
 | | |
 |**Doorlopende implementatie**||
-| [Implementeren vanuit GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Maak een functie-app vanuit een GitHub-opslagplaats implementeert.  |
-| [Implementeren vanaf VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Maak een functie-app die vanuit de opslagplaats van een Visual Studio Team Services (VSTS) implementeert.  |
+| [Implementeren vanuit GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Hiermee maakt u een functie-app die wordt geïmplementeerd vanuit een GitHub-opslagplaats.  |
+| [Implementeren vanuit Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Hiermee maakt u een functie-app die wordt geïmplementeerd vanuit een Azure DevOps-opslagplaats.  |
 | | |
 |**App configureren**||
-| [Een aangepast domein toewijzen aan een functie-app](scripts/functions-cli-configure-custom-domain.md) | Definieer een aangepast domein voor uw functies.  |
-| [Een SSL-certificaat binden aan een functie-app](scripts/functions-cli-configure-ssl-certificate.md)  |  SSL-certificaten voor functies in een aangepast domein uploaden. |
+| [Een aangepast domein toewijzen aan een functie-app](scripts/functions-cli-configure-custom-domain.md) | Hiermee definieert u een aangepast domein voor uw functies.  |
+| [Een SSL-certificaat met een functie-app verbinden](scripts/functions-cli-configure-ssl-certificate.md)  |  Hiermee uploadt u SSL-certificaten voor functies in een aangepast domein. |
 
 <!---
 

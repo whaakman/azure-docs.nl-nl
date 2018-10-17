@@ -8,21 +8,20 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301795"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466027"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark
 
-In deze zelfstudie leert u hoe u Spark-query’s kunt uitvoeren op een Azure Databricks-cluster om query’s uit te voeren voor gegevens in een account dat geschikt is voor Azure Data Lake Storage Gen2 Preview.
+In deze zelfstudie leert u hoe u Spark-query's kunt uitvoeren op een Azure Databricks-cluster om query's uit te voeren voor gegevens in een account dat geschikt is voor Azure Data Lake Storage Gen2 Preview.
 
 > [!div class="checklist"]
 > * Een Databricks-cluster maken
 > * Niet-gestructureerde gegevens opnemen in een opslagaccount
-> * Een Azure-functie activeren om gegevens te verwerken
 > * Analyse uitvoeren op gegevens in Blob-opslag
 
 ## <a name="prerequisites"></a>Vereisten
@@ -36,11 +35,8 @@ In deze zelfstudie wordt getoond hoe u de vluchtgegevens kunt gebruiken en doorz
 
 Maak om te beginnen een [Azure Data Lake Storage Gen2-account](quickstart-create-account.md) en geef deze een unieke naam. Navigeer vervolgens naar het opslagaccount om de configuratie-instellingen op te halen.
 
-> [!IMPORTANT]
-> Tijdens de preview-fase werkt Azure Functions alleen met Azure Data Lake Storage Gen2-accounts met een ongestructureerde naamruimte.
-
 1. Klik onder **Instellingen** op **Toegangssleutels**.
-3. Klik op de knop **Kopiëren** naast **key1** om de sleutelwaarde te kopiëren.
+2. Klik op de knop **Kopiëren** naast **key1** om de sleutelwaarde te kopiëren.
 
 Zowel de accountnaam als de sleutel hebt u nodig in latere stappen in deze zelfstudie. Open een teksteditor en noteer de accountnaam en sleutel voor later gebruik.
 
@@ -74,7 +70,7 @@ De volgende stap is het maken van een [Databricks-cluster](https://docs.azuredat
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Brongegevens kopiëren naar het opslagaccount
 
-De volgende taak is het gebruiken van AzCopy om gegevens uit het *.csv*-bestand te kopiëren naar Azure Storage. Open een opdrachtpromptvenster en voer de volgende opdrachten in. Zorg ervoor dat u de tijdelijke aanduidingen `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` en `<ACCOUNT_KEY>` vervangt door de bijbehorende waarden die u in de vorige stap hebt genoteerd.
+De volgende taak is het gebruiken van AzCopy om gegevens uit het *.csv*-bestand te kopiëren naar Azure Storage. Open een opdrachtpromptvenster en voer de volgende opdrachten in. Zorg ervoor dat u de tijdelijke aanduidingen `<DOWNLOAD_FILE_PATH>` en `<ACCOUNT_KEY>` vervangt door de bijbehorende waarden die u in de vorige stap hebt genoteerd.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -159,7 +155,7 @@ Als u dataframes wilt maken voor uw gegevensbronnen, voert u het volgende script
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

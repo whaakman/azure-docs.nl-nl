@@ -1,53 +1,53 @@
 ---
-title: Nieuws zoeken SDK Python Quick Start | Microsoft Docs
-description: Instellingen voor de consoletoepassing nieuws Search SDK.
-titleSuffix: Azure News Search SDK Python quickstart
+title: 'Snelstartgids: Bing News Search SDK, Python'
+titleSuffix: Azure Cognitive Services
+description: De Bing Nieuws zoeken-SDK-consoletoepassing instellen.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 6d212d1477ecf583a038e33e72aab3d60f6aa050
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345704"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803338"
 ---
-# <a name="news-search-sdk-python-quickstart"></a>Nieuws zoeken SDK Python Quick Start
+# <a name="quickstart-bing-news-search-sdk-with-python"></a>Snelstartgids: Bing News Search SDK met Python
 
-De nieuws Search SDK bevat de functionaliteit van de REST-API voor web-query's en parseren resultaten. 
+De News Search SDK bevat de functionaliteit van de REST-API voor webquery's en het parseren van resultaten. 
 
-De [broncode voor Python Bing nieuws Search SDK voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing News Search SDK voor Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) is beschikbaar op Git Hub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Als u dit nog geen hebt, installeert u Python. De SDK is compatibel met Python 2.7, 3.3 3.4, 3.5 en 3.6.
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Als u Python nog niet hebt, moet u dit eerst installeren. De SDK is compatibel met Python 2.7, 3.3, 3.4, 3.5 en 3.6.
 
-De algemene aanbevelingen voor de ontwikkeling van een Python is met een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html). Installeren en het initialiseren van de virtuele omgeving met de [venv module](https://pypi.python.org/pypi/virtualenv). Voor Python 2.7 moet u virtualenv installeren.
+De algemene aanbeveling voor het ontwikkelen met Python is om een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html) te gebruiken. Installeer en initialiseer de virtuele omgeving met de [venv-module](https://pypi.python.org/pypi/virtualenv). U moet virtualenv voor Python 2.7 installeren.
 ```
 python -m venv mytestenv
 ```
-Bing nieuws zoeken SDK-afhankelijkheden installeren:
+Installeer Bing News Search SDK-afhankelijkheden:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-newssearch
 ```
-## <a name="news-search-client"></a>Nieuws zoeken client
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *Search*. Invoer toevoegen:
+## <a name="news-search-client"></a>Nieuws zoeken-client
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder *Zoeken*. Voeg imports toe:
 ```
 from azure.cognitiveservices.search.newssearch import NewsSearchAPI
 from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Maak een instantie van `CognitiveServicesCredentials`. Exemplaar maken van de client:
+Maak een instantie van `CognitiveServicesCredentials`. Maak een instantie van de client:
 ```
 client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Zoeken naar resultaten en afdrukken van het eerste resultaat van de webpagina:
+Zoek naar resultaten en geef het resultaat van de eerste webpagina weer:
 ```
 news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
 print("Search news for query \"Quantum Computing\" with market and count")
@@ -65,7 +65,7 @@ else:
     print("Didn't see any news result data..")
 
 ```
-Zoeken met filters voor de meest recente nieuws over 'Kunstmatige Intelligence' met `freshness` en `sortBy` parameters. Controleer of het aantal resultaten en afdrukken `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, en `name of provider` resultaat van de eerste nieuws item.
+Zoek met filters voor het laatste nieuws over 'Artificial Intelligence' met de parameters `freshness` en `sortBy`. Controleer het aantal resultaten en geef de waarden voor `totalEstimatedMatches`, `name`, `url`, `description`, `published time` en `name of provider` weer voor het eerste nieuwsitem.
 ```
 def news_search_with_filtering(subscription_key):
 
@@ -95,7 +95,7 @@ def news_search_with_filtering(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Zoek categorie nieuws voor film en TV entertainment met veilige zoeken. Controleer of het aantal resultaten en afdrukken `category`, `name`, `url`, `description`, `published time`, en `name of provider` resultaat van de eerste nieuws item.
+Zoek veilig naar nieuws in de categorie films en tv-entertainment. Controleer het aantal resultaten en geef de waarden voor `category`, `name`, `url`, `description`, `published time` en `name of provider` weer voor het eerste nieuwsitem.
 ```
 def news_category(subscription_key):
 
@@ -126,7 +126,7 @@ def news_category(subscription_key):
 
 
 ```
-Bing nieuws trends onderwerpen zoeken.  Controleer of het aantal resultaten en afdrukken `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, en `image Url` resultaat van de eerste nieuws.
+Zoek naar trending nieuwsonderwerpen in Bing.  Controleer het aantal resultaten en geef de waarden voor `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` en `image Url` weer voor het eerste nieuwsitem.
 ```
 def news_trending(subscription_key):
 
@@ -154,6 +154,6 @@ def news_trending(subscription_key):
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Python SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Voorbeelden voor Cognitive Services Python SDK](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

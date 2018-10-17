@@ -1,30 +1,30 @@
 ---
-title: Quick Start Bing entiteit zoeken SDK Java | Microsoft Docs
-description: Stel de consoletoepassing Bing entiteit Search SDK.
-titleSuffix: Azure Cognitive Services
+title: 'Snelstartgids: Bing Entity Search SDK, Java'
+titlesuffix: Azure Cognitive Services
+description: Leer hoe u een consoletoepassing op basis van de Bing Entity Search SDK instelt.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: ebfabc00b5dc031ac4e5284450a9d639c383e78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345693"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814488"
 ---
-# <a name="bing-entity-search-sdk-java-quickstart"></a>Bing entiteit zoeken SDK Java Quick Start
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>Snelstartgids: Bing Entity Search SDK met Java
 
-De Bing entiteit Search SDK biedt de functionaliteit van de REST-API voor entiteit query's en parseren resultaten. 
+De Bing Entity Search SDK biedt de functionaliteit van de REST-API voor query's voor entiteiten en het parseren van resultaten. 
 
-De [broncode voor voorbeelden van Java Bing entiteit Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) beschikbaar is op de Git-Hub. 
+De [broncode voor voorbeelden van Java Bing Entity Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) is beschikbaar op Git Hub. 
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder **Search**. De Bing entiteit Search SDK-afhankelijkheden installeren met behulp van Maven, Gradle of een ander beheersysteem van afhankelijkheid. Het bestand Maven POM is vereist voor de declaratie:
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**. Installeer de afhankelijkheden van Bing Entity Search SDK met Maven, Gradle of een ander systeem voor afhankelijkheidsbeheer. Het Maven-POM-bestand vereist de declaratie:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cog
     </dependency>
   </dependencies>
 ```
-## <a name="entity-search-client"></a>Entiteit zoeken client
-Invoer toevoegen aan de implementatie van de klasse.
+## <a name="entity-search-client"></a>Entiteiten zoeken-client
+Imports toevoegen aan de implementatie van de klasse.
 ```
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
 import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
@@ -50,7 +50,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implementeer de **EntitySearchAPIImpl** -client, die een exemplaar van vereist de **ServiceClientCredentials** klasse.
+Implementeer de **EntitySearchAPIImpl**-client, die een instantie vereist van de **ServiceClientCredentials**-klasse.
 ```
 public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
     return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -75,7 +75,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Zoeken naar de één entiteit 'Satya Nadella' en een korte beschrijving afdrukken.
+Zoek de enkelvoudige entiteit "Satya Nadella" en geef een korte beschrijving weer.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
@@ -115,7 +115,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 }
 
 ```
-Zoek naar 'William Gates' en ingang disambiguation resultaten voor de niet-eenduidige query.
+Zoek naar 'William Gates' en verwerk ondubbelzinnige resultaten voor de niet-eenduidige query.
 ```
 public static void handlingDisambiguation(String subscriptionKey)
 {
@@ -182,7 +182,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 }
 
 ```
-Zoeken naar een winkel met de query 'Microsoft opslaan' en het telefoonnummer voor het resultaat afdrukken.
+Zoek naar één opslaglocatie met de query "Microsoft Store" en geef het telefoonnummer voor het resultaat weer.
 ```
 public static void storeLookup(String subscriptionKey)
 {
@@ -220,7 +220,7 @@ public static void storeLookup(String subscriptionKey)
 }
 
 ```
-Zoeken naar een lijst met restaurant met de query 'Seattle restaurant'. De namen en telefoonnummers voor de resultaten afdrukken.
+Zoek naar een lijst van restaurants met de query "Seattle restaurants". Geef de namen en telefoonnummers voor de resultaten weer.
 ```
 public static void multipleRestaurantLookup(String subscriptionKey)
 {
@@ -276,7 +276,7 @@ public static void multipleRestaurantLookup(String subscriptionKey)
 }
 
 ```
-Voeg de methoden die worden beschreven in dit artikel voor een klasse met een belangrijke functie voor het uitvoeren van de code.
+Voeg de methoden die in dit artikel worden beschreven toe aan een klasse met een hoofdfunctie voor het uitvoeren van de code.
 ```
 package entitySDK;
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
@@ -296,5 +296,5 @@ public class EntitySearchSDK {
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Java SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Voorbeelden voor Cognitive Services Java SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 

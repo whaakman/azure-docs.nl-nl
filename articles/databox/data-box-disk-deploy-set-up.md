@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161525"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068805"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Zelfstudie: de Azure Data Box-schijf uitpakken, aansluiten en ontgrendelen
 
@@ -76,12 +76,14 @@ De stappen voor het ontgrendelen van de schijven verschillen voor clients met Wi
 Voer de volgende stappen uit om uw schijven aan te sluiten en te ontgrendelen.
      
 1. Ga in Azure Portal naar **Algemeen > Apparaatdetails**. 
-2. Download de toolset van Data Box Data Box Disk voor Windows-clients. 
+2. Download de toolset van Data Box Data Box Disk voor Windows-clients. Deze toolset bevat drie hulpprogramma's: Data Box Disk Unlock, Data Box Disk Validation tool en Data Box Disk Split Copy. 
+
+    In deze procedure gebruikt u alleen het hulpprogramma Data Box Disk Unlock. De andere twee hulpprogramma's worden later gebruikt.
 
     > [!div class="nextstepaction"]
     > [Data Box Disk-toolset voor Windows downloaden](http://aka.ms/databoxdisktoolswin)         
 
-3. Pak het ontgrendelingsprogramma uit op de computer die u gebruikt om de gegevens te kopiëren.
+3. Pak de toolset uit op de computer die u gaat gebruiken om de gegevens te kopiëren. 
 4. Open op dezelfde computer een opdrachtpromptvenster of voer hierop Windows PowerShell uit als beheerder.
 5. (Optioneel) Voer de opdracht voor systeemcontrole uit om na te gaan of de computer die u gebruikt voor het ontgrendelen van de schijf voldoet aan de besturingssysteemvereisten. Hieronder ziet u een voorbeeld van de uitvoer. 
 

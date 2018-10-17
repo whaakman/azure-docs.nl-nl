@@ -1,52 +1,52 @@
 ---
-title: Nieuws zoeken-API snel starten | Microsoft Docs
-description: Laat zien hoe u aan de slag met de Bing nieuws zoeken-API.
+title: 'Quickstart: Bing Nieuws zoeken-API'
+titlesuffix: Azure Cognitive Services
+description: Lees hoe u aan de slag gaat met de Bing Nieuws zoeken-API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9CF6EAF3-42D8-4321-983C-4AC3896E8E03
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b3f2b36034ab33b4f5eec2d138103c3e4d8e21f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034328"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802522"
 ---
-# <a name="your-first-news-search-query"></a>Uw eerste nieuws zoeken-query
+# <a name="quickstart-your-first-news-search-query"></a>Quickstart: Uw eerste query om naar nieuws te zoeken
 
-Voordat u uw eerste aanroep maken kunt, moet u een code van Cognitive Services-abonnement. Als u een sleutel, Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
+Voordat u uw eerste aanroep kunt versturen, moet u een abonnementssleutel van Cognitive Services opvragen. Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api) voor meer informatie.
 
-Als u alleen-nieuws zoekresultaten, zou u een GET-aanvraag verzenden naar het eindpunt van de volgende:
+Om alleen nieuws als zoekresultaat te krijgen, verstuurt u een GET-aanvraag naar het volgende eindpunt:
 
 ```http
 https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-De aanvraag moet de HTTPS-protocol gebruiken.
+In de aanvraag moet u het HTTPS-protocol gebruiken.
 
-Het is raadzaam dat alle aanvragen afkomstig van een server zijn. De sleutel te distribueren als onderdeel van een clienttoepassing biedt meer mogelijkheden voor een schadelijke van derden om deze te openen. Aanroepen van een server biedt ook een centraal punt voor de upgrade voor toekomstige versies van de API.
+Het is raadzaam dat alle aanvragen afkomstig zijn van een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt een kwaadwillende gebruiker namelijk meer mogelijkheden om de sleutel te onderscheppen. Als u ervoor kiest om alle aanroepen via een server te laten lopen, beschikt u bovendien over een centraal upgradepunt voor toekomstige versies van de API.
 
-De aanvraag moet opgeven de [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) queryparameter die de zoekterm van de gebruiker bevat. Hoewel dit optioneel is, wordt de aanvraag moet ook opgeven de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt) queryparameter, waarmee de markt waar u de resultaten afkomstig zijn van uniek wordt geïdentificeerd. Query voor een lijst met optionele parameters zoals `freshness` en `textDecorations`, Zie [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Alle waarden van queryparameter moet de URL-codering.
+De aanvraag moet de parameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) bevatten, met daarin de zoekterm van de gebruiker. Hoewel dit optioneel is, moet de aanvraag ook de queryparameter [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt) bevatten. Hiermee geeft u de markt aan waarvan de resultaten afkomstig moeten zijn. Zie [Queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) voor een lijst met optionele queryparameters, zoals `freshness` en `textDecorations`. Alle waarden van queryparameter moeten als een URL zijn gecodeerd.
 
-De aanvraag moet opgeven de [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey) header. Hoewel dit optioneel is, is u wordt aangeraden om te bepalen de volgende headers:
+De aanvraag moet de header [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey) bevatten. Hoewel dit optioneel is, wordt u aangeraden ook altijd deze headers op te geven:
 
-- [Gebruikersagent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
+- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientid)
-- [X-Search-client-IP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)
-- [X-Search-locatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
+- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)
+- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
 
-De client-IP-adres en de locatie-headers zijn belangrijk voor het retourneren van locatie op de hoogte-inhoud.
+De headers ClientIP en Location zijn belangrijk voor het retourneren van locatiespecifieke inhoud.
 
-Zie voor een lijst van alle aanvraag- en reactieheaders, [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
+Zie [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers) voor een lijst van alle aanvraag- en antwoordheaders.
 
 ## <a name="the-request"></a>De aanvraag
 
-Hieronder ziet u een aanvraag nieuws, waarin de voorgestelde query-parameters en headers. Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
+Hieronder ziet u een aanvraag voor nieuws waarin alle voorgestelde queryparameters en headers zijn opgenomen. Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="the-response"></a>Het antwoord
 
-Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld ziet ook de antwoordheaders.
+Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld bevat ook de antwoordheaders.
 
 ```
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
@@ -282,10 +282,10 @@ X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Probeer nu de API. Ga naar [nieuws zoeken-API voor testdoeleinden Console](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
+Probeer de API uit. Ga naar [Testconsole voor Nieuws zoeken-API](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
 
-Zie voor meer informatie over het gebruiken van de antwoordobjecten [wat is er zoeken in Bing nieuws?](./search-the-web.md). Ook vindt u meer informatie over de volgende algemene acties:
+Zie [Wat is Bing Video's zoeken?](./search-the-web.md) voor meer informatie over het gebruiken van de antwoordobjecten. Hier vindt u ook meer informatie over de volgende algemene acties:
 
-- [Nieuws voor vandaag ophalen](./search-the-web.md#getting-todays-top-news)
-- [Ophalen van nieuws op categorie](./search-the-web.md#getting-news-by-category)
+- [Belangrijkste nieuws van vandaag ophalen](./search-the-web.md#getting-todays-top-news)
+- [Nieuws ophalen op categorie](./search-the-web.md#getting-news-by-category)
 - [Trending nieuws ophalen](./search-the-web.md#getting-trending-news)

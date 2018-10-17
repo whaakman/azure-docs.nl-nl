@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f8283a5720b457b74c26852b01ad30a423bd450d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8776530f3a0aa7065948d0f7fd2fa6f1b852f0cb
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602907"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267536"
 ---
 # <a name="backup-and-restore-service"></a>Een back-up maken van een service en deze herstellen
 
@@ -44,4 +44,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Zie voor meer informatie over de Azure PowerShell-module de [documentatie van Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-Meer voorbeelden voor Azure PowerShell voor Azure API Management vindt u in de [Voorbeelden van Azure PowerShell](../powershell-samples.md).
+Meer voorbeelden voor Azure PowerShell voor Azure API Management vindt u in [Voorbeelden van PowerShell](../powershell-samples.md).

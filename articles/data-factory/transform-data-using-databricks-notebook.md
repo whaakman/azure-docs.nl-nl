@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7fb94fa9a70faa238c54e7f5e7992ef8404d8de3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6b0a4b7a8b2a30b9572ecfc488e2af7554b46346
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087544"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017735"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>De Databricks Notebook-activiteit uitvoeren in Azure Data Factory op een Databricks-notebook
 
@@ -48,15 +48,15 @@ Bekijk de volgende video voor een inleiding en demonstratie van deze functie van
 
 1.  Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 
-1.  Selecteer **Nieuw** in het menu links, selecteer **Gegevens en analyses** en selecteer vervolgens **Data Factory**.
+1.  Selecteer **Een resource maken** in het menu links, selecteer **Analyse** en selecteer vervolgens **Data Factory**.
 
-    ![Een nieuwe gegevensfactory maken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image1.png)
+    ![Een nieuwe gegevensfactory maken](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
 1.  Voer op de pagina **Nieuwe data factory** **ADFTutorialDataFactory** in bij **Naam**.
 
     De naam van de Azure-gegevensfactory moet *wereldwijd uniek* zijn. Als u de volgende fout ziet, wijzigt u de naam van de gegevensfactory. (Gebruik dan bijvoorbeeld **\<uwnaam\>ADFTutorialDataFactory**). Zie het artikel [Data factory - Naamgevingsregels](https://docs.microsoft.com/azure/data-factory/naming-rules) voor naamgevingsregels voor Data Factory-artefacten.
 
-    ![Een naam opgeven voor de nieuwe gegevensfactory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
+    ![Een naam opgeven voor de nieuwe gegevensfactory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
 1.  Selecteer voor **Abonnement** het Azure-abonnement waarin u de gegevensfactory wilt maken.
 
@@ -73,14 +73,8 @@ Bekijk de volgende video voor een inleiding en demonstratie van deze functie van
 1.  Selecteer voor **Locatie** een locatie voor de data factory.
 
     Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensarchieven (zoals Azure Storage en Azure SQL Database) en berekeningen (zoals Azure HDInsight) die Data Factory gebruikt, kunnen zich in andere regio's bevinden.
-
-1.  Selecteer **Vastmaken aan dashboard**.
-
 1.  Selecteer **Maken**.
 
-1.  Op het dashboard ziet u de volgende tegel met de status: **Data Factory implementeren**:
-
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image3.png)
 
 1.  Zodra de bewerking is voltooid, ziet u de pagina **Data Factory**. Selecteer de tegel **Maken en controleren** om de gebruikersinterface van Data Factory te openen op een afzonderlijk tabblad.
 
@@ -94,35 +88,37 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
 1.  Schakel op de pagina **Aan de slag** naar het tabblad **Bewerken** in het linkerpaneel.
 
-    ![De nieuwe gekoppelde service opslaan](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image5.png)
+    ![De nieuwe gekoppelde service opslaan](media/transform-data-using-databricks-notebook/get-started-page.png)
 
 1.  Selecteer **Verbindingen** onder aan het venster en selecteer **+ Nieuw**.
     
     ![Een nieuwe verbinding maken](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  Selecteer in het venster **Nieuwe gekoppelde service** de optie **Gegevensarchief**\>**Azure Databricks** en selecteer vervolgens **Doorgaan**.
+1.  Selecteer in het venster **Nieuwe gekoppelde service** de optie **Compute** \> **Azure Databricks** en selecteer vervolgens **Doorgaan**.
     
     ![Een aan Databricks gekoppelde service opgeven](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
 1.  Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
     
-    1.  Voer bij **Naam** ***AzureDatabricks\_LinkedService*** in.
+    1.  Voer bij **Naam** ***AzureDatabricks\_LinkedService*** in
     
-    1.  Selecteer voor **Cluster** een **Nieuw cluster**
+    1.  Selecteer de juiste **Databricks-werkruimte** waarin u uw notebook wilt uitvoeren
+
+    1.  Selecteer bij **Cluster selecteren** **Nieuw taakcluster**
     
-    1.  Selecteer voor **Domein/regio** de regio waar uw Azure Databricks-werkruimte zich bevindt.
-    
-    1.  Selecteer voor **Cluster-knooppunttype** de optie **Standaard\_D3\_v2** voor deze zelfstudie.
-    
+    1.  Bij **Domein/regio** zou de informatie automatisch moeten worden ingevuld
+
     1.  Genereer de **Toegangstoken** vanuit de Azure Databricks-werkruimte. U kunt de daarvoor benodigde stappen [hier](https://docs.databricks.com/api/latest/authentication.html#generate-token) vinden.
+
+    1.  Selecteer bij **clusterversie** **4.0** (met Apache Spark 2.3.0, Scala 2.11)
+
+    1.  Selecteer voor deze zelfstudie bij **Clusterknooppunttype** **Standard\_D3\_v2** onder de categorie **Algemeen gebruik (HDD)**. 
     
-    1.  Selecteer voor **Clusterversie** de optie **4.0 Bèta** (meest recente versie)
-    
-    1.  Bij **Aantal worker-knooppunten** voert u **2** in.
+    1.  Voer bij **Werkrollen** **2** in.
     
     1.  Selecteer **Voltooien**.
 
-        ![Het maken van de gekoppelde service voltooien](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
+        ![Het maken van de gekoppelde service voltooien](media/transform-data-using-databricks-notebook/new-databricks-linkedservice.png)
 
 ## <a name="create-a-pipeline"></a>Een pijplijn maken
 
@@ -138,15 +134,17 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
 
 1.  Vouw in de werkset **Activiteiten** **Databricks** uit. Sleep de activiteit **Notebook** vanuit de werkset **Activiteiten** naar het ontwerpoppervlak voor pijplijnen.
 
-    ![Sleep de notebook naar het ontwerpoppervlak](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
+    ![Sleep de notebook naar het ontwerpoppervlak](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
 1.  Voer de volgende stappen uit in de eigenschappen voor het **Databricks** **Notebook**-activiteitvenster onderaan:
 
-    a. Schakel over naar het tabblad **Instellingen**.
+    a. Schakel over naar het tabblad **Azure Databricks**.
 
-    b. Selecteer **myAzureDatabricks\_LinkedService** (gemaakt in de vorige procedure).
+    b. Selecteer **AzureDatabricks\_LinkedService** (gemaakt in de vorige procedure).
 
-    c. Selecteer een Databricks **Notebook-pad**. We gaan een notebook maken en geven daarvoor hier het pad op. U krijgt het pad van de notebook door de volgende stappen uit te voeren.
+    c. Schakel over naar het tabblad **Instellingen**
+
+    c. Zoek en selecteer een Databricks **notebook-pad**. We gaan een notebook maken en geven daarvoor hier het pad op. U krijgt het pad van de notebook door de volgende stappen uit te voeren.
 
        1. De Azure Databricks-werkruimte openen
 
@@ -180,7 +178,7 @@ In deze sectie maakt u een aan Databricks gekoppelde service. Deze gekoppelde se
     
     a.  **Voeg een parameter toe** aan de Notebook-activiteit. U gebruikt dezelfde parameter die u eerder aan de **pijplijn** hebt toegevoegd.
 
-       ![Een parameter toevoegen](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image17.png)
+       ![Een parameter toevoegen](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
     b.  Geef de parameter de naam **input** en geef de waarde op als de expressie  **@pipeline().parameters.name**.
 
@@ -224,7 +222,7 @@ Meld u aan bij de **Azure Databricks-werkruimte**, ga naar **Clusters** en de **
 
 U kunt klikken op de **Taaknaam** om meer informatie weer te geven. Na een gelukte uitvoering kunt u de doorgegeven parameters en de uitvoer van de Python-notebook valideren.
 
-![Uitvoeringsdetails en uitvoer weergeven](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image25.png)
+![Uitvoeringsdetails en uitvoer weergeven](media/transform-data-using-databricks-notebook/databricks-output.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

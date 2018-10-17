@@ -1,33 +1,33 @@
 ---
-title: Wat is Bing Entiteiten zoeken? | Microsoft Docs
-description: Informatie over het gebruik van de Bing Entity Search API om te zoeken naar het web voor entiteiten en plaatsen.
+title: Wat is Bing Entiteiten zoeken?
+titlesuffix: Azure Cognitive Services
+description: Lees hoe u met de Bing Entiteiten zoeken-API op internet kunt zoeken naar entiteiten en plaatsen.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008107"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813597"
 ---
 # <a name="what-is-bing-entity-search"></a>Wat is Bing Entiteiten zoeken?
 
-Bing Entity Search API een zoekopdracht naar Bing verzonden en opgehaald van entiteiten en plaatsen omvatten de resultaten. Plaats resultaten opnemen restaurants, hotels of andere lokale bedrijven. Bing retourneert plaatsen als de query de naam van de lokale bedrijven geeft of voor een type of-business (bijvoorbeeld restaurants in de buurt) vraagt. Bing retourneert entiteiten als de query bekende mensen, plaatsen (toeristische bezienswaardigheden, Staten, landen, enzovoort) of dingen geeft.
+De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. Bing retourneert plaatsen als in de query de naam van een lokaal bedrijf is opgegeven, of als er om een type bedrijf wordt gevraagd (bijvoorbeeld restaurants in de buurt). Bing retourneert entiteiten als in de query wordt verwezen naar bekende personen, plaatsen (toeristische attracties, provincies, landen, etc.) of dingen.
 
 ## <a name="suggesting--using-search-terms"></a>Zoektermen voorstellen en gebruiken
 
 Als u een zoekvak aanbiedt waarin de gebruiker een zoekterm invoert, kunt u de [Automatische suggestie-API voor Bing](../bing-autosuggest/get-suggested-search-terms.md) gebruiken om de ervaring te verbeteren. De API retourneert voorgestelde queryreeksen op basis van gedeeltelijke zoektermen terwijl de gebruiker typt.
 
-Nadat de gebruiker de zoekterm heeft ingevoerd, past u URL-codering toe op de term voordat u de queryparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) instelt. Bijvoorbeeld, als de gebruiker voert *Marcus Appel*, stel `q` naar *Marcus + Appel* of *Marcus % 20Appel*.
+Nadat de gebruiker de zoekterm heeft ingevoerd, past u URL-codering toe op de term voordat u de queryparameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) instelt. Als de gebruiker bijvoorbeeld *Marcus Appel* invoert, stelt u `q` in op *Marcus+Appel* of *Marcus%20Appel*.
 
-Als de zoekterm een fout spelling bevat, antwoord van de zoekactie bevat een [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) object. Het object bevat de oorspronkelijke spelling en de gecorrigeerde spelling die Bing voor de zoekopdracht gebruikt.
+Als de zoekterm een spelfout bevat, bevat het zoekresultaat het object [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext). In het object worden de oorspronkelijke spelling weergegeven en de gecorrigeerde spelling die Bing heeft gebruikt voor de zoekopdracht.
 
 ```json
 "queryContext": {
@@ -38,21 +38,21 @@ Als de zoekterm een fout spelling bevat, antwoord van de zoekactie bevat een [Qu
 }
 ```
 
-## <a name="requesting-entities"></a>Aanvragen van entiteiten
+## <a name="requesting-entities"></a>Entiteiten aanvragen
 
-Zie voor een van de voorbeeldaanvraag, [maken van uw eerste aanvraag](./quick-start.md).
+Zie [Uw eerste aanvraag doen](./quick-start.md) voor een voorbeeldaanvraag.
 
 ## <a name="the-response"></a>Het antwoord
 
-Het antwoord bevat een [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. Als u Bing vindt een entiteit of een plaats die relevant is, het object bevat de `entities` veld `places` , of beide. De antwoordobject bevat anders geen een veld.
+Het antwoord bevat het object [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse). Als Bing een entiteit of plaats vindt die relevant is, bevat het object het veld `entities`, het veld `places` of beide. Als dat niet het geval is, bevat het antwoordobject geen van beide velden.
 > [!NOTE]
-> Entiteit antwoorden ondersteunen meerdere markten, maar het antwoord plaatsen ondersteunt alleen Amerikaanse zakelijke locaties. 
+> Entiteitantwoorden bieden ondersteuning voor meerdere markten, maar plaatsantwoorden bieden alleen ondersteuning voor Amerikaanse bedrijfslocaties. 
 
-De `entities` veld is een [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object met een lijst met [entiteit](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objecten (Zie de `value` veld). De lijst kan bevatten één dominante entiteit of entiteiten van meerdere oplossen van ambiguïteit. 
+Het veld `entities` is een [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer)-object dat een lijst met [entiteit](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)objecten bevat (zie het veld `value`). De lijst bevat mogelijk één dominante entiteit, meerdere entiteiten met vergelijkbare opties of beide. 
 
-Een dominante entiteit is een entiteit die Bing is van mening dat is de enige entiteit die voldoet aan de aanvraag (Er is geen dubbelzinnigheid in welke entiteit voldoet aan de aanvraag). Als meerdere entiteiten kunnen voldoen aan de aanvraag, bevat de lijst met meer dan één entiteit van het oplossen van ambiguïteit. Bijvoorbeeld, als de aanvraag wordt de algemene naam van een film franchise gebruikt, bevat de lijst met waarschijnlijk ondubbelzinnigheid entiteiten. Maar als de aanvraag een bepaalde titel van de winkel bevat, de lijst met waarschijnlijk één dominante entiteit bevat.
+Een dominante entiteit is een entiteit waarvan Bing vindt dat deze als enige aan de aanvraag voldoet (er is geen twijfel over mogelijk). Als meerdere entiteiten het antwoord zouden kunnen bieden op de aanvraag, bevat de lijst meer dan één entiteit. Als in de aanvraag bijvoorbeeld de algemene naam van een reeks films bevat, bevat de lijst waarschijnlijk meerdere vergelijkbare entiteiten. Als de aanvraag echter een specifieke franchisenaam bevat, bevat de lijst waarschijnlijk één dominante entiteit.
 
-Entiteiten bevatten bekende persoonlijkheden zoals zang, actors, atleten, modellen, enzovoort.; locaties en monumenten zoals koppelpunt Groningen of Lincoln Memorial; en, zoals een titel bananen, goldendoodle, rapport of film. De [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) veld bevat hints die van de entiteit type identificeren. Bijvoorbeeld, als het is een persoon, films, dieren of voordelen. Zie voor een lijst van mogelijke typen, [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Entiteiten omvatten bekende personen (zoals zangers, acteurs, atleten, modellen, etc.), plaatsen en bezienswaardigheden (zoals Mount Rainier of Lincoln Memorial) en specifieke zaken zoals een banaan, een hond, een boek of een filmtitel. Het veld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) bevat hints waarmee het type van de entiteit kan worden geïdentificeerd. U ziet hier bijvoorbeeld of het om een persoon, film, dier of bezienswaardigheid gaat. Voor een lijst met mogelijke typen gaat u naar [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -62,7 +62,7 @@ Entiteiten bevatten bekende persoonlijkheden zoals zang, actors, atleten, modell
 }, ...
 ```
 
-Hieronder ziet u een antwoord met een entiteit dominante en oplossen van ambiguïteit.
+Hieronder ziet u een antwoord met een dominante entiteit en een vergelijkbare entiteit.
 
 ```json
 {
@@ -148,7 +148,7 @@ Hieronder ziet u een antwoord met een entiteit dominante en oplossen van ambigu�
 }
 ```
 
-De entiteit bevat een `name`, `description`, en `image` veld. Wanneer u deze velden in uw gebruikerservaring weergeeft, moet u ze het kenmerk. De `contractualRules` veld bevat een lijst met afschrijvingen die u moet toepassen. De contractuele regel geeft het veld dat de toekenning is van toepassing op. Zie voor meer informatie over het toepassen van attribution [Attribution](#data-attribution).
+De entiteit bevat de velden `name`, `description` en `image`. Als u deze velden weergeeft in uw gebruikerservaring, moet u er een kenmerk aan toewijzen. Het veld `contractualRules` bevat een lijst kenmerken die u moet toepassen. Op basis van de contractregel wordt geïdentificeerd op welk veld het kenmerk van toepassing is. Zie [Kenmerk](#data-attribution) voor meer informatie over het toepassen van kenmerken.
 
 ```json
 "contractualRules": [{
@@ -176,12 +176,12 @@ De entiteit bevat een `name`, `description`, en `image` veld. Wanneer u deze vel
 }], ...
 ```
 
-Wanneer u de entiteitgegevens (naam, beschrijving en afbeelding), moet u ook de URL in gebruiken de `webSearchUrl` om een koppeling naar de Bing zoeken resultatenpagina die de entiteit bevat.
+Wanneer u de entiteitgegevens (naam, beschrijving en afbeelding) weergeeft, moet u de URL in het veld `webSearchUrl` gebruiken om te voorzien in een koppeling naar de Bing-zoekresultatenpagina die de entiteit bevat.
 
 
-De `places` veld is een [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) object met een lijst met [plaats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objecten (Zie de `value` veld). De lijst bevat een of meer lokale entiteiten die voldoen aan de aanvraag.
+Het veld `places` is een [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer)-object dat een lijst met [plaats](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place)objecten bevat (zie het veld `value`). De lijst bevat één of meer lokale entiteiten die antwoord bieden op de aanvraag.
 
-Locaties zijn restaurant, hotels of lokale bedrijven. De [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) veld bevat hints die de lokale entiteitstype identificeren. De lijst bevat een lijst met hints, zoals locatie, LocalBusiness, Restaurant. Elke opeenvolgende hint in de matrix beperkt type van de entiteit. Zie voor een lijst van mogelijke typen, [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Plaatsen kunnen bijvoorbeeld restaurants, hotels of lokale bedrijven zijn. Het veld [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) bevat hints waarmee het type van de lokale entiteit kan worden geïdentificeerd. De lijst bevat een lijst met hints, zoals Place, LocalBusiness of Restaurant. Met elke volgende hint in de matrix wordt het entiteitstype verder benaderd. Voor een lijst met mogelijke typen gaat u naar [Entiteitstypen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -192,9 +192,9 @@ Locaties zijn restaurant, hotels of lokale bedrijven. De [entityPresentationInfo
 }, ...
 ```
 > [!NOTE]
-> Entiteit antwoorden ondersteunen meerdere markten, maar het antwoord plaatsen ondersteunt alleen Amerikaanse zakelijke locaties. 
+> Entiteitantwoorden bieden ondersteuning voor meerdere markten, maar plaatsantwoorden bieden alleen ondersteuning voor Amerikaanse bedrijfslocaties. 
 
-Lokaal op de hoogte entiteit, zoals query's *restaurant dichtbij* vereisen dat de locatie van de gebruiker om nauwkeurig resultaten te bieden. Uw aanvragen moeten altijd de X-Search-locatie en de X-MSEdge-client-IP-headers gebruiken om op te geven van de locatie van de gebruiker. Als u Bing denkt dat de query veel voordeel hebben van de locatie van de gebruiker, wordt de `askUserForLocation` veld van [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) naar **waar**. 
+Met lokale-entiteitsquery's zoals *restaurant in de buurt* moet de locatie van de gebruiker bekend zijn om nauwkeurige resultaten te kunnen bieden. Uw aanvragen moeten altijd de headers X-Search-Location en X-MSEdge-ClientIP bevatten om de locatie van de gebruiker op te geven. Als Bing van mening is dat het handig zou zijn de locatie van de gebruiker te weten, wordt het veld `askUserForLocation` van [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) ingesteld op **true**. 
 
 ```json
 {
@@ -207,7 +207,7 @@ Lokaal op de hoogte entiteit, zoals query's *restaurant dichtbij* vereisen dat d
 }
 ```
 
-Het resultaat van een plaats bevat de plaats waar u de naam, adres, telefoonnummer en URL naar de website van de entiteit. Wanneer u de informatie van entiteit wordt weergegeven, moet u ook de URL in gebruiken de `webSearchUrl` om een koppeling naar de Bing zoeken resultatenpagina die de entiteit bevat.
+Een plaatsresultaat bevat de naam van de plaats, het adres, het telefoonnummer en de URL naar de website van de entiteit. Wanneer u de entiteitgegevens weergeeft, moet u de URL in het veld `webSearchUrl` gebruiken om te voorzien in een koppeling naar de Bing-zoekresultatenpagina die de entiteit bevat.
 
 ```json
 "places": {
@@ -235,15 +235,15 @@ Het resultaat van een plaats bevat de plaats waar u de naam, adres, telefoonnumm
 ```
 
 > [!NOTE]
-> U of een derde partij namens u mogelijk niet gebruiken, behouden, opslaan, in de cache, delen, of distribueren van alle gegevens van de API-entiteiten voor het testen, ontwikkelen, training, distribueren of het beschikbaar maken van een niet-Microsoft-service of functie.  
+> U, of een derde partij die namens u handelt, mag geen gegevens van de Entities-API gebruiken, behouden, opslaan, in een cache plaatsen, delen of distribueren voor test-, ontwikkelings-, trainings- of distributiedoeleinden, noch voor het beschikbaar maken van een niet-Microsoft-service of -functie.  
 
-## <a name="data-attribution"></a>Gegevens attribution
+## <a name="data-attribution"></a>Toeschrijving van gegevens
 
-API voor Bing entiteit antwoorden bevatten informatie die eigendom zijn van derde partijen. U bent verantwoordelijk om ervoor te zorgen dat uw gebruik is dat mogelijk is, bijvoorbeeld dat voldoet aan alle uw gebruikerservaring mogelijk afhankelijk van creative commons-licentie.
+Antwoorden van de Bing Entity-API bevatten informatie die het eigendom is van derde partijen. Het is uw verantwoordelijkheid om ervoor te zorgen dat u op de juiste manier gebruikmaakt van de gegevens, bijvoorbeeld door te voldoen aan een Creative Commons-licentie die is afgegeven om uw gebruikerservaring mogelijk te maken.
 
-Als een antwoord of het resultaat bevat de `contractualRules`, `attributions`, of `provider` velden, moet u de gegevens van het kenmerk. Als het antwoord niet onder een van deze velden, is er geen attribution vereist. Als het antwoord bevat de `contractualRules` veld en de `attributions` en/of `provider` velden, moet u de contractuele regels gebruiken om de gegevens van het kenmerk.
+Als een antwoord of resultaat het veld `contractualRules`, `attributions` of `provider` bevat, moet u de gegevens toeschrijven. Als het antwoord geen van deze velden bevat, is dit niet vereist. Als het antwoord het veld `contractualRules` en het veld `attributions` en/of de velden `provider` bevat, moet u de contractuele regels volgen om de gegevens toe te schrijven.
 
-Het volgende voorbeeld ziet u een entiteit met een MediaAttribution contractuele regel en een afbeelding met een `provider` veld. De regel MediaAttribution identificeert de afbeelding als het doel van de regel, zodat u van de installatiekopie zou negeren `provider` veld en gebruiken in plaats daarvan de regel MediaAttribution attribution opgeven.  
+In het volgende voorbeeld ziet u een entiteit met de contractuele regel MediaAttribution en een Image-element met een veld `provider`. De regel MediaAttribution identificeert de afbeelding als het doel van de regel, zodat u het veld `provider` van de afbeelding kunt negeren en in plaats daarvan de regel MediaAttribution moet volgen om de gegevens toe te schrijven.  
 
 ```json
 "value": [{
@@ -272,9 +272,9 @@ Het volgende voorbeeld ziet u een entiteit met een MediaAttribution contractuele
 }]
 ```
 
-Als een contractuele regel bevat de `targetPropertyName` veld, de regel geldt alleen voor het betreffende veld. Anders wordt de regel van toepassing op het bovenliggende object met de `contractualRules` veld.
+Als een contractuele regel het veld `targetPropertyName` bevat, geldt de regel alleen voor het betreffende veld. Anders is de regel van toepassing op het bovenliggende object dat het veld `contractualRules` bevat.
 
-In het volgende voorbeeld wordt de `LinkAttribution` regel bevat de `targetPropertyName` veld, zodat de regel geldt voor de `description` veld. Voor regels die betrekking hebben op specifieke velden, moet u een regel direct na de betreffende gegevens met een hyperlink naar de website van de provider bevatten. Als u wilt de beschrijving van het kenmerk, bijvoorbeeld een regel onmiddellijk na de beschrijvende tekst die een hyperlink naar de gegevens op de website van de provider, bevat een koppeling naar contoso.com in dit geval maken.
+In het volgende voorbeeld bevat de regel `LinkAttribution` het veld `targetPropertyName`, wat betekent dat de regel geldt voor het veld `description`. Voor regels die betrekking hebben op specifieke velden moet u direct na de betreffende gegevens een regel invoegen met een hyperlink naar de website van de provider. Als u bijvoorbeeld de beschrijving wilt toeschrijven, voegt u direct na de beschrijvende tekst een regel in met een hyperlink naar de gegevens op de website van de provider, in dit voorbeeld een koppeling naar contoso.com.
 
 ```json
 "entities": {
@@ -293,44 +293,44 @@ In het volgende voorbeeld wordt de `LinkAttribution` regel bevat de `targetPrope
   
 ```
 
-### <a name="license-attribution"></a>Licentie attribution
+### <a name="license-attribution"></a>Toeschrijving van licentie
 
-Als de lijst met regels voor contractuele bevat een [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) regel, moet u de aankondiging op de regel direct na de inhoud die de licentie is van toepassing op weergeven. De `LicenseAttribution` regel maakt gebruik van de `targetPropertyName` veld voor het identificeren van de eigenschap die de licentie is van toepassing op.
+Als de lijst met contractuele regels een regel [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) bevat, moet u de mededeling opnemen op de regel direct na de inhoud waarop de licentie van toepassing is. De regel `LicenseAttribution` maakt gebruik van het veld `targetPropertyName` om de eigenschap te identificeren waarop de licentie van toepassing is.
 
-Hieronder ziet u een voorbeeld waarin een `LicenseAttribution` regel.
+Hieronder ziet u een voorbeeld met een regel `LicenseAttribution`.
 
-![Licentie attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)
+![Toeschrijving van licentie](./media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-De licentie-ziet u dat u moet een hyperlink naar de website die informatie over de licentie bevat bevatten. Normaal gesproken maken u de naam van de gebruiksrechtovereenkomst voor een hyperlink. Bijvoorbeeld, als de kennisgeving is **tekst onder licentie CC door SA** en CC door Software Assurance is de naam van de licentie, brengt u CC door SA een hyperlink.
+De licentiemededeling die u opneemt, moet een hyperlink bevatten naar de website met informatie over de licentie. Meestal maakt u een hyperlink van de naam van de licentie. Als de mededeling bijvoorbeeld **Tekst valt onder CC-BY-SA-licentie** is en CC-BY-SA de naam is van de licentie, maakt u van CC-BY-SA een hyperlink.
 
-### <a name="link-and-text-attribution"></a>Koppeling en tekst attribution
+### <a name="link-and-text-attribution"></a>Toeschrijving van koppeling en tekst
 
-De [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) en [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) regels worden meestal gebruikt voor identificatie van de provider van de gegevens. De `targetPropertyName` veld geeft het veld dat de regel van toepassing op.
+De regels [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) en [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) worden meestal gebruikt voor identificatie van de provider van de gegevens. Het veld `targetPropertyName` geeft het veld aan waarop de regel van toepassing is.
 
-Als u wilt de providers van het kenmerk, bevatten een regel direct na de inhoud die de afschrijvingen van toepassing op (bijvoorbeeld het betreffende veld). De regel moet duidelijk om aan te geven dat de leveranciers de bron van de gegevens zijn worden gelabeld. Bijvoorbeeld, "gegevens uit: contoso.com '. Voor `LinkAttribution` regels, moet u een hyperlink naar de website van de provider maken.
+Als u de providers wilt toeschrijven, neemt u direct na de inhoud waarom het gaat een regel op met de toeschrijving (bijvoorbeeld na het target-veld). De regel moet een label hebben dat duidelijk aangeeft dat de providers de bron zijn van de gegevens. Voorbeeld: 'Gegevens van: contoso.com'. Voor `LinkAttribution`-regels moet u een hyperlink toevoegen naar de website van de provider.
 
-Hieronder ziet u een voorbeeld waarin `LinkAttribution` en `TextAttribution` regels.
+Hieronder ziet u een voorbeeld met de regels `LinkAttribution` en `TextAttribution`.
 
-![Koppeling tekst attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)
+![Toeschrijving van koppelingstekst](./media/cognitive-services-bing-entities-api/linktextattribution.png)
 
-### <a name="media-attribution"></a>Media attribution
+### <a name="media-attribution"></a>Toeschrijving van media
 
-Als u deze weergeven nadat de entiteit bevat een afbeelding, kunt u een koppeling doorklikken naar de website van de provider moet opgeven. Als de entiteit bevat een [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) regel, gebruikt u de URL van de regel om de koppeling doorklikken te maken. Gebruik anders de URL die is opgenomen in de afbeelding `provider` veld om de koppeling doorklikken te maken.
+Als de entiteit een afbeelding bevat en u deze wilt weergeven, moet u een klikbare koppeling naar de website van de provider opgeven. Als de entiteit een regel [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) bevat, gebruikt u de URL van de regel om de klikbare koppeling te maken. Gebruik anders de URL die is opgenomen in het veld `provider` van de afbeelding om de klikbare koppeling te maken.
 
-Hieronder ziet u een voorbeeld van een installatiekopie met `provider` veld en contractuele regels. Omdat in het voorbeeld de contractuele regel omvat, negeert u van de afbeelding `provider` veld en toe te passen de `MediaAttribution` regel.
+Hieronder ziet u een voorbeeld met het veld `provider` van een afbeelding en contractuele regels. Omdat het voorbeeld een contractuele regel bevat, kunt u het veld `provider` van de afbeelding negeren en de regel `MediaAttribution` toepassen.
 
-![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
+![Toeschrijving van media](./media/cognitive-services-bing-entities-api/mediaattribution.png)
 
-### <a name="search-or-search-like-experience"></a>Zoeken of zoeken-achtige ervaring
+### <a name="search-or-search-like-experience"></a>Zoek- of zoekachtige ervaring
 
-Net als met de Bing webzoekopdrachten-API, kunnen Bing Entity Search API alleen worden gebruikt als gevolg van een directe gebruikersquery of zoekopdracht, of als gevolg van een actie in een app of -ervaring die logisch kan worden geïnterpreteerd als een gebruikersaanvraag zoeken. Ter illustratie wordt volgen hieronder enkele voorbeelden van acceptabele zoeken of uw search-achtige ervaring.
+Net als bij de Bing Webzoekopdrachten-API, mag de Bing Entiteiten zoeken-API alleen worden gebruikt bij rechtstreekse query's of zoekopdrachten van gebruikers, of voor acties in een app of ervaring die logischerwijs kunnen worden geïnterpreteerd als een zoekopdracht van een gebruiker. Ter illustratie ziet u verderop enkele voorbeelden van acceptabele zoek- of zoekachtige ervaringen.
 
-- Gebruiker voert een query rechtstreeks in het zoekvak in een app
-- Gebruiker selecteert de specifieke tekst of een afbeelding en aanvragen 'meer informatie' of "Als u meer informatie"
-- Gebruiker vraagt een search-bot over een bepaald onderwerp
-- Gebruiker dwells op een bepaald object of een entiteit in een scenario voor het type visuele zoekopdrachten
+- De gebruiker voert in een app een query rechtstreeks in in een zoekvak
+- De gebruiker selecteert specifieke tekst of een specifieke afbeelding en vraagt om meer of aanvullende informatie
+- De gebruiker vraagt een zoekbot naar een bepaald onderwerp
+- De gebruiker blijft bij een bepaald object of en bepaalde entiteit hangen in een scenario met visueel zoeken
 
-Als u niet zeker weet of uw ervaring kan worden beschouwd als een search-achtige ervaring, is het raadzaam dat u contact op met Microsoft.
+Als u niet zeker of uw ervaring kan worden gezien als een zoekachtige ervaring, wordt het aanbevolen contact op te nemen met Microsoft.
 
 ## <a name="throttling-requests"></a>Aanvraagbeperkingen
 
@@ -338,9 +338,9 @@ Als u niet zeker weet of uw ervaring kan worden beschouwd als een search-achtige
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u wilt snel aan de slag met uw eerste aanvraag, Zie [maken van uw eerste aanvraag](./quick-start.md).
+Zie [Uw eerste aanvraag maken](./quick-start.md) om snel aan de slag te gaan met uw eerste aanvraag.
 
-Maak uzelf vertrouwd met de [Bing Entity Search API voor Bing versie 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) verwijzing. De verwijzing bevat de headers en de queryparameters die u gebruikt om aan te vragen van de lijst met zoekresultaten. Daarnaast vindt u hier definities van de responsobjecten. 
+Lees voor meer informatie de [naslaghandleiding over de Bing Entiteiten zoeken-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference). De handleiding bevat de lijst met headers en queryparameters die u nodig hebt om zoekresultaten op te vragen. Daarnaast vindt u hier definities van de responsobjecten. 
 
 Zie [Automatische suggestie-API voor Bing](../bing-autosuggest/get-suggested-search-terms.md) om de gebruikerservaring van het zoekvak te verbeteren. Als de gebruiker een zoekterm invoert, kunt u deze API aanroepen om relevante querytermen weer te geven die door anderen zijn gebruikt.
 

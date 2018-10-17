@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410014"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831566"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Zelfstudie: Een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 
@@ -88,7 +88,7 @@ Met deze sjabloon wordt een veilig cluster van vijf virtuele machines geïmpleme
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-cluster
 
-Er wordt een Windows-cluster geïmplementeerd met de volgende kenmerken:
+In de resource **Microsoft.ServiceFabric/clusters** wordt een Windows-cluster geconfigureerd met de volgende kenmerken:
 
 * één knooppunttype
 * vijf knooppunten van het primaire knooppunttype (te configureren in de sjabloonparameters)
@@ -103,7 +103,7 @@ Er wordt een Windows-cluster geïmplementeerd met de volgende kenmerken:
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Er wordt een load balancer geïmplementeerd en er worden tests en regels ingesteld voor de volgende poorten:
+In de resource **Microsoft.Network/loadBalancers** wordt een load balancer geconfigureerd en worden tests en regels ingesteld voor de volgende poorten:
 
 * het eindpunt van de clientverbinding: 19000
 * het eindpunt van de HTTP-gateway: 19080
@@ -111,16 +111,16 @@ Er wordt een load balancer geïmplementeerd en er worden tests en regels ingeste
 * toepassingspoort: 443
 * omgekeerde proxy van Service Fabric: 19081
 
-Als er andere toepassingspoorten nodig zijn, moet u de bron Microsoft.Network/loadBalancers en de bron Microsoft.Network/networkSecurityGroups zo wijzigen dat verkeer kan binnenkomen.
+Als er andere toepassingspoorten nodig zijn, moet u de resource **Microsoft.Network/loadBalancers** en de resource **Microsoft.Network/networkSecurityGroups** zo wijzigen dat verkeer kan binnenkomen.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Virtueel netwerk, subnet en netwerkbeveiligingsgroep
 
-De namen van het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep zijn gedefinieerd in de sjabloonparameters.  De adresruimten van het virtuele netwerk en het subnet worden ook gedefinieerd in de sjabloonparameters:
+De namen van het virtuele netwerk, het subnet en de netwerkbeveiligingsgroep zijn gedefinieerd in de sjabloonparameters.  Adresruimten van het virtuele netwerk en subnet worden ook gedeclareerd in de sjabloonparameters en geconfigureerd in de resource **Microsoft.Network/virtualNetworks**:
 
 * adresruimte van virtueel netwerk: 172.16.0.0/20
 * Service Fabric-subnetadresruimte: 172.16.2.0/23
 
-De volgende regels voor binnenkomend verkeer worden ingeschakeld in de netwerkbeveiligingsgroep. U kunt de poortwaarden wijzigen door de sjabloonvariabelen te wijzigen.
+De volgende regels voor binnenkomend verkeer worden ingeschakeld in de resource **Microsoft.Network/networkSecurityGroups**. U kunt de poortwaarden wijzigen door de sjabloonvariabelen te wijzigen.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
@@ -131,7 +131,7 @@ De volgende regels voor binnenkomend verkeer worden ingeschakeld in de netwerkbe
 * Bereik toepassingspoorten: 49152 tot 65534 (deze worden gebruikt voor communicatie tussen services en niet geopend in de load balancer)
 * Blokkeer alle andere poorten
 
-Als er andere toepassingspoorten nodig zijn, moet u de bron Microsoft.Network/loadBalancers en de bron Microsoft.Network/networkSecurityGroups zo wijzigen dat verkeer kan binnenkomen.
+Als er andere toepassingspoorten nodig zijn, moet u de resource **Microsoft.Network/loadBalancers** en de resource **Microsoft.Network/networkSecurityGroups** zo wijzigen dat verkeer kan binnenkomen.
 
 ## <a name="set-template-parameters"></a>De sjabloonparameters instellen
 

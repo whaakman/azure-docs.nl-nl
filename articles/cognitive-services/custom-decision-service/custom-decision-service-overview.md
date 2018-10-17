@@ -1,54 +1,56 @@
 ---
-title: Wat is aangepast besluit Service? -Azure-cognitieve Services | Microsoft Docs
-description: Dit artikel overzichten Azure aangepaste besluit Service een cloud-gebaseerde API voor de contextuele besluitvorming die ervaring biedt.
+title: Wat is Custom Decision Service?
+titlesuffix: Azure Cognitive Services
+description: In dit artikel vindt u een overzicht van Custom Decision Service.
 services: cognitive-services
 author: alekh
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 774467446513dcd7ade7255d998b11f41824cafe
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35350016"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364203"
 ---
-# <a name="what-is-custom-decision-service"></a>Wat is aangepast besluit Service?
+# <a name="what-is-custom-decision-service"></a>Wat is Custom Decision Service?
 
-In een typische web of mobiele toepassing, een front-pagina bevat koppelingen naar verschillende artikelen of andere typen inhoud. Als de voorpagina wordt geladen, kan deze de waarden van positie artikelen die zijn opgenomen op die pagina front-Service besluit aangepaste aanvragen. Dus als een gebruiker een artikel door erop te klikken, kan een tweede aanvraag kan worden verzonden naar de aangepaste besluit-Service, die het resultaat van de keuze van die gebruiker, worden geregistreerd.
+In een gewone web- of mobiele toepassing wordt de eerste pagina gekoppeld aan verschillende artikelen of andere typen inhoud. Als de eerste pagina wordt geladen, kan Custom Decision Service worden gevraagd artikelen op die pagina te rangschikken. Wanneer een gebruiker een artikel kiest door erop te klikken, kan er een tweede aanvraag naar Custom Decision Service worden verzonden waarmee het resultaat van die keuze van de gebruiker wordt geregistreerd.
 
-Aangepaste besluit-Service is eenvoudig te gebruiken, omdat hiervoor alleen een RSS-feed voor uw inhoud en een paar regels JavaScript, kunnen worden toegevoegd aan uw toepassing.
+Custom Decision Service is eenvoudig te gebruiken, aangezien hiervoor alleen een RSS-feed voor uw inhoud nodig is en er een paar regels JavaScript in uw toepassing moeten worden toegevoegd.
 
-De inhoud van uw converteert aangepaste besluit Service naar functies voor machine learning. Het systeem gebruikt deze functies om te begrijpen van uw inhoud in termen van de tekst, afbeeldingen, video's en algemene gevoel. Dit maakt gebruik van verschillende andere [cognitieve Microsoft-Services](https://www.microsoft.com/cognitive-services), bijvoorbeeld [entiteit koppelen](../entitylinking/home.md), [Tekstanalyse](../text-analytics/overview.md), [Emotion](../emotion/home.md), en [Computer Vision](../computer-vision/home.md).
+Uw inhoud wordt in Custom Decision Service geconverteerd naar functies voor machine learning. Het systeem gebruikt deze functies om uw inhoud in termen van de tekst, afbeeldingen, video's en algeheel gevoel te begrijpen. Ook worden er diverse andere [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) gebruikt, zoals [Entiteitskoppeling](../entitylinking/home.md), [Text Analytics](../text-analytics/overview.md), [Emotion](../emotion/home.md) en [Computer Vision](../computer-vision/home.md).
 
-Er zijn enkele algemene gebruiksvoorbeelden voor aangepaste besluit Service:
+Enkele algemene gebruiksvoorbeelden voor Custom Decision Service zijn:
 
-* Personaliseren artikelen op een nieuwswebsite
-* Video-inhoud op een medium portal aanpassen
-* Ad plaatsingen of webpagina's waarmee de advertentie optimaliseren
-* Rangschikking aanbevolen items op de website van een webwinkel.
+* Artikelen op een nieuwswebsite aan de persoonlijke voorkeur aanpassen
+* Video-inhoud in een media-portal aan de persoonlijke voorkeur aanpassen
+* Advertenties of webpagina's waar de advertenties naartoe leiden, optimaliseren
+* Aanbevolen artikelen op een winkelwebsite rangschikken.
 
-Aangepaste besluit-Service is momenteel in *gratis openbare preview*. Deze kunt een lijst met artikelen op een website of een app aanpassen. Het uitpakken van de functie werkt het beste voor Engelstalige inhoud. [Beperkte functionaliteit](../text-analytics/overview.md) wordt geboden voor andere talen, zoals Spaans, Frans, Duits, Portugees en Japans. Deze documentatie worden herzien zodra er nieuwe functionaliteit beschikbaar.
+Custom Decision Service is momenteel als *openbare preview* beschikbaar. U kunt hiermee een lijst met artikelen op een website of in een app aan de persoonlijke voorkeur aanpassen. Het ophalen van de functie werkt het beste voor Engelstalige inhoud. Voor andere talen, zoals Spaans, Frans, Duits, Portugees en Japans, is de [functionaliteit beperkt](../text-analytics/overview.md). Als er nieuwe functionaliteit beschikbaar komt, wordt deze documentatie bijgewerkt.
 
-Aangepaste besluit-Service kan worden gebruikt in toepassingen die zich niet in het domein van de inhoud aanpassen. Deze toepassingen mogelijk geschikt voor een aangepaste preview. [Neem contact met ons](https://azure.microsoft.com/overview/sales-number/) voor meer informatie.
+Custom Decision Service kan worden gebruikt in toepassingen die zich niet in het domein voor inhoud met persoonlijke aanpassingen bevinden. Deze toepassingen zijn mogelijk geschikt voor een aangepaste preview. [Neem contact met ons op](https://azure.microsoft.com/overview/sales-number/) voor meer informatie.
 
-## <a name="api-usage-modes"></a>API-gebruik modi
+## <a name="api-usage-modes"></a>Modi voor API-gebruik
 
-Aangepaste besluit-Service kan worden toegepast op webpagina's en de mobiele apps. De API's kan worden aangeroepen vanuit een browser of een app. Het gebruik van de API lijkt op beide, maar sommige van de details zijn verschillend.
+Custom Decision Service kan worden toegepast op zowel webpagina's als mobiele apps. De API's kunnen worden aangeroepen vanuit een browser of een app. Het gebruik van de API is vergelijkbaar bij beide, maar sommige details verschillen.
 
 ## <a name="glossary-of-terms"></a>Verklarende woordenlijst
 
-Verschillende voorwaarden vaak optreden in deze documentatie:
+In deze documentatie komen bepaalde termen vaak voor:
 
-* **Actie set**: de reeks inhoudsitems voor aangepaste besluit Service wilt rangschikken. Deze set kan worden opgegeven als een *RSS* of *Atom* eindpunt.
-* **Rangschikking**: elke aanvraag met aangepaste besluit Service bevat een of meer sets van de actie. Het systeem door het verzamelen van alle inhoud opties uit deze sets reageert en vrijgegeven, gaan ze in gerangschikte volgorde.
-* **Callback-functie**: deze functie, die u opgeeft, wordt de inhoud in de gebruikersinterface weergegeven. De inhoud is geordend op de positie ordening door aangepaste besluit Service geretourneerd.
-* **Derden**: een meting van hoe de gebruiker heeft geantwoord op de gerenderde inhoud. Aangepaste besluit Service meet antwoord van de gebruiker met behulp van klikken. De klikt op worden gerapporteerd aan het systeem met behulp van aangepaste code ingevoegd in uw toepassing.
+* **Actieset**: de set met inhoudsitems voor Custom Decision Service die moeten worden gerangschikt. Deze set kan worden opgegeven als een *RSS*- of *Atom*-eindpunt.
+* **Rangschikking**: bij elke aanvraag voor Custom Decision Service worden een of meer actiesets opgegeven. Het systeem reageert door alle inhoudsopties uit deze sets te kiezen en ze in gerangschikte volgorde te retourneren.
+* **Callback-functie**: met deze functie, die u opgeeft, wordt de inhoud in uw gebruikersinterface weergegeven. De inhoud wordt geordend volgens de rangschikking die wordt geretourneerd door Custom Decision Service.
+* **Beloning**: een meting van de manier waarop de gebruiker op de weergegeven inhoud heeft gereageerd. In Custom Decision Service worden reacties van gebruikers gemeten met klikken. De klikken worden gerapporteerd aan het systeem met behulp van aangepaste code die is ingevoegd in uw toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Uw toepassing registreren](custom-decision-service-get-started-register.md) met aangepaste besluit Service
-* Aan de slag te optimaliseren [een webpagina](custom-decision-service-get-started-browser.md) of [een smartphone-app](custom-decision-service-get-started-app.md).
-* Raadpleeg de [API-referentiemateriaal](custom-decision-service-api-reference.md) voor meer informatie over de functionaliteit voor opgegeven.
+* [Uw toepassing registreren](custom-decision-service-get-started-register.md) met Custom Decision Service
+* Ga aan de slag met het optimaliseren van [een webpagina](custom-decision-service-get-started-browser.md) of [een smartphone-app](custom-decision-service-get-started-app.md).
+* Raadpleeg de [API-naslag](custom-decision-service-api-reference.md) voor meer informatie over de geleverde functionaliteit.

@@ -1,42 +1,42 @@
 ---
-title: Entiteit zoeken SDK Python Quick Start | Microsoft Docs
-description: Setup voor de entiteit zoeken SDK-consoletoepassing.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: 'Snelstart: Bing Entiteiten zoeken-SDK, Python'
+titlesuffix: Azure Cognitive Services
+description: De Bing Entiteiten zoeken-SDK-consoletoepassing instellen.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345697"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814233"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Entiteit zoeken SDK Python Quick Start
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Snelstart: Bing Entiteiten zoeken-SDK met Python
 
-De entiteit Search SDK bevat de functionaliteit van de REST-API voor web-query's en parseren resultaten.
+De Entiteiten zoeken-SDK bevat de functionaliteit van de REST API voor webquery's en het parseren van resultaten.
 
-De [broncode voor Python Bing entiteit Search SDK voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing Entiteiten zoeken-SDK voor Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) is beschikbaar op Git Hub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Als u dit nog geen hebt, installeert u Python. De SDK is compatibel met Python 2.7, 3.3 3.4, 3.5 en 3.6.
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Als u Python nog niet hebt, moet u dit eerst installeren. De SDK is compatibel met Python 2.7, 3.3, 3.4, 3.5 en 3.6.
 
-De algemene aanbevelingen voor de ontwikkeling van een Python is met een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html). Installeren en het initialiseren van de virtuele omgeving met de [venv module](https://pypi.python.org/pypi/virtualenv). Voor Python 2.7 moet u virtualenv installeren.
+De algemene aanbeveling voor het ontwikkelen met Python is om een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html) te gebruiken. Installeer en initialiseer de virtuele omgeving met de [venv-module](https://pypi.python.org/pypi/virtualenv). U moet virtualenv voor Python 2.7 installeren.
 ```
 python -m venv mytestenv
 ```
-Bing entiteit Search SDK-afhankelijkheden installeren:
+Bing Entiteiten zoeken-SDK-afhankelijkheden installeren:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-entitysearch
 ```
-## <a name="entity-search-client"></a>Entiteit zoeken client
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *Search*. Invoer toevoegen:
+## <a name="entity-search-client"></a>Entiteiten zoeken-client
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder *Zoeken*. Voeg imports toe:
 ```
 from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
 from azure.cognitiveservices.search.entitysearch.models import Place, ErrorResponseException
@@ -44,11 +44,11 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Maak een instantie van de `CognitiveServicesCredentials`. Exemplaar maken van de client:
+Maak een instantie van de `CognitiveServicesCredentials`. Maak een instantie van de client:
 ```
 client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Zoeken naar één entiteit (Gibralter) en een korte beschrijving afdrukken:
+Zoek naar een enkele entiteit (Gibralter) en geef een korte beschrijving weer:
 ```
 entity_data = client.entities.search(query="Gibralter")
 
@@ -68,7 +68,7 @@ else:
     print("Didn't see any data..")
 
 ```
-Zoeken en ingang disambiguation resultaten voor een niet-eenduidige query (William Gates).
+Zoek naar een dubbelzinnige query (William Gates) en verwerk ondubbelzinnige resultaten.
 ```
 def handling_disambiguation(subscription_key):
 
@@ -112,7 +112,7 @@ def handling_disambiguation(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Zoeken naar een winkel (Microsoft Store) en het telefoonnummer afdrukken.
+Zoek naar een enkele winkel (Microsoft Store) en geef het telefoonnummer weer.
 ```
 def store_lookup(subscription_key):
 
@@ -153,7 +153,7 @@ def store_lookup(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Voor een lijst met restaurant (Seattle restaurant) te zoeken en afdrukken van hun namen en telefoonnummers.
+Zoek naar een lijst met restaurants (restaurants in Seattle) en geef de namen en telefoonnummers weer.
 ```
 def multiple_restaurant_lookup(subscription_key):
 
@@ -192,7 +192,7 @@ def multiple_restaurant_lookup(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Een onjuiste aanvraag activeren en het foutbericht te lezen.
+Activeer een ongeldige aanvraag en lees het foutbericht.
 ```
 def error(subscription_key):
 
@@ -216,5 +216,5 @@ def error(subscription_key):
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Python SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Voorbeelden voor Cognitive Services Python SDK](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

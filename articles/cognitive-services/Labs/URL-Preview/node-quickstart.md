@@ -1,39 +1,41 @@
 ---
-title: Node.js-Quick Start voor het voorbeeld in de Project-URL - cognitieve Microsoft-Services | Microsoft Docs
-description: Aan de slag met de Preview-URL in cognitieve Microsoft-Services in Azure.
+title: 'Snelstartgids: voorbeeld van project-URL, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Ga aan de slag met URL Preview in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345284"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883564"
 ---
-# <a name="url-preview-node-quickstart"></a>Quick Start-URL Preview knooppunt
+# <a name="quickstart-url-preview-with-nodejs"></a>Snelstartgids: URL Preview met Node.js 
 
-Het volgende knooppunt voorbeeld wordt een voorbeeld-Url voor de website van SwiftKey: https://swiftkey.com/en.
+In het volgende voorbeeld van Node wordt er een URL-voorbeeld gemaakt voor de SwiftKey-website: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription).
 
-## <a name="code-scenario"></a>Code-scenario 
+## <a name="code-scenario"></a>Codescenario 
 
-De volgende code haalt gegevens bekijken van de URL.
-Deze is geïmplementeerd in de volgende stappen uit:
-1. Declareer de variabelen opgeven van het eindpunt van de host en pad.
-2. Geef de URL van de query voor de preview en voeg de queryparameter.  
+Met de volgende code kunt u gegevens ophalen voor een voorbeeld van een URL.
+De code wordt in de volgende stappen geïmplementeerd:
+1. Declareer variabelen om het eindpunt op te geven met een host en pad.
+2. Geef de query-URL op waarvan u een voorbeeld wilt maken en voeg de queryparameter toe.  
 3. Maak een handlerfunctie voor het antwoord.
-4. Definieer de zoekfunctie die de aanvraag wordt gemaakt en wordt de *Ocp-Apim-Subscription-Key* header.
-5. Voer de zoekfunctie. 
+4. Definieer de Search-functie die de aanvraag maakt en de header *Ocp-Apim-Subscription-Key* toevoegt.
+5. Voer de Search-functie uit. 
 
-De volledige code voor deze demo volgt:
+Dit is de volledige code voor deze demo:
 
 ````
 'use strict';
@@ -84,7 +86,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [C#-voorbeeldcode](csharp.md)
-- [Java-Quick Start](java-quickstart.md)
-- [JavaScript Quick Start](javascript.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Code van C#-voorbeeld](csharp.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor JavaScript](javascript.md)
+- [Snelstart voor Python](python-quickstart.md)

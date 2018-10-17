@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222164"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855949"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen
 
@@ -68,7 +68,7 @@ Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Micr
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
 
-Als uw organisatie internettoegang via een uitgaande proxy vereist, kunt u vanaf Windows 10 1709 proxyinstellingen op uw computer configureren met behulp van een groepsbeleidsobject (GPO). Als op uw computer een oudere versie dan Windows 10 1709 wordt uitgevoerd, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD. 
+Als uw organisatie internettoegang via een uitgaande proxy vereist, kunt u vanaf Windows 10 1709 [proxyinstellingen op uw computer configureren met behulp van een groepsbeleidsobject (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Als op uw computer een oudere versie dan Windows 10 1709 wordt uitgevoerd, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD. 
 
 Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers succesvol kunnen verifiëren bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie uitvoeren via machinecontext, moet u verificatie van een uitgaande proxy configureren via machinecontext. Vraag uw provider van de uitgaande proxy naar de configuratievereisten. 
 

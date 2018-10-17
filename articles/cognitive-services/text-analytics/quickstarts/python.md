@@ -1,39 +1,40 @@
 ---
-title: 'Snelstartgids: Met behulp van Python voor het aanroepen van de Tekstanalyse-API | Microsoft Docs'
+title: 'Snelstart: Python gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
+description: Krijg informatie en codevoorbeelden om u te helpen snel aan de slag te gaan met behulp van de Text Analytics-API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
 author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 8e570aac2c2d89a8147d179c4b0f9155497c5188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 07b7327b01987d79a6447ed67de27b69c02c14ee
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298689"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268356"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: Met behulp van Python voor het aanroepen van de Text Analytics-Cognitive Service
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Snelstart: Python gebruiken om de Text Analytics Cognitive Service aan te roepen 
 <a name="HOLTop"></a>
 
-In dit scenario ziet u hoe u aan [taal detecteren](#Detect), [stemming analyseren](#SentimentAnalysis), en [Extraheer sleuteluitdrukkingen](#KeyPhraseExtraction) met behulp van de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711)met Python.
+Hieronder ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met Python kunt gebruiken om [taal te detecteren](#Detect), [gevoel te analyseren](#SentimentAnalysis) en [sleuteltermen op te halen](#KeyPhraseExtraction).
 
-In dit voorbeeld kunt u uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
+U kunt dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de badge launch binder: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Tekstanalyse-API**. U kunt de **gratis laag voor 5000 transacties per maand** voor dit scenario.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. U kunt de **gratis laag voor 5000 transacties/maand** gebruiken om dit voorbeeld te voltooien.
 
-Ook moet u de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die voor u is gegenereerd tijdens de registratie. 
+U moet ook de [eindpunt- en toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u is gegenereerd tijdens de registratie. 
 
-Als u wilt doorgaan met dit scenario, Vervang `subscription_key` met een geldig abonnement-sleutel die u eerder hebt verkregen.
+Als u wilt doorgaan met dit scenario, moet u `subscription_key` vervangen door een geldige abonnementssleutel die u eerder hebt opgehaald.
 
 
 ```python
@@ -41,7 +42,7 @@ subscription_key = None
 assert subscription_key
 ```
 
-Vervolgens controleren of de regio in `text_analytics_base_url` komt overeen met de versie die u hebt gebruikt bij het instellen van de service. Als u een gratis proefversie sleutel gebruikt, hoeft u niet wijzigen.
+Vervolgens controleert u of de regio in `text_analytics_base_url` overeenkomt met de regio die u hebt gebruikt bij het instellen van de service. Als u de sleutel van een gratis proefversie gebruikt, hoeft u niets te wijzigen.
 
 
 ```python
@@ -52,7 +53,7 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 ## <a name="detect-languages"></a>Talen detecteren
 
-De API voor taal detecteert de taal van een document, met behulp van de [taal detecteren methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Het service-eindpunt van de taaldetectie API voor uw regio is beschikbaar via de volgende URL:
+Met de Language Detection-API wordt de taal van een tekstdocument gedetecteerd met behulp van de [methode Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Het service-eindpunt van de taaldetectie-API voor uw regio is beschikbaar via de volgende URL:
 
 
 ```python
@@ -63,9 +64,9 @@ print(language_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 
-De nettolading voor de API bestaat uit een lijst met `documents`, elk van die op zijn beurt bevat een `id` en een `text` kenmerk. De `text` kenmerk slaat de tekst die moet worden geanalyseerd. 
+De payload voor de API bestaat uit een lijst met `documents`, waarvan elk een `id`- en een `text`-kenmerk bevat. Het `text`-kenmerk bevat de tekst die moet worden geanalyseerd. 
 
-Vervang de `documents` -woordenlijst met andere tekst voor de taaldetectie van. 
+Vervang de `documents`-woordenlijst door andere tekst voor taaldetectie. 
 
 
 ```python
@@ -76,7 +77,7 @@ documents = { 'documents': [
 ]}
 ```
 
-De volgende paar regels code aanroepen met de language detection-API via de `requests` bibliotheek in Python om te bepalen welke taal in de documenten.
+De volgende paar regels code roepen de taaldetectie-API aan met behulp van de `requests`-bibliotheek in Python om de taal in de documenten te bepalen.
 
 
 ```python
@@ -103,7 +104,7 @@ pprint(languages)
      'errors': []}
 
 
-De volgende regels code weergegeven de JSON-gegevens als een HTML-tabel.
+Met de volgende regels code worden de JSON-gegevens als een HTML-tabel weergegeven.
 
 
 ```python
@@ -120,9 +121,9 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 ## <a name="analyze-sentiment"></a>Stemming analyseren
 
-De analyse-Gevoels-API-detexts het gevoel van een set tekstrecords, met behulp van de [Sentiment methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Het volgende voorbeeld beoordeelt twee documenten, één in het Engels en een andere in het Spaans.
+Met de Sentiment Analysis-API wordt het gevoel in een set tekstrecords gedetecteerd met behulp van de [methode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). In het volgende voorbeeld worden twee documenten beoordeeld, één in het Engels en één in het Spaans.
 
-Het service-eindpunt voor sentimentanalyse is beschikbaar voor uw regio via de volgende URL:
+Het service-eindpunt voor sentimentanalyse is voor uw regio beschikbaar via de volgende URL:
 
 
 ```python
@@ -133,7 +134,7 @@ print(sentiment_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
 
-Zoals in het voorbeeld taal detectie van de service wordt aangeboden door een woordenlijst met een `documents` sleutel die uit een lijst met documenten bestaat. Elk document is een tuple die bestaat uit de `id`, wordt de `text` kunnen worden geanalyseerd en de `language` van de tekst. U kunt de taaldetectie API uit de vorige sectie voor het vullen van dit veld gebruiken. 
+Net zoals in het voorbeeld van taaldetectie wordt de service voorzien van een woordenlijst met een `documents`-sleutel die uit een lijst met documenten bestaat. Elk document is een tuple die bestaat uit de `id`, de te analyseren `text` en de `language` van de tekst. U kunt de taaldetectie-API uit de vorige sectie gebruiken om dit veld in te vullen. 
 
 
 ```python
@@ -145,7 +146,7 @@ documents = {'documents' : [
 ]}
 ```
 
-Het sentiment-API kan nu worden gebruikt voor het analyseren van de documenten voor de bijbehorende sentimenten.
+De sentiment-API kan nu worden gebruikt om de documenten te analyseren op de daarin opgenomen sentimenten.
 
 
 ```python
@@ -161,15 +162,15 @@ pprint(sentiments)
      'errors': []}
 
 
-De gevoelsscore voor een document is tussen $ $0 en $ $1, met een hogere score die wijzen op een positiever gevoel.
+De gevoelsscore voor een document is tussen $0$ en $1$, waarbij een hogere score op een positiever gevoel wijst.
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
+## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
 
-De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). In dit gedeelte van het scenario extraheert sleuteltermen voor Engelse en Spaanse documenten.
+Met de Key Phrase Extraction-API worden sleuteltermen opgehaald uit een tekstdocument met behulp van de [methode Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). In dit gedeelte van het scenario worden sleuteltermen opgehaald voor zowel de Engelse als Spaanse documenten.
 
-Het service-eindpunt voor de sleutel vindt er sleuteltermextractie plaats-service is toegankelijk via de volgende URL:
+Het service-eindpunt voor de service voor het ophalen van sleuteltermen is toegankelijk via de volgende URL:
 
 
 ```python
@@ -180,7 +181,7 @@ print(key_phrase_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
 
-De verzameling van documenten is hetzelfde als voor sentimentanalyse zijn gebruikt.
+De verzameling documenten is dezelfde als die voor sentimentanalyse werd gebruikt.
 
 
 ```python
@@ -206,7 +207,7 @@ pprint(key_phrases)
     }
 
 
-Het JSON-object kan opnieuw worden weergegeven als een HTML-tabel met behulp van de volgende regels code:
+Het JSON-object kan opnieuw als een HTML-tabel worden weergegeven met behulp van de volgende regels code:
 
 
 ```python
@@ -219,11 +220,11 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
-## <a name="identify-linked-entities"></a>Gekoppelde entiteiten identificeren
+## <a name="identify-entities"></a>Entiteiten identificeren
 
-De Entity Linking API identificeert bekende entiteiten in een document, met behulp van de [entiteiten koppelen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Het volgende voorbeeld identificeert entiteiten voor Engels-documenten.
+De Entities-API identificeert bekende entiteiten in een tekstdocument, met behulp van de [methode Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). In het volgende voorbeeld worden entiteiten geïdentificeerd voor Engelse documenten.
 
-Het service-eindpunt voor de gekoppelde service van entiteit wordt benaderd via de volgende URL:
+Het service-eindpunt voor de service voor entiteitskoppeling is toegankelijk via de volgende URL:
 
 
 ```python
@@ -231,83 +232,182 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
 
 
-De verzameling van documenten lager is dan:
+De verzameling documenten staat hieronder:
 
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.'},
-  {'id': '2', 'text': 'The Seattle Seahawks won the Super Bowl in 2014.'}
+  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
+  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
 ]}
 ```
 
-Nu, kunnen de documenten worden verzonden naar de Tekstanalyse-API voor het ontvangen van het antwoord.
+De documenten kunnen nu worden verzonden naar de Text Analytics-API om het antwoord te ontvangen.
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
 entities = response.json()
 ```
-    {
-        "documents": [
-            {
-                "id": "1",
-                "entities": [
-                    {
-                        "name": "Xbox One",
-                        "matches": [
-                            {
-                                "text": "XBox One",
-                                "offset": 23,
-                                "length": 8
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Xbox One",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                        "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
-                    },
-                    {
-                        "name": "Ultra-high-definition television",
-                        "matches": [
-                            {
-                                "text": "4K",
-                                "offset": 63,
-                                "length": 2
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Ultra-high-definition television",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                        "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
-                    }
-                ]
-            },
-            {
-                "id": "2",
-                "entities": [
-                    {
-                        "name": "2013 Seattle Seahawks season",
-                        "matches": [
-                            {
-                                "text": "Seattle Seahawks",
-                                "offset": 4,
-                                "length": 16
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "2013 Seattle Seahawks season",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                        "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+
+```json
+{
+    "Documents": [
+        {
+            "Id": "1",
+            "Entities": [
+                {
+                    "Name": "Jeff",
+                    "Matches": [
+                        {
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "Person"
+                },
+                {
+                    "Name": "three dozen",
+                    "Matches": [
+                        {
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Entities": [
+                {
+                    "Name": "Great Depression",
+                    "Matches": [
+                        {
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        }
+    ],
+    "Errors": []
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -316,5 +416,5 @@ entities = response.json()
 
 ## <a name="see-also"></a>Zie ook 
 
- [Text Analytics-overzicht](../overview.md)  
+ [Overzicht van Text Analytics](../overview.md)  
  [Veelgestelde vragen](../text-analytics-resource-faq.md)

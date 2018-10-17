@@ -1,35 +1,37 @@
 ---
-title: Emotion-API cURL snel aan de slag | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Emotion-API met cURL in cognitieve Services.
+title: 'Snelstart: emoties op gezichten in een afbeelding herkennen - Emotion-API, cURL'
+titlesuffix: Azure Cognitive Services
+description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Emotion-API en cURL.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: a7ca2cac718797462bb4dc889b3f1361b252435e
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021095"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237072"
 ---
-# <a name="emotion-api-curl-quick-start"></a>Emotion-API cURL snel starten
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
 
 > [!IMPORTANT]
-> Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-In dit artikel vindt u informatie en codevoorbeelden kunt u snel aan de slag met de [Emotion-API herkennen methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met cURL de emoties uitgedrukt in een of meer personen in een installatiekopie kan herkennen. 
+In dit artikel vindt u informatie en codevoorbeelden om met behulp van cURL en de [methode Recognize van de Emotion-API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) de emoties te herkennen die worden uitgedrukt door een of meer personen in een afbeelding.
 
 ## <a name="prerequisite"></a>Vereiste
-* Sleutel voor gratis abonnement ophalen [hier](https://azure.microsoft.com/try/cognitive-services/)
+* U kunt [hier](https://azure.microsoft.com/try/cognitive-services/) een gratis abonnementssleutel ophalen
 
-## <a name="recognize-emotions-curl-example-request"></a>Herkent dat emoties cURL voorbeeld aanvragen
+## <a name="recognize-emotions-curl-example-request"></a>Voorbeeld van cURL-aanvraag voor herkennen van emoties
 
 > [!NOTE]
-> U moet dezelfde locatie gebruiken in uw REST-aanroep als u gebruikt voor het verkrijgen van de sleutels van uw abonnement. Bijvoorbeeld, als u de sleutels van uw abonnement hebt verkregen via westcentralus, vervangen door 'westus' in de onderstaande URL 'westcentralus'.
+> U moet in uw REST-aanroep dezelfde locatie gebruiken waar u uw abonnementssleutels hebt verkregen. Als u bijvoorbeeld uw abonnementssleutels van westcentralus hebt verkregen, vervangt u 'westus' in de onderstaande URL door 'westcentralus'.
 
 ```json
 @ECHO OFF
@@ -38,16 +40,16 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recogni
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
---data-ascii "{body}" 
+--data-ascii "{body}"
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Voorbeeldreactie emoties herkennen
-Een geslaagde aanroep retourneert een matrix met face-vermeldingen en hun bijbehorende emotion-scores, gerangschikt op face rechthoek grootte in aflopende volgorde. Een leeg antwoord geeft aan dat er geen vlakken zijn gedetecteerd. Een emotion-vermelding bevat de volgende velden:
-* faceRectangle - locatie van de rechthoek van gezicht in de installatiekopie.
-* scores - Emotion scores voor elk vlak in de installatiekopie. 
+## <a name="recognize-emotions-sample-response"></a>Voorbeeldantwoord voor herkennen van emoties
+Een geslaagde aanroep retourneert een matrix van gezichtsvermeldingen en de bijbehorende emotiescores, in aflopende volgorde gerangschikt op grootte van gezichtsrechthoek. Een leeg antwoord geeft aan dat er geen gezichten zijn gedetecteerd. Een emotievermelding bevat de volgende velden:
+* faceRectangle: locatie van de rechthoek met het gezicht in de afbeelding.
+* scores: emotiescores voor elk gezicht in de afbeelding.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -68,4 +70,3 @@ application/json
     }
   }
 ]
-

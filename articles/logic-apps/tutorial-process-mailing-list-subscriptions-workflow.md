@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122866"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044413"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Adressenlijstaanvragen beheren met een logische app
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Adressenlijstaanvragen beheren met Azure Logic Apps
 
 Azure Logic Apps helpt u om uw werkstromen te automatiseren en om gegevens te integreren in Azure-services, Microsoft-services, andere SaaS-apps (software als een service) en on-premises systemen. Deze zelfstudie laat zien hoe u een [logische app](../logic-apps/logic-apps-overview.md) kunt bouwen die abonnementsaanvragen verwerkt voor een adressenlijst die wordt beheerd door de [MailChimp](https://mailchimp.com/)-service.
 Deze logische app bewaakt een e-mailaccount voor deze aanvragen, verzendt deze aanvragen voor goedkeuring en voegt goedgekeurde leden toe aan de adressenlijst.

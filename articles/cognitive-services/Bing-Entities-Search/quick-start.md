@@ -1,60 +1,59 @@
 ---
-title: Entiteiten Search API snel aan de slag | Microsoft Docs
-description: Laat zien hoe u aan de slag met de Bing entiteiten Search API.
+title: 'Snelstartgids: Bing Entiteiten zoeken-API'
+description: Lees hoe u aan de slag gaat met de Bing Entiteiten zoeken-API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344455"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813954"
 ---
-# <a name="making-your-first-entities-request"></a>Uw eerste entiteiten aanvragen maken
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Snelstartgids: Uw eerste aanvraag voor Bing Entiteiten zoeken maken
 
-De entiteit Search API stuurt een zoekquery naar Bing en entiteiten en locaties omvatten de resultaten opgehaald. Plaats resultaten bevatten restaurant, hotel of andere lokale bedrijven. De query de naam van de lokale business kunt opgeven voor ruimten, of dit kunt vragen voor een lijst (bijvoorbeeld restaurant dichtbij). Resultaten van de entiteit zijn personen, plaatsen of dingen. Plaats in deze context is Sport attracties, statussen, landen, enzovoort. 
+De Bing Entiteiten zoeken-API verzendt een zoekquery naar Bing en haalt resultaten op die zowel entiteiten als plaatsen bevatten. Plaatsresultaten kunnen restaurants, hotels of andere lokale bedrijven zijn. In het geval van plaatsen kan de query de naam van het lokale bedrijf opgeven of vragen om een lijst (bijvoorbeeld 'restaurants near me'). Entiteitsresultaten zijn personen, plaatsen of dingen. Voorbeelden van plaatsen in deze context zijns toeristische bezienswaardigheden, staten, landen, enzovoort. 
 
 ## <a name="first-steps"></a>Eerste stappen
 
-Voordat u uw eerste aanroep aanbrengen kunt, moet u een abonnement cognitieve Services code. Als u een sleutel, Zie [cognitieve Services probeer](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Als de entiteiten Search API niet worden weergegeven aan de bovenkant, klikt u op de **Search** tabblad en schuif omlaag totdat u het ziet.)
+Voordat u uw eerste aanroep kunt versturen, moet u een abonnementssleutel van Cognitive Services opvragen. Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api) voor meer informatie. (Als de Entiteiten zoeken-API niet wordt weergegeven bovenaan het scherm, klikt u op het tabblad **Zoeken** en scrolt u omlaag totdat u de API ziet.)
 
 ## <a name="the-endpoint"></a>Het eindpunt
 
-Om entiteit en zoekresultaten plaatsen, een aanvraag voor ophalen naar het volgende eindpunt te verzenden:  
+Als u zoekresultaten voor entiteiten en plaatsen wilt opvragen, verstuurt u een GET-aanvraag naar het volgende eindpunt:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-De aanvraag moet de HTTPS-protocol gebruiken.
+In de aanvraag moet u het HTTPS-protocol gebruiken.
 
-We raden aan dat alle aanvragen zijn afkomstig uit een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt meer mogelijkheden om een schadelijke van derden om deze te openen. Het aanroepen van een server biedt ook een centraal punt voor de upgrade voor toekomstige versies van de API.
+Het is raadzaam dat alle aanvragen afkomstig zijn van een server. Het distribueren van de sleutel als onderdeel van een clienttoepassing biedt een kwaadwillende gebruiker namelijk meer mogelijkheden om de sleutel te onderscheppen. Als u ervoor kiest om alle aanroepen via een server te laten lopen, beschikt u bovendien over een centraal upgradepunt voor toekomstige versies van de API.
 
-## <a name="specifying-query-parameters-and-headers"></a>Query-parameters en -koppen opgeven
+## <a name="specifying-query-parameters-and-headers"></a>Queryparameters en headers opgeven
 
-De aanvraag moet opgeven de [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) queryparameter waarin de gebruiker zoekterm. De aanvraag moet ook opgeven de [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) queryparameter waarmee de markt waar u de resultaten uit te komen. Zie voor een lijst van optionele queryparameters [queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). URL-codering alle queryparameters.  
+De aanvraag moet de parameter [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) bevatten, met daarin de zoekterm van de gebruiker. De aanvraag moet ook de queryparameter [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) bevatten, ter aanduiding van de markt waar u de resultaten vandaan wilt halen. Zie [Queryparameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) voor een lijst met optionele queryparameters. U moet op alle queryparameters URL-codering toepassen.  
   
-De aanvraag moet opgeven de [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) header. Hoewel dit optioneel, wordt u aangeraden ook de volgende headers opgeven:  
+De aanvraag moet de header [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) bevatten. Hoewel dit optioneel is, wordt u aangeraden ook altijd deze headers op te geven:  
   
--   [Gebruikersagent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
--   [X-MSEdge-client-IP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
--   [X-Search-locatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
+-   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
 
-De client-IP-adres en de locatie-headers zijn belangrijk voor het retourneren van locatie op de hoogte inhoud.  
+De headers ClientIP en Location zijn belangrijk voor het retourneren van locatiespecifieke inhoud.  
 
-Zie voor een lijst van alle aanvraag- en reactieheaders [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
+Zie [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) voor een lijst van alle aanvraag- en antwoordheaders.
 
 ## <a name="the-request"></a>De aanvraag
 
-Hieronder ziet u een aanvraag voor entiteiten met alle voorgestelde queryparameters en -koppen. 
+Hieronder ziet u een aanvraag voor entiteiten waarin alle voorgestelde queryparameters en headers zijn opgenomen. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/entities?q=mount+rainier&mkt=en-us HTTP/1.1  
@@ -66,11 +65,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Als dit de eerste keer aanroepen van een van de Bing-API's, bevatten geen koptekst van de client-ID. Alleen de client-ID bevatten als u eerder een Bing-API hebt genoemd en Bing een client-ID voor de gebruiker en apparaat combinatie geretourneerd.
+Als dit de eerste keer is van u een van de Bing-API's aanroept, moet u de header met de client-id weglaten. Voeg de client-id alleen toe als u eerder een Bing-API hebt aangeroepen en Bing een client-id heeft geretourneerd voor de combinatie van gebruiker en apparaat.
 
 ## <a name="the-response"></a>Het antwoord
 
-Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld ziet ook de Bing-specifieke antwoordheaders. Zie voor meer informatie over het object response [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+Hieronder ziet u het antwoord op de vorige aanvraag. Het voorbeeld bevat ook de Bing-specifieke antwoordheaders. Zie [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) voor meer informatie over het responsobject.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -137,8 +136,8 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De API uitproberen. Ga naar [entiteiten zoeken API testen Console](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
+Probeer de API uit. Ga naar [Testconsole voor Entiteiten zoeken-API](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
 
-Zie voor meer informatie over het gebruiken van de objecten antwoord [zoeken op het Web voor entiteiten en locaties](./search-the-web.md).
+Zie [Searching the Web for entities and places](./search-the-web.md) (Op internet zoeken naar entiteiten en plaatsen) voor meer informatie over het gebruiken van de antwoordobjecten.
 
-Lees [Bing gebruiken en de vereisten van de weergave](./use-display-requirements.md) zodat u de regels over het gebruik van de zoekresultaten niet verbreken.
+Lees [Gebruiks- en weergavevereisten voor Bing](./use-display-requirements.md) om er zeker van te zijn dat u alle regels voor het gebruik van de zoekresultaten volgt.

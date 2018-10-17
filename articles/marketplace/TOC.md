@@ -22,7 +22,7 @@
 #### [IoT Edge-modules](./iot-edge-module.md) 
 #### [Adviesservices](./consulting-services.md)  
 #### [Publicatiehandleiding voor Office 365, Dynamics 365 en Power BI](./appsource-offer-publishing-guide.md)
-#### [Een Microsoft AppSource- en Azure Marketplace-vermelding inschakelen met Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
+#### [Een AppSource- en Azure Marketplace-vermelding inschakelen met behulp van Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 

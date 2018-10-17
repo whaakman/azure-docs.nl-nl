@@ -1,43 +1,44 @@
 ---
-title: Academic Knowledge API voor Microsoft Academic grafiek | Microsoft Docs
-description: Gebruik de Academic Knowledge API gebruikersquery interpreteren en uitgebreide informatie ophalen van de grafiek Academic in cognitieve Microsoft-Services.
+title: Wat is de Academic Knowledge-API?
+titlesuffix: Azure Cognitive Services
+description: Gebruik de Academic Knowledge-API voor het interpreteren van query's van gebruikers en het ophalen van waardevolle informatie uit de Academic Graph.
 services: cognitive-services
 author: mvorvoreanu
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: overview
 ms.date: 03/27/2017
 ms.author: mivorvor
-ms.openlocfilehash: e241f9a87cd58b62eafd754bd3cb4283aa0a1e92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344728"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901207"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge-API
 
-Welkom bij de Academic Knowledge API. Met deze service kunt u query’s van gebruikers interpreteren voor academische doeleinden, en kunt u uitgebreide informatie ophalen uit Microsoft Academic Graph (MAG). De magnetische knowledge base is een web-scale heterogene entiteit grafiek bestaat uit de entiteiten die model wetenschappelijke activiteiten: veld onderzoek, auteur, instelling, papier, u wilt en gebeurtenis. 
+Welkom bij de Academic Knowledge-API. Met deze service kunt u query’s van gebruikers interpreteren op academische doeleinden en waardevolle informatie ophalen uit de Microsoft Academic Graph (MAG). De MAG-kennisbank is een heterogene entiteitsgraaf op internet die bestaat uit entiteiten die wetenschappelijk activiteiten modelleren: onderzoeksgebied, auteur, instelling, paper, locatie en gebeurtenis. 
 
-De gegevens magnetische mijn verborgen in de Bing-web-index als een intern kennisdatabase van Bing. Als gevolg van continu Bing indexeren, bevat deze API van nieuwe gegevens via het Web na detectie en indexeren door Bing. Op basis van deze gegevensset, de Academic Knowledge API's kunnen een dialoogvenster kennis aangestuurde, interactieve die naadloos reactieve zoeken met proactieve suggestie ervaringen, uitgebreide research papier grafiek zoekresultaten en histogram distributies van combineert de kenmerkwaarden voor een aantal documenten en gerelateerde entiteiten.
+De MAG-gegevens worden afgeleid van de Bing-webindex en van een interne kennisbank van Bing. Als resultaat van de continue indexering door Bing, levert deze API altijd actuele informatie van internet na detectie en indexering door Bing. Op basis van deze gegevensset maken de Academic Knowledge-API's een kennisgedreven, interactieve dialoog mogelijk waarin reactief zoeken naadloos wordt gecombineerd met proactieve suggesties, waardevolle zoekresultaten uit de graaf met onderzoeksverslagen en histogramdistributies van de attribuutwaarden voor een set documenten en gerelateerde entiteiten.
 
-Zie voor meer informatie over Academic Microsoft Graph [ http://aka.ms/academicgraph ](http://aka.ms/academicgraph).
+Zie [http://aka.ms/academicgraph](http://aka.ms/academicgraph) voor meer informatie over de Microsoft Academic Graph.
 
-De Academic Knowledge API is verplaatst van cognitieve Services Preview naar cognitieve Services Labs. De nieuwe startpagina voor het project is: [ https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge ](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Uw bestaande API-sleutel blijven werken totdat 24th mei 2018. Genereer een nieuwe API-sleutel na deze datum. Houd er rekening mee dat betaald voorbeeld zijn niet langer beschikbaar nadat u uw bestaande sleutel verloopt. Neem contact op met ons team als u de gratis laag van de API is niet voldoende is voor uw doeleinden. 
+De Academic Knowledge-API is verplaatst van Cognitive Services Preview naar Cognitive Services Labs. De nieuwe startpagina voor het project is [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Uw bestaande API-sleutel blijft werken tot 24 mei 2018. Na deze datum moet u een nieuwe API-sleutel genereren. De betaalde preview-versie is niet meer beschikbaar wanneer uw bestaande sleutel is verlopen. Neem contact op met ons team als de gratis laag van de API niet toereikend is voor uw doeleinden. 
 
 ## <a name="features"></a>Functies
-De Academic Knowledge API bestaat uit vier gerelateerde REST-eindpunten:  
-  1. **interpreteren** – een queryreeks van natuurlijke taal gebruiker worden geïnterpreteerd. Retourneert interpretaties met aantekeningen voor een perfecte ervaring bij het automatisch voltooien van tekst die de gebruiker in een zoekvak typt.  
-  2. **evalueren** : een query-expressie wordt geëvalueerd en Academic Knowledge entiteit resultaten retourneert.  
-  3. **calchistogram** – berekent een histogram van de distributie van kenmerkwaarden voor de academic entiteiten die zijn geretourneerd door een query-expressie, zoals de distributie van bronnen door jaar voor een auteur.  
-  4. **grafiek zoeken** – zoekopdrachten voor een gegeven grafiek patroon en de overeenkomende entiteit resultaten geretourneerd.
+De Academic Knowledge-API bestaat uit vier gerelateerde REST-eindpunten:  
+  1. **interpret**: Interpreteert een querytekenreeks van een gebruiker in natuurlijke taal. Retourneert interpretaties met aantekeningen voor een perfecte ervaring bij het automatisch voltooien van tekst die de gebruiker in een zoekvak typt.  
+  2. **evaluate**: evalueert een query-expressie en retourneert resultaten in de vorm van Academic Knowledge-entiteiten.  
+  3. **calchistogram**: berekent een histogram met de verdeling van attribuutwaarden voor de academische entiteiten die door een query-expressie zijn geretourneerd, zoals de verdeling van uitspraken per jaar van een bepaalde schrijver.  
+  4. **graph search**: Zoekt naar een opgegeven graafpatroon en retourneert de overeenkomende entiteitsresultaten.
 
-Deze API-methoden kunnen samen worden gebruikt, u een uitgebreide zoekervaring voor semantische maken. Een queryreeks van de gebruiker krijgt de **interpreteren** methode biedt u een aantekeningen versie van de query en een structured query-expressie, tijdens het uitvoeren van query van de gebruiker op basis van de semantiek van de onderliggende academic (optioneel) gegevens. Bijvoorbeeld, als een gebruiker typt de tekenreeks *latente s*, wordt de **interpreteren** methode krijgt u een reeks gerangschikte interpretaties, opmaken dat de gebruiker mogelijk aan het zoeken voor het veld van onderzoek  *latente semantische analyse*, het papier *latente structuur analysis*, of een andere entiteit expressies die beginnen met *latente s*. Deze informatie kan worden gebruikt om te leiden snel de gebruiker naar de gewenste zoekresultaten.
+Door deze API-methoden samen te gebruiken, kunt u een geavanceerde ervaring voor semantisch zoeken aanbieden. Aan de hand van een queryreeks van een gebruiker retourneert de methode **interpret** een versie met aantekeningen van de query en een gestructureerde query-expressie. Optioneel kan de query van de gebruiker worden voltooid op basis van de semantiek van de onderliggende academische gegevens. Als een gebruiker bijvoorbeeld de tekenreeks *latente s* typt, kan de methode **interpret** een set gerangschikte interpretaties retourneren die erop kan wijzen dat de gebruiker informatie wil over het onderzoeksgebied  *latente semantische analyse*, de paper *Latente structuuranalyse* of andere entiteitexpressies die beginnen met *latente s*. Deze informatie kan worden gebruikt om de gebruiker snel naar de gewenste zoekresultaten te leiden.
 
-De **evalueren** methode kan worden gebruikt voor het ophalen van een reeks die overeenkomt met entiteiten van de academic knowledge base, artikel en de **calchistogram** methode kan worden gebruikt voor het berekenen van de distributie van kenmerkwaarden voor een set papier entiteiten die kunnen worden gebruikt voor verdere de zoekresultaten te filteren.        
+De methode **evaluate** kan worden gebruikt om een set overeenkomende paper-entiteiten op te halen uit de academische kennisbank, terwijl de methode **calchistogram** geschikt is voor het berekenen van de verdeling van attribuutwaarden voor een set paper-entiteiten die kan worden gebruikt om de zoekresultaten verder te filteren.        
 
-De **grafiek zoeken** methode heeft twee modi: *json* en *lambda*. De *json* modus gebruik van de grafiek jokertekens volgens de grafiek patronen opgegeven door een JSON-object kunt uitvoeren. De *lambda* modus serverzijde berekeningen kunt uitvoeren tijdens de grafiek traversals volgens de gebruiker opgegeven lambda-expressies.
+De methode **graph search** heeft twee modi: *json* en *lambda*. In de *json*-modus is matching van graafpatronen mogelijk op basis van de graafpatronen die worden opgegeven met een JSON-object. In de *lambda*-modus worden op de server berekeningen uitgevoerd tijdens traversals van de graaf op basis van door de gebruiker opgegeven lambda-expressies.
 
 ## <a name="getting-started"></a>Aan de slag 
-Zie de subonderwerpen aan de linkerkant voor gedetailleerde documentatie.  Houd er rekening mee dat de REST API-aanroepen ter verbetering van de leesbaarheid van de voorbeelden tekens (zoals spaties) die niet URL-codering zijn bevatten.  Uw code moet de juiste URL-coderingen toepassen.
+Raadpleeg de subonderwerpen aan de linkerkant voor gedetailleerde informatie.  Teneinde de voorbeelden beter leesbaar te maken, bevatten de aanroepen van de REST-API tekens (zoals spaties) die niet zijn gecodeerd als een URL.  In uw code moet echter wel de juiste URL-codering worden toegepast.

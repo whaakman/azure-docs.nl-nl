@@ -1,36 +1,37 @@
 ---
-title: Entiteit koppelen Intelligence Service API | Microsoft Docs
-description: Informatie over het gebruik van de entiteit koppelen Intelligence Service API voor taken entiteit koppelen in cognitieve Services.
+title: Wat is de Entity Linking Intelligence Service-API?
+titlesuffix: Azure Cognitive Services
+description: Ontdek hoe u de Entity Linking Intelligence Service-API gebruikt voor taken die betrekking hebben tot entiteitskoppeling.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344474"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366179"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>Entity Linking Intelligence Service-API
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>Wat is de Entity Linking Intelligence Service-API?
 
-Welkom bij de Microsoft entiteit koppelen Intelligence Service, een webservice om te helpen ontwikkelaars met taken met betrekking tot het koppelen van de entiteit is gemaakt.
+Welkom bij de Entity Linking Intelligence Service, een webservice die is gemaakt om ontwikkelaars te helpen bij taken die te maken hebben met entiteitskoppeling.
 
 ## <a name="entity-linking"></a>Entiteiten koppelen
 
-In verschillende contexten mogelijk een woord soms worden gebruikt als een benoemde entiteit, een term of andere vorm van word binnen een bepaalde zin. In het geval bijvoorbeeld waarin 'times' een named entity is, kan hierbij nog steeds naar twee verschillende entiteiten worden verwezen, zoals 'The New York Times' en 'Times Square'. Uitgaande van een bepaalde alinea in een document, zal de entiteit koppelen Intelligence Service herkennen en identificeren van elke afzonderlijke entiteit op basis van de context.  
+Een woord kan in verschillende contexten worden gebruikt als een tekeneenheid, een werkwoord of een andere woordvorm binnen een bepaalde zin. In het geval bijvoorbeeld waarin 'times' een tekeneenheid is, kan hierbij nog steeds naar twee verschillende entiteiten worden verwezen, zoals 'The New York Times' en 'Times Square'. De Entity Linking Intelligence Service zal in een specifieke alinea in een document elke aparte entiteit op basis van de context herkennen en identificeren.  
 
-De onderstaande afbeelding toont een voorbeeld van het koppelen van de entiteit. In het bijzonder wanneer u Wikipedia (Engelstalig), de entiteit koppelen Intelligence Service detecteert alle entiteiten die zijn vermeld in de invoertekst en deze koppelingen naar relevante referentiepunten volgens de pagina-ID.
+In de onderstaande afbeelding ziet u een voorbeeld van entiteitskoppeling. Als u gebruikmaakt van Wikipedia detecteert de Entity Linking Intelligence Service alle entiteiten die in de ingevoerde tekst worden genoemd. Deze worden gekoppeld aan de relevante referentiepunten op basis van de pagina-id.
 
- ![Entiteit koppelen voorbeeld voor Mars](./Images/EntityLinkingSample1.png)
+ ![Voorbeeld van entiteitskoppeling voor Mars](./Images/EntityLinkingSample1.png)
  
 ## <a name="get-started"></a>Aan de slag
  
-Handleiding snel doorlopen de basic functionaliteiten entiteit koppelen en het abonnement, Raadpleeg onze ophalen.
-[Aan de slag met API in C# koppelen entiteit](GettingStarted.md)
+Zie de zelfstudie Aan de slag als u snel meer wilt weten over de basisfuncties van Entity Linking en over het abonneerproces.
+[Aan de slag met de Entity Linking-API in C#](GettingStarted.md)
 
 

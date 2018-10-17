@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: a6e5e96757caeda267aa068db0868b1aa8ddb0fd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e208c8b52c14b99129bf3fce9ae54ba11f1c0a28
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220667"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584299"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Zelfstudie: een door het Windows-VM-systeem toegewezen beheerde identiteit gebruiken voor toegang tot de Azure AD Graph API
 
@@ -136,7 +136,7 @@ U hebt Azure AD PowerShell nodig om deze optie te gebruiken. Als u deze nog niet
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-ad-graph"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Azure SQL aanroepen 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine om Azure Active Directory Graph aan te roepen 
 
 Als u de door het systeem toegewezen beheerde identiteit van de virtuele machine wilt gebruiken voor verificatie bij Azure AD Graph, moet u de aanvragen verzenden vanaf de virtuele machine.
 

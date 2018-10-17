@@ -2,18 +2,17 @@
 title: Quota en beschikbaarheid in regio’s voor Azure Container Instances
 description: De standaardquota en beschikbaarheid in regio's van de Azure Container Instances-service.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115272"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902347"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Beschikbaarheid in regio’s voor Azure Container Instances
 
@@ -29,11 +28,11 @@ Azure Container Instances is beschikbaar in de volgende regio's met de opgegeven
 
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
-| VS West, VS Oost, West-Europa, Noord-Europa | Linux | 4 | 14 |
-| VS-west 2, Zuidoost-Azië | Linux | 2 | 7 |
-| Australië - oost, US - oost 2, US - centraal | Linux | 1 | 1.5 |
-| VS West, VS Oost, West-Europa, Noord-Europa | Windows | 4 | 14 |
-| VS-west 2, Zuidoost-Azië | Windows | 2 | 3,5 |
+| US - oost, Europa - noord, Europa - west, US - west, US - west 2 | Linux | 4 | 14 |
+| Australië - oost, US - oost 2, Azië - zuidoost | Linux | 2 | 7 |
+| India - centraal, US - zuid-centraal | Linux | 2 | 3,5 |
+| US - oost, Europa - west, US - west | Windows | 4 | 14 |
+| Australië - oost, India - centraal, US - oost 2, Europa - noord, US - zuid-centraal, Azië - zuidoost, US - west 2 | Windows | 2 | 3,5 |
 
 Containerinstanties die binnen deze resourcelimieten zijn gemaakt, zijn afhankelijk van de beschikbaarheid in de implementatieregio. Wanneer een regio zwaar wordt belast, kan er een fout optreden bij het implementeren van instanties. Als u dergelijke implementatiefouten wilt minimaliseren, implementeert u instanties met een lagere CPU en geheugeninstellingen, of voert u de implementatie op een later tijdstip uit.
 

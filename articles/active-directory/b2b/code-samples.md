@@ -1,45 +1,45 @@
 ---
-title: Azure Active Directory B2B-samenwerkingscode en voorbeelden van PowerShell | Microsoft Docs
-description: Code en PowerShell-voorbeelden voor Azure Active Directory B2B-samenwerking
+title: Azure Active Directory B2B-samenwerkingscode en PowerShell-voorbeelden | Microsoft Docs
+description: Code- en PowerShell-voorbeelden voor Azure Active Directory B2B-samenwerking
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f9740aba27b7a593fdf2b465f539d305d24333de
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: MT
+ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644387"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985438"
 ---
-# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samenwerkingscode en voorbeelden van PowerShell
+# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Voorbeelden van de Azure Active Directory B2B-samenwerkingscode en PowerShell
 
 ## <a name="powershell-example"></a>PowerShell-voorbeeld
-U kunt bulksgewijs-uitnodiging externe gebruikers voor een organisatie van e-mailadressen die u hebt opgeslagen in een. CSV-bestand.
+U kunt externe gebruikers bulksgewijs uitnodigen voor een organisatie aan de hand van e-mailadressen die u hebt opgeslagen in een .CSV-bestand.
 
-1. Bereid de. CSV-bestand maken een nieuwe CSV-bestand en noem het invitations.csv. In dit voorbeeld wordt het bestand wordt opgeslagen in C:\data en bevat de volgende informatie:
+1. Het .CSV-bestand voorbereiden Maak een nieuw .CSV-bestand en noem dit bestand uitnodigings.csv. In dit voorbeeld wordt het bestand opgeslagen in C:\data. Dit bestand bevat de volgende informatie:
   
   Naam                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
-  Gmail B2B genodigde     | b2binvitee@gmail.com
-  Outlook B2B genodigde   | b2binvitee@outlook.com
+  Gmail B2B-genodigde     | b2binvitee@gmail.com
+  Outlook B2B-genodigde   | b2binvitee@outlook.com
 
 
-2. Ophalen van de meest recente Azure AD PowerShell om de nieuwe cmdlets te gebruiken, moet u de bijgewerkte Azure AD PowerShell-module die u van downloaden kunt installeren [release-pagina van de Powershell-module](https://www.powershellgallery.com/packages/AzureADPreview)
+2. De nieuwste Azure AD PowerShell ophalen Als u de nieuwe cmdlets wilt gebruiken, moet u de bijgewerkte Azure AD PowerShell-module installeren. Deze kunt u downloaden via [de releasepagina van de Powershell-module](https://www.powershellgallery.com/packages/AzureADPreview)
 
-3. Aanmelden bij uw tenants
+3. Aanmelden bij uw tenancy
 
     ```
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
-4. Voer de PowerShell-cmdlet
+4. De PowerShell-cmdlet uitvoeren
 
   ```
   $invitations = import-csv C:\data\invitations.csv
@@ -48,13 +48,13 @@ U kunt bulksgewijs-uitnodiging externe gebruikers voor een organisatie van e-mai
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
-Deze cmdlet wordt een uitnodiging voor de e-mailadressen in invitations.csv verzonden. Extra functies van deze cmdlet zijn:
+Deze cmdlet stuurt een uitnodiging naar de e-mailadressen in invitations.csv. Aanvullende functies van deze cmdlet zijn onder andere:
 - Aangepaste tekst in het e-mailbericht
-- Met inbegrip van een weergavenaam voor de uitgenodigde gebruiker
-- Verzenden van berichten naar CCs of e-mailberichten helemaal onderdrukken
+- Inclusief een weergavenaam voor de uitgenodigde gebruiker
+- Berichten naar CC’s verzenden of e-mailberichten helemaal onderdrukken
 
 ## <a name="code-sample"></a>Codevoorbeeld
-We laten u hier zien hoe u de uitnodiging-API aanroepen in de modus "alleen app", om op te halen van de URL voor inschrijving voor de resource waarnaar u de B2B-gebruiker uitnodigen. Het doel is om een aangepaste uitnodigingse-mail verzenden. Het e-mailbericht samengesteld kan zijn, met een HTTP-client, zodat u kunt aanpassen hoe het eruit ziet en via de Graph API verzenden.
+Hier laten we zien hoe u de uitnodigings-API in de ‘alleen-appmodus’ kunt aanroepen om de aflossings-URL op te halen voor de resource waarvoor u de B2B-gebruiker uitnodigt. Het doel is het verzenden van een aangepaste uitnodigingsmail. Het e-mailbericht kan zijn samengesteld met een HTTP-client; u kunt dus de vormgeving ervan aanpassen en het bericht verzenden via de Graph-API.
 
 ```
 namespace SampleInviteApp

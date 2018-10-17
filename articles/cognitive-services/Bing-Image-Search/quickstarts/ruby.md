@@ -1,38 +1,38 @@
 ---
-title: "Snelstartgids: Verzenden zoekquery's met de REST-API voor Bing afbeeldingen zoeken-API en Ruby"
-description: In deze Quick Start stuurt u zoekopdrachten naar de Bing webzoekopdrachten-API om een lijst met relevante afbeeldingen met behulp van Ruby.
+title: 'Snelstart: Afbeeldingen zoeken met Ruby: Bing Afbeeldingen zoeken-API'
+description: Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige Ruby-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: fdc22971a369effbca31e23305ee57739852a50b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 4c2c91b42af46ba42bdda84d7b8b77987c7ea818
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578798"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297329"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Snelstartgids: Verzenden zoekquery's met behulp van de REST-API en Ruby
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Snelstart: Zoekquery's verzenden met behulp van de REST-API en Ruby
 
-Gebruik deze Quick Start voor het maken van de eerste aanroep van de Bing afbeeldingen zoeken-API en een JSON-antwoord ontvangen. Deze eenvoudige Ruby-toepassing een zoekquery verzendt naar de API en de onbewerkte resultaten worden weergegeven.
+Gebruik deze snelstart om voor het eerst de Bing Afbeeldingen zoeken-API aan te roepen en een JSON-antwoord te ontvangen. Deze eenvoudige Ruby-toepassing stuurt een zoekquery naar de API en toont de onbewerkte resultaten.
 
-Terwijl deze toepassing is die is geschreven Ruby, de API is een RESTful-Web-compatibel is met de meeste moderne programmeertalen.
+Hoewel deze toepassing in Ruby is geschreven, is de API een RESTful-webservice die compatibel is met vrijwel elke programmeertaal.
 
 De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
 ## <a name="prerequisites"></a>Vereisten
 
-* [De nieuwste versie van Ruby](https://www.ruby-lang.org/en/downloads/).
+* [Nieuwste versie van Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Maken en initialiseren van de toepassing
+## <a name="create-and-initialize-the-application"></a>De toepassing maken en initialiseren
 
-1. de volgende pakketten in uw codebestand importeren.
+1. importeer de volgende pakketten in uw codebestand.
 
     ```ruby
     require 'net/https'
@@ -40,7 +40,7 @@ De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azu
     require 'json'
     ```
 
-2. Variabelen voor de API-eindpunt, zoekpad afbeeldings-API, uw abonnementssleutel maken en zoekterm.
+2. Maak variabelen voor het API-eindpunt, het zoekpad voor de afbeeldings-API, uw abonnementssleutel en zoekterm.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,9 +48,9 @@ De broncode voor dit voorbeeld is beschikbaar op [GitHub](https://github.com/Azu
     term = "puppies"
     ```
 
-## <a name="format-and-make-an-api-request"></a>Formatteren en een API-aanvraag maken
+## <a name="format-and-make-an-api-request"></a>Een API-aanvraag opmaken en maken
 
-Gebruik de variabelen in de vorige stap om een URL zoeken voor de API-aanvraag. Verzend de aanvraag.
+Gebruik de variabelen uit de laatste stap om een zoek-URL voor de API-aanvraag te formatteren. Verzend vervolgens de aanvraag.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,9 +64,9 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json"></a>Verwerken en de JSON afdrukken 
+## <a name="process-and-print-the-json"></a>De JSON verwerken en afdrukken
 
-Nadat het antwoord is ontvangen, kunt u de JSON parseren en waarden ophalen uit deze. Bijvoorbeeld, de miniatuur geretourneerd URL naar het eerste resultaat en het totale aantal installatiekopieën.
+Zodra het antwoord is ontvangen, kunt u de JSON parseren en hier waarden uit halen. Bijvoorbeeld de miniatuur-URL voor het eerste resultaat en het totale aantal geretourneerde afbeeldingen.
 
 ```ruby
 response.each_header do |key, value|
@@ -84,9 +84,9 @@ puts "total number of returned matches: #{total_returned_images}"
 puts "Url to the thumbnail of the first returned search result: #{first_result}"
 ```
 
-## <a name="sample-json-response"></a>Voorbeeld van JSON-antwoord
+## <a name="sample-json-response"></a>Voorbeeld van een JSON-antwoord
 
-Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
+Antwoorden die afkomstig zijn van de Bing Afbeeldingen zoeken-API worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
 ```json
 {
@@ -136,12 +136,12 @@ Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Di
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
+## <a name="see-also"></a>Zie ook
 
-* [Wat is de Bing afbeeldingen zoeken?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Probeer een online interactieve demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Een gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentatie voor Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Wat is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Online interactieve demo proberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentatie van Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Naslag voor Bing Afbeeldingen zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -1,24 +1,25 @@
 ---
-title: Ophaalt voor Automatische suggestie van Bing voor Automatische suggestie API (cognitieve Azure-Services) gebruiken | Microsoft Docs
-description: De broncode voor de zelfstudie waarin wordt beschreven hoe u de API voor Automatische suggestie van Bing gebruiken in een webtoepassing van één pagina.
+title: 'Zelfstudie: Resultaten voor automatische suggesties ophalen met behulp van de Automatische suggestie-API voor Bing'
+titlesuffix: Azure Cognitive Services
+description: Broncode voor een zelfstudie waarin wordt uitgelegd hoe u de Automatische suggestie-API voor Bing kunt gebruiken in een web-toepassing van één pagina.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 687183acb209ba6faae37865aa6a05fded5c26dc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6124b831c11f0d72c8072c903d4d05f665448208
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345446"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831412"
 ---
-# <a name="tutorial-single-page-web-app"></a>Zelfstudie: Single-page-Web-app
+# <a name="tutorial-single-page-web-app"></a>Zelfstudie: Web-app van één pagina
 
-Dit is de volledige broncode besproken in de [één pagina app-zelfstudie](autosuggest.md) voor de API voor Automatische suggestie van Bing. Uitvoeren van de app, kopieert u de broncode in een teksteditor en sla het bestand als `autosuggest.html`. Open het bestand opgeslagen in uw webbrowser.
+Dit is de volledige broncode die is besproken in de [zelfstudie App van één pagina](autosuggest.md) voor de Automatische suggestie-API voor Bing. Als u de app wilt uitvoeren, kopieert u de broncode naar een teksteditor en slaat u het bestand op als `autosuggest.html`. Open het opgeslagen bestand vervolgens in uw webbrowser.
 
 ```html
 <!DOCTYPE html>

@@ -1,56 +1,56 @@
 ---
-title: Entiteit zoeken Quick Start API C# | Microsoft Docs
-description: Setup voor de entiteit zoeken SDK-consoletoepassing.
-titleSuffix: Azure cognitive services entity search API C# quickstart
+title: 'Snelstartgids: Bing Entity Search SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: De Entiteiten zoeken-SDK-consoletoepassing instellen met C#.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 185e1b4fc1b7ef2aa5964e2e95314727f8e1b0a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: abf7e4344bea88fd86b86135ffab30672d77922e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345695"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814097"
 ---
-# <a name="entity-search-sdk-c-quickstart"></a>Entiteit zoeken SDK C# Quick Start
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Snelstartgids: Bing Entity Search SDK met C#
 
-De Bing entiteit Search API bevat de functionaliteit van de REST-API voor het zoeken van de entiteit en parseren van de resultaten.
+De Bing Entity Search SDK bevat de functionaliteit van de REST API voor het zoeken naar entiteiten en het parseren van de resultaten.
 
-De [broncode voor voorbeelden van C# Bing entiteit Search SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing Entiteiten zoeken-SDK voor C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) is beschikbaar op GitHub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Als u een consoletoepassing met de Bing entiteit Search SDK instelt, blader naar de `Manage NuGet Packages` optie in Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.EntitySearch` pakket.
+Als u een consoletoepassing wilt instellen met behulp van de Bing Entity Search SDK, gaat u naar de optie `Manage NuGet Packages` van Solution Explorer in Visual Studio.  Voeg het pakket `Microsoft.Azure.CognitiveServices.Search.EntitySearch` toe.
 
-Installeren van de [pakket NuGet entiteit zoeken](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) installeert ook afhankelijkheden, met inbegrip van de volgende assembly's:
+Als u het [NuGet-pakket Entity Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) installeert, worden ook de afhankelijkheden geïnstalleerd, met inbegrip van de volgende assembly's:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="entity-search-client"></a>Entiteit zoeken client
-Maken van een exemplaar van de `EntitySearchAPI` -client toevoegen met behulp van instructies:
+## <a name="entity-search-client"></a>Entiteiten zoeken-client
+Als u een exemplaar van de client `EntitySearchAPI` wilt maken, voegt u using-instructies toe:
 ```
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch;
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch.Models;
 
 ```
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 ```
 var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-De client gebruiken om te zoeken met de tekst van een query:
+Gebruik de client om te zoeken met een querytekst:
 ```
 var entityData = client.Entities.Search(query: "Satya Nadella");
 
 ```
-Parseren van de resultaten van de vorige query:
+De resultaten van de vorige query parseren:
 ```
 if (entityData?.Entities?.Value?.Count > 0)
 {
@@ -74,8 +74,8 @@ else
 
 ```
 
-## <a name="complete-console-application"></a>Volledige consoletoepassing
-De volgende consoletoepassing zoekt één entiteit van de query 'Satya Nadella' en een korte beschrijving wordt afgedrukt.
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
+De volgende consoletoepassing zoekt één entiteit voor de query 'Satya Nadella' en geeft een korte beschrijving weer als resultaat.
 ```
 using System;
 using System.Linq;
@@ -141,7 +141,7 @@ namespace EntitySrchSDK
 ```
 
 ## <a name="ambiguous-results"></a>Niet-eenduidige resultaten
-De volgende code verwerkt disambiguation van resultaten voor een niet-eenduidige query 'William Gates'.
+De volgende code zorgt voor het oplossen van ambiguïteit in de resultaten voor de dubbelzinnige query 'William Gates'.
 ```
        public static void HandlingDisambiguation(EntitySearchAPI client)
         {
@@ -197,8 +197,8 @@ De volgende code verwerkt disambiguation van resultaten voor een niet-eenduidige
 
 ```
 
-## <a name="entitydata-places"></a>EntityData plaatsen
-De volgende code zoekt een winkel 'Microsoft Store' en het telefoonnummer wordt afgedrukt.
+## <a name="entitydata-places"></a>EntityData-plaatsen
+De volgende code zoekt naar één winkel ('Microsoft Store') en geeft het bijbehorende telefoonnummer weer.
 ```
         public static void StoreLookup(EntitySearchAPI client)
         {
@@ -234,8 +234,8 @@ De volgende code zoekt een winkel 'Microsoft Store' en het telefoonnummer wordt 
         }
 
 ```
-## <a name="entityscenario-list"></a>EntityScenario lijst
-De volgende code zoekt een lijst met "Restaurant Seattle" en hun namen en telefoonnummers worden afgedrukt.
+## <a name="entityscenario-list"></a>EntityScenario-lijst
+De volgende code zoekt een lijst op met restaurants in Seattle ('Seattle restaurants') en geeft hun namen en telefoonnummers weer.
 ```
        public static void MultipleRestaurantLookup(EntitySearchAPI client)
         {
@@ -285,8 +285,8 @@ De volgende code zoekt een lijst met "Restaurant Seattle" en hun namen en telefo
         }
 
 ```
-## <a name="error-results"></a>Fout bij resultaten
-De volgende code een onjuiste aanvraag activeert en ziet u hoe het foutbericht.
+## <a name="error-results"></a>Foutresultaten
+Met de volgende code wordt een onjuiste aanvraag en laat vervolgens zien hoe u het foutbericht leest.
 ```
         public static void Error(EntitySearchAPI client)
         {
@@ -316,4 +316,4 @@ De volgende code een onjuiste aanvraag activeert en ziet u hoe het foutbericht.
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

@@ -1,6 +1,6 @@
 ---
 title: De Azure Data Box instellen | Microsoft Docs
-description: Meer informatie over de software- en netwerkvereisten voor de Azure Data Box
+description: Leer hoe u de Azure Data Box bekabelt en aansluit
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952304"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785629"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Zelfstudie: De Azure Data Box bekabelen en aansluiten
 
@@ -36,17 +36,17 @@ In deze zelfstudie leert u het volgende:
 Zorg voordat u begint voor het volgende:
 
 1. U hebt de [zelfstudie: Azure Data Box bestellen](data-box-deploy-ordered.md) voltooid.
-2. U hebt uw Data Box ontvangen en de bestelstatus in de portal is bijgewerkt naar **Geleverd**. 
+2. U hebt uw Data Box ontvangen en de bestelstatus in de portal is bijgewerkt naar **Geleverd**. Er zit een verzendlabel in het doorzichtige hoesje op het apparaat, onder het stroometiket. Bewaar dit label zorgvuldig aangezien u het nodig hebt voor retourverzending.
 3. U hebt de [Data Box-veiligheidsrichtlijnen](data-box-safety.md) bekeken.
-4. U hebt één geaard netsnoer voor gebruik met uw opslagapparaat van 100 TB ontvangen.
+4. U hebt één geaard netsnoer ontvangen voor gebruik met uw opslagapparaat van 100 TB.
 5. U hebt een hostcomputer waarop de gegevens staan die u naar de Data Box wilt kopiëren. Op uw hostcomputer moet
     - Een [ondersteund besturingssysteem](data-box-system-requirements.md) worden uitgevoerd.
-    - Verbinding zijn met een netwerk met hoge snelheid. Het wordt aangeraden dat u ten minste één 10 GbE-verbinding hebt. Als er geen 10 GbE-verbinding beschikbaar is, kan een 1 GbE-gegevenskoppeling worden gebruikt. Dit heeft echter wel invloed op de kopieersnelheid. 
+    - Een verbinding bestaan met een netwerk met hoge snelheid. Het wordt aangeraden dat u beschikt over minstens één 10-GbE-verbinding. Als er geen 10-GbE-verbinding beschikbaar is, kan een 1-GbE-gegevensverbinding worden gebruikt. Dit heeft echter wel invloed op de kopieersnelheid. 
 6. U moet de beschikking hebben over een plat oppervlak waarop u de Data Box kunt plaatsen. Als u het apparaat op een plank van een standaardrek wilt plaatsen, moet het datacenterrek beschikken over een 7U-sleuf. U kunt het apparaat plat of rechtop in het rek plaatsen.
-7. U hebt de volgende kabels aangeschaft om uw Data Box aan te sluiten op de hostcomputer.
-    - Twee 10 GbE SFP + Twinax koperen kabels (gebruiken met DATA 1-, DATA 2-netwerkinterfaces)
-    - Eén CAT-6 RJ-45-netwerkkabel (gebruiken met de MGMT-netwerkinterface)
-    - Eén RJ-45 CAT 6A- OF één RJ-45 CAT 6-netwerkkabel (gebruiken met DATA 3-netwerkinterface die is geconfigureerd als respectievelijk 10 Gbps of 1 Gbps)
+7. U hebt de volgende kabels aangeschaft om de Data Box aan te sluiten op de hostcomputer.
+    - Twee koperen 10-GbE-kabels van het type SFP+ Twinax (gebruiken met de netwerkinterfaces DATA 1 en DATA 2)
+    - Eén RJ-45-netwerkkabel van het type CAT 6 (gebruiken met de MGMT-netwerkinterface)
+    - Eén RJ-45-netwerkkabel van het type CAT 6A OF CAT 6 (gebruiken met DATA 3-netwerkinterface die is geconfigureerd als respectievelijk 10 Gbps of 1 Gbps)
 
 ## <a name="cable-your-device"></a>Uw apparaat bekabelen
 
@@ -54,15 +54,15 @@ Voer de volgende stappen uit om uw apparaat te bekabelen.
 
 1. Controleer of er met het apparaat is geknoeid en of het is beschadigd. Als er met het apparaat is geknoeid of het ernstig is beschadigd, gaat u niet verder. Neem direct contact op met Microsoft Ondersteuning om te bepalen of het apparaat in een goede staat is of dat er een vervangend apparaat moet worden verzonden.
 2. Verplaats het apparaat naar de locatie waar u het wilt inschakelen. Plaats het apparaat op een plat oppervlak. Het apparaat kan ook op een plank van een standaardrek worden geplaatst.
-3. Sluit het netsnoer en de netwerkkabels aan. Hieronder ziet u de achterzijde van een verbonden apparaat voor een algemene configuratie. 
+3. Sluit het netsnoer en de netwerkkabels aan. Hieronder ziet u de achterzijde van een aangesloten apparaat in een algemene configuratie. 
     
-    ![Bekabeling achterzijde van Data Box-apparaat](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+    ![Bekabelde achterzijde van Data Box-apparaat](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Sluit de voedingskabel aan op de gelabelde stroomingang. Het andere uiteinde van de voedingskabel moet zijn verbonden met een stroomverdeler.
     2. Gebruik de RJ-45 CAT 6-kabel om de MGMT-poort aan het ene uiteinde en een laptop aan het andere uiteinde aan te sluiten.            
     3. Sluit het ene uiteinde van de RJ-45 CAT 6A-kabel aan op de DATA 3-poort. DATA 3 is geconfigureerd als 10 GbE als u de RJ-45 CAT 6A-kabel gebruikt en als 1 GbE als u de RJ-45 CAT 6-kabel gebruikt.
-    4. Gebruik respectievelijk de 10 GbE SFP + Twinax koperen kabels om de DATA 1- en DATA 2-poort aan te sluiten. 
-    5. Het andere uiteinde van de kabels van de gegevenspoorten zijn op de hostcomputer aangesloten via een 10 GbE-switch.
+    4. Gebruik de 10-GbE SFP + Twinax koperen kabels om respectievelijk de poorten DATA 1 en DATA 2 aan te sluiten. 
+    5. De andere uiteinden van de kabels van de gegevenspoorten worden op de hostcomputer aangesloten via een 10-GbE-switch.
 
 4. Zoek de aan/uit-knop op het bedieningspaneel aan de voorzijde van het apparaat. Schakel het apparaat in.
 

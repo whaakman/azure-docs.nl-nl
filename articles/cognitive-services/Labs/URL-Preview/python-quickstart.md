@@ -1,43 +1,45 @@
 ---
-title: Python-Quick Start voor het voorbeeld in de Project-URL - cognitieve Microsoft-Services | Microsoft Docs
-description: Het voorbeeldscript snel aan de slag met behulp van de evaluatieversie van de URL-Project in Microsoft cognitieve Services in Azure.
+title: 'Snelstartgids: Voorbeeld van project-URL, Python'
+titlesuffix: Azure Cognitive Services
+description: Voorbeeldscript om snel aan de slag te gaan met voorbeelden van project-URL's met Python.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345285"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867269"
 ---
-# <a name="url-preview-python-quickstart"></a>Quick Start-URL Preview Python
+# <a name="quickstart-url-preview-with-python"></a>Snelstartgids: URL Preview met Python
 
-Het volgende Python-voorbeeld wordt een voorbeeld-Url voor de website van SwiftKey: https://swiftkey.com/en.
+In het volgende voorbeeld van Python wordt er een URL-voorbeeld gemaakt voor de SwiftKey-website: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription).
 
-In dit voorbeeld maakt gebruik van Python 3.6.
+In dit voorbeeld wordt Python 3.6 gebruikt.
 
-## <a name="code-scenario"></a>Code-scenario 
+## <a name="code-scenario"></a>Codescenario 
 
-De volgende code maakt een voorbeeld-URL.
-Deze is geïmplementeerd in de volgende stappen uit:
-1. Declareer de variabelen opgeven van het eindpunt van de host en pad.
-2. Geef de URL van de query voor de preview en voeg de queryparameter.  
-3. De queryparameter ingesteld.
-4. Definieer de zoekfunctie die de aanvraag wordt gemaakt en wordt de *Ocp-Apim-Subscription-Key* header.
-5. Stel de *Ocp-Apim-Subscription-Key* header. 
-6. Controleer de verbinding en verzend de aanvraag.
-7. De JSON-resultaten afdrukken.
+Met de volgende code wordt een URL-voorbeeld gemaakt.
+De code wordt in de volgende stappen geïmplementeerd:
+1. Declareer variabelen om het eindpunt op te geven met een host en pad.
+2. Geef de query-URL op waarvan u een voorbeeld wilt maken en voeg de queryparameter toe.  
+3. Stel de queryparameter in.
+4. Definieer de Search-functie die de aanvraag maakt en de header *Ocp-Apim-Subscription-Key* toevoegt.
+5. Stel de header *Ocp-Apim-Subscription-Key* in. 
+6. Maak verbinding en verzend de aanvraag.
+7. Geef de JSON-resultaten weer.
 
-De volledige code voor deze demo volgt:
+Dit is de volledige code voor deze demo:
 
 ````
 import http.client, urllib.parse
@@ -64,7 +66,7 @@ result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
 ````
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](csharp.md)
-- [Java-Quick Start](java-quickstart.md)
-- [JavaScript Quick Start](javascript.md)
-- [Quick Start-URL van knooppunt](node-quickstart.md)
+- [Snelstart voor C#](csharp.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor JavaScript](javascript.md)
+- [Snelstartgids voor Node](node-quickstart.md)

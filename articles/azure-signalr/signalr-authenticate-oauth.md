@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974320"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268509"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Zelfstudie: Verificatie van Azure SignalR-service
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u hoe u uw eigen verificatie implementeert en deze verv
 
 De verificatie die in eerste instantie wordt gebruikt in de toepassing voor een chatruimte in de snelstart is te eenvoudig voor praktijkscenario's. In de toepassing kan elke client claimen wie ze zijn en de server accepteert dit vervolgens. Deze aanpak is niet erg handig in praktische toepassingen, waar een malafide gebruiker een andere gebruiker kan imiteren om toegang te krijgen tot gevoelige gegevens. 
 
-[GitHub](https://github.com/) biedt verificatie-API's die zijn gebaseerd op een veelgebruikt standaardprotocol met de naam [OAuth](https://oauth.net/). Met deze API's kunnen toepassingen van derden GitHub accounts verifiëren. In deze zelfstudie gebruikt u deze API's voor het implementeren van verificatie via een Github-account voordat clients zich mogen aanmelden bij de toepassing voor een chatruimte. Na verificatie van een GitHub-account, worden de accountgegevens als een cookie toegevoegd om te worden gebruikt voor verificatie door de webclient.
+[GitHub](https://github.com/) biedt verificatie-API's die zijn gebaseerd op een veelgebruikt standaardprotocol met de naam [OAuth](https://oauth.net/). Met deze API's kunnen toepassingen van derden GitHub accounts verifiëren. In deze zelfstudie gebruikt u deze API's voor het implementeren van verificatie via een GitHub-account voordat clients zich mogen aanmelden bij de toepassing voor een chatruimte. Na verificatie van een GitHub-account, worden de accountgegevens als een cookie toegevoegd om te worden gebruikt voor verificatie door de webclient.
 
 Zie het Engelstalige document [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/) voor meer informatie over de verificatie API's van OAuth die worden aangeboden via GitHub.
 

@@ -1,45 +1,46 @@
 ---
-title: Een eerste Bing Custom Search instantie maken - Microsoft Cognitive Services
-description: Voor het gebruik van Bing Custom Search, moet u een exemplaar voor aangepast zoeken die de weergave of het segment de status van het web definieert maken. Het exemplaar bevat instellingen waarmee de openbare domeinen, subsites en webpagina's die u wilt dat Bing om te zoeken naar en rangschikking van aanpassingen.
+title: 'Snelstartgids: Uw eerste exemplaar voor Bing Custom Search maken'
+titlesuffix: Azure Cognitive Services
+description: Als u Bing Custom Search wilt gebruiken, moet u een exemplaar voor aangepaste zoekopdrachten maken dat uw weergave of segment van het internet definieert. Het exemplaar bevat instellingen die de openbare domeinen, websites en webpagina's beschrijven die u wilt doorzoeken met Bing, plus eventuele instellingen voor het aanpassen van de rangschikking.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 866d32aa4de45076fcbc4e413d8c2e67d5346878
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981646"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816220"
 ---
-# <a name="create-your-first-bing-custom-search-instance"></a>Uw eerste Bing Custom Search-exemplaar maken
-Voor het gebruik van Bing Custom Search, moet u een exemplaar voor aangepast zoeken die de weergave of het segment de status van het web definieert maken. Het exemplaar bevat instellingen waarmee de openbare domeinen, websites en webpagina's die u wilt dat Bing om te zoeken naar en rangschikking van aanpassingen. Gebruik voor het maken van het exemplaar van de Bing Custom Search [portal](https://customsearch.ai). 
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Snelstartgids: Uw eerste exemplaar voor Bing Custom Search maken
+Als u Bing Custom Search wilt gebruiken, moet u een exemplaar voor aangepaste zoekopdrachten maken dat uw weergave of segment van het internet definieert. Het exemplaar bevat instellingen die de openbare domeinen, websites en webpagina's beschrijven die u wilt doorzoeken met Bing, plus eventuele instellingen voor het aanpassen van de rangschikking. Gebruik voor het maken van het exemplaar de [portal](https://customsearch.ai) van Bing Custom Search. 
 
-## <a name="create-a-custom-search-instance"></a>Een exemplaar voor aangepast zoeken maken
+## <a name="create-a-custom-search-instance"></a>Een exemplaar voor aangepaste zoekopdrachten maken
 
-Een Bing Custom Search-exemplaar maken:
+Een exemplaar voor aangepaste zoekopdrachten met Bing maken:
 
-1.  Een sleutel ophalen voor Custom Search-API. Zie [probeer de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Klik op de **aanmelden** knop en aanmelden bij de portal met een Microsoft-account (MSA). 
-    - Als u een MSA hebt, klikt u op **maken van een Microsoft-account**. De portal gevraagd of u machtigingen voor toegang tot uw gegevens. Klik op **Ja**.
-    - Ga akkoord met de Cognitive Services-voorwaarden. Controleer **ik ga akkoord** en klikt u op **akkoord**.  
-3.  Na het aanmelden, klikt u op **nieuw exemplaar** en de naam van het exemplaar. Gebruik een naam die zinvol is en een beschrijving van het type inhoud dat de zoekopdracht retourneert. U kunt de naam op elk gewenst moment wijzigen. 
-4.  Op de **Active** tabblad onder **zoekervaring**, voer de URL van een of meer websites die u wilt opnemen in uw zoekopdracht.
-5.  Om te bevestigen dat uw exemplaar resultaten retourneert, voert u een query in het voorbeeldvenster aan de rechterkant. Als er geen resultaten zijn, geeft u een nieuwe website. Bing retourneert resultaten alleen voor openbare websites die deze heeft geïndexeerd.
-6.  Klik op **publiceren** om configuratiewijzigingen te publiceren naar productie. Wanneer u hierom wordt gevraagd, klikt u op **publiceren** om te bevestigen.
-7.  Klik op **productie** > **eindpunten** en kopieer de **aangepaste configuratie-ID**. U moet deze ID door aan de Custom Search-API aanroepen.
+1.  Haal een sleutel op voor de Aangepaste zoekopdrachten-API. Zie [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+2.  Klik op de knop **Sign in** en meld u aan bij de portal met een Microsoft-account (MSA). 
+    - Als u geen MSA hebt, klikt u op **Get Started**. De portal vraagt om toestemming voor toegang tot uw gegevens. Klik op **Ja**.
+    - Ga akkoord met de voorwaarden van Cognitive Services. Selecteer **I agree** en klik op **Agree**.  
+3.  Na het aanmelden, klikt u op **New Instance** en voert u een naam in voor het exemplaar. Gebruik een naam die zinvol is en het type inhoud beschrijft dat de zoekopdracht retourneert. U kunt de naam overigens altijd wijzigen. 
+4.  Voer op het tabblad **Active** onder **Search Experience** de URL in van een of meer websites die u wilt opnemen in de zoekopdracht.
+5.  Controleer of het exemplaar resultaten retourneert door een query in te voeren in het voorbeeldvenster aan de rechterkant. Als deze geen resultaten oplevert, geeft u een andere website op. Bing retourneert alleen resultaten voor openbare websites die zijn geïndexeerd door de service.
+6.  Klik op **Publish** om configuratiewijzigingen te publiceren naar de productieomgeving. Wanneer u hierom wordt gevraagd, klikt u op **Publish** om te bevestigen.
+7.  Klik op **Production** > **Endpoints** en kopieer de waarde voor **Custom Configuration ID**. U hebt deze id nodig om de Aangepaste zoekopdrachten-API aan te roepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Blijven werken met het exemplaar voor aangepast zoeken dat u zojuist hebt gemaakt met de instructies in deze handleidingen:
+U kunt blijven werken met het exemplaar voor aangepaste zoekopdrachten dat u net hebt gemaakt door de instructies in deze handleidingen te volgen:
 
-- [Uw aangepaste zoekervaring configureren](./define-your-custom-view.md)
-- [Aanroepen van uw aangepaste zoekopdrachten](./search-your-custom-view.md)
-- [Delen van uw aangepaste zoekopdrachten](./share-your-custom-search.md)
-- [Configureren van uw gehoste gebruikersinterface-ervaring](./hosted-ui.md)
-- [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
-- [Pagina webpagina 's](./page-webpages.md)
+- [Aangepaste zoekervaring configureren](./define-your-custom-view.md)
+- [Aangepaste zoekopdrachten aanroepen](./search-your-custom-view.md)
+- [Aangepaste zoekopdrachten delen](./share-your-custom-search.md)
+- [Gehoste UI-ervaring configureren](./hosted-ui.md)
+- [Decoratiemarkeringen gebruiken om tekst te markeren](./hit-highlighting.md)
+- [Bladeren door webpagina's](./page-webpages.md)

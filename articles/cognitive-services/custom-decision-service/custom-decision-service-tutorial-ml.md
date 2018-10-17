@@ -1,132 +1,134 @@
 ---
-title: Machine Learning - cognitieve Azure-Services | Microsoft Docs
-description: Een zelfstudie voor machine learning in Azure aangepaste besluit Service een cloud-gebaseerde API voor de contextuele besluitvorming.
+title: 'Zelfstudie: Functionalisatie en functiespecificatie - Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Een zelfstudie over functionalisatie en functiespecificatie met machine learning in Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345479"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869583"
 ---
-# <a name="machine-learning"></a>Machine learning
+# <a name="tutorial-featurization-and-feature-specification"></a>Zelfstudie: Functionalisatie en functiespecificatie
 
-Deze zelfstudie wordt de geavanceerde machine learning-functionaliteit in aangepaste besluit Service. De zelfstudie bestaat uit twee delen: [featurization](#featurization-concepts-and-implementation) en [functie specificatie](#feature-specification-format-and-apis). Featurization verwijst naar de representatie van uw gegevens als '-onderdelen voor machine learning. Functie-specificatie bevat informatie over de JSON-indeling en de aanvullende API's voor het opgeven van functies.
+In deze zelfstudie wordt de geavanceerde machine learning-functionaliteit in Custom Decision Service besproken. De zelfstudie bestaat uit twee delen: [functionalisatie](#featurization-concepts-and-implementation) en [functiespecificatie](#feature-specification-format-and-apis). Functionalisatie verwijst naar de representatie van uw gegevens als 'functies' voor machine learning. Functiespecificatie omvat de JSON-indeling en de aanvullende API's voor het opgeven van functies.
 
-Machine learning in aangepaste besluit-Service is standaard transparant voor de klant. Onderdelen worden automatisch opgehaald uit de inhoud en een standaard versterking learning-algoritme wordt gebruikt. Uitpakken van de functie maakt gebruik van verschillende andere Azure cognitieve Services: [entiteit koppelen](../entitylinking/home.md), [Tekstanalyse](../text-analytics/overview.md), [Emotion](../emotion/home.md), en [Computer Vision](../computer-vision/home.md). Deze zelfstudie worden overgeslagen als alleen de standaardfunctionaliteit wordt gebruikt.
+Machine learning in Custom Decision Service is standaard transparant voor de klant. Functies worden automatisch opgehaald uit uw inhoud en er wordt een standaardalgoritme voor bekrachtigend of versterkend leren gebruikt. Ook worden er verschillende andere Azure Cognitive Services gebruikt, zoals [Entity Linking](../text-analytics/overview.md), [Text Analytics](../emotion/home.md), [Emotion](../computer-vision/home.md) en [Computer Vision](../entitylinking/home.md). U kunt deze zelfstudie overslaan als u alleen de standaardfunctionaliteit gebruikt.
 
-## <a name="featurization-concepts-and-implementation"></a>Featurization: concepten en implementatie
+## <a name="featurization-concepts-and-implementation"></a>Functionalisatie: concepten en implementatie
 
-Aangepaste besluit Service kunt u besluiten één voor één. Elke beslissing omvat het kiezen van de verschillende alternatieven ook, acties. Afhankelijk van de toepassing kiezen de beslissing één actie of een (korte) gerangschikte lijst van acties.
+Custom Decision Service neemt beslissingen één voor één. Elke beslissing omvat het kiezen uit verschillende alternatieven, ook wel acties genoemd. Afhankelijk van de toepassing, kan de beslissing zijn om één actie te kiezen of een gerangschikte (korte) lijst met acties.
 
-Aanpassen voor het exemplaar van de selectie van artikelen op de voorpagina van een website. Hier acties komen overeen met de artikelen en elke beslissing is welke artikelen om te tonen aan een bepaalde gebruiker.
+Stel dat u de selectie van artikelen op de beginpagina van een website wilt aanpassen. Hier komen acties overeen met artikelen en elk beslissing bestaat eruit welke artikelen worden weergegeven aan een bepaalde gebruiker.
 
-Elke actie wordt vertegenwoordigd door een vector eigenschappen voortaan aangeroepen *functies*. Nieuwe functies, naast de functies die automatisch worden opgehaald, kunt u opgeven. U kunt ook opgeven dat aangepaste besluit Service melden sommige functies, maar deze voor machine learning negeren.
+Elke actie wordt vertegenwoordigd door een vector van eigenschappen, vanaf nu *functies* genoemd. U kunt nieuwe functies opgeven, naast de functies die automatisch worden geëxtraheerd. U kunt Custom Decision Service ook opdracht geven om bepaalde functies vast te leggen, maar deze te negeren voor machine learning.
 
 ### <a name="native-vs-internal-features"></a>Systeemeigen versus interne functies
 
-U kunt functies in een indeling meest natuurlijke opgeven voor uw toepassing, een getal, een tekenreeks of een matrix. Deze functies worden genoemd 'native-onderdelen. Aangepaste besluit Service zet elke systeemeigen functie in een of meer numerieke onderdelen, genaamd 'interne-onderdelen.
+U kunt functies opgeven in een indeling die het meest natuurlijk is voor uw toepassing, hetzij een getal, een tekenreeks of een matrix. Deze functies worden 'native' of 'systeemeigen functies' genoemd. Custom Decision Service zet elke systeemeigen functie om in een of meer numerieke functies, die 'interne functies' worden genoemd.
 
-De vertaling in interne functies is als volgt:
+De omzetting in interne functies werkt als volgt:
 
-- numerieke onderdelen blijven hetzelfde.
-- Er kan een numerieke matrix aan verschillende numerieke functies, één voor elk element van de matrix.
-- een tekenreeks-valued functie `"Name":"Value"` is standaard vertaald naar een functie met de naam `"NameValue"` en de waarde 1.
-- U kunt desgewenst een tekenreeks kan worden weergegeven als [eigenschappenverzameling van woorden](https://en.wikipedia.org/wiki/Bag-of-words_model). Vervolgens wordt een interne functie gemaakt voor elk woord in de tekenreeks, waarvan de waarde het aantal exemplaren van dit woord is.
-- Interne functies nul waarden worden weggelaten.
+- Numerieke functies blijven hetzelfde.
+- Een numerieke matrix wordt omgezet in verschillende numerieke functies, één voor elk element van de matrix.
+- Een functie met een tekenreekswaarde `"Name":"Value"` wordt standaard omgezet in een functie met de naam `"NameValue"` en de waarde 1.
+- Een tekenreeks kan optioneel worden voorgesteld als een [bag-of-words](https://en.wikipedia.org/wiki/Bag-of-words_model). Vervolgens wordt er voor elk woord in de tekenreeks een interne functie gemaakt, waarvan de waarde overeenkomt met het aantal exemplaren van dit woord.
+- Interne functies met nulwaarden worden weggelaten.
 
-### <a name="shared-vs-action-dependent-features"></a>Gedeeld versus afhankelijk zijn van het actie-functies
+### <a name="shared-vs-action-dependent-features"></a>Gedeelde versus actieafhankelijke functies
 
-Sommige functies verwijzen naar de volledige beslissing en zijn hetzelfde voor alle acties. We noemen deze *gedeelde onderdelen*. Aantal andere functies zijn specifiek voor een bepaalde actie. We noemen deze *actie-afhankelijke onderdelen* (AD FS).
+Sommige functies verwijzen naar de beslissing in zijn geheel, en zijn hetzelfde voor alle acties. We noemen deze *gedeelde functies*. Enkele andere functies zijn specifiek voor een bepaalde actie. Deze noemen we *actieafhankelijke functies* (of ADF voor Action-Dependent Feature).
 
-In het voorbeeld uitgevoerd kunnen gedeelde functies beschrijven de gebruiker en/of de status van de hele wereld. Functies, zoals geolocatie, leeftijd en geslacht van de gebruiker en welke belangrijke gebeurtenissen nu plaatsvinden. Actie-afhankelijke onderdelen kunnen de eigenschappen van een bepaald artikel, zoals de onderwerpen in dit artikel wordt beschreven.
+In het voorbeeld kunnen gedeelde functies de gebruiker en/of de toestand van de wereld beschrijven. Functies zoals geolocatie, leeftijd en geslacht van de gebruiker, en welke belangrijke gebeurtenissen er op dit moment plaatsvinden. Actieafhankelijke functies kunnen de eigenschappen van een bepaald artikel beschrijven, zoals de onderwerpen die in dit artikel worden beschreven.
 
-### <a name="interacting-features"></a>Functies met elkaar communicerende
+### <a name="interacting-features"></a>Functies die interactie hebben
 
-Functies vaak 'communiceren': het effect van een afhankelijk van andere gebruikers. Functie X is bijvoorbeeld of de gebruiker is geïnteresseerd in Sport. Functie Y is of een bepaald artikel gaat over sport. Het effect van functie Y is vervolgens maximaal afhankelijk van het onderdeel X.
+Functies hebben vaak 'interactie': het effect van de ene functie is afhankelijk van andere. Functie X geeft bijvoorbeeld aan dat de gebruiker is geïnteresseerd in sport. Functie Y bepaalt of een artikel over sport gaat. Het effect van functie Y is dus sterk afhankelijk van functie X.
 
-Als u wilt voor interactie tussen functies X en Y-account maken een *kwadratische* functie waarvan de waarde X is\*Y. (We ook uitspreken "snijpunt" X en Y.) U kunt kiezen welke paren van functies worden overschreden.
+Als u rekening wilt houden met interactie tussen functies X en Y, moet u een *kwadratische* functie maken met de waarde X\*Y. (We ook zeggen ook wel dat X en Y elkaar "kruisen".) U kunt aangeven kiezen welke functieparen elkaar kruisen.
 
 > [!TIP]
-> Een gedeelde functie moet worden overschreden met actie-afhankelijke functies om te kunnen van invloed zijn op hun positie. Een afhankelijk zijn van het actie-functie moet worden overschreden met gedeelde onderdelen om bijdragen aan persoonlijke instellingen.
+> Een gedeelde functie kan worden gekruist met actieafhankelijke functies om hun positie te beïnvloeden. Een actieafhankelijke functie moet worden gekruist met gedeelde functies om bij te dragen aan persoonlijke aanpassingen.
 
-Met andere woorden, een gedeelde functie niet is overschreden met een AD FS van invloed is op elke actie op dezelfde manier. Een ADF niet gepasseerd met een gedeelde functie is van invloed is op elke beslissing te. Deze typen functies kunnen de variantie van derden maakt een schatting te verminderen.
+Met andere woorden, een gedeelde functie die niet is gekruist met een ADF heeft op alle acties dezelfde invloed. Een ADF die niet is gekruist met een gedeelde functie is ook van invloed op elke beslissing. Deze typen functies kunnen de variantie van schattingen van beloningen verminderen.
 
 ### <a name="implementation-via-namespaces"></a>Implementatie via naamruimten
 
-U kunt kruislingse functies (evenals andere concepten featurization) implementeren via de 'een code opdrachtregel' in de Portal. De syntaxis is gebaseerd op de [Vowpal Wabbit](http://hunch.net/~vw/) vanaf de opdrachtregel.
+U kunt gekruiste functies (evenals andere concepten van functionalisatie) implementeren via de 'VW-opdrachtregel' in de portal. De syntaxis is gebaseerd op de opdrachtregel van [Vowpal Wabbit](http://hunch.net/~vw/).
 
-Centraal staat in de implementatie is het concept van *naamruimte*: een benoemde subset van functies. Elke functie behoort tot één naamruimte. De naamruimte kan expliciet worden opgegeven wanneer de functie-waarde is opgegeven voor aangepaste besluit Service. Dit is de enige manier om te verwijzen naar een functie in de opdrachtregel voor een code.
+Een belangrijke rol bij de implementatie is het concept van *naamruimte*: een benoemde subset van functies. Elke functie behoort tot exact één naamruimte. De naamruimte kan expliciet worden opgegeven als de waarde van de functie wordt doorgegeven aan Custom Decision Service. Dit is de enige manier om te verwijzen naar een functie op de VW-opdrachtregel.
 
-Een naamruimte is 'gedeeld' of 'actie-afhankelijke': bestaat alleen uit gedeelde functies of bestaat alleen uit afhankelijk zijn van het actie-functies van dezelfde actie.
+Een naamruimte is 'gedeeld' of 'actieafhankelijk': de naamruimte bestaat alleen uit gedeelde functies of alleen uit actieafhankelijke functies van dezelfde actie.
 
 > [!TIP]
-> Het is raadzaam om in te verpakken functies in expliciet opgegeven naamruimten. Groeperen van gerelateerde functies in dezelfde naamruimte.
+> Het is raadzaam om functies te verpakken in expliciet opgegeven naamruimten. Groepeer gerelateerde functies in dezelfde naamruimte.
 
-Als de naamruimte niet is opgegeven, wordt de functie automatisch toegewezen aan de standaardnaamruimte.
-
-> [!IMPORTANT]
-> Functies en naamruimten hoeft niet te zijn consistent via acties. Een naamruimte kan met name de verschillende functies voor verschillende acties hebben. Bovendien kan een bepaalde naamruimte worden gedefinieerd voor een aantal acties en niet voor andere.
-
-Meerdere interne functies die afkomstig zijn van dezelfde tekenreeks valued systeemeigen functie zijn gegroepeerd in dezelfde naamruimte. Twee systeemeigen functies die zich in verschillende naamruimten worden behandeld als uniek is, zelfs als ze dezelfde naam van de functie hebben.
+Als er geen naamruimte wordt opgegeven, wordt de functie automatisch toegewezen aan de standaardnaamruimte.
 
 > [!IMPORTANT]
-> Lange, beschrijvende naamruimte-id's zijn veelvoorkomende, wordt de code-opdrachtregel maakt geen onderscheid tussen naamruimten met de id met de dezelfde letter begint. In welke volgt zijn naamruimte-id's één letters, zoals `x` en `y`.
+> Functies en naamruimten hoeven niet consistent te zijn tussen acties. Zo kan een naamruimte verschillende functies voor verschillende acties hebben. Bovendien kan een bepaalde naamruimte wel zijn gedefinieerd voor sommige acties en niet voor andere.
 
-Details over de implementatie zijn als volgt:
+Meerdere interne functies die afkomstig zijn uit dezelfde systeemeigen functie met tekenreekswaarde worden gegroepeerd in dezelfde naamruimte. Twee systeemeigen functies die zich in verschillende naamruimten bevinden, worden behandeld als verschillende functies, zelfs als ze dezelfde functienaam hebben.
 
-- Naamruimten gekruist `x` en `y`, schrijven `-q xy` of `--quadratic xy`. Vervolgens elke functie in `x` is met elke functie in gekruist `y`. Gebruik `-q x:` gekruist `x` met elke naamruimte en `-q ::` alle paren van naamruimten overschrijden.
+> [!IMPORTANT]
+> Hoewel lange beschrijvende naamruimte-id's algemeen worden toegepast, wordt op de VW-opdrachtregel geen onderscheid gemaakt tussen naamruimten waarvan de id met de dezelfde letter begint. In wat volgt bestaan naamruimte-id's uit één letter, zoals `x` en `y`.
 
-- Voor het negeren van alle functies in de naamruimte `x`, schrijven `--ignore x`.
+De implementatiedetails zijn als volgt:
 
-Deze opdrachten worden toegepast op elke actie afzonderlijk, als de naamruimten die zijn gedefinieerd.
+- Als u de naamruimten `x` en `y` wilt kruisen, schrijft u `-q xy` of `--quadratic xy`. Elke functie in `x` wordt dan gekruist met elke functie in `y`. Gebruik `-q x:` om `x` te kruisen met elke naamruimte en `-q ::` om alle paren van naamruimten te kruisen.
 
-### <a name="estimated-average-as-a-feature"></a>Geschatte gemiddelde als een functie
+- Als u alle functies in de naamruimte `x` wilt negeren, schrijft u `--ignore x`.
 
-Als een experiment gedachte wat de gemiddelde prijs van een bepaalde actie zou zijn als deze zijn geselecteerd voor de besluitvorming voor alle? Deze gemiddelde derden kan worden gebruikt als een meting van de "totale kwaliteit' van deze actie. Het is niet precies bekend wanneer andere acties zijn gekozen in plaats daarvan in een aantal beslissingen te nemen. Het kan echter worden geschat via versterking learning-technieken. De kwaliteit van deze schatting wordt doorgaans na verloop van tijd verbetert.
+Deze opdrachten worden afzonderlijk toegepast op elke actie, wanneer de naamruimten worden gedefinieerd.
 
-U kunt deze 'geschatte gemiddelde derden"bevatten als een functie voor een bepaalde actie. Aangepaste besluit Service zou deze schatting vervolgens automatisch bijgewerkt nieuwe gegevens ontvangt. Deze functie wordt aangeroepen de *marginale functie* van deze actie. Marginale functies kunnen worden gebruikt voor machine learning en voor controle.
+### <a name="estimated-average-as-a-feature"></a>Geschat gemiddelde als een functie
 
-Schrijven om toe te voegen marginale functies, `--marginal <namespace>` op de opdrachtregel voor een code. Definieer `<namespace>` in JSON als volgt:
+Als een gedachte-experiment, wat zou de gemiddelde beloning van een bepaalde actie zijn als deze voor alle beslissingen wordt gekozen? Een dergelijke gemiddelde beloning kan worden gebruikt als een meting van de 'algehele kwaliteit' van deze actie. Het is niet precies bekend wanneer andere acties zijn gekozen in sommige beslissingen. Hier kan echter een schatting van worden gemaakt via technieken voor bekrachtigend leren. De kwaliteit van deze schatting wordt meestal beter na verloop van tijd.
+
+U kunt ervoor kiezen om deze 'geschatte gemiddelde beloning" als een functie op te nemen voor een bepaalde actie. Deze schatting wordt vervolgens automatisch bijgewerkt door Custom Decision Service wanneer er nieuwe gegevens binnenkomen. Deze functie wordt de *marginale functie* van deze actie genoemd. Marginale functies kunnen worden gebruikt voor machine learning en voor controle.
+
+Als u marginale functies wilt toevoegen, schrijft u `--marginal <namespace>` in op de VW-opdrachtregel. Definieer `<namespace>` als volgt in JSON:
 
 ```json
 {<namespace>: {"mf_name":1 "action_id":1}
 ```
 
-Plaats deze samen met andere afhankelijk zijn van het actie-functies van een bepaalde actie-naamruimte. Deze definitie voor elke beslissing, met behulp van dezelfde `mf_name` en `action_id` voor de besluitvorming voor alle.
+Voeg deze naamruimte toe, samen met andere actieafhankelijke functies van een bepaalde actie. Verstrek deze definitie voor elke beslissing, met behulp van dezelfde `mf_name` en `action_id` voor alle beslissingen.
 
-De functie voor marginale wordt toegevoegd voor elke actie met `<namespace>`. De `action_id` mag de naam van een functie die een unieke identificatie van de actie. De functienaam is ingesteld op `mf_name`. In het bijzonder marginal met verschillende functies `mf_name` worden behandeld als verschillende functies, een ander gewicht wordt geleerd voor elk `mf_name`.
+De marginale functie wordt toegevoegd voor elke actie met `<namespace>`. De `action_id` kan elke functienaam zijn die de actie uniek identificeert. De functienaam is ingesteld op `mf_name`. Marginale functies met een andere `mf_name` worden behandeld als andere functies, er wordt een andere weging geleerd voor elke `mf_name`.
 
-Het gebruik van standaard is dat `mf_name` is hetzelfde voor alle acties. Vervolgens wordt een gewicht geleerd voor alle marginale functies.
+Het standaardgebruik is dat `mf_name` hetzelfde is voor alle acties. Vervolgens wordt er één weging geleerd voor alle marginale functies.
 
-U kunt ook meerdere marginale functies voor dezelfde actie met dezelfde waarden, maar met verschillende onderdeelnamen opgeven.
+U kunt ook meerdere marginale functies voor dezelfde actie opgeven, met dezelfde waarden,maar met verschillende functienamen.
 
 ```json
 {<namespace>: {"mf_name1":1 "action_id":1 "mf_name2":1 "action_id":1}}
 ```
 
-### <a name="1-hot-encoding"></a>1 hot codering
+### <a name="1-hot-encoding"></a>1-hot codering
 
-U kunt sommige functies als bits vectoren, waar elke bit komt met een bereik van de mogelijke waarden overeen vertegenwoordigt. Deze bit is ingesteld op 1 als de functie in dit bereik ligt. Dus er is een 'hot' bit die is ingesteld op 1 en de andere worden ingesteld op 0. Deze weergave staat bekend als *1 hot codering*.
+U kunt ervoor kiezen om sommige functies als bit-vectoren voor te stellen, waarbij elke bit overeenkomt met een bereik van mogelijke waarden. Deze bit wordt alleen ingesteld op 1 als de functie in dit bereik ligt. Dus er is één 'hot' bit die wordt ingesteld op 1 en de andere op 0. Deze representatie staat bekend als *1-hot codering*.
 
-De hot 1-codering is Typerend voor categorische functies zoals 'geografische regio' waarvoor geen een inherent zinvolle numerieke representatie. U wordt ook aangeraden voor numerieke onderdelen waarvan de invloed op de prijs is waarschijnlijk niet lineair. Een bepaald artikel zijn mogelijk relevant zijn voor een bepaalde groep in de leeftijd en niet relevant zijn voor iedereen oudere of jonger.
+1-hot-codering wordt vaak gebruikt voor categorische functies zoals 'geografische regio', waarvoor geen inherent zinvolle numerieke representatie beschikbaar is. Deze codering is ook raadzaam voor numerieke functies waarvan de invloed op de beloning waarschijnlijk niet-lineair is. Een bepaald artikel kan bijvoorbeeld relevant zijn voor een bepaalde leeftijdsgroep en niet relevant voor iedereen die ouder of jonger is.
 
-Een functie string-waarde is 1 hot gecodeerd standaard: een unieke interne functie is gemaakt voor elke mogelijke waarde. Automatische 1 hot codering voor numerieke onderdelen en/of door aangepaste bereiken zijn momenteel niet opgegeven.
+Een functie met een tekenreekswaarde wordt standaard 1-hot gecodeerd: er wordt voor elke mogelijke waarde een afzonderlijke interne functie gemaakt. Automatische 1-hot codering voor numerieke functies en/of met aangepaste bereiken is op dit moment niet mogelijk.
 
 > [!TIP]
-> De machine learning-algoritmen behandelen alle mogelijke waarden van een bepaalde functie interne op uniforme wijze: via een gemeenschappelijk 'gewicht'. De hot 1-codering, kunt een afzonderlijke 'gewicht' voor elke waardenbereik. Maken van de bereiken kleinere leidt tot betere voordelen zodra voldoende gegevens verzameld worden, maar mogelijk vergroot de hoeveelheid gegevens die nodig zijn voor betere kunt convergeren.
+> De machine learning-algoritmen behandelen alle mogelijke waarden van een bepaalde interne functie op een uniforme manier: via een algemene 'weging' of 'gewicht'. 1-hot codering maakt het mogelijk om een afzonderlijke 'weging' te hebben voor elk bereik van waarden. Door de bereiken kleiner te maken, is er sprake van betere beloningen zodra er voldoende gegevens zijn verzameld. Een nadeel kan zijn dat er meer gegevens nodig zijn voor convergentie naar betere beloningen.
 
-## <a name="feature-specification-format-and-apis"></a>Functie specificatie: indeling en API's
+## <a name="feature-specification-format-and-apis"></a>Functiespecificatie: indeling en API's
 
-U kunt functies via verschillende aanvullende API's opgeven. Alle API's gebruiken een gemeenschappelijke JSON-indeling. Hieronder vindt u de API's en de indeling op een conceptuele niveau. De specificatie wordt aangevuld met een Swagger-schema.
+U kunt functies opgeven via verschillende aanvullende API's. Alle API's gebruiken een gemeenschappelijke JSON-indeling. Hieronder vindt u de API's en de indeling op een conceptueel niveau. De specificatie wordt aangevuld door een Swagger-schema.
 
-Het basic JSON-sjabloon voor de functie specificatie is als volgt:
+Het basis-JSON-sjabloon voor functiespecificatie is als volgt:
 
 ```json
 {
@@ -137,14 +139,14 @@ Het basic JSON-sjabloon voor de functie specificatie is als volgt:
 }
 ```
 
-Hier `<name>` en `<value>` staan voor de functienaam en de waarde van de functie, respectievelijk. `<value>` is een tekenreeks, een geheel getal, een float, een Booleaanse waarde of een matrix. Een functie die niet zijn ingepakt in een naamruimte wordt automatisch toegewezen in de standaardnaamruimte.
+Hier staan `<name>` en `<value>` voor respectievelijk de functienaam en de functiewaarde. `<value>` kan een tekenreeks, een geheel getal, een float, een Booleaanse waarde of een matrix zijn. Een functie die niet is verpakt in een naamruimte, wordt automatisch toegewezen aan de standaardnaamruimte.
 
-Een speciale syntaxis gebruiken ter vertegenwoordiging van een tekenreeks als een eigenschappenverzameling van woorden `"_text":"string"` in plaats van `"<name>":<value>`. Effectief, wordt een afzonderlijke interne functie voor elk woord in de tekenreeks gemaakt. De waarde is het aantal exemplaren van dit woord.
+Als u een tekenreeks wilt voorstellen als een bag-of-words, gebruikt u de speciale syntaxis `"_text":"string"` in plaats van `"<name>":<value>`. In feite wordt er voor elk woord in de tekenreeks een afzonderlijke interne functie gemaakt. De waarde bestaat uit het aantal exemplaren van dit woord.
 
-Als `<name>` begint met '_' (en niet `"_text"`), wordt de functie genegeerd.
+Als `<name>` begint met "_" (en niet `"_text"` is), wordt de functie genegeerd.
 
 > [!TIP]
-> U kunt samenvoegen soms functies uit meerdere bronnen voor JSON. Voor het gemak kunt u ze als volgt weergeven:
+> Soms kunt u functies uit meerdere JSON-bronnen samenvoegen. Voor het gemak kunt u deze als volgt weergeven:
 >
 > ```json
 > {
@@ -154,22 +156,22 @@ Als `<name>` begint met '_' (en niet `"_text"`), wordt de functie genegeerd.
 > }
 > ```
 
-Hier `<features>` verwijst naar de eerder gedefinieerde basic functie-specificatie. 'Geneste' diepere niveaus zijn te toegestaan. Aangepaste besluit-Service zoekt automatisch de 'diepste' JSON-objecten die kunnen worden geïnterpreteerd als `<features>`.
+Hier verwijst `<features>` naar de basisfunctiespecificatie die eerder is gedefinieerd. Diepere niveaus van 'nesten' zijn ook toegestaan. Custom Decision Service vindt automatisch de 'diepste' JSON-objecten die kunnen worden geïnterpreteerd als `<features>`.
 
-#### <a name="feature-set-api"></a>Functie Set API
+#### <a name="feature-set-api"></a>Feature Set-API
 
-Functie ingesteld API retourneert een lijst met functies in de JSON-indeling die eerder zijn beschreven. U kunt verschillende functie ingesteld API-eindpunten. Elk eindpunt dat wordt geïdentificeerd door de functie set-id en een URL. De toewijzing tussen functie id's ingesteld en de URL's op de Portal.
+De Feature Set-API retourneert een lijst met functies in de JSON-indeling die eerder is beschreven. U kunt verschillende eindpunten voor de Feature Set-API gebruiken. Elk eindpunt wordt geïdentificeerd met de id van de functieset en een URL. De toewijzing tussen de functieset-id's en URL's gebeurt in de portal.
 
-Functie ingesteld API aanroepen door het invoegen van de bijbehorende onderdeel-id in de juiste plaats in JSON. Actie-afhankelijke onderdelen, wordt automatisch de aanroep van parameters gebruikt door de actie-id. U kunt opgeven dat verschillende id's van de functieset voor dezelfde actie.
+Roep de Feature Set-API aan door de bijbehorende functieset-id op de juiste plaats in JSON in te voegen. Voor actieafhankelijke functies wordt de aanroep automatisch uitgebreid met parameters door de actie-id. U kunt verschillende functieset-id's opgeven voor dezelfde actie.
 
-#### <a name="action-set-api-json-version"></a>Actie ingesteld API (JSON-versie)
+#### <a name="action-set-api-json-version"></a>Action Set-API (JSON-versie)
 
-Actie ingesteld API heeft een versie waarin acties en functies in JSON zijn opgegeven. Functies kunnen worden opgegeven expliciet en/of via de functie ingesteld API's. Gedeelde functies kunnen voor alle acties één keer worden opgegeven.
+De Action Set-API heeft een versie waarin acties en functies worden opgegeven in JSON. Functies kunnen expliciet worden opgegeven en/of via Feature Set-API's. Gedeelde functies kunnen één keer worden opgegeven voor alle acties.
 
-#### <a name="ranking-api-http-post-call"></a>Rangschikking API (HTTP POST-aanroep)
+#### <a name="ranking-api-http-post-call"></a>Ranking-API (HTTP POST-aanroep)
 
-Rangschikking API heeft een versie die gebruikmaakt van HTTP POST-aanroep. De hoofdtekst van deze aanroep specificeert acties en -functies via een flexibele JSON-syntaxis.
+De Ranking-API heeft een versie waarin een HTTP POST-aanroep wordt gebruikt. De hoofdtekst van deze aanroep bevat acties en functies via een flexibele JSON-syntaxis.
 
-Acties kunnen worden expliciet opgegeven en/of via een actie id's toekennen. Als er een actie set-id wordt aangetroffen, wordt een aanroep van de bijbehorende actie ingesteld API-eindpunt wordt uitgevoerd.
+Acties kunnen expliciet worden opgegeven en/of via Action Set-API's. Wanneer er een actieset-id wordt aangetroffen, wordt er een aanroep naar het bijbehorende eindpunt van de Action Set-API uitgevoerd.
 
-Als voor de actie ingesteld API kunnen functies expliciet en/of via de functie ingesteld API's worden opgegeven. Gedeelde functies kunnen voor alle acties één keer worden opgegeven.
+Net als bij de Action Set-API kunnen functies expliciet worden opgegeven en/of via Feature Set-API's. Gedeelde functies kunnen één keer worden opgegeven voor alle acties.

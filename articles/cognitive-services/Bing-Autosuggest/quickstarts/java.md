@@ -1,38 +1,38 @@
 ---
-title: Quick Start voor Bing voor Automatische suggestie van API met behulp van Java | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de API voor Automatische suggestie van Bing in cognitieve Azure-Services.
+title: 'Snelstart: Automatische suggestie-API voor Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: c3a6b7119521772dbb60f3702c84e9bbd94217c4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6f79416c28631a47209558fd0c415ae79cff93bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345537"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831395"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Quick Start voor Bing voor Automatische suggestie van API met Java
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Snelstart voor Automatische suggestie-API voor Bing met Java
 
-Dit artikel laat zien hoe u de [voor Automatische suggestie van Bing-API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) met Java. De Automatische suggestie van Bing-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijk queryreeks dat de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API niet aanroepen telkens wanneer die de gebruiker een nieuw teken in het zoekvak typen en vervolgens de suggesties weergeven in de vervolgkeuzelijst het zoekvak. Dit artikel laat zien hoe u verzendt een aanvraag die als resultaat geeft de voorgestelde queryreeksen voor *voeren*.
+In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) gebruikt met Java. De Automatische suggestie-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks die de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API telkens aanroepen wanneer de gebruiker een nieuw teken in het zoekvak typt om vervolgens de suggesties weer te geven in de vervolgkeuzelijst van het zoekvak. In dit artikel ziet u hoe u een aanvraag verstuurt die de voorgestelde queryreeksen voor *sail* retourneert.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U mag een IDE voor Java gebruiken als u een favoriet hebben, maar worden volstaan met een teksteditor.
+U hebt [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nodig om deze code te compileren en uit te voeren. U kunt een Java-IDE gebruiken als u daar graag mee werkt, maar een teksteditor volstaat.
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **voor Automatische suggestie van Bing-API v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="get-autosuggest-results"></a>Automatische suggestie resultaten ophalen
+## <a name="get-autosuggest-results"></a>Resultaten van Automatische suggesties ophalen
 
-1. Maak een nieuwe Java-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `subscriptionKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Java-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```java
 import java.io.*;
@@ -117,7 +117,7 @@ public class Autosuggest {
 
 ### <a name="response"></a>Antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -186,9 +186,9 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Automatische suggestie van Bing](../tutorials/autosuggest.md)
+> [Zelfstudie over Bing Automatische suggesties](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Wat is Automatische suggestie van Bing?](../get-suggested-search-terms.md)
-- [Voor Automatische suggestie van Bing-API v7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Wat is Bing Automatische suggesties?](../get-suggested-search-terms.md)
+- [Naslaghandleiding Bing Automatische suggesties-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

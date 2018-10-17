@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983882"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884303"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Voorbeeld: uw video's uploaden en indexeren  
 
@@ -36,6 +36,11 @@ In het artikel komen enkele van de parameters aan bod die u op de API kunt inste
 - Bij het uploaden van uw video op basis van de URL (aanbevolen) moet het eindpunt worden beveiligd met TLS 1.2 (of hoger)
 - De optie bytematrix is beperkt tot 2 GB en er treedt een time-out op na 30 minuten
 - De URL die is opgegeven in de parameter `videoURL`moet worden gecodeerd
+
+> [!Tip]
+> Het verdient aanbeveling om .NET Framework versie 4.6.2 of hoger te gebruiken omdat oudere versies van .NET Framework niet standaard gebruikmaken van TLS 1.2.
+>
+> Als u een oudere versie van .NET Framework moet gebruiken, voegt u deze regel toe aan uw code voordat u de REST API-aanroept:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Configuraties en parameters
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Algemene fouten
 
+De statuscodes in de volgende tabel kunnen worden geretourneerd door de uploadbewerking.
 
+|Statuscode|ErrorType (in hoofdtekst van antwoord)|Beschrijving|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Dezelfde video wordt al verwerkt in het opgegeven account.|
+|400|VIDEO_ALREADY_FAILED|Dezelfde video kon minder dan twee uur geleden niet worden verwerkt in het opgegeven account. API-clients moeten ten minste twee uur wachten voordat ze een video opnieuw uploaden.|
 
 ## <a name="next-steps"></a>Volgende stappen
 

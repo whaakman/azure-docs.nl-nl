@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594777"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603190"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Zelfstudie: toegang verlenen aan een web-API van Node.js vanuit een desktop-app met behulp van Azure Active Directory B2C
 
@@ -110,7 +110,7 @@ Als u een beveiligde web-API wilt aanroepen vanuit een app, moet u uw app machti
 
 5. Klik op **OK**.
 
-Uw **Mijn voorbeeld-WPF-app** is geregistreerd om het beveiligde **Mijn Node.js-web-API-voorbeeld** te kunnen aanroepen. Een gebruiker [voert een verificatie uit](../active-directory/develop/developer-glossary.md#authentication) met Azure AD B2C om de WPF-desktop-app te kunnen gebruiken. De desktop-app verkrijgt een [authorisatietoekenning](../active-directory/develop/developer-glossary.md#authorization-grant) van Azure AD B2C voor toegang tot de beveiligde web-API.
+Uw **Mijn voorbeeld-WPF-app** is geregistreerd om het beveiligde **Mijn Node.js-web-API-voorbeeld** te kunnen aanroepen. Een gebruiker [voert een verificatie uit](../active-directory/develop/developer-glossary.md#authentication) met Azure AD B2C om de WPF-bureaubladtoepassing te kunnen gebruiken. De bureaubladtoepassing verkrijgt een [autorisatietoekenning](../active-directory/develop/developer-glossary.md#authorization-grant) van Azure AD B2C voor toegang tot de beveiligde web-API.
 
 ## <a name="update-web-api-code"></a>Web-API-code bijwerken
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408507"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238762"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Service Fabric-cluster schalen
 
@@ -121,7 +121,7 @@ Inschalen is hetzelfde als uitschalen; u gebruikt alleen een lagere waarde voor 
 > [!NOTE]
 > Dit gedeelte is alleen van toepassing op de *Bronzen* duurzaamheidslaag. Voor meer informatie over duurzaamheid raadpleegt u [Service Fabric cluster capacity planning][durability] (Capaciteitsplanning voor Service Fabric-clusters).
 
-Wanneer u een virtuele-machineschaalset inschaalt, verwijdert de schaalset (in de meeste gevallen) de instantie van de virtuele machine die het laatst is gemaakt. Daarom moet u het overeenkomende, laatst gemaakte, Service Fabric-knooppunt vinden. U vindt dit laatste knooppunt door de hoogste waarde van eigenschap `NodeInstanceId` op de Service Fabric-knooppunten te controleren. In onderstaande codevoorbeelden worden de knooppuntinstanties gesorteerd en worden de details van de instantie met de hoogste id-waarde geretourneerd.
+Als u de knooppunten van het cluster gelijkmatig verdeeld wilt houden in upgrade- en foutdomeinen en op die manier gelijkmatig gebruik wilt inschakelen, moet het meest recent gemaakte knooppunt eerst worden verwijderd. Met andere woorden - de knooppunten moeten op basis van 'last in, first out' worden verwijderd. Het meest recent gemaakte knooppunt heeft de hoogste `virtual machine scale set InstanceId`-eigenschapswaarde. Met de onderstaande codevoorbeelden wordt het meest recent gemaakte knooppunt geretourneerd.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1

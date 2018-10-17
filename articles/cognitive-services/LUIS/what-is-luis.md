@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033036"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867652"
 ---
 # <a name="what-is-language-understanding-luis"></a>Wat is Language Understanding (LUIS)?
 
@@ -151,7 +151,7 @@ Het minimale JSON-antwoord van het eindpunt bevat de query-uiting en de belangri
 
 ## <a name="improve-model-prediction"></a>Voorspellingen van het model verbeteren
 
-Nadat een LUIS-model is gepubliceerd en daadwerkelijke uitingen van gebruikers ontvangt, zijn er verschillende methoden waarmee u de nauwkeurigheid van voorspellingen kunt verbeteren: [actief leren](#active-learning) van eindpunt-uitingen, [woordgroepenlijsten](#phrase-lists) voor het opnemen van woorden in een domein, en [patronen](#patterns) om het aantal benodigde uitingen te verminderen.
+Nadat een LUIS-model is gepubliceerd en daadwerkelijke uitingen van gebruikers ontvangt, zijn er verschillende methoden waarmee u de nauwkeurigheid van voorspellingen kunt verbeteren: [actief leren](luis-concept-review-endpoint-utterances.md) van eindpunt-uitingen, [woordgroepenlijsten](luis-concept-feature.md) voor het opnemen van woorden in een domein, en [patronen](luis-concept-patterns.md) om het aantal benodigde uitingen te verminderen.
 <!--
 ### Active learning
 
@@ -171,25 +171,37 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
 -->
 
-## <a name="integrating-with-luis"></a>Integratie met LUIS
+## <a name="development-lifecycle"></a>Levenscyclus van ontwikkeling
+LUIS biedt hulpprogramma's, versiebeheer en samenwerking met andere LUIS-auteurs voor integratie in de volledige levenscyclus voor ontwikkeling op het niveau van de clienttoepassing en het taalmodel. 
+
+## <a name="implementing-luis"></a>LUIS implementeren
 LUIS kan als REST-API worden geïntegreerd met elk product, elke service en elk framework waarmee een HTTP-aanvraag wordt gemaakt. De volgende lijst bevat de belangrijkste Microsoft-producten en services die gebruikmaken van LUIS.
 
-Voorbeelden van Microsoft-clienttoepassingen voor LUIS:
+De populairste clienttoepassing voor LUIS is:
 * [Web-app-bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) - hiermee maakt u snel een met LUIS compatibele chatbot voor communicatie met een gebruiker via tekstinvoer. Deze maakt gebruik van [Bot Framework][bot-framework] versie [3.x](https://github.com/Microsoft/BotBuilder) of [4.x](https://github.com/Microsoft/botbuilder-dotnet) voor een complete bot-ervaring.
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - zie deze [Mixed reality-cursus](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) met LUIS voor meer informatie. 
 
-Microsoft-hulpprogramma's voor het gebruik van LUIS met een bot:
+Hulpprogramma's om LUIS snel en eenvoudig met een bot te gebruiken:
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) Het NPM-pakket biedt creatie en voorspelling met een zelfstandig opdrachtregelhulpprogramma of een import. 
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen is een hulpprogramma voor het genereren van sterk getypeerde broncode voor C# en TypeScript op basis van een geëxporteerd LUIS-model.
 * [Dispatcher](https://aka.ms/dispatch-tool) - met behulp van het verdeelprogrammamodel kunnen verschillende LUIS- en QnA Maker-apps worden gebruikt vanuit een bovenliggende app.
-* [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) - hiermee kunt u sneller bot-gesprekken met LUIS bouwen.
-* [Project Personality Chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) - hiermee kunt u bot-smalltalk afhandelen.
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown is een opdrachtregelprogramma dat helpt om taalmodellen voor uw bot te beheren.
 
 Andere cognitieve services die kunnen worden gebruikt in combinatie met LUIS:
 * [QnA Maker] [ qnamaker] - hiermee kunnen verschillende soorten tekst worden gecombineerd in een kennisdatabase met vragen en antwoorden.
 * [Spellingcontrole-API voor Bing](../bing-spell-check/proof-text.md) - hiermee kunt u tekst corrigeren vóór het maken van voorspellingen. 
 * [Spraakservice](../Speech-Service/overview.md) - hiermee kunt u gesproken taalaanvragen converteren naar tekst. 
+* [Conversation Learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) - hiermee kunt u sneller bot-gesprekken met LUIS bouwen.
+* [Project Personality Chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) - hiermee kunt u bot-smalltalk afhandelen.
+<!--
+## Other ways of implementing LUIS
+
+A client application for LUIS is:
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 
+Labs: 
 
+-->
 ## <a name="next-steps"></a>Volgende stappen
 
 Een nieuwe LUIS-app met een [vooraf gedefinieerd](luis-get-started-create-app.md) of [aangepast](luis-quickstart-intents-only.md) domein maken. [Een query uitvoeren voor het voorspellingseindpunt](luis-get-started-cs-get-intent.md) van een openbare IoT-app.

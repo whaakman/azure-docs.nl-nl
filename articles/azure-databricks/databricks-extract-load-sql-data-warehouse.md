@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: c416937f98f6bcb49f86fce18213ca4ed349c513
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308793"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902056"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 
@@ -47,7 +47,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 Zorg ervoor dat u aan de volgende vereisten voldoet voordat u met deze zelfstudie begint:
 - Maak een Azure SQL Data Warehouse, maak een firewallregel op serverniveau en maak verbinding met de server als serverbeheerder. Volg de instructies bij [Snelstart: Een Azure SQL-datawarehouse maken](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Maak een databasehoofdsleutel voor Azure SQL Data Warehouse. Volg de instructies bij [Een databasehoofdsleutel maken](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Volg de instructies bij [Snelstart: Een Azure Blob-opslagaccount maken](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Maak een Azure Blob-opslagaccount met daarin een container. Haal ook de toegangssleutel op voor toegang tot het opslagaccount. Volg de instructies bij [Quickstart: Een Azure Blob-opslagaccount maken](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 

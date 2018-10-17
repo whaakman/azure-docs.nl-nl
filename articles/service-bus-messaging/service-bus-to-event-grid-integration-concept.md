@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700120"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585421"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Overzicht integratie Azure Service Bus met Azure Event Grid
 
@@ -129,9 +129,9 @@ Ga als volgt te werk als u een nieuw Event Grid-abonnement wilt maken:
 2. Selecteer in het linkerdeelvenster de optie **Event Grid**. 
 3. Selecteer **Gebeurtenisabonnement**.  
 
-   In de volgende afbeelding wordt een naamruimte weergegeven met enkele Event Grid-abonnementen:
+   In de volgende afbeelding wordt een naamruimte weergegeven met een Event Grid-abonnement:
 
-   ![20][]
+   ![Event Grid-abonnementen](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    In de volgende afbeelding wordt getoond hoe u zich kunt abonneren op een functie of webhook zonder specifieke filters:
 
@@ -176,7 +176,7 @@ U kunt nu kennismaken met de andere instelopties of [testen of er gebeurtenissen
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Voorbeelden](service-bus-to-event-grid-integration-example.md) ophalen van Service Bus en Event Grid.
-* Meer informatie over [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* Meer informatie over [Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Meer informatie over [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Meer informatie over [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
 * Meer informatie over [Service Bus](https://docs.microsoft.com/azure/azure-functions/).

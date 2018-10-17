@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221641"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801876"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -62,7 +62,7 @@ Deze zelfstudie maakt gebruik van een vereenvoudigde netwerkconfiguratie voor ge
 Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te implementeren. Maak vervolgens een VNet, subnetten en testservers.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
-1. Meld u aan bij de Azure-portal op [http://portal.azure.com](http://portal.azure.com).
+1. Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
 1. Klik op de startpagina van de Azure-portal op **Resourcegroepen** en klik vervolgens op **Toevoegen**.
 2. Bij **Resourcegroepnaam** typt u **Test-FW-RG**.
 3. Bij **Abonnement** selecteert u uw abonnement.
@@ -186,6 +186,10 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 10. Klik op **Subnetten** en klik vervolgens op **Koppelen**.
 11. Klik op **Virtueel netwerk** en selecteer vervolgens **Test-FW-VN**.
 12. Klik bij **Subnet** op **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Zorg ervoor dat u alleen het subnet **Workload-SN** selecteert voor deze route, anders werkt de firewall niet correct.
+
 13. Klik op **OK**.
 14. Klik op **Routes** en klik vervolgens op **Toevoegen**.
 15. Bij **Routenaam** typt u **FW-DG**.
@@ -193,8 +197,8 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 17. Bij **Volgend hoptype** selecteert u **Virtueel apparaat**.
 
     Azure Firewall is eigenlijk een beheerde service, maar Virtueel apparaat werkt in deze situatie.
-1. Bij **Adres van de volgende hop** typt u het privé-IP-adres voor de firewall dat u eerder hebt genoteerd.
-2. Klik op **OK**.
+18. Bij **Adres van de volgende hop** typt u het privé-IP-adres voor de firewall dat u eerder hebt genoteerd.
+19. Klik op **OK**.
 
 
 ## <a name="configure-application-rules"></a>Toepassingsregels configureren

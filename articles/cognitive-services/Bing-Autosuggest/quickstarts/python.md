@@ -1,38 +1,38 @@
 ---
-title: Quick Start voor Bing voor Automatische suggestie van API met behulp van Python | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de API voor Automatische suggestie van Bing in cognitieve Azure-Services.
+title: 'Snelstart: Automatische suggestie-API voor Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Automatische suggestie-API voor Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 721dba50e1d296066c06e0f00c9f36227391018d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 60585b2d5884962d0f988597ef1e50107e548122
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345536"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830614"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Quick Start voor Bing voor Automatische suggestie van API met behulp van Python
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Snelstart voor Automatische suggestie-API voor Bing met Python
 
-Dit artikel laat zien hoe u de [voor Automatische suggestie van Bing-API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) met behulp van Python. De Automatische suggestie van Bing-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijk queryreeks dat de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API niet aanroepen telkens wanneer die de gebruiker een nieuw teken in het zoekvak typen en vervolgens de suggesties weergeven in de vervolgkeuzelijst het zoekvak. Dit artikel laat zien hoe u verzendt een aanvraag die als resultaat geeft de voorgestelde queryreeksen voor *voeren*.
+In dit artikel leest u hoe u de [Automatische suggestie-API voor Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) gebruikt met Python. De Automatische suggestie-API retourneert een lijst met voorgestelde query's op basis van de gedeeltelijke queryreeks die de gebruiker invoert in het zoekvak. Normaal gesproken zou u deze API telkens aanroepen wanneer de gebruiker een nieuw teken in het zoekvak typt om vervolgens de suggesties weer te geven in de vervolgkeuzelijst van het zoekvak. In dit artikel ziet u hoe u een aanvraag verstuurt die de voorgestelde queryreeksen voor *sail* retourneert.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Python 3.x](https://www.python.org/downloads/) deze code uit te voeren.
+U hebt [Python 3.x](https://www.python.org/downloads/) nodig om deze code uit te voeren.
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **voor Automatische suggestie van Bing-API v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Automatische suggestie-API voor Bing v7**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/#search) is voldoende voor deze snelstartgids. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of u gebruikt de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="get-autosuggest-results"></a>Automatische suggestie resultaten ophalen
+## <a name="get-autosuggest-results"></a>Resultaten van Automatische suggesties ophalen
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `subscriptionKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -67,9 +67,9 @@ result = get_suggestions ()
 print (json.dumps(json.loads(result), indent=4))
 ```
 
-### <a name="response"></a>Reactie
+### <a name="response"></a>Antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -138,9 +138,9 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Automatische suggestie van Bing](../tutorials/autosuggest.md)
+> [Zelfstudie over Bing Automatische suggesties](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Zie ook
 
-- [Wat is Automatische suggestie van Bing?](../get-suggested-search-terms.md)
-- [Voor Automatische suggestie van Bing-API v7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Wat is Bing Automatische suggesties?](../get-suggested-search-terms.md)
+- [Naslaghandleiding Bing Automatische suggesties-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

@@ -3,18 +3,18 @@ title: Route zoeken met Azure Maps | Microsoft Docs
 description: Zoeken naar een nuttige plaats met Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578934"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816715"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Zoeken naar een nuttige plaats met Azure Maps
 
@@ -126,14 +126,16 @@ Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestatio
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    Met **map.setCameraBounds** wordt het kaartvenster aangepast aan de coördinaten van het begin- en eindpunt. De API **map.addPins** voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
+    Met **map.setCameraBounds** wordt het kaartvenster aangepast aan de coördinaten van het begin- en eindpunt. De **map.addEventListener** zorgt ervoor dat alle kaartfuncties die worden toegevoegd aan de kaart, worden geladen nadat de kaart volledig is geladen. De API **map.addPins** binnen de gebeurtenislistener voegt de punten als visuele onderdelen toe aan het kaartbesturingselement.
 
 3. Sla het bestand **MapRoute.html** op en vernieuw de browser. De kaart is nu gecentreerd op Seattle en u ziet de ronde blauwe speld die het beginpunt aangeeft en de blauwe speld die het eindpunt aangeeft.
 
@@ -143,7 +145,7 @@ Voor deze zelfstudie stelt u Microsoft in als het beginpunt en een benzinestatio
 
 ## <a name="get-directions"></a>Routebeschrijving ophalen
 
-Deze sectie beschrijft hoe u de routeservice-API van Maps gebruikt om te zoeken naar de route van een bepaald beginpunt naar een bestemming. De routeservice biedt API's om de *snelste*, *kortste*, *zuinigste* of *leukste* route tussen twee locaties te plannen. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. Zie [Routebeschrijvingen ophalen](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) voor meer informatie.
+Deze sectie beschrijft hoe u de routeservice-API van Maps gebruikt om te zoeken naar de route van een bepaald beginpunt naar een bestemming. De routeservice biedt API's om de *snelste*, *kortste*, *zuinigste* of *leukste* route tussen twee locaties te plannen. Ook kunnen gebruikers in de toekomst routes plannen met behulp van de uitgebreide historische verkeersdatabase van Azure en de duur van de route voor elke dag en tijd voorspellen. Zie [Routebeschrijvingen ophalen](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) voor meer informatie. Alle van de volgende functies moeten worden toegevoegd **binnen de eventListener voor het laden van de kaart** om ervoor te zorgen dat deze worden geladen nadat de kaart volledig is geladen.
 
 1. Voeg eerst een nieuwe laag aan de kaart toe om het routepad, de *linestring*, weer te geven. Voeg de volgende JavaScript-code toe aan het blok *script*.
 
@@ -204,6 +206,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een nieuwe webpagina maken met de kaartbesturingselement-API
 > * Adrescoördinaten instellen
 > * Query uitvoeren op routeservice voor routebeschrijving naar nuttige plaats
+
+De voorbeeldcode voor deze zelfstudie vindt u hier:
+
+> [Route zoeken met Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 De volgende zelfstudie laat zien hoe u een routequery maakt met beperkingen zoals de manier van reizen of het type lading, en meerdere routes op dezelfde kaart weergeeft.
 

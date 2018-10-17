@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171320"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079460"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing
 
@@ -40,10 +40,9 @@ U hebt de volgende items nodig om deze zelfstudie te voltooien:
 * Een client-id en een clientgeheim voor een webtoepassing die is geregistreerd bij Azure Active Directory die toegang heeft tot uw Key Vault
 * Een webtoepassing. Deze zelfstudie toont de stappen voor een ASP.NET MVC-toepassing die als een webtoepassing is geïmplementeerd in Azure.
 
-Voer de stappen uit in [Aan de slag met Azure Key Vault](key-vault-get-started.md) om de URI naar een geheim, de client-id en het clientgeheim op te halen en om de toepassing te registreren. De webtoepassing opent de kluis en moet worden geregistreerd in Azure Active Directory. De toepassing moet ook toegangsrechten hebben voor Key Vault. Als dat niet het geval is, gaat u terug naar Een toepassing registreren in de zelfstudie Aan de slag en herhaalt u de weergegeven stappen. Zie [Overzicht van Web Apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure Web Apps.
+Voer de stappen uit in [Aan de slag met Azure Key Vault](key-vault-get-started.md) om de URI naar een geheim, de client-id en het clientgeheim op te halen en om de toepassing te registreren. De webtoepassing opent de kluis en moet zijn geregistreerd in Azure Active Directory. De toepassing moet ook toegangsrechten hebben voor Key Vault. Als dat niet het geval is, gaat u terug naar Een toepassing registreren in de zelfstudie Aan de slag en herhaalt u de weergegeven stappen. Zie [Overzicht van Web Apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure Web Apps.
 
-Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Maar u moet in plaats daarvan [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) gebruiken. MSI kan automatisch Azure AD-identiteiten inrichten. Zie voor meer informatie het voorbeeld op [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) (Zelfstudie: MSI met Azure App Service en Azure Functions). U kunt ook de Key Vault-specifieke [MSI-zelfstudie](tutorial-web-application-keyvault.md) bekijken
-
+Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Maar u moet [beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md) gebruiken, aangezien Azure AD-identiteiten dan automatisch worden ingericht. Zie voor meer informatie het [voorbeeld op GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [zelfstudie over App Service en Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). U kunt ook deze zelfstudie voor Key Vault doornemen: [Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>NuGet-pakketten toevoegen
 
@@ -145,14 +144,19 @@ Nu u weet hoe u een Azure AD-app verifieert met behulp van een client-id en een 
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 Noteer de einddatum en het wachtwoord voor het PFX-bestand (in dit voorbeeld: 15 mei 2019 en mijnwachtwoord). U hebt deze nodig voor het onderstaande script. 
@@ -172,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint

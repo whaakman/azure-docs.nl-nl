@@ -1,43 +1,45 @@
 ---
-title: Python-Quick Start voor Microsoft cognitieve Services, Project antwoord zoeken | Microsoft Docs
-description: Voorbeeld van Python aan de slag met zoeken in de Project-antwoord, cognitieve Microsoft-Services in Azure.
+title: 'Snelstart: Project Answer Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Python-voorbeeld om aan de slag te gaan met Project Answer Search.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345257"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869825"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Project antwoord zoeken Python Quick Start
+# <a name="quickstart-project-answer-search-with-python"></a>Snelstart Project Answer Search met Python
 
-Het volgende voorbeeld met Python maakt en verzendt een aanvraag voor meer informatie over 'Steen Gibraltar'.
+Met het volgende Python-voorbeeld wordt een aanvraag voor informatie over 'Rock of Gibraltar' gemaakt en verzonden.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription).
 
-In dit voorbeeld maakt gebruik van Python 3.6.4
+In dit voorbeeld wordt Python 3.6.4 gebruikt
 
-## <a name="code-scenario"></a>Code-scenario 
+## <a name="code-scenario"></a>Codescenario 
 
-De volgende code maakt een voorbeeld-URL.
-Deze is geïmplementeerd in de volgende stappen uit:
-1. Declareer de variabelen opgeven van het eindpunt van de host en pad.
-2. Geef de URL van de query voor de preview en voeg de queryparameter.  
-3. De queryparameter ingesteld.
-4. Definieer de zoekfunctie die de aanvraag wordt gemaakt en wordt de *Ocp-Apim-Subscription-Key* header.
-5. Stel de *Ocp-Apim-Subscription-Key* header. 
-6. Controleer de verbinding en verzend de aanvraag.
-7. De JSON-resultaten afdrukken.
+Met de volgende code wordt een URL-voorbeeld gemaakt.
+De code wordt in de volgende stappen geïmplementeerd:
+1. Declareer variabelen om het eindpunt op te geven met een host en pad.
+2. Geef de query-URL op waarvan u een voorbeeld wilt maken en voeg de queryparameter toe.  
+3. Stel de queryparameter in.
+4. Definieer de Search-functie die de aanvraag maakt en de header *Ocp-Apim-Subscription-Key* toevoegt.
+5. Stel de header *Ocp-Apim-Subscription-Key* in. 
+6. Maak verbinding en verzend de aanvraag.
+7. Geef de JSON-resultaten weer.
 
-De volledige code voor deze demo volgt:
+Dit is de volledige code voor deze demo:
 
 ````
 import http.client, urllib.parse
@@ -65,6 +67,6 @@ print (json.dumps(json.loads(result), indent=4))
 
 ````
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](c-sharp-quickstart.md)
-- [Java-Quick Start](java-quickstart.md)
-- [Knooppunt Quick Start](node-quickstart.md)
+- [Snelstart voor C#](c-sharp-quickstart.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor Node](node-quickstart.md)

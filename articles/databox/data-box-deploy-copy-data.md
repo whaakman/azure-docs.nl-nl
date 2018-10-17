@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161927"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078847"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Zelfstudie: Gegevens kopiëren naar Azure Data Box 
 
@@ -88,11 +88,11 @@ Voer de volgende stappen uit om verbinding met de Data Box te maken als u een Wi
     The command completed successfully.
     ```
 
-4. Druk op Windows-toets+R. Geef in het venster **Uitvoeren** het `\\<device IP address>` op. Klik op **OK**. Verkenner wordt nu geopend.
+4. Druk op Windows-toets+R. Geef in het venster **Uitvoeren** het `\\<device IP address>` op. Klik op **OK**. Verkenner wordt nu geopend. U moet nu de shares kunnen zien in de vorm van mappen.
     
     ![Verbinding met de share maken via Verkenner 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. U moet nu de shares kunnen zien in de vorm van mappen. Maak een map voor de bestanden die u wilt kopiëren (in dit geval sjablonen). De mappen kunnen af en toe een grijs kruis weergeven. Het kruis wijst niet op een fout. De mappen worden door de toepassing gemarkeerd om de status bij te houden.
+5.  **Maak altijd een map voor de bestanden die u van plan bent te kopiëren in de bestandsshare en kopieer de bestanden vervolgens naar die map**. De mappen kunnen af en toe een grijs kruis weergeven. Het kruis wijst niet op een fout. De mappen worden door de toepassing gemarkeerd om de status bij te houden.
     
     ![Verbinding met de share maken via Verkenner 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Verbinding met de share maken via Verkenner 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Volg deze richtlijnen als u rsync gebruikt voor een kopie met meerdere threads:
 
  - Installeer het **CIFS Utils**- of **NFS Utils**-pakket, afhankelijk van het bestandssysteem dat uw Linux-client gebruikt.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  Installeer **Rsync** en **Parallel** (varieert en is afhankelijk van de gedistribueerde Linux-versie).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Maak een koppelpunt.

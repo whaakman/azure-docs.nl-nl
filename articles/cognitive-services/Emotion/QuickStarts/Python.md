@@ -1,36 +1,37 @@
 ---
-title: Snel starten van emotion-API Python | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Emotion-API met behulp van Python in cognitieve Services.
+title: 'Snelstartgids: Emoties op gezichten in een afbeelding herkennen - Emotion-API, Python'
+description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Emotion-API en Python.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
-ms.openlocfilehash: ff1f6b2ddc872d0ee63d9885b04b1f007bc86e33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344490"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236564"
 ---
-# <a name="emotion-api-python-quickstart"></a>Quick Start emotion-API Python
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
 
 > [!IMPORTANT]
-> Video API Preview beëindigd op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-In dit scenario vindt u informatie en codevoorbeelden kunt u snel aan de slag met de [Emotion-API herkennen methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met behulp van Python de emoties uitgedrukt in een of meer personen in een installatiekopie kan herkennen. 
+In deze snelstartgids vindt u informatie en codevoorbeelden om met behulp van Python en de [methode Recognize van de Emotion-API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) de emoties te herkennen die worden uitgedrukt door een of meer personen in een afbeelding.
 
-U kunt in dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: [ ![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
+U kunt dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de badge launch binder: [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
 
 ## <a name="prerequisite"></a>Vereiste
-Sleutel voor gratis abonnement ophalen [hier](https://azure.microsoft.com/try/cognitive-services/)
+U kunt [hier](https://azure.microsoft.com/try/cognitive-services/) een gratis abonnementssleutel ophalen
 
-## <a name="running-the-walkthrough"></a>De procedure wordt uitgevoerd
-Om door te gaan met deze stapsgewijze Kennismaking vervangen `subscription_key` met de API-sleutel die u eerder hebt verkregen.
+## <a name="running-the-walkthrough"></a>De voorbeeldtoepassing uitvoeren
+Als u wilt doorgaan met deze gids, moet u `subscription_key` vervangen door een geldige API-sleutel die u eerder hebt opgehaald.
 
 
 ```python
@@ -38,29 +39,29 @@ subscription_key = None
 assert subscription_key
 ```
 
-Controleer vervolgens of de service-URL overeenkomt met de regio die u hebt gebruikt bij het instellen van de API-sleutel. Als u een proefabonnement sleutel gebruikt, hoeft u geen wijzigingen aanbrengen.
+Vervolgens controleert u of de service-URL overeenkomt met de regio die u hebt gebruikt bij het instellen van de API-sleutel. Als u de sleutel van een proefversie gebruikt, hoeft u niets te wijzigen.
 
 
 ```python
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-In dit scenario maakt gebruik van installatiekopieën die zijn opgeslagen op schijf. Ook kunt u installatiekopieën die beschikbaar zijn via een openbaar toegankelijke URL zijn. Zie voor meer informatie de [REST API-documentatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
+In deze gids maakt u gebruik van afbeeldingen die op schijf zijn opgeslagen. U kunt ook afbeeldingen gebruiken die beschikbaar zijn via een openbaar toegankelijke URL. Zie de [documentatie van de REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) voor meer informatie.
 
-U ziet dat u moet instellen omdat de afbeeldingsgegevens is doorgegeven als onderdeel van de aanvraagtekst, de `Content-Type` koptekst tot `application/octet-stream`. Als u in een installatiekopie via een URL doorgeeft, moet u de header ingesteld op:
+Omdat de afbeeldingsgegevens worden doorgegeven als onderdeel van de hoofdtekst van de aanvraag, moet u de header `Content-Type` instellen op `application/octet-stream`. Als u een afbeelding doorgeeft via een URL, vergeet dan niet om de header in te stellen op:
 ```python
 header = {'Ocp-Apim-Subscription-Key': subscription_key }
 ```
-een woordenlijst met de URL maken:
+Maak een woordenlijst die de URL bevat:
 ```python
 data = {'url': image_url}
 ```
-en geef die naar de `requests` bibliotheek gebruiken:
+en geef die door aan de bibliotheek `requests` met behulp van:
 ```python
 requests.post(emotion_recognition_url, headers=headers, json=image_data)
 ```
 
-Eerst een paar voorbeeldafbeeldingen downloaden van de [Emotion-API](https://azure.microsoft.com/services/cognitive-services/emotion/) site.
+Download eerst een paar voorbeeldafbeeldingen van de site van de [Emotion-API](https://azure.microsoft.com/services/cognitive-services/emotion/).
 
 
 ```bash
@@ -101,9 +102,9 @@ analysis
 
 
 
-Het geretourneerde JSON-object bevat de omsluitende uit van de vlakken die samen met de gedetecteerde emoties zijn herkend. Elke emotion is gekoppeld aan een score tussen 0 en 1 waarbij een hogere score meer indicatief voor een emotion dan een lagere score. 
+Het geretourneerde JSON-object bevat de begrenzingsvakken van de gezichten die zijn herkend, samen met de gedetecteerde emoties. Elke emotie is gekoppeld aan een score tussen 0 en 1, waarbij een hogere score een betere indicatie van een emotie voorstelt dan een lagere score.
 
-De volgende regels code de gedetecteerde emoties de reacties in de installatiekopie met de `matplotlib` bibliotheek. Als u wilt overzichtelijker, worden alleen de eerste drie emoties weergegeven.
+De volgende regels met code beschrijven de gedetecteerde emoties op de gezichten in de afbeelding met behulp van de bibliotheek `matplotlib`. Om het overzichtelijk te houden, worden alleen de duidelijkste drie emoties weergegeven.
 
 
 ```python
@@ -129,7 +130,7 @@ for face in analysis:
 _ = plt.axis("off")
 ```
 
-De `annotate_image` functie weergegeven volgende kan worden gebruikt voor de overlay emoties bovenop een installatiekopiebestand krijgt het pad voor het bestandssysteem. Deze is gebaseerd op de code voor aanroepen in de eerder vermelde Emotion-API.
+De functie `annotate_image` hierna kan worden gebruikt om emoties als overlay op een afbeeldingsbestand te leggen, op basis van het pad in het bestandssysteem. De functie is gebaseerd op de code voor het aanroepen van de Emotion-API die eerder is weergegeven.
 
 
 ```python
@@ -156,7 +157,7 @@ def annotate_image(image_path):
     _ = plt.axis("off")
 ```
 
-Ten slotte de `annotate_image` functie kan worden aangeroepen voor een installatiekopiebestand, zoals wordt weergegeven in de volgende regel:
+Ten slotte kan de functie `annotate_image` worden aangeroepen voor een afbeeldingsbestand, zoals wordt weergegeven op de volgende regel:
 
 
 ```python

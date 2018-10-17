@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452629"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888091"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](how-to-connect-install-express.md) niet aan uw implementatie of topologie voldoet.
@@ -156,12 +156,19 @@ Bij een volledige productie-implementatie wordt het door alle objecten die gesyn
 ### <a name="optional-features"></a>Optionele functies
 In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecteren.
 
+>[!WARNING]
+>Azure AD Connect-versies **1.0.8641.0** en ouder zijn afhankelijk van de Azure Access Control Service voor het terugschrijven van wachtwoorden.  Deze service wordt op **7 november 2018** buiten gebruik gesteld.  Als u een van deze versies van Azure AD Connect gebruikt en wachtwoord terugschrijven hebt ingeschakeld, kunnen gebruikers mogelijk niet meer hun wachtwoord wijzigen of opnieuw instellen wanneer de service buiten gebruik is gesteld. Het terugschrijven van wachtwoorden met deze versies van Azure AD Connect zal niet worden ondersteund.
+>
+>Zie [Procedure: migreren vanuit de Azure Access Control Service](../develop/active-directory-acs-migration.md) voor meer informatie over de Azure Access Control Service
+>
+>Klik [hier](https://www.microsoft.com/en-us/download/details.aspx?id=47594) om de nieuwste versie van Azure AD Connect te downloaden.
+
 ![Optionele functies](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Als DirSync of Azure AD Sync momenteel actief zijn, activeer dan geen terugschrijffuncties in Azure AD Connect.
->
->
+
+
 
 | Optionele functies | Beschrijving |
 | --- | --- |
@@ -190,6 +197,9 @@ Op deze pagina worden alle kenmerken die worden gesynchroniseerd weergegeven op 
 
 ### <a name="directory-extension-attribute-sync"></a>Synchronisatie van directory-extensiekenmerken
 U kunt het schema in Azure AD uitbreiden met aangepaste kenmerken die door uw organisatie zijn toegevoegd of met andere kenmerken in Active Directory. Om deze functie te gebruiken, selecteert u **Synchronisatie van directory-extensiekenmerken** op de pagina **optionele functies**. U kunt op deze pagina meer kenmerken selecteren om te synchroniseren.
+
+>[!NOTE]
+>Het vak Beschikbare kenmerken is hoofdlettergevoelig.
 
 ![Uitbreidingen van de directory](./media/how-to-connect-install-custom/extension2.png)
 

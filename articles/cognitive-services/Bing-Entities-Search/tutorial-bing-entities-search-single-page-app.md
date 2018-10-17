@@ -1,91 +1,92 @@
 ---
-title: Bing entiteit zoeken één pagina web-app | Microsoft Docs
-description: Laat zien hoe de Bing entiteit zoeken-API gebruiken in een webtoepassing van één pagina.
+title: 'Zelfstudie: Web-app met één pagina maken met Bing Entiteiten zoeken'
+titlesuffix: Azure Cognitive Services
+description: Hier leert u hoe u de Bing Entiteiten zoeken-API kunt gebruiken in een webtoepassing met één pagina.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345587"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815542"
 ---
-# <a name="tutorial-single-page-web-app"></a>Zelfstudie: Single-page-web-app
+# <a name="tutorial-single-page-web-app"></a>Zelfstudie: Web-app van één pagina
 
-De API van Bing entiteit zoeken kunt u zoeken op het Web voor informatie over *entiteiten* en *wordt geplaatst.* U kunt aanvragen soort resultaat of beide in een bepaalde query. Hieronder vindt u de definities van plaatsen en entiteiten.
+Met de Bing Entiteiten zoeken-API kunt u op internet zoeken naar informatie over *entiteiten* en *plaatsen*. U kunt in een query een van beide soorten resultaten opvragen of beide. Hieronder vindt u de definities van plaatsen en entiteiten.
 
 |||
 |-|-|
-|Entiteiten|Bekende mensen, plaatsen en zaken die u kunt op naam zoeken|
-|Plaatsen|Restaurant, hotels en andere lokale bedrijven die u kunt op naam zoeken *of* door type (Italiaanse restaurant)|
+|Entiteiten|Bekende personen, plaatsen en dingen die u op naam zoekt|
+|Plaatsen|Restaurants, hotels en andere lokale bedrijven die u op naam zoekt *of* op type (Italiaanse restaurants)|
 
-In deze zelfstudie maken we een single-page-webtoepassing die gebruikmaakt van de entiteit zoeken-API van Bing om zoekresultaten weer te rechts op de pagina. De toepassing bevat onderdelen die HTML, CSS en JavaScript.
+In deze zelfstudie bouwen we een webtoepassing met één pagina die gebruikmaakt van de Bing Entiteiten zoeken-API om resultaten direct op de pagina weer te geven. De toepassing omvat HTML-, CSS- en JavaScript-onderdelen.
 
-De API kunt u resultaten per locatie prioriteren. In een mobiele app vraagt u het apparaat voor de eigen locatie. In een Web-app kunt u de `getPosition()` functie. Maar deze aanroep werkt alleen in de veilige contexten, en kan niet hierin een specifieke locatie. De gebruiker wil ook voor entiteiten in de buurt van een andere locatie dan hun eigen zoeken.
+De API biedt de mogelijkheid om resultaten op basis van locatie prioriteit te geven. In een mobiele app kunt u het apparaat om de eigen locatie vragen. In een web-app kunt u de functie `getPosition()` gebruiken. Maar deze aanroep werkt alleen in veilige contexten, en kan mogelijk geen nauwkeurige locatie geven. Misschien wil de gebruiker ook zoeken naar entiteiten in de buurt van een andere locatie dan hun eigen locatie.
 
-De app wordt daarom de Bing Maps-service voor breedtegraad en lengtegraad van een door de gebruiker ingevoerde locatie verzocht. De gebruiker Voer vervolgens de naam van een kenmerkende ('ruimte naald') of een volledige of gedeeltelijke adres ('New York City') en de Bing kaarten-API biedt de coördinaten.
+Onze app roept daarom de Bing Kaarten-service aan om de breedtegraad en lengtegraad op te halen van een door de gebruiker ingevoerde locatie. De gebruiker kan vervolgens de naam van een oriëntatiepunt ('Space Needle') of een volledig of gedeeltelijk adres ('New York City') opgeven en de Bing Kaarten-API levert dan de coördinaten.
 
 <!-- Remove until we can replace with a sanitized version.
 ![[Single-page Bing Entity Search app]](media/entity-search-spa-demo.png)
 -->
 
 > [!NOTE]
-> De JSON- en HTTP-koppen aan de onderkant van de pagina onthullen de JSON-antwoord en HTTP-aanvraag informatie wanneer geklikt. Deze gegevens zijn nuttig wanneer de service te verkennen.
+> Als u klikt op de JSON- en HTTP-koppen onder aan de pagina worden het JSON-antwoord en de gegevens voor de HTTP-aanvraag weergegeven. Deze gegevens zijn handig zijn bij het verkennen van de service.
 
-De app zelfstudie ziet u hoe:
+In de zelfstudie-app leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Bing entiteit zoeken-API-aanroep in JavaScript uitvoeren
-> * Uitvoeren van een Bing Maps `locationQuery` API-aanroep in JavaScript
+> * Een aanroep versturen naar de Bing Entiteiten zoeken-API in JavaScript
+> * Een aanroep naar de Bing Kaarten `locationQuery`-API in JavaScript versturen
 > * Zoekopties doorgeven aan de API-aanroepen
 > * Zoekresultaten weergeven
-> * De Bing-client-ID en API-abonnement sleutels verwerken
-> * Omgaan met eventuele fouten die optreden
+> * De Bing-client-id en API-abonnementsleutels verwerken
+> * Eventuele fouten verwerken
 
-De zelfstudie pagina is volledig onafhankelijke; gebruikt niet alle externe frameworks, opmaakmodellen of zelfs afbeeldingsbestanden. Alleen functies voor sterk ondersteund JavaScript-taal wordt gebruikt en werkt met huidige versies van alle bekende webbrowsers.
+De zelfstudiepagina staat volledig op zichzelf. Er worden geen externe frameworks, opmaakmodellen of afbeeldingsbestanden gebruikt. Er wordt alleen gebruikgemaakt van ondersteunde taalfuncties voor JavaScript en het werkt met actuele versies van alle bekende webbrowsers.
 
-In deze zelfstudie bespreken we alleen geselecteerde gedeelten van de broncode. De volledige broncode is beschikbaar [op een afzonderlijke pagina](tutorial-bing-entities-search-single-page-app-source.md). Kopieer en plak deze code in een teksteditor en sla het bestand als `bing.html`.
+In deze zelfstudie bespreken we alleen bepaalde gedeelten van de broncode. De volledige broncode is beschikbaar [op een afzonderlijke pagina](tutorial-bing-entities-search-single-page-app-source.md). Kopieer en plak deze code in een teksteditor en sla deze op als `bing.html`.
 
 > [!NOTE]
-> Deze zelfstudie is aanzienlijk vergelijkbaar met de [één pagina Bing zoeken op het Web-app zelfstudie](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), maar behandelt alleen zoekresultaten entiteit.
+> Deze zelfstudie is in grote lijnen vergelijkbaar met de [zelfstudie over het maken van een app met één pagina met de Bing Webzoekopdrachten-API](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), alleen worden hier alleen de zoekresultaten voor entiteiten behandeld.
 
 ## <a name="app-components"></a>App-onderdelen
 
-Net als alle Web-Apps van één pagina is de zelfstudie toepassing bestaat uit drie delen:
+Net zoals elke andere web-app met één pagina, bestaat de toepassing in deze zelfstudie uit drie onderdelen:
 
 > [!div class="checklist"]
-> * HTML - definieert de structuur en inhoud van de pagina
-> * CSS - bepaalt de vormgeving van de pagina
-> * JavaScript - definieert het gedrag van de pagina
+> * HTML: definieert de structuur en inhoud van de pagina
+> * CSS: definieert het uiterlijk van de pagina
+> * JavaScript: definieert het gedrag van de pagina
 
-Deze zelfstudie dekt niet in de meeste van de HTML-indeling of CSS in detail zoals ze simpel zijn.
+In deze zelfstudie wordt niet uitvoerig ingegaan op het merendeel van de HTML of CSS, aangezien deze heel duidelijk zijn.
 
-De HTML-code bevat het zoekformulier waarin de gebruiker voert een query en zoekopties kiest. Het formulier is verbonden met de JavaScript die daadwerkelijk wordt uitgevoerd de zoekopdracht op de `<form>` van de tag `onsubmit` kenmerk:
+De HTML bevat het zoekformulier waarop de gebruiker een query invoert en zoekopties kiest. Het formulier is via het kenmerk `onsubmit` van de tag `<form>` van het formulier verbonden met de JavaScript:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-De `onsubmit` handler retourneert `false`, waarmee het formulier worden verzonden naar een server houdt. De JavaScript-code komt daadwerkelijk het werk van de benodigde informatie verzamelen van het formulier en het uitvoeren van de zoekopdracht.
+Met de handler `onsubmit` wordt `false` geretourneerd, waardoor het formulier niet wordt verzonden naar de server. De JavaScript-code zorgt voor het verzamelen van de benodigde gegevens uit het formulier en het vervolgens uitvoeren van de zoekopdracht.
 
-De zoekopdracht wordt uitgevoerd in twee fasen. Als de gebruiker heeft een beperking van de locatie hebt ingevoerd, wordt eerst een Bing Maps-query om deze te converteren naar coördinaten gedaan. De callback voor deze query is vervolgens serversysteemstatus van de zoekopdracht Bing entiteit.
+De zoekopdracht wordt in twee fasen uitgevoerd. Als de gebruiker heeft een locatiebeperking heeft ingevoerd, wordt er eerst een Bing Kaarten-query uitgevoerd om de locatie om te zetten in coördinaten. De callback voor deze query activeert vervolgens de Bing Entiteiten zoeken-query.
 
-De HTML-code bevat ook de afdelingen (HTML `<div>` labels) waar de zoekresultaten worden weergegeven.
+De HTML bevat ook de verdelingen (HTML-`<div>`-codes) waar de zoekresultaten worden weergegeven.
 
-## <a name="managing-subscription-keys"></a>Abonnement sleutels beheren
+## <a name="managing-subscription-keys"></a>Abonnementssleutels beheren
 
 > [!NOTE]
-> Deze app vereist abonnement sleutels voor zowel de Bing zoeken-API en de Bing kaarten-API. U kunt een [proefversie Bing zoeksleutel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) en een [basic Bing Maps-sleutel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Deze app vereist abonnementssleutels voor zowel de Bing zoeken-API als de Bing Kaarten-API. U kunt een [sleutel van de proefversie van Bing Zoeken](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gebruiken en een [basissleutel van Bing Kaarten](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
-Om te voorkomen dat de sleutels van de Bing-zoekopdracht en Bing kaarten-API-abonnement in de code opnemen, gebruiken we de permanente opslag van de browser wilt opslaan. Als de sleutel niet opgeslagen is, we vragen om deze en opgeslagen voor later gebruik. Als de sleutel wordt later geweigerd door de API, ongeldig we opgeslagen zodat de gebruiker gevraagd om bij hun volgende zoekopdracht.
+Om te voorkomen dat de abonnementssleutels van de Bing Zoeken- en Bing Kaarten-API's moeten worden opgenomen in de code, gebruiken we de permanente opslag van de browser om de sleutels op te slaan. Als een van beide sleutels niet is opgeslagen, wordt de sleutel opgevraagd en opgeslagen voor later gebruik. Als de sleutel later wordt geweigerd door de API, wordt de opgeslagen sleutel ongeldig gemaakt zodat de gebruiker bij de volgende zoekopdracht om een sleutel wordt gevraagd.
 
-Definiëren we `storeValue` en `retrieveValue` functies die gebruikmaken van een de `localStorage` object (als de browser het ondersteunt) of een cookie. Onze `getSubscriptionKey()` functie maakt gebruik van deze functies op te slaan en het ophalen van de sleutel van de gebruiker.
+We definiëren de functies `storeValue` en `retrieveValue` voor gebruik met het `localStorage`-object (als de browser dit ondersteunt) of een cookie. Onze functie `getSubscriptionKey()` gebruikt deze functies voor het opslaan en ophalen van de sleutel van de gebruiker.
 
 ```javascript
 // cookie names for data we store
@@ -119,7 +120,7 @@ function getSearchSubscriptionKey() {
 }
 ```
 
-De HTML-code `<body>` label bevat een `onload` kenmerk dat roept `getSearchSubscriptionKey()` en `getMapsSubscriptionKey()` wanneer de pagina is geladen. Deze aanroepen leveren aan onmiddellijk de gebruiker gevraagd om hun sleutels als ze deze nog niet hebt ingevoerd.
+De HTML-tag `<body>` bevat een kenmerk `onload` dat `getSearchSubscriptionKey()` en `getMapsSubscriptionKey()` aanroept wanneer de pagina is geladen. Deze aanroepen zorgen ervoor dat de gebruiker direct om zijn of haar sleutels wordt gevraagd als deze nog niet zijn ingevoerd.
 
 ```html
 <body onload="document.forms.bing.query.focus(); getSearchSubscriptionKey(); getMapsSubscriptionKey();">
@@ -127,22 +128,22 @@ De HTML-code `<body>` label bevat een `onload` kenmerk dat roept `getSearchSubsc
 
 ## <a name="selecting-search-options"></a>Zoekopties selecteren
 
-![[Formulier Bing entiteit zoeken]](media/entity-search-spa-form.png)
+![[Formulier Bing Entiteiten zoeken]](media/entity-search-spa-form.png)
 
 Het HTML-formulier bevat de volgende besturingselementen:
 
 | | |
 |-|-|
-|`where`|Een vervolgkeuzelijst voor het selecteren van de markt (locatie en taal) dat wordt gebruikt voor de zoekopdracht.|
-|`query`|Het tekstveld in te voeren van de zoektermen.|
-|`safe`|Een selectievakje waarmee wordt aangegeven of veilig zoeken is ingeschakeld ('volwassenen' resultaten beperkt)|
-|`what`|Een menu voor kiezen om te zoeken naar entiteiten, plaatsen of beide.|
-|`mapquery`|Het veld waarin de gebruiker een volledige of gedeeltelijke adres, een kenmerkende, enzovoort om Bing entiteit return meer relevante zoekresultaten te kan invoeren.|
+|`where`|Een vervolgkeuzelijst voor het selecteren van de markt (locatie en taal) die wordt gebruikt voor de zoekopdracht.|
+|`query`|Het tekstveld voor het invoeren van de zoektermen.|
+|`safe`|Een selectievakje waarmee de functie SafeSearch kan worden in- of uitgeschakeld (beperkt resultaten voor 'volwassenen')|
+|`what`|Een menu om aan te geven of u wilt zoeken naar entiteiten, plaatsen of beide.|
+|`mapquery`|Het tekstveld waarin de gebruiker een volledig of gedeeltelijk adres, een oriëntatiepunt, enzovoort kan invoeren om meer relevante resultaten te vinden met Bing Entiteiten zoeken.|
 
 > [!NOTE]
-> Resultaten van de ruimten zijn momenteel alleen beschikbaar in de Verenigde Staten. De `where` en `what` menu's hebben de code voor het afdwingen van deze beperking. Als u een niet-Amerikaanse markt terwijl plaatsen is geselecteerd de `what` menu `what` in iets anders verandert. Als u ervoor plaatsen kiest wanneer een niet-Amerikaanse markt is geselecteerd de `where` menu `where` wijzigingen in de Verenigde Staten.
+> Resultaten voor plaatsen zijn momenteel alleen beschikbaar in de Verenigde Staten. De menu's `where` en `what` hebben code voor het afdwingen van deze beperking. Als u een niet-Amerikaanse markt kiest terwijl Places is geselecteerd in het menu `what`, wordt `what` gewijzigd in Anything. Als u Places kiest terwijl een niet-Amerikaanse markt is geselecteerd in het menu `where`, wordt `where` gewijzigd in US.
 
-Onze JavaScript-functie `bingSearchOptions()` deze velden converteert naar een gedeeltelijke query-tekenreeks voor de Bing zoeken-API.
+Onze JavaScript-functie `bingSearchOptions()` converteert deze velden naar een gedeeltelijke querytekenreeks voor de Bing Zoeken-API.
 
 ```javascript
 // build query options from the HTML form
@@ -156,17 +157,17 @@ function bingSearchOptions(form) {
 }
 ```
 
-Bijvoorbeeld: de functie veilig zoeken kan worden `strict`, `moderate`, of `off`, met `moderate` wordt de standaardwaarde. Maar ons formulier maakt gebruik van een selectievakje dat slechts twee statussen heeft. De JavaScript-code converteert u deze instelling op `strict` of `off` (we gebruik geen `moderate`).
+Zo kan de functie SafeSearch de waarde `strict`, `moderate` of `off` hebben, waarbij `moderate` de standaardwaarde is. Ons formulier gebruikt echter een selectievakje en selectievakjes hebben maar twee statussen. De JavaScript-code converteert deze instelling naar `strict` of `off` (`moderate` wordt niet gebruikt).
 
-De `mapquery` veld is niet verwerkt in `bingSearchOptions()` omdat deze niet voor Bing entiteit zoeken voor de query Bing Maps-locatie wordt gebruikt.
+Het veld `mapquery` wordt niet verwerkt in `bingSearchOptions()` omdat dit wordt gebruikt voor de locatiequery van Bing Kaarten, niet voor Bing Entiteiten zoeken.
 
-## <a name="obtaining-a-location"></a>Het verkrijgen van een locatie
+## <a name="obtaining-a-location"></a>Een locatie ophalen
 
-De Bing kaarten-API biedt een [ `locationQuery` methode](//msdn.microsoft.com/library/ff701711.aspx)die we gebruiken om te zoeken naar de breedtegraad en lengtegraad van de locatie van de gebruiker invoert. Deze coördinaten worden vervolgens doorgegeven aan de Bing zoeken-API voor entiteit met aanvraag van de gebruiker. De zoekresultaten prioriteren entiteiten en plaatsen die zich dicht bij de opgegeven locatie.
+De Bing Kaarten-API biedt een [`locationQuery`-methode](//msdn.microsoft.com/library/ff701711.aspx), die we gebruiken om de breedtegraad en lengtegraad te vinden van de locatie die de gebruiker invoert. Deze coördinaten worden vervolgens met de aanvraag van de gebruiker doorgegeven aan de Bing Entiteiten zoeken-API. In de lijst met zoekresultaten hebben entiteiten en plaatsen die zich dicht bij de opgegeven locatie bevinden prioriteit.
 
-We hebben geen toegang tot de Bing kaarten-API met behulp van een gewone `XMLHttpRequest` omdat de service biedt geen ondersteuning voor query's voor cross-origin-query in een Web-app. Gelukkig ondersteunt JSONP (de ' P ' is voor 'die is opgevuld'). Een JSONP-antwoord is een gewone JSON-antwoord ingepakt in een functieaanroep. De aanvraag wordt gedaan door in te voegen met behulp van een `<script>` label in het document. (Bij het laden van scripts is niet onderworpen aan het beveiligingsbeleid van de browser.)
+De Bing Kaarten-API is niet toegankelijk met een gewone `XMLHttpRequest`-query in een web-app omdat de service geen ondersteuning biedt voor cross-origin-query's. Gelukkig ondersteunt de service wel JSONP (de 'P' staat voor 'padded' of opgevuld). Een JSONP-antwoord is een gewoon JSON-antwoord dat is verpakt in een functieaanroep. De aanvraag wordt gedaan door een tag `<script>` in te voegen in het document. (Het laden van scripts is niet onderhevig aan het beveiligingsbeleid van browsers.)
 
-De `bingMapsLocate()` functie wordt gemaakt en wordt de `<script>` tag voor de query. De `jsonp=bingMapsCallback` segment van de queryreeks bevat de naam van de functie moet worden aangeroepen met het antwoord.
+De functie `bingMapsLocate()` maakt de tag `<script>` voor de query en voegt deze in. Het segment `jsonp=bingMapsCallback` van de querytekenreeks bevat de naam van de functie die moet worden aangeroepen met het antwoord.
 
 ```javascript
 function bingMapsLocate(where) {
@@ -197,9 +198,9 @@ function bingMapsLocate(where) {
 ```
 
 > [!NOTE]
-> Als de Bing kaarten-API niet reageert, de `bingMapsCallBack()` functie wordt nooit aangeroepen. Normaal gesproken dit betekent dat dat `bingEntitySearch()` is niet aangeroepen, en de entiteit zoekresultaten worden niet weergegeven. Om te voorkomen dat dit scenario `bingMapsLocate()` stelt u ook een timer aan te roepen `bingEntitySearch()` na vijf seconden. Er is logica in de callback-functie om te voorkomen dat de zoekopdracht entiteit tweemaal uitvoeren.
+> Als de Bing Kaarten-API niet reageert, wordt de functie `bingMapsCallBack()` nooit aangeroepen. Normaal gesproken zou dit betekenen dat `bingEntitySearch()` niet wordt aangeroepen en er geen zoekresultaten voor entiteiten worden weergegeven. Om dit scenario te voorkomen, stelt `bingMapsLocate()` ook een timer in om `bingEntitySearch()` na vijf seconden aan te roepen. Er is logica opgenomen in de callback-functie om te voorkomen dat er twee keer wordt gezocht naar entiteiten.
 
-Wanneer de query is voltooid, de `bingMapsCallback()` functie wordt aangeroepen, zoals aangevraagd.
+Wanneer de query is voltooid, wordt de functie `bingMapsCallback()` aangeroepen, zoals aangevraagd.
 
 ```javascript
 function bingMapsCallback(response) {
@@ -246,15 +247,15 @@ function bingMapsCallback(response) {
 }
 ```
 
-Samen met de breedtegraad en lengtegraad de Bing-entiteit-zoekopdracht vereist een *radius* die aangeeft hoe nauwkeurig er informatie over de locatie. We berekenen van de RADIUS-met behulp van de *begrenzingsvak* opgegeven in het antwoord Bing-kaarten. Het begrenzingsvak is een rechthoek rond de hele locatie. Bijvoorbeeld, als de gebruiker invoert `NYC`, het resultaat bevat ongeveer centrale coördinaten van de New York City en een selectiekader dat de plaats omvat. 
+Naast de breedtegraad en lengtegraad, heeft de Bing Entiteiten zoeken-query een *radius* nodig die de nauwkeurigheid van de locatiegegevens aangeeft. We berekenen de radius met behulp van het *begrenzingsvak* in het antwoord van Bing Kaarten. Het begrenzingsvak is een rechthoek die de hele locatie omsluit. Als de gebruiker bijvoorbeeld `NYC` invoert, bevat het resultaat centrale coördinaten van New York City en een selectiekader dat de stad omsluit. 
 
-We de afstand tussen de primaire coördinaten aan elk van de vier hoeken van het begrenzingsvak met de functie voor het eerst berekenen `haversineDistance()` (niet weergegeven). We gebruiken de grootste waarde in deze vier afstanden als de radius. De minimale radius is een kilometer. Deze waarde wordt ook gebruikt als een standaard als er geen begrenzingsvak is opgegeven in het antwoord.
+We berekenen eerst de afstand tussen de primaire coördinaten en elk van de vier hoeken van het begrenzingsvak met behulp van de functie `haversineDistance()` (niet weergegeven). We gebruiken de grootste van deze vier afstanden als de radius. De minimale radius is een kilometer. Deze waarde wordt ook gebruikt als een standaardwaarde als er geen begrenzingsvak is opgenomen in het antwoord.
 
-De coördinaten en de radius te hebben verkregen, klikt u vervolgens noemen we `bingEntitySearch()` de werkelijke zoekopdracht wordt uitgevoerd.
+Als we beschikken over de coördinaten en de radius, kunnen we `bingEntitySearch()` aanroepen om de werkelijke zoekopdracht uit te voeren.
 
-## <a name="performing-the-search"></a>De zoekactie
+## <a name="performing-the-search"></a>De zoekopdracht uitvoeren
 
-De query, een locatie, een reeks opties en de API-sleutel opgegeven de `BingEntitySearch()` functie kunt u de zoekaanvraag Bing entiteit.
+Aan de hand van de query, een locatie, een tekenreeks met opties en de API-sleutel, voert de functie `BingEntitySearch()` de aanvraag van Bing Entiteiten zoeken uit.
 
 ```javascript
 // perform a search given query, location, options string, and API keys
@@ -307,7 +308,7 @@ function bingEntitySearch(query, latlong, options, key) {
 }
 ```
 
-De HTTP-aanvraag is voltooid, JavaScript-aanroepen onze `load` gebeurtenis-handler de `handleBingResponse()` functie voor het afhandelen van een geslaagde HTTP GET-aanvraag naar de API. 
+Als de HTTP-aanvraag is voltooid, roept JavaScript onze gebeurtenis-handler `load` aan, de functie `handleBingResponse()`, om een geslaagde HTTP GET-aanvraag naar de API te verwerken. 
 
 ```javascript
 // handle Bing search request results
@@ -375,43 +376,43 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Een geslaagde HTTP-aanvraag komt *niet* noodzakelijkerwijs dat de zoekopdracht zelf is voltooid. Als er een fout optreedt tijdens de zoekbewerking wordt de Bing entiteit zoeken-API retourneert een statuscode 200 HTTP en bevat informatie over de fout in de JSON-antwoord. Als de aanvraag snelheid beperkt is, retourneert de API bovendien een leeg antwoord.
+> Een juist voltooide HTTP-aanvraag betekent *niet* noodzakelijkerwijs dat de zoekopdracht zelf ook is geslaagd. Als er een fout optreedt in de zoekbewerking, wordt met de Bing Entiteiten zoeken-API een andere HTTP-statuscode dan 200 geretourneerd en bevat het JSON-antwoord de foutgegevens. Daarnaast wordt met de API een leeg antwoord geretourneerd als er beperkingen gelden voor de aanvraag.
 
-Veel van de code in beide van de voorgaande functies is speciaal bedoeld voor foutafhandeling. Er kunnen fouten optreden in de volgende fasen:
+Een groot deel van de code in beide voorgaande functies is toegewezen aan foutafhandeling. Er kunnen fouten optreden in de volgende fasen:
 
-|Fase|Potentiële fouten|Verwerkt door|
+|Fase|Potentiële fout(en)|Verwerkt met|
 |-|-|-|
-|Gebouw JavaScript request-object|De URL is ongeldig|`try`/`catch` blokkeren|
-|Maken van de aanvraag|Netwerkfouten, afgebroken verbindingen|`error` en `abort` gebeurtenis-handlers|
-|De zoekactie|Ongeldige aanvraag, ongeldige JSON-frequentielimieten|webtests op `load` gebeurtenis-handler|
+|JavaScript-aanvraagobject samenstellen|Ongeldige URL|`try`/`catch` blokkeren|
+|De aanvraag indienen|Netwerkfouten, afgebroken verbindingen|Gebeurtenis-handlers `error` en `abort`|
+|De zoekopdracht uitvoeren|Ongeldige aanvraag, ongeldige JSON, geldende beperkingen|tests in gebeurtenis-handler van `load`|
 
-Fouten worden verwerkt door het aanroepen van `renderErrorMessage()` met details over de fout bekend. Als het antwoord voldoet aan de volledige gauntlet fout tests, noemen we `renderSearchResults()` om de zoekresultaten op de pagina weer te geven.
+Fouten worden afgehandeld door `renderErrorMessage()` aan te roepen met eventuele bekende details over de fout. Als het antwoord de volledige set met fouttests doorgeeft, wordt `renderSearchResults()` aangeroepen om de zoekresultaten op de pagina weer te geven.
 
 ## <a name="displaying-search-results"></a>Zoekresultaten weergeven
 
-De Bing-API van zoekservice entiteit [, moet u voor het weergeven van resultaten in een bepaalde volgorde](use-display-requirements.md). Omdat de API twee soorten antwoorden retourneren kan, het is niet genoeg is voor het hoogste niveau doorlopen `Entities` of `Places` verzameling in de JSON-respons en de resultaten weer te geven. (Als u slechts één type resultaat wilt, gebruikt de `responseFilter` queryparameter.)
+De Bing Entiteiten zoeken-API [vereist dat u resultaten weergeeft in een bepaalde volgorde](use-display-requirements.md). Omdat de API twee verschillende soorten antwoorden kan retourneren, is het niet voldoende om de verzameling `Entities` of `Places` op het hoogste niveau in het JSON-antwoord te doorlopen en die resultaten weer te geven. (Als u slechts één type resultaat wilt, gebruikt u de queryparameter `responseFilter`.)
 
-In plaats daarvan gebruiken we de `rankingResponse` verzameling in de zoekresultaten in de resultaten om weer te geven. Dit object verwijst naar items in de `Entitiess` en/of `Places` verzamelingen.
+In plaats daarvan gebruiken we de verzameling `rankingResponse` in de zoekresultaten om de resultaten te ordenen voor weergave. Dit object verwijst naar items in de verzameling `Entitiess` en/of `Places`.
 
-`rankingResponse` kan maximaal drie verzamelingen van zoekresultaten aangewezen bevatten `pole`, `mainline`, en `sidebar`. 
+`rankingResponse` kan maximaal drie verzamelingen met zoekresultaten bevatten, aangeduid als `pole`, `mainline` en `sidebar`. 
 
-`pole`, indien aanwezig, is de meest relevante zoekresultaten en duidelijk zichtbaar wilt maken moet worden weergegeven. `mainline` verwijst naar het merendeel van de zoekresultaten. Hoofdlijnen resultaten moeten worden weergegeven zodra `pole` (of eerst als `pole` is niet aanwezig). 
+`pole`, indien aanwezig, is het meest relevante zoekresultaat en moet duidelijk zichtbaar worden weergegeven. `mainline` verwijst naar het grootste deel van de zoekresultaten. Mainline-resultaten moeten direct `pole` worden weergegeven (of als eerste als `pole` niet aanwezig is). 
 
-Ten slotte. `sidebar` verwijst naar reserve zoekresultaten. Ze kunnen worden weergegeven in een werkelijke zijbalk of gewoon na de hoofdlijnen resultaten. We hebben ervoor gekozen de laatste voor onze zelfstudie app.
+Als laatste verwijst `sidebar` naar aanvullende zoekresultaten. Deze kunnen worden weergegeven in een echte zijbalk of gewoon na de mainline-resultaten. We hebben de laatste optie gekozen voor onze zelfstudie-app.
 
-Elk item in een `rankingResponse` verzameling verwijst naar de werkelijke zoekitems resultaat op twee manieren voor verschillende maar gelijkwaardig.
+Elk item in een verzameling `rankingResponse` verwijst naar de werkelijke zoekresultaatitems op twee verschillende, maar gelijkwaardige, manieren.
 
 | | |
 |-|-|
-|`id`|De `id` ziet eruit als een URL, maar mag niet worden gebruikt voor koppelingen. De `id` van een ranking-resultaat overeenkomt met de `id` van beide een resultaatitem zoeken in een verzameling antwoord *of* een verzameling van het volledige antwoord (zoals `Entities`).
-|`answerType`<br>`resultIndex`|De `answerType` verwijst naar de verzameling op het hoogste niveau antwoord die het resultaat bevat (bijvoorbeeld `Entities`). De `resultIndex` verwijst naar de index van het resultaat in die verzameling. Als `resultIndex` wordt weggelaten, wordt het resultaat ranking verwijst naar de volledige verzameling.
+|`id`|De `id` ziet eruit als een URL, maar mag niet worden gebruikt voor koppelingen. Het type `id` van een positieresultaat komt overeen met de `id` van een zoekresultaatitem zoeken in een antwoordverzameling, *of* een complete antwoordverzameling (zoals `Entities`).
+|`answerType`<br>`resultIndex`|Het `answerType` verwijst naar de antwoordverzameling op het hoogste niveau die het resultaat bevat (bijvoorbeeld `Entities`). De `resultIndex` verwijst naar de index van het resultaat in die verzameling. Als `resultIndex` wordt weggelaten, verwijst het positieresultaat naar de volledige verzameling.
 
 > [!NOTE]
-> Zie voor meer informatie over dit deel van het antwoord van de zoekactie [positie resultaten](rank-results.md).
+> Zie [Positie van resultaten bepalen](rank-results.md) voor meer informatie over dit onderdeel van het zoekantwoord.
 
-U kunt ongeacht welke methode het item waarnaar wordt verwezen zoeken resultaat te zoeken gemakkelijkste voor uw toepassing is. In onze zelfstudie code gebruiken we de `answerType` en `resultIndex` elk zoekresultaat vinden.
+U kunt de methode gebruiken die het best aansluit bij uw toepassing om te zoeken naar het item in de zoekresultaten waarnaar wordt verwezen. In de code in deze zelfstudie gebruiken we `answerType` en `resultIndex` om de zoekresultaten te vinden.
 
-Ten slotte is het tijd om te kijken naar onze functie `renderSearchResults()`. Deze functie doorloopt over de drie `rankingResponse` verzamelingen met daarin de drie secties van de zoekresultaten. Voor elke sectie noemen we `renderResultsItems()` om de resultaten voor die sectie weer te geven.
+Als laatste kijken we naar de functie `renderSearchResults()`. Deze functie doorloopt de drie `rankingResponse`-verzamelingen die de drie secties van de zoekresultaten vertegenwoordigen. Voor elke sectie roepen we `renderResultsItems()` aan om de resultaten voor die sectie weer te geven.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -429,9 +430,9 @@ function renderSearchResults(results) {
 }
 ```
 
-## <a name="rendering-result-items"></a>Rendering resultaat items
+## <a name="rendering-result-items"></a>Resultaten weergeven
 
-In onze JavaScript-code is een object, `searchItemRenderers`, die bevat *renderers:* zoekresultaat functies die HTML gegenereerd voor elk type.
+Onze JavaScript-code bevat een object, `searchItemRenderers`, met daarin *renderers*: functies waarmee HTML wordt weergegeven voor elk type zoekresultaat.
 
 ```javascript
 searchItemRenderers = { 
@@ -440,17 +441,17 @@ searchItemRenderers = {
 }
 ```
 
-Een functie renderer mogen de volgende parameters:
+Een rendererfunctie kan de volgende parameters accepteren:
 
 | | |
 |-|-|
-|`item`|De JavaScript-object met de eigenschappen van het item, zoals de URL en de beschrijving.|
-|`index`|De index van het resultaatitem binnen de verzameling.|
-|`count`|Het aantal items in de verzameling van de zoekopdracht resultaat item.|
+|`item`|Het JavaScript-object met de eigenschappen van het item, zoals de bijbehorende URL en beschrijving.|
+|`index`|De index van het resultaatitem binnen de bijbehorende verzameling.|
+|`count`|Het aantal items in de verzameling van het zoekresultaatitem.|
 
-De `index` en `count` parameters kunnen worden gebruikt om te aantal resultaten voor het genereren van speciale HTML voor het begin of einde van een verzameling regeleinden invoegen na een bepaald aantal items, enzovoort. Als een renderer niet nodig heeft voor deze functionaliteit, hoeft deze niet te accepteren van deze twee parameters. In feite gebruik we geen ze in de renderers voor onze zelfstudie app.
+De parameters `index` en `count` kunnen worden gebruikt om resultaten te nummeren, speciale HTML te genereren voor het begin en einde van een verzameling, regeleinden in te voegen na een bepaald aantal items, enzovoort. Als een renderer deze functionaliteit niet nodig heeft, hoeven deze twee parameters niet te worden geaccepteerd. We gebruiken ze dan ook niet in de renderers voor onze zelfstudie-app.
 
-Laten we dichter bij de `entities` renderer:
+Laten we de renderer `entities` eens wat beter bekijken:
 
 ```javascript
     entities: function(item) {
@@ -501,51 +502,51 @@ Laten we dichter bij de `entities` renderer:
     }, // places renderer omitted
 ```
 
-De functie van de entiteit-renderer:
+Met onze rendererfunctie worden de volgende handelingen uitgevoerd:
 
 > [!div class="checklist"]
-> * De HTML-code builds `<img>` tag om weer te geven van de miniatuur van de afbeelding, indien van toepassing. 
-> * De HTML-code builds `<a>` code die is gekoppeld aan de pagina met de installatiekopie.
-> * De beschrijving die geeft informatie weer over de installatiekopie en de site is gebaseerd.
-> * Bevat de entiteit classificatie met behulp van de hints weergeven indien van toepassing.
-> * Bevat een koppeling naar een zoekopdracht Bing voor meer informatie over de entiteit.
-> * Licentie- of toekenning informatie vereist voor de gegevensbronnen wordt weergegeven.
+> * De HTML-tag `<img>` bouwen om de miniatuur van de afbeelding weer te geven, indien beschikbaar. 
+> * De HTML-tag `<a>` bouwen die wordt gekoppeld aan de pagina die de afbeelding bevat.
+> * De beschrijving met informatie over de afbeelding en de bijbehorende site wordt samengesteld.
+> * De classificatie van de entiteit opnemen met behulp van de weergavehints, indien beschikbaar.
+> * Een koppeling opnemen naar een zoekopdracht met Bing om meer informatie over de entiteit op te vragen.
+> * Licentie- of toewijzingsgegevens weergeven die vereist zijn voor gegevensbronnen.
 
-## <a name="persisting-client-id"></a>Persisting client-ID
+## <a name="persisting-client-id"></a>Permanente client-id
 
-Antwoorden van de Bing zoeken-API's, omvat mogelijk een `X-MSEdge-ClientID` header die moet worden verzonden naar de API met opeenvolgende aanvragen. Als er meerdere Bing zoeken-API's worden gebruikt, moet dezelfde client-ID worden gebruikt met deze, indien mogelijk.
+Antwoorden van de Bing Zoeken-API kunnen een `X-MSEdge-ClientID`-header bevatten die bij volgende aanvragen moet worden teruggestuurd naar de API. Als er meerdere Bing Zoeken-API’s worden gebruikt, moet voor al deze API’s, indien mogelijk, dezelfde client-id worden gebruikt.
 
-Geven de `X-MSEdge-ClientID` header kan de Bing-API's om te koppelen van een gebruiker zoekopdrachten met twee belangrijke voordelen.
+Door de `X-MSEdge-ClientID`-header op te geven kunnen met Bing-API’s alle zoekopdrachten van een gebruiker worden gekoppeld. Dit heeft twee belangrijke voordelen.
 
-Ten eerste kunt u de Bing zoekmachine voorbij context toepassen op zoekopdrachten resultaten oplevert die beter voldoen aan de gebruiker. Als een gebruiker eerder naar voorwaarden die betrekking hebben op afvaart gezocht is, bijvoorbeeld een hoger zoek naar 'dock' mogelijk bij voorkeur informatie ophalen over locaties voor het koppelen van een zeilboot.
+Ten eerste kan met de Bing-zoekmachine vroegere context worden toegepast op zoekopdrachten om beter kloppende resultaten te vinden voor de gebruiker. Als een gebruiker bijvoorbeeld eerder heeft gezocht naar termen die zijn gerelateerd aan zeilen, kan bij een latere zoekopdracht naar ‘knopen’ de voorkeur worden gegeven aan informatie over knopen die worden gebruikt bij zeilen.
 
-Ten tweede kunt Bing willekeurig selecteren voor gebruikers gebruikmaken van nieuwe functies voordat ze algemeen beschikbaar worden gemaakt. Dezelfde client-ID die aan elke aanvraag zorgt ervoor dat de gebruikers die zijn geselecteerd om te zien van een functie altijd het bekijken. Zonder de client-ID ziet de gebruiker mogelijk een functie worden weergegeven en verdwijnt schijnbaar willekeurig in de zoekresultaten.
+Ten tweede kunnen in Bing willekeurig gebruikers worden geselecteerd om nieuwe functies uit te proberen voordat deze algemeen beschikbaar worden. Door bij elke aanvraag dezelfde client-id op te geven, zien gebruikers die de functie zien, deze altijd. Zonder de client-id kan het gebeuren dat de gebruiker een functie, schijnbaar willekeurig, ziet verschijnen en verdwijnen in de zoekresultaten.
 
-Browser-beveiligingsbeleid (CORS) mogelijk niet de `X-MSEdge-ClientID` header beschikbaar is voor JavaScript. Deze beperking treedt op wanneer het antwoord van de zoekactie heeft een andere oorsprong van de pagina die wordt aangevraagd. In een productieomgeving, moet u dit beleid door het hosten van een script op server die de API-aanroep in hetzelfde domein als de webpagina wordt adresseren. Aangezien het script dezelfde oorsprong als de webpagina heeft de `X-MSEdge-ClientID` header is beschikbaar voor JavaScript.
+Beveiligingsbeleid voor browsers (CORS) kan ervoor zorgen dat de `X-MSEdge-ClientID`-header niet beschikbaar is in JavaScript. Deze beperking treedt op wanneer het antwoord op een zoekopdracht een andere oorsprong heeft dan de pagina waarop de zoekopdracht is uitgevoerd. In een productieomgeving kunt u dit beleid omzeilen door een serverscript te hosten waarmee de API wordt aangeroepen in hetzelfde domein als de webpagina. Omdat het script dezelfde oorsprong heeft als de webpagina, is de `X-MSEdge-ClientID`-header vervolgens beschikbaar voor JavaScript.
 
 > [!NOTE]
-> U moet de aanvraag-serverzijde toch uitvoeren in een productie-webtoepassing. Uw Bing zoeken-API-sleutel moet anders zijn opgenomen in de webpagina waar het voor iedereen die de bron-weergaven beschikbaar is. U wordt gefactureerd voor het gebruik van alle onder uw API-abonnement-sleutel, zelfs aanvragen door onbevoegden, dus is het belangrijk dat u niet uw sleutel beschikbaar.
+> In een webtoepassing die bedoeld is voor productie, moet u de aanvraag toch aan de serverzijde uitvoeren. Anders moet de sleutel voor de Bing Zoeken-API worden opgenomen op de webpagina, waar deze beschikbaar is voor iedereen die de bron weergeeft. Al uw gebruik van de API-abonnementssleutel wordt in rekening gebracht, zelfs aanvragen die zijn gedaan door partijen die niet zijn gemachtigd. Het is daarom van groot belang dat u uw sleutel niet algemeen beschikbaar maakt.
 
-Voor ontwikkelingsdoeleinden, kunt u de zoekopdracht Bing-Web-API-aanvraag via een proxy CORS. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers` header die whitelists antwoordheaders en deze beschikbaar voor JavaScript.
+Voor ontwikkelingsdoeleinden kunt u de aanvraag van de Bing Webzoekopdrachten-API via een CORS-proxy doen. Het antwoord van een dergelijke proxy heeft een `Access-Control-Expose-Headers`-header waardoor antwoordheaders worden opgenomen in de whitelist en beschikbaar gemaakt voor JavaScript.
 
-Het is gemakkelijk voor het installeren van een proxy CORS zodat onze zelfstudie app toegang tot de client een koptekst-ID. Eerste, als u dit nog niet hebt [Installeer Node.js](https://nodejs.org/en/download/). Vervolgens voert u de volgende opdracht in een opdrachtvenster:
+U kunt eenvoudig een CORS-proxy installeren zodat de zelfstudie-app toegang krijgt tot de client-id-header. Als u [Node.js](https://nodejs.org/en/download/) nog niet hebt, moet u dit eerst installeren. Voer vervolgens de volgende opdracht uit in een opdrachtvenster:
 
     npm install -g cors-proxy-server
 
-Wijzig vervolgens het eindpunt naar Bing in het HTML-bestand in:
+Wijzig vervolgens het Bing Webzoekopdrachten-eindpunt in het HTML-bestand in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Ten slotte de CORS-proxy starten met de volgende opdracht:
+Start ten slotte de CORS-proxy met de volgende opdracht:
 
     cors-proxy-server
 
-Laat het opdrachtvenster open terwijl u de zelfstudie app; gebruiken u sluit het venster stopt de proxy. In de uitbreidbare HTTP-Headers gedeelte onder de zoekresultaten, nu ziet u de `X-MSEdge-ClientID` header (onder andere) en controleer of het is hetzelfde voor elke aanvraag.
+Laat het opdrachtvenster geopend terwijl u de zelfstudie-app gebruikt. Als u het venster sluit, wordt de proxy gestopt. In de uitbreidbare sectie met HTTP-headers onder de zoekresultaten ziet u nu (onder andere) de `X-MSEdge-ClientID`-header en kunt u controleren of deze voor elke aanvraag gelijk is.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bing entiteit Search API-verwijzingen](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Naslaghandleiding Bing Entiteiten zoeken-API](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
-> [Bing kaarten-API-documentatie](//msdn.microsoft.com/library/dd877180.aspx)
+> [Documentatie Bing Kaarten-API](//msdn.microsoft.com/library/dd877180.aspx)

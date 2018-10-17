@@ -1,60 +1,60 @@
 ---
-title: Bing nieuws zoeken in C#-zelfstudie | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Verbinding maken met Cognitive Services-Bing nieuws zoeken vanuit een ASP.NET Core-webtoepassing.
+title: 'Zelfstudie: Bing Nieuws zoeken-API, C#'
+titleSuffix: Azure Cognitive Services
+description: Verbinding maken met de Bing Nieuws zoeken-API vanuit een ASP.NET Core webtoepassing.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: MT
+ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095426"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804341"
 ---
-# <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Verbinding maken met Bing nieuws zoeken-API met behulp van Connected Services in Visual Studio
+# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Zelfstudie: Verbinding maken met de Bing Nieuws zoeken-API met behulp van Connected Services in Visual Studio
 
-U kunt met behulp van zoeken in Bing nieuws, apps en gebruik de kracht van een engine voor zoeken zonder advertenties binnen het bereik van de web-services inschakelen. Zoeken in Bing nieuws is een van de search-services beschikbaar met Cognitive Services.
+Met behulp van de Bing Nieuws zoeken-API kunt u apps en services de mogelijkheid bieden om gebruik te maken van de kracht van een zoekprogramma voor het internet zonder advertenties. Bing News Search is een van de zoekservices die beschikbaar is met Cognitive Services.
 
-Dit artikel bevat informatie voor het gebruik van de functie voor Visual Studio Connected Service voor zoeken in Bing nieuws. De mogelijkheid is beschikbaar in Visual Studio 2017 15,7 of hoger, met de Cognitive Services-extensie geïnstalleerd.
+Dit artikel bevat informatie voor het gebruik van de functie Connected Services van Visual Studio voor de Bing Nieuws zoeken-API. De mogelijkheid is beschikbaar in Visual Studio 2017 15.7 of hoger, met de extensie Cognitive Services geïnstalleerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
 - Een Azure-abonnement. Als u nog geen abonnement hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versie 15,7, met de ontwikkeling van Web-werkbelasting geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2017 versie 15.7, met de workload Web Development geïnstalleerd. [Nu downloaden](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Ondersteuning toegevoegd aan uw project voor Bing nieuws zoeken-API
+## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Ondersteuning voor de Bing Nieuws zoeken-API toevoegen aan uw project
 
-1. Maak een nieuwe ASP.NET Core web-project met de naam MyWebApplication. Gebruik de **webtoepassing (Model-View-Controller)** projectsjabloon, maken, met de standaardinstellingen. Het is belangrijk om de naam van het project MyWebApplication, zodat de naamruimte overeenkomt met wanneer u code hebt gekopieerd in het project. 
+1. Maak een nieuw ASP.NET Core-web-project met de naam MyWebApplication. Gebruik de projectsjabloon **Web Application (Model-View-Controller)**, met alle standaardinstellingen. Het is belangrijk om het project de naam MyWebApplication te geven, zodat de naamruimte overeenkomt wanneer u code naar het project kopieert. 
 
-1. In **Solution Explorer**, kiest u **toevoegen** > **Connected Service**.
-   De Connected Service-pagina wordt weergegeven met services die u aan uw project toevoegen kunt.
+1. Kies in **Solution Explorer** **Add** > **Connected Service**.
+   De pagina Connected Service-pagina wordt weergegeven, met services die u aan uw project kunt toevoegen.
 
-   ![Schermafbeelding van de Add Connected Service menu-item](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Schermafbeelding van het menu-item Add > Connected Service](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. Kies in het menu van de beschikbare services, **intelligente zoeken naar uw Apps brengen**.
+1. Kies **Bring Intelligent Search To Your Apps** in het menu met beschikbare services.
 
-   ![Schermafbeelding van de lijst met verbonden services](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
+   ![Schermafbeelding van lijst met verbonden services](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   Als u bent aangemeld bij Visual Studio en Azure-abonnement dat is gekoppeld aan uw account hebt, wordt een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen. Selecteer het abonnement dat u wilt gebruiken, en kies vervolgens een naam op voor de Bing nieuws zoeken-API. U kunt ook **bewerken** te wijzigen van de automatisch gegenereerde naam.
+   Als u bent aangemeld bij Visual Studio en een Azure-abonnement hebt dat is gekoppeld aan uw account, wordt er een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen. Selecteer het abonnement dat u wilt gebruiken en kies vervolgens een naam voor de Bing Nieuws zoeken-API. U kunt ook **Edit** kiezen om de automatisch gegenereerde naam te wijzigen.
 
-   ![Schermopname van het abonnement en de naam van velden](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
+   ![Schermafbeelding van de velden voor het abonnement en de naam](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
-1. Kies de resourcegroep en de prijscategorie.
+1. Kies de resourcegroep (Resource Group) en de prijscategorie (Pricing tier).
 
-   ![Schermafbeelding van de resourcegroep en prijzen laag velden](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Schermafbeelding van de velden voor de resourcegroep en de prijscategorie](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
-   Als u meer informatie over de Prijscategorieën wilt, selecteert u **revisie prijzen**.
+   Als u meer informatie wilt over de prijscategorieën, selecteert u **Review pricing**.
 
-1. Kies **toevoegen** ondersteuning voor de Connected Service toevoegen.
-   Visual Studio Hiermee wijzigt u het project om toe te voegen van de NuGet-pakketten, vermeldingen in configuratie en andere wijzigingen voor de ondersteuning van een verbinding met de Bing nieuws zoeken-API. De uitvoer toont het logboek van wat in uw project gebeurt er. U ziet er ongeveer als volgt uit:
+1. Kies **Add** om ondersteuning voor de Connected Service toe te voegen.
+   Visual Studio past uw project aan om de NuGet-pakketten toe te voegen, evenals vermeldingen in het configuratiebestand en andere wijzigingen voor de ondersteuning van een verbinding met de Bing Nieuws zoeken-API. In de uitvoer ziet u een logboek van wat er gebeurt met uw project. Er verschijnt informatie die er ongeveer als volgt uitziet:
 
    ```output
    [5/4/2018 12:41:21.084 PM] Adding Intelligent Search to the project.
@@ -83,11 +83,11 @@ Dit artikel bevat informatie voor het gebruik van de functie voor Visual Studio 
    }
    ```
  
-## <a name="use-the-bing-news-search-api-to-add-search-functionality-to-a-web-page"></a>De Bing nieuws zoeken-API gebruiken zoekfunctionaliteit toevoegen aan een webpagina
+## <a name="use-the-bing-news-search-api-to-add-search-functionality-to-a-web-page"></a>Zoekfunctionaliteit toevoegen aan een webpagina met de Bing Nieuws zoeken-API
 
-Nu u ondersteuning voor de Bing nieuws zoeken-API hebt toegevoegd aan uw project, hier is het gebruik van de API om toe te voegen intelligent zoeken naar een webpagina.
+Nu u ondersteuning voor de Bing Nieuws zoeken-API hebt toegevoegd aan uw project, kunt u de API als volgt gebruiken om een slimme zoekfunctie toe te voegen aan een webpagina.
 
-1.  In *Startup.cs*, in de `ConfigureServices` methode, Voeg een aanroep naar `IServiceCollection.AddSingleton`. Dit maakt het configuratieobject met de belangrijkste instellingen die beschikbaar is voor de code in uw project.
+1.  Voeg in het bestand *Startup.cs*, in de methode `ConfigureServices`, een aanroep naar `IServiceCollection.AddSingleton` toe. Hierdoor is het configuratieobject met de belangrijkste instellingen beschikbaar voor de code in uw project.
  
    ```csharp
         public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,7 @@ Nu u ondersteuning voor de Bing nieuws zoeken-API hebt toegevoegd aan uw project
    ```
 
 
-1. Voeg een nieuw klassebestand onder de **modellen** map, met de naam *BingNewsModel.cs*. Als u de naam van uw project anders, gebruik van de naamruimte van uw eigen project, in plaats van MyWebApplication. Vervang de inhoud door de volgende code:
+1. Voeg een nieuw klassebestand toe onder de map **Models**, met de naam *BingNewsModel.cs*. Als u het project een andere naam hebt gegeven, gebruikt u de naamruimte van uw eigen project in plaats van MyWebApplication. Vervang de inhoud door de volgende code:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -117,9 +117,9 @@ Nu u ondersteuning voor de Bing nieuws zoeken-API hebt toegevoegd aan uw project
     }
     ```
 
-   Dit model wordt gebruikt voor het opslaan van de resultaten van een aanroep naar de zoeken in Bing nieuws-service.
+   Dit model wordt gebruikt voor het opslaan van de resultaten van een aanroep naar de Bing News Search-service.
  
-1. In de **Controllers** map toevoegen van een nieuwe klassebestand met de naam *IntelligentSearchController.cs*. Vervang de inhoud door de volgende code:
+1. Voeg in de map **Controllers** een nieuwe klassebestand toe met de naam *IntelligentSearchController.cs*. Vervang de inhoud door de volgende code:
 
    ```csharp
     using System.Net.Http;
@@ -177,9 +177,9 @@ Nu u ondersteuning voor de Bing nieuws zoeken-API hebt toegevoegd aan uw project
     }
    ```
 
-   In deze code wordt de constructor stelt u het configuratieobject die uw sleutels bevat. De methode voor het `Search` route is slechts een omleiding naar de `BingSearchResult` functie. Hiermee wordt de `GetNewsSearchClient` methode om op te halen de `NewsSearchAPI` clientobject.  De `NewsSearchAPI` clientobject bevat de `SearchAsync` methode die daadwerkelijk roept de service en de resultaten in de `SearchResult` model dat u zojuist hebt gemaakt. 
+   In deze code definieert de constructor het configuratieobject dat uw sleutels bevat. De methode voor de `Search`-route is niet meer dan een omleiding naar de functie `BingSearchResult`. Hiermee wordt de methode `GetNewsSearchClient` aangeroepen om het clientobject `NewsSearchAPI` op te halen.  Het clientobject `NewsSearchAPI` bevat de methode `SearchAsync`, waarmee de werkelijke aanroep naar de service wordt gedaan en de resultaten worden geretourneerd naar het model `SearchResult` dat u net hebt gemaakt. 
 
-1. Voeg een klasse `MyHandler`, waarmee wordt verwezen in de bovenstaande code. Dit voor netwerkapparaten delegeert de asynchrone aanroep van de search-service naar de basisklasse `DelegatingHandler`.
+1. Voeg de klasse `MyHandler` toe, waarna wordt verwezen in de bovenstaande code. Hiermee wordt de asynchrone aanroep van de zoekservice gedelegeerd naar de basisklasse, `DelegatingHandler`.
 
    ```csharp
     using System.Net.Http;
@@ -199,7 +199,7 @@ Nu u ondersteuning voor de Bing nieuws zoeken-API hebt toegevoegd aan uw project
     }
    ```
 
-1. Het toevoegen van ondersteuning voor het indienen van zoekopdrachten en de resultaten weer te geven de **weergaven** map, maak een nieuwe map met de naam **IntelligentSearch**. In deze nieuwe map, een weergave toevoegen voor *BingSearchResult.cshtml*. Kopieer in de volgende code:
+1. Als u ondersteuning wilt toevoegen voor het versturen van zoekopdrachten en het weergeven van de resultaten, maakt u in de map **Views** een nieuwe map met de naam **IntelligentSearch**. Voeg in deze nieuwe map een weergave toe met de naam *BingSearchResult.cshtml*. Kopieer de volgende code:
 
     ```cshtml
     @using System
@@ -254,18 +254,18 @@ Nu u ondersteuning voor de Bing nieuws zoeken-API hebt toegevoegd aan uw project
     </div>
     ```
 
-1. Start de web-App lokaal en voer de URL voor de pagina die u zojuist hebt gemaakt (/ IntelligentSearch/BingSearchResult) en een zoekaanvraag plaatsen met behulp van de knop zoeken.
+1. Start de webtoepassing lokaal, voer de URL in voor de pagina die u zojuist hebt gemaakt (/IntelligentSearch/BingSearchResult) en verstuur een zoekaanvraag met behulp van de knop Search.
 
-   ![Schermopname van zoeken in Bing nieuws-resultaten](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
+   ![Schermafbeelding van resultaten van Bing Nieuws zoeken-API](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als de resourcegroep niet meer nodig is, kunt u deze kunt verwijderen. Hiermee verwijdert u de cognitive service en gerelateerde bronnen. De resourcegroep verwijderen via de portal:
+Als u de resourcegroep niet meer nodig hebt, kunt u deze verwijderen. Hiermee verwijdert u ook de Cognitive Service en gerelateerde resources. De resourcegroep verwijderen via de portal:
 
-1. Voer de naam van de resourcegroep in het zoekvak boven aan de portal. Selecteer de resourcegroep die u wilt verwijderen.
+1. Typ de naam van uw resourcegroep in het zoekvak bovenaan de portal. Selecteer de resourcegroep die u wilt verwijderen.
 2. Selecteer **Resourcegroep verwijderen**.
-3. In de **typt u de naam van de Resource** vak, voer de naam van de resourcegroep en selecteer **verwijderen**.
+3. Typ in het vak **Typ de naam van de resourcegroep** de naam van de resourcegroep en selecteer **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Bing nieuws zoeken-API, [wat is er zoeken in Bing nieuws?](index.yml).
+Zie [Wat is Bing News Search?](index.yml) voor meer informatie over de Bing Nieuws zoeken-API.

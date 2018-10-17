@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124015"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042288"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Verkeer controleren met een logische app op basis van een planning
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Verkeer controleren volgens een schema met Azure Logic Apps
 
 Met Azure Logic Apps kunt u werkstromen automatiseren die worden uitgevoerd volgens een planning. Deze zelfstudie laat zien hoe u een [logische app](../logic-apps/logic-apps-overview.md) met een scheduler-trigger kunt bouwen die elke doordeweekse dag ‘s ochtends wordt uitgevoerd en die de reistijd, inclusief het verkeer, tussen twee plaatsen controleert. Als de tijd een bepaalde limiet overschrijdt, verzendt de logische app een e-mail met de reistijd en de extra tijd die u nodig hebt om uw bestemming te bereiken.
 

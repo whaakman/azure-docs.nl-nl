@@ -1,29 +1,31 @@
 ---
-title: 'Snelstartgids: Ruby gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API'
+title: 'Snelstart: Een zoekopdracht uitvoeren met Ruby - Bing Webzoekopdrachten-API'
+titleSuffix: Azure Cognitive Services
 description: In deze snelstartgids leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met Ruby en een JSON-antwoord ontvangt.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: a60bf0ef12272be3b224fdbf9f9819057fe4aa55
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e1819be51c339b302dbc1181e2a8f998170b2413
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888702"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127054"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snelstartgids: Ruby gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-Gebruik deze snelstartgids om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
+Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet over het volgende beschikken voordat u verdergaat met deze snelstartgids:
+Voordat u verdergaat met deze snelstart moet u beschikken over:
 
 * [Ruby 2.4 of hoger](https://www.ruby-lang.org/en/downloads/)
 * Een abonnementssleutel
@@ -40,7 +42,7 @@ require 'json'
 
 ## <a name="define-variables"></a>Variabelen definiëren
 
-Er moet een aantal variabelen worden ingesteld voordat we verder kunnen gaan. Controleer of de `$uri` en het `path` geldig zijn en vervang de waarde `accessKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `term` te vervangen.
+Er moet een aantal variabelen worden ingesteld voordat we verder kunnen gaan. Controleer of `$uri` en `path` geldig zijn en vervang de waarde `accessKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `term` te vervangen.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"

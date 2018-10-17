@@ -1,42 +1,43 @@
 ---
-title: PHP-Snelstartgids voor Azure cognitieve Services, Bing nieuws Search API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing nieuws zoeken-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstart: Bing Nieuws zoeken-API, PHP'
+titlesuffix: Azure Cognitive Services
+description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Nieuws zoeken-API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: a1e62a63ec926b77bca290767ee453cde83de3df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 8f70352a8f9f07b94b53fae0aac286bc65e3f0dc
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345562"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801741"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-php"></a>Quick Start voor Bing nieuws zoekopdracht API met PHP
+# <a name="quickstart-for-bing-news-search-api-with-php"></a>Snelstart voor Bing Nieuws zoeken-API met PHP
 
-Dit artikel ziet u hoe de Bing nieuws Search API, onderdeel van Microsoft cognitieve Services in Azure gebruiken. Hoewel dit artikel de veiligheidsmaatregelen voor PHP, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+In dit artikel wordt beschreven hoe u de Bing Nieuws zoeken-API gebruikt, die onderdeel is van Microsoft Cognitive Services in Azure. Hoewel in dit artikel PHP wordt geïmplementeerd, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren. 
 
-De voorbeeldcode is om te werken onder PHP 5.6 geschreven.
+De voorbeeldcode is geschreven om te werken met PHP 5.6.
 
-Raadpleeg de [API-referentiemateriaal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) voor technische informatie over de API's.
+Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) voor technische informatie over de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="bing-news-search"></a>Bing nieuws zoeken
+## <a name="bing-news-search"></a>Bing Nieuws zoeken
 
-De [Bing nieuws Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) nieuwsresultaten retourneert uit de Bing zoekmachine.
+Met de [Bing Nieuws zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) worden nieuwsresultaten geretourneerd uit de zoekmachine van Bing.
 
-1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini` zoals beschreven in de code-opmerking.
-2. Maak een nieuwe PHP-project in uw favoriete IDE of -editor.
-3. Voeg de code hieronder.
-4. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-5. Voer het programma.
+1. Zorg ervoor dat beveiligde HTTP-ondersteuning is ingeschakeld in uw `php.ini` zoals beschreven in het commentaar bij de code.
+2. Maak een nieuw PHP-project in uw favoriete IDE of editor.
+3. Voeg de onderstaande code toe.
+4. Vervang de waarde `accessKey` door een geldige toegangssleutel voor uw abonnement.
+5. Voer het programma uit.
 
 ```php
 <?php
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -196,8 +197,8 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Paginering nieuws](paging-news.md)
-> [decoration markeringen tekst markeren met](hit-highlighting.md)
-> [zoeken op het web voor nieuws](search-the-web.md)  
-> [Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [Bladeren door nieuws](paging-news.md)
+> [Decoratiemarkeringen gebruiken voor het markeren van tekst](hit-highlighting.md)
+> [Op internet zoeken naar nieuws](search-the-web.md)  
+> [Proberen](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
 

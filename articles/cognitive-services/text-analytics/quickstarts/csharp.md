@@ -1,56 +1,56 @@
 ---
-title: 'Snelstartgids: Met C# voor het aanroepen van de Tekstanalyse-API | Microsoft Docs'
+title: 'Snelstartgids: C# gebruiken om de Text Analytics-API aan te roepen'
 titleSuffix: Azure Cognitive Services
-description: Verkrijg de informatie en voorbeelden van code kunt u snel aan de slag met het gebruik van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
+description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Text Analytics-API.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b4d945b7495897caf1f4edd1e909581614798a23
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: ce3629a140db97e922a28792c6230d9566682982
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303018"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269323"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: Met behulp van C# voor het aanroepen van de Text Analytics-Cognitive Service
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: C# gebruiken om de Text Analytics Cognitive Service aan te roepen
 <a name="HOLTop"></a>
 
-Dit artikel leest u hoe u taal detecteren, sentiment analyseren en belangrijke woordgroepen met behulp van de [Tekstanalyse-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C#. De code is geschreven om te werken op een .NET Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u het ook in Linux of MacOS uitvoeren kunt.
+In dit artikel ziet u hoe u de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C# kunt gebruiken om taal te detecteren, sentiment te analyseren en sleuteltermen op te halen. De code is geschreven om te werken met een .Net Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u moet de code ook kunnen gebruiken met Linux of macOS.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de Tekstanalyse-API. U kunt de *gratis laag voor 5000 transacties per maand* om uit te voeren van deze Quick Start.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics-API**. U kunt de **gratis laag voor 5000 transacties/maand** gebruiken om deze snelstart te voltooien.
 
-Ook moet u de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die voor u zijn gegenereerd tijdens de registratie. 
+U moet ook [het eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) hebben die voor u zijn gegenereerd tijdens de registratie. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>Installeer de SDK NuGet-pakket
+## <a name="install-the-nuget-sdk-package"></a>NuGet-pakket van SDK installeren
 1. Maak een nieuwe console-oplossing in Visual Studio.
-1. Met de rechtermuisknop op de oplossing en selecteer **NuGet-pakketten beheren voor oplossing**.
-1. Selecteer de **voorlopige versie opnemen** selectievakje.
-1. Selecteer de **Bladeren** tabblad en zoek naar de **Microsoft.Azure.CognitiveServices.Language**.
-1. Selecteer de **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** NuGet pakket en installeer deze.
+1. Klik met de rechtermuisknop op de oplossing en klik op **Manage NuGet Packages for Solution**.
+1. Schakel het selectievakje **Include Prerelease** in.
+1. Selecteer het tabblad **Browse** en zoek naar **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
+1. Selecteer het NuGet-pakket en installeer het.
 
 > [!Tip]
-> Hoewel u kunt aanroepen de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks via C#, de SDK Microsoft.Azure.CognitiveServices.Language veel gemakkelijker om aan te roepen van de service zonder te hoeven maken over het serialiseren en deserialiseren van JSON.
+>  Hoewel u de [HTTP-eindpunten](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) rechtstreeks vanuit C# kunt aanroepen, maakt de SDK Microsoft.Azure.CognitiveServices.Language het veel gemakkelijker om de service aan te roepen zonder dat u zich zorgen hoeft te maken over het serialiseren en deserialiseren van JSON.
 >
-> Hier vindt u nuttige koppelingen:
-> - [SDK NuGet-pagina](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK-code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
+> Een paar handige koppelingen:
+> - [Pagina over het NuGet-pakket voor de SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK-code ](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-by-using-the-sdk"></a>De Tekstanalyse-API aanroepen met behulp van de SDK
-1. Vervang Program.cs door de volgende code. Dit programma ziet u de mogelijkheden van de Tekstanalyse-API in drie secties (taal uitpakken, sleutel vindt er sleuteltermextractie plaats en sentimentanalyse).
-1. Vervang de `Ocp-Apim-Subscription-Key` headerwaarde met een toegangssleutel die geldig is voor uw abonnement.
-1. Vervang de locatie in `Endpoint` naar het eindpunt dat u zich heeft aangemeld. U vindt het eindpunt op de Azure portal-resource. Het eindpunt doorgaans begint met "https://[region].api.cognitive.microsoft.com." Alleen de naam protocol en de host bevatten.
-1. Voer het programma.
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>De Text Analytics-API aanroepen met de SDK
+1. Vervang Program.cs door de code hieronder. Dit programma laat de mogelijkheden van de Text Analytics-API zien in drie secties (taaldetectie, extractie van sleuteltermen en sentimentanalyse).
+1. Vervang de waarde van de header `Ocp-Apim-Subscription-Key` door een geldige toegangssleutel voor uw abonnement.
+1. Vervang de locatie in `Endpoint` door het eindpunt waarvoor u zich hebt geregistreerd. U vindt het eindpunt voor de resource in de Azure-portal. Het eindpunt begint meestal met 'https://[region].api.cognitive.microsoft.com' en u hoeft hier alleen het protocol en de hostnaam op te nemen.
+1. Voer het programma uit.
 
 ```csharp
 using System;
@@ -58,7 +58,6 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -74,7 +73,7 @@ namespace ConsoleApp1
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "ENTER KEY HERE");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", "4d4705adaf4a4656b1118b68d671d5b6");
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -86,20 +85,14 @@ namespace ConsoleApp1
             ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
             {
                 Endpoint = "https://westus.api.cognitive.microsoft.com"
-            };
+            }; //Replace 'westus' with the correct region for your Text Analytics subscription
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-```
 
-## <a name="detect-language"></a>Taal detecteren
-
-De API voor taal detecteert de taal van een document, met behulp van de [taal detecteren methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
-
-```csharp
-            // Extracting language.
+            // Extracting language
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
-            var result =  client.DetectLanguageAsync(new BatchInput(
+            var result = client.DetectLanguageAsync(new BatchInput(
                     new List<Input>()
                         {
                           new Input("1", "This is a document written in English."),
@@ -112,14 +105,8 @@ De API voor taal detecteert de taal van een document, met behulp van de [taal de
             {
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
-```
 
-## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
-
-De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
-
-```csharp
-            // Getting key phrases.
+            // Getting key-phrases
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
             KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
@@ -131,7 +118,7 @@ De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document
                           new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
                         })).Result;
 
-            // Printing key phrases.
+            // Printing keyphrases
             foreach (var document in result2.Documents)
             {
                 Console.WriteLine("Document ID: {0} ", document.Id);
@@ -143,14 +130,8 @@ De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document
                     Console.WriteLine("\t\t" + keyphrase);
                 }
             }
-```
 
-## <a name="analyze-sentiment"></a>Stemming analyseren
-
-De analyse-Gevoels-API detecteert het gevoel van een set tekstrecords, met behulp van de [Sentiment methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
-
-```csharp
-            // Analyzing sentiment.
+            // Extracting sentiment
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -164,34 +145,37 @@ De analyse-Gevoels-API detecteert het gevoel van een set tekstrecords, met behul
                         })).Result;
 
 
-            // Printing sentiment results.
+            // Printing sentiment results
             foreach (var document in result3.Documents)
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
-```
 
-## <a name="identify-linked-entities"></a>Gekoppelde entiteiten identificeren
 
-De Entity Linking API identificeert bekende entiteiten in een document, met behulp van de [entiteiten koppelen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
-
-```csharp
-            // Linking entities
-            Console.WriteLine("\n\n===== ENTITY LINKING ======");
+            // Identify entities
+            Console.WriteLine("\n\n===== ENTITIES ======");
 
             EntitiesBatchResult result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
-                            new MultiLanguageInput("en", "0", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."),
-                            new MultiLanguageInput("en", "1", "The Seattle Seahawks won the Super Bowl in 2014."),
+                          new MultiLanguageInput("en", "0", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.")
                         })).Result;
 
-            // Printing entity results.
+            // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Entities: {1}", document.Id, String.Join(", ", document.Entities.Select(entity => entity.Name)));
+                Console.WriteLine("Document ID: {0} ", document.Id);
+
+                Console.WriteLine("\t Entities:");
+
+                foreach (EntityRecord entity in document.Entities)
+                {
+                    Console.WriteLine("\t\t" + entity.Name);
+                }
             }
+
+            Console.ReadLine();
         }
     }
 }
@@ -204,5 +188,6 @@ De Entity Linking API identificeert bekende entiteiten in een document, met behu
 
 ## <a name="see-also"></a>Zie ook 
 
- [Text Analytics-overzicht](../overview.md)  
+ [Overzicht van Text Analytics](../overview.md)  
  [Veelgestelde vragen](../text-analytics-resource-faq.md)
+

@@ -1,31 +1,31 @@
 ---
 title: Wat is Project Answer Search?
 titlesuffix: Azure Cognitive Services
-description: Inleiding tot het Project antwoord zoeken.
+description: Hier vindt u algemene informatie over Project Answer Search.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 87fe7b008e3e7c6cd8d1a9a870c0fb8ce2f6a7cd
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868241"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883717"
 ---
 # <a name="what-is-project-answer-search"></a>Wat is Project Answer Search?
-Project antwoord zoeken-API maakt gebruik van het eindpunt van de Bing versie 7 om antwoorden te interrogative query's krijgen. Een vraag, zoals 'Wat is de omtrek van de aarde?' retourneert een antwoord met feitelijke gegevens.  Een query voor een persoon, een plaats of een ding retourneert informatie over de entiteit geïdentificeerd door de query. Deze scenario's kunnen handig zijn in toepassingen zoals conversatie bots, berichten-apps, lezer, enzovoort.  
+De Project Answer Search-API maakt gebruik van het eindpunt van Bing versie 7 om antwoorden te zoeken voor query's in de vorm van vragen. Een vraag zoals 'What is the circumference of the earth?' (Wat is de omtrek van de aarde?) levert een antwoord op met feitelijke gegevens.  Een query naar een persoon, plaats of ding retourneert informatie over de entiteit die is geïdentificeerd door de query. Deze scenario's kunnen handig zijn in toepassingen zoals gespreks-bots, berichten-apps, schermlezers, enzovoort.  
 
-Query's retourneren antwoorden die afhankelijk van de query-scenario zijn: webpagina's altijd zijn geretourneerd, terwijl [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) worden geretourneerd, indien van toepassing.
+Query's retourneren antwoorden die afhankelijk zijn van het queryscenario: webpagina's worden altijd geretourneerd, terwijl [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) alleen worden geretourneerd als ze relevant zijn.
 
 ## <a name="endpoint"></a>Eindpunt
-Ga voor antwoorden op een vraag of de informatie over een persoon, een plaats of een ding, een aanvraag te verzenden naar het antwoord zoeken-API-eindpunt. Gebruik de headers en URL-parameters voor verschillende specificaties.  Opnemen *Ocp-Apim-Subscription-Key* -header met een geldig token.  De parameter markt is vereist. Alleen `en-us` markt wordt momenteel ondersteund.
+Om antwoord te krijgen op een vraag of informatie over een persoon, plaats of ding, verstuurt u een aanvraag naar het eindpunt van de Antwoord zoeken-API. Gebruik de headers en URL-parameters voor verschillende specificaties.  Voeg de header *Ocp-Apim-Subscription-Key* toe met een geldig token.  De parameter 'market' is vereist. Op dit moment wordt alleen de markt `en-us` ondersteund.
 
-De volgende query haalt de antwoorden op de vraag: 'Wat is de omtrek van de aarde?'
+Met de volgende query haalt u antwoorden op voor de vraag: 'What is the circumference of the earth?'
 
 GET:
 ````
@@ -33,11 +33,11 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circ
 
 ````
 
-De URL-parameter `q=` is vereist om op te geven van het object van het zoeken.
+De URL-parameter `q=` is vereist om het object voor de zoekopdracht op te geven.
 
-## <a name="response-object"></a>Antwoordobject
+## <a name="response-object"></a>Responsobject
 
-Het antwoord bevat de HTTP-headers, webpagina's, gegevens en/of entiteiten.
+Het antwoord of de respons bevat HTTP-headers, webpagina's, feiten en/of entiteiten.
 
 ````
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
@@ -239,22 +239,22 @@ JSON Response:
 ````
 
 ## <a name="terms-of-use"></a>Gebruiksvoorwaarden
-Project antwoord zoeken en Project Video Trends vallen onder de [Bing zoeken-gebruik en weergave vereisten](use-display-requirements.md).
+Project Answer Search en Project Video Trends zijn onderhevig aan de [gebruiks- en weergavevereisten van Bing Zoeken](use-display-requirements.md).
 
-U of een derde partij namens u mogelijk niet gebruiken, behouden, opslaan, in de cache, delen, of distribueren van alle gegevens van de API van de Preview-URL voor het testen, ontwikkelen, training, distribueren of het beschikbaar maken van een niet-Microsoft-service of functie. 
+U, of een derde partij die namens u handelt, mag geen gegevens van de URL Preview-API gebruiken, behouden, opslaan, in een cache plaatsen, delen of distribueren voor test-, ontwikkelings-, trainings- of distributiedoeleinden, noch voor het beschikbaar maken van een niet-Microsoft-service of -functie. 
 
 ## <a name="throttling-requests"></a>Aanvraagbeperkingen
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## <a name="data-attribution"></a>Gegevens attribution  
+## <a name="data-attribution"></a>Toeschrijving van gegevens  
 
-Project antwoord zoeken antwoorden bevatten informatie die eigendom zijn van derde partijen. U bent verantwoordelijk om ervoor te zorgen dat uw gebruik is dat mogelijk is, bijvoorbeeld dat voldoet aan alle uw gebruikerservaring mogelijk afhankelijk van creative commons-licentie.  
+Antwoorden van Project Answer Search bevatten informatie die het eigendom is van derde partijen. Het is uw verantwoordelijkheid om ervoor te zorgen dat u op de juiste manier gebruikmaakt van de gegevens, bijvoorbeeld door te voldoen aan een Creative Commons-licentie die is afgegeven om uw gebruikerservaring mogelijk te maken.  
   
-Als een antwoord of het resultaat bevat de `contractualRules`, `attributions`, of `provider` velden, moet u de gegevens van het kenmerk. Als het antwoord niet onder een van deze velden, is er geen attribution vereist. Als het antwoord bevat de `contractualRules` veld en de `attributions` en/of `provider` velden, moet u de contractuele regels gebruiken om de gegevens van het kenmerk.  
+Als een antwoord of resultaat het veld `contractualRules`, `attributions` of `provider` bevat, moet u de gegevens toeschrijven. Als het antwoord geen van deze velden bevat, is dit niet vereist. Als het antwoord het veld `contractualRules` en het veld `attributions` en/of de velden `provider` bevat, moet u de contractuele regels volgen om de gegevens toe te schrijven.  
   
-Het volgende voorbeeld ziet u een entiteit met een MediaAttribution contractuele regel en een afbeelding met een `provider` veld. De regel MediaAttribution identificeert de afbeelding als het doel van de regel, zodat u van de installatiekopie zou negeren `provider` veld en gebruiken in plaats daarvan de regel MediaAttribution attribution opgeven.  
+In het volgende voorbeeld ziet u een entiteit met de contractuele regel MediaAttribution en een Image-element met een veld `provider`. De regel MediaAttribution identificeert de afbeelding als het doel van de regel, zodat u het veld `provider` van de afbeelding kunt negeren en in plaats daarvan de regel MediaAttribution moet volgen om de gegevens toe te schrijven.  
   
 ```  
         "value" : [{
@@ -283,10 +283,10 @@ Het volgende voorbeeld ziet u een entiteit met een MediaAttribution contractuele
         }]
 ```  
   
-Als een contractuele regel bevat de `targetPropertyName` veld, de regel geldt alleen voor het betreffende veld. Anders wordt de regel van toepassing op het bovenliggende object met de `contractualRules` veld.  
+Als een contractuele regel het veld `targetPropertyName` bevat, geldt de regel alleen voor het betreffende veld. Anders is de regel van toepassing op het bovenliggende object dat het veld `contractualRules` bevat.  
   
   
-In het volgende voorbeeld wordt de `LinkAttribution` regel bevat de `targetPropertyName` veld, zodat de regel geldt voor de `description` veld. Voor regels die betrekking hebben op specifieke velden, moet u een regel direct na de betreffende gegevens met een hyperlink naar de website van de provider bevatten. Als u wilt de beschrijving van het kenmerk, bijvoorbeeld een regel onmiddellijk na de beschrijvende tekst die een hyperlink naar de gegevens op de website van de provider, bevat een koppeling naar en.wikipedia.org in dit geval maken.  
+In het volgende voorbeeld bevat de regel `LinkAttribution` het veld `targetPropertyName`, wat betekent dat de regel geldt voor het veld `description`. Voor regels die betrekking hebben op specifieke velden moet u direct na de betreffende gegevens een regel invoegen met een hyperlink naar de website van de provider. Als u bijvoorbeeld de beschrijving wilt toeschrijven, voegt u direct na de beschrijvende tekst een regel in met een hyperlink naar de gegevens op de website van de provider, in dit voorbeeld een koppeling naar en.wikipedia.org.  
   
 ```  
 "entities" : {  
@@ -305,36 +305,36 @@ In het volgende voorbeeld wordt de `LinkAttribution` regel bevat de `targetPrope
   
 ```  
 
-### <a name="license-attribution"></a>Licentie Attribution  
+### <a name="license-attribution"></a>Toeschrijving van licentie  
 
-Als de lijst met regels voor contractuele bevat een [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) regel, moet u de aankondiging op de regel direct na de inhoud die de licentie is van toepassing op weergeven. De `LicenseAttribution` regel maakt gebruik van de `targetPropertyName` veld voor het identificeren van de eigenschap die de licentie is van toepassing op.  
+Als de lijst met contractuele regels een regel [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) bevat, moet u de mededeling opnemen op de regel direct na de inhoud waarop de licentie van toepassing is. De regel `LicenseAttribution` maakt gebruik van het veld `targetPropertyName` om de eigenschap te identificeren waarop de licentie van toepassing is.  
   
-Hieronder ziet u een voorbeeld waarin een `LicenseAttribution` regel.  
+Hieronder ziet u een voorbeeld met een regel `LicenseAttribution`.  
   
-![Licentie attribution](./media/licenseattribution.png)  
+![Toeschrijving van licentie](./media/licenseattribution.png)  
   
-De licentie-ziet u dat u moet een hyperlink naar de website die informatie over de licentie bevat bevatten. Normaal gesproken maken u de naam van de gebruiksrechtovereenkomst voor een hyperlink. Bijvoorbeeld, als de kennisgeving is **tekst onder licentie CC door SA** en CC door Software Assurance is de naam van de licentie, brengt u CC door SA een hyperlink.  
+De licentiemededeling die u opneemt, moet een hyperlink bevatten naar de website met informatie over de licentie. Meestal maakt u een hyperlink van de naam van de licentie. Als de mededeling bijvoorbeeld **Tekst valt onder CC-BY-SA-licentie** is en CC-BY-SA de naam is van de licentie, maakt u van CC-BY-SA een hyperlink.  
   
-### <a name="link-and-text-attribution"></a>Koppeling en tekst Attribution  
+### <a name="link-and-text-attribution"></a>Toeschrijving van koppeling en tekst  
 
-De [LinkAttribution](reference.md#linkattribution) en [TextAttribution](reference.md#textattribution) regels worden meestal gebruikt voor identificatie van de provider van de gegevens. De `targetPropertyName` veld geeft het veld dat de regel van toepassing op.  
+De regels [LinkAttribution](reference.md#linkattribution) en [TextAttribution](reference.md#textattribution) worden meestal gebruikt voor identificatie van de provider van de gegevens. Het veld `targetPropertyName` geeft het veld aan waarop de regel van toepassing is.  
   
-Als u wilt de providers van het kenmerk, bevatten een regel direct na de inhoud die de afschrijvingen van toepassing op (bijvoorbeeld het betreffende veld). De regel moet duidelijk om aan te geven dat de leveranciers de bron van de gegevens zijn worden gelabeld. Bijvoorbeeld, "gegevens uit: en.wikipedia.org '. Voor `LinkAttribution` regels, moet u een hyperlink naar de website van de provider maken.  
+Als u de providers wilt toeschrijven, neemt u direct na de inhoud waarom het gaat een regel op met de toeschrijving (bijvoorbeeld na het target-veld). De regel moet een label hebben dat duidelijk aangeeft dat de providers de bron zijn van de gegevens. bijvoorbeeld 'Data from: en.wikipedia.org'. Voor `LinkAttribution`-regels moet u een hyperlink toevoegen naar de website van de provider.  
   
-Hieronder ziet u een voorbeeld waarin `LinkAttribution` en `TextAttribution` regels.  
+Hieronder ziet u een voorbeeld met de regels `LinkAttribution` en `TextAttribution`.  
   
-![Koppeling tekst attribution](./media/linktextattribution.png)  
+![Toeschrijving van koppelingstekst](./media/linktextattribution.png)  
 
-### <a name="media-attribution"></a>Media Attribution  
+### <a name="media-attribution"></a>Toeschrijving van media  
 
-Als u deze weergeven nadat de entiteit bevat een afbeelding, kunt u een koppeling doorklikken naar de website van de provider moet opgeven. Als de entiteit bevat een [MediaAttribution](reference.md#mediaattribution) regel, gebruikt u de URL van de regel om de koppeling doorklikken te maken. Gebruik anders de URL die is opgenomen in de afbeelding `provider` veld om de koppeling doorklikken te maken.  
+Als de entiteit een afbeelding bevat en u deze wilt weergeven, moet u een klikbare koppeling naar de website van de provider opgeven. Als de entiteit een regel [MediaAttribution](reference.md#mediaattribution) bevat, gebruikt u de URL van de regel om de klikbare koppeling te maken. Gebruik anders de URL die is opgenomen in het veld `provider` van de afbeelding om de klikbare koppeling te maken.  
   
-Hieronder ziet u een voorbeeld van een installatiekopie met `provider` veld en contractuele regels. Omdat in het voorbeeld de contractuele regel omvat, wordt u van de afbeelding genegeerd `provider` veld en toe te passen de `MediaAttribution` regel.  
+Hieronder ziet u een voorbeeld met het veld `provider` van een afbeelding en contractuele regels. Omdat het voorbeeld een contractuele regel bevat, kunt u het veld `provider` van de afbeelding negeren en de regel `MediaAttribution` toepassen.  
   
-![Media attribution](./media/mediaattribution.png)  
+![Toeschrijving van media](./media/mediaattribution.png)  
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstartgids voor C#](c-sharp-quickstart.md)
-- [Snelstartgids voor Java](java-quickstart.md)
-- [Knooppunt-snelstartgids](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Snelstart voor C#](c-sharp-quickstart.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor Node](node-quickstart.md)
+- [Project Answer Search en Python](python-quickstart.md)

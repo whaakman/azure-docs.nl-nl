@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410201"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353706"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Zelfstudie: Een edge-machine learning-oplossing met Azure en Azure Stack maken
 
@@ -210,7 +210,7 @@ Plaats de nieuwe DSVM in dezelfde resourcegroep bevinden als de zojuist gemaakte
 
     d.  Voor de **Opslagaccount voor diagnostische gegevens**, selecteer het opslagaccount dat eerder hebt gemaakt.
 
-    e.  Opmerking: Bij AAD ingeschakeld en geconfigureerd voor het Azure-abonnement, beheerde Service-identiteit kunnen ook worden ingeschakeld.
+    e.  Opmerking: Bij AAD ingeschakeld en geconfigureerd voor het Azure-abonnement, beheerde identiteiten voor Azure-resources kunnen ook worden ingeschakeld.
 
 2.  Selecteer **OK**.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391799"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855172"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor federatieve domeinen
 
@@ -78,7 +78,9 @@ Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Micr
 - De STS van uw organisatie (federatieve domeinen)
 - https://autologon.microsoftazuread-sso.com (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
 
-Als uw organisatie internettoegang via een uitgaande proxy vereist, kunt u vanaf Windows 10 1709 proxyinstellingen op uw computer configureren met behulp van een groepsbeleidsobject (GPO). Als op uw computer een oudere versie dan Windows 10 1709 wordt uitgevoerd, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD. 
+Vanaf Windows 10 1803 is het zo dat als de directe Hybrid Azure AD-koppeling mislukt voor federatieve domeinen zoals AD FS, we vertrouwen op Azure AD Connect om het computerobject in Azure AD te synchroniseren dat vervolgens wordt gebruikt om de apparaatregistratie voor Hybrid Azure AD-koppeling te voltooien.
+
+Als uw organisatie internettoegang via een uitgaande proxy vereist, kunt u vanaf Windows 10 1709 [proxyinstellingen op uw computer configureren met behulp van een groepsbeleidsobject (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Als op uw computer een versie van Windows ouder dan 10 1709 wordt uitgevoerd, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD. 
 
 Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers succesvol kunnen verifiëren bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie uitvoeren via machinecontext, moet u verificatie van een uitgaande proxy configureren via machinecontext. Vraag uw provider van de uitgaande proxy naar de configuratievereisten. 
 

@@ -1,71 +1,72 @@
 ---
-title: Anomaliedetectie-app voor detectie van C# - Microsoft Cognitive Services | Microsoft Docs
-description: Een C#-app die gebruikmaakt van de API voor Afwijkingsdetectie in Microsoft Cognitive Services verkennen. Oorspronkelijke gegevenspunten verzenden naar API en de verwachte waarde en anomaliedetectie punten.
+title: 'Zelfstudie: Anomaliedetectie, C#'
+titlesuffix: Azure Cognitive Services
+description: Maak kennis met een C#-app die gebruikmaakt van de Anomaliedetectie-API. Verzend oorspronkelijke gegevenspunten naar de API en haal de verwachte waarde en anomaliepunten op.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: fb434bd668b065fbdbaac39f2926676bcc90e794
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247821"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887646"
 ---
-# <a name="anomaly-detection-c-application"></a>Anomaly Detection C#-toepassing
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Zelfstudie: Anomaliedetectie met C#-toepassing
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Verken een eenvoudige Windows-toepassing die gebruikmaakt van de API voor Afwijkingsdetectie voor het detecteren van afwijkingen van de invoer. Het voorbeeld verzendt de time series-gegevens naar de API voor Afwijkingsdetectie met uw abonnementssleutel en vervolgens worden de anomaliedetectie-punten en verwachte waarde opgehaald voor elk gegevenspunt van de API.
+Maak kennis met een eenvoudige Windows-toepassing die gebruikmaakt van de Anomaliedetectie-API voor het detecteren van afwijkingen ten opzichte van de invoer. In het voorbeeld worden de gegevens van de tijdreeks naar de Anomaliedetectie-API verzonden met uw abonnementssleutel en worden alle anomaliepunten en de verwachte waarde voor elk gegevenspunt uit de API opgehaald.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="platform-requirements"></a>Platformvereisten
 
-Het voorbeeld is ontwikkeld voor .NET Framework met behulp van [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+Het voorbeeld is ontwikkeld voor het .NET Framework met behulp van [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op de detectie van afwijkingen en de abonnementssleutel van een ophalen 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Abonneer u op Anomaliedetectie en haal de abonnementssleutel op 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Halen en gebruik het voorbeeld
+## <a name="get-and-use-the-example"></a>Het voorbeeld downloaden en gebruiken
 
-U kunt de detectie van afwijkingen voorbeeld van de toepassing naar uw computer vanuit klonen [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+U kunt de voorbeeldtoepassing van Anomaliedetectie naar uw computer klonen vanaf [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
-### <a name="install-the-example"></a>Installeren in het voorbeeld
+### <a name="install-the-example"></a>Het voorbeeld installeren
 
-Open in uw GitHub-Desktop Sample\AnomalyDetectionSample.sln.
+Open Sample\AnomalyDetectionSample.sln op het bureaublad van GitHub.
 
 <a name="Step2"></a>
-### <a name="build-the-example"></a>Bouw het voorbeeld
+### <a name="build-the-example"></a>Het voorbeeld bouwen
 
-Druk op Ctrl + Shift + B, of klikt u op Build in het lintmenu en selecteer vervolgens oplossing bouwen.
+Druk op Ctrl+Shift+B of klik op Build in het lintmenu en selecteer vervolgens Build Solution.
 
 <a name="Step3"></a>
 ### <a name="run-the-example"></a>Het voorbeeld uitvoeren
 
-1. Nadat de build is voltooid, drukt u op **F5** of klik op **Start** op het lintmenu om uit te voeren in het voorbeeld.
-2. Ga naar het venster voor detectie van afwijkingen gebruikersinterface met het tekstinvoervak lezen '{your_subscription_key}'.
-3. Het bestand request.json, waarin de voorbeeldgegevens, vervangen door uw eigen gegevens en klik op de knop 'Verzenden'. Microsoft ontvangt de gegevens die u uploaden en deze gebruiken voor het detecteren van afwijkingen points tussen vervolgens. De gegevens die u hebt geladen wordt niet permanent worden opgeslagen in de Microsoft-server. Voor het detecteren van de punt van afwijkingen, u moet de gegevens uploaden opnieuw.
-4. Als de gegevens goed is, vindt u het resultaat van de detectie van afwijkingen in het veld 'Response'. Als er een fout optreedt, worden gegevens van de fout wordt weergegeven in het veld antwoord ook.
+1. Nadat de build is voltooid, drukt u op **F5** of klikt u op **Start** op het lintmenu om het voorbeeld uit te voeren.
+2. Ga naar het venster van de Anomaliedetectie-gebruikersinterface waarin het tekstinvoervak met de tekst '{your_subscription_key}' wordt weergegeven.
+3. Vervang het bestand request.json, dat de voorbeeldgegevens bevat, door uw eigen gegevens en klik op de knop 'Verzenden'. Microsoft ontvangt de gegevens die u uploadt en gebruikt deze om daarin aanwezige anomaliepunten te detecteren. De gegevens die u laadt, worden niet permanent opgeslagen in de Microsoft-server. Om het anomaliepunt weer te kunnen detecteren, moet u de gegevens opnieuw uploaden.
+4. Als de gegevens in orde zijn, vindt u het resultaat van de anomaliedetectie in het veld 'Response'. Als er een fout optreedt, worden de foutgegevens eveneens in het veld 'Response' weergegeven.
 
 <a name="Review"></a>
-### <a name="read-the-result"></a>Het resultaat lezen
+### <a name="read-the-result"></a>De resultaten lezen
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### <a name="review-and-learn"></a>Controleer en meer
+### <a name="review-and-learn"></a>Bekijken en leren
 
-Nu dat u een toepassing die wordt uitgevoerd hebt, laten we bekijken hoe de voorbeeld-app kan worden geïntegreerd met Cognitive Services-technologie. Deze stap maakt het eenvoudiger om door te gaan met bouwen naar deze app of uw eigen app ontwikkelen met Microsoft-Anomaliedetectie.
+Nu u een werkende toepassing hebt, gaan we kijken hoe de voorbeeld-app kan worden geïntegreerd met Cognitive Services-technologie. Deze stap maakt het eenvoudiger om door te gaan met bouwen aan deze app of om uw eigen app te ontwikkelen met Anomaliedetectie van Microsoft.
 
-Deze voorbeeldapp maakt gebruik van de Restful API voor Afwijkingsdetectie eindpunt.
+Deze voorbeeldapp maakt gebruik van het Restful-API-eindpunt van Anomaliedetectie.
 
-Laten we een codefragment van bekeken hoe de Restful-API wordt gebruikt in de voorbeeldtoepassing, kijken **AnomalyDetectionClient.cs**. Het bestand bevat codeopmerkingen waarmee wordt aangegeven "Sleutel voorbeeld CODE BEGINT hier" en 'Sleutel voorbeeld CODE EINDIGT hier' om te zoeken naar de code codefragmenten hieronder ziet.
+Laten we een codefragment uit **AnomalyDetectionClient.cs** gebruiken om te zien hoe de Restful-API wordt gebruikt in de voorbeeldtoepassing. Het bestand bevat codeopmerkingen die 'KEY SAMPLE CODE STARTS HERE' en 'KEY SAMPLE CODE ENDS HERE' aangeven om u te helpen bij het zoeken naar de codefragmenten die u hieronder ziet.
 
 ```csharp
             // ----------------------------------------------------------------------
@@ -80,7 +81,7 @@ Laten we een codefragment van bekeken hoe de Restful-API wordt gebruikt in de vo
 
 ```
 ### <a name="request"></a>**Aanvraag**
-Het onderstaande codefragment laat zien hoe de HttpClient gebruiken voor het indienen van uw abonnement sleutel en gegevens verwijst naar het eindpunt van de API voor Afwijkingsdetectie.
+Het onderstaande codefragment laat zien hoe de HttpClient wordt gebruikt bij het verzenden van uw abonnementssleutel en gegevenspunten naar het eindpunt van de Anomaliedetectie-API.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

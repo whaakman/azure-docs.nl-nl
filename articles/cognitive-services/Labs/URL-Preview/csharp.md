@@ -1,41 +1,43 @@
 ---
-title: C# Quick Start voor het voorbeeld in de Project-URL - cognitieve Microsoft-Services | Microsoft Docs
-description: Aan de slag met Project URL Preview in Microsoft cognitieve Services in Azure.
+title: "Snelstart: preview van project-URL's, C#"
+titlesuffix: Azure Cognitive Services
+description: Aan de slag met previews van Project-URL's met C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345289"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867439"
 ---
-# <a name="url-preview-query-in-c"></a>Voorbeeld van de URL-query in C#
+# <a name="quickstart-url-preview-query-in-c"></a>Snelstart: query voor URL-previews in C#
 
-Het volgende C#-voorbeeld wordt een voorbeeld-Url voor de website van SwiftKey: https://swiftkey.com/en.
+In het volgende C#-voorbeeld wordt een URL-preview gemaakt voor de SwiftKey-website: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) naar deze code in Windows worden uitgevoerd. (De editie free Community blijft werken.)
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code uit te voeren in Windows. (De gratis Community-editie volstaat.)
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription).
 
-## <a name="code-scenario"></a>Code-scenario
+## <a name="code-scenario"></a>Codescenario
 
-De volgende C#-code maakt een voorbeeld-URL van de website van SwiftKey: https://swiftkey.com/en. 
+Met de volgende C#-code wordt een URL-preview gemaakt voor de SwiftKey-website: https://swiftkey.com/en. 
 
-Deze is geïmplementeerd in de volgende stappen uit:
-1. Declareer de variabelen opgeven van het eindpunt en een query-URL voor de preview.  
-2. Maken van de aanvraag.
-3. Voeg de *Ocp-Apim-Subscription-Key* header. 
-4. De webaanvraag asynchroon uitgevoerd. 
-5. Het antwoord lezen.
-6. De kop- en JSON-resultaten naar de console afdrukken.
+De code wordt in de volgende stappen geïmplementeerd:
+1. Declareer variabelen om het eindpunt op te geven en een query-URL om als voorbeeld weer te geven.  
+2. Maak de aanvraag.
+3. Voeg de header *Ocp-Apim-Subscription-Key* toe. 
+4. Voer de webaanvraag asynchroon uit. 
+5. Lees het antwoord.
+6. Kopieer de headers en JSON-resultaten naar de console.
 
 **Broncode**
 
@@ -155,13 +157,13 @@ namespace UrlPrevCshp
 
 De toepassing uitvoeren:
 
-1. Maak een nieuwe Console-oplossing in Visual Studio.
-2. Vervang `Program.cs` met de opgegeven code.
-3. Vervang de `YOUR-ACCESS-KEY` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuwe console-oplossing in Visual Studio.
+2. Vervang `Program.cs` door de opgegeven code.
+3. Vervang de waarde `YOUR-ACCESS-KEY` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Java-Quick Start](java-quickstart.md)
-- [JavaScript Quick Start](javascript.md)
-- [Knooppunt Quick Start](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor JavaScript](javascript.md)
+- [Snelstart voor Node](node-quickstart.md)
+- [Snelstart voor Python](python-quickstart.md)

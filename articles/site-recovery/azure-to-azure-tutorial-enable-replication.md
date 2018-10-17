@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154778"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069094"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
@@ -169,6 +169,19 @@ Als u de standaardinstellingen voor het replicatiebeleid wilt overschrijven, kli
 
 > [!IMPORTANT]
   Als u multi-VM-consistentie inschakelt, communiceren machines in de replicatiegroep met elkaar via poort 20004. Zorg ervoor dat de interne communicatie tussen de VM's via poort 20004 niet door een firewall-apparaat wordt geblokkeerd. Als u wilt dat Linux VM’s deel uitmaken van een replicatiegroep, zorg er dan voor dat het uitgaande verkeer op poort 20004 handmatig wordt geopend volgens de richtlijnen van de specifieke Linux-versie.
+
+### <a name="configure-encryption-settings"></a>Versleutelingsinstellingen configureren
+
+Als op de virtuele bronmachine ADE (Azure Disk Encryption) is ingeschakeld, worden de onderstaande instellingen voor versleuteling weergegeven.
+
+- **Sleutelkluizen voor schijfversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-schijf. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
+- **Sleutelkluizen voor sleutelversleuteling**: Azure Site Recovery maakt standaard een nieuwe sleutelkluis in de doelregio met het achtervoegsel 'asr' in de naam, op basis van de versleutelingssleutels voor de bron VM-sleutel. In het geval dat de sleutelkluis die wordt gemaakt door Azure Site Recovery al bestaat, wordt deze opnieuw gebruikt.
+
+Klik op Aanpassen naast Versleutelingsinstellingen om de standaardinstellingen te overschrijven en aangepaste sleutelkluizen te selecteren.
+
+>[!NOTE]
+>Alleen Azure-VM's met Windows die zijn [ingeschakeld voor versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden momenteel ondersteund door Azure Site Recovery.
+>
 
 ### <a name="track-replication-status"></a>Replicatiestatus volgen
 

@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422742"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067819"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
 
 Veel IoT-oplossingen maken gebruik van analyseservices om inzicht te krijgen in gegevens wanneer deze binnenkomen vanaf IoT-apparaten. Met Azure IoT Edge kunt u de logica van [Azure Stream Analytics][azure-stream] verplaatsen naar het apparaat zelf. Door telemetriestromen te verwerken kunt u de hoeveelheid geüploade gegevens verkleinen en tijd besparen bij het reageren op inzichten waarvoor een actie kan worden uitgevoerd.
 
-Azure IoT Edge en Azure Stream Analytics zijn geïntegreerd, zodat u een Azure Stream Analytics-taak kunt maken in de Azure-portal en deze vervolgens zonder aanvullende code kunt implementeren als een IoT Edge-module.  
+Azure IoT Edge en Azure Stream Analytics zijn geïntegreerd, zodat u een Azure Stream Analytics-taak kunt maken in Azure Portal en deze vervolgens zonder aanvullende code kunt implementeren als een IoT Edge-module.  
 
 Azure Stream Analytics biedt een rijk gestructureerde querysyntaxis voor gegevensanalyse, zowel in de cloud als op IoT Edge-apparaten. Raadpleeg de [Azure Stream Analytics-documentatie](../stream-analytics/stream-analytics-edge.md) voor meer informatie over Azure Stream Analytics in IoT Edge.
 
@@ -31,7 +31,7 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Een Azure Stream Analytics-taak maken om gegevens te verwerken.
 > * Verbinding maken tussen de nieuwe Azure Stream Analytics-taak en andere IoT Edge-modules.
-> * De Azure Stream Analytics-taak implementeren op een IoT Edge-apparaat vanuit de Azure-portal.
+> * De Azure Stream Analytics-taak implementeren op een IoT Edge-apparaat vanuit Azure Portal.
 
 <center>
 ![Architectuurdiagram voor zelfstudie](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
@@ -139,7 +139,9 @@ Met behulp van de drie elementen invoer, uitvoer en query wordt in deze sectie e
 
 Als u uw Stream Analytics-taak wilt voorbereiden om te worden geïmplementeerd op een IoT Edge-apparaat, moet u de taak aan een container in een opslagaccount koppelen. Wanneer u uw taak gaat implementeren, wordt de taakdefinitie geëxporteerd naar de opslagcontainer. 
 
-1. Selecteer onder **Configureren** de optie **IoT Edge-instellingen**.
+1. Bij **Configureren** selecteert u **Opslagaccountinstellingen**.
+
+1. Selecteer **Opslagaccount toevoegen**. 
 
 1. Selecteer in de vervolgkeuzelijst uw **opslagaccount**.
 
@@ -155,7 +157,7 @@ In deze sectie gaat u de wizard **Modules instellen** in de Azure-portal gebruik
 
 In deze zelfstudie gaat u twee modules implementeren. De eerste is **tempSensor**: dit is een module die een temperatuur- en vochtigheidssensor simuleert. De tweede is uw Stream Analytics-taak. De sensormodule levert de gegevensstroom aan die door de taakquery wordt geanalyseerd. 
 
-1. Ga in de Azure-portal, in uw IoT-hub, naar **IoT Edge** en open vervolgens de detailpagina van het IoT Edge-apparaat.
+1. Ga in Azure Portal, in uw IoT-hub, naar **IoT Edge** en open vervolgens de detailpagina van het IoT Edge-apparaat.
 
 1. Selecteer **Modules instellen**.  
 

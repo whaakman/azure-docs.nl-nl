@@ -1,42 +1,44 @@
 ---
-title: Emotion-API-JavaScript snel starten | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Emotion-API met JavaScript in Cognitive Services.
+title: 'Snelstart: emoties op gezichten in een afbeelding herkennen - Emotion-API, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Emotion-API en JavaScript.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: eeaf2ea080d8c0b604b9831532028e31b8306169
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072089"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239486"
 ---
-# <a name="emotion-api-javascript-quick-start"></a>Emotion-API-JavaScript snel starten
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
 
 > [!IMPORTANT]
-> Voorbeeld van de video-API eindigt op 30 oktober 2017. Probeer de nieuwe [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten ophalen uit video's en inhoud sneller wordt ontdekt, zoals de lijst met zoekresultaten verbeteren door het detecteren van gesproken woorden, gezichten, tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-In dit artikel vindt u informatie en voorbeelden van code om u te helpen snel aan de slag met de [Emotion-API herkent methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met JavaScript, kunnen de emoties uitgedrukt in een of meer mensen in een afbeelding herkennen.
+In dit artikel vindt u informatie en codevoorbeelden om met behulp van JavaScript en de [methode Recognize van de Emotion-API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) de emoties te herkennen die worden uitgedrukt door een of meer personen in een afbeelding.
 
 ## <a name="prerequisite"></a>Vereiste
-* Haal uw gratis Abonnementssleutel [hier](https://azure.microsoft.com/try/cognitive-services/), of als u een Azure-abonnement hebben een Emotion-API-resource maken en uw Abonnementssleutel en het eindpunt er ophalen.
+* Haal uw gratis abonnementssleutel [hier](https://azure.microsoft.com/try/cognitive-services/) op. Als u een Azure-abonnement hebt, kunt u ook een Emotion-API-resource maken en uw abonnementssleutel en eindpunt daar ophalen.
 
-![Emotion-API-Resource maken](../Images/create-resource.png)
+![Emotion-API-resource maken](../Images/create-resource.png)
 
-## <a name="recognize-emotions-javascript-example-request"></a>Voorbeeld van de JavaScript-aanvraag emoties herkennen
+## <a name="recognize-emotions-javascript-example-request"></a>Voorbeeldaanvraag in JavaScript voor het herkennen van emoties
 
-Kopieer het volgende en sla deze op een bestand, zoals `test.html`. De wijzigingsaanvraag `url` gebruikt u de locatie waar u de abonnementssleutels van uw hebt verkregen en de waarde 'Ocp-Apim-Subscription-Key' vervangt door uw sleutel geldig abonnement. Deze kunnen worden gevonden in de Azure-portal in de secties overzicht en sleutels van de Emotion-API-resource, respectievelijk. 
+Kopieer het volgende en sla het op in een bestand zoals `test.html`. Wijzig de aanvraag `url` om de locatie te gebruiken waar u de abonnementssleutels hebt verkregen en vervang de waarde 'Ocp-Apim-Subscription-Key' door een geldige abonnementssleutel. Deze kunt u vinden in de Azure-portal, in de gedeeltes Overzicht en Sleutels van de Emotion-API-resource.
 
 ![API-eindpunt](../Images/api-url.png)
 
-![API-sleutel voor abonnement](../Images/keys.png)
+![API-abonnementssleutel](../Images/keys.png)
 
-Wijzig de hoofdtekst van de aanvraag naar de locatie van een installatiekopie die u wilt gebruiken. Het voorbeeld, en sleep het bestand in uw browser uitvoeren.
+Wijzig de aanvraagbody naar de locatie van een afbeelding die u wilt gebruiken. Sleep het bestand naar uw browser en zet het neer om het voorbeeld uit te voeren.
 
 ```html
 <!DOCTYPE html>
@@ -62,10 +64,10 @@ Wijzig de hoofdtekst van de aanvraag naar de locatie van een installatiekopie di
     $(function() {
         // No query string parameters for this API call.
         var params = { };
-      
+
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             url: "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?" + $.param(params),
             beforeSend: function(xhrObj){
@@ -87,7 +89,7 @@ Wijzig de hoofdtekst van de aanvraag naar de locatie van een installatiekopie di
             for (var prop in faceRectangle) {
                 faceRectangleList.append("<li> " + prop + ": " + faceRectangle[prop] + "</li>");
             }
-            
+
             // Get emotion confidence scores
             var scores = data[0].scores;
             var scoresList = $('#scores');
@@ -105,13 +107,13 @@ Wijzig de hoofdtekst van de aanvraag naar de locatie van een installatiekopie di
 </html>
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Het Voorbeeldantwoord emoties herkennen
-Een geslaagde aanroep retourneert een matrix met de face-vermeldingen en hun bijbehorende emoties scores, gerangschikt op het vlak rechthoek grootte in aflopende volgorde. Een leeg antwoord geeft aan dat er geen gezichten zijn gedetecteerd. Een vermelding emoties bevat de volgende velden:
-* faceRectangle - locatie van de rechthoek van gezicht in de afbeelding.
-* scores - scores emoties voor elk gezicht in de afbeelding. 
+## <a name="recognize-emotions-sample-response"></a>Voorbeeldantwoord voor herkennen van emoties
+Een geslaagde aanroep retourneert een matrix van gezichtsvermeldingen en de bijbehorende emotiescores, in aflopende volgorde gerangschikt op grootte van gezichtsrechthoek. Een leeg antwoord geeft aan dat er geen gezichten zijn gedetecteerd. Een emotievermelding bevat de volgende velden:
+* faceRectangle: locatie van de rechthoek met het gezicht in de afbeelding.
+* scores: emotiescores voor elk gezicht in de afbeelding.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

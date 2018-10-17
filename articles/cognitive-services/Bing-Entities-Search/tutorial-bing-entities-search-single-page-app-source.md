@@ -1,24 +1,25 @@
 ---
-title: Zoeken naar Bing-afbeelding één pagina web-app (broncode) | Microsoft Docs
-description: De broncode voor de zelfstudie waarin wordt getoond hoe u de API van Bing installatiekopie zoeken gebruiken in een webtoepassing van één pagina.
+title: 'Zelfstudie: Web-app met één pagina maken met Bing Entiteiten zoeken (broncode)'
+titlesuffix: Azure Cognitive Services
+description: Broncode voor een zelfstudie waarin wordt uitgelegd hoe u de Bing Entiteiten zoeken-API kunt gebruiken in een webtoepassing met één pagina.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344480"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815049"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Zelfstudie: Single-page-webbron app
+# <a name="tutorial-single-page-web-app-source"></a>Zelfstudie: Broncode voor web-app van één pagina
 
-Dit is de volledige broncode besproken in de [één pagina app-zelfstudie](tutorial-bing-entities-search-single-page-app.md) voor het zoeken naar Bing-afbeelding. Uitvoeren van de app kopiëren van de broncode in Kladblok of een andere teksteditor en sla het bestand als `bing.html`. Open het bestand opgeslagen in Microsoft Edge of een andere populaire browser.
+Dit is de volledige broncode die is besproken in de [zelfstudie App van één pagina](tutorial-bing-entities-search-single-page-app.md) voor Bing Entity Search. Als u de app wilt uitvoeren, kopieert u de broncode in Kladblok of een andere teksteditor en slaat u het bestand op als `bing.html`. Open het opgeslagen bestand vervolgens in Microsoft Edge of een andere veel gebruikte browser.
 
 ```html
 <!DOCTYPE html>

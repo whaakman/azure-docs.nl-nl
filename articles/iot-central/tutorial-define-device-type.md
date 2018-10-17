@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702541"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984302"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
@@ -293,7 +293,7 @@ U gebruikt *eigenschappen* om gegevens over uw apparaat in de toepassing op te s
     | Veld                | Waarde                |
     | -------------------- | -------------------- |
     | Weergavenaam         | Locatie             |
-    | Veldnaam           | locatie             |
+    | Veldnaam           | location             |
     | Initiële waarde        | Seattle, WA          |
     | Beschrijving          | Locatie apparaat      |
 
@@ -427,7 +427,7 @@ Nu u uw apparaatsjabloon **Aangesloten airconditioner** hebt gedefinieerd kunt u
     | Titel                   | Serienummer |
     | Instellingen en eigenschappen | Serienummer |
 
-    ![Instellingen voor de eigenschap Serienummer](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Instellingen voor de eigenschap Serienummer](./media/tutorial-define-device-type/propertysettings3.png)
 
     Kies vervolgens **Opslaan**.
 
@@ -442,7 +442,7 @@ Nu u uw apparaatsjabloon **Aangesloten airconditioner** hebt gedefinieerd kunt u
     | Titel                   | Firmwareversie |
     | Instellingen en eigenschappen | Firmwareversie |
 
-    ![Instellingen voor de eigenschap Serienummer](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Instellingen voor de eigenschap Serienummer](./media/tutorial-define-device-type/propertysettings3.png)
 
     Kies vervolgens **Opslaan**.
 

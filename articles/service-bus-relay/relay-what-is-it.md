@@ -1,10 +1,9 @@
 ---
-title: Overzicht van Azure Relay en nuttige eigenschappen | Microsoft Docs
-description: Overzicht van Azure Relay
+title: Wat is Azure Relay? | Microsoft Docs
+description: In dit artikel vindt u een overzicht van Azure Relay, een service die is bedoeld voor het ontwikkelen van cloudtoepassingen die on-premises services verbruiken die worden uitgevoerd in uw bedrijfsnetwerk zonder dat er een firewallverbinding hoeft te worden geopend of uw netwerkinfrastructuur ingrijpend hoeft te worden gewijzigd.
 services: service-bus-relay
-documentationcenter: .net
 author: spelluru
-manager: timlt
+manager: ''
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
@@ -12,71 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695962"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888081"
 ---
 # <a name="what-is-azure-relay"></a>Wat is Azure Relay?
+De Azure Relay-service stelt u in staat om services die worden uitgevoerd in uw bedrijfsnetwerk op een veilige manier aan te bieden aan de openbare cloud. U kunt dit doen zonder een firewallverbinding te openen of de infrastructuur van het bedrijfsnetwerk ingrijpend te wijzigen. 
 
-De Azure Relay-service maakt het uitvoeren van hybride toepassingen mogelijk doordat u services die zich in een bedrijfsnetwerk bevinden, veilig kunt blootstellen aan de openbare cloud zonder dat u een firewallverbinding hoeft te openen en zonder dat wijzigingen in de infrastructuur van een bedrijfsnetwerk zijn vereist. Met Relay wordt een groot aantal verschillende transportprotocollen en webservicestandaarden ondersteund.
+De Relay-service ondersteunt de volgende scenario's tussen on-premises services en toepassingen die worden uitgevoerd in de cloud of in een andere on-premises omgeving. 
 
-De Relay-service biedt ondersteuning voor traditioneel verkeer in één richting, aanvraag-/antwoordverkeer en peer-to-peerverkeer. De service ondersteunt tevens gebeurtenisdistributie via internet voor scenario's voor publiceren/abonneren en bidirectionele socket-communicatie voor verbeterde point-to-point-efficiëntie.
+- Traditioneel verkeer in één richting, aanvraag/antwoord en peer-to-peer-communicatie 
+- Distributie van gebeurtenissen via internet om scenario's voor publiceren/abonneren mogelijk te maken 
+- Bidirectionele en niet-gebufferde socket-communicatie over de netwerkgrenzen heen
 
-In het patroon voor doorgestuurde gegevensoverdracht maakt een on-premises service verbinding met de Relay-service via een uitgaande poort en wordt een bidirectionele socket voor communicatie gemaakt die is gekoppeld aan een bepaald rendezvous-adres. De client kan vervolgens met de on-premises service communiceren door verkeer te verzenden naar de Relay-service die gericht is op het rendezvous-adres. De Relay-service stuurt gegevens vervolgens door naar de on-premises service via een bidirectionele socket die is toegewezen aan elke client. De client heeft geen rechtstreekse verbinding met de on-premises service nodig en hoeft niet te weten waar de service zich bevindt. Voor de on-premises service is niet vereist dat poorten voor inkomend verkeer zijn geopend in de firewall.
+Azure Relay is anders dan integratietechnologieën op netwerkniveau zoals VPN. Een Azure-relay kan worden gericht op een bepaald eindpunt van een toepassing op één computer. De VPN-technologie is veel ingrijpender, omdat hiervoor de netwerkomgeving moet worden aangepast. 
 
-De belangrijkste mogelijkheden met Relay zijn bidirectionele, uit de buffer gehaalde communicatie over de netwerkgrenzen heen, met TCP-beperking, eindpuntdetectie, connectiviteitsstatus en overlappende eindpuntbeveiliging.
+## <a name="basic-flow"></a>Basisstroom
+In het patroon van doorgestuurde gegevensoverdracht zijn dit de basisstappen:
 
-De mogelijkheden van Relay verschillen van die van integratietechnologieën op netwerkniveau zoals VPN. Dit komt omdat Relay kan worden toegepast op een enkele computer, terwijl VPN-technologie veel ingrijpender is omdat de netwerkomgeving hierbij moet worden gewijzigd.
+1. Een on-premises service maakt via een uitgaande poort verbinding met de Relay-service. 
+2. Er wordt een bidirectionele socket voor communicatie gemaakt die is gekoppeld aan een bepaald adres. 
+3. De client kan vervolgens met de on-premises service communiceren door verkeer te verzenden naar de Relay-service die gericht is op dat adres. 
+4. De Relay-service *stuurt gegevens vervolgens door* naar de on-premises service via de bidirectionele socket die is toegewezen aan de client. De client heeft geen directe verbinding met de on-premises service nodig. De client hoeft niet te weten waar de service zich bevindt. En de on-premises service hoeft geen inkomende poorten te openen in de firewall.
 
+
+## <a name="features"></a>Functies 
 Azure Relay heeft twee functies:
 
-1. [Hybride verbindingen](#hybrid-connections): maakt gebruik van websockets op basis van open standaarden, waardoor scenario's met meerdere platforms worden ingeschakeld.
-2. [WCF-relays](#wcf-relays): maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
+- [Hybride verbindingen](#hybrid-connections): maakt gebruik van websockets op basis van open standaarden, waardoor scenario's met meerdere platforms worden ingeschakeld.
+- [WCF-relays](#wcf-relays): maakt gebruik van WCF (Windows Communication Foundation) om externe procedureaanroepen in te schakelen. WCF-relay is de oude relay-aanbieding die veel klanten mogelijk al gebruiken met hun WCF-programmeringsmodellen.
 
-Zowel met Hybride verbindingen als met WCF-relays wordt een beveiligde verbinding ingeschakeld naar activa die bestaan binnen een bedrijfsnetwerk. Of u de ene of de andere methode gebruikt is afhankelijk van uw specifieke behoeften, zoals wordt beschreven in de volgende tabel:
+## <a name="hybrid-connections"></a>Hybride verbindingen
+
+De functie voor hybride verbindingen in Azure Relay is een veilige en open-protocolversie van de eerder bestaande relay-functies. U kunt de functie gebruiken op elk platform en in elke taal. De functie voor hybride verbindingen in Azure Relay is gebaseerd op HTTP- en WebSockets-protocollen. Met behulp van de functie kunt u aanvragen en antwoorden verzenden via websockets of HTTP(S). Deze functie is compatibel met de WebSocket-API in veelgebruikte webbrowsers. 
+
+Zie [Azure Relay Hybrid Connections-protocol](relay-hybrid-connections-protocol.md) voor meer informatie over het protocol voor hybride verbindingen. U kunt hybride verbindingen gebruiken met elke websockets-bibliotheek voor elke runtime/taal.
+
+> [!NOTE]
+> De functie voor hybride verbindingen van Azure Relay vervangt de oude functie voor hybride verbindingen van BizTalk Services. De functie voor hybride verbindingen in BizTalk Services was gebaseerd op Azure Service Bus WCF Relay. De voorziening voor hybride verbindingen in Azure Relay is een aanvulling op de eerder bestaande WCF Relay. De mogelijkheden van deze twee services (WCF Relay en Hybride verbindingen) bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
+
+## <a name="wcf-relay"></a>WCF-relay
+WCF Relay werkt met het volledige .NET Framework en voor WCF. U zet een verbinding op tussen uw on-premises service en de Relay-service met behulp van een reeks WCF 'Relay'-bindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](relay-wcf-dotnet-get-started.md) voor meer informatie.
+
+## <a name="hybrid-connections-vs-wcf-relay"></a>Hybride verbindingen versus WCF-relay
+Zowel met hybride verbindingen als met WCF Relay wordt een beveiligde verbinding opgezet met assets die bestaan binnen een bedrijfsnetwerk. Of u de ene of de andere methode gebruikt is afhankelijk van uw specifieke behoeften, zoals wordt beschreven in de volgende tabel:
 
 |  | WCF-relay | Hybride verbindingen |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS** | |x |
+| **Java script/Node.JS** | |x |
 | **Open protocol op basis van standaarden** | |x |
 | **Meerdere RPC-programmeringsmodellen** | |x |
 
-## <a name="hybrid-connections"></a>Hybride verbindingen
-
-De functie hybride verbindingen in Azure Relay is een veilige open-protocolversie van de bestaande Relay-functies en kan op elk platform en in elke taal worden geïmplementeerd. Hybride verbindingen kunnen WebSockets en HTTP(S)-aanvragen en antwoorden doorsturen. Deze mogelijkheden zijn compatibel met WebSocket-API in algemene webbrowsers. Hybride verbindingen zijn gebaseerd op HTTP en WebSockets.
-
-Het protocol is volledig gedocumenteerd in de [protocolhandleiding voor hybride verbindingen](relay-hybrid-connections-protocol.md), zodat gebruik van de Relay voor hybride verbindingen met vrijwel elke Websockets-bibliotheek voor runtime- en taalinstellingen mogelijk is.
-
-### <a name="service-history"></a>Servicegeschiedenis
-
-De functie Hybride verbindingen vervangt de vorige functie, genaamd BizTalk Services, die is gebouwd op de Azure Service Bus WCF-relay. De mogelijkheden van de nieuwe hybride verbindingen zijn een aanvulling op de bestaande WCF-relay. De mogelijkheden van deze twee services bestaan naast elkaar in de Azure Relay-service. De twee services delen een gateway, maar zijn verder afzonderlijke implementaties.
-
-## <a name="wcf-relay"></a>WCF-relay
-
-WCF-relay werkt voor het volledige .NET Framework (NETFX) en voor WCF. U start de verbinding tussen uw on-premises service en de Relay-service met een reeks WCF-relaybindingen. Achter de schermen worden de Relay-bindingen toegewezen aan nieuwe transportbindingselementen die zijn ontworpen om WCF-kanaalonderdelen te maken die kunnen worden geïntegreerd met de Service Bus in de cloud. Zie [Aan de slag met WCF-relay](relay-wcf-dotnet-get-started.md) voor meer informatie.
-
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architectuur: verwerken van inkomende relay-aanvragen
-
-Wanneer een client een verzoek naar de [Azure Relay](/azure/service-bus-relay/)-service verzendt, wordt het via de Azure Load Balancer doorgestuurd naar een van de gateway-knooppunten. Als de aanvraag een aanvraag voor luisteren is, maakt het gateway-knooppunt een nieuwe relay. Als de aanvraag een verbindingsaanvraag is voor een specifieke relay, verzendt het gateway-knooppunt de verbindingsaanvraag door naar het gateway-knooppunt dat eigenaar is van de relay. Het gateway-knooppunt dat eigenaar is van de relay verzendt een ontmoetingsaanvraag naar de luisterende client om een tijdelijk kanaal te maken naar het gateway-knooppunt dat de verbindingsaanvraag heeft ontvangen.
-
-Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.
+Het volgende diagram laat zien hoe binnenkomende relay-aanvragen worden verwerkt door de Azure Relay-service:
 
 ![Verwerken van inkomende WCF Relay-aanvragen](./media/relay-what-is-it/ic690645.png)
 
-## <a name="next-steps"></a>Volgende stappen
+1. Luisterende client stuurt een aanvraag voor luisteren naar de Azure Relay-service. De Azure load balancer stuurt de aanvraag door naar een van de gatewayknooppunten. 
+2. De Azure Relay-service maakt een relay in de gateway-store. 
+3. Verzendende client stuurt een aanvraag voor verbinding met de luisterende service. 
+4. De gateway die de aanvraag ontvangt, zoekt de relay in de gateway-store. 
+5. De gateway stuurt de aanvraag voor verbinding door naar de juiste gateway vermeld in de gateway-store. 
+6. De gateway stuurt een aanvraag naar de luisterende client voor het opzetten van een tijdelijk kanaal naar het gatewayknooppunt dat zich het dichtst bij de verzendende client bevindt. 
+7. De luisterende client maakt nu een tijdelijk kanaal en stuurt een antwoordbericht naar de gateway die zich het dichtst bij de verzendende client bevindt.
+8. De gateway stuurt het antwoordbericht door naar de verzendende client. 
 
-* [Veelgestelde vragen over Relay](relay-faq.md)
-* [Een naamruimte maken](relay-create-namespace-portal.md)
+Wanneer de relay-verbinding tot stand is gebracht, kunnen de clients berichten uitwisselen via het gateway-knooppunt dat wordt gebruikt voor de ontmoeting.
+
+## <a name="next-steps"></a>Volgende stappen
 * [Aan de slag met .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Aan de slag met .NET HTTP Requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Aan de slag met Node Websockets](relay-hybrid-connections-node-get-started.md)
 * [Aan de slag met Node HTTP Requests](relay-hybrid-connections-http-requests-node-get-started.md)
+* [Veelgestelde vragen over Relay](relay-faq.md)
 

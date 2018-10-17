@@ -1,52 +1,53 @@
 ---
-title: Gebruik Custom Vision Service vanuit een C#-toepassing - Azure Cognitive Services | Microsoft Docs
-description: Verken een eenvoudige C#-app die gebruikmaakt van de aangepaste Vision-API in Microsoft Cognitive Services. Maak een project, tags toevoegen, afbeeldingen uploaden, trainen van uw project en een voorspelling te maken met behulp van het eindpunt.
+title: 'Zelfstudie: Een Windows-app bouwen voor Custom Vision Service met C#'
+titlesuffix: Azure Cognitive Services
+description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: MT
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617431"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366638"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Gebruik de Custom Vision Service uit een C&#35; toepassing
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Zelfstudie: De Custom Vision Service uit een C#-toepassing gebruiken
 
-Informatie over het gebruik van de Custom Vision Service vanuit een C#-toepassing. Nadat deze gemaakt, kunt u labels toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project standaard voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. In dit voorbeeld open-source als sjabloon gebruiken voor het bouwen van uw eigen app voor Windows met behulp van de Custom Vision Service-API.
+Lees hoe u de Custom Vision Service uit een C#-toepassing gebruikt. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en het eindpunt gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-sourcevoorbeeld als sjabloon voor het bouwen van uw eigen app voor Windows met behulp van de Custom Vision Service-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een versie van Visual Studio 2017 voor Windows.
+* Elke versie van Visual Studio 2017 voor Windows.
 
-## <a name="get-the-custom-vision-sdk-and-samples"></a>Ophalen van de aangepaste Vision SDK en voorbeelden
-Als u wilt maken in dit voorbeeld, moet u de aangepaste Vision SDK NuGet-pakketten:
+## <a name="get-the-custom-vision-sdk-and-samples"></a>De Custom Vision-SDK en voorbeelden ophalen
+Als u dit voorbeeld wilt maken, hebt u de NuGet-pakketten van de Custom Vision-SDK nodig:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-U kunt downloaden van de installatiekopieën van samen met de [C#-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+U kunt de afbeeldingen tegelijk met de [C#-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision) downloaden.
 
-## <a name="get-the-training-and-prediction-keys"></a>Ophalen van de sleutels trainen en voorspellen
+## <a name="get-the-training-and-prediction-keys"></a>De training en voorspellingssleutels ophalen
 
-Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [Custom Vision webpagina](https://customvision.ai) en selecteer de __tandwielpictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
+Als u de sleutels wilt ophalen die in dit voorbeeld worden gebruikt, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In de sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
 
 ![Afbeelding van de gebruikersinterface van de sleutels](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-Open in Visual Studio het project zich in de `Samples/CustomVision.Sample/` map van de SDK-project.
+In Visual Studio opent u het project dat zich in de `Samples/CustomVision.Sample/`-directory van het SDK-project bevindt.
 
-Deze toepassing maakt gebruik van de training-sleutel die u eerder hebt opgehaald voor het maken van een nieuw project met de naam __mijn nieuwe Project__. Deze uploadt vervolgens trainen en testen van een classificatie van afbeeldingen. De classificatie geeft aan of een boomstructuur is een __Hemlock__ of een __Japanse Cherry__.
+Deze toepassing gebruikt de trainingssleutel die u eerder hebt opgehaald om een nieuw project met de naam __Mijn nieuwe project__ te maken. Vervolgens worden afbeeldingen geüpload om een classificatie te trainen en te testen. De classificatie identificeert of een boom een __Hemlockspar__ of een __Japanse kers__ is.
 
-De volgende codefragmenten implementeren van de primaire functie van dit voorbeeld:
+Met de volgende codefragmenten implementeert u de primaire functionaliteit van dit voorbeeld:
 
-* __Maak een nieuw project voor Custom Vision Service__:
+* __Een nieuw Custom Vision Service-project maken__:
 
     ```csharp
      // Create a new project
@@ -54,7 +55,7 @@ De volgende codefragmenten implementeren van de primaire functie van dit voorbee
     var project = trainingApi.CreateProject("My New Project");
     ```
 
-* __-Tags maken in een project__:
+* __Tags maken in een project__:
 
     ```csharp
     // Make two tags in the new project
@@ -62,7 +63,7 @@ De volgende codefragmenten implementeren van de primaire functie van dit voorbee
     var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
     ```
 
-* __Uploaden en afbeeldingen labelen__:
+* __Afbeeldingen uploaden en labellen__:
 
     ```csharp
     // Add some images to the tags
@@ -100,7 +101,7 @@ De volgende codefragmenten implementeren van de primaire functie van dit voorbee
     }
     ```
 
-* __Stel een iteratie standaard voor het eindpunt van de voorspelling__:
+* __Een standaarditeratie instellen voor het voorspellingseindpunt__:
 
     ```csharp
     // The iteration is now trained. Make it the default project endpoint
@@ -109,14 +110,14 @@ De volgende codefragmenten implementeren van de primaire functie van dit voorbee
     Console.WriteLine("Done!\n");
     ```
 
-* __Maak een eindpunt voorspelling__:
+* __Een eindpunt voor de queryvoorspelling maken__:
  
     ```csharp
     // Create a prediction endpoint, passing in obtained prediction key
     PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
     ```
  
-* __Een afbeelding verzenden naar het eindpunt voorspelling__:
+* __Een afbeelding naar het voorspellingseindpunt verzenden__:
 
     ```csharp
     // Make a prediction against the new project
@@ -132,21 +133,21 @@ De volgende codefragmenten implementeren van de primaire functie van dit voorbee
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-1. Controleer de volgende wijzigingen aan de trainen en voorspellen sleutels toevoegen aan de toepassing:
+1. Breng de volgende wijzigingen aan om de trainings- en voorspellingssleutels aan de toepassing toe te voegen:
 
-    * Voeg uw __training sleutel__ naar de volgende regel:
+    * Voeg uw __trainingssleutel__ toe aan de volgende regel:
 
         ```csharp
         string trainingKey = "<your key here>";
         ```
 
-    * Voeg uw __voorspelling sleutel__ naar de volgende regel:
+    * Voeg uw __voorspellingssleutel__ toe aan de volgende regel:
 
         ```csharp
         string predictionKey = "<your key here>";
         ```
 
-2. Voer de toepassing uit. Als de toepassing wordt uitgevoerd, wordt de volgende uitvoer geschreven naar de console:
+2. Voer de toepassing uit. Wanneer de toepassing wordt uitgevoerd, wordt de volgende uitvoer naar de console geschreven:
 
     ```
     Creating new project:
@@ -159,4 +160,4 @@ De volgende codefragmenten implementeren van de primaire functie van dit voorbee
             Japanese Cherry: 0.0%
     ```
 
-3. Op een willekeurige toets om de toepassing af te sluiten.
+3. Druk op een willekeurige toets om de toepassing af te sluiten.

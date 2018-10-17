@@ -1,154 +1,155 @@
 ---
-title: Aangepaste visie ONNX model met Windows ML - cognitieve Services | Microsoft Docs
-description: Informatie over het maken van een Windows-UWP-app die gebruikmaakt van een model ONNX is geëxporteerd uit cognitieve Services.
+title: 'Zelfstudie: Een ONNX-model gebruiken met Windows ML: Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Lees hoe u een Windows UWP-app maakt die gebruikmaakt van een ONNX-model dat uit Azure Cognitive Services is geëxporteerd.
 services: cognitive-services
 author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 0b128ba1800e74c20c09a9c5711c8473f1dd00d0
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 3a9e9bc92ce38c4bb8d6d83c8017fa223342e7d2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939457"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365601"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Zelfstudie: Een model ONNX uit aangepaste visie gebruiken met Windows ML (preview)
+# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Zelfstudie: Een ONNX-model uit Custom Vision gebruiken met Windows ML (preview)
 
-Informatie over het gebruik van een model ONNX is geëxporteerd uit de service aangepaste visie met Windows ML (preview).
+Lees hoe u een ONNX-model gebruikt dat uit de Custom Vision Service is geëxporteerd met Windows ML (preview).
 
-De informatie in dit document wordt beschreven hoe een ONNX-bestand dat is geëxporteerd uit de Service van de visie aangepast met Windows ML wilt gebruiken. Een voorbeeld Windows UWP-toepassing wordt verstrekt. Een getraind model dat honden en katten herkennen kan is opgenomen in het voorbeeld. Stappen vindt u ook op hoe u uw eigen model met dit voorbeeld kunt.
+De informatie in dit document laat zien hoe u een ONNX-bestand gebruikt dat is geëxporteerd uit de Custom Vision Service met Windows ML. Er wordt een voorbeeld gegeven van een Windows UWP-toepassing. Het voorbeeld bevat een getraind model dat honden en katten kan herkennen. Ook worden er stappen weergegeven om uw eigen model bij dit voorbeeld te gebruiken.
 
 > [!div class="checklist"]
 > * Over de voorbeeld-app
 > * De voorbeeldcode halen
-> * Het voorbeeld uitvoert
+> * Het voorbeeld uitvoeren
 > * Uw eigen model gebruiken
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Windows 10-apparaat met:
+* Een apparaat met Windows 10 met:
 
     * Een camera.
 
-    * Visual Studio 2017 versie 15.7 of hoger, waarop de __ontwikkeling van universele Windows-Platform__ werkbelasting ingeschakeld.
+    * Visual Studio 2017 versie 15.7 of later waarbij de __ontwikkelworkload van Universal Windows Platform__ is ingeschakeld.
 
-    * Developer-modus is ingeschakeld. Zie voor meer informatie de [inschakelen van uw apparaat voor het ontwikkelen van](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) document.
+    * Ontwikkelmodus ingeschakeld. Zie het document [Ontwikkeling voor uw apparaat inschakelen](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) voor meer informatie.
 
-* (Optioneel) Een ONNX-bestand dat is geëxporteerd uit de visie van aangepaste service. Zie voor meer informatie de [exporteren van het model voor gebruik met een mobiel apparaat](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) document.
+* (Optioneel) Een ONNX-bestand dat uit de Custom Vision Service is geëxporteerd. Zie het document [Uw model exporteren om met mobiele apparaten te gebruiken](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) voor meer informatie.
 
     > [!NOTE]
-    > Voor het gebruik van uw eigen model, volg de stappen in de [gebruik van uw eigen model](#use-your-own-model) sectie.
+    > Als u uw eigen model wilt gebruiken, volgt u de stappen in de sectie [Uw eigen model gebruiken](#use-your-own-model).
 
 ## <a name="about-the-example-app"></a>Over de voorbeeld-app
 
-De toepassing is een algemene Windows UWP-toepassing. Dit maakt gebruik van de camera op uw Windows 10-apparaat op te geven van installatiekopieën van het model. De labels en scores geretourneerd door het model worden weergegeven onder de video preview.
+De toepassing is een generieke Windows UWP-toepassing. De toepassing gebruikt de camera op uw Windows 10-apparaat om afbeeldingen naar het model te sturen. De tags en scores die door het model worden geretourneerd, worden weergegeven onder de videopreview.
 
-* Als de gegevens afkomstig via de camera [MediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader) wordt gebruikt voor het uitpakken van afzonderlijke frames. De frames worden verzonden naar het model voor score berekenen.
+* Zodra gegevens via de camera worden ingevoerd, wordt [MediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader) gebruikt om afzonderlijke frames te extraheren. De frames worden naar het model verzonden om ze van een score te voorzien.
 
-* Het model retourneert de labels die het op is getraind en een float-waarde die aangeeft hoe vertrouwen is dat de installatiekopie van het item bevat.
+* Het model retourneert de tags waarmee het is getraind en een zwevende waarde die aangeeft hoe zeker het is dat de afbeelding dat item bevat.
 
 ### <a name="the-ui"></a>De gebruikersinterface
 
-De gebruikersinterface voor de voorbeeldtoepassing wordt gemaakt met __CaptureElement__ en __TextBlock__ besturingselementen. De CaptureElement geeft een voorbeeld van de video van de camera en de TextBlock geeft de resultaten uit het model. 
+De gebruikersinterface voor de voorbeeldtoepassing wordt gemaakt met behulp van de besturingselementen __CaptureElement__ en __TextBlock__. Het element CaptureElement toont een preview van de video uit de camera en TextBlock toont de resultaten die door het model zijn geretourneerd. 
 
 ### <a name="the-model"></a>Het model
 
-Het model (`cat-or-dog.onnx`) meegeleverd met het voorbeeld is gemaakt en getraind met behulp van de visie van de aangepaste cognitieve Services-service. Het getrainde model is wordt geëxporteerd als een ONNX-model. Zie voor meer informatie over het gebruik van deze service de [het bouwen van een classificatie](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) en [exporteren van het model voor gebruik met een mobiel apparaat](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) documenten.
+Het model (`cat-or-dog.onnx`) dat van het voorbeeld is voorzien, is gemaakt en getraind met behulp van de Custom Vision Service van Cognitive Services. Het getrainde model is vervolgens geëxporteerd als ONNX-model. Zie de documenten [Een classificatie bouwen ](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) en [Uw model exporteren om met mobiele apparaten te gebruiken](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) voor meer informatie over het gebruik van deze service.
 
 > [!IMPORTANT]
-> Het opgegeven met het voorbeeld model is getraind met een kleine set aquaduct en cat-installatiekopieën. Zodat deze mogelijk niet de wereld beste op honden en katten herkent.
+> Het model dat van het voorbeeld is voorzien, is getraind met een kleine set met afbeeldingen van honden en katten. Dit model kan honden en katten daarom misschien niet heel erg goed herkennen.
 
-### <a name="the-model-class-file"></a>Het modelbestand voor klasse
+### <a name="the-model-class-file"></a>Klassebestand van het model
 
-Wanneer u een ONNX-bestand naar een Windows-UWP-toepassing toevoegt, maakt deze een bestand .cs. Dit bestand heeft dezelfde naam als de `.onnx` bestand (`cat-or-dog` in dit voorbeeld) en bevat de klassen gebruikt om te werken met het model van C#. De entiteiten in de gegenereerde klasse kunnen echter hebben namen als `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput`. U kunt deze vermeldingen veilig wijzigen (met de rechtermuisknop op, wijzig de naam) naar een beschrijvende naam.
+Wanneer u een ONNX-bestand aan een Windows UWP-toepassing toevoegt, wordt een .cs-bestand gemaakt. Dit bestand heeft dezelfde naam als het `.onnx`-bestand (`cat-or-dog` in dit voorbeeld) en bevat de klassen die worden gebruikt om met het model uit C# te werken. De entiteiten in de gegenereerde klasse kunnen echter namen hebben zoals `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput`. U kunt de naam van deze items veilig wijzigen in een beschrijvende naam (klik hiervoor op de rechtermuisknop en kies Naam wijzigen).
 
 > [!NOTE]
-> De voorbeeldcode heeft de gegenereerde namen voor de klasse en een methode met de volgende geherstructureerd:
+> De voorbeeldcode heeft de gegenereerde klasse en methodenamen geherstructureerd in het volgende:
 >
 > * `ModelInput`
 > * `ModelOutput`
 > * `Model`
 > * `CreateModel`
 
-### <a name="camera-access"></a>Camera-toegang
+### <a name="camera-access"></a>Cameratoegang
 
-De __mogelijkheden__ tabblad de `Package.appxmanifest` -bestand is geconfigureerd voor toegang tot de webcam en microfoon.
+Het tabblad __Mogelijkheden__ in het `Package.appxmanifest`-bestand wordt geconfigureerd zodat toegang tot de webcam en microfoon mogelijk is.
 
 > [!NOTE]
-> Hoewel dit voorbeeld geen audio gebruik, had ik de microfoon inschakelen voordat ik heb toegang tot de camera op mijn apparaat.
+> Hoewel in dit voorbeeld geen audio wordt gebruikt, moest ik de microfoon inschakelen voordat ik toegang kon krijgen tot de camera op mijn apparaat.
 
-De toepassing probeert op te halen van de camera op de achterkant van het apparaat als deze beschikbaar is. Dit maakt gebruik van de [MediaCapture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) klasse vastleggen vanaf de camera gestart. [MediaFrameReader](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) wordt gebruikt voor het vastleggen van video frames en ze verzenden naar het model.
+De toepassing probeert de camera aan de achterkant van uw apparaat op te halen als uw apparaat deze heeft. De toepassing gebruikt de klasse [MediaCapture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) om video op te nemen met de camera. [MediaFrameReader](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) wordt gebruikt om videoframes vast te leggen en naar het model te verzenden.
 
 ## <a name="get-the-example-code"></a>De voorbeeldcode halen
 
-De voorbeeldtoepassing is beschikbaar op [ https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP ](https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP).
+De voorbeeldtoepassing is beschikbaar op [https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP](https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP).
 
-## <a name="run-the-example"></a>Het voorbeeld uitvoert
+## <a name="run-the-example"></a>Het voorbeeld uitvoeren
 
-1. Gebruik de `F5` sleutel voor de toepassing niet starten vanuit Visual Studio. U wordt mogelijk gevraagd om in te schakelen van modus voor ontwikkelaars. Zie voor meer informatie de [inschakelen van uw apparaat voor het ontwikkelen van](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) document.
+1. Gebruik de `F5`-sleutel om de toepassing te starten vanuit Visual Studio. U wordt mogelijk gevraagd de Ontwikkelmodus in te schakelen. Zie het document [Ontwikkeling voor uw apparaat inschakelen](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) voor meer informatie.
 
-2. Als u wordt gevraagd, kunt u de toepassing toegang tot de camera en microfoon op uw apparaat.
+2. Wanneer u hierom wordt gevraagd, geeft u de toepassing toestemming om de camera en microfoon op uw apparaat te openen.
 
-3. De camera op een aquaduct of cat punt. De score voor of de afbeelding een aquaduct of cat bevat wordt weergegeven onder het voorbeeld in de toepassing.
+3. Richt de camera op een hond of kat. De score voor of de afbeelding een hond of kat bevat, wordt weergegeven onder de preview in de toepassing.
 
     > [!TIP]
-    > Als u een aquaduct of cat handige niet hebt, kunt u een foto van een aquaduct of cat.
+    > Als u geen hond of kat in de buurt hebt, kunt u een foto van een hond of kat gebruiken.
 
 ## <a name="use-your-own-model"></a>Uw eigen model gebruiken
 
-Gebruik de volgende stappen voor het gebruik van uw eigen model:
+Als u uw eigen model wilt gebruiken, volgt u de volgende stappen:
 
 > [!IMPORTANT]
-> De stappen in deze sectie Wijzig de naam van het huidige model (cat-of-dog.cs) en de namen van de klasse en de methode van het nieuwe model opsplitsen. Dit is om te voorkomen dat naamconflicten met het voorbeeldmodel.
+> Aan de hand van de stappen in deze sectie wijzigt u de naam van het huidige model (cat-or-dog.cs) en herstructureert u de namen van de klasse en de methode van het nieuwe model. Hiermee voorkomt u naamconflicten met het voorbeeldmodel.
 
-1. Het gebruik van de aangepaste visie service model trainen. Zie voor meer informatie over hoe het model trainen aan de [het bouwen van een classificatie](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier).
+1. Train een model met behulp van de Custom Vision Service. Zie het document [Een classificatie bouwen](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) voor informatie over het trainen van een model.
 
-2. Exporteer het getrainde model als een ONNX-model. Zie voor informatie over het exporteren van een model, de [exporteren van het model voor gebruik met een mobiel apparaat](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) document.
+2. Exporteer het getrainde model als ONNX-model. Zie het document [Uw model exporteren om met mobiele apparaten te gebruiken](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) voor informatie over het exporteren van een model.
 
-3. Klik in Solution Explorer met de rechtermuisknop op de __cat of dog.cs__ en wijzigt u de naam __cat of dog.txt__. Naam van het voorkomt naamconflicten met het nieuwe model.
+3. In Solution Explorer klikt u met de rechtermuisknop op __cat-or-dog.cs__ en wijzigt u de naam in __cat-or-dog.txt__. Door de naam te wijzigen, voorkomt u naamconflicten met het nieuwe model.
 
     > [!TIP]
-    > U kunt ook verschillende namen voor de klassenamen van de in het nieuwe model, maar de namen van bestaande hergebruiken is eenvoudiger.
+    > U kunt ook verschillende namen voor de klassenamen in het nieuwe model gebruiken, maar het is gemakkelijker om de bestaande namen opnieuw te gebruiken.
 
-4. Klik in Solution Explorer met de rechtermuisknop op de __VisionApp__ vermelding en selecteer vervolgens __toevoegen__ > __bestaand item...__ .
+4. In Solution Explorer klikt u met de rechtermuisknop op het item __VisionApp__ en selecteert u vervolgens __Toevoegen__ > __Bestaand item...__.
 
-5. Voor het genereren van een klasse voor het model, selecteert u het bestand ONNX om te importeren en selecteer vervolgens de __toevoegen__ knop. Een nieuwe klasse met dezelfde naam als het bestand ONNX (maar er is een `.cs` extensie) is toegevoegd in Solution Explorer.
+5. Als u een klasse voor het model wilt genereren, selecteert u het ONNX-bestand dat u wilt importeren en vervolgens selecteert u de knop __Toevoegen__. Er wordt een nieuwe klasse toegevoegd met dezelfde naam als het ONNX-bestand (maar dan met de extensie `.cs`) in Solution Explorer.
 
-6. Open het bestand gegenereerde .cs en zoekt u de namen van de volgende items:
+6. Open het gegenereerde .cs-bestand en zoek de namen van de volgende items:
 
     > [!IMPORTANT]
-    > Gebruik het voorbeeld `cat-or-dog.txt` bestand als een handleiding voor het herkennen van de klassen en -functies.
+    > Gebruik het `cat-or-dog.txt`-voorbeeldbestand als richtlijn voor het herkennen van de klassen en functies.
 
-    * De klasse die het model invoer definieert. Het is mogelijk dat de gegenereerde naam vergelijkbaar met `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput`. Wijzig de naam van deze klasse een __ModelInput__.
-    * De klasse die definieert de uitvoer van het model. Het is mogelijk dat de gegenereerde naam vergelijkbaar met `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelOutput`. Wijzig de naam van deze klasse een __ModelOutput__.
-    * De klasse die het model definieert. Het is mogelijk dat de gegenereerde naam vergelijkbaar met `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model`. Wijzig de naam van deze klasse een __Model__.
-    * De methode die wordt gemaakt van het model. Het is mogelijk dat de gegenereerde naam vergelijkbaar met `Create_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model`. Wijzig de naam van deze methode kan worden __CreateModel__.
+    * De klasse die de modelinvoer genereert. De gegenereerde naam is vergelijkbaar met `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput`. Wijzig de naam van deze klasse in __ModelInput__.
+    * De klasse de die modeluitvoer definieert. De gegenereerde naam is vergelijkbaar met `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelOutput`. Wijzig de naam van deze klasse in __ModelOutput__.
+    * De klasse die het model definieert. De gegenereerde naam is vergelijkbaar met `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model`. Wijzig de naam van deze klasse in __Model__.
+    * De methode waarmee het model wordt gemaakt. De gegenereerde naam is vergelijkbaar met `Create_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model`. Wijzig de naam van deze methode in __CreateModel__.
 
-7. Klik in Solution Explorer, gaan de `.onnx` bestand naar de __activa__ map. 
+7. In Solution Explorer verplaatst u het `.onnx`-bestand naar de map __Assets__. 
 
-8. Om het bestand ONNX opnemen in het toepassingspakket, selecteer de `.onnx` bestands- en stel __Build Action__ naar __inhoud__ in de eigenschappen.
+8. Als u het ONNX-bestand in het toepassingspakket wilt insluiten, selecteert u het `.onnx`-bestand en stelt u __Actie bouwen__ in de eigenschappen in op __Inhoud__.
 
-9. Open de __MainPage.xaml.cs__ bestand. Zoek de volgende regel en wijzig de bestandsnaam aan de nieuwe `.onnx` bestand:
+9. Open het bestand __MainPage.xaml.cs__. Zoek de volgende regel en wijzig de bestandsnaam in het nieuwe `.onnx`-bestand:
 
     ```csharp
     var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/cat-or-dog.onnx"));
     ```
 
-    Deze wijziging wordt het nieuwe model tijdens runtime geladen.
+    Met deze wijziging wordt het nieuwe model in runtime geladen.
 
-10. Ontwikkel en voer de app. Het nieuwe model wordt nu gebruikt voor de beoordeling van afbeeldingen.
+10. Bouw de app en voer deze uit. Voor het scoren van afbeeldingen wordt nu het nieuwe model gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende documenten voor het detecteren van andere manieren om te exporteren en een aangepaste visie model:
+Als u andere manieren wilt ontdekken om een Custom Vision-model te exporteren en te gebruiken, raadpleegt u de volgende documenten:
 
-* [Exporteren van uw model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
-* [Geëxporteerde Tensorflow model gebruiken in een Android-toepassing](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Geëxporteerde CoreML model gebruiken in een Swift iOS-toepassing](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Gebruik geëxporteerd CoreML model in een toepassing met Xamarin voor iOS](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+* [Uw model exporteren](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
+* [Geëxporteerd Tensorflow-model in een Android-toepassing gebruiken](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Geëxporteerd CoreML-model in een Swift iOS-toepassing gebruiken](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Geëxporteerd CoreML-model in een iOS-toepassing gebruiken met Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-Zie voor meer informatie over het gebruik van ONNX modellen met Windows ML de [een model integreren in uw app voor Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) document.
+Voor meer informatie over het gebruik van ONNX-modellen met Windows ML raadpleegt u het document [Een model in uw app integreren met Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model).

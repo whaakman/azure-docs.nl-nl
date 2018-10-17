@@ -1,38 +1,40 @@
 ---
-title: Emotion-API Python-zelfstudie | Microsoft Docs
-description: Gebruik een Jupyter-notebook voor informatie over het gebruik van de cognitieve Services Emotion-API met behulp van Python. Uw resultaten visualiseren met behulp van populaire bibliotheken.
+title: 'Zelfstudie: Emoties op een gezicht in een afbeelding herkennen - Emotion-API, Python'
+titlesuffix: Azure Cognitive Services
+description: Gebruik een Jupyter-notebook voor meer informatie over het gebruik van de Emotion-API met Python. Visualiseer uw resultaten met behulp van populaire bibliotheken.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 70c8ca48c651601f3d7cbb3717c32bfe112176fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 31e346cd9a3f43f8181ebee4474ae6c9ee2cc6fc
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344746"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237854"
 ---
-# <a name="emotion-api-using-python-tutorial"></a>Emotion-API met behulp van Python-zelfstudie
+# <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Zelfstudie: De Emotion-API met een Jupyter-notebook en Python gebruiken.
 
 > [!IMPORTANT]
-> Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Om het gemakkelijk om te beginnen met Emotion-API maken, ziet de Jupyter-notebook gekoppeld hieronder u het gebruik van de API in Python en hoe u kunt uw resultaten met behulp van sommige populaire bibliotheken visualiseren. 
+Om eenvoudig aan de slag te gaan met de Emotion-API maken, laat de Jupyter-notebook waarnaar hieronder wordt verwezen u zien hoe u de API in Python gebruikt en hoe u uw resultaten met behulp van enkele populaire bibliotheken kunt visualiseren.
 
-[Koppelen aan een laptop in GitHub](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
+[Koppeling naar notebook in GitHub](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
 
-### <a name="using-the-jupyter-notebook"></a>Met behulp van de Jupyter-Notebook
+### <a name="using-the-jupyter-notebook"></a>Jupyter Notebook gebruiken
 
-De notebook als interactief wilt gebruiken, moet u het klonen en voer deze in Jupyter. Als u wilt weten hoe u aan de slag met interactieve Jupyter-notebooks, volg de instructies voor http://jupyter.readthedocs.org/en/latest/install.html. 
+Als u de notebook interactief wilt gebruiken, moet u deze klonen en uitvoeren in Jupyter. Volg de instructies in http://jupyter.readthedocs.org/en/latest/install.html om te leren hoe u aan de slag kunt gaan met interactieve Jupyter-notebooks.
 
-Voor het gebruik van deze laptop, moet u een abonnementssleutel voor de Emotion-API. Ga naar de [abonnementpagina](https://azure.microsoft.com/try/cognitive-services/) aan te melden. Op de pagina 'Aanmelden' gebruik je Microsoft-account aan te melden en u zich abonneren en gratis sleutels ophalen. Plak uw sleutel in het gedeelte variabelen die hieronder wordt weergegeven na het voltooien van het aanmeldingsproces. De primaire of secundaire sleutel werkt.
+Als u dit notebook wilt gebruiken, moet u een abonnementssleutel voor de Emotion-API hebben. Ga naar de [pagina Abonnement](https://azure.microsoft.com/try/cognitive-services/) om u aan te melden. Gebruik op de pagina 'Aanmelden' uw Microsoft-account om u aan te melden. U kunt zich dan abonneren en gratis sleutels ophalen. Nadat u het aanmeldingsproces hebt voltooid, plakt u uw sleutel in de onderstaande sectie met variabelen. De primaire of de secundaire sleutel werkt.
 
 ```
-Python Example 
+Python Example
 
 #Variables
 

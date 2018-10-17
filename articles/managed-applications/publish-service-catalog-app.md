@@ -3,21 +3,20 @@ title: Door Azure beheerde toepassing in servicecatalogus maken en publiceren | 
 description: In dit artikel leest u hoe u een beheerde Azure-toepassing maakt die is bedoeld voor leden van uw organisatie.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095837"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801264"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>Een beheerde toepassing publiceren voor intern gebruik
+# <a name="create-and-publish-a-managed-application-definition"></a>De definitie van een beheerde toepassing maken en publiceren
 
 U kunt door Azure [beheerde toepassingen](overview.md) maken en publiceren die bedoeld zijn voor leden van uw organisatie. Zo kan een IT-afdeling beheerde toepassingen publiceren die voldoen aan de organisatiestandaarden. Deze beheerde toepassingen zijn beschikbaar via de servicecatalogus, niet Azure Marketplace.
 
@@ -215,80 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 U hebt toegang tot de definitie van de beheerde toepassing, maar u wilt controleren of andere gebruikers in uw organisatie hiertoe toegang hebben. Verleen hun minimaal de rol van Lezer voor de definitie. Mogelijk hebben ze dit toegangsniveau overgenomen van het abonnement of de resourcegroep. Als u wilt controleren wie toegang heeft tot de definitie en gebruikers of groepen wilt toevoegen, raadpleegt u [Op rollen gebaseerd toegangsbeheer gebruiken om de toegang tot de resources van uw Azure-abonnement te beheren](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="create-the-managed-application"></a>De beheerde toepassing maken
-
-U kunt de beheerde toepassing implementeren via de portal, PowerShell of Azure CLI.
-
-### <a name="powershell"></a>PowerShell
-
-We gebruiken eerst PowerShell om de beheerde toepassing te implementeren.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-Uw beheerde toepassing en de beheerde infrastructuur zijn nu aanwezig in het abonnement.
-
-### <a name="portal"></a>Portal
-
-Vervolgens gebruiken we de portal om de beheerde toepassing te implementeren. U ziet de gebruikersinterface die u in het pakket hebt gemaakt.
-
-1. Ga naar Azure Portal. Selecteer **+ Een resource maken** en zoek naar **servicecatalogus**.
-
-   ![Zoeken naar servicecatalogus](./media/publish-service-catalog-app/create-new.png)
-
-1. Selecteer **Beheerde toepassing voor de servicecatalogus**.
-
-   ![Servicecatalogus selecteren](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. Selecteer **Maken**.
-
-   ![Selecteer Maken](./media/publish-service-catalog-app/select-create.png)
-
-1. Zoek de beheerde toepassing die u wilt maken in de lijst met beschikbare oplossingen en selecteer de toepassing. Selecteer **Maken**.
-
-   ![De beheerde toepassing vinden](./media/publish-service-catalog-app/find-application.png)
-
-   Als u de definitie van de beheerde toepassing niet kunt zien via de portal, moet u mogelijk uw portal-instellingen wijzigen. Selecteer het **Map- en abonnementsfilter**.
-
-   ![Abonnementsfilter selecteren](./media/publish-service-catalog-app/select-filter.png)
-
-   Controleer of het globaal abonnementsfilter het abonnement bevat dat de definitie van de beheerde toepassing bevat.
-
-   ![Abonnementsfilter controleren](./media/publish-service-catalog-app/check-global-filter.png)
-
-   Wanneer het abonnement is geselecteerd, begint u opnieuw met het maken van de beheerde toepassing voor de servicecatalogus. Deze moet nu worden weergegeven.
-
-1. Geef basisgegevens op die vereist zijn voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op voor de beheerde toepassing. Selecteer **US - west-centraal** als de locatie. Selecteer **Ok** wanneer u gereed bent.
-
-   ![Parameters voor beheerde toepassing opgeven](./media/publish-service-catalog-app/add-basics.png)
-
-1. Geef waarden op die specifiek zijn voor de resources in de beheerde toepassing. Selecteer **Ok** wanneer u gereed bent.
-
-   ![Resourceparameters opgeven](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. De sjabloon valideert de waarden die u hebt opgegeven. Als de validatie is gelukt, selecteert u **OK** om de implementatie te starten.
-
-   ![Beheerde toepassing valideren](./media/publish-service-catalog-app/view-summary.png)
-
-Als de implementatie is voltooid, maakt de beheerde toepassing deel uit van een resourcegroep met de naam applicationGroup. Het opslagaccount bevindt zich in een resourcegroep met de naam applicationGroup plus een gehashte tekenreekswaarde.
-
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
-* Zie [Voorbeeldprojecten voor door Azure beheerde toepassingen](sample-projects.md) voor voorbeeldprojecten.
-* Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.
+* Zie [Door Azure beheerde toepassingen in Marketplace](publish-marketplace-app.md) voor het in Azure Marketplace publiceren van uw beheerde toepassing.
+* Zie [Een servicecatalogus-app implementeren via Azure Portal](deploy-service-catalog-quickstart.md) voor het implementeren van een exemplaar van een beheerde toepassing.

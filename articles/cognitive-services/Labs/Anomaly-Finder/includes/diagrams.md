@@ -5,24 +5,24 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: df7326cb8e671d0f71924e813a1354dfef1e20c7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a1cda1cea2089363331ae437cb7ad802429779f4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345047"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888693"
 ---
-De gegevens geretourneerd met de verwachte waarde en het standaard hogere en lagere marges. In de praktijk, kunt u een parameter [gevoeligheid] definiëren en vervolgens met (ExpectedValue + gevoeligheid * UpperMargin) als de bovengrens en (ExpectedValue - gevoeligheid * LowerMargin) als de ondergrens voor het afstemmen van de afwijkingsdetectie wijst door uzelf. De waarde van de [gevoeligheid] moet groter zijn dan 1 zijn. Hieronder vindt u enkele diagrammen voor afstemmen.
+De gegevens die worden geretourneerd met de verwachte waarde en de standaard boven- en ondermarges. In de praktijk kunt u een parameter [sensitivity] definiëren en vervolgens (ExpectedValue + sensitivity * UpperMargin) gebruiken als de bovengrens en (ExpectedValue - sensitivity * LowerMargin) gebruiken als de ondergrens om het anomaliepunt zelf af te stemmen. De waarde van de [sensitivity] moet groter zijn dan 1. Hieronder vindt u enkele diagrammen voor het afstemmen.
 
 > [!NOTE]
-> De diagrammen worden gegenereerd door de voorbeeldtoepassing. Ze zijn gemaakt door een afzonderlijk hulpprogramma met de voorbeeldtoepassing.
+> De diagrammen worden niet door de voorbeeldtoepassing gegenereerd. Ze worden door een afzonderlijk hulpprogramma met de voorbeeldtoepassing gemaakt.
 
-![Verfijnen: gevoeligheid = 1.0](../media/sensitivity_1.png)
-![verfijnen: gevoeligheid 1.5 =](../media/sensitivity_1.5.png)
-![verfijnen: gevoeligheid = 2](../media/sensitivity_2.png)
-![verfijnen: gevoeligheid 3.5 =](../media/sensitivity_3.5.png)
+![Afstemmen: sensitivity = 1.0](../media/sensitivity_1.png)
+![Afstemmen: sensitivity = 1.5](../media/sensitivity_1.5.png)
+![Afstemmen: sensitivity = 2](../media/sensitivity_2.png)
+![Afstemmen: sensitivity = 3.5](../media/sensitivity_3.5.png)

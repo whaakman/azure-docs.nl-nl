@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405816"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831480"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Zelfstudie: Een Linux Service Fabric-cluster implementeren in een virtueel Azure-netwerk
 
@@ -85,7 +85,7 @@ Met deze sjabloon wordt een veilig cluster van vijf virtuele machines geïmpleme
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-cluster
 
-Een Linux-cluster wordt geïmplementeerd met de volgende kenmerken:
+In de resource **Microsoft.ServiceFabric/clusters** wordt een Linux-cluster geïmplementeerd met de volgende kenmerken:
 
 * één knooppunttype
 * vijf knooppunten in het primaire knooppunttype (configureerbaar in de sjabloonparameters)
@@ -99,7 +99,7 @@ Een Linux-cluster wordt geïmplementeerd met de volgende kenmerken:
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Er wordt een load balancer geïmplementeerd en er worden tests en regels ingesteld voor de volgende poorten:
+In de resource **Microsoft.Network/loadBalancers** wordt een load balancer geconfigureerd en worden tests en regels ingesteld voor de volgende poorten:
 
 * het eindpunt van de clientverbinding: 19000
 * het eindpunt van de HTTP-gateway: 19080
@@ -108,7 +108,7 @@ Er wordt een load balancer geïmplementeerd en er worden tests en regels ingeste
 
 ### <a name="virtual-network-and-subnet"></a>Virtueel netwerk en subnet
 
-De namen van het virtuele netwerk en het subnet worden gedeclareerd in de sjabloonparameters.  De adresruimten van het virtuele netwerk en het subnet worden ook gedefinieerd in de sjabloonparameters:
+De namen van het virtuele netwerk en het subnet worden gedeclareerd in de sjabloonparameters.  Adresruimten van het virtuele netwerk en subnet worden ook gedeclareerd in de sjabloonparameters en geconfigureerd in de resource **Microsoft.Network/virtualNetworks**:
 
 * virtuele netwerkadresruimte: 10.0.0.0/16
 * Service Fabric-subnetadresruimte: 10.0.2.0/24

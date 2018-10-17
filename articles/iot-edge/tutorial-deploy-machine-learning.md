@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c9350704943bebada217338488e51b97acc550ca
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 188e3c0e8b9a9d421b40e142e534aca2741fee56
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423609"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248876"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning implementeren als een IoT Edge-module (preview)
 
@@ -46,11 +46,8 @@ Een Azure IoT Edge-apparaat:
 Cloudresources:
 
 * Een gratis [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
-* Een Azure Machine Learning-account. Volg de instructies in [Azure Machine Learning-accounts maken en Azure Machine Learning Workbench installeren](../machine-learning/desktop-workbench/quickstart-installation.md). U hoeft de workbench-toepassing niet te installeren voor deze zelfstudie. 
+* Een Azure Machine Learning-werkruimte. Volg de instructies in [Voorbereidingen voor het implementeren van modellen in IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) om er een te maken.
 
-Ontwikkelingsresources:
-
-* Modelbeheer voor Azure ML. Volg de instructies in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md) om uw omgeving in te stellen en een account te maken. Tijdens de installatie van de implementatie wordt aanbevolen waar mogelijk de lokale stappen in plaats van cluster te kiezen.
 
 ### <a name="disable-process-identification"></a>Procesidentificatie uitschakelen
 
@@ -94,18 +91,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>De Azure ML-container maken
 In deze sectie downloadt u de bestanden van het getrainde model en converteert die in een Azure ML-container.
 
-Download [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) en [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) vanuit de Azure ML IoT Toolkit op GitHub op het apparaat waarop Modelbeheer voor Azure ML wordt uitgevoerd en sla ze daar op. Deze bestanden definiëren het getrainde machine learning-model dat u zult implementeren naar uw IoT Edge-apparaat.
-
-Gebruik het getrainde model om een container te maken die kan worden geïmplementeerd op de IoT Edge-apparaten. Gebruik de volgende opdracht om:
-
-   * Uw model te registreren.
-   * Een manifest maken.
-   * Maak een Docker-containerinstallatiekopie met de naam *machinelearningmodule*.
-   * Implementeer de installatiekopie op uw Azure Kubernetes Service (AKS)-cluster.
-
-```cmd
-az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
-```
+Volg de instructies in de documentatie van [Voorbereidingen voor het implementeren van modellen in IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) om een Docker-container met uw Machine Learning-model te maken.  Alle onderdelen die vereist zijn voor de Docker-installatiekopie bevinden zich in de [AI-werkset voor Azure IoT Edge Git-repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ### <a name="view-the-container-repository"></a>De containeropslagplaats bekijken
 

@@ -1,55 +1,57 @@
 ---
-title: De Emotion-API-aanroep voor Video | Microsoft Docs
-description: Ontdek hoe u de Emotion-API-aanroep voor Video in cognitieve Services.
+title: 'Voorbeeld: de Emotion-API voor video aanroepen'
+titlesuffix: Azure Cognitive Services
+description: Ontdek hoe u in Cognitive Services de Emotion-API voor video aanroept.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344762"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238604"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Het aanroepen van Emotion-API voor Video
+# <a name="example-call-emotion-api-for-video"></a>De Emotion-API voor video aanroepen
 
 > [!IMPORTANT]
-> Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Deze handleiding wordt uitgelegd hoe Emotion-API niet aanroepen voor Video. De voorbeelden zijn geschreven in C# met de Emotion-API voor Video-clientbibliotheek.
+In deze gids leest u hoe u de Emotion-API voor video aanroept. De voorbeelden zijn geschreven in C# met de clientbibliotheek van de Emotion-API voor video.
 
-### <a name="Prep">Voorbereiding</a> 
-Als u wilt de Emotion-API voor Video gebruiken, moet u een video waarin mensen, bij voorkeur video waar de personen die de camera worden geconfronteerd.
+### <a name="Prep">Voorbereiding</a>
+Als u de Emotion-API voor video wilt gebruiken, hebt u een video nodig met daarin mensen, bij voorkeur mensen die in de richting van de camera kijken.
 
-### <a name="Step1">Stap 1: Machtig de API-aanroep</a> 
-Elke aanroep van de Emotion-API voor Video vereist een abonnementssleutel. Deze sleutel moet worden doorgegeven via een queryreeksparameter of opgegeven in de aanvraagheader. Als u wilt doorgeven van de sleutel van het abonnement via een queryreeks bevat, Raadpleeg de aanvraag-URL hieronder voor de Emotion-API voor Video als voorbeeld:
+### <a name="Step1">Stap 1: de API-aanroep autoriseren</a>
+Voor elke aanroep naar de Emotion-API voor video is een abonnementssleutel vereist. Deze sleutel moet worden doorgegeven via een tekenreeksparameter, of zijn opgegeven in de aanvraagheader. Als u de abonnementssleutel via een querytekenreeks wilt doorgeven, raadpleegt u de aanvraag-URL hieronder voor de Emotion-API voor video als voorbeeld:
 
 ```
 https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognizeInVideo&subscription-key=<Your subscription key>
 ```
 
-Als alternatief kunt kan ook de abonnementssleutel worden opgegeven in de HTTP-aanvraag-header:
+Als alternatief kan de abonnementssleutel ook worden opgegeven in de HTTP-aanvraagheader:
 
 ```
 ocp-apim-subscription-key: <Your subscription key>
 ```
 
-Wanneer u een clientbibliotheek, wordt de abonnementssleutel doorgegeven de constructor van de klasse VideoServiceClient. Bijvoorbeeld:
+Als u gebruikmaakt van een clientbibliotheek wordt de abonnementssleutel doorgegeven via de constructor van de klasse VideoServiceClient. Bijvoorbeeld:
 
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Zie voor een abonnementssleutel [abonnementen] (https://azure.microsoft.com/try/cognitive-services/). 
+Als u een abonnementssleutel wilt verkrijgen, ziet u [Abonnementen] (https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">Stap 2: Een video uploaden naar de service en de status controleren</a>
-De eenvoudigste manier om uit te voeren van de Emotion-API voor het aanroepen van de Video is door een video rechtstreeks te uploaden. Dit wordt gedaan door een aanvraag "POST" met de inhoudstype application/octet-stream samen met de gegevens lezen uit een videobestand te verzenden. De maximale grootte van de video is 100MB.
+### <a name="Step2">Stap 2: een video uploaden naar de service en de status controleren</a>
+U kunt de Emotion-API voor video eenvoudig aanroepen door rechtstreeks een video te uploaden. Dit wordt gedaan door de aanvraag POST te verzenden met het inhoudstype toepassing/octet-stream in combinatie met de gegevens die uit een videobestand zijn gelezen. De maximale grootte van de video is 100 MB.
 
-Met behulp van de clientbibliotheek wordt stabilization middels het uploaden gedaan door door te geven in een stream-object. Zie het voorbeeld hieronder:
+Met behulp van de clientbibliotheek wordt stabilisatie met behulp van uploaden uitgevoerd door het doorgeven in een stream-object. Zie het voorbeeld hieronder:
 
 ```
 Operation videoOperation;
@@ -59,10 +61,10 @@ using (var fs = new FileStream(@"C:\Videos\Sample.mp4", FileMode.Open))
 }
 ```
 
-Houd er rekening mee dat de methode CreateOperationAsync van VideoServiceClient async is. De methode aanroepen moet worden gemarkeerd als async ook om te kunnen gebruiken de await-component.
-Als de video al op het web is en een openbare URL heeft, zijn Emotion-API voor Video toegankelijk door de URL. In dit voorbeeld worden de aanvraagtekst een JSON-tekenreeks die de URL bevat.
+De methode CreateOperationAsync van VideoServiceClient is asynchroon. De aanroepmethode moet ook worden gemarkeerd als asynchroon om het await-component te kunnen gebruiken.
+Als de video al op internet staat en beschikt over een openbare URL, kunt u de Emotion-API voor video benaderen door de URL op te geven. In dit voorbeeld is de aanvraagbody een JSON-tekenreeks die de URL bevat.
 
-Met behulp van de clientbibliotheek kan stabilization door middel van een URL eenvoudig worden uitgevoerd met behulp van een andere overload van de methode CreateOperationAsync.
+Met de clientbibliotheek kunt u eenvoudig stabiliseren met een URL als u de methode CreateOperationAsync nogmaals overbelast.
 
 
 ```
@@ -71,18 +73,18 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Deze Uploadmethode is hetzelfde voor alle Emotion-API voor Video-aanroepen. 
+Deze uploadmethode is hetzelfde voor alle aanroepen naar de Emotion-API voor video.
 
-Wanneer u een video hebt geüpload, is de volgende bewerking die u wilt uitvoeren om de status te controleren. Omdat videobestanden doorgaans groter en meer uiteenlopende dan andere bestanden, gebruikers lang kunnen verwachten verwerkingstijd bij deze stap. De tijd is afhankelijk van de grootte en de lengte van het bestand.
+Als u een video hebt geüpload, controleert u daarna de status. Omdat videobestanden doorgaans groter en diverser zijn dan andere bestanden, kunnen gebruikers voor deze stap rekening houden met een lange verwerkingstijd. Hoe land het verwerken precies duurt, is afhankelijk van de grootte van het bestand en de duur van de video.
 
-Met behulp van de clientbibliotheek, kunt u de bewerkingsstatus en het resultaat met de methode GetOperationResultAsync ophalen.
+In de clientbibliotheek kunt u de bewerkingsstatus en het resultaat ophalen met de methode GetOperationResultAsync.
 
 
 ```
 var operationResult = await videoServiceClient.GetOperationResultAsync(videoOperation);
 
 ```
-De client moet normaal gesproken periodiek de bewerkingsstatus ophalen totdat de status wordt weergegeven als 'Voltooid' of 'Mislukt'.
+Normaal gesproken wordt aan de clientzijde de bewerkingsstatus periodiek opgehaald tot de status Voltooid of Mislukt wordt weergegeven.
 
 ```
 OperationResult operationResult;
@@ -99,48 +101,48 @@ while (true)
 
 ```
 
-Wanneer de status van VideoOperationResult wordt weergegeven als 'Voltooid' van het resultaat kan worden opgehaald door de VideoOperationResult naar een VideoOperationInfoResult casten<VideoAggregateRecognitionResult> en de toegang tot het veld ProcessingResult.
+Als de status van VideoOperationResult Voltooid is, kunt u het resultaat ophalen door VideoOperationResult te casten naar een VideoOperationInfoResult<VideoAggregateRecognitionResult>. Open dan het veld ProcessingResult.
 
 ```
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">Stap 3: Bij het ophalen van en inzicht in de erkenning emotion en bijhouden van JSON-uitvoer</a>
+### <a name="Step3">Stap 3: emotieherkenning begrijpen, emoties ophalen en de JSON-uitvoer bijhouden</a>
 
-Het uitvoerresultaat bevat de metagegevens van de vlakken binnen het opgegeven bestand in JSON-indeling.
+Het uitgevoerde resultaat bevat de metagegevens van de gezichten in het bestand, in JSON-indeling.
 
-Zoals wordt beschreven in stap 2, is de JSON-uitvoer beschikbaar in het veld ProcessingResult van OperationResult, wanneer de status ervan wordt weergegeven als 'Voltooid'.
+Zoals uitgelegd in stap 2 is de JSON-uitvoer beschikbaar in het veld ProcessingResult van OperationResult zodra de status Voltooid is.
 
-Face te detecteren en bij te houden van JSON omvat de volgende kenmerken:
+Bij gezichtsdetectie en het bijhouden van JSON komen de volgende kenmerken kijken:
 
 Kenmerk | Beschrijving
 -------------|-------------
-Versie | Verwijst naar de versie van de Emotion-API voor Video JSON.
-Tijdschaal | 'Maatstreepjes' per seconde van de video.
-Offset  |De time-offset voor tijdstempels. Versie 1.0 van Emotion-API voor video's, zal dit altijd 0 zijn. Deze waarde kan in toekomstige ondersteunde scenario's en wijzigen.
-Framesnelheid | Frames per seconde van de video.
-Fragmenten   | De metagegevens van geknipt in verschillende kleinere delen fragmenten aangeroepen. Elke fragment bevat een start, duur, Intervalnummer en gebeurtenis(sen).
-Starten   | De begintijd van de eerste gebeurtenis, in de maatstreepjes.
-Duur |  De lengte van het fragment, in de maatstreepjes.
-Interval |  De lengte van elke gebeurtenis in het fragment, in de maatstreepjes.
-Gebeurtenissen  | Een matrix van gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De interne matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden op dat moment.
-windowFaceDistribution |    Percentage bespreekt hebben van een bepaalde emotion tijdens de gebeurtenis.
-windowMeanScores |  Gemiddelde scores voor elke emotion van de vlakken in de installatiekopie.
+Versie | Verwijst naar de JSON-versie voor de Emotion-API voor video.
+Tijdschaal | 'Tikken' per seconde video.
+Offset  |De tijd-offset voor tijdstempels. In versie 1.0 van de Emotion-API voor video is dit altijd 0. In toekomstige ondersteunde scenario's is deze waarde mogelijk anders.
+Framesnelheid | Aantal frames per seconde video.
+Fragmenten   | De metagegevens worden opgedeeld in verschillende kleine onderdelen, ook wel 'fragmenten' genoemd. Elk fragment bevat een start, een duur, een intervalnummer en een of meer gebeurtenissen.
+Starten   | De begintijd van de eerste gebeurtenis, in tikken.
+Duur |  De duur van het fragment, in tikken.
+Interval |  De duur van elke gebeurtenis in het fragment, in tikken.
+Gebeurtenissen  | Een matrix met gebeurtenissen. De buitenste matrix vertegenwoordigt een tijdsinterval. De binnenste matrix bestaat uit 0 of meer gebeurtenissen die hebben plaatsgevonden gedurende de interval.
+windowFaceDistribution |    Het percentage gezichten dat tijdens de gebeurtenis een bepaalde emotie heeft.
+windowMeanScores |  De scoremediaan voor elke emotie op de gezichten in de afbeelding.
 
-De reden voor het opmaken van de JSON op deze manier is voor het instellen van de API's voor toekomstige scenario's, worden belangrijke snel ophalen van metagegevens en beheren van een grote reeks resultaten. Deze opmaak maakt gebruik van zowel de technieken van fragmentatie (zodat u de metagegevens in delen op basis van tijd onderverdelen, waar u kunt downloaden wat u nodig hebt) en segmentering (zodat u de gebeurtenissen onderverdelen als ze te groot zijn). Enkele eenvoudige berekeningen kunt u de gegevens transformeren. Bijvoorbeeld, als een gebeurtenis wordt gestart om 6300 (maten) met een tijdschaal van 2997 (ticks per seconde) en een framesnelheid van vervolgens 29,97 (frames per seconde):
+De JSON wordt op deze manier opgemaakt zodat de API's zijn ingesteld voor toekomstige scenario's. Het is hierbij belangrijk om metagegevens snel op te halen en een grote stroom resultaten te beheren. Bij deze opmaak worden zowel fragmentatie (zodat u metagegevens in op tijd gebaseerde delen kunt opsplitsen en u alleen downloadt wat u nodig hebt) als segmentatie gebruikt (zodat u gebeurtenissen kunt opsplitsen als ze te groot zijn). Met enkele eenvoudige berekeningen kunt u de gegevens transformeren. Als een gebeurtenis bijvoorbeeld bij 6300 (tikken) is begonnen, met een tijdschaal van 2997 (tikken/sec) en een framesnelheid van 29,97 (frames/sec), dan:
 
-*   Start/tijdschaal = 2.1 seconden
+*   Start/tijdschaal = 2,1 seconde
 *   Seconden x (framesnelheid/tijdschaal) = 63 frames
 
-Hieronder vindt u een eenvoudig voorbeeld van het extraheren van de JSON naar een per-frame-opmaak voor face-detectie en bijhouden:
+Hieronder vindt u een eenvoudig voorbeeld van het extraheren van de JSON in een opmaak per frame, speciaal voor gezichtsdetectie en tracering:
 
 ```
 var emotionRecognitionTrackingResultJsonString = operationResult.ProcessingResult;
 var emotionRecognitionTracking = JsonConvert.DeserializeObject<EmotionRecognitionResult>(emotionRecognitionTrackingResultJsonString, settings);
 ```
-Omdat emoties na verloop van tijd vloeiend gemaakt worden als u ooit een visualisatie in om uw resultaten bovenaan de oorspronkelijke video overlay bouwt, afgetrokken 250 milliseconden van de opgegeven tijdstempels.
+Omdat emoties na verloop van tijd minder duidelijk worden, trekt u 250 milliseconden van de opgegeven tijdstempels af als u ooit een visualisatie wilt maken om uw resultaten op de oorspronkelijke video te plaatsen.
 
 ### <a name="Summary">Samenvatting</a>
-In deze handleiding hebt u geleerd over de functionaliteit van de Emotion-API voor Video: hoe u een video kunt uploaden, Controleer de status, emotion erkenning metagegevens ophalen.
+In deze gids bent u meer te weten gekomen over de functies van de Emotion-API voor video: hoe u een video uploadt, hoe u de status controleert en hoe u metagegevens over emotieherkenning ophaalt.
 
-Zie voor meer informatie over API de API-naslaggids '[Emotion-API voor Video verwijzing](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)'.
+Zie de API-referentiehandleiding [Referentie Emotion-API voor video](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e) voor meer informatie over API-gegevens.

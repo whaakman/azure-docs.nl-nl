@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack | Microsoft Docs
-description: Richtlijnen voor het beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack.
+title: Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack | Microsoft Docs
+description: Richtlijnen voor het beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,158 +12,158 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 734ee0e6ffb0dab660a2b63b431780208e0e0484
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165261"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341834"
 ---
-# <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack
+# <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd in Azure Stack
 
-Gebruik dit artikel als richtlijn bij het ontwikkelen van een plan voor het beveiligen van virtuele machines (VM's) die uw gebruikers op Azure-Stack implementeert.
+Gebruik dit artikel als richtlijn bij het ontwikkelen van een plan voor het beveiligen van virtuele machines (VM's) die uw gebruikers in Azure Stack implementeren.
 
-Om te beschermen tegen gegevensverlies en niet-geplande uitvaltijd, moet u een plan voor herstel van back-up of herstel na noodgevallen voor toepassingen en hun gegevens te implementeren. Dit plan kan zijn uniek voor elke toepassing, maar volgt een framework dat is ingesteld door uw organisatie uitgebreide zakelijke continuïteit en noodherstelplan (BC/DR). Is een goed uitgangspunt [ontwerpen robuuste toepassingen voor Azure](https://docs.microsoft.com/azure/architecture/resiliency), waarmee u algemene patronen en procedures voor de beschikbaarheid van toepassingen en tolerantie.
+Ter bescherming tegen gegevensverlies en niet-geplande uitvaltijd, moet u een plan voor herstel van back-up of herstel na noodgevallen voor gebruikerstoepassingen en hun gegevens te implementeren. Dit plan kan zijn uniek voor elke toepassing, maar volgt een framework dat tot stand gebracht door uw organisatie uitgebreide zakelijke continuïteit en noodherstelplan (BC/DR). Is een goed uitgangspunt [flexibele toepassingen ontwerpen voor Azure](https://docs.microsoft.com/azure/architecture/resiliency), waarmee u algemene patronen en procedures voor de beschikbaarheid en tolerantie.
 
 >[!IMPORTANT]
-> Test uw plannen voor herstel van back-up en herstel na noodgevallen voortdurend. U moet dit ervoor te zorgen dat:
-> * Het werk plannen
-> * De abonnementen is nog steeds voldoen aan de behoeften die ze zijn ontworpen.
+> Test uw plannen voor herstel van back-up en herstel na noodgevallen regelmatig. U moet dit om ervoor te zorgen dat:
+> * De abonnementen werken
+> * De abonnementen is nog steeds voldoen aan de behoeften die voor zijn ontworpen.
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Herstel van Azure Stack-infrastructuur
 
-Gebruikers zijn verantwoordelijk voor het beveiligen van de bijbehorende virtuele machines afzonderlijk van de Azure-Stack-infrastructuurservices.
+Gebruikers zijn verantwoordelijk voor het beveiligen van hun VM's afzonderlijk in infrastructuurservices van Azure Stack.
 
-Het herstelplan voor Azure-Stack infrastructuurservices **heeft geen** herstel van virtuele machines voor gebruikers, storage-accounts of databases bevatten. Als de eigenaar van de toepassing bent u verantwoordelijk voor het implementeren van een herstelplan voor uw toepassingen en gegevens.
+Het herstelplan te gaan voor infrastructuurservices van Azure Stack **niet** herstel van gebruiker virtuele machines, opslagaccounts en databases bevatten. Als de eigenaar van de toepassing bent u verantwoordelijk voor het implementeren van een herstelplan voor uw toepassingen en gegevens.
 
-Als de Azure-Stack cloud voor een langere periode offline is of permanent onherstelbare, u beschikken over een herstel plannen moet plaats dat:
+Als de Azure Stack-cloud voor een langere periode offline is of permanent niet kan worden hersteld, u beschikken over een herstel van plan bent moet plaats dat:
 
-* Zorgt ervoor dat de minimale downtime
-* Houdt kritieke virtuele machines, zoals databaseservers, waarop wordt uitgevoerd
-* Kunnen toepassingen in onderhoud van aanvragen van gebruikers behouden
+* Zorgt ervoor dat minimale downtime
+* Houdt van kritieke VM's, zoals databaseservers, waarop wordt uitgevoerd
+* Hiermee kunnen toepassingen voor het onderhoud van aanvragen van gebruikers behouden
 
-De operator van de cloud met Azure-Stack is verantwoordelijk voor het maken van een herstelplan voor de onderliggende Azure Stack-infrastructuur en -services. Lees voor meer informatie het artikel [herstellen vanaf onherstelbaar gegevensverlies](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+De beheerder van de Azure Stack-cloud is verantwoordelijk voor het maken van een herstelplan voor de onderliggende Azure Stack-infrastructuur en services. Lees voor meer informatie het artikel [herstel na onherstelbare gegevensverlies](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
 
-## <a name="sourcetarget-combinations"></a>Combinaties bron/doel
+## <a name="sourcetarget-combinations"></a>Bron-/ doelopslagaccount combinaties
 
-Elke Azure-Stack cloud wordt geïmplementeerd naar een datacenter. Er is een afzonderlijke omgeving vereist zodat u uw toepassingen kunt herstellen. De Herstelomgeving mag een andere Azure-Stack cloud in een ander datacenter of de openbare Azure-cloud. Uw onafhankelijkheid van gegevens en privacy-vereisten voor gegevens, bepalen de Herstelomgeving voor uw toepassing. Als u beveiliging voor elke toepassing inschakelt, kunt u de flexibiliteit om te kiezen, een specifieke hersteloptie voor elk criterium hebben. U kunt toepassingen in één back-ups van gegevens naar een ander datacenter-abonnement hebben. In een ander abonnement kunt u gegevens repliceren naar de openbare Azure-cloud.
+Elke Azure Stack-cloud wordt geïmplementeerd op één datacenter. Een afzonderlijke omgeving is vereist, zodat u uw toepassingen kunt herstellen. De omgeving voor herstel is een andere Azure Stack-cloud in een ander datacenter of de openbare cloud van Azure. Uw gegevenssoevereiniteit en vereisten voor privacy, bepaalt de Herstelomgeving voor uw toepassing. Zoals u beveiliging voor elke toepassing inschakelt, beschikt u over de flexibiliteit om een specifieke hersteloptie voor elk criterium kiezen. U kunt toepassingen hebben in één abonnement back-ups van gegevens naar een ander datacenter. In een ander abonnement, kunt u gegevens kunt repliceren naar de openbare cloud van Azure.
 
-Plan de strategie voor herstel van back-up en herstel na noodgevallen voor elke toepassing om te bepalen van het doel voor elke toepassing. Een herstelplan helpt uw organisatie goed grootte van de opslag vereiste capaciteit on-premises en project weer in de openbare cloud.
+Plan de strategie voor herstel van back-up en herstel na noodgevallen voor elke toepassing om te bepalen het doel voor elke toepassing. Een herstelplan helpt uw organisatie goed grootte van de vereiste capaciteit on-premises opslag en project verbruik in de openbare cloud.
 
-|  | Globale Azure | Azure-Stack in de CSP-datacenter geïmplementeerd en beheerd door de CSP | Azure Stack naar het datacenter van de klant is geïmplementeerd en beheerd door de klant |
+|  | Globale Azure | Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP | Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure-Stack in de CSP-datacenter geïmplementeerd en beheerd door de CSP** | Virtuele machines voor gebruikers worden gedistribueerd naar de CSP beheerd Azure-Stack. Virtuele machines voor gebruikers zijn teruggezet vanuit een back-up of een failover naar Azure rechtstreeks. | CSP werkt de primaire en secundaire exemplaren van Azure-Stack in hun eigen datacenters. Virtuele machines voor gebruikers worden hersteld of failover tussen de twee exemplaren van de Azure-Stack. | CSP werkt Azure-Stack in de primaire site. Datacenter van de klant is het terugzetten of failover. |
-| **Azure Stack naar het datacenter van de klant is geïmplementeerd en beheerd door de klant** | Virtuele machines voor gebruikers worden geïmplementeerd op de klant beheerd Azure-Stack. Virtuele machines voor gebruikers zijn teruggezet vanuit een back-up of een failover naar Azure rechtstreeks. | De klant werkt de primaire en secundaire exemplaren van Azure-Stack in hun eigen datacenters. Virtuele machines voor gebruikers worden hersteld of failover tussen de twee exemplaren van de Azure-Stack. | De klant werkt Azure-Stack in de primaire site. De CSP-datacenter is het terugzetten of failover. |
+| **Azure Stack geïmplementeerd in CSP-datacenter en worden beheerd door de CSP** | Gebruiker virtuele machines worden geïmplementeerd naar de CSP beheerd Azure Stack. Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | CSP werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters. Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | CSP werkt Azure Stack in de primaire site. Datacenter van de klant is het doel voor herstel en failovers. |
+| **Azure Stack geïmplementeerd in het datacenter van de klant en worden beheerd door de klant** | Gebruiker virtuele machines worden geïmplementeerd naar de klant beheerd Azure Stack. Gebruiker virtuele machines zijn teruggezet vanuit een back-up of failover rechtstreeks naar Azure. | Klant werkt de primaire en secundaire exemplaren van Azure Stack in hun eigen datacenters. Gebruiker virtuele machines worden hersteld of failover tussen de twee exemplaren van Azure Stack. | Klant werkt Azure Stack in de primaire site. Van de CSP-datacenter is het doel voor herstel en failovers. |
 
-![Combinaties van de bron-doel](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinaties van bron-doel](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
 
-## <a name="application-recovery-objectives"></a>Herstel de doelstellingen van toepassing
+## <a name="application-recovery-objectives"></a>De beoogde hersteltijden toepassing
 
-U moet de hoeveelheid uitvaltijd en verlies van gegevens die van uw organisatie voor elke toepassing tolereren kan bepalen. U kunt een herstelplan dat de impact van een noodgeval op uw organisatie minimaliseert maken door uitvaltijd en gegevensverlies kwantificeren. U kunt voor elke toepassing:
+U moet bepalen hoeveel downtime en gegevensverlies die uw organisatie voor elke toepassing kan tolereren. U kunt een plan voor herstel die de gevolgen van een noodgeval op uw organisatie minimaliseert maken door kwantificeren downtime en gegevensverlies. Voor elke toepassing, kunt u overwegen:
 
  - **Beoogde hersteltijd (RTO)**  
-RTO is de maximale toegestane tijd die een toepassing niet beschikbaar nadat een incident zijn kan. Een RTO van 90 minuten betekent bijvoorbeeld dat u kunt de toepassing naar een actieve status binnen 90 minuten vanaf het begin van een noodgeval herstellen moet zijn. Als u een laag RTO hebt, kunt u een tweede implementatie voortdurend uitgevoerd op stand-by als bescherming tegen een regionale uitval bewaren.
- - **Beoogd herstelpunt (RPO)**  
-RPO is de maximale duur van het verlies van gegevens die tijdens een noodgeval aanvaardbaar is. Als u bijvoorbeeld gegevens opslaat in één database, zonder replicatie in een andere database en elk uur een back-up, kunt u maximaal een uur gegevensverlies hebben.
+RTO is de maximaal acceptabele tijd die een toepassing na een incident niet beschikbaar mag zijn. Een RTO 90 minuten betekent bijvoorbeeld dat u moet de toepassing naar een actieve status binnen 90 minuten vanaf het begin van een noodgeval kunt herstellen. Als u een lage RTO hebt, kunt u een tweede implementatie continu stand-by te beschermen tegen regionale uitval.
+ - **Beoogde herstelpunt (RPO)**  
+RPO is de maximale duur van het verlies van gegevens tijdens een noodgeval. Als u bijvoorbeeld gegevens opslaat in één database, zonder replicatie in een andere database en elk uur een back-up, kunt u maximaal een uur gegevensverlies hebben.
 
-RTO en RPO zijn bedrijfsvereisten. Uitvoeren van een risicoanalyse uit te voeren om de RTO en de RPO van de toepassing te definiëren.
+RTO en RPO zijn bedrijfsvereisten. Een risicobeoordeling noodzakelijk voor het definiëren van de RTO en RPO van de toepassing uitvoeren.
 
-Een andere meetwaarde is **Mean Time herstellen** (MTTR) Dit is de gemiddelde tijd die nodig is voor het herstellen van de toepassing na een storing. MTTR is een empirische waarde voor een systeem. Als de MTTR langer is dan de RTO dan treedt na een storing in het systeem een onacceptabele bedrijfsonderbreking op omdat het niet mogelijk is het systeem binnen de gedefinieerde RTO te herstellen.
+Nog een metrische waarde is **Mean Time herstellen** (MTTR), dit is de gemiddelde tijd die nodig is voor het herstellen van de toepassing na een storing. De MTTR is een empirisch waarde voor een systeem. Als de MTTR langer is dan de RTO dan treedt na een storing in het systeem een onacceptabele bedrijfsonderbreking op omdat het niet mogelijk is het systeem binnen de gedefinieerde RTO te herstellen.
 
-### <a name="backup-restore"></a>Back-up terugzetten
+### <a name="backup-restore"></a>Back-up herstellen
 
-De meest voorkomende schema beveiliging voor VM-toepassingen is het gebruik van back-upsoftware. Doorgaans back-ups van een virtuele machine bevat het besturingssysteem, besturingssysteemconfiguratie, binaire bestanden van toepassingen en toepassingsgegevens. De back-ups worden gemaakt door het maken van een momentopname van de volumes, schijven of de hele virtuele machine. Met Azure-Stack u beschikt over de flexibiliteit van een back-up uit in de context van het gastbesturingssysteem of de Stack van Azure-opslag en berekeningen van API's. Azure-Stack biedt geen ondersteuning voor back-ups van nemen op het niveau van de hypervisor.
+De meest voorkomende bescherming-schema voor toepassingen op basis van een virtuele machine is het gebruik van back-upsoftware. Back-ups van een virtuele machine normaal gesproken bevat het besturingssysteem, besturingssysteemconfiguratie, binaire waarden van toepassingen en toepassingsgegevens. De back-ups worden gemaakt door het maken van een momentopname van de volumes, schijven of de hele virtuele machine. Met Azure Stack, u hebt de flexibiliteit van de back-ups van uit binnen de context van het gastbesturingssysteem te installeren of uit de Azure Stack-opslag en compute-API's. Azure Stack biedt geen ondersteuning voor back-ups van nemen op het hypervisorniveau van de.
  
-![Back-up restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Back-up-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
 
-Herstellen van de toepassing vereist een of meer virtuele machines herstellen naar de cloud met dezelfde of naar een nieuwe cloud. U kunt een cloud richten in uw datacenter of de openbare cloud. De cloud die u kiest is volledig binnen het besturingselement en is gebaseerd op de privacy- en onafhankelijkheid vereisten van uw gegevens.
+Herstellen van de toepassing, moet een of meer virtuele machines herstellen naar de cloud of naar een nieuwe cloud. U kunt een cloud doelgroep in uw datacenter of in de openbare cloud. De cloud die u kiest, is volledig binnen uw beheer en is gebaseerd op uw vereisten voor privacy en de onafhankelijkheid van gegevens.
  
- - RTO: Uitvaltijd gemeten in uren
+ - RTO: Downtime gemeten in uren
  - RPO: Variabele gegevensverlies (afhankelijk van de back-upfrequentie)
- - Implementatietopologie: actief/passief-
+ - Implementatietopologie: actief/passief
 
 #### <a name="planning-your-backup-strategy"></a>Uw strategie voor back-up plannen
 
-Uw strategie voor back-up plannen en het definiëren van vereisten voor scale begint met het aantal VM-exemplaren die moeten worden beveiligd kwantificeren. Back-ups van alle VM's op alle servers in een omgeving is een algemene strategie. Met de Azure-Stack zijn er echter enkele virtuele machines die hoeven te worden back-up. Bijvoorbeeld: tijdelijke bronnen die kunnen worden geleverd en gaat, soms zonder voorafgaande kennisgeving worden beschouwd als virtuele machines in een schaalset. Duurzame gegevens die moet worden beveiligd, wordt opgeslagen in een afzonderlijke opslagplaats, zoals een database of het object store.
+Plannen van uw strategie voor back-up en het definiëren van schaalvereisten begint met het aantal VM-exemplaren die moeten worden beveiligd kwantificeren. Back-ups van alle virtuele machines voor alle servers in een omgeving is een algemene strategie. Met Azure Stack zijn er echter enkele VM's die u wilt back-up worden gemaakt. Bijvoorbeeld, virtuele machines in een schaalset worden beschouwd als tijdelijke resources die kunnen worden geleverd en gaan, soms zonder voorafgaande kennisgeving. Duurzame gegevens die moet worden beveiligd, worden opgeslagen in een afzonderlijke opslagplaats, zoals een database of het object store.
 
-Belangrijke aandachtspunten voor de back-ups van virtuele machines op Azure-Stack:
+Belangrijke overwegingen voor het back-ups van virtuele machines in Azure Stack:
 
  - **Categorisatie**
-    - U kunt een model waarin gebruikers aan het VM-back-up deelneemt.
+    - Houd rekening met een model waarin gebruikers zich aan voor back-up van virtuele machine meldt.
     - Definieer een recovery service level agreement (SLA) op basis van de prioriteit van de toepassingen of de impact op het bedrijf.
  - **Schalen**
-    - Houd rekening met gespreide back-ups wanneer op twee locaties een groot aantal nieuwe virtuele machines (als de back-up is vereist).
-    - Back-up van de producten die efficiënt kunnen vastleggen en verzenden van back-upgegevens om te beperken van de inhoud van de resource op de oplossing evalueren.
-    - Evalueer back-producten die efficiënt opslaan back-upgegevens incrementele of differentiële back-ups met de noodzaak van volledige back-ups over alle VM's in de omgeving te minimaliseren.
+    - Houd rekening met gespreide back-ups wanneer toevoegen een groot aantal nieuwe VM's (als back-up vereist is).
+    - Back-producten die efficiënt kunnen vastleggen en verzenden van back-upgegevens om te beperken van de inhoud van de resource op de oplossing worden geëvalueerd.
+    - Back-producten die efficiënt back-gegevens opslaan met incrementele of differentiële back-ups om te beperken van de noodzaak van volledige back-ups voor alle virtuele machines in de omgeving worden geëvalueerd.
  - **Herstellen**
-    - Back-producten kunnen herstellen voor virtuele schijven, toepassingsgegevens binnen een bestaande VM of de hele VM-resource en de bijbehorende virtuele schijven. Het herstel u moet afhankelijk van hoe u van plan bent om te herstellen van de toepassing en dat invloed op de tijd van uw toepassing op herstel. Het kan bijvoorbeeld makkelijker kunnen SQL server vanuit een sjabloon implementeren en zet de databases in plaats van het herstellen van de hele virtuele machine of een set van virtuele machines zijn.
+    - Back-producten kunnen virtuele schijven, toepassingsgegevens binnen een bestaande virtuele machine, of de hele VM-resource en bijbehorende virtuele schijven herstellen. Het terugzetten schema u moet afhankelijk van hoe u van plan bent om terug te zetten van de toepassing en het is van invloed op uw toepassing de tijd om te herstellen. Bijvoorbeeld, kan het zijn gemakkelijker te implementeren, SQL server vanuit een sjabloon en herstel vervolgens de databases in plaats van de volledige virtuele machine of een set van virtuele machines herstellen.
 
 ### <a name="replicationmanual-failover"></a>Replicatie/handmatige failover
 
-Een alternatieve methode om ondersteuning van hoge beschikbaarheid is uw toepassing virtuele machines repliceren naar een andere cloud en zijn afhankelijk van een handmatige failover. De replicatie van het besturingssysteem, binaire bestanden van toepassingen en toepassingsgegevens kan worden uitgevoerd op de VM niveau of Gast OS. De failover wordt beheerd met aanvullende software die geen deel uitmaakt van de toepassing.
+Een alternatieve methode om ontwikkelaars te ondersteunen hoge beschikbaarheid is het uw toepassings-VM's repliceren naar een andere cloud en zijn afhankelijk van een handmatige failover. De replicatie van het besturingssysteem, binaire waarden van toepassingen en toepassingsgegevens kan worden uitgevoerd op het niveau van de virtuele machine of het niveau van gastbesturingssysteem. De failover wordt beheerd met behulp van aanvullende software die geen deel uitmaakt van de toepassing.
 
-Met deze methode voert de toepassing wordt geïmplementeerd in een cloud en de VM is gerepliceerd naar de andere cloud. Als een failover wordt geactiveerd, de secundaire virtuele machines moeten worden ingeschakeld in de tweede cloud. In sommige scenario's maakt de failover de VM's en wordt schijven toe. Dit proces kan lang duren om te voltooien, met name een toepassing met meerdere lagen die een specifieke opstartprocedure vereist. Er kan ook worden stappen beschreven die moeten worden uitgevoerd voordat de toepassing is om te beginnen met aanvragen worden verwerkt.
+Met deze methode voert de toepassing wordt geïmplementeerd in een cloud en de virtuele machine is gerepliceerd naar de andere cloud. Als een failover wordt geactiveerd, de secundaire virtuele machines moeten worden ingeschakeld in de tweede cloud. In sommige scenario's maakt de failover de schijven voor virtuele machines en wordt aan hen. Dit proces kan lang duren om uit te voeren, vooral bij een toepassing met meerdere lagen die een reeks specifieke opstarten vereist. Er kan ook worden stappen beschreven die moeten worden uitgevoerd voordat de toepassing is gereed om te beginnen met het afhandelen van aanvragen.
 
 ![Replicatie-handmatige failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Uitvaltijd uitgedrukt in minuten
- - RPO: Variabele gegevensverlies (afhankelijk van de replicatiefrequentie)
- - Implementatietopologie: actief/passief-stand-by
+ - RTO: Downtime gemeten in minuten
+ - RPO: Variabele preventie van gegevensverlies (afhankelijk van de replicatiefrequentie)
+ - Implementatietopologie: actief/passief stand-by
  
 ### <a name="high-availabilityautomatic-failover"></a>Hoge beschikbaarheid en automatische failover
 
-Voor toepassingen waarin uw bedrijf een paar seconden of minuten uitvaltijd en minimaal gegevensverlies tolereert, moet u rekening houden met een configuratie met hoge beschikbaarheid. Toepassingen met hoge beschikbaarheid zijn ontworpen om snel en automatisch herstellen van fouten. Voor lokale hardwarefouten implementeert Azure Stack infrastructuur hoge beschikbaarheid in het fysieke netwerk door middel van twee bovenaan rack-switches. Voor niveau compute-fouten gebruikt Azure Stack meerdere knooppunten in een schaaleenheid. Op de VM-niveau, kunt u schaalsets in combinatie met domeinen met fouten om ervoor te zorgen knooppuntfouten worden pas van kracht uw toepassing.
+Voor toepassingen waar uw bedrijf een paar seconden of minuten downtime en minimaal gegevensverlies tolereren kan, moet u rekening houden met de configuratie van een hoge beschikbaarheid. Maximaal beschikbare toepassingen zijn ontworpen om snel en automatisch herstellen van fouten. Azure Stack-infrastructuur worden voor lokale hardwarefouten, hoge beschikbaarheid in het fysieke netwerk met behulp van twee top van rack-switches geïmplementeerd. Azure Stack maakt voor compute op fouten gebruik van meerdere knooppunten in een schaaleenheid. Op het niveau van de virtuele machine, kunt u schaalsets in combinatie met domeinen met fouten om ervoor te zorgen knooppuntfouten niet uitvoert in uw toepassing.
 
-In combinatie met schaalsets moet uw toepassing systeemeigen ondersteuning voor hoge beschikbaarheid of ondersteuning voor het gebruik van de clustersoftware. Microsoft SQL Server biedt hoge beschikbaarheid bijvoorbeeld systeemeigen ondersteuning voor databases met synchrone doorvoermodus. Echter als u biedt slechts ondersteuning voor asynchrone replicatie, wordt er een aantal gegevens verloren gaan. Toepassingen kunnen ook worden geïmplementeerd in een failovercluster waarop de clustersoftware omgaat met automatische failover van de toepassing.
+In combinatie met schaalsets moet uw toepassing systeemeigen ondersteuning voor hoge beschikbaarheid of ondersteuning voor het gebruik van de clustersoftware. Microsoft SQL Server biedt hoge beschikbaarheid bijvoorbeeld systeemeigen ondersteuning voor databases met synchrone doorvoer-modus. Echter, als u alleen asynchrone replicatie ondersteunen kan, klikt u vervolgens zal er gegevens verloren gaan. Toepassingen kunnen ook worden geïmplementeerd in een failovercluster waarop de clustersoftware verwerkt voor de automatische failover van de toepassing.
 
-Met deze benadering de toepassing is alleen beschikbaar in een cloud, maar de software wordt geïmplementeerd op meerdere clouds. De andere clouds zijn in standby-modus om te beginnen met de toepassing wanneer de failover wordt geactiveerd.
+Met deze benadering de toepassing slechts in één cloud actief is, maar de software geïmplementeerd op meerdere clouds. De andere clouds zijn in standby-modus Gereed voor de toepassing te starten wanneer de failover wordt geactiveerd.
 
- - RTO: Uitvaltijd gemeten in seconden
- - RPO: De minimale gegevensverlies
+ - RTO: Downtime gemeten in seconden
+ - RPO: De minimaal gegevensverlies
  - Implementatietopologie: actief/actief stand-by
 
 ### <a name="fault-tolerance"></a>Fouttolerantie
 
-Azure Stack fysieke redundantie en infrastructuur servicebeschikbaarheid alleen bescherming tegen hardware niveau fouten/fouten dergelijke een schijf, voeding, netwerkpoort of een knooppunt. Echter, als uw toepassing moet altijd beschikbaar zijn en kan geen gegevens nooit verliezen, u moet fouttolerantie systeemeigen implementeren in uw toepassing of aanvullende software gebruiken om in te schakelen fouttolerantie.
+Azure Stack fysieke infrastructuur voor redundantie en beschikbaarheid van de service alleen beveiligen op basis van hardware op fouten/fouten niveau dergelijke een schijf, voeding, netwerkpoort of knooppunt. Echter, als uw toepassing altijd beschikbaar zijn moet en nooit gegevens kunt verliezen, u moet fouttolerantie systeemeigen implementeren in uw toepassing of aanvullende software gebruiken om in te schakelen fouttolerantie.
 
-U moet eerst, om te controleren of de toepassing die virtuele machines zijn geïmplementeerd met behulp van de schaal wordt ingesteld om te beschermen tegen fouten in de knooppunt-niveau. Ter bescherming tegen de cloud gaat offline, moet dezelfde toepassing al worden geïmplementeerd op een andere cloud, zodat deze aanvragen worden verwerkt zonder onderbreking kunt doorgaan. Dit model wordt doorgaans verwezen naar een actieve implementatie.
+U moet eerst, zorg ervoor dat de toepassing die virtuele machines worden geïmplementeerd met behulp van de schaal wordt ingesteld om te beveiligen tegen storingen in knooppunt op serverniveau. Ter bescherming tegen de cloud gaat offline, moet dezelfde toepassing al worden geïmplementeerd op een andere cloud, zodat u kunt doorgaan deze aanvragen worden verwerkt zonder onderbreking. Dit model wordt doorgaans de implementatie van een actief-actief genoemd.
 
-Houd er rekening mee dat elke cloud Azure-Stack onafhankelijk van elkaar, is zodat de clouds worden altijd beschouwd als actief vanuit het perspectief van een infrastructuur. In dit geval zijn meerdere actieve exemplaren van de toepassing geïmplementeerd op een of meer actieve clouds.
+Houd er rekening mee dat elke Azure Stack-cloud onafhankelijk van elkaar worden verbonden, is zodat de clouds worden altijd beschouwd als actief vanuit het perspectief van een infrastructuur. In dit geval zijn meerdere actieve instanties van de toepassing geïmplementeerd op een of meer actieve clouds.
 
- - RTO: Geen uitvaltijd
+ - RTO: Er is geen downtime
  - RPO: Zonder verlies van gegevens
  - Implementatietopologie: actief/actief
 
-### <a name="no-recovery"></a>Geen herstel
+### <a name="no-recovery"></a>Er is geen recovery
 
-Sommige toepassingen in uw omgeving hoeft waarschijnlijk geen bescherming tegen niet-geplande uitvaltijd of verlies van gegevens. Bijvoorbeeld, virtuele machines gebruikt voor ontwikkeling en testen normaal gesproken hoeft niet te worden hersteld. Het is uw beslissing te doen zonder de beveiliging voor een toepassing of een specifieke virtuele machine. Azure-Stack biedt geen back-up of replicatie van virtuele machines van de onderliggende infrastructuur. Net als bij Azure, u moet zich aanmelden bij de beveiliging voor elke virtuele machine in elk van uw abonnementen.
+Sommige toepassingen in uw omgeving mogelijk geen bescherming tegen ongeplande downtime of gegevensverlies. Bijvoorbeeld, virtuele machines die worden gebruikt voor het ontwikkelen en testen normaal gesproken hoeft niet te worden hersteld. Het is uw beslissing doen zonder beveiliging voor een toepassing of een specifieke virtuele machine. Azure Stack biedt geen back-up of een replicatie van virtuele machines van de onderliggende infrastructuur. Net als bij Azure, moet u zich aanmelden voor de beveiliging voor elke VM in elk van uw abonnementen.
 
- - RTO: onherstelbare
- - RPO: Het volledig gegevensverlies
+ - RTO: niet kan worden hersteld
+ - RPO: De volledig gegevensverlies
 
 ## <a name="recommended-topologies"></a>Aanbevolen topologieën
 
-Belangrijke aandachtspunten voor de implementatie van uw Azure-Stack:
+Belangrijke overwegingen voor uw Azure Stack-implementatie:
 
 |     | Aanbeveling | Opmerkingen |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Back-up/herstel virtuele machines naar een externe back-updoel al geïmplementeerd in uw datacenter | Aanbevolen | Profiteren van bestaande back-upinfrastructuur en operationele vaardigheden. Zorg ervoor dat het formaat van de back-upinfrastructuur zodat deze gereed om te beschermen aanvullende VM-exemplaren is. Zorg ervoor dat de back-upinfrastructuur is niet dicht in de bron. U kunt virtuele machines herstellen naar de bron-Stack van Azure naar een secundair Azure-Stack-exemplaar of Azure. |
-| Back-up/herstel virtuele machines naar een externe back-updoel toegewezen aan Azure-Stack | Aanbevolen | U kunt nieuwe back-upinfrastructuur of speciale back-upinfrastructuur inrichten aanschaffen voor Azure-Stack. Zorg ervoor dat de back-upinfrastructuur is niet dicht in de bron. U kunt virtuele machines herstellen naar de bron-Stack van Azure naar een secundair Azure-Stack-exemplaar of Azure. |
-| Back-up/herstel van virtuele machines rechtstreeks naar de globale Azure of een vertrouwde serviceprovider | Aanbevolen | Zolang u kunt voldoen aan uw privacy van gegevens en wettelijke vereisten, kunt u uw back-ups opslaan in globale Azure of een vertrouwde serviceprovider. De serviceprovider wordt in het ideale geval ook Azure Stack uitgevoerd zodat u consistentie in praktijkervaring wanneer u herstelt. |
-| Virtuele machines repliceren/failover naar een ander exemplaar van de Azure-Stack | Aanbevolen | In het geval failover moet u een tweede Stack Azure-cloud volledig operationeel hebben, zodat u kunt uitgebreide toepassing uitvaltijd voorkomen. |
-| Virtuele machines repliceren/failover rechtstreeks naar Azure of een vertrouwde serviceprovider | Aanbevolen | Zolang u kunt voldoen aan uw privacy van gegevens en wettelijke vereisten, kunt u uw gegevens repliceren naar de globale Azure of een vertrouwde serviceprovider. In het ideale geval is de serviceprovider Azure Stack ook uitgevoerd zodat u de consistentie in praktijkervaring na een failover downloaden. |
-| Back-updoel op dezelfde Azure-Stack cloud met de toepassingsgegevens van uw implementeren | Niet aanbevolen | Vermijd het opslaan van back-ups in dezelfde Azure-Stack cloud. Niet-geplande uitvaltijd van de cloud kunt houden van uw primaire gegevensbron en back-upgegevens. Als u kiest voor het implementeren van een back-updoel als een virtueel apparaat (voor de doeleinden van optimalisatie voor back-up en herstel), kunt u alle gegevens continu worden gekopieerd naar een externe back-uplocatie moet zorgen. |
-| Implementeren van fysieke back-apparaat in het hetzelfde rack waarop de Azure-Stack-oplossing is geïnstalleerd | Niet ondersteund | U kunt andere apparaten op dit moment, kan geen verbinding met de bovenkant van rack-switches die geen deel uitmaken van de oorspronkelijke oplossing. |
+| Back-up/herstel virtuele machines naar een externe back-updoel al geïmplementeerd in uw datacenter | Aanbevolen | Profiteer van de bestaande back-upinfrastructuur en operationele vaardigheden. Zorg ervoor dat u het formaat van de back-upinfrastructuur, zodat deze gereed is om te beveiligen van de aanvullende VM-exemplaren. Zorg ervoor dat een back-upinfrastructuur niet dicht in de bron. U kunt VM's herstellen naar de bron van Azure Stack, naar een secundaire Azure Stack-exemplaar of naar Azure. |
+| Back-up/herstel virtuele machines naar een externe back-updoel speciaal voor Azure Stack | Aanbevolen | U kunt een nieuwe back-upinfrastructuur of een toegewezen back-upinfrastructuur inrichten voor Azure Stack kopen. Zorg ervoor dat een back-upinfrastructuur niet dicht in de bron. U kunt VM's herstellen naar de bron van Azure Stack, naar een secundaire Azure Stack-exemplaar of naar Azure. |
+| Back-up/herstel-VM's rechtstreeks naar de globale Azure of een vertrouwde serviceprovider | Aanbevolen | Zolang u kunt voldoen aan de privacy van gegevens en wettelijke vereisten, kunt u uw back-ups kunt opslaan in de globale Azure of een vertrouwde serviceprovider. De service-provider wordt in het ideale geval ook Azure Stack uitgevoerd zodat u consistentie in operationele ervaring wanneer u herstelt. |
+| Replicatie/failover-VM's naar een afzonderlijk exemplaar van Azure Stack | Aanbevolen | In het geval van failover moet u een tweede Azure Stack-cloud volledig operationeel zijn, zodat u downtime van uitgebreide toepassingen kunt voorkomen. |
+| Replicatie/failover-VM's rechtstreeks naar Azure of een vertrouwde serviceprovider | Aanbevolen | Zolang u kunt voldoen aan de privacy van gegevens en wettelijke vereisten, kunt u uw gegevens kunt repliceren naar de globale Azure of een vertrouwde serviceprovider. De service-provider wordt in het ideale geval ook Azure Stack uitgevoerd zodat u consistentie in operationele ervaring na een failover. |
+| Back-updoel op de dezelfde Azure Stack-cloud met de gegevens van uw toepassing implementeren | Niet aanbevolen | Vermijd de opslag van back-ups binnen de dezelfde Azure Stack-cloud. Niet-geplande uitvaltijd van de cloud kunt u in uw primaire gegevens en back-upgegevens behouden. Als u een back-updoel implementeren als een virtueel apparaat (voor de doeleinden van optimalisatie voor back-up en herstel), kunt u alle gegevens continu worden gekopieerd naar een externe back-uplocatie moet zorgen. |
+| Fysieke back-up toe aan de dezelfde rack installatie van de oplossing Azure Stack implementeren | Niet ondersteund | U kunt alle andere apparaten op dit moment, geen verbinding met de top van rack-switches die geen deel uitmaken van de oorspronkelijke oplossing. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel opgegeven algemene richtlijnen voor het beveiligen van virtuele machines op Azure-Stack is geïmplementeerd voor gebruikers. Zie voor informatie over het gebruik van Azure-services voor het beveiligen van virtuele machines voor gebruikers:
+In dit artikel opgegeven algemene richtlijnen voor het beveiligen van de gebruiker virtuele machines die zijn geïmplementeerd in Azure Stack. Zie voor informatie over het gebruik van Azure-services gebruiker VM's beveiligen:
 
- - [Gebruik Azure back-up naar back-up van bestanden en toepassingen op Azure-Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
- - [Ondersteuning van Azure Backup-Server voor Azure-Stack](https://docs.microsoft.com/azure/backup/ ) 
- - [Azure Site Recovery-ondersteuning voor Azure-Stack](https://docs.microsoft.com/azure/site-recovery/)  
+ - [Gebruik Azure back-up naar back-up van bestanden en toepassingen in Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Backup Server-ondersteuning voor Azure Stack](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure Site Recovery-ondersteuning voor Azure Stack](https://docs.microsoft.com/azure/site-recovery/)  
 
-Raadpleeg voor meer informatie over de partner-producten die bescherming van de VM op Azure-Stack bieden '[bescherming van toepassingen en gegevens op Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/). "
+Raadpleeg voor meer informatie over de partnerproducten die worden geboden door VM-beveiliging op Azure Stack, "[bescherming van toepassingen en gegevens op Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."

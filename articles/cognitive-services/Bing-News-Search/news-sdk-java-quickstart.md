@@ -1,30 +1,30 @@
 ---
-title: Quick Start Bing nieuws zoeken SDK Java | Microsoft Docs
-description: Informatie over het instellen van de consoletoepassing Bing nieuws Search SDK.
+title: 'Snelstartgids: Bing News Search SDK, Java'
 titleSuffix: Azure Cognitive Services
+description: Leer hoe u de Bing News Search SDK-consoletoepassing configureert.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345702"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802474"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Bing nieuws zoeken SDK Java Quick Start
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Snelstartgids: Bing News Search SDK met Java
 
-De Bing nieuws Search SDK biedt de functionaliteit van de REST-API voor nieuws query's en parseren resultaten. 
+De Bing News Search SDK biedt de functionaliteit van de REST-API voor nieuwsaanvragen en het parseren van resultaten. 
 
-De [broncode voor voorbeelden van Java Bing nieuws Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van Java Bing News Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) is beschikbaar op GitHub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder **Search**. De Bing nieuws Search SDK-afhankelijkheden installeren met behulp van Maven, Gradle of een ander beheersysteem van afhankelijkheid. Het bestand Maven POM is vereist voor de declaratie:
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder **Zoeken**. Installeer de afhankelijkheden van Bing News Search SDK met Maven, Gradle of een ander systeem voor afhankelijkheidsbeheer. Het Maven-POM-bestand vereist de declaratie:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cog
     </dependency>
   </dependencies>
 ```
-## <a name="news-search-client"></a>Nieuws zoeken client
-Invoer toevoegen aan de implementatie van de klasse.
+## <a name="news-search-client"></a>Nieuws zoeken-client
+Imports toevoegen aan de implementatie van de klasse.
 ```
 import com.microsoft.azure.cognitiveservices.newssearch.*;
 import com.microsoft.azure.cognitiveservices.newssearch.implementation.NewsInner;
@@ -48,7 +48,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 ```
-Implementeer de **NewsSearchAPIImpl** -client, die een exemplaar van vereist de **ServiceClientCredentials** klasse.
+Implementeer de **NewsSearchAPIImpl**-client, die een instantie vereist van de **ServiceClientCredentials**-klasse.
 ```
 public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
     return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -74,7 +74,7 @@ public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
 
 
 ```
-Zoeken naar nieuws met de één query 'Quantum Computing." Filteren van de zoekopdracht met de *markt* en *aantal* parameters. Controleer of het aantal resultaten. Informatie over het eerste nieuws resultaat afdrukken: naam, URL, publicatiedatum, beschrijving, providernaam en totaal aantal geschatte overeenkomsten.
+Zoek naar nieuws met de enkelvoudige query 'Quantum Computing'. Filter de zoekopdracht met de parameters *market* en *count*. Verifieer het aantal resultaten. Geef informatie weer over het eerste nieuwsresultaat: naam, URL, publicatiedatum, beschrijving, providernaam en totaal aantal geschatte overeenkomsten.
 ```
 public static void newsSearch(String subscriptionKey)
 {
@@ -121,7 +121,7 @@ public static void newsSearch(String subscriptionKey)
 }
 
 ```
-Zoeken naar het laatste nieuws over 'Kunstmatige Intelligence'. Filteren van de zoekopdracht met de *nieuwheid* en *sortBy* parameters. Controleer of het aantal resultaten. Informatie over het eerste nieuws resultaat afdrukken: naam, URL, publicatiedatum, beschrijving, providernaam en totaal aantal geschatte overeenkomsten.
+Zoek naar recent nieuws over 'Artificial Intelligence'. Filter de zoekopdracht met de parameters *freshness* en *sortBy*. Verifieer het aantal resultaten. Geef informatie weer over het eerste nieuwsresultaat: naam, URL, publicatiedatum, beschrijving, providernaam en totaal aantal geschatte overeenkomsten.
 ```
 /**
  * Search recent news for (Artificial Intelligence) with the freshness and sortBy parameters.
@@ -172,7 +172,7 @@ public static void newsSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Zoek het nieuws **categorie** voor *film en tv-entertainment* onderwerpen en gebruik de *veilig zoeken* functie. Controleer of het aantal resultaten. De categorie, naam, URL, beschrijving, publicatiedatum en naam van de provider voor het eerste nieuws resultaat afdrukken.
+Zoek naar nieuws uit de **category** *movie and TV entertainment* en gebruik de functie *safe search*. Verifieer het aantal resultaten. Geef informatie weer over de categorie, naam, URL, beschrijving, publicatiedatum en providernaam voor het eerste nieuwsresultaat.
 ```
 /**
  * Search the news category for (movie and TV entertainment) with safe search. Verify the number of results. 
@@ -223,7 +223,7 @@ public static void newsCategory(String subscriptionKey)
 }
 
 ```
-Zoeken naar nieuwsonderwerpen trends. Controleer of het aantal resultaten. De naam, querytekst, web-URL voor zoeken en nieuws zoeken URL voor de eerste nieuws resultaat afdrukken.
+Zoek naar trending nieuwsonderwerpen. Verifieer het aantal resultaten. Geef informatie weer over de naam, querytekst, URL voor zoeken op internet URL voor nieuws zoeken voor het eerste nieuwsresultaat.
 ```
 public static void trendingTopics(String subscriptionKey)
 {
@@ -265,7 +265,7 @@ public static void trendingTopics(String subscriptionKey)
     }
 }
 ```
-Voeg de methoden die worden beschreven in dit artikel voor een klasse met een belangrijke functie voor het uitvoeren van de code.
+Voeg de methoden die in dit artikel worden beschreven toe aan een klasse met een hoofdfunctie voor het uitvoeren van de code.
 ```
 package javaNewsSDK;
 import com.microsoft.azure.cognitiveservices.newssearch.*;
@@ -286,6 +286,6 @@ public class NewsSearchSDK {
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Java SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Voorbeelden voor Cognitive Services Java SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 

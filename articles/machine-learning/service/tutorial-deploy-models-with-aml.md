@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031234"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785338"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Zelfstudie 2: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instance (ACI)
 
@@ -35,7 +35,7 @@ ACI is niet ideaal voor productie-implementaties, maar het is uiterst geschikt o
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als Jupyter-notebook. Gebruik een van deze methoden om de notebook `tutorials/02.deploy-models.ipynb` uit te voeren:
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Voer het `02.deploy-models.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie over Azure Machine Learning hebt u Python gebruikt om de volgende bewerkingen te doen:
+In deze zelfstudie over de Azure Machine Learning-service hebt u Python gebruikt om het volgende te doen:
 
 > [!div class="checklist"]
 > * Uw testomgeving instellen

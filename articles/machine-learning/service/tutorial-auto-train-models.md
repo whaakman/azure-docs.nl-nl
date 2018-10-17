@@ -9,18 +9,18 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 1db13ee31ea826833d2b13f20b3b0a2be8ef4444
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220865"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802352"
 ---
-# <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning"></a>Zelfstudie: Een classificatiemodel trainen met geautomatiseerde machine learning - Azure Machine Learning
+# <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Zelfstudie: Een classificatiemodel trainen met geautomatiseerde machine learning in Azure Machine Learning-service
 
-In deze zelfstudie leert u hoe u een model voor machine learning genereert met behulp van geautomatiseerde machine learning (hierna geautomatiseerde ML genoemd).  Azure Machine Learning kan voorbewerking van gegevens, selectie van algoritme en selectie van hyperparameters automatisch voor u uitvoeren. Het uiteindelijke model kan vervolgens worden geïmplementeerd met de werkstroom in de zelfstudie [Een model implementeren](tutorial-deploy-models-with-aml.md).
+In deze zelfstudie leert u hoe u een model voor machine learning genereert met behulp van geautomatiseerde machine learning (hierna geautomatiseerde ML genoemd).  De Azure Machine Learning-service kan voorbewerking van gegevens, selectie van algoritme en selectie van hyperparameters automatisch voor u uitvoeren. Het uiteindelijke model kan vervolgens worden geïmplementeerd met de werkstroom in de zelfstudie [Een model implementeren](tutorial-deploy-models-with-aml.md).
 
-[ ![stroomdiagram](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
+![stroomdiagram](./media/tutorial-auto-train-models/flow2.png)
 
 Vergelijkbaar met de [zelfstudie over het trainen van een model voor het classificeren van afbeeldingen](tutorial-train-models-with-aml.md) worden in deze zelfstudie handgeschreven afbeeldingen van cijfers (0-9) uit de [MNIST](http://yann.lecun.com/exdb/mnist/)-gegevensset gebruikt. Deze keer geeft u echter geen algoritme op en worden er ook geen hyperparameters afgestemd. De techniek van geautomatiseerde ML doorloopt of itereert allerlei combinaties van algoritmen en hyperparameters totdat het beste model wordt gevonden op basis van uw criterium.
 
@@ -38,7 +38,8 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="get-the-notebook"></a>De notebook ophalen
 
-Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een Jupyter-notebook. U kunt elk van deze twee methoden gebruiken om het `tutorials/03.auto-train-models.ipynb`-notebook uit te voeren:
+Voor uw gemak is deze zelfstudie beschikbaar gemaakt als een [Jupyter-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Voer het `03.auto-train-models.ipynb`-notebook uit in Azure Notebooks of op uw eigen Jupyter-notebookserver.
+
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -104,13 +105,9 @@ from sklearn import datasets
 
 digits = datasets.load_digits()
 
-# only take the first 100 rows if you want the training steps to run faster
-X_digits = digits.data[:100,:]
-y_digits = digits.target[:100]
-
-# use full dataset
-#X_digits = digits.data
-#y_digits = digits.target
+# Exclude the first 100 rows from training so that they can be used for test.
+X_train = digits.data[100:,:]
+y_train = digits.target[100:]
 ```
 
 ### <a name="display-some-sample-images"></a>Enkele voorbeeldafbeeldingen weergeven
@@ -121,13 +118,13 @@ Laad de gegevens in `numpy`-matrices. Gebruik vervolgens `matplotlib` om 30 will
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
-for i in np.random.permutation(X_digits.shape[0])[:sample_size]:
+for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
     plt.axhline('')
     plt.axvline('')
-    plt.text(x = 2, y = -2, s = y_digits[i], fontsize = 18)
-    plt.imshow(X_digits[i].reshape(8, 8), cmap = plt.cm.Greys)
+    plt.text(x = 2, y = -2, s = y_train[i], fontsize = 18)
+    plt.imshow(X_train[i].reshape(8, 8), cmap = plt.cm.Greys)
 plt.show()
 ```
 Er wordt een steekproef van afbeeldingen weergegeven:
@@ -153,7 +150,7 @@ Definieer de instellingen van het experiment en het model.
 |**iterations**|20|Aantal iteraties. Met elke iteratie wordt het model getraind met de gegevens met een specifieke pijplijn.|
 |**n_cross_validations**|3|Aantal cross-validatie splitsingen.|
 |**preprocess**|False| *True/False* Hiermee kunt u opgeven dat het experiment voorbewerking moet toepassen op de invoer.  Voorbewerking zorgt voor de afhandeling van *ontbrekende gegevens* en voert enkele algemene *extractiefuncties* uit.|
-|**exit_score**|0.995|Waarde van het type *dubbel* die het doel voor *primary_metric* aangeeft. De run wordt beëindigd zodra het doel is overschreden.|
+|**exit_score**|0.9985|Waarde van het type *dubbel* die het doel voor *primary_metric* aangeeft. De run wordt beëindigd zodra het doel is overschreden.|
 |**blacklist_algos**|['kNN','LinearSVM']|*Matrix* van *tekenreeksen* die aangeeft welke algoritmen moeten worden genegeerd.
 |
 
@@ -167,10 +164,10 @@ Automl_config = AutoMLConfig(task = 'classification',
                              iterations = 20,
                              n_cross_validations = 3,
                              preprocess = False,
-                             exit_score = 0.995,
+                             exit_score = 0.9985,
                              blacklist_algos = ['kNN','LinearSVM'],
-                             X = X_digits,
-                             y = y_digits,
+                             X = X_train,
+                             y = y_train,
                              path=project_folder)
 ```
 
@@ -497,8 +494,10 @@ Aangezien de nauwkeurigheid van het model hoog is, kan het nodig zijn om de volg
 ```python
 # find 30 random samples from test set
 n = 30
-sample_indices = np.random.permutation(X_digits.shape[0])[0:n]
-test_samples = X_digits[sample_indices]
+X_test = digits.data[:100, :]
+y_test = digits.target[:100]
+sample_indices = np.random.permutation(X_test.shape[0])[0:n]
+test_samples = X_test[sample_indices]
 
 
 # predict using the  model
@@ -514,11 +513,11 @@ for s in sample_indices:
     plt.axvline('')
     
     # use different color for misclassified sample
-    font_color = 'red' if y_digits[s] != result[i] else 'black'
-    clr_map = plt.cm.gray if y_digits[s] != result[i] else plt.cm.Greys
+    font_color = 'red' if y_test[s] != result[i] else 'black'
+    clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
     plt.text(x = 2, y = -2, s = result[i], fontsize = 18, color = font_color)
-    plt.imshow(X_digits[s].reshape(8, 8), cmap = clr_map)
+    plt.imshow(X_test[s].reshape(8, 8), cmap = clr_map)
     
     i = i + 1
 plt.show()
@@ -534,7 +533,7 @@ plt.show()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie over Azure Machine Learning hebt u Python gebruikt om de volgende bewerkingen te doen:
+In deze zelfstudie over de Azure Machine Learning-service hebt u Python gebruikt om het volgende te doen:
 
 > [!div class="checklist"]
 > * De ontwikkelomgeving instellen

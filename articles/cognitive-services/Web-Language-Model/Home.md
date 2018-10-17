@@ -1,22 +1,27 @@
 ---
-title: Overzicht van de Web Language Model API - Azure Cognitive Services | Microsoft Docs
+title: Overzicht van de Web Language Model API
+titleSuffix: Azure Cognitive Services
 description: Web Language Model API in Microsoft Cognitive Services biedt de meest geavanceerde hulpprogramma's voor de verwerking van natuurlijke taal.
 services: cognitive-services
 author: piyushbehre
-manager: yanbo
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
-ms.openlocfilehash: dc5dc0519e33e024014033ac5260004482b419c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ROBOTS: NOINDEX
+ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096952"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48039988"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Wat is de Web Language Model API? (Preview)
+
+> [!IMPORTANT]
+> De preview van Web Language Model is op 9 augustus 2018 uit gebruik genomen. We raden u aan [Azure Machine Learning-tekstanalysemodules](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) te gebruiken voor tekstverwerking en -analyse.
 
 De Web Language Model API van Microsoft is een op REST gebaseerde cloudservice die de meest geavanceerde hulpprogramma's voor de verwerking van natuurlijke taal biedt. Met behulp van deze API kan uw toepassing alle mogelijkheden van big data benutten door middel van taalmodellen die zijn getraind met corpora op webniveau en die door Bing zijn verzameld binnen het en-US-taalgebied.
 

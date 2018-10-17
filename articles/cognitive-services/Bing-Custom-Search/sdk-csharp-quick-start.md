@@ -1,39 +1,39 @@
 ---
-title: Aangepaste Search SDK-C# snelstartgids | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Setup Custom Search SDK C#-consoletoepassing.
+title: 'Snelstartgids: Custom Search SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: Lees hier informatie over de instellingen voor het maken van een C#-consoletoepassing met behulp van Custom Search SDK.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949924"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816766"
 ---
-# <a name="c-sdk-quickstart"></a>SDK voor C#-snelstartgids
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Snelstartgids: Bing Custom Search SDK gebruiken met C#
 
-De Bing Custom Search SDK biedt een eenvoudiger programmeermodel dan de Bing Custom Search REST-API. In deze sectie helpt u bij het maken van uw eerste Custom Search-aanroepen met behulp van de SDK voor C#.
+De Bing Custom Search SDK biedt een eenvoudiger programmeermodel dan de Bing Custom Search REST-API. In dit gedeelte vindt u stapsgewijze instructies voor het maken van uw eerste Custom Search-aanroepen met behulp van de SDK voor C#.
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt het volgende nodig om deze quickstart te voltooien:
 
-- Een exemplaar voor aangepast zoeken van kant-en-klare. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).  
+- Een exemplaar voor aangepaste zoekopdrachten dat klaar is voor gebruik. Zie [Uw eerste Bing Aangepaste zoekopdrachten-exemplaar maken](quick-start.md) voor meer informatie.  
   
-- De abonnementssleutel van een. Krijgt u een abonnementssleutel wanneer u activeert de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), of kunt u een betaald abonnement-sleutel in uw Azure-dashboard (Zie [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- Een abonnementssleutel. U kunt een abonnementssleutel opvragen wanneer u uw [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) activeert, of u kunt een sleutel voor een betaald abonnement gebruiken uit uw Azure-dashboard (zie [Snelstartgids: Een Cognitive Services-account maken in de Azure-portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
   
-- Visual Studio 2017 is geïnstalleerd. Als u er nog geen hebt, kunt u downloaden de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
+- Visual Studio 2017 is geïnstalleerd. Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken.  
   
-- De [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) pakket is geïnstalleerd. Vanuit de Solution Explorer in Visual Studio, met de rechtermuisknop op uw project en selecteer `Manage NuGet Packages` in het menu. Installeer het `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-pakket.
+- Het [NuGet-pakket Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) is geïnstalleerd. Klik in Solution Explorer in Visual Studio met de rechtermuisknop op uw project en selecteer `Manage NuGet Packages` in het menu. Installeer het `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-pakket.
 
-Installatie van het pakket NuGet Custom Search, installeert ook de volgende assembly's:
+Met de installatie van het NuGet-pakket Custom Search worden ook de volgende assembly's geïnstalleerd:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -43,19 +43,19 @@ Installatie van het pakket NuGet Custom Search, installeert ook de volgende asse
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
+Volg deze stappen om het voorbeeld uit te voeren:
 
 1. Open Visual Studio 2017.
   
-2. Klik op de **bestand** menu, klikt u op **nieuw**, **Project**, en vervolgens de **Visual C#-consoletoepassing** sjabloon.
+2. Klik op het menu **File**, klik op **New**, **Project** en vervolgens op de sjabloon **Visual C# Console Application**.
   
-3. Naam van uw oplossing CustomSearchSolution en blader naar de map in te zetten.
+3. Geef uw oplossing de naam CustomSearchSolution en blader naar de map waarin u deze wilt opslaan.
   
-4. Klik op OK als u wilt maken van de oplossing.  
+4. Klik op OK om de oplossing te maken.  
   
-4. Vanuit de Solution Explorer met de rechtermuisknop op het project (deze heeft dezelfde naam als de oplossing) en selecteer `Manage NuGet Packages`. Klik op **Bladeren** in de NuGet Package Manager. Voer Microsoft.Azure.CognitiveServices.Search.CustomSearch in het zoekvak en druk op enter. Selecteer het pakket en klik op installeren.  
+4. Klik in Solution Explorer met de rechtermuisknop op uw project (met dezelfde naam als de oplossing) en selecteer `Manage NuGet Packages`. Klik op **Browse** in NuGet Package Manager. Voer Microsoft.Azure.CognitiveServices.Search.CustomSearch in het zoekvak in en druk op Enter. Selecteer het pakket en klik op Install.  
   
-4. Kopieer de volgende code in het bestand Program.cs. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** met uw abonnementssleutel en de configuratie-ID.  
+4. Kopieer de volgende code naar het bestand Program.cs. Vervang **YOUR-SUBSCRIPTION-KEY** en **YOUR-CUSTOM-CONFIG-ID** door uw abonnementssleutel en configuratie-id.  
   
     ```csharp
     using System;
@@ -112,32 +112,32 @@ Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
     }
     ```  
   
-5. Bouwen en uitvoeren (foutopsporing) de oplossing. 
+5. Bouw de oplossing en voer deze uit (eventueel met foutopsporing). 
 
 
 
 
-## <a name="breaking-it-down"></a>De analyseren
+## <a name="breaking-it-down"></a>Analyse
 
-Na de installatie van het pakket NuGet Custom Search, dat u wilt toevoegen een richtlijn voor het.
+Na installatie van het NuGet-pakket Custom Search, moet u een using-instructie toevoegen voor het pakket.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 ```
 
-Vervolgens exemplaar maken van de aangepaste zoekopdrachten-client, die u kunt aanvragen zoeken. Vervang `YOUR-SUBSCRIPTION-KEY` met uw sleutel.
+Vervolgens maakt u een instantie van de client voor aangepaste zoekopdrachten, die u gaat gebruiken om aanvragen te verzenden. Vergeet niet om `YOUR-SUBSCRIPTION-KEY` te vervangen door uw sleutel.
 
 ```csharp
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
 ```
 
-Nu kunt u de client een zoekaanvraag te verzenden. Vervang uw `YOUR-CUSTOM-CONFIG-ID` met de ID van de configuratie van uw exemplaar (u vindt de ID in de [Custom Search-portal](https://www.customsearch.ai/)). In dit voorbeeld wordt gezocht naar Xbox. De update zo nodig.
+Nu kunt u de client gebruiken om een zoekaanvraag te verzenden. Vervang `YOUR-CUSTOM-CONFIG-ID` door de id van de configuratie van uw exemplaar (u vindt de id in de [portal van Custom Search](https://www.customsearch.ai/)). In dit voorbeeld wordt gezocht naar Xbox. U kunt dit desgewenst aanpassen.
 
 ```csharp
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
 ```
 
-De `SearchAsync` methode retourneert een `WebData` object. Gebruik `WebData` te doorlopen en alle `WebPages` die zijn gevonden. Met deze code vindt u het eerste webpagina resultaat en van de webpagina worden afgedrukt `Name` en `URL`.
+De methode `SearchAsync` retourneert een `WebData`-object. Gebruik `WebData` om de `WebPages` te doorlopen die zijn gevonden. Met deze code vindt u het eerste resultaat dat uit een webpagina bestaat en worden de `Name` en `URL` van de webpagina weergegeven.
 
 ```csharp
 //WebPages
@@ -167,7 +167,7 @@ else
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Kijk eens naar de SDK-voorbeelden. Elk voorbeeld bevat een Leesmij-bestand met informatie over vereisten en installatie/uitvoeren van de voorbeelden.
+Kijk eens naar de SDK-voorbeelden. Elk voorbeeld omvat een ReadMe-bestand met informatie over vereisten en het installeren/uitvoeren van de voorbeelden.
 
 * Aan de slag met [.NET-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
     * [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)
@@ -176,6 +176,6 @@ Kijk eens naar de SDK-voorbeelden. Elk voorbeeld bevat een Leesmij-bestand met i
     * Zie ook [NodeJS-bibliotheken](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch) voor definities en afhankelijkheden.
 * Aan de slag met [Java-voorbeelden](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
     * Zie ook [Java-bibliotheken](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch) voor definities en afhankelijkheden.
-* Aan de slag met [voorbeelden van Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
+* Aan de slag met [Python-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * Zie ook [Python-bibliotheken](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch) voor definities en afhankelijkheden.
 

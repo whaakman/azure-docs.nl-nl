@@ -1,38 +1,38 @@
 ---
-title: 'Snelstartgids: Project antwoord zoeken entiteitsquery'
+title: 'Snelstartgids: Project Answer Search en zoeken naar entiteiten'
 titlesuffix: Azure Cognitive Services
-description: Query's voor entiteiten met behulp van Project antwoord zoeken
+description: Zoeken naar entiteiten met behulp van Project Answer Search
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: efb46fc7064bcad69b5ea84f9bdfe923d95ccbe6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867575"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883598"
 ---
-# <a name="quickstart-query-for-entities"></a>Snelstartgids: Query voor entiteiten
+# <a name="quickstart-query-for-entities"></a>Snelstartgids: Zoeken naar entiteiten
 
-Als de query haalt u informatie over een persoon, plaats of ding, het antwoord kan bevatten een `entities` antwoord.  Query's retourneren altijd webpagina's, [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) query afhankelijk zijn.
+Als de query informatie opvraagt over een persoon, plaats of ding, kan de respons een `entities`-antwoord bevatten.  Query's retourneren altijd webpagina's, waarbij [feiten](fact-queries.md) en/of [entiteiten](entity-queries.md) afhankelijk van de query zijn.
 
-Entiteiten bieden ondersteuning voor drie query-scenario's: 
--   DominantEntity: Er is slechts één entiteit die overeenkomt met de query en het doel van de gebruiker. De query, ruimte naald, is bijvoorbeeld een scenario DominantEntity. 
--   Oplossen van ambiguïteit: Er is meer dan één entiteit die overeenkomt met de query en het doel van de gebruiker en het is aan de gebruiker de juiste entiteit selecteren. De query Game van Thrones is bijvoorbeeld een scenario voor ondubbelzinnigheid waarmee het tv-programma en de reeks boek wordt geretourneerd. 
--   Lijst met: Er zijn meerdere entiteiten die overeenkomen met de query en het doel van de gebruiker. De query 'List bedreigd soorten' is bijvoorbeeld een lijst met scenario dat in tabelvorm waarden om weer te geven in rijen en cellen opgemaakt als resultaat. 
+Entiteiten bieden ondersteuning voor drie queryscenario's: 
+-   DominantEntity: Er is slechts één entiteit die overeenkomt met de query en intentie van de gebruiker. De query Space Needle is een voorbeeld van een DominantEntity-scenario. 
+-   Oplossen van ambiguïteit: Er is meer dan één entiteit die overeenkomt met de query en intentie van de gebruiker en het is aan de gebruiker om de juiste entiteit te selecteren. De query Game of Thrones is een voorbeeld van een scenario voor het oplossen van ambiguïteit omdat hiermee het tv-programma en de serie boeken wordt geretourneerd. 
+-   List: Er zijn meerdere entiteiten die overeenkomen met de query en de intentie van de gebruiker. De query 'List of endangered species' is bijvoorbeeld een lijstscenario dat waarden in tabelvorm retourneert opgemaakt voor weergave in rijen en cellen. 
  
-Gebruiken om te bepalen het query-scenario, de `queryScenario` veld van de `entities` object. De gegevens die de entiteit bevat, is afhankelijk van de entiteit van type. Hoewel entiteiten de dezelfde algemene informatie bevatten, bevatten sommige entiteiten zoals toeristische bezienswaardigheden of boeken extra eigenschappen. Entiteiten die extra eigenschappen bevatten de `_type` veld met een hint die worden gebruikt door de serializer. De volgende entiteiten zijn aanvullende eigenschappen: 
--   Boek 
+U bepaalt het queryscenario via het veld `queryScenario` van het object `entities`. Het type entiteit bepaalt welke gegevens de entiteit bevat. Hoewel entiteiten altijd dezelfde algemene gegevens bevatten, bevatten sommige entiteiten, zoals toeristische bezienswaardigheden of boeken, extra eigenschappen. Entiteiten met extra eigenschappen bevatten het veld `_type`, met daarin een hint die wordt gebruikt door de serializer. De volgende entiteiten hebben aanvullende eigenschappen: 
+-   Book 
 -   MusicRecording 
 -   Person 
--   Voordelen 
+-   Attraction 
  
-Om te bepalen van het type entiteit die het antwoord bevat, gebruikt u de `entityTypeHints` zoals wordt weergegeven in de query voor Bill Gates veld.
+Om het type entiteit te bepalen dat de respons bevat, gebruikt u het veld `entityTypeHints` zoals wordt weergegeven in de query voor Bill Gates.
 ````
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
@@ -45,11 +45,11 @@ Om te bepalen van het type entiteit die het antwoord bevat, gebruikt u de `entit
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
 ````
-Hier volgt een query voor de wijzer omheen ruimte:
+Hieronder volgt een query voor Space Needle:
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
 ````
-Het antwoord bevat de `entities` antwoord. Houd er rekening mee de `entityScenario` en `entityTypeHints` velden. 
+De respons bevat het antwoord `entities`. Let ook op de velden `entityScenario` en `entityTypeHints`. 
 ````
   "entities": {
     "value": [
@@ -110,16 +110,16 @@ Het antwoord bevat de `entities` antwoord. Houd er rekening mee de `entityScenar
   },
 ````
 
-Een query kunt een lijst geretourneerd als deze relevant is.
+Een query kan een lijst retourneren als deze relevant is.
 
-**Query:** de volgende query vindt een lijst met bedreigd soorten:
+**Query:** met de volgende query vindt u een lijst met bedreigde diersoorten:
 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
 ````
 
-**Antwoord:** het antwoord bevat een lijst die is geformatteerd om weer te geven als de waarden in tabelvorm:
+**Respons:** de respons bevat een lijst die is opgemaakt om te worden weergegeven als tabelwaarden:
 ````
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
@@ -221,7 +221,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Snelstartgids voor C#](c-sharp-quickstart.md)
-- [Snelstartgids voor Java](java-quickstart.md)
-- [Knooppunt-snelstartgids](node-quickstart.md)
-- [Snelstartgids voor Python](python-quickstart.md)
+- [Snelstart voor C#](c-sharp-quickstart.md)
+- [Snelstart voor Java](java-quickstart.md)
+- [Snelstart voor Node](node-quickstart.md)
+- [Snelstart voor Python](python-quickstart.md)

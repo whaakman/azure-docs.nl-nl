@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885322"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078933"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -239,10 +239,9 @@ In sommige scenario’s is voor failover extra verwerking vereist. Het duurt 8 t
 Voer een werkelijke failover voor de EC2-instanties uit om deze naar Azure-VM’s te migreren:
 
 1. Selecteer in **Beveiligde items** > **Gerepliceerde items** de AWS-instanties. Selecteer vervolgens **Failover**.
-2. Selecteer in **Failover** een **Herstelpunt** om een failover voor uit te voeren. Selecteer het meest recente herstelpunt.
-3. Selecteer **Sluit de computer af voordat de failover wordt gestart** als u wilt dat Site Recovery probeert virtuele bronmachines af te sluiten voordat de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
-4. Controleer of de VM wordt weergegeven in **Gerepliceerde items**.
-5. Klik met de rechtermuisknop op elke VM, en selecteer vervolgens **Migratie voltooien**. Hiermee wordt het migratieproces voltooid, de replicatie voor de AWS-VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
+2. Selecteer in **Failover** een **Herstelpunt** om een failover voor uit te voeren. Selecteer het meest recente herstelpunt en start de failover. U kunt de voortgang van de failover volgen op de pagina **Taken**.
+1. Controleer of de VM wordt weergegeven in **Gerepliceerde items**.
+2. Klik met de rechtermuisknop op elke VM, en selecteer vervolgens **Migratie voltooien**. Hiermee wordt het migratieproces voltooid, de replicatie voor de AWS-VM gestopt en Site Recovery-facturering voor de virtuele machine gestopt.
 
     ![Migratie voltooien](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

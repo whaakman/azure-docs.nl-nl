@@ -1,38 +1,38 @@
 ---
-title: Entiteit zoeken SDK knooppunt Quick Start | Microsoft Docs
-description: Setup voor de entiteit zoeken SDK-consoletoepassing.
-titleSuffix: Azure cognitive services
+title: 'Snelstart: Bing Entiteiten zoeken-SDK, Node'
+titleSuffix: Azure Cognitive Services
+description: De Entiteiten zoeken-SDK-consoletoepassing instellen met Node.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2904ecfed33334458f9b6a9ca2500cd0bfef13bc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345859"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814879"
 ---
-# <a name="entity-search-sdk-node-quickstart"></a>Entiteit zoeken SDK knooppunt Quick Start
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>Snelstart: Bing Entiteiten zoeken-SDK met Node
 
-De Bing entiteit Search SDK bevat de functionaliteit van de REST-API voor entiteit query's en parseren resultaten. 
+De Bing Entiteiten zoeken-SDK bevat de functionaliteit van de REST API voor entiteitsquery's en het parseren van resultaten. 
 
-De [broncode voor voorbeelden van C# Bing entiteit Search SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) beschikbaar is op de Git-Hub.
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+De [broncode voor voorbeelden van de Bing Entiteiten zoeken-SDK voor C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) is beschikbaar op Git Hub.
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Uitvoeren als u een consoletoepassing met de Bing entiteit Search SDK instelt, `npm install azure-cognitiveservices-entitysearch` in uw ontwikkelomgeving.
+Als u een consoletoepassing met behulp van de Bing Entiteiten zoeken-SDK wilt instellen, voert u `npm install azure-cognitiveservices-entitysearch` uit in uw ontwikkelingsomgeving.
 
-## <a name="entity-search-client"></a>Entiteit zoeken client
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *Search*. Maak een instantie van de `CognitiveServicesCredentials`:
+## <a name="entity-search-client"></a>Entiteiten zoeken-client
+Haal een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) op onder *Zoeken*. Maak een exemplaar van de `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Vervolgens exemplaar maken van de client en zoekt u resultaten:
+Maak vervolgens een exemplaar van de client en zoek naar resultaten:
 ```
 const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
 
@@ -47,9 +47,9 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 });
 
 ```
-De code wordt afgedrukt `result.value` items naar de console zonder bij het parseren van tekst.  De resultaten, indien van toepassing per categorie, omvatten:
-- _Type: 'Wat is'
-- _Type: 'ImageObject'
+De code geeft `result.value` items weer in de console zonder tekst te parseren.  De resultaten, indien van toepassing per categorie, omvatten:
+- _type: 'Thing'
+- _type: 'ImageObject'
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
@@ -57,4 +57,4 @@ De code wordt afgedrukt `result.value` items naar de console zonder bij het pars
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services SDK voor Node.js-voorbeelden](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Voorbeelden voor Cognitive Services Node.js SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

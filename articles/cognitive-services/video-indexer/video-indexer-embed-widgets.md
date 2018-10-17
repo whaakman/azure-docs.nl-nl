@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3d9e00a97355c03da5360846d4cd9f27a8540ed6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985577"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017429"
 ---
 # <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Voorbeeld: Video Indexer-widgets insluiten in uw toepassingen
 
@@ -47,15 +47,16 @@ Met de widget **Speler** kunt u de video streamen met gebruik van een adaptieve 
 ## <a name="embedding-public-content"></a>Openbare inhoud insluiten
 
 1. Ga naar de [Video Indexer](https://www.videoindexer.ai/)-website en meld u aan.
-2. Klik op de knop Insluiten die onder de video wordt weergegeven.
+2. Klik op de video waarmee u wilt werken.
+3. Klik op de knop Insluiten die onder de video wordt weergegeven.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Nadat u op de knop hebt geklikt, wordt een modaal venster weergegeven waarin u kunt kiezen welke widget u wilt insluiten in uw toepassing.
     Als u een widget selecteert (**Speler** of **Inzichten**), wordt de invoegcode voor u gegenereerd. Deze kunt u plakken in uw toepassing.
  
-3. Kies het type widget dat u wilt gebruiken (**Inzichten** of **Speler**).
-4. Kopieer de invoegcode en voeg deze toe aan uw toepassing. 
+4. Kies het type widget dat u wilt gebruiken (**Inzichten** of **Speler**).
+5. Kopieer de invoegcode en voeg deze toe aan uw toepassing. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

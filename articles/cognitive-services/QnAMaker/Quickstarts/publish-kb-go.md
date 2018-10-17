@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Een kennisdatabase publiceren in Go - QnA Maker'
+title: 'Snelstartgids: Een knowledge base publiceren in Go - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Een knowledge base bijwerken in Go voor QnA Maker.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5f146bf89ba2f41f392f7f713fe2cec86a7ef11c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c53763ad54932137e09e39c4b95dfd29f6c79c13
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033720"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883530"
 ---
-# <a name="publish-a-knowledge-base-in-go"></a>Een knowledge base publiceren in Go
+# <a name="quickstart-publish-a-knowledge-base-in-go"></a>Snelstartgids: Een knowledge base publiceren in Go
 
 Met de volgende code wordt een bestaande knowledge base gepubliceerd met behulp van de methode [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 

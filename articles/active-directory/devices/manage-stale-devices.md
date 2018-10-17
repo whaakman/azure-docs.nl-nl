@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434735"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249363"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procedure: Verlopen apparaten beheren in Azure AD
 
@@ -111,7 +111,7 @@ Als een apparaat onder beheer staat van Intune of een andere MDM-oplossing, stel
 
 ### <a name="system-managed-devices"></a>Door systeem beheerde apparaten
 
-Verwijder geen apparaten die door het systeem worden beheerd. Dit zijn meestal apparaten zoals auto-pilot. Als een dergelijk apparaat is verwijderd, kan het niet meer opnieuw worden ingericht. Door het systeem beheerde apparaten worden standaard uitgesloten door de nieuwe cmdlet Get-MmsolDevice. 
+Verwijder geen apparaten die door het systeem worden beheerd. Dit zijn meestal apparaten zoals auto-pilot. Als een dergelijk apparaat is verwijderd, kan het niet meer opnieuw worden ingericht. Door het systeem beheerde apparaten worden standaard uitgesloten door de nieuwe cmdlet `get-msoldevice`.  
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hybride Azure AD-gekoppelde apparaten
@@ -137,7 +137,7 @@ Apparaten die zijn geregistreerd in Azure AD kunt u uitschakelen of verwijderen 
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Verlopen apparaten opschonen in de Azure-portal  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Verlopen apparaten opschonen in de Microsoft Azure-portal  
 
 Hoewel het mogelijk is om verlopen apparaten op te schonen in de Azure-portal, is het efficiënter om hiervoor een PowerShell-script te gebruiken. Gebruik de meest recente PowerShell V1-module om met behulp van het timestamp-filter apparaten uit te filteren die worden beheerd door het systeem, zoals auto-pilot. Op dit moment wordt PowerShell V2 niet aanbevolen.
 
@@ -150,7 +150,9 @@ Een typische routine bestaat uit de volgende stappen:
 
 3. Schakel het apparaat uit met de cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Verwijder het apparaat met de cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Wacht tot de respijtperiode (d.w.z. het aantal dagen dat u hiervoor hebt gekozen) is verlopen voordat u het apparaat verwijdert.
+
+5. Verwijder het apparaat met de cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>De lijst met apparaten opvragen
 

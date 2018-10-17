@@ -1,40 +1,42 @@
 ---
-title: Emotion-API Ruby snel aan de slag | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de Emotion-API met Ruby in cognitieve Services.
+title: 'Snelstartgids: Emoties op gezichten in een afbeelding herkennen - Emotion-API, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Bekijk informatie en codevoorbeelden om snel aan de slag te gaan met de Emotion-API en Ruby.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 733127bb3656d86a7f3f57cd26c72909900f4899
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: bcab24334c1ee4e47061ce6ea28bd60039e17b3f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021046"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239026"
 ---
-# <a name="emotion-api-ruby-quick-start"></a>Emotion-API Ruby snel starten
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Snelstart: een app bouwen voor het herkennen van emoties op gezichten in een afbeelding.
 
 > [!IMPORTANT]
-> Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> De Emotion-API wordt op 15 februari 2019 afgeschaft. De mogelijkheid voor de herkenning van emoties is nu algemeen beschikbaar als onderdeel van de [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-In dit artikel vindt u informatie en codevoorbeelden kunt u snel aan de slag met de [Emotion-API herkennen methode](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) met Ruby de emoties uitgedrukt in een of meer personen in een installatiekopie kan herkennen.
+In dit artikel vindt u informatie en codevoorbeelden om met behulp van Ruby en de [methode Recognize van de Emotion-API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) de emoties te herkennen die worden uitgedrukt door een of meer personen in een afbeelding.
 
 ## <a name="prerequisite"></a>Vereiste
-* Sleutel voor gratis abonnement ophalen [hier](https://azure.microsoft.com/try/cognitive-services/)
+* U kunt [hier](https://azure.microsoft.com/try/cognitive-services/) een gratis abonnementssleutel ophalen
 
-## <a name="recognize-emotions-ruby-example-request"></a>Herkent emoties Ruby Voorbeeldaanvraag
+## <a name="recognize-emotions-ruby-example-request"></a>Voorbeeld van Ruby-aanvraag voor herkennen van emoties
 
-Wijzig de REST-URL voor het gebruik van de locatie waar u de sleutels van uw abonnement hebt verkregen, vervang de waarde 'Ocp-Apim-Subscription-Key' door uw sleutel geldig abonnement en een URL kunt toevoegen aan een foto naar de `body` variabele.
+Wijzig de REST-URL in de locatie waar u de abonnementssleutels hebt verkregen, vervang de waarde 'Ocp-Apim-Subscription-Key' door een geldige abonnementssleutel en voeg een URL naar een foto toe aan de variabele `body`.
 
 ```ruby
 require 'net/http'
 
 # NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+#   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 #   URL below with "westcentralus".
 uri = URI('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize')
 uri.query = URI.encode_www_form({
@@ -56,13 +58,13 @@ puts response.body
 
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Voorbeeldreactie emoties herkennen
-Een geslaagde aanroep retourneert een matrix met face-vermeldingen en hun bijbehorende emotion-scores, gerangschikt op face rechthoek grootte in aflopende volgorde. Een leeg antwoord geeft aan dat er geen vlakken zijn gedetecteerd. Een emotion-vermelding bevat de volgende velden:
-* faceRectangle - locatie van de rechthoek van gezicht in de installatiekopie.
-* scores - Emotion scores voor elk vlak in de installatiekopie. 
+## <a name="recognize-emotions-sample-response"></a>Voorbeeldantwoord voor herkennen van emoties
+Een geslaagde aanroep retourneert een matrix van gezichtsvermeldingen en de bijbehorende emotiescores, in aflopende volgorde gerangschikt op grootte van gezichtsrechthoek. Een leeg antwoord geeft aan dat er geen gezichten zijn gedetecteerd. Een emotievermelding bevat de volgende velden:
+* faceRectangle: locatie van de rechthoek met het gezicht in de afbeelding.
+* scores: emotiescores voor elk gezicht in de afbeelding.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

@@ -1,25 +1,26 @@
 ---
-title: Bing nieuws zoeken één pagina Web-app (broncode) | Microsoft Docs
-description: De broncode voor de zelfstudie waarin wordt getoond hoe u de API van Bing nieuws zoeken gebruiken in een webtoepassing van één pagina.
+title: 'Zelfstudie: web-app met één pagina maken met Bing Nieuws zoeken (broncode)'
+titlesuffix: Azure Cognitive Services
+description: Broncode voor een zelfstudie waarin wordt uitgelegd hoe u de Bing Nieuws zoeken-API kunt gebruiken in een web-app met één pagina.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: rosh
 ms.reviewer: v-gedod
-ms.openlocfilehash: c16c7b6018ad7ef3e2f7786e7ef9fa477c666914
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: b8c3e022c93acd0a6e5a6dc96cc0375114093b87
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344850"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804290"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Zelfstudie: Single-page-nieuws zoeken app
+# <a name="tutorial-single-page-news-search-app"></a>Zelfstudie: Nieuws zoeken-app met één pagina
 
-Dit is de volledige broncode besproken in de [één pagina app-zelfstudie](tutorial-bing-news-search-single-page-app.md) voor Bing nieuws zoeken. Uitvoeren van de app kopiëren van de broncode in Kladblok of een andere teksteditor en sla het bestand als `bing.html`. Open het bestand opgeslagen in Microsoft Edge of een andere populaire browser.
+Dit is de volledige broncode die is besproken in de [zelfstudie App van één pagina](tutorial-bing-news-search-single-page-app.md) voor Bing Nieuws zoeken. Als u de app wilt uitvoeren, kopieert u de broncode in Kladblok of een andere teksteditor en slaat u het bestand op als `bing.html`. Open het opgeslagen bestand vervolgens in Microsoft Edge of een andere veel gebruikte browser.
 
 ```html
 <!DOCTYPE html>

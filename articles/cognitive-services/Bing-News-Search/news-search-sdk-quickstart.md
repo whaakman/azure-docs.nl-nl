@@ -1,56 +1,56 @@
 ---
-title: Nieuws zoeken Quick Start SDK C# | Microsoft Docs
-description: Setup voor nieuws zoeken SDK-consoletoepassing.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: 'Snelstart: Bing Nieuws zoeken-SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: De Bing Nieuws zoeken-SDK-consoletoepassing instellen.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345705"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802981"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>Nieuws zoeken SDK C# Quick Start
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>Snelstart: Bing Nieuws zoeken-SDK met C#
 
-De Bing nieuws Search SDK bevat de functionaliteit van de REST-API voor nieuws query's en parseren resultaten. 
+De Bing Nieuws zoeken-SDK bevat de functionaliteit van de REST API voor nieuwsaanvragen en parseerresultaten. 
 
-De [broncode voor voorbeelden van C# Bing nieuws Search SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) beschikbaar is op de Git-Hub.
+De [broncode voor voorbeelden van de Bing Nieuws zoeken-SDK voor C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) is beschikbaar op Git Hub.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Als u een consoletoepassing met Bing nieuws Search SDK instelt, blader naar de `Manage NuGet Packages` optie in Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.NewsSearch` pakket.
+Als u een consoletoepassing wilt instellen met behulp van de Bing Nieuws zoeken-SDK, gaat u naar de optie `Manage NuGet Packages` van Solution Explorer in Visual Studio.  Voeg het pakket `Microsoft.Azure.CognitiveServices.Search.NewsSearch` toe.
 
-Installeren van de [NuGet nieuws zoeken SDK-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) installeert ook afhankelijkheden, met inbegrip van:
+Wanneer u het [Nieuws zoeken-SDK-pakket voor NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) installeert, worden onder andere ook de volgende afhankelijkheden geïnstalleerd:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="news-search-client"></a>Nieuws zoeken client
-Maken van een exemplaar van de `NewsSearchAPI` -client toevoegen met behulp van de instructie:
+## <a name="news-search-client"></a>Nieuws zoeken-client
+Als u een exemplaar van de client `NewsSearchAPI` wilt maken, voegt u dit toe met behulp van de instructie:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
-Vervolgens exemplaar maken van de client:
+Instantieer vervolgens de client:
 ```
 var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-De client gebruiken om te zoeken met de tekst van een query:
+Gebruik de client om te zoeken met een querytekst:
 ```
 var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
 Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
 
 ```
-Parseren van het nieuws geretourneerd in de resultaten van de vorige query:
+Parseer het nieuws dat is geretourneerd in de resultaten van de vorige query:
 ```
 if (newsResults.Value.Count > 0)
 {
@@ -71,9 +71,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
 
-De volgende consoletoepassing wordt de eerder gedefinieerde query uitgevoerd en zoekt dat nieuws 'Quantum Computing'. De aanvraag bevat `market` en `count` parameters. De code controleert of het aantal resultaten en wordt aangegeven `totalEstimatedMatches`, `name`, `url`, `description`, `published time` en `name` van `provider` voor het eerste nieuws resultaat.
+De volgende consoletoepassing voert de eerder gedefinieerde query uit en zoekt naar nieuws voor 'Quantum Computing'. De aanvraag bevat de parameters `market` en `count`. De code controleert het aantal resultaten en geeft `totalEstimatedMatches`, `name`, `url`, `description`, `published time` en `name` van `provider` weer voor het eerste nieuwsresultaat.
 
 ```
 using System;
@@ -136,8 +136,8 @@ namespace NewsSrchSDK
 }
 
 ```
-## <a name="recent-news-freshness-and-sortby-parameters"></a>Recente nieuws, versheid en sortBy parameters
-De volgende code meest recente nieuws voor 'Kunstmatige Intelligence' zoekopdrachten met `freshness` en `sortBy` parameters. Het aantal resultaten worden gecontroleerd en wordt afgedrukt `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, en `name` van resultaat van de eerste nieuws-provider.
+## <a name="recent-news-freshness-and-sortby-parameters"></a>De parameters voor recent nieuws, nieuwheid en sortBy
+De volgende code zoekt naar het meest recente nieuws voor 'Artificial Intelligence' met de parameters `freshness` en `sortBy`. De code controleert het aantal resultaten en geeft `totalEstimatedMatches`, `name`, `url`, `description`, `published time` en `name` weer voor de provider voor het eerste nieuwsresultaat.
 ```
         public static void NewsSearchWithFilters(NewsSearchAPI client)
         {
@@ -179,8 +179,8 @@ De volgende code meest recente nieuws voor 'Kunstmatige Intelligence' zoekopdrac
 
 ```
 
-## <a name="category-news-safe-search"></a>Categorie nieuws, veilig zoeken
-De volgende code zoekt categorie nieuws voor film en TV entertainment met veilige search.  Het aantal resultaten worden gecontroleerd en wordt afgedrukt `category`, `name`, `url`, `description`, `published time`, en `name` van resultaat van de eerste nieuws-provider.
+## <a name="category-news-safe-search"></a>Nieuwscategorie, veilig zoeken
+De volgende code doorzoekt de nieuwscategorieën voor films en tv-entertainment met veilig zoeken.  De code controleert het aantal resultaten en geeft `category`, `name`, `url`, `description`, `published time` en `name` weer voor de provider voor het eerste nieuwsresultaat.
 ```
         public static void NewsCategory(NewsSearchAPI client)
         {
@@ -221,8 +221,8 @@ De volgende code zoekt categorie nieuws voor film en TV entertainment met veilig
         }
 
 ```
-## <a name="trending-topics"></a>Trends onderwerpen
-De volgende code zoekt nieuws trends onderwerpen in Bing. Het aantal resultaten worden gecontroleerd en wordt afgedrukt `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, en `image.Url` resultaat van de eerste nieuws.
+## <a name="trending-topics"></a>Trending onderwerpen
+De volgende code doorzoekt trending nieuwsonderwerpen in Bing. De code controleert het aantal resultaten en geeft `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` en `image.Url` weer voor het eerste nieuwsresultaat.
 ```
         public static void TrendingTopics(NewsSearchAPI client)
         {
@@ -265,4 +265,4 @@ De volgende code zoekt nieuws trends onderwerpen in Bing. Het aantal resultaten 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

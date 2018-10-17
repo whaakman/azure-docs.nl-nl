@@ -1,42 +1,43 @@
 ---
-title: Java-Snelstartgids voor Azure cognitieve Services, Bing nieuws Search API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing nieuws zoeken-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstartgids: Bing Nieuws zoeken-API, Java'
+titlesuffix: Azure Cognitive Services
+description: Informatie en codevoorbeelden om snel aan de slag te gaan met de Bing Nieuws zoeken-API in Microsoft Cognitive Services in Azure.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 15d0f6490a517466036d3caba1058cfefa551321
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345567"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803627"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-java"></a>Quick Start voor Bing nieuws zoekopdracht API met Java
+# <a name="quickstart-for-bing-news-search-api-with-java"></a>Snelstartgids voor Bing Nieuws zoeken-API met Java
 
-Dit artikel ziet u hoe de Bing zoeken-API, onderdeel van Microsoft cognitieve Services in Azure gebruiken. Hoewel dit artikel de veiligheidsmaatregelen voor Java, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+In dit artikel wordt beschreven hoe u de Bing Zoeken-API gebruikt, die onderdeel vormt van Microsoft Cognitive Services in Azure. Hoewel in dit artikel Java wordt geïmplementeerd, is de API een RESTful-webservice die compatibel is met elke programmeertaal die HTTP-aanvragen kan doen en JSON kan parseren. 
 
-De voorbeeldcode is geschreven voor uitvoering van Java 7 als een consoletoepassing.
+De voorbeeldcode is geschreven om als consoletoepassing te worden uitgevoerd onder Java 7.
 
-Raadpleeg de [API-referentiemateriaal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) voor technische informatie over de API's.
+Raadpleeg de [API-referentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) voor technische informatie over de API's.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing Zoeken-API’s**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is voldoende voor deze quickstart. U hebt de toegangssleutel nodig die wordt verstrekt bij het activeren van uw gratis proefversie of de sleutel van een betaald abonnement vanuit uw Azure-dashboard.
 
-## <a name="bing-news-search"></a>Bing nieuws zoeken
+## <a name="bing-news-search"></a>Bing Nieuws zoeken
 
-De [Bing nieuws Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) nieuwsresultaten retourneert uit de Bing zoekmachine.
+Met de [Bing Nieuws zoeken-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) worden nieuwsresultaten geretourneerd uit de zoekmachine van Bing.
 
-1. Downloaden en installeren de [gson bibliotheek](https://github.com/google/gson).
-2. Maak een nieuwe Java-project in uw favoriete IDE of -editor.
-3. Voeg de code hieronder.
-4. Vervang de `subscriptionKey` waarde met een geldige toegangssleutel voor uw abonnement.
-5. Voer het programma.
+1. Download of installeer de [gson-bibliotheek](https://github.com/google/gson).
+2. Maak een nieuw Java-project in uw favoriete IDE of editor.
+3. Voeg de onderstaande code toe.
+4. Vervang de waarde `subscriptionKey` door een geldige toegangssleutel voor uw abonnement.
+5. Voer het programma uit.
 
 ```java
 import java.net.*;
@@ -148,7 +149,7 @@ class SearchResults{
 
 **Antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld:
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld:
 
 ```json
 {
@@ -245,8 +246,8 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Paginering nieuws](paging-news.md)
-> [decoration markeringen tekst markeren met](hit-highlighting.md)
-> [zoeken op het web voor nieuws](search-the-web.md)   
-> [Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [Bladeren door nieuws](paging-news.md)
+> [Decoratiemarkeringen gebruiken voor het markeren van tekst](hit-highlighting.md)
+> [Op internet zoeken naar nieuws](search-the-web.md)   
+> [Proberen](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
 

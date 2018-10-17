@@ -1,41 +1,42 @@
 ---
-title: Knooppunt Quick Start voor Microsoft cognitieve Services, Project antwoord zoeken | Microsoft Docs
-description: Aan de slag met zoeken in de Project-antwoord, cognitieve Microsoft-Services in Azure.
+title: 'Snelstart: Project Answer Search, Node'
+description: Aan de slag te gaan met Project Answer Search en Node.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 36b2709d39230aae7929164ba4c9306f57043b43
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 99dba482c9dec4448110301201c7c9e79a7a6380
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345271"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867422"
 ---
-# <a name="project-answer-search-node-quickstart"></a>Project antwoord zoeken knooppunt Quick Start
+# <a name="quickstart-project-answer-search-with-node"></a>Snelstart: Project Answer Search met Node
 
-Het volgende voorbeeld wordt een query voor informatie over Yosemite National Park.
+In het volgende Node-voorbeeld wordt een query gemaakt voor informatie over Yosemite National Park.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Vraag een toegangssleutel aan voor de gratis proefversie van [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
-In dit voorbeeld wordt een knooppunt v8.9.4
+In dit voorbeeld wordt Node v8.9.4 gebruikt
 
-## <a name="code-scenario"></a>Code-scenario 
+## <a name="code-scenario"></a>Codescenario 
 
-De volgende code haalt antwoorden.
-Deze is geïmplementeerd in de volgende stappen uit:
-1. Declareer de variabelen opgeven van het eindpunt van de host en pad.
-2. Geef de URL van de query voor de preview en voeg de queryparameter.  
+Met de volgende code worden antwoorden verkregen.
+De code wordt geïmplementeerd in de volgende stappen:
+1. Declareer variabelen om het eindpunt op te geven met een host en pad.
+2. Geef de query-URL op waarvan u een voorbeeld wilt maken en voeg de queryparameter toe.  
 3. Maak een handlerfunctie voor het antwoord.
-4. Definieer de zoekfunctie die de aanvraag wordt gemaakt en wordt de *Ocp-Apim-Subscription-Key* header.
-5. Voer de zoekfunctie. 
+4. Definieer de Search-functie die de aanvraag maakt en de header *Ocp-Apim-Subscription-Key* toevoegt.
+5. Voer de Search-functie uit. 
 
-De volledige code voor deze demo volgt:
+Dit is de volledige code voor deze demo:
 
 ````
 'use strict';
@@ -87,6 +88,6 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-- [C#-voorbeeldcode](c-sharp-quickstart.md)
-- [Java-Quick Start](java-quickstart.md)
+- [Voorbeeldcode van C#](c-sharp-quickstart.md)
+- [Snelstartgids voor Java](java-quickstart.md)
 - [Snelstartgids voor Python](python-quickstart.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346185"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078491"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Zelfstudie: Een toepassing met een ASP.NET Core web-API front-endservice en een stateful back-endservice maken en implementeren
 
@@ -40,13 +40,13 @@ In deze zelfstudiereeks leert u het volgende:
 > * Een .NET Service Fabric-toepassing bouwen
 > * [De toepassing implementeren in een extern cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Een HTTPS-eindpunt toevoegen aan een front-endservice van ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [CI/CD configureren met behulp van Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [CI/CD configureren met behulp van Azure-pijplijnen](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Controle en diagnostische gegevens voor de toepassing instellen](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor u met deze zelfstudie begint:
-* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Installeer Visual Studio 2017](https://www.visualstudio.com/) versie 15.5 of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET-ontwikkeling- en webontwikkelingsworkloads**.
 * [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
 
@@ -455,6 +455,9 @@ In deze stap verbindt u de twee services en zorgt u dat de front-endwebtoepassin
 Service Fabric biedt volledige flexibiliteit in hoe u met betrouwbare services communiceert. Binnen één toepassing hebt u mogelijk services die toegankelijk zijn via TCP. Andere services die mogelijk toegankelijk zijn via een HTTP REST-API en nog andere services kunnen toegankelijk zijn via websockets. Zie [Communiceren met services](service-fabric-connect-and-communicate-with-services.md) voor achtergrondinformatie over de beschikbare opties en betrokken afwegingen.
 
 In deze zelfstudie worden [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) en de [omgekeerde proxy van Service Fabric](service-fabric-reverseproxy.md) gebruikt, zodat de front-endwebservice VotingWeb kan communiceren met de back-endgegevensservice VotingData. De omgekeerde proxy is standaard geconfigureerd voor gebruik van poort 19081 en werkt voor deze zelfstudie. De poort is ingesteld in de ARM-sjabloon die wordt gebruikt voor het instellen van het cluster. Als u wilt weten welke poort er wordt gebruikt, zoekt u in de clustersjabloon in de resource **Microsoft.ServiceFabric/clusters** of bekijkt u het element HttpApplicationGatewayEndpoint in het cluster Manifest.
+
+> [!NOTE]
+> De omgekeerde proxy wordt alleen ondersteund op een cluster met Windows 8 en hoger of Windows Server 2012 en hoger.
 
 <u>Resource Microsoft.ServiceFabric/clusters reverseProxyEndpointPort</u>
 

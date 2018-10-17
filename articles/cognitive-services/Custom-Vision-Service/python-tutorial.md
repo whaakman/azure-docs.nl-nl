@@ -1,58 +1,59 @@
 ---
-title: Maak een Custom Vision Service Python-zelfstudie - Azure Cognitive Services | Microsoft Docs
-description: Verken een Python-app die gebruikmaakt van de aangepaste Vision-API in Microsoft Cognitive Services. Een project maakt, tags toevoegen, afbeeldingen uploaden, trainen van uw project en een voorspelling met behulp van de standaardeindpunt.
+title: 'Zelfstudie: Een afbeeldingsclassificatieproject maken: Custom Vision Service, Python'
+titlesuffix: Azure Cognitive Services
+description: Maak een project, voeg tags toe, upload afbeeldingen, train uw project en doe een voorspelling met behulp van het standaardeindpunt.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: df0bdc0bbd2768566336323851f366c9ae280a88
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301596"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363374"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Aangepaste Vision API Python-zelfstudie
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Zelfstudie: Een afbeeldingsclassificatieproject maken met behulp van de Custom Vision Service met Python
 
-Informatie over het maken van een installatiekopie van classificatie-project met de Custom Vision Service en een eenvoudige Python-script. Nadat deze gemaakt, kunt u labels toevoegen, afbeeldingen uploaden, trainen van het project, van het project standaard voorspelling eindpunt-URL ophalen en gebruiken om te testen via een programma van een installatiekopie. In dit voorbeeld open-source als sjabloon gebruiken voor het bouwen van uw eigen app met behulp van de aangepaste Vision-API.
+Lees hoe u een afbeeldingsclassificatieproject kunt maken met behulp van de Custom Vision Service en een eenvoudig Python-script. Wanneer u het project hebt gemaakt, kunt u tags toevoegen, afbeeldingen uploaden, het project trainen, de standaardeindpunt-URL voor voorspellingen ophalen en deze gebruiken om afbeeldingen programmatisch te testen. Gebruik dit open-source voorbeeld als sjabloon voor het bouwen van uw eigen app met behulp van de Custom Vision-API.
 
 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
-- Python 2.7 + of Python 3.5 +.
-- De pip-hulpprogramma.
+- Python 2.7+ of Python 3.5+.
+- Het pip-hulpprogramma.
 
-## <a name="get-the-training-and-prediction-keys"></a>Ophalen van de sleutels trainen en voorspellen
+## <a name="get-the-training-and-prediction-keys"></a>De training en voorspellingssleutels ophalen
 
-Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [Custom Vision webpagina](https://customvision.ai) en selecteer de __tandwielpictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
+Als u de sleutels wilt ophalen die in dit voorbeeld worden gebruikt, gaat u naar de [Custom Vision-webpagina](https://customvision.ai) en selecteert u het __tandwielpictogram__ in de rechterbovenhoek. In de sectie __Accounts__ kopieert u de waarden uit de velden __Trainingssleutel__ en __Voorspellingssleutel__.
 
 ![Afbeelding van de gebruikersinterface van de sleutels](./media/python-tutorial/training-prediction-keys.png)
 
-## <a name="install-the-custom-vision-service-sdk"></a>De Custom Vision Service SDK installeren
+## <a name="install-the-custom-vision-service-sdk"></a>De Custom Vision Service-SDK installeren
 
-Gebruik de volgende opdracht voor het installeren van de Custom Vision Service SDK:
+Als u de Custom Vision Service-SDK wilt installeren, gebruikt u de volgende opdracht:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-## <a name="get-example-images"></a>Voorbeeld van de afbeeldingen ophalen
+## <a name="get-example-images"></a>Voorbeeldafbeeldingen
 
-In dit voorbeeld wordt de installatiekopieën van de `Samples/Images` map van de [ https://github.com/Microsoft/Cognitive-CustomVision-Windows ](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) project. Klonen of downloaden en uitpakken van het project naar uw ontwikkelomgeving.
+In dit voorbeeld worden de afbeeldingen uit de `Samples/Images`-directory van het [https://github.com/Microsoft/Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images)-project gebruikt. Kloon of download en extraheer het project in uw ontwikkelingsomgeving.
 
-## <a name="create-a-custom-vision-service-project"></a>Maak een project Custom Vision Service
+## <a name="create-a-custom-vision-service-project"></a>Een Custom Vision Service-project maken
 
-Voor het maken van een nieuw project voor Custom Vision Service, maakt u nieuwe bestand met de naam `sample.py`. Gebruik de volgende code als de inhoud van het bestand:
+Als u een nieuw Custom Vision Service-project wilt maken, maakt u een nieuw bestand met de naam `sample.py`. Gebruik de volgende code als de bestandsinhoud:
 
 > [!IMPORTANT]
-> Stel de `training_key` aan de training-sleutelwaarde die u eerder hebt opgehaald.
+> Stel de `training_key` in op de trainingssleutelwaarde die u eerder hebt opgehaald.
 >
-> Stel de `prediction_key` voor de voorspelling-sleutelwaarde die u eerder hebt opgehaald.
+> Stel de `prediction_key` in op de voorspellingssleutelwaarde die u eerder hebt opgehaald.
 
 ```python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -71,7 +72,7 @@ project = trainer.create_project("My Project")
 
 ## <a name="add-tags-to-your-project"></a>Tags toevoegen aan uw project
 
-Tags toevoegen aan uw project, kunt u de volgende code toevoegen aan het einde van de `sample.py` bestand:
+Voeg de volgende code toe aan het eind van het bestand `sample.py` om tags aan uw project toe te voegen:
 
 ```python
 # Make two tags in the new project
@@ -81,11 +82,11 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ## <a name="upload-images-to-the-project"></a>Afbeeldingen uploaden naar het project
 
-Als u wilt de voorbeeldafbeeldingen toevoegen aan het project, voeg de volgende code na het maken van de tag. Deze code wordt de installatiekopie met de bijbehorende code geüpload:
+Als u de voorbeeldafbeeldingen aan het project wilt toevoegen, voegt u de volgende code in nadat u de tag hebt gemaakt. Met deze code wordt de afbeelding met de overeenkomstige tag geüpload:
 
 > [!IMPORTANT]
 >
-> Pad naar de installatiekopieën op basis van waar u het Cognitive-CustomVision-Windows-project eerder hebt gedownload wijzigen.
+> Wijzig het pad naar de afbeeldingen op basis van de locatie waar u het Cognitive-CustomVision-Windows-project eerder hebt gedownload.
 
 ```python
 base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
@@ -117,7 +118,7 @@ for image_num in range(1,10):
 
 ## <a name="train-the-project"></a>Het project trainen
 
-Als u wilt de classificatie trainen, kunt u de volgende code toevoegen aan het einde van de `sample.py` bestand:
+Voeg de volgende code toe aan het eind van het bestand `sample.py` om de classificatie te trainen:
 
 ```python
 import time
@@ -134,9 +135,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Het standaardeindpunt voor de voorspelling gebruiken
+## <a name="get-and-use-the-default-prediction-endpoint"></a>Het standaardeindpunt voor voorspellingen ophalen en gebruiken
 
-Een installatiekopie naar het eindpunt van de voorspelling verzenden en ophalen van de voorspelling, kunt u de volgende code toevoegen aan het einde van de `sample.py` bestand:
+Als u een afbeelding naar het voorspellingseindpunt wilt verzenden en de voorspelling wilt ophalen, voegt u de volgende code toe aan het einde van het `sample.py`-bestand:
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -163,7 +164,7 @@ for prediction in results.predictions:
 
 ## <a name="run-the-example"></a>Het voorbeeld uitvoeren
 
-Voer de oplossing uit. De voorspellingsresultaten op die worden weergegeven in de console.
+Voer de oplossing uit. De voorspellingsresultaten worden in de console weergegeven.
 
 ```
 python sample.py

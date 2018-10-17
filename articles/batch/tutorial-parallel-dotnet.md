@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722810"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815508"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Zelfstudie: Een parallelle workload uitvoeren met Azure Batch met behulp van de .NET API
 
@@ -37,7 +37,7 @@ In deze zelfstudie zet u MP4-mediabestanden parallel om in de MP3-indeling met b
 
 ## <a name="prerequisites"></a>Vereisten
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) of [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) voor Linux, macOS of Windows.
 
 * Een Batch-account en een gekoppeld Azure Storage-account. Raadpleeg de Batch-quickstarts met behulp van [Azure Portal](quick-create-portal.md) of [Azure CLI](quick-create-cli.md) voor instructies voor het maken van deze accounts.
 
@@ -46,7 +46,6 @@ In deze zelfstudie zet u MP4-mediabestanden parallel om in de MP3-indeling met b
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-an-application-package"></a>Een toepassingspakket toevoegen
 
@@ -85,13 +84,18 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 Zorg er ook voor dat de verwijzing naar het toepassingspakket voor ffmpeg in de oplossing overeenkomt met de id en versie van het ffmpeg-pakket dat u hebt geüpload naar uw Batch-account.
 
 ```csharp
 const string appPackageId = "ffmpeg";
 const string appPackageVersion = "3.4";
 ```
+
 ### <a name="build-and-run-the-sample-project"></a>Het voorbeeldproject compileren en uitvoeren
+
+Bouw de toepassing in Visual Studio en voer deze uit. U kunt ook de opdrachtregel gebruiken met de opdrachten `dotnet build` en `dotnet run`. Nadat de toepassing is uitgevoerd, bekijkt u de code voor meer informatie over wat elk onderdeel van de toepassing doet. Dit kan bijvoorbeeld als volgt in Visual Studio:
 
 * Klik met de rechtermuisknop op de oplossing in Solution Explorer en klik op **Build Solution**. 
 
@@ -134,7 +138,7 @@ Wanneer u de toepassing uitvoert in de standaardconfiguratie, bedraagt de uitvoe
 
 ## <a name="review-the-code"></a>De code bekijken
 
-In de volgende secties wordt de voorbeeldtoepassing uitgesplitst in de stappen die ermee worden uitgevoerd om een workload in de Batch-service te verwerken. Bij het lezen van de rest van dit artikel kunt u het best de geopende oplossing in Visual Studio raadplegen omdat niet elke regel in de code van het voorbeeld wordt besproken.
+In de volgende secties wordt de voorbeeldtoepassing uitgesplitst in de stappen die ermee worden uitgevoerd om een workload in de Batch-service te verwerken. Raadpleeg het bestand `Program.cs` in de oplossing terwijl u de rest van dit artikel leest, aangezien niet elke regel met code in het voorbeeld wordt besproken.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob- en Batch-clients verifiëren
 
@@ -143,7 +147,7 @@ Om te kunnen werken met het gekoppelde opslagaccount, gebruikt de app de Azure S
 ```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-StorageAccountName, StorageAccountKey);
+                                StorageAccountName, StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -162,41 +166,43 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 ### <a name="upload-input-files"></a>Invoerbestanden uploaden
 
-De app geeft het object `blobClient` door aan de methode `CreateContainerIfNotExist` om een opslagcontainer voor de invoerbestanden (MP4-indeling) en een container voor de taakuitvoer te maken.
+De app geeft het object `blobClient` door aan de methode `CreateContainerIfNotExistAsync` om een opslagcontainer voor de invoerbestanden (MP4-indeling) en een container voor de taakuitvoer te maken.
 
 ```csharp
-  CreateContainerIfNotExist(blobClient, inputContainerName;
-  CreateContainerIfNotExist(blobClient, outputContainerName);
+CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 Vervolgens worden bestanden geüpload naar de invoercontainer vanuit de lokale map `InputFiles`. De bestanden in de opslag zijn gedefinieerd als Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile)-objecten die Batch later kan downloaden naar rekenknooppunten. 
 
 Twee methoden in `Program.cs` worden gebruikt bij het uploaden van de bestanden:
 
-* `UploadResourceFilesToContainer`: deze methode retourneert een verzameling ResourceFile-objecten en roept intern `UploadResourceFileToContainer` aan om elk bestand te uploaden dat in de parameter `filePaths` wordt doorgegeven.
-* `UploadResourceFileToContainer`: deze methode uploadt elk bestand als een blob naar de invoercontainer. Nadat het bestand is geüpload, haalt deze methode een Shared Access Signature (SAS) voor de blob op en retourneert de methode een ResourceFile-object dat het bestand vertegenwoordigt. 
+* `UploadResourceFilesToContainerAsync`: deze methode retourneert een verzameling ResourceFile-objecten en roept intern `UploadResourceFileToContainerAsync` aan om elk bestand te uploaden dat in de parameter `inputFilePaths` wordt doorgegeven.
+* `UploadResourceFileToContainerAsync`: deze methode uploadt elk bestand als een blob naar de invoercontainer. Nadat het bestand is geüpload, haalt deze methode een Shared Access Signature (SAS) voor de blob op en retourneert de methode een ResourceFile-object dat het bestand vertegenwoordigt. 
 
 ```csharp
-  List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(@"..\..\InputFiles", "*.mp4",
-      SearchOption.TopDirectoryOnly));
+string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 
-  List<ResourceFile> inputFiles = UploadResourceFilesToContainer(
-    blobClient,
-    inputContainerName,
-    inputFilePaths);
+List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
+    SearchOption.TopDirectoryOnly));
+
+List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+  blobClient,
+  inputContainerName,
+  inputFilePaths);
 ```
 
-Voor meer informatie over het uploaden van bestanden als blobs naar een opslagaccount met .NET raadpleegt u [Aan de slag met Azure Blob Storage met behulp van .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Voor meer informatie over het uploaden van bestanden als blobs naar een opslagaccount met .NET raadpleegt u [Blobs uploaden, downloaden en weergeven met behulp van .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Een pool van rekenknooppunten maken
 
-Daarna wordt in het voorbeeld met behulp van een aanroep naar `CreatePoolIfNotExist` een pool van rekenknooppunten in het Batch-account gemaakt. Deze gedefinieerde methode gebruikt de methode [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) om het aantal knooppunten, de VM-grootte en de poolconfiguratie in te stellen. Hier geeft het object [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) een [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) op naar een Windows Server-installatiekopie die is gepubliceerd in de Azure Marketplace. Batch ondersteunt diverse VM-installatiekopieën in de Azure Marketplace, evenals aangepaste VM-installatiekopieën.
+Daarna wordt in het voorbeeld met behulp van een aanroep naar `CreatePoolIfNotExistAsync` een pool van rekenknooppunten in het Batch-account gemaakt. Deze gedefinieerde methode gebruikt de methode [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) om het aantal knooppunten, de VM-grootte en de poolconfiguratie in te stellen. Hier geeft het object [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) een [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) op naar een Windows Server-installatiekopie die is gepubliceerd in de Azure Marketplace. Batch ondersteunt diverse VM-installatiekopieën in de Azure Marketplace, evenals aangepaste VM-installatiekopieën.
 
 Het aantal knooppunten en de VM-grootte worden ingesteld met behulp van gedefinieerde constanten. Batch ondersteunt toegewezen knooppunten en [knooppunten met een lage prioriteit](batch-low-pri-vms.md) en u kunt een of beide gebruiken in uw pools. Toegewezen rekenknooppunten zijn gereserveerd voor uw pool. Knooppunten met een lage prioriteit worden aangeboden tegen een lagere prijs en worden gehaald uit het overschot van de VM-capaciteit in Azure. Knooppunten met een lage prioriteit zijn niet beschikbaar als Azure onvoldoende capaciteit heeft. In het voorbeeld wordt standaard een groep met slechts 5 knooppunten met lage prioriteit gemaakt met de grootte *Standard_A1_v2*. 
 
 De toepassing ffmpeg wordt geïmplementeerd in de rekenknooppunten door een [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) toe te voegen aan de poolconfiguratie. 
 
-Met de [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit)-methode wordt de pool naar de Batch-service verzonden.
+Met de [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync)-methode wordt de pool naar de Batch-service verzonden.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -223,30 +229,30 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
     ApplicationId = appPackageId,
     Version = appPackageVersion}};
 
-pool.Commit();  
+await pool.CommitAsync();  
 ```
 
 ### <a name="create-a-job"></a>Een taak maken
 
-Een Batch-taak (job) geeft een pool op die taken moet uitvoeren en optionele instellingen, zoals een prioriteit en planning voor het werk. In het voorbeeld wordt een job gemaakt met een aanroep naar `CreateJobIfNotExist`. Deze gedefinieerde methode gebruikt de methode [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) om een taak te maken in uw pool. 
+Een Batch-taak (job) geeft een pool op die taken moet uitvoeren en optionele instellingen, zoals een prioriteit en planning voor het werk. In het voorbeeld wordt een job gemaakt met een aanroep naar `CreateJobAsync`. Deze gedefinieerde methode gebruikt de methode [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) om een taak te maken in uw pool. 
 
-De methode [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) verzendt de job naar de Batch-service. De Batch-taak heeft in eerste instantie geen taken.
+Met de [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync)-methode wordt de taak naar de Batch-service verzonden. De Batch-taak heeft in eerste instantie geen taken.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
-    job.Id = JobId;
-    job.PoolInformation = new PoolInformation { PoolId = PoolId };
+job.Id = JobId;
+job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-job.Commit();        
+await job.CommitAsync();
 ```
 
 ### <a name="create-tasks"></a>Taken maken
 
-In het voorbeeld worden taken in de job gemaakt met een aanroep van de methode `AddTasks`, die een lijst met [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask)-objecten maakt. Elke `CloudTask` voert ffmpeg uit om een `ResourceFile`-invoerobject met de eigenschap [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) te verwerken. ffmpeg is eerder geïnstalleerd op elk knooppunt toen de pool werd gemaakt. Hier voert de opdrachtregel ffmpeg uit om elk MP4-invoerbestand (video) te converteren naar een MP3-bestand (audio).
+In het voorbeeld worden taken in de job gemaakt met een aanroep van de methode `AddTasksAsync`, die een lijst met [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask)-objecten maakt. Elke `CloudTask` voert ffmpeg uit om een `ResourceFile`-invoerobject met de eigenschap [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) te verwerken. ffmpeg is eerder geïnstalleerd op elk knooppunt toen de pool werd gemaakt. Hier voert de opdrachtregel ffmpeg uit om elk MP4-invoerbestand (video) te converteren naar een MP3-bestand (audio).
 
 Het voorbeeld maakt een [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile)-object voor het MP3-bestand nadat de opdrachtregel is uitgevoerd. De uitvoerbestanden van elke taak (één in dit geval) worden geüpload naar een container in het gekoppelde opslagaccount met behulp van de eigenschap [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) van de taak.
 
-Vervolgens voegt het voorbeeld taken toe aan de job met de methode [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), die ze in de wachtrij plaatst voor uitvoering op de rekenknooppunten. 
+Vervolgens voegt het voorbeeld taken toe aan de taak met de methode [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), die ze in de wachtrij plaatst voor uitvoering op de rekenknooppunten. 
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -264,7 +270,6 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Create a cloud task (with the task ID and command line) 
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
-   
 
     // Task output file
     List<OutputFile> outputFileList = new List<OutputFile>();
@@ -278,7 +283,8 @@ for (int i = 0; i < inputFiles.Count; i++)
 }
 
 // Add tasks as a collection
-batchClient.JobOperations.AddTask(jobId, tasks);
+await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+return tasks
 ```
 
 ### <a name="monitor-tasks"></a>Taken controleren
@@ -291,21 +297,23 @@ Er zijn veel manieren om de uitvoering van taken te controleren. In dit voorbeel
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
 try
 {
-    batchClient.Utilities.CreateTaskStateMonitor().WaitAll(addedTasks, TaskState.Completed, timeout);
+    await taskStateMonitor.WhenAll(addedTasks, TaskState.Completed, timeout);
 }
 catch (TimeoutException)
 {
-    batchClient.JobOperations.TerminateJob(jobId, failureMessage);
-    Console.WriteLine(failureMessage);
+    batchClient.JobOperations.TerminateJob(jobId);
+    Console.WriteLine(incompleteMessage);
+    return false;
 }
-batchClient.JobOperations.TerminateJob(jobId, successMessage);
+batchClient.JobOperations.TerminateJob(jobId);
+ Console.WriteLine(completeMessage);
 ...
 
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Nadat de taken zijn uitgevoerd, verwijdert de app automatisch de gemaakte invoeropslagcontainer en biedt u de mogelijkheid de Batch-pool en -taak te verwijderen. De klassen [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) en [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) van BatchClient hebben overeenkomstige verwijderingsmethoden, die worden aangeroepen wanneer u de verwijdering bevestigt. Hoewel jobs en taken zelf niet in rekening worden gebracht, worden rekenknooppunten wel in rekening gebracht. Daarom is het raadzaam om pools alleen toe te wijzen als dat nodig is. Wanneer u de pool verwijdert, wordt ook alle taakuitvoer op de knooppunten verwijderd. De invoer- en uitvoerbestanden blijven echter aanwezig in het opslagaccount.
+Nadat de taken zijn uitgevoerd, verwijdert de app automatisch de gemaakte invoeropslagcontainer en biedt u de mogelijkheid de Batch-pool en -taak te verwijderen. De klassen [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) en [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) van BatchClient hebben overeenkomstige verwijderingsmethoden, die worden aangeroepen wanneer u de verwijdering bevestigt. Hoewel jobs en taken zelf niet in rekening worden gebracht, worden rekenknooppunten wel in rekening gebracht. Daarom is het raadzaam om pools alleen toe te wijzen als dat nodig is. Wanneer u de pool verwijdert, wordt ook alle taakuitvoer op de knooppunten verwijderd. De uitvoerbestanden blijven echter aanwezig in het opslagaccount.
 
 Verwijder de resourcegroep, het Batch-account en het opslagaccount wanneer u deze niet meer nodig hebt. Hiervoor selecteert u in Azure Portal de resourcegroep voor het Batch-account en klikt u op **Resourcegroep verwijderen**.
 
@@ -325,4 +333,4 @@ In deze zelfstudie hebt u het volgende geleerd:
 Voor meer voorbeelden van het gebruik van de .NET API om Batch-workloads te plannen en te verwerken raadpleegt u de voorbeelden op GitHub.
 
 > [!div class="nextstepaction"]
-> [C#-voorbeelden voor Batch](https://github.com/Azure/azure-batch-samples/tree/master/CSharp)
+> [C#-voorbeelden voor Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

@@ -1,36 +1,38 @@
 ---
-title: Personalisatie - cognitieve Azure-Services artikel | Microsoft Docs
-description: Een zelfstudie voor het artikel personalisatie met Azure-Service voor het besluit van aangepaste, een cloud-gebaseerde API voor de contextuele besluitvorming.
+title: 'Zelfstudie: Persoonlijke aanpassingen van artikel - Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Een zelfstudie voor persoonlijke aanpassingen van het artikel voor contextuele besluitvorming.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345476"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366332"
 ---
-# <a name="article-personalization"></a>Artikel persoonlijke instellingen
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Zelfstudie: Persoonlijke aanpassingen van het artikel voor contextuele besluitvorming
 
-Deze zelfstudie richt zich op de selectie van artikelen op de voorpagina van een website aanpassen. De aangepaste besluit-Service is van invloed op *meerdere* , bijvoorbeeld een lijst met artikelen op de voorgrond pagina. De pagina is mogelijk een nieuwswebsite die alleen politiek en sport behandelt. Deze drie gerangschikte lijsten met artikelen wilt weergeven: politiek, sport, en recente.
+Deze zelfstudie richt zich op het aanpassen van de selectie artikelen op de eerste pagina van een website. Custom Decision Service is bijvoorbeeld van invloed op *meerdere* lijsten met artikelen op de eerste pagina. De pagina is misschien een nieuwswebsite die alleen over politiek en sport gaat. Er worden drie gerangschikte lijsten met artikelen weergegeven: politiek, sport en recent.
 
-## <a name="applications-and-action-sets"></a>Toepassingen en actie sets
+## <a name="applications-and-action-sets"></a>Toepassingen en actiesets
 
-Ga als volgt aanpassen aan uw scenario in het kader. Stel, we drie toepassingen, één voor elke lijst die wordt geoptimaliseerd: app-politiek, sport-app, en app-recente. Als u de artikelen kandidaat voor elke toepassing, er zijn twee sets van de actie: één voor politiek en één voor sport. De actie die is ingesteld voor app-recente wordt automatisch aangeleverd als een samenvoeging van de andere twee sets.
+Lees hier hoe het scenario in het framework past. Laten we uitgaan van drie toepassingen, één voor elke lijst die wordt geoptimaliseerd: app-politiek, app-sport en app-recent. Er zijn twee actiesets om de mogelijke artikelen voor elke toepassing op te geven: één voor politiek en één voor sport. De actieset voor app-recent ontstaat automatisch door samenvoeging van de andere twee sets.
 
 > [!TIP]
-> Actie sets kunnen worden gedeeld door toepassingen in aangepaste besluit Service.
+> Actiesets kunnen worden gedeeld door toepassingen in Custom Decision Service.
 
-## <a name="prepare-action-set-feeds"></a>Actie set feeds voorbereiden
+## <a name="prepare-action-set-feeds"></a>Actiesetfeeds voorbereiden
 
-Aangepaste besluit Service verbruikt actie sets via RSS- of Atom-feeds door de klant. Bieden van twee feeds: één voor politiek en één voor sport. Stel dat ze worden aangeboden via `http://www.domain.com/feeds/<feed-name>`.
+Custom Decision Service verbruikt actiesets via RSS- of Atom-feeds die door de klant worden geleverd. U levert twee feeds: één voor politiek en één voor sport. Stel dat ze worden aangeleverd vanuit `http://www.domain.com/feeds/<feed-name>`.
 
-Elke feed bevat een lijst met artikelen. In de RSS, elk criterium wordt opgegeven door een `<item>` element als volgt:
+Met elke feed wordt een lijst met artikelen geleverd. In RSS wordt elk artikel als volgt opgegeven door een `<item>`-element:
 
 ```xml
 <rss version="2.0"><channel>
@@ -42,41 +44,41 @@ Elke feed bevat een lijst met artikelen. In de RSS, elk criterium wordt opgegeve
 </channel></rss>
 ```
 
-De volgorde van de artikelen voor u belangrijk is. Hiermee wordt de standaard-volgorde die bij benadering voor hoe de artikelen moeten worden geordend. De standaard-volgorde wordt vervolgens gebruikt voor vergelijking van de prestaties op de [dashboard](#performance-dashboard).
+De volgorde van de artikelen is belangrijk. De standaardvolgorde wordt ingesteld. Dit de beste inschatting van hoe de artikelen moeten worden gerangschikt. De standaardrangschikking wordt vervolgens gebruikt voor een vergelijking van de prestaties op het [dashboard](#performance-dashboard).
 
-Zie voor meer informatie over de feedindeling de [API-referentiemateriaal](custom-decision-service-api-reference.md#action-set-api-customer-provided).
+Zie [API-naslag](custom-decision-service-api-reference.md#action-set-api-customer-provided) voor meer informatie over de feedindeling.
 
-## <a name="register-a-new-app"></a>Een nieuwe app te registreren
+## <a name="register-a-new-app"></a>Een nieuwe app registreren
 
-1. Meld u aan met uw [Microsoft-account](https://account.microsoft.com/account). Klik op het lint op **mijn Portal**.
+1. Meld u aan met uw [Microsoft-account](https://account.microsoft.com/account). Klik op het lint op **Mijn portal**.
 
-2. Voor het registreren van een nieuwe toepassing, klikt u op de **nieuwe App** knop.
+2. Als u een nieuwe toepassing wilt registreren, klikt u op de knop **Nieuwe app**.
 
     ![Custom Decision Service-portal](./media/custom-decision-service-tutorial/portal.png)
 
-3. Voer een unieke naam voor uw toepassing in de **App-ID** in het tekstvak. Als deze naam al gebruikt door een andere klant wordt, wordt u gevraagd u kiest een andere app-ID. Selecteer de **Geavanceerd** en voer de [verbindingsreeks](../../storage/common/storage-configure-connection-string.md) voor uw Azure storage-account. Normaal gesproken u hetzelfde opslagaccount gebruiken voor al uw toepassingen.
+3. Typ een unieke naam voor uw toepassing in het vak **App-id**. Als deze naam al door een andere klant wordt gebruikt, wordt u gevraagd een andere app-id te kiezen. Schakel het selectievakje **Geavanceerd** in en voer de [verbindingsreeks](../../storage/common/storage-configure-connection-string.md) voor uw Azure Storage-account in. Normaal gesproken gebruikt u hetzelfde opslagaccount voor al uw toepassingen.
 
     ![Dialoogvenster Nieuwe app](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
-    Nadat u alle drie de toepassingen in het bovenstaande scenario hebt geregistreerd, worden ze weergegeven:
+    Nadat u in dit scenario alle drie de toepassingen hebt geregistreerd, worden ze weergegeven:
 
     ![Lijst met apps](./media/custom-decision-service-tutorial/apps.png)
 
-    U kunt later terugkeren naar deze lijst door te klikken op de **Apps** knop.
+    U kunt later terugkeren naar deze lijst door op de knop **Apps** te klikken.
 
-4. In de **nieuwe App** dialoogvenster geeft u een actie-feed. Actie-feeds kunnen ook worden opgegeven door te klikken op de **Feeds** knop en door te klikken op de **nieuw kanaal** knop. Voer een **naam** voor de nieuwe feed, voert u de **URL** dat zij worden geleverd en voer de **vernieuwen tijd**. De vernieuwingstijd geeft aan hoe vaak aangepaste besluit Service de feed moet vernieuwen.
+4. Geef in het dialoogvenster **Nieuwe app** een actiefeed op. Actiefeeds kunnen ook worden opgegeven door te klikken op de knop **Feeds** en vervolgens op de knop **Nieuwe feed**. Typ een **naam** voor de nieuwe feed, typ de **URL** waarvandaan wordt geleverd en typ de **vernieuwingstijd**. Met de vernieuwingstijd wordt opgegeven hoe vaak Custom Decision Service de feed moet vernieuwen.
 
-    ![Dialoogvenster nieuwe feed](./media/custom-decision-service-tutorial/new-feed-dialog.png)
+    ![Dialoogvenster Nieuwe feed](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
-    Actie-feeds kunnen worden gebruikt door een willekeurige app, ongeacht waar ze zijn opgegeven. Nadat u beide feeds actie in een scenario opgeeft, worden deze weergegeven:
+    Actiefeeds kunnen worden gebruikt door elke willekeurige app, ongeacht waar deze wordt opgegeven. Nadat u beide actiefeeds in een scenario hebt opgegeven, worden ze weergegeven:
 
     ![Lijst met feeds](./media/custom-decision-service-tutorial/feeds.png)
 
-    U kunt later terugkeren naar deze lijst door te klikken op de **Feeds** knop.
+    U kunt later terugkeren naar deze lijst door op de knop **Feeds** te klikken.
 
-## <a name="use-the-apis"></a>Gebruik de API 's
+## <a name="use-the-apis"></a>De API's gebruiken
 
-De beslissing aangepaste Service rang artikelen via de API positie. Voeg de volgende code in de HTML-kop van de front-pagina voor het gebruik van deze API:
+Custom Decision Service rangschikt artikelen via de Ranking-API. Voeg voor het gebruik van deze API de volgende code in de HTML-kop van de eerste pagina in:
 
 ```html
 <!-- Define the "callback function" to render UI -->
@@ -89,7 +91,7 @@ De beslissing aangepaste Service rang artikelen via de API positie. Voeg de volg
 <!-- NB: action feeds for 'app-recent' are listed one after another. -->
 ```
 
-Het HTTP-antwoord van de API rangschikking is een tekenreeks JSONP-indeling. Voor app-politiek, bijvoorbeeld de tekenreeks ziet eruit als:
+Het HTTP-antwoord van de Ranking-API is een tekenreeks in JSONP-indeling. Voor app-politiek bijvoorbeeld ziet de tekenreeks er als volgt uit:
 
 ```json
 callback({
@@ -99,14 +101,14 @@ callback({
    "actionSets":[{"id":"feed-politics","lastRefresh":"date"}] });
 ```
 
-De browser voert deze tekenreeks als een aanroep van de `callback()` functie. De `data` argument in de `callback()` functie bevat de app-ID en de volgorde van URL's moet worden gerenderd. In het bijzonder `callback()` moet gebruiken `data.appId` onderscheid maken tussen de drie toepassingen. `eventId` wordt intern gebruikt door aangepaste besluit Service overeenkomen met de opgegeven positie met de bijbehorende Klik, indien van toepassing.
+Deze tekenreeks wordt vervolgens in de browser uitgevoerd als een aanroep naar de functie `callback()`. Het argument `data` in de functie `callback()` bevat de app-id en de weer te geven rangschikking van URL's. `callback()` moet met name `data.appId` gebruiken om onderscheid te maken tussen de drie toepassingen. `eventId` wordt intern door Custom Decision Service gebruikt om de geleverde rangschikking te koppelen aan de bijbehorende klik, indien van toepassing.
 
 > [!TIP]
-> `callback()` wellicht controleren elke actie feed voor nieuwheid met behulp van de `lastRefresh` veld. Als een bepaalde feed niet voldoende vers is `callback()` kunt negeren van de opgegeven volgorde, deze feed rechtstreeks aanroepen en de standaard volgorde geleverd door de feed gebruiken.
+> `callback()` kan elke actiefeed op nieuwheid controleren met behulp van het veld `lastRefresh`. Als een bepaalde feed niet nieuw genoeg is, kan `callback()` de geleverde rangschikking negeren, deze feed rechtstreeks aanroepen en de standaardrangschikking gebruiken die wordt geleverd door de feed.
 
-Zie voor meer informatie over specificaties en aanvullende opties die worden geleverd door de API rangschikking de [API-referentiemateriaal](custom-decision-service-api-reference.md).
+Zie de [API-naslag](custom-decision-service-api-reference.md) voor meer informatie over specificaties en extra opties die door de Ranking-API worden geleverd.
 
-De keuzes best gewaardeerd artikel van de gebruiker worden geretourneerd door de derden-API aanroept. Wanneer een keuze best gewaardeerd artikel wordt ontvangen, moet de volgende code worden aangeroepen op de front-pagina:
+De best gewaardeerde artikelen van de gebruiker worden geretourneerd door de Beloning-API aan te roepen. Wanneer een van deze best gewaardeerde artikelen wordt ontvangen, moet de volgende code worden aangeroepen op de eerste pagina:
 
 ```javascript
 $.ajax({
@@ -115,7 +117,7 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Met behulp van `appId` en `eventId` vereist in de code voor de afhandeling van Klik zorgvuldig te werk gaan. U kunt bijvoorbeeld implementeren de `callback()` werkt als volgt:
+Bij het gebruik van `appId` en `eventId` in de code voor de verwerking van klikken moet zorgvuldig te werk worden gegaan. U kunt de functie `callback()` bijvoorbeeld als volgt implementeren:
 
 ```javascript
 function callback(data) {
@@ -133,8 +135,8 @@ function callback(data) {
 }}
 ```
 
-In dit voorbeeld implementeert de `render()` functie voor het weergeven van een bepaald artikel voor een bepaalde toepassing. Deze functie, ingevoerd door de app-ID en het artikel (in de indeling van de positie API). De `onClick` parameter is de functie die moet worden aangeroepen vanuit `render()` voor het afhandelen van een klik. Controleert deze of de Klik op de bovenste sleuf. Vervolgens roept de API van derden met de juiste app-ID en de gebeurtenis-ID.
+In dit voorbeeld implementeert u de functie `render()` om een bepaald artikel voor een bepaalde toepassing weer te geven. Met deze functie worden de app-id en het artikel (in de indeling van de Ranking-API) ingevoerd. De parameter `onClick` is de functie die moet worden aangeroepen vanuit `render()` om een klik te verwerken. Er wordt gecontroleerd of de klik zich in het belangrijkste tijdvak bevindt. Vervolgens wordt de Beloning-API met de juiste app-id en gebeurtenis-id aangeroepen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Raadpleeg de [API-referentiemateriaal](custom-decision-service-api-reference.md) voor meer informatie over de functionaliteit voor opgegeven.
+* Raadpleeg de [API-naslag](custom-decision-service-api-reference.md) voor meer informatie over de geleverde functionaliteit.

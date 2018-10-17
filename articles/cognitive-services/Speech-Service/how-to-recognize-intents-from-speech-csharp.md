@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063027"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884330"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Zelfstudie: Intenties van gesproken inhoud herkennen met behulp van de Speech SDK voor C#
 
@@ -123,7 +123,7 @@ In de volgende secties wordt dieper ingegaan op de code.
 De eerste stap bij het herkennen intenties in spraak is het maken van een spraakconfiguratie op basis van de eindpuntsleutel en regio van LUIS. Spraakconfiguraties kunnen worden gebruikt voor het maken van mechanismen voor intentieherkenning voor de verschillende mogelijkheden van de Speech SDK. Er zijn verschillende manieren om in de spraakconfiguratie het abonnement op te geven dat u wilt gebruiken. In dit voorbeeld gebruiken we `FromSubscription`, waarbij de abonnementssleutel en de regio worden opgehaald.
 
 > [!NOTE]
-> Gebruik de sleutel en de regio van uw LUIS-abonnement, niet het Speech-abonnement.
+> Gebruik de sleutel en de regio van uw LUIS-abonnement en niet van een Speech Service-abonnement.
 
 Maak vervolgens een mechanisme voor intentieherkenning met behulp van `new IntentRecognizer(config)`. Aangezien de configuratie al weet welk abonnement moet worden gebruikt, is het niet nodig om de abonnementssleutel en het eindpunt opnieuw op te geven bij het maken van het mechanisme.
 
@@ -166,7 +166,7 @@ Het JSON-resultaat wordt niet geparseerd door de toepassing in de zelfstudie, ma
 
 ## <a name="specify-recognition-language"></a>Herkenningstaal opgeven
 
-Standaard herkent LUIS intenties in het Amerikaans-Engels (`en-us`). U kunt een landinstellingscode toewijzen aan de eigenschap `SpeechRecognitionLanguage` van de spraakconfiguratie om intenties in andere talen te herkennen. Als u bijvoorbeeld `config.SpeechRecognitionLanguage = "de-de";` toevoegt aan onze toepassing voordat u het mechanisme voor intentieherkenning maakt, kunt u intenties in het Duits herkennen. Zie [Ondersteunde talen](supported-languages.md#speech-to-text) voor meer informatie.
+Standaard herkent LUIS intenties in het Amerikaans-Engels (`en-us`). U kunt een landinstellingscode toewijzen aan de eigenschap `SpeechRecognitionLanguage` van de spraakconfiguratie om intenties in andere talen te herkennen. Als u bijvoorbeeld `config.SpeechRecognitionLanguage = "de-de";` toevoegt aan onze toepassing voordat u het mechanisme voor intentieherkenning maakt, kunt u intenties in het Duits herkennen. Zie [Ondersteunde talen](language-support.md#speech-to-text) voor meer informatie.
 
 ## <a name="continuous-recognition-from-a-file"></a>Continue herkenning uit een bestand
 

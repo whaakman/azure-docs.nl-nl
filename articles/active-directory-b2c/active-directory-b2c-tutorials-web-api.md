@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609086"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604337"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Zelfstudie: toegang verlenen aan een web-API van ASP.NET vanuit een web-app met behulp van Azure Active Directory B2C
 
@@ -40,19 +40,13 @@ In deze zelfstudie leert u het volgende:
 
 Web-API-resources moeten worden geregistreerd in uw tenant voordat deze in staat zijn om [beveiligde resourceaanvragen](../active-directory/develop/developer-glossary.md#resource-server) door [clienttoepassingen](../active-directory/develop/developer-glossary.md#client-application) die een [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) van Azure Active Directory aanbieden, kunnen accepteren en erop kunnen reageren. Tijdens de registratie wordt de [toepassing en het service-principal-object](../active-directory/develop/developer-glossary.md#application-object) in uw tenant opgezet. 
 
-1. Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
+Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant gebruikt door hiernaar over te schakelen rechtsboven in de Azure Portal. Selecteer de abonnementsgegevens en selecteer vervolgens **Schakelen tussen mappen**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![Schakelen tussen mappen](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze. U gebruikt nu de tenant die u hebt gemaakt in de vorige zelfstudie.
 
-3. Kies de map met uw tenant.
-
-    ![Map selecteren](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze. U gebruikt nu de tenant die u hebt gemaakt in de vorige zelfstudie.
-
-5. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
+2. Selecteer **Toepassingen** en vervolgens **Toevoegen**.
 
     Gebruik de volgende instellingen voor het registreren van de voorbeeld-web-API in uw tenant.
     
@@ -67,7 +61,7 @@ Web-API-resources moeten worden geregistreerd in uw tenant voordat deze in staat
     | **App-id-URI** | myAPISample | De URI is een unieke identificatie van de API in de tenant. Hierdoor kunt u meerdere API's per tenant registreren. [Bereiken](../active-directory/develop/developer-glossary.md#scopes) bepalen de toegang tot de beveiligde API-resource en worden per app-id-URI gedefinieerd. |
     | **Systeemeigen client** | Nee | Aangezien dit een web-API en geen systeemeigen client is, moet u Nee selecteren. |
     
-6. Klik op **Maken** om uw API te registreren.
+3. Klik op **Maken** om uw API te registreren.
 
 Geregistreerde API's worden weergegeven in de lijst met toepassingen voor de Azure AD B2C-tenant. Selecteer de web-API in de lijst. Het eigenschappenvenster van de web-API wordt weergegeven.
 
@@ -192,7 +186,7 @@ U moet zowel project **TaskWebApp** als **TaskService** uitvoeren.
 5. Druk op **F5** om beide toepassingen uit te voeren. Elke toepassing wordt geopend in zijn eigen browsertabblad. `https://localhost:44316/` is de web-app.
     `https://localhost:44332/` is de web-API.
 
-6. Klik in de web-app op de registratie-/aanmeldkoppeling in de banner met het menu, om u te registeren voor de webtoepassing. Gebruik het account dat u hebt gemaakt in de [zelfstudie over de web-app](active-directory-b2c-tutorials-web-app.md). 
+6. Klik in de web-app op de registratie-/aanmeldkoppeling in de banner met het menu om u te registeren voor de webtoepassing. Gebruik het account dat u hebt gemaakt in de [zelfstudie over de web-app](active-directory-b2c-tutorials-web-app.md). 
 7. Nadat u bent aangemeld, klikt u op de koppeling **Takenlijst** en maakt u een takenlijstitem.
 
 Als u een takenlijstitem maakt, verzendt de web-app een aanvraag naar de web-API om het takenlijstitem te maken. Uw beveiligde web-app roept de beveiligde web-API in uw Azure AD B2C-tenant aan.

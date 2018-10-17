@@ -1,40 +1,41 @@
 ---
-title: Eindpunt aanroepen met behulp van Java - Bing Custom Search - Microsoft Cognitive Services
-description: Deze quickstart laat zien hoe zoekresultaten van uw exemplaar voor aangepast zoeken met behulp van Java om aan te roepen van het eindpunt van de Bing Custom Search aanvraagt.
+title: 'Snelstart: eindpunt aanroepen met behulp van Java - Bing Aangepaste zoekopdrachten'
+titlesuffix: Azure Cognitive Services
+description: Deze snelstart laat zien hoe u zoekresultaten opvraagt bij uw exemplaar voor aangepaste zoekopdrachten door met behulp van Java het eindpunt van Bing Aangepaste zoekopdrachten aan te roepen.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951811"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814109"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Aanroep van Bing Custom Search-eindpunt (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Snelstart: eindpunt van Bing Aangepaste zoekopdrachten aanroepen (Java)
 
-In deze Quick Start laat zien hoe zoekresultaten aanvragen bij uw exemplaar voor aangepast zoeken voor het aanroepen van het eindpunt van de Bing Custom Search met behulp van Java. 
+Deze snelstart laat zien hoe u zoekresultaten opvraagt bij uw exemplaar voor aangepaste zoekopdrachten door met behulp van Java het eindpunt van Bing Aangepaste zoekopdrachten aan te roepen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt het volgende nodig om deze quickstart te voltooien:
 
-- Een exemplaar voor aangepast zoeken van kant-en-klare. Zie [maken van uw eerste exemplaar van de Bing Custom Search](quick-start.md).
-- [Java](https://www.java.com) geïnstalleerd.
-- De abonnementssleutel van een. Krijgt u een abonnementssleutel wanneer u activeert de [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), of kunt u een betaald abonnement-sleutel in uw Azure-dashboard (Zie [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Een exemplaar voor aangepaste zoekopdrachten dat klaar is voor gebruik. Zie [Uw eerste Bing Aangepaste zoekopdrachten-exemplaar maken](quick-start.md) voor meer informatie.
+- [Java](https://www.java.com) moet zijn geïnstalleerd.
+- Een abonnementssleutel. U kunt een abonnementssleutel opvragen wanneer u uw [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) activeert, of u kunt een sleutel voor een betaald abonnement gebruiken uit uw Azure-dashboard (zie [Snelstartgids: Een Cognitive Services-account maken in de Azure-portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>De code uitvoeren
 
-Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
+Volg deze stappen om het voorbeeld uit te voeren:
 
-1. Met behulp van uw Java-IDE naar keuze, maak een pakket.  
+1. Maak een pakket met een Java-ontwikkelomgeving.  
   
-2. Maak een bestand met de naam CustomSrchJava.java in het pakket en kopieer de volgende code naar het. Vervang **uw-SUBSCRIPTION-KEY** en **uw-aangepaste-CONFIG-ID** met uw abonnementssleutel en de configuratie-ID.  
+2. Maak in het pakket een bestand met de naam CustomSrchJava.java en kopieer de volgende code ernaartoe. Vervang **YOUR-SUBSCRIPTION-KEY** en **YOUR-CUSTOM-CONFIG-ID** door uw abonnementssleutel en configuratie-id.  
   
     ```java
     import java.io.InputStream;
@@ -135,6 +136,6 @@ Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
 4. Voer het programma uit.
     
 ## <a name="next-steps"></a>Volgende stappen
-- [Configureren van uw gehoste gebruikersinterface-ervaring](./hosted-ui.md)
-- [Decoration markeringen gebruiken om te markeren van tekst](./hit-highlighting.md)
-- [Pagina webpagina 's](./page-webpages.md)
+- [Gehoste UI-ervaring configureren](./hosted-ui.md)
+- [Decoratiemarkeringen gebruiken om tekst te markeren](./hit-highlighting.md)
+- [Bladeren door webpagina's](./page-webpages.md)
