@@ -116,7 +116,7 @@ Voer de volgende stappen uit om een apparaat in de hypervisor in te richten.
 8. Op de pagina **Netwerk configureren** geeft de virtuele switch op die is verbonden met internet en klikt u op **Volgende**.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
-9. Op de pagina **Virtuele harde schijf aansluiten	** kiest u **Een bestaande virtuele harde schijf gebruiken**, geeft u de locatie op van de installatiekopie van het virtuele apparaat en klikt u op **Volgende**.
+9. Op de pagina **Virtuele harde schijf aansluiten** kiest u **Een bestaande virtuele harde schijf gebruiken**, geeft u de locatie op van de installatiekopie van het virtuele apparaat en klikt u op **Volgende**.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
 10. Controleer de **Samenvatting** en klik op **Voltooien** om de virtuele machine te maken.

@@ -59,7 +59,7 @@ items:
 - name: Voorbeelden
   items:
   - name: Codevoorbeelden
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
+    href: https://azure.microsoft.com/resources/samples/?service=functions
   - name: Azure-CLI
     href: functions-cli-samples.md
   - name: Azure Functions Recipes
@@ -289,10 +289,10 @@ items:
   - name: GitHub-opslagplaats voor Azure Functions
     href: https://github.com/Azure/Azure-Functions/
   - name: Service-updates
-    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 6971effaf321883f3a1f318fa117bc47e71766b7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
+ms.openlocfilehash: 556470698471429e62f040636e38da5bb6d6605d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853620"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363692"
