@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36300907"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364084"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL onderhoud resourceproviderbewerkingen
 
-De SQL-resourceprovider wordt uitgevoerd op een vergrendelde virtuele machine. Om in te schakelen onderhoudsbewerkingen, moet u de beveiliging van de virtuele machine bijwerken. Om dit te doen met behulp van het principe van minimale bevoegdheden, kunt u [PowerShell alleen Enough Administration (JEA)](https://docs.microsoft.com/en-us/powershell/jea/overview) eindpunt *DBAdapterMaintenance*. Het installatiepakket voor de resource-provider bevat een script voor deze bewerking.
+De SQL-resourceprovider wordt uitgevoerd op een vergrendelde virtuele machine. Om in te schakelen onderhoudsbewerkingen, moet u de beveiliging van de virtuele machine bijwerken. Om dit te doen met behulp van het principe van minimale bevoegdheden, kunt u [PowerShell alleen Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) eindpunt *DBAdapterMaintenance*. Het installatiepakket voor de resource-provider bevat een script voor deze bewerking.
 
 ## <a name="patching-and-updating"></a>Patches en updates
 
@@ -53,9 +53,9 @@ Als u wilt de instellingen wijzigen, selecteert u **Bladeren** &gt; **BEHEERDERS
 
 ## <a name="secrets-rotation"></a>Geheimen, rotatie
 
-*Deze instructies zijn alleen van toepassing op Azure Stack geïntegreerde systemen versie 1804 en Later. Probeer niet om te roteren geheimen in de pre-1804 Azure Stack-versies.*
+*Deze instructies zijn alleen van toepassing op Azure Stack-geïntegreerde systemen.*
 
-Wanneer met behulp van de resourceproviders SQL- en MySQL met Azure Stack-systemen geïntegreerde, kunt u de volgende infrastructuur (implementatie)-geheimen draaien:
+Wanneer met behulp van de resourceproviders SQL- en MySQL met Azure Stack-systemen geïntegreerde, is de Azure Stack-operators verantwoordelijk voor het draaien van de volgende resource provider infrastructuur geheimen om ervoor te zorgen dat ze niet verloopt:
 
 - Externe SSL-certificaat [opgegeven tijdens de implementatie](azure-stack-pki-certs.md).
 - Resource provider VM lokale wachtwoord van de beheerder opgegeven tijdens de implementatie.

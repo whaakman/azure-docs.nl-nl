@@ -4,22 +4,21 @@ description: Opmerkingen bij de release Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054873"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353779"
 ---
 # <a name="azure-media-services-release-notes"></a>Opmerkingen bij de release Azure Media Services
 Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzichte van vorige versies en bekende problemen samenvatten.
@@ -44,7 +43,7 @@ Deze opmerkingen bij de release voor Azure Media Services wijzigingen ten opzich
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versiegeschiedenis van REST-API
-Zie voor meer informatie over de geschiedenis van Media Services REST API-versie, de [Azure Media Services REST API-verwijzingen].
+Zie voor meer informatie over de geschiedenis van Media Services REST API-versie, de [Azure Media Services REST API-naslaginformatie].
 
 ## <a name="july-2018"></a>Juli 2018
 
@@ -534,9 +533,6 @@ De volgende functionaliteit is nieuw in de release van November van de SDK:
   
     * Asynchrone ondersteuning is toegevoegd aan alle methoden.
 
-## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Feedback geven
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
@@ -546,7 +542,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK:
 
 <!--- URLs. --->
 [Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Azure Media Services REST API-verwijzingen]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+[Azure Media Services REST API-naslaginformatie]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Details over de prijzen van Media Services]: http://azure.microsoft.com/pricing/details/media-services/
 [Invoermetagegevens]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Uitvoermetagegevens]: http://msdn.microsoft.com/library/azure/dn783217.aspx

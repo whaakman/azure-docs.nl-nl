@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2451e8019780fee6f76a2de6658c3d5541db35b9
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ced100f0bdd20841648ca84dfcab1847bdcd3096
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310604"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362480"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Gebruikersgedrag in Azure Active Directory B2C met Application Insights bijhouden
 
@@ -201,6 +201,7 @@ Onmiddellijk *voordat* de `SendClaims` orchestration stap, voegt u een nieuwe st
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AzureInsights-UserSignup" />
   </ClaimsExchanges>
+</OrchestrationStep>
 ```
 
 Onmiddellijk na de `SendClaims` indelingsstap, aanroep `Azure-Insights-SignInComplete`. Deze stap ziet een reis is voltooid.

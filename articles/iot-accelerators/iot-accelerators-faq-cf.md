@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966542"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353738"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Veelgestelde vragen over verbonden Factory-oplossingsversnellers
 
@@ -140,33 +140,21 @@ Als er geen gegevens worden verzonden naar IoT Hub, is er een probleem met de si
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hoe kan ik een interactieve kaart inschakelen in Mijn oplossing voor verbonden Factory?
 
-Als u wilt een interactieve kaart in uw oplossing voor verbonden Factory's inschakelen, moet u een bestaande Bing kaarten-API voor Enterprise-plan hebben.
+Als u wilt een interactieve kaart in uw oplossing voor verbonden Factory's inschakelen, moet u een Azure kaarten-account hebben.
 
-Bij het implementeren van [www.azureiotsolutions.com](http://www.azureiotsolutions.com), het implementatieproces controleert of uw abonnement heeft een ingeschakelde Bing kaarten-API voor Enterprise-plan en een interactieve kaart wordt automatisch wordt geïmplementeerd in de verbonden Factory. Als dit niet het geval is, u kunt nog steeds een interactieve kaart in uw implementatie als volgt inschakelen:
+Bij het implementeren van [www.azureiotsolutions.com](http://www.azureiotsolutions.com), het implementatieproces wordt een Azure kaarten-account toegevoegd aan de resourcegroep met de solution accelerator-services.
 
-Wanneer u implementeert met behulp van de `build.ps1` script in de verbonden Factory-GitHub-opslagplaats en u een Bing kaarten-API voor Enterprise-plan hebt, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in het venster van de build op de querysleutel van uw abonnement. De interactieve kaart wordt automatisch ingeschakeld.
+Wanneer u implementeert met behulp van de `build.ps1` script in de verbonden Factory GitHub-opslagplaats van de omgevingsvariabele `$env:MapApiQueryKey` in het venster bouwen aan de [sleutel van uw Azure kaarten-account](../azure-maps/how-to-manage-account-keys.md). De interactieve kaart wordt automatisch ingeschakeld.
 
-Als u geen Bing kaarten-API voor Enterprise-plan, implementeert u de verbonden Factory-oplossing van [www.azureiotsolutions.com](http://www.azureiotsolutions.com) of met behulp van de `build.ps1` script. Bing kaarten-API voor Enterprise-plan vervolgens toevoegen aan uw abonnement, zoals wordt beschreven [hoe maak ik een Bing kaarten-API voor Enterprise-account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). De querysleutel van dit account opzoeken, zoals wordt beschreven [het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) en sla deze sleutel. Navigeer naar de Azure-portal en toegang tot de resource App Service in uw verbonden Factory-implementatie. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **App-instellingen**. Stel de **MapApiQueryKey** aan de querysleutel die u hebt verkregen. Sla de instellingen op en navigeer vervolgens naar **overzicht** en de App-Service opnieuw.
+U kunt ook een accountsleutel voor Azure-kaarten toevoegen aan uw oplossingenaccelerator na de implementatie. Navigeer naar de Azure-portal en toegang tot de resource App Service in uw verbonden Factory-implementatie. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **toepassingsinstellingen**. Stel de **MapApiQueryKey** naar de [sleutel van uw Azure kaarten-account](../azure-maps/how-to-manage-account-keys.md). Sla de instellingen op en navigeer vervolgens naar **overzicht** en de App-Service opnieuw.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hoe maak ik een Bing kaarten-API voor Enterprise-account
+### <a name="how-do-i-create-a-azure-maps-account"></a>Hoe maak ik een Azure kaarten-account?
 
-U krijgt een gratis *interne transacties niveau 1 Bing Maps for Enterprise* plan. U kunt echter alleen toevoegen twee van deze abonnementen met een Azure-abonnement. Als u geen Bing kaarten-API voor Enterprise-account hebt, maakt u een in Azure portal door te klikken op **+ een resource maken**. Zoek vervolgens naar **Bing kaarten-API voor Enterprise** en volg de aanwijzingen om het te maken.
+Zie, [over het beheren van uw Azure kaarten-account en sleutels](../azure-maps/how-to-manage-account-keys.md).
 
-![Sleutel voor Bing](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Het ophalen van de sleutel van uw Azure-kaarten-account
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel
-
-Nadat u uw Bing kaarten-API voor Enterprise-plan hebt gemaakt, moet u een Bing Maps voor Enterprise resource toevoegen aan de resourcegroep van uw verbonden Factory-oplossing in Azure portal.
-
-1. Navigeer naar de resourcegroep waarin uw Bing kaarten-API voor Enterprise-plan in de Azure-portal.
-
-1. Klik op **alle instellingen**, klikt u vervolgens **Sleutelbeheer**.
-
-1. Er zijn twee sleutels: **hoofdsleutel** en **querysleutel**. Kopieer de **querysleutel** waarde.
-
-1. De sleutel die is opgehaald door de `build.ps1` script, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in uw PowerShell-omgeving naar de **querysleutel** van uw abonnement. De build-script vervolgens automatisch wordt toegevoegd de waarde in de instellingen van de App Service.
-
-1. Uitvoeren van een lokaal of in de cloud implementeren met behulp van de `build.ps1` script.
+Zie, [over het beheren van uw Azure kaarten-account en sleutels](../azure-maps/how-to-manage-account-keys.md).
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Hoe schakel de interactieve kaart lokaal opsporen van fouten?
 

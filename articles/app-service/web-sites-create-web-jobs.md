@@ -4,7 +4,7 @@ description: Informatie over het gebruik van WebJobs voor achtergrondtaken uitvo
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577674"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364027"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
 
@@ -37,14 +37,14 @@ Azure Functions biedt een andere manier om uit te voeren programma's en scripts.
 De volgende tabel beschrijft de verschillen tussen *continue* en *geactiveerd* WebJobs.
 
 
-|Doorlopend  |Geactiveerd  |
+|Continu  |Geactiveerd  |
 |---------|---------|
 | Begint onmiddellijk wanneer de webtaak wordt gemaakt. Het programma of script, doet om te voorkomen dat de taak beëindigen, gewoonlijk zijn werk binnen een oneindige lus. Als de taak eindigt, kunt u deze opnieuw starten. | Wordt alleen gestart als geactiveerd handmatig of volgens een schema. |
 | Wordt uitgevoerd op alle exemplaren die de web-app wordt uitgevoerd op. U kunt eventueel de webtaak beperken tot één exemplaar. |Wordt uitgevoerd op een enkele instantie die door Azure wordt geselecteerd voor de taakverdeling.|
 | Biedt ondersteuning voor foutopsporing op afstand. | Biedt geen ondersteuning voor foutopsporing op afstand.|
 
 > [!NOTE]
-> Een web-app kan een time-out na 20 minuten van inactiviteit. Alleen aanvragen naar de scm (implementatie)-site of naar de web-app-pagina's in de portal opnieuw instellen van de timer. Aanvragen naar de werkelijke site herstellen niet voor de timer. Als uw app wordt uitgevoerd op een continue of geplande webtaken inschakelen **Always On** om ervoor te zorgen dat de webtaken betrouwbaar uit te voeren. Deze functie is alleen beschikbaar in de Basic, Standard en Premium [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+> Een web-app kan een time-out na 20 minuten van inactiviteit. Alleen aanvragen naar de werkelijke web-app opnieuw instellen van de timer. Configuratie van de app bekijken in Azure portal of die aanvragen verzonden naar de site geavanceerde hulpmiddelen (https:// < app_name >. scm.azurewebsites.net) niet herstellen voor de timer. Als uw app wordt uitgevoerd op een continue of geplande webtaken inschakelen **Always On** om ervoor te zorgen dat de webtaken betrouwbaar uit te voeren. Deze functie is alleen beschikbaar in de Basic, Standard en Premium [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="acceptablefiles"></a>Ondersteunde bestandstypen voor scripts of programma 's
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
    | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het bestand uitvoerbaar bestand of script, evenals alle ondersteunende bestanden die nodig zijn voor het programma of script uitvoeren. De ondersteunde typen voor uitvoerbaar bestand of script bestand worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Doorlopend | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Type** | Continu | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
    | **Schalen** | Meerdere exemplaren | Alleen beschikbaar voor doorlopende webtaken. Bepaalt of het programma of script wordt uitgevoerd op alle exemplaren of slechts één exemplaar. De mogelijkheid om te worden uitgevoerd op meerdere exemplaren niet van toepassing op gratis of gedeeld [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Klik op **OK**.

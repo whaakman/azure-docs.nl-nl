@@ -11,17 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092866"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351912"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions gebruiken voor het verbinding maken met een Azure SQL Database
 Dit onderwerp ziet u hoe u Azure Functions gebruiken voor het maken van een geplande taak opschonen van rijen in een tabel in een Azure SQL Database. De nieuwe C#-scriptfunctie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in Azure portal. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. In dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 
 
 Om een functie proces individueel maken, lezen, bijwerken en (CRUD)-verwijderbewerkingen in een tabel met Mobile Apps, moet u in plaats daarvan gebruikt [Mobile Apps-bindingen](functions-bindings-mobile-apps.md).
+
+> [!IMPORTANT]
+> De voorbeelden in dit document zijn van toepassing op de runtime 1.x. Meer informatie over het maken van een 1.x-functie-app [vindt u hier](./functions-versions.md#creating-1x-apps).
 
 ## <a name="prerequisites"></a>Vereisten
 

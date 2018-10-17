@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452255"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363378"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensies voor virtuele machines en functies voor Linux
 
@@ -408,7 +408,7 @@ U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 | Aangepaste scriptextensie voor Linux |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste scriptextensie voor Linux](custom-script-linux.md) |
 | VM-extensie voor toegang |Opnieuw toegang krijgen tot een virtuele machine van Azure |[VM-extensie voor toegang](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics-extensie |Beheren van Azure Diagnostics |[Azure Diagnostics-extensie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure-extensie voor VM-toegang |Beheren van gebruikers en referenties |[Extensie voor Linux-VM-toegang](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure-extensie voor VM-toegang |Beheren van gebruikers en referenties |[Extensie voor Linux-VM-toegang](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

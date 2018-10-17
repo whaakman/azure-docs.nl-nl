@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053292"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362599"
 ---
 # <a name="introduction-to-auto-scaling"></a>Inleiding tot automatisch schalen
 Automatisch schalen is een extra functie van Service Fabric voor het dynamisch schalen van uw services op basis van de belasting van services rapporteren of op basis van hun gebruik van resources. Automatisch schalen biedt grote flexibiliteit en inrichting van extra exemplaren of partities van de service op aanvraag. De gehele functie voor automatisch schalen van proces is automatisch en transparant en zodra het instellen van uw beleid voor een service is niet nodig voor handmatige vergroten / verkleinen op het serviceniveau van de. Automatisch schalen kan worden ingeschakeld tijdens de aanmaak van de service of op elk gewenst moment door het bijwerken van de service.
@@ -120,7 +120,7 @@ De tweede trigger is gebaseerd op de belasting van alle partities van een servic
 * _Hoogste belastingsdrempelwaarde_ is een waarde die bepaalt wanneer de service worden **uitgeschaalde**. Als de gemiddelde belasting van alle partities van de service hoger dan deze waarde is, zal klikt u vervolgens de service worden uitgebreid.
 * _Interval voor vergroten/verkleinen_ bepaalt hoe vaak de trigger wordt gecontroleerd. Zodra de trigger is gecontroleerd, indien nodig schalen is het mechanisme wordt toegepast. Als schalen niet vereist is, klikt u vervolgens geen actie ondernomen. In beide gevallen wordt trigger niet gecontroleerd opnieuw voordat het interval voor vergroten/verkleinen is verstreken opnieuw.
 
-Deze trigger kan worden gebruikt met stateful en stateless services. Het enige mechanisme dat kan worden gebruikt met deze trigger is AddRemoveIncrementalNamedParitionScalingMechanism. Wanneer de service is uitgebreid en vervolgens een nieuwe partitie wordt toegevoegd, en als service wordt geschaald in een van de bestaande partities wordt verwijderd. Er zijn beperkingen die worden gecontroleerd als service wordt gemaakt of bijgewerkt en service maken/bijwerken mislukt als niet aan deze voorwaarden wordt voldaan:
+Deze trigger kan worden gebruikt met stateful en stateless services. Het enige mechanisme dat kan worden gebruikt met deze trigger is AddRemoveIncrementalNamedPartitionScalingMechanism. Wanneer de service is uitgebreid en vervolgens een nieuwe partitie wordt toegevoegd, en als service wordt geschaald in een van de bestaande partities wordt verwijderd. Er zijn beperkingen die worden gecontroleerd als service wordt gemaakt of bijgewerkt en service maken/bijwerken mislukt als niet aan deze voorwaarden wordt voldaan:
 * Benoemde partitieschema moet worden gebruikt voor de service.
 * Partitienamen moeten bestaan uit getallen opeenvolgende geheel getal, zoals '0', '1',...
 * Naam van de eerste partitie moet '0'.
@@ -137,7 +137,7 @@ Hetzelfde als bij mechanisme dat wordt gebruikt door het toevoegen of verwijdere
 * _Minimuminstantieaantal_ bepaalt de lagere limiet voor het schalen. Als deze limiet wordt bereikt door het aantal partities van de service, zal klikt u vervolgens service niet worden geschaald, ongeacht de belasting.
 
 > [!WARNING] 
-> Wanneer AddRemoveIncrementalNamedParitionScalingMechanism wordt gebruikt met stateful services, Service Fabric wordt toevoegen of verwijderen van partities **zonder waarschuwing of melding**. Partitioneren van gegevens wordt niet uitgevoerd wanneer het mechanisme voor schalen wordt geactiveerd. In het geval van bewerking omhoog schalen, nieuwe partities niet leeg zijn en in het geval van bewerking, omlaag schalen **partitie worden verwijderd, samen met de gegevens die deze bevat**.
+> Wanneer AddRemoveIncrementalNamedPartitionScalingMechanism wordt gebruikt met stateful services, Service Fabric wordt toevoegen of verwijderen van partities **zonder waarschuwing of melding**. Partitioneren van gegevens wordt niet uitgevoerd wanneer het mechanisme voor schalen wordt geactiveerd. In het geval van bewerking omhoog schalen, nieuwe partities niet leeg zijn en in het geval van bewerking, omlaag schalen **partitie worden verwijderd, samen met de gegevens die deze bevat**.
 
 ## <a name="setting-auto-scaling-policy"></a>Automatisch schalen, beleid instellen
 
@@ -146,7 +146,7 @@ Hetzelfde als bij mechanisme dat wordt gebruikt door het toevoegen of verwijdere
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Hetzelfde als bij mechanisme dat wordt gebruikt door het toevoegen of verwijdere
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Met behulp van Powershell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

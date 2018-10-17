@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: dde40b8f53aa40f1c15fe0efd810889b8c4510fb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854860"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354186"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Container Instances als een Jenkins build-agent
 
@@ -47,7 +47,7 @@ Zie voor meer informatie over Azure Container Instances [over Azure Container In
 
    ![Aanvullende instellingen voor de implementatie van de Jenkins-portal](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Selecteer voor service-principal integratie, **Auto(MSI)** hebben [Azure Managed Service Identity] [beheerd-id's-azure-resources] automatisch een verificatie-identiteit voor het Jenkins-exemplaar maken. Selecteer **handmatig** voor uw eigen referenties van de service-principal.
+4. Selecteer voor service-principal integratie, **Auto(MSI)** identiteiten voor een Azure-resources hebben [beheerd] [beheerd-id's-azure-resources] automatisch een verificatie-identiteit voor het Jenkins-exemplaar maken. Selecteer **handmatig** voor uw eigen referenties van de service-principal.
 
 5. Cloud-agents configureren een cloudplatform voor Jenkins build-taken. Selecteer voor dit artikel **ACI**. Met de ACI-agent, elke Jenkins build-taak wordt uitgevoerd in een containerexemplaar in de cloud.
 

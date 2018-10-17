@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 004a097a50129c444ad3facf8133295c5de49585
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344996"
+ms.locfileid: "49353472"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -42,7 +42,7 @@ De volgende afbeelding ziet vier knooppunten in de standard-architectuur met de 
 
 In het model standard beschikbaarheid zijn er twee lagen:
 
-- Een stateless compute-laag die het proces sqlserver.exe wordt uitgevoerd en bevat alleen tijdelijke en in de cache opgeslagen gegevens (bijvoorbeeld: plancache, buffergroep, kolom-archief van toepassingen). Deze stateless SQL Server-knooppunt wordt beheerd door Azure Service Fabric dat proces initialiseert, bepaalt de status van het knooppunt en failover naar een andere locatie uitvoert, indien nodig.
+- Een stateless compute-laag met de `sqlserver.exe` verwerken en bevat alleen tijdelijke en in de cache opgeslagen gegevens (bijvoorbeeld: plancache, buffergroep, kolom-archief van toepassingen). Deze stateless SQL Server-knooppunt wordt beheerd door Azure Service Fabric dat proces initialiseert, bepaalt de status van het knooppunt en failover naar een andere locatie uitvoert, indien nodig.
 - Een stateful gegevenslaag met databasebestanden (.mdf/.ldf) die zijn opgeslagen in Azure Premium Storage. Azure Storage zorgt ervoor dat er worden geen gegevens verloren gaan van een record die in een databasebestand wordt geplaatst. Azure Storage heeft ingebouwde beschikbaarheid/redundantie die ervoor zorgt dat elke record in een logboekbestand of de pagina in bestand behouden blijft, zelfs als SQL Server-proces vastloopt.
 
 Wanneer de upgrade van database-engine of -besturingssysteem wordt uitgevoerd, een deel van de onderliggende infrastructuur is mislukt of als een belangrijk probleem wordt gedetecteerd in Sql Server-proces, Azure Service Fabric stateless SQL Server-proces wordt verplaatst naar een andere staatloze compute-knooppunt. Er is een set van ongebruikte knooppunten die wacht op nieuwe compute-service in het geval van failover uitvoeren om het aantal failover-tijd. Gegevens in Azure Storage-laag wordt niet beïnvloed en gegevens/logboekbestanden zijn gekoppeld aan de nieuwe geïnitialiseerde SQL Server-proces. Dit proces garandeert 99,99% beschikbaarheid, maar dat er bepaalde prestatie-invloeden van zware werkbelasting die wordt uitgevoerd vanwege enige tijd en de nieuwe SQL Server-knooppunt van het feit begint met cold cache.
@@ -72,6 +72,10 @@ De zone-redundante-versie van de architectuur voor hoge beschikbaarheid wordt aa
 
 ![hoge beschikbaarheid architectuur zone-redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
+## <a name="accelerated-database-recovery-adr"></a>Versneld databaseherstel (ADR)
+
+[Versnelde Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) wordt een nieuwe SQL database-engine-functie maken die aanzienlijk verbetert de beschikbaarheid van de database, met name bij langlopende transacties, uitgevoerd door het herstelproces van SQL database-engine opnieuw. ADR is momenteel beschikbaar voor individuele databases, elastische pools en Azure SQL Data Warehouse.
+
 ## <a name="conclusion"></a>Conclusie
 
 Azure SQL Database is nauw geïntegreerd met het Azure-platform en is sterk afhankelijk van de Service Fabric voor foutdetectie en herstel, op Azure Storage-Blobs voor gegevensbescherming en Beschikbaarheidszones voor hogere fouttolerantie. Op hetzelfde moment, maakt Azure SQL-database volledig gebruik van de technologie AlwaysOn-beschikbaarheidsgroep van SQL Server-vak product voor replicatie en failover. De combinatie van deze technologieën kan de toepassingen volledig profiteren van de voordelen van een gemengde opslagmodel en ondersteuning voor de meest veeleisende Sla's.
@@ -81,3 +85,4 @@ Azure SQL Database is nauw geïntegreerd met het Azure-platform en is sterk afha
 - Meer informatie over [Azure-Beschikbaarheidszones](../availability-zones/az-overview.md)
 - Meer informatie over [Service Fabric](../service-fabric/service-fabric-overview.md)
 - Meer informatie over [met Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+- Zie voor meer opties voor hoge beschikbaarheid en herstel na noodgevallen [zakelijke continuïteit](sql-database-business-continuity.md)

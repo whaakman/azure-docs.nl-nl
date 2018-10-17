@@ -1,6 +1,6 @@
 ---
-title: 'Snelstart: Een machine learning-werkruimte maken - Azure'
-description: Gebruik de Azure-portal om een Azure Machine Learning-werkruimte te maken. Deze werkruimte is het basisblok in de cloud voor het experimenteren, trainen en implementeren van machine learning-modellen met de Azure Machine Learning-service.
+title: 'Snelstart: Een machine learning-werkruimte maken in Azure Portal - Azure Machine Learning'
+description: Gebruik Azure Portal om een Azure Machine Learning-servicewerkruimte te maken. Deze werkruimte is het basisblok in de cloud voor het experimenteren, trainen en implementeren van machine learning-modellen met de Azure Machine Learning-service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959985"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831327"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>Snelstart: Aan de slag met de Azure Machine Learning-service
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Snelstart: Azure Portal gebruiken om de Machine Learning-service installeren en starten
 
-In deze snelstart leert u de Azure-portal gebruiken om een Azure Machine Learning-werkruimte te maken. Deze werkruimte is het basisblok in de cloud voor het experimenteren, trainen en implementeren van machine learning-modellen met de Azure Machine Learning-service. 
+In deze snelstart leert u hoe u Azure Portal kunt gebruiken om een Azure Machine Learning-servicewerkruimte te maken. Deze werkruimte is het basisblok in de cloud voor het experimenteren, trainen en implementeren van machine learning-modellen met de Azure Machine Learning-service. 
 
 In deze zelfstudie leert u het volgende:
 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 
 Om het u gemakkelijk te maken, worden de volgende Azure-resources automatisch toegevoegd aan uw werkruimte wanneer deze regionaal beschikbaar zijn: [containerregister](https://azure.microsoft.com/services/container-registry/), [opslag](https://azure.microsoft.com/services/storage/), [toepassingsinzichten](https://azure.microsoft.com/services/application-insights/) en [sleutelkluis](https://azure.microsoft.com/services/key-vault/).
 
-De resources die u maakt kunnen worden gebruikt als de vereisten voor andere Azure Machine Learning-zelfstudies en artikelen met procedures. Net als bij andere Azure-services gelden er beperkingen voor bepaalde resources (bijvoorbeeld voor BatchAI-clustergrootte) die zijn gekoppeld aan de Azure Machine Learning-service. Lees [dit](how-to-manage-quotas.md) artikel over de standaardlimieten en hoe u een groter quotum kunt aanvragen.
+De resources die u hebt gemaakt, kunnen worden gebruikt als vereisten voor andere zelfstudies en artikelen met procedures voor de Azure Machine Learning-service. Net als bij andere Azure-services gelden er beperkingen voor bepaalde resources (bijvoorbeeld voor BatchAI-clustergrootte) die zijn gekoppeld aan de Azure Machine Learning-service. Lees [dit](how-to-manage-quotas.md) artikel over de standaardlimieten en hoe u een groter quotum kunt aanvragen.
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -37,7 +37,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Klik op de pagina van de werkruimte op `Explore your Azure Machine Learning Workspace`
+Klik op de pagina van de werkruimte op `Explore your Azure Machine Learning service workspace`
 
  ![werkruimte verkennen](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ U ziet twee notitieblokken en een `config.json`-bestand.  Dit configuratiebestan
 
 Klik op `01.run-experiment.ipynb` om het notitieblok te openen.
 
-U kunt de cellen één voor één uitvoeren met behulp van `Shift`+`Enter`.  Of gebruik het menu `Cells` > `Run All` om het hele notitieblok uit te voeren.
+U kunt de cellen één voor één uitvoeren met behulp van `Shift`+`Enter`.  Of gebruik het menu `Cells` > `Run All` om het hele notitieblok uit te voeren.  Wanneer u [*] naast een cel ziet, wordt deze uitgevoerd.  Wanneer de code voor de cel is voltooid, verschijnt er een getal.
 
-U wordt mogelijk gevraagd om u aan te melden.  Kopieer de code in het bericht, klik op de koppeling en plak de code in het nieuwe venster.  Zorg ervoor dat u geen spatie voor of na de code kopieert.
+U wordt mogelijk gevraagd u aan te melden.  Kopieer de code in het bericht, klik op de koppeling en plak de code in het nieuwe venster.  Zorg ervoor dat u geen spatie voor of na de code kopieert.  Meld u aan met hetzelfde account dat u in Azure Portal gebruikt.
 
  ![aanmelding](./media/quickstart-get-started/login.png)
 

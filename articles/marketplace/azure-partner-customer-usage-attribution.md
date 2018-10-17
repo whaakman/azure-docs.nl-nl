@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854997"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365614"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -44,17 +44,19 @@ Veel oplossingen van partners zijn geïmplementeerd op het abonnement van een kl
 
 Als u wilt toevoegen een globally unique identifier (GUID), moet u een één wijziging van de belangrijkste sjabloonbestand maken:
 
-1. Maak een GUID (bijvoorbeeld eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Maak een GUID](#create-guids) (bijvoorbeeld eb7927c8-dd66-43e1-b0cf-c346a422063) en [registreert de GUID](#register-guids-and-offers).
 
 1. Open de Resource Manager-sjabloon.
 
 1. Een nieuwe resource toevoegen in de belangrijkste sjabloonbestand. De resource moet zich in de **mainTemplate.json** of **azuredeploy.json** bestand alleen, en niet in een geneste of gekoppelde sjablonen.
 
-1. Voer de GUID-waarde na de **pid -** voorvoegsel (bijvoorbeeld pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Voer de GUID-waarde na de **pid -** voorvoegsel (zoals pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Controleer de sjabloon op fouten.
 
 1. De sjabloon in de juiste opslagplaatsen publiceren.
+
+1. [Controleren of GUID in de sjabloonimplementatie](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Voorbeeldcode van sjabloon
 
@@ -99,6 +101,24 @@ Wanneer u de Azure-CLI gebruiken voor uw GUID toevoegen, stelt de **AZURE_HTTP_U
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>GUID's maken
+
+Een GUID is een unieke referentienummer met 32 hexadecimale cijfers. Voor het maken van GUID's voor het bijhouden, moet u een GUID-generator. Het is raadzaam dat u gebruikmaken van [van Azure Storage GUID-generator formulier](https://aka.ms/StoragePartners). Maar als u liever niet wilt gebruiken van Azure Storage GUID-generator, er meerdere zijn [online GUID generatoren](https://www.bing.com/search?q=guid%20generator) die u kunt gebruiken.
+
+> [!Note]
+> Het is raadzaam dat u [van Azure Storage GUID-generator formulier](https://aka.ms/StoragePartners) uw GUID maken. Zie voor meer informatie onze [Veelgestelde vragen over](#faq).
+
+Maak een unieke GUID voor elke aanbieding en de distributie-kanaal. Als u twee oplossingen implementeren met behulp van een sjabloon en elk beschikbaar in de Azure Marketplace en op GitHub is, moet u vier GUID's maken:
+
+*   Bieden van een in Azure Marketplace 
+*   Bieden van een op GitHub
+*   Bieden van B in Azure Marketplace 
+*   Aanbieding B op GitHub
+
+Reporting wordt uitgevoerd door de partner-waarde (Microsoft Partner-ID) en de GUID. 
+
+Ook kunt u bijhouden van GUID's op een meer gedetailleerd niveau, zoals de SKU, waarbij SKU's varianten van een aanbieding zijn.
 
 ## <a name="register-guids-and-offers"></a>Registreert de GUID's en aanbiedingen
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>GUID's maken
-
-Een GUID is een unieke referentienummer met 32 hexadecimale cijfers. Voor het maken van GUID's voor het bijhouden, moet u een GUID-generator. Er zijn meerdere [online GUID generatoren](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) die u kunt gebruiken.
-
-Maak een unieke GUID voor elke aanbieding en de distributie-kanaal. Als u twee oplossingen implementeren met behulp van een sjabloon en elk beschikbaar in de Azure Marketplace en op GitHub is, moet u vier GUID's maken:
-
-*   Bieden van een in Azure Marketplace 
-*   Bieden van een op GitHub
-*   Bieden van B in Azure Marketplace 
-*   Aanbieding B op GitHub
-
-Reporting wordt uitgevoerd door de partner-waarde (Microsoft Partner-ID) en de GUID. 
-
-Ook kunt u bijhouden van GUID's op een meer gedetailleerd niveau, zoals de SKU, waarbij SKU's varianten van een aanbieding zijn.
-
 ## <a name="notify-your-customers"></a>Informeer uw klanten
 
 Partners moeten hun klanten informeren over implementaties die gebruikmaken van Resource Manager-GUID bijhouden. Microsoft rapporteert het gebruik van Azure die is gekoppeld aan deze implementaties op met de partner. De volgende voorbeelden bevatten inhoud die u gebruiken kunt voor uw klanten informeren over deze implementaties. Vervang in de voorbeelden \<PARTNER > met de naam van uw bedrijf. Partners moeten controleren of dat de melding wordt uitgelijnd met hun gegevens privacy en verzameling beleid, inclusief opties voor klanten moeten worden uitgesloten van bijhouden. 
@@ -275,3 +280,7 @@ Klanten kunnen hun gebruik van afzonderlijke resources of resourcegroepen in Azu
 **Is deze methodologie vergelijkbaar voor de digitale Partner van Record (DPOR)?**
 
 Deze nieuwe methode voor het koppelen van de implementatie en het gebruik aan van een partner-oplossing biedt een mechanisme om te koppelen van een partneroplossing aan het gebruik van Azure. DPOR is bedoeld om een advies (systeemintegrator) of management (Managed Service Provider) werken samen met een klant Azure-abonnement te koppelen.   
+
+**Wat is het voordeel van Azure Storage GUID-Generator formulier?**
+
+Azure Storage GUID-Generator formulier kan worden gegarandeerd voor het genereren van een GUID van de vereiste indeling. Bovendien, als u van Azure-Storage-gegevenslaag methoden bijhouden gebruikmaakt, kunt u gebruikmaken van dezelfde GUID voor de controlelaag Marketplace bijhouden. Hiermee kunt u gebruikmaken van een GUID voor een uniforme voor Partner attribution zonder te onderhouden afzonderlijke GUID's.

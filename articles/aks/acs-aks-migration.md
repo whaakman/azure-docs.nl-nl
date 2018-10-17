@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: cb143998ac46f7f86b2dbf47b69cee7843418f5d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191660"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361375"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migreren van Azure Containerservice (ACS) naar Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ ACS en AKS verschillen in enkele belangrijke onderwerpen die van invloed zijn op
     * Aangepaste `StorageClass` objecten voor Azure-schijven worden gewijzigd moet van `unmanaged` naar `managed`
     * Alle `PersistentVolumes` moet gebruiken `kind: Managed`
 * Op dit moment ondersteunt slechts één agentpool AKS
-* Windows Server-gebaseerde knooppunten zijn momenteel in [beperkte Preview-versie](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* Windows Server-gebaseerde knooppunten zijn momenteel in [beperkte Preview-versie](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * Controleer de lijst met AKS [ondersteunde regio's](https://docs.microsoft.com/azure/aks/container-service-quotas)
 * AKS is een beheerde service met een gehoste controlelaag van Kubernetes. U moet mogelijk uw toepassingen aanpassen als u de configuratie van de ACS-modellen eerder hebt gewijzigd
 

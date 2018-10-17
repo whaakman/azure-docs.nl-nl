@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 053bcd46f5b0f7e06997bb0bcd57f448617b9911
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/15/2018
+ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832201"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351739"
 ---
 # <a name="general-purpose-and-business-critical-service-tiers"></a>Algemeen gebruik en bedrijfskritiek service-lagen
 
-Dit artikel worden de overwegingen voor opslag en back-up voor de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel. 
+Dit artikel worden de overwegingen voor opslag en back-up voor de Servicelagen voor algemeen gebruik en bedrijfskritiek in het op vCore gebaseerde aankoopmodel.
 
 > [!NOTE]
 > Zie voor meer informatie over de servicelaag grootschalige in het op vCore gebaseerde aankoopmodel [grootschalige servicelaag](sql-database-service-tier-hyperscale.md). Zie voor een vergelijking van de vCore gebaseerde aankoopmodel met het op DTU gebaseerde aankoopmodel [Azure SQL Database-modellen en -bronnen aanschaffen](sql-database-service-tiers.md).
@@ -57,5 +57,5 @@ Opslag voor back-ups ter ondersteuning van het punt in tijd herstellen (PITR) is
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor elastische pools in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor elastische pools in de lagen algemeen gebruik en kritieke bedrijfsservice Reken, [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

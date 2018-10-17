@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391909"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Zelfstudie: Azure Active Directory-integratie met meerdere accounts van Amazon Web Services (AWS)
 
@@ -35,6 +35,19 @@ Amazon Web Services (AWS) integreren met Azure AD biedt u de volgende voordelen:
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![Amazon Web Services (AWS) in de lijst met resultaten](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+
+>[!NOTE]
+>Houd er rekening mee een AWS-app verbinden met al uw AWS-accounts is niet onze aanbevolen aanpak. In plaats daarvan raden we u om te gebruiken [dit](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) benadering voor het configureren van meerdere exemplaren van AWS-account naar meerdere exemplaren van AWS-apps in Azure AD.
+
+**Houd er rekening mee dat we niet raden aan deze aanpak gebruiken om volgende redenen:**
+
+* U moet de aanpak van Graph Explorer gebruiken voor het vullen van de rollen aan de app. U kunt beter geen de aanpak van het manifestbestand.
+
+* We hebben gezien klanten melden dat na het toevoegen van ~ 1200 app-rollen voor een AWS-app, een bewerking op de app gestart de fouten met betrekking tot de grootte. Er is een vaste limiet van de grootte van het toepassingsobject.
+
+* U moet de rol handmatig bijwerken als de rollen die zijn toegevoegd in een van de accounts die helaas is een benadering vervangen en niet toevoegen. Als uw accounts er die vervolgens dit groeien zijn wordt ook n x n-relatie met accounts en rollen.
+
+* Alle AWS-accounts gebruikt hetzelfde federatieve metagegevens-XML-bestand en op het moment van rollover van certificaten die u hebt om deze enorme oefening voor het bijwerken van het certificaat op alle AWS-accounts op hetzelfde moment te stimuleren
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -64,19 +77,19 @@ Voor het configureren van de integratie van Amazon Web Services (AWS) in Azure A
 
 1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
-    ![De Azure Active Directory-knop][1]
+    ![image](./media/aws-multi-accounts-tutorial/selectazuread.png)
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![De blade Enterprise-toepassingen][2]
+    ![image](./media/aws-multi-accounts-tutorial/a_select_app.png)
     
 3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop nieuwe toepassing][3]
+    ![image](./media/aws-multi-accounts-tutorial/a_new_app.png)
 
 4. Typ in het zoekvak **Amazon Web Services (AWS)**, selecteer **Amazon Web Services (AWS)** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Amazon Web Services (AWS) in de lijst met resultaten](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
+     ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
 5. Nadat de toepassing wordt toegevoegd, gaat u naar **eigenschappen** pagina en kopieer de **Object-ID**.
 
@@ -101,62 +114,61 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Amazon Web Services (AWS), moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Amazon Web Services (AWS)** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
+1. In de [Azure-portal](https://portal.azure.com/)op de **Amazon Web Services (AWS)** toepassing integratie weergeeft, schakelt **eenmalige aanmelding**.
 
-    ![Koppeling voor eenmalige aanmelding configureren][4]
+    ![image](./media/aws-multi-accounts-tutorial/B1_B2_Select_SSO.png)
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
-    ![In het dialoogvenster voor eenmalige aanmelding](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
+2. Op de **selecteert u een methode voor eenmalige aanmelding** dialoogvenster **SAML** modus voor eenmalige aanmelding inschakelen.
 
-3. Op de **Amazon Web Services (AWS)-domein en URL's** sectie, de gebruiker beschikt niet over de stappen uitvoeren omdat de app is al vooraf geïntegreerd met Azure.
+    ![image](./media/aws-multi-accounts-tutorial/b1_b2_saml_sso.png)
 
-    ![Amazon Web Services (AWS)-domein en URL's, eenmalige aanmelding informatie](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
+3. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **SAML-basisconfiguratie** dialoogvenster.
 
-4. De toepassing Amazon Web Services (AWS) wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+    ![image](./media/aws-multi-accounts-tutorial/b1-domains_and_urlsedit.png)
 
-    ![Single Sign-On kenmerk configureren](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_attribute.png)    
+4. Op de **SAML-basisconfiguratie** sectie, de gebruiker beschikt niet over een stap uitvoeren omdat de app is al vooraf geïntegreerd met Azure.
 
-5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
+    ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-    | Naam kenmerk  | Waarde kenmerk | Naamruimte |
+5. Amazon Web Services (AWS)-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken en Claims** sectie op de pagina van de toepassing-integratie. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op **bewerken** te openen **gebruikerskenmerken en Claims** dialoogvenster.
+
+    ![image](./media/aws-multi-accounts-tutorial/i4-attribute.png)
+
+6. In de **gebruikersclaims** sectie op de **gebruikerskenmerken en Claims** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
+    
+    | Naam  | Kenmerk van de gegevensbron  | Naamruimte |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | User.userPrincipalName | https://aws.amazon.com/SAML/Attributes |
     | Rol            | User.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | "Geef de waarde van duur per uw behoeften" |  https://aws.amazon.com/SAML/Attributes |
+    | SessionDuration             | "Geef een waarde tussen de 900 seconden (15 minuten) op 43200 seconden (12 uur)" |  https://aws.amazon.com/SAML/Attributes |
 
-    >[!TIP]
-    >U moet het inrichten van gebruikers in Azure AD om op te halen van alle functies van AWS-Console configureren. Raadpleeg de onderstaande stappen inrichten.
+    a. Klik op **toevoegen nieuwe claim** openen de **gebruikersclaims beheren** dialoogvenster.
 
-    a. Klik op **kenmerk toevoegen** openen de **kenmerk toevoegen** dialoogvenster.
+    ![image](./media/aws-multi-accounts-tutorial/i2-attribute.png)
 
-    ![Configureren van eenmalige aanmelding toevoegen](./media/aws-multi-accounts-tutorial/tutorial_attribute_04.png)
-
-    ![Single Sign-On kenmerk configureren](./media/aws-multi-accounts-tutorial/tutorial_attribute_05.png)
+    ![image](./media/aws-multi-accounts-tutorial/i3-attribute.png)
 
     b. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
 
-    c. Uit de **waarde** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
+    c. Voer de **Namespace** waarde.
 
-    d. In de **Namespace** tekstvak typt u de naamruimtewaarde die wordt weergegeven voor die rij.
+    d. Selecteer de bron als **kenmerk**.
 
-    d. Klik op **OK**.
+    e. Uit de **bronkenmerk** weergeven, typt u de waarde van het kenmerk wordt weergegeven voor die rij.
 
-6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+    f. Klik op **Opslaan**.
 
-    ![De downloadkoppeling certificaat](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
+7. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, klikt u op **downloaden** voor het downloaden van de **federatieve metagegevens-XML**  en sla deze op uw computer.
 
-7. Klik op **opslaan** knop.
+    ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-    ![Configureren van eenmalige aanmelding opslaan](./media/aws-multi-accounts-tutorial/tutorial_general_400.png)
-
-8. In een ander browservenster aanmelden voor uw bedrijf Amazon Web Services (AWS) site als Administrator.
+8. In een ander browservenster aanmelden voor uw bedrijf Amazon Web Services (AWS) site als administrator.
 
 9. Klik op **AWS Home**.
 
     ![Startpagina van eenmalige aanmelding configureren][11]
 
-10. Klik op **IAM** (Identity and Access Management).
+10. Klik op **Identity and Access Management**.
 
     ![Identiteit voor eenmalige aanmelding configureren][12]
 
@@ -196,7 +208,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
   
     d. Klik op **volgende: machtigingen**.
 
-16. Op de **beleidsregels voor beveiligingsmachtigingen koppelen** dialoogvenster, klikt u op **volgende: Controleer**.  
+16. Op de **beleidsregels voor beveiligingsmachtigingen koppelen** dialoogvenster, u hoeft niet te koppelen van elk beleid. Klik op **volgende: Controleer**.  
 
     ![Single Sign-On-beleid configureren][33]
 
@@ -208,9 +220,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     b. In de **beschrijving van de rol** tekstvak, de omschrijving.
 
-    a. Klik op **rol maken**.
+    c. Klik op **rol maken**.
 
-    b. Maak zo veel functies indien nodig en toe te wijzen aan de id-Provider.
+    d. Maak zo veel functies indien nodig en toe te wijzen aan de id-Provider.
 
 18. Meld u af van de huidige AWS-account en meld u aan met een ander account waar u configureren van eenmalige aanmelding wilt op Azure AD.
 
@@ -349,17 +361,6 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 <!--Image references-->
 
-[1]: ./media/aws-multi-accounts-tutorial/tutorial_general_01.png
-[2]: ./media/aws-multi-accounts-tutorial/tutorial_general_02.png
-[3]: ./media/aws-multi-accounts-tutorial/tutorial_general_03.png
-[4]: ./media/aws-multi-accounts-tutorial/tutorial_general_04.png
-
-[100]: ./media/aws-multi-accounts-tutorial/tutorial_general_100.png
-
-[200]: ./media/aws-multi-accounts-tutorial/tutorial_general_200.png
-[201]: ./media/aws-multi-accounts-tutorial/tutorial_general_201.png
-[202]: ./media/aws-multi-accounts-tutorial/tutorial_general_202.png
-[203]: ./media/aws-multi-accounts-tutorial/tutorial_general_203.png
 [11]: ./media/aws-multi-accounts-tutorial/ic795031.png
 [12]: ./media/aws-multi-accounts-tutorial/ic795032.png
 [13]: ./media/aws-multi-accounts-tutorial/ic795033.png
@@ -378,5 +379,4 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 [38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
 [39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
-[41]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_on.png
-
+[41]: ./media/aws-multi-accounts-tutorial/

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: 19f6f5d360981c743d819da81eb2f68db1853c8b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783114"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351879"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Instellen van de x.509-beveiliging in uw Azure-IoT-hub
 
@@ -72,9 +72,9 @@ Deze stappen laten zien hoe u een nieuwe certificeringsinstantie toevoegen aan u
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Een X.509-apparaat voor uw IoT-hub maken
 
-1. In de Azure-portal, gaat u naar uw IoT-hub **Device Explorer**.
+1. In de Azure-portal, gaat u naar uw IoT-hub **Explorers > IoT-apparaten** pagina.
 
-2. Klik op **toevoegen** naar een nieuw apparaat toevoegen. 
+2. Klik op **+ toevoegen** naar een nieuw apparaat toevoegen.
 
 3. Geef een beschrijvende weergavenaam voor de **apparaat-ID**, en selecteer **_x.509-CA ondertekend_** als de **verificatietype**. Klik op **Opslaan**.
 

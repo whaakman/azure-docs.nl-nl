@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7459ae5153434887ade74f841a2239c76a7caef9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/15/2018
+ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043709"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354169"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen
 
@@ -28,16 +28,15 @@ Zie voor DTU gebaseerde aankopen model limieten, [SQL Database DTU gebaseerde re
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastische pool: opslaggrootte en compute-grootten
-
-Voor SQL Database elastische pools in de volgende tabellen weergeven van de beschikbare resources in elke servicelaag en compute-grootte. U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > De resourcelimieten van afzonderlijke databases in elastische pools zijn algemeen hetzelfde als voor individuele databases buiten pools met dezelfde grootte berekenen. Bijvoorbeeld, is de maximale gelijktijdige werknemers voor een database GP_Gen4_1 200 werknemers. De maximale gelijktijdige werknemers voor een database in een pool GP_Gen4_1 is dus ook 200 werknemers. Opmerking: het totale aantal gelijktijdige werknemers in de groep GP_Gen4_1 is 210.
 
-### <a name="general-purpose-service-tier"></a>Categorie van de service Algemeen gebruik
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Algemeen doel-servicelaag: opslaggrootte en compute-grootten
 
-#### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+
 |COMPUTE-grootte|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
@@ -54,14 +53,15 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|5040|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|500|500|500|500|
-|Min./Max. elastische pool vcore-opties per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
+|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
 |Aantal replica's|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+
 |COMPUTE-grootte|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
@@ -78,16 +78,17 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|4200|8400
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|100|200|500|500|500|500|500|500|
-|Min./Max. elastische pool vcore-opties per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
+|Min./Max. elastische pool vCore-opties per database|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
 |Aantal replica's|1|1|1|1|1|1|1|1|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
-### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritieke-bedrijfslaag: opslaggrootte en compute-grootten
 
-#### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+
 |COMPUTE-grootte|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
@@ -104,7 +105,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|5040|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|
-|Min./Max. elastische pool vcore-opties per database|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
+|Min./Max. elastische pool vCore-opties per database|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
 |Aantal replica's|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -112,6 +113,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |||
 
 #### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+
 |COMPUTE-grootte|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
@@ -128,7 +130,7 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|5040|8400|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Maximaal aantal databases per pool|N/A|50|100|100|100|100|100|100|
-|Min./Max. elastische pool vcore-opties per database|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
+|Min./Max. elastische pool vCore-opties per database|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
 |Aantal replica's|3|3|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -137,17 +139,17 @@ Voor SQL Database elastische pools in de volgende tabellen weergeven van de besc
 
 Als alle vCores van een elastische pool bezet zijn, ontvangt elke database in de groep een gelijke hoeveelheid rekenresources voor het verwerken van query's. De service SQL Database verdeelt resources eerlijk over databases door gelijke hoeveelheden rekentijd te garanderen. Er is een elastische pool resources eerlijk naast een bepaalde hoeveelheid van de resource wordt aan elke database wordt gegarandeerd wanneer het vCore-minimum per database is ingesteld op een andere waarde dan nul.
 
-### <a name="database-properties-for-pooled-databases"></a>Database-eigenschappen voor databases in pools
+## <a name="database-properties-for-pooled-databases"></a>Database-eigenschappen voor databases in pools
 
 De volgende tabel beschrijft de eigenschappen voor databases in pools.
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Maximum aantal vCores per database |Het maximale aantal vCores op dat elke database in de groep gebruiken mag, beschikbaar op basis van gebruik door andere databases in de groep. Maximum aantal vCores per database is geen resourcegarantie voor een database. Het is een algemene instelling voor alle databases in de groep. Maximale vCores per database hoog genoeg is voor het afhandelen van pieken in Databasegebruik instellen. Enige mate van overtoewijzing is normaal, omdat de groep in het algemeen uitgaat van pieken en dalen in gebruikspatronen voor databases, waarbij alle databases niet tegelijkertijd pieken.|
+| Maximum aantal vCores per database |Het maximale aantal vCores op dat elke database in de groep gebruiken mag, beschikbaar op basis van gebruik door andere databases in de groep. Maximum aantal vCores per database is geen resourcegarantie voor een database. Het is een algemene instelling voor alle databases in de groep. Maximale vCores per database hoog genoeg is voor het afhandelen van pieken in Databasegebruik instellen. Enige mate van het doorvoeren van te veel wordt verwacht, omdat de groep in het algemeen uitgaat hot en cold gebruikspatronen voor databases waarin alle databases niet tegelijkertijd pieken.|
 | Min vCores per database |Het minimum aantal vCores op dat elke database in de groep kan worden gegarandeerd. Het is een algemene instelling voor alle databases in de groep. De min-vCores per database kan worden ingesteld op 0, en is ook de standaardwaarde. Deze eigenschap is ingesteld op een willekeurige plaats tussen 0 en het gebruik van de gemiddelde vCores per database. Het product van het aantal databases in de groep en de min-vCores per database kan niet groter zijn dan de vCores per groep.|
 | Maximale opslagruimte per database |De maximale databasegrootte ingesteld door de gebruiker voor een database in een pool. Databases in pools delen de poolopslag is toegewezen, zodat de grootte van een database kan bereiken beperkt tot is de kleinste hoeveelheid van het resterende storage pool en grootte van de database. Maximale databasegrootte verwijst naar de maximale grootte van de gegevensbestanden en exclusief de ruimte die logboekbestanden innemen. |
 |||
- 
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.

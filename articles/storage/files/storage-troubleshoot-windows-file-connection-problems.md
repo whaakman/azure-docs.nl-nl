@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531097"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365402"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
@@ -32,16 +32,17 @@ Wanneer u probeert te koppelen van een bestandsshare van on-premises of in een a
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Oorzaak 1: De niet-versleuteld communicatiekanaal
 
-Uit veiligheidsoverwegingen worden verbindingen met Azure-bestandsshares worden geblokkeerd als het communicatiekanaal is niet versleuteld en als de verbindingspoging is niet gemaakt in hetzelfde datacenter waar de Azure-bestandsshares zich bevinden. Communicatie-kanaalversleuteling geleverd alleen als de gebruiker clientbesturingssysteem biedt ondersteuning voor SMB-versleuteling.
+Uit veiligheidsoverwegingen worden verbindingen met Azure-bestandsshares worden geblokkeerd als het communicatiekanaal is niet versleuteld en als de verbindingspoging is niet gemaakt in hetzelfde datacenter waar de Azure-bestandsshares zich bevinden. Niet-versleutelde verbindingen binnen hetzelfde datacenter kunnen ook worden geblokkeerd als de [veilige overdracht vereist](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account. Communicatie-kanaalversleuteling geleverd alleen als de gebruiker clientbesturingssysteem biedt ondersteuning voor SMB-versleuteling.
 
 Windows 8, Windows Server 2012 en latere versies van elk systeem onderhandelen over aanvragen met SMB 3.0, die ondersteuning biedt voor versleuteling.
 
 ### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
 
-Verbinding maken vanaf een client die een van de volgende:
+1. Controleer of de [veilige overdracht vereist](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op het storage-account.
+2. Verbinding maken vanaf een client die een van de volgende:
 
-- Voldoet aan de vereisten van Windows 8 en Windows Server 2012 of hoger
-- Verbinding maakt vanaf een virtuele machine in hetzelfde datacenter als de Azure storage-account dat wordt gebruikt voor de Azure-bestandsshare
+    - Voldoet aan de vereisten van Windows 8 en Windows Server 2012 of hoger
+    - Verbinding maakt vanaf een virtuele machine in hetzelfde datacenter als de Azure storage-account dat wordt gebruikt voor de Azure-bestandsshare
 
 ### <a name="cause-2-port-445-is-blocked"></a>2 oorzaak: Poort 445 is geblokkeerd
 

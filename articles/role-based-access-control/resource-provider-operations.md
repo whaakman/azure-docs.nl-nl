@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410303"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354390"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -3346,8 +3346,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/read | Een load balancer-back-end-adres-groepsdefinitie opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/delete | Hiermee verwijdert u een load balancer |
-> | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Lid wordt van een Load Balancer-Frontend-IP-configuratie. |
-> | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Haalt een load balancer front-end IP-configuratie van definitie |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Lid wordt van een load balancer binnenkomende nat-pool |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/read | Een load balancer wordt binnenkomende nat-groepsdefinitie |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatRules/delete | Hiermee verwijdert u een load balancer binnenkomende nat-regel |
@@ -3477,10 +3475,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/publicIPAddresses/dnsAliases/read | Met deze eigenschap een openbare DNS-Alias van de IP-adres-resource |
 > | Bewerking | Microsoft.Network/publicIPAddresses/dnsAliases/write | Hiermee maakt u een openbare DNS-Alias van de IP-adres-resource |
 > | Bewerking | Microsoft.Network/publicIPAddresses/join/action | Lid wordt van een openbaar ip-adres |
-> | Bewerking | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Hiermee verwijdert u een openbaar IP-adres load balancer back-endpool |
-> | Bewerking | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | Lid wordt van een openbare IP-adres load balancer back-endpool |
-> | Bewerking | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Een openbare IP-adres load balancer-back-end-groepsdefinitie opgehaald |
-> | Bewerking | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Hiermee maakt u een openbaar IP-adres load balancer back-endpool of updates van een bestaande openbare IP-adres load balancer back-end-pool |
 > | Bewerking | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | De diagnostische instellingen van openbare IP-adres ophalen |
 > | Bewerking | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Maken of bijwerken van de diagnostische instellingen van openbare IP-adres |
 > | Bewerking | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | De logboekdefinities van openbare IP-adres ophalen |

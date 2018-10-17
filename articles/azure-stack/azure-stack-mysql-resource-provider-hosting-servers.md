@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237261"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364658"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hosting-servers voor de MySQL-resourceprovider toevoegen
 
@@ -75,6 +75,24 @@ De volgende informatie is van toepassing op de RP- en MySQL-servers die als host
 ## <a name="increase-backend-database-capacity"></a>Vergroot de capaciteit van de back-end-database
 
 U kunt capaciteit voor back-end van de database vergroten door meer MySQL-servers in de portal voor Azure Stack implementeren. Deze servers toevoegen aan een nieuwe of bestaande SKU. Als u een server toevoegen aan een bestaande SKU, ervoor zorgen dat de kenmerken van de server hetzelfde als de andere servers in de SKU zijn.
+
+## <a name="sku-notes"></a>Opmerkingen bij de SKU
+Gebruik een SKU-naam die de mogelijkheden van de servers in de SKU, zoals de capaciteit en prestaties beschrijft. De naam fungeert als hulpmiddel om gebruikers hun databases implementeren op de juiste SKU te helpen. Bijvoorbeeld, kunt u de namen van de SKU serviceaanbiedingen onderscheiden door de volgende kenmerken:
+  
+* hoge capaciteit
+* hoge prestaties
+* hoge beschikbaarheid
+
+Als een best practice, moeten de host-servers in een SKU dezelfde resource- en kenmerken hebben.
+
+SKU's kunnen niet worden toegewezen aan specifieke gebruikers of groepen.
+
+SKU's kunnen een uur duren om te worden weergegeven in de portal. Gebruikers kunnen geen een database maken totdat de SKU is volledig gemaakt.
+
+Als u wilt een SKU bewerken, gaat u naar **alle services** > **MySQL Adapter** > **SKU's**. Selecteer de SKU wijzigen, breng eventueel benodigde wijzigingen aan en klikt u op **opslaan** wijzigingen op te slaan. Als u wilt verwijderen een SKU die niet meer nodig is, gaat u naar **alle services** > **MySQL Adapter** > **SKU's**. Met de rechtermuisknop op de SKU-naam en selecteer **verwijderen** om deze te verwijderen.
+
+> [!TIP]
+> U kunt bewerken of verwijderen van MySQL resourcequota-provider op dezelfde locatie.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>MySQL-database-servers beschikbaar maken voor uw gebruikers
 

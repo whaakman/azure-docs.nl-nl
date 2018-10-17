@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057199"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362871"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 
@@ -61,14 +61,15 @@ Voor het maken van een Azure Automation-account in Azure portal, moet u de volge
    ![Zoek en selecteer Automation en besturing in de Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. Selecteer op het volgende scherm **maken**.
+
   ![Automation-account toevoegen](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > Als u het volgende bericht in de **Automation-Account toevoegen** deelvenster uw account is geen lid van de rol Abonnementsbeheerders en CO-beheerder van het abonnement.
   >
   > ![Waarschuwing voor Automation-account toevoegen](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd.
+
+1. In de **Automation-Account toevoegen** deelvenster in de **naam** vak, voer een naam in voor uw nieuwe Automation-account. Deze naam kan niet worden gewijzigd nadat deze is geselecteerd. *Automation-accountnamen zijn unieke per regio en resourcegroep.*
 1. Als u meer dan één abonnement hebt, in de **abonnement** , geeft u het abonnement dat u wilt gebruiken voor het nieuwe account.
 1. Voor **resourcegroep**, invoeren of een nieuwe of bestaande resourcegroep selecteren.
 1. Voor **locatie**, selecteert u een Azure-datacenter-locatie.

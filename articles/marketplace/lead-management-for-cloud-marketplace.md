@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 47333a7b5ad7d76ee8bbac19884ba8246eadc05e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855779"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362650"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Beheer voor cloud-marketplace leiden
 
@@ -214,7 +214,7 @@ Het is mogelijk dat de eindgebruiker de e-maildomein van .edu. Om privacyredenen
 
  **Kan ik Azure tabel/Azure BLOB als de bestemming van mijn lead hebt geconfigureerd, hoe kan ik de leads weergeven?** 
 
-U kunt toegang krijgen tot de blob of table vanuit Azure Portal of u kunt downloaden en installeren [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) gratis om weer te geven van uw Azure storage-account tabellen/blobs. 
+U kunt toegang krijgen tot de blob of table vanuit Azure Portal of u kunt downloaden en installeren [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratis om weer te geven van uw Azure storage-account tabellen/blobs. 
 
 
 **Kan ik Azure Table als mijn lead doel hebt geconfigureerd, kan ik blijf op de hoogte wanneer er een nieuwe lead is verzonden door de Marketplace?** 

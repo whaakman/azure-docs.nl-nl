@@ -1,19 +1,21 @@
 ---
-title: 'Snelstart: C# gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API'
+title: 'Snelstartgids: Een zoekopdracht uitvoeren met C# - Bing Webzoekopdrachten-API'
+titleSuffix: Azure Cognitive Services
 description: In deze snelstart leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met C# en een JSON-antwoord ontvangt.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 9db551f89a3b7834119fe85a22e4cdc8d0402252
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7f0555a9bb655109ff8786d3a0873d997d715477
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888505"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124759"
 ---
 # <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Snelstart: C# gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 

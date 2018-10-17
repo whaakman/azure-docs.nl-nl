@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 07/09/2018
-ms.openlocfilehash: 935c54cf04854e75c39df55d8063138086be73a6
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 10/15/2018
+ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309481"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353019"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -25,7 +25,7 @@ Transparante gegevensversleuteling (TDE) helpt Azure SQL Database en Azure Data 
 
 TDE moet handmatig worden ingeschakeld voor oudere databases of Azure SQL Data Warehouse.  
 
-Transparante gegevensversleuteling versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel. Deze database versleutelingssleutel wordt beveiligd door de transparent data encryption-beveiliging. De beveiliging is een van beide een service beheerde certificaat (beheerde service transparante gegevensversleuteling) of een asymmetrische sleutel opgeslagen in Azure Key Vault (Bring Your Own Key). U kunt de transparent data encryption protector instellen op niveau van de server. 
+Transparante gegevensversleuteling versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel met de naam de databaseversleutelingssleutel. Deze database versleutelingssleutel wordt beveiligd door de transparent data encryption-beveiliging. De beveiliging is een van beide een service beheerde certificaat (beheerde service transparante gegevensversleuteling) of een asymmetrische sleutel opgeslagen in Azure Key Vault (Bring Your Own Key). U kunt de transparent data encryption protector instellen op niveau van de server.
 
 Bij het opstarten van de database, is de versleutelingssleutel van de versleutelde database ontsleuteld en wordt gebruikt voor ontsleuteling en het opnieuw versleutelen van de databasebestanden in het SQL Server Database Engine-proces. Transparante gegevensversleuteling voert realtime i/o-versleuteling en ontsleuteling van de gegevens op het paginaniveau van de. Elke pagina wordt ontsleuteld wanneer het is gelezen in het geheugen en vervolgens versleuteld voordat deze werd geschreven naar schijf. Zie voor een algemene beschrijving van transparante gegevensversleuteling, [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 
@@ -35,11 +35,10 @@ Met SQL Server op een Azure-machine ook kunnen een asymmetrische sleutel uit Key
 
 In Azure is de standaardinstelling voor transparante gegevensversleuteling of de databaseversleutelingssleutel wordt beveiligd door een ingebouwde servercertificaat. Het certificaat van de ingebouwde is uniek voor elke server. Als een database in een relatie geo-replicatie, wordt de primaire en geo-secundaire database worden beveiligd door de primaire database bovenliggende SLC-sleutel. Als de twee databases zijn verbonden met dezelfde server, delen ze hetzelfde ingebouwde certificaat. Microsoft draait automatisch deze certificaten ten minste elke 90 dagen.
 
-Microsoft ook naadloos worden verplaatst en de sleutels indien nodig voor geo-replicatie wordt beheerd en worden hersteld. 
+Microsoft ook naadloos worden verplaatst en de sleutels indien nodig voor geo-replicatie wordt beheerd en worden hersteld.
 
 > [!IMPORTANT]
 > Alle gemaakte SQL-databases worden standaard versleuteld met behulp van de service beheerde transparante gegevensversleuteling. Bestaande databases vóór mei 2017 en databases die zijn gemaakt via herstellen, geo-replicatie en database-exemplaar niet worden standaard versleuteld.
->
 
 ## <a name="bring-your-own-key"></a>Bring Your Own Key
 
@@ -54,11 +53,12 @@ Als u wilt gaan met transparent data encryption met Bring Your Own Key-ondersteu
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Een transparent data encryption beveiligde database verplaatsen
 
 U hoeft niet te ontsleutelen van databases voor bewerkingen in Azure. De transparent data encryption-instellingen op de brondatabase of de primaire database worden transparant overgenomen op de doelcomputer. Bewerkingen die opgenomen zijn, hebben betrekking op:
-- Geo-herstel.
-- Self-service point-in-time voor herstellen.
-- Herstel van een verwijderde database.
-- Actieve geo-replicatie.
-- Het maken van een databasekopie.
+
+- Geo-herstel
+- Point-in-time Self-service voor herstellen
+- Herstel van een verwijderde database
+- Actieve geo-replicatie
+- Het maken van een databasekopie
 
 Wanneer u een database transparent data encryption beschermde exporteert, worden de geëxporteerde inhoud van de database is niet versleuteld. Dit geëxporteerde inhoud is opgeslagen in niet-versleutelde Bacpac-bestanden. Moet u het BACPAC-bestanden op de juiste wijze te beschermen en transparent data encryption inschakelen nadat het importeren van de nieuwe database is voltooid.
 
@@ -68,19 +68,19 @@ De enige uitzondering hierop is wanneer u naar en van een SQL-database exporteer
 
 ## <a name="manage-transparent-data-encryption-in-the-azure-portal"></a>Transparante gegevensversleuteling in Azure portal beheren
 
-Voor het configureren van transparante gegevensversleuteling via Azure portal, moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager. 
+Voor het configureren van transparante gegevensversleuteling via Azure portal, moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager.
 
-U instellen transparante gegevensversleuteling op het databaseniveau van de. Om in te schakelen transparante gegevensversleuteling voor een database, gaat u naar de [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-beheerder of Inzender. De transparent data encryption-instellingen onder de gebruikersdatabase vinden. Beheerde service transparante gegevensversleuteling wordt standaard gebruikt. Een transparent data encryption-certificaat wordt automatisch gegenereerd voor de server die de database bevat. 
+U instellen transparante gegevensversleuteling op het databaseniveau van de. Om in te schakelen transparante gegevensversleuteling voor een database, gaat u naar de [Azure-portal](https://portal.azure.com) en meld u aan met uw Azure-beheerder of Inzender. De transparent data encryption-instellingen onder de gebruikersdatabase vinden. Beheerde service transparante gegevensversleuteling wordt standaard gebruikt. Een transparent data encryption-certificaat wordt automatisch gegenereerd voor de server die de database bevat.
 
 ![Beheerde service transparante gegevensversleuteling](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
 
-U kunt de hoofdsleutel transparent data encryption, ook wel bekend als de transparent data encryption protector instellen op niveau van de server. Zie voor het gebruik van transparante gegevensversleuteling met Bring Your Own Key-ondersteuning en beveiligen van uw databases met een sleutel uit Key Vault, de transparent data encryption-instellingen op uw server. 
+U kunt de hoofdsleutel transparent data encryption, ook wel bekend als de transparent data encryption protector instellen op niveau van de server. Zie voor het gebruik van transparante gegevensversleuteling met Bring Your Own Key-ondersteuning en beveiligen van uw databases met een sleutel uit Key Vault, de transparent data encryption-instellingen op uw server.
 
-![Transparante gegevensversleuteling met Bring Your Own Key-ondersteuning](./media/transparent-data-encryption-azure-sql/tde-byok-support.png) 
+![Transparante gegevensversleuteling met Bring Your Own Key-ondersteuning](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>Transparante gegevensversleuteling met behulp van PowerShell beheren
 
-Voor het configureren van transparante gegevensversleuteling via PowerShell, moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager. 
+Voor het configureren van transparante gegevensversleuteling via PowerShell, moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager.
 
 | Cmdlet | Beschrijving |
 | --- | --- |
@@ -102,28 +102,28 @@ Verbinding maken met de database met behulp van een aanmelding die is een beheer
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | Aan van/op VERSLEUTELING uit ingesteld worden versleuteld of een database wordt ontsleuteld |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |Retourneert informatie over de status van de versleuteling van een database en de bijbehorende database versleutelingssleutels |
-| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Retourneert informatie over de status van de versleuteling van elke datawarehouse-knooppunt en de bijbehorende database versleutelingssleutels | 
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |Retourneert informatie over de status van de versleuteling van elke datawarehouse-knooppunt en de bijbehorende database versleutelingssleutels |
 |  | |
 
 U kunt niet de transparent data encryption protector overstappen op een sleutel uit Key Vault met behulp van Transact-SQL. Gebruik PowerShell of Azure portal.
 
 ## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>Transparante gegevensversleuteling beheren met behulp van de REST-API
- 
-Voor het configureren van transparante gegevensversleuteling via de REST-API moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager. 
+
+Voor het configureren van transparante gegevensversleuteling via de REST-API moet verbonden zijn als de Azure-eigenaar, bijdrager of SQL Security Manager.
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[Maken of bijwerken van de Server](/rest/api/sql/servers/createorupdate)|Voegt een Azure Active Directory-identiteit toe aan een SQL Server-exemplaar (die wordt gebruikt om toegang te verlenen tot Key Vault)|
-|[Maken of bijwerken van de serversleutel](/rest/api/sql/serverkeys/createorupdate)|Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar|
-|[Serversleutel verwijderen](/rest/api/sql/serverkeys/delete)|Hiermee verwijdert u een Key Vault-sleutel van een SQL Server-exemplaar|
-|[Serversleutels ophalen](/rest/api/sql/serverkeys/get)|Een specifieke Key Vault-sleutel opgehaald uit een SQL Server-exemplaar|
-|[Een lijst met serversleutels door Server](/rest/api/sql/serverkeys/listbyserver)|Haalt de Key Vault sleutels voor een SQL Server-exemplaar |
-|[Maken of bijwerken van Encryption Protector](/rest/api/sql/encryptionprotectors/createorupdate)|Hiermee stelt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
-|[Encryption Protector ophalen](/rest/api/sql/encryptionprotectors/get)|Hiermee haalt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
-|[Lijst met versleuteling beveiligingstoepassingen door Server](/rest/api/sql/encryptionprotectors/listbyserver)|Hiermee haalt u de transparent data encryption protector voor een SQL Server-exemplaar |
-|[Maken of bijwerken van Transparent Data Encryption-configuratie](/rest/api/sql/transparentdataencryptions/createorupdate)|Hiermee schakelt transparante gegevensversleuteling voor een database of uit|
-|[Transparent Data Encryption-configuratie ophalen](/rest/api/sql/transparentdataencryptions/get)|Hiermee wordt de transparent data encryption-configuratie voor een database opgehaald|
-|[Lijst met Transparent Data Encryption Configuratieresultaten](/rest/api/sql/transparentdataencryptionactivities/ListByConfiguration)|Hiermee haalt u het resultaat van de versleuteling voor een database|
+|[Maken of bijwerken van de Server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Voegt een Azure Active Directory-identiteit toe aan een SQL Server-exemplaar (die wordt gebruikt om toegang te verlenen tot Key Vault)|
+|[Maken of bijwerken van de serversleutel](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Voegt een Key Vault-sleutel toe aan een SQL Server-exemplaar|
+|[Serversleutel verwijderen](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Hiermee verwijdert u een Key Vault-sleutel van een SQL Server-exemplaar|
+|[Serversleutels ophalen](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Een specifieke Key Vault-sleutel opgehaald uit een SQL Server-exemplaar|
+|[Een lijst met serversleutels door Server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Haalt de Key Vault sleutels voor een SQL Server-exemplaar |
+|[Maken of bijwerken van Encryption Protector](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Hiermee stelt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
+|[Encryption Protector ophalen](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Hiermee haalt u de transparent data encryption-beveiliging voor een SQL Server-exemplaar|
+|[Lijst met versleuteling beveiligingstoepassingen door Server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Hiermee haalt u de transparent data encryption protector voor een SQL Server-exemplaar |
+|[Maken of bijwerken van Transparent Data Encryption-configuratie](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Hiermee schakelt transparante gegevensversleuteling voor een database of uit|
+|[Transparent Data Encryption-configuratie ophalen](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Hiermee wordt de transparent data encryption-configuratie voor een database opgehaald|
+|[Lijst met Transparent Data Encryption Configuratieresultaten](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Hiermee haalt u het resultaat van de versleuteling voor een database|
 
 ## <a name="next-steps"></a>Volgende stappen
 

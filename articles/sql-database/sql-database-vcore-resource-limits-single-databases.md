@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 9ad43ecf2aa5649e582f1aa4159352edf9c8fa5b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042594"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353576"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -28,14 +28,12 @@ Zie voor DTU gebaseerde aankopen model limieten voor individuele databases op ee
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
+U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), wordt de [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), of de [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Individuele database: opslaggrootte en compute-grootten
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Algemeen doel-servicelaag: opslaggrootte en compute-grootten
 
-Voor individuele databases in de volgende tabellen tonen de beschikbare resources voor een individuele database op elke servicelaag en compute grootte. U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), wordt de [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), of de [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
 
-### <a name="general-purpose-service-tier"></a>Categorie van de service Algemeen gebruik
-
-#### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
 |COMPUTE-grootte|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+
 |COMPUTE-grootte|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|
@@ -79,9 +78,10 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
-### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Kritieke-bedrijfslaag: opslaggrootte en compute-grootten
 
-#### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+
 |COMPUTE-grootte|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+
 |COMPUTE-grootte|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
@@ -125,9 +126,10 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Zeer grootschalige servicelaag (preview)
+## <a name="hyperscale-service-tier-preview"></a>Zeer grootschalige servicelaag (preview)
 
-#### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Generatie 4 compute platform: opslaggrootte en compute-grootten
+
 |Prestatieniveau|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ Voor individuele databases in de volgende tabellen tonen de beschikbare resource
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
+
 |Prestatieniveau|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|

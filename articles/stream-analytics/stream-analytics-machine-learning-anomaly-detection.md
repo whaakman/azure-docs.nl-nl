@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 045d7623c3f00ee984dad406247e3197a4ecc45a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2f35f54c7ec5ad169673aebe08602294270f470a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586168"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364452"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Anomaliedetectie in Azure Stream Analytics
 
 > [!IMPORTANT]
-> Deze functionaliteit wordt afgeschaft, maar wordt vervangen door nieuwe functies. Voor meer informatie gaat u naar de [acht nieuwe functies in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blogbericht.
+> Deze functionaliteit wordt afgeschaft, maar wordt vervangen door nieuwe functies. Voor meer informatie gaat u naar de [acht nieuwe functies in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogbericht.
 
 De **AnomalyDetection** operator wordt gebruikt voor het detecteren van verschillende typen anomalieën in gebeurtenisstromen. Bijvoorbeeld, een trage afname in geheugen vrij te maken over een lange periode kan zijn voor een geheugenlek, of het aantal aanvragen van de web-service die zich in een bereik stabiel aanzienlijk kan vergroten of verkleinen.  
 

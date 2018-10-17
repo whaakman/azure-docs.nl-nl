@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 980a183261c394bd83292170ab133fe17229013d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054250"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364503"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure Redis-Cache met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -783,7 +783,7 @@ Zie de volgende bronnen voor meer informatie over het gebruik van Windows PowerS
 * [Azure Redis-Cache-cmdlet-documentatie op MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager-Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Leer hoe u met de cmdlets in de Azure Resource Manager-module.
 * [Uw Azure-resources beheren met behulp van resourcegroepen](../azure-resource-manager/resource-group-template-deploy-portal.md): meer informatie over het maken en beheren van resourcegroepen in Azure portal.
-* [Azure-blog](https://azure.microsoft.com/en-us/blog/): meer informatie over nieuwe functies in Azure.
+* [Azure-blog](https://azure.microsoft.com/blog/): meer informatie over nieuwe functies in Azure.
 * [Windows PowerShell-blog](http://blogs.msdn.com/powershell): meer informatie over nieuwe functies in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): real-world tips en trucs ophalen uit de Windows PowerShell-community.
 

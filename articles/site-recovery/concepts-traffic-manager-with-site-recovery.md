@@ -3,24 +3,24 @@ title: Azure Traffic Manager met Azure Site Recovery | Microsoft Docs
 description: Beschrijft hoe u met Azure Traffic Manager met Azure Site Recovery voor migratie en herstel na noodgevallen
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919033"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353251"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager met Azure Site Recovery
 
-Met Azure Traffic Manager kunt u voor het beheren van de distributie van verkeer tussen de toepassingseindpunten van uw. Een eindpunt is een internetgerichte service die wordt gehost binnen en buiten Azure.
+Met Azure Traffic Manager kunt u voor het beheren van de distributie van verkeer tussen de toepassingseindpunten van uw. Een eindpunt is een internetgerichte service die binnen of buiten Azure wordt gehost.
 
-Traffic Manager maakt gebruik van de Domain Name System (DNS) om te leiden aanvragen van clients op het meest geschikte eindpunt, op basis van een methode routering van verkeer en de status van de eindpunten. Traffic Manager biedt een scala aan [routeringsmethoden voor verkeer](../traffic-manager/traffic-manager-routing-methods.md) en [eindpunt controle-opties](../traffic-manager/traffic-manager-monitoring.md) op basis van verschillende toepassingsbehoeften en automatische failover-modellen. Clients rechtstreeks verbinding maken met het geselecteerde eindpunt. Traffic Manager is niet een proxy of een gateway en wordt het verkeer te geven tussen de client en de service niet te zien.
+Traffic Manager maakt gebruik van de Domain Name System (DNS) om te leiden aanvragen van clients op het meest geschikte eindpunt, op basis van een methode routering van verkeer en de status van de eindpunten. Traffic Manager biedt een scala aan [routeringsmethoden voor verkeer](../traffic-manager/traffic-manager-routing-methods.md) en [opties voor eindpuntcontrole](../traffic-manager/traffic-manager-monitoring.md) om verschillende toepassingsbehoeften en modellen voor automatische failover mogelijk te kunnen maken. Clients rechtstreeks verbinding maken met het geselecteerde eindpunt. Traffic Manager is niet een proxy of een gateway en wordt het verkeer te geven tussen de client en de service niet te zien.
 
 Dit artikel wordt beschreven hoe u intelligente routering van Azure verkeer controleren met de krachtige noodherstel van Azure Site Recovery en migratiemogelijkheden voor kunt combineren.
 

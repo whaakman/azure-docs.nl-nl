@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: be4964e36766a27e9115311448529c279e3ae74a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713428"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365540"
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Technische vereisten voor het maken van een oplossingssjabloon voor de Azure Marketplace
 Het proces aandachtig door voordat u begint gelezen en u begrijpt waar en waarom elke stap wordt uitgevoerd. Zo veel mogelijk, u moet voorbereiden van gegevens van uw bedrijf en andere gegevens, die nodig zijn hulpprogramma's downloaden en/of technische componenten maken voordat u begint met het proces voor het maken van aanbieding.  
@@ -29,7 +29,7 @@ Voordat u met de oplossingssjabloon van uw op de Portal voor publiceren verderga
 
 1. [Azure Resource Manager-sjablonen maken](../azure-resource-manager/resource-group-authoring-templates.md)
 2. Azure Quickstart-sjablonen:
-   * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
+   * [https://azure.microsoft.com/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 3d03cd6a5cceb805ed8ee34548bd1a3973e9d78b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167082"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361433"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informatie over de Speech to Text-API
 
@@ -38,7 +38,7 @@ De **spraak naar tekst** API biedt de volgende functies:
 
 ## <a name="api-capabilities"></a>API-functies
 
-Sommige van de mogelijkheden van de **spraak naar tekst** API - met name wat betreft aanpassing - zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. 
+Sommige van de mogelijkheden van de **spraak naar tekst** API, met name wat betreft de aanpassing kunnen zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Zie voor een volledige lijst van de mogelijkheden en API-details, [Swagger verwijzing](https://westus.cris.ai/swagger/ui/index).
 
 | Use-case | REST | SDK's |
 |-----|-----|-----|----|
@@ -55,7 +55,7 @@ Sommige van de mogelijkheden van de **spraak naar tekst** API - met name wat bet
 | Maken en beheren van modelimplementaties | Ja | Nee |
 
 > [!NOTE]
-> De REST-API implementeert die de API-aanvragen voor 25 per van vijf seconden beperkingslimieten. Bericht hearders wordt op de hoogte van de limieten
+> De REST-API implementeert die de API-aanvragen voor 25 per van vijf seconden beperkingslimieten. Berichtkoppen wordt op de hoogte van de limieten
 
 \* *LUIS intenties en entiteiten kunnen worden afgeleid met behulp van een afzonderlijk LUIS-abonnement. Met dit abonnement, de SDK LUIS-aanroep voor u en bieden entiteit en voor welk doel resultaten, evenals transcriptie van spraak. Met de REST-API, roept u LUIS zelf voor het afleiden van intenties en entiteiten met uw LUIS-abonnement.*
 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585727"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353168"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -96,7 +96,7 @@ De volgende stappen uitvoeren om een import-taak maken in Azure portal.
 
     - Selecteer **importeren in Azure**.
     - Voer een beschrijvende naam voor de import-taak. De naam gebruiken om de voortgang van uw taken te houden.
-        - De naam mag alleen kleine letters, cijfers, afbreekstreepjes en onderstrepingstekens bevatten.
+        - De naam mag alleen kleine letters, cijfers en afbreekstreepjes bevatten.
         - De naam moet beginnen met een letter en mag geen spaties bevatten.
     - Selecteer een abonnement.
     - Typ of Selecteer een resourcegroep.  

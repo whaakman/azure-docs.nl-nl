@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: c4206b3178cd02082b8e0815081fedf59a6836b1
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068297"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353489"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 Deze handleiding bevat informatie over de complexiteit van het schrijven van Azure Functions met JavaScript.
@@ -375,7 +375,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Let op: u moet definiëren een `package.json` bestand in de hoofdmap van uw functie-app. Het bestand te definiëren, kunt alle functies in de app delen de dezelfde in de cache-pakketten, waardoor de beste prestaties. Als een conflict zich voordoet, kunt u deze oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
+> [!NOTE]
+> U moet definiëren een `package.json` bestand in de hoofdmap van uw functie-App. Het bestand te definiëren, kunt alle functies in de app delen de dezelfde in de cache-pakketten, waardoor de beste prestaties. Als een conflict zich voordoet, kunt u deze oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
+
+Wanneer u een functie-Apps implementeert vanuit broncodebeheer, `package.json` bestand in uw opslagplaats aanwezig is, activeert een `npm install` in de map tijdens de implementatie. Maar wanneer u implementeert via de Portal of de CLI, moet u handmatig de om pakketten te installeren.
 
 Er zijn twee manieren om pakketten te installeren op uw functie-App: 
 

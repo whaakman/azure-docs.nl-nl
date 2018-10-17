@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 935e2b9e861a889bef48c1d7ba119ab694cddfb3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094010"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367056"
 ---
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
 
@@ -31,11 +31,11 @@ In deze sectie maakt u de [Azure-portal](https://portal.azure.com) te maken van 
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-   ![Een nieuw apparaat toevoegen](./media/iot-hub-get-started-create-device-identity-portal/add-device.png)
+   ![Een nieuw apparaat toevoegen](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
 1. In de lijst, klikt u op het zojuist gemaakte apparaat en kopieer de **Connection string---primaire sleutel** voor later gebruik.
 
-    ![Apparaat-verbindingsreeks](./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png)
+    ![Apparaat-verbindingsreeks](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 
 > [!NOTE]
 > In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

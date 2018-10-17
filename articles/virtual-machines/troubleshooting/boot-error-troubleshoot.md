@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/21/2018
 ms.author: genli
-ms.openlocfilehash: 05a8b4a8aa5ed79876a33eb1bd09f7675d4c611d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8253c4c84e38fc3b8279aa311c1627a540502a6c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586887"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351483"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Opstarten van virtuele Machines van Azure oplossen
 
@@ -32,5 +32,6 @@ In dit artikel geeft een lijst van de veelvoorkomende opstartfouten die kunnen w
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- [Diagnostische gegevens over opstarten](boot-diagnostics.md)
 - [Seriële Console van virtuele machine](../windows/serial-console.md)
 - [Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine voor herstel](../windows/troubleshoot-recovery-disks.md)

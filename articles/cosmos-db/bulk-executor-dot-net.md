@@ -1,25 +1,26 @@
 ---
-title: Met behulp van .NET-bibliotheek voor bulksgewijs executor bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB | Microsoft Docs
-description: Azure Cosmos DB bulksgewijs executor .NET-clientbibliotheek gebruiken voor het bulksgewijs importeren en bijwerken van documenten naar Azure Cosmos DB-containers.
-keywords: .NET bulksgewijs executor
+title: Met behulp van .NET-bibliotheek voor bulksgewijs executor bulksgewijs importeren en bijwerken van bewerkingen in Azure Cosmos DB | Microsoft Docs
+description: Bulksgewijs importeren en bijwerken van Azure Cosmos DB-documenten met behulp van grote hoeveelheden executor .NET-bibliotheek.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053377"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363394"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Bulksgewijs executor .NET-clientbibliotheek gebruiken voor het bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB
 
-In deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos DB bulksgewijs executor-bibliotheek voor .NET om te importeren en bijwerken van documenten naar Azure Cosmos DB-container. Zie voor meer informatie over het bulksgewijs executor-bibliotheek en hoe Hiermee kunt u gebruikmaken van de enorme doorvoer en opslag, [bulksgewijs executor-bibliotheek overzicht](bulk-executor-overview.md) artikel. In deze zelfstudie begeleidt u door een voorbeeld van .NET-toepassing die bulksgewijs invoer willekeurig gegenereerde documenten in een Azure Cosmos DB-container. Nadat u hebt geïmporteerd ziet u hoe u kunt bulksgewijs de geïmporteerde gegevens bijwerken met patches als bewerkingen moeten worden uitgevoerd op specifieke documentvelden op te geven.
+In deze zelfstudie bevat instructies over het gebruik van de Azure Cosmos DB bulksgewijs executor-bibliotheek voor .NET om te importeren en bijwerken van documenten naar Azure Cosmos DB-container. Zie voor meer informatie over het bulksgewijs executor-bibliotheek en hoe Hiermee kunt u gebruikmaken van de enorme doorvoer en opslag, [bulksgewijs executor-bibliotheek overzicht](bulk-executor-overview.md) artikel. In deze zelfstudie ziet u een voorbeeld van .NET-toepassing die invoer willekeurig bulksgewijs documenten in een Azure Cosmos DB-container gegenereerd. Nadat u hebt geïmporteerd ziet u hoe u kunt bulksgewijs de geïmporteerde gegevens bijwerken met patches als bewerkingen moeten worden uitgevoerd op specifieke documentvelden op te geven. 
+
+Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos DB SQL API en Gremlin-API-accounts. In dit artikel wordt beschreven hoe u bulksgewijs executor .NET-clientbibliotheek gebruiken met SQL API-accounts. Zie voor meer informatie over het gebruik van grote hoeveelheden executor .NET-bibliotheek met Gremlin-API, [bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). 
 
 ## <a name="prerequisites"></a>Vereisten
 

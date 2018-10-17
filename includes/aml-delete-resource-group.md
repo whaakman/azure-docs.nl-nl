@@ -9,15 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb874d06fbccc7e1db542a5d063b9b6acd35b83f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47001947"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240107"
 ---
 >[!IMPORTANT]
->De resources die u hebt gemaakt kunnen worden gebruikt als de vereisten voor andere Azure Machine Learning-zelfstudies en artikelen met procedures. 
+>De resources die u hebt gemaakt, kunnen worden gebruikt als vereisten voor andere Azure Machine Learning-zelfstudies en artikelen met procedures. 
 
 
 Als u wat u hier hebt gemaakt niet meer gaat gebruiken, verwijdert u de resources die u zojuist met deze Quick Start hebt gemaakt, zodat u geen kosten maakt.

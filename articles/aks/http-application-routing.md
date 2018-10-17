@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 181a37504569088e44dbe39da9113257bfb35c4e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9a096588c5a8fda64343e001fdbd895d02153f58
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068931"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362701"
 ---
 # <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
 De HTTP-routering oplossing kunt eenvoudig toegang krijgen tot toepassingen die zijn geïmplementeerd in uw cluster Azure Kubernetes Service (AKS). Wanneer u van de oplossing is ingeschakeld, configureert het een controller voor binnenkomend verkeer in uw AKS-cluster. Als toepassingen worden geïmplementeerd, maakt de oplossing ook openbaar toegankelijke DNS-namen voor eindpunten van de toepassingen.
 
 Wanneer de invoegtoepassing is ingeschakeld, wordt een DNS-Zone gemaakt in uw abonnement. Zie voor meer informatie over DNS-kosten [DNS prijzen][dns-pricing].
+
+> [!CAUTION]
+> De HTTP-aanvraag routering invoegtoepassing is ontworpen om u snel een controller voor binnenkomend verkeer kunt maken en toegang tot uw toepassingen te laten. Deze invoegtoepassing wordt niet aanbevolen voor gebruik in productieomgevingen. Voor inkomend verkeer gereed is voor productie-implementaties met meerdere replica's en TLS-ondersteuning, Zie [maken van een HTTPS-controller voor binnenkomend verkeer](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>Oplossingenoverzicht van de HTTP-routering
 

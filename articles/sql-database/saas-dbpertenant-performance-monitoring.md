@@ -1,5 +1,5 @@
 ---
-title: Prestaties van veel Azure SQL-databases in een multitenant SaaS-app bewaken | Microsoft Docs
+title: 'SaaS-app: prestaties van veel Azure SQL-databases bewaken | Microsoft Docs'
 description: Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: b0e1cf976552754070b939a1463d033d66a0119c
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830036"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353897"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Prestaties van Azure SQL-databases en pools in een multitenant SaaS-app controleren en beheren
 
@@ -242,7 +242,7 @@ In deze zelfstudie leert u het volgende:
 [Zelfstudie Een individuele tenant herstellen](saas-dbpertenant-restore-single-tenant.md)
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * Aanvullende [zelfstudies voort op de implementatie van de toepassing Wingtip Tickets SaaS Database Per Tenant bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastische SQL-pools](sql-database-elastic-pool.md)

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035195"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352982"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Rollen van de entiteit in de patronen zijn contextuele subtypen
 Rollen zijn met de naam, contextuele subtypen van een entiteit gebruikt alleen in [patronen](luis-concept-patterns.md).
@@ -28,6 +28,8 @@ Functies bieden een naam op die verschillen:
 |--|--|--|
 |Locatie|oorsprong|waar het vlak van verlaat|
 |Locatie|destination|waar het vlak van terechtkomt|
+|Vooraf gedefinieerde datetimeV2|tot|einddatum|
+|Vooraf gedefinieerde datetimeV2|uit|begindatum|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Hoe worden de rollen in patronen gebruikt?
 Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utterance: 
@@ -47,6 +49,14 @@ Hiërarchische entiteiten bevatten de dezelfde contextuele informatie als rollen
 |--|--|
 |hiërarchische entiteiten|Intents|
 |rolls|Patronen|
+
+## <a name="roles-with-prebuilt-entities"></a>Rollen met vooraf gemaakte entiteiten
+
+Rollen bieden verschillende exemplaren van de vooraf gedefinieerde entiteit binnen een utterance betekenis met vooraf gemaakte entiteiten gebruiken. 
+
+### <a name="roles-with-datetimev2"></a>Rollen met datetimeV2
+
+De vooraf gedefinieerde entiteit, datetimeV2, geeft een heldere van informatie over een breed scala aan verschillende in datums en tijden in uitingen. Het is raadzaam om datums en datumbereiken anders dan de vooraf gedefinieerde entiteit standaard inzicht te geven. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

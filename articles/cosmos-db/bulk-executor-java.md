@@ -1,25 +1,26 @@
 ---
-title: Met behulp van Java-bibliotheek voor bulksgewijs executor bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB | Microsoft Docs
-description: Gebruik Azure Cosmos DB bulksgewijs executor Java-bibliotheek voor het bulksgewijs importeren en bijwerken van documenten naar Azure Cosmos DB-containers.
-keywords: Java bulksgewijs executor
+title: Met behulp van Java-bibliotheek voor bulksgewijs executor bulksgewijs importeren en bijwerken van bewerkingen in Azure Cosmos DB | Microsoft Docs
+description: Bulksgewijs importeren en bijwerken van Azure Cosmos DB-documenten met behulp van grote hoeveelheden executor Java-bibliotheek.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050184"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362106"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulksgewijs executor Java-clientbibliotheek gebruiken om te bulksgewijs bewerkingen uitvoeren op Azure Cosmos DB-gegevens
 
 In deze zelfstudie vindt u instructies over het gebruik van de Azure Cosmos DB bulksgewijs executor Java-bibliotheek voor het importeren en bijwerken van Azure Cosmos DB-documenten. Zie voor meer informatie over het bulksgewijs executor-bibliotheek en hoe Hiermee kunt u gebruikmaken van de enorme doorvoer en opslag, [bulk-overzicht van de bibliotheek executor](bulk-executor-overview.md) artikel. In deze zelfstudie, u een Java-toepassing die wordt gegenereerd willekeurige documenten maken en ze zijn bulksgewijs geïmporteerd in een Azure Cosmos DB-container. Na het importeren wordt u bulksgewijs sommige eigenschappen van een document bij te werken. 
+
+Bulksgewijs executor-bibliotheek wordt momenteel ondersteund door Azure Cosmos DB SQL API en Gremlin-API-accounts. In dit artikel wordt beschreven hoe u bulksgewijs executor .net-clientbibliotheek gebruiken met SQL API-accounts. Zie voor meer informatie over het gebruik van grote hoeveelheden executor .NET-bibliotheek met Gremlin-API, [bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Vereisten
 

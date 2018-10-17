@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b3aca33bea8f7847b7069bba3f2a6dcd143cf29c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079122"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364555"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -182,7 +182,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 * <a id="ad-support-regions"></a>
 **Is de Preview-versie van Azure AD via SMB voor Azure Files beschikbaar in alle Azure-regio's?**
 
-    De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: VS-West, VS Zuid-centraal, VS-midden, West-Europa, Noord-Europa.
+    De Preview-versie is beschikbaar in alle openbare regio's met uitzondering van: Noord-Europa.
 
 * <a id="ad-support-on-premises"></a>
 **Azure AD-verificatie via SMB voor Azure Files (Preview) biedt ondersteuning voor verificatie met behulp van Azure AD vanaf on-premises machines?**

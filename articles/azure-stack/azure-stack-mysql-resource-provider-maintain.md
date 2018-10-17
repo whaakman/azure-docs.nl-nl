@@ -1,6 +1,6 @@
 ---
-title: Onderhoud van de resourceprovider MySQL op Azure-Stack | Microsoft Docs
-description: Meer informatie over hoe u de MySQL resource provider-service op Azure-Stack kunt onderhouden.
+title: Onderhoud van de resourceprovider van MySQL in Azure Stack | Microsoft Docs
+description: Meer informatie over hoe u de service MySQL resource provider in Azure Stack kunt onderhouden.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,50 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: bc1c96d2f027d459ca20fccb70cd94ac9e5cae94
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.reviewer: quying
+ms.openlocfilehash: 76a164ffcf918ebedcf4647f24a61ca3a271e967
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130135"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361912"
 ---
-# <a name="mysql-resource-provider-maintenance-operations"></a>MySQL resource provider onderhoudsbewerkingen
+# <a name="mysql-resource-provider-maintenance-operations"></a>MySQL onderhoud resourceproviderbewerkingen
 
-De MySQL-resourceprovider wordt uitgevoerd op een vergrendelde virtuele machine. Om in te schakelen onderhoudsbewerkingen, moet u de beveiliging van de virtuele machine bijwerken. Om dit te doen met behulp van het principe van minimale bevoegdheden, kunt u PowerShell net genoeg Administration (JEA) eindpunt DBAdapterMaintenance. Het installatiepakket voor de resource-provider bevat een script voor deze bewerking.
+De MySQL-resourceprovider wordt uitgevoerd op een vergrendelde virtuele machine. Om in te schakelen onderhoudsbewerkingen, moet u de beveiliging van de virtuele machine bijwerken. Om dit te doen met behulp van het principe van minimale bevoegdheden, kunt u PowerShell alleen Enough Administration (JEA) eindpunt DBAdapterMaintenance. Het installatiepakket voor de resource-provider bevat een script voor deze bewerking.
 
 ## <a name="update-the-virtual-machine-operating-system"></a>Werk het besturingssysteem van de virtuele machine
 
-Omdat de resourceprovider wordt uitgevoerd op een *gebruiker* virtuele machine, moet u de vereiste patches en updates van toepassing wanneer deze worden vrijgegeven. U kunt de Windows update-pakketten die worden geleverd als onderdeel van de patch-en updatecyclus updates toepassen op de virtuele machine.
+Omdat de resourceprovider wordt uitgevoerd op een *gebruiker* virtuele machine, moet u de vereiste patches en updates van toepassing wanneer deze zijn vrijgegeven. U kunt de Windows update-pakketten die worden geleverd als onderdeel van de patch-en updatecyclus updates toepassen op de virtuele machine.
 
-Werk de provider virtuele machine met een van de volgende methoden:
+Update voor de provider van virtuele machine met behulp van een van de volgende methoden:
 
-- Installeer de meest recente resource provider-pakket met de installatiekopie van een momenteel patches Windows Server 2016 Core.
-- Een Windows Update-pakket installeren tijdens de installatie van of bijwerken naar de resourceprovider.
+- Installeer de meest recente resource provider-pakket met behulp van een momenteel gecorrigeerde installatiekopie van Windows Server 2016 Core.
+- Een Windows Update-pakket installeren tijdens de installatie van of bijwerken bij de resourceprovider.
 
 ## <a name="update-the-virtual-machine-windows-defender-definitions"></a>De virtuele machine Windows Defender-definities bijwerken
 
-Volg deze stappen voor het bijwerken van de definities Defender:
+Als u wilt de Defender-definities bijwerken, de volgende stappen uit:
 
-1. Download de Windows Defender-definities vanuit bijwerken [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions).
+1. Download de Windows Defender-definities via bijwerken [Windows Defender de definitie](https://www.microsoft.com/en-us/wdsi/definitions).
 
     Schuif omlaag naar 'Handmatig downloaden en installeren van de definities' op de pagina definities. Download het bestand van de 64-bits 'Windows Defender Antivirus voor Windows 10 en Windows 8.1 '.
 
     U kunt ook [deze directe koppeling](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) op het bestand fpam fe.exe downloaden/uitvoeren.
 
-2. Open een PowerShell-sessie met MySQL resource provider-adapter van de virtuele machine onderhoud eindpunt.
+2. Open een PowerShell-sessie naar MySQL resource provider-adapter van de virtuele machine onderhoud eindpunt.
 
-3. Kopieer het bestand van de update definities aan de resource provider adapter VM die gebruikmaakt van de onderhoudsmodus endpoint-sessie.
+3. Kopieer het bestand van de update definities voor de resource provider adapter VM met behulp van de eindpunt-sessie van onderhoud.
 
 4. Voer op de onderhoud PowerShell-sessie de _Update DBAdapterWindowsDefenderDefinitions_ opdracht.
 
-5. Nadat u de definities hebt geïnstalleerd, wordt aangeraden het updatebestand definities te verwijderen via de _verwijderen ItemOnUserDrive)_ opdracht.
+5. Nadat u de definities worden geïnstalleerd, wordt aangeraden dat u het bestand van de update definities met behulp van verwijderen de _Remove-ItemOnUserDrive)_ opdracht.
 
-**Voorbeeld van PowerShell-script voor het bijwerken van definities.**
+**PowerShell-voorbeeldscript voor het bijwerken van definities.**
 
-U kunt bewerken en voer het volgende script om de Defender-definities bijwerken. Waarden in het script vervangen door waarden van uw omgeving.
+U kunt bewerken en voer het volgende script als u wilt de Defender-definities bijwerken. Waarden in het script vervangen door waarden van uw omgeving.
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
@@ -90,17 +90,17 @@ $session | Remove-PSSession
 
 ```
 
-## <a name="secrets-rotation"></a>Geheimen draaien
+## <a name="secrets-rotation"></a>Geheimen, rotatie
 
-*Deze instructies zijn alleen van toepassing op Azure Stack geïntegreerde systemen versie 1804 en Later. Probeer niet om te draaien geheimen op de pre-1804 versies van Azure-Stack.*
+*Deze instructies zijn alleen van toepassing op Azure Stack-geïntegreerde systemen.*
 
-Wanneer met behulp van de resourceproviders SQL en MySQL met Azure-Stack geïntegreerd systemen, kunt u de volgende infrastructuur (implementatie) geheimen draaien:
+Wanneer met behulp van de resourceproviders SQL- en MySQL met Azure Stack-systemen geïntegreerde, is de Azure Stack-operators verantwoordelijk voor het draaien van de volgende resource provider infrastructuur geheimen om ervoor te zorgen dat ze niet verloopt:
 
 - Externe SSL-certificaat [opgegeven tijdens de implementatie](azure-stack-pki-certs.md).
-- Het resource provider VM lokale administrator-account opgegeven wachtwoord tijdens de implementatie.
-- Het wachtwoord resource provider diagnostische gebruiker (dbadapterdiag).
+- Resource provider VM lokale wachtwoord van de beheerder opgegeven tijdens de implementatie.
+- Wachtwoord van resource provider diagnostische gebruiker (dbadapterdiag).
 
-### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-voorbeelden voor roulatie van geheimen
+### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-voorbeelden voor het draaien van geheimen
 
 **Alle geheimen op hetzelfde moment wijzigen.**
 
@@ -116,7 +116,7 @@ Wanneer met behulp van de resourceproviders SQL en MySQL met Azure-Stack geïnte
 
 ```
 
-**Het gebruikerswachtwoord diagnostische wijzigen.**
+**De diagnostische gebruikerswachtwoord wijzigen.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -127,7 +127,7 @@ Wanneer met behulp van de resourceproviders SQL en MySQL met Azure-Stack geïnte
 
 ```
 
-**Wachtwoord voor de lokale beheerdersaccount VM wijzigen.**
+**Wijzig het wachtwoord van virtuele machine lokale administrator-account.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -154,11 +154,11 @@ Wanneer met behulp van de resourceproviders SQL en MySQL met Azure-Stack geïnte
 
 |Parameter|Beschrijving|
 |-----|-----|
-|AzCredential|Referentie van account voor Azure Stack-servicebeheerder.|
-|CloudAdminCredential|Azure Stack cloud admin-account domeinreferentie.|
-|PrivilegedEndpoint|Bevoorrechte eindpunt voor toegang tot Get-AzureStackStampInformation.|
+|AzCredential|Azure Stack-servicebeheerder-accountreferenties.|
+|CloudAdminCredential|Azure Stack cloud domein account beheerreferenties.|
+|PrivilegedEndpoint|Bevoegde eindpunt voor toegang tot de Get-AzureStackStampInformation.|
 |DiagnosticsUserPassword|Diagnostische gegevens van het wachtwoord voor gebruikersaccount.|
-|VMLocalCredential|Het lokale beheerdersaccount op de MySQLAdapter VM.|
+|VMLocalCredential|Het lokale beheerdersaccount op de VM MySQLAdapter.|
 |DefaultSSLCertificatePassword|Standaard SSL-certificaat (* pfx) wachtwoord.|
 |DependencyFilesLocalPath|Afhankelijkheid bestanden lokaal pad.|
 |     |     |
@@ -166,36 +166,36 @@ Wanneer met behulp van de resourceproviders SQL en MySQL met Azure-Stack geïnte
 ### <a name="known-issues"></a>Bekende problemen
 
 **Probleem:**<br>
-De logboeken voor rotatie geheimen worden niet automatisch verzameld als het script geheime rotatie mislukt wanneer deze wordt uitgevoerd.
+De logboeken voor geheimen, rotatie worden niet automatisch verzameld als het script geheime rotatie is mislukt wanneer deze wordt uitgevoerd.
 
 **Tijdelijke oplossing:**<br>
-Gebruik de cmdlet Get-AzsDBAdapterLogs voor het verzamelen van alle resource provider Logboeken, met inbegrip van AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, opgeslagen in C:\Logs.
+Gebruik de cmdlet Get-AzsDBAdapterLogs alle de resource provider om Logboeken te verzamelen, met inbegrip van AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, opgeslagen in C:\Logs.
 
-## <a name="collect-diagnostic-logs"></a>Diagnostische logboeken verzamelen
+## <a name="collect-diagnostic-logs"></a>Logboeken met diagnostische gegevens verzamelen
 
-Voor het verzamelen van Logboeken van de vergrendelde virtuele machine, kunt u het eindpunt PowerShell net genoeg Administration (JEA) DBAdapterDiagnostics. Dit eindpunt biedt de volgende opdrachten:
+Voor het verzamelen van Logboeken van de vergrendelde virtuele machine, kunt u het eindpunt van de PowerShell alleen Enough Administration (JEA) DBAdapterDiagnostics. Dit eindpunt biedt de volgende opdrachten:
 
-- **Get-AzsDBAdapterLog**. Met deze opdracht maakt een zip-pakket van de resource provider diagnostische logboeken en slaat u het bestand op de schijf van de gebruiker de sessie. U kunt deze opdracht zonder parameters uitvoeren en de laatste vier uur aan logbestanden zijn verzameld.
+- **Get-AzsDBAdapterLog**. Met deze opdracht maakt u een zip-pakket van de resource provider diagnostische logboeken en slaat het bestand op schijf van de gebruiker van de sessie. U kunt deze opdracht zonder parameters uitvoert en de laatste vier uur van de logboeken worden verzameld.
 
-- **Verwijder AzsDBAdapterLog**. Met deze opdracht verwijdert bestaande logboek-pakketten op de resourceprovider VM.
+- **Remove-AzsDBAdapterLog**. Met deze opdracht verwijdert bestaande log-pakketten op de VM-resourceprovider.
 
-### <a name="endpoint-requirements-and-process"></a>Eindpunt vereisten en -proces
+### <a name="endpoint-requirements-and-process"></a>Eindpunt-vereisten en proces
 
-Wanneer een resourceprovider is geïnstalleerd of bijgewerkt, wordt het gebruikersaccount dbadapterdiag gemaakt. U gebruikt deze account voor het verzamelen van diagnostische logboeken.
+Wanneer een resourceprovider wordt geïnstalleerd of bijgewerkt, wordt het gebruikersaccount dbadapterdiag gemaakt. U gebruikt dit account voor het verzamelen van diagnostische logboeken.
 
 >[!NOTE]
 >Het wachtwoord voor het dbadapterdiag is hetzelfde als het wachtwoord voor de lokale beheerder op de virtuele machine die gemaakt tijdens een implementatie van de provider of de update.
 
-Gebruik de _DBAdapterDiagnostics_ opdrachten, een externe PowerShell-sessie met de resource provider virtuele machine maken en voer de **Get-AzsDBAdapterLog** opdracht.
+Gebruik de _DBAdapterDiagnostics_ opdrachten, een externe PowerShell-sessie met de resource provider virtuele machine maken en uitvoeren van de **Get-AzsDBAdapterLog** opdracht.
 
-Stelt u de tijdsduur voor logboekgegevens verzameld door de **FromDate** en **ToDate** parameters. Als u een of beide van deze parameters niet opgeeft, worden de volgende standaardwaarden gebruikt:
+U de tijdsduur voor logboekverzameling instellen met behulp van de **FromDate** en **ToDate** parameters. Als u een of beide van deze parameters niet opgeeft, worden de volgende standaardwaarden worden gebruikt:
 
-* FromDate is vier uur vóór de huidige tijd.
+* FromDate staat aan vier uur vóór de huidige tijd.
 * ToDate is de huidige tijd.
 
-**Voorbeeld van PowerShell-script voor het verzamelen van Logboeken.**
+**PowerShell-voorbeeldscript voor het verzamelen van Logboeken.**
 
-Het volgende script toont hoe u voor het verzamelen van diagnostische logboeken van de resourceprovider VM.
+Het volgende script toont hoe u logboeken met diagnostische gegevens verzamelen over de VM-resourceprovider.
 
 ```powershell
 # Create a new diagnostics endpoint session.
@@ -227,4 +227,4 @@ $session | Remove-PSSession
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Verwijder de MySQL-resourceprovider](azure-stack-mysql-resource-provider-remove.md)
+[Verwijderen van de MySQL-resourceprovider](azure-stack-mysql-resource-provider-remove.md)

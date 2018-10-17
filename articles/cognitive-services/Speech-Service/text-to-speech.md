@@ -1,20 +1,20 @@
 ---
-title: Over tekst naar spraak
-description: Een overzicht van de mogelijkheden van tekst naar spraak.
-titleSuffix: Microsoft Cognitive Services
+title: Over Text to Speech - Spraakservice
+titleSuffix: Azure Cognitive Services
+description: De service Microsoft Text-to-Speech biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van standard spraakstijlen, hoeft u alleen de stem-naam met een aantal andere parameters opgeven bij het aanroepen van de Speech-Service.
 services: cognitive-services
 author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 10/16/2018
 ms.author: erhopf
-ms.openlocfilehash: bc60eed63fb40c42fc4331edb01e15f850bf6ecb
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2f79ecbb42ba6453c7fb615114c0b7e56402ada3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166080"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363060"
 ---
 # <a name="about-the-text-to-speech-api"></a>Over de Text to Speech-API
 
@@ -26,7 +26,7 @@ In welke spraak synthese wordt toegepast scenario's omvatten:
 
 * *Verbetering van de toegankelijkheid:* **tekst naar spraak** technologie kunnen eigenaren van inhoud en uitgevers om te reageren op de verschillende manieren waarop mensen werken met hun eigen inhoud. Mensen met gezichtsvermogen of problemen bij het lezen waarderen kunnen inhoud aurally gebruiken. Stem ook uitvoer maakt het gemakkelijker voor gebruikers om te profiteren van tekstuele inhoud, zoals newspapers of blogs, op mobiele apparaten bij het nakomen van of als.
 
-* *Reageert in scenario's multitasking:* **tekst naar spraak** kunnen mensen kunnen worden opgevangen belangrijke informatie snel en probleemloos tijdens het verkeer of anders buiten een handige lezen van de omgeving. Navigatie is een algemene toepassing op dit gebied. 
+* *Reageert in scenario's multitasking:* **tekst naar spraak** kunnen mensen kunnen worden opgevangen belangrijke informatie snel en probleemloos tijdens het verkeer of anders buiten een handige lezen van de omgeving. Navigatie is een algemene toepassing op dit gebied.
 
 * *Verbetering van leren met meerdere modi:* verschillende mensen meer beste op verschillende manieren. Online learning experts heeft aangetoond dat de spraak- en samen bieden gegevens gemakkelijker helpen kan te leren en te behouden.
 
@@ -34,13 +34,13 @@ In welke spraak synthese wordt toegepast scenario's omvatten:
 
 ## <a name="voice-support"></a>Voice-ondersteuning
 
-De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor de details van de stemmen wordt ondersteund, [ondersteunde talen](language-support.md#text-to-speech). 
+De Microsoft **tekst naar spraak** service biedt meer dan 75 stemmen in meer dan 45 talen en landen. Voor het gebruik van deze standaard 'spraakstijlen', moet u alleen de naam van de gesproken met een aantal andere parameters opgeven wanneer u een van de service REST-API aanroept. Zie voor de details van de stemmen wordt ondersteund, [ondersteunde talen](language-support.md#text-to-speech).
 
 Als u een unieke stem voor uw toepassing wilt, kunt u [aangepaste spraakstijlen](how-to-customize-voice-font.md) uit uw eigen voorbeelden van spraak.
 
 ## <a name="api-capabilities"></a>API-functies
 
-Veel van de mogelijkheden van de **tekst naar spraak** API, met name wat betreft de aanpassing, zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Raadpleeg voor een volledige lijst van de mogelijkheden en API-details, [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/),
+Veel van de mogelijkheden van de **tekst naar spraak** API, met name wat betreft de aanpassing kunnen zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Zie voor een volledige lijst van de mogelijkheden en API-details, [Swagger verwijzing](https://westus.cris.ai/swagger/ui/index).
 
 | Use-case | REST | SDK's |
 |-----|-----|-----|----|
@@ -51,7 +51,7 @@ Veel van de mogelijkheden van de **tekst naar spraak** API, met name wat betreft
 | Abonnementen beheren | Ja | Nee |
 
 > [!NOTE]
-> De API implementeert die de API-aanvragen voor 25 per vijf seconden beperkingslimieten. Bericht hearders wordt op de hoogte van de limieten.
+> De API implementeert die de API-aanvragen voor 25 per vijf seconden beperkingslimieten. Berichtkoppen wordt op de hoogte van de limieten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

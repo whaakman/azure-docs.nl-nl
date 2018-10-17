@@ -9,12 +9,12 @@ author: rastala
 ms.author: roastala
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 296bbc12cb326c416c87948db0ce6d7b5ff114da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 856f9629e97f8cf7cf811e7d591cbcad6067f47a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972722"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237157"
 ---
 # <a name="quickstart-get-started-with-azure-machine-learning-using-the-cli-extension"></a>Snelstart: Aan de slag met de Azure Machine Learning-service met behulp van de Azure Machine Learning CLI-extensie
 
@@ -83,7 +83,7 @@ Voor deze snelstart geldt het volgende:
 
 ## <a name="create-a-workspace-and-a-project-folder"></a>Een werkruimte en een projectmap maken
 
-Maak in het opdrachtregelvenster een Azure Machine Learning-werkruimte onder de resourcegroep.
+Maak in het opdrachtregelvenster een Azure Machine Learning-servicewerkruimte onder de resourcegroep.
 
 
    Voor deze snelstart geldt het volgende:

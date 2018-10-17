@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987574"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857887"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Snelstart: blobs uploaden, downloaden, weergeven en verwijderen met behulp van Azure Storage v10 SDK voor JavaScript (preview)
 
@@ -128,7 +128,7 @@ De volgende set constanten helpt bij het bepalen van de intentie van de bestands
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-Aanvragen van de API kunnen zo worden ingesteld dat deze na een bepaalde periode een time-out bereiken. De *Aborter*-klasse is verantwoordelijk voor het beheren van hoe time-outs van aanvragen worden behandeld en de volgende constante wordt gebruikt voor het definiëren van de time-outs die in dit voorbeeld worden gebruikt.
+Aanvragen van de API kunnen zo worden ingesteld dat deze na een bepaalde periode een time-out bereiken. De [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview)-klasse is verantwoordelijk voor het beheren van hoe time-outs van aanvragen worden behandeld en de volgende constante wordt gebruikt voor het definiëren van de time-outs die in dit voorbeeld worden gebruikt.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 De volgende klassen worden gebruikt in dit codeblok:
 
-- De klasse *SharedKeyCredential* is verantwoordelijk voor het verpakken van opslagaccountreferenties om deze door te geven aan een aanvraagpijplijn.
+- De klasse [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) is verantwoordelijk voor het verpakken van opslagaccountreferenties om deze door te geven aan een aanvraagpijplijn.
 
-- De klasse *StorageURL* is verantwoordelijk voor het maken van een nieuwe pijplijn.
+- De klasse [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) is verantwoordelijk voor het maken van een nieuwe pijplijn.
 
-- De *ServiceURL* modelleert een URL die wordt gebruikt in de REST-API. Met instanties van deze klasse kunt u acties uitvoeren zoals het weergeven van een lijst met containers en het leveren van contextinformatie om container-URL's te genereren.
+- De [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) modelleert een URL die wordt gebruikt in de REST-API. Met instanties van deze klasse kunt u acties uitvoeren zoals het weergeven van een lijst met containers en het leveren van contextinformatie om container-URL's te genereren.
 
-Het exemplaar *ServiceURL* wordt gebruikt met de exemplaren *ContainerURL* en *BlockBlobURL* om containers en blobs in uw opslagaccount te beheren.
+Het exemplaar *ServiceURL* wordt gebruikt met de exemplaren [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) en [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) om containers en blobs in uw opslagaccount te beheren.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ Aborters geven u controle over aanvragen doordat u:
 - een hoeveelheid tijd kunt toewijzen voor een batch aanvragen;
 - kunt bepalen hoe lang een afzonderlijke aanvraag in de batch er over mag doen om uit te voeren;
 - aanvragen kunt annuleren;
-- het statische lid *Aborter.None* kunt gebruiken om te voorkomen dat er time-outs voor uw aanvragen plaatsvinden.
+- het statische lid *Aborter.none* kunt gebruiken om te voorkomen dat er time-outs voor uw aanvragen plaatsvinden.
 
 ### <a name="show-container-names"></a>Containernamen weergeven
 Accounts kunnen een groot aantal containers opslaan. De volgende code laat zien hoe u containers op een gesegmenteerde wijze in een lijst kunt weergeven, zodat u een groot aantal containers kunt doorlopen. De functie *showContainerNames* wordt doorgegeven in exemplaren van *ServiceURL* en *Aborter*.

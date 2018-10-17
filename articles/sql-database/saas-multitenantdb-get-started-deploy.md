@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056655"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352208"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Een shard multitenant-toepassing die gebruikmaakt van Azure SQL Database implementeren en verkennen
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Een shard multitenant-toepassing implementeren en verkennen
 
 In deze zelfstudie, implementeren en een voorbeeld van multitenant SaaS-toepassing met de naam Wingtip Tickets verkennen. De Wingtip Tickets-app is ontworpen om u te presenteren functies van Azure SQL Database die de uitvoering van de SaaS-scenario's te vereenvoudigen.
 
@@ -27,7 +27,7 @@ Deze implementatie van de Wingtip Tickets-app maakt gebruik van een patroon shar
 
 Dit patroon database kunt u voor het opslaan van een of meer tenants in elke shard of de database. U kunt voor de laagste kosten optimaliseren door elk van deze databases worden gedeeld door meerdere tenants. Of u kunt optimaliseren voor isolatie door elke database opslaan slechts één tenant. Uw keuze optimalisatie kan onafhankelijk van elkaar worden gemaakt voor elke specifieke tenant. Uw keuze kan worden gemaakt wanneer de tenant voor het eerst wordt opgeslagen, of u kunt u doen later wijzigen. De toepassing is ontworpen voor gebruik van goed in beide gevallen.
 
-#### <a name="app-deploys-quickly"></a>App worden snel geïmplementeerd
+## <a name="app-deploys-quickly"></a>App worden snel geïmplementeerd
 
 De app wordt uitgevoerd in de Azure-cloud en maakt gebruik van Azure SQL Database. De volgende Implementatiesectie biedt de blauwe **implementeren in Azure** knop. Wanneer de knop wordt gedrukt, wordt de app volledig aan uw Azure-abonnement binnen vijf minuten geïmplementeerd. U hebt volledige toegang tot het werken met de afzonderlijke toepassingsonderdelen.
 
@@ -35,7 +35,7 @@ De toepassing wordt geïmplementeerd met gegevens voor drie voorbeeldtenants. De
 
 Iedereen kan de broncode voor C# en PowerShell downloaden voor Wingtip Tickets van [de GitHub-opslagplaats][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Meer informatie in deze zelfstudie
+## <a name="learn-in-this-tutorial"></a>Meer informatie in deze zelfstudie
 
 > [!div class="checklist"]
 > - Klik hier voor meer informatie over het implementeren van de Wingtip Tickets SaaS-toepassing.
@@ -55,15 +55,15 @@ U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt vold
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Implementeren van de Wingtip Tickets-app
 
-#### <a name="plan-the-names"></a>De namen van plan bent
+### <a name="plan-the-names"></a>De namen van plan bent
 
 In de stappen van deze sectie bieden u een *gebruiker* waarde die wordt gebruikt om ervoor te zorgen resourcenamen wereldwijd uniek zijn en een naam voor de *resourcegroep* waarin alle resources die zijn gemaakt door een implementatie van de app. Voor een persoon met de naam *Anne Finley*, wordt aangeraden:
-- *Gebruiker:* **af1***(haar initialen plus een cijfer.   Gebruik een andere waarde (bijvoorbeeld af2) als u de app een tweede keer implementeren.)*
+- *Gebruiker:* **af1***(haar initialen plus een cijfer. Gebruik een andere waarde (bijvoorbeeld af2) als u de app een tweede keer implementeren.)*
 - *Resourcegroep:* **wingtip-mt-af1** *(wingtip-mt geeft aan dat dit is de shard multitenant-app. Toevoegen van de gebruiker de naam af1 overeenkomt met de naam van de resourcegroep met de namen van de resources die deze bevat.)*
 
 Kies de namen van de nu en schrijf ze op. 
 
-#### <a name="steps"></a>Stappen
+### <a name="steps"></a>Stappen
 
 1. Klik op de volgende blauwe **implementeren in Azure** knop.
     - De Azure-portal wordt het geopend met een sjabloon voor de implementatie van de Wingtip Tickets SaaS.
@@ -133,7 +133,7 @@ Een centraal **Events Hub** webpagina bevat een lijst met koppelingen naar de te
 
    ![Gebeurtenissen](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure Traffic Manager
+### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
 Voor het beheren van de distributie van inkomende aanvragen, de Wingtip-app gebruikt [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). De pagina gebeurtenissen voor elke tenant bevat de naam van de tenant in de URL. Elke URL bevat ook de waarde van uw specifieke gebruiker. Elke URL gehoorzaamt aan de indeling weergegeven met behulp van de volgende stappen uit:
 
@@ -144,7 +144,7 @@ Voor het beheren van de distributie van inkomende aanvragen, de Wingtip-app gebr
 3. De app zoekt naar de sleutel in de catalogus, en haalt de bijbehorende locatie van de database van de tenant.
 4. De app maakt gebruik van de locatie-informatie te vinden en openen van de ene database waarin alle gegevens voor de tenant.
 
-#### <a name="events-hub"></a>Events Hub
+### <a name="events-hub"></a>Events Hub
 
 1. De **Events Hub** geeft een lijst van alle tenants die zijn geregistreerd in de catalogus en hun plaatsen.
 2. De **Events Hub** uitgebreide metagegevens in de catalogus gebruikt voor het ophalen van de tenantnaam die zijn gekoppeld aan elke toewijzing te maken van de URL's.
@@ -185,6 +185,7 @@ Vernieuw de **Events Hub**, en de nieuwe tenant wordt nu weergegeven in de lijst
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Een nieuwe tenant in een eigen database inrichten
 
 De shard multitenant-model kunt u kiezen of ze een nieuwe tenant inrichten in een database met andere tenants of in een database met een eigen. Een tenant geïsoleerd in een eigen database, kan de volgende voordelen:
+
 - De prestaties van de database van de tenant kan worden beheerd zonder de noodzaak te manipuleren met de behoeften van andere tenants.
 - Indien nodig, kan de database worden hersteld naar een eerder tijdstip, omdat er geen andere tenants worden niet beïnvloed.
 
@@ -221,7 +222,6 @@ Nu kijken we naar enkele van de resources die zijn geïmplementeerd:
 
    ![tenants-server](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>De prestaties van de database controleren
 
 Als de load-generator actief is geweest gedurende enkele minuten, is voldoende telemetrie beschikbaar om te kijken naar de database bewakingsmogelijkheden die is ingebouwd in de Azure-portal.
@@ -238,7 +238,7 @@ Als de load-generator actief is geweest gedurende enkele minuten, is voldoende t
 
 De load-generator is een vergelijkbare belasting van toepassing op elke tenant, ongeacht welke database elke tenant zich bevindt. Met slechts één tenant in de **salixsalsa** -database, kunt u zien dat de database een veel hoger belasting dan de database met meerdere tenants kan tolereren. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Resourcetoewijzingen zijn afhankelijk van werkbelasting
+### <a name="resource-allocations-vary-by-workload"></a>Resourcetoewijzingen zijn afhankelijk van werkbelasting
 
 Soms een multitenant-database vereist voor andere bronnen voor goede prestaties dan een database met één tenant, maar niet altijd. De optimale toewijzing van resources is afhankelijk van de kenmerken van de specifieke werkbelasting voor de tenants in uw systeem.
 
@@ -249,8 +249,9 @@ De werkbelastingen die worden gegenereerd door de load-generator script zijn all
 - Zie voor meer informatie over SaaS-toepassingen met meerdere tenants, [ontwerppatronen voor SaaS-toepassingen met meerdere tenants](saas-tenancy-app-design-patterns.md).
 
 - Voor meer informatie over elastische pools, Zie:
-    - [Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases](sql-database-elastic-pool.md)
-    - [Uitbreiden met Azure SQL Database](sql-database-elastic-scale-introduction.md)
+
+  - [Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases](sql-database-elastic-pool.md)
+  - [Uitbreiden met Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033818"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352443"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Onboarding updatebeheer, wijzigingen bijhouden en inventaris oplossingen
 
@@ -93,11 +93,11 @@ Selecteer **beheren van virtuele machines**. Hiermee opent u de **Machines beher
 
 ### <a name="all-available-machines"></a>Alle beschikbare machines
 
-Als u de oplossing voor alle beschikbare machines, schakelt **inschakelen op alle beschikbare machines**. Hiermee schakelt het besturingselement machines afzonderlijk toevoegen. Met deze taak wordt de namen van de computers die rapporteren aan de werkruimte aan de groep van de computer opgeslagen zoekquery.
+Als u de oplossing voor alle beschikbare machines, schakelt **inschakelen op alle beschikbare machines**. Hiermee schakelt het besturingselement machines afzonderlijk toevoegen. Met deze taak wordt de namen van de computers die rapporteren aan de werkruimte aan de groep van de computer opgeslagen zoekquery. Wanneer u hebt geselecteerd, wordt de uitgeschakeld de **Machines beheren** knop.
 
 ### <a name="all-available-and-future-machines"></a>Alle beschikbare en toekomstige computers
 
-Als u de oplossing voor alle beschikbare machines en alle toekomstige computers, schakelt **inschakelen op alle beschikbare en toekomstige computers**. Deze optie worden de opgeslagen zoekopdrachten en bereik configuraties uit de werkruimte verwijderd. Hiermee opent u de oplossing voor alle Azure en niet-Azure-machines die aan de werkruimte rapporteren.
+Als u de oplossing voor alle beschikbare machines en alle toekomstige computers, schakelt **inschakelen op alle beschikbare en toekomstige computers**. Deze optie worden de opgeslagen zoekopdrachten en bereik configuraties uit de werkruimte verwijderd. Hiermee opent u de oplossing voor alle Azure en niet-Azure-machines die aan de werkruimte rapporteren. Wanneer u hebt geselecteerd, wordt de uitgeschakeld de **Machines beheren** knop.
 
 ### <a name="selected-machines"></a>Geselecteerde machines
 
@@ -120,13 +120,13 @@ Nadat u deze oplossingen hebt verwijderd, kunt u de volgende stappen uit als u w
 
 1. Open uw Automation-account vanuit Azure portal, en op de Automation-account selecteren pagina **gekoppelde werkruimte** onder de sectie **gerelateerde Resources** aan de linkerkant.
 
-1. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
+2. Klik op de pagina van de werkruimte ontkoppelen **werkruimte ontkoppelen**.
 
    ![Pagina voor werkruimte ontkoppelen](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    U ontvangt een prompt waarin u wordt gevraagd of u wilt doorgaan.
 
-1. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
+3. Terwijl Azure Automation probeert te ontkoppelen van het account uw Log Analytics-werkruimte, u kunt de voortgang volgen onder **meldingen** in het menu.
 
 Als u de oplossing Update Management gebruikt, kunt indien gewenst u verwijderen van de volgende items die niet meer nodig zijn nadat u de oplossing te verwijderen.
 

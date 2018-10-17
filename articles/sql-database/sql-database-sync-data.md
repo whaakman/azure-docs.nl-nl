@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 602bbdcd21e56bb64515a19623e08ae617c99a59
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870907"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362234"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -152,7 +152,7 @@ Data Sync kan niet alleen-lezen of het systeem gegenereerde kolommen worden gesy
 | **Dimensies**                                                      | **Limiet**              | **Tijdelijke oplossing**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximum aantal synchronisatiegroepen elke database kan deel uitmaken.       | 5                      |                             |
-| Maximum aantal eindpunten in een enkele synchronisatiegroep              | 30                     | Maken van meerdere synchronisatiegroepen |
+| Maximum aantal eindpunten in een enkele synchronisatiegroep              | 30                     |                             |
 | Maximum aantal on-premises eindpunten in een enkele synchronisatiegroep. | 5                      | Maken van meerdere synchronisatiegroepen |
 | Database-, tabel-, schema-en kolomnamen                       | 50 tekens per naam |                             |
 | Tabellen in een groep voor synchronisatie                                          | 500                    | Maken van meerdere synchronisatiegroepen |
@@ -160,6 +160,8 @@ Data Sync kan niet alleen-lezen of het systeem gegenereerde kolommen worden gesy
 | Grootte van de rij gegevens in een tabel                                        | 24 mb                  |                             |
 | Minimale synchronisatie-interval                                           | 5 minuten              |                             |
 |||
+> [!NOTE]
+> Mogelijk zijn er maximaal 30-eindpunten in een enkele synchronisatiegroep als er slechts één synchronisatiegroep. Als er meer dan één groep voor synchronisatie, kan het totale aantal eindpunten voor alle synchronisatiegroepen niet langer zijn dan 30. Als een database tot meerdere synchronisatiegroepen behoort, telt deze ook mee als meerdere eindpunten, niet een.
 
 ## <a name="faq-about-sql-data-sync"></a>Veelgestelde vragen over SQL Data Sync
 

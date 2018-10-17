@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238714"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362055"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -173,23 +173,24 @@ Deze opdrachten gebruiken om in te stellen van de ingesloten database-server-opt
    > Zelfstandige servers kunnen niet worden gecombineerd met AlwaysOn-exemplaren in de dezelfde SKU. Er wordt geprobeerd om typen na het toevoegen van de eerste hosting server, resulteert in een fout.
 
 ## <a name="sku-notes"></a>Opmerkingen bij de SKU
-
-SKU's kunt u onderscheid maken tussen service-aanbiedingen. U kunt bijvoorbeeld een SQL Enterprise-exemplaar met de volgende kenmerken hebben:
+Gebruik een SKU-naam die de mogelijkheden van de servers in de SKU, zoals de capaciteit en prestaties beschrijft. De naam fungeert als hulpmiddel om gebruikers hun databases implementeren op de juiste SKU te helpen. Bijvoorbeeld, kunt u de namen van de SKU serviceaanbiedingen onderscheiden door de volgende kenmerken:
   
 * hoge capaciteit
 * hoge prestaties
 * hoge beschikbaarheid
 
-SKU's kunnen niet worden toegewezen aan specifieke gebruikers of groepen in deze release.
-
- SKU's kunnen een uur duren om te worden weergegeven in de portal. Gebruikers kunnen geen een database maken totdat de SKU is volledig gemaakt.
-
->[!TIP]
->Gebruik een SKU-naam die overeenkomt met beschrijft de mogelijkheden van de servers in de SKU, zoals de capaciteit en prestaties. De naam fungeert als hulpmiddel om gebruikers hun databases implementeren op de juiste SKU te helpen.
-
 Als een best practice, moeten de host-servers in een SKU dezelfde resource- en kenmerken hebben.
 
-## <a name="make-the-sql-databases-available-to-users"></a>De SQL-databases beschikbaar maken voor gebruikers
+SKU's kunnen niet worden toegewezen aan specifieke gebruikers of groepen.
+
+SKU's kunnen een uur duren om te worden weergegeven in de portal. Gebruikers kunnen geen een database maken totdat de SKU is volledig gemaakt.
+
+Als u wilt een SKU bewerken, gaat u naar **alle services** > **SQL Adapter** > **SKU's**. Selecteer de SKU wijzigen, breng eventueel benodigde wijzigingen aan en klikt u op **opslaan** wijzigingen op te slaan. Als u wilt verwijderen een SKU die niet meer nodig is, gaat u naar **alle services** > **SQL Adapter** > **SKU's**. Met de rechtermuisknop op de SKU-naam en selecteer **verwijderen** om deze te verwijderen.
+
+> [!TIP]
+> U kunt bewerken of verwijderen van SQL resourcequota-provider op dezelfde locatie.
+
+## <a name="make-sql-databases-available-to-users"></a>SQL-databases beschikbaar maken voor gebruikers
 
 Maak plannen en aanbiedingen om SQL-databases beschikbaar maken voor gebruikers. Voeg de **Microsoft.SqlAdapter** service aan het plan en maak een nieuw quotum.
 

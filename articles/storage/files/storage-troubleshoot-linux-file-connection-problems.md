@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525117"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364384"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure Files oplossen in Linux
 
@@ -82,7 +82,7 @@ Sommige Linux-distributies nog ondersteunen geen versleutelingsfuncties in SMB 3
 
 ### <a name="solution"></a>Oplossing
 
-De functie versleuteling voor SMB 3.0 voor Linux is geïntroduceerd in 4.11 kernel. Deze functie kunt koppelen van Azure-bestandsshare vanaf on-premises of een andere Azure-regio. Deze functionaliteit is op het moment van publicatie, backported Ubuntu 17.04 en Ubuntu 16,10. Als uw Linux SMB-client biedt geen ondersteuning voor versleuteling, bestanden koppelen van Azure met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als het bestand storage-account.
+De functie versleuteling voor SMB 3.0 voor Linux is geïntroduceerd in 4.11 kernel. Deze functie kunt koppelen van Azure-bestandsshare vanaf on-premises of een andere Azure-regio. Deze functionaliteit is op het moment van publicatie, backported Ubuntu 17.04 en Ubuntu 16,10. Als uw Linux SMB-client biedt geen ondersteuning voor versleuteling, koppelen van een Azure bestanden met behulp van SMB 2.1 van een Azure Linux VM die zich in hetzelfde datacenter als het bestand delen en controleer of de [veilige overdracht vereist]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) instelling is uitgeschakeld op de opslag -account. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Langzame prestaties van een Azure-bestandsshare die is gekoppeld aan een Linux-VM
@@ -149,7 +149,8 @@ Meest voorkomende oorzaken van dit probleem zijn:
 - De minimale SMB/CIFS versie 2.1 is niet geïnstalleerd op de client.
 - SMB 3.0-versleuteling wordt niet ondersteund op de client. SMB 3.0-versleuteling is beschikbaar in Ubuntu 16.4 en hoger, SUSE 12.3 en hoger. Andere distributies vereist kernel 4.11 en hoger.
 - U wilt verbinding maken met een storage-account via TCP-poort 445 die niet wordt ondersteund.
-- U probeert verbinding gemaakt met Azure-bestandsshare van een Azure VM en de virtuele machine bevindt zich niet in dezelfde regio als het opslagaccount.
+- U probeert verbinding maken met Azure-bestandsshare vanaf een Azure-VM en de virtuele machine bevindt zich niet in dezelfde regio als het opslagaccount.
+- Als [veilige overdracht vereist]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) instelling is ingeschakeld op het storage-account, Azure Files kunnen alleen verbindingen met behulp van SMB 3.0 met-codering.
 
 ### <a name="solution"></a>Oplossing
 

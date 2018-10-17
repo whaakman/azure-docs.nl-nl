@@ -5,16 +5,16 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/06/2018
-author: mayanknayar
+ms.date: 10/16/2018
+author: mayurigupta13
 ms.topic: conceptual
-ms.author: manayar
-ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: mayg
+ms.openlocfilehash: 9ec9acab4ad83af22504058c21b102df94b8692d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919723"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353234"
 ---
 # <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Toegangsbeheer op basis van rollen gebruiken voor het beheren van Site Recovery-toegang
 
@@ -23,7 +23,7 @@ Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over geavanceerd toegan
 Azure Site Recovery biedt 3 ingebouwde rollen voor het beheren van Site Recovery-beheerbewerkingen. Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
 
 * [Site Recovery-inzender](../role-based-access-control/built-in-roles.md#site-recovery-contributor) - deze rol bevat alle machtigingen die nodig zijn om Azure Site Recovery-bewerkingen in een Recovery Services-kluis te kunnen beheren. Een gebruiker met deze rol kan echter geen Recovery Services-kluis maken of verwijderen, noch toegangsrechten aan andere gebruikers toewijzen. Deze rol is het meest geschikt zijn voor beheerders die kunnen inschakelen en beheren van herstel na noodgevallen voor toepassingen of hele organisaties, zoals het geval kunnen zijn.
-* [Site Recovery-Operator](../role-based-access-control/built-in-roles.md#site-recovery-operator) -deze rol heeft machtigingen voor het uitvoeren en beheren van Failover en Failback-bewerkingen. Een gebruiker met deze rol kan niet inschakelen replicatie uitschakelen, maken of verwijderen van kluizen, nieuwe infrastructuur registreren of toegangsrechten toewijzen aan andere gebruikers. Deze rol is het meest geschikt is voor een operator die failover-virtuele machines kunt of applicaties in opdracht van toepassingseigenaren en IT-beheerders in een situatie werkelijke of gesimuleerd na noodgevallen, zoals een DR inzoomen. Post-omzetting van de ramp, de DR-operator opnieuw kunt beveiligen en failback de virtuele machines.
+* [Site Recovery-operator](../role-based-access-control/built-in-roles.md#site-recovery-operator): deze rol heeft machtigingen om failover- en failback-bewerkingen uit te voeren en te beheren. Een gebruiker met deze rol kan niet inschakelen replicatie uitschakelen, maken of verwijderen van kluizen, nieuwe infrastructuur registreren of toegangsrechten toewijzen aan andere gebruikers. Deze rol is het meest geschikt is voor een operator die failover-virtuele machines kunt of applicaties in opdracht van toepassingseigenaren en IT-beheerders in een situatie werkelijke of gesimuleerd na noodgevallen, zoals een DR inzoomen. Post-omzetting van de ramp, de DR-operator opnieuw kunt beveiligen en failback de virtuele machines.
 * [Site Recovery-lezer](../role-based-access-control/built-in-roles.md#site-recovery-reader) - deze rol heeft machtigingen voor het weergeven van alle beheerbewerkingen van Site Recovery. Deze rol is het meest geschikt is voor een IT-leidinggevende die u kunt de huidige status van de beveiliging bewaken en ondersteuningstickets indien nodig.
 
 Als u op zoek bent voor het definiëren van uw eigen rollen voor nog meer controle, Zie hoe u [bouwen van aangepaste rollen](../role-based-access-control/custom-roles.md) in Azure.

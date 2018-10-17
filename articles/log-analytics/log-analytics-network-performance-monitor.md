@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321900"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353288"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -257,7 +257,7 @@ Alle gegevens die wordt blootgesteld grafisch weergegeven via het dashboard Netw
 
 Network Performance Monitor maakt gebruik van de waarschuwingen mogelijkheden van [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Dit betekent dat alle waarschuwingen wordt beheerd met behulp van [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Dit betekent dat alle meldingen worden beheerd met behulp van [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 Als u een NPM-gebruiker die het maken van een waarschuwing via OMS: 
 1. Hier ziet u een koppeling waarmee u wordt omgeleid naar Azure-Portal. Klik hierop om de toegang tot de portal.
@@ -270,6 +270,10 @@ Als u een NPM-gebruiker die het maken van een waarschuwing via Azure Portal:
 2. Als u ervoor kiest uw e-mailbericht rechtstreeks invoeren, een actie met de naam van de groep **NPM e ActionGroup** wordt gemaakt en de e-mail-id wordt toegevoegd aan deze actiegroep.
 3. Als u ervoor actiegroepen gebruiken kiest, moet u een eerder gemaakte actiegroep selecteren. U kunt informatie over het maken van een actiegroep [hier.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Als de waarschuwing is gemaakt, kunt u waarschuwingen beheren koppeling gebruiken om uw waarschuwingen te beheren. 
+
+Telkens wanneer die u een waarschuwing maakt maakt NPM een query op basis van waarschuwingsregel in Azure Monitor. Deze query is triggerred om de standaard 5 minuten. Met Azure monitor niet in rekening voor de eerste 250 waarschuwingsregels die zijn gemaakt aanmelden en geen waarschuwingsregels bovenstaande beperken van de 250 logboekwaarschuwingsregels wordt gefactureerd volgens [waarschuwingen in Azure Monitor-pagina met prijzen prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Meldingen worden afzonderlijk in rekening gebracht volgens [meldingen in Azure Monitor pricig pagina prijzen](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
 
 ## <a name="pricing"></a>Prijzen
 

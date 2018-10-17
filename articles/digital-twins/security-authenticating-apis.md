@@ -8,37 +8,45 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: 1d5b1869428cec6bf80b8518485f685e38ad5997
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324086"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351299"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Verbinding maken en te verifiëren voor API 's
 
-Azure van digitale dubbels maakt gebruik van Azure Active Directory (Azure AD) om te verifiëren van gebruikers en toepassingen te beschermen.
+Azure van digitale dubbels maakt gebruik van Azure Active Directory (Azure AD) om te verifiëren van gebruikers en toepassingen te beschermen. Azure AD biedt ondersteuning voor verificatie voor een verscheidenheid aan moderne architecturen, ze allemaal op basis van de standaardprotocollen OAuth 2.0 of OpenID Connect. Azure AD biedt bovendien ontwikkelaars de mogelijkheid het bouwen van zowel één tenant, line-of-business (LOB)-toepassingen, evenals ontwikkelaars die willen ontwikkelen van toepassingen met meerdere tenants.
 
-Als u niet bekend met Azure AD bent, meer informatie is beschikbaar in de [Ontwikkelaarshandleiding voor](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). De Windows Azure-Verificatiebibliotheek biedt verschillende manieren voor het verkrijgen van Active Directory-tokens. Raadpleeg voor een verdiepen in de bibliotheek, [hier](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+Voor een overzicht van Azure AD gaat u naar de [fundamentals pagina](https://docs.microsoft.com/azure/active-directory/fundamentals/index) voor stapsgewijze instructies, concepten en snel aan de slag.
 
-In dit artikel biedt een overzicht van de twee scenario's: een productiescenario met een middelste laag API en verificatie in de clienttoepassing Postman voor het snel opstarten en testen.
+Om een toepassing of service met Azure Active Directory te integreren, moet een ontwikkelaar de toepassing eerst bij Azure Active Directory registreren. Voor gedetailleerde instructies en schermafdrukken de instructies geven [hier](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
-## <a name="authentication-in-production"></a>Verificatie in productie
+Dit zijn de [vijf primaire toepassingsscenario](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) ondersteund door Azure AD:
 
-Oplossingen voor ontwikkelaars zijn twee manieren om te verbinden met digitale dubbels.  Oplossingen voor ontwikkelaars kunnen verbinding maken met Azure digitale Twins in de volgende manieren:
+* Toepassing met één pagina (SPA): een gebruiker moet zich aanmelden bij een toepassing met één pagina die wordt beveiligd door Azure AD.
+* Webbrowser voor web-App: een gebruiker moet zich aanmelden bij een webtoepassing die wordt beveiligd door Azure AD.
+* Systeemeigen toepassing voor de web-API: een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker voor resources van een web-API die wordt beveiligd door Azure AD verifiëren.
+* Webtoepassing aan web-API: een web-App nodig heeft om op te halen van resources van een web-API is beveiligd door Azure AD.
+* Daemon of servertoepassing naar web-API: een daemon-toepassing of een servertoepassing zonder gebruikersinterface web moet de resources ophalen uit een web-API is beveiligd door Azure AD.
 
-* Ze kunnen een clienttoepassing of een middelste laag-API maken. Client-apps vereisen dat gebruikers om te verifiëren en gebruik vervolgens de [OAuth 2.0 namens](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) security stroom een downstream-API aan te roepen.
-* Maak of maak gebruik van een bestaande Azure AD-toepassing. Raadpleeg de documentatie [hier](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
-    1. Geef de **aanmeldings- en omleidings-URI's** (indien nodig).
-    1. In de toepassing het manifest set `oauth2AllowImplicitFlow` op ' True '.
-    1. In **vereiste machtigingen**, digitale dubbels toevoegen door te zoeken naar "Azure Digital dubbels." Selecteer **overgedragen machtigingen voor lezen/schrijven toegang** en klikt u op de **machtigingen verlenen** knop.
+De Windows Azure-Verificatiebibliotheek biedt verschillende manieren voor het verkrijgen van Active Directory-tokens. Voor een verdiepen in de bibliotheek, evenals de code voorbeelden Neem eens een kijkje [hier](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
-Ga voor gedetailleerde instructies over het organiseren van de stroom op-andere gebruikers-of naar [deze pagina](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). U kunt ook voorbeelden van code weergeven [hier](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+## <a name="calling-digital-twins-from-a-middle-tier-web-api"></a>Digitale dubbels aanroepen vanuit een middelste laag web-API
+
+Wanneer digitale dubbels oplossingen ontwikkelaars vaak ontwerpen kiest u een middelste laag-toepassing of de API die vervolgens de digitale dubbels API downstream roept te maken. Gebruikers wordt eerst worden geverifieerd met de middelste laag-toepassing en vervolgens een tokenstroom op-andere gebruikers-of zou worden gebruikt bij het aanroepen van downstream. Ga voor gedetailleerde instructies over het organiseren van de stroom op-andere gebruikers-of naar [deze pagina](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). U kunt ook voorbeelden van code weergeven [hier](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+
 
 ## <a name="test-with-the-postman-client"></a>Testen met de Postman-client
 
-1. Volg de eerste stappen hierboven om een Azure Active Directory-toepassing maken (of wijzigen). Vervolgens stelt u `oauth2AllowImplicitFlow` aan waar in de app-manifest en machtigingen verlenen voor "Azure Digital dubbels."
-1. Een antwoord-url ingesteld op [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
+Om aan de slag met de digitale Twins-API's kunt u een client, zoals Postman gebruiken als een API-omgeving. Postman kunt u snel maken van complexe HTTP-aanvragen. De onderstaande instructies wordt de nadruk gelegd op het verkrijgen van een Azure AD-token die nodig zijn om aan te roepen digitale dubbels binnen de Postman-gebruikersinterface.
+
+
+1. Navigeer naar https://www.getpostman.com/ om de app te downloaden
+1. Volg de stappen [hier](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) om een Azure Active Directory-toepassing te maken (of u kunt kiezen om een bestaande registratie opnieuw te gebruiken). 
+1. Onder de vereiste machtigingen toevoegen 'Azure digitale dubbels' en selecteer gedelegeerde machtigingen. Vergeet niet om op machtigingen verlenen om te voltooien.
+1. Configureren van een antwoord-url met [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Selecteer de **autorisatie tabblad**, klikt u op **OAuth 2.0**, en selecteer **nieuwe Access Token ophalen**.
 
     |**Veld**  |**Waarde** |
@@ -53,11 +61,10 @@ Ga voor gedetailleerde instructies over het organiseren van de stroom op-andere 
 
 1. Klik op **Token aanvragen**.
 
-    >[!TIP]
-    >Als u ontvangt foutbericht 'OAuth 2 kan niet worden voltooid', probeert u een van de volgende:
+    >[!NOTE]
+    >Als u ontvangt foutbericht 'OAuth 2 kan niet worden voltooid', probeert u het volgende:
     > * Postman sluit en opent u het opnieuw en probeer het opnieuw.
-    > * De geheime sleutel in uw app verwijderen, opnieuw een nieuwe en huurder de waarde in het bovenstaande formulier.
-
+   
 1. Schuif naar beneden en klikt u op **gebruik Token**.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 99a1832d82005fabd6f8b62aea6ad7722b317a13
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367879"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363432"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metrische gegevens van Azure Storage in Azure Monitor
 
@@ -403,7 +403,7 @@ Verouderde metrische gegevens zijn beschikbaar in combinatie met Azure Monitor b
 
 **Biedt Azure Storage ondersteuning voor de metrische gegevens voor Managed Disks of niet-beheerde schijven?**
 
-Nee, Azure Compute biedt ondersteuning voor de metrische gegevens op schijven. Zie [artikel](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) voor meer informatie.
+Nee, Azure Compute biedt ondersteuning voor de metrische gegevens op schijven. Zie [artikel](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

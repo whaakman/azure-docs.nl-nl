@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ace95d39cf7c2d183249b0b6c4094835132b3198
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 90f6841ddc2fe1c017dbfc7e9046fae4a0ceb097
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249380"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363806"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>De Azure-SSIS integratieruntime in Azure Data Factory maken
 In dit artikel bevat stappen voor het inrichten van een Azure-SSIS integratieruntime in Azure Data Factory. Vervolgens kunt u SSDT (SQL Server Data Tools) of SSMS (SQL Server Management Studio) gebruiken om SSIS-pakketten (SQL Server Integration Services) te implementeren en uit te voeren in deze runtime van Azure. 
@@ -43,7 +43,7 @@ Wanneer u een exemplaar van een Azure-SSI-IR inricht, worden ook het Azure Featu
 ## <a name="prerequisites"></a>Vereisten 
 - **Azure-abonnement**. Als u geen abonnement hebt, kunt u een [gratis proefaccount](http://azure.microsoft.com/pricing/free-trial/) maken. 
 
-- **Logische server van Azure SQL Database of Managed Instance**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Op basis van de geselecteerde database-server, kan SSISDB worden gemaakt uit uw naam als een individuele database, onderdeel van een elastische pool of in een beheerd exemplaar en toegankelijk zijn in openbaar netwerk of door het toevoegen van een virtueel netwerk. Zie voor een lijst van ondersteunde Prijscategorieën voor Azure SQL Database, [SQL Database-resourcebeperkingen](../sql-database/sql-database-resource-limits.md). 
+- **Logische server van Azure SQL Database of Managed Instance**. Als u nog geen databaseserver hebt, maakt u die in Azure Portal voordat u begint. Deze server fungeert als host voor de SSIS-catalogusdatabase (SSISDB). Het wordt aangeraden om de databaseserver in dezelfde Azure-regio te maken als de Integration Runtime. Met deze configuratie kan de Integration Runtime uitvoeringslogboeken wegschrijven naar SSISDB zonder dat hierbij Azure-regio's worden overschreden. Op basis van de geselecteerde databaseserver kan SSISDB namens u worden gemaakt als een enkele database, als onderdeel van een elastische pool of in een beheerd exemplaar. Deze is toegankelijk in een openbaar netwerk of kan worden toegevoegd aan een virtueel netwerk. Zie voor een lijst van ondersteunde Prijscategorieën voor Azure SQL Database, [SQL Database-resourcebeperkingen](../sql-database/sql-database-resource-limits.md). 
 
     Zorg ervoor dat uw logische Azure SQL Database-server of een beheerd exemplaar al geen SSIS-catalogus (SSIDB-database). Het inrichten van Azure-SSIS-IR biedt geen ondersteuning voor het gebruik van een bestaande SSIS-catalogus. 
 
@@ -68,7 +68,7 @@ De volgende tabel vergelijkt bepaalde functies van de logische SQL Database-serv
 | **Verificatie** | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker in de **dbmanager** rol.<br/><br/>Zie [inschakelen van Azure AD in Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker dan een Azure AD-beheerder. <br/><br/>Zie [inschakelen van Azure AD op beheerd exemplaar voor Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Servicelaag** | Als u de Azure-SSIS-IR in SQL-Database maakt, selecteert u de servicelaag voor SSISDB. Er zijn meerdere lagen van de services. | Wanneer u de Azure-SSIS-IR op een beheerd exemplaar maakt, kunt u de servicelaag niet selecteren voor SSISDB. Alle databases op de dezelfde Managed Instance delen dezelfde resource toegewezen aan deze instantie. |
 | **Virtueel netwerk** | Biedt ondersteuning voor Azure Resource Manager en klassieke virtuele netwerken. | Biedt alleen ondersteuning voor virtueel netwerk van Azure Resource Manager. Het virtuele netwerk is vereist.<br/><br/>Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als het beheerde exemplaar toevoegen, zorg ervoor dat de Azure-SSIS IR in een ander subnet dan het beheerde exemplaar is. Als u de Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij peering op virtueel netwerk (dit is beperkt tot dezelfde regio bevinden) of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Gedistribueerde transacties** | Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw pakketten MSDTC gedistribueerde transacties te coördineren, kunt u mogelijk een tijdelijke oplossing implementeren met behulp van elastische transacties voor SQL-Database. Op dit moment geen SSIS ingebouwde ondersteuning voor elastische transacties. Voor het gebruik van elastische transacties in uw SSIS-pakket, moet u aangepaste ADO.NET-code in de taak van een Script schrijven. Deze taak script moet het begin en einde van de transactie en de acties die plaatsvinden binnen de transactie moeten bevatten.<br/><br/>Zie voor meer informatie over het coderen van elastische transacties [elastische transacties met Azure SQL Database](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Zie voor meer informatie over elastische transacties in het algemeen [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
+| **Gedistribueerde transacties** | Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw pakketten MSDTC gedistribueerde transacties te coördineren, kunt u mogelijk een tijdelijke oplossing implementeren met behulp van elastische transacties voor SQL-Database. Op dit moment geen SSIS ingebouwde ondersteuning voor elastische transacties. Voor het gebruik van elastische transacties in uw SSIS-pakket, moet u aangepaste ADO.NET-code in de taak van een Script schrijven. Deze taak script moet het begin en einde van de transactie en de acties die plaatsvinden binnen de transactie moeten bevatten.<br/><br/>Zie voor meer informatie over het coderen van elastische transacties [elastische transacties met Azure SQL Database](https://azure.microsoft.com/blog/elastic-database-transactions-with-azure-sql-database/). Zie voor meer informatie over elastische transacties in het algemeen [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -144,7 +144,7 @@ In deze sectie gebruikt u de Azure portal, specifiek de Data Factory-gebruikersi
 
     b. Selecteer bij **Locatie** de locatie van uw databaseserver voor het hosten van SSISDB. We raden u aan dezelfde locatie van uw integratieruntime te selecteren. 
 
-    c. Selecteer bij het **Eindpunt voor de Catalog-databaseserver** het eindpunt van uw databaseserver voor het hosten van SSISDB. Op basis van de geselecteerde database-server, kan SSISDB worden gemaakt uit uw naam als een individuele database, onderdeel van een elastische pool of in een beheerd exemplaar en toegankelijk zijn in openbaar netwerk of door het toevoegen van een virtueel netwerk. 
+    c. Selecteer bij het **Eindpunt voor de Catalog-databaseserver** het eindpunt van uw databaseserver voor het hosten van SSISDB. Op basis van de geselecteerde databaseserver kan SSISDB namens u worden gemaakt als een enkele database, als onderdeel van een elastische pool of in een beheerd exemplaar. Deze is toegankelijk in een openbaar netwerk of kan worden toegevoegd aan een virtueel netwerk. 
 
     d. Op **gebruik AAD-verificatie...**  selectievakje, selecteer de verificatiemethode voor de database-server host SSISDB: SQL- of Azure Active Directory (AAD) met uw Azure Data Factory beheerde identiteit voor de Azure-resources. Als u dit selectievakje inschakelt, moet u uw Data Factory-MSI in een AAD-groep met machtigingen voor toegang tot de database-server toevoegen, Zie [inschakelen AAD-verificatie voor Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -152,7 +152,7 @@ In deze sectie gebruikt u de Azure portal, specifiek de Data Factory-gebruikersi
 
     f. Voer bij **Beheerderswachtwoord** het wachtwoord voor SQL-verificatie voor uw databaseserver voor het hosten van SSISDB in. 
 
-    g. Voor **Catalog Database-servicelaag**, selecteert u de servicelaag voor uw database-server host SSISDB: naam van Basic/Standard/Premium-laag of elastische pool. 
+    g. Selecteer bij de **servicelaag van de Catalog-database** de servicelaag voor uw databaseserver voor het hosten van SSISDB: Basic-/Standard-/Premium-laag of de naam van de elastische pool. 
 
     h. Klik op **Verbinding testen**. Als dit lukt, klikt u op **Volgende**. 
 

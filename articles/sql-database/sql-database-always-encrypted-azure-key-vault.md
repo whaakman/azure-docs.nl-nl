@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 79613ab7a0e96405abbb3b380800f5ba951c3bdc
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092691"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352390"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Bescherming van gevoelige gegevens en opslag van versleutelingssleutels in Azure Key Vault
 
@@ -605,7 +605,7 @@ U kunt zien dat de versleutelde kolommen geen gegevens als tekst zonder opmaak b
 
    ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Als u SSMS wilt krijgen tot de gegevens als tekst zonder opmaak, moet u eerst om ervoor te zorgen dat de gebruiker de juiste machtigingen voor de Azure Key Vault heeft: *ophalen*, *unwrapKey*, en *controleren*. Zie voor gedetailleerde informatie [maken en Store hoofdsleutels voor kolom (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+Als u SSMS wilt krijgen tot de gegevens als tekst zonder opmaak, moet u eerst om ervoor te zorgen dat de gebruiker de juiste machtigingen voor de Azure Key Vault heeft: *ophalen*, *unwrapKey*, en *controleren*. Zie voor gedetailleerde informatie [maken en Store hoofdsleutels voor kolom (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
 
 Voeg de *Versleutelingsinstelling kolom = ingeschakeld* parameter tijdens de verbinding.
 

@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: a06a04ba992c8d7e9691e4838d38faaafd48de7a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853909"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365557"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migreren van een kennisdatabase met behulp van exporteren / importeren
 QnA Maker algemene beschikbaarheid aangekondigd op 7 mei 2018 op de \\\build\ conferentie. QnA Maker-algemene beschikbaarheid is een nieuwe architectuur die is gebouwd op Azure. Knowledge bases die zijn gemaakt met QnA Maker gratis Preview-versie moet worden gemigreerd naar de QnA Maker algemene beschikbaarheid. QnA Maker Preview wordt in November 2018 afgeschaft. Zie voor meer informatie over de wijzigingen in de QnA Maker-algemene beschikbaarheid, de aankondiging in de QnA Maker GA [blogbericht](https://aka.ms/qnamakerga-blog).
 
-QnA Maker is nu een [prijsmodel](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+QnA Maker is nu een [prijsmodel](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Vereisten
 > [!div class="checklist"]

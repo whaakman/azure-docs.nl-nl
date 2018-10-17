@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42061329"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365251"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -82,7 +82,7 @@ Een combinatie van het bestandssysteem, tabelopslag en blob-opslag kan worden in
 Hoewel alle drie opslaglocaties de dezelfde algemene informatie voor de vastgelegde gebeurtenissen bieden **tabelopslag** en **blob-opslag** aanvullende informatie zoals de exemplaar-ID, een thread-ID en een meer registreren gedetailleerde timestamp (maatstreepjes-indeling) dan logboekregistratie naar **bestandssysteem**.
 
 > [!NOTE]
-> Gegevens die zijn opgeslagen **tabelopslag** of **blobopslag** kunnen alleen worden geopend met behulp van een storage-client of een toepassing die u rechtstreeks met deze systemen voor opslag werken kunt. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kunnen worden gebruikt om te verkennen, tabel of blob storage en HDInsight toegang tot de gegevens die zijn opgeslagen in blob-opslag. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage met behulp van een van de [Azure-SDK's](https://azure.microsoft.com/en-us/downloads/).
+> Gegevens die zijn opgeslagen **tabelopslag** of **blobopslag** kunnen alleen worden geopend met behulp van een storage-client of een toepassing die u rechtstreeks met deze systemen voor opslag werken kunt. Bijvoorbeeld, Visual Studio 2013 bevat een Opslagverkenner die kunnen worden gebruikt om te verkennen, tabel of blob storage en HDInsight toegang tot de gegevens die zijn opgeslagen in blob-opslag. U kunt ook schrijven met een toepassing die toegang heeft tot Azure Storage met behulp van een van de [Azure-SDK's](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
 > Diagnostische gegevens kan ook worden ingeschakeld vanuit Azure PowerShell met behulp van de **Set-AzureWebsite** cmdlet. Als u Azure PowerShell nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).

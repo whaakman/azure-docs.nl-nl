@@ -1,5 +1,5 @@
 ---
-title: Gebruik van geografisch redundante back-ups van Azure SQL Database voor herstel na noodgevallen van SaaS-apps | Microsoft Docs
+title: 'SaaS-apps: Azure SQL Database geografisch redundante back-ups voor herstel na noodgevallen | Microsoft Docs'
 description: Meer informatie over het gebruik van geografisch redundante back-ups van Azure SQL Database om te herstellen van een multitenant SaaS-app na een storing
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 784fd1797f2a4f85842666c9fa987a2decc933c2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868714"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352928"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Geo-herstel met een multitenant SaaS-toepassing herstellen vanuit back-ups
 

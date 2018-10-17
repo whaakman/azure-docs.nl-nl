@@ -3,23 +3,23 @@ title: Toewijzen van virtuele netwerken tussen twee Azure-regio's in Azure Site 
 description: Azure Site Recovery coördineert de replicatie, failover en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of naar een secundair datacenter.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0e73abf0fc170079d4b2bc093df45c998e68d184
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320523"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353425"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Virtuele netwerken in verschillende Azure-regio's toewijzen
 
@@ -106,7 +106,7 @@ Als het Bronsubnet en het doelsubnet hebt verschillende adresruimten, wordt de e
 De failover-VM met - het volgende beschikbare IP-adres wordt toegewezen aan het einde van het adresbereik van het subnet dat is: 10.0.0.254 </br>
 
 **Opmerking:** de terminologie **productie vNet** wordt verwezen naar het 'doelnetwerk' toegewezen tijdens de configuratie van het herstel na noodgevallen.
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Als het doelnetwerk gekozen niet de productie-vNet is, maar hetzelfde subnetbereik bevinden als het productienetwerk heeft 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Als het doelnetwerk gekozen niet de productie-vNet is, maar hetzelfde subnetbereik bevinden als het productienetwerk heeft
 
 - De herstel-IP (doel-IP) is een statisch IP-adres met de **hetzelfde IP-adres** (dat wil zeggen, statische IP-adres geconfigureerd) als gereserveerd voor Failover. De opgegeven hetzelfde IP-adres beschikbaar is.
 - Als het geconfigureerde statische IP-adres al aan een andere virtuele machine/apparaat toegewezen is, wordt het volgende beschikbare IP-adres van het einde van het adresbereik van het subnet zijn op het IP-adres voor de recovery.

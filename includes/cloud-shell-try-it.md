@@ -1,7 +1,7 @@
 
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell openen
 
-Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. Er zijn vooraf algemene Azure-hulpprogramma's geïnstalleerd en geconfigureerd in Cloud Shell die u kunt gebruiken bij uw account. Selecteer de knop **Kopiëren** om de code te kopiëren, plak deze in Cloud Shell en druk op Enter om de code uit te voeren. U kunt kiezen uit meerdere manieren om Cloud Shell te openen:
+Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. Er zijn vooraf algemene Azure-hulpprogramma's geïnstalleerd en geconfigureerd in Cloud Shell die u kunt gebruiken bij uw account. Selecteer de knop **Kopiëren** om de code te kopiëren, plak deze in Cloud Shell en druk op Enter om de code uit te voeren. U kunt Cloud Shell op verschillende manieren openen:
 
 |  |   |
 |-----------------------------------------------|---|

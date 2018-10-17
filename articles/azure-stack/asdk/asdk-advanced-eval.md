@@ -1,6 +1,6 @@
 ---
 title: Geavanceerde Azure Stack-evaluatietaken | Microsoft Docs
-description: Geavanceerde Azure Stack-evaluatietaken beschreven.
+description: Dit artikel wordt beschreven geavanceerde taken voor Azure Stack-evaluatie.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,36 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c4bf76aa07ec5025d9e53b5518929199ace27e18
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0b65f37310b911184c05fd8fb8554eeb824814b8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29975823"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364809"
 ---
-# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Geavanceerde Azure Stack Development Kit evaluatietaken
-Nadat u hebt bekend bent met de basisfuncties voor Azure Stack Development Kit (ASDK)-service en de mogelijkheden heeft gekregen, kunt u uw kennis van de Azure-Stack verder verdiepen door het testen van meer geavanceerde scenario's. Deze evaluatietaken meer geavanceerde worden volledig gedocumenteerd in de documentatie van Azure Stack Operator.
+# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Geavanceerde Azure Stack Development Kit-evaluatietaken
+Nadat u vertrouwd bent met de algemene Azure Stack Development Kit (ASDK) servicefuncties en mogelijkheden hebben opgedaan, kunt u uw kennis van Azure Stack verder verdiepen door te testen van meer geavanceerde scenario's. Deze evaluatietaken geavanceerdere worden volledig gedocumenteerd in de documentatie van Azure Stack-operators.
 
 > [!NOTE]
-> Veel operator taken worden wel ondersteund voor zowel ASDK en productie, implementaties met meerdere knooppunten Azure Stack, worden niet alle gebruiksscenario's voor ASDK-implementaties ondersteund. Zie [ASDK en met meerdere knooppunten Azure Stack verschillen](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) voor meer informatie.
+> Hoewel veel taken van de operator worden ondersteund voor zowel ASDK en productie, Azure Stack implementaties met meerdere knooppunten, worden niet alle gebruiksscenario's voor ASDK implementaties ondersteund. Zie [ASDK en meerdere knooppunten Azure Stack verschillen](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) voor meer informatie.
 
 ## <a name="delegate-offers-in-azure-stack"></a>Aanbiedingen in Azure Stack delegeren
-Als de Azure-Stack-Operator wilt vaak u andere personen verantwoordelijk aanbiedingen maken en gebruikers aanmelden. Bijvoorbeeld, als u een serviceprovider bent, kunt u resellers registreren klanten en deze beheren namens jou. Of als u deel uitmaakt van een centrale IT-groep in een onderneming, kunt u dochterondernemingen aan te melden gebruikers zonder uw tussenkomst.
+Als de Azure Stack-operators wilt u meestal om andere personen die verantwoordelijk is voor het maken van aanbiedingen en aanmelden van gebruikers. Bijvoorbeeld, als u een serviceprovider bent, kunt u wederverkopers aan klanten aanmelden en deze beheren namens. Of als u deel uitmaakt van een centrale IT-groep in een onderneming bent, kunt u dochterondernemingen registreren van gebruikers zonder uw tussenkomst.
 
-[Delegeren van aanbiedingen in Azure-Stack](.\.\azure-stack-delegated-provider.md) helpt u met deze taken door de mogelijkheid om te bereiken en meer gebruikers dan u rechtstreeks kunt beheren. 
+[Aanbiedingen in Azure Stack delegeren](.\.\azure-stack-delegated-provider.md) helpt u bij deze taken door de mogelijkheid om te bereiken en meer gebruikers dan u rechtstreeks kunt beheren. 
 
-## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-databases beschikbaar maken voor uw Azure-Stack-gebruikers
-Als een Azure-Stack-Operator, kunt u aanbiedingen die uw gebruikers laten maken (tenants) maken van SQL-databases die ze met hun cloud-systeemeigen apps, websites en werkbelastingen gebruiken kunnen. Dankzij deze aangepaste, op verzoek, cloud-gebaseerde databases aan uw gebruikers, kunt u ze bespaart tijd en bronnen. 
+## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-databases beschikbaar maken voor uw Azure Stack-gebruikers
+Als een Azure Stack-Operator, kunt u voorstellen die zo uw gebruikers kunnen maken (tenants) SQL-databases die ze met hun cloud-eigen apps, websites en werkbelastingen gebruiken kunnen maken. Door op te geven deze databases aangepaste, op aanvraag, op basis van cloud naar uw gebruikers, kunt u ze Bespaar tijd en resources. 
 
-Gebruik de SQL Server-adapter resource provider voor [SQL-databases beschikbaar maken voor de gebruikers van uw Azure-Stack](.\.\azure-stack-tutorial-sql-server.md) als een service van Azure-Stack. Nadat u de resourceprovider kunt u deze verbinding met een of meer exemplaren van SQL Server.
+Gebruik de SQL Server-resource provider-adapter kan [SQL-databases beschikbaar maken voor uw Azure Stack-gebruikers](.\.\azure-stack-tutorial-sql-server.md) als een service van Azure Stack. Nadat u de resourceprovider kunt u deze verbinding met een of meer exemplaren van SQL Server.
 
-## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web- en API-apps beschikbaar te maken voor uw Azure-Stack-gebruikers
-Als een Azure-Stack-Operator, kunt u aanbiedingen die uw gebruikers laten maken (tenants) Azure Functions- en web- en API-toepassingen maken. Dankzij de toegang tot deze op aanvraag, cloud-gebaseerde apps aan uw gebruikers, kunt u ze bespaart tijd en bronnen.
+## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web-apps en API-apps beschikbaar te maken voor uw Azure Stack-gebruikers
+Als een Azure Stack-Operator, kunt u voorstellen die zo uw gebruikers kunnen maken (tenants) maken van Azure Functions- en web- en API-toepassingen. Met toegang tot deze op aanvraag, op basis van cloud-apps aan uw gebruikers, kunt u ze Bespaar tijd en resources.
 
-De App Service-bronprovider om te implementeren [web- en API-apps beschikbaar te maken voor uw Azure-Stack-gebruikers](.\.\azure-stack-tutorial-app-service.md)
+De resourceprovider App Service te implementeren [web-apps en API-apps beschikbaar te maken voor uw Azure Stack-gebruikers](.\.\azure-stack-tutorial-app-service.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie over het aanbieden van services met Azure-Stack geïntegreerd systemen](.\.\azure-stack-offer-services-overview.md)
+[Meer informatie over het aanbod met geïntegreerde Azure Stack-systemen](.\.\azure-stack-offer-services-overview.md)

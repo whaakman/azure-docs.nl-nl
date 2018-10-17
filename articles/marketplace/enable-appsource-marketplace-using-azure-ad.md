@@ -14,32 +14,31 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: d7fd09928c0a687755d216e7f10f7eac23677c63
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986423"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351946"
 ---
-# <a name="enable-a-microsoft-appsource-and-azure-marketplace-listing-by-using-azure-active-directory"></a>Een Microsoft AppSource en de Azure Marketplace-aanbieding inschakelen met behulp van Azure Active Directory
+# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Een AppSource en Marketplace-aanbieding inschakelen met behulp van Azure Active Directory
 
-Microsoft Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee de verificatie met een Microsoft-account met behulp van industriestandaard-frameworks.  Zie voor meer informatie over Azure AD, [Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud waarmee de verificatie met een Microsoft-account. Azure AD maakt gebruik van industriestandaard-frameworks. [Meer informatie over Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-## <a name="benefits-of-using-azure-active-directory"></a>Voordelen van het gebruik van Azure Active Directory
+## <a name="azure-ad-benefits"></a>Azure AD-voordelen
 
-Microsoft AppSource en de Azure Marketplace klanten gebruiken in het product ervaringen om te zoeken naar de catalogus aanbieding, waardoor er om aan te melden aan het product.  U kunt uw toepassing integreren met Azure AD, engagement versnellen en optimaliseren van de gebruikerservaring. Azure AD:
+Microsoft AppSource en de Azure Marketplace klanten gebruiken in het product ervaringen om te zoeken naar de aanbieding catalogussen. Deze acties vereist dat klanten zich aanmelden bij het product. Integratie van Azure AD biedt de volgende voordelen:
 
-- Maakt eenmalige aanmelding (SSO) voor miljoenen zakelijke gebruikers.
-- Biedt consistente gebruiker aanmelding mogelijk voor toepassingen die zijn gepubliceerd door andere partners.
-- Biedt schaalbare, platformoverschrijdende verificatie voor uw mobiele en cloud apps.
+- Snellere betrokkenheid en een optimale klantervaring
+- Eenmalige aanmelding (SSO) voor miljoenen zakelijke gebruikers
+- Consistente en aanmeldingservaring voor toepassingen die zijn gepubliceerd door andere partners
+- Schaalbare, platformoverschrijdende verificatie voor mobiel en cloud-apps
 
-Zoals beschreven in de onderstaande sectie zijn bepaalde aanbiedingen vereist voor het implementeren van Azure AD om te publiceren op Marketplace.
+## <a name="offers-that-require-azure-ad"></a>Aanbiedingen waarvoor Azure AD
 
-## <a name="azure-active-directory-requirements"></a>Vereisten voor Azure Active Directory
+De verschillende [aanbiedingsopties en typen bieden](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) voor AppSource en de Azure Marketplace, verschillende vereisten voor Azure AD-implementatie hebben. Zie de volgende tabel voor meer informatie:
 
-Er zijn verschillende [aanbiedingsopties en typen bieden](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) voor Microsoft AppSource en de Azure Marketplace.  Vereisten voor Azure AD voor deze opties voor mapweergave en aanbiedingstypen worden hieronder weergegeven:
-
-| **Type aanbieding**    | **SSO voor AAD vereist?**  |  |   |  |
+| **Type aanbieding**    | **Azure AD-eenmalige aanmelding vereist?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Contact opnemen | Proefversie | Test Drive | Handelen |
 | Virtuele machine | N/A | Nee | Nee | Nee |
@@ -51,52 +50,49 @@ Er zijn verschillende [aanbiedingsopties en typen bieden](https://docs.microsoft
 
 Zie voor meer informatie over de technische vereisten voor SaaS [SaaS-toepassingen bieden Publicatiehandleiding voor](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-## <a name="integration-with-azure-active-directory"></a>Integratie met Azure Active Directory
+## <a name="azure-ad-integration"></a>Azure AD-integratie
 
-Voor informatie over het integreren met Azure AD om eenmalige aanmelding, gaat u naar https://aka.ms/aaddev.
+- Zie voor informatie over het inschakelen van eenmalige aanmelding met Azure AD integreren in uw aanbieding, [Azure Active Directory voor ontwikkelaars]( https://aka.ms/aaddev).
+- Als u meer informatie over Azure AD eenmalige aanmelding, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-Zie voor meer informatie over Azure AD-eenmalige aanmelding, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)?
+## <a name="enable-a-trial-listing"></a>Een proefversie aanbieding inschakelen
 
-## <a name="enable-a-trial-listing-by-using-azure-active-directory"></a>Een proefversie van aanbieding met behulp van Azure Active Directory inschakelen
+Geautomatiseerde klanten kunt vergroot de kans van de conversie. Als uw klant uw proefversie aanbieding selecteert en wordt omgeleid naar uw proefversie omgeving, kunt u de klant instellen zonder extra stappen voor aanmelden.
 
-Nadat een klant uw aanbieding in de Marketplace proefversie selecteert, wordt uw klant omgeleid naar uw proefversie omgeving. In uw omgeving proefversie, kunt u uw klant instellen zonder extra stappen voor aanmelden. Uw app of de aanbieding ontvangt een token uit Azure AD tijdens de verificatie. Het token bevat waardevolle gebruikersgegevens die wordt gebruikt voor het maken van een gebruikersaccount in uw app of de aanbieding. U kunt automatiseren van klanten en vergroot de kans van de conversie.
+Tijdens de verificatie stuurt Azure AD een token aan uw app of de aanbieding. De gebruikersinformatie geleverd door het token wordt het maken van een gebruikersaccount in uw app of de aanbieding. Zie voor meer informatie, [voorbeeld tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
 
-Zie voor meer informatie over het token dat wordt verzonden vanuit Azure AD tijdens de verificatie, [voorbeeld tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Als u Azure AD met één muisklik verificatie inschakelen in uw app of proefversie aanbieding u:
 
-Azure AD gebruiken voor het inschakelen van verificatie in uw app of de proefversie van één klik. Azure AD biedt u de volgende voordelen: 
-*   Stroomlijn de klantervaring in de Marketplace naar proefversie.
-*   Het uiterlijk van een ervaring in het product, onderhouden, zelfs wanneer de gebruiker wordt omgeleid vanuit de Marketplace aan uw domein of de proefversie-omgeving.
-*   Vermindert het risico van stopzetting van omleiding, omdat er geen extra stappen aanmelden.
-*   Minder barrières voor implementatie voor het vullen van de grote van Azure AD-gebruikers.
+- Stroomlijn de klantervaring in de Marketplace aan uw proefversie aanbieding.
+- Onderhouden het uiterlijk van een ervaring in het product, zelfs wanneer de gebruiker wordt doorgestuurd vanuit de Marketplace naar uw domein of de proefversie-omgeving.
+- Vermindert het risico van stopzetting wanneer gebruikers worden omgeleid omdat er geen extra stappen aanmelden.
+- Minder barrières voor implementatie voor het vullen van de grote van Azure AD-gebruikers.
 
-### <a name="verify-your-azure-ad-integration-in-the-marketplace-multitenant-apps"></a>Controleer of uw Azure AD-integratie in de Marketplace: apps voor meerdere Tenants
-Azure AD gebruiken voor het ondersteunen van de volgende opties voor uw oplossing:
-*   Registreer uw app in storefronts in de Marketplace.
-*   De ondersteuning voor multitenancy inschakelen in Azure AD een evaluatieversie van één klik.
+## <a name="verify-azure-ad-integration"></a>Controleer of de Azure AD-integratie
 
-Zie voor meer informatie over app-registratie, [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+### <a name="multitenant-solutions"></a>Oplossingen voor meerdere tenants
 
-Als u niet bekend voor het gebruik van Azure AD federatieve eenmalige aanmelding (SSO), voert u deze stappen uit:
-1.  Registreer uw app in de Marketplace. 
-2.  Ontwikkel eenmalige aanmelding met Azure AD met behulp van OAuth 2.0 of OpenID Connect.
-    *   Zie voor meer informatie over OAuth 2.0, [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-    *   Zie voor meer informatie over het Open ID Connect [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
-3.  De ondersteuning voor multitenancy inschakelen in Azure AD voor een proefversie van één klik.
-    
-    Zie voor meer informatie over AppSource-certificering, [AppSource-certificering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified). 
+Azure AD gebruiken ter ondersteuning van de volgende acties:
 
-### <a name="verify-your-azure-ad-integration-in-the-marketplace-single-tenant-apps"></a>Controleer of uw Azure AD-integratie in de Marketplace: apps met één tenant
-Azure AD gebruiken voor de ondersteuning van een van de volgende opties voor uw oplossing met één tenant: 
-*   Gebruikers toevoegen aan uw directory als gastgebruikers met behulp van Azure Active Directory B2B (Azure AD B2B). Zie voor meer informatie over Azure AD B2B [wat is Azure AD B2B-samenwerking](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-*   Handmatig instellen proefversies voor klanten met behulp van de contactpersoon Me optie publiceren.
-*   Ontwikkel een proefrit per klant.
-*   Bouw een voorbeeld van multitenant-demo-app die gebruikmaakt van eenmalige aanmelding.
+- Registreer uw app in een van de Marketplace-storefronts. Weergave [App-registratie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) of [AppSource-certificering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified) voor meer informatie.
+- De ondersteuning voor multitenancy inschakelen in Azure AD een evaluatieversie van één klik.
+
+Als je bekend bent met Azure AD voor federatieve eenmalige aanmelding, voert u deze stappen uit:
+
+1. Registreer uw app in de Marketplace.
+1. Eenmalige aanmelding met Azure AD ontwikkelen met behulp van [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) of [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. De ondersteuning voor multitenancy inschakelen in Azure AD voor een proefversie van één klik.
+
+### <a name="single-tenant-solutions"></a>Oplossingen voor één tenant
+
+Azure AD gebruiken om ondersteuning voor een van de volgende acties:
+
+- Gastgebruikers toevoegen aan uw directory via [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Proefversies voor klanten handmatig instellen met behulp van de **Contact Me** optie publiceren.
+- Ontwikkel een proefrit per klant.
+- Bouw een voorbeeld van multitenant-demo-app die gebruikmaakt van eenmalige aanmelding.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u dit nog niet hebt gedaan, 
-- [Registreren](https://azuremarketplace.microsoft.com/sell) in de marketplace.
-
-Als u bent geregistreerd en het maken van een nieuwe aanbieding of werken aan een bestaande resourcegroep
-- [Meld u aan bij de Cloud Partner-Portal](https://cloudpartner.azure.com/) maken of uitvoeren van uw aanbieding.
-
+- Zorg ervoor dat u hebt [geregistreerd in de Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Aanmelden bij [Cloud Partner-Portal](https://cloudpartner.azure.com/) maken of uitvoeren van uw aanbieding.

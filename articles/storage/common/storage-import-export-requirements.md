@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: bb8e304a6cbe4e9a1ea54e7185461457c5306245
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784601"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352234"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
 
@@ -28,6 +28,13 @@ Voor het voorbereiden van de harde schijven met het hulpprogramma WAImportExport
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> WindowsServer 2012, Windows Server 2012 R2         |
+
+## <a name="other-required-software-for-windows-client"></a>Andere vereiste software voor Windows-client
+
+|Platform |Versie |
+|---------|---------|
+|.NET Framework    | 4.5.1       |
+| BitLocker        |  _          |
 
 
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts

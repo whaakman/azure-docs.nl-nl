@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB bulksgewijs executor-bibliotheek overzicht | Microsoft Docs
-description: Meer informatie over Azure Cosmos DB bulksgewijs executor-bibliotheek, voordelen van het gebruik van de bibliotheek en de bijbehorende architectuur.
-keywords: Java bulksgewijs executor
+title: Bulksgewijs importeren en bijwerken van gegevens in Azure Cosmos DB met behulp van de bulksgewijs executor-bibliotheek | Microsoft Docs
+description: Bulksgewijs bewerkingen uitvoeren in Azure Cosmos DB via bulkimport en bulksgewijs bijwerken API's die worden aangeboden door de bulksgewijs executor-bibliotheek.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 823cb536a1cd0b8f5da7442906b14447c15ae044
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091350"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363537"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB bulksgewijs executor-bibliotheek-overzicht
  
@@ -27,7 +26,7 @@ Azure Cosmos DB is een snelle, flexibele en wereldwijd gedistribueerde databases
 De bulksgewijs executor-bibliotheek kunt u gebruikmaken van deze enorme doorvoer en opslag. De bulksgewijs executor-bibliotheek kunt u uitvoeren bulksgewijs bewerkingen in Azure Cosmos DB door middel van bulkimport en bulksgewijs bijwerken API's. U kunt meer lezen over de functies van bulksgewijs executor-bibliotheek in de volgende secties. 
 
 > [!NOTE] 
-> Op dit moment bulksgewijs executor-bibliotheek biedt ondersteuning voor importeren en update-bewerkingen en deze bibliotheek wordt ondersteund door Azure Cosmos DB SQL API-accounts. Zie [.NET](sql-api-sdk-bulk-executor-dot-net.md) en [Java](sql-api-sdk-bulk-executor-java.md) release-opmerkingen voor alle updates aan de bibliotheek.
+> Op dit moment bulksgewijs executor-bibliotheek biedt ondersteuning voor importeren en update-bewerkingen en deze bibliotheek wordt ondersteund door Azure Cosmos DB SQL API- en Gremlin-API-accounts.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Belangrijke functies van de bulksgewijs executor-bibliotheek  
  

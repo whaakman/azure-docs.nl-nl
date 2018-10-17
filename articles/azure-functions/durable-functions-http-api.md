@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 19351d31331431e3b5137676061aadc681c496a7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166624"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354254"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -92,6 +92,9 @@ Alle HTTP APIs geïmplementeerd door de extensie voor toets maken de volgende pa
 | systemKey  | Querytekenreeks    | De autorisatiesleutel is vereist voor het aanroepen van de API. |
 | showHistory| Querytekenreeks    | Een optionele parameter. Indien ingesteld op `true`, de orchestration-uitvoeringsgeschiedenis worden opgenomen in de nettolading van de reactie.| 
 | showHistoryOutput| Querytekenreeks    | Een optionele parameter. Indien ingesteld op `true`, de uitvoer van de activiteit worden opgenomen in de orchestration-uitvoeringsgeschiedenis.| 
+| createdTimeFrom  | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst met geretourneerde-exemplaren die zijn gemaakt op of na de opgegeven ISO8601-timestamp.|
+| createdTimeTo    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filtert de lijst met geretourneerde-exemplaren die zijn gemaakt op of voor de opgegeven ISO8601-timestamp.|
+| runtimeStatus    | Querytekenreeks    | Een optionele parameter. Als u opgeeft, filters de lijst met geretourneerde exemplaren op basis van hun runtimestatus. Zie de lijst met waarden voor mogelijke runtime status, de [uitvoeren van query's exemplaren](durable-functions-instance-management.md) onderwerp. |
 
 `systemKey` een autorisatiesleutel wordt automatisch gegenereerd door de Azure Functions-host. Het speciaal verleent toegang tot de extensie duurzame taak API's en kunnen worden beheerd als dezelfde manier als [andere sleutels voor de verificatieregel](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). De eenvoudigste manier voor het detecteren van de `systemKey` waarde is met behulp van de `CreateCheckStatusResponse` API eerder is vermeld.
 
@@ -194,6 +197,7 @@ Hier volgt een voorbeeld van payload van he antwoord met inbegrip van de orchest
 
 De **HTTP 202** antwoord bevat ook een **locatie** response-header die verwijst naar dezelfde URL als de `statusQueryGetUri` veld eerder is vermeld.
 
+
 ### <a name="get-all-instances-status"></a>Status van alle exemplaren ophalen
 
 U kunt ook de status van alle exemplaren query. Verwijder de `instanceId` van de aanvraag 'Get status exemplaar'. De parameters zijn hetzelfde als de 'Get-exemplaar status.' 
@@ -213,6 +217,22 @@ De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="request-with-filters"></a>Aanvraag met filters
+
+U kunt de aanvraag filteren.
+
+Voor functies 1.0 is indeling van de aanvraag als volgt uit:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
 ```
 
 #### <a name="response"></a>Antwoord
@@ -271,6 +291,7 @@ Hier volgt een voorbeeld van antwoordpayloads, met inbegrip van de orchestration
 > [!NOTE]
 > Met deze bewerking kan zeer kostbaar in termen van Azure-opslag i/o zijn als er een groot aantal rijen in de tabel exemplaren. Meer informatie over exemplaar tabel vindt u de [prestaties en schaalbaarheid in duurzame functies (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentatie.
 > 
+
 
 ### <a name="raise-event"></a>Gebeurtenis
 

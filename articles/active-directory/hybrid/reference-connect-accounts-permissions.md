@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314032"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352914"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -113,6 +113,12 @@ Hier volgt een samenvatting van de aangepaste installlation wizardpagina's, de r
 | Pagina voor AD FS-serviceaccount, "De accountoptie van een domein-gebruiker gebruiken" |Accountreferenties van de AD-gebruiker |Domeingebruiker |Het account van de AD-gebruiker waarvan de referenties zijn opgegeven, wordt gebruikt als het aanmeldingsaccount van de AD FS-service. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Het AD DS-Connector-account maken
+
+>[!IMPORTANT]
+>Een nieuwe PowerShell-Module met de naam ADSyncConfig.psm1 geïntroduceerd met build **1.1.880.0** (uitgebracht in augustus 2018) die bestaat uit een verzameling van cmdlets kunt u de juiste Active Directory-machtigingen voor de Azure AD DS configureren Connector-account.
+>
+>Zie voor meer informatie [Azure AD Connect: machtiging voor AD DS-Connector-Account configureren](how-to-connect-configure-ad-ds-connector-account.md)
+
 Het account dat u opgeeft op de **verbinding maken met uw mappen** pagina moet aanwezig zijn in Active Directory voorafgaand aan de installatie.  Azure AD Connect versie 1.1.524.0 en hoger en later is de optie voor de Azure AD Connect-wizard maken gebruiken om de **Connector voor AD DS-account** gebruikt voor verbinding met Active Directory.  
 
 Ook moet de vereiste machtigingen hebben. De installatiewizard controleert niet of dat de machtigingen en eventuele problemen zijn alleen tijdens de synchronisatie te vinden.

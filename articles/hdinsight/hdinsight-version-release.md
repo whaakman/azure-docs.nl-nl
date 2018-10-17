@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: 152a145601dcf4282ec0a3a3b6ebcf37bd11848b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992963"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801815"
 ---
 # <a name="hdinsight-40-overview-preview"></a>Overzicht van HDInsight 4.0 (preview)
 
@@ -93,6 +93,12 @@ Er is geen ondersteund upgradepad van eerdere versies van HDI naar HDI 4.0. HDI 
 * HDI 4.0 ondersteunt MapReduce niet. Gebruik in plaats daarvan Tez. Meer informatie over [Apache Tez](https://tez.apache.org/).
 
 * Hive View is niet langer beschikbaar in HDI 4.0. 
+
+* Shell-interpreter in Apache Zeppelin wordt niet ondersteund in Spark- en Interactive Query-clusters.
+
+* U kunt LLAP in een Apache Spark-LLAP-cluster niet *uitschakelen*. U kunt alleen LLAP uitschakelen.
+
+* Azure Data Lake Storage Gen2 kan Juypter-notitieblokken niet opslaan in een Apache Spark-cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 

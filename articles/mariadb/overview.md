@@ -9,12 +9,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 1ba4a9bd597473b71ac7561c41b81783b899766a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3649a173d5707179ca8547a8169b7d308c4f7f1c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971600"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249159"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Wat is Azure Database for MariaDB?
 Azure Database for MariaDB is een relationele databaseservice in de Microsoft Cloud die is gebaseerd op de [MariaDB Community Edition](https://mariadb.org/download/)-database engine. Deze service is beschikbaar in de openbare-previewversie. Azure Database for MariaDB levert:
@@ -51,7 +51,7 @@ Azure databaseservices hebben traditiegetrouw een uitstekende gegevensbeveiligin
 
 De Azure Database for MariaDB-service gebruikt opslagversleuteling voor niet-actieve gegevens. Gegevens met inbegrip van back-ups worden op schijf versleuteld (met uitzondering van tijdelijke bestanden die door de engine tijdens het uitvoeren van query's worden gemaakt). De service maakt gebruikt van AES 256-bits versleuteling die deel uitmaakt van Azure Storage-versleuteling. De sleutels worden door het systeem beheerd. Opslagversleuteling is altijd actief en kan niet worden uitgeschakeld.
 
-Standaard is de Azure Database for MariaDB-service zo geconfigureerd dat SSL-verbindingsbeveiliging<!--[SSL connection security](./concepts-ssl-connection-security.md)--> vereist is voor gegevens die zich door het netwerk verplaatsen. Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld. Desgewenst kunt u uitschakelen dat SSL is vereist voor het maken van verbinding met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit.
+Standaard is de Azure Database for MariaDB-service zo geconfigureerd dat [SSL-verbindingsbeveiliging](./concepts-ssl-connection-security.md) vereist is voor gegevens die zich door het netwerk verplaatsen. Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld. Desgewenst kunt u uitschakelen dat SSL is vereist voor het maken van verbinding met uw databaseservice als uw clienttoepassing geen ondersteuning biedt voor SSL-connectiviteit.
 
 ## <a name="contacts"></a>Contactpersonen
 Voor eventuele vragen of suggesties over het werken met Azure Database for MariaDB stuurt u een e-mailbericht naar het Azure Database for MariaD-team ([@AskAzure DB for MariaD](mailto:AskAzureDBforMariaDB@service.microsoft.com)). Let op: dit is geen alias voor technische ondersteuning.

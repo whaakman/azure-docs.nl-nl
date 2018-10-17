@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f68281f71ed525798410fb80b0d0175d38050c40
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967622"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829916"
 ---
 # <a name="what-is-azure-dns"></a>Wat is Azure DNS?
 
@@ -24,11 +24,11 @@ De volgende functies zijn opgenomen in Azure DNS:
 
 ## <a name="reliability-and-performance"></a>Betrouwbaarheid en prestaties
 
-DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS-naamservers. Azure DNS maakt gebruik van anycast-netwerken, zodat elke DNS-query wordt beantwoord door de dichtstbijzijnde beschikbare DNS-server. Dit biedt zowel snelle prestaties als hoge beschikbaarheid voor uw domein.
+DNS-domeinen in Azure DNS worden gehost op het wereldwijde netwerk van Azure DNS-naamservers. Azure DNS maakt gebruik van anycast-netwerken, zodat elke DNS-query wordt beantwoord door de dichtstbijzijnde beschikbare DNS-server voor het leveren van snelle prestaties en hoge beschikbaarheid voor uw domein.
 
 ## <a name="security"></a>Beveiliging
 
-De Azure DNS-service is gebaseerd op Azure Resource Manager. Dus krijgt u Resource Manager-functies zoals:
+De Azure DNS-service is gebaseerd op Azure Resource Manager en biedt onder meer de volgende functies:
 
 * [op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) om te bepalen wie er toegang heeft tot bepaalde acties voor uw organisatie.
 
@@ -41,9 +41,9 @@ Zie voor meer informatie [DNS-zones en -records beschermen](dns-protect-zones-re
 
 ## <a name="ease-of-use"></a>Gebruiksgemak
 
-De Azure DNS-service kan DNS-records voor uw Azure-services beheren en kan ook DNS verzorgen voor uw externe resources. Azure DNS is geïntegreerd in Azure Portal en gebruikt dezelfde referenties, hetzelfde ondersteuningscontract en dezelfde facturering als uw andere Azure-services. 
+De Azure DNS-service kan DNS-records voor uw Azure-services beheren en ook DNS leveren aan uw externe resources. Azure DNS is geïntegreerd in Azure Portal en gebruikt dezelfde referenties, hetzelfde ondersteuningscontract en dezelfde facturering als uw andere Azure-services. 
 
-De facturering van DNS vindt plaats op basis van het aantal DNS-zones dat in Azure wordt gehost en het aantal DNS-query's. Zie [Prijzen voor Azure DNS](https://azure.microsoft.com/pricing/details/dns/) voor meer informatie over prijzen.
+De facturering van DNS vindt plaats op basis van het aantal DNS-zones dat in Azure wordt gehost en het aantal DNS-query's dat wordt ontvangen. Zie [Prijzen voor Azure DNS](https://azure.microsoft.com/pricing/details/dns/) voor meer informatie over prijzen.
 
 Uw domeinen en records kunnen worden beheerd met behulp van Azure Portal, Azure PowerShell-cmdlets en de platformoverschrijdende Azure CLI. Toepassingen waarvoor automatisch DNS-beheer vereist is, kunnen met de service worden geïntegreerd met behulp van de REST-API en SDK's.
 

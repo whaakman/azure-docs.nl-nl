@@ -14,25 +14,25 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efdda485e4e1f5013948c6636b267f0d388f4d5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164709"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353594"
 ---
-# <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Een VNet verbinden met HANA grote instantie ExpressRoute
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Een virtueel netwerk verbinden met HANA grote instanties
 
-Als u alle IP-adresbereiken gedefinieerd en de gegevens nu terug van Microsoft hebt, kunt u beginnen met het verbinden van de VNet die u eerder hebt gemaakt met HANA grote instanties. Zodra het Azure-VNet is gemaakt, moet een ExpressRoute-gateway op de VNet-naar de VNet koppelen aan het ExpressRoute-circuit dat is verbonden met de tenant van de klant op het stempel grote instantie worden gemaakt.
+Nadat u een Azure-netwerk hebt gemaakt, kunt u dat netwerk verbinden met SAP HANA op Azure grote instanties. Maak een Azure ExpressRoute-gateway op het virtuele netwerk. Deze gateway kunt u het virtueel netwerk koppelen aan het ExpressRoute-circuit dat is verbonden met de tenant van de klant op het stempel grote instantie.
 
 > [!NOTE] 
-> Deze stap duurt maximaal 30 minuten om uit te voeren, omdat de nieuwe gateway is gemaakt in het toegewezen Azure-abonnement en klikt u vervolgens verbinding met het opgegeven Azure-VNet.
+> Deze stap kan tot 30 minuten duren. De nieuwe gateway is gemaakt in het toegewezen Azure-abonnement en klikt u vervolgens verbinding met de opgegeven Azure-netwerk.
 
-Als er al een gateway bestaat, controleert u of het een ExpressRoute-gateway of niet is. Zo niet, in de gateway moet worden verwijderd en opnieuw gemaakt als een ExpressRoute-gateway. Als een ExpressRoute-gateway is al ingesteld, omdat het Azure-VNet al met het ExpressRoute-circuit voor on-premises connectiviteit verbonden is, gaat u verder met de onderstaande sectie met VNets koppelen.
+Als er al een gateway bestaat, controleert u of het een ExpressRoute-gateway of niet is. Als dit niet het geval is, de gateway verwijderen en opnieuw maken als een ExpressRoute-gateway. Als een ExpressRoute-gateway al tot stand is gebracht, raadpleegt u de volgende sectie van dit artikel "Koppeling virtuele netwerken." 
 
-- Gebruik een van beide de (nieuw) [Azure-portal](https://portal.azure.com/), of PowerShell voor het maken van een ExpressRoute-VPN-gateway verbonden met uw VNet.
-  - Als u de Azure-portal, toevoegen van een nieuwe **virtuele netwerkgateway** en selecteer vervolgens **ExpressRoute** als het Gatewaytype.
-  - Als u PowerShell in plaats daarvan, eerst downloaden en gebruiken van de meest recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) om te controleren of een optimale ervaring. De volgende opdrachten maken een ExpressRoute-gateway. De tekst wordt voorafgegaan door een _$_ zijn door de gebruiker gedefinieerde variabelen die moeten worden bijgewerkt met uw specifieke gegevens.
+- Een gebruiken de [Azure-portal](https://portal.azure.com/) of PowerShell voor het maken van een ExpressRoute-VPN-gateway verbonden met uw virtuele netwerk.
+  - Als u de Azure-portal, toevoegen van een nieuwe **virtuele netwerkgateway**, en selecteer vervolgens **ExpressRoute** als het Gatewaytype.
+  - Als u PowerShell gebruikt, eerst downloaden en gebruiken van de meest recente [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). De volgende opdrachten maken een ExpressRoute-gateway. De tekst wordt voorafgegaan door een _$_ zijn door de gebruiker gedefinieerde variabelen die moeten worden bijgewerkt met uw specifieke gegevens.
 
 ```PowerShell
 # These Values should already exist, update to match your environment
@@ -44,7 +44,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: HighPerformance or UltraPerformance
+$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -63,20 +63,20 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 In dit voorbeeld is de gateway-HighPerformance SKU gebruikt. Uw opties zijn HighPerformance of UltraPerformance als de enige gateway-SKU's die worden ondersteund voor SAP HANA op Azure (grote instanties).
 
 > [!IMPORTANT]
-> Voor HANA grote instanties van het Type II classs SKU is het gebruik van de Gateway-SKU UltraPerformance verplicht.
+> Voor HANA grote instanties van de SKU van het Type II-klasse, moet u de Gateway-SKU UltraPerformance.
 
-**VNets koppelen**
+## <a name="link-virtual-networks"></a>Virtuele netwerken koppelen
 
-Nu dat het Azure-VNet een ExpressRoute-gateway heeft, kunt u de autorisatie-informatie geleverd door Microsoft gebruiken om de ExpressRoute-gateway met de SAP HANA op Azure (grote instanties) ExpressRoute-circuit gemaakt voor deze connectiviteit verbinding te maken. Deze stap kan worden uitgevoerd met behulp van de Azure portal of PowerShell. De portal wordt aanbevolen, maar PowerShell-instructies zijn als volgt. 
+Het Azure-netwerk heeft nu een ExpressRoute-gateway. Gebruik de autorisatie-informatie die is geleverd door Microsoft om de ExpressRoute-gateway met de SAP HANA op Azure (grote instanties) ExpressRoute-circuit. U kunt verbinding maken met behulp van de Azure portal of PowerShell. De portal wordt aanbevolen, maar als u PowerShell gebruiken wilt, de instructies zijn als volgt. 
 
-- U voert u de volgende opdrachten voor elke VNet-gateway met behulp van een andere AuthGUID voor elke verbinding. De eerste twee items in het volgende script afkomstig zijn van de informatie die wordt geleverd door Microsoft. Er is ook de AuthGUID specifiek voor elke VNet en een gateway. Betekent dat, als u wilt toevoegen van een ander Azure-VNet, moet u een andere AuthID ophalen voor uw ExpressRoute-circuit dat is verbonden HANA grote instanties in Azure. 
+Voer de volgende opdrachten voor elke virtuele netwerkgateway met behulp van een andere AuthGUID voor elke verbinding. De eerste twee items in het volgende script afkomstig zijn van de informatie die wordt geleverd door Microsoft. Er is ook de AuthGUID specifiek voor elke virtueel netwerk en de gateway. Als u toevoegen van een andere Azure-netwerk wilt, moet u een andere AuthID ophalen voor uw ExpressRoute-circuit dat is verbonden HANA grote instanties in Azure. 
 
 ```PowerShell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
-# Your ExpressRoute Gateway Information
+# Your ExpressRoute Gateway information
 $myGroupName = "SAP-East-Coast"
 $myGWName = "VNet01GW"
 $myGWLocation = "East US"
@@ -92,8 +92,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-Als u verbinding maken met de gateway aan meerdere ExpressRoute-circuits die gekoppeld aan uw abonnement wilt zijn, moet u mogelijk meer dan één keer uitvoeren van deze stap. Bijvoorbeeld, waarschijnlijk gaat u naar het hetzelfde VNet-Gateway naar het ExpressRoute-circuit dat is het VNet met uw on-premises netwerk verbonden verbinding maken.
+Als u wilt verbinding maken met de gateway aan meer dan één ExpressRoute-circuit dat is gekoppeld aan uw abonnement, moet u mogelijk meer dan één keer uitvoeren van deze stap. Bijvoorbeeld, gaat u waarschijnlijk de dezelfde virtuele netwerkgateway naar het ExpressRoute-circuit dat is het virtuele netwerk met uw on-premises netwerk verbonden verbinding maken.
 
-**Volgende stappen**
+## <a name="next-steps"></a>Volgende stappen
 
-- Raadpleeg [extra netwerkvereisten voor HLI](hana-additional-network-requirements.md).
+- [Aanvullende vereisten voor HLI](hana-additional-network-requirements.md)

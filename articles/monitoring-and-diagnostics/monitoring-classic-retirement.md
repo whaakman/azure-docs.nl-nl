@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 64d135ba336ca31fe6db5193f9f19c8c2340b454
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854844"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363943"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Geïntegreerde waarschuwingen en -bewaking in Azure Monitor vervangt klassieke waarschuwingen en -bewaking
 
-Azure Monitor is nu geworden am geïntegreerde volledige stack controleservice die biedt nu ondersteuning voor één metrische gegevens en 'Een waarschuwingen' voor resources. Zie voor meer informatie onze [blogbericht over nieuwe Azure Monitor](https://azure.microsoft.com/en-us/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). De nieuwe Azure bewaking en waarschuwingen platforms is gemaakt om te worden sneller, slimmer en uitbreidbare: keeping hoog tempo aan de groeiende expanse van cloud computing en in-regel met de intelligente Cloud Microsoft filosofie. 
+Azure Monitor is nu geworden am geïntegreerde volledige stack controleservice die biedt nu ondersteuning voor één metrische gegevens en 'Een waarschuwingen' voor resources. Zie voor meer informatie onze [blogbericht over nieuwe Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). De nieuwe Azure bewaking en waarschuwingen platforms is gemaakt om te worden sneller, slimmer en uitbreidbare: keeping hoog tempo aan de groeiende expanse van cloud computing en in-regel met de intelligente Cloud Microsoft filosofie. 
 
 Met de nieuwe Azure-bewaking en waarschuwingen platform op locatie zijn ingesteld, we zullen worden buiten gebruik stellen van het "klassieke" bewaking en waarschuwingen platform, die worden gehost in *klassieke waarschuwingen weergeven* sectie van de Azure-waarschuwingen worden afgeschaft door juni 2019.
 
@@ -57,9 +57,9 @@ Alle klassieke voor bewaking en waarschuwingen van systemen, met inbegrip van bi
 
 Alle waarschuwingen die nog in de klassieke bewaking en waarschuwingen van platform naast 2019 juni, worden automatisch gemigreerd door Microsoft aan het equivalent hiervan in het nieuwe platform van Azure monitor in juli 2019. Het proces wordt naadloos zonder uitvaltijd en zorg ervoor dat klanten hebben geen invloed op de dekking voor bewaking.
 
-Hulpprogramma's kunt u uw waarschuwingen van vrijwillig migratie zal binnenkort worden geboden [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure-portal naar de nieuwe Azure-waarschuwingen. Alle regels die zijn geconfigureerd in waarschuwingen (klassiek) die worden gemigreerd naar nieuwe Azure Monitor, gratis blijven en niet in rekening gebracht. Gemigreerde regels voor klassieke waarschuwingen worden kosten in rekening gebracht voor het pushen van meldingen via e-mail, webhook of LogicApp ook niet voorzien. Gebruik van de nieuwere melding of actie typen (zoals SMS, Spraakoproep, ITSM-integratie, enzovoort) is gebracht of toegevoegd aan een gemigreerde of een nieuwe waarschuwing. Zie voor meer informatie, [prijzen voor Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Hulpprogramma's kunt u uw waarschuwingen van vrijwillig migratie zal binnenkort worden geboden [waarschuwingen (klassiek) sectie](monitoring-overview-alerts-classic.md) van Azure-portal naar de nieuwe Azure-waarschuwingen. Alle regels die zijn geconfigureerd in waarschuwingen (klassiek) die worden gemigreerd naar nieuwe Azure Monitor, gratis blijven en niet in rekening gebracht. Gemigreerde regels voor klassieke waarschuwingen worden kosten in rekening gebracht voor het pushen van meldingen via e-mail, webhook of LogicApp ook niet voorzien. Gebruik van de nieuwere melding of actie typen (zoals SMS, Spraakoproep, ITSM-integratie, enzovoort) is gebracht of toegevoegd aan een gemigreerde of een nieuwe waarschuwing. Zie voor meer informatie, [prijzen voor Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Bovendien de volgende zijn factureerbaar onder de onderwerpen in [prijzen voor Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/):
+Bovendien de volgende zijn factureerbaar onder de onderwerpen in [prijzen voor Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/):
 
 - Een nieuwe (niet-gemigreerde) waarschuwingsregel meer dan gratis eenheden, op het nieuwe platform van Azure Monitor
 - Alle gegevens die zijn opgenomen en behouden na door Azure Monitor inbegrepen gratis eenheden

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: adgera
-ms.openlocfilehash: 412e0d42744c9defa3fef6b3ae9643166e6c3b5c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324144"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364335"
 ---
 # <a name="security-best-practices"></a>Aanbevolen procedures voor beveiliging
 
@@ -54,7 +54,7 @@ Bewaking van IoT-resources om te bekijken voor uitschieters, bedreigingen of Res
 Azure van digitale dubbels maakt gebruik van Azure Active Directory om te verifiëren van gebruikers en toepassingen te beschermen. Azure Active Directory ondersteunt verificatie voor een verscheidenheid aan moderne architecturen, allemaal op basis van standaardprotocollen zoals OAuth 2.0 of OpenID Connect. Enkele belangrijke procedures voor het beveiligen van uw IoT-ruimte voor Azure Active Directory zijn onder andere:
 
 > [!div class="checklist"]
-> * Zoals Azure Active Directory-app-geheimen en sleutels op een veilige locatie Store [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> * Zoals Azure Active Directory-app-geheimen en sleutels op een veilige locatie Store [Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Gebruik van een certificaat dat is uitgegeven door een vertrouwde [certificeringsinstanties](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) in plaats van appgeheimen om te verifiëren.
 > * OAuth 2.0-bereik van de toegang voor een token beperken.
 > * Controleer of de hoeveelheid tijd die een token geldig is en of u een token geldig blijft.

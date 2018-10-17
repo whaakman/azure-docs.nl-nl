@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159938"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352426"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
 
 ## <a name="overview"></a>Overzicht
 
-De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten in Azure SQL Database, het aantal pagina's van gegevens die worden gebruikt voor databases en elastische pools:
+In Azure SQL Database zijn er patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden. Dit kan gebeuren wanneer de ruimte gebruikt toeneemt en gegevens worden vervolgens verwijderd. Dit komt doordat de toegewezen ruimte niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.
+
+Gebruik van ruimte bewaking en gegevensbestanden verkleinen mogelijk in de volgende scenario's:
+- Groei van gegevens in een elastische pool toestaan wanneer het toegewezen bestandsruimte voor de databases de maximale grootte van de groep bereikt.
+- Toestaan dat de maximale grootte van een individuele database of elastische pool verlagen.
+- Het wijzigen van een individuele database of elastische pool naar een andere servicelaag of de prestatielaag met een lagere maximale grootte toegestaan.
+
+### <a name="monitoring-file-space-usage"></a>Gebruik van schijfruimte bewaken
+De meeste storage space metrische gegevens weergegeven in de Azure-portal en de volgende API's meten alleen de hoeveelheid gegevens die worden gebruikt pagina's:
 - Azure Resource Manager op basis van metrische gegevens over API's zoals PowerShell [get-metrische gegevens](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+De volgende API's meten echter ook de hoeveelheid toegewezen ruimte voor databases en elastische pools:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Er zijn patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden.  Dit kan gebeuren wanneer de ruimte gebruikt toeneemt en gegevens worden vervolgens verwijderd.  Dit komt doordat de toegewezen ruimte niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.  In dergelijke scenario's kan de toegewezen ruimte voor een database of een groep van toepassingen groter zijn dan de ondersteunde limieten te voorkomen dat de groei van gegevens of te voorkomen dat de servicelaag en verkleiningen compute en vereisen verkleinen gegevensbestanden te beperken.
+### <a name="shrinking-data-files"></a>Bestanden verkleinen
 
 Gegevensbestanden als u wilt vrijmaken van ongebruikte toegewezen ruimte vanwege de mogelijke impact op de prestaties van de database niet automatisch wordt verkleind door de SQL-database-service.  Klanten kunnen echter gegevensbestanden via de self-service-verkleinen op een tijdstip van hun keuze met de volgende stappen wordt beschreven in [Reclaim ongebruikte ruimte toegewezen](#reclaim-unused-allocated-space). 
 

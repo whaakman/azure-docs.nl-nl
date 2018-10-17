@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: juluk
-ms.openlocfilehash: 09f54efaf3ff89711c34b7960a271438f38cf224
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: fe77deeedc34bf769065e34ac2f81d631b0004d6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345081"
+ms.locfileid: "49352937"
 ---
-# <a name="use-msi-in-azure-cloud-shell"></a>MSI gebruiken in Azure Cloudshell
+# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Gebruik van beheerde identiteiten voor Azure-resources in Azure Cloud Shell
 
-Azure Cloud Shell biedt ondersteuning voor autorisatie met Managed Service identiteiten (MSI). Gebruik dit om op te halen toegangstokens om veilig te communiceren met Azure-services.
+Azure Cloud Shell biedt ondersteuning voor autorisatie met beheerde identiteiten voor Azure-resources. Gebruik dit om op te halen toegangstokens om veilig te communiceren met Azure-services.
 
-## <a name="about-managed-service-identity-msi"></a>Over beheerde Service-identiteit (MSI)
+## <a name="about-managed-identities-for-azure-resources"></a>Informatie over beheerde identiteiten voor Azure-resources
 Een algemene vraag bij het bouwen van cloudtoepassingen is het veilig beheren de referenties die moeten worden in de code voor verificatie bij cloudservices. In Cloud Shell moet u mogelijk om te verifiëren voor het ophalen van Key Vault voor een referentie die een script wellicht.
 
-Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
+Beheerde identiteiten voor Azure-resources maakt het oplossen van dit probleem eenvoudiger door middel van Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
 ## <a name="acquire-access-token-in-cloud-shell"></a>Toegangstoken in de Cloud Shell verkrijgen
 

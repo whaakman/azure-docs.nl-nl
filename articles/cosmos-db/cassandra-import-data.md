@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976173"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247847"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Cassandra-API-account
 
@@ -62,7 +62,7 @@ Nadat u de vereisten van uw bestaande workload hebt geïdentificeerd, maakt u ee
 
 ## <a name="prerequisites-for-migration"></a>Vereisten voor migratie
 
-* **Tabellen maken in Cassandra API-account van Azure Cosmos DB:** voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit de Azure Portal of met cqlsh.
+* **Tabellen maken in Cassandra API-account van Azure Cosmos DB:** voordat u gegevens gaat migreren, maakt u vooraf alle tabellen vanuit de Azure Portal of met cqlsh. Als u migreert naar een Azure Cosmos DB-account dat doorvoer op databaseniveau heeft, moet u een partitiesleutel opgeven bij het maken van de Azure Cosmos DB-containers.
 
 * **Doorvoer verhogen**: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor de tabellen hebt ingericht in Azure Cosmos DB. Verhoog de doorvoer voor de duur van de migratie. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Doorvoer instellen](set-throughput.md) voor Azure Cosmos DB-containers voor meer informatie over het verhogen van de doorvoer. Het is ook raadzaam om het Azure Cosmos DB-account in dezelfde regio te plaatsen als uw brondatabase. 
 

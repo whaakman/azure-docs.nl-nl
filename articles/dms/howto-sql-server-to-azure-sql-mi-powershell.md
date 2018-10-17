@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6760d2832b6c39759f9287797363fcd5a116ccfb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883655"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364989"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL-database met behulp van Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2005 of hoger met een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
@@ -195,7 +195,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### <a name="create-and-start-a-migration-task"></a>Maak en start u een migratietaak
 
 Gebruik de `New-AzureRmDataMigrationTask` cmdlet voor het maken en starten van een migratietaak. Deze cmdlet wordt verwacht dat de volgende parameters:
-- *TaskType*. Type migratietaak maken voor SQL Server naar Azure SQL Database Managaged Instance Migratietype *MigrateSqlServerSqlDbMi* wordt verwacht. 
+- *TaskType*. Type migratietaak maken voor SQL Server naar Azure SQL Database Managed Instance Migratietype *MigrateSqlServerSqlDbMi* wordt verwacht. 
 - *Naam resourcegroep*. De naam van de Azure-resourcegroep waarin de taak te maken.
 - *ServiceName*. Azure Database Migration Service-instantie in voor het maken van de taak.
 - *ProjectName*. Naam van Azure Database Migration Service-project waarin de taak te maken. 

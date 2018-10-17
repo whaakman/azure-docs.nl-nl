@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 561b5d3d9769b509e21a3005d771529f342e2171
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067484"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364299"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -31,7 +31,7 @@ Ja. U kunt maximaal 500 Recovery Services-kluizen per ondersteunde regio van Azu
 U kunt maximaal 1000 Azure Virtual machines per kluis registreren. Als u de MAB-Agent gebruikt, kunt u maximaal 50 MAB-agents per kluis registreren. En u kunt de 50 MAB-servers/DPM-servers naar een kluis registreren.
 
 ### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Kan ik een REST-API gebruiken om op te vragen van de grootte van beveiligde items in een kluis? <br/>
-Ja, het artikel [Usages - lijst met kluizen](https://t.co/2lgIrIaF0J), vindt u de gegevens die kan worden verkregen vanuit de Recovery Services-kluis.
+Ja, het artikel [Usages - lijst met kluizen](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults), vindt u de gegevens die kan worden verkregen vanuit de Recovery Services-kluis.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Als mijn organisatie één kluis heeft, hoe kan ik bij het herstellen van gegevens de gegevens van de ene server dan isoleren van de gegevens van een andere server?<br/>
 Alle servers die zijn geregistreerd bij dezelfde kluis, kunnen de gegevensback-ups herstellen van andere servers *die gebruikmaken van dezelfde wachtwoordzin*. Als u servers hebt waarvan u de back-upgegevens wilt isoleren van andere servers in uw organisatie, gebruikt u een speciale wachtwoordzin voor die servers. U kunt bijvoorbeeld verschillende wachtwoordzinnen voor de human resource-server, de accountingserver en de opslagserver gebruiken.

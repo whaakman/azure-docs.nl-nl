@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048038"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364860"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Zeppelin-notebooks gebruiken met Apache Spark-cluster in Azure HDInsight
 
 HDInsight Spark-clusters bevatten Zeppelin-notitieblokken die u kunt Spark-taken uitvoeren. In dit artikel leert u hoe u kunt de Zeppelin-notitieblok gebruiken op een HDInsight-cluster.
-
-> [!NOTE]
-> Zeppelin-notebooks zijn alleen beschikbaar voor Spark 1.6.3 in HDInsight 3.5 en 2.1.0 Spark in HDInsight 3.6.
->
 
 **Vereisten:**
 
@@ -50,7 +46,7 @@ HDInsight Spark-clusters bevatten Zeppelin-notitieblokken die u kunt Spark-taken
    
     Plak het volgende codefragment in de lege alinea die wordt standaard in de nieuwe notebook gemaakt.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ HDInsight Spark-clusters bevatten Zeppelin-notitieblokken die u kunt Spark-taken
     ![Maak een tijdelijke tabel van onbewerkte gegevens](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "een tijdelijke tabel maken van onbewerkte gegevens")
    
     U kunt ook een titel aan elke alinea opgeven. Klik in de rechterhoek op de **instellingen** pictogram en klik vervolgens op **titel weergeven**.
+
+> [!NOTE]
+> % spark2 interpreter wordt niet ondersteund in Zeppelin-notebooks in alle HDInsight-versies en % sh interpreter worden niet ondersteund in HDInsight 4.0 en hoger.
+>
+
 1. U kunt nu Spark SQL-instructies uitvoeren op de **hvac** tabel. De volgende query in een nieuwe alinea te plakken. De query haalt de gebouw-ID en het verschil tussen het doel en de werkelijke temperaturen voor elke bouwen op een bepaalde datum. Druk op **SHIFT + ENTER**.
    
         %sql

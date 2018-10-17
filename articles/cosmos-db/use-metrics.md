@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055196"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365489"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Controle en foutopsporing met metrische gegevens in Azure Cosmos DB
 
@@ -54,7 +54,8 @@ Nadat het identificeren van welke partitiesleutel veroorzaakt het scheeftrekken 
 
 ## <a name="comparing-data-size-against-index-size"></a>Vergelijking van de grootte van de gegevens op basis van de indexgrootte van de
 
-In Azure Cosmos DB is de totale verbruikte opslag de combinatie van de grootte en de grootte van de Index. De indexgrootte van de is meestal een fractie van de grootte van de gegevens. In de blade met metrische gegevens in de [Azure-portal](https://portal.azure.com), het tabblad opslag brengt de uitsplitsing van het gebruik van opslag op basis van gegevens en index. Afbeelding (misschien) ook van de SDK, u vindt het huidige gebruik van opslag via een verzameling lezen.
+In Azure Cosmos DB is de totale verbruikte opslag de combinatie van de grootte en de grootte van de Index. De indexgrootte van de is meestal een fractie van de grootte van de gegevens. In de blade met metrische gegevens in de [Azure-portal](https://portal.azure.com), het tabblad opslag brengt de uitsplitsing van het gebruik van opslag op basis van gegevens en index. 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 
