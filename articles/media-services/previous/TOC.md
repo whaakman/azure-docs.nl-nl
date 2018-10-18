@@ -64,6 +64,7 @@
 ##### [Voorinstellingen van Media Encoder Standard aanpassen](media-services-custom-mes-presets-with-dotnet.md)
 ##### [Miniatuurweergaven genereren met Media Encoder Standard met .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Video's bijsnijden met Media Encoder Standard](media-services-crop-video.md)
+##### [Een miniatuursprite genereren](generate-thumbnail-sprite.md)
 #### MES-schema's
 ##### [Media Encoder Standard-schema](media-services-mes-schema.md)
 ##### [Invoermetagegevens](media-services-input-metadata-schema.md)

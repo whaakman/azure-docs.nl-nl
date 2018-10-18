@@ -105,6 +105,7 @@
 #### [Activiteitenlogboeken in een Azure-opslagaccount archiveren](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Activiteitenlogboeken met Splunk integreren via Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Activiteitenlogboeken met SumoLogic integreren via Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Activiteitenlogboeken met Log Analytics integreren via Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### Naslaginformatie
 #### [Retentie](reports-monitoring/reference-reports-data-retention.md)
